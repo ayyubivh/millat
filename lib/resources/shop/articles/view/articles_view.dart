@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:millat/resources/articles/view/single_article_view.dart';
+import 'package:millat/resources/shop/articles/view/single_article_view.dart';
 import 'package:millat/utils/globals.dart';
 
 class ArticlesView extends StatefulWidget {

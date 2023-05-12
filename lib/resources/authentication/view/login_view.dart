@@ -7,6 +7,7 @@ import 'package:millat/resources/authentication/view/forgot_password_view.dart';
 import 'package:millat/resources/authentication/view/sign_up_view.dart';
 import 'package:millat/resources/authentication/view/verify_otp_view.dart';
 import 'package:millat/resources/home/view/home_view.dart';
+import 'package:millat/resources/tabs/view/tabs_view.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/globals.dart';
 
@@ -46,12 +47,12 @@ class _LoginViewState extends State<LoginView> {
               ),
               const SizedBox(height: 70,),
               MainTextButton(title: 'Skip',onTap: (){
-                Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => const HomeView(),));
+                Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => const TabsView(),));
 
               },),
 
               MainButton(title: 'Login',onPressed: (){
-                Navigator.of(context).push(MaterialPageRoute(builder: (context) => const VerifyOTPView(),));
+                Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => const TabsView(),));
               }),
               const SizedBox(height: 40,),
               GestureDetector(

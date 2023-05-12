@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
-import 'package:millat/resources/authentication/bloc/logic/auth_bloc.dart';
-import 'package:millat/resources/authentication/bloc/service/auth_provider.dart';
 import 'package:millat/resources/on_boarding/view/on_boarding_view.dart';
+import 'package:millat/resources/shop/view/categories/categories_view.dart';
 import 'package:millat/resources/tabs/view/tabs_view.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
@@ -13,8 +12,7 @@ void main() {
   Future.delayed(Duration(seconds: 2),() {
     FlutterNativeSplash.remove();
   },);
-  final authProvider = AuthProvider();
-  runApp(BlocProvider(create: (context) => AuthBloc(authProvider)..add(AppStarted()),child: MyApp(),));
+  runApp( MyApp(),);
 }
 
 class MyApp extends StatelessWidget {
@@ -44,7 +42,7 @@ class MyApp extends StatelessWidget {
         fontFamily: 'SofiaPro',
         primarySwatch: Colors.blue,
       ),
-      home: OnBoardingView()
+      home: TabsView()
     );
   }
 }

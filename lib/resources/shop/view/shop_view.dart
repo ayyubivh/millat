@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
-import 'package:millat/resources/articles/view/articles_view.dart';
-import 'package:millat/resources/shop/view/products/popular_products_view.dart';
+import 'package:millat/resources/shop/articles/view/articles_view.dart';
+import 'package:millat/resources/shop/view/categories/categories_view.dart';
+import 'package:millat/resources/shop/view/products/products_view.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/globals.dart';
 import 'package:millat/utils/size_utility.dart';
@@ -69,7 +70,10 @@ class _ShopViewState extends State<ShopView> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text('Categories',style: TextStyle(color: Colors.white,fontSize: 18,fontWeight: FontWeight.bold),),
-                      Text('View All',style: TextStyle(color: Colors.white,fontSize: 18,fontWeight: FontWeight.bold),),
+                      GestureDetector(
+                      onTap: (){
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => Categories(),));
+                      },child: Text('View All',style: TextStyle(color: Colors.white,fontSize: 18,fontWeight: FontWeight.bold),)),
                     ],
                   ),
                   SizedBox(height: 20,),
@@ -182,7 +186,7 @@ class _ShopViewState extends State<ShopView> {
                     children: [
                       Text('Popular Products',style: TextStyle(color: black26,fontSize: 18,fontWeight: FontWeight.bold),),
                       GestureDetector(onTap: (){
-                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => PopularProducts(),));
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => ProductsView(),));
 
                       },child: Text('View All',style: TextStyle(color: green77,fontSize: 15,fontWeight: FontWeight.bold),)),
                     ],

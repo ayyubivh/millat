@@ -13,9 +13,7 @@ void main() {
   Future.delayed(Duration(seconds: 2),() {
     FlutterNativeSplash.remove();
   },);
-
   final authProvider = AuthProvider();
-
   runApp(BlocProvider(create: (context) => AuthBloc(authProvider)..add(AppStarted()),child: MyApp(),));
 }
 

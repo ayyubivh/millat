@@ -12,6 +12,7 @@ import 'package:millat/resources/home/view/home_view.dart';
 import 'package:millat/resources/tabs/view/tabs_view.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/globals.dart';
+import 'package:millat/utils/validators.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({Key? key}) : super(key: key);
@@ -74,14 +75,19 @@ class _LoginViewState extends State<LoginView> {
               CustomTextField(
                   controller: _emailController,
                   icon: const Icon(Icons.email, color: iconsColor),
-                  hint: 'Enter your email or Number'),
+                  hint: 'Enter your email or Number',
+                validator: Validators(context).emailValidator,
+              ),
               const SizedBox(
                 height: 30,
               ),
               CustomTextField(
                   controller: _passwordController,
                   icon: const Icon(Icons.lock, color: iconsColor),
-                  hint: 'Enter your password'),
+                  hint: 'Enter your password',
+                validator: Validators(context).passwordValidator,
+
+              ),
               const SizedBox(
                 height: 10,
               ),
@@ -111,8 +117,12 @@ class _LoginViewState extends State<LoginView> {
               MainButton(
                   title: 'Login',
                   onPressed: () {
-                    BlocProvider.of<AuthBloc>(context).add(
-                        Login(_emailController.text, _passwordController.text));
+                    if(_formKey.currentState!.validate()){
+                      BlocProvider.of<AuthBloc>(context).add(
+                          Login(_emailController.text, _passwordController.text));
+                    }else{
+                      return ;
+                    }
                   }),
               const SizedBox(
                 height: 40,

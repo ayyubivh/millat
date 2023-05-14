@@ -17,3 +17,23 @@ class SignUp extends AuthEvent{
 
   SignUp(this.name,this.email,this.password);
 }
+
+class SendOTP extends AuthEvent{
+  final String phoneNumber;
+
+  SendOTP(this.phoneNumber);
+}
+
+
+class VerifyOTP extends AuthEvent{
+  final String code;
+  final String phoneNumber;
+
+  VerifyOTP(this.code,this.phoneNumber);
+}
+
+class ForgotPassword extends AuthEvent{
+  final String email;
+
+  ForgotPassword(this.email);
+}

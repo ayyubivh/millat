@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 import 'package:millat/components/buttons/main_button.dart';
 import 'package:millat/components/buttons/main_text_button.dart';
 import 'package:millat/components/textfields/custom_text_field.dart';
 import 'package:millat/enums/enumertations.dart';
+import 'package:millat/resources/authentication/bloc/logic/auth_bloc.dart';
+import 'package:millat/resources/authentication/view/login_view.dart';
 import 'package:millat/resources/authentication/view/sign_up_view.dart';
 import 'package:millat/resources/authentication/view/verify_otp_view.dart';
 import 'package:millat/utils/assets_paths.dart';
@@ -18,38 +21,71 @@ class ForgotPasswordView extends StatefulWidget {
 }
 
 class _ForgotPasswordViewState extends State<ForgotPasswordView> {
+  final TextEditingController _emailController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(30.0),
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const SizedBox(height: 70,),
-              RichText(text: const TextSpan(children: [
-                TextSpan(text: 'Forgot ',style: TextStyle(color: Colors.black,fontSize: 24,fontWeight: FontWeight.w500)),
-                TextSpan(text: 'Password?', style: TextStyle(color: mainColor,fontSize: 24,fontWeight: FontWeight.w500)),
-              ])),
-              const SizedBox(height: 40,),
-              const Text('Enter email to reset password',style: TextStyle(color: black133)),
-              const SizedBox(height: 40,),
-              const CustomTextField(icon: Icon(Icons.email), hint: 'example@gmail.com'),
-              const SizedBox(height: 100,),
-            Image.asset('assets/images/phone.png'),
-              const SizedBox(height: 100,),
+      body: BlocConsumer<AuthBloc, AuthState>(
+    listener: (context, state) {
+      if (state is AuthError) {
+        buildError();
+      } else if (state is AuthLoaded) {
+        clearDate();
+        Navigator.of(context).pushReplacement(MaterialPageRoute(
+          builder: (context) => const LoginView(),
+        ));
+      }
+    },
+    builder: (context, state) {
+      if (state is AuthLoading) {
+        return const Center(
+          child: CircularProgressIndicator(color: green77),
+        );
+      } else {
+        return Padding(
+          padding: const EdgeInsets.all(30.0),
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const SizedBox(height: 70,),
+                RichText(text: const TextSpan(children: [
+                  TextSpan(text: 'Forgot ',style: TextStyle(color: Colors.black,fontSize: 24,fontWeight: FontWeight.w500)),
+                  TextSpan(text: 'Password?', style: TextStyle(color: mainColor,fontSize: 24,fontWeight: FontWeight.w500)),
+                ])),
+                const SizedBox(height: 40,),
+                const Text('Enter email to reset password',style: TextStyle(color: black133)),
+                const SizedBox(height: 40,),
+                CustomTextField(icon: Icon(Icons.email), hint: 'example@gmail.com',controller: _emailController),
+                const SizedBox(height: 100,),
+                Image.asset('assets/images/phone.png'),
+                const SizedBox(height: 100,),
 
 
-              MainButton(title: 'Send OTP',onPressed: (){
-                Navigator.of(context).push(MaterialPageRoute(builder: (context) => const VerifyOTPView(),));
+                MainButton(title: 'Send OTP',onPressed: (){
+                  BlocProvider.of<AuthBloc>(context).add(
+                      ForgotPassword(_emailController.text));
+                }),
 
-              }),
-
-            ],
+              ],
+            ),
           ),
-        ),
-      ),
+        );
+      }
+    },
+    )
+
+
     );
+  }
+
+  ScaffoldFeatureController buildError() {
+    return ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Please enter username/password')));
+  }
+
+  clearDate() {
+
   }
 }

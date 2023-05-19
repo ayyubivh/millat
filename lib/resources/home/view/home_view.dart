@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
+import 'package:millat/resources/profile/views/profile_view.dart';
 import 'package:millat/utils/globals.dart';
 import 'package:millat/utils/size_utility.dart';
 
@@ -75,11 +76,17 @@ class _HomeViewState extends State<HomeView> {
             ) : null,
             actions:  _isAppBarCollapsed ? [
 
-               CircleAvatar(
-                radius: 15,
-                backgroundColor: Colors.white,
-                 child: Image.asset('assets/icons/user.png')
+               GestureDetector(
+
+                 onTap: (){
+                   Navigator.of(context).push(MaterialPageRoute(builder: (context) => ProfileView(),));
+                 },
+                 child: CircleAvatar(
+                  radius: 15,
+                  backgroundColor: Colors.white,
+                   child: Image.asset('assets/icons/user.png')
               ),
+               ),
                SizedBox(width: 20,),
                ImageIcon(AssetImage('assets/icons/bell.png'),color: Colors.white,size: 25),
                SizedBox(width: 20,),

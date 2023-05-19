@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
 import 'package:millat/resources/shop/articles/view/articles_view.dart';
+import 'package:millat/resources/shop/view/cart/cart.dart';
 import 'package:millat/resources/shop/view/categories/categories_view.dart';
 import 'package:millat/resources/shop/view/products/products_view.dart';
 import 'package:millat/utils/assets_paths.dart';
@@ -49,7 +50,9 @@ class _ShopViewState extends State<ShopView> {
                           Text('Halal & Organic',style: TextStyle(color: Colors.white,height: 1.8)),
                         ],
                       ),
-                      ImageIcon(AssetImage('assets/icons/cart.png'),color: Colors.white,)
+                      IconButton(onPressed: (){
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => CartView(),));
+                      }, icon: ImageIcon(AssetImage('assets/icons/cart.png'),color: Colors.white,))
                     ],
                   ),
                   SizedBox(height: 20,),

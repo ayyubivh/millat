@@ -13,50 +13,50 @@ class AuthBloc extends Bloc<AuthEvent,AuthState>{
     on<AuthEvent> ((event,emit)async{
       if( event is Login){
         if(event.email.isEmpty || event.password.isEmpty){
-          emit(AuthError());
+          emit(AuthError('Please fill in all the fields'));
         }else {
           emit(AuthLoading());
           final res =  await _authService.login(email: event.email, password: event.password);
-          if(res == true){
+          if(res['status'] == true){
             emit(AuthLoaded(event.email));
           }else{
-            emit(AuthError());
+            emit(AuthError(res['message']));
           }
         }
       }else if (event is SignUp){
         if(event.name.isEmpty|| event.email.isEmpty || event.password.isEmpty){
-          emit(AuthError());
+          emit(AuthError('Please fill in all the fields'));
         }else {
           emit(AuthLoading());
           final res =  await _authService.signUp(name: event.name,email: event.email, password: event.password);
-          if(res == true){
+          if(res['status'] == true){
             emit(AuthLoaded(event.email));
           }else{
-            emit(AuthError());
+            emit(AuthError(res['message']));
           }
         }
       }else if(event is SendOTP){
         if(event.phoneNumber.isEmpty){
-          emit(AuthError());
+          emit(AuthError('Please fill in all the fields'));
         }else {
           emit(AuthLoading());
           final res =  await _authService.sendOTP(phoneNumber: event.phoneNumber);
-          if(res == true){
+          if(res['status'] == true){
             emit(AuthLoaded(event.phoneNumber));
           }else{
-            emit(AuthError());
+            emit(AuthError(res['message']));
           }
         }
       }else if(event is VerifyOTP){
         if(event.code.isEmpty){
-          emit(AuthError());
+          emit(AuthError('Please fill in all the fields'));
         }else {
           emit(AuthLoading());
           final res =  await _authService.verifyOTP(OTP: event.code,phoneNumber: event.phoneNumber);
-          if(res == true){
+          if(res['status'] == true){
             emit(AuthLoaded(event.phoneNumber));
           }else{
-            emit(AuthError());
+            emit(AuthError(res['message']));
           }
         }}
     });

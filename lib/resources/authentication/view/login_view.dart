@@ -31,7 +31,7 @@ class _LoginViewState extends State<LoginView> {
         body: BlocConsumer<AuthBloc, AuthState>(
       listener: (context, state) {
         if (state is AuthError) {
-          buildError();
+          buildError(state.errorMessage);
         } else if (state is AuthLoaded) {
           clearDate();
           Navigator.of(context).pushReplacement(MaterialPageRoute(
@@ -177,9 +177,9 @@ class _LoginViewState extends State<LoginView> {
     );
   }
 
-  ScaffoldFeatureController buildError() {
+  ScaffoldFeatureController buildError(String message) {
     return ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Please enter username/password')));
+        SnackBar(content: Text(message)));
   }
 
   clearDate() {

@@ -2,7 +2,7 @@ import 'package:http/http.dart' as http;
 
 class HttpServices{
 
-  final String webBaseUrl = 'http://65.1.223.190:8000/';
+  final String webBaseUrl = 'http://35.172.93.164:8000/';
 
   Future<http.Response> get({required String endPoint, }) async {
     final response = await http.get(Uri.parse(webBaseUrl + endPoint) );

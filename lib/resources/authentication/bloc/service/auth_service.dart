@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:millat/services/http_services.dart';
 
@@ -14,12 +16,21 @@ class AuthService extends HttpServices{
       "email": email,
       "password": password
     }).then((value) {
+      print(value.body);
+
       if(value.statusCode == 200){
-        return true;
+        return {
+          'status' : true,
+        };
       }else{
-        return false;
+        return {
+          'status' : false,
+          'message' : jsonDecode(value.body)['message']
+        };
       }
-    }).catchError((error){return false;});
+    }).catchError((error){return {
+      'status' : false
+    };});
   }
 
   signUp({required String name,required String email,required String password})async{
@@ -28,12 +39,20 @@ class AuthService extends HttpServices{
       "email": email,
       "password": password
     }).then((value) {
+      print(value.body);
       if(value.statusCode == 200){
-        return true;
+        return {
+          'status' : true
+        };
       }else{
-        return false;
+        return {
+          'status' : false,
+          'message' : jsonDecode(value.body)['message']
+        };
       }
-    }).catchError((error){return false;});
+    }).catchError((error){return {
+      'status' : false,
+    };});
   }
 
   sendOTP({required String phoneNumber, })async{
@@ -41,11 +60,18 @@ class AuthService extends HttpServices{
       "phone_number": phoneNumber,
     }).then((value) {
       if(value.statusCode == 200){
-        return true;
+        return {
+          'status' : true,
+        };
       }else{
-        return false;
+        return {
+          'status' : false,
+          'message' : jsonDecode(value.body)['message']
+        };
       }
-    }).catchError((error){return false;});
+    }).catchError((error){return {
+      'status' : false,
+    };});
   }
 
 
@@ -55,11 +81,18 @@ class AuthService extends HttpServices{
       "otp": OTP
     }).then((value) {
       if(value.statusCode == 200){
-        return true;
+        return {
+          'status' : true,
+        };
       }else{
-        return false;
+        return {
+          'status' : false,
+          'message': jsonDecode(value.body)['message']
+        };
       }
-    }).catchError((error){return false;});
+    }).catchError((error){return {
+      'status' : false,
+    };});
   }
 
   resendOTP({required String phoneNumber,})async{
@@ -67,11 +100,18 @@ class AuthService extends HttpServices{
       "phone_number": phoneNumber,
     }).then((value) {
       if(value.statusCode == 200){
-        return true;
+        return {
+          'status' : true,
+        };
       }else{
-        return false;
+        return {
+          'status' : false,
+          'message' :  jsonDecode(value.body)['message']
+        };
       }
-    }).catchError((error){return false;});
+    }).catchError((error){return {
+      'status' : false,
+    };});
   }
 
   forgotPassword({required String phoneNumber,required String })async{
@@ -81,11 +121,18 @@ class AuthService extends HttpServices{
       "password":"dinesh"
     }).then((value) {
       if(value.statusCode == 200){
-        return true;
+        return {
+          'status' : true,
+        };
       }else{
-        return false;
+        return {
+          'status' : false,
+          'message' : jsonDecode(value.body)['message']
+        };
       }
-    }).catchError((error){return false;});
+    }).catchError((error){return {
+      'status' : false,
+    };});
   }
 
 

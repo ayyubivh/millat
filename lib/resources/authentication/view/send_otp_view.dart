@@ -22,7 +22,7 @@ class _SendOTPViewState extends State<SendOTPView> {
       body: BlocConsumer<AuthBloc, AuthState>(
         listener: (context, state) {
           if (state is AuthError) {
-            buildError();
+            buildError(state.errorMessage);
           } else if (state is AuthLoaded) {
             clearDate();
             Navigator.of(context).pushReplacement(MaterialPageRoute(
@@ -98,9 +98,9 @@ class _SendOTPViewState extends State<SendOTPView> {
     );
   }
 
-  ScaffoldFeatureController buildError() {
+  ScaffoldFeatureController buildError(String message) {
     return ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Please enter phone number')));
+         SnackBar(content: Text(message)));
   }
 
   clearDate() {

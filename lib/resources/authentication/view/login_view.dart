@@ -2,13 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/components/buttons/main_button.dart';
 import 'package:millat/components/buttons/main_text_button.dart';
-import 'package:millat/components/textfields/custom_text_field.dart';
-import 'package:millat/enums/enumertations.dart';
+import 'package:millat/components/textFields/custom_text_field.dart';
 import 'package:millat/resources/authentication/bloc/logic/auth_bloc.dart';
 import 'package:millat/resources/authentication/view/forgot_password_view.dart';
+import 'package:millat/resources/authentication/view/send_otp_view.dart';
 import 'package:millat/resources/authentication/view/sign_up_view.dart';
-import 'package:millat/resources/authentication/view/verify_otp_view.dart';
-import 'package:millat/resources/home/view/home_view.dart';
 import 'package:millat/resources/tabs/view/tabs_view.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/globals.dart';
@@ -48,8 +46,7 @@ class _LoginViewState extends State<LoginView> {
           return buildLoginWidget(context);
         }
       },
-    )
-    );
+    ));
   }
 
   Padding buildLoginWidget(BuildContext context) {
@@ -73,20 +70,19 @@ class _LoginViewState extends State<LoginView> {
                 height: 40,
               ),
               CustomTextField(
-                  controller: _emailController,
-                  icon: const Icon(Icons.email, color: iconsColor),
-                  hint: 'Enter your email or Number',
+                controller: _emailController,
+                icon: const Icon(Icons.email, color: iconsColor),
+                hint: 'Enter your email or Number',
                 validator: Validators(context).emailValidator,
               ),
               const SizedBox(
                 height: 30,
               ),
               CustomTextField(
-                  controller: _passwordController,
-                  icon: const Icon(Icons.lock, color: iconsColor),
-                  hint: 'Enter your password',
+                controller: _passwordController,
+                icon: const Icon(Icons.lock, color: iconsColor),
+                hint: 'Enter your password',
                 validator: Validators(context).passwordValidator,
-
               ),
               const SizedBox(
                 height: 10,
@@ -110,18 +106,18 @@ class _LoginViewState extends State<LoginView> {
                 title: 'Skip',
                 onTap: () {
                   Navigator.of(context).pushReplacement(MaterialPageRoute(
-                    builder: (context) => const TabsView(),
+                    builder: (context) => const SendOTPView(),
                   ));
                 },
               ),
               MainButton(
                   title: 'Login',
                   onPressed: () {
-                    if(_formKey.currentState!.validate()){
-                      BlocProvider.of<AuthBloc>(context).add(
-                          Login(_emailController.text, _passwordController.text));
-                    }else{
-                      return ;
+                    if (_formKey.currentState!.validate()) {
+                      BlocProvider.of<AuthBloc>(context).add(Login(
+                          _emailController.text, _passwordController.text));
+                    } else {
+                      return;
                     }
                   }),
               const SizedBox(
@@ -178,8 +174,8 @@ class _LoginViewState extends State<LoginView> {
   }
 
   ScaffoldFeatureController buildError(String message) {
-    return ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(message)));
+    return ScaffoldMessenger.of(context)
+        .showSnackBar(SnackBar(content: Text(message)));
   }
 
   clearDate() {

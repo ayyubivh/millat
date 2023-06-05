@@ -1,16 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 import 'package:millat/components/buttons/main_button.dart';
-import 'package:millat/components/buttons/main_text_button.dart';
-import 'package:millat/components/textfields/custom_text_field.dart';
-import 'package:millat/enums/enumertations.dart';
+import 'package:millat/components/textFields/custom_text_field.dart';
 import 'package:millat/resources/authentication/bloc/logic/auth_bloc.dart';
 import 'package:millat/resources/authentication/view/login_view.dart';
-import 'package:millat/resources/authentication/view/sign_up_view.dart';
-import 'package:millat/resources/authentication/view/verify_otp_view.dart';
-import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/globals.dart';
 
 class ForgotPasswordView extends StatefulWidget {

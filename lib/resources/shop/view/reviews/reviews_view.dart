@@ -16,7 +16,8 @@ class _ReviewsViewState extends State<ReviewsView> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        title: Text('Reviews',style: TextStyle(color: Colors.black,fontWeight: FontWeight.w600)),
+        title: Text('Reviews',
+            style: TextStyle(color: Colors.black, fontWeight: FontWeight.w600)),
         centerTitle: false,
         leading: BackButton(color: Colors.black),
         actions: [
@@ -28,7 +29,6 @@ class _ReviewsViewState extends State<ReviewsView> {
               'assets/dummy/thope_2.png',
             ),
           ),
-
         ],
       ),
       body: Padding(
@@ -36,7 +36,6 @@ class _ReviewsViewState extends State<ReviewsView> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-
               buildReviewItem(
                   comment: 'Very good product, I will buy it again'),
               buildReviewItem(
@@ -82,7 +81,7 @@ class _ReviewsViewState extends State<ReviewsView> {
                     Text(
                       'Sujankha',
                       style:
-                      TextStyle(fontWeight: FontWeight.w700, fontSize: 17),
+                          TextStyle(fontWeight: FontWeight.w700, fontSize: 17),
                     ),
                     Text(
                       'Classify: Navi Blue,XL',
@@ -129,5 +128,4 @@ class _ReviewsViewState extends State<ReviewsView> {
       ),
     );
   }
-
 }

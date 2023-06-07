@@ -40,23 +40,23 @@ class _TabsViewState extends State<TabsView> {
           selectedIconTheme: const IconThemeData(color: green77, size: 25),
           unselectedIconTheme: const IconThemeData(color: black137, size: 25),
           type: BottomNavigationBarType.fixed,
-          items:const [
-             BottomNavigationBarItem(
+          items: const [
+            BottomNavigationBarItem(
                 label: 'Home',
                 icon: ImageIcon(
                   AssetImage('assets/icons/home.png'),
                 )),
-             BottomNavigationBarItem(
+            BottomNavigationBarItem(
                 label: 'Shop',
                 icon: ImageIcon(
                   AssetImage('assets/icons/store.png'),
                 )),
-             BottomNavigationBarItem(
+            BottomNavigationBarItem(
                 label: 'Sukoon',
                 icon: ImageIcon(
                   AssetImage('assets/icons/sukoon.png'),
                 )),
-             BottomNavigationBarItem(
+            BottomNavigationBarItem(
                 label: 'Community',
                 icon: ImageIcon(
                   AssetImage('assets/icons/community.png'),

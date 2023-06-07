@@ -229,8 +229,10 @@ class _SingleProductViewState extends State<SingleProductView> {
               buildReviewItem(
                   comment: 'A very quality product, I highly recommend it.'),
               GestureDetector(
-                onTap: (){
-                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => ReviewsView(),));
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => ReviewsView(),
+                  ));
                 },
                 child: Container(
                   alignment: Alignment.center,
@@ -280,7 +282,7 @@ class _SingleProductViewState extends State<SingleProductView> {
             showModalBottomSheet(
               context: context,
               builder: (context) => StatefulBuilder(
-                builder:(context, setState) =>  Padding(
+                builder: (context, setState) => Padding(
                   padding: const EdgeInsets.all(20.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -317,7 +319,8 @@ class _SingleProductViewState extends State<SingleProductView> {
                                   ),
                                   Text('1.523,68 ₹',
                                       style: TextStyle(
-                                          decoration: TextDecoration.lineThrough,
+                                          decoration:
+                                              TextDecoration.lineThrough,
                                           fontSize: 20)),
                                 ],
                               ),
@@ -336,8 +339,8 @@ class _SingleProductViewState extends State<SingleProductView> {
                       ),
                       Text(
                         'Colors',
-                        style:
-                            TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
+                        style: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.w700),
                       ),
                       SizedBox(
                         height: 20,
@@ -345,90 +348,115 @@ class _SingleProductViewState extends State<SingleProductView> {
                       Row(
                         children: [
                           GestureDetector(
-                            onTap: (){
-                              setState((){
+                            onTap: () {
+                              setState(() {
                                 selectedColor = 0;
                               });
                             },
                             child: CircleAvatar(
                               radius: 15,
                               backgroundColor: Colors.pink,
-                              child: selectedColor == 0 ? Container(width: 10,height: 10,decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                  color: Colors.white
-                              ),): null,
+                              child: selectedColor == 0
+                                  ? Container(
+                                      width: 10,
+                                      height: 10,
+                                      decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          color: Colors.white),
+                                    )
+                                  : null,
                             ),
                           ),
                           SizedBox(
                             width: 20,
                           ),
                           GestureDetector(
-                            onTap: (){
-                              setState((){
+                            onTap: () {
+                              setState(() {
                                 selectedColor = 1;
                               });
                             },
                             child: CircleAvatar(
                               radius: 15,
                               backgroundColor: Colors.green,
-                              child: selectedColor == 1 ? Container(width: 10,height: 10,decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: Colors.white
-                              ),): null,
+                              child: selectedColor == 1
+                                  ? Container(
+                                      width: 10,
+                                      height: 10,
+                                      decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          color: Colors.white),
+                                    )
+                                  : null,
                             ),
                           ),
                           SizedBox(
                             width: 20,
                           ),
                           GestureDetector(
-                            onTap: (){
-                              setState((){
+                            onTap: () {
+                              setState(() {
                                 selectedColor = 2;
                               });
                             },
                             child: CircleAvatar(
                               radius: 15,
                               backgroundColor: Colors.blueGrey,
-                              child: selectedColor ==2 ? Container(width: 10,height: 10,decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: Colors.white
-                              ),): null,
+                              child: selectedColor == 2
+                                  ? Container(
+                                      width: 10,
+                                      height: 10,
+                                      decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          color: Colors.white),
+                                    )
+                                  : null,
                             ),
                           ),
                           SizedBox(
                             width: 20,
                           ),
                           GestureDetector(
-                            onTap: (){
-                              setState((){
+                            onTap: () {
+                              setState(() {
                                 selectedColor = 3;
                               });
                             },
                             child: CircleAvatar(
                               radius: 15,
                               backgroundColor: Colors.red,
-                              child: selectedColor == 3 ? Container(width: 10,height: 10,decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: Colors.white
-                              ),): null,
+                              child: selectedColor == 3
+                                  ? Container(
+                                      width: 10,
+                                      height: 10,
+                                      decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          color: Colors.white),
+                                    )
+                                  : null,
                             ),
                           ),
                           SizedBox(
                             width: 20,
                           ),
                           GestureDetector(
-                            onTap: (){
-                              setState((){
+                            onTap: () {
+                              setState(() {
                                 selectedColor = 4;
                               });
                             },
                             child: CircleAvatar(
                               radius: 15,
                               backgroundColor: Colors.black,
-                              child: selectedColor ==4 ? Container(width: 10,height: 10,decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: Colors.white
-                              ),): null,
+                              child: selectedColor == 4
+                                  ? Container(
+                                      width: 10,
+                                      height: 10,
+                                      decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          color: Colors.white),
+                                    )
+                                  : null,
                             ),
                           ),
                         ],
@@ -438,17 +466,16 @@ class _SingleProductViewState extends State<SingleProductView> {
                       ),
                       Text(
                         'Sizes',
-                        style:
-                            TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
+                        style: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.w700),
                       ),
-
                       SizedBox(
                         height: 20,
                       ),
                       Row(
                         children: [
                           GestureDetector(
-                            onTap: (){
+                            onTap: () {
                               setState(() {
                                 selectedSize = 0;
                               });
@@ -460,14 +487,13 @@ class _SingleProductViewState extends State<SingleProductView> {
                               padding: EdgeInsets.all(5),
                               margin: EdgeInsets.symmetric(horizontal: 10),
                               decoration: BoxDecoration(
-                                color: selectedSize == 0? green77 : null,
+                                  color: selectedSize == 0 ? green77 : null,
                                   border: Border.all(color: black208)),
                               child: Text('S', style: TextStyle(fontSize: 20)),
                             ),
                           ),
-
                           GestureDetector(
-                            onTap: (){
+                            onTap: () {
                               setState(() {
                                 selectedSize = 1;
                               });
@@ -479,14 +505,13 @@ class _SingleProductViewState extends State<SingleProductView> {
                               padding: EdgeInsets.all(5),
                               margin: EdgeInsets.symmetric(horizontal: 10),
                               decoration: BoxDecoration(
-                                  color: selectedSize == 1? green77 : null,
+                                  color: selectedSize == 1 ? green77 : null,
                                   border: Border.all(color: black208)),
                               child: Text('M', style: TextStyle(fontSize: 20)),
                             ),
                           ),
-
                           GestureDetector(
-                            onTap: (){
+                            onTap: () {
                               setState(() {
                                 selectedSize = 2;
                               });
@@ -498,14 +523,13 @@ class _SingleProductViewState extends State<SingleProductView> {
                               padding: EdgeInsets.all(5),
                               margin: EdgeInsets.symmetric(horizontal: 10),
                               decoration: BoxDecoration(
-                                  color: selectedSize == 2? green77 : null,
+                                  color: selectedSize == 2 ? green77 : null,
                                   border: Border.all(color: black208)),
                               child: Text('L', style: TextStyle(fontSize: 20)),
                             ),
                           ),
-
                           GestureDetector(
-                            onTap: (){
+                            onTap: () {
                               setState(() {
                                 selectedSize = 3;
                               });
@@ -517,14 +541,13 @@ class _SingleProductViewState extends State<SingleProductView> {
                               padding: EdgeInsets.all(5),
                               margin: EdgeInsets.symmetric(horizontal: 10),
                               decoration: BoxDecoration(
-                                  color: selectedSize == 3? green77 : null,
+                                  color: selectedSize == 3 ? green77 : null,
                                   border: Border.all(color: black208)),
                               child: Text('ML', style: TextStyle(fontSize: 20)),
                             ),
                           ),
-
                           GestureDetector(
-                            onTap: (){
+                            onTap: () {
                               setState(() {
                                 selectedSize = 4;
                               });
@@ -536,13 +559,11 @@ class _SingleProductViewState extends State<SingleProductView> {
                               padding: EdgeInsets.all(5),
                               margin: EdgeInsets.symmetric(horizontal: 10),
                               decoration: BoxDecoration(
-                                  color: selectedSize == 4? green77 : null,
+                                  color: selectedSize == 4 ? green77 : null,
                                   border: Border.all(color: black208)),
                               child: Text('XL', style: TextStyle(fontSize: 20)),
                             ),
                           ),
-
-
                         ],
                       ),
                       SizedBox(
@@ -630,7 +651,8 @@ class _SingleProductViewState extends State<SingleProductView> {
                           ),
                           ElevatedButton(
                             style: ButtonStyle(
-                              backgroundColor: MaterialStateProperty.all(green77),
+                              backgroundColor:
+                                  MaterialStateProperty.all(green77),
                               shape: MaterialStateProperty.all(
                                 RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(30.0),

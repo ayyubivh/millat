@@ -17,14 +17,23 @@ class _FiltersViewState extends State<FiltersView> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.white,
-        title: Text('Filters',style: TextStyle(color: Colors.black,fontWeight: FontWeight.w600),),
+        title: Text(
+          'Filters',
+          style: TextStyle(color: Colors.black, fontWeight: FontWeight.w600),
+        ),
         centerTitle: false,
         leadingWidth: 0,
         leading: Container(),
-        actions: [IconButton(onPressed: (){
-          Navigator.of(context).pop();
-        }, icon: Icon(Icons.close,color: black189,))],
-
+        actions: [
+          IconButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              icon: Icon(
+                Icons.close,
+                color: black189,
+              ))
+        ],
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -35,34 +44,38 @@ class _FiltersViewState extends State<FiltersView> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                  width: SizeUtility(context).width * 45/100,
+                  width: SizeUtility(context).width * 45 / 100,
                   height: SizeUtility(context).height,
                   color: black247,
                   child: SingleChildScrollView(
                     child: Column(
                       children: [
-                        buildFilter(filterTitle: 'Category',selected: true),
-                        buildFilter(filterTitle: 'Sub Category',selected: false),
-                        buildFilter(filterTitle: 'Brand',selected: false),
-                        buildFilter(filterTitle: 'Price',selected: false),
+                        buildFilter(filterTitle: 'Category', selected: true),
+                        buildFilter(
+                            filterTitle: 'Sub Category', selected: false),
+                        buildFilter(filterTitle: 'Brand', selected: false),
+                        buildFilter(filterTitle: 'Price', selected: false),
                       ],
                     ),
                   ),
                 ),
                 SingleChildScrollView(
                   child: Column(
-
                     children: [
                       Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 3),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 20, vertical: 3),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text('Most loved brands',style: TextStyle(color: black122)),
-                            Radio(value: true, groupValue: bool, 
+                            Text('Most loved brands',
+                                style: TextStyle(color: black122)),
+                            Radio(
+                              value: true,
+                              groupValue: bool,
                               activeColor: green77,
-                              onChanged: (value) {
-                            },)
+                              onChanged: (value) {},
+                            )
                           ],
                         ),
                       )
@@ -79,16 +92,19 @@ class _FiltersViewState extends State<FiltersView> {
         margin: EdgeInsets.only(bottom: 20),
         child: Row(
           children: [
-           Container(
-             alignment: Alignment.center,
-             width: SizeUtility(context).width * 45/100,
-             child: Text('Clear All',style: TextStyle(fontWeight: FontWeight.w700)),
-           ),
+            Container(
+              alignment: Alignment.center,
+              width: SizeUtility(context).width * 45 / 100,
+              child: Text('Clear All',
+                  style: TextStyle(fontWeight: FontWeight.w700)),
+            ),
             Container(
               color: green77,
               alignment: Alignment.center,
-              width: SizeUtility(context).width * 55/100,
-              child: Text('Apply',style: TextStyle(fontWeight: FontWeight.w700,color: Colors.white)),
+              width: SizeUtility(context).width * 55 / 100,
+              child: Text('Apply',
+                  style: TextStyle(
+                      fontWeight: FontWeight.w700, color: Colors.white)),
             )
           ],
         ),
@@ -96,11 +112,18 @@ class _FiltersViewState extends State<FiltersView> {
     );
   }
 
-  Widget buildFilter({required String filterTitle,required bool selected}){
+  Widget buildFilter({required String filterTitle, required bool selected}) {
     return ListTile(
-      onTap: (){},
-      title: Text(filterTitle,style: TextStyle(color: selected? green77 : black122 )),
-      trailing: selected ? Icon(Icons.arrow_forward_ios,size: 15,color: green77,) : null,
+      onTap: () {},
+      title: Text(filterTitle,
+          style: TextStyle(color: selected ? green77 : black122)),
+      trailing: selected
+          ? Icon(
+              Icons.arrow_forward_ios,
+              size: 15,
+              color: green77,
+            )
+          : null,
     );
   }
 }

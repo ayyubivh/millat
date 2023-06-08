@@ -9,6 +9,12 @@ class ShopProductsState with _$ShopProductsState {
       required bool popularProductLoading,
       required RecentProducts? recentProducts,
       required bool recentProductLoading,
+      required BannersModel? homeBanner,
+      required bool bannersLoading,
+      required BannersModel? shopBanner,
+      required bool shopBannerLoading,
+      required ArticleModel? articles,
+      required bool articleLoading,
       required String errorMessage}) = _Initial;
   factory ShopProductsState.initial() => ShopProductsState(
         popularProducts: null,
@@ -17,6 +23,12 @@ class ShopProductsState with _$ShopProductsState {
         popularProductLoading: false,
         recentProducts: null,
         recentProductLoading: false,
+        homeBanner: null,
+        bannersLoading: false,
+        shopBanner: null,
+        shopBannerLoading: false,
+        articles: null,
+        articleLoading: false,
         errorMessage: "",
       );
 }

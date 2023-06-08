@@ -56,6 +56,7 @@ class MyApp extends StatelessWidget {
           fontFamily: 'SofiaPro',
           primarySwatch: Colors.blue,
         ),
-        home: OnBoardingView()); // home: TabsView());
+        // home: OnBoardingView());
+        home: TabsView());
   }
 }

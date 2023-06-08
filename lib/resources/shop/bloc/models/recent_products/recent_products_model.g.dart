@@ -39,7 +39,7 @@ _$_RecentAddedProducts _$$_RecentAddedProductsFromJson(
         Map<String, dynamic> json) =>
     _$_RecentAddedProducts(
       id: json['_id'] as String?,
-      titles: json['title'] as String?,
+      title: json['title'] as String?,
       brand: json['brand'] as String?,
       description: json['description'] as String?,
       otherInfo: json['otherInfo'] as String?,
@@ -72,7 +72,7 @@ Map<String, dynamic> _$$_RecentAddedProductsToJson(
         _$_RecentAddedProducts instance) =>
     <String, dynamic>{
       '_id': instance.id,
-      'title': instance.titles,
+      'title': instance.title,
       'brand': instance.brand,
       'description': instance.description,
       'otherInfo': instance.otherInfo,

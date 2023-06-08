@@ -1,119 +1,137 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:millat/utils/globals.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:millat/components/common_widgets/filters_row_widgets.dart';
 
-class Categories extends StatefulWidget {
-  const Categories({Key? key}) : super(key: key);
+import '../../../../utils/globals.dart';
+import '../../bloc/logic/shop_products_bloc.dart';
+
+class CategoriesView extends StatefulWidget {
+  final String category;
+  const CategoriesView({super.key, required this.category});
 
   @override
-  State<Categories> createState() => _CategoriesState();
+  State<CategoriesView> createState() => _CategoriesViewState();
 }
 
-class _CategoriesState extends State<Categories> {
+class _CategoriesViewState extends State<CategoriesView> {
+  int _currentIndex = 0;
+  @override
+  void initState() {
+    BlocProvider.of<ShopProductsBloc>(context).add(FetchShopBanners());
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          backgroundColor: Colors.transparent,
           elevation: 0,
-          leading: BackButton(color: Colors.white),
-          flexibleSpace: Container(
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                colors: [green77, green24],
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-              ),
-            ),
-          ),
-          title: Image.asset('assets/logos/millat_white_logo.png', width: 100),
-        ),
-        body: Row(
-          children: [
-            Container(
-              color: black247,
-              child: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    buildCategoryItem(
-                        iconImg: 'assets/images/man.png', categoryTitle: 'Men'),
-                    buildCategoryItem(
-                        iconImg: 'assets/images/woman.png',
-                        categoryTitle: 'Women'),
-                    buildCategoryItem(
-                        iconImg: 'assets/images/books.png',
-                        categoryTitle: 'Books'),
-                    buildCategoryItem(
-                        iconImg: 'assets/images/clothes.png',
-                        categoryTitle: 'Fashion'),
-                    buildCategoryItem(
-                        iconImg: 'assets/images/kids.png',
-                        categoryTitle: 'Kids'),
-                    buildCategoryItem(
-                        iconImg: 'assets/images/decor.png',
-                        categoryTitle: 'Decor'),
-                    buildCategoryItem(
-                        iconImg: 'assets/images/health_care.png',
-                        categoryTitle: 'Health Care'),
-                    buildCategoryItem(
-                        iconImg: 'assets/images/man.png', categoryTitle: 'Men'),
-                    buildCategoryItem(
-                        iconImg: 'assets/images/man.png', categoryTitle: 'Men'),
-                    buildCategoryItem(
-                        iconImg: 'assets/images/man.png', categoryTitle: 'Men')
-                  ],
+          centerTitle: false,
+          title: Text(widget.category,
+              style:
+                  TextStyle(color: Colors.black, fontWeight: FontWeight.w700)),
+          actions: [
+            Padding(
+              padding: const EdgeInsets.only(left: 10),
+              child: ImageIcon(
+                AssetImage(
+                  'assets/icons/search.png',
                 ),
+                color: Colors.black,
               ),
             ),
-            Expanded(
-                child: GridView(
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 3,
-                  crossAxisSpacing: 30,
-                  mainAxisSpacing: 0,
-                  childAspectRatio: 0.7),
-              padding: EdgeInsets.zero,
-              children: [
-                buildCategoryItem(
-                    iconImg: 'assets/images/jacket.png', categoryTitle: 'Men'),
-                buildCategoryItem(
-                    iconImg: 'assets/images/trousers.png',
-                    categoryTitle: 'Men'),
-                buildCategoryItem(
-                    iconImg: 'assets/images/sweater.png', categoryTitle: 'Men'),
-                buildCategoryItem(
-                    iconImg: 'assets/images/polo-shirt.png',
-                    categoryTitle: 'Men'),
-                buildCategoryItem(
-                    iconImg: 'assets/images/sock.png', categoryTitle: 'Men'),
-                buildCategoryItem(
-                    iconImg: 'assets/images/shirt.png', categoryTitle: 'Men'),
-                buildCategoryItem(
-                    iconImg: 'assets/images/sport.png', categoryTitle: 'Men'),
-                buildCategoryItem(
-                    iconImg: 'assets/images/sneakers.png',
-                    categoryTitle: 'Men'),
-              ],
-            ))
+            Padding(
+              padding: const EdgeInsets.only(left: 20, right: 20),
+              child: ImageIcon(
+                AssetImage(
+                  'assets/icons/cart.png',
+                ),
+                color: Colors.black,
+              ),
+            ),
           ],
-        ));
-  }
-
-  Widget buildCategoryItem(
-      {required String iconImg, required String categoryTitle}) {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 20),
-      margin: EdgeInsets.symmetric(vertical: 20),
-      child: Column(
-        children: [
-          Image.asset(iconImg, width: 50, height: 50),
-          SizedBox(
-            height: 10,
+          leading: BackButton(
+            color: Colors.black,
           ),
-          Text(
-            categoryTitle,
-            style: TextStyle(fontWeight: FontWeight.w600),
-          )
-        ],
-      ),
-    );
+        ),
+        body: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 30.0),
+          child: Column(
+            children: [
+              const SizedBox(
+                height: 20,
+              ),
+              FiltersRowWidgets(),
+              const SizedBox(
+                height: 30,
+              ),
+              BlocBuilder<ShopProductsBloc, ShopProductsState>(
+                builder: (context, state) {
+                  if (state.shopBanner == null) {
+                    return Center(
+                      child: CircularProgressIndicator(
+                        color: green77,
+                      ),
+                    );
+                  }
+
+                  final banners = state.shopBanner?.result!.banners;
+                  return Column(
+                    children: [
+                      CarouselSlider(
+                        items: banners?.map((banner) {
+                          return ClipRRect(
+                            borderRadius: BorderRadius.circular(20),
+                            child: Image.network(
+                              banner.image,
+                              fit: BoxFit.contain,
+                            ),
+                          );
+                        }).toList(),
+                        options: CarouselOptions(
+                          height: 150,
+                          viewportFraction: 1,
+                          enlargeCenterPage: true,
+                          autoPlay: true,
+                          autoPlayCurve: Curves.fastOutSlowIn,
+                          enableInfiniteScroll: true,
+                          enlargeFactor: 0.3,
+                          scrollDirection: Axis.horizontal,
+                          autoPlayAnimationDuration:
+                              const Duration(milliseconds: 800),
+                          onPageChanged: (index, reason) {
+                            setState(() {
+                              _currentIndex = index;
+                            });
+                          },
+                        ),
+                      ),
+                      SizedBox(height: 10),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: banners!.map((banner) {
+                          int index = banners.indexOf(banner);
+                          return Container(
+                            width: _currentIndex == index ? 24 : 6,
+                            height: 6,
+                            margin: EdgeInsets.symmetric(horizontal: 4),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(30),
+                              color: _currentIndex == index
+                                  ? green24
+                                  : Colors.grey,
+                            ),
+                          );
+                        }).toList(),
+                      ),
+                    ],
+                  );
+                },
+              ),
+            ],
+          ),
+        ));
   }
 }

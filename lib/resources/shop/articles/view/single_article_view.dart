@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:millat/utils/globals.dart';
 
-class SingleArticleView extends StatefulWidget {
-  const SingleArticleView({Key? key}) : super(key: key);
+class SingleArticleView extends StatelessWidget {
+  final passValue;
+  final int index;
+  const SingleArticleView({Key? key, this.passValue, required this.index})
+      : super(key: key);
 
-  @override
-  State<SingleArticleView> createState() => _SingleArticleViewState();
-}
-
-class _SingleArticleViewState extends State<SingleArticleView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,13 +47,18 @@ class _SingleArticleViewState extends State<SingleArticleView> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               ClipRRect(
-                child: Image.asset('assets/dummy/article.png', height: 300),
+                child: Image.network(
+                  passValue[index].image,
+                  height: 200,
+                  width: double.infinity,
+                  fit: BoxFit.cover,
+                ),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    'Bilal • 20 Jan 2022',
+                    '${passValue[index].brand} • ${passValue[index].date}',
                     style: TextStyle(
                         color: green77,
                         fontSize: 16,
@@ -76,7 +79,7 @@ class _SingleArticleViewState extends State<SingleArticleView> {
                 height: 20,
               ),
               Text(
-                'Bilal Cotton Galabiyya',
+                passValue[index].title,
                 style: TextStyle(
                     color: black16, fontSize: 20, fontWeight: FontWeight.w600),
               ),
@@ -84,7 +87,7 @@ class _SingleArticleViewState extends State<SingleArticleView> {
                 height: 20,
               ),
               Text(
-                'How do you create compelling clothes that wow your friends and impress your managers?Lorem ipsum dolor sit amet, consectetur adipiscing elit. At imperdiet et pellentesque euismod. Nunc sed risus sed cursus nunc vel posuere. Et suspendisse at et, scelerisque risus, amet tincidunt pretium condimentum. Ultricies neque tristique purus posuere venenatis mattis leo imperdiet.Eget turpis quam nulla pharetra eu enim enim. Eget nullam elementum nec pharetra in volutpat quam. Tellus egestas mauris congue elit erat feugiat turpis. Turpis in integer lectus dictum scelerisque amet. Nam lectus dis tristique tristique eros, nisl, urna. Tortor tortor massa, leo, tincidunt augue. Sit elit nequeurpis in integer lectus dictum scelerisque amet. Nam lectus dis tristique tristique eros, nisl, urna. Tortor tortor massa, leo, tincidunt augue. Sit elit neque',
+                passValue[index].content,
                 style: TextStyle(color: black122, fontSize: 17, height: 1.3),
               ),
               SizedBox(
@@ -108,7 +111,12 @@ class _SingleArticleViewState extends State<SingleArticleView> {
               padding: const EdgeInsets.all(8.0),
               child: ClipRRect(
                   borderRadius: BorderRadius.circular(10),
-                  child: Image.asset('assets/dummy/article.png')),
+                  child: Image.network(
+                    passValue[index].image,
+                    fit: BoxFit.cover,
+                    height: 56,
+                    width: 56,
+                  )),
             ),
             SizedBox(
               width: 10,
@@ -118,7 +126,7 @@ class _SingleArticleViewState extends State<SingleArticleView> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Bilal Cotton Galabiyya',
+                  passValue[index].title,
                   style: TextStyle(
                       color: Colors.white,
                       fontSize: 15,

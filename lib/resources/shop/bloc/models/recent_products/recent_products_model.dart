@@ -31,7 +31,7 @@ class Results with _$Results {
 class RecentAddedProducts with _$RecentAddedProducts {
   const factory RecentAddedProducts({
     @JsonKey(name: '_id') required String? id,
-    @JsonKey(name: 'title') required String? titles,
+    @JsonKey(name: 'title') required String? title,
     required String? brand,
     required String? description,
     required String? otherInfo,

@@ -373,7 +373,7 @@ mixin _$RecentAddedProducts {
   @JsonKey(name: '_id')
   String? get id => throw _privateConstructorUsedError;
   @JsonKey(name: 'title')
-  String? get titles => throw _privateConstructorUsedError;
+  String? get title => throw _privateConstructorUsedError;
   String? get brand => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
   String? get otherInfo => throw _privateConstructorUsedError;
@@ -403,7 +403,7 @@ abstract class $RecentAddedProductsCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: '_id') String? id,
-      @JsonKey(name: 'title') String? titles,
+      @JsonKey(name: 'title') String? title,
       String? brand,
       String? description,
       String? otherInfo,
@@ -437,7 +437,7 @@ class _$RecentAddedProductsCopyWithImpl<$Res, $Val extends RecentAddedProducts>
   @override
   $Res call({
     Object? id = freezed,
-    Object? titles = freezed,
+    Object? title = freezed,
     Object? brand = freezed,
     Object? description = freezed,
     Object? otherInfo = freezed,
@@ -458,9 +458,9 @@ class _$RecentAddedProductsCopyWithImpl<$Res, $Val extends RecentAddedProducts>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String?,
-      titles: freezed == titles
-          ? _value.titles
-          : titles // ignore: cast_nullable_to_non_nullable
+      title: freezed == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
               as String?,
       brand: freezed == brand
           ? _value.brand
@@ -556,7 +556,7 @@ abstract class _$$_RecentAddedProductsCopyWith<$Res>
   @useResult
   $Res call(
       {@JsonKey(name: '_id') String? id,
-      @JsonKey(name: 'title') String? titles,
+      @JsonKey(name: 'title') String? title,
       String? brand,
       String? description,
       String? otherInfo,
@@ -590,7 +590,7 @@ class __$$_RecentAddedProductsCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = freezed,
-    Object? titles = freezed,
+    Object? title = freezed,
     Object? brand = freezed,
     Object? description = freezed,
     Object? otherInfo = freezed,
@@ -611,9 +611,9 @@ class __$$_RecentAddedProductsCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String?,
-      titles: freezed == titles
-          ? _value.titles
-          : titles // ignore: cast_nullable_to_non_nullable
+      title: freezed == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
               as String?,
       brand: freezed == brand
           ? _value.brand
@@ -680,7 +680,7 @@ class __$$_RecentAddedProductsCopyWithImpl<$Res>
 class _$_RecentAddedProducts implements _RecentAddedProducts {
   const _$_RecentAddedProducts(
       {@JsonKey(name: '_id') required this.id,
-      @JsonKey(name: 'title') required this.titles,
+      @JsonKey(name: 'title') required this.title,
       required this.brand,
       required this.description,
       required this.otherInfo,
@@ -708,7 +708,7 @@ class _$_RecentAddedProducts implements _RecentAddedProducts {
   final String? id;
   @override
   @JsonKey(name: 'title')
-  final String? titles;
+  final String? title;
   @override
   final String? brand;
   @override
@@ -772,7 +772,7 @@ class _$_RecentAddedProducts implements _RecentAddedProducts {
 
   @override
   String toString() {
-    return 'RecentAddedProducts(id: $id, titles: $titles, brand: $brand, description: $description, otherInfo: $otherInfo, category: $category, subcategory: $subcategory, actualPrice: $actualPrice, discountPrice: $discountPrice, discount: $discount, colors: $colors, size: $size, meta: $meta, keywords: $keywords, createdAt: $createdAt, updatedAt: $updatedAt)';
+    return 'RecentAddedProducts(id: $id, title: $title, brand: $brand, description: $description, otherInfo: $otherInfo, category: $category, subcategory: $subcategory, actualPrice: $actualPrice, discountPrice: $discountPrice, discount: $discount, colors: $colors, size: $size, meta: $meta, keywords: $keywords, createdAt: $createdAt, updatedAt: $updatedAt)';
   }
 
   @override
@@ -781,7 +781,7 @@ class _$_RecentAddedProducts implements _RecentAddedProducts {
         (other.runtimeType == runtimeType &&
             other is _$_RecentAddedProducts &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.titles, titles) || other.titles == titles) &&
+            (identical(other.title, title) || other.title == title) &&
             (identical(other.brand, brand) || other.brand == brand) &&
             (identical(other.description, description) ||
                 other.description == description) &&
@@ -812,7 +812,7 @@ class _$_RecentAddedProducts implements _RecentAddedProducts {
   int get hashCode => Object.hash(
       runtimeType,
       id,
-      titles,
+      title,
       brand,
       description,
       otherInfo,
@@ -846,7 +846,7 @@ class _$_RecentAddedProducts implements _RecentAddedProducts {
 abstract class _RecentAddedProducts implements RecentAddedProducts {
   const factory _RecentAddedProducts(
       {@JsonKey(name: '_id') required final String? id,
-      @JsonKey(name: 'title') required final String? titles,
+      @JsonKey(name: 'title') required final String? title,
       required final String? brand,
       required final String? description,
       required final String? otherInfo,
@@ -870,7 +870,7 @@ abstract class _RecentAddedProducts implements RecentAddedProducts {
   String? get id;
   @override
   @JsonKey(name: 'title')
-  String? get titles;
+  String? get title;
   @override
   String? get brand;
   @override

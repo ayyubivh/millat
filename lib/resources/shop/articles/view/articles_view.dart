@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:millat/components/common_widgets/filters_row_widgets.dart';
 import 'package:millat/resources/shop/articles/view/single_article_view.dart';
 import 'package:millat/utils/globals.dart';
 
-class ArticlesView extends StatefulWidget {
-  const ArticlesView({Key? key}) : super(key: key);
+import '../../../../utils/size_utility.dart';
 
-  @override
-  State<ArticlesView> createState() => _ArticlesViewState();
-}
+class ArticlesView extends StatelessWidget {
+  final passValue;
+  const ArticlesView({Key? key, this.passValue}) : super(key: key);
 
-class _ArticlesViewState extends State<ArticlesView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,27 +48,23 @@ class _ArticlesViewState extends State<ArticlesView> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(
-                height: 20,
-              ),
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: [
                     Container(
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                      margin: EdgeInsets.symmetric(
-                        horizontal: 10,
-                      ),
+                      width: 51,
+                      height: 34,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20),
                           color: green77),
-                      child: Text('All',
-                          style: TextStyle(
-                              fontSize: 18,
-                              color: Colors.white,
-                              fontWeight: FontWeight.w700)),
+                      child: Center(
+                        child: const Text('All',
+                            style: TextStyle(
+                                fontSize: 17,
+                                color: Colors.white,
+                                fontWeight: FontWeight.w700)),
+                      ),
                     ),
                     Container(
                       padding:
@@ -80,52 +75,52 @@ class _ArticlesViewState extends State<ArticlesView> {
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20),
                           border: Border.all(color: black60.withOpacity(0.5))),
-                      child: Text('Recent',
-                          style: TextStyle(
-                              fontSize: 18,
-                              color: Colors.black,
-                              fontWeight: FontWeight.w700)),
-                    ),
-                    Container(
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                      margin: EdgeInsets.symmetric(
-                        horizontal: 10,
-                      ),
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          border: Border.all(color: black60.withOpacity(0.5))),
-                      child: Text('Popular',
+                      child: const Text('Recent',
                           style: TextStyle(
                               fontSize: 18,
                               color: Colors.black,
                               fontWeight: FontWeight.w700)),
                     ),
                     Container(
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                      margin: EdgeInsets.symmetric(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 10, vertical: 10),
+                      margin: const EdgeInsets.symmetric(
                         horizontal: 10,
                       ),
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20),
                           border: Border.all(color: black60.withOpacity(0.5))),
-                      child: Text('Evergreen',
+                      child: const Text('Popular',
                           style: TextStyle(
                               fontSize: 18,
                               color: Colors.black,
                               fontWeight: FontWeight.w700)),
                     ),
                     Container(
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                      margin: EdgeInsets.symmetric(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 10, vertical: 10),
+                      margin: const EdgeInsets.symmetric(
                         horizontal: 10,
                       ),
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20),
                           border: Border.all(color: black60.withOpacity(0.5))),
-                      child: Text('Darvel',
+                      child: const Text('Evergreen',
+                          style: TextStyle(
+                              fontSize: 18,
+                              color: Colors.black,
+                              fontWeight: FontWeight.w700)),
+                    ),
+                    Container(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 10, vertical: 10),
+                      margin: const EdgeInsets.symmetric(
+                        horizontal: 10,
+                      ),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          border: Border.all(color: black60.withOpacity(0.5))),
+                      child: const Text('Darvel',
                           style: TextStyle(
                               fontSize: 18,
                               color: Colors.black,
@@ -134,225 +129,98 @@ class _ArticlesViewState extends State<ArticlesView> {
                   ],
                 ),
               ),
-              SizedBox(
-                height: 30,
-              ),
+              SizedBox(height: 10),
               Text(
                 'All',
                 style: TextStyle(
                     color: black26, fontSize: 18, fontWeight: FontWeight.bold),
               ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => SingleArticleView(),
-                  ));
-                },
-                child: ClipRRect(
-                  child: Image.asset('assets/dummy/article.png', height: 300),
+              SizedBox(height: 10),
+              SizedBox(
+                height: SizeUtility(context).height,
+                child: ListView.builder(
+                  itemCount: 3,
+                  itemBuilder: (context, index) {
+                    return GestureDetector(
+                        onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => SingleArticleView(
+                                passValue: passValue, index: index),
+                          ));
+                        },
+                        child: buildArticle(
+                            image: passValue[index].image,
+                            brand: passValue[index].brand,
+                            date: passValue[index].date,
+                            title: passValue[index].title,
+                            content: passValue[index].content,
+                            context: context));
+                  },
                 ),
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Text(
-                    'Bilal • 20 Jan 2022',
-                    style: TextStyle(
-                        color: mainColor,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w600),
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Text(
-                    'Bilal Cotton Galabiyya',
-                    style: TextStyle(
-                        color: black16,
-                        fontSize: 15,
-                        fontWeight: FontWeight.w600),
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Text(
-                    'How do you create compelling clothes that wow your friends and impress your managers?',
-                    style: TextStyle(
-                      color: black102,
-                      fontSize: 15,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Container(
-                    padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color: veryLightGreen),
-                    child: Text('Popular',
-                        style: TextStyle(
-                            color: green77, fontWeight: FontWeight.w700)),
-                  )
-                ],
-              ),
-              ClipRRect(
-                child: Image.asset('assets/dummy/article.png', height: 300),
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Text(
-                    'Bilal • 20 Jan 2022',
-                    style: TextStyle(
-                        color: mainColor,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w600),
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Text(
-                    'Bilal Cotton Galabiyya',
-                    style: TextStyle(
-                        color: black16,
-                        fontSize: 15,
-                        fontWeight: FontWeight.w600),
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Text(
-                    'How do you create compelling clothes that wow your friends and impress your managers?',
-                    style: TextStyle(
-                      color: black102,
-                      fontSize: 15,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Container(
-                    padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color: veryLightGreen),
-                    child: Text('Popular',
-                        style: TextStyle(
-                            color: green77, fontWeight: FontWeight.w700)),
-                  )
-                ],
-              ),
-              ClipRRect(
-                child: Image.asset('assets/dummy/quran_sibha.png', height: 300),
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Text(
-                    'Bilal • 20 Jan 2022',
-                    style: TextStyle(
-                        color: mainColor,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w600),
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Text(
-                    'Bilal Cotton Galabiyya',
-                    style: TextStyle(
-                        color: black16,
-                        fontSize: 15,
-                        fontWeight: FontWeight.w600),
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Text(
-                    'How do you create compelling clothes that wow your friends and impress your managers?',
-                    style: TextStyle(
-                      color: black102,
-                      fontSize: 15,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Container(
-                    padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color: veryLightGreen),
-                    child: Text('Popular',
-                        style: TextStyle(
-                            color: green77, fontWeight: FontWeight.w700)),
-                  )
-                ],
-              ),
-              ClipRRect(
-                child: Image.asset('assets/dummy/article.png', height: 300),
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Text(
-                    'Bilal • 20 Jan 2022',
-                    style: TextStyle(
-                        color: mainColor,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w600),
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Text(
-                    'Bilal Cotton Galabiyya',
-                    style: TextStyle(
-                        color: black16,
-                        fontSize: 15,
-                        fontWeight: FontWeight.w600),
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Text(
-                    'How do you create compelling clothes that wow your friends and impress your managers?',
-                    style: TextStyle(
-                      color: black102,
-                      fontSize: 15,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Container(
-                    padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color: veryLightGreen),
-                    child: Text('Popular',
-                        style: TextStyle(
-                            color: green77, fontWeight: FontWeight.w700)),
-                  )
-                ],
               ),
             ],
           ),
         ),
       ),
+    );
+  }
+
+  buildArticle(
+      {required String image,
+      required String brand,
+      required String date,
+      required String title,
+      required String content,
+      required BuildContext context}) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        ClipRRect(
+          borderRadius: BorderRadius.circular(20),
+          child: Image.network(
+            image,
+            height: 200,
+            width: double.infinity,
+            fit: BoxFit.cover,
+          ),
+        ),
+        SizedBox(
+          height: 20,
+        ),
+        Text(
+          '${brand} • ${date}',
+          style: TextStyle(
+              color: mainColor, fontSize: 16, fontWeight: FontWeight.w600),
+        ),
+        SizedBox(
+          height: 20,
+        ),
+        Text(
+          title,
+          style: TextStyle(
+              color: black16, fontSize: 15, fontWeight: FontWeight.w600),
+        ),
+        SizedBox(
+          height: 20,
+        ),
+        Text(
+          content,
+          style: TextStyle(
+            color: black102,
+            fontSize: 15,
+          ),
+        ),
+        SizedBox(
+          height: 20,
+        ),
+        Container(
+          padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20), color: veryLightGreen),
+          child: Text('Popular',
+              style: TextStyle(color: green77, fontWeight: FontWeight.w700)),
+        ),
+      ],
     );
   }
 }

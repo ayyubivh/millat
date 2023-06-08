@@ -3,23 +3,16 @@ import 'package:millat/resources/shop/view/reviews/reviews_view.dart';
 import 'package:millat/utils/globals.dart';
 import 'package:millat/utils/size_utility.dart';
 
-class SingleProductView extends StatefulWidget {
-  const SingleProductView({Key? key}) : super(key: key);
-
-  @override
-  State<SingleProductView> createState() => _SingleProductViewState();
-}
-
-class _SingleProductViewState extends State<SingleProductView> {
-  final _scaffoldKey = GlobalKey();
-
-  int? selectedSize;
-  int? selectedColor;
+class SingleProductView extends StatelessWidget {
+  final passValue;
+  const SingleProductView({Key? key, this.passValue}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    int? selectedSize;
+
+    int? selectedColor;
     return Scaffold(
-      key: _scaffoldKey,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -55,19 +48,21 @@ class _SingleProductViewState extends State<SingleProductView> {
                 height: SizeUtility(context).height * 30 / 100,
                 width: SizeUtility(context).width,
                 decoration: BoxDecoration(
-                    color: black247,
-                    image: DecorationImage(
-                        image: AssetImage('assets/dummy/thope_2.png'))),
+                  color: black247,
+                  image: DecorationImage(
+                    image: NetworkImage(passValue!.colors![0].images![0]),
+                  ),
+                ),
               ),
               SizedBox(
                 height: 10,
               ),
               Text(
-                'Men Cotton Silk Only Kurta',
+                passValue.title,
                 style: TextStyle(
                     fontSize: 22, fontWeight: FontWeight.w600, height: 2),
               ),
-              Text('1.523,68 ₹',
+              Text('${passValue.actualPrice} ₹',
                   style: TextStyle(
                       color: black60,
                       fontSize: 17,
@@ -75,7 +70,7 @@ class _SingleProductViewState extends State<SingleProductView> {
                       height: 1.5)),
               Text('Al- Nayab Store',
                   style: TextStyle(color: black60, fontSize: 17, height: 1.5)),
-              Text('1.523,68 ₹',
+              Text('${passValue.discountPrice} ₹',
                   style: TextStyle(color: green77, fontSize: 22, height: 1.5)),
               SizedBox(
                 height: 10,
@@ -139,7 +134,7 @@ class _SingleProductViewState extends State<SingleProductView> {
                 height: 20,
               ),
               Text(
-                'We bring to you this Stylish yet Comfortable Men Multicolor Cotton Silk Solid Stylish Kurta. Adorn it for a perfect Classy & Trendy look Pair it with a juti or a mojari for the Royal feel',
+                passValue.description,
                 style: TextStyle(fontSize: 16, color: black122),
               ),
               SizedBox(
@@ -162,7 +157,7 @@ class _SingleProductViewState extends State<SingleProductView> {
                 height: 20,
               ),
               Text(
-                "Other Important Notes: All care has been taken for on screen color resemblance of the product, however 5% - 10% variation may be accepted as different monitor capabilities and Photography effects",
+                passValue.otherInfo,
                 style: TextStyle(fontSize: 16, color: black122),
               ),
               Container(
@@ -223,10 +218,13 @@ class _SingleProductViewState extends State<SingleProductView> {
                 ),
               ),
               buildReviewItem(
+                  context: context,
                   comment: 'Very good product, I will buy it again'),
               buildReviewItem(
+                  context: context,
                   comment: 'A very quality product, I highly recommend it.'),
               buildReviewItem(
+                  context: context,
                   comment: 'A very quality product, I highly recommend it.'),
               GestureDetector(
                 onTap: () {
@@ -254,15 +252,19 @@ class _SingleProductViewState extends State<SingleProductView> {
                 child: Row(
                   children: [
                     buildShopItem(
+                        context: context,
                         image: 'assets/dummy/thope.png',
                         title: "Men Kurta Pyjama Set"),
                     buildShopItem(
+                        context: context,
                         image: 'assets/dummy/sijadah_3.png',
                         title: "Hometara Velvet Prayer Mat"),
                     buildShopItem(
+                        context: context,
                         image: 'assets/dummy/sijadah.png',
                         title: "Hijaz Turkish Gold Border Lantern..."),
                     buildShopItem(
+                        context: context,
                         image: 'assets/dummy/sijadah.png',
                         title: "Hijaz Turkish Gold Border Lantern..."),
                   ],
@@ -298,8 +300,11 @@ class _SingleProductViewState extends State<SingleProductView> {
                                 width: 130,
                                 decoration: BoxDecoration(
                                     image: DecorationImage(
-                                        image: AssetImage(
-                                            'assets/dummy/thope_2.png')),
+                                      image: NetworkImage(
+                                        passValue!.colors![0].images![0],
+                                      ),
+                                      fit: BoxFit.cover,
+                                    ),
                                     borderRadius: BorderRadius.circular(20),
                                     border: Border.all(color: black208)),
                               ),
@@ -309,7 +314,7 @@ class _SingleProductViewState extends State<SingleProductView> {
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text('1.523,68 ₹',
+                                  Text('${passValue.discountPrice} ₹',
                                       style: TextStyle(
                                           color: green77,
                                           fontWeight: FontWeight.w700,
@@ -317,7 +322,7 @@ class _SingleProductViewState extends State<SingleProductView> {
                                   SizedBox(
                                     height: 20,
                                   ),
-                                  Text('1.523,68 ₹',
+                                  Text('${passValue.actualPrice} ₹',
                                       style: TextStyle(
                                           decoration:
                                               TextDecoration.lineThrough,
@@ -327,7 +332,9 @@ class _SingleProductViewState extends State<SingleProductView> {
                             ],
                           ),
                           IconButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
                               icon: Icon(
                                 Icons.close,
                                 color: black122,
@@ -559,15 +566,16 @@ class _SingleProductViewState extends State<SingleProductView> {
                               padding: EdgeInsets.all(5),
                               margin: EdgeInsets.symmetric(horizontal: 10),
                               decoration: BoxDecoration(
-                                  color: selectedSize == 4 ? green77 : null,
-                                  border: Border.all(color: black208)),
+                                color: selectedSize == 4 ? green77 : null,
+                                border: Border.all(color: black208),
+                              ),
                               child: Text('XL', style: TextStyle(fontSize: 20)),
                             ),
                           ),
                         ],
                       ),
                       SizedBox(
-                        height: 20,
+                        height: 15,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -608,7 +616,7 @@ class _SingleProductViewState extends State<SingleProductView> {
                         ],
                       ),
                       SizedBox(
-                        height: 30,
+                        height: 15,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -673,7 +681,7 @@ class _SingleProductViewState extends State<SingleProductView> {
                             ),
                           )
                         ],
-                      )
+                      ),
                     ],
                   ),
                 ),
@@ -710,7 +718,7 @@ class _SingleProductViewState extends State<SingleProductView> {
     );
   }
 
-  buildReviewItem({required String comment}) {
+  buildReviewItem({required String comment, required BuildContext context}) {
     return Container(
       margin: EdgeInsets.symmetric(vertical: 20),
       child: Row(
@@ -782,7 +790,10 @@ class _SingleProductViewState extends State<SingleProductView> {
     );
   }
 
-  Widget buildShopItem({required String image, required String title}) {
+  Widget buildShopItem(
+      {required String image,
+      required String title,
+      required BuildContext context}) {
     return GestureDetector(
       onTap: () {
         Navigator.of(context).push(MaterialPageRoute(

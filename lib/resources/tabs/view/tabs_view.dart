@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:millat/resources/authentication/bloc/logic/database_bloc/database_bloc.dart';
 import 'package:millat/resources/home/view/home_view.dart';
 import 'package:millat/resources/shop/view/shop_view.dart';
 import 'package:millat/utils/globals.dart';
@@ -23,6 +25,13 @@ class _TabsViewState extends State<TabsView> {
     setState(() {
       index = _index;
     });
+  }
+
+  @override
+  void initState() {
+    context.read<DatabaseBloc>().add(FetchToken());
+
+    super.initState();
   }
 
   @override

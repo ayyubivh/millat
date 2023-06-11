@@ -5,16 +5,24 @@ class HttpServices {
 
   Future<http.Response> get({
     required String endPoint,
+    Map<String, String>? headers,
   }) async {
-    final response = await http.get(Uri.parse(webBaseUrl + endPoint));
+    final response =
+        await http.get(Uri.parse(webBaseUrl + endPoint), headers: headers);
 
     return response;
   }
 
-  Future<http.Response> post(
-      {required String endPoint, required Map body}) async {
-    final response =
-        await http.post(Uri.parse(webBaseUrl + endPoint), body: body);
+  Future<http.Response> post({
+    required String endPoint,
+    required Map body,
+    Map<String, String>? headers,
+  }) async {
+    final response = await http.post(
+      Uri.parse(webBaseUrl + endPoint),
+      body: body,
+      headers: headers,
+    );
     return response;
   }
 }

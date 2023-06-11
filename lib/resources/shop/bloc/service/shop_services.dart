@@ -13,6 +13,7 @@ class ShopService extends HttpServices {
   final shopBanner = 'banner?slug=home_banner';
   final article = 'article';
 
+  // final filter = 'product/filter?cate=${category}';
   // Fetching all flash sale products
   Future<ShopProducts> fetchFlashSaleProducts() async {
     final response = await get(endPoint: flashSale);
@@ -62,7 +63,7 @@ class ShopService extends HttpServices {
       try {
         final Map<String, dynamic> data = json.decode(response.body);
         final result = RecentProducts.fromJson(data);
-
+        print('recent produbct ${result}');
         return result;
       } catch (e) {
         print('error on API fetch: ${e.toString()}');
@@ -122,7 +123,7 @@ class ShopService extends HttpServices {
       try {
         final Map<String, dynamic> data = json.decode(response.body);
         final result = ArticleModel.fromJson(data);
-        print(result);
+
         return result;
       } catch (e) {
         print('error on API fetch: ${e.toString()}');

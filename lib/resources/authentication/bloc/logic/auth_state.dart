@@ -13,6 +13,12 @@ class AuthLoaded extends AuthState {
   AuthLoaded(this.email);
 }
 
+class AuthPhoneNumber extends AuthState {
+  final String phoneNumber;
+
+  AuthPhoneNumber({required this.phoneNumber});
+}
+
 class AuthError extends AuthState {
   final String errorMessage;
 

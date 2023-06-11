@@ -172,20 +172,20 @@ class _OnBoardingViewState extends State<OnBoardingView> {
       required Widget imageWidget,
       String? content}) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 35, vertical: 25),
+      padding: const EdgeInsets.symmetric(horizontal: 35, vertical: 20),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           const SizedBox(
-            height: 70,
+            height: 50,
           ),
           titleWidget,
           const SizedBox(
-            height: 50,
+            height: 40,
           ),
           imageWidget,
           const SizedBox(
-            height: 50,
+            height: 40,
           ),
           if (content != null)
             Text(content,

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:millat/resources/shop/bloc/logic/cart_bloc/cart_bloc.dart';
 import 'package:millat/resources/shop/view/reviews/reviews_view.dart';
 import 'package:millat/utils/globals.dart';
 import 'package:millat/utils/size_utility.dart';
@@ -9,9 +11,18 @@ class SingleProductView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    int? selectedSize;
+    final colorMap = {
+      'Pink': Colors.pink,
+      'Green': Colors.green,
+      'Grey': Colors.grey,
+      'Red': Colors.red,
+      'Black': Colors.black,
+    };
+    int selectedSize = 0; // Declare selectedSize as non-nullable int
 
-    int? selectedColor;
+    final sizeList = ['S', 'M', 'L', 'ML', 'XL'];
+
+    int selectedColor = 0;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
@@ -352,122 +363,47 @@ class SingleProductView extends StatelessWidget {
                       SizedBox(
                         height: 20,
                       ),
-                      Row(
-                        children: [
-                          GestureDetector(
-                            onTap: () {
-                              setState(() {
-                                selectedColor = 0;
-                              });
+                      SizedBox(
+                          height: 30,
+                          child: ListView.builder(
+                            scrollDirection: Axis.horizontal,
+                            itemCount: colorMap.length,
+                            itemBuilder: (BuildContext context, int index) {
+                              final colorEntry =
+                                  colorMap.entries.toList()[index];
+                              // final colorName = colorEntry.key;
+                              final colorValue = colorEntry.value;
+
+                              return GestureDetector(
+                                onTap: () {
+                                  setState(() {
+                                    selectedColor = index;
+                                    print(selectedColor);
+                                    final selectedColorName =
+                                        colorMap.keys.toList()[selectedColor];
+                                    print(selectedColorName);
+                                  });
+                                },
+                                child: Padding(
+                                  padding: EdgeInsets.only(right: 20),
+                                  child: CircleAvatar(
+                                    radius: 15,
+                                    backgroundColor: colorValue,
+                                    child: selectedColor == index
+                                        ? Container(
+                                            width: 10,
+                                            height: 10,
+                                            decoration: BoxDecoration(
+                                              shape: BoxShape.circle,
+                                              color: Colors.white,
+                                            ),
+                                          )
+                                        : null,
+                                  ),
+                                ),
+                              );
                             },
-                            child: CircleAvatar(
-                              radius: 15,
-                              backgroundColor: Colors.pink,
-                              child: selectedColor == 0
-                                  ? Container(
-                                      width: 10,
-                                      height: 10,
-                                      decoration: BoxDecoration(
-                                          shape: BoxShape.circle,
-                                          color: Colors.white),
-                                    )
-                                  : null,
-                            ),
-                          ),
-                          SizedBox(
-                            width: 20,
-                          ),
-                          GestureDetector(
-                            onTap: () {
-                              setState(() {
-                                selectedColor = 1;
-                              });
-                            },
-                            child: CircleAvatar(
-                              radius: 15,
-                              backgroundColor: Colors.green,
-                              child: selectedColor == 1
-                                  ? Container(
-                                      width: 10,
-                                      height: 10,
-                                      decoration: BoxDecoration(
-                                          shape: BoxShape.circle,
-                                          color: Colors.white),
-                                    )
-                                  : null,
-                            ),
-                          ),
-                          SizedBox(
-                            width: 20,
-                          ),
-                          GestureDetector(
-                            onTap: () {
-                              setState(() {
-                                selectedColor = 2;
-                              });
-                            },
-                            child: CircleAvatar(
-                              radius: 15,
-                              backgroundColor: Colors.blueGrey,
-                              child: selectedColor == 2
-                                  ? Container(
-                                      width: 10,
-                                      height: 10,
-                                      decoration: BoxDecoration(
-                                          shape: BoxShape.circle,
-                                          color: Colors.white),
-                                    )
-                                  : null,
-                            ),
-                          ),
-                          SizedBox(
-                            width: 20,
-                          ),
-                          GestureDetector(
-                            onTap: () {
-                              setState(() {
-                                selectedColor = 3;
-                              });
-                            },
-                            child: CircleAvatar(
-                              radius: 15,
-                              backgroundColor: Colors.red,
-                              child: selectedColor == 3
-                                  ? Container(
-                                      width: 10,
-                                      height: 10,
-                                      decoration: BoxDecoration(
-                                          shape: BoxShape.circle,
-                                          color: Colors.white),
-                                    )
-                                  : null,
-                            ),
-                          ),
-                          SizedBox(
-                            width: 20,
-                          ),
-                          GestureDetector(
-                            onTap: () {
-                              setState(() {
-                                selectedColor = 4;
-                              });
-                            },
-                            child: CircleAvatar(
-                              radius: 15,
-                              backgroundColor: Colors.black,
-                              child: selectedColor == 4
-                                  ? Container(
-                                      width: 10,
-                                      height: 10,
-                                      decoration: BoxDecoration(
-                                          shape: BoxShape.circle,
-                                          color: Colors.white),
-                                    )
-                                  : null,
-                            ),
-                          ),
-                        ],
-                      ),
+                          )),
                       SizedBox(
                         height: 20,
                       ),
@@ -480,11 +416,15 @@ class SingleProductView extends StatelessWidget {
                         height: 20,
                       ),
                       Row(
-                        children: [
-                          GestureDetector(
+                        children: List.generate(
+                          sizeList.length,
+                          (index) => GestureDetector(
                             onTap: () {
                               setState(() {
-                                selectedSize = 0;
+                                selectedSize = index;
+                                final selectedSizeValue =
+                                    sizeList[selectedSize];
+                                print(selectedSizeValue);
                               });
                             },
                             child: Container(
@@ -494,85 +434,17 @@ class SingleProductView extends StatelessWidget {
                               padding: EdgeInsets.all(5),
                               margin: EdgeInsets.symmetric(horizontal: 10),
                               decoration: BoxDecoration(
-                                  color: selectedSize == 0 ? green77 : null,
-                                  border: Border.all(color: black208)),
-                              child: Text('S', style: TextStyle(fontSize: 20)),
-                            ),
-                          ),
-                          GestureDetector(
-                            onTap: () {
-                              setState(() {
-                                selectedSize = 1;
-                              });
-                            },
-                            child: Container(
-                              alignment: Alignment.center,
-                              height: 50,
-                              width: 50,
-                              padding: EdgeInsets.all(5),
-                              margin: EdgeInsets.symmetric(horizontal: 10),
-                              decoration: BoxDecoration(
-                                  color: selectedSize == 1 ? green77 : null,
-                                  border: Border.all(color: black208)),
-                              child: Text('M', style: TextStyle(fontSize: 20)),
-                            ),
-                          ),
-                          GestureDetector(
-                            onTap: () {
-                              setState(() {
-                                selectedSize = 2;
-                              });
-                            },
-                            child: Container(
-                              alignment: Alignment.center,
-                              height: 50,
-                              width: 50,
-                              padding: EdgeInsets.all(5),
-                              margin: EdgeInsets.symmetric(horizontal: 10),
-                              decoration: BoxDecoration(
-                                  color: selectedSize == 2 ? green77 : null,
-                                  border: Border.all(color: black208)),
-                              child: Text('L', style: TextStyle(fontSize: 20)),
-                            ),
-                          ),
-                          GestureDetector(
-                            onTap: () {
-                              setState(() {
-                                selectedSize = 3;
-                              });
-                            },
-                            child: Container(
-                              alignment: Alignment.center,
-                              height: 50,
-                              width: 50,
-                              padding: EdgeInsets.all(5),
-                              margin: EdgeInsets.symmetric(horizontal: 10),
-                              decoration: BoxDecoration(
-                                  color: selectedSize == 3 ? green77 : null,
-                                  border: Border.all(color: black208)),
-                              child: Text('ML', style: TextStyle(fontSize: 20)),
-                            ),
-                          ),
-                          GestureDetector(
-                            onTap: () {
-                              setState(() {
-                                selectedSize = 4;
-                              });
-                            },
-                            child: Container(
-                              alignment: Alignment.center,
-                              height: 50,
-                              width: 50,
-                              padding: EdgeInsets.all(5),
-                              margin: EdgeInsets.symmetric(horizontal: 10),
-                              decoration: BoxDecoration(
-                                color: selectedSize == 4 ? green77 : null,
-                                border: Border.all(color: black208),
+                                color:
+                                    selectedSize == index ? Colors.green : null,
+                                border: Border.all(color: Colors.black),
                               ),
-                              child: Text('XL', style: TextStyle(fontSize: 20)),
+                              child: Text(
+                                sizeList[index],
+                                style: TextStyle(fontSize: 20),
+                              ),
                             ),
                           ),
-                        ],
+                        ),
                       ),
                       SizedBox(
                         height: 15,
@@ -635,7 +507,9 @@ class SingleProductView extends StatelessWidget {
                               fixedSize: MaterialStateProperty.all(Size(
                                   SizeUtility(context).width * 42 / 100, 60)),
                             ),
-                            onPressed: () {},
+                            onPressed: () {
+                              // context.read<CartBloc>().add(AddCartEvent(productId: productId, basePrice: passValue.discountPrice, size: size, color: color))
+                            },
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.end,

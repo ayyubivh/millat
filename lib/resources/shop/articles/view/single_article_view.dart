@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:millat/utils/globals.dart';
 
+import '../../../../utils/utils.dart';
+
 class SingleArticleView extends StatelessWidget {
   final passValue;
   final int index;
@@ -14,7 +16,7 @@ class SingleArticleView extends StatelessWidget {
         backgroundColor: Colors.transparent,
         elevation: 0,
         centerTitle: false,
-        title: Text('Single Aricles',
+        title: Text('Single Articles',
             style: TextStyle(color: Colors.black, fontWeight: FontWeight.w700)),
         actions: [
           Padding(
@@ -47,6 +49,7 @@ class SingleArticleView extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               ClipRRect(
+                borderRadius: BorderRadius.circular(20),
                 child: Image.network(
                   passValue[index].image,
                   height: 200,
@@ -58,7 +61,7 @@ class SingleArticleView extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    '${passValue[index].brand} • ${passValue[index].date}',
+                    '${passValue[index].brand} • ${Utilities.formatDate(passValue[index].date)}',
                     style: TextStyle(
                         color: green77,
                         fontSize: 16,

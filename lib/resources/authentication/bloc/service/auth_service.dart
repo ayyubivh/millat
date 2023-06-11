@@ -36,7 +36,6 @@ class AuthService extends HttpServices {
             endPoint: signUpAPI,
             body: {"name": name, "email": email, "password": password})
         .then((value) {
-      print(value.body);
       if (value.statusCode == 200) {
         return {'status': true};
       } else {
@@ -58,9 +57,13 @@ class AuthService extends HttpServices {
       if (value.statusCode == 200) {
         return {
           'status': true,
+          'result': jsonDecode(value.body)['phone_number']
         };
       } else {
-        return {'status': false, 'message': jsonDecode(value.body)['message']};
+        return {
+          'status': false,
+          'message': jsonDecode(value.body)['message'],
+        };
       }
     }).catchError((error) {
       return {
@@ -74,8 +77,11 @@ class AuthService extends HttpServices {
         endPoint: verifyOTPAPI,
         body: {"phone_number": phoneNumber, "otp": OTP}).then((value) {
       if (value.statusCode == 200) {
+        final token = jsonDecode(value.body)['result']['token'];
+
         return {
           'status': true,
+          'result': token,
         };
       } else {
         return {'status': false, 'message': jsonDecode(value.body)['message']};

@@ -1,8 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:millat/components/common_widgets/build_category_full_view.dart';
+import 'package:millat/resources/shop/bloc/logic/category_bloc/category_bloc.dart';
 import 'package:millat/utils/globals.dart';
+import 'package:millat/utils/size_utility.dart';
 
-class CategoriesFilter extends StatelessWidget {
+class CategoriesFilter extends StatefulWidget {
   const CategoriesFilter({Key? key}) : super(key: key);
+
+  @override
+  State<CategoriesFilter> createState() => _CategoriesFilterState();
+}
+
+class _CategoriesFilterState extends State<CategoriesFilter> {
+  @override
+  void initState() {
+    BlocProvider.of<CategoryBloc>(context).add(CategoryEvent.fetchCategories());
+    BlocProvider.of<CategoryBloc>(context)
+        .add(CategoryEvent.fetchSubcategories());
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -22,93 +39,81 @@ class CategoriesFilter extends StatelessWidget {
           title: Image.asset('assets/logos/millat_white_logo.png', width: 100),
         ),
         body: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
               color: black247,
               child: SingleChildScrollView(
                 child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    buildCategoryItem(
-                        iconImg: 'assets/images/man.png', categoryTitle: 'Men'),
-                    buildCategoryItem(
-                        iconImg: 'assets/images/woman.png',
-                        categoryTitle: 'Women'),
-                    buildCategoryItem(
-                        iconImg: 'assets/images/books.png',
-                        categoryTitle: 'Books'),
-                    buildCategoryItem(
-                        iconImg: 'assets/images/clothes.png',
-                        categoryTitle: 'Fashion'),
-                    buildCategoryItem(
-                        iconImg: 'assets/images/kids.png',
-                        categoryTitle: 'Kids'),
-                    buildCategoryItem(
-                        iconImg: 'assets/images/decor.png',
-                        categoryTitle: 'Decor'),
-                    buildCategoryItem(
-                        iconImg: 'assets/images/health_care.png',
-                        categoryTitle: 'Health Care'),
-                    buildCategoryItem(
-                        iconImg: 'assets/images/man.png', categoryTitle: 'Men'),
-                    buildCategoryItem(
-                        iconImg: 'assets/images/man.png', categoryTitle: 'Men'),
-                    buildCategoryItem(
-                        iconImg: 'assets/images/man.png', categoryTitle: 'Men')
+                    BlocBuilder<CategoryBloc, CategoryState>(
+                      builder: (context, state) {
+                        return state.categoryLoading ||
+                                state.category?.result?.category == null
+                            ? Padding(
+                                padding: EdgeInsets.only(
+                                    top: SizeUtility(context).height / 2),
+                                child:
+                                    CircularProgressIndicator(color: green77),
+                              )
+                            : SizedBox(
+                                width: 90,
+                                child: ListView.builder(
+                                  physics: NeverScrollableScrollPhysics(),
+                                  itemCount:
+                                      state.category?.result?.category!.length,
+                                  shrinkWrap: true,
+                                  itemBuilder: (context, index) {
+                                    return CategoryFullView(
+                                        iconImage: state.category!.result!
+                                            .category![index].image!,
+                                        categoryTitle: state.category!.result!
+                                            .category![index].title
+                                            .toString());
+                                  },
+                                ),
+                              );
+                      },
+                    )
                   ],
                 ),
               ),
             ),
-            Expanded(
-                child: GridView(
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 3,
-                  crossAxisSpacing: 30,
-                  mainAxisSpacing: 0,
-                  childAspectRatio: 0.7),
-              padding: EdgeInsets.zero,
-              children: [
-                buildCategoryItem(
-                    iconImg: 'assets/images/jacket.png', categoryTitle: 'Men'),
-                buildCategoryItem(
-                    iconImg: 'assets/images/trousers.png',
-                    categoryTitle: 'Men'),
-                buildCategoryItem(
-                    iconImg: 'assets/images/sweater.png', categoryTitle: 'Men'),
-                buildCategoryItem(
-                    iconImg: 'assets/images/polo-shirt.png',
-                    categoryTitle: 'Men'),
-                buildCategoryItem(
-                    iconImg: 'assets/images/sock.png', categoryTitle: 'Men'),
-                buildCategoryItem(
-                    iconImg: 'assets/images/shirt.png', categoryTitle: 'Men'),
-                buildCategoryItem(
-                    iconImg: 'assets/images/sport.png', categoryTitle: 'Men'),
-                buildCategoryItem(
-                    iconImg: 'assets/images/sneakers.png',
-                    categoryTitle: 'Men'),
-              ],
-            ))
+            BlocBuilder<CategoryBloc, CategoryState>(
+              builder: (context, state) {
+                return state.subCategoryLoading ||
+                        state.subCategory?.result?.subCategory == null
+                    ? Padding(
+                        padding: const EdgeInsets.only(left: 130),
+                        child: Center(
+                          child: CircularProgressIndicator(
+                            color: green77,
+                          ),
+                        ),
+                      )
+                    : Expanded(
+                        child: GridView.builder(
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 3,
+                            crossAxisSpacing: 30,
+                            mainAxisSpacing: 0,
+                            childAspectRatio: 0.7),
+                        padding: EdgeInsets.zero,
+                        itemCount:
+                            state.subCategory?.result?.subCategory?.length,
+                        itemBuilder: (context, index) {
+                          return CategoryFullView(
+                            iconImage: state.subCategory!.result!
+                                .subCategory![index].image!,
+                            categoryTitle: state.subCategory!.result!
+                                .subCategory![index].title!,
+                          );
+                        },
+                      ));
+              },
+            )
           ],
         ));
-  }
-
-  Widget buildCategoryItem(
-      {required String iconImg, required String categoryTitle}) {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 20),
-      margin: EdgeInsets.symmetric(vertical: 20),
-      child: Column(
-        children: [
-          Image.asset(iconImg, width: 50, height: 50),
-          SizedBox(
-            height: 10,
-          ),
-          Text(
-            categoryTitle,
-            style: TextStyle(fontWeight: FontWeight.w600),
-          )
-        ],
-      ),
-    );
   }
 }

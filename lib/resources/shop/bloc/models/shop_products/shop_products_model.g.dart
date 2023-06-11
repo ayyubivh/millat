@@ -62,7 +62,9 @@ Map<String, dynamic> _$$_ShopProductCategoryToJson(
 _$_Products _$$_ProductsFromJson(Map<String, dynamic> json) => _$_Products(
       id: json['_id'] as String?,
       title: json['title'] as String?,
-      brand: json['brand'] as String?,
+      brand: json['brand'] == null
+          ? null
+          : Brand.fromJson(json['brand'] as Map<String, dynamic>),
       description: json['description'] as String?,
       otherInfo: json['otherInfo'] as String?,
       category: json['category'] == null
@@ -127,6 +129,14 @@ _$_SubCategory _$$_SubCategoryFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$$_SubCategoryToJson(_$_SubCategory instance) =>
     <String, dynamic>{
       'title': instance.title,
+    };
+
+_$_Brand _$$_BrandFromJson(Map<String, dynamic> json) => _$_Brand(
+      name: json['name'] as String?,
+    );
+
+Map<String, dynamic> _$$_BrandToJson(_$_Brand instance) => <String, dynamic>{
+      'name': instance.name,
     };
 
 _$_Colors _$$_ColorsFromJson(Map<String, dynamic> json) => _$_Colors(

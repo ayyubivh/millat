@@ -1,33 +1,29 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 import 'package:millat/components/buttons/main_button.dart';
-import 'package:millat/components/buttons/main_text_button.dart';
-import 'package:millat/components/textFields/custom_text_field.dart';
-import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/authentication/bloc/logic/auth_bloc.dart';
-import 'package:millat/resources/authentication/view/sign_up_view.dart';
-import 'package:millat/resources/home/view/home_view.dart';
-import 'package:millat/resources/tabs/view/tabs_view.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/globals.dart';
 import 'package:pinput/pinput.dart';
 
+import '../../tabs/view/tabs_view.dart';
+
 class VerifyOTPView extends StatefulWidget {
-  const VerifyOTPView({Key? key}) : super(key: key);
+  VerifyOTPView({
+    Key? key,
+  }) : super(key: key);
 
   @override
   State<VerifyOTPView> createState() => _VerifyOTPViewState();
 }
 
 class _VerifyOTPViewState extends State<VerifyOTPView> {
-  final controller = TextEditingController();
+  final otpController = TextEditingController();
   final focusNode = FocusNode();
 
   @override
   void dispose() {
-    controller.dispose();
+    otpController.dispose();
     focusNode.dispose();
     super.dispose();
   }
@@ -99,7 +95,7 @@ class _VerifyOTPViewState extends State<VerifyOTPView> {
                     const SizedBox(height: 30),
                     Pinput(
                       length: 4,
-                      controller: controller,
+                      controller: otpController,
                       focusNode: focusNode,
                       defaultPinTheme: defaultPinTheme,
                       separator: const SizedBox(width: 16),
@@ -145,12 +141,24 @@ class _VerifyOTPViewState extends State<VerifyOTPView> {
                     const SizedBox(
                       height: 20,
                     ),
-                    MainButton(
-                        title: 'Verify OTP',
-                        onPressed: () {
-                          BlocProvider.of<AuthBloc>(context)
-                              .add(SendOTP(controller.text));
-                        }),
+                    BlocBuilder<AuthBloc, AuthState>(
+                      builder: (context, state) {
+                        if (state is AuthPhoneNumber) {
+                          print('auth phone number ===== ${state.phoneNumber}');
+                          return MainButton(
+                            title: 'Verify OTP',
+                            onPressed: () {
+                              BlocProvider.of<AuthBloc>(context).add(
+                                VerifyOTP(
+                                    otpController.text, state.phoneNumber),
+                              );
+                            },
+                          );
+                        } else {
+                          return Container(); // Return an empty container or a default widget when the state is not AuthPhoneNumber
+                        }
+                      },
+                    ),
                   ],
                 ),
               ),
@@ -167,6 +175,6 @@ class _VerifyOTPViewState extends State<VerifyOTPView> {
   }
 
   clearDate() {
-    controller.clear();
+    otpController.clear();
   }
 }

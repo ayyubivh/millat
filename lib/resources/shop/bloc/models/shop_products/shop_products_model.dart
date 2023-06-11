@@ -30,7 +30,7 @@ class Result with _$Result {
 @freezed
 class ShopProductCategory with _$ShopProductCategory {
   const factory ShopProductCategory({
-    @JsonKey(name: "_id") required String? id,
+    @JsonKey(name: '_id') required String? id,
     required String? title,
     required String? slug,
     required List<Products>? products,
@@ -45,9 +45,9 @@ class ShopProductCategory with _$ShopProductCategory {
 @freezed
 class Products with _$Products {
   const factory Products({
-    @JsonKey(name: "_id") required String? id,
+    @JsonKey(name: '_id') required String? id,
     required String? title,
-    required String? brand,
+    required Brand? brand,
     required String? description,
     required String? otherInfo,
     required Category? category,
@@ -85,6 +85,15 @@ class SubCategory with _$SubCategory {
 
   factory SubCategory.fromJson(Map<String, dynamic> json) =>
       _$SubCategoryFromJson(json);
+}
+
+@freezed
+class Brand with _$Brand {
+  const factory Brand({
+    required String? name,
+  }) = _Brand;
+
+  factory Brand.fromJson(Map<String, dynamic> json) => _$BrandFromJson(json);
 }
 
 @freezed

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:millat/components/common_widgets/filters_row_widgets.dart';
 import 'package:millat/resources/shop/articles/view/single_article_view.dart';
 import 'package:millat/utils/globals.dart';
+import 'package:millat/utils/utils.dart';
 
 import '../../../../utils/size_utility.dart';
 
@@ -16,7 +16,7 @@ class ArticlesView extends StatelessWidget {
         backgroundColor: Colors.transparent,
         elevation: 0,
         centerTitle: false,
-        title: Text('All Aricles',
+        title: Text('All Articles',
             style: TextStyle(color: Colors.black, fontWeight: FontWeight.w700)),
         actions: [
           Padding(
@@ -151,7 +151,7 @@ class ArticlesView extends StatelessWidget {
                         child: buildArticle(
                             image: passValue[index].image,
                             brand: passValue[index].brand,
-                            date: passValue[index].date,
+                            date: Utilities.formatDate(passValue[index].date),
                             title: passValue[index].title,
                             content: passValue[index].content,
                             context: context));

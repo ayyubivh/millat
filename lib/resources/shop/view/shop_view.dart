@@ -3,15 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/components/common_widgets/build_categories_widget.dart';
 import 'package:millat/resources/shop/articles/view/articles_view.dart';
-import 'package:millat/resources/shop/bloc/logic/shop_products_bloc.dart';
-import 'package:millat/resources/shop/bloc/service/shop_services.dart';
+import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
 import 'package:millat/resources/shop/view/cart/cart.dart';
 import 'package:millat/resources/shop/view/categories/categories_filter_view.dart';
 import 'package:millat/resources/shop/view/products/products_view.dart';
 import 'package:millat/resources/shop/view/products/single_product_view.dart';
 import 'package:millat/utils/globals.dart';
 import 'package:millat/utils/size_utility.dart';
-import 'package:intl/intl.dart';
+import 'package:millat/utils/utils.dart';
 
 class ShopView extends StatefulWidget {
   const ShopView({Key? key}) : super(key: key);
@@ -150,8 +149,9 @@ class _ShopViewState extends State<ShopView> {
                           BuildCategoryWidget(
                               image: 'assets/images/books.png', text: "Books"),
                           BuildCategoryWidget(
-                              image: 'assets/images/clothes.png',
-                              text: "Fashion"),
+                            image: 'assets/images/clothes.png',
+                            text: "Fashion",
+                          ),
                         ];
                         return widgets[index];
                       },
@@ -514,7 +514,6 @@ class _ShopViewState extends State<ShopView> {
                       ),
                       GestureDetector(
                         onTap: () {
-                          print('object');
                           Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) => ProductsView(
                               appBarTitle: "Recently Added",
@@ -646,7 +645,7 @@ class _ShopViewState extends State<ShopView> {
                                       height: 20,
                                     ),
                                     Text(
-                                      '${state.articles!.result!.articles![0].brand} • ${formateDate((state.articles!.result!.articles![0].date!))}',
+                                      '${state.articles!.result!.articles![0].brand} • ${Utilities.formatDate((state.articles!.result!.articles![0].date!))}',
                                       style: TextStyle(
                                           color: mainColor,
                                           fontSize: 16,
@@ -751,12 +750,6 @@ class _ShopViewState extends State<ShopView> {
         ),
       ),
     );
-  }
-
-  formateDate(String date) {
-    DateTime dateTime = DateTime.parse(date);
-    DateFormat dateFormat = DateFormat('dd MMMM yyyy');
-    return dateFormat.format(dateTime);
   }
 }
 

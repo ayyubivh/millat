@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../../resources/shop/view/categories/categories_view.dart';
 
 class BuildCategoryWidget extends StatelessWidget {

@@ -15,7 +15,7 @@ class SendOTPView extends StatefulWidget {
 }
 
 class _SendOTPViewState extends State<SendOTPView> {
-  final TextEditingController _phoneNumberController = TextEditingController();
+  final TextEditingController phoneNumberController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,7 +26,7 @@ class _SendOTPViewState extends State<SendOTPView> {
         } else if (state is AuthLoaded) {
           clearDate();
           Navigator.of(context).pushReplacement(MaterialPageRoute(
-            builder: (context) => const VerifyOTPView(),
+            builder: (context) => VerifyOTPView(),
           ));
         }
       },
@@ -84,7 +84,7 @@ class _SendOTPViewState extends State<SendOTPView> {
                     onSaved: (PhoneNumber number) {
                       print('On Saved: $number');
                     },
-                    textFieldController: _phoneNumberController,
+                    textFieldController: phoneNumberController,
                   ),
                   const SizedBox(
                     height: 100,
@@ -97,7 +97,7 @@ class _SendOTPViewState extends State<SendOTPView> {
                       title: 'Send OTP',
                       onPressed: () {
                         BlocProvider.of<AuthBloc>(context)
-                            .add(SendOTP(_phoneNumberController.text));
+                            .add(SendOTP(phoneNumberController.text));
                       }),
                 ],
               ),
@@ -114,6 +114,6 @@ class _SendOTPViewState extends State<SendOTPView> {
   }
 
   clearDate() {
-    _phoneNumberController.clear();
+    phoneNumberController.clear();
   }
 }

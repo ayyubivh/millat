@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:millat/resources/shop/view/products/single_product_view.dart';
 import 'package:millat/utils/size_utility.dart';
 import '../../../../components/common_widgets/filters_row_widgets.dart';
 import '../shop_view.dart';
@@ -65,23 +66,45 @@ class ProductsView extends StatelessWidget {
                     mainAxisExtent: 350),
                 itemBuilder: (context, index) {
                   if (appBarTitle == "Recently Added") {
-                    return buildShopItems(
-                        image: passValue.products![index].colors![0].images![0],
-                        title: passValue.products![index].title,
-                        actualPrice:
-                            passValue.products![index].actualPrice!.toInt(),
-                        discount: passValue.products![index].discount!.toInt(),
-                        discountPrice:
-                            passValue.products![index].discountPrice!.toInt());
+                    return GestureDetector(
+                        onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => SingleProductView(
+                              passValue: passValue.products![index],
+                            ),
+                          ));
+                        },
+                        child: buildShopItems(
+                            image: passValue
+                                .products![index].colors![0].images![0],
+                            title: passValue.products![index].title,
+                            actualPrice:
+                                passValue.products![index].actualPrice!.toInt(),
+                            discount:
+                                passValue.products![index].discount!.toInt(),
+                            discountPrice: passValue
+                                .products![index].discountPrice!
+                                .toInt()));
                   }
-                  return buildShopItems(
-                      image: passValue.products![index]!.colors![0].images![0],
-                      title: passValue.products![index].title,
-                      actualPrice:
-                          passValue.products![index].actualPrice!.toInt(),
-                      discount: passValue.products![index].discount!.toInt(),
-                      discountPrice:
-                          passValue.products![index].discountPrice!.toInt());
+                  return GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => SingleProductView(
+                            passValue: passValue.products![index],
+                          ),
+                        ));
+                      },
+                      child: buildShopItems(
+                          image:
+                              passValue.products![index]!.colors![0].images![0],
+                          title: passValue.products![index].title,
+                          actualPrice:
+                              passValue.products![index].actualPrice!.toInt(),
+                          discount:
+                              passValue.products![index].discount!.toInt(),
+                          discountPrice: passValue
+                              .products![index].discountPrice!
+                              .toInt()));
                 },
               ),
             ),

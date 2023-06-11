@@ -41,3 +41,4 @@ const Color lightGreenColor = Color.fromRGBO(0, 200, 145, 1);
 const Color borderColor = Color.fromRGBO(198, 198, 198, 1);
 const Color blue126 = Color.fromRGBO(126, 159, 172, 1);
 const Color orange255 = Color.fromRGBO(255, 162, 53, 1);
+const Color whiteClr = Colors.white;

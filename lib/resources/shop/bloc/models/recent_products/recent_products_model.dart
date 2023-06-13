@@ -31,19 +31,19 @@ class Results with _$Results {
 class RecentAddedProducts with _$RecentAddedProducts {
   const factory RecentAddedProducts({
     @JsonKey(name: '_id') required String? id,
-    required String? title,
-    required String? brand,
+    @JsonKey(name: 'title') required String? title,
+    required Brand? brand,
     required String? description,
-    @JsonKey(name: 'otherNotes') required String? otherInfo,
+    required String? otherInfo,
     required Category? category,
     required SubCategory? subcategory,
     required int? actualPrice,
     required int? discountPrice,
     required int? discount,
-    required List<String>? colors,
-    required List<String>? images,
+    required List<Colors>? colors,
     required List<Size>? size,
     required List<Meta>? meta,
+    required List<String>? keywords,
     required String? createdAt,
     required String? updatedAt,
   }) = _RecentAddedProducts;
@@ -53,14 +53,18 @@ class RecentAddedProducts with _$RecentAddedProducts {
 }
 
 @freezed
+class Brand with _$Brand {
+  const factory Brand({
+    @JsonKey(name: "_id") required String id,
+    required String? name,
+  }) = _Brand;
+
+  factory Brand.fromJson(Map<String, dynamic> json) => _$BrandFromJson(json);
+}
+
+@freezed
 class Category with _$Category {
-  const factory Category({
-    @JsonKey(name: '_id') required String? id,
-    required String? title,
-    required String? image,
-    required String? createdAt,
-    required String? updatedAt,
-  }) = _Category;
+  const factory Category() = _Category;
 
   factory Category.fromJson(Map<String, dynamic> json) =>
       _$CategoryFromJson(json);
@@ -68,17 +72,20 @@ class Category with _$Category {
 
 @freezed
 class SubCategory with _$SubCategory {
-  const factory SubCategory({
-    @JsonKey(name: '_id') required String? id,
-    @JsonKey(name: 'categoryId') required String? categoryId,
-    required String? title,
-    required String? image,
-    required String? createdAt,
-    required String? updatedAt,
-  }) = _SubCategory;
+  const factory SubCategory() = _SubCategory;
 
   factory SubCategory.fromJson(Map<String, dynamic> json) =>
       _$SubCategoryFromJson(json);
+}
+
+@freezed
+class Colors with _$Colors {
+  const factory Colors({
+    required String? text,
+    required List<String>? images,
+  }) = _Colors;
+
+  factory Colors.fromJson(Map<String, dynamic> json) => _$ColorsFromJson(json);
 }
 
 @freezed
@@ -86,7 +93,6 @@ class Size with _$Size {
   const factory Size({
     required String? value,
     int? price,
-    @JsonKey(name: '_id') required String? id,
   }) = _Size;
 
   factory Size.fromJson(Map<String, dynamic> json) => _$SizeFromJson(json);
@@ -97,7 +103,6 @@ class Meta with _$Meta {
   const factory Meta({
     required String? key,
     required String? value,
-    @JsonKey(name: '_id') required String? id,
   }) = _Meta;
 
   factory Meta.fromJson(Map<String, dynamic> json) => _$MetaFromJson(json);

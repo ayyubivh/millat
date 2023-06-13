@@ -4,13 +4,16 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/components/common_widgets/build_categories_widget.dart';
 import 'package:millat/resources/shop/articles/view/articles_view.dart';
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
-import 'package:millat/resources/shop/view/cart/cart.dart';
+import 'package:millat/resources/shop/bloc/service/shop_services.dart';
 import 'package:millat/resources/shop/view/categories/categories_filter_view.dart';
 import 'package:millat/resources/shop/view/products/products_view.dart';
 import 'package:millat/resources/shop/view/products/single_product_view.dart';
 import 'package:millat/utils/globals.dart';
 import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/utils.dart';
+
+import '../../../components/common_widgets/cart_icon_widget.dart';
+import '../bloc/logic/cart_bloc/cart_bloc.dart';
 
 class ShopView extends StatefulWidget {
   const ShopView({Key? key}) : super(key: key);
@@ -30,12 +33,14 @@ class _ShopViewState extends State<ShopView> {
 
     BlocProvider.of<ShopProductsBloc>(context)
         .add(ShopProductsEvent.fetchRecentProductProducts());
-
+    BlocProvider.of<ShopProductsBloc>(context)
+        .add(ShopProductsEvent.fetchShopByBrand());
     BlocProvider.of<ShopProductsBloc>(context)
         .add(ShopProductsEvent.fetchHomeBanners());
 
     BlocProvider.of<ShopProductsBloc>(context)
         .add(ShopProductsEvent.fetchArticles());
+    BlocProvider.of<CartBloc>(context).add(FetchCartEvent(context));
 
     super.initState();
   }
@@ -73,20 +78,17 @@ class _ShopViewState extends State<ShopView> {
                             width: 5,
                           ),
                           Text('Halal & Organic',
-                              style:
-                                  TextStyle(color: Colors.white, height: 1.8)),
+                              style: TextStyle(color: whiteClr, height: 1.8)),
                         ],
                       ),
-                      IconButton(
-                          onPressed: () {
-                            Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => CartView(),
-                            ));
-                          },
-                          icon: ImageIcon(
-                            AssetImage('assets/icons/cart.png'),
-                            color: Colors.white,
-                          ))
+                      BlocBuilder<CartBloc, CartState>(
+                        builder: (context, state) {
+                          return CartIconWidget(
+                            color: whiteClr,
+                            cartLength: state.cartLength ?? 0,
+                          );
+                        },
+                      )
                     ],
                   ),
                   SizedBox(
@@ -170,11 +172,7 @@ class _ShopViewState extends State<ShopView> {
                   BlocBuilder<ShopProductsBloc, ShopProductsState>(
                     builder: (context, state) {
                       if (state.homeBanner == null) {
-                        return Center(
-                          child: CircularProgressIndicator(
-                            color: green77,
-                          ),
-                        );
+                        return SizedBox();
                       }
 
                       final banners = state.homeBanner?.result!.banners;
@@ -275,7 +273,7 @@ class _ShopViewState extends State<ShopView> {
                     builder: (context, state) {
                       return SizedBox(
                         height: 310,
-                        child: state.flashSaleLoading ||
+                        child: state.isLoading ||
                                 state.flashSaleproducts == null
                             ? Center(
                                 child: CircularProgressIndicator(
@@ -351,41 +349,36 @@ class _ShopViewState extends State<ShopView> {
                   ),
                   BlocBuilder<ShopProductsBloc, ShopProductsState>(
                     builder: (context, state) {
+                      if (state.popularProducts?.result?.shopProductCategory
+                              ?.products ==
+                          null) {
+                        return SizedBox();
+                      }
                       return SizedBox(
                         height: 310,
-                        child: state.popularProductLoading ||
-                                state.popularProducts == null
-                            ? Center(
-                                child: CircularProgressIndicator(
-                                  color: green77,
-                                ),
-                              )
-                            : ListView.builder(
-                                itemCount: state.popularProducts?.result
-                                    ?.shopProductCategory?.products!.length,
-                                scrollDirection: Axis.horizontal,
-                                itemBuilder: (context, index) {
-                                  final data = state.popularProducts?.result
-                                      ?.shopProductCategory!.products![index];
-                                  return GestureDetector(
-                                      onTap: () {
-                                        Navigator.of(context)
-                                            .push(MaterialPageRoute(
-                                          builder: (context) =>
-                                              SingleProductView(
-                                                  passValue: data),
-                                        ));
-                                      },
-                                      child: buildShopItems(
-                                          image: data!.colors![0].images![0],
-                                          title: data.title,
-                                          actualPrice:
-                                              data.actualPrice!.toInt(),
-                                          discount: data.discount!.toInt(),
-                                          discountPrice:
-                                              data.discountPrice!.toInt()));
+                        child: ListView.builder(
+                          itemCount: state.popularProducts?.result
+                              ?.shopProductCategory?.products!.length,
+                          scrollDirection: Axis.horizontal,
+                          itemBuilder: (context, index) {
+                            final data = state.popularProducts?.result
+                                ?.shopProductCategory!.products![index];
+                            return GestureDetector(
+                                onTap: () {
+                                  Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (context) =>
+                                        SingleProductView(passValue: data),
+                                  ));
                                 },
-                              ),
+                                child: buildShopItems(
+                                    image: data!.colors![0].images![0],
+                                    title: data.title,
+                                    actualPrice: data.actualPrice!.toInt(),
+                                    discount: data.discount!.toInt(),
+                                    discountPrice:
+                                        data.discountPrice!.toInt()));
+                          },
+                        ),
                       );
                     },
                   ),
@@ -414,91 +407,26 @@ class _ShopViewState extends State<ShopView> {
                   SizedBox(
                     height: 20,
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Column(
-                        children: [
-                          Container(
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              //border: Border.all(color: green77),
-                            ),
-                            child: Image.asset('assets/dummy/kazima.png',
-                                width: 70, height: 70, fit: BoxFit.cover),
-                          ),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Text(
-                            'Kazima',
-                            style: TextStyle(
-                                color: black26, fontWeight: FontWeight.w600),
-                          ),
-                        ],
-                      ),
-                      Column(
-                        children: [
-                          Container(
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              //border: Border.all(color: green77),
-                            ),
-                            child: Image.asset('assets/dummy/huda.png',
-                                width: 70, height: 70, fit: BoxFit.cover),
-                          ),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Text(
-                            'Noor Botigque',
-                            style: TextStyle(
-                                color: black26, fontWeight: FontWeight.w600),
-                          ),
-                        ],
-                      ),
-                      Column(
-                        children: [
-                          Container(
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              //border: Border.all(color: green77),
-                            ),
-                            child: Image.asset('assets/dummy/huda.png',
-                                width: 70, height: 70, fit: BoxFit.cover),
-                          ),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Text(
-                            'Huda Beauty',
-                            style: TextStyle(
-                                color: black26, fontWeight: FontWeight.w600),
-                          ),
-                        ],
-                      ),
-                      Column(
-                        children: [
-                          Container(
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              //border: Border.all(color: green77),
-                            ),
-                            child: Image.asset('assets/dummy/farsali.png',
-                                width: 70, height: 70, fit: BoxFit.cover),
-                          ),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Text(
-                            'Farsali',
-                            style: TextStyle(
-                                color: black26, fontWeight: FontWeight.w600),
-                          ),
-                        ],
-                      ),
-                    ],
+                  BlocBuilder<ShopProductsBloc, ShopProductsState>(
+                    builder: (context, state) {
+                      return state.shopBrandModel?.users == null
+                          ? SizedBox()
+                          : SizedBox(
+                              height: 100,
+                              child: ListView.builder(
+                                scrollDirection: Axis.horizontal,
+                                itemCount: state.shopBrandModel?.users!.length,
+                                itemBuilder: (BuildContext context, int index) {
+                                  final data =
+                                      state.shopBrandModel?.users![index];
+                                  return buildShopbyBrand(
+                                      data?.image, data?.name);
+                                },
+                              ),
+                            );
+                    },
                   ),
+
                   SizedBox(
                     height: 50,
                   ),
@@ -541,42 +469,35 @@ class _ShopViewState extends State<ShopView> {
 
                   BlocBuilder<ShopProductsBloc, ShopProductsState>(
                     builder: (context, state) {
+                      if (state.recentProducts?.result?.products == null) {
+                        return SizedBox();
+                      }
                       return SizedBox(
                         height: 310,
-                        child: state.recentProductLoading ||
-                                state.recentProducts == null
-                            ? Center(
-                                child: CircularProgressIndicator(
-                                  color: green77,
-                                ),
-                              )
-                            : ListView.builder(
-                                itemCount: state
-                                    .recentProducts?.result?.products!.length,
-                                scrollDirection: Axis.horizontal,
-                                itemBuilder: (context, index) {
-                                  final data = state
-                                      .recentProducts?.result?.products![index];
+                        child: ListView.builder(
+                          itemCount:
+                              state.recentProducts?.result?.products!.length,
+                          scrollDirection: Axis.horizontal,
+                          itemBuilder: (context, index) {
+                            final data =
+                                state.recentProducts?.result?.products![index];
 
-                                  return GestureDetector(
-                                      onTap: () {
-                                        Navigator.of(context)
-                                            .push(MaterialPageRoute(
-                                          builder: (context) =>
-                                              SingleProductView(
-                                                  passValue: data),
-                                        ));
-                                      },
-                                      child: buildShopItems(
-                                          image: data!.colors![0].images![0],
-                                          title: data.title,
-                                          actualPrice:
-                                              data.actualPrice!.toInt(),
-                                          discount: data.discount!.toInt(),
-                                          discountPrice:
-                                              data.discountPrice!.toInt()));
+                            return GestureDetector(
+                                onTap: () {
+                                  Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (context) =>
+                                        SingleProductView(passValue: data),
+                                  ));
                                 },
-                              ),
+                                child: buildShopItems(
+                                    image: data!.colors![0].images![0],
+                                    title: data.title,
+                                    actualPrice: data.actualPrice!.toInt(),
+                                    discount: data.discount!.toInt(),
+                                    discountPrice:
+                                        data.discountPrice!.toInt()));
+                          },
+                        ),
                       );
                     },
                   ),
@@ -585,114 +506,106 @@ class _ShopViewState extends State<ShopView> {
                   ),
                   BlocBuilder<ShopProductsBloc, ShopProductsState>(
                     builder: (context, state) {
-                      return state.articleLoading ||
-                              state.articles?.result?.articles == null
-                          ? Center(
-                              child: CircularProgressIndicator(
-                                color: green77,
+                      if (state.articles?.result?.articles == null) {
+                        return SizedBox();
+                      }
+                      return Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                'Articles',
+                                style: TextStyle(
+                                    color: black26,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold),
                               ),
-                            )
-                          : Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text(
-                                      'Articles',
-                                      style: TextStyle(
-                                          color: black26,
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                    GestureDetector(
-                                      onTap: () {
-                                        Navigator.of(context)
-                                            .push(MaterialPageRoute(
-                                          builder: (context) => ArticlesView(
-                                              passValue: state
-                                                  .articles?.result?.articles),
-                                        ));
-                                      },
-                                      child: Text(
-                                        'Read More',
-                                        style: TextStyle(
-                                            color: green77,
-                                            fontSize: 15,
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                    ),
-                                  ],
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (context) => ArticlesView(
+                                        passValue:
+                                            state.articles?.result?.articles),
+                                  ));
+                                },
+                                child: Text(
+                                  'Read More',
+                                  style: TextStyle(
+                                      color: green77,
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.bold),
                                 ),
-                                SizedBox(
-                                  height: 20,
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(20),
+                            child: Image.network(
+                              state.articles!.result!.articles![0].image
+                                  .toString(),
+                              height: 200,
+                              width: double.infinity,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              SizedBox(
+                                height: 20,
+                              ),
+                              Text(
+                                '${state.articles!.result!.articles![0].brand} • ${Utilities.formatDate((state.articles!.result!.articles![0].date!))}',
+                                style: TextStyle(
+                                    color: mainColor,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w600),
+                              ),
+                              SizedBox(
+                                height: 20,
+                              ),
+                              Text(
+                                state.articles!.result!.articles![0].title
+                                    .toString(),
+                                style: TextStyle(
+                                    color: black16,
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.w600),
+                              ),
+                              SizedBox(
+                                height: 20,
+                              ),
+                              Text(
+                                state.articles!.result!.articles![0].content
+                                    .toString(),
+                                style: TextStyle(
+                                  color: black102,
+                                  fontSize: 15,
                                 ),
-                                ClipRRect(
-                                  borderRadius: BorderRadius.circular(20),
-                                  child: Image.network(
-                                    state.articles!.result!.articles![0].image
-                                        .toString(),
-                                    height: 200,
-                                    width: double.infinity,
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    SizedBox(
-                                      height: 20,
-                                    ),
-                                    Text(
-                                      '${state.articles!.result!.articles![0].brand} • ${Utilities.formatDate((state.articles!.result!.articles![0].date!))}',
-                                      style: TextStyle(
-                                          color: mainColor,
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.w600),
-                                    ),
-                                    SizedBox(
-                                      height: 20,
-                                    ),
-                                    Text(
-                                      state.articles!.result!.articles![0].title
-                                          .toString(),
-                                      style: TextStyle(
-                                          color: black16,
-                                          fontSize: 15,
-                                          fontWeight: FontWeight.w600),
-                                    ),
-                                    SizedBox(
-                                      height: 20,
-                                    ),
-                                    Text(
-                                      state.articles!.result!.articles![0]
-                                          .content
-                                          .toString(),
-                                      style: TextStyle(
-                                        color: black102,
-                                        fontSize: 15,
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 20,
-                                    ),
-                                    Container(
-                                      padding: EdgeInsets.symmetric(
-                                          horizontal: 10, vertical: 10),
-                                      decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(20),
-                                          color: veryLightGreen),
-                                      child: Text('Popular',
-                                          style: TextStyle(
-                                              color: green77,
-                                              fontWeight: FontWeight.w700)),
-                                    )
-                                  ],
-                                ),
-                              ],
-                            );
+                              ),
+                              SizedBox(
+                                height: 20,
+                              ),
+                              Container(
+                                padding: EdgeInsets.symmetric(
+                                    horizontal: 10, vertical: 10),
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(20),
+                                    color: veryLightGreen),
+                                child: Text('Popular',
+                                    style: TextStyle(
+                                        color: green77,
+                                        fontWeight: FontWeight.w700)),
+                              )
+                            ],
+                          ),
+                        ],
+                      );
                     },
                   ),
                   SizedBox(
@@ -748,6 +661,84 @@ class _ShopViewState extends State<ShopView> {
             ),
           ],
         ),
+      ),
+      bottomNavigationBar: SizedBox(
+        height: 110,
+        child: BottomNavigationBar(
+          onTap: (value) {},
+          currentIndex: 1,
+          unselectedItemColor: black137,
+          selectedItemColor: green77,
+          showUnselectedLabels: true,
+          selectedIconTheme: const IconThemeData(color: green77, size: 25),
+          unselectedIconTheme: const IconThemeData(color: black137, size: 25),
+          type: BottomNavigationBarType.fixed,
+          items: const [
+            BottomNavigationBarItem(
+                label: 'Home',
+                icon: ImageIcon(
+                  AssetImage('assets/icons/home.png'),
+                )),
+            BottomNavigationBarItem(
+                label: 'Wishlist',
+                icon: ImageIcon(
+                  AssetImage('assets/icons/heart.png'),
+                )),
+            BottomNavigationBarItem(
+                label: 'Categories',
+                icon: ImageIcon(
+                  AssetImage('assets/icons/sukoon.png'),
+                )),
+            BottomNavigationBarItem(
+                label: 'Profile',
+                icon: ImageIcon(
+                  AssetImage('assets/icons/community.png'),
+                )),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget buildShopbyBrand(String? image, String? name) {
+    return Container(
+      margin: EdgeInsets.only(right: 10),
+      width: 70,
+      height: 78,
+      child: Column(
+        children: [
+          Container(
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              border: Border.all(color: green77),
+            ),
+            child: ClipRRect(
+              borderRadius:
+                  BorderRadius.circular(28), // Half of the width and height
+              child: image != null
+                  ? Image.network(
+                      image,
+                      width: 56,
+                      height: 54.47,
+                      fit: BoxFit.cover,
+                    )
+                  : Placeholder(
+                      fallbackHeight: 54.47,
+                      fallbackWidth: 56,
+                    ),
+            ),
+          ),
+          SizedBox(height: 10),
+          Text(
+            name ?? 'No name',
+            style: TextStyle(
+              color: black26,
+              fontWeight: FontWeight.w600,
+              fontSize: 14,
+            ),
+            textAlign: TextAlign.center,
+          ),
+        ],
       ),
     );
   }

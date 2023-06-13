@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/components/common_widgets/products_view_widget.dart';
 import 'package:millat/resources/shop/bloc/models/products/products_model.dart';
-import 'package:millat/resources/shop/view/products/products_view.dart';
+import 'package:millat/resources/shop/view/cart/cart.dart';
 import 'package:millat/resources/shop/view/products/single_product_view.dart';
 import 'package:millat/utils/size_utility.dart';
+import '../../../../components/common_widgets/cart_icon_widget.dart';
 import '../../../../utils/globals.dart';
+import '../../bloc/logic/cart_bloc/cart_bloc.dart';
 import '../../bloc/logic/category_bloc/category_bloc.dart';
 import '../../bloc/logic/shop_bloc/shop_products_bloc.dart';
 import '../filters/filters.dart';
@@ -52,15 +54,14 @@ class _CategoriesViewState extends State<CategoriesView> {
                 color: Colors.black,
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(left: 20, right: 20),
-              child: ImageIcon(
-                AssetImage(
-                  'assets/icons/cart.png',
-                ),
-                color: Colors.black,
-              ),
-            ),
+            BlocBuilder<CartBloc, CartState>(
+              builder: (context, state) {
+                return CartIconWidget(
+                  color: black26,
+                  cartLength: state.cartLength ?? 0,
+                );
+              },
+            )
           ],
           leading: BackButton(
             color: Colors.black,
@@ -164,11 +165,7 @@ class _CategoriesViewState extends State<CategoriesView> {
                 BlocBuilder<ShopProductsBloc, ShopProductsState>(
                   builder: (context, state) {
                     if (state.shopBanner == null) {
-                      return Center(
-                        child: CircularProgressIndicator(
-                          color: green77,
-                        ),
-                      );
+                      return SizedBox();
                     }
 
                     final banners = state.shopBanner?.result!.banners;

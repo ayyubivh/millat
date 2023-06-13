@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:millat/resources/shop/bloc/models/banners/banners_model.dart';
 import 'package:millat/resources/shop/bloc/models/recent_products/recent_products_model.dart';
+import 'package:millat/resources/shop/bloc/models/shop_by_brand/shop_by_brand_models.dart';
 import 'package:millat/services/http_services.dart';
 import '../models/articles/articles_model.dart';
 import '../models/shop_products/shop_products_model.dart';
@@ -25,7 +26,7 @@ class ShopService extends HttpServices {
 
         return result;
       } catch (e) {
-        print('error on API fetch: ${e.toString()}');
+        print('error on Flash API fetch: ${e.toString()}');
         throw Exception('Failed to parse response');
       }
     } else {
@@ -46,7 +47,7 @@ class ShopService extends HttpServices {
 
         return result;
       } catch (e) {
-        print('error on API fetch: ${e.toString()}');
+        print('error on API Popular fetch: ${e.toString()}');
         throw Exception('Failed to parse response');
       }
     } else {
@@ -63,10 +64,10 @@ class ShopService extends HttpServices {
       try {
         final Map<String, dynamic> data = json.decode(response.body);
         final result = RecentProducts.fromJson(data);
-        print('recent produbct ${result}');
+
         return result;
       } catch (e) {
-        print('error on API fetch: ${e.toString()}');
+        print('error on Recent API fetch: ${e.toString()}');
         throw Exception('Failed to parse response');
       }
     } else {
@@ -86,7 +87,7 @@ class ShopService extends HttpServices {
 
         return result;
       } catch (e) {
-        print('error on API fetch: ${e.toString()}');
+        print('error on Banner API fetch: ${e.toString()}');
         throw Exception('Failed to parse response');
       }
     } else {
@@ -106,7 +107,7 @@ class ShopService extends HttpServices {
 
         return result;
       } catch (e) {
-        print('error on API fetch: ${e.toString()}');
+        print('error on shopBanner API fetch: ${e.toString()}');
         throw Exception('Failed to parse response');
       }
     } else {
@@ -126,7 +127,28 @@ class ShopService extends HttpServices {
 
         return result;
       } catch (e) {
-        print('error on API fetch: ${e.toString()}');
+        print('error on Article API fetch: ${e.toString()}');
+        throw Exception('Failed to parse response');
+      }
+    } else {
+      throw Exception(
+          'API request failed with status code: ${response.statusCode}');
+    }
+  }
+
+  // Fetching shop by brands
+  Future<ShopBrandModel> fetchShopByBrand() async {
+    final endPoint = "admin/users";
+    final response = await get(endPoint: endPoint);
+
+    if (response.statusCode == 200) {
+      try {
+        final Map<String, dynamic> data = json.decode(response.body);
+        final result = ShopBrandModel.fromJson(data['result']);
+
+        return result;
+      } catch (e) {
+        print('error on shop by brand API fetch: ${e.toString()}');
         throw Exception('Failed to parse response');
       }
     } else {

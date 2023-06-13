@@ -5,6 +5,7 @@ import 'package:millat/resources/shop/bloc/models/articles/articles_model.dart';
 import 'package:millat/resources/shop/bloc/models/recent_products/recent_products_model.dart';
 import 'package:millat/resources/shop/bloc/service/shop_services.dart';
 import '../../models/banners/banners_model.dart';
+import '../../models/shop_by_brand/shop_by_brand_models.dart';
 import '../../models/shop_products/shop_products_model.dart';
 
 part 'shop_products_event.dart';
@@ -20,80 +21,97 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
     on<FetchHomeBanners>(_fetchHomeBanners);
     on<FetchShopBanners>(_fetchShopBanners);
     on<FetchArticles>(_fetchArticles);
+    on<FetchShopByBrand>(_fetchShopByBrand);
   }
 
   FutureOr<void> _fetchFlashSaleProducts(
       FetchFlashSaleProducts event, Emitter<ShopProductsState> emit) async {
-    emit(state.copyWith(flashSaleLoading: true));
+    emit(state.copyWith(isLoading: true));
 
     try {
       final data = await _shopService.fetchFlashSaleProducts();
-      emit(state.copyWith(flashSaleproducts: data, flashSaleLoading: false));
+      emit(state.copyWith(flashSaleproducts: data, isLoading: false));
     } catch (e) {
-      emit(state.copyWith(
-          errorMessage: "An error occurred", flashSaleLoading: false));
+      emit(state.copyWith(errorMessage: "An error occurred", isLoading: false));
     }
   }
 
   FutureOr<void> _fetchPopularProducts(
       FetchPopularProducts event, Emitter<ShopProductsState> emit) async {
-    emit(state.copyWith(popularProductLoading: true));
+    emit(state.copyWith(isLoading: true));
 
     try {
       final data = await _shopService.fetchPopularProducts();
-      emit(state.copyWith(popularProducts: data, popularProductLoading: false));
+      emit(state.copyWith(popularProducts: data, isLoading: false));
     } catch (e) {
-      emit(state.copyWith(
-          errorMessage: "An error occurred", popularProductLoading: false));
+      emit(state.copyWith(errorMessage: "An error occurred", isLoading: false));
     }
   }
 
   FutureOr<void> _recentProductProducts(
       FetchRecentProductProducts event, Emitter<ShopProductsState> emit) async {
-    emit(state.copyWith(recentProductLoading: true));
-
     try {
       final data = await _shopService.fetchRecentProducts();
-      emit(state.copyWith(recentProducts: data, recentProductLoading: false));
+      emit(state.copyWith(
+        recentProducts: data,
+      ));
     } catch (e) {
       emit(state.copyWith(
-          errorMessage: "An error occurred", recentProductLoading: false));
+        errorMessage: "An error occurred",
+      ));
     }
   }
 
   FutureOr<void> _fetchHomeBanners(
       FetchHomeBanners event, Emitter<ShopProductsState> emit) async {
-    emit(state.copyWith(bannersLoading: true));
+    emit(state.copyWith(isLoading: true));
     try {
       final data = await _shopService.fetchHomeBanners();
-      emit(state.copyWith(homeBanner: data, bannersLoading: false));
+      emit(state.copyWith(homeBanner: data, isLoading: false));
     } catch (e) {
-      emit(state.copyWith(
-          errorMessage: "An error occurred", bannersLoading: false));
+      emit(state.copyWith(errorMessage: "An error occurred", isLoading: false));
     }
   }
 
   FutureOr<void> _fetchShopBanners(
       FetchShopBanners event, Emitter<ShopProductsState> emit) async {
-    emit(state.copyWith(shopBannerLoading: true));
     try {
       final data = await _shopService.fetchHomeBanners();
-      emit(state.copyWith(shopBanner: data, shopBannerLoading: false));
+      emit(state.copyWith(
+        shopBanner: data,
+      ));
     } catch (e) {
       emit(state.copyWith(
-          errorMessage: "An error occurred", shopBannerLoading: false));
+        errorMessage: "An error occurred",
+      ));
     }
   }
 
   FutureOr<void> _fetchArticles(
       FetchArticles event, Emitter<ShopProductsState> emit) async {
-    emit(state.copyWith(articleLoading: true));
     try {
       final data = await _shopService.fetchArticles();
-      emit(state.copyWith(articles: data, articleLoading: false));
+      emit(state.copyWith(
+        articles: data,
+      ));
     } catch (e) {
       emit(state.copyWith(
-          errorMessage: "An error occurred", articleLoading: false));
+        errorMessage: "An error occurred",
+      ));
+    }
+  }
+
+  FutureOr<void> _fetchShopByBrand(
+      FetchShopByBrand event, Emitter<ShopProductsState> emit) async {
+    try {
+      final data = await _shopService.fetchShopByBrand();
+      emit(state.copyWith(
+        shopBrandModel: data,
+      ));
+    } catch (e) {
+      emit(state.copyWith(
+        errorMessage: "An error occurred",
+      ));
     }
   }
 }

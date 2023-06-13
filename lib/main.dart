@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
-import 'package:hive_flutter/adapters.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:millat/resources/authentication/bloc/logic/auth_bloc.dart';
 import 'package:millat/resources/authentication/bloc/logic/database_bloc/database_bloc.dart';
 import 'package:millat/resources/on_boarding/view/on_boarding_view.dart';
+import 'package:millat/resources/shop/bloc/logic/cart_bloc/cart_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/category_bloc/category_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
 import 'package:millat/resources/tabs/view/tabs_view.dart';
 import 'package:millat/utils/string_constants.dart';
-import 'package:responsive_framework/responsive_framework.dart';
+import 'package:responsive_framework/responsive_wrapper.dart';
+import 'package:responsive_framework/utils/scroll_behavior.dart';
 
 void main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
@@ -37,6 +39,9 @@ void main() async {
       ),
       BlocProvider(
         create: (context) => DatabaseBloc(),
+      ),
+      BlocProvider(
+        create: (context) => CartBloc(),
       )
     ],
     child: MyApp(),
@@ -78,6 +83,7 @@ class MyApp extends StatelessWidget {
     final String? token = _tokenBox.get(AUTHTOKEN);
 
     if (token != null) {
+      print('on main token ${token}');
       return TabsView();
     } else {
       return OnBoardingView();

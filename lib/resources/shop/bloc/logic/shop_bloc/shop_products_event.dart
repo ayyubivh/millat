@@ -10,4 +10,5 @@ class ShopProductsEvent with _$ShopProductsEvent {
   const factory ShopProductsEvent.fetchHomeBanners() = FetchHomeBanners;
   const factory ShopProductsEvent.fetchShopBanners() = FetchShopBanners;
   const factory ShopProductsEvent.fetchArticles() = FetchArticles;
+  const factory ShopProductsEvent.fetchShopByBrand() = FetchShopByBrand;
 }

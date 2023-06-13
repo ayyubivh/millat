@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:millat/resources/authentication/bloc/logic/database_bloc/database_bloc.dart';
 import 'package:millat/resources/home/view/home_view.dart';
 import 'package:millat/resources/shop/view/shop_view.dart';
 import 'package:millat/utils/globals.dart';
+
+import '../../authentication/bloc/logic/database_bloc/database_bloc.dart';
 
 class TabsView extends StatefulWidget {
   const TabsView({Key? key}) : super(key: key);
@@ -23,6 +24,12 @@ class _TabsViewState extends State<TabsView> {
 
   void onTap(int _index) {
     setState(() {
+      if (_index == 1) {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => ShopView()),
+        );
+      }
       index = _index;
     });
   }

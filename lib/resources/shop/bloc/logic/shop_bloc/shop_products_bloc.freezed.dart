@@ -24,6 +24,7 @@ mixin _$ShopProductsEvent {
     required TResult Function() fetchHomeBanners,
     required TResult Function() fetchShopBanners,
     required TResult Function() fetchArticles,
+    required TResult Function() fetchShopByBrand,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -34,6 +35,7 @@ mixin _$ShopProductsEvent {
     TResult? Function()? fetchHomeBanners,
     TResult? Function()? fetchShopBanners,
     TResult? Function()? fetchArticles,
+    TResult? Function()? fetchShopByBrand,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -44,6 +46,7 @@ mixin _$ShopProductsEvent {
     TResult Function()? fetchHomeBanners,
     TResult Function()? fetchShopBanners,
     TResult Function()? fetchArticles,
+    TResult Function()? fetchShopByBrand,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -57,6 +60,7 @@ mixin _$ShopProductsEvent {
     required TResult Function(FetchHomeBanners value) fetchHomeBanners,
     required TResult Function(FetchShopBanners value) fetchShopBanners,
     required TResult Function(FetchArticles value) fetchArticles,
+    required TResult Function(FetchShopByBrand value) fetchShopByBrand,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -68,6 +72,7 @@ mixin _$ShopProductsEvent {
     TResult? Function(FetchHomeBanners value)? fetchHomeBanners,
     TResult? Function(FetchShopBanners value)? fetchShopBanners,
     TResult? Function(FetchArticles value)? fetchArticles,
+    TResult? Function(FetchShopByBrand value)? fetchShopByBrand,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -79,6 +84,7 @@ mixin _$ShopProductsEvent {
     TResult Function(FetchHomeBanners value)? fetchHomeBanners,
     TResult Function(FetchShopBanners value)? fetchShopBanners,
     TResult Function(FetchArticles value)? fetchArticles,
+    TResult Function(FetchShopByBrand value)? fetchShopByBrand,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -146,6 +152,7 @@ class _$FetchFlashSaleProducts implements FetchFlashSaleProducts {
     required TResult Function() fetchHomeBanners,
     required TResult Function() fetchShopBanners,
     required TResult Function() fetchArticles,
+    required TResult Function() fetchShopByBrand,
   }) {
     return fetchFlashSaleProducts();
   }
@@ -159,6 +166,7 @@ class _$FetchFlashSaleProducts implements FetchFlashSaleProducts {
     TResult? Function()? fetchHomeBanners,
     TResult? Function()? fetchShopBanners,
     TResult? Function()? fetchArticles,
+    TResult? Function()? fetchShopByBrand,
   }) {
     return fetchFlashSaleProducts?.call();
   }
@@ -172,6 +180,7 @@ class _$FetchFlashSaleProducts implements FetchFlashSaleProducts {
     TResult Function()? fetchHomeBanners,
     TResult Function()? fetchShopBanners,
     TResult Function()? fetchArticles,
+    TResult Function()? fetchShopByBrand,
     required TResult orElse(),
   }) {
     if (fetchFlashSaleProducts != null) {
@@ -191,6 +200,7 @@ class _$FetchFlashSaleProducts implements FetchFlashSaleProducts {
     required TResult Function(FetchHomeBanners value) fetchHomeBanners,
     required TResult Function(FetchShopBanners value) fetchShopBanners,
     required TResult Function(FetchArticles value) fetchArticles,
+    required TResult Function(FetchShopByBrand value) fetchShopByBrand,
   }) {
     return fetchFlashSaleProducts(this);
   }
@@ -205,6 +215,7 @@ class _$FetchFlashSaleProducts implements FetchFlashSaleProducts {
     TResult? Function(FetchHomeBanners value)? fetchHomeBanners,
     TResult? Function(FetchShopBanners value)? fetchShopBanners,
     TResult? Function(FetchArticles value)? fetchArticles,
+    TResult? Function(FetchShopByBrand value)? fetchShopByBrand,
   }) {
     return fetchFlashSaleProducts?.call(this);
   }
@@ -219,6 +230,7 @@ class _$FetchFlashSaleProducts implements FetchFlashSaleProducts {
     TResult Function(FetchHomeBanners value)? fetchHomeBanners,
     TResult Function(FetchShopBanners value)? fetchShopBanners,
     TResult Function(FetchArticles value)? fetchArticles,
+    TResult Function(FetchShopByBrand value)? fetchShopByBrand,
     required TResult orElse(),
   }) {
     if (fetchFlashSaleProducts != null) {
@@ -276,6 +288,7 @@ class _$FetchPopularProducts implements FetchPopularProducts {
     required TResult Function() fetchHomeBanners,
     required TResult Function() fetchShopBanners,
     required TResult Function() fetchArticles,
+    required TResult Function() fetchShopByBrand,
   }) {
     return fetchPopularProducts();
   }
@@ -289,6 +302,7 @@ class _$FetchPopularProducts implements FetchPopularProducts {
     TResult? Function()? fetchHomeBanners,
     TResult? Function()? fetchShopBanners,
     TResult? Function()? fetchArticles,
+    TResult? Function()? fetchShopByBrand,
   }) {
     return fetchPopularProducts?.call();
   }
@@ -302,6 +316,7 @@ class _$FetchPopularProducts implements FetchPopularProducts {
     TResult Function()? fetchHomeBanners,
     TResult Function()? fetchShopBanners,
     TResult Function()? fetchArticles,
+    TResult Function()? fetchShopByBrand,
     required TResult orElse(),
   }) {
     if (fetchPopularProducts != null) {
@@ -321,6 +336,7 @@ class _$FetchPopularProducts implements FetchPopularProducts {
     required TResult Function(FetchHomeBanners value) fetchHomeBanners,
     required TResult Function(FetchShopBanners value) fetchShopBanners,
     required TResult Function(FetchArticles value) fetchArticles,
+    required TResult Function(FetchShopByBrand value) fetchShopByBrand,
   }) {
     return fetchPopularProducts(this);
   }
@@ -335,6 +351,7 @@ class _$FetchPopularProducts implements FetchPopularProducts {
     TResult? Function(FetchHomeBanners value)? fetchHomeBanners,
     TResult? Function(FetchShopBanners value)? fetchShopBanners,
     TResult? Function(FetchArticles value)? fetchArticles,
+    TResult? Function(FetchShopByBrand value)? fetchShopByBrand,
   }) {
     return fetchPopularProducts?.call(this);
   }
@@ -349,6 +366,7 @@ class _$FetchPopularProducts implements FetchPopularProducts {
     TResult Function(FetchHomeBanners value)? fetchHomeBanners,
     TResult Function(FetchShopBanners value)? fetchShopBanners,
     TResult Function(FetchArticles value)? fetchArticles,
+    TResult Function(FetchShopByBrand value)? fetchShopByBrand,
     required TResult orElse(),
   }) {
     if (fetchPopularProducts != null) {
@@ -409,6 +427,7 @@ class _$FetchRecentProductProducts implements FetchRecentProductProducts {
     required TResult Function() fetchHomeBanners,
     required TResult Function() fetchShopBanners,
     required TResult Function() fetchArticles,
+    required TResult Function() fetchShopByBrand,
   }) {
     return fetchRecentProductProducts();
   }
@@ -422,6 +441,7 @@ class _$FetchRecentProductProducts implements FetchRecentProductProducts {
     TResult? Function()? fetchHomeBanners,
     TResult? Function()? fetchShopBanners,
     TResult? Function()? fetchArticles,
+    TResult? Function()? fetchShopByBrand,
   }) {
     return fetchRecentProductProducts?.call();
   }
@@ -435,6 +455,7 @@ class _$FetchRecentProductProducts implements FetchRecentProductProducts {
     TResult Function()? fetchHomeBanners,
     TResult Function()? fetchShopBanners,
     TResult Function()? fetchArticles,
+    TResult Function()? fetchShopByBrand,
     required TResult orElse(),
   }) {
     if (fetchRecentProductProducts != null) {
@@ -454,6 +475,7 @@ class _$FetchRecentProductProducts implements FetchRecentProductProducts {
     required TResult Function(FetchHomeBanners value) fetchHomeBanners,
     required TResult Function(FetchShopBanners value) fetchShopBanners,
     required TResult Function(FetchArticles value) fetchArticles,
+    required TResult Function(FetchShopByBrand value) fetchShopByBrand,
   }) {
     return fetchRecentProductProducts(this);
   }
@@ -468,6 +490,7 @@ class _$FetchRecentProductProducts implements FetchRecentProductProducts {
     TResult? Function(FetchHomeBanners value)? fetchHomeBanners,
     TResult? Function(FetchShopBanners value)? fetchShopBanners,
     TResult? Function(FetchArticles value)? fetchArticles,
+    TResult? Function(FetchShopByBrand value)? fetchShopByBrand,
   }) {
     return fetchRecentProductProducts?.call(this);
   }
@@ -482,6 +505,7 @@ class _$FetchRecentProductProducts implements FetchRecentProductProducts {
     TResult Function(FetchHomeBanners value)? fetchHomeBanners,
     TResult Function(FetchShopBanners value)? fetchShopBanners,
     TResult Function(FetchArticles value)? fetchArticles,
+    TResult Function(FetchShopByBrand value)? fetchShopByBrand,
     required TResult orElse(),
   }) {
     if (fetchRecentProductProducts != null) {
@@ -539,6 +563,7 @@ class _$FetchHomeBanners implements FetchHomeBanners {
     required TResult Function() fetchHomeBanners,
     required TResult Function() fetchShopBanners,
     required TResult Function() fetchArticles,
+    required TResult Function() fetchShopByBrand,
   }) {
     return fetchHomeBanners();
   }
@@ -552,6 +577,7 @@ class _$FetchHomeBanners implements FetchHomeBanners {
     TResult? Function()? fetchHomeBanners,
     TResult? Function()? fetchShopBanners,
     TResult? Function()? fetchArticles,
+    TResult? Function()? fetchShopByBrand,
   }) {
     return fetchHomeBanners?.call();
   }
@@ -565,6 +591,7 @@ class _$FetchHomeBanners implements FetchHomeBanners {
     TResult Function()? fetchHomeBanners,
     TResult Function()? fetchShopBanners,
     TResult Function()? fetchArticles,
+    TResult Function()? fetchShopByBrand,
     required TResult orElse(),
   }) {
     if (fetchHomeBanners != null) {
@@ -584,6 +611,7 @@ class _$FetchHomeBanners implements FetchHomeBanners {
     required TResult Function(FetchHomeBanners value) fetchHomeBanners,
     required TResult Function(FetchShopBanners value) fetchShopBanners,
     required TResult Function(FetchArticles value) fetchArticles,
+    required TResult Function(FetchShopByBrand value) fetchShopByBrand,
   }) {
     return fetchHomeBanners(this);
   }
@@ -598,6 +626,7 @@ class _$FetchHomeBanners implements FetchHomeBanners {
     TResult? Function(FetchHomeBanners value)? fetchHomeBanners,
     TResult? Function(FetchShopBanners value)? fetchShopBanners,
     TResult? Function(FetchArticles value)? fetchArticles,
+    TResult? Function(FetchShopByBrand value)? fetchShopByBrand,
   }) {
     return fetchHomeBanners?.call(this);
   }
@@ -612,6 +641,7 @@ class _$FetchHomeBanners implements FetchHomeBanners {
     TResult Function(FetchHomeBanners value)? fetchHomeBanners,
     TResult Function(FetchShopBanners value)? fetchShopBanners,
     TResult Function(FetchArticles value)? fetchArticles,
+    TResult Function(FetchShopByBrand value)? fetchShopByBrand,
     required TResult orElse(),
   }) {
     if (fetchHomeBanners != null) {
@@ -669,6 +699,7 @@ class _$FetchShopBanners implements FetchShopBanners {
     required TResult Function() fetchHomeBanners,
     required TResult Function() fetchShopBanners,
     required TResult Function() fetchArticles,
+    required TResult Function() fetchShopByBrand,
   }) {
     return fetchShopBanners();
   }
@@ -682,6 +713,7 @@ class _$FetchShopBanners implements FetchShopBanners {
     TResult? Function()? fetchHomeBanners,
     TResult? Function()? fetchShopBanners,
     TResult? Function()? fetchArticles,
+    TResult? Function()? fetchShopByBrand,
   }) {
     return fetchShopBanners?.call();
   }
@@ -695,6 +727,7 @@ class _$FetchShopBanners implements FetchShopBanners {
     TResult Function()? fetchHomeBanners,
     TResult Function()? fetchShopBanners,
     TResult Function()? fetchArticles,
+    TResult Function()? fetchShopByBrand,
     required TResult orElse(),
   }) {
     if (fetchShopBanners != null) {
@@ -714,6 +747,7 @@ class _$FetchShopBanners implements FetchShopBanners {
     required TResult Function(FetchHomeBanners value) fetchHomeBanners,
     required TResult Function(FetchShopBanners value) fetchShopBanners,
     required TResult Function(FetchArticles value) fetchArticles,
+    required TResult Function(FetchShopByBrand value) fetchShopByBrand,
   }) {
     return fetchShopBanners(this);
   }
@@ -728,6 +762,7 @@ class _$FetchShopBanners implements FetchShopBanners {
     TResult? Function(FetchHomeBanners value)? fetchHomeBanners,
     TResult? Function(FetchShopBanners value)? fetchShopBanners,
     TResult? Function(FetchArticles value)? fetchArticles,
+    TResult? Function(FetchShopByBrand value)? fetchShopByBrand,
   }) {
     return fetchShopBanners?.call(this);
   }
@@ -742,6 +777,7 @@ class _$FetchShopBanners implements FetchShopBanners {
     TResult Function(FetchHomeBanners value)? fetchHomeBanners,
     TResult Function(FetchShopBanners value)? fetchShopBanners,
     TResult Function(FetchArticles value)? fetchArticles,
+    TResult Function(FetchShopByBrand value)? fetchShopByBrand,
     required TResult orElse(),
   }) {
     if (fetchShopBanners != null) {
@@ -799,6 +835,7 @@ class _$FetchArticles implements FetchArticles {
     required TResult Function() fetchHomeBanners,
     required TResult Function() fetchShopBanners,
     required TResult Function() fetchArticles,
+    required TResult Function() fetchShopByBrand,
   }) {
     return fetchArticles();
   }
@@ -812,6 +849,7 @@ class _$FetchArticles implements FetchArticles {
     TResult? Function()? fetchHomeBanners,
     TResult? Function()? fetchShopBanners,
     TResult? Function()? fetchArticles,
+    TResult? Function()? fetchShopByBrand,
   }) {
     return fetchArticles?.call();
   }
@@ -825,6 +863,7 @@ class _$FetchArticles implements FetchArticles {
     TResult Function()? fetchHomeBanners,
     TResult Function()? fetchShopBanners,
     TResult Function()? fetchArticles,
+    TResult Function()? fetchShopByBrand,
     required TResult orElse(),
   }) {
     if (fetchArticles != null) {
@@ -844,6 +883,7 @@ class _$FetchArticles implements FetchArticles {
     required TResult Function(FetchHomeBanners value) fetchHomeBanners,
     required TResult Function(FetchShopBanners value) fetchShopBanners,
     required TResult Function(FetchArticles value) fetchArticles,
+    required TResult Function(FetchShopByBrand value) fetchShopByBrand,
   }) {
     return fetchArticles(this);
   }
@@ -858,6 +898,7 @@ class _$FetchArticles implements FetchArticles {
     TResult? Function(FetchHomeBanners value)? fetchHomeBanners,
     TResult? Function(FetchShopBanners value)? fetchShopBanners,
     TResult? Function(FetchArticles value)? fetchArticles,
+    TResult? Function(FetchShopByBrand value)? fetchShopByBrand,
   }) {
     return fetchArticles?.call(this);
   }
@@ -872,6 +913,7 @@ class _$FetchArticles implements FetchArticles {
     TResult Function(FetchHomeBanners value)? fetchHomeBanners,
     TResult Function(FetchShopBanners value)? fetchShopBanners,
     TResult Function(FetchArticles value)? fetchArticles,
+    TResult Function(FetchShopByBrand value)? fetchShopByBrand,
     required TResult orElse(),
   }) {
     if (fetchArticles != null) {
@@ -883,6 +925,142 @@ class _$FetchArticles implements FetchArticles {
 
 abstract class FetchArticles implements ShopProductsEvent {
   const factory FetchArticles() = _$FetchArticles;
+}
+
+/// @nodoc
+abstract class _$$FetchShopByBrandCopyWith<$Res> {
+  factory _$$FetchShopByBrandCopyWith(
+          _$FetchShopByBrand value, $Res Function(_$FetchShopByBrand) then) =
+      __$$FetchShopByBrandCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$FetchShopByBrandCopyWithImpl<$Res>
+    extends _$ShopProductsEventCopyWithImpl<$Res, _$FetchShopByBrand>
+    implements _$$FetchShopByBrandCopyWith<$Res> {
+  __$$FetchShopByBrandCopyWithImpl(
+      _$FetchShopByBrand _value, $Res Function(_$FetchShopByBrand) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$FetchShopByBrand implements FetchShopByBrand {
+  const _$FetchShopByBrand();
+
+  @override
+  String toString() {
+    return 'ShopProductsEvent.fetchShopByBrand()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$FetchShopByBrand);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() fetchFlashSaleProducts,
+    required TResult Function() fetchPopularProducts,
+    required TResult Function() fetchRecentProductProducts,
+    required TResult Function() fetchHomeBanners,
+    required TResult Function() fetchShopBanners,
+    required TResult Function() fetchArticles,
+    required TResult Function() fetchShopByBrand,
+  }) {
+    return fetchShopByBrand();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? fetchFlashSaleProducts,
+    TResult? Function()? fetchPopularProducts,
+    TResult? Function()? fetchRecentProductProducts,
+    TResult? Function()? fetchHomeBanners,
+    TResult? Function()? fetchShopBanners,
+    TResult? Function()? fetchArticles,
+    TResult? Function()? fetchShopByBrand,
+  }) {
+    return fetchShopByBrand?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? fetchFlashSaleProducts,
+    TResult Function()? fetchPopularProducts,
+    TResult Function()? fetchRecentProductProducts,
+    TResult Function()? fetchHomeBanners,
+    TResult Function()? fetchShopBanners,
+    TResult Function()? fetchArticles,
+    TResult Function()? fetchShopByBrand,
+    required TResult orElse(),
+  }) {
+    if (fetchShopByBrand != null) {
+      return fetchShopByBrand();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FetchFlashSaleProducts value)
+        fetchFlashSaleProducts,
+    required TResult Function(FetchPopularProducts value) fetchPopularProducts,
+    required TResult Function(FetchRecentProductProducts value)
+        fetchRecentProductProducts,
+    required TResult Function(FetchHomeBanners value) fetchHomeBanners,
+    required TResult Function(FetchShopBanners value) fetchShopBanners,
+    required TResult Function(FetchArticles value) fetchArticles,
+    required TResult Function(FetchShopByBrand value) fetchShopByBrand,
+  }) {
+    return fetchShopByBrand(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(FetchFlashSaleProducts value)? fetchFlashSaleProducts,
+    TResult? Function(FetchPopularProducts value)? fetchPopularProducts,
+    TResult? Function(FetchRecentProductProducts value)?
+        fetchRecentProductProducts,
+    TResult? Function(FetchHomeBanners value)? fetchHomeBanners,
+    TResult? Function(FetchShopBanners value)? fetchShopBanners,
+    TResult? Function(FetchArticles value)? fetchArticles,
+    TResult? Function(FetchShopByBrand value)? fetchShopByBrand,
+  }) {
+    return fetchShopByBrand?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FetchFlashSaleProducts value)? fetchFlashSaleProducts,
+    TResult Function(FetchPopularProducts value)? fetchPopularProducts,
+    TResult Function(FetchRecentProductProducts value)?
+        fetchRecentProductProducts,
+    TResult Function(FetchHomeBanners value)? fetchHomeBanners,
+    TResult Function(FetchShopBanners value)? fetchShopBanners,
+    TResult Function(FetchArticles value)? fetchArticles,
+    TResult Function(FetchShopByBrand value)? fetchShopByBrand,
+    required TResult orElse(),
+  }) {
+    if (fetchShopByBrand != null) {
+      return fetchShopByBrand(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class FetchShopByBrand implements ShopProductsEvent {
+  const factory FetchShopByBrand() = _$FetchShopByBrand;
 }
 
 /// @nodoc
@@ -899,6 +1077,8 @@ mixin _$ShopProductsState {
   bool get shopBannerLoading => throw _privateConstructorUsedError;
   ArticleModel? get articles => throw _privateConstructorUsedError;
   bool get articleLoading => throw _privateConstructorUsedError;
+  bool get isLoading => throw _privateConstructorUsedError;
+  ShopBrandModel? get shopBrandModel => throw _privateConstructorUsedError;
   String get errorMessage => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -925,6 +1105,8 @@ abstract class $ShopProductsStateCopyWith<$Res> {
       bool shopBannerLoading,
       ArticleModel? articles,
       bool articleLoading,
+      bool isLoading,
+      ShopBrandModel? shopBrandModel,
       String errorMessage});
 
   $ShopProductsCopyWith<$Res>? get flashSaleproducts;
@@ -933,6 +1115,7 @@ abstract class $ShopProductsStateCopyWith<$Res> {
   $BannersModelCopyWith<$Res>? get homeBanner;
   $BannersModelCopyWith<$Res>? get shopBanner;
   $ArticleModelCopyWith<$Res>? get articles;
+  $ShopBrandModelCopyWith<$Res>? get shopBrandModel;
 }
 
 /// @nodoc
@@ -960,6 +1143,8 @@ class _$ShopProductsStateCopyWithImpl<$Res, $Val extends ShopProductsState>
     Object? shopBannerLoading = null,
     Object? articles = freezed,
     Object? articleLoading = null,
+    Object? isLoading = null,
+    Object? shopBrandModel = freezed,
     Object? errorMessage = null,
   }) {
     return _then(_value.copyWith(
@@ -1011,6 +1196,14 @@ class _$ShopProductsStateCopyWithImpl<$Res, $Val extends ShopProductsState>
           ? _value.articleLoading
           : articleLoading // ignore: cast_nullable_to_non_nullable
               as bool,
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      shopBrandModel: freezed == shopBrandModel
+          ? _value.shopBrandModel
+          : shopBrandModel // ignore: cast_nullable_to_non_nullable
+              as ShopBrandModel?,
       errorMessage: null == errorMessage
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
@@ -1089,6 +1282,18 @@ class _$ShopProductsStateCopyWithImpl<$Res, $Val extends ShopProductsState>
       return _then(_value.copyWith(articles: value) as $Val);
     });
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ShopBrandModelCopyWith<$Res>? get shopBrandModel {
+    if (_value.shopBrandModel == null) {
+      return null;
+    }
+
+    return $ShopBrandModelCopyWith<$Res>(_value.shopBrandModel!, (value) {
+      return _then(_value.copyWith(shopBrandModel: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -1112,6 +1317,8 @@ abstract class _$$_InitialCopyWith<$Res>
       bool shopBannerLoading,
       ArticleModel? articles,
       bool articleLoading,
+      bool isLoading,
+      ShopBrandModel? shopBrandModel,
       String errorMessage});
 
   @override
@@ -1126,6 +1333,8 @@ abstract class _$$_InitialCopyWith<$Res>
   $BannersModelCopyWith<$Res>? get shopBanner;
   @override
   $ArticleModelCopyWith<$Res>? get articles;
+  @override
+  $ShopBrandModelCopyWith<$Res>? get shopBrandModel;
 }
 
 /// @nodoc
@@ -1150,6 +1359,8 @@ class __$$_InitialCopyWithImpl<$Res>
     Object? shopBannerLoading = null,
     Object? articles = freezed,
     Object? articleLoading = null,
+    Object? isLoading = null,
+    Object? shopBrandModel = freezed,
     Object? errorMessage = null,
   }) {
     return _then(_$_Initial(
@@ -1201,6 +1412,14 @@ class __$$_InitialCopyWithImpl<$Res>
           ? _value.articleLoading
           : articleLoading // ignore: cast_nullable_to_non_nullable
               as bool,
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      shopBrandModel: freezed == shopBrandModel
+          ? _value.shopBrandModel
+          : shopBrandModel // ignore: cast_nullable_to_non_nullable
+              as ShopBrandModel?,
       errorMessage: null == errorMessage
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
@@ -1225,6 +1444,8 @@ class _$_Initial implements _Initial {
       required this.shopBannerLoading,
       required this.articles,
       required this.articleLoading,
+      required this.isLoading,
+      required this.shopBrandModel,
       required this.errorMessage});
 
   @override
@@ -1252,11 +1473,15 @@ class _$_Initial implements _Initial {
   @override
   final bool articleLoading;
   @override
+  final bool isLoading;
+  @override
+  final ShopBrandModel? shopBrandModel;
+  @override
   final String errorMessage;
 
   @override
   String toString() {
-    return 'ShopProductsState(flashSaleproducts: $flashSaleproducts, flashSaleLoading: $flashSaleLoading, popularProducts: $popularProducts, popularProductLoading: $popularProductLoading, recentProducts: $recentProducts, recentProductLoading: $recentProductLoading, homeBanner: $homeBanner, bannersLoading: $bannersLoading, shopBanner: $shopBanner, shopBannerLoading: $shopBannerLoading, articles: $articles, articleLoading: $articleLoading, errorMessage: $errorMessage)';
+    return 'ShopProductsState(flashSaleproducts: $flashSaleproducts, flashSaleLoading: $flashSaleLoading, popularProducts: $popularProducts, popularProductLoading: $popularProductLoading, recentProducts: $recentProducts, recentProductLoading: $recentProductLoading, homeBanner: $homeBanner, bannersLoading: $bannersLoading, shopBanner: $shopBanner, shopBannerLoading: $shopBannerLoading, articles: $articles, articleLoading: $articleLoading, isLoading: $isLoading, shopBrandModel: $shopBrandModel, errorMessage: $errorMessage)';
   }
 
   @override
@@ -1288,6 +1513,10 @@ class _$_Initial implements _Initial {
                 other.articles == articles) &&
             (identical(other.articleLoading, articleLoading) ||
                 other.articleLoading == articleLoading) &&
+            (identical(other.isLoading, isLoading) ||
+                other.isLoading == isLoading) &&
+            (identical(other.shopBrandModel, shopBrandModel) ||
+                other.shopBrandModel == shopBrandModel) &&
             (identical(other.errorMessage, errorMessage) ||
                 other.errorMessage == errorMessage));
   }
@@ -1307,6 +1536,8 @@ class _$_Initial implements _Initial {
       shopBannerLoading,
       articles,
       articleLoading,
+      isLoading,
+      shopBrandModel,
       errorMessage);
 
   @JsonKey(ignore: true)
@@ -1330,6 +1561,8 @@ abstract class _Initial implements ShopProductsState {
       required final bool shopBannerLoading,
       required final ArticleModel? articles,
       required final bool articleLoading,
+      required final bool isLoading,
+      required final ShopBrandModel? shopBrandModel,
       required final String errorMessage}) = _$_Initial;
 
   @override
@@ -1356,6 +1589,10 @@ abstract class _Initial implements ShopProductsState {
   ArticleModel? get articles;
   @override
   bool get articleLoading;
+  @override
+  bool get isLoading;
+  @override
+  ShopBrandModel? get shopBrandModel;
   @override
   String get errorMessage;
   @override

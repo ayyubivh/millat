@@ -18,7 +18,7 @@ class CategoryService extends HttpServices {
 
         return result;
       } catch (e) {
-        print('error on API fetch: ${e.toString()}');
+        print('error on Category API fetch: ${e.toString()}');
         throw Exception('Failed to parse response');
       }
     } else {
@@ -40,7 +40,7 @@ class CategoryService extends HttpServices {
 
         return result;
       } catch (e) {
-        print('error on API fetch: ${e.toString()}');
+        print('error on Filter API fetch: ${e.toString()}');
         throw Exception('Failed to parse response');
       }
     } else {
@@ -61,7 +61,7 @@ class CategoryService extends HttpServices {
 
         return result;
       } catch (e) {
-        print('error on API fetch: ${e.toString()}');
+        print('error on SubCategory API fetch: ${e.toString()}');
         throw Exception('Failed to parse response');
       }
     } else {

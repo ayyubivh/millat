@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:millat/components/common_widgets/cart_icon_widget.dart';
 import 'package:millat/resources/shop/bloc/logic/cart_bloc/cart_bloc.dart';
 import 'package:millat/resources/shop/view/reviews/reviews_view.dart';
 import 'package:millat/utils/globals.dart';
 import 'package:millat/utils/size_utility.dart';
+import 'package:millat/utils/utils.dart';
 
 class SingleProductView extends StatelessWidget {
   final passValue;
@@ -18,10 +20,10 @@ class SingleProductView extends StatelessWidget {
       'Red': Colors.red,
       'Black': Colors.black,
     };
-    int selectedSize = 0; // Declare selectedSize as non-nullable int
+    int selectedSize = 0;
 
     final sizeList = ['S', 'M', 'L', 'ML', 'XL'];
-
+    int quantity = 1;
     int selectedColor = 0;
     return Scaffold(
       appBar: AppBar(
@@ -38,15 +40,14 @@ class SingleProductView extends StatelessWidget {
               color: Colors.black,
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(left: 20, right: 20),
-            child: ImageIcon(
-              AssetImage(
-                'assets/icons/cart.png',
-              ),
-              color: Colors.black,
-            ),
-          ),
+          BlocBuilder<CartBloc, CartState>(
+            builder: (context, state) {
+              return CartIconWidget(
+                color: black26,
+                cartLength: state.cartLength ?? 0,
+              );
+            },
+          )
         ],
       ),
       body: Padding(
@@ -129,10 +130,29 @@ class SingleProductView extends StatelessWidget {
                           fontSize: 20,
                           fontWeight: FontWeight.w700),
                     ),
-                    Icon(
-                      Icons.arrow_forward_ios,
-                      color: green77,
-                    )
+                    IconButton(
+                        onPressed: () {
+                          showModalBottomSheet(
+                            context: context,
+                            builder: (context) => StatefulBuilder(
+                              builder: (context, setState) => Padding(
+                                padding: const EdgeInsets.all(20.0),
+                                child: buildShowModelSheet(
+                                    context,
+                                    colorMap,
+                                    setState,
+                                    selectedColor,
+                                    sizeList,
+                                    selectedSize,
+                                    quantity),
+                              ),
+                            ),
+                          );
+                        },
+                        icon: Icon(
+                          Icons.arrow_forward_ios,
+                          color: green77,
+                        ))
                   ],
                 ),
               ),
@@ -297,267 +317,8 @@ class SingleProductView extends StatelessWidget {
               builder: (context) => StatefulBuilder(
                 builder: (context, setState) => Padding(
                   padding: const EdgeInsets.all(20.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            children: [
-                              Container(
-                                height: 130,
-                                width: 130,
-                                decoration: BoxDecoration(
-                                    image: DecorationImage(
-                                      image: NetworkImage(
-                                        passValue!.colors![0].images![0],
-                                      ),
-                                      fit: BoxFit.cover,
-                                    ),
-                                    borderRadius: BorderRadius.circular(20),
-                                    border: Border.all(color: black208)),
-                              ),
-                              SizedBox(
-                                width: 20,
-                              ),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text('${passValue.discountPrice} ₹',
-                                      style: TextStyle(
-                                          color: green77,
-                                          fontWeight: FontWeight.w700,
-                                          fontSize: 24)),
-                                  SizedBox(
-                                    height: 20,
-                                  ),
-                                  Text('${passValue.actualPrice} ₹',
-                                      style: TextStyle(
-                                          decoration:
-                                              TextDecoration.lineThrough,
-                                          fontSize: 20)),
-                                ],
-                              ),
-                            ],
-                          ),
-                          IconButton(
-                              onPressed: () {
-                                Navigator.of(context).pop();
-                              },
-                              icon: Icon(
-                                Icons.close,
-                                color: black122,
-                              ))
-                        ],
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      Text(
-                        'Colors',
-                        style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.w700),
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      SizedBox(
-                          height: 30,
-                          child: ListView.builder(
-                            scrollDirection: Axis.horizontal,
-                            itemCount: colorMap.length,
-                            itemBuilder: (BuildContext context, int index) {
-                              final colorEntry =
-                                  colorMap.entries.toList()[index];
-                              // final colorName = colorEntry.key;
-                              final colorValue = colorEntry.value;
-
-                              return GestureDetector(
-                                onTap: () {
-                                  setState(() {
-                                    selectedColor = index;
-                                    print(selectedColor);
-                                    final selectedColorName =
-                                        colorMap.keys.toList()[selectedColor];
-                                    print(selectedColorName);
-                                  });
-                                },
-                                child: Padding(
-                                  padding: EdgeInsets.only(right: 20),
-                                  child: CircleAvatar(
-                                    radius: 15,
-                                    backgroundColor: colorValue,
-                                    child: selectedColor == index
-                                        ? Container(
-                                            width: 10,
-                                            height: 10,
-                                            decoration: BoxDecoration(
-                                              shape: BoxShape.circle,
-                                              color: Colors.white,
-                                            ),
-                                          )
-                                        : null,
-                                  ),
-                                ),
-                              );
-                            },
-                          )),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      Text(
-                        'Sizes',
-                        style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.w700),
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      Row(
-                        children: List.generate(
-                          sizeList.length,
-                          (index) => GestureDetector(
-                            onTap: () {
-                              setState(() {
-                                selectedSize = index;
-                                final selectedSizeValue =
-                                    sizeList[selectedSize];
-                                print(selectedSizeValue);
-                              });
-                            },
-                            child: Container(
-                              alignment: Alignment.center,
-                              height: 50,
-                              width: 50,
-                              padding: EdgeInsets.all(5),
-                              margin: EdgeInsets.symmetric(horizontal: 10),
-                              decoration: BoxDecoration(
-                                color:
-                                    selectedSize == index ? Colors.green : null,
-                                border: Border.all(color: Colors.black),
-                              ),
-                              child: Text(
-                                sizeList[index],
-                                style: TextStyle(fontSize: 20),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        height: 15,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            'Quantity',
-                            style: TextStyle(
-                                fontSize: 18, fontWeight: FontWeight.w700),
-                          ),
-                          Row(
-                            children: [
-                              Container(
-                                alignment: Alignment.center,
-                                height: 50,
-                                width: 50,
-                                padding: EdgeInsets.all(5),
-                                margin: EdgeInsets.symmetric(horizontal: 20),
-                                decoration: BoxDecoration(
-                                    border: Border.all(color: black208)),
-                                child: Icon(Icons.remove),
-                              ),
-                              Text(
-                                '1',
-                                style: TextStyle(fontSize: 17),
-                              ),
-                              Container(
-                                alignment: Alignment.center,
-                                height: 50,
-                                width: 50,
-                                padding: EdgeInsets.all(5),
-                                margin: EdgeInsets.symmetric(horizontal: 20),
-                                decoration: BoxDecoration(
-                                    border: Border.all(color: black208)),
-                                child: Icon(Icons.add, color: green77),
-                              ),
-                            ],
-                          )
-                        ],
-                      ),
-                      SizedBox(
-                        height: 15,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          ElevatedButton(
-                            style: ButtonStyle(
-                              backgroundColor:
-                                  MaterialStateProperty.all(Colors.transparent),
-                              shape: MaterialStateProperty.all(
-                                RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(30.0),
-                                  side: BorderSide(color: green77, width: 2.0),
-                                ),
-                              ),
-                              elevation: MaterialStateProperty.all(0),
-                              fixedSize: MaterialStateProperty.all(Size(
-                                  SizeUtility(context).width * 42 / 100, 60)),
-                            ),
-                            onPressed: () {
-                              // context.read<CartBloc>().add(AddCartEvent(productId: productId, basePrice: passValue.discountPrice, size: size, color: color))
-                            },
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.end,
-                              children: [
-                                Icon(
-                                  Icons.shopping_cart,
-                                  color: green77,
-                                ),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Text(
-                                  'Add to cart',
-                                  style: TextStyle(
-                                      color: green77,
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.w700),
-                                )
-                              ],
-                            ),
-                          ),
-                          ElevatedButton(
-                            style: ButtonStyle(
-                              backgroundColor:
-                                  MaterialStateProperty.all(green77),
-                              shape: MaterialStateProperty.all(
-                                RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(30.0),
-                                  side: BorderSide(color: green77, width: 2.0),
-                                ),
-                              ),
-                              elevation: MaterialStateProperty.all(0),
-                              fixedSize: MaterialStateProperty.all(Size(
-                                  SizeUtility(context).width * 42 / 100, 60)),
-                            ),
-                            onPressed: () {},
-                            child: Text(
-                              'Buy Now',
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.w700),
-                            ),
-                          )
-                        ],
-                      ),
-                    ],
-                  ),
+                  child: buildShowModelSheet(context, colorMap, setState,
+                      selectedColor, sizeList, selectedSize, quantity),
                 ),
               ),
             );
@@ -591,6 +352,315 @@ class SingleProductView extends StatelessWidget {
       ),
     );
   }
+
+  Widget buildShowModelSheet(
+      BuildContext context,
+      Map<String, Color> colorMap,
+      StateSetter setState,
+      int selectedColor,
+      List<String> sizeList,
+      int selectedSize,
+      int quantity) {
+    return StatefulBuilder(
+      builder: (context, setState) => Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  Container(
+                    height: 130,
+                    width: 130,
+                    decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: NetworkImage(
+                            passValue!.colors![0].images![0],
+                          ),
+                          fit: BoxFit.cover,
+                        ),
+                        borderRadius: BorderRadius.circular(20),
+                        border: Border.all(color: black208)),
+                  ),
+                  SizedBox(
+                    width: 20,
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text('${passValue.discountPrice} ₹',
+                          style: TextStyle(
+                              color: green77,
+                              fontWeight: FontWeight.w700,
+                              fontSize: 24)),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      Text('${passValue.actualPrice} ₹',
+                          style: TextStyle(
+                              decoration: TextDecoration.lineThrough,
+                              fontSize: 20)),
+                    ],
+                  ),
+                ],
+              ),
+              IconButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  icon: Icon(
+                    Icons.close,
+                    color: black122,
+                  ))
+            ],
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Text(
+            'Colors',
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          SizedBox(
+              height: 30,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: colorMap.length,
+                itemBuilder: (BuildContext context, int index) {
+                  final colorEntry = colorMap.entries.toList()[index];
+                  // final colorName = colorEntry.key;
+                  final colorValue = colorEntry.value;
+
+                  return GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        selectedColor = index;
+                        print(selectedColor);
+                        final selectedColorName =
+                            colorMap.keys.toList()[selectedColor];
+                        print(selectedColorName);
+                      });
+                    },
+                    child: Padding(
+                      padding: EdgeInsets.only(right: 20),
+                      child: CircleAvatar(
+                        radius: 15,
+                        backgroundColor: colorValue,
+                        child: selectedColor == index
+                            ? Container(
+                                width: 10,
+                                height: 10,
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: Colors.white,
+                                ),
+                              )
+                            : null,
+                      ),
+                    ),
+                  );
+                },
+              )),
+          SizedBox(
+            height: 20,
+          ),
+          Text(
+            'Sizes',
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Row(
+            children: List.generate(
+              sizeList.length,
+              (index) => GestureDetector(
+                onTap: () {
+                  setState(() {
+                    selectedSize = index;
+                    final selectedSizeValue = sizeList[selectedSize];
+                    print(selectedSizeValue);
+                  });
+                },
+                child: Container(
+                  alignment: Alignment.center,
+                  height: 50,
+                  width: 50,
+                  padding: EdgeInsets.all(5),
+                  margin: EdgeInsets.symmetric(horizontal: 10),
+                  decoration: BoxDecoration(
+                    color: selectedSize == index ? Colors.green : null,
+                    border: Border.all(color: Colors.black),
+                  ),
+                  child: Text(
+                    sizeList[index],
+                    style: TextStyle(fontSize: 20),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 15,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                'Quantity',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
+              ),
+              BlocBuilder<CartBloc, CartState>(
+                builder: (context, state) => Row(
+                  children: [
+                    Container(
+                      alignment: Alignment.center,
+                      height: 50,
+                      width: 50,
+                      padding: EdgeInsets.all(5),
+                      margin: EdgeInsets.symmetric(horizontal: 20),
+                      decoration:
+                          BoxDecoration(border: Border.all(color: black208)),
+                      child: IconButton(
+                          onPressed: () {
+                            setState(() {
+                              if (quantity > 1) {
+                                quantity -= 1;
+                                print('quantity: $quantity');
+                              }
+                            });
+                          },
+                          icon: Icon(Icons.remove)),
+                    ),
+                    Text(
+                      quantity.toString(),
+                      style: TextStyle(fontSize: 17),
+                    ),
+                    Container(
+                      alignment: Alignment.center,
+                      height: 50,
+                      width: 50,
+                      padding: EdgeInsets.all(5),
+                      margin: EdgeInsets.symmetric(horizontal: 20),
+                      decoration:
+                          BoxDecoration(border: Border.all(color: black208)),
+                      child: IconButton(
+                          onPressed: () {
+                            setState(() {
+                              quantity += 1;
+                            });
+                          },
+                          icon: Icon(Icons.add, color: green77)),
+                    ),
+                  ],
+                ),
+              )
+            ],
+          ),
+          SizedBox(
+            height: 15,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              BlocListener<CartBloc, CartState>(
+                listener: (context, state) {
+                  if (state.message.isNotEmpty) {
+                    showSnackBar(context, state.message);
+                    Navigator.of(context).pop();
+                  }
+                },
+                child: ElevatedButton(
+                  style: ButtonStyle(
+                    backgroundColor:
+                        MaterialStateProperty.all(Colors.transparent),
+                    shape: MaterialStateProperty.all(
+                      RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30.0),
+                        side: BorderSide(color: green77, width: 2.0),
+                      ),
+                    ),
+                    elevation: MaterialStateProperty.all(0),
+                    fixedSize: MaterialStateProperty.all(
+                        Size(SizeUtility(context).width * 42 / 100, 60)),
+                  ),
+                  onPressed: () {
+                    print(
+                        'hey the test of add cart color ${colorMap.keys.elementAt(selectedColor)}  size ${sizeList[selectedSize]} id-------${passValue.id} quantity +++${quantity}');
+
+                    context.read<CartBloc>().add(AddCartEvent(
+                        productId: passValue.id,
+                        basePrice: passValue.discountPrice.toInt(),
+                        size: sizeList[selectedSize],
+                        color: colorMap.keys.elementAt(selectedColor),
+                        context: context,
+                        quantity: quantity));
+                  },
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Icon(
+                        Icons.shopping_cart,
+                        color: green77,
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Text(
+                        'Add to cart',
+                        style: TextStyle(
+                            color: green77,
+                            fontSize: 20,
+                            fontWeight: FontWeight.w700),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+              ElevatedButton(
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(green77),
+                  shape: MaterialStateProperty.all(
+                    RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30.0),
+                      side: BorderSide(color: green77, width: 2.0),
+                    ),
+                  ),
+                  elevation: MaterialStateProperty.all(0),
+                  fixedSize: MaterialStateProperty.all(
+                      Size(SizeUtility(context).width * 42 / 100, 60)),
+                ),
+                onPressed: () {},
+                child: Text(
+                  'Buy Now',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w700),
+                ),
+              )
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  // Padding buildShowBottomModel(
+  //     BuildContext context,
+  //     Map<String, Color> colorMap,
+  //     int selectedColor,
+  //     List<String> sizeList,
+  //     int selectedSize,
+  //     int quantity) {
+  //   return
+  // }
 
   buildReviewItem({required String comment, required BuildContext context}) {
     return Container(

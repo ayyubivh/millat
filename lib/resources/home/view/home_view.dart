@@ -95,11 +95,7 @@ class _HomeViewState extends State<HomeView> {
             actions: _isAppBarCollapsed
                 ? [
                     GestureDetector(
-                      onTap: () {
-                        Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => const ProfileView(),
-                        ));
-                      },
+                      onTap: () {},
                       child: CircleAvatar(
                           radius: 15,
                           backgroundColor: Colors.white,
@@ -135,10 +131,17 @@ class _HomeViewState extends State<HomeView> {
                           Row(
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              const CircleAvatar(
-                                backgroundColor: Colors.white,
-                                backgroundImage:
-                                    AssetImage('assets/icons/user.png'),
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (context) => const ProfileView(),
+                                  ));
+                                },
+                                child: const CircleAvatar(
+                                  backgroundColor: Colors.white,
+                                  backgroundImage:
+                                      AssetImage('assets/icons/user.png'),
+                                ),
                               ),
                               const SizedBox(
                                 width: 10,

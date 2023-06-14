@@ -13,7 +13,7 @@ class HttpServices {
     return response;
   }
 
-  Future<http.Response> post({
+  Future<http.Response> posts({
     required String endPoint,
     required Map body,
     Map<String, String>? headers,

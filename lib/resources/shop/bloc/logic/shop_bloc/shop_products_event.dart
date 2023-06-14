@@ -11,4 +11,13 @@ class ShopProductsEvent with _$ShopProductsEvent {
   const factory ShopProductsEvent.fetchShopBanners() = FetchShopBanners;
   const factory ShopProductsEvent.fetchArticles() = FetchArticles;
   const factory ShopProductsEvent.fetchShopByBrand() = FetchShopByBrand;
+  const factory ShopProductsEvent.fetchWishList(BuildContext context) =
+      FetchWishList;
+  const factory ShopProductsEvent.searchProduct(String query) = SearchProduct;
+  const factory ShopProductsEvent.addWishListEvent(
+      {required String productId,
+      required BuildContext context}) = AddWishListEvent;
+  const factory ShopProductsEvent.removeWishlistEvent(
+      {required String productId,
+      required BuildContext context}) = RemoveWishlistEvent;
 }

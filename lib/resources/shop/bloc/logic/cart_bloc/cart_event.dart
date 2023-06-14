@@ -20,4 +20,8 @@ class CartEvent with _$CartEvent {
       required BuildContext context,
       required String color,
       required int quantity}) = AddCartEvent;
+  const factory CartEvent.removeCartItemEvent({
+    required BuildContext context,
+    required String productId,
+  }) = RemoveCartItemEvent;
 }

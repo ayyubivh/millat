@@ -1,7 +1,10 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/components/common_widgets/cart_icon_widget.dart';
 import 'package:millat/resources/shop/bloc/logic/cart_bloc/cart_bloc.dart';
+import 'package:millat/resources/shop/view/cart/cart.dart';
 import 'package:millat/resources/shop/view/reviews/reviews_view.dart';
 import 'package:millat/utils/globals.dart';
 import 'package:millat/utils/size_utility.dart';
@@ -568,14 +571,8 @@ class SingleProductView extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              BlocListener<CartBloc, CartState>(
-                listener: (context, state) {
-                  if (state.message.isNotEmpty) {
-                    showSnackBar(context, state.message);
-                    Navigator.of(context).pop();
-                  }
-                },
-                child: ElevatedButton(
+              BlocBuilder<CartBloc, CartState>(
+                builder: (context, state) => ElevatedButton(
                   style: ButtonStyle(
                     backgroundColor:
                         MaterialStateProperty.all(Colors.transparent),
@@ -589,17 +586,23 @@ class SingleProductView extends StatelessWidget {
                     fixedSize: MaterialStateProperty.all(
                         Size(SizeUtility(context).width * 42 / 100, 60)),
                   ),
-                  onPressed: () {
+                  onPressed: () async {
                     print(
                         'hey the test of add cart color ${colorMap.keys.elementAt(selectedColor)}  size ${sizeList[selectedSize]} id-------${passValue.id} quantity +++${quantity}');
-
+                    Navigator.of(context).pop();
                     context.read<CartBloc>().add(AddCartEvent(
-                        productId: passValue.id,
-                        basePrice: passValue.discountPrice.toInt(),
-                        size: sizeList[selectedSize],
-                        color: colorMap.keys.elementAt(selectedColor),
-                        context: context,
-                        quantity: quantity));
+                          productId: passValue.id,
+                          basePrice: passValue.discountPrice.toInt(),
+                          size: sizeList[selectedSize],
+                          color: colorMap.keys.elementAt(selectedColor),
+                          context: context,
+                          quantity: quantity,
+                        ));
+
+                    await Future.delayed(Duration(milliseconds: 400));
+                    if (state.cartSuccesmessage.isNotEmpty) {
+                      showSnackBar(context, state.cartSuccesmessage.toString());
+                    }
                   },
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -636,7 +639,22 @@ class SingleProductView extends StatelessWidget {
                   fixedSize: MaterialStateProperty.all(
                       Size(SizeUtility(context).width * 42 / 100, 60)),
                 ),
-                onPressed: () {},
+                onPressed: () async {
+                  context.read<CartBloc>().add(AddCartEvent(
+                        productId: passValue.id,
+                        basePrice: passValue.discountPrice.toInt(),
+                        size: sizeList[selectedSize],
+                        color: colorMap.keys.elementAt(selectedColor),
+                        context: context,
+                        quantity: quantity,
+                      ));
+
+                  Future.delayed(Duration(milliseconds: 400), () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => CartView()),
+                    );
+                  });
+                },
                 child: Text(
                   'Buy Now',
                   style: TextStyle(

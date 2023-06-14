@@ -1,12 +1,15 @@
 import 'dart:async';
 import 'package:bloc/bloc.dart';
+import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:millat/resources/shop/bloc/models/articles/articles_model.dart';
+import 'package:millat/resources/shop/bloc/models/products/products_model.dart';
 import 'package:millat/resources/shop/bloc/models/recent_products/recent_products_model.dart';
 import 'package:millat/resources/shop/bloc/service/shop_services.dart';
 import '../../models/banners/banners_model.dart';
 import '../../models/shop_by_brand/shop_by_brand_models.dart';
 import '../../models/shop_products/shop_products_model.dart';
+import '../../models/wishlist/wishllist_models.dart';
 
 part 'shop_products_event.dart';
 part 'shop_products_state.dart';
@@ -22,6 +25,10 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
     on<FetchShopBanners>(_fetchShopBanners);
     on<FetchArticles>(_fetchArticles);
     on<FetchShopByBrand>(_fetchShopByBrand);
+    on<FetchWishList>(_fetchWishList);
+    on<SearchProduct>(_searchProduct);
+    on<AddWishListEvent>(_addWishListEvent);
+    on<RemoveWishlistEvent>(_removeWishlistEvent);
   }
 
   FutureOr<void> _fetchFlashSaleProducts(
@@ -112,6 +119,65 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
       emit(state.copyWith(
         errorMessage: "An error occurred",
       ));
+    }
+  }
+
+  FutureOr<void> _fetchWishList(
+      FetchWishList event, Emitter<ShopProductsState> emit) async {
+    try {
+      final data = await _shopService.fetchWishlist(event.context);
+      emit(state.copyWith(
+        wishList: data,
+      ));
+    } catch (e) {
+      emit(state.copyWith(
+        errorMessage: "An error occurred",
+      ));
+    }
+  }
+
+  FutureOr<void> _searchProduct(
+      SearchProduct event, Emitter<ShopProductsState> emit) async {
+    try {
+      final data = await _shopService.fetchSearchProduct(event.query);
+      emit(state.copyWith(
+        searchProducts: data,
+      ));
+      print('serch result product on the data ${data}');
+    } catch (e) {
+      emit(state.copyWith(
+        errorMessage: "An error occurred",
+      ));
+    }
+  }
+
+  _addWishListEvent(
+      AddWishListEvent event, Emitter<ShopProductsState> emit) async {
+    emit(state.copyWith(wishListMessage: ""));
+    try {
+      final data = await _shopService.addWishList(
+        context: event.context,
+        productId: event.productId,
+      );
+      emit(state.copyWith(wishListMessage: '${data['message']}'));
+      print('${data['message']}');
+    } catch (e) {
+      emit(state.copyWith(errorMessage: "An error occurred"));
+    }
+  }
+
+  _removeWishlistEvent(
+      RemoveWishlistEvent event, Emitter<ShopProductsState> emit) async {
+    emit(state.copyWith(wishListMessage: ""));
+    try {
+      final data = await _shopService.addWishList(
+        context: event.context,
+        productId: event.productId,
+      );
+      emit(state.copyWith(wishListMessage: '${data['message']}'));
+      print('${data['message']}');
+    } catch (e) {
+      emit(state.copyWith(errorMessage: "An error occurred"));
     }
   }
 }

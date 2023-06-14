@@ -1,45 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:millat/resources/home/view/home_view.dart';
-import 'package:millat/resources/shop/view/shop_tabs_vilew.dart';
 import 'package:millat/resources/shop/view/shop_view.dart';
-import 'package:millat/utils/globals.dart';
+import 'package:millat/resources/shop/view/wishlist/wishlist_view.dart';
+import '../../../utils/globals.dart';
 
-import '../../authentication/bloc/logic/database_bloc/database_bloc.dart';
-
-class TabsView extends StatefulWidget {
-  const TabsView({Key? key}) : super(key: key);
+class ShopTabsView extends StatefulWidget {
+  const ShopTabsView({super.key});
 
   @override
-  State<TabsView> createState() => _TabsViewState();
+  State<ShopTabsView> createState() => _ShopTabsViewState();
 }
 
-class _TabsViewState extends State<TabsView> {
+class _ShopTabsViewState extends State<ShopTabsView> {
   int index = 0;
   List screens = [
-    const HomeView(),
-    ShopTabsView(),
+    const ShopView(),
+    WishListView(),
     Container(),
     Container(),
   ];
-
-  void onTap(int _index) {
+  void onTap(int value) {
     setState(() {
-      if (_index == 1) {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => ShopTabsView()),
-        );
-      }
-      index = _index;
+      index = value;
     });
-  }
-
-  @override
-  void initState() {
-    context.read<DatabaseBloc>().add(FetchToken());
-
-    super.initState();
   }
 
   @override
@@ -64,17 +46,19 @@ class _TabsViewState extends State<TabsView> {
                   AssetImage('assets/icons/home.png'),
                 )),
             BottomNavigationBarItem(
-                label: 'Shop',
+                label: 'Wishlist',
                 icon: ImageIcon(
-                  AssetImage('assets/icons/store.png'),
+                  size: 16,
+                  AssetImage('assets/icons/home_wishlist.png'),
                 )),
             BottomNavigationBarItem(
-                label: 'Sukoon',
+                label: 'Categories',
                 icon: ImageIcon(
-                  AssetImage('assets/icons/sukoon.png'),
+                  size: 16,
+                  AssetImage('assets/icons/category.png'),
                 )),
             BottomNavigationBarItem(
-                label: 'Community',
+                label: 'Profile',
                 icon: ImageIcon(
                   AssetImage('assets/icons/community.png'),
                 )),

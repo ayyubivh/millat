@@ -11,7 +11,7 @@ class AuthService extends HttpServices {
   final String forgotPasswordAPI = 'auth/forgot_password';
 
   login({required String email, required String password}) async {
-    return await post(
+    return await posts(
         endPoint: loginAPI,
         body: {"email": email, "password": password}).then((value) {
       print(value.body);
@@ -32,7 +32,7 @@ class AuthService extends HttpServices {
       {required String name,
       required String email,
       required String password}) async {
-    return await post(
+    return await posts(
             endPoint: signUpAPI,
             body: {"name": name, "email": email, "password": password})
         .then((value) {
@@ -51,7 +51,7 @@ class AuthService extends HttpServices {
   sendOTP({
     required String phoneNumber,
   }) async {
-    return await post(endPoint: loginWithOTPAPI, body: {
+    return await posts(endPoint: loginWithOTPAPI, body: {
       "phone_number": phoneNumber,
     }).then((value) {
       if (value.statusCode == 200) {
@@ -73,7 +73,7 @@ class AuthService extends HttpServices {
   }
 
   verifyOTP({required String phoneNumber, required String OTP}) async {
-    return await post(
+    return await posts(
         endPoint: verifyOTPAPI,
         body: {"phone_number": phoneNumber, "otp": OTP}).then((value) {
       if (value.statusCode == 200) {
@@ -96,7 +96,7 @@ class AuthService extends HttpServices {
   resendOTP({
     required String phoneNumber,
   }) async {
-    return await post(endPoint: resendOTPAPI, body: {
+    return await posts(endPoint: resendOTPAPI, body: {
       "phone_number": phoneNumber,
     }).then((value) {
       if (value.statusCode == 200) {
@@ -114,7 +114,7 @@ class AuthService extends HttpServices {
   }
 
   forgotPassword({required String phoneNumber, required String}) async {
-    return await post(endPoint: forgotPasswordAPI, body: {
+    return await posts(endPoint: forgotPasswordAPI, body: {
       "phone_number": phoneNumber,
       "otp": "7941",
       "password": "dinesh"

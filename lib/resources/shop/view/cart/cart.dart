@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:millat/resources/shop/bloc/logic/cart_bloc/cart_bloc.dart';
 import 'package:millat/resources/shop/bloc/service/cart_service.dart';
 import 'package:millat/resources/shop/view/checkout/checkout_view.dart';
@@ -58,6 +59,7 @@ class _CartViewState extends State<CartView> {
                           .cartModel?.result?.cartProducts?.cartItems![index];
                       return buildCartCard(
                         context: context,
+                        id: data?.productId!.id,
                         title: data?.productId!.title,
                         size: data!.size,
                         image: data.productId!.colors![0].images![0],
@@ -205,6 +207,7 @@ class _CartViewState extends State<CartView> {
 
   Widget buildCartCard(
       {required BuildContext context,
+      required String? id,
       required String? title,
       required String? size,
       required String? image,
@@ -215,133 +218,183 @@ class _CartViewState extends State<CartView> {
       required String? productId}) {
     final backgroundColor = _getColorFromJson(jsonColor);
 
-    return SizedBox(
-      height: 133,
-      child: Padding(
-        padding: const EdgeInsets.all(15.0),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Container(
-              width: 60,
-              height: 60,
-              decoration: BoxDecoration(
-                  border: Border.all(color: black122),
-                  borderRadius: BorderRadius.circular(5),
-                  image: DecorationImage(image: NetworkImage(image!))),
-            ),
-            SizedBox(
-              width: 20,
-            ),
-            SizedBox(
-              child: Column(
+    return Container(
+      margin: EdgeInsets.only(bottom: 10),
+      width: double.infinity,
+      color: Colors.white,
+      child: SizedBox(
+        height: 133,
+        child: Padding(
+          padding: const EdgeInsets.all(15.0),
+          child: Stack(
+            children: [
+              Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(
-                    width: SizeUtility(context).width * 40 / 100,
-                    child: Text(
-                      title.toString(),
-                      style: TextStyle(
-                          color: black26,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w600),
+                  Container(
+                    width: 60,
+                    height: 60,
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.black),
+                      borderRadius: BorderRadius.circular(5),
+                      image: DecorationImage(image: NetworkImage(image!)),
                     ),
                   ),
-                  SizedBox(height: 5),
-                  Container(
-                    padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                    color: black122.withOpacity(0.15),
-                    child: Text('${colorName},${size}',
-                        style: TextStyle(color: black122, fontSize: 13)),
-                  ),
-                  SizedBox(height: 10),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Row(
-                        children: [
-                          Text(
-                            price.toString(),
-                            style: TextStyle(color: green77, fontSize: 13),
-                          ),
-                          SizedBox(width: 20),
-                          CircleAvatar(
-                            radius: 6,
-                            backgroundColor: backgroundColor,
-                          ),
-                          SizedBox(width: 5),
-                          Text(
-                            colorName.toString(),
+                  SizedBox(width: 20),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            SizedBox(
+                              width: MediaQuery.of(context).size.width * 0.4,
+                              child: Text(
+                                title.toString(),
+                                style: TextStyle(
+                                  color: textBlack,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                            ),
+                            InkWell(
+                              onTap: () {
+                                context.read<CartBloc>().add(
+                                    RemoveCartItemEvent(
+                                        context: context, productId: id!));
+                                print('Delete icon tapped  ${id}');
+                              },
+                              child: Icon(
+                                Icons.delete_outline,
+                                color: black104,
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(height: 5),
+                        Container(
+                          padding:
+                              EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                          color: Colors.black12.withOpacity(0.15),
+                          child: Text(
+                            '${colorName}, ${size}',
                             style: TextStyle(
-                                fontSize: 13, fontWeight: FontWeight.w500),
-                          ),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          InkWell(
-                            onTap: () {
-                              print('on remove');
-                              if (quantity == 1) {
-                                return;
-                              }
-                              context.read<CartBloc>().add(
-                                    UpdateCartEventWithSub(
-                                        context: context,
-                                        productId: productId.toString(),
-                                        quantity: quantity! - 1),
-                                  );
-                              print(
-                                  'on remove ${quantity} on fuc test ${quantity - 1}');
-                            },
-                            child: Container(
-                              alignment: Alignment.center,
-                              height: 30,
-                              width: 30,
-                              padding: EdgeInsets.all(5),
-                              margin: EdgeInsets.symmetric(horizontal: 15),
-                              decoration: BoxDecoration(
-                                  border: Border.all(color: black208)),
-                              child: Icon(Icons.remove, size: 15),
+                              color: Colors.black,
+                              fontSize: 13,
                             ),
                           ),
-                          Text(
-                            quantity.toString(),
-                            style: TextStyle(fontSize: 17),
-                          ),
-                          InkWell(
-                            onTap: () {
-                              context.read<CartBloc>().add(
-                                    UpdateCartEventWithAdd(
-                                        context: context,
-                                        productId: productId.toString(),
-                                        quantity: quantity! + 1),
-                                  );
+                        ),
+                        SizedBox(height: 10),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Row(
+                              children: [
+                                Text(
+                                  price.toString(),
+                                  style: TextStyle(
+                                    color: Colors.green,
+                                    fontSize: 13,
+                                  ),
+                                ),
+                                SizedBox(width: 20),
+                                CircleAvatar(
+                                  radius: 6,
+                                  backgroundColor: backgroundColor,
+                                ),
+                                SizedBox(width: 5),
+                                Text(
+                                  colorName.toString(),
+                                  style: TextStyle(
+                                    fontSize: 13,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Row(
+                              children: [
+                                InkWell(
+                                  onTap: () {
+                                    print('on remove');
+                                    if (quantity == 1) {
+                                      return;
+                                    }
+                                    context.read<CartBloc>().add(
+                                          UpdateCartEventWithSub(
+                                            context: context,
+                                            productId: productId.toString(),
+                                            quantity: quantity! - 1,
+                                          ),
+                                        );
+                                    print(
+                                      'on remove ${quantity} on fuc test ${quantity - 1}',
+                                    );
+                                  },
+                                  child: Container(
+                                    alignment: Alignment.center,
+                                    height: 30,
+                                    width: 30,
+                                    padding: EdgeInsets.all(5),
+                                    margin:
+                                        EdgeInsets.symmetric(horizontal: 15),
+                                    decoration: BoxDecoration(
+                                      border: Border.all(color: Colors.black),
+                                    ),
+                                    child: Icon(
+                                      Icons.remove,
+                                      size: 15,
+                                    ),
+                                  ),
+                                ),
+                                Text(
+                                  quantity.toString(),
+                                  style: TextStyle(fontSize: 17),
+                                ),
+                                InkWell(
+                                  onTap: () {
+                                    context.read<CartBloc>().add(
+                                          UpdateCartEventWithAdd(
+                                            context: context,
+                                            productId: productId.toString(),
+                                            quantity: quantity! + 1,
+                                          ),
+                                        );
 
-                              print(
-                                  'add cart ui product id${productId} quantityssseeee ${quantity}');
-                            },
-                            child: Container(
-                              alignment: Alignment.center,
-                              height: 30,
-                              width: 30,
-                              padding: EdgeInsets.all(5),
-                              margin: EdgeInsets.symmetric(horizontal: 15),
-                              decoration: BoxDecoration(
-                                  border: Border.all(color: black208)),
-                              child: Icon(Icons.add, color: green77, size: 15),
+                                    print(
+                                      'add cart ui product id${productId} quantityssseeee ${quantity}',
+                                    );
+                                  },
+                                  child: Container(
+                                    alignment: Alignment.center,
+                                    height: 30,
+                                    width: 30,
+                                    padding: EdgeInsets.all(5),
+                                    margin:
+                                        EdgeInsets.symmetric(horizontal: 15),
+                                    decoration: BoxDecoration(
+                                      border: Border.all(color: Colors.black),
+                                    ),
+                                    child: Icon(
+                                      Icons.add,
+                                      color: Colors.green,
+                                      size: 15,
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
-                          ),
-                        ],
-                      )
-                    ],
-                  )
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
                 ],
               ),
-            ),
-
-            //  IconButton(onPressed: (){}, icon: Icon(Icons.delete,color:black122 ,)),
-          ],
+            ],
+          ),
         ),
       ),
     );

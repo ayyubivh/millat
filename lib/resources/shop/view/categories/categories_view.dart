@@ -1,12 +1,11 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:millat/components/common_widgets/products_view_widget.dart';
 import 'package:millat/resources/shop/bloc/models/products/products_model.dart';
-import 'package:millat/resources/shop/view/cart/cart.dart';
 import 'package:millat/resources/shop/view/products/single_product_view.dart';
 import 'package:millat/utils/size_utility.dart';
 import '../../../../components/common_widgets/cart_icon_widget.dart';
+import '../../../../components/common_widgets/shop_products_widget.dart';
 import '../../../../utils/globals.dart';
 import '../../bloc/logic/cart_bloc/cart_bloc.dart';
 import '../../bloc/logic/category_bloc/category_bloc.dart';
@@ -264,7 +263,8 @@ class _CategoriesViewState extends State<CategoriesView> {
                                                   passValue: data,
                                                 )));
                                   },
-                                  child: ProductsWidget(
+                                  child: ShopProductWidget(
+                                    productId: data.id,
                                     title: data.title,
                                     image: data.colors[0].images![0],
                                     discountPrice: data.discountPrice.toInt(),

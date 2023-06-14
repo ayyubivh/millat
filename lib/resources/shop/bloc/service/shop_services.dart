@@ -1,9 +1,15 @@
 import 'dart:convert';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:http/http.dart' as http;
 import 'package:millat/resources/shop/bloc/models/banners/banners_model.dart';
 import 'package:millat/resources/shop/bloc/models/recent_products/recent_products_model.dart';
 import 'package:millat/resources/shop/bloc/models/shop_by_brand/shop_by_brand_models.dart';
+import 'package:millat/resources/shop/bloc/models/wishlist/wishllist_models.dart';
 import 'package:millat/services/http_services.dart';
+import '../../../authentication/bloc/logic/database_bloc/database_bloc.dart';
 import '../models/articles/articles_model.dart';
+import '../models/products/products_model.dart';
 import '../models/shop_products/shop_products_model.dart';
 
 class ShopService extends HttpServices {
@@ -14,7 +20,6 @@ class ShopService extends HttpServices {
   final shopBanner = 'banner?slug=home_banner';
   final article = 'article';
 
-  // final filter = 'product/filter?cate=${category}';
   // Fetching all flash sale products
   Future<ShopProducts> fetchFlashSaleProducts() async {
     final response = await get(endPoint: flashSale);
@@ -145,6 +150,140 @@ class ShopService extends HttpServices {
       try {
         final Map<String, dynamic> data = json.decode(response.body);
         final result = ShopBrandModel.fromJson(data['result']);
+
+        return result;
+      } catch (e) {
+        print('error on shop by brand API fetch: ${e.toString()}');
+        throw Exception('Failed to parse response');
+      }
+    } else {
+      throw Exception(
+          'API request failed with status code: ${response.statusCode}');
+    }
+  }
+
+  // Adding products to wish  list
+  addWishList({
+    required BuildContext context,
+    required String productId,
+  }) async {
+    final String webBaseUrl = 'http://35.172.93.164:8000/';
+    final endPoint = "wishlist/add";
+    final databaseState = context.read<DatabaseBloc>().state;
+    final token = databaseState.token;
+    final headers = {
+      'Content-Type': 'application/json; charset=utf-8',
+      'Authorization': 'Bearer $token',
+    };
+    final body = {
+      "productId": productId,
+    };
+
+    try {
+      final response = await http.put(
+        Uri.parse(webBaseUrl + endPoint),
+        headers: headers,
+        body: jsonEncode(body),
+      );
+      print(response.body);
+      if (response.statusCode == 200) {
+        final Map<String, dynamic> data = json.decode(response.body);
+        print('Adding wishlist item: $data');
+        return data;
+      } else if (response.statusCode == 409) {
+        final Map<String, dynamic> data = json.decode(response.body);
+        print('Adding wishlist item: $data');
+        return data;
+      } else {
+        print('Error on API of wishlist fetch: ${response.statusCode}');
+        throw Exception('Failed to add item to wishlist');
+      }
+    } catch (e) {
+      print('Error on API fetch: ${e.toString()}');
+      throw Exception('Failed to parse response');
+    }
+  }
+
+  // removing fromt the wishlist
+  removeWishList({
+    required BuildContext context,
+    required String productId,
+  }) async {
+    final String webBaseUrl = 'http://35.172.93.164:8000/';
+    final endPoint = "wishlist/remove";
+    final databaseState = context.read<DatabaseBloc>().state;
+    final token = databaseState.token;
+    final headers = {
+      'Content-Type': 'application/json; charset=utf-8',
+      'Authorization': 'Bearer $token',
+    };
+    final body = {
+      "productId": productId,
+    };
+
+    try {
+      final response = await http.post(
+        Uri.parse(webBaseUrl + endPoint),
+        headers: headers,
+        body: jsonEncode(body),
+      );
+      if (response.statusCode == 200) {
+        final Map<String, dynamic> data = json.decode(response.body);
+        print('Removing wishlist item: $data');
+      } else {
+        print('Error on API fetch: ${response.statusCode}');
+        throw Exception('Failed to remove item from wishlist');
+      }
+    } catch (e) {
+      print('Error on API fetch: ${e.toString()}');
+      throw Exception('Failed to parse response');
+    }
+  }
+  // fetching wishlist items
+
+  Future<Wishlist?> fetchWishlist(BuildContext context) async {
+    final endPoint = "wishlist";
+    final databaseState = context.read<DatabaseBloc>().state;
+    final token = databaseState.token;
+    final headers = {
+      'Content-Type': 'application/json; charset=utf-8',
+      'Authorization': 'Bearer $token',
+    };
+
+    final response = await get(endPoint: endPoint, headers: headers);
+
+    if (response.statusCode == 200) {
+      try {
+        final Map<String, dynamic> jsonResponse = json.decode(response.body);
+        final Map<String, dynamic> resultData =
+            jsonResponse['result']['wishlist'];
+        final Wishlist? result = Wishlist.fromJson(resultData);
+        if (result != null) {
+          // print('Wishlist items fetched in the service: $result');
+          return result;
+        } else {
+          throw Exception('Failed to parse response');
+        }
+      } catch (e) {
+        print('Error on shop by wishlist API fetch: ${e.toString()}');
+        throw Exception('Failed to parse response');
+      }
+    } else {
+      throw Exception(
+          'API request failed with status code: ${response.statusCode}');
+    }
+  }
+
+  //fetching search Products
+  Future<ProductModel> fetchSearchProduct(String query) async {
+    final endPoint = "product/search?query=$query";
+    final response = await get(endPoint: endPoint);
+
+    if (response.statusCode == 200) {
+      try {
+        final Map<String, dynamic> data = json.decode(response.body);
+        final result = ProductModel.fromJson(data);
+        print('jsone here on a mat cha${result}');
 
         return result;
       } catch (e) {

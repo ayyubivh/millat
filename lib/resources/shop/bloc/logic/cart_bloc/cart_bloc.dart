@@ -15,6 +15,7 @@ class CartBloc extends Bloc<CartEvent, CartState> {
   CartBloc() : super(CartState.initial()) {
     on<AddCartEvent>(_addCart);
     on<FetchCartEvent>(_fetchcCartEvent);
+    on<RemoveCartItemEvent>(_romveCartItemEvent);
 
     on<UpdateCartEventWithAdd>(_updateCartEvent);
     on<UpdateCartEventWithSub>(_updateCartEventWithSub);
@@ -36,8 +37,8 @@ class CartBloc extends Bloc<CartEvent, CartState> {
     }
   }
 
-  FutureOr<void> _addCart(AddCartEvent event, Emitter<CartState> emit) async {
-    emit(state.copyWith(cartLoading: true, message: ""));
+  Future _addCart(AddCartEvent event, Emitter<CartState> emit) async {
+    emit(state.copyWith(cartLoading: true, cartSuccesmessage: ""));
 
     try {
       final data = await _cartServices.addCart(
@@ -47,18 +48,24 @@ class CartBloc extends Bloc<CartEvent, CartState> {
           color: event.color,
           context: event.context,
           quantity: event.quantity);
-      final cartItemsCount =
-          state.cartModel?.result!.cartProducts!.cartItems!.length ?? 0;
 
-      emit(state.copyWith(
-        cartLoading: false,
-        message: data['message'],
-        errorMessage: data['error'],
-        cartLength: cartItemsCount + 1,
-      ));
-      print(data['error']);
-      print(
-          'cart add cart on bloc here ${data} mesage test ${data['message']}');
+      if (data['status'] == 200) {
+        print(data['status'].toString());
+        emit(state.copyWith(
+          cartSuccesmessage: data['message'],
+          cartLength: state.cartLength! + 1,
+          cartLoading: false,
+        ));
+
+        print(' on success ${data['message']}');
+      } else {
+        print(data['status'].toString());
+        emit(state.copyWith(
+          cartSuccesmessage: data['message'],
+          cartLoading: false,
+        ));
+        print(' on already ${data['message']}');
+      }
     } catch (e) {
       emit(state.copyWith(
           errorMessage: "An error occurred", cartLoading: false));
@@ -136,6 +143,35 @@ class CartBloc extends Bloc<CartEvent, CartState> {
         errorMessage: "An error occurred",
         cartLoading: false,
       ));
+    }
+  }
+
+  FutureOr<void> _romveCartItemEvent(
+      RemoveCartItemEvent event, Emitter<CartState> emit) async {
+    try {
+      final updatedCartModel = state.cartModel?.copyWith(
+        result: state.cartModel?.result?.copyWith(
+          cartProducts: state.cartModel?.result?.cartProducts?.copyWith(
+            cartItems: state.cartModel?.result?.cartProducts?.cartItems
+                ?.where(
+                  (item) => item.productId?.id != event.productId,
+                )
+                .toList(),
+          ),
+        ),
+      );
+      // final cartItemsCount =
+      //     state.cartModel?.result!.cartProducts!.cartItems!.length ?? 0;
+      await _cartServices.removeCartItem(
+        context: event.context,
+        productId: event.productId,
+      );
+      emit(state.copyWith(
+        cartModel: updatedCartModel,
+        cartLength: state.cartLength! - 1,
+      ));
+    } catch (e) {
+      emit(state.copyWith(errorMessage: "An error occurred"));
     }
   }
 }

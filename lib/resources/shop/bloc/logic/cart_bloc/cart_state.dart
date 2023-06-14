@@ -6,13 +6,13 @@ class CartState with _$CartState {
       {required CartModel? cartModel,
       required bool cartLoading,
       required String errorMessage,
-      required String message,
+      required String cartSuccesmessage,
       required int? cartLength}) = _CartState;
   factory CartState.initial() => CartState(
         cartModel: null,
         cartLoading: false,
         errorMessage: "",
-        message: "",
+        cartSuccesmessage: "",
         cartLength: null,
       );
 }

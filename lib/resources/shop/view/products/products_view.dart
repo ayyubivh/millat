@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:millat/resources/shop/view/products/single_product_view.dart';
 import 'package:millat/utils/size_utility.dart';
 import '../../../../components/common_widgets/filters_row_widgets.dart';
-import '../shop_view.dart';
+import '../../../../components/common_widgets/shop_products_widget.dart';
 
 class ProductsView extends StatelessWidget {
   final String appBarTitle;
@@ -74,7 +74,8 @@ class ProductsView extends StatelessWidget {
                             ),
                           ));
                         },
-                        child: buildShopItems(
+                        child: ShopProductWidget(
+                            productId: passValue?.id,
                             image: passValue
                                 .products![index].colors![0].images![0],
                             title: passValue.products![index].title,
@@ -94,7 +95,8 @@ class ProductsView extends StatelessWidget {
                           ),
                         ));
                       },
-                      child: buildShopItems(
+                      child: ShopProductWidget(
+                          productId: passValue?.id,
                           image:
                               passValue.products![index]!.colors![0].images![0],
                           title: passValue.products![index].title,

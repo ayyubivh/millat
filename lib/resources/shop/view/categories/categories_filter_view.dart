@@ -55,7 +55,7 @@ class _CategoriesFilterState extends State<CategoriesFilter> {
                                 padding: EdgeInsets.only(
                                     top: SizeUtility(context).height / 2),
                                 child:
-                                    CircularProgressIndicator(color: green77),
+                                    CircularProgressIndicator(color: whiteClr),
                               )
                             : SizedBox(
                                 width: 90,

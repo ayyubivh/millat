@@ -138,7 +138,6 @@ class CartServices extends HttpServices {
   removeCartItem({
     required BuildContext context,
     required String productId,
-    required int quantity,
   }) async {
     final String webBaseUrl = 'http://35.172.93.164:8000/';
 
@@ -151,7 +150,6 @@ class CartServices extends HttpServices {
     };
     final body = {
       "productId": productId,
-      "quantity": quantity,
     };
 
     final response = await http.put(Uri.parse(webBaseUrl + endPoint),

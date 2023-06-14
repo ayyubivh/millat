@@ -4,15 +4,15 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/components/common_widgets/build_categories_widget.dart';
 import 'package:millat/resources/shop/articles/view/articles_view.dart';
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
-import 'package:millat/resources/shop/bloc/service/shop_services.dart';
 import 'package:millat/resources/shop/view/categories/categories_filter_view.dart';
 import 'package:millat/resources/shop/view/products/products_view.dart';
 import 'package:millat/resources/shop/view/products/single_product_view.dart';
+import 'package:millat/resources/shop/view/search/search_view.dart';
 import 'package:millat/utils/globals.dart';
 import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/utils.dart';
-
 import '../../../components/common_widgets/cart_icon_widget.dart';
+import '../../../components/common_widgets/shop_products_widget.dart';
 import '../bloc/logic/cart_bloc/cart_bloc.dart';
 
 class ShopView extends StatefulWidget {
@@ -25,6 +25,8 @@ class ShopView extends StatefulWidget {
 class _ShopViewState extends State<ShopView> {
   @override
   void initState() {
+    BlocProvider.of<ShopProductsBloc>(context)
+        .add(ShopProductsEvent.fetchWishList(context));
     BlocProvider.of<ShopProductsBloc>(context)
         .add(ShopProductsEvent.fetchFlashSaleProducts());
 
@@ -94,15 +96,39 @@ class _ShopViewState extends State<ShopView> {
                   SizedBox(
                     height: 20,
                   ),
-                  TextField(
-                    decoration: InputDecoration(
-                      prefixIcon: Icon(Icons.search, color: black142),
-                      filled: true,
-                      fillColor: Colors.white,
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(30.0),
+                  Container(
+                    width: double.infinity,
+                    height: 48,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(30.0),
+                    ),
+                    child: Align(
+                      alignment: Alignment.topLeft,
+                      child: Row(
+                        children: [
+                          IconButton(
+                            onPressed: () {
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (context) => SearchView(),
+                                ),
+                              );
+                            },
+                            icon: Icon(
+                              Icons.search,
+                              color: black102,
+                            ),
+                          ),
+                          Text(
+                            'Search....',
+                            style: TextStyle(
+                              color: black102,
+                              fontSize: 17,
+                            ),
+                          )
+                        ],
                       ),
-                      hintText: 'Search...',
                     ),
                   ),
                   SizedBox(
@@ -296,14 +322,19 @@ class _ShopViewState extends State<ShopView> {
                                                   passValue: data),
                                         ));
                                       },
-                                      child: buildShopItems(
-                                          image: data!.colors![0].images![0],
-                                          title: data.title.toString(),
-                                          actualPrice:
-                                              data.actualPrice!.toInt(),
-                                          discount: data.discount!.toInt(),
-                                          discountPrice:
-                                              data.discountPrice!.toInt()));
+                                      child: Padding(
+                                        padding:
+                                            const EdgeInsets.only(right: 15),
+                                        child: ShopProductWidget(
+                                            productId: data?.id,
+                                            image: data!.colors![0].images![0],
+                                            title: data.title.toString(),
+                                            actualPrice:
+                                                data.actualPrice!.toInt(),
+                                            discount: data.discount!.toInt(),
+                                            discountPrice:
+                                                data.discountPrice!.toInt()),
+                                      ));
                                 },
                               ),
                       );
@@ -370,13 +401,17 @@ class _ShopViewState extends State<ShopView> {
                                         SingleProductView(passValue: data),
                                   ));
                                 },
-                                child: buildShopItems(
-                                    image: data!.colors![0].images![0],
-                                    title: data.title,
-                                    actualPrice: data.actualPrice!.toInt(),
-                                    discount: data.discount!.toInt(),
-                                    discountPrice:
-                                        data.discountPrice!.toInt()));
+                                child: Padding(
+                                  padding: const EdgeInsets.only(right: 15),
+                                  child: ShopProductWidget(
+                                      productId: data?.id,
+                                      image: data!.colors![0].images![0],
+                                      title: data.title,
+                                      actualPrice: data.actualPrice!.toInt(),
+                                      discount: data.discount!.toInt(),
+                                      discountPrice:
+                                          data.discountPrice!.toInt()),
+                                ));
                           },
                         ),
                       );
@@ -489,7 +524,8 @@ class _ShopViewState extends State<ShopView> {
                                         SingleProductView(passValue: data),
                                   ));
                                 },
-                                child: buildShopItems(
+                                child: ShopProductWidget(
+                                    productId: data?.id,
                                     image: data!.colors![0].images![0],
                                     title: data.title,
                                     actualPrice: data.actualPrice!.toInt(),
@@ -662,41 +698,6 @@ class _ShopViewState extends State<ShopView> {
           ],
         ),
       ),
-      bottomNavigationBar: SizedBox(
-        height: 110,
-        child: BottomNavigationBar(
-          onTap: (value) {},
-          currentIndex: 1,
-          unselectedItemColor: black137,
-          selectedItemColor: green77,
-          showUnselectedLabels: true,
-          selectedIconTheme: const IconThemeData(color: green77, size: 25),
-          unselectedIconTheme: const IconThemeData(color: black137, size: 25),
-          type: BottomNavigationBarType.fixed,
-          items: const [
-            BottomNavigationBarItem(
-                label: 'Home',
-                icon: ImageIcon(
-                  AssetImage('assets/icons/home.png'),
-                )),
-            BottomNavigationBarItem(
-                label: 'Wishlist',
-                icon: ImageIcon(
-                  AssetImage('assets/icons/heart.png'),
-                )),
-            BottomNavigationBarItem(
-                label: 'Categories',
-                icon: ImageIcon(
-                  AssetImage('assets/icons/sukoon.png'),
-                )),
-            BottomNavigationBarItem(
-                label: 'Profile',
-                icon: ImageIcon(
-                  AssetImage('assets/icons/community.png'),
-                )),
-          ],
-        ),
-      ),
     );
   }
 
@@ -742,97 +743,4 @@ class _ShopViewState extends State<ShopView> {
       ),
     );
   }
-}
-
-buildShopItems(
-    {required String image,
-    required String? title,
-    required int discountPrice,
-    required int actualPrice,
-    required int discount}) {
-  return Padding(
-    padding: EdgeInsets.only(right: 20.0),
-    child: SizedBox(
-      width: 160,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            width: 160,
-            height: 160,
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                  image: NetworkImage(image), fit: BoxFit.cover),
-              borderRadius: BorderRadius.circular(10),
-            ),
-          ),
-          SizedBox(
-            height: 15,
-          ),
-          Text(title.toString(),
-              style: TextStyle(
-                  color: black83,
-                  fontSize: 18,
-                  fontWeight: FontWeight.w600,
-                  height: 1.3),
-              maxLines: 2),
-          SizedBox(
-            height: 15,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Row(
-                children: [
-                  Text(
-                    'MRP',
-                    style: TextStyle(
-                        color: mainColor,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w600),
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Text(
-                    actualPrice.toString(),
-                    style: TextStyle(
-                        color: blue126,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w600,
-                        decoration: TextDecoration.lineThrough),
-                  ),
-                ],
-              ),
-              Text(
-                '${discount}%off',
-                style: TextStyle(
-                    color: orange255,
-                    fontSize: 16,
-                    fontWeight: FontWeight.w600),
-              ),
-            ],
-          ),
-          SizedBox(
-            height: 15,
-          ),
-          Text(
-            'Salman Fragrances',
-            style: TextStyle(
-                color: black131, fontSize: 14, fontWeight: FontWeight.w600),
-          ),
-          SizedBox(
-            height: 15,
-          ),
-          Text(
-            '₹${discountPrice}',
-            style: TextStyle(
-                color: midGreenColor,
-                fontSize: 19,
-                fontWeight: FontWeight.w600),
-          ),
-        ],
-      ),
-    ),
-  );
 }

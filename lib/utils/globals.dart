@@ -42,3 +42,6 @@ const Color borderColor = Color.fromRGBO(198, 198, 198, 1);
 const Color blue126 = Color.fromRGBO(126, 159, 172, 1);
 const Color orange255 = Color.fromRGBO(255, 162, 53, 1);
 const Color whiteClr = Colors.white;
+const Color textBlack = Color(0xFF1A1A1A);
+const Color blue5 = Color(0XFF3581EA);
+const Color redClr = Colors.red;

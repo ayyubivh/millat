@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:millat/resources/shop/bloc/logic/cart_bloc/cart_bloc.dart';
 import 'package:millat/utils/globals.dart';
 
 import '../../../../utils/utils.dart';
@@ -155,9 +157,15 @@ class SingleArticleView extends StatelessWidget {
                   fontSize: 15,
                   fontWeight: FontWeight.w600),
             ),
-            Icon(
-              Icons.arrow_forward_ios,
-              color: Colors.white,
+            IconButton(
+              onPressed: () {
+                // context.read<CartBloc>().add(CartEvent.addCart(productId: passValue[index].id, basePrice: 1523, size: size, context: context, color: color, quantity: quantity))
+                print('object');
+              },
+              icon: Icon(
+                Icons.arrow_forward_ios,
+                color: Colors.white,
+              ),
             ),
             SizedBox(
               width: 10,

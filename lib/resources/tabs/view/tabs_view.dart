@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/resources/home/view/home_view.dart';
+import 'package:millat/resources/shop/bloc/service/address_service.dart';
 import 'package:millat/resources/shop/view/shop_tabs_vilew.dart';
-import 'package:millat/resources/shop/view/shop_view.dart';
 import 'package:millat/utils/globals.dart';
 
 import '../../authentication/bloc/logic/database_bloc/database_bloc.dart';

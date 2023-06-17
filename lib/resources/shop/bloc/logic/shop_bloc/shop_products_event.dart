@@ -20,4 +20,6 @@ class ShopProductsEvent with _$ShopProductsEvent {
   const factory ShopProductsEvent.removeWishlistEvent(
       {required String productId,
       required BuildContext context}) = RemoveWishlistEvent;
+  const factory ShopProductsEvent.fetchShopByBrandProducts(
+      {required String brandName}) = FetchShopByBrandProducts;
 }

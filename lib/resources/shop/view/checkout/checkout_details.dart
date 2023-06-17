@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:millat/resources/shop/bloc/logic/address_bloc/address_bloc.dart';
 import 'package:millat/resources/shop/view/checkout/checkout_payment.dart';
 import 'package:millat/utils/globals.dart';
 import 'package:millat/utils/size_utility.dart';
@@ -11,6 +13,19 @@ class CheckoutDetails extends StatefulWidget {
 }
 
 class _CheckoutDetailsState extends State<CheckoutDetails> {
+  final TextEditingController deliveryToController = TextEditingController();
+  final TextEditingController addressLineController = TextEditingController();
+  final TextEditingController landMarkController = TextEditingController();
+
+  final TextEditingController stateController = TextEditingController();
+  final TextEditingController mobileNumberController = TextEditingController();
+
+  final TextEditingController contryController = TextEditingController();
+  final TextEditingController cityController = TextEditingController();
+  final TextEditingController pinCodecontroller = TextEditingController();
+
+  String selectedFilter = '';
+  String addressType = 'Home';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,75 +76,19 @@ class _CheckoutDetailsState extends State<CheckoutDetails> {
                 SizedBox(
                   height: 30,
                 ),
-                TextField(
-                  decoration: InputDecoration(
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(5),
-                        borderSide: BorderSide(color: black198),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(5),
-                        borderSide: BorderSide(color: black198),
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(5),
-                        borderSide: BorderSide(color: black198),
-                      ),
-                      filled: true,
-                      fillColor: black247,
-                      label: Text(
-                        'Deliver to',
-                        style: TextStyle(color: black26),
-                      )),
-                ),
+                _addressTextfeld(
+                    controller: deliveryToController, hintText: 'Deliver to'),
                 SizedBox(
                   height: 30,
                 ),
-                TextField(
-                  decoration: InputDecoration(
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(5),
-                        borderSide: BorderSide(color: black198),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(5),
-                        borderSide: BorderSide(color: black198),
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(5),
-                        borderSide: BorderSide(color: black198),
-                      ),
-                      filled: true,
-                      fillColor: black247,
-                      label: Text(
-                        'Address to',
-                        style: TextStyle(color: black26),
-                      )),
-                ),
+                _addressTextfeld(
+                    controller: addressLineController,
+                    hintText: 'Address Line'),
                 SizedBox(
                   height: 30,
                 ),
-                TextField(
-                  decoration: InputDecoration(
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(5),
-                        borderSide: BorderSide(color: black198),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(5),
-                        borderSide: BorderSide(color: black198),
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(5),
-                        borderSide: BorderSide(color: black198),
-                      ),
-                      filled: true,
-                      fillColor: black247,
-                      label: Text(
-                        'Landmark',
-                        style: TextStyle(color: black26),
-                      )),
-                ),
+                _addressTextfeld(
+                    controller: landMarkController, hintText: 'Landmark'),
                 SizedBox(
                   height: 30,
                 ),
@@ -137,154 +96,39 @@ class _CheckoutDetailsState extends State<CheckoutDetails> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     SizedBox(
-                      width: SizeUtility(context).width * 50 / 100,
-                      child: TextField(
-                        decoration: InputDecoration(
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(5),
-                              borderSide: BorderSide(color: black198),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(5),
-                              borderSide: BorderSide(color: black198),
-                            ),
-                            enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(5),
-                              borderSide: BorderSide(color: black198),
-                            ),
-                            filled: true,
-                            fillColor: black247,
-                            label: Text(
-                              'City',
-                              style: TextStyle(color: black26),
-                            )),
-                      ),
-                    ),
+                        width: SizeUtility(context).width * 50 / 100,
+                        child: _addressTextfeld(
+                            controller: cityController, hintText: 'City')),
                     SizedBox(
                       width: 10,
                     ),
                     SizedBox(
-                      width: SizeUtility(context).width * 37 / 100,
-                      child: TextField(
-                        decoration: InputDecoration(
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(5),
-                              borderSide: BorderSide(color: black198),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(5),
-                              borderSide: BorderSide(color: black198),
-                            ),
-                            enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(5),
-                              borderSide: BorderSide(color: black198),
-                            ),
-                            filled: true,
-                            fillColor: black247,
-                            label: Text(
-                              'Landmark',
-                              style: TextStyle(color: black26),
-                            )),
-                      ),
-                    ),
+                        width: SizeUtility(context).width * 37 / 100,
+                        child: _addressTextfeld(
+                            controller: pinCodecontroller,
+                            hintText: "Pincode")),
                   ],
                 ),
                 SizedBox(
                   height: 30,
                 ),
-                TextField(
-                  decoration: InputDecoration(
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(5),
-                        borderSide: BorderSide(color: black198),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(5),
-                        borderSide: BorderSide(color: black198),
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(5),
-                        borderSide: BorderSide(color: black198),
-                      ),
-                      filled: true,
-                      fillColor: black247,
-                      label: Text(
-                        'Landmark',
-                        style: TextStyle(color: black26),
-                      )),
-                ),
+                _addressTextfeld(
+                    controller: stateController, hintText: 'Select State'),
                 SizedBox(
                   height: 30,
                 ),
-                TextField(
-                  decoration: InputDecoration(
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(5),
-                        borderSide: BorderSide(color: black198),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(5),
-                        borderSide: BorderSide(color: black198),
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(5),
-                        borderSide: BorderSide(color: black198),
-                      ),
-                      filled: true,
-                      fillColor: black247,
-                      label: Text(
-                        'Select State',
-                        style: TextStyle(color: black26),
-                      )),
-                ),
+                _addressTextfeld(
+                    controller: contryController, hintText: 'Country'),
                 SizedBox(
                   height: 30,
                 ),
-                TextField(
-                  decoration: InputDecoration(
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(5),
-                        borderSide: BorderSide(color: black198),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(5),
-                        borderSide: BorderSide(color: black198),
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(5),
-                        borderSide: BorderSide(color: black198),
-                      ),
-                      filled: true,
-                      fillColor: black247,
-                      label: Text(
-                        'Country',
-                        style: TextStyle(color: black26),
-                      )),
-                ),
+                _addressTextfeld(
+                    controller: mobileNumberController,
+                    hintText: 'Mobile Number'),
                 SizedBox(
                   height: 30,
                 ),
-                TextField(
-                  decoration: InputDecoration(
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(5),
-                        borderSide: BorderSide(color: black198),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(5),
-                        borderSide: BorderSide(color: black198),
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(5),
-                        borderSide: BorderSide(color: black198),
-                      ),
-                      filled: true,
-                      fillColor: black247,
-                      label: Text(
-                        'Mobile Number',
-                        style: TextStyle(color: black26),
-                      )),
-                ),
+                // _addressTextfeld(),
                 SizedBox(
                   height: 10,
                 ),
@@ -307,42 +151,38 @@ class _CheckoutDetailsState extends State<CheckoutDetails> {
                 ),
                 Row(
                   children: [
-                    Container(
-                      alignment: Alignment.center,
-                      width: 80,
-                      height: 50,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(30),
-                          border: Border.all(color: black169)),
-                      child: Text('Home',
-                          style: TextStyle(color: black169, fontSize: 16)),
+                    FilterChip(
+                      label: Text('Home'),
+                      selected: selectedFilter == 'Home',
+                      onSelected: (isSelected) {
+                        setState(() {
+                          selectedFilter = isSelected ? 'Home' : '';
+                          addressType = 'Home';
+                        });
+                      },
                     ),
-                    SizedBox(
-                      width: 10,
+                    SizedBox(width: 10),
+                    FilterChip(
+                      label: Text('Work'),
+                      selected: selectedFilter == 'Work',
+                      onSelected: (isSelected) {
+                        setState(() {
+                          selectedFilter = isSelected ? 'Work' : '';
+                          addressType = 'Work';
+                        });
+                      },
                     ),
-                    Container(
-                      alignment: Alignment.center,
-                      width: 80,
-                      height: 50,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(30),
-                          border: Border.all(color: black169)),
-                      child: Text('Work',
-                          style: TextStyle(color: black169, fontSize: 16)),
+                    SizedBox(width: 10),
+                    FilterChip(
+                      label: Text('Other'),
+                      selected: selectedFilter == 'Other',
+                      onSelected: (isSelected) {
+                        setState(() {
+                          selectedFilter = isSelected ? 'Other' : '';
+                          addressType = 'Other';
+                        });
+                      },
                     ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Container(
-                      alignment: Alignment.center,
-                      width: 80,
-                      height: 50,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(30),
-                          border: Border.all(color: black169)),
-                      child: Text('Others',
-                          style: TextStyle(color: black169, fontSize: 16)),
-                    )
                   ],
                 ),
                 SizedBox(
@@ -371,6 +211,18 @@ class _CheckoutDetailsState extends State<CheckoutDetails> {
               Navigator.of(context).push(MaterialPageRoute(
                 builder: (context) => CheckoutPayment(),
               ));
+              context.read<AddressBloc>().add(AddressEvent.addAddress(
+                  context: context,
+                  addressType: addressType,
+                  name: deliveryToController.text,
+                  mobile: int.tryParse(mobileNumberController.text) ?? 0,
+                  pincode: int.tryParse(pinCodecontroller.text) ?? 0,
+                  landmark: landMarkController.text,
+                  addressLine: addressLineController.text,
+                  city: cityController.text,
+                  state: stateController.text,
+                  country: contryController.text));
+              print('address type here ${addressType}');
             },
             child: Text(
               'Save',
@@ -381,5 +233,31 @@ class _CheckoutDetailsState extends State<CheckoutDetails> {
             ),
           ),
         ));
+  }
+
+  Widget _addressTextfeld(
+      {required TextEditingController controller, required String hintText}) {
+    return TextField(
+      controller: controller,
+      decoration: InputDecoration(
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(5),
+            borderSide: BorderSide(color: black198),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(5),
+            borderSide: BorderSide(color: black198),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(5),
+            borderSide: BorderSide(color: black198),
+          ),
+          filled: true,
+          fillColor: black247,
+          label: Text(
+            hintText,
+            style: TextStyle(color: black26),
+          )),
+    );
   }
 }

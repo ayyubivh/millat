@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
-import 'package:millat/utils/utils.dart';
 import '../../utils/globals.dart';
 
 class ShopProductWidget extends StatelessWidget {
@@ -47,27 +46,41 @@ class ShopProductWidget extends StatelessWidget {
                 left: 8,
                 child: BlocBuilder<ShopProductsBloc, ShopProductsState>(
                   builder: (context, state) {
+                    final isWishlisted =
+                        state.wishListItems?.contains(productId) ?? false;
+
                     return GestureDetector(
                       onTap: () {
-                        print('tapped');
-
-                        context.read<ShopProductsBloc>().add(AddWishListEvent(
-                            productId: productId!, context: context));
-                        // if (state.wishListMessage != null) {
-                        //   showSnackBar(
-                        //       context, state.wishListMessage.toString());
-                        // }
+                        if (isWishlisted) {
+                          context.read<ShopProductsBloc>().add(
+                                RemoveWishlistEvent(
+                                  productId: productId ?? '',
+                                  context: context,
+                                ),
+                              );
+                          print('$isWishlisted on the isWishlisted if');
+                        } else {
+                          print('$isWishlisted on the isWishlisted else');
+                          context.read<ShopProductsBloc>().add(
+                                AddWishListEvent(
+                                  productId: productId ?? '',
+                                  context: context,
+                                ),
+                              );
+                        }
                       },
                       child: Container(
                         padding: EdgeInsets.all(3),
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          color: whiteClr,
+                          color: Colors.white,
                         ),
                         child: Center(
                           child: Icon(
-                            Icons.favorite_outline,
-                            color: black198,
+                            isWishlisted
+                                ? Icons.favorite
+                                : Icons.favorite_border,
+                            color: isWishlisted ? Colors.red : Colors.black87,
                             size: 15.94,
                           ),
                         ),
@@ -75,7 +88,7 @@ class ShopProductWidget extends StatelessWidget {
                     );
                   },
                 ),
-              ),
+              )
             ],
           ),
           SizedBox(height: 15),

@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/resources/shop/view/checkout/checkout_details.dart';
 import 'package:millat/utils/globals.dart';
 import 'package:millat/utils/size_utility.dart';
+import 'package:millat/utils/utils.dart';
+import '../../bloc/logic/address_bloc/address_bloc.dart';
+import 'checkout_payment.dart';
 
 class CheckoutView extends StatefulWidget {
   const CheckoutView({Key? key}) : super(key: key);
@@ -11,6 +15,13 @@ class CheckoutView extends StatefulWidget {
 }
 
 class _CheckoutViewState extends State<CheckoutView> {
+  @override
+  void initState() {
+    BlocProvider.of<AddressBloc>(context)
+        .add(FetchAddressEvent(context: context));
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -76,12 +87,19 @@ class _CheckoutViewState extends State<CheckoutView> {
                           Icons.add,
                           color: green77,
                         ),
-                        Text(
-                          'Add Address',
-                          style: TextStyle(
-                              fontWeight: FontWeight.w600,
-                              color: green77,
-                              fontSize: 16),
+                        InkWell(
+                          onTap: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => CheckoutDetails(),
+                            ));
+                          },
+                          child: Text(
+                            'Add Address',
+                            style: TextStyle(
+                                fontWeight: FontWeight.w600,
+                                color: green77,
+                                fontSize: 16),
+                          ),
                         ),
                       ],
                     ),
@@ -90,113 +108,41 @@ class _CheckoutViewState extends State<CheckoutView> {
                 SizedBox(
                   height: 30,
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Charles K. Keifer',
-                          style: TextStyle(
-                              fontWeight: FontWeight.w700,
-                              fontSize: 18,
-                              color: black26),
-                        ),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        Text(
-                          '1195 Sherman Street Lenora, California 6764',
-                          style: TextStyle(
-                              fontWeight: FontWeight.w700, color: black122),
-                        ),
-                      ],
-                    ),
-                    Radio(
-                        value: true,
-                        groupValue: bool,
-                        onChanged: (value) {},
-                        fillColor: MaterialStateProperty.all(green77)),
-                  ],
+                // buildAddresses(),
+                BlocBuilder<AddressBloc, AddressState>(
+                  builder: (context, state) {
+                    return ListView.separated(
+                      shrinkWrap: true,
+                      itemCount: state.addressModel!.result.addresses.length,
+                      itemBuilder: (context, index) {
+                        final data =
+                            state.addressModel?.result.addresses[index];
+                        final formatedMobile =
+                            '${data?.mobile.toString().substring(data.mobile.toString().length - 4)}';
+                        final String address =
+                            '$formatedMobile ${data!.addressLine} ${data.landmark} ${data.city}\n${data.state} ${data.pincode}';
+                        return buildAddresses(
+                          name: data.name,
+                          address: address,
+                          isSelected: index == state.selectedIndex,
+                          onTap: () {
+                            context
+                                .read<AddressBloc>()
+                                .add(SelectAddressEvent(selectedIndex: index));
+                            context
+                                .read<AddressBloc>()
+                                .add(SaveAddressId(addressId: data.id));
+                          },
+                        );
+                      },
+                      separatorBuilder: (context, index) => Divider(
+                        color: black198,
+                      ),
+                    );
+                  },
                 ),
                 SizedBox(
                   height: 30,
-                ),
-                Divider(
-                  color: black198,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Phyllis C. Madrid',
-                          style: TextStyle(
-                              fontWeight: FontWeight.w700,
-                              fontSize: 18,
-                              color: black26),
-                        ),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        Text(
-                          '1195 Sherman Street Lenora, California 6764',
-                          style: TextStyle(
-                              fontWeight: FontWeight.w700, color: black122),
-                        ),
-                      ],
-                    ),
-                    Radio(
-                        value: true,
-                        groupValue: bool,
-                        onChanged: (value) {},
-                        fillColor: MaterialStateProperty.all(green77)),
-                  ],
-                ),
-                SizedBox(
-                  height: 30,
-                ),
-                Divider(
-                  color: black198,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Claudia T. Reyes',
-                          style: TextStyle(
-                              fontWeight: FontWeight.w700,
-                              fontSize: 18,
-                              color: black26),
-                        ),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        Text(
-                          '2903 Wright Court Hackleburg, California 3556',
-                          style: TextStyle(
-                              fontWeight: FontWeight.w700, color: black122),
-                        ),
-                      ],
-                    ),
-                    Radio(
-                        value: true,
-                        groupValue: bool,
-                        onChanged: (value) {},
-                        fillColor: MaterialStateProperty.all(green77)),
-                  ],
-                ),
-                SizedBox(
-                  height: 30,
-                ),
-                Divider(
-                  color: black198,
                 ),
               ],
             ),
@@ -218,8 +164,18 @@ class _CheckoutViewState extends State<CheckoutView> {
                   Size(SizeUtility(context).width, 50)),
             ),
             onPressed: () {
+              String? id = context.read<AddressBloc>().state.addressId;
+              if (id == null) {
+                print('$id is null man');
+                showSnackBar(context, 'select the address');
+                return null;
+              }
               Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => CheckoutDetails(),
+                builder: (context) {
+                  print('$id is null man');
+
+                  return CheckoutPayment();
+                },
               ));
             },
             child: Text(
@@ -231,5 +187,41 @@ class _CheckoutViewState extends State<CheckoutView> {
             ),
           ),
         ));
+  }
+
+  Widget buildAddresses(
+      {required String? name,
+      required String? address,
+      required bool isSelected,
+      required Function() onTap}) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              name.toString(),
+              style: TextStyle(
+                  fontWeight: FontWeight.w700, fontSize: 18, color: black26),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Text(
+              address.toString(),
+              style: TextStyle(fontWeight: FontWeight.w700, color: black122),
+            ),
+          ],
+        ),
+        Radio(
+            value: true,
+            groupValue: isSelected,
+            onChanged: (value) {
+              onTap();
+            },
+            fillColor: MaterialStateProperty.all(green77)),
+      ],
+    );
   }
 }

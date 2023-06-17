@@ -12,7 +12,10 @@ class BuildCategoryWidget extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         Navigator.of(context).push(MaterialPageRoute(
-            builder: (context) => CategoriesView(category: text)));
+            builder: (context) => CategoriesView(
+                  category: text,
+                  subCategory: '',
+                )));
       },
       child: Column(
         children: [

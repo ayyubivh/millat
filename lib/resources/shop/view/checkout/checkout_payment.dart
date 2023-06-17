@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:millat/resources/shop/view/checkout/checkout_card_details.dart';
+import 'package:millat/resources/shop/view/checkout/checkout_confirmation.dart';
 import 'package:millat/utils/globals.dart';
 import 'package:millat/utils/size_utility.dart';
+import 'package:millat/utils/utils.dart';
 
 class CheckoutPayment extends StatefulWidget {
   const CheckoutPayment({Key? key}) : super(key: key);
@@ -11,6 +13,7 @@ class CheckoutPayment extends StatefulWidget {
 }
 
 class _CheckoutPaymentState extends State<CheckoutPayment> {
+  int currentIndex = -1;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -155,155 +158,29 @@ class _CheckoutPaymentState extends State<CheckoutPayment> {
                 SizedBox(
                   height: 20,
                 ),
-                Card(
-                  elevation: 0,
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Row(
-                          children: [
-                            Image.asset('assets/icons/paytm.png',
-                                width: 35, height: 35),
-                            SizedBox(
-                              width: 15,
-                            ),
-                            Text(
-                              'Paytm',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w600, fontSize: 17),
-                            )
-                          ],
-                        ),
-                        Radio(
-                            value: true,
-                            groupValue: bool,
-                            onChanged: (value) {},
-                            fillColor: MaterialStateProperty.all(green77)),
-                      ],
-                    ),
-                  ),
-                ),
-                Card(
-                  elevation: 0,
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Row(
-                          children: [
-                            Image.asset('assets/icons/cod.png',
-                                width: 35, height: 35),
-                            SizedBox(
-                              width: 15,
-                            ),
-                            Text(
-                              'Cash On Delivery',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w600, fontSize: 17),
-                            )
-                          ],
-                        ),
-                        Radio(
-                            value: true,
-                            groupValue: bool,
-                            onChanged: (value) {},
-                            fillColor: MaterialStateProperty.all(green77)),
-                      ],
-                    ),
-                  ),
-                ),
-                Card(
-                  elevation: 0,
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Row(
-                          children: [
-                            Image.asset('assets/icons/phonepe.png',
-                                width: 35, height: 35),
-                            SizedBox(
-                              width: 15,
-                            ),
-                            Text(
-                              'PhonePe',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w600, fontSize: 17),
-                            )
-                          ],
-                        ),
-                        Radio(
-                            value: true,
-                            groupValue: bool,
-                            onChanged: (value) {},
-                            fillColor: MaterialStateProperty.all(green77)),
-                      ],
-                    ),
-                  ),
-                ),
-                Card(
-                  elevation: 0,
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Row(
-                          children: [
-                            Image.asset('assets/icons/gpay.png',
-                                width: 35, height: 35),
-                            SizedBox(
-                              width: 15,
-                            ),
-                            Text(
-                              'GPay',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w600, fontSize: 17),
-                            )
-                          ],
-                        ),
-                        Radio(
-                            value: true,
-                            groupValue: bool,
-                            onChanged: (value) {},
-                            fillColor: MaterialStateProperty.all(green77)),
-                      ],
-                    ),
-                  ),
-                ),
-                Card(
-                  elevation: 0,
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Row(
-                          children: [
-                            Image.asset('assets/icons/whatsapp.png',
-                                width: 35, height: 35),
-                            SizedBox(
-                              width: 15,
-                            ),
-                            Text(
-                              'Whatsapp',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w600, fontSize: 17),
-                            )
-                          ],
-                        ),
-                        Radio(
-                            value: true,
-                            groupValue: bool,
-                            onChanged: (value) {},
-                            fillColor: MaterialStateProperty.all(green77)),
-                      ],
-                    ),
-                  ),
+                ListView.builder(
+                  itemCount: 2,
+                  shrinkWrap: true,
+                  itemBuilder: (context, index) {
+                    final images = [
+                      "assets/icons/paytm.png",
+                      'assets/icons/cod.png'
+                    ];
+                    final text = [
+                      "Online Payment",
+                      "Cash on Delivery",
+                    ];
+                    return buildPaymentCard(
+                      isSelected: currentIndex == index,
+                      image: images[index],
+                      text: text[index],
+                      onTap: () {
+                        setState(() {
+                          currentIndex = index;
+                        });
+                      },
+                    );
+                  },
                 ),
                 SizedBox(
                   height: 100,
@@ -328,8 +205,12 @@ class _CheckoutPaymentState extends State<CheckoutPayment> {
                   Size(SizeUtility(context).width, 50)),
             ),
             onPressed: () {
+              if (currentIndex == -1) {
+                showSnackBar(context, 'Select the Payment method!');
+                return;
+              }
               Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => CheckoutCardDetails(),
+                builder: (context) => CheckoutConfirmation(),
               ));
             },
             child: Text(
@@ -341,5 +222,45 @@ class _CheckoutPaymentState extends State<CheckoutPayment> {
             ),
           ),
         ));
+  }
+
+  Widget buildPaymentCard({
+    required String image,
+    required String text,
+    required Function() onTap,
+    required bool isSelected,
+  }) {
+    return Card(
+      elevation: 0,
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Row(
+              children: [
+                Image.asset(image, width: 35, height: 35),
+                SizedBox(
+                  width: 15,
+                ),
+                Text(
+                  text,
+                  style: TextStyle(fontWeight: FontWeight.w600, fontSize: 17),
+                )
+              ],
+            ),
+            Radio(
+                value: true,
+                groupValue: isSelected,
+                onChanged: (value) {
+                  setState(() {
+                    onTap();
+                  });
+                },
+                fillColor: MaterialStateProperty.all(green77)),
+          ],
+        ),
+      ),
+    );
   }
 }

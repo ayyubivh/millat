@@ -8,6 +8,7 @@ import 'package:millat/resources/shop/bloc/models/recent_products/recent_product
 import 'package:millat/resources/shop/bloc/service/shop_services.dart';
 import '../../models/banners/banners_model.dart';
 import '../../models/shop_by_brand/shop_by_brand_models.dart';
+import '../../models/shop_by_brand/shop_by_brand_products.dart';
 import '../../models/shop_products/shop_products_model.dart';
 import '../../models/wishlist/wishllist_models.dart';
 
@@ -29,6 +30,7 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
     on<SearchProduct>(_searchProduct);
     on<AddWishListEvent>(_addWishListEvent);
     on<RemoveWishlistEvent>(_removeWishlistEvent);
+    on<FetchShopByBrandProducts>(_fetchShopByBrandProducts);
   }
 
   FutureOr<void> _fetchFlashSaleProducts(
@@ -125,13 +127,15 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
   FutureOr<void> _fetchWishList(
       FetchWishList event, Emitter<ShopProductsState> emit) async {
     try {
+      emit(state.copyWith(isLoading: true));
       final data = await _shopService.fetchWishlist(event.context);
-      emit(state.copyWith(
-        wishList: data,
-      ));
+      emit(
+        state.copyWith(wishList: data, isLoading: false),
+      );
     } catch (e) {
       emit(state.copyWith(
         errorMessage: "An error occurred",
+        isLoading: false,
       ));
     }
   }
@@ -159,7 +163,14 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
         context: event.context,
         productId: event.productId,
       );
-      emit(state.copyWith(wishListMessage: '${data['message']}'));
+      final updatedWishList = state.wishListItems?.toSet() ?? {}
+        ..add(event.productId);
+
+      emit(
+        state.copyWith(
+            wishListMessage: '${data['message']}',
+            wishListItems: updatedWishList),
+      );
       print('${data['message']}');
     } catch (e) {
       emit(state.copyWith(errorMessage: "An error occurred"));
@@ -170,14 +181,37 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
       RemoveWishlistEvent event, Emitter<ShopProductsState> emit) async {
     emit(state.copyWith(wishListMessage: ""));
     try {
-      final data = await _shopService.addWishList(
+      final data = await _shopService.removeWishList(
         context: event.context,
         productId: event.productId,
       );
-      emit(state.copyWith(wishListMessage: '${data['message']}'));
+      final updatedWishList = state.wishListItems?.toSet() ?? {}
+        ..remove(event.productId);
+      final newWishLists = state.wishList?.copyWith(
+          products: state.wishList?.products
+              ?.where((element) => element.id != event.productId)
+              .toList());
+      emit(
+        state.copyWith(
+          wishListItems: updatedWishList,
+          wishList: newWishLists,
+        ),
+      );
       print('${data['message']}');
     } catch (e) {
       emit(state.copyWith(errorMessage: "An error occurred"));
+    }
+  }
+
+  _fetchShopByBrandProducts(
+      FetchShopByBrandProducts event, Emitter<ShopProductsState> emit) async {
+    emit(state.copyWith(isLoading: true));
+    try {
+      final data = await _shopService.fetchProductsByBrand(event.brandName);
+      emit(state.copyWith(brandProduct: data, isLoading: false));
+      print('on bloc here of the shop by brand ${data.products}');
+    } catch (e) {
+      emit(state.copyWith(isLoading: false));
     }
   }
 }

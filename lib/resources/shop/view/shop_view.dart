@@ -8,6 +8,7 @@ import 'package:millat/resources/shop/view/categories/categories_filter_view.dar
 import 'package:millat/resources/shop/view/products/products_view.dart';
 import 'package:millat/resources/shop/view/products/single_product_view.dart';
 import 'package:millat/resources/shop/view/search/search_view.dart';
+import 'package:millat/resources/shop/view/shop_by_brand/shop_by_brand_view.dart';
 import 'package:millat/utils/globals.dart';
 import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/utils.dart';
@@ -255,7 +256,6 @@ class _ShopViewState extends State<ShopView> {
                     },
                   ),
                   SizedBox(height: 10),
-
                   SizedBox(
                     height: 30,
                   ),
@@ -430,12 +430,18 @@ class _ShopViewState extends State<ShopView> {
                             fontSize: 18,
                             fontWeight: FontWeight.bold),
                       ),
-                      Text(
-                        'View All',
-                        style: TextStyle(
-                            color: green77,
-                            fontSize: 15,
-                            fontWeight: FontWeight.bold),
+                      GestureDetector(
+                        onTap: () {
+                          // Navigator.of(context).push(MaterialPageRoute(
+                          //     builder: (context) => ShopByBrandView()));
+                        },
+                        child: Text(
+                          'View All',
+                          style: TextStyle(
+                              color: green77,
+                              fontSize: 15,
+                              fontWeight: FontWeight.bold),
+                        ),
                       ),
                     ],
                   ),
@@ -454,14 +460,24 @@ class _ShopViewState extends State<ShopView> {
                                 itemBuilder: (BuildContext context, int index) {
                                   final data =
                                       state.shopBrandModel?.users![index];
-                                  return buildShopbyBrand(
-                                      data?.image, data?.name);
+                                  return GestureDetector(
+                                    onTap: () {
+                                      Navigator.of(context).push(
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  ShopByBrandView(
+                                                    brandName:
+                                                        data!.name.toString(),
+                                                  )));
+                                    },
+                                    child: buildShopbyBrand(
+                                        data?.image, data?.name),
+                                  );
                                 },
                               ),
                             );
                     },
                   ),
-
                   SizedBox(
                     height: 50,
                   ),
@@ -501,7 +517,6 @@ class _ShopViewState extends State<ShopView> {
                   SizedBox(
                     height: 20,
                   ),
-
                   BlocBuilder<ShopProductsBloc, ShopProductsState>(
                     builder: (context, state) {
                       if (state.recentProducts?.result?.products == null) {
@@ -524,14 +539,17 @@ class _ShopViewState extends State<ShopView> {
                                         SingleProductView(passValue: data),
                                   ));
                                 },
-                                child: ShopProductWidget(
-                                    productId: data?.id,
-                                    image: data!.colors![0].images![0],
-                                    title: data.title,
-                                    actualPrice: data.actualPrice!.toInt(),
-                                    discount: data.discount!.toInt(),
-                                    discountPrice:
-                                        data.discountPrice!.toInt()));
+                                child: Padding(
+                                  padding: const EdgeInsets.only(right: 15),
+                                  child: ShopProductWidget(
+                                      productId: data?.id,
+                                      image: data!.colors![0].images![0],
+                                      title: data.title,
+                                      actualPrice: data.actualPrice!.toInt(),
+                                      discount: data.discount!.toInt(),
+                                      discountPrice:
+                                          data.discountPrice!.toInt()),
+                                ));
                           },
                         ),
                       );
@@ -657,38 +675,70 @@ class _ShopViewState extends State<ShopView> {
                             fontSize: 18,
                             fontWeight: FontWeight.bold),
                       ),
-                      Text(
-                        'View All',
-                        style: TextStyle(
-                            color: green77,
-                            fontSize: 15,
-                            fontWeight: FontWeight.bold),
-                      ),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => ProductsView(
+                              appBarTitle: "Bestsellers",
+                              passValue: context
+                                  .read<ShopProductsBloc>()
+                                  .state
+                                  .recentProducts
+                                  ?.result,
+                            ),
+                          ));
+                        },
+                        child: Text(
+                          'View All',
+                          style: TextStyle(
+                              color: green77,
+                              fontSize: 15,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      )
                     ],
                   ),
                   SizedBox(
                     height: 20,
                   ),
-                  // SingleChildScrollView(
-                  //   scrollDirection: Axis.horizontal,
-                  //   child: Row(
-                  //     children: [
-                  //         buildShopItems(
-                  //             image: 'assets/dummy/khayt.png',
-                  //             title: "Wool Velvet Fabric Kufi"),
-                  //         buildShopItems(
-                  //             image: 'assets/dummy/tasbih.png',
-                  //             title:
-                  //                 "Tasbih 99 beads, Crystal Tasbih, Pearl t..."),
-                  //         buildShopItems(
-                  //             image: 'assets/dummy/sijadah.png',
-                  //             title: "Hijaz Turkish Gold Border Lantern..."),
-                  //         buildShopItems(
-                  //             image: 'assets/dummy/sijadah.png',
-                  //             title: "Hijaz Turkish Gold Border Lantern..."),
-                  //     ],
-                  //   ),
-                  // ),
+                  BlocBuilder<ShopProductsBloc, ShopProductsState>(
+                    builder: (context, state) {
+                      if (state.recentProducts?.result?.products == null) {
+                        return SizedBox();
+                      }
+                      return SizedBox(
+                        height: 310,
+                        child: ListView.builder(
+                          itemCount:
+                              state.recentProducts?.result?.products!.length,
+                          scrollDirection: Axis.horizontal,
+                          itemBuilder: (context, index) {
+                            final data =
+                                state.recentProducts?.result?.products![index];
+
+                            return GestureDetector(
+                                onTap: () {
+                                  Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (context) =>
+                                        SingleProductView(passValue: data),
+                                  ));
+                                },
+                                child: Padding(
+                                  padding: const EdgeInsets.only(right: 15),
+                                  child: ShopProductWidget(
+                                      productId: data?.id,
+                                      image: data!.colors![0].images![0],
+                                      title: data.title,
+                                      actualPrice: data.actualPrice!.toInt(),
+                                      discount: data.discount!.toInt(),
+                                      discountPrice:
+                                          data.discountPrice!.toInt()),
+                                ));
+                          },
+                        ),
+                      );
+                    },
+                  ),
                 ],
               ),
             ),

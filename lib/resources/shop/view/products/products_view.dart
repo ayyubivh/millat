@@ -65,9 +65,11 @@ class ProductsView extends StatelessWidget {
                     mainAxisSpacing: 20,
                     mainAxisExtent: 350),
                 itemBuilder: (context, index) {
-                  if (appBarTitle == "Recently Added") {
+                  if (appBarTitle == "Recently Added" ||
+                      appBarTitle == "Bestsellers") {
                     return GestureDetector(
                         onTap: () {
+                          print('here ia m recent');
                           Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) => SingleProductView(
                               passValue: passValue.products![index],
@@ -75,7 +77,7 @@ class ProductsView extends StatelessWidget {
                           ));
                         },
                         child: ShopProductWidget(
-                            productId: passValue?.id,
+                            productId: passValue?.products[index].id,
                             image: passValue
                                 .products![index].colors![0].images![0],
                             title: passValue.products![index].title,

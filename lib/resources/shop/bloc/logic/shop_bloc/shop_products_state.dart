@@ -19,8 +19,11 @@ class ShopProductsState with _$ShopProductsState {
       required ShopBrandModel? shopBrandModel,
       required Wishlist? wishList,
       required String? wishListMessage,
+      required Set<String>? wishListItems,
       required ProductModel? searchProducts,
+      required ShopBrandProductModel? brandProduct,
       required String errorMessage}) = _Initial;
+
   factory ShopProductsState.initial() => ShopProductsState(
       popularProducts: null,
       flashSaleproducts: null,
@@ -38,6 +41,8 @@ class ShopProductsState with _$ShopProductsState {
       errorMessage: "",
       searchProducts: null,
       wishListMessage: "",
+      wishListItems: {},
       wishList: null,
+      brandProduct: null,
       isLoading: false);
 }

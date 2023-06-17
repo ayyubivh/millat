@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:millat/resources/shop/view/shop_view.dart';
 import 'package:millat/resources/shop/view/wishlist/wishlist_view.dart';
 import '../../../utils/globals.dart';
+import '../../profile/views/profile_view.dart';
+import 'categories/categories_filter_view.dart';
 
 class ShopTabsView extends StatefulWidget {
   const ShopTabsView({super.key});
@@ -15,8 +17,8 @@ class _ShopTabsViewState extends State<ShopTabsView> {
   List screens = [
     const ShopView(),
     WishListView(),
-    Container(),
-    Container(),
+    CategoriesFilter(),
+    ProfileView(),
   ];
   void onTap(int value) {
     setState(() {

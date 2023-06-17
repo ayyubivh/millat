@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:millat/resources/shop/bloc/logic/category_bloc/category_bloc.dart';
 import 'package:millat/utils/globals.dart';
 import 'package:millat/utils/size_utility.dart';
 
@@ -10,6 +12,8 @@ class FiltersView extends StatefulWidget {
 }
 
 class _FiltersViewState extends State<FiltersView> {
+  int currentIndex = 0;
+  final category = ['Category', 'Sub Category', 'Brand', 'Price'];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,38 +54,90 @@ class _FiltersViewState extends State<FiltersView> {
                   child: SingleChildScrollView(
                     child: Column(
                       children: [
-                        buildFilter(filterTitle: 'Category', selected: true),
-                        buildFilter(
-                            filterTitle: 'Sub Category', selected: false),
-                        buildFilter(filterTitle: 'Brand', selected: false),
-                        buildFilter(filterTitle: 'Price', selected: false),
+                        // buildFilter(
+                        //     filterTitle: 'Category', selected: isSelected),
+                        // buildFilter(
+                        //     filterTitle: 'Sub Category', selected: isSelected),
+                        // buildFilter(filterTitle: 'Brand', selected: isSelected),
+                        // buildFilter(filterTitle: 'Price', selected: isSelected),
+                        ListView.builder(
+                          shrinkWrap: true,
+                          itemCount: category.length,
+                          itemBuilder: (context, index) {
+                            final isSelected = currentIndex == index;
+
+                            return ListTile(
+                                onTap: () {
+                                  setState(() {
+                                    currentIndex = index;
+                                  });
+                                  print('object');
+                                },
+                                title: Text(
+                                  category[index],
+                                  style: TextStyle(
+                                      color: isSelected ? green24 : black122),
+                                ),
+                                trailing: Icon(
+                                  isSelected ? Icons.arrow_forward_ios : null,
+                                  size: 15,
+                                  color: green77,
+                                ));
+                          },
+                        )
                       ],
                     ),
                   ),
                 ),
-                SingleChildScrollView(
-                  child: Column(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 20, vertical: 3),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text('Most loved brands',
-                                style: TextStyle(color: black122)),
-                            Radio(
-                              value: true,
-                              groupValue: bool,
-                              activeColor: green77,
-                              onChanged: (value) {},
-                            )
-                          ],
-                        ),
-                      )
-                    ],
-                  ),
+                BlocBuilder<CategoryBloc, CategoryState>(
+                  builder: (context, state) {
+                    return Expanded(
+                        child: ListView.builder(
+                      itemCount: 3,
+                      itemBuilder: (context, index) {
+                        print('${state.category!.result!.category!.where(
+                              (e) => e.title == category[currentIndex],
+                            ).toString()}');
+                        return Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                            color: redClr,
+                            height: 50,
+                            width: 60,
+                            child: Text(state.category!.result!.category!
+                                .where(
+                                  (e) => e.title == category[currentIndex],
+                                )
+                                .toString()),
+                          ),
+                        );
+                      },
+                    ));
+                  },
                 )
+// SingleChildScrollView(
+                //   child: Column(
+                //     children: [
+                //       Padding(
+                //         padding: const EdgeInsets.symmetric(
+                //             horizontal: 20, vertical: 3),
+                //         child: Row(
+                //           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                //           children: [
+                //             Text('Most loved brands',
+                //                 style: TextStyle(color: black122)),
+                //             Radio(
+                //               value: true,
+                //               groupValue: bool,
+                //               activeColor: green77,
+                //               onChanged: (value) {},
+                //             )
+                //           ],
+                //         ),
+                //       )
+                //     ],
+                //   ),
+                // )
               ],
             ),
           )
@@ -109,21 +165,6 @@ class _FiltersViewState extends State<FiltersView> {
           ],
         ),
       ),
-    );
-  }
-
-  Widget buildFilter({required String filterTitle, required bool selected}) {
-    return ListTile(
-      onTap: () {},
-      title: Text(filterTitle,
-          style: TextStyle(color: selected ? green77 : black122)),
-      trailing: selected
-          ? Icon(
-              Icons.arrow_forward_ios,
-              size: 15,
-              color: green77,
-            )
-          : null,
     );
   }
 }

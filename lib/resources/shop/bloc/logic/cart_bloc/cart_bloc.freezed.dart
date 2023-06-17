@@ -16,7 +16,6 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$CartEvent {
-  BuildContext get context => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(BuildContext context) fetchCartEvent,
@@ -31,6 +30,7 @@ mixin _$CartEvent {
         addCart,
     required TResult Function(BuildContext context, String productId)
         removeCartItemEvent,
+    required TResult Function() toggleShowMoreEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -45,6 +45,7 @@ mixin _$CartEvent {
         addCart,
     TResult? Function(BuildContext context, String productId)?
         removeCartItemEvent,
+    TResult? Function()? toggleShowMoreEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -59,6 +60,7 @@ mixin _$CartEvent {
         addCart,
     TResult Function(BuildContext context, String productId)?
         removeCartItemEvent,
+    TResult Function()? toggleShowMoreEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -71,6 +73,7 @@ mixin _$CartEvent {
         updateCartEventWithSub,
     required TResult Function(AddCartEvent value) addCart,
     required TResult Function(RemoveCartItemEvent value) removeCartItemEvent,
+    required TResult Function(ToggleShowMoreEvent value) toggleShowMoreEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -80,6 +83,7 @@ mixin _$CartEvent {
     TResult? Function(UpdateCartEventWithSub value)? updateCartEventWithSub,
     TResult? Function(AddCartEvent value)? addCart,
     TResult? Function(RemoveCartItemEvent value)? removeCartItemEvent,
+    TResult? Function(ToggleShowMoreEvent value)? toggleShowMoreEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -89,12 +93,9 @@ mixin _$CartEvent {
     TResult Function(UpdateCartEventWithSub value)? updateCartEventWithSub,
     TResult Function(AddCartEvent value)? addCart,
     TResult Function(RemoveCartItemEvent value)? removeCartItemEvent,
+    TResult Function(ToggleShowMoreEvent value)? toggleShowMoreEvent,
     required TResult orElse(),
   }) =>
-      throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $CartEventCopyWith<CartEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -102,8 +103,6 @@ mixin _$CartEvent {
 abstract class $CartEventCopyWith<$Res> {
   factory $CartEventCopyWith(CartEvent value, $Res Function(CartEvent) then) =
       _$CartEventCopyWithImpl<$Res, CartEvent>;
-  @useResult
-  $Res call({BuildContext context});
 }
 
 /// @nodoc
@@ -115,28 +114,13 @@ class _$CartEventCopyWithImpl<$Res, $Val extends CartEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? context = null,
-  }) {
-    return _then(_value.copyWith(
-      context: null == context
-          ? _value.context
-          : context // ignore: cast_nullable_to_non_nullable
-              as BuildContext,
-    ) as $Val);
-  }
 }
 
 /// @nodoc
-abstract class _$$FetchCartEventCopyWith<$Res>
-    implements $CartEventCopyWith<$Res> {
+abstract class _$$FetchCartEventCopyWith<$Res> {
   factory _$$FetchCartEventCopyWith(
           _$FetchCartEvent value, $Res Function(_$FetchCartEvent) then) =
       __$$FetchCartEventCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call({BuildContext context});
 }
@@ -208,6 +192,7 @@ class _$FetchCartEvent implements FetchCartEvent {
         addCart,
     required TResult Function(BuildContext context, String productId)
         removeCartItemEvent,
+    required TResult Function() toggleShowMoreEvent,
   }) {
     return fetchCartEvent(context);
   }
@@ -225,6 +210,7 @@ class _$FetchCartEvent implements FetchCartEvent {
         addCart,
     TResult? Function(BuildContext context, String productId)?
         removeCartItemEvent,
+    TResult? Function()? toggleShowMoreEvent,
   }) {
     return fetchCartEvent?.call(context);
   }
@@ -242,6 +228,7 @@ class _$FetchCartEvent implements FetchCartEvent {
         addCart,
     TResult Function(BuildContext context, String productId)?
         removeCartItemEvent,
+    TResult Function()? toggleShowMoreEvent,
     required TResult orElse(),
   }) {
     if (fetchCartEvent != null) {
@@ -260,6 +247,7 @@ class _$FetchCartEvent implements FetchCartEvent {
         updateCartEventWithSub,
     required TResult Function(AddCartEvent value) addCart,
     required TResult Function(RemoveCartItemEvent value) removeCartItemEvent,
+    required TResult Function(ToggleShowMoreEvent value) toggleShowMoreEvent,
   }) {
     return fetchCartEvent(this);
   }
@@ -272,6 +260,7 @@ class _$FetchCartEvent implements FetchCartEvent {
     TResult? Function(UpdateCartEventWithSub value)? updateCartEventWithSub,
     TResult? Function(AddCartEvent value)? addCart,
     TResult? Function(RemoveCartItemEvent value)? removeCartItemEvent,
+    TResult? Function(ToggleShowMoreEvent value)? toggleShowMoreEvent,
   }) {
     return fetchCartEvent?.call(this);
   }
@@ -284,6 +273,7 @@ class _$FetchCartEvent implements FetchCartEvent {
     TResult Function(UpdateCartEventWithSub value)? updateCartEventWithSub,
     TResult Function(AddCartEvent value)? addCart,
     TResult Function(RemoveCartItemEvent value)? removeCartItemEvent,
+    TResult Function(ToggleShowMoreEvent value)? toggleShowMoreEvent,
     required TResult orElse(),
   }) {
     if (fetchCartEvent != null) {
@@ -296,21 +286,17 @@ class _$FetchCartEvent implements FetchCartEvent {
 abstract class FetchCartEvent implements CartEvent {
   const factory FetchCartEvent(final BuildContext context) = _$FetchCartEvent;
 
-  @override
   BuildContext get context;
-  @override
   @JsonKey(ignore: true)
   _$$FetchCartEventCopyWith<_$FetchCartEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UpdateCartEventWithAddCopyWith<$Res>
-    implements $CartEventCopyWith<$Res> {
+abstract class _$$UpdateCartEventWithAddCopyWith<$Res> {
   factory _$$UpdateCartEventWithAddCopyWith(_$UpdateCartEventWithAdd value,
           $Res Function(_$UpdateCartEventWithAdd) then) =
       __$$UpdateCartEventWithAddCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call({BuildContext context, String productId, int quantity});
 }
@@ -402,6 +388,7 @@ class _$UpdateCartEventWithAdd implements UpdateCartEventWithAdd {
         addCart,
     required TResult Function(BuildContext context, String productId)
         removeCartItemEvent,
+    required TResult Function() toggleShowMoreEvent,
   }) {
     return updateCartEventWithAdd(context, productId, quantity);
   }
@@ -419,6 +406,7 @@ class _$UpdateCartEventWithAdd implements UpdateCartEventWithAdd {
         addCart,
     TResult? Function(BuildContext context, String productId)?
         removeCartItemEvent,
+    TResult? Function()? toggleShowMoreEvent,
   }) {
     return updateCartEventWithAdd?.call(context, productId, quantity);
   }
@@ -436,6 +424,7 @@ class _$UpdateCartEventWithAdd implements UpdateCartEventWithAdd {
         addCart,
     TResult Function(BuildContext context, String productId)?
         removeCartItemEvent,
+    TResult Function()? toggleShowMoreEvent,
     required TResult orElse(),
   }) {
     if (updateCartEventWithAdd != null) {
@@ -454,6 +443,7 @@ class _$UpdateCartEventWithAdd implements UpdateCartEventWithAdd {
         updateCartEventWithSub,
     required TResult Function(AddCartEvent value) addCart,
     required TResult Function(RemoveCartItemEvent value) removeCartItemEvent,
+    required TResult Function(ToggleShowMoreEvent value) toggleShowMoreEvent,
   }) {
     return updateCartEventWithAdd(this);
   }
@@ -466,6 +456,7 @@ class _$UpdateCartEventWithAdd implements UpdateCartEventWithAdd {
     TResult? Function(UpdateCartEventWithSub value)? updateCartEventWithSub,
     TResult? Function(AddCartEvent value)? addCart,
     TResult? Function(RemoveCartItemEvent value)? removeCartItemEvent,
+    TResult? Function(ToggleShowMoreEvent value)? toggleShowMoreEvent,
   }) {
     return updateCartEventWithAdd?.call(this);
   }
@@ -478,6 +469,7 @@ class _$UpdateCartEventWithAdd implements UpdateCartEventWithAdd {
     TResult Function(UpdateCartEventWithSub value)? updateCartEventWithSub,
     TResult Function(AddCartEvent value)? addCart,
     TResult Function(RemoveCartItemEvent value)? removeCartItemEvent,
+    TResult Function(ToggleShowMoreEvent value)? toggleShowMoreEvent,
     required TResult orElse(),
   }) {
     if (updateCartEventWithAdd != null) {
@@ -493,23 +485,19 @@ abstract class UpdateCartEventWithAdd implements CartEvent {
       required final String productId,
       required final int quantity}) = _$UpdateCartEventWithAdd;
 
-  @override
   BuildContext get context;
   String get productId;
   int get quantity;
-  @override
   @JsonKey(ignore: true)
   _$$UpdateCartEventWithAddCopyWith<_$UpdateCartEventWithAdd> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UpdateCartEventWithSubCopyWith<$Res>
-    implements $CartEventCopyWith<$Res> {
+abstract class _$$UpdateCartEventWithSubCopyWith<$Res> {
   factory _$$UpdateCartEventWithSubCopyWith(_$UpdateCartEventWithSub value,
           $Res Function(_$UpdateCartEventWithSub) then) =
       __$$UpdateCartEventWithSubCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call({BuildContext context, String productId, int quantity});
 }
@@ -601,6 +589,7 @@ class _$UpdateCartEventWithSub implements UpdateCartEventWithSub {
         addCart,
     required TResult Function(BuildContext context, String productId)
         removeCartItemEvent,
+    required TResult Function() toggleShowMoreEvent,
   }) {
     return updateCartEventWithSub(context, productId, quantity);
   }
@@ -618,6 +607,7 @@ class _$UpdateCartEventWithSub implements UpdateCartEventWithSub {
         addCart,
     TResult? Function(BuildContext context, String productId)?
         removeCartItemEvent,
+    TResult? Function()? toggleShowMoreEvent,
   }) {
     return updateCartEventWithSub?.call(context, productId, quantity);
   }
@@ -635,6 +625,7 @@ class _$UpdateCartEventWithSub implements UpdateCartEventWithSub {
         addCart,
     TResult Function(BuildContext context, String productId)?
         removeCartItemEvent,
+    TResult Function()? toggleShowMoreEvent,
     required TResult orElse(),
   }) {
     if (updateCartEventWithSub != null) {
@@ -653,6 +644,7 @@ class _$UpdateCartEventWithSub implements UpdateCartEventWithSub {
         updateCartEventWithSub,
     required TResult Function(AddCartEvent value) addCart,
     required TResult Function(RemoveCartItemEvent value) removeCartItemEvent,
+    required TResult Function(ToggleShowMoreEvent value) toggleShowMoreEvent,
   }) {
     return updateCartEventWithSub(this);
   }
@@ -665,6 +657,7 @@ class _$UpdateCartEventWithSub implements UpdateCartEventWithSub {
     TResult? Function(UpdateCartEventWithSub value)? updateCartEventWithSub,
     TResult? Function(AddCartEvent value)? addCart,
     TResult? Function(RemoveCartItemEvent value)? removeCartItemEvent,
+    TResult? Function(ToggleShowMoreEvent value)? toggleShowMoreEvent,
   }) {
     return updateCartEventWithSub?.call(this);
   }
@@ -677,6 +670,7 @@ class _$UpdateCartEventWithSub implements UpdateCartEventWithSub {
     TResult Function(UpdateCartEventWithSub value)? updateCartEventWithSub,
     TResult Function(AddCartEvent value)? addCart,
     TResult Function(RemoveCartItemEvent value)? removeCartItemEvent,
+    TResult Function(ToggleShowMoreEvent value)? toggleShowMoreEvent,
     required TResult orElse(),
   }) {
     if (updateCartEventWithSub != null) {
@@ -692,23 +686,19 @@ abstract class UpdateCartEventWithSub implements CartEvent {
       required final String productId,
       required final int quantity}) = _$UpdateCartEventWithSub;
 
-  @override
   BuildContext get context;
   String get productId;
   int get quantity;
-  @override
   @JsonKey(ignore: true)
   _$$UpdateCartEventWithSubCopyWith<_$UpdateCartEventWithSub> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$AddCartEventCopyWith<$Res>
-    implements $CartEventCopyWith<$Res> {
+abstract class _$$AddCartEventCopyWith<$Res> {
   factory _$$AddCartEventCopyWith(
           _$AddCartEvent value, $Res Function(_$AddCartEvent) then) =
       __$$AddCartEventCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call(
       {String productId,
@@ -836,6 +826,7 @@ class _$AddCartEvent implements AddCartEvent {
         addCart,
     required TResult Function(BuildContext context, String productId)
         removeCartItemEvent,
+    required TResult Function() toggleShowMoreEvent,
   }) {
     return addCart(productId, basePrice, size, context, color, quantity);
   }
@@ -853,6 +844,7 @@ class _$AddCartEvent implements AddCartEvent {
         addCart,
     TResult? Function(BuildContext context, String productId)?
         removeCartItemEvent,
+    TResult? Function()? toggleShowMoreEvent,
   }) {
     return addCart?.call(productId, basePrice, size, context, color, quantity);
   }
@@ -870,6 +862,7 @@ class _$AddCartEvent implements AddCartEvent {
         addCart,
     TResult Function(BuildContext context, String productId)?
         removeCartItemEvent,
+    TResult Function()? toggleShowMoreEvent,
     required TResult orElse(),
   }) {
     if (addCart != null) {
@@ -888,6 +881,7 @@ class _$AddCartEvent implements AddCartEvent {
         updateCartEventWithSub,
     required TResult Function(AddCartEvent value) addCart,
     required TResult Function(RemoveCartItemEvent value) removeCartItemEvent,
+    required TResult Function(ToggleShowMoreEvent value) toggleShowMoreEvent,
   }) {
     return addCart(this);
   }
@@ -900,6 +894,7 @@ class _$AddCartEvent implements AddCartEvent {
     TResult? Function(UpdateCartEventWithSub value)? updateCartEventWithSub,
     TResult? Function(AddCartEvent value)? addCart,
     TResult? Function(RemoveCartItemEvent value)? removeCartItemEvent,
+    TResult? Function(ToggleShowMoreEvent value)? toggleShowMoreEvent,
   }) {
     return addCart?.call(this);
   }
@@ -912,6 +907,7 @@ class _$AddCartEvent implements AddCartEvent {
     TResult Function(UpdateCartEventWithSub value)? updateCartEventWithSub,
     TResult Function(AddCartEvent value)? addCart,
     TResult Function(RemoveCartItemEvent value)? removeCartItemEvent,
+    TResult Function(ToggleShowMoreEvent value)? toggleShowMoreEvent,
     required TResult orElse(),
   }) {
     if (addCart != null) {
@@ -933,23 +929,19 @@ abstract class AddCartEvent implements CartEvent {
   String get productId;
   int get basePrice;
   String get size;
-  @override
   BuildContext get context;
   String get color;
   int get quantity;
-  @override
   @JsonKey(ignore: true)
   _$$AddCartEventCopyWith<_$AddCartEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$RemoveCartItemEventCopyWith<$Res>
-    implements $CartEventCopyWith<$Res> {
+abstract class _$$RemoveCartItemEventCopyWith<$Res> {
   factory _$$RemoveCartItemEventCopyWith(_$RemoveCartItemEvent value,
           $Res Function(_$RemoveCartItemEvent) then) =
       __$$RemoveCartItemEventCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call({BuildContext context, String productId});
 }
@@ -1031,6 +1023,7 @@ class _$RemoveCartItemEvent implements RemoveCartItemEvent {
         addCart,
     required TResult Function(BuildContext context, String productId)
         removeCartItemEvent,
+    required TResult Function() toggleShowMoreEvent,
   }) {
     return removeCartItemEvent(context, productId);
   }
@@ -1048,6 +1041,7 @@ class _$RemoveCartItemEvent implements RemoveCartItemEvent {
         addCart,
     TResult? Function(BuildContext context, String productId)?
         removeCartItemEvent,
+    TResult? Function()? toggleShowMoreEvent,
   }) {
     return removeCartItemEvent?.call(context, productId);
   }
@@ -1065,6 +1059,7 @@ class _$RemoveCartItemEvent implements RemoveCartItemEvent {
         addCart,
     TResult Function(BuildContext context, String productId)?
         removeCartItemEvent,
+    TResult Function()? toggleShowMoreEvent,
     required TResult orElse(),
   }) {
     if (removeCartItemEvent != null) {
@@ -1083,6 +1078,7 @@ class _$RemoveCartItemEvent implements RemoveCartItemEvent {
         updateCartEventWithSub,
     required TResult Function(AddCartEvent value) addCart,
     required TResult Function(RemoveCartItemEvent value) removeCartItemEvent,
+    required TResult Function(ToggleShowMoreEvent value) toggleShowMoreEvent,
   }) {
     return removeCartItemEvent(this);
   }
@@ -1095,6 +1091,7 @@ class _$RemoveCartItemEvent implements RemoveCartItemEvent {
     TResult? Function(UpdateCartEventWithSub value)? updateCartEventWithSub,
     TResult? Function(AddCartEvent value)? addCart,
     TResult? Function(RemoveCartItemEvent value)? removeCartItemEvent,
+    TResult? Function(ToggleShowMoreEvent value)? toggleShowMoreEvent,
   }) {
     return removeCartItemEvent?.call(this);
   }
@@ -1107,6 +1104,7 @@ class _$RemoveCartItemEvent implements RemoveCartItemEvent {
     TResult Function(UpdateCartEventWithSub value)? updateCartEventWithSub,
     TResult Function(AddCartEvent value)? addCart,
     TResult Function(RemoveCartItemEvent value)? removeCartItemEvent,
+    TResult Function(ToggleShowMoreEvent value)? toggleShowMoreEvent,
     required TResult orElse(),
   }) {
     if (removeCartItemEvent != null) {
@@ -1121,13 +1119,156 @@ abstract class RemoveCartItemEvent implements CartEvent {
       {required final BuildContext context,
       required final String productId}) = _$RemoveCartItemEvent;
 
-  @override
   BuildContext get context;
   String get productId;
-  @override
   @JsonKey(ignore: true)
   _$$RemoveCartItemEventCopyWith<_$RemoveCartItemEvent> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ToggleShowMoreEventCopyWith<$Res> {
+  factory _$$ToggleShowMoreEventCopyWith(_$ToggleShowMoreEvent value,
+          $Res Function(_$ToggleShowMoreEvent) then) =
+      __$$ToggleShowMoreEventCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ToggleShowMoreEventCopyWithImpl<$Res>
+    extends _$CartEventCopyWithImpl<$Res, _$ToggleShowMoreEvent>
+    implements _$$ToggleShowMoreEventCopyWith<$Res> {
+  __$$ToggleShowMoreEventCopyWithImpl(
+      _$ToggleShowMoreEvent _value, $Res Function(_$ToggleShowMoreEvent) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$ToggleShowMoreEvent implements ToggleShowMoreEvent {
+  const _$ToggleShowMoreEvent();
+
+  @override
+  String toString() {
+    return 'CartEvent.toggleShowMoreEvent()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$ToggleShowMoreEvent);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(BuildContext context) fetchCartEvent,
+    required TResult Function(
+            BuildContext context, String productId, int quantity)
+        updateCartEventWithAdd,
+    required TResult Function(
+            BuildContext context, String productId, int quantity)
+        updateCartEventWithSub,
+    required TResult Function(String productId, int basePrice, String size,
+            BuildContext context, String color, int quantity)
+        addCart,
+    required TResult Function(BuildContext context, String productId)
+        removeCartItemEvent,
+    required TResult Function() toggleShowMoreEvent,
+  }) {
+    return toggleShowMoreEvent();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(BuildContext context)? fetchCartEvent,
+    TResult? Function(BuildContext context, String productId, int quantity)?
+        updateCartEventWithAdd,
+    TResult? Function(BuildContext context, String productId, int quantity)?
+        updateCartEventWithSub,
+    TResult? Function(String productId, int basePrice, String size,
+            BuildContext context, String color, int quantity)?
+        addCart,
+    TResult? Function(BuildContext context, String productId)?
+        removeCartItemEvent,
+    TResult? Function()? toggleShowMoreEvent,
+  }) {
+    return toggleShowMoreEvent?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(BuildContext context)? fetchCartEvent,
+    TResult Function(BuildContext context, String productId, int quantity)?
+        updateCartEventWithAdd,
+    TResult Function(BuildContext context, String productId, int quantity)?
+        updateCartEventWithSub,
+    TResult Function(String productId, int basePrice, String size,
+            BuildContext context, String color, int quantity)?
+        addCart,
+    TResult Function(BuildContext context, String productId)?
+        removeCartItemEvent,
+    TResult Function()? toggleShowMoreEvent,
+    required TResult orElse(),
+  }) {
+    if (toggleShowMoreEvent != null) {
+      return toggleShowMoreEvent();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FetchCartEvent value) fetchCartEvent,
+    required TResult Function(UpdateCartEventWithAdd value)
+        updateCartEventWithAdd,
+    required TResult Function(UpdateCartEventWithSub value)
+        updateCartEventWithSub,
+    required TResult Function(AddCartEvent value) addCart,
+    required TResult Function(RemoveCartItemEvent value) removeCartItemEvent,
+    required TResult Function(ToggleShowMoreEvent value) toggleShowMoreEvent,
+  }) {
+    return toggleShowMoreEvent(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(FetchCartEvent value)? fetchCartEvent,
+    TResult? Function(UpdateCartEventWithAdd value)? updateCartEventWithAdd,
+    TResult? Function(UpdateCartEventWithSub value)? updateCartEventWithSub,
+    TResult? Function(AddCartEvent value)? addCart,
+    TResult? Function(RemoveCartItemEvent value)? removeCartItemEvent,
+    TResult? Function(ToggleShowMoreEvent value)? toggleShowMoreEvent,
+  }) {
+    return toggleShowMoreEvent?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FetchCartEvent value)? fetchCartEvent,
+    TResult Function(UpdateCartEventWithAdd value)? updateCartEventWithAdd,
+    TResult Function(UpdateCartEventWithSub value)? updateCartEventWithSub,
+    TResult Function(AddCartEvent value)? addCart,
+    TResult Function(RemoveCartItemEvent value)? removeCartItemEvent,
+    TResult Function(ToggleShowMoreEvent value)? toggleShowMoreEvent,
+    required TResult orElse(),
+  }) {
+    if (toggleShowMoreEvent != null) {
+      return toggleShowMoreEvent(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ToggleShowMoreEvent implements CartEvent {
+  const factory ToggleShowMoreEvent() = _$ToggleShowMoreEvent;
 }
 
 /// @nodoc
@@ -1136,6 +1277,8 @@ mixin _$CartState {
   bool get cartLoading => throw _privateConstructorUsedError;
   String get errorMessage => throw _privateConstructorUsedError;
   String get cartSuccesmessage => throw _privateConstructorUsedError;
+  int? get statusCode => throw _privateConstructorUsedError;
+  bool get showMore => throw _privateConstructorUsedError;
   int? get cartLength => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -1153,6 +1296,8 @@ abstract class $CartStateCopyWith<$Res> {
       bool cartLoading,
       String errorMessage,
       String cartSuccesmessage,
+      int? statusCode,
+      bool showMore,
       int? cartLength});
 
   $CartModelCopyWith<$Res>? get cartModel;
@@ -1175,6 +1320,8 @@ class _$CartStateCopyWithImpl<$Res, $Val extends CartState>
     Object? cartLoading = null,
     Object? errorMessage = null,
     Object? cartSuccesmessage = null,
+    Object? statusCode = freezed,
+    Object? showMore = null,
     Object? cartLength = freezed,
   }) {
     return _then(_value.copyWith(
@@ -1194,6 +1341,14 @@ class _$CartStateCopyWithImpl<$Res, $Val extends CartState>
           ? _value.cartSuccesmessage
           : cartSuccesmessage // ignore: cast_nullable_to_non_nullable
               as String,
+      statusCode: freezed == statusCode
+          ? _value.statusCode
+          : statusCode // ignore: cast_nullable_to_non_nullable
+              as int?,
+      showMore: null == showMore
+          ? _value.showMore
+          : showMore // ignore: cast_nullable_to_non_nullable
+              as bool,
       cartLength: freezed == cartLength
           ? _value.cartLength
           : cartLength // ignore: cast_nullable_to_non_nullable
@@ -1226,6 +1381,8 @@ abstract class _$$_CartStateCopyWith<$Res> implements $CartStateCopyWith<$Res> {
       bool cartLoading,
       String errorMessage,
       String cartSuccesmessage,
+      int? statusCode,
+      bool showMore,
       int? cartLength});
 
   @override
@@ -1247,6 +1404,8 @@ class __$$_CartStateCopyWithImpl<$Res>
     Object? cartLoading = null,
     Object? errorMessage = null,
     Object? cartSuccesmessage = null,
+    Object? statusCode = freezed,
+    Object? showMore = null,
     Object? cartLength = freezed,
   }) {
     return _then(_$_CartState(
@@ -1266,6 +1425,14 @@ class __$$_CartStateCopyWithImpl<$Res>
           ? _value.cartSuccesmessage
           : cartSuccesmessage // ignore: cast_nullable_to_non_nullable
               as String,
+      statusCode: freezed == statusCode
+          ? _value.statusCode
+          : statusCode // ignore: cast_nullable_to_non_nullable
+              as int?,
+      showMore: null == showMore
+          ? _value.showMore
+          : showMore // ignore: cast_nullable_to_non_nullable
+              as bool,
       cartLength: freezed == cartLength
           ? _value.cartLength
           : cartLength // ignore: cast_nullable_to_non_nullable
@@ -1282,6 +1449,8 @@ class _$_CartState implements _CartState {
       required this.cartLoading,
       required this.errorMessage,
       required this.cartSuccesmessage,
+      required this.statusCode,
+      required this.showMore,
       required this.cartLength});
 
   @override
@@ -1293,11 +1462,15 @@ class _$_CartState implements _CartState {
   @override
   final String cartSuccesmessage;
   @override
+  final int? statusCode;
+  @override
+  final bool showMore;
+  @override
   final int? cartLength;
 
   @override
   String toString() {
-    return 'CartState(cartModel: $cartModel, cartLoading: $cartLoading, errorMessage: $errorMessage, cartSuccesmessage: $cartSuccesmessage, cartLength: $cartLength)';
+    return 'CartState(cartModel: $cartModel, cartLoading: $cartLoading, errorMessage: $errorMessage, cartSuccesmessage: $cartSuccesmessage, statusCode: $statusCode, showMore: $showMore, cartLength: $cartLength)';
   }
 
   @override
@@ -1313,13 +1486,17 @@ class _$_CartState implements _CartState {
                 other.errorMessage == errorMessage) &&
             (identical(other.cartSuccesmessage, cartSuccesmessage) ||
                 other.cartSuccesmessage == cartSuccesmessage) &&
+            (identical(other.statusCode, statusCode) ||
+                other.statusCode == statusCode) &&
+            (identical(other.showMore, showMore) ||
+                other.showMore == showMore) &&
             (identical(other.cartLength, cartLength) ||
                 other.cartLength == cartLength));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, cartModel, cartLoading,
-      errorMessage, cartSuccesmessage, cartLength);
+      errorMessage, cartSuccesmessage, statusCode, showMore, cartLength);
 
   @JsonKey(ignore: true)
   @override
@@ -1334,6 +1511,8 @@ abstract class _CartState implements CartState {
       required final bool cartLoading,
       required final String errorMessage,
       required final String cartSuccesmessage,
+      required final int? statusCode,
+      required final bool showMore,
       required final int? cartLength}) = _$_CartState;
 
   @override
@@ -1344,6 +1523,10 @@ abstract class _CartState implements CartState {
   String get errorMessage;
   @override
   String get cartSuccesmessage;
+  @override
+  int? get statusCode;
+  @override
+  bool get showMore;
   @override
   int? get cartLength;
   @override

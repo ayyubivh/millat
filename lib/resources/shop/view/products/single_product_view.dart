@@ -598,11 +598,6 @@ class SingleProductView extends StatelessWidget {
                           context: context,
                           quantity: quantity,
                         ));
-
-                    await Future.delayed(Duration(milliseconds: 400));
-                    if (state.cartSuccesmessage.isNotEmpty) {
-                      showSnackBar(context, state.cartSuccesmessage.toString());
-                    }
                   },
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,

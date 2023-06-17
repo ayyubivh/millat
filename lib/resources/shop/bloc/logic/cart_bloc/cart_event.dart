@@ -24,4 +24,5 @@ class CartEvent with _$CartEvent {
     required BuildContext context,
     required String productId,
   }) = RemoveCartItemEvent;
+  const factory CartEvent.toggleShowMoreEvent() = ToggleShowMoreEvent;
 }

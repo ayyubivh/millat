@@ -2,14 +2,18 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:http/http.dart' as http;
+import 'package:millat/resources/shop/bloc/models/articles/articles_model.dart'
+    as Articles;
 import 'package:millat/resources/shop/bloc/models/banners/banners_model.dart';
 import 'package:millat/resources/shop/bloc/models/recent_products/recent_products_model.dart';
 import 'package:millat/resources/shop/bloc/models/shop_by_brand/shop_by_brand_models.dart';
-import 'package:millat/resources/shop/bloc/models/wishlist/wishllist_models.dart';
+import 'package:millat/resources/shop/bloc/models/wishlist/wishllist_models.dart'
+    as Wishlist;
 import 'package:millat/services/http_services.dart';
 import '../../../authentication/bloc/logic/database_bloc/database_bloc.dart';
-import '../models/articles/articles_model.dart';
+
 import '../models/products/products_model.dart';
+import '../models/shop_by_brand/shop_by_brand_products.dart';
 import '../models/shop_products/shop_products_model.dart';
 
 class ShopService extends HttpServices {
@@ -122,13 +126,13 @@ class ShopService extends HttpServices {
   }
 
   //Fetching Articles
-  Future<ArticleModel> fetchArticles() async {
+  Future<Articles.ArticleModel> fetchArticles() async {
     final response = await get(endPoint: article);
 
     if (response.statusCode == 200) {
       try {
         final Map<String, dynamic> data = json.decode(response.body);
-        final result = ArticleModel.fromJson(data);
+        final result = Articles.ArticleModel.fromJson(data);
 
         return result;
       } catch (e) {
@@ -222,7 +226,7 @@ class ShopService extends HttpServices {
     };
 
     try {
-      final response = await http.post(
+      final response = await http.put(
         Uri.parse(webBaseUrl + endPoint),
         headers: headers,
         body: jsonEncode(body),
@@ -241,7 +245,7 @@ class ShopService extends HttpServices {
   }
   // fetching wishlist items
 
-  Future<Wishlist?> fetchWishlist(BuildContext context) async {
+  Future<Wishlist.Wishlist?> fetchWishlist(BuildContext context) async {
     final endPoint = "wishlist";
     final databaseState = context.read<DatabaseBloc>().state;
     final token = databaseState.token;
@@ -257,7 +261,8 @@ class ShopService extends HttpServices {
         final Map<String, dynamic> jsonResponse = json.decode(response.body);
         final Map<String, dynamic> resultData =
             jsonResponse['result']['wishlist'];
-        final Wishlist? result = Wishlist.fromJson(resultData);
+        final Wishlist.Wishlist? result =
+            Wishlist.Wishlist.fromJson(resultData);
         if (result != null) {
           // print('Wishlist items fetched in the service: $result');
           return result;
@@ -293,6 +298,40 @@ class ShopService extends HttpServices {
     } else {
       throw Exception(
           'API request failed with status code: ${response.statusCode}');
+    }
+  }
+
+  //Fetching api by brand name
+  Future<ShopBrandProductModel> fetchProductsByBrand(String brandName) async {
+    final endpoint = 'product';
+    final response = await get(endPoint: endpoint);
+    if (response.statusCode == 200) {
+      print('on fetch shop by brand ${response.body}');
+      try {
+        final dynamic jsonData = json.decode(response.body);
+        if (jsonData != null) {
+          final result = ShopBrandProductModel.fromJson(jsonData);
+          final filteredProducts = result.products
+              .where((product) => product.brand.name == brandName)
+              .toList();
+          final filteredResult = ShopBrandProductModel(
+            error: '',
+            message: '',
+            status: 200,
+            products: filteredProducts,
+          );
+          print('Filtered products: $filteredProducts');
+          return filteredResult;
+        } else {
+          throw Exception('Failed to parse JSON: Response body is null');
+        }
+      } catch (e) {
+        print('Error decoding JSON: $e');
+        throw Exception('Failed to parse JSON');
+      }
+    } else {
+      print('HTTP request failed with status code: ${response.statusCode}');
+      throw Exception('Failed to fetch products');
     }
   }
 }

@@ -5,6 +5,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:millat/resources/authentication/bloc/logic/auth_bloc.dart';
 import 'package:millat/resources/authentication/bloc/logic/database_bloc/database_bloc.dart';
 import 'package:millat/resources/on_boarding/view/on_boarding_view.dart';
+import 'package:millat/resources/shop/bloc/logic/address_bloc/address_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/cart_bloc/cart_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/category_bloc/category_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
@@ -42,7 +43,8 @@ void main() async {
       ),
       BlocProvider(
         create: (context) => CartBloc(),
-      )
+      ),
+      BlocProvider(create: (context) => AddressBloc()),
     ],
     child: MyApp(),
   ));

@@ -5,6 +5,8 @@ import 'package:millat/resources/shop/bloc/logic/category_bloc/category_bloc.dar
 import 'package:millat/utils/globals.dart';
 import 'package:millat/utils/size_utility.dart';
 
+import 'categories_view.dart';
+
 class CategoriesFilter extends StatefulWidget {
   const CategoriesFilter({Key? key}) : super(key: key);
 
@@ -13,8 +15,12 @@ class CategoriesFilter extends StatefulWidget {
 }
 
 class _CategoriesFilterState extends State<CategoriesFilter> {
+  int currentIndex = 0;
+  String subCategory = '';
   @override
   void initState() {
+    BlocProvider.of<CategoryBloc>(context)
+        .add(FetchFilterProducts(category: "Men", subCategory: ""));
     BlocProvider.of<CategoryBloc>(context).add(CategoryEvent.fetchCategories());
     BlocProvider.of<CategoryBloc>(context)
         .add(CategoryEvent.fetchSubcategories());
@@ -65,25 +71,47 @@ class _CategoriesFilterState extends State<CategoriesFilter> {
                                       state.category?.result?.category!.length,
                                   shrinkWrap: true,
                                   itemBuilder: (context, index) {
-                                    return CategoryFullView(
-                                        iconImage: state.category!.result!
-                                            .category![index].image!,
-                                        categoryTitle: state.category!.result!
-                                            .category![index].title
-                                            .toString());
+                                    final category = state
+                                        .category!.result!.category![index];
+                                    final isSelected = currentIndex == index;
+
+                                    return InkWell(
+                                      onTap: () {
+                                        setState(() {
+                                          currentIndex = index;
+                                        });
+                                        context.read<CategoryBloc>().add(
+                                              FetchFilterProducts(
+                                                category:
+                                                    category.title.toString(),
+                                                subCategory:
+                                                    category.title.toString(),
+                                              ),
+                                            );
+                                      },
+                                      child: Container(
+                                        color:
+                                            isSelected ? lightGreen1 : whiteClr,
+                                        child: CategoryFullView(
+                                          iconImage: category.image!,
+                                          categoryTitle:
+                                              category.title.toString(),
+                                        ),
+                                      ),
+                                    );
                                   },
                                 ),
                               );
                       },
-                    )
+                    ),
                   ],
                 ),
               ),
             ),
             BlocBuilder<CategoryBloc, CategoryState>(
               builder: (context, state) {
-                return state.subCategoryLoading ||
-                        state.subCategory?.result?.subCategory == null
+                return state.productLoading ||
+                        state.product?.result?.products == null
                     ? Padding(
                         padding: const EdgeInsets.only(left: 130),
                         child: Center(
@@ -100,14 +128,29 @@ class _CategoriesFilterState extends State<CategoriesFilter> {
                             mainAxisSpacing: 0,
                             childAspectRatio: 0.7),
                         padding: EdgeInsets.zero,
-                        itemCount:
-                            state.subCategory?.result?.subCategory?.length,
+                        itemCount: state.product?.result?.products.length,
                         itemBuilder: (context, index) {
-                          return CategoryFullView(
-                            iconImage: state.subCategory!.result!
-                                .subCategory![index].image!,
-                            categoryTitle: state.subCategory!.result!
-                                .subCategory![index].title!,
+                          return GestureDetector(
+                            onTap: () {
+                              print(
+                                  '${state.product!.result!.products[index].subcategory!.title}');
+                              Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => CategoriesView(
+                                  category: state.product!.result!
+                                      .products[index].category!.title
+                                      .toString(),
+                                  subCategory: state.product!.result!
+                                      .products[index].subcategory!.title
+                                      .toString(),
+                                ),
+                              ));
+                            },
+                            child: CategoryFullView(
+                              iconImage: state.product!.result!.products[index]
+                                  .subcategory!.image,
+                              categoryTitle: state.product!.result!
+                                  .products[index].subcategory!.title,
+                            ),
                           );
                         },
                       ));

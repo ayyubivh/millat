@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -16,9 +15,9 @@ class CartBloc extends Bloc<CartEvent, CartState> {
     on<AddCartEvent>(_addCart);
     on<FetchCartEvent>(_fetchcCartEvent);
     on<RemoveCartItemEvent>(_romveCartItemEvent);
-
     on<UpdateCartEventWithAdd>(_updateCartEvent);
     on<UpdateCartEventWithSub>(_updateCartEventWithSub);
+    on<ToggleShowMoreEvent>(_toggleShowMoreEvent);
   }
 
   FutureOr<void> _fetchcCartEvent(
@@ -58,12 +57,15 @@ class CartBloc extends Bloc<CartEvent, CartState> {
         ));
 
         print(' on success ${data['message']}');
-      } else {
+      } else if (data['status'] == 409) {
         print(data['status'].toString());
         emit(state.copyWith(
           cartSuccesmessage: data['message'],
           cartLoading: false,
+          errorMessage: 'product already added',
+          statusCode: 409,
         ));
+        // showSnackBar(event.context, 'product already added');
         print(' on already ${data['message']}');
       }
     } catch (e) {
@@ -173,5 +175,9 @@ class CartBloc extends Bloc<CartEvent, CartState> {
     } catch (e) {
       emit(state.copyWith(errorMessage: "An error occurred"));
     }
+  }
+
+  _toggleShowMoreEvent(ToggleShowMoreEvent event, Emitter<CartState> emit) {
+    emit(state.copyWith(showMore: state.showMore == false ? true : false));
   }
 }

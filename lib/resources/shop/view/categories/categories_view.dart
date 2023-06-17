@@ -14,7 +14,9 @@ import '../filters/filters.dart';
 
 class CategoriesView extends StatefulWidget {
   final String category;
-  const CategoriesView({super.key, required this.category});
+  final String subCategory;
+  const CategoriesView(
+      {super.key, required this.category, required this.subCategory});
 
   @override
   State<CategoriesView> createState() => _CategoriesViewState();
@@ -28,8 +30,8 @@ class _CategoriesViewState extends State<CategoriesView> {
     BlocProvider.of<ShopProductsBloc>(context).add(FetchShopBanners());
     BlocProvider.of<CategoryBloc>(context).add(FetchSubcategories());
 
-    BlocProvider.of<CategoryBloc>(context)
-        .add(FetchFilterProducts(category: widget.category, subCategory: ""));
+    BlocProvider.of<CategoryBloc>(context).add(FetchFilterProducts(
+        category: widget.category, subCategory: widget.subCategory));
     super.initState();
   }
 
@@ -77,10 +79,11 @@ class _CategoriesViewState extends State<CategoriesView> {
                 ),
                 BlocBuilder<CategoryBloc, CategoryState>(
                   builder: (context, state) {
-                    final products = state.subCategory?.result?.subCategory;
-                    final uniqueSubcategories = Set<String>.from(
-                        products?.map((product) => product.title).toList() ??
-                            []);
+                    final products = state.product?.result?.products;
+                    final uniqueSubcategories = Set<String>.from(products
+                            ?.map((product) => product.subcategory!.title)
+                            .toList() ??
+                        []);
 
                     return SingleChildScrollView(
                       scrollDirection: Axis.horizontal,

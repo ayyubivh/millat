@@ -19,7 +19,6 @@ class DatabaseBloc extends Bloc<DatabaseEvent, DatabaseState> {
       final authBox = Hive.box('authTokenBox');
       final token = authBox.get(AUTHTOKEN);
       emit(state.copyWith(token: token));
-      print('when fetch token ${state.token}');
     });
   }
 }

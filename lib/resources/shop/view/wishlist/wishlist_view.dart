@@ -26,36 +26,41 @@ class _WishListViewState extends State<WishListView> {
         backgroundColor: Colors.transparent,
         elevation: 0,
         centerTitle: false,
-        title: Text("Wishlist",
+        title: const Text("Wishlist",
             style: TextStyle(color: Colors.black, fontWeight: FontWeight.w700)),
-        leading: BackButton(
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
           color: Colors.black,
+          onPressed: () {
+            context
+                .read<ShopProductsBloc>()
+                .add(const TabIndexChangeEvent(index: 0));
+          },
         ),
       ),
       body: BlocBuilder<ShopProductsBloc, ShopProductsState>(
         builder: (context, state) {
           if (state.wishList?.products?.length == 0) {
-            return Center(
+            return const Center(
               child: Text('wishlits is empty'),
             );
           } else if (state.isLoading) {
-            return Center(
+            return const Center(
               child: CircularProgressIndicator(
                 color: green24,
               ),
             );
           }
           return state.isLoading
-              ? Center(
+              ? const Center(
                   child: CircularProgressIndicator(
                     color: green77,
                   ),
                 )
               : GridView.builder(
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
                     crossAxisSpacing: 20,
-                    // mainAxisSpacing: 20,
                     mainAxisExtent: 320,
                   ),
                   itemCount: state.wishList?.products?.length,
@@ -73,16 +78,15 @@ class _WishListViewState extends State<WishListView> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            SizedBox(height: 15),
-                            Container(
-                              child: ShopProductWidget(
-                                productId: data?.id,
-                                title: data!.title,
-                                image: data.colors[0].images[0],
-                                discountPrice: data.discountPrice.toInt(),
-                                actualPrice: data.actualPrice.toInt(),
-                                discount: data.discount.toInt(),
-                              ),
+                            const SizedBox(height: 15),
+                            ShopProductWidget(
+                              brand: data!.description!,
+                              productId: data.id,
+                              title: data.title,
+                              image: data.colors[0].images[0],
+                              discountPrice: data.discountPrice.toInt(),
+                              actualPrice: data.actualPrice.toInt(),
+                              discount: data.discount.toInt(),
                             ),
                           ],
                         ),

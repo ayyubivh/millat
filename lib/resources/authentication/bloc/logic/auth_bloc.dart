@@ -21,6 +21,9 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
           final res = await _authService.login(
               email: event.email, password: event.password);
           if (res['status'] == true) {
+            final token = res['result'];
+            print('token on the authbloc when the login $token');
+            databaseBloc.add(StoreTokenEvent(token: token));
             emit(AuthLoaded(event.email));
           } else {
             emit(AuthError(res['message']));

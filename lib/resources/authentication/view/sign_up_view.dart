@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/components/buttons/main_button.dart';
@@ -28,159 +30,164 @@ class _SignUpViewState extends State<SignUpView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: BlocConsumer<AuthBloc, AuthState>(
-      listener: (context, state) {
-        if (state is AuthError) {
-          buildError(state.errorMessage);
-        } else if (state is AuthLoaded) {
-          clearDate();
-          Navigator.of(context).pushReplacement(MaterialPageRoute(
-            builder: (context) => const TabsView(),
-          ));
-        }
-      },
-      builder: (context, state) {
-        if (state is AuthLoading) {
-          return const Center(
-            child: CircularProgressIndicator(color: green77),
-          );
-        } else {
-          return Padding(
-            padding: const EdgeInsets.all(30.0),
-            child: Form(
-              key: _formKey,
-              child: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    const SizedBox(
-                      height: 70,
-                    ),
-                    Image.asset(millatMainLogo, height: 50, width: 200),
-                    const SizedBox(
-                      height: 40,
-                    ),
-                    const Text(
-                        'Please enter your e-mail address and create password ',
-                        style: TextStyle(color: black133)),
-                    const SizedBox(
-                      height: 40,
-                    ),
-                    CustomTextField(
-                      icon: const Icon(Icons.person, color: iconsColor),
-                      hint: 'Full name',
-                      controller: _fullNameController,
-                      validator: Validators(context).fullNameValidator,
-                    ),
-                    const SizedBox(
-                      height: 30,
-                    ),
-                    CustomTextField(
-                        validator: Validators(context).emailValidator,
-                        icon: const Icon(Icons.email, color: iconsColor),
-                        hint: 'Enter your email',
-                        controller: _emailController),
-                    const SizedBox(
-                      height: 30,
-                    ),
-                    CustomTextField(
+        body: WillPopScope(
+      onWillPop: () => onBackPress(context),
+      child: BlocConsumer<AuthBloc, AuthState>(
+        listener: (context, state) {
+          if (state is AuthError) {
+            buildError(state.errorMessage);
+          } else if (state is AuthLoaded) {
+            clearDate();
+            Navigator.of(context).pushReplacement(MaterialPageRoute(
+              builder: (context) => const TabsView(),
+            ));
+          }
+        },
+        builder: (context, state) {
+          if (state is AuthLoading) {
+            return const Center(
+              child: CircularProgressIndicator(color: green77),
+            );
+          } else {
+            return Padding(
+              padding: const EdgeInsets.all(30.0),
+              child: Form(
+                key: _formKey,
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      const SizedBox(
+                        height: 70,
+                      ),
+                      Image.asset(millatMainLogo, height: 50, width: 200),
+                      const SizedBox(
+                        height: 40,
+                      ),
+                      const Text(
+                          'Please enter your e-mail address and create password ',
+                          style: TextStyle(color: black133)),
+                      const SizedBox(
+                        height: 40,
+                      ),
+                      CustomTextField(
+                        icon: const Icon(Icons.person, color: iconsColor),
+                        hint: 'Full name',
+                        controller: _fullNameController,
+                        validator: Validators(context).fullNameValidator,
+                      ),
+                      const SizedBox(
+                        height: 30,
+                      ),
+                      CustomTextField(
+                          validator: Validators(context).emailValidator,
+                          icon: const Icon(Icons.email, color: iconsColor),
+                          hint: 'Enter your email',
+                          controller: _emailController),
+                      const SizedBox(
+                        height: 30,
+                      ),
+                      CustomTextField(
+                          validator: Validators(context).passwordValidator,
+                          icon: const Icon(Icons.lock, color: iconsColor),
+                          hint: 'Enter your password',
+                          controller: _passwordController),
+                      const SizedBox(
+                        height: 30,
+                      ),
+                      CustomTextField(
                         validator: Validators(context).passwordValidator,
                         icon: const Icon(Icons.lock, color: iconsColor),
-                        hint: 'Enter your password',
-                        controller: _passwordController),
-                    const SizedBox(
-                      height: 30,
-                    ),
-                    CustomTextField(
-                      validator: Validators(context).passwordValidator,
-                      icon: const Icon(Icons.lock, color: iconsColor),
-                      hint: 'Confirm password',
-                      controller: _confirmPasswordController,
-                    ),
-                    const SizedBox(
-                      height: 50,
-                    ),
-                    MainTextButton(
-                      title: 'Skip',
-                      onTap: () {
-                        Navigator.of(context).pushReplacement(MaterialPageRoute(
-                          builder: (context) => const SendOTPView(),
-                        ));
-                      },
-                    ),
-                    MainButton(
-                        title: 'Sign Up',
-                        onPressed: () {
-                          if (_formKey.currentState!.validate()) {
-                            if (_passwordController.text ==
-                                _confirmPasswordController.text) {
-                              BlocProvider.of<AuthBloc>(context).add(SignUp(
-                                  _fullNameController.text,
-                                  _emailController.text,
-                                  _passwordController.text));
+                        hint: 'Confirm password',
+                        controller: _confirmPasswordController,
+                      ),
+                      const SizedBox(
+                        height: 50,
+                      ),
+                      MainTextButton(
+                        title: 'Skip',
+                        onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const SendOTPView(),
+                          ));
+                        },
+                      ),
+                      MainButton(
+                          title: 'Sign Up',
+                          onPressed: () {
+                            if (_formKey.currentState!.validate()) {
+                              if (_passwordController.text ==
+                                  _confirmPasswordController.text) {
+                                BlocProvider.of<AuthBloc>(context).add(SignUp(
+                                    _fullNameController.text,
+                                    _emailController.text,
+                                    _passwordController.text));
+                              } else {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                    const SnackBar(
+                                        content:
+                                            Text("Password didn't match")));
+                              }
                             } else {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                  const SnackBar(
-                                      content: Text("Password didn't match")));
+                              return "";
                             }
-                          } else {
-                            return "";
-                          }
-                        }),
-                    const SizedBox(
-                      height: 40,
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.of(context).pushReplacement(MaterialPageRoute(
-                          builder: (context) => const LoginView(),
-                        ));
-                      },
-                      child: RichText(
-                          text: const TextSpan(children: [
-                        TextSpan(
-                            text: 'Already have an account? ',
-                            style: TextStyle(
-                                color: black133,
-                                fontSize: 13,
-                                fontWeight: FontWeight.w500)),
-                        TextSpan(
-                            text: 'Login',
-                            style: TextStyle(
-                                color: mainColor,
-                                fontSize: 13,
-                                fontWeight: FontWeight.w500)),
-                      ])),
-                    ),
-                    const SizedBox(
-                      height: 40,
-                    ),
-                    const Text('Sign Up in with ',
-                        style: TextStyle(color: black133)),
-                    const SizedBox(
-                      height: 40,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Image.asset('assets/logos/facebook_logo.png',
-                            width: 20),
-                        const SizedBox(
-                          width: 40,
-                        ),
-                        Image.asset('assets/logos/google_logo.png', width: 40),
-                        const SizedBox(
-                          width: 40,
-                        ),
-                        Image.asset('assets/logos/apple_logo.png', width: 60),
-                      ],
-                    )
-                  ],
+                          }),
+                      const SizedBox(
+                        height: 40,
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const LoginView(),
+                          ));
+                        },
+                        child: RichText(
+                            text: const TextSpan(children: [
+                          TextSpan(
+                              text: 'Already have an account? ',
+                              style: TextStyle(
+                                  color: black133,
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.w500)),
+                          TextSpan(
+                              text: 'Login',
+                              style: TextStyle(
+                                  color: mainColor,
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.w500)),
+                        ])),
+                      ),
+                      const SizedBox(
+                        height: 40,
+                      ),
+                      const Text('Sign Up in with ',
+                          style: TextStyle(color: black133)),
+                      const SizedBox(
+                        height: 40,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Image.asset('assets/logos/facebook_logo.png',
+                              width: 20),
+                          const SizedBox(
+                            width: 40,
+                          ),
+                          Image.asset('assets/logos/google_logo.png',
+                              width: 40),
+                          const SizedBox(
+                            width: 40,
+                          ),
+                          Image.asset('assets/logos/apple_logo.png', width: 60),
+                        ],
+                      )
+                    ],
+                  ),
                 ),
               ),
-            ),
-          );
-        }
-      },
+            );
+          }
+        },
+      ),
     ));
   }
 
@@ -192,5 +199,100 @@ class _SignUpViewState extends State<SignUpView> {
   clearDate() {
     _emailController.clear();
     _passwordController.clear();
+  }
+
+  Future<bool> onBackPress(BuildContext context) {
+    openDialog(context);
+    return Future.value(false);
+  }
+
+  Future<void> openDialog(BuildContext context) async {
+    switch (await showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return SimpleDialog(
+            clipBehavior: Clip.hardEdge,
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+            contentPadding: EdgeInsets.zero,
+            children: <Widget>[
+              Container(
+                color: green24,
+                padding: const EdgeInsets.only(bottom: 10, top: 10),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Container(
+                      margin: const EdgeInsets.only(bottom: 10),
+                      child: const Icon(
+                        Icons.exit_to_app,
+                        size: 30,
+                        color: Colors.white,
+                      ),
+                    ),
+                    const Text(
+                      'Exit app',
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold),
+                    ),
+                    const Text(
+                      'Are you sure to exit app?',
+                      style: TextStyle(color: Colors.white70, fontSize: 14),
+                    ),
+                  ],
+                ),
+              ),
+              SimpleDialogOption(
+                onPressed: () {
+                  Navigator.pop(context, 0);
+                },
+                child: Row(
+                  children: [
+                    Container(
+                      margin: const EdgeInsets.only(right: 10),
+                      child: const Icon(
+                        Icons.cancel,
+                        color: green24,
+                      ),
+                    ),
+                    const Text(
+                      'Cancel',
+                      style: TextStyle(
+                          color: green24, fontWeight: FontWeight.bold),
+                    )
+                  ],
+                ),
+              ),
+              SimpleDialogOption(
+                onPressed: () {
+                  Navigator.pop(context, 1);
+                },
+                child: Row(
+                  children: [
+                    Container(
+                      margin: const EdgeInsets.only(right: 10),
+                      child: const Icon(
+                        Icons.check_circle,
+                        color: green24,
+                      ),
+                    ),
+                    const Text(
+                      'Yes',
+                      style: TextStyle(
+                          color: green24, fontWeight: FontWeight.bold),
+                    )
+                  ],
+                ),
+              ),
+            ],
+          );
+        })) {
+      case 0:
+        break;
+      case 1:
+        exit(0);
+    }
   }
 }

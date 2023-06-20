@@ -19,6 +19,9 @@ class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
     on<FetchCategories>(_fetchCategories);
     on<FetchSubcategories>(_fetchSubCategories);
     on<OnSelectFilter>(_onSelectFilter);
+    on<FilterEvent>(_filterEvent);
+    on<FilterBrandPickEvent>(_filterBrandPickEvent);
+    on<PriceRangeEvent>(_priceRangeEvent);
   }
 
   FutureOr<void> _fetchFilterProducts(
@@ -71,5 +74,36 @@ class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
   FutureOr<void> _onSelectFilter(
       OnSelectFilter event, Emitter<CategoryState> emit) {
     emit(state.copyWith(selectedFilter: event.value));
+  }
+
+  _filterEvent(FilterEvent event, Emitter<CategoryState> emit) {
+    emit(state.copyWith(
+        filterCategory: event.category, filterSubCategory: event.subCategory));
+  }
+
+  _filterBrandPickEvent(
+      FilterBrandPickEvent event, Emitter<CategoryState> emit) {
+    emit(state.copyWith(filterBrand: event.brand));
+  }
+
+  _priceRangeEvent(PriceRangeEvent event, Emitter<CategoryState> emit) {
+    emit(state.copyWith(priceRangeIndex: event.index));
+    // switch (state.priceRangeIndex) {
+    //   case 0:
+    //     emit(state.copyWith(priceRangeIndex: 0));
+    //     break;
+    //   case 1:
+    //     emit(state.copyWith(priceRangeIndex: 1));
+    //     break;
+
+    //   case 2:
+    //     emit(state.copyWith(priceRangeIndex: 2));
+    //     break;
+    //   case 3:
+    //     emit(state.copyWith(priceRangeIndex: 2));
+    //     break;
+    //   default:
+    //     return false;
+    // }
   }
 }

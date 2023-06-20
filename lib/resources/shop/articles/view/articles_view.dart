@@ -139,7 +139,7 @@ class ArticlesView extends StatelessWidget {
               SizedBox(
                 height: SizeUtility(context).height,
                 child: ListView.builder(
-                  itemCount: 3,
+                  itemCount: passValue.length,
                   itemBuilder: (context, index) {
                     return GestureDetector(
                         onTap: () {
@@ -153,7 +153,8 @@ class ArticlesView extends StatelessWidget {
                             brand: passValue[index].brand,
                             date: Utilities.formatDate(passValue[index].date),
                             title: passValue[index].title,
-                            content: passValue[index].content,
+                            content:
+                                passValue[index].content ?? 'Content is Empty',
                             context: context));
                   },
                 ),

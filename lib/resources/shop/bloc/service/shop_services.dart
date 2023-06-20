@@ -147,7 +147,7 @@ class ShopService extends HttpServices {
 
   // Fetching shop by brands
   Future<ShopBrandModel> fetchShopByBrand() async {
-    final endPoint = "admin/users";
+    const endPoint = "admin/users";
     final response = await get(endPoint: endPoint);
 
     if (response.statusCode == 200) {
@@ -171,8 +171,8 @@ class ShopService extends HttpServices {
     required BuildContext context,
     required String productId,
   }) async {
-    final String webBaseUrl = 'http://35.172.93.164:8000/';
-    final endPoint = "wishlist/add";
+    const String webBaseUrl = 'http://35.172.93.164:8000/';
+    const endPoint = "wishlist/add";
     final databaseState = context.read<DatabaseBloc>().state;
     final token = databaseState.token;
     final headers = {
@@ -213,8 +213,8 @@ class ShopService extends HttpServices {
     required BuildContext context,
     required String productId,
   }) async {
-    final String webBaseUrl = 'http://35.172.93.164:8000/';
-    final endPoint = "wishlist/remove";
+    const String webBaseUrl = 'http://35.172.93.164:8000/';
+    const endPoint = "wishlist/remove";
     final databaseState = context.read<DatabaseBloc>().state;
     final token = databaseState.token;
     final headers = {
@@ -246,7 +246,7 @@ class ShopService extends HttpServices {
   // fetching wishlist items
 
   Future<Wishlist.Wishlist?> fetchWishlist(BuildContext context) async {
-    final endPoint = "wishlist";
+    const endPoint = "wishlist";
     final databaseState = context.read<DatabaseBloc>().state;
     final token = databaseState.token;
     final headers = {
@@ -303,7 +303,7 @@ class ShopService extends HttpServices {
 
   //Fetching api by brand name
   Future<ShopBrandProductModel> fetchProductsByBrand(String brandName) async {
-    final endpoint = 'product';
+    const endpoint = 'product';
     final response = await get(endPoint: endpoint);
     if (response.statusCode == 200) {
       print('on fetch shop by brand ${response.body}');

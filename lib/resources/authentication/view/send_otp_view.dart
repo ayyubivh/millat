@@ -59,12 +59,9 @@ class _SendOTPViewState extends State<SendOTPView> {
                     height: 40,
                   ),
                   InternationalPhoneNumberInput(
-                    onInputChanged: (PhoneNumber number) {
-                      print(number.phoneNumber);
-                    },
-                    onInputValidated: (bool value) {
-                      print(value);
-                    },
+                    initialValue: PhoneNumber(isoCode: 'IN'),
+                    onInputChanged: (PhoneNumber number) {},
+                    onInputValidated: (bool value) {},
                     selectorConfig: const SelectorConfig(
                       selectorType: PhoneInputSelectorType.BOTTOM_SHEET,
                     ),

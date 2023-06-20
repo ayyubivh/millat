@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/shop/bloc/models/products/products_model.dart';
 import 'package:millat/resources/shop/view/products/single_product_view.dart';
 import 'package:millat/utils/size_utility.dart';
@@ -16,7 +17,11 @@ class CategoriesView extends StatefulWidget {
   final String category;
   final String subCategory;
   const CategoriesView(
-      {super.key, required this.category, required this.subCategory});
+      {super.key,
+      required this.category,
+      required this.subCategory,
+      required this.type});
+  final FilterType type;
 
   @override
   State<CategoriesView> createState() => _CategoriesViewState();
@@ -27,8 +32,8 @@ class _CategoriesViewState extends State<CategoriesView> {
   var filterOptions = <String>[];
   @override
   void initState() {
-    BlocProvider.of<ShopProductsBloc>(context).add(FetchShopBanners());
-    BlocProvider.of<CategoryBloc>(context).add(FetchSubcategories());
+    BlocProvider.of<ShopProductsBloc>(context).add(const FetchShopBanners());
+    BlocProvider.of<CategoryBloc>(context).add(const FetchSubcategories());
 
     BlocProvider.of<CategoryBloc>(context).add(FetchFilterProducts(
         category: widget.category, subCategory: widget.subCategory));
@@ -43,11 +48,11 @@ class _CategoriesViewState extends State<CategoriesView> {
           elevation: 0,
           centerTitle: false,
           title: Text(widget.category,
-              style:
-                  TextStyle(color: Colors.black, fontWeight: FontWeight.w700)),
+              style: const TextStyle(
+                  color: Colors.black, fontWeight: FontWeight.w700)),
           actions: [
-            Padding(
-              padding: const EdgeInsets.only(left: 10),
+            const Padding(
+              padding: EdgeInsets.only(left: 10),
               child: ImageIcon(
                 AssetImage(
                   'assets/icons/search.png',
@@ -64,7 +69,7 @@ class _CategoriesViewState extends State<CategoriesView> {
               },
             )
           ],
-          leading: BackButton(
+          leading: const BackButton(
             color: Colors.black,
           ),
         ),
@@ -96,9 +101,9 @@ class _CategoriesViewState extends State<CategoriesView> {
                               ));
                             },
                             child: Container(
-                              padding: EdgeInsets.symmetric(
+                              padding: const EdgeInsets.symmetric(
                                   horizontal: 10, vertical: 10),
-                              margin: EdgeInsets.symmetric(
+                              margin: const EdgeInsets.symmetric(
                                 horizontal: 10,
                               ),
                               decoration: BoxDecoration(
@@ -109,65 +114,71 @@ class _CategoriesViewState extends State<CategoriesView> {
                                   color: green77),
                             ),
                           ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: uniqueSubcategories.map((subCategory) {
-                              final isSelected =
-                                  state.selectedFilter == subCategory;
-                              return Padding(
-                                padding:
-                                    const EdgeInsets.only(right: 4, bottom: 4),
-                                child: Container(
-                                  height: 34,
-                                  decoration: BoxDecoration(
-                                    color: isSelected ? green77 : whiteClr,
-                                    borderRadius: BorderRadius.circular(30),
-                                    border: Border.all(
-                                      color: isSelected
-                                          ? green77
-                                          : Colors.grey.withOpacity(0.5),
-                                    ),
-                                  ),
-                                  child: FilterChip(
-                                    backgroundColor: whiteClr,
-                                    label: Text(
-                                      subCategory,
-                                      style: TextStyle(fontSize: 17),
-                                    ),
-                                    selected: isSelected,
-                                    onSelected: (value) {
-                                      context.read<CategoryBloc>().add(
-                                          OnSelectFilter(value: subCategory));
-                                    },
-                                    selectedColor: green77,
-                                    checkmarkColor: Colors.white,
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(30),
-                                    ),
-                                    labelStyle: TextStyle(
-                                      color: isSelected
-                                          ? Colors.white
-                                          : Colors.black,
-                                    ),
-                                  ),
+                          widget.type == FilterType.brand
+                              ? const SizedBox()
+                              : Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children:
+                                      uniqueSubcategories.map((subCategory) {
+                                    final isSelected =
+                                        state.selectedFilter == subCategory;
+                                    return Padding(
+                                      padding: const EdgeInsets.only(
+                                          right: 4, bottom: 4),
+                                      child: Container(
+                                        height: 34,
+                                        decoration: BoxDecoration(
+                                          color:
+                                              isSelected ? green77 : whiteClr,
+                                          borderRadius:
+                                              BorderRadius.circular(30),
+                                          border: Border.all(
+                                            color: isSelected
+                                                ? green77
+                                                : Colors.grey.withOpacity(0.5),
+                                          ),
+                                        ),
+                                        child: FilterChip(
+                                          backgroundColor: whiteClr,
+                                          label: Text(
+                                            subCategory,
+                                            style:
+                                                const TextStyle(fontSize: 17),
+                                          ),
+                                          selected: isSelected,
+                                          onSelected: (value) {
+                                            context.read<CategoryBloc>().add(
+                                                OnSelectFilter(
+                                                    value: subCategory));
+                                          },
+                                          selectedColor: green77,
+                                          checkmarkColor: Colors.white,
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(30),
+                                          ),
+                                          labelStyle: TextStyle(
+                                            color: isSelected
+                                                ? Colors.white
+                                                : Colors.black,
+                                          ),
+                                        ),
+                                      ),
+                                    );
+                                  }).toList(),
                                 ),
-                              );
-                            }).toList(),
-                          ),
                         ],
                       ),
                     );
                   },
                 ),
-
-                // FiltersRowWidgets(),
                 const SizedBox(
                   height: 30,
                 ),
                 BlocBuilder<ShopProductsBloc, ShopProductsState>(
                   builder: (context, state) {
                     if (state.shopBanner == null) {
-                      return SizedBox();
+                      return const SizedBox();
                     }
 
                     final banners = state.shopBanner?.result!.banners;
@@ -201,7 +212,7 @@ class _CategoriesViewState extends State<CategoriesView> {
                             },
                           ),
                         ),
-                        SizedBox(height: 10),
+                        const SizedBox(height: 10),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: banners!.map((banner) {
@@ -209,7 +220,7 @@ class _CategoriesViewState extends State<CategoriesView> {
                             return Container(
                               width: _currentIndex == index ? 24 : 6,
                               height: 6,
-                              margin: EdgeInsets.symmetric(horizontal: 4),
+                              margin: const EdgeInsets.symmetric(horizontal: 4),
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(30),
                                 color: _currentIndex == index
@@ -223,12 +234,32 @@ class _CategoriesViewState extends State<CategoriesView> {
                     );
                   },
                 ),
-                SizedBox(height: 30),
+                const SizedBox(height: 30),
                 BlocBuilder<CategoryBloc, CategoryState>(
                   builder: (context, state) {
                     List<Product> filteredProducts = [];
+                    if (widget.type == FilterType.brand) {
+                      filteredProducts =
+                          state.product!.result!.products.where((product) {
+                        if (state.priceRangeIndex == 0) {
+                          return product.discountPrice <= 500;
+                        } else if (state.priceRangeIndex == 1) {
+                          return product.discountPrice >= 500 &&
+                              product.discountPrice <= 1000;
+                        } else if (state.priceRangeIndex == 2) {
+                          return product.discountPrice >= 1000 &&
+                              product.discountPrice <= 1500;
+                        } else if (state.priceRangeIndex == 3) {
+                          return product.discountPrice > 1500;
+                        }
+                        return product.subcategory!.title ==
+                                widget.subCategory &&
+                            product.brand?.name == state.filterBrand;
+                      }).toList();
+                    }
                     if (state.product != null &&
-                        state.product!.result != null) {
+                        state.product!.result != null &&
+                        widget.type == FilterType.category) {
                       if (state.selectedFilter.isNotEmpty) {
                         filteredProducts = state.product!.result!.products
                             .where((product) =>
@@ -240,44 +271,59 @@ class _CategoriesViewState extends State<CategoriesView> {
                       }
                     }
 
-                    return state.productLoading || state.product == null
-                        ? Center(
+                    return state.productLoading
+                        ? const Center(
                             child: CircularProgressIndicator(color: green77),
                           )
-                        : SizedBox(
-                            height: SizeUtility(context).height,
-                            child: GridView.builder(
-                              gridDelegate:
-                                  SliverGridDelegateWithFixedCrossAxisCount(
-                                crossAxisCount: 2,
-                                crossAxisSpacing: 20,
-                                mainAxisSpacing: 20,
-                                mainAxisExtent: 350,
-                              ),
-                              itemCount: filteredProducts.length,
-                              itemBuilder: (context, index) {
-                                final data = filteredProducts[index];
-                                return GestureDetector(
-                                  onTap: () {
-                                    Navigator.of(context).push(
-                                        MaterialPageRoute(
+                        : filteredProducts.isEmpty
+                            ? const Center(
+                                child: Text(
+                                  'No result found',
+                                  style: TextStyle(
+                                    fontSize: 20,
+                                    color: green77,
+                                  ),
+                                ),
+                              )
+                            : SizedBox(
+                                height: SizeUtility(context).height,
+                                child: GridView.builder(
+                                  physics: const BouncingScrollPhysics(),
+                                  gridDelegate:
+                                      const SliverGridDelegateWithFixedCrossAxisCount(
+                                    crossAxisCount: 2,
+                                    crossAxisSpacing: 20,
+                                    mainAxisSpacing: 20,
+                                    mainAxisExtent: 350,
+                                  ),
+                                  itemCount: filteredProducts.length,
+                                  itemBuilder: (context, index) {
+                                    final data = filteredProducts[index];
+                                    return GestureDetector(
+                                      onTap: () {
+                                        Navigator.of(context).push(
+                                          MaterialPageRoute(
                                             builder: (context) =>
                                                 SingleProductView(
-                                                  passValue: data,
-                                                )));
+                                              passValue: data,
+                                            ),
+                                          ),
+                                        );
+                                      },
+                                      child: ShopProductWidget(
+                                        brand: data.brand!.name.toString(),
+                                        productId: data.id,
+                                        title: data.title,
+                                        image: data.colors[0].images![0],
+                                        discountPrice:
+                                            data.discountPrice.toInt(),
+                                        actualPrice: data.actualPrice.toInt(),
+                                        discount: data.discount.toInt(),
+                                      ),
+                                    );
                                   },
-                                  child: ShopProductWidget(
-                                    productId: data.id,
-                                    title: data.title,
-                                    image: data.colors[0].images![0],
-                                    discountPrice: data.discountPrice.toInt(),
-                                    actualPrice: data.actualPrice.toInt(),
-                                    discount: data.discount.toInt(),
-                                  ),
-                                );
-                              },
-                            ),
-                          );
+                                ),
+                              );
                   },
                 ),
               ],

@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:millat/enums/enumertations.dart';
+import 'package:millat/resources/profile/views/manage_address.dart';
 import 'package:millat/resources/shop/bloc/logic/address_bloc/address_bloc.dart';
-import 'package:millat/resources/shop/view/checkout/checkout_payment.dart';
+import 'package:millat/resources/shop/view/checkout/checkout_view.dart';
 import 'package:millat/utils/globals.dart';
 import 'package:millat/utils/size_utility.dart';
 
 class CheckoutDetails extends StatefulWidget {
-  const CheckoutDetails({Key? key}) : super(key: key);
-
+  const CheckoutDetails({Key? key, required this.type}) : super(key: key);
+  final AddressNavType type;
   @override
   State<CheckoutDetails> createState() => _CheckoutDetailsState();
 }
@@ -30,11 +32,11 @@ class _CheckoutDetailsState extends State<CheckoutDetails> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('Checkout',
+          title: const Text('Checkout',
               style:
                   TextStyle(color: Colors.black, fontWeight: FontWeight.w700)),
           centerTitle: false,
-          leading: BackButton(color: Colors.black),
+          leading: const BackButton(color: Colors.black),
           elevation: 0,
           backgroundColor: Colors.transparent,
         ),
@@ -44,52 +46,56 @@ class _CheckoutDetailsState extends State<CheckoutDetails> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Slider(
-                  activeColor: green77,
-                  inactiveColor: black195,
-                  max: 10,
-                  min: 0,
-                  divisions: 2,
-                  value: 0,
-                  onChanged: (value) {},
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      'Personal Info',
-                      style: TextStyle(
-                          fontWeight: FontWeight.w700, color: green77),
-                    ),
-                    Text(
-                      'Payment',
-                      style: TextStyle(
-                          fontWeight: FontWeight.w600, color: black131),
-                    ),
-                    Text(
-                      'Confirmation',
-                      style: TextStyle(
-                          fontWeight: FontWeight.w600, color: black131),
-                    ),
-                  ],
-                ),
-                SizedBox(
+                widget.type == AddressNavType.profile
+                    ? const SizedBox()
+                    : Slider(
+                        activeColor: green77,
+                        inactiveColor: black195,
+                        max: 10,
+                        min: 0,
+                        divisions: 2,
+                        value: 0,
+                        onChanged: (value) {},
+                      ),
+                widget.type == AddressNavType.profile
+                    ? const SizedBox()
+                    : const Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            'Personal Info',
+                            style: TextStyle(
+                                fontWeight: FontWeight.w700, color: green77),
+                          ),
+                          Text(
+                            'Payment',
+                            style: TextStyle(
+                                fontWeight: FontWeight.w600, color: black131),
+                          ),
+                          Text(
+                            'Confirmation',
+                            style: TextStyle(
+                                fontWeight: FontWeight.w600, color: black131),
+                          ),
+                        ],
+                      ),
+                const SizedBox(
                   height: 30,
                 ),
                 _addressTextfeld(
                     controller: deliveryToController, hintText: 'Deliver to'),
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
                 _addressTextfeld(
                     controller: addressLineController,
                     hintText: 'Address Line'),
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
                 _addressTextfeld(
                     controller: landMarkController, hintText: 'Landmark'),
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
                 Row(
@@ -99,7 +105,7 @@ class _CheckoutDetailsState extends State<CheckoutDetails> {
                         width: SizeUtility(context).width * 50 / 100,
                         child: _addressTextfeld(
                             controller: cityController, hintText: 'City')),
-                    SizedBox(
+                    const SizedBox(
                       width: 10,
                     ),
                     SizedBox(
@@ -109,50 +115,50 @@ class _CheckoutDetailsState extends State<CheckoutDetails> {
                             hintText: "Pincode")),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
                 _addressTextfeld(
                     controller: stateController, hintText: 'Select State'),
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
                 _addressTextfeld(
                     controller: contryController, hintText: 'Country'),
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
                 _addressTextfeld(
                     controller: mobileNumberController,
                     hintText: 'Mobile Number'),
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
                 // _addressTextfeld(),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
-                Text(
+                const Text(
                   'For all delivery related communication',
                   style: TextStyle(color: black130),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
-                Text(
+                const Text(
                   'Address Type',
                   style: TextStyle(
                       color: black26,
                       fontSize: 17,
                       fontWeight: FontWeight.w700),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 Row(
                   children: [
                     FilterChip(
-                      label: Text('Home'),
+                      label: const Text('Home'),
                       selected: selectedFilter == 'Home',
                       onSelected: (isSelected) {
                         setState(() {
@@ -161,9 +167,9 @@ class _CheckoutDetailsState extends State<CheckoutDetails> {
                         });
                       },
                     ),
-                    SizedBox(width: 10),
+                    const SizedBox(width: 10),
                     FilterChip(
-                      label: Text('Work'),
+                      label: const Text('Work'),
                       selected: selectedFilter == 'Work',
                       onSelected: (isSelected) {
                         setState(() {
@@ -172,9 +178,9 @@ class _CheckoutDetailsState extends State<CheckoutDetails> {
                         });
                       },
                     ),
-                    SizedBox(width: 10),
+                    const SizedBox(width: 10),
                     FilterChip(
-                      label: Text('Other'),
+                      label: const Text('Other'),
                       selected: selectedFilter == 'Other',
                       onSelected: (isSelected) {
                         setState(() {
@@ -185,7 +191,7 @@ class _CheckoutDetailsState extends State<CheckoutDetails> {
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 100,
                 )
               ],
@@ -200,7 +206,7 @@ class _CheckoutDetailsState extends State<CheckoutDetails> {
               shape: MaterialStateProperty.all(
                 RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(30.0),
-                  side: BorderSide(color: green77, width: 2.0),
+                  side: const BorderSide(color: green77, width: 2.0),
                 ),
               ),
               elevation: MaterialStateProperty.all(0),
@@ -208,9 +214,16 @@ class _CheckoutDetailsState extends State<CheckoutDetails> {
                   Size(SizeUtility(context).width, 50)),
             ),
             onPressed: () {
-              Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => CheckoutPayment(),
-              ));
+              if (widget.type == AddressNavType.profile) {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => const ManageAddress(),
+                ));
+              } else if (widget.type == AddressNavType.checkout) {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => const CheckoutView(),
+                ));
+              }
+
               context.read<AddressBloc>().add(AddressEvent.addAddress(
                   context: context,
                   addressType: addressType,
@@ -222,9 +235,8 @@ class _CheckoutDetailsState extends State<CheckoutDetails> {
                   city: cityController.text,
                   state: stateController.text,
                   country: contryController.text));
-              print('address type here ${addressType}');
             },
-            child: Text(
+            child: const Text(
               'Save',
               style: TextStyle(
                   color: Colors.white,
@@ -242,21 +254,21 @@ class _CheckoutDetailsState extends State<CheckoutDetails> {
       decoration: InputDecoration(
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(5),
-            borderSide: BorderSide(color: black198),
+            borderSide: const BorderSide(color: black198),
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(5),
-            borderSide: BorderSide(color: black198),
+            borderSide: const BorderSide(color: black198),
           ),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(5),
-            borderSide: BorderSide(color: black198),
+            borderSide: const BorderSide(color: black198),
           ),
           filled: true,
           fillColor: black247,
           label: Text(
             hintText,
-            style: TextStyle(color: black26),
+            style: const TextStyle(color: black26),
           )),
     );
   }

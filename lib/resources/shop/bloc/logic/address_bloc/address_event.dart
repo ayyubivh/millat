@@ -25,4 +25,6 @@ class AddressEvent with _$AddressEvent {
   const factory AddressEvent.fetchAddressByIdEvent(
       {required BuildContext context,
       required String id}) = FetchAddressByIdEvent;
+  const factory AddressEvent.deleteAddressEvent(
+      {required BuildContext context, required String id}) = DeleteAddressEvent;
 }

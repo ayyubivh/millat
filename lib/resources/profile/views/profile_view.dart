@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/resources/profile/views/edit_profile_view.dart';
 import 'package:millat/resources/profile/views/manage_address.dart';
 import 'package:millat/resources/profile/views/payments_methods.dart';
 import 'package:millat/resources/reviews/views/write_review.dart';
 import 'package:millat/resources/shop/view/orders/orders_view.dart';
 import 'package:millat/utils/globals.dart';
+
+import '../../shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
 
 class ProfileView extends StatefulWidget {
   const ProfileView({Key? key}) : super(key: key);
@@ -18,10 +21,20 @@ class _ProfileViewState extends State<ProfileView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Profile',
-            style: TextStyle(color: Colors.black, fontWeight: FontWeight.w700)),
+        title: const Text('Profile',
+            style: TextStyle(color: black26, fontWeight: FontWeight.w700)),
         centerTitle: false,
-        leading: BackButton(color: Colors.black),
+        leading: IconButton(
+          onPressed: () {
+            context
+                .read<ShopProductsBloc>()
+                .add(const TabIndexChangeEvent(index: 0));
+          },
+          icon: const Icon(
+            Icons.arrow_back,
+            color: black26,
+          ),
+        ),
         elevation: 0,
         backgroundColor: Colors.transparent,
       ),
@@ -30,7 +43,7 @@ class _ProfileViewState extends State<ProfileView> {
         child: Column(
           children: [
             Container(
-              padding: EdgeInsets.all(20),
+              padding: const EdgeInsets.all(20),
               child: Column(
                 children: [
                   Row(
@@ -40,10 +53,10 @@ class _ProfileViewState extends State<ProfileView> {
                         width: 100,
                         height: 100,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 20,
                       ),
-                      Column(
+                      const Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
@@ -67,13 +80,13 @@ class _ProfileViewState extends State<ProfileView> {
                       )
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Row(
+                      const Row(
                         children: [
                           Icon(
                             Icons.verified,
@@ -83,13 +96,13 @@ class _ProfileViewState extends State<ProfileView> {
                         ],
                       ),
                       ElevatedButton.icon(
-                        icon: Icon(Icons.edit_note, color: Colors.white),
+                        icon: const Icon(Icons.edit_note, color: Colors.white),
                         onPressed: () {
                           Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => EditProfileView(),
+                            builder: (context) => const EditProfileView(),
                           ));
                         },
-                        label: Text('Edit',
+                        label: const Text('Edit',
                             style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 17,
@@ -103,16 +116,16 @@ class _ProfileViewState extends State<ProfileView> {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
             InkWell(
               onTap: () {
                 Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => Orders(),
+                  builder: (context) => const Orders(),
                 ));
               },
-              child: Row(
+              child: const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text('My Orders',
@@ -122,7 +135,7 @@ class _ProfileViewState extends State<ProfileView> {
                 ],
               ),
             ),
-            Column(
+            const Column(
               children: [
                 SizedBox(
                   height: 20,
@@ -135,42 +148,42 @@ class _ProfileViewState extends State<ProfileView> {
                 ),
               ],
             ),
+            // InkWell(
+            //   onTap: () {
+            //     Navigator.of(context).push(MaterialPageRoute(
+            //       builder: (context) => const WriteReview(),
+            //     ));
+            //   },
+            //   child: const Row(
+            //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            //     children: [
+            //       Text('Wishlist',
+            //           style:
+            //               TextStyle(fontSize: 17, fontWeight: FontWeight.w700)),
+            //       Icon(Icons.arrow_forward_ios)
+            //     ],
+            //   ),
+            // ),
+            // const Column(
+            //   children: [
+            //     SizedBox(
+            //       height: 20,
+            //     ),
+            //     Divider(
+            //       color: black198,
+            //     ),
+            //     SizedBox(
+            //       height: 20,
+            //     ),
+            //   ],
+            // ),
             InkWell(
               onTap: () {
                 Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => WriteReview(),
+                  builder: (context) => const ManageAddress(),
                 ));
               },
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text('Wishlist',
-                      style:
-                          TextStyle(fontSize: 17, fontWeight: FontWeight.w700)),
-                  Icon(Icons.arrow_forward_ios)
-                ],
-              ),
-            ),
-            Column(
-              children: [
-                SizedBox(
-                  height: 20,
-                ),
-                Divider(
-                  color: black198,
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-              ],
-            ),
-            InkWell(
-              onTap: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => ManageAddress(),
-                ));
-              },
-              child: Row(
+              child: const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text('Manage Address',
@@ -180,7 +193,7 @@ class _ProfileViewState extends State<ProfileView> {
                 ],
               ),
             ),
-            Column(
+            const Column(
               children: [
                 SizedBox(
                   height: 20,
@@ -196,10 +209,10 @@ class _ProfileViewState extends State<ProfileView> {
             InkWell(
               onTap: () {
                 Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => PaymentMethods(),
+                  builder: (context) => const PaymentMethods(),
                 ));
               },
-              child: Row(
+              child: const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text('Payment Info',
@@ -209,7 +222,7 @@ class _ProfileViewState extends State<ProfileView> {
                 ],
               ),
             ),
-            Column(
+            const Column(
               children: [
                 SizedBox(
                   height: 20,
@@ -222,7 +235,7 @@ class _ProfileViewState extends State<ProfileView> {
                 ),
               ],
             ),
-            Row(
+            const Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text('Logout',

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/shop/bloc/logic/category_bloc/category_bloc.dart';
+import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
+import 'package:millat/resources/shop/view/categories/categories_view.dart';
 import 'package:millat/utils/globals.dart';
 import 'package:millat/utils/size_utility.dart';
 
@@ -13,7 +16,22 @@ class FiltersView extends StatefulWidget {
 
 class _FiltersViewState extends State<FiltersView> {
   int currentIndex = 0;
-  final category = ['Category', 'Sub Category', 'Brand', 'Price'];
+  final category = [
+    'Category',
+    'Sub Category',
+    'Brand',
+    'Price',
+  ];
+  int categoryIndex = -1;
+  int subCategoryIndex = -1;
+  int brandIndex = -1;
+  int priceRangeIndex = -1;
+  @override
+  void initState() {
+    super.initState();
+    BlocProvider.of<ShopProductsBloc>(context).add(const FetchShopByBrand());
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,7 +39,7 @@ class _FiltersViewState extends State<FiltersView> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.white,
-        title: Text(
+        title: const Text(
           'Filters',
           style: TextStyle(color: Colors.black, fontWeight: FontWeight.w600),
         ),
@@ -33,7 +51,7 @@ class _FiltersViewState extends State<FiltersView> {
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              icon: Icon(
+              icon: const Icon(
                 Icons.close,
                 color: black189,
               ))
@@ -42,7 +60,7 @@ class _FiltersViewState extends State<FiltersView> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Divider(height: 0),
+          const Divider(height: 0),
           Expanded(
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -54,12 +72,6 @@ class _FiltersViewState extends State<FiltersView> {
                   child: SingleChildScrollView(
                     child: Column(
                       children: [
-                        // buildFilter(
-                        //     filterTitle: 'Category', selected: isSelected),
-                        // buildFilter(
-                        //     filterTitle: 'Sub Category', selected: isSelected),
-                        // buildFilter(filterTitle: 'Brand', selected: isSelected),
-                        // buildFilter(filterTitle: 'Price', selected: isSelected),
                         ListView.builder(
                           shrinkWrap: true,
                           itemCount: category.length,
@@ -71,7 +83,6 @@ class _FiltersViewState extends State<FiltersView> {
                                   setState(() {
                                     currentIndex = index;
                                   });
-                                  print('object');
                                 },
                                 title: Text(
                                   category[index],
@@ -89,78 +100,172 @@ class _FiltersViewState extends State<FiltersView> {
                     ),
                   ),
                 ),
-                BlocBuilder<CategoryBloc, CategoryState>(
-                  builder: (context, state) {
-                    return Expanded(
-                        child: ListView.builder(
-                      itemCount: 3,
-                      itemBuilder: (context, index) {
-                        print('${state.category!.result!.category!.where(
-                              (e) => e.title == category[currentIndex],
-                            ).toString()}');
-                        return Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Container(
-                            color: redClr,
-                            height: 50,
-                            width: 60,
-                            child: Text(state.category!.result!.category!
-                                .where(
-                                  (e) => e.title == category[currentIndex],
-                                )
-                                .toString()),
-                          ),
+                Expanded(
+                  child: BlocBuilder<CategoryBloc, CategoryState>(
+                    builder: (context, state) {
+                      final currentCategory = category[currentIndex];
+
+                      if (currentCategory == 'Category') {
+                        return ListView.builder(
+                          itemCount: state.category!.result!.category!.length,
+                          itemBuilder: (context, index) {
+                            final category =
+                                state.category?.result?.category![index];
+
+                            return ListTile(
+                              title: Text(category!.title.toString()),
+                              trailing: Radio(
+                                value: true,
+                                groupValue: index == categoryIndex,
+                                onChanged: (value) {
+                                  setState(() {
+                                    categoryIndex = index;
+                                  });
+                                  print(
+                                      'here the bloc category index vale ${state.category?.result?.category![categoryIndex].title.toString()}');
+                                  context.read<CategoryBloc>().add(FilterEvent(
+                                      category: state.category?.result
+                                          ?.category![categoryIndex].title
+                                          .toString(),
+                                      subCategory: ""));
+                                },
+                                fillColor: MaterialStateProperty.all(green77),
+                              ),
+                            );
+                          },
                         );
-                      },
-                    ));
-                  },
-                )
-// SingleChildScrollView(
-                //   child: Column(
-                //     children: [
-                //       Padding(
-                //         padding: const EdgeInsets.symmetric(
-                //             horizontal: 20, vertical: 3),
-                //         child: Row(
-                //           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                //           children: [
-                //             Text('Most loved brands',
-                //                 style: TextStyle(color: black122)),
-                //             Radio(
-                //               value: true,
-                //               groupValue: bool,
-                //               activeColor: green77,
-                //               onChanged: (value) {},
-                //             )
-                //           ],
-                //         ),
-                //       )
-                //     ],
-                //   ),
-                // )
+                      } else if (currentCategory == 'Sub Category') {
+                        final selectedSubCategory =
+                            state.subCategory!.result!.subCategory;
+                        return ListView.builder(
+                          itemCount:
+                              state.subCategory!.result!.subCategory!.length,
+                          itemBuilder: (context, index) {
+                            return ListTile(
+                              title: Text(
+                                selectedSubCategory![index].title.toString(),
+                              ),
+                              trailing: Radio(
+                                value: true,
+                                groupValue: index == subCategoryIndex,
+                                onChanged: (value) {
+                                  setState(() {
+                                    subCategoryIndex = index;
+                                  });
+                                  print(
+                                      'here the bloc category index vale ${state.filterCategory} nununununu ${state.subCategory?.result?.subCategory![subCategoryIndex].title.toString()}');
+                                  context.read<CategoryBloc>().add(FilterEvent(
+                                      category: state.filterCategory,
+                                      subCategory: state.subCategory?.result
+                                          ?.subCategory![subCategoryIndex].title
+                                          .toString()));
+                                },
+                                fillColor: MaterialStateProperty.all(green77),
+                              ),
+                            );
+                          },
+                        );
+                      } else if (currentCategory == 'Brand') {
+                        final brand = context
+                            .read<ShopProductsBloc>()
+                            .state
+                            .shopBrandModel!
+                            .users;
+                        return ListView.builder(
+                          itemCount: brand?.length,
+                          itemBuilder: (context, index) {
+                            return ListTile(
+                              title: Text(brand![index].name.toString()),
+                              trailing: Radio(
+                                value: true,
+                                groupValue: index == brandIndex,
+                                onChanged: (value) {
+                                  setState(() {
+                                    brandIndex = index;
+                                  });
+                                  context.read<CategoryBloc>().add(
+                                      FilterBrandPickEvent(
+                                          brand: brand[index].name.toString()));
+                                },
+                                fillColor: MaterialStateProperty.all(green77),
+                              ),
+                            );
+                          },
+                        );
+                      } else if (currentCategory == 'Price') {
+                        final priceRanges = [
+                          'Less than ₹500',
+                          '₹500 - ₹1000',
+                          '₹1000 - ₹1500',
+                          'More than ₹1500'
+                        ];
+                        return ListView.builder(
+                          shrinkWrap: true,
+                          itemCount: priceRanges.length,
+                          itemBuilder: (context, index) {
+                            final priceRange = priceRanges[index];
+                            return ListTile(
+                              title: Text(priceRange),
+                              trailing: Radio(
+                                value: true,
+                                groupValue: index == priceRangeIndex,
+                                onChanged: (value) {
+                                  setState(() {
+                                    priceRangeIndex = index;
+                                  });
+                                  context
+                                      .read<CategoryBloc>()
+                                      .add(PriceRangeEvent(index: index));
+                                },
+                                fillColor:
+                                    const MaterialStatePropertyAll(green24),
+                              ),
+                            );
+                          },
+                        );
+                      }
+                      return SizedBox();
+                    },
+                  ),
+                ),
               ],
             ),
-          )
+          ),
         ],
       ),
       bottomSheet: Container(
         height: 50,
-        margin: EdgeInsets.only(bottom: 20),
+        margin: const EdgeInsets.only(bottom: 20),
         child: Row(
           children: [
             Container(
               alignment: Alignment.center,
               width: SizeUtility(context).width * 45 / 100,
-              child: Text('Clear All',
+              child: const Text('Clear All',
                   style: TextStyle(fontWeight: FontWeight.w700)),
             ),
-            Container(
-              color: green77,
-              alignment: Alignment.center,
-              width: SizeUtility(context).width * 55 / 100,
-              child: Text('Apply',
-                  style: TextStyle(
-                      fontWeight: FontWeight.w700, color: Colors.white)),
+            InkWell(
+              onTap: () {
+                final filterValues = context.read<CategoryBloc>().state;
+                print(
+                    'here the print of the nave values ${filterValues.filterSubCategory} and the ${filterValues.filterCategory} ${filterValues.filterBrand}');
+
+                Navigator.of(context).pushReplacement(MaterialPageRoute(
+                  builder: (context) => CategoriesView(
+                    type: FilterType.brand,
+                    category: filterValues.filterCategory.toString(),
+                    subCategory: filterValues.filterSubCategory.toString(),
+                  ),
+                ));
+              },
+              child: Container(
+                color: green77,
+                alignment: Alignment.center,
+                width: SizeUtility(context).width * 55 / 100,
+                child: const Text('Apply',
+                    style: TextStyle(
+                        fontWeight: FontWeight.w700, color: Colors.white)),
+              ),
             )
           ],
         ),

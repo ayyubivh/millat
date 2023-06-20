@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/shop/bloc/logic/address_bloc/address_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/cart_bloc/cart_bloc.dart';
 import 'package:millat/resources/shop/view/cart/widgets/cart_product_widget.dart';
@@ -28,10 +29,10 @@ class _CartViewState extends State<CartView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Cart',
+        title: const Text('Cart',
             style: TextStyle(color: Colors.black, fontWeight: FontWeight.w700)),
         centerTitle: false,
-        leading: BackButton(color: Colors.black),
+        leading: const BackButton(color: Colors.black),
         elevation: 0,
         backgroundColor: Colors.transparent,
       ),
@@ -42,12 +43,12 @@ class _CartViewState extends State<CartView> {
             BlocBuilder<CartBloc, CartState>(
               builder: (context, state) {
                 if (state.cartLoading) {
-                  return Center(
+                  return const Center(
                     child: CircularProgressIndicator(color: green77),
                   );
                 } else if (state.cartModel?.result?.cartProducts?.cartItems ==
                     null) {
-                  return Center(
+                  return const Center(
                     child: Text('Cart is Empty'),
                   );
                 }
@@ -80,7 +81,7 @@ class _CartViewState extends State<CartView> {
       ),
       bottomSheet: Container(
         height: 350,
-        padding: EdgeInsets.symmetric(vertical: 20, horizontal: 30),
+        padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 30),
         child: BlocBuilder<CartBloc, CartState>(
           builder: (context, state) {
             final cartItems = state.cartModel?.result?.cartProducts?.cartItems;
@@ -97,70 +98,70 @@ class _CartViewState extends State<CartView> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text('Sub Total',
+                    const Text('Sub Total',
                         style: TextStyle(
                             color: black26,
                             fontSize: 17,
                             fontWeight: FontWeight.w600)),
                     Text('₹${subTotal}',
-                        style: TextStyle(
+                        style: const TextStyle(
                             color: black26,
                             fontSize: 17,
                             fontWeight: FontWeight.w600)),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text('Shipping Fee',
+                    const Text('Shipping Fee',
                         style: TextStyle(
                             color: black26,
                             fontSize: 16,
                             fontWeight: FontWeight.w600)),
                     Text('₹${shippingFee}',
-                        style: TextStyle(
+                        style: const TextStyle(
                             color: black26,
                             fontSize: 16,
                             fontWeight: FontWeight.w600)),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text('Estimating Tax',
+                    const Text('Estimating Tax',
                         style: TextStyle(
                             color: black26,
                             fontSize: 16,
                             fontWeight: FontWeight.w600)),
                     Text('₹${estimatingTax}',
-                        style: TextStyle(
+                        style: const TextStyle(
                             color: black26,
                             fontSize: 16,
                             fontWeight: FontWeight.w600)),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 25,
                 ),
-                Divider(),
-                SizedBox(
+                const Divider(),
+                const SizedBox(
                   height: 20,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text('Total',
+                    const Text('Total',
                         style: TextStyle(
                             color: black26,
                             fontSize: 19,
                             fontWeight: FontWeight.w700)),
-                    Text(
+                    const Text(
                       ':',
                       style: TextStyle(
                         fontWeight: FontWeight.w900,
@@ -168,13 +169,13 @@ class _CartViewState extends State<CartView> {
                       ),
                     ),
                     Text('₹${total}',
-                        style: TextStyle(
+                        style: const TextStyle(
                             color: green77,
                             fontSize: 19,
                             fontWeight: FontWeight.w700)),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
                 BlocBuilder<AddressBloc, AddressState>(
@@ -183,22 +184,24 @@ class _CartViewState extends State<CartView> {
                       if (state.addressModel!.result.addresses.isEmpty) {
                         print('empty here');
                         Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => CheckoutDetails(),
+                          builder: (context) => const CheckoutDetails(
+                            type: AddressNavType.checkout,
+                          ),
                         ));
                       } else {
                         Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => CheckoutView(),
+                          builder: (context) => const CheckoutView(),
                         ));
                       }
                     },
                     child: Container(
                         alignment: Alignment.center,
                         width: SizeUtility(context).width,
-                        padding: EdgeInsets.all(15),
+                        padding: const EdgeInsets.all(15),
                         decoration: BoxDecoration(
                             color: green77.withOpacity(0.16),
                             borderRadius: BorderRadius.circular(30)),
-                        child: Text(
+                        child: const Text(
                           'Continue',
                           style: TextStyle(
                               color: green77,

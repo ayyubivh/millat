@@ -31,6 +31,7 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
     on<AddWishListEvent>(_addWishListEvent);
     on<RemoveWishlistEvent>(_removeWishlistEvent);
     on<FetchShopByBrandProducts>(_fetchShopByBrandProducts);
+    on<TabIndexChangeEvent>(_tabIndexChangeEvent);
   }
 
   FutureOr<void> _fetchFlashSaleProducts(
@@ -213,5 +214,10 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
     } catch (e) {
       emit(state.copyWith(isLoading: false));
     }
+  }
+
+  _tabIndexChangeEvent(
+      TabIndexChangeEvent event, Emitter<ShopProductsState> emit) {
+    emit(state.copyWith(index: event.index));
   }
 }

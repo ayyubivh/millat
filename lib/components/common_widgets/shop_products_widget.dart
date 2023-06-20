@@ -9,6 +9,7 @@ class ShopProductWidget extends StatelessWidget {
   final int discountPrice;
   final int actualPrice;
   final int discount;
+  final String brand;
   final String? productId;
   const ShopProductWidget({
     Key? key,
@@ -18,6 +19,7 @@ class ShopProductWidget extends StatelessWidget {
     required this.discount,
     required this.discountPrice,
     required this.productId,
+    required this.brand,
   }) : super(key: key);
 
   @override
@@ -140,7 +142,7 @@ class ShopProductWidget extends StatelessWidget {
           ),
           SizedBox(height: 15),
           Text(
-            'Salman Fragrances',
+            brand,
             style: TextStyle(
               color: black131,
               fontSize: 14,

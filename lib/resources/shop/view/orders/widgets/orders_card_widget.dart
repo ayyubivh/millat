@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+
 import '../../../../../utils/globals.dart';
 
-class OrderProductCard extends StatelessWidget {
+class OrdersProfileWidget extends StatelessWidget {
   final String? id;
   final String? title;
   final String? size;
@@ -11,7 +12,7 @@ class OrderProductCard extends StatelessWidget {
   final String? colorName;
   final int quantity;
   final String? productId;
-  const OrderProductCard(
+  const OrdersProfileWidget(
       {super.key,
       required this.id,
       required this.title,
@@ -27,7 +28,6 @@ class OrderProductCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final backgroundColor = _getColorFromJson(jsonColor);
     return Container(
-      margin: EdgeInsets.only(bottom: 10),
       width: double.infinity,
       color: Colors.white,
       child: SizedBox(
@@ -70,16 +70,11 @@ class OrderProductCard extends StatelessWidget {
                           ],
                         ),
                         SizedBox(height: 10),
-                        Container(
-                          padding:
-                              EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                          color: Colors.black12.withOpacity(0.15),
-                          child: Text(
-                            '${colorName}, ${size}',
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 13,
-                            ),
+                        Text(
+                          '${colorName}, ${size}',
+                          style: TextStyle(
+                            color: black26,
+                            fontSize: 13,
                           ),
                         ),
                         SizedBox(height: 15),
@@ -92,8 +87,9 @@ class OrderProductCard extends StatelessWidget {
                                 Text(
                                   price.toString(),
                                   style: TextStyle(
-                                    color: Colors.green,
-                                    fontSize: 13,
+                                    color: green77,
+                                    fontSize: 17,
+                                    fontWeight: FontWeight.bold,
                                   ),
                                 ),
                                 SizedBox(width: 20),
@@ -112,10 +108,11 @@ class OrderProductCard extends StatelessWidget {
                               ],
                             ),
                             Text(
-                              'Qty:${quantity}',
+                              'x ${quantity}',
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 15,
+                                color: black102,
                               ),
                             )
                           ],

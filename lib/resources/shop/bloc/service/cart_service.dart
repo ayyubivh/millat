@@ -10,7 +10,7 @@ import '../../../authentication/bloc/logic/database_bloc/database_bloc.dart';
 class CartServices extends HttpServices {
   //Fetching cart items
   Future<CartModel> fetchCart(BuildContext context) async {
-    final endPoint = 'cart';
+    const endPoint = 'cart';
     final databaseState = context.read<DatabaseBloc>().state;
     final token = databaseState.token;
     final headers = {
@@ -47,9 +47,9 @@ class CartServices extends HttpServices {
       required String size,
       required String color,
       required int quantity}) async {
-    final String webBaseUrl = 'http://35.172.93.164:8000/';
+    const String webBaseUrl = 'http://35.172.93.164:8000/';
 
-    final endPoint = 'cart/add';
+    const endPoint = 'cart/add';
     final databaseState = context.read<DatabaseBloc>().state;
     final token = databaseState.token;
     final headers = {
@@ -97,9 +97,9 @@ class CartServices extends HttpServices {
     required String productId,
     required int quantity,
   }) async {
-    final String webBaseUrl = 'http://35.172.93.164:8000/';
+    const String webBaseUrl = 'http://35.172.93.164:8000/';
 
-    final endPoint = 'cart/update/quantity';
+    const endPoint = 'cart/update/quantity';
     final databaseState = context.read<DatabaseBloc>().state;
     final token = databaseState.token;
     final headers = {
@@ -139,9 +139,9 @@ class CartServices extends HttpServices {
     required BuildContext context,
     required String productId,
   }) async {
-    final String webBaseUrl = 'http://35.172.93.164:8000/';
+    const String webBaseUrl = 'http://35.172.93.164:8000/';
 
-    final endPoint = 'cart/remove';
+    const endPoint = 'cart/remove';
     final databaseState = context.read<DatabaseBloc>().state;
     final token = databaseState.token;
     final headers = {

@@ -9,17 +9,17 @@ class CategoryFullView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 20),
-      margin: EdgeInsets.symmetric(vertical: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      margin: const EdgeInsets.symmetric(vertical: 20),
       child: Column(
         children: [
           Image.network(iconImage, width: 50, height: 50),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           Text(
             categoryTitle,
-            style: TextStyle(fontWeight: FontWeight.w600),
+            style: const TextStyle(fontWeight: FontWeight.w600),
           )
         ],
       ),

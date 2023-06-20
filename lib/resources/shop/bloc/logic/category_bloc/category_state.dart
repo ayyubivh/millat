@@ -11,8 +11,12 @@ class CategoryState with _$CategoryState {
     required SubCategoryModel? subCategory,
     required bool subCategoryLoading,
     required String selectedFilter,
+    required String? filterCategory,
+    required String? filterSubCategory,
+    required String? filterBrand,
+    required int? priceRangeIndex,
   }) = _CategoryState;
-  factory CategoryState.initial() => CategoryState(
+  factory CategoryState.initial() => const CategoryState(
         product: null,
         productLoading: false,
         errorMessage: "",
@@ -21,5 +25,9 @@ class CategoryState with _$CategoryState {
         subCategory: null,
         subCategoryLoading: false,
         selectedFilter: "",
+        filterCategory: '',
+        filterSubCategory: '',
+        filterBrand: '',
+        priceRangeIndex: null,
       );
 }

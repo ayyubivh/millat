@@ -77,6 +77,7 @@ class ProductsView extends StatelessWidget {
                           ));
                         },
                         child: ShopProductWidget(
+                            brand: passValue.name.toString(),
                             productId: passValue?.products[index].id,
                             image: passValue
                                 .products![index].colors![0].images![0],
@@ -98,6 +99,7 @@ class ProductsView extends StatelessWidget {
                         ));
                       },
                       child: ShopProductWidget(
+                          brand: passValue.brand!.name.toString(),
                           productId: passValue?.id,
                           image:
                               passValue.products![index]!.colors![0].images![0],

@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/components/common_widgets/cart_icon_widget.dart';
@@ -8,12 +7,16 @@ import 'package:millat/resources/shop/view/cart/cart.dart';
 import 'package:millat/resources/shop/view/reviews/reviews_view.dart';
 import 'package:millat/utils/globals.dart';
 import 'package:millat/utils/size_utility.dart';
-import 'package:millat/utils/utils.dart';
 
-class SingleProductView extends StatelessWidget {
+class SingleProductView extends StatefulWidget {
   final passValue;
   const SingleProductView({Key? key, this.passValue}) : super(key: key);
 
+  @override
+  State<SingleProductView> createState() => _SingleProductViewState();
+}
+
+class _SingleProductViewState extends State<SingleProductView> {
   @override
   Widget build(BuildContext context) {
     final colorMap = {
@@ -65,7 +68,8 @@ class SingleProductView extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: black247,
                   image: DecorationImage(
-                    image: NetworkImage(passValue!.colors![0].images![0]),
+                    image:
+                        NetworkImage(widget.passValue!.colors![0].images![0]),
                   ),
                 ),
               ),
@@ -73,11 +77,11 @@ class SingleProductView extends StatelessWidget {
                 height: 10,
               ),
               Text(
-                passValue.title,
+                widget.passValue.title,
                 style: TextStyle(
                     fontSize: 22, fontWeight: FontWeight.w600, height: 2),
               ),
-              Text('${passValue.actualPrice} ₹',
+              Text('${widget.passValue.actualPrice} ₹',
                   style: TextStyle(
                       color: black60,
                       fontSize: 17,
@@ -85,7 +89,7 @@ class SingleProductView extends StatelessWidget {
                       height: 1.5)),
               Text('Al- Nayab Store',
                   style: TextStyle(color: black60, fontSize: 17, height: 1.5)),
-              Text('${passValue.discountPrice} ₹',
+              Text('${widget.passValue.discountPrice} ₹',
                   style: TextStyle(color: green77, fontSize: 22, height: 1.5)),
               SizedBox(
                 height: 10,
@@ -168,7 +172,7 @@ class SingleProductView extends StatelessWidget {
                 height: 20,
               ),
               Text(
-                passValue.description,
+                widget.passValue.description,
                 style: TextStyle(fontSize: 16, color: black122),
               ),
               SizedBox(
@@ -191,7 +195,7 @@ class SingleProductView extends StatelessWidget {
                 height: 20,
               ),
               Text(
-                passValue.otherInfo,
+                widget.passValue.otherInfo,
                 style: TextStyle(fontSize: 16, color: black122),
               ),
               Container(
@@ -380,7 +384,7 @@ class SingleProductView extends StatelessWidget {
                     decoration: BoxDecoration(
                         image: DecorationImage(
                           image: NetworkImage(
-                            passValue!.colors![0].images![0],
+                            widget.passValue!.colors![0].images![0],
                           ),
                           fit: BoxFit.cover,
                         ),
@@ -393,7 +397,7 @@ class SingleProductView extends StatelessWidget {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('${passValue.discountPrice} ₹',
+                      Text('${widget.passValue.discountPrice} ₹',
                           style: TextStyle(
                               color: green77,
                               fontWeight: FontWeight.w700,
@@ -401,7 +405,7 @@ class SingleProductView extends StatelessWidget {
                       SizedBox(
                         height: 20,
                       ),
-                      Text('${passValue.actualPrice} ₹',
+                      Text('${widget.passValue.actualPrice} ₹',
                           style: TextStyle(
                               decoration: TextDecoration.lineThrough,
                               fontSize: 20)),
@@ -588,11 +592,11 @@ class SingleProductView extends StatelessWidget {
                   ),
                   onPressed: () async {
                     print(
-                        'hey the test of add cart color ${colorMap.keys.elementAt(selectedColor)}  size ${sizeList[selectedSize]} id-------${passValue.id} quantity +++${quantity}');
+                        'hey the test of add cart color ${colorMap.keys.elementAt(selectedColor)}  size ${sizeList[selectedSize]} id-------${widget.passValue.id} quantity +++${quantity}');
                     Navigator.of(context).pop();
                     context.read<CartBloc>().add(AddCartEvent(
-                          productId: passValue.id,
-                          basePrice: passValue.discountPrice.toInt(),
+                          productId: widget.passValue.id,
+                          basePrice: widget.passValue.discountPrice.toInt(),
                           size: sizeList[selectedSize],
                           color: colorMap.keys.elementAt(selectedColor),
                           context: context,
@@ -636,8 +640,8 @@ class SingleProductView extends StatelessWidget {
                 ),
                 onPressed: () async {
                   context.read<CartBloc>().add(AddCartEvent(
-                        productId: passValue.id,
-                        basePrice: passValue.discountPrice.toInt(),
+                        productId: widget.passValue.id,
+                        basePrice: widget.passValue.discountPrice.toInt(),
                         size: sizeList[selectedSize],
                         color: colorMap.keys.elementAt(selectedColor),
                         context: context,
@@ -666,15 +670,6 @@ class SingleProductView extends StatelessWidget {
   }
 
   // Padding buildShowBottomModel(
-  //     BuildContext context,
-  //     Map<String, Color> colorMap,
-  //     int selectedColor,
-  //     List<String> sizeList,
-  //     int selectedSize,
-  //     int quantity) {
-  //   return
-  // }
-
   buildReviewItem({required String comment, required BuildContext context}) {
     return Container(
       margin: EdgeInsets.symmetric(vertical: 20),

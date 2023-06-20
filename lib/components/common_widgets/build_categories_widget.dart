@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:millat/enums/enumertations.dart';
 import '../../resources/shop/view/categories/categories_view.dart';
 
 class BuildCategoryWidget extends StatelessWidget {
@@ -13,6 +14,7 @@ class BuildCategoryWidget extends StatelessWidget {
       onTap: () {
         Navigator.of(context).push(MaterialPageRoute(
             builder: (context) => CategoriesView(
+                  type: FilterType.category,
                   category: text,
                   subCategory: '',
                 )));
@@ -20,7 +22,7 @@ class BuildCategoryWidget extends StatelessWidget {
       child: Column(
         children: [
           CircleAvatar(
-              child: Image.asset(image, height: 35),
+              child: Image.network(image, height: 35),
               backgroundColor: Colors.white,
               radius: 33),
           SizedBox(

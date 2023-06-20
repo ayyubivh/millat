@@ -20,6 +20,7 @@ class AddressBloc extends Bloc<AddressEvent, AddressState> {
     on<SelectAddressEvent>(_selectAddressEvent);
     on<SaveAddressId>(_saveAddressId);
     on<FetchAddressByIdEvent>(_fetchAddressByIdEvent);
+    on<DeleteAddressEvent>(_deleteAddressEvent);
   }
 
   FutureOr<void> _addAddress(
@@ -74,6 +75,24 @@ class AddressBloc extends Bloc<AddressEvent, AddressState> {
       final data =
           await _addressService.fetchAddressById(event.context, event.id);
       emit(state.copyWith(addressIdModel: data));
+      print('on addess ${data}');
+    } catch (e) {
+      throw Exception();
+    }
+  }
+
+  _deleteAddressEvent(
+      DeleteAddressEvent event, Emitter<AddressState> emit) async {
+    try {
+      final updatedAddressModel = state.addressModel!.copyWith(
+          result: state.addressModel!.result.copyWith(
+              addresses: state.addressModel!.result.addresses
+                  .where((items) => items.id != event.id)
+                  .toList()));
+      final data =
+          await _addressService.deleteAddressbyId(event.context, event.id);
+      emit(state.copyWith(addressModel: updatedAddressModel));
+      print('data on bloc $data');
     } catch (e) {
       throw Exception();
     }

@@ -4,6 +4,8 @@ import 'package:millat/resources/profile/views/profile_view.dart';
 import 'package:millat/utils/globals.dart';
 import 'package:millat/utils/size_utility.dart';
 
+import 'namaz_timing/namaz_timing_view.dart';
+
 class HomeView extends StatefulWidget {
   const HomeView({Key? key}) : super(key: key);
 
@@ -55,25 +57,25 @@ class _HomeViewState extends State<HomeView> {
                 ? SizeUtility(context).width * 50 / 100
                 : null,
             leading: _isAppBarCollapsed
-                ? Row(
+                ? const Row(
                     children: [
-                      const SizedBox(
+                      SizedBox(
                         width: 30,
                       ),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const Text('Upcoming Namaz',
+                          Text('Upcoming Namaz',
                               style: TextStyle(
                                 fontSize: 13,
                                 fontWeight: FontWeight.w100,
                               )),
-                          const SizedBox(
+                          SizedBox(
                             height: 10,
                           ),
                           Row(
                             crossAxisAlignment: CrossAxisAlignment.center,
-                            children: const [
+                            children: [
                               Text('Zohar',
                                   style: TextStyle(
                                     fontSize: 20,
@@ -146,9 +148,9 @@ class _HomeViewState extends State<HomeView> {
                               const SizedBox(
                                 width: 10,
                               ),
-                              Column(
+                              const Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
-                                children: const [
+                                children: [
                                   Text('Asslamualaikum,',
                                       style: TextStyle(
                                           color: Colors.white, fontSize: 18)),
@@ -195,10 +197,10 @@ class _HomeViewState extends State<HomeView> {
                                     const SizedBox(
                                       width: 10,
                                     ),
-                                    Column(
+                                    const Column(
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
-                                      children: const [
+                                      children: [
                                         Text(
                                           '13 Shawwal 1444 AH',
                                           style: TextStyle(color: black104),
@@ -218,9 +220,16 @@ class _HomeViewState extends State<HomeView> {
                                         icon: const ImageIcon(
                                             AssetImage('assets/icons/bell.png'),
                                             color: blueColor),
-                                        label: const Text(
-                                          'Notify Me',
-                                          style: TextStyle(color: blueColor),
+                                        label: InkWell(
+                                          onTap: () {
+                                            print('objectsdfads');
+                                            Navigator.of(context).pushNamed(
+                                                NamazTimingView.routeName);
+                                          },
+                                          child: const Text(
+                                            'Notify Me',
+                                            style: TextStyle(color: blueColor),
+                                          ),
                                         )),
                                   ],
                                 ),
@@ -231,16 +240,16 @@ class _HomeViewState extends State<HomeView> {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Column(
+                                    const Column(
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
                                       children: [
-                                        const Text(
+                                        Text(
                                           'Now',
                                           style: TextStyle(
                                               color: black104, fontSize: 17),
                                         ),
-                                        const SizedBox(
+                                        SizedBox(
                                           height: 10,
                                         ),
                                         Row(
@@ -248,7 +257,7 @@ class _HomeViewState extends State<HomeView> {
                                               MainAxisAlignment.center,
                                           crossAxisAlignment:
                                               CrossAxisAlignment.start,
-                                          children: const [
+                                          children: [
                                             Text(
                                               'FAJR',
                                               style: TextStyle(
@@ -274,16 +283,16 @@ class _HomeViewState extends State<HomeView> {
                                       width: 0.7,
                                       color: dividerColor,
                                     ),
-                                    Column(
+                                    const Column(
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
                                       children: [
-                                        const Text(
+                                        Text(
                                           'Upcoming Namaz',
                                           style: TextStyle(
                                               color: black104, fontSize: 17),
                                         ),
-                                        const SizedBox(
+                                        SizedBox(
                                           height: 10,
                                         ),
                                         Row(
@@ -291,7 +300,7 @@ class _HomeViewState extends State<HomeView> {
                                               MainAxisAlignment.center,
                                           crossAxisAlignment:
                                               CrossAxisAlignment.start,
-                                          children: const [
+                                          children: [
                                             Text(
                                               'Zohar',
                                               style: TextStyle(
@@ -317,12 +326,12 @@ class _HomeViewState extends State<HomeView> {
                                 const SizedBox(
                                   height: 25,
                                 ),
-                                Row(
+                                const Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     Row(
-                                      children: const [
+                                      children: [
                                         ImageIcon(
                                           AssetImage(
                                               'assets/icons/map-pin.png'),
@@ -337,7 +346,7 @@ class _HomeViewState extends State<HomeView> {
                                       ],
                                     ),
                                     Row(
-                                      children: const [
+                                      children: [
                                         ImageIcon(
                                           AssetImage('assets/icons/share.png'),
                                           color: black165,
@@ -480,14 +489,14 @@ class _HomeViewState extends State<HomeView> {
                                   fit: BoxFit.contain,
                                 ),
                               ),
-                              Padding(
-                                padding: const EdgeInsets.symmetric(
+                              const Padding(
+                                padding: EdgeInsets.symmetric(
                                     horizontal: 20, vertical: 20),
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Row(
-                                      children: const [
+                                      children: [
                                         ImageIcon(
                                           AssetImage('assets/icons/readme.png'),
                                           color: Colors.white,
@@ -504,20 +513,20 @@ class _HomeViewState extends State<HomeView> {
                                         )
                                       ],
                                     ),
-                                    const SizedBox(
+                                    SizedBox(
                                       height: 20,
                                     ),
-                                    const Text(
+                                    Text(
                                       'Al-Fatiah',
                                       style: TextStyle(
                                           color: Colors.white,
                                           fontSize: 22,
                                           fontWeight: FontWeight.w600),
                                     ),
-                                    const SizedBox(
+                                    SizedBox(
                                       height: 15,
                                     ),
-                                    const Text(
+                                    Text(
                                       'Ayah No: 1',
                                       style: TextStyle(
                                           color: Colors.white,
@@ -548,9 +557,9 @@ class _HomeViewState extends State<HomeView> {
                             const SizedBox(
                               width: 15,
                             ),
-                            Column(
+                            const Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
-                              children: const [
+                              children: [
                                 Text(
                                   'Ramadan Special',
                                   style: TextStyle(
@@ -580,11 +589,11 @@ class _HomeViewState extends State<HomeView> {
                         const SizedBox(
                           height: 20,
                         ),
-                        Row(
+                        const Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Row(
-                              children: const [
+                              children: [
                                 ImageIcon(
                                   AssetImage('assets/icons/heart.png'),
                                   color: black165,
@@ -597,7 +606,7 @@ class _HomeViewState extends State<HomeView> {
                               ],
                             ),
                             Row(
-                              children: const [
+                              children: [
                                 ImageIcon(
                                   AssetImage('assets/icons/share.png'),
                                   color: black165,
@@ -780,13 +789,12 @@ class _HomeViewState extends State<HomeView> {
                                 value: 0.5,
                                 onChanged: (value) {},
                               ),
-                              Padding(
-                                padding:
-                                    const EdgeInsets.symmetric(horizontal: 25),
+                              const Padding(
+                                padding: EdgeInsets.symmetric(horizontal: 25),
                                 child: Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
-                                  children: const [
+                                  children: [
                                     Text(
                                       '2:44',
                                       style: TextStyle(color: black196),
@@ -871,11 +879,11 @@ class _HomeViewState extends State<HomeView> {
             const SizedBox(
               height: 15,
             ),
-            Row(
+            const Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Row(
-                  children: const [
+                  children: [
                     Text(
                       'MRP',
                       style: TextStyle(
@@ -896,7 +904,7 @@ class _HomeViewState extends State<HomeView> {
                     ),
                   ],
                 ),
-                const Text(
+                Text(
                   '11%off',
                   style: TextStyle(
                       color: orange255,

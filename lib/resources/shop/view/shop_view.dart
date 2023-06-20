@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/components/common_widgets/build_categories_widget.dart';
 import 'package:millat/resources/shop/articles/view/articles_view.dart';
+import 'package:millat/resources/shop/bloc/logic/category_bloc/category_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
-import 'package:millat/resources/shop/view/categories/categories_filter_view.dart';
 import 'package:millat/resources/shop/view/products/products_view.dart';
 import 'package:millat/resources/shop/view/products/single_product_view.dart';
 import 'package:millat/resources/shop/view/search/search_view.dart';
@@ -26,23 +26,26 @@ class ShopView extends StatefulWidget {
 class _ShopViewState extends State<ShopView> {
   @override
   void initState() {
+    BlocProvider.of<CategoryBloc>(context)
+        .add(const CategoryEvent.fetchCategories());
+
     BlocProvider.of<ShopProductsBloc>(context)
         .add(ShopProductsEvent.fetchWishList(context));
     BlocProvider.of<ShopProductsBloc>(context)
-        .add(ShopProductsEvent.fetchFlashSaleProducts());
+        .add(const ShopProductsEvent.fetchFlashSaleProducts());
 
     BlocProvider.of<ShopProductsBloc>(context)
-        .add(ShopProductsEvent.fetchPopularProducts());
+        .add(const ShopProductsEvent.fetchPopularProducts());
 
     BlocProvider.of<ShopProductsBloc>(context)
-        .add(ShopProductsEvent.fetchRecentProductProducts());
+        .add(const ShopProductsEvent.fetchRecentProductProducts());
     BlocProvider.of<ShopProductsBloc>(context)
-        .add(ShopProductsEvent.fetchShopByBrand());
+        .add(const ShopProductsEvent.fetchShopByBrand());
     BlocProvider.of<ShopProductsBloc>(context)
-        .add(ShopProductsEvent.fetchHomeBanners());
+        .add(const ShopProductsEvent.fetchHomeBanners());
 
     BlocProvider.of<ShopProductsBloc>(context)
-        .add(ShopProductsEvent.fetchArticles());
+        .add(const ShopProductsEvent.fetchArticles());
     BlocProvider.of<CartBloc>(context).add(FetchCartEvent(context));
 
     super.initState();
@@ -57,10 +60,10 @@ class _ShopViewState extends State<ShopView> {
         child: Column(
           children: [
             Container(
-              padding: EdgeInsets.only(top: 70, left: 20, right: 20),
+              padding: const EdgeInsets.only(top: 70, left: 20, right: 20),
               width: SizeUtility(context).width,
               height: 350,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                   gradient: LinearGradient(
                       colors: [green77, green24],
                       begin: Alignment.topCenter,
@@ -77,10 +80,10 @@ class _ShopViewState extends State<ShopView> {
                             'assets/logos/millat_white_logo.png',
                             height: 30,
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 5,
                           ),
-                          Text('Halal & Organic',
+                          const Text('Halal & Organic',
                               style: TextStyle(color: whiteClr, height: 1.8)),
                         ],
                       ),
@@ -94,7 +97,7 @@ class _ShopViewState extends State<ShopView> {
                       )
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   Container(
@@ -112,16 +115,16 @@ class _ShopViewState extends State<ShopView> {
                             onPressed: () {
                               Navigator.of(context).push(
                                 MaterialPageRoute(
-                                  builder: (context) => SearchView(),
+                                  builder: (context) => const SearchView(),
                                 ),
                               );
                             },
-                            icon: Icon(
+                            icon: const Icon(
                               Icons.search,
                               color: black102,
                             ),
                           ),
-                          Text(
+                          const Text(
                             'Search....',
                             style: TextStyle(
                               color: black102,
@@ -132,13 +135,13 @@ class _ShopViewState extends State<ShopView> {
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
+                      const Text(
                         'Categories',
                         style: TextStyle(
                             color: Colors.white,
@@ -147,11 +150,11 @@ class _ShopViewState extends State<ShopView> {
                       ),
                       GestureDetector(
                           onTap: () {
-                            Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => CategoriesFilter(),
-                            ));
+                            context
+                                .read<ShopProductsBloc>()
+                                .add(const TabIndexChangeEvent(index: 2));
                           },
-                          child: Text(
+                          child: const Text(
                             'View All',
                             style: TextStyle(
                                 color: Colors.white,
@@ -160,36 +163,37 @@ class _ShopViewState extends State<ShopView> {
                           )),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
-                  SizedBox(
-                    height: 90,
-                    child: ListView.builder(
-                      itemCount: 4,
-                      itemExtent: 100,
-                      scrollDirection: Axis.horizontal,
-                      itemBuilder: (context, index) {
-                        final widgets = [
-                          BuildCategoryWidget(
-                              image: 'assets/images/man.png', text: "Men"),
-                          BuildCategoryWidget(
-                              image: 'assets/images/woman.png', text: "Women"),
-                          BuildCategoryWidget(
-                              image: 'assets/images/books.png', text: "Books"),
-                          BuildCategoryWidget(
-                            image: 'assets/images/clothes.png',
-                            text: "Fashion",
-                          ),
-                        ];
-                        return widgets[index];
-                      },
-                    ),
+                  BlocBuilder<CategoryBloc, CategoryState>(
+                    builder: (context, state) {
+                      return SizedBox(
+                        height: 90,
+                        child: ListView.builder(
+                          itemCount: 4,
+                          itemExtent: 100,
+                          scrollDirection: Axis.horizontal,
+                          itemBuilder: (context, index) {
+                            if (state.category?.result?.category == null) {
+                              return const SizedBox();
+                            }
+
+                            return BuildCategoryWidget(
+                                image: state
+                                    .category!.result!.category![index].image!,
+                                text: state
+                                    .category!.result!.category![index].title
+                                    .toString());
+                          },
+                        ),
+                      );
+                    },
                   )
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Padding(
@@ -199,7 +203,7 @@ class _ShopViewState extends State<ShopView> {
                   BlocBuilder<ShopProductsBloc, ShopProductsState>(
                     builder: (context, state) {
                       if (state.homeBanner == null) {
-                        return SizedBox();
+                        return const SizedBox();
                       }
 
                       final banners = state.homeBanner?.result!.banners;
@@ -233,7 +237,7 @@ class _ShopViewState extends State<ShopView> {
                               },
                             ),
                           ),
-                          SizedBox(height: 10),
+                          const SizedBox(height: 10),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: banners!.map((banner) {
@@ -241,7 +245,8 @@ class _ShopViewState extends State<ShopView> {
                               return Container(
                                 width: _currentIndex == index ? 24 : 6,
                                 height: 6,
-                                margin: EdgeInsets.symmetric(horizontal: 4),
+                                margin:
+                                    const EdgeInsets.symmetric(horizontal: 4),
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(30),
                                   color: _currentIndex == index
@@ -255,14 +260,14 @@ class _ShopViewState extends State<ShopView> {
                       );
                     },
                   ),
-                  SizedBox(height: 10),
-                  SizedBox(
+                  const SizedBox(height: 10),
+                  const SizedBox(
                     height: 30,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
+                      const Text(
                         'Flash Sale',
                         style: TextStyle(
                             color: black26,
@@ -282,7 +287,7 @@ class _ShopViewState extends State<ShopView> {
                                     ?.shopProductCategory),
                           ));
                         },
-                        child: Text(
+                        child: const Text(
                           'View All',
                           style: TextStyle(
                               color: mainColor,
@@ -292,7 +297,7 @@ class _ShopViewState extends State<ShopView> {
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   BlocBuilder<ShopProductsBloc, ShopProductsState>(
@@ -301,7 +306,7 @@ class _ShopViewState extends State<ShopView> {
                         height: 310,
                         child: state.isLoading ||
                                 state.flashSaleproducts == null
-                            ? Center(
+                            ? const Center(
                                 child: CircularProgressIndicator(
                                   color: green77,
                                 ),
@@ -326,8 +331,9 @@ class _ShopViewState extends State<ShopView> {
                                         padding:
                                             const EdgeInsets.only(right: 15),
                                         child: ShopProductWidget(
-                                            productId: data?.id,
-                                            image: data!.colors![0].images![0],
+                                            brand: data!.brand!.name.toString(),
+                                            productId: data.id,
+                                            image: data.colors![0].images![0],
                                             title: data.title.toString(),
                                             actualPrice:
                                                 data.actualPrice!.toInt(),
@@ -340,13 +346,13 @@ class _ShopViewState extends State<ShopView> {
                       );
                     },
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 50,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
+                      const Text(
                         'Popular Products',
                         style: TextStyle(
                             color: black26,
@@ -366,7 +372,7 @@ class _ShopViewState extends State<ShopView> {
                                       ?.shopProductCategory),
                             ));
                           },
-                          child: Text(
+                          child: const Text(
                             'View All',
                             style: TextStyle(
                                 color: green77,
@@ -375,7 +381,7 @@ class _ShopViewState extends State<ShopView> {
                           )),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   BlocBuilder<ShopProductsBloc, ShopProductsState>(
@@ -383,7 +389,7 @@ class _ShopViewState extends State<ShopView> {
                       if (state.popularProducts?.result?.shopProductCategory
                               ?.products ==
                           null) {
-                        return SizedBox();
+                        return const SizedBox();
                       }
                       return SizedBox(
                         height: 310,
@@ -404,8 +410,9 @@ class _ShopViewState extends State<ShopView> {
                                 child: Padding(
                                   padding: const EdgeInsets.only(right: 15),
                                   child: ShopProductWidget(
-                                      productId: data?.id,
-                                      image: data!.colors![0].images![0],
+                                      brand: data!.brand!.name.toString(),
+                                      productId: data.id,
+                                      image: data.colors![0].images![0],
                                       title: data.title,
                                       actualPrice: data.actualPrice!.toInt(),
                                       discount: data.discount!.toInt(),
@@ -417,13 +424,13 @@ class _ShopViewState extends State<ShopView> {
                       );
                     },
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 50,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
+                      const Text(
                         'Shop By Brands',
                         style: TextStyle(
                             color: black26,
@@ -435,7 +442,7 @@ class _ShopViewState extends State<ShopView> {
                           // Navigator.of(context).push(MaterialPageRoute(
                           //     builder: (context) => ShopByBrandView()));
                         },
-                        child: Text(
+                        child: const Text(
                           'View All',
                           style: TextStyle(
                               color: green77,
@@ -445,13 +452,13 @@ class _ShopViewState extends State<ShopView> {
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   BlocBuilder<ShopProductsBloc, ShopProductsState>(
                     builder: (context, state) {
                       return state.shopBrandModel?.users == null
-                          ? SizedBox()
+                          ? const SizedBox()
                           : SizedBox(
                               height: 100,
                               child: ListView.builder(
@@ -478,13 +485,13 @@ class _ShopViewState extends State<ShopView> {
                             );
                     },
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 50,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
+                      const Text(
                         'Recently Added',
                         style: TextStyle(
                             color: black26,
@@ -504,7 +511,7 @@ class _ShopViewState extends State<ShopView> {
                             ),
                           ));
                         },
-                        child: Text(
+                        child: const Text(
                           'View All',
                           style: TextStyle(
                               color: green77,
@@ -514,13 +521,13 @@ class _ShopViewState extends State<ShopView> {
                       )
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   BlocBuilder<ShopProductsBloc, ShopProductsState>(
                     builder: (context, state) {
                       if (state.recentProducts?.result?.products == null) {
-                        return SizedBox();
+                        return const SizedBox();
                       }
                       return SizedBox(
                         height: 310,
@@ -542,8 +549,9 @@ class _ShopViewState extends State<ShopView> {
                                 child: Padding(
                                   padding: const EdgeInsets.only(right: 15),
                                   child: ShopProductWidget(
-                                      productId: data?.id,
-                                      image: data!.colors![0].images![0],
+                                      brand: data!.brand!.name.toString(),
+                                      productId: data.id,
+                                      image: data.colors![0].images![0],
                                       title: data.title,
                                       actualPrice: data.actualPrice!.toInt(),
                                       discount: data.discount!.toInt(),
@@ -555,13 +563,13 @@ class _ShopViewState extends State<ShopView> {
                       );
                     },
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 50,
                   ),
                   BlocBuilder<ShopProductsBloc, ShopProductsState>(
                     builder: (context, state) {
                       if (state.articles?.result?.articles == null) {
-                        return SizedBox();
+                        return const SizedBox();
                       }
                       return Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -569,7 +577,7 @@ class _ShopViewState extends State<ShopView> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text(
+                              const Text(
                                 'Articles',
                                 style: TextStyle(
                                     color: black26,
@@ -584,7 +592,7 @@ class _ShopViewState extends State<ShopView> {
                                             state.articles?.result?.articles),
                                   ));
                                 },
-                                child: Text(
+                                child: const Text(
                                   'Read More',
                                   style: TextStyle(
                                       color: green77,
@@ -594,7 +602,7 @@ class _ShopViewState extends State<ShopView> {
                               ),
                             ],
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 20,
                           ),
                           ClipRRect(
@@ -610,48 +618,49 @@ class _ShopViewState extends State<ShopView> {
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              SizedBox(
+                              const SizedBox(
                                 height: 20,
                               ),
                               Text(
                                 '${state.articles!.result!.articles![0].brand} • ${Utilities.formatDate((state.articles!.result!.articles![0].date!))}',
-                                style: TextStyle(
+                                style: const TextStyle(
                                     color: mainColor,
                                     fontSize: 16,
                                     fontWeight: FontWeight.w600),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 20,
                               ),
                               Text(
                                 state.articles!.result!.articles![0].title
                                     .toString(),
-                                style: TextStyle(
+                                style: const TextStyle(
                                     color: black16,
                                     fontSize: 15,
                                     fontWeight: FontWeight.w600),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 20,
                               ),
                               Text(
-                                state.articles!.result!.articles![0].content
-                                    .toString(),
-                                style: TextStyle(
+                                state.articles!.result!.articles![0].content ??
+                                    'Content is Empty'.toString(),
+                                style: const TextStyle(
                                   color: black102,
                                   fontSize: 15,
                                 ),
+                                maxLines: 2,
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 20,
                               ),
                               Container(
-                                padding: EdgeInsets.symmetric(
+                                padding: const EdgeInsets.symmetric(
                                     horizontal: 10, vertical: 10),
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(20),
                                     color: veryLightGreen),
-                                child: Text('Popular',
+                                child: const Text('Popular',
                                     style: TextStyle(
                                         color: green77,
                                         fontWeight: FontWeight.w700)),
@@ -662,13 +671,13 @@ class _ShopViewState extends State<ShopView> {
                       );
                     },
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 50,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
+                      const Text(
                         'Bestsellers',
                         style: TextStyle(
                             color: black26,
@@ -688,7 +697,7 @@ class _ShopViewState extends State<ShopView> {
                             ),
                           ));
                         },
-                        child: Text(
+                        child: const Text(
                           'View All',
                           style: TextStyle(
                               color: green77,
@@ -698,13 +707,13 @@ class _ShopViewState extends State<ShopView> {
                       )
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   BlocBuilder<ShopProductsBloc, ShopProductsState>(
                     builder: (context, state) {
                       if (state.recentProducts?.result?.products == null) {
-                        return SizedBox();
+                        return const SizedBox();
                       }
                       return SizedBox(
                         height: 310,
@@ -726,8 +735,9 @@ class _ShopViewState extends State<ShopView> {
                                 child: Padding(
                                   padding: const EdgeInsets.only(right: 15),
                                   child: ShopProductWidget(
-                                      productId: data?.id,
-                                      image: data!.colors![0].images![0],
+                                      brand: data!.brand!.name.toString(),
+                                      productId: data.id,
+                                      image: data.colors![0].images![0],
                                       title: data.title,
                                       actualPrice: data.actualPrice!.toInt(),
                                       discount: data.discount!.toInt(),
@@ -742,7 +752,7 @@ class _ShopViewState extends State<ShopView> {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 120,
             ),
           ],
@@ -753,7 +763,7 @@ class _ShopViewState extends State<ShopView> {
 
   Widget buildShopbyBrand(String? image, String? name) {
     return Container(
-      margin: EdgeInsets.only(right: 10),
+      margin: const EdgeInsets.only(right: 10),
       width: 70,
       height: 78,
       child: Column(
@@ -773,16 +783,16 @@ class _ShopViewState extends State<ShopView> {
                       height: 54.47,
                       fit: BoxFit.cover,
                     )
-                  : Placeholder(
+                  : const Placeholder(
                       fallbackHeight: 54.47,
                       fallbackWidth: 56,
                     ),
             ),
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           Text(
             name ?? 'No name',
-            style: TextStyle(
+            style: const TextStyle(
               color: black26,
               fontWeight: FontWeight.w600,
               fontSize: 14,

@@ -125,4 +125,38 @@ class AddressService extends HttpServices {
       throw Exception('Token not available');
     }
   }
+
+  // delete the address by id
+  deleteAddressbyId(BuildContext context, String id) async {
+    final endPoint = 'address/delete/$id';
+    final databaseState = context.read<DatabaseBloc>().state;
+    final token = databaseState.token;
+    const String webBaseUrl = 'http://35.172.93.164:8000/';
+
+    final headers = {
+      'Content-Type': 'application/json; charset=utf-8',
+      'Authorization': 'Bearer $token',
+    };
+    // final response = await get(endPoint: endPoint, headers: headers);
+    final response =
+        await http.delete(Uri.parse(webBaseUrl + endPoint), headers: headers);
+    if (response.statusCode == 200) {
+      try {
+        if (response.statusCode == 200) {
+          final Map<String, dynamic> data = json.decode(response.body);
+
+          return data;
+        } else {
+          print('API request failed with status code: ${response.statusCode}');
+          throw Exception(
+              'API request failed with status code: ${response.statusCode}');
+        }
+      } catch (e) {
+        print('error on address API fetch: ${e.toString()}');
+        throw Exception('Failed to parse response');
+      }
+    } else {
+      throw Exception('Token not available');
+    }
+  }
 }

@@ -25,4 +25,5 @@ class CartEvent with _$CartEvent {
     required String productId,
   }) = RemoveCartItemEvent;
   const factory CartEvent.toggleShowMoreEvent() = ToggleShowMoreEvent;
+  const factory CartEvent.paymentSuccessEvent() = PaymentSuccessEvent;
 }

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/components/common_widgets/build_category_full_view.dart';
+import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/shop/bloc/logic/category_bloc/category_bloc.dart';
 import 'package:millat/utils/globals.dart';
 import 'package:millat/utils/size_utility.dart';
-
+import '../../bloc/logic/shop_bloc/shop_products_bloc.dart';
 import 'categories_view.dart';
 
 class CategoriesFilter extends StatefulWidget {
@@ -19,11 +20,20 @@ class _CategoriesFilterState extends State<CategoriesFilter> {
   String subCategory = '';
   @override
   void initState() {
+    BlocProvider.of<CategoryBloc>(context).add(FetchFilterProducts(
+        category: context
+            .read<CategoryBloc>()
+            .state
+            .category
+            ?.result!
+            .category![0]
+            .title
+            .toString(),
+        subCategory: ""));
     BlocProvider.of<CategoryBloc>(context)
-        .add(FetchFilterProducts(category: "Men", subCategory: ""));
-    BlocProvider.of<CategoryBloc>(context).add(CategoryEvent.fetchCategories());
+        .add(const CategoryEvent.fetchCategories());
     BlocProvider.of<CategoryBloc>(context)
-        .add(CategoryEvent.fetchSubcategories());
+        .add(const CategoryEvent.fetchSubcategories());
     super.initState();
   }
 
@@ -32,9 +42,16 @@ class _CategoriesFilterState extends State<CategoriesFilter> {
     return Scaffold(
         appBar: AppBar(
           elevation: 0,
-          leading: BackButton(color: Colors.white),
+          leading: IconButton(
+            onPressed: () {
+              context
+                  .read<ShopProductsBloc>()
+                  .add(const TabIndexChangeEvent(index: 0));
+            },
+            icon: const Icon(Icons.arrow_back),
+          ),
           flexibleSpace: Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               gradient: LinearGradient(
                 colors: [green77, green24],
                 begin: Alignment.topCenter,
@@ -60,13 +77,13 @@ class _CategoriesFilterState extends State<CategoriesFilter> {
                             ? Padding(
                                 padding: EdgeInsets.only(
                                     top: SizeUtility(context).height / 2),
-                                child:
-                                    CircularProgressIndicator(color: whiteClr),
+                                child: const CircularProgressIndicator(
+                                    color: whiteClr),
                               )
                             : SizedBox(
                                 width: 90,
                                 child: ListView.builder(
-                                  physics: NeverScrollableScrollPhysics(),
+                                  physics: const NeverScrollableScrollPhysics(),
                                   itemCount:
                                       state.category?.result?.category!.length,
                                   shrinkWrap: true,
@@ -112,8 +129,8 @@ class _CategoriesFilterState extends State<CategoriesFilter> {
               builder: (context, state) {
                 return state.productLoading ||
                         state.product?.result?.products == null
-                    ? Padding(
-                        padding: const EdgeInsets.only(left: 130),
+                    ? const Padding(
+                        padding: EdgeInsets.only(left: 130),
                         child: Center(
                           child: CircularProgressIndicator(
                             color: green77,
@@ -122,20 +139,20 @@ class _CategoriesFilterState extends State<CategoriesFilter> {
                       )
                     : Expanded(
                         child: GridView.builder(
-                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 3,
-                            crossAxisSpacing: 30,
-                            mainAxisSpacing: 0,
-                            childAspectRatio: 0.7),
+                        gridDelegate:
+                            const SliverGridDelegateWithFixedCrossAxisCount(
+                                crossAxisCount: 3,
+                                crossAxisSpacing: 30,
+                                mainAxisSpacing: 0,
+                                childAspectRatio: 0.7),
                         padding: EdgeInsets.zero,
                         itemCount: state.product?.result?.products.length,
                         itemBuilder: (context, index) {
                           return GestureDetector(
                             onTap: () {
-                              print(
-                                  '${state.product!.result!.products[index].subcategory!.title}');
                               Navigator.of(context).push(MaterialPageRoute(
                                 builder: (context) => CategoriesView(
+                                  type: FilterType.category,
                                   category: state.product!.result!
                                       .products[index].category!.title
                                       .toString(),

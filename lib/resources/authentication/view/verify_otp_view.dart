@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/components/buttons/main_button.dart';
@@ -9,7 +11,7 @@ import 'package:pinput/pinput.dart';
 import '../../tabs/view/tabs_view.dart';
 
 class VerifyOTPView extends StatefulWidget {
-  VerifyOTPView({
+  const VerifyOTPView({
     Key? key,
   }) : super(key: key);
 
@@ -20,6 +22,26 @@ class VerifyOTPView extends StatefulWidget {
 class _VerifyOTPViewState extends State<VerifyOTPView> {
   final otpController = TextEditingController();
   final focusNode = FocusNode();
+  int seconds = 15;
+  late Timer timer;
+  String? receivedOtp;
+  @override
+  void initState() {
+    super.initState();
+    _startTimer();
+  }
+
+  void _startTimer() {
+    timer = Timer.periodic(const Duration(seconds: 1), (timer) {
+      setState(() {
+        if (seconds > 0) {
+          seconds--;
+        } else {
+          timer.cancel();
+        }
+      });
+    });
+  }
 
   @override
   void dispose() {
@@ -91,11 +113,12 @@ class _VerifyOTPViewState extends State<VerifyOTPView> {
                     const SizedBox(
                       height: 30,
                     ),
-                    const Text('00:11', style: TextStyle(color: black133)),
+                    Text(formatTime(seconds),
+                        style: const TextStyle(color: black133)),
                     const SizedBox(height: 30),
                     Pinput(
                       length: 4,
-                      controller: otpController,
+                      controller: otpController..text = receivedOtp ?? '',
                       focusNode: focusNode,
                       defaultPinTheme: defaultPinTheme,
                       separator: const SizedBox(width: 16),
@@ -103,13 +126,6 @@ class _VerifyOTPViewState extends State<VerifyOTPView> {
                         decoration: BoxDecoration(
                           color: const Color.fromRGBO(232, 235, 241, 0.37),
                           borderRadius: BorderRadius.circular(8),
-                          /*boxShadow: const [
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.05999999865889549),
-                          offset: Offset(0, 3),
-                          blurRadius: 16,
-                        )
-                      ],*/
                         ),
                       ),
                       showCursor: true,
@@ -169,6 +185,23 @@ class _VerifyOTPViewState extends State<VerifyOTPView> {
     );
   }
 
+  receiveOtp(String otp) {
+    setState(() {
+      receivedOtp = otp;
+      otpController.text = otp;
+    });
+  }
+
+  String formatTime(int seconds) {
+    int minutes = seconds ~/ 60;
+    int remainingSeconds = seconds % 60;
+
+    String minutesString = minutes.toString().padLeft(2, '0');
+    String secondsString = remainingSeconds.toString().padLeft(2, '0');
+
+    return '$minutesString:$secondsString';
+  }
+
   ScaffoldFeatureController buildError(String message) {
     return ScaffoldMessenger.of(context)
         .showSnackBar(SnackBar(content: Text(message)));
@@ -176,5 +209,6 @@ class _VerifyOTPViewState extends State<VerifyOTPView> {
 
   clearDate() {
     otpController.clear();
+    receivedOtp = null;
   }
 }

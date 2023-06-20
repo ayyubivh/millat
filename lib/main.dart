@@ -4,6 +4,7 @@ import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:millat/resources/authentication/bloc/logic/auth_bloc.dart';
 import 'package:millat/resources/authentication/bloc/logic/database_bloc/database_bloc.dart';
+import 'package:millat/resources/home/view/namaz_timing/namaz_timing_view.dart';
 import 'package:millat/resources/on_boarding/view/on_boarding_view.dart';
 import 'package:millat/resources/shop/bloc/logic/address_bloc/address_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/cart_bloc/cart_bloc.dart';
@@ -16,13 +17,13 @@ import 'package:responsive_framework/utils/scroll_behavior.dart';
 
 void main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
-  bool _splashRemoved = false;
+  bool splashRemoved = false;
 
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
-  Future.delayed(Duration(seconds: 2), () {
-    if (!_splashRemoved) {
+  Future.delayed(const Duration(seconds: 2), () {
+    if (!splashRemoved) {
       FlutterNativeSplash.remove();
-      _splashRemoved = true;
+      splashRemoved = true;
     }
   });
   await Hive.initFlutter();
@@ -53,6 +54,8 @@ void main() async {
 class MyApp extends StatelessWidget {
   final _tokenBox = Hive.box('authTokenBox');
 
+  MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -77,6 +80,9 @@ class MyApp extends StatelessWidget {
         fontFamily: 'SofiaPro',
         primarySwatch: Colors.blue,
       ),
+      routes: {
+        NamazTimingView.routeName: (context) => const NamazTimingView(),
+      },
       home: _getInitialScreen(),
     );
   }
@@ -86,9 +92,9 @@ class MyApp extends StatelessWidget {
 
     if (token != null) {
       print('on main token ${token}');
-      return TabsView();
+      return const TabsView();
     } else {
-      return OnBoardingView();
+      return const OnBoardingView();
     }
   }
 }

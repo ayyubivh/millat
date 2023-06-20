@@ -22,4 +22,7 @@ class ShopProductsEvent with _$ShopProductsEvent {
       required BuildContext context}) = RemoveWishlistEvent;
   const factory ShopProductsEvent.fetchShopByBrandProducts(
       {required String brandName}) = FetchShopByBrandProducts;
+  const factory ShopProductsEvent.tabIndexChangeEvent({
+    required int index,
+  }) = TabIndexChangeEvent;
 }

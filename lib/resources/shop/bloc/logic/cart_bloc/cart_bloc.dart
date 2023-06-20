@@ -18,6 +18,7 @@ class CartBloc extends Bloc<CartEvent, CartState> {
     on<UpdateCartEventWithAdd>(_updateCartEvent);
     on<UpdateCartEventWithSub>(_updateCartEventWithSub);
     on<ToggleShowMoreEvent>(_toggleShowMoreEvent);
+    // on<PaymentSuccessEvent>(_paymentSuccessEvent);
   }
 
   FutureOr<void> _fetchcCartEvent(
@@ -180,4 +181,18 @@ class CartBloc extends Bloc<CartEvent, CartState> {
   _toggleShowMoreEvent(ToggleShowMoreEvent event, Emitter<CartState> emit) {
     emit(state.copyWith(showMore: state.showMore == false ? true : false));
   }
+
+  // _paymentSuccessEvent(PaymentSuccessEvent event, Emitter<CartState> emit) {
+  //   final updatedCartModel = state.cartModel?.copyWith(
+  //     result: state.cartModel?.result?.copyWith(
+  //       cartProducts: state.cartModel?.result?.cartProducts?.copyWith(
+  //         cartItems: state.cartModel?.result?.cartProducts?.cartItems
+  //             ?.where(
+  //               (item) => item.productId?.id != event.productId,
+  //             )
+  //             .toList(),
+  //       ),
+  //     ),
+  //   );
+  // }
 }

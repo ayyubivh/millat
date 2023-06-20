@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:millat/resources/shop/view/checkout/checkout_card_details.dart';
 import 'package:millat/resources/shop/view/checkout/checkout_confirmation.dart';
 import 'package:millat/utils/globals.dart';
 import 'package:millat/utils/size_utility.dart';
@@ -18,11 +17,11 @@ class _CheckoutPaymentState extends State<CheckoutPayment> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('Checkout',
+          title: const Text('Checkout',
               style:
                   TextStyle(color: Colors.black, fontWeight: FontWeight.w700)),
           centerTitle: false,
-          leading: BackButton(color: Colors.black),
+          leading: const BackButton(color: Colors.black),
           elevation: 0,
           backgroundColor: Colors.transparent,
         ),
@@ -41,7 +40,7 @@ class _CheckoutPaymentState extends State<CheckoutPayment> {
                   value: 3,
                   onChanged: (value) {},
                 ),
-                Row(
+                const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
@@ -61,17 +60,17 @@ class _CheckoutPaymentState extends State<CheckoutPayment> {
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 60,
                 ),
-                Text(
+                const Text(
                   'Payment Methods',
                   style: TextStyle(
                       color: black26,
                       fontSize: 17,
                       fontWeight: FontWeight.w700),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 Row(
@@ -87,7 +86,7 @@ class _CheckoutPaymentState extends State<CheckoutPayment> {
                         children: [
                           Image.asset('assets/icons/cash.png',
                               width: 50, height: 50),
-                          Text(
+                          const Text(
                             'CASH',
                             style: TextStyle(
                                 color: black122, fontWeight: FontWeight.w700),
@@ -95,7 +94,7 @@ class _CheckoutPaymentState extends State<CheckoutPayment> {
                         ],
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 20,
                     ),
                     Container(
@@ -109,7 +108,7 @@ class _CheckoutPaymentState extends State<CheckoutPayment> {
                         children: [
                           Image.asset('assets/icons/credit.png',
                               width: 50, height: 50),
-                          Text(
+                          const Text(
                             'CREDIT CARD',
                             style: TextStyle(
                                 color: black122, fontWeight: FontWeight.w700),
@@ -117,7 +116,7 @@ class _CheckoutPaymentState extends State<CheckoutPayment> {
                         ],
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 20,
                     ),
                     Container(
@@ -132,10 +131,10 @@ class _CheckoutPaymentState extends State<CheckoutPayment> {
                         children: [
                           Image.asset('assets/icons/net_banking.png',
                               height: 35),
-                          SizedBox(
+                          const SizedBox(
                             height: 10,
                           ),
-                          Text(
+                          const Text(
                             'NET BANKING',
                             style: TextStyle(
                                 color: black122, fontWeight: FontWeight.w700),
@@ -145,17 +144,17 @@ class _CheckoutPaymentState extends State<CheckoutPayment> {
                     )
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 40,
                 ),
-                Text(
+                const Text(
                   'Other Payment Methods',
                   style: TextStyle(
                       color: black26,
                       fontSize: 17,
                       fontWeight: FontWeight.w700),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 ListView.builder(
@@ -182,7 +181,7 @@ class _CheckoutPaymentState extends State<CheckoutPayment> {
                     );
                   },
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 100,
                 )
               ],
@@ -197,7 +196,7 @@ class _CheckoutPaymentState extends State<CheckoutPayment> {
               shape: MaterialStateProperty.all(
                 RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(30.0),
-                  side: BorderSide(color: green77, width: 2.0),
+                  side: const BorderSide(color: green77, width: 2.0),
                 ),
               ),
               elevation: MaterialStateProperty.all(0),
@@ -210,10 +209,10 @@ class _CheckoutPaymentState extends State<CheckoutPayment> {
                 return;
               }
               Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => CheckoutConfirmation(),
+                builder: (context) => const CheckoutConfirmation(),
               ));
             },
-            child: Text(
+            child: const Text(
               'Continue',
               style: TextStyle(
                   color: Colors.white,
@@ -240,12 +239,13 @@ class _CheckoutPaymentState extends State<CheckoutPayment> {
             Row(
               children: [
                 Image.asset(image, width: 35, height: 35),
-                SizedBox(
+                const SizedBox(
                   width: 15,
                 ),
                 Text(
                   text,
-                  style: TextStyle(fontWeight: FontWeight.w600, fontSize: 17),
+                  style: const TextStyle(
+                      fontWeight: FontWeight.w600, fontSize: 17),
                 )
               ],
             ),

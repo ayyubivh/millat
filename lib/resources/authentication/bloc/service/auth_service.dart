@@ -14,11 +14,14 @@ class AuthService extends HttpServices {
     return await posts(
         endPoint: loginAPI,
         body: {"email": email, "password": password}).then((value) {
-      print(value.body);
+      print('logne values ahne monee${value.body}');
 
       if (value.statusCode == 200) {
+        final token = jsonDecode(value.body)['result']['token'];
+
         return {
           'status': true,
+          'result': token,
         };
       } else {
         return {'status': false, 'message': jsonDecode(value.body)['message']};

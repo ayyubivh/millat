@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/shop/view/checkout/checkout_details.dart';
 import 'package:millat/utils/globals.dart';
 import 'package:millat/utils/size_utility.dart';
@@ -26,11 +27,11 @@ class _CheckoutViewState extends State<CheckoutView> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('Checkout',
+          title: const Text('Checkout',
               style:
                   TextStyle(color: Colors.black, fontWeight: FontWeight.w700)),
           centerTitle: false,
-          leading: BackButton(color: Colors.black),
+          leading: const BackButton(color: Colors.black),
           elevation: 0,
           backgroundColor: Colors.transparent,
         ),
@@ -48,7 +49,7 @@ class _CheckoutViewState extends State<CheckoutView> {
                   value: 0,
                   onChanged: (value) {},
                 ),
-                Row(
+                const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
@@ -68,13 +69,13 @@ class _CheckoutViewState extends State<CheckoutView> {
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 50,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
+                    const Text(
                       'Address',
                       style: TextStyle(
                           fontWeight: FontWeight.w700,
@@ -83,17 +84,19 @@ class _CheckoutViewState extends State<CheckoutView> {
                     ),
                     Row(
                       children: [
-                        Icon(
+                        const Icon(
                           Icons.add,
                           color: green77,
                         ),
                         InkWell(
                           onTap: () {
                             Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => CheckoutDetails(),
+                              builder: (context) => const CheckoutDetails(
+                                type: AddressNavType.checkout,
+                              ),
                             ));
                           },
-                          child: Text(
+                          child: const Text(
                             'Add Address',
                             style: TextStyle(
                                 fontWeight: FontWeight.w600,
@@ -105,7 +108,7 @@ class _CheckoutViewState extends State<CheckoutView> {
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
                 // buildAddresses(),
@@ -135,13 +138,13 @@ class _CheckoutViewState extends State<CheckoutView> {
                           },
                         );
                       },
-                      separatorBuilder: (context, index) => Divider(
+                      separatorBuilder: (context, index) => const Divider(
                         color: black198,
                       ),
                     );
                   },
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
               ],
@@ -156,7 +159,7 @@ class _CheckoutViewState extends State<CheckoutView> {
               shape: MaterialStateProperty.all(
                 RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(30.0),
-                  side: BorderSide(color: green77, width: 2.0),
+                  side: const BorderSide(color: green77, width: 2.0),
                 ),
               ),
               elevation: MaterialStateProperty.all(0),
@@ -174,11 +177,11 @@ class _CheckoutViewState extends State<CheckoutView> {
                 builder: (context) {
                   print('$id is null man');
 
-                  return CheckoutPayment();
+                  return const CheckoutPayment();
                 },
               ));
             },
-            child: Text(
+            child: const Text(
               'Continue',
               style: TextStyle(
                   color: Colors.white,
@@ -189,11 +192,12 @@ class _CheckoutViewState extends State<CheckoutView> {
         ));
   }
 
-  Widget buildAddresses(
-      {required String? name,
-      required String? address,
-      required bool isSelected,
-      required Function() onTap}) {
+  Widget buildAddresses({
+    required String? name,
+    required String? address,
+    required bool isSelected,
+    required Function() onTap,
+  }) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -202,25 +206,35 @@ class _CheckoutViewState extends State<CheckoutView> {
           children: [
             Text(
               name.toString(),
-              style: TextStyle(
-                  fontWeight: FontWeight.w700, fontSize: 18, color: black26),
+              style: const TextStyle(
+                fontWeight: FontWeight.w700,
+                fontSize: 18,
+                color: black26,
+              ),
             ),
-            SizedBox(
-              height: 20,
-            ),
-            Text(
-              address.toString(),
-              style: TextStyle(fontWeight: FontWeight.w700, color: black122),
+            const SizedBox(height: 20),
+            Container(
+              width: 200, // Adjust the width as needed
+              child: Text(
+                address.toString(),
+                style: const TextStyle(
+                  fontWeight: FontWeight.w700,
+                  color: black122,
+                ),
+                overflow: TextOverflow.visible,
+                maxLines: 2, // Set the maximum number of lines to display
+              ),
             ),
           ],
         ),
         Radio(
-            value: true,
-            groupValue: isSelected,
-            onChanged: (value) {
-              onTap();
-            },
-            fillColor: MaterialStateProperty.all(green77)),
+          value: true,
+          groupValue: isSelected,
+          onChanged: (value) {
+            onTap();
+          },
+          fillColor: MaterialStateProperty.all(green77),
+        ),
       ],
     );
   }

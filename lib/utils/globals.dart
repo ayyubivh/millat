@@ -46,3 +46,6 @@ const Color textBlack = Color(0xFF1A1A1A);
 const Color blue5 = Color(0XFF3581EA);
 const Color redClr = Colors.red;
 const Color lightGreen1 = Color(0xFFDAFFEF);
+const Color scaffoldColor = Color(0xFFFFFFFF);
+const Color primaryGreen = Color(0xFF00A05B);
+const Color scaffoldBgColor = Color(0xFFF7F7F7);

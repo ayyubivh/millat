@@ -6,10 +6,10 @@ part 'wishllist_models.freezed.dart';
 @freezed
 class WishlistResponse with _$WishlistResponse {
   factory WishlistResponse({
-    required int status,
-    required String message,
-    required String error,
-    required WishlistResult result,
+    required int? status,
+    required String? message,
+    required String? error,
+    required WishlistResult? result,
   }) = _WishlistResponse;
 
   factory WishlistResponse.fromJson(Map<String, dynamic> json) =>
@@ -48,8 +48,8 @@ class Product with _$Product {
     String? brand,
     String? description,
     String? otherInfo,
-    required Category category,
-    required Subcategory subcategory,
+    required Category? category,
+    required Subcategory? subcategory,
     required int actualPrice,
     required int discountPrice,
     required int discount,

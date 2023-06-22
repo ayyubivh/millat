@@ -7,6 +7,7 @@ import 'package:millat/resources/reviews/views/write_review.dart';
 import 'package:millat/resources/shop/view/orders/orders_view.dart';
 import 'package:millat/utils/globals.dart';
 
+import '../../authentication/bloc/logic/database_bloc/database_bloc.dart';
 import '../../shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
 
 class ProfileView extends StatefulWidget {
@@ -48,53 +49,35 @@ class _ProfileViewState extends State<ProfileView> {
                 children: [
                   Row(
                     children: [
-                      Image.asset(
-                        'assets/dummy/profile.png',
-                        width: 100,
-                        height: 100,
-                      ),
-                      const SizedBox(
-                        width: 20,
-                      ),
-                      const Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'William B. Brickner',
-                            style: TextStyle(
-                                color: black26,
-                                fontSize: 18,
-                                fontWeight: FontWeight.w600),
-                          ),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Text(
-                            'william.Brickner56@gmail.com',
-                            style: TextStyle(
-                                color: black122,
-                                fontSize: 16,
-                                fontWeight: FontWeight.w600),
-                          )
-                        ],
-                      )
+                      BlocBuilder<DatabaseBloc, DatabaseState>(
+                          builder: (context, state) => Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(state.name,
+                                      style: const TextStyle(
+                                          color: black26,
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.w600)),
+                                  const SizedBox(
+                                    height: 10,
+                                  ),
+                                  Text(
+                                    state.email,
+                                    style: TextStyle(
+                                        color: black122,
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w600),
+                                  )
+                                ],
+                              ))
                     ],
                   ),
                   const SizedBox(
                     height: 20,
                   ),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      const Row(
-                        children: [
-                          Icon(
-                            Icons.verified,
-                            color: green77,
-                          ),
-                          Text('Verified'),
-                        ],
-                      ),
                       ElevatedButton.icon(
                         icon: const Icon(Icons.edit_note, color: Colors.white),
                         onPressed: () {

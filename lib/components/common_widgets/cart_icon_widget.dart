@@ -16,13 +16,13 @@ class CartIconWidget extends StatelessWidget {
     return IconButton(
       onPressed: () {
         Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => CartView(),
+          builder: (context) => const CartView(),
         ));
       },
       icon: Stack(
         children: [
           ImageIcon(
-            AssetImage('assets/icons/cart.png'),
+            const AssetImage('assets/icons/cart.png'),
             color: color,
           ),
           Positioned(
@@ -30,25 +30,25 @@ class CartIconWidget extends StatelessWidget {
               right: 0,
               child: cartLength > 0
                   ? Container(
-                      padding: EdgeInsets.all(2),
-                      decoration: BoxDecoration(
+                      padding: const EdgeInsets.all(2),
+                      decoration: const BoxDecoration(
                         color: black26,
                         shape: BoxShape.circle,
                       ),
-                      constraints: BoxConstraints(
+                      constraints: const BoxConstraints(
                         minWidth: 16,
                         minHeight: 16,
                       ),
                       child: Text(
                         cartLength.toString(),
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: Colors.white,
                           fontSize: 12,
                         ),
                         textAlign: TextAlign.center,
                       ),
                     )
-                  : SizedBox.shrink()),
+                  : const SizedBox.shrink()),
         ],
       ),
     );

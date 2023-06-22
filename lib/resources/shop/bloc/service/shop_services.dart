@@ -7,8 +7,7 @@ import 'package:millat/resources/shop/bloc/models/articles/articles_model.dart'
 import 'package:millat/resources/shop/bloc/models/banners/banners_model.dart';
 import 'package:millat/resources/shop/bloc/models/recent_products/recent_products_model.dart';
 import 'package:millat/resources/shop/bloc/models/shop_by_brand/shop_by_brand_models.dart';
-import 'package:millat/resources/shop/bloc/models/wishlist/wishllist_models.dart'
-    as Wishlist;
+import 'package:millat/resources/shop/bloc/models/wishlist/wishllist_models.dart';
 import 'package:millat/services/http_services.dart';
 import '../../../authentication/bloc/logic/database_bloc/database_bloc.dart';
 
@@ -21,7 +20,7 @@ class ShopService extends HttpServices {
   final popularProduct = 'shop_product_category?slug=popular_products';
   final recentProduct = 'product?slug=recent_products';
   final banner = 'banner?slug=home_banner';
-  final shopBanner = 'banner?slug=home_banner';
+  final shopBanner = 'banner?slug=shop_banner';
   final article = 'article';
 
   // Fetching all flash sale products
@@ -245,7 +244,7 @@ class ShopService extends HttpServices {
   }
   // fetching wishlist items
 
-  Future<Wishlist.Wishlist?> fetchWishlist(BuildContext context) async {
+  Future<WishlistResponse> fetchWishlist(BuildContext context) async {
     const endPoint = "wishlist";
     final databaseState = context.read<DatabaseBloc>().state;
     final token = databaseState.token;
@@ -259,16 +258,10 @@ class ShopService extends HttpServices {
     if (response.statusCode == 200) {
       try {
         final Map<String, dynamic> jsonResponse = json.decode(response.body);
-        final Map<String, dynamic> resultData =
-            jsonResponse['result']['wishlist'];
-        final Wishlist.Wishlist? result =
-            Wishlist.Wishlist.fromJson(resultData);
-        if (result != null) {
-          // print('Wishlist items fetched in the service: $result');
-          return result;
-        } else {
-          throw Exception('Failed to parse response');
-        }
+
+        final result = WishlistResponse.fromJson(jsonResponse);
+
+        return result;
       } catch (e) {
         print('Error on shop by wishlist API fetch: ${e.toString()}');
         throw Exception('Failed to parse response');
@@ -305,29 +298,35 @@ class ShopService extends HttpServices {
   Future<ShopBrandProductModel> fetchProductsByBrand(String brandName) async {
     const endpoint = 'product';
     final response = await get(endPoint: endpoint);
+
     if (response.statusCode == 200) {
-      print('on fetch shop by brand ${response.body}');
-      try {
-        final dynamic jsonData = json.decode(response.body);
-        if (jsonData != null) {
+      final responseBody = response.body;
+
+      if (responseBody.isNotEmpty) {
+        try {
+          final Map<String, dynamic> jsonData = json.decode(responseBody);
           final result = ShopBrandProductModel.fromJson(jsonData);
-          final filteredProducts = result.products
-              .where((product) => product.brand.name == brandName)
+          print('result here of shopbrand ${result}');
+
+          final filteredProducts = result.result?.products
+              ?.where((product) => product.brand?.name == brandName)
               .toList();
+
           final filteredResult = ShopBrandProductModel(
-            error: '',
-            message: '',
-            status: 200,
-            products: filteredProducts,
+            status: result.status,
+            message: result.message,
+            error: result.error,
+            result: ResultsofShopBrand(products: filteredProducts ?? []),
           );
+
           print('Filtered products: $filteredProducts');
           return filteredResult;
-        } else {
-          throw Exception('Failed to parse JSON: Response body is null');
+        } catch (e) {
+          print('Error decoding JSON: $e');
+          throw Exception('Failed to parse JSON');
         }
-      } catch (e) {
-        print('Error decoding JSON: $e');
-        throw Exception('Failed to parse JSON');
+      } else {
+        throw Exception('Empty response body');
       }
     } else {
       print('HTTP request failed with status code: ${response.statusCode}');

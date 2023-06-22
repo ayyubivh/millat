@@ -110,7 +110,7 @@ class _CategoriesFilterState extends State<CategoriesFilter> {
                                         color:
                                             isSelected ? lightGreen1 : whiteClr,
                                         child: CategoryFullView(
-                                          iconImage: category.image!,
+                                          iconImage: category.image.toString(),
                                           categoryTitle:
                                               category.title.toString(),
                                         ),
@@ -146,8 +146,14 @@ class _CategoriesFilterState extends State<CategoriesFilter> {
                                 mainAxisSpacing: 0,
                                 childAspectRatio: 0.7),
                         padding: EdgeInsets.zero,
-                        itemCount: state.product?.result?.products.length,
                         itemBuilder: (context, index) {
+                          if (state.product?.result?.products[index]
+                                  .subcategory ==
+                              null) {
+                            return const Center(
+                              child: Text('Subcatery is empty'),
+                            );
+                          }
                           return GestureDetector(
                             onTap: () {
                               Navigator.of(context).push(MaterialPageRoute(
@@ -163,13 +169,14 @@ class _CategoriesFilterState extends State<CategoriesFilter> {
                               ));
                             },
                             child: CategoryFullView(
-                              iconImage: state.product!.result!.products[index]
-                                  .subcategory!.image,
-                              categoryTitle: state.product!.result!
-                                  .products[index].subcategory!.title,
+                              iconImage: state.product?.result?.products[index]
+                                  .subcategory?.image,
+                              categoryTitle: state.product?.result
+                                  ?.products[index].subcategory?.title,
                             ),
                           );
                         },
+                        itemCount: state.product?.result?.products.length ?? 0,
                       ));
               },
             )

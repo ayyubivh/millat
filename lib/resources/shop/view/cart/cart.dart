@@ -6,6 +6,7 @@ import 'package:millat/resources/shop/bloc/logic/cart_bloc/cart_bloc.dart';
 import 'package:millat/resources/shop/view/cart/widgets/cart_product_widget.dart';
 import 'package:millat/resources/shop/view/checkout/checkout_details.dart';
 import 'package:millat/resources/shop/view/checkout/checkout_view.dart';
+import 'package:millat/resources/shop/view/tabs/shop_tabs_vilew.dart';
 import 'package:millat/utils/globals.dart';
 import 'package:millat/utils/size_utility.dart';
 
@@ -28,6 +29,7 @@ class _CartViewState extends State<CartView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: scaffoldBgColor,
       appBar: AppBar(
         title: const Text('Cart',
             style: TextStyle(color: Colors.black, fontWeight: FontWeight.w700)),
@@ -46,10 +48,21 @@ class _CartViewState extends State<CartView> {
                   return const Center(
                     child: CircularProgressIndicator(color: green77),
                   );
-                } else if (state.cartModel?.result?.cartProducts?.cartItems ==
-                    null) {
-                  return const Center(
-                    child: Text('Cart is Empty'),
+                } else if (state
+                        .cartModel?.result?.cartProducts?.cartItems?.length ==
+                    0) {
+                  return Center(
+                    child: Padding(
+                      padding:
+                          EdgeInsets.only(top: SizeUtility(context).height / 5),
+                      child: const Text(
+                        'Cart is Empty',
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                    ),
                   );
                 }
                 return Expanded(
@@ -81,6 +94,7 @@ class _CartViewState extends State<CartView> {
       ),
       bottomSheet: Container(
         height: 350,
+        color: whiteClr,
         padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 30),
         child: BlocBuilder<CartBloc, CartState>(
           builder: (context, state) {
@@ -90,8 +104,8 @@ class _CartViewState extends State<CartView> {
               cartItems?.map((e) => e.basePrice).toList(),
               cartItems?.map((e) => e.quantity).toList(),
             );
-            final shippingFee = 27;
-            final estimatingTax = 2036;
+            final shippingFee = cartItems?.length == 0 ? 0 : 27;
+            final estimatingTax = cartItems?.length == 0 ? 0 : 2036;
             final total = subTotal + shippingFee + estimatingTax;
             return Column(
               children: [
@@ -103,7 +117,7 @@ class _CartViewState extends State<CartView> {
                             color: black26,
                             fontSize: 17,
                             fontWeight: FontWeight.w600)),
-                    Text('₹${subTotal}',
+                    Text('₹$subTotal',
                         style: const TextStyle(
                             color: black26,
                             fontSize: 17,
@@ -121,7 +135,7 @@ class _CartViewState extends State<CartView> {
                             color: black26,
                             fontSize: 16,
                             fontWeight: FontWeight.w600)),
-                    Text('₹${shippingFee}',
+                    Text('₹$shippingFee',
                         style: const TextStyle(
                             color: black26,
                             fontSize: 16,
@@ -139,7 +153,7 @@ class _CartViewState extends State<CartView> {
                             color: black26,
                             fontSize: 16,
                             fontWeight: FontWeight.w600)),
-                    Text('₹${estimatingTax}',
+                    Text('₹$estimatingTax',
                         style: const TextStyle(
                             color: black26,
                             fontSize: 16,
@@ -168,7 +182,7 @@ class _CartViewState extends State<CartView> {
                         fontSize: 16,
                       ),
                     ),
-                    Text('₹${total}',
+                    Text('₹$total',
                         style: const TextStyle(
                             color: green77,
                             fontSize: 19,
@@ -178,38 +192,61 @@ class _CartViewState extends State<CartView> {
                 const SizedBox(
                   height: 30,
                 ),
-                BlocBuilder<AddressBloc, AddressState>(
-                  builder: (context, state) => InkWell(
-                    onTap: () {
-                      if (state.addressModel!.result.addresses.isEmpty) {
-                        print('empty here');
-                        Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => const CheckoutDetails(
-                            type: AddressNavType.checkout,
-                          ),
-                        ));
-                      } else {
-                        Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => const CheckoutView(),
-                        ));
-                      }
-                    },
-                    child: Container(
-                        alignment: Alignment.center,
-                        width: SizeUtility(context).width,
-                        padding: const EdgeInsets.all(15),
-                        decoration: BoxDecoration(
-                            color: green77.withOpacity(0.16),
-                            borderRadius: BorderRadius.circular(30)),
-                        child: const Text(
-                          'Continue',
-                          style: TextStyle(
-                              color: green77,
-                              fontSize: 20,
-                              fontWeight: FontWeight.w700),
-                        )),
-                  ),
-                ),
+                state.cartLength == 0
+                    ? InkWell(
+                        onTap: () {
+                          Navigator.of(context)
+                              .pushReplacement(MaterialPageRoute(
+                            builder: (context) => ShopTabsView(),
+                          ));
+                        },
+                        child: Container(
+                            alignment: Alignment.center,
+                            width: SizeUtility(context).width,
+                            padding: const EdgeInsets.all(15),
+                            decoration: BoxDecoration(
+                                color: green77,
+                                borderRadius: BorderRadius.circular(30)),
+                            child: const Text(
+                              'Continue Shopping',
+                              style: TextStyle(
+                                  color: whiteClr,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w700),
+                            )),
+                      )
+                    : BlocBuilder<AddressBloc, AddressState>(
+                        builder: (context, state) => InkWell(
+                          onTap: () {
+                            if (state.addressModel!.result.addresses.isEmpty) {
+                              print('empty here');
+                              Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => const CheckoutDetails(
+                                  type: AddressNavType.checkout,
+                                ),
+                              ));
+                            } else {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => const CheckoutView(),
+                              ));
+                            }
+                          },
+                          child: Container(
+                              alignment: Alignment.center,
+                              width: SizeUtility(context).width,
+                              padding: const EdgeInsets.all(15),
+                              decoration: BoxDecoration(
+                                  color: green77.withOpacity(0.16),
+                                  borderRadius: BorderRadius.circular(30)),
+                              child: const Text(
+                                'Continue',
+                                style: TextStyle(
+                                    color: green77,
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.w700),
+                              )),
+                        ),
+                      ),
               ],
             );
           },

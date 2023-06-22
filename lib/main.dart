@@ -27,7 +27,7 @@ void main() async {
     }
   });
   await Hive.initFlutter();
-  await Hive.openBox('authTokenBox');
+  await Hive.openBox('userDetailsBox');
   runApp(MultiBlocProvider(
     providers: [
       BlocProvider(
@@ -52,7 +52,7 @@ void main() async {
 }
 
 class MyApp extends StatelessWidget {
-  final _tokenBox = Hive.box('authTokenBox');
+  final _tokenBox = Hive.box('userDetailsBox');
 
   MyApp({super.key});
 

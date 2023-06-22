@@ -14,8 +14,8 @@ import '../../bloc/logic/shop_bloc/shop_products_bloc.dart';
 import '../filters/filters.dart';
 
 class CategoriesView extends StatefulWidget {
-  final String category;
-  final String subCategory;
+  final String? category;
+  final String? subCategory;
   const CategoriesView(
       {super.key,
       required this.category,
@@ -47,7 +47,7 @@ class _CategoriesViewState extends State<CategoriesView> {
           backgroundColor: Colors.transparent,
           elevation: 0,
           centerTitle: false,
-          title: Text(widget.category,
+          title: Text(widget.category.toString(),
               style: const TextStyle(
                   color: Colors.black, fontWeight: FontWeight.w700)),
           actions: [
@@ -86,7 +86,9 @@ class _CategoriesViewState extends State<CategoriesView> {
                   builder: (context, state) {
                     final products = state.product?.result?.products;
                     final uniqueSubcategories = Set<String>.from(products
-                            ?.map((product) => product.subcategory!.title)
+                            ?.map((product) => product.subcategory?.title)
+                            .where((title) => title != null)
+                            .map((title) => title!)
                             .toList() ??
                         []);
 
@@ -96,76 +98,86 @@ class _CategoriesViewState extends State<CategoriesView> {
                         children: [
                           GestureDetector(
                             onTap: () {
-                              Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => const FiltersView(),
-                              ));
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (context) => const FiltersView(),
+                                ),
+                              );
                             },
                             child: Container(
                               padding: const EdgeInsets.symmetric(
                                   horizontal: 10, vertical: 10),
-                              margin: const EdgeInsets.symmetric(
-                                horizontal: 10,
-                              ),
+                              margin:
+                                  const EdgeInsets.symmetric(horizontal: 10),
                               decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(20),
-                                  color: veryLightGreen),
+                                borderRadius: BorderRadius.circular(20),
+                                color: veryLightGreen,
+                              ),
                               child: const ImageIcon(
-                                  AssetImage('assets/icons/filter.png'),
-                                  color: green77),
+                                AssetImage('assets/icons/filter.png'),
+                                color: green77,
+                              ),
                             ),
                           ),
                           widget.type == FilterType.brand
                               ? const SizedBox()
                               : Row(
                                   mainAxisAlignment: MainAxisAlignment.start,
-                                  children:
-                                      uniqueSubcategories.map((subCategory) {
-                                    final isSelected =
-                                        state.selectedFilter == subCategory;
-                                    return Padding(
-                                      padding: const EdgeInsets.only(
-                                          right: 4, bottom: 4),
-                                      child: Container(
-                                        height: 34,
-                                        decoration: BoxDecoration(
-                                          color:
-                                              isSelected ? green77 : whiteClr,
-                                          borderRadius:
-                                              BorderRadius.circular(30),
-                                          border: Border.all(
-                                            color: isSelected
-                                                ? green77
-                                                : Colors.grey.withOpacity(0.5),
-                                          ),
-                                        ),
-                                        child: FilterChip(
-                                          backgroundColor: whiteClr,
-                                          label: Text(
-                                            subCategory,
-                                            style:
-                                                const TextStyle(fontSize: 17),
-                                          ),
-                                          selected: isSelected,
-                                          onSelected: (value) {
-                                            context.read<CategoryBloc>().add(
-                                                OnSelectFilter(
-                                                    value: subCategory));
-                                          },
-                                          selectedColor: green77,
-                                          checkmarkColor: Colors.white,
-                                          shape: RoundedRectangleBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(30),
-                                          ),
-                                          labelStyle: TextStyle(
-                                            color: isSelected
-                                                ? Colors.white
-                                                : Colors.black,
-                                          ),
-                                        ),
-                                      ),
-                                    );
-                                  }).toList(),
+                                  children: uniqueSubcategories.isEmpty
+                                      ? []
+                                      : uniqueSubcategories.map((subCategory) {
+                                          final isSelected =
+                                              state.selectedFilter ==
+                                                  subCategory;
+                                          return Padding(
+                                            padding: const EdgeInsets.only(
+                                                right: 4, bottom: 4),
+                                            child: Container(
+                                              height: 34,
+                                              decoration: BoxDecoration(
+                                                color: isSelected
+                                                    ? green77
+                                                    : whiteClr,
+                                                borderRadius:
+                                                    BorderRadius.circular(30),
+                                                border: Border.all(
+                                                  color: isSelected
+                                                      ? green77
+                                                      : Colors.grey
+                                                          .withOpacity(0.5),
+                                                ),
+                                              ),
+                                              child: FilterChip(
+                                                backgroundColor: whiteClr,
+                                                label: Text(
+                                                  subCategory,
+                                                  style: const TextStyle(
+                                                      fontSize: 17),
+                                                ),
+                                                selected: isSelected,
+                                                onSelected: (value) {
+                                                  context
+                                                      .read<CategoryBloc>()
+                                                      .add(
+                                                        OnSelectFilter(
+                                                            value: subCategory),
+                                                      );
+                                                },
+                                                selectedColor: green77,
+                                                checkmarkColor: Colors.white,
+                                                shape: RoundedRectangleBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(30),
+                                                ),
+                                                labelStyle: TextStyle(
+                                                  color: isSelected
+                                                      ? Colors.white
+                                                      : Colors.black,
+                                                ),
+                                              ),
+                                            ),
+                                          );
+                                        }).toList(),
                                 ),
                         ],
                       ),
@@ -181,7 +193,7 @@ class _CategoriesViewState extends State<CategoriesView> {
                       return const SizedBox();
                     }
 
-                    final banners = state.shopBanner?.result!.banners;
+                    final banners = state.shopBanner?.result?.banners;
                     return Column(
                       children: [
                         CarouselSlider(
@@ -311,6 +323,7 @@ class _CategoriesViewState extends State<CategoriesView> {
                                         );
                                       },
                                       child: ShopProductWidget(
+                                        isWishlisted: false,
                                         brand: data.brand!.name.toString(),
                                         productId: data.id,
                                         title: data.title,

@@ -21,7 +21,7 @@ class _ShopByBrandViewState extends State<ShopByBrandView> {
   void initState() {
     BlocProvider.of<ShopProductsBloc>(context)
         .add(FetchShopByBrandProducts(brandName: widget.brandName));
-    BlocProvider.of<ShopProductsBloc>(context).add(FetchShopBanners());
+    BlocProvider.of<ShopProductsBloc>(context).add(const FetchShopBanners());
 
     super.initState();
   }
@@ -36,10 +36,11 @@ class _ShopByBrandViewState extends State<ShopByBrandView> {
         elevation: 0,
         centerTitle: false,
         title: Text(widget.brandName,
-            style: TextStyle(color: Colors.black, fontWeight: FontWeight.w700)),
-        actions: [
+            style: const TextStyle(
+                color: Colors.black, fontWeight: FontWeight.w700)),
+        actions: const [
           Padding(
-            padding: const EdgeInsets.only(left: 10),
+            padding: EdgeInsets.only(left: 10),
             child: ImageIcon(
               AssetImage(
                 'assets/icons/search.png',
@@ -48,7 +49,7 @@ class _ShopByBrandViewState extends State<ShopByBrandView> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 20, right: 20),
+            padding: EdgeInsets.only(left: 20, right: 20),
             child: ImageIcon(
               AssetImage(
                 'assets/icons/cart.png',
@@ -57,7 +58,7 @@ class _ShopByBrandViewState extends State<ShopByBrandView> {
             ),
           ),
         ],
-        leading: BackButton(
+        leading: const BackButton(
           color: Colors.black,
         ),
       ),
@@ -66,14 +67,14 @@ class _ShopByBrandViewState extends State<ShopByBrandView> {
           padding: const EdgeInsets.symmetric(horizontal: 25),
           child: Column(
             children: [
-              FiltersRowWidgets(),
-              SizedBox(
+              const FiltersRowWidgets(),
+              const SizedBox(
                 height: 20,
               ),
               BlocBuilder<ShopProductsBloc, ShopProductsState>(
                 builder: (context, state) {
                   if (state.shopBanner == null) {
-                    return SizedBox();
+                    return const SizedBox();
                   }
 
                   final banners = state.shopBanner?.result!.banners;
@@ -107,7 +108,7 @@ class _ShopByBrandViewState extends State<ShopByBrandView> {
                           },
                         ),
                       ),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: banners!.map((banner) {
@@ -115,7 +116,7 @@ class _ShopByBrandViewState extends State<ShopByBrandView> {
                           return Container(
                             width: _currentIndex == index ? 24 : 6,
                             height: 6,
-                            margin: EdgeInsets.symmetric(horizontal: 4),
+                            margin: const EdgeInsets.symmetric(horizontal: 4),
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(30),
                               color: _currentIndex == index
@@ -130,32 +131,33 @@ class _ShopByBrandViewState extends State<ShopByBrandView> {
                 },
               ),
               BlocBuilder<ShopProductsBloc, ShopProductsState>(
-                builder: (context, state) => state.isLoading
-                    ? Center(
-                        child: CircularProgressIndicator(
-                          color: green77,
-                        ),
-                      )
-                    : SingleChildScrollView(
-                        child: Column(
-                        children: [
-                          const SizedBox(
-                            height: 20,
+                builder: (context, state) {
+                  return state.isLoading
+                      ? const Center(
+                          child: CircularProgressIndicator(
+                            color: green77,
                           ),
-                          const SizedBox(
-                            height: 30,
-                          ),
-                          state.brandProduct?.products == null
-                              ? Center(
-                                  child: CircularProgressIndicator(
-                                    color: green77,
-                                  ),
-                                )
-                              : SizedBox(
+                        )
+                      : state.brandProduct!.result!.products!.isEmpty
+                          ? const Padding(
+                              padding: EdgeInsets.only(top: 100),
+                              child: Text('product is empty'),
+                            )
+                          : SingleChildScrollView(
+                              child: Column(
+                              children: [
+                                const SizedBox(
+                                  height: 20,
+                                ),
+                                const SizedBox(
+                                  height: 30,
+                                ),
+                                SizedBox(
                                   height: SizeUtility(context).height,
                                   child: GridView.builder(
-                                    itemCount:
-                                        state.brandProduct!.products.length,
+                                    itemCount: state.brandProduct?.result
+                                            ?.products!.length ??
+                                        0,
                                     gridDelegate:
                                         const SliverGridDelegateWithFixedCrossAxisCount(
                                             crossAxisCount: 2,
@@ -163,8 +165,8 @@ class _ShopByBrandViewState extends State<ShopByBrandView> {
                                             mainAxisSpacing: 20,
                                             mainAxisExtent: 350),
                                     itemBuilder: (context, index) {
-                                      final data =
-                                          state.brandProduct!.products[index];
+                                      final data = state.brandProduct?.result
+                                          ?.products?[index];
                                       return GestureDetector(
                                           onTap: () {
                                             Navigator.of(context)
@@ -176,19 +178,24 @@ class _ShopByBrandViewState extends State<ShopByBrandView> {
                                             ));
                                           },
                                           child: ShopProductWidget(
-                                              brand: data.brand.name.toString(),
-                                              productId: data.id,
-                                              image: data.colors[0].images[0],
-                                              title: data.title,
-                                              actualPrice: data.actualPrice,
-                                              discount: data.discount,
+                                              isWishlisted: state.isWishListed,
+                                              brand:
+                                                  data?.brand?.name.toString(),
+                                              productId: data?.id,
+                                              image:
+                                                  data?.colors![0].images![0],
+                                              title: data?.title,
+                                              actualPrice:
+                                                  data?.actualPrice ?? 0,
+                                              discount: data?.discount ?? 0,
                                               discountPrice:
-                                                  data.discountPrice));
+                                                  data?.discountPrice ?? 0));
                                     },
                                   ),
                                 ),
-                        ],
-                      )),
+                              ],
+                            ));
+                },
               ),
             ],
           ),

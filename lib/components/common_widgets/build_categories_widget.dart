@@ -22,15 +22,16 @@ class BuildCategoryWidget extends StatelessWidget {
       child: Column(
         children: [
           CircleAvatar(
-              child: Image.network(image, height: 35),
               backgroundColor: Colors.white,
-              radius: 33),
-          SizedBox(
+              radius: 33,
+              child: Image.network(image, height: 35)),
+          const SizedBox(
             height: 10,
           ),
           Text(
             text,
-            style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
+            style: const TextStyle(
+                color: Colors.white, fontWeight: FontWeight.w600),
           ),
         ],
       ),

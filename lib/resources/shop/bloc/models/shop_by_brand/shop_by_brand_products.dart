@@ -1,197 +1,115 @@
-class ShopBrandProductModel {
-  final int status;
-  final String message;
-  final String error;
-  final List<BrandProduct> products;
+import 'package:freezed_annotation/freezed_annotation.dart';
+part 'shop_by_brand_products.freezed.dart';
+part 'shop_by_brand_products.g.dart';
 
-  ShopBrandProductModel({
-    required this.status,
-    required this.message,
-    required this.error,
-    required this.products,
-  });
+@freezed
+class ShopBrandProductModel with _$ShopBrandProductModel {
+  const factory ShopBrandProductModel({
+    int? status,
+    String? message,
+    String? error,
+    ResultsofShopBrand? result,
+  }) = _ShopBrandProductModel;
 
-  factory ShopBrandProductModel.fromJson(Map<String, dynamic> json) {
-    final List<dynamic> productListJson = json['result']['products'];
-    final List<BrandProduct> products = productListJson
-        .map((productJson) => BrandProduct.fromJson(productJson))
-        .toList();
-    return ShopBrandProductModel(
-      status: json['status'],
-      message: json['message'],
-      error: json['error'],
-      products: products,
-    );
-  }
+  factory ShopBrandProductModel.fromJson(Map<String, dynamic> json) =>
+      _$ShopBrandProductModelFromJson(json);
 }
 
-class BrandProduct {
-  final String id;
-  final String title;
-  final Brand brand;
-  final String description;
-  final String otherInfo;
-  final Category category;
-  final Subcategory subcategory;
-  final int actualPrice;
-  final int discountPrice;
-  final int discount;
-  final List<ColorOption> colors;
-  final List<SizeOption> size;
-  final List<Meta> meta;
-  final List<String> keywords;
-  final String createdAt;
-  final String updatedAt;
+@freezed
+class ResultsofShopBrand with _$ResultsofShopBrand {
+  const factory ResultsofShopBrand({
+    List<BrandProduct>? products,
+  }) = _ResultsofShopBrand;
 
-  BrandProduct({
-    required this.id,
-    required this.title,
-    required this.brand,
-    required this.description,
-    required this.otherInfo,
-    required this.category,
-    required this.subcategory,
-    required this.actualPrice,
-    required this.discountPrice,
-    required this.discount,
-    required this.colors,
-    required this.size,
-    required this.meta,
-    required this.keywords,
-    required this.createdAt,
-    required this.updatedAt,
-  });
-
-  factory BrandProduct.fromJson(Map<String, dynamic> json) {
-    return BrandProduct(
-      id: json['_id'],
-      title: json['title'],
-      brand: Brand.fromJson(json['brand']),
-      description: json['description'],
-      otherInfo: json['otherInfo'],
-      category: Category.fromJson(json['category']),
-      subcategory: Subcategory.fromJson(json['subcategory']),
-      actualPrice: json['actualPrice'],
-      discountPrice: json['discountPrice'],
-      discount: json['discount'],
-      colors: (json['colors'] as List<dynamic>)
-          .map((colorJson) => ColorOption.fromJson(colorJson))
-          .toList(),
-      size: (json['size'] as List<dynamic>)
-          .map((sizeJson) => SizeOption.fromJson(sizeJson))
-          .toList(),
-      meta: (json['meta'] as List<dynamic>)
-          .map((metaJson) => Meta.fromJson(metaJson))
-          .toList(),
-      keywords: (json['keywords'] as List<dynamic>)
-          .map((keyword) => keyword.toString())
-          .toList(),
-      createdAt: json['createdAt'],
-      updatedAt: json['updatedAt'],
-    );
-  }
+  factory ResultsofShopBrand.fromJson(Map<String, dynamic> json) =>
+      _$ResultsofShopBrandFromJson(json);
 }
 
-class Brand {
-  final String id;
-  final String name;
+@freezed
+class BrandProduct with _$BrandProduct {
+  const factory BrandProduct({
+    String? id,
+    String? title,
+    Brand? brand,
+    String? description,
+    String? otherInfo,
+    Category? category,
+    Subcategory? subcategory,
+    int? actualPrice,
+    int? discountPrice,
+    int? discount,
+    List<ColorOption>? colors,
+    List<SizeOption>? size,
+    List<Meta>? meta,
+    List<String>? keywords,
+    String? createdAt,
+    String? updatedAt,
+  }) = _BrandProduct;
 
-  Brand({
-    required this.id,
-    required this.name,
-  });
-
-  factory Brand.fromJson(Map<String, dynamic> json) {
-    return Brand(
-      id: json['_id'],
-      name: json['name'],
-    );
-  }
+  factory BrandProduct.fromJson(Map<String, dynamic> json) =>
+      _$BrandProductFromJson(json);
 }
 
-class Category {
-  final String id;
-  final String title;
+@freezed
+class Brand with _$Brand {
+  const factory Brand({
+    String? id,
+    String? name,
+  }) = _Brand;
 
-  Category({
-    required this.id,
-    required this.title,
-  });
-
-  factory Category.fromJson(Map<String, dynamic> json) {
-    return Category(
-      id: json['_id'],
-      title: json['title'],
-    );
-  }
+  factory Brand.fromJson(Map<String, dynamic> json) => _$BrandFromJson(json);
 }
 
-class Subcategory {
-  final String id;
-  final String title;
+@freezed
+class Category with _$Category {
+  const factory Category({
+    String? id,
+    String? title,
+  }) = _Category;
 
-  Subcategory({
-    required this.id,
-    required this.title,
-  });
-
-  factory Subcategory.fromJson(Map<String, dynamic> json) {
-    return Subcategory(
-      id: json['_id'],
-      title: json['title'],
-    );
-  }
+  factory Category.fromJson(Map<String, dynamic> json) =>
+      _$CategoryFromJson(json);
 }
 
-class ColorOption {
-  final String text;
-  final List<String> images;
+@freezed
+class Subcategory with _$Subcategory {
+  const factory Subcategory({
+    String? id,
+    String? title,
+  }) = _Subcategory;
 
-  ColorOption({
-    required this.text,
-    required this.images,
-  });
-
-  factory ColorOption.fromJson(Map<String, dynamic> json) {
-    return ColorOption(
-      text: json['text'],
-      images: (json['images'] as List<dynamic>)
-          .map((image) => image.toString())
-          .toList(),
-    );
-  }
+  factory Subcategory.fromJson(Map<String, dynamic> json) =>
+      _$SubcategoryFromJson(json);
 }
 
-class SizeOption {
-  final String value;
-  final int? price;
+@freezed
+class ColorOption with _$ColorOption {
+  const factory ColorOption({
+    String? text,
+    List<String>? images,
+  }) = _ColorOption;
 
-  SizeOption({
-    required this.value,
-    required this.price,
-  });
-
-  factory SizeOption.fromJson(Map<String, dynamic> json) {
-    return SizeOption(
-      value: json['value'],
-      price: json['price'],
-    );
-  }
+  factory ColorOption.fromJson(Map<String, dynamic> json) =>
+      _$ColorOptionFromJson(json);
 }
 
-class Meta {
-  final String key;
-  final String value;
+@freezed
+class SizeOption with _$SizeOption {
+  const factory SizeOption({
+    String? value,
+    int? price,
+  }) = _SizeOption;
 
-  Meta({
-    required this.key,
-    required this.value,
-  });
+  factory SizeOption.fromJson(Map<String, dynamic> json) =>
+      _$SizeOptionFromJson(json);
+}
 
-  factory Meta.fromJson(Map<String, dynamic> json) {
-    return Meta(
-      key: json['key'],
-      value: json['value'],
-    );
-  }
+@freezed
+class Meta with _$Meta {
+  const factory Meta({
+    String? key,
+    String? value,
+  }) = _Meta;
+
+  factory Meta.fromJson(Map<String, dynamic> json) => _$MetaFromJson(json);
 }

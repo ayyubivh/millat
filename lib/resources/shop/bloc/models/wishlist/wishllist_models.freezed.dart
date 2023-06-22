@@ -20,10 +20,10 @@ WishlistResponse _$WishlistResponseFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$WishlistResponse {
-  int get status => throw _privateConstructorUsedError;
-  String get message => throw _privateConstructorUsedError;
-  String get error => throw _privateConstructorUsedError;
-  WishlistResult get result => throw _privateConstructorUsedError;
+  int? get status => throw _privateConstructorUsedError;
+  String? get message => throw _privateConstructorUsedError;
+  String? get error => throw _privateConstructorUsedError;
+  WishlistResult? get result => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -37,9 +37,10 @@ abstract class $WishlistResponseCopyWith<$Res> {
           WishlistResponse value, $Res Function(WishlistResponse) then) =
       _$WishlistResponseCopyWithImpl<$Res, WishlistResponse>;
   @useResult
-  $Res call({int status, String message, String error, WishlistResult result});
+  $Res call(
+      {int? status, String? message, String? error, WishlistResult? result});
 
-  $WishlistResultCopyWith<$Res> get result;
+  $WishlistResultCopyWith<$Res>? get result;
 }
 
 /// @nodoc
@@ -55,35 +56,39 @@ class _$WishlistResponseCopyWithImpl<$Res, $Val extends WishlistResponse>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? status = null,
-    Object? message = null,
-    Object? error = null,
-    Object? result = null,
+    Object? status = freezed,
+    Object? message = freezed,
+    Object? error = freezed,
+    Object? result = freezed,
   }) {
     return _then(_value.copyWith(
-      status: null == status
+      status: freezed == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as int,
-      message: null == message
+              as int?,
+      message: freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
-              as String,
-      error: null == error
+              as String?,
+      error: freezed == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
-              as String,
-      result: null == result
+              as String?,
+      result: freezed == result
           ? _value.result
           : result // ignore: cast_nullable_to_non_nullable
-              as WishlistResult,
+              as WishlistResult?,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $WishlistResultCopyWith<$Res> get result {
-    return $WishlistResultCopyWith<$Res>(_value.result, (value) {
+  $WishlistResultCopyWith<$Res>? get result {
+    if (_value.result == null) {
+      return null;
+    }
+
+    return $WishlistResultCopyWith<$Res>(_value.result!, (value) {
       return _then(_value.copyWith(result: value) as $Val);
     });
   }
@@ -97,10 +102,11 @@ abstract class _$$_WishlistResponseCopyWith<$Res>
       __$$_WishlistResponseCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int status, String message, String error, WishlistResult result});
+  $Res call(
+      {int? status, String? message, String? error, WishlistResult? result});
 
   @override
-  $WishlistResultCopyWith<$Res> get result;
+  $WishlistResultCopyWith<$Res>? get result;
 }
 
 /// @nodoc
@@ -114,28 +120,28 @@ class __$$_WishlistResponseCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? status = null,
-    Object? message = null,
-    Object? error = null,
-    Object? result = null,
+    Object? status = freezed,
+    Object? message = freezed,
+    Object? error = freezed,
+    Object? result = freezed,
   }) {
     return _then(_$_WishlistResponse(
-      status: null == status
+      status: freezed == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as int,
-      message: null == message
+              as int?,
+      message: freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
-              as String,
-      error: null == error
+              as String?,
+      error: freezed == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
-              as String,
-      result: null == result
+              as String?,
+      result: freezed == result
           ? _value.result
           : result // ignore: cast_nullable_to_non_nullable
-              as WishlistResult,
+              as WishlistResult?,
     ));
   }
 }
@@ -153,13 +159,13 @@ class _$_WishlistResponse implements _WishlistResponse {
       _$$_WishlistResponseFromJson(json);
 
   @override
-  final int status;
+  final int? status;
   @override
-  final String message;
+  final String? message;
   @override
-  final String error;
+  final String? error;
   @override
-  final WishlistResult result;
+  final WishlistResult? result;
 
   @override
   String toString() {
@@ -197,22 +203,22 @@ class _$_WishlistResponse implements _WishlistResponse {
 
 abstract class _WishlistResponse implements WishlistResponse {
   factory _WishlistResponse(
-      {required final int status,
-      required final String message,
-      required final String error,
-      required final WishlistResult result}) = _$_WishlistResponse;
+      {required final int? status,
+      required final String? message,
+      required final String? error,
+      required final WishlistResult? result}) = _$_WishlistResponse;
 
   factory _WishlistResponse.fromJson(Map<String, dynamic> json) =
       _$_WishlistResponse.fromJson;
 
   @override
-  int get status;
+  int? get status;
   @override
-  String get message;
+  String? get message;
   @override
-  String get error;
+  String? get error;
   @override
-  WishlistResult get result;
+  WishlistResult? get result;
   @override
   @JsonKey(ignore: true)
   _$$_WishlistResponseCopyWith<_$_WishlistResponse> get copyWith =>
@@ -614,8 +620,8 @@ mixin _$Product {
   String? get brand => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
   String? get otherInfo => throw _privateConstructorUsedError;
-  Category get category => throw _privateConstructorUsedError;
-  Subcategory get subcategory => throw _privateConstructorUsedError;
+  Category? get category => throw _privateConstructorUsedError;
+  Subcategory? get subcategory => throw _privateConstructorUsedError;
   int get actualPrice => throw _privateConstructorUsedError;
   int get discountPrice => throw _privateConstructorUsedError;
   int get discount => throw _privateConstructorUsedError;
@@ -642,8 +648,8 @@ abstract class $ProductCopyWith<$Res> {
       String? brand,
       String? description,
       String? otherInfo,
-      Category category,
-      Subcategory subcategory,
+      Category? category,
+      Subcategory? subcategory,
       int actualPrice,
       int discountPrice,
       int discount,
@@ -654,8 +660,8 @@ abstract class $ProductCopyWith<$Res> {
       DateTime createdAt,
       DateTime updatedAt});
 
-  $CategoryCopyWith<$Res> get category;
-  $SubcategoryCopyWith<$Res> get subcategory;
+  $CategoryCopyWith<$Res>? get category;
+  $SubcategoryCopyWith<$Res>? get subcategory;
 }
 
 /// @nodoc
@@ -676,8 +682,8 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
     Object? brand = freezed,
     Object? description = freezed,
     Object? otherInfo = freezed,
-    Object? category = null,
-    Object? subcategory = null,
+    Object? category = freezed,
+    Object? subcategory = freezed,
     Object? actualPrice = null,
     Object? discountPrice = null,
     Object? discount = null,
@@ -709,14 +715,14 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
           ? _value.otherInfo
           : otherInfo // ignore: cast_nullable_to_non_nullable
               as String?,
-      category: null == category
+      category: freezed == category
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
-              as Category,
-      subcategory: null == subcategory
+              as Category?,
+      subcategory: freezed == subcategory
           ? _value.subcategory
           : subcategory // ignore: cast_nullable_to_non_nullable
-              as Subcategory,
+              as Subcategory?,
       actualPrice: null == actualPrice
           ? _value.actualPrice
           : actualPrice // ignore: cast_nullable_to_non_nullable
@@ -758,16 +764,24 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
 
   @override
   @pragma('vm:prefer-inline')
-  $CategoryCopyWith<$Res> get category {
-    return $CategoryCopyWith<$Res>(_value.category, (value) {
+  $CategoryCopyWith<$Res>? get category {
+    if (_value.category == null) {
+      return null;
+    }
+
+    return $CategoryCopyWith<$Res>(_value.category!, (value) {
       return _then(_value.copyWith(category: value) as $Val);
     });
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $SubcategoryCopyWith<$Res> get subcategory {
-    return $SubcategoryCopyWith<$Res>(_value.subcategory, (value) {
+  $SubcategoryCopyWith<$Res>? get subcategory {
+    if (_value.subcategory == null) {
+      return null;
+    }
+
+    return $SubcategoryCopyWith<$Res>(_value.subcategory!, (value) {
       return _then(_value.copyWith(subcategory: value) as $Val);
     });
   }
@@ -786,8 +800,8 @@ abstract class _$$_ProductCopyWith<$Res> implements $ProductCopyWith<$Res> {
       String? brand,
       String? description,
       String? otherInfo,
-      Category category,
-      Subcategory subcategory,
+      Category? category,
+      Subcategory? subcategory,
       int actualPrice,
       int discountPrice,
       int discount,
@@ -799,9 +813,9 @@ abstract class _$$_ProductCopyWith<$Res> implements $ProductCopyWith<$Res> {
       DateTime updatedAt});
 
   @override
-  $CategoryCopyWith<$Res> get category;
+  $CategoryCopyWith<$Res>? get category;
   @override
-  $SubcategoryCopyWith<$Res> get subcategory;
+  $SubcategoryCopyWith<$Res>? get subcategory;
 }
 
 /// @nodoc
@@ -819,8 +833,8 @@ class __$$_ProductCopyWithImpl<$Res>
     Object? brand = freezed,
     Object? description = freezed,
     Object? otherInfo = freezed,
-    Object? category = null,
-    Object? subcategory = null,
+    Object? category = freezed,
+    Object? subcategory = freezed,
     Object? actualPrice = null,
     Object? discountPrice = null,
     Object? discount = null,
@@ -852,14 +866,14 @@ class __$$_ProductCopyWithImpl<$Res>
           ? _value.otherInfo
           : otherInfo // ignore: cast_nullable_to_non_nullable
               as String?,
-      category: null == category
+      category: freezed == category
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
-              as Category,
-      subcategory: null == subcategory
+              as Category?,
+      subcategory: freezed == subcategory
           ? _value.subcategory
           : subcategory // ignore: cast_nullable_to_non_nullable
-              as Subcategory,
+              as Subcategory?,
       actualPrice: null == actualPrice
           ? _value.actualPrice
           : actualPrice // ignore: cast_nullable_to_non_nullable
@@ -940,9 +954,9 @@ class _$_Product implements _Product {
   @override
   final String? otherInfo;
   @override
-  final Category category;
+  final Category? category;
   @override
-  final Subcategory subcategory;
+  final Subcategory? subcategory;
   @override
   final int actualPrice;
   @override
@@ -1065,8 +1079,8 @@ abstract class _Product implements Product {
       final String? brand,
       final String? description,
       final String? otherInfo,
-      required final Category category,
-      required final Subcategory subcategory,
+      required final Category? category,
+      required final Subcategory? subcategory,
       required final int actualPrice,
       required final int discountPrice,
       required final int discount,
@@ -1091,9 +1105,9 @@ abstract class _Product implements Product {
   @override
   String? get otherInfo;
   @override
-  Category get category;
+  Category? get category;
   @override
-  Subcategory get subcategory;
+  Subcategory? get subcategory;
   @override
   int get actualPrice;
   @override

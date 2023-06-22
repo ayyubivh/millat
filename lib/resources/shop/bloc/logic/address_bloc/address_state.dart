@@ -9,13 +9,14 @@ class AddressState with _$AddressState {
     required int? selectedIndex,
     required String? addressId,
     required AddressIdModel? addressIdModel,
+    required bool isLoading,
   }) = _Initial;
-  factory AddressState.initial() => AddressState(
-        successMessage: "",
-        failMessage: "",
-        addressModel: null,
-        selectedIndex: null,
-        addressId: null,
-        addressIdModel: null,
-      );
+  factory AddressState.initial() => const AddressState(
+      successMessage: "",
+      failMessage: "",
+      addressModel: null,
+      selectedIndex: null,
+      addressId: null,
+      addressIdModel: null,
+      isLoading: false);
 }

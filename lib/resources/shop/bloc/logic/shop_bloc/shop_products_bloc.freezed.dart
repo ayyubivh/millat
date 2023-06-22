@@ -2686,12 +2686,13 @@ mixin _$ShopProductsState {
   bool get articleLoading => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
   ShopBrandModel? get shopBrandModel => throw _privateConstructorUsedError;
-  Wishlist? get wishList => throw _privateConstructorUsedError;
+  WishlistResponse? get wishList => throw _privateConstructorUsedError;
   String? get wishListMessage => throw _privateConstructorUsedError;
   Set<String>? get wishListItems => throw _privateConstructorUsedError;
   ProductModel? get searchProducts => throw _privateConstructorUsedError;
   ShopBrandProductModel? get brandProduct => throw _privateConstructorUsedError;
   int get index => throw _privateConstructorUsedError;
+  bool get isWishListed => throw _privateConstructorUsedError;
   String get errorMessage => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -2720,12 +2721,13 @@ abstract class $ShopProductsStateCopyWith<$Res> {
       bool articleLoading,
       bool isLoading,
       ShopBrandModel? shopBrandModel,
-      Wishlist? wishList,
+      WishlistResponse? wishList,
       String? wishListMessage,
       Set<String>? wishListItems,
       ProductModel? searchProducts,
       ShopBrandProductModel? brandProduct,
       int index,
+      bool isWishListed,
       String errorMessage});
 
   $ShopProductsCopyWith<$Res>? get flashSaleproducts;
@@ -2735,8 +2737,9 @@ abstract class $ShopProductsStateCopyWith<$Res> {
   $BannersModelCopyWith<$Res>? get shopBanner;
   $ArticleModelCopyWith<$Res>? get articles;
   $ShopBrandModelCopyWith<$Res>? get shopBrandModel;
-  $WishlistCopyWith<$Res>? get wishList;
+  $WishlistResponseCopyWith<$Res>? get wishList;
   $ProductModelCopyWith<$Res>? get searchProducts;
+  $ShopBrandProductModelCopyWith<$Res>? get brandProduct;
 }
 
 /// @nodoc
@@ -2772,6 +2775,7 @@ class _$ShopProductsStateCopyWithImpl<$Res, $Val extends ShopProductsState>
     Object? searchProducts = freezed,
     Object? brandProduct = freezed,
     Object? index = null,
+    Object? isWishListed = null,
     Object? errorMessage = null,
   }) {
     return _then(_value.copyWith(
@@ -2834,7 +2838,7 @@ class _$ShopProductsStateCopyWithImpl<$Res, $Val extends ShopProductsState>
       wishList: freezed == wishList
           ? _value.wishList
           : wishList // ignore: cast_nullable_to_non_nullable
-              as Wishlist?,
+              as WishlistResponse?,
       wishListMessage: freezed == wishListMessage
           ? _value.wishListMessage
           : wishListMessage // ignore: cast_nullable_to_non_nullable
@@ -2855,6 +2859,10 @@ class _$ShopProductsStateCopyWithImpl<$Res, $Val extends ShopProductsState>
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
               as int,
+      isWishListed: null == isWishListed
+          ? _value.isWishListed
+          : isWishListed // ignore: cast_nullable_to_non_nullable
+              as bool,
       errorMessage: null == errorMessage
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
@@ -2948,12 +2956,12 @@ class _$ShopProductsStateCopyWithImpl<$Res, $Val extends ShopProductsState>
 
   @override
   @pragma('vm:prefer-inline')
-  $WishlistCopyWith<$Res>? get wishList {
+  $WishlistResponseCopyWith<$Res>? get wishList {
     if (_value.wishList == null) {
       return null;
     }
 
-    return $WishlistCopyWith<$Res>(_value.wishList!, (value) {
+    return $WishlistResponseCopyWith<$Res>(_value.wishList!, (value) {
       return _then(_value.copyWith(wishList: value) as $Val);
     });
   }
@@ -2967,6 +2975,18 @@ class _$ShopProductsStateCopyWithImpl<$Res, $Val extends ShopProductsState>
 
     return $ProductModelCopyWith<$Res>(_value.searchProducts!, (value) {
       return _then(_value.copyWith(searchProducts: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ShopBrandProductModelCopyWith<$Res>? get brandProduct {
+    if (_value.brandProduct == null) {
+      return null;
+    }
+
+    return $ShopBrandProductModelCopyWith<$Res>(_value.brandProduct!, (value) {
+      return _then(_value.copyWith(brandProduct: value) as $Val);
     });
   }
 }
@@ -2994,12 +3014,13 @@ abstract class _$$_InitialCopyWith<$Res>
       bool articleLoading,
       bool isLoading,
       ShopBrandModel? shopBrandModel,
-      Wishlist? wishList,
+      WishlistResponse? wishList,
       String? wishListMessage,
       Set<String>? wishListItems,
       ProductModel? searchProducts,
       ShopBrandProductModel? brandProduct,
       int index,
+      bool isWishListed,
       String errorMessage});
 
   @override
@@ -3017,9 +3038,11 @@ abstract class _$$_InitialCopyWith<$Res>
   @override
   $ShopBrandModelCopyWith<$Res>? get shopBrandModel;
   @override
-  $WishlistCopyWith<$Res>? get wishList;
+  $WishlistResponseCopyWith<$Res>? get wishList;
   @override
   $ProductModelCopyWith<$Res>? get searchProducts;
+  @override
+  $ShopBrandProductModelCopyWith<$Res>? get brandProduct;
 }
 
 /// @nodoc
@@ -3052,6 +3075,7 @@ class __$$_InitialCopyWithImpl<$Res>
     Object? searchProducts = freezed,
     Object? brandProduct = freezed,
     Object? index = null,
+    Object? isWishListed = null,
     Object? errorMessage = null,
   }) {
     return _then(_$_Initial(
@@ -3114,7 +3138,7 @@ class __$$_InitialCopyWithImpl<$Res>
       wishList: freezed == wishList
           ? _value.wishList
           : wishList // ignore: cast_nullable_to_non_nullable
-              as Wishlist?,
+              as WishlistResponse?,
       wishListMessage: freezed == wishListMessage
           ? _value.wishListMessage
           : wishListMessage // ignore: cast_nullable_to_non_nullable
@@ -3135,6 +3159,10 @@ class __$$_InitialCopyWithImpl<$Res>
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
               as int,
+      isWishListed: null == isWishListed
+          ? _value.isWishListed
+          : isWishListed // ignore: cast_nullable_to_non_nullable
+              as bool,
       errorMessage: null == errorMessage
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
@@ -3167,6 +3195,7 @@ class _$_Initial implements _Initial {
       required this.searchProducts,
       required this.brandProduct,
       required this.index,
+      required this.isWishListed,
       required this.errorMessage})
       : _wishListItems = wishListItems;
 
@@ -3199,7 +3228,7 @@ class _$_Initial implements _Initial {
   @override
   final ShopBrandModel? shopBrandModel;
   @override
-  final Wishlist? wishList;
+  final WishlistResponse? wishList;
   @override
   final String? wishListMessage;
   final Set<String>? _wishListItems;
@@ -3219,11 +3248,13 @@ class _$_Initial implements _Initial {
   @override
   final int index;
   @override
+  final bool isWishListed;
+  @override
   final String errorMessage;
 
   @override
   String toString() {
-    return 'ShopProductsState(flashSaleproducts: $flashSaleproducts, flashSaleLoading: $flashSaleLoading, popularProducts: $popularProducts, popularProductLoading: $popularProductLoading, recentProducts: $recentProducts, recentProductLoading: $recentProductLoading, homeBanner: $homeBanner, bannersLoading: $bannersLoading, shopBanner: $shopBanner, shopBannerLoading: $shopBannerLoading, articles: $articles, articleLoading: $articleLoading, isLoading: $isLoading, shopBrandModel: $shopBrandModel, wishList: $wishList, wishListMessage: $wishListMessage, wishListItems: $wishListItems, searchProducts: $searchProducts, brandProduct: $brandProduct, index: $index, errorMessage: $errorMessage)';
+    return 'ShopProductsState(flashSaleproducts: $flashSaleproducts, flashSaleLoading: $flashSaleLoading, popularProducts: $popularProducts, popularProductLoading: $popularProductLoading, recentProducts: $recentProducts, recentProductLoading: $recentProductLoading, homeBanner: $homeBanner, bannersLoading: $bannersLoading, shopBanner: $shopBanner, shopBannerLoading: $shopBannerLoading, articles: $articles, articleLoading: $articleLoading, isLoading: $isLoading, shopBrandModel: $shopBrandModel, wishList: $wishList, wishListMessage: $wishListMessage, wishListItems: $wishListItems, searchProducts: $searchProducts, brandProduct: $brandProduct, index: $index, isWishListed: $isWishListed, errorMessage: $errorMessage)';
   }
 
   @override
@@ -3270,6 +3301,8 @@ class _$_Initial implements _Initial {
             (identical(other.brandProduct, brandProduct) ||
                 other.brandProduct == brandProduct) &&
             (identical(other.index, index) || other.index == index) &&
+            (identical(other.isWishListed, isWishListed) ||
+                other.isWishListed == isWishListed) &&
             (identical(other.errorMessage, errorMessage) ||
                 other.errorMessage == errorMessage));
   }
@@ -3297,6 +3330,7 @@ class _$_Initial implements _Initial {
         searchProducts,
         brandProduct,
         index,
+        isWishListed,
         errorMessage
       ]);
 
@@ -3323,12 +3357,13 @@ abstract class _Initial implements ShopProductsState {
       required final bool articleLoading,
       required final bool isLoading,
       required final ShopBrandModel? shopBrandModel,
-      required final Wishlist? wishList,
+      required final WishlistResponse? wishList,
       required final String? wishListMessage,
       required final Set<String>? wishListItems,
       required final ProductModel? searchProducts,
       required final ShopBrandProductModel? brandProduct,
       required final int index,
+      required final bool isWishListed,
       required final String errorMessage}) = _$_Initial;
 
   @override
@@ -3360,7 +3395,7 @@ abstract class _Initial implements ShopProductsState {
   @override
   ShopBrandModel? get shopBrandModel;
   @override
-  Wishlist? get wishList;
+  WishlistResponse? get wishList;
   @override
   String? get wishListMessage;
   @override
@@ -3371,6 +3406,8 @@ abstract class _Initial implements ShopProductsState {
   ShopBrandProductModel? get brandProduct;
   @override
   int get index;
+  @override
+  bool get isWishListed;
   @override
   String get errorMessage;
   @override

@@ -8,14 +8,14 @@ class CategoryService extends HttpServices {
   //Fetching Categories
 
   Future<CategoryModel> fetchCategory() async {
-    final category = 'category';
+    const category = 'category';
     final response = await get(endPoint: category);
 
     if (response.statusCode == 200) {
       try {
         final Map<String, dynamic> data = json.decode(response.body);
         final result = CategoryModel.fromJson(data);
-
+        print('categroy service $result');
         return result;
       } catch (e) {
         print('error on Category API fetch: ${e.toString()}');
@@ -51,7 +51,7 @@ class CategoryService extends HttpServices {
 
   //Fetch Subcategory
   Future<SubCategoryModel> fetchSubCategory() async {
-    final endPoint = "subcategory";
+    const endPoint = "subcategory";
     final response = await get(endPoint: endPoint);
 
     if (response.statusCode == 200) {

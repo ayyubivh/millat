@@ -22,13 +22,20 @@ class VerifyOTPView extends StatefulWidget {
 class _VerifyOTPViewState extends State<VerifyOTPView> {
   final otpController = TextEditingController();
   final focusNode = FocusNode();
-  int seconds = 15;
+  int seconds = 60;
   late Timer timer;
   String? receivedOtp;
+  bool isResendTextGreen = false;
+
   @override
   void initState() {
     super.initState();
     _startTimer();
+    Timer(const Duration(minutes: 1), () {
+      setState(() {
+        isResendTextGreen = true;
+      });
+    });
   }
 
   void _startTimer() {
@@ -135,17 +142,21 @@ class _VerifyOTPViewState extends State<VerifyOTPView> {
                       height: 20,
                     ),
                     RichText(
-                        text: const TextSpan(children: [
+                        text: TextSpan(children: [
                       TextSpan(
                           text: "I didn't received a code! ",
                           style: TextStyle(
-                              color: black133,
+                              color: isResendTextGreen
+                                  ? black133
+                                  : mainColor.withOpacity(0.0),
                               fontSize: 13,
                               fontWeight: FontWeight.w500)),
                       TextSpan(
                           text: 'Please resend',
                           style: TextStyle(
-                              color: mainColor,
+                              color: isResendTextGreen
+                                  ? mainColor
+                                  : mainColor.withOpacity(0.0),
                               fontSize: 13,
                               fontWeight: FontWeight.w500)),
                     ])),
@@ -160,7 +171,6 @@ class _VerifyOTPViewState extends State<VerifyOTPView> {
                     BlocBuilder<AuthBloc, AuthState>(
                       builder: (context, state) {
                         if (state is AuthPhoneNumber) {
-                          print('auth phone number ===== ${state.phoneNumber}');
                           return MainButton(
                             title: 'Verify OTP',
                             onPressed: () {

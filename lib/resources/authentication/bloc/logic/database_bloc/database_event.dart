@@ -6,4 +6,9 @@ class DatabaseEvent with _$DatabaseEvent {
     required String token,
   }) = StoreTokenEvent;
   const factory DatabaseEvent.fetchToken() = FetchToken;
+  const factory DatabaseEvent.storeUserDetails({
+    required String email,
+    required String name,
+  }) = StoreUserDetails;
+  const factory DatabaseEvent.fetchUserDetails() = FetchUserDetails;
 }

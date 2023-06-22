@@ -28,9 +28,8 @@ class _ShopViewState extends State<ShopView> {
   void initState() {
     BlocProvider.of<CategoryBloc>(context)
         .add(const CategoryEvent.fetchCategories());
+    BlocProvider.of<ShopProductsBloc>(context).add(FetchWishList(context));
 
-    BlocProvider.of<ShopProductsBloc>(context)
-        .add(ShopProductsEvent.fetchWishList(context));
     BlocProvider.of<ShopProductsBloc>(context)
         .add(const ShopProductsEvent.fetchFlashSaleProducts());
 
@@ -42,7 +41,7 @@ class _ShopViewState extends State<ShopView> {
     BlocProvider.of<ShopProductsBloc>(context)
         .add(const ShopProductsEvent.fetchShopByBrand());
     BlocProvider.of<ShopProductsBloc>(context)
-        .add(const ShopProductsEvent.fetchHomeBanners());
+        .add(const ShopProductsEvent.fetchShopBanners());
 
     BlocProvider.of<ShopProductsBloc>(context)
         .add(const ShopProductsEvent.fetchArticles());
@@ -171,7 +170,7 @@ class _ShopViewState extends State<ShopView> {
                       return SizedBox(
                         height: 90,
                         child: ListView.builder(
-                          itemCount: 4,
+                          itemCount: state.category?.result?.category?.length,
                           itemExtent: 100,
                           scrollDirection: Axis.horizontal,
                           itemBuilder: (context, index) {
@@ -202,11 +201,11 @@ class _ShopViewState extends State<ShopView> {
                 children: [
                   BlocBuilder<ShopProductsBloc, ShopProductsState>(
                     builder: (context, state) {
-                      if (state.homeBanner == null) {
+                      if (state.shopBanner == null) {
                         return const SizedBox();
                       }
 
-                      final banners = state.homeBanner?.result!.banners;
+                      final banners = state.shopBanner?.result!.banners;
                       return Column(
                         children: [
                           CarouselSlider(
@@ -331,6 +330,7 @@ class _ShopViewState extends State<ShopView> {
                                         padding:
                                             const EdgeInsets.only(right: 15),
                                         child: ShopProductWidget(
+                                            isWishlisted: state.isWishListed,
                                             brand: data!.brand!.name.toString(),
                                             productId: data.id,
                                             image: data.colors![0].images![0],
@@ -410,6 +410,7 @@ class _ShopViewState extends State<ShopView> {
                                 child: Padding(
                                   padding: const EdgeInsets.only(right: 15),
                                   child: ShopProductWidget(
+                                      isWishlisted: state.isWishListed,
                                       brand: data!.brand!.name.toString(),
                                       productId: data.id,
                                       image: data.colors![0].images![0],
@@ -549,6 +550,7 @@ class _ShopViewState extends State<ShopView> {
                                 child: Padding(
                                   padding: const EdgeInsets.only(right: 15),
                                   child: ShopProductWidget(
+                                      isWishlisted: state.isWishListed,
                                       brand: data!.brand!.name.toString(),
                                       productId: data.id,
                                       image: data.colors![0].images![0],
@@ -735,6 +737,7 @@ class _ShopViewState extends State<ShopView> {
                                 child: Padding(
                                   padding: const EdgeInsets.only(right: 15),
                                   child: ShopProductWidget(
+                                      isWishlisted: state.isWishListed,
                                       brand: data!.brand!.name.toString(),
                                       productId: data.id,
                                       image: data.colors![0].images![0],

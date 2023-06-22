@@ -10,7 +10,7 @@ class CartState with _$CartState {
       required int? statusCode,
       required bool showMore,
       required int? cartLength}) = _CartState;
-  factory CartState.initial() => CartState(
+  factory CartState.initial() => const CartState(
       cartModel: null,
       cartLoading: false,
       errorMessage: "",

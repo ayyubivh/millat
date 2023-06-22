@@ -18,10 +18,11 @@ class ProductsView extends StatelessWidget {
         elevation: 0,
         centerTitle: false,
         title: Text(appBarTitle,
-            style: TextStyle(color: Colors.black, fontWeight: FontWeight.w700)),
-        actions: [
+            style: const TextStyle(
+                color: Colors.black, fontWeight: FontWeight.w700)),
+        actions: const [
           Padding(
-            padding: const EdgeInsets.only(left: 10),
+            padding: EdgeInsets.only(left: 10),
             child: ImageIcon(
               AssetImage(
                 'assets/icons/search.png',
@@ -30,7 +31,7 @@ class ProductsView extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 20, right: 20),
+            padding: EdgeInsets.only(left: 20, right: 20),
             child: ImageIcon(
               AssetImage(
                 'assets/icons/cart.png',
@@ -39,7 +40,7 @@ class ProductsView extends StatelessWidget {
             ),
           ),
         ],
-        leading: BackButton(
+        leading: const BackButton(
           color: Colors.black,
         ),
       ),
@@ -51,7 +52,7 @@ class ProductsView extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            FiltersRowWidgets(),
+            const FiltersRowWidgets(),
             const SizedBox(
               height: 30,
             ),
@@ -77,7 +78,8 @@ class ProductsView extends StatelessWidget {
                           ));
                         },
                         child: ShopProductWidget(
-                            brand: passValue.name.toString(),
+                            isWishlisted: false,
+                            brand: passValue.products[index].brand.name,
                             productId: passValue?.products[index].id,
                             image: passValue
                                 .products![index].colors![0].images![0],
@@ -91,26 +93,26 @@ class ProductsView extends StatelessWidget {
                                 .toInt()));
                   }
                   return GestureDetector(
-                      onTap: () {
-                        Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => SingleProductView(
-                            passValue: passValue.products![index],
-                          ),
-                        ));
-                      },
-                      child: ShopProductWidget(
-                          brand: passValue.brand!.name.toString(),
-                          productId: passValue?.id,
-                          image:
-                              passValue.products![index]!.colors![0].images![0],
-                          title: passValue.products![index].title,
-                          actualPrice:
-                              passValue.products![index].actualPrice!.toInt(),
-                          discount:
-                              passValue.products![index].discount!.toInt(),
-                          discountPrice: passValue
-                              .products![index].discountPrice!
-                              .toInt()));
+                    onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => SingleProductView(
+                          passValue: passValue.products![index],
+                        ),
+                      ));
+                    },
+                    child: ShopProductWidget(
+                        isWishlisted: false,
+                        brand: passValue.products[index].brand.name,
+                        productId: passValue?.id,
+                        image:
+                            passValue.products![index]!.colors![0].images![0],
+                        title: passValue.products![index].title,
+                        actualPrice:
+                            passValue.products![index].actualPrice!.toInt(),
+                        discount: passValue.products![index].discount!.toInt(),
+                        discountPrice:
+                            passValue.products![index].discountPrice!.toInt()),
+                  );
                 },
               ),
             ),

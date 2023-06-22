@@ -26,7 +26,7 @@ class _SendOTPViewState extends State<SendOTPView> {
         } else if (state is AuthLoaded) {
           clearDate();
           Navigator.of(context).pushReplacement(MaterialPageRoute(
-            builder: (context) => VerifyOTPView(),
+            builder: (context) => const VerifyOTPView(),
           ));
         }
       },

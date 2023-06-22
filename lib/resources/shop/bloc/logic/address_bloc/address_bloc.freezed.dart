@@ -1447,6 +1447,7 @@ mixin _$AddressState {
   int? get selectedIndex => throw _privateConstructorUsedError;
   String? get addressId => throw _privateConstructorUsedError;
   AddressIdModel? get addressIdModel => throw _privateConstructorUsedError;
+  bool get isLoading => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AddressStateCopyWith<AddressState> get copyWith =>
@@ -1465,7 +1466,8 @@ abstract class $AddressStateCopyWith<$Res> {
       AddressModel? addressModel,
       int? selectedIndex,
       String? addressId,
-      AddressIdModel? addressIdModel});
+      AddressIdModel? addressIdModel,
+      bool isLoading});
 
   $AddressModelCopyWith<$Res>? get addressModel;
   $AddressIdModelCopyWith<$Res>? get addressIdModel;
@@ -1490,6 +1492,7 @@ class _$AddressStateCopyWithImpl<$Res, $Val extends AddressState>
     Object? selectedIndex = freezed,
     Object? addressId = freezed,
     Object? addressIdModel = freezed,
+    Object? isLoading = null,
   }) {
     return _then(_value.copyWith(
       successMessage: freezed == successMessage
@@ -1516,6 +1519,10 @@ class _$AddressStateCopyWithImpl<$Res, $Val extends AddressState>
           ? _value.addressIdModel
           : addressIdModel // ignore: cast_nullable_to_non_nullable
               as AddressIdModel?,
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 
@@ -1558,7 +1565,8 @@ abstract class _$$_InitialCopyWith<$Res>
       AddressModel? addressModel,
       int? selectedIndex,
       String? addressId,
-      AddressIdModel? addressIdModel});
+      AddressIdModel? addressIdModel,
+      bool isLoading});
 
   @override
   $AddressModelCopyWith<$Res>? get addressModel;
@@ -1582,6 +1590,7 @@ class __$$_InitialCopyWithImpl<$Res>
     Object? selectedIndex = freezed,
     Object? addressId = freezed,
     Object? addressIdModel = freezed,
+    Object? isLoading = null,
   }) {
     return _then(_$_Initial(
       successMessage: freezed == successMessage
@@ -1608,6 +1617,10 @@ class __$$_InitialCopyWithImpl<$Res>
           ? _value.addressIdModel
           : addressIdModel // ignore: cast_nullable_to_non_nullable
               as AddressIdModel?,
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -1621,7 +1634,8 @@ class _$_Initial implements _Initial {
       required this.addressModel,
       required this.selectedIndex,
       required this.addressId,
-      required this.addressIdModel});
+      required this.addressIdModel,
+      required this.isLoading});
 
   @override
   final String? successMessage;
@@ -1635,10 +1649,12 @@ class _$_Initial implements _Initial {
   final String? addressId;
   @override
   final AddressIdModel? addressIdModel;
+  @override
+  final bool isLoading;
 
   @override
   String toString() {
-    return 'AddressState(successMessage: $successMessage, failMessage: $failMessage, addressModel: $addressModel, selectedIndex: $selectedIndex, addressId: $addressId, addressIdModel: $addressIdModel)';
+    return 'AddressState(successMessage: $successMessage, failMessage: $failMessage, addressModel: $addressModel, selectedIndex: $selectedIndex, addressId: $addressId, addressIdModel: $addressIdModel, isLoading: $isLoading)';
   }
 
   @override
@@ -1657,12 +1673,14 @@ class _$_Initial implements _Initial {
             (identical(other.addressId, addressId) ||
                 other.addressId == addressId) &&
             (identical(other.addressIdModel, addressIdModel) ||
-                other.addressIdModel == addressIdModel));
+                other.addressIdModel == addressIdModel) &&
+            (identical(other.isLoading, isLoading) ||
+                other.isLoading == isLoading));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, successMessage, failMessage,
-      addressModel, selectedIndex, addressId, addressIdModel);
+      addressModel, selectedIndex, addressId, addressIdModel, isLoading);
 
   @JsonKey(ignore: true)
   @override
@@ -1678,7 +1696,8 @@ abstract class _Initial implements AddressState {
       required final AddressModel? addressModel,
       required final int? selectedIndex,
       required final String? addressId,
-      required final AddressIdModel? addressIdModel}) = _$_Initial;
+      required final AddressIdModel? addressIdModel,
+      required final bool isLoading}) = _$_Initial;
 
   @override
   String? get successMessage;
@@ -1692,6 +1711,8 @@ abstract class _Initial implements AddressState {
   String? get addressId;
   @override
   AddressIdModel? get addressIdModel;
+  @override
+  bool get isLoading;
   @override
   @JsonKey(ignore: true)
   _$$_InitialCopyWith<_$_Initial> get copyWith =>

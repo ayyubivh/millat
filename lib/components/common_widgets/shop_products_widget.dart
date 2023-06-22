@@ -4,13 +4,14 @@ import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.da
 import '../../utils/globals.dart';
 
 class ShopProductWidget extends StatelessWidget {
-  final String image;
+  final String? image;
   final String? title;
   final int discountPrice;
   final int actualPrice;
   final int discount;
-  final String brand;
+  final String? brand;
   final String? productId;
+  final bool? isWishlisted;
   const ShopProductWidget({
     Key? key,
     required this.image,
@@ -20,6 +21,7 @@ class ShopProductWidget extends StatelessWidget {
     required this.discountPrice,
     required this.productId,
     required this.brand,
+    required this.isWishlisted,
   }) : super(key: key);
 
   @override
@@ -37,80 +39,70 @@ class ShopProductWidget extends StatelessWidget {
                 height: 160,
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: NetworkImage(image),
+                    image: NetworkImage(image.toString()),
                     fit: BoxFit.cover,
                   ),
                   borderRadius: BorderRadius.circular(10),
                 ),
               ),
-              Positioned(
-                top: 8,
-                left: 8,
-                child: BlocBuilder<ShopProductsBloc, ShopProductsState>(
-                  builder: (context, state) {
-                    final isWishlisted =
-                        state.wishListItems?.contains(productId) ?? false;
-
-                    return GestureDetector(
-                      onTap: () {
-                        if (isWishlisted) {
-                          context.read<ShopProductsBloc>().add(
-                                RemoveWishlistEvent(
-                                  productId: productId ?? '',
-                                  context: context,
-                                ),
-                              );
-                          print('$isWishlisted on the isWishlisted if');
-                        } else {
-                          print('$isWishlisted on the isWishlisted else');
-                          context.read<ShopProductsBloc>().add(
-                                AddWishListEvent(
-                                  productId: productId ?? '',
-                                  context: context,
-                                ),
-                              );
-                        }
-                      },
-                      child: Container(
-                        padding: EdgeInsets.all(3),
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: Colors.white,
-                        ),
-                        child: Center(
-                          child: Icon(
-                            isWishlisted
-                                ? Icons.favorite
-                                : Icons.favorite_border,
-                            color: isWishlisted ? Colors.red : Colors.black87,
-                            size: 15.94,
-                          ),
-                        ),
-                      ),
-                    );
-                  },
+            ],
+          ),
+          const SizedBox(height: 15),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                title.toString(),
+                style: const TextStyle(
+                  color: black83,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w600,
+                  height: 1.3,
                 ),
+                maxLines: 2,
+              ),
+              BlocBuilder<ShopProductsBloc, ShopProductsState>(
+                builder: (context, state) {
+                  final isWishlisted =
+                      state.wishListItems?.contains(productId) ?? false;
+
+                  return GestureDetector(
+                    onTap: () {
+                      if (isWishlisted) {
+                        context.read<ShopProductsBloc>().add(
+                              RemoveWishlistEvent(
+                                productId: productId ?? '',
+                                context: context,
+                              ),
+                            );
+                        // print('$isWishlisted on the isWishlisted if');
+                      } else {
+                        // print('$isWishlisted on the isWishlisted else');
+                        context.read<ShopProductsBloc>().add(
+                              AddWishListEvent(
+                                productId: productId ?? '',
+                                context: context,
+                              ),
+                            );
+                      }
+                    },
+                    child: Icon(
+                      isWishlisted ? Icons.favorite : Icons.favorite_border,
+                      color: isWishlisted ? redClr : black122,
+                      size: 19.94,
+                    ),
+                  );
+                },
               )
             ],
           ),
-          SizedBox(height: 15),
-          Text(
-            title.toString(),
-            style: TextStyle(
-              color: black83,
-              fontSize: 18,
-              fontWeight: FontWeight.w600,
-              height: 1.3,
-            ),
-            maxLines: 2,
-          ),
-          SizedBox(height: 15),
+          const SizedBox(height: 15),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Row(
                 children: [
-                  Text(
+                  const Text(
                     'MRP',
                     style: TextStyle(
                       color: mainColor,
@@ -118,10 +110,10 @@ class ShopProductWidget extends StatelessWidget {
                       fontWeight: FontWeight.w600,
                     ),
                   ),
-                  SizedBox(width: 10),
+                  const SizedBox(width: 10),
                   Text(
                     actualPrice.toString(),
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: blue126,
                       fontSize: 16,
                       fontWeight: FontWeight.w600,
@@ -132,7 +124,7 @@ class ShopProductWidget extends StatelessWidget {
               ),
               Text(
                 '${discount}%off',
-                style: TextStyle(
+                style: const TextStyle(
                   color: orange255,
                   fontSize: 16,
                   fontWeight: FontWeight.w600,
@@ -140,19 +132,20 @@ class ShopProductWidget extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(height: 15),
+          const SizedBox(height: 15),
           Text(
-            brand,
-            style: TextStyle(
+            brand.toString(),
+            style: const TextStyle(
               color: black131,
               fontSize: 14,
               fontWeight: FontWeight.w600,
             ),
+            maxLines: 1,
           ),
-          SizedBox(height: 15),
+          const SizedBox(height: 15),
           Text(
-            '₹${discountPrice}',
-            style: TextStyle(
+            '₹$discountPrice',
+            style: const TextStyle(
               color: midGreenColor,
               fontSize: 19,
               fontWeight: FontWeight.w600,

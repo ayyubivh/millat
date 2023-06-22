@@ -28,6 +28,7 @@ class _CheckoutDetailsState extends State<CheckoutDetails> {
 
   String selectedFilter = '';
   String addressType = 'Home';
+  final formkey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -82,57 +83,67 @@ class _CheckoutDetailsState extends State<CheckoutDetails> {
                 const SizedBox(
                   height: 30,
                 ),
-                _addressTextfeld(
-                    controller: deliveryToController, hintText: 'Deliver to'),
-                const SizedBox(
-                  height: 30,
-                ),
-                _addressTextfeld(
-                    controller: addressLineController,
-                    hintText: 'Address Line'),
-                const SizedBox(
-                  height: 30,
-                ),
-                _addressTextfeld(
-                    controller: landMarkController, hintText: 'Landmark'),
-                const SizedBox(
-                  height: 30,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    SizedBox(
-                        width: SizeUtility(context).width * 50 / 100,
-                        child: _addressTextfeld(
-                            controller: cityController, hintText: 'City')),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    SizedBox(
-                        width: SizeUtility(context).width * 37 / 100,
-                        child: _addressTextfeld(
-                            controller: pinCodecontroller,
-                            hintText: "Pincode")),
-                  ],
-                ),
-                const SizedBox(
-                  height: 30,
-                ),
-                _addressTextfeld(
-                    controller: stateController, hintText: 'Select State'),
-                const SizedBox(
-                  height: 30,
-                ),
-                _addressTextfeld(
-                    controller: contryController, hintText: 'Country'),
-                const SizedBox(
-                  height: 30,
-                ),
-                _addressTextfeld(
-                    controller: mobileNumberController,
-                    hintText: 'Mobile Number'),
-                const SizedBox(
-                  height: 30,
+                Form(
+                  key: formkey,
+                  child: Column(
+                    children: [
+                      _addressTextfeld(
+                          controller: deliveryToController,
+                          hintText: 'Deliver to'),
+                      const SizedBox(
+                        height: 30,
+                      ),
+                      _addressTextfeld(
+                          controller: addressLineController,
+                          hintText: 'Address Line'),
+                      const SizedBox(
+                        height: 30,
+                      ),
+                      _addressTextfeld(
+                          controller: landMarkController, hintText: 'Landmark'),
+                      const SizedBox(
+                        height: 30,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          SizedBox(
+                              width: SizeUtility(context).width * 50 / 100,
+                              child: _addressTextfeld(
+                                  controller: cityController,
+                                  hintText: 'City')),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          SizedBox(
+                              width: SizeUtility(context).width * 37 / 100,
+                              child: _addressTextfeld(
+                                  controller: pinCodecontroller,
+                                  hintText: "Pincode")),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 30,
+                      ),
+                      _addressTextfeld(
+                          controller: stateController,
+                          hintText: 'Select State'),
+                      const SizedBox(
+                        height: 30,
+                      ),
+                      _addressTextfeld(
+                          controller: contryController, hintText: 'Country'),
+                      const SizedBox(
+                        height: 30,
+                      ),
+                      _addressTextfeld(
+                          controller: mobileNumberController,
+                          hintText: 'Mobile Number'),
+                      const SizedBox(
+                        height: 30,
+                      ),
+                    ],
+                  ),
                 ),
                 // _addressTextfeld(),
                 const SizedBox(
@@ -214,27 +225,32 @@ class _CheckoutDetailsState extends State<CheckoutDetails> {
                   Size(SizeUtility(context).width, 50)),
             ),
             onPressed: () {
-              if (widget.type == AddressNavType.profile) {
-                Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => const ManageAddress(),
-                ));
-              } else if (widget.type == AddressNavType.checkout) {
+              if (widget.type == AddressNavType.profile &&
+                  formkey.currentState!.validate()) {
+                Future.delayed(const Duration(seconds: 2)).then((value) {
+                  Navigator.of(context).pushReplacement(MaterialPageRoute(
+                    builder: (context) => const ManageAddress(),
+                  ));
+                });
+              } else if (widget.type == AddressNavType.checkout &&
+                  formkey.currentState!.validate()) {
                 Navigator.of(context).push(MaterialPageRoute(
                   builder: (context) => const CheckoutView(),
                 ));
               }
-
-              context.read<AddressBloc>().add(AddressEvent.addAddress(
-                  context: context,
-                  addressType: addressType,
-                  name: deliveryToController.text,
-                  mobile: int.tryParse(mobileNumberController.text) ?? 0,
-                  pincode: int.tryParse(pinCodecontroller.text) ?? 0,
-                  landmark: landMarkController.text,
-                  addressLine: addressLineController.text,
-                  city: cityController.text,
-                  state: stateController.text,
-                  country: contryController.text));
+              if (formkey.currentState!.validate()) {
+                context.read<AddressBloc>().add(AddressEvent.addAddress(
+                    context: context,
+                    addressType: addressType,
+                    name: deliveryToController.text,
+                    mobile: int.tryParse(mobileNumberController.text) ?? 0,
+                    pincode: int.tryParse(pinCodecontroller.text) ?? 0,
+                    landmark: landMarkController.text,
+                    addressLine: addressLineController.text,
+                    city: cityController.text,
+                    state: stateController.text,
+                    country: contryController.text));
+              }
             },
             child: const Text(
               'Save',
@@ -249,27 +265,34 @@ class _CheckoutDetailsState extends State<CheckoutDetails> {
 
   Widget _addressTextfeld(
       {required TextEditingController controller, required String hintText}) {
-    return TextField(
+    return TextFormField(
       controller: controller,
       decoration: InputDecoration(
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(5),
-            borderSide: const BorderSide(color: black198),
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(5),
-            borderSide: const BorderSide(color: black198),
-          ),
-          enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(5),
-            borderSide: const BorderSide(color: black198),
-          ),
-          filled: true,
-          fillColor: black247,
-          label: Text(
-            hintText,
-            style: const TextStyle(color: black26),
-          )),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(5),
+          borderSide: const BorderSide(color: black198),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(5),
+          borderSide: const BorderSide(color: black198),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(5),
+          borderSide: const BorderSide(color: black198),
+        ),
+        filled: true,
+        fillColor: black247,
+        label: Text(
+          hintText,
+          style: const TextStyle(color: black26),
+        ),
+      ),
+      validator: (value) {
+        if (value == null || value.isEmpty) {
+          return 'please enter the $hintText';
+        }
+        return null;
+      },
     );
   }
 }

@@ -50,10 +50,13 @@ class AddressBloc extends Bloc<AddressEvent, AddressState> {
 
   _fetchAddressEvent(
       FetchAddressEvent event, Emitter<AddressState> emit) async {
+    emit(state.copyWith(isLoading: true));
     try {
       final data = await _addressService.fetchAddress(event.context);
-      emit(state.copyWith(addressModel: data));
+      emit(state.copyWith(addressModel: data, isLoading: false));
     } catch (e) {
+      emit(state.copyWith(isLoading: false));
+
       throw Exception();
     }
   }
@@ -71,12 +74,16 @@ class AddressBloc extends Bloc<AddressEvent, AddressState> {
 
   _fetchAddressByIdEvent(
       FetchAddressByIdEvent event, Emitter<AddressState> emit) async {
+    emit(state.copyWith(isLoading: true));
+
     try {
       final data =
           await _addressService.fetchAddressById(event.context, event.id);
-      emit(state.copyWith(addressIdModel: data));
+      emit(state.copyWith(addressIdModel: data, isLoading: false));
       print('on addess ${data}');
     } catch (e) {
+      emit(state.copyWith(isLoading: false));
+
       throw Exception();
     }
   }

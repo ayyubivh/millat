@@ -38,7 +38,7 @@ class CartBloc extends Bloc<CartEvent, CartState> {
   }
 
   Future _addCart(AddCartEvent event, Emitter<CartState> emit) async {
-    emit(state.copyWith(cartLoading: true, cartSuccesmessage: ""));
+    emit(state.copyWith(cartSuccesmessage: ""));
 
     try {
       final data = await _cartServices.addCart(
@@ -54,20 +54,18 @@ class CartBloc extends Bloc<CartEvent, CartState> {
         emit(state.copyWith(
           cartSuccesmessage: data['message'],
           cartLength: state.cartLength! + 1,
-          cartLoading: false,
         ));
-
+        emit(state.copyWith(cartSuccesmessage: ""));
         print(' on success ${data['message']}');
       } else if (data['status'] == 409) {
         print(data['status'].toString());
         emit(state.copyWith(
           cartSuccesmessage: data['message'],
-          cartLoading: false,
           errorMessage: 'product already added',
           statusCode: 409,
         ));
+        emit(state.copyWith(cartSuccesmessage: ""));
         // showSnackBar(event.context, 'product already added');
-        print(' on already ${data['message']}');
       }
     } catch (e) {
       emit(state.copyWith(

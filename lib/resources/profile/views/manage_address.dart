@@ -50,7 +50,8 @@ class ManageAddress extends StatelessWidget {
                       ),
                       InkWell(
                         onTap: () {
-                          Navigator.of(context).push(MaterialPageRoute(
+                          Navigator.of(context)
+                              .pushReplacement(MaterialPageRoute(
                             builder: (context) => const CheckoutDetails(
                                 type: AddressNavType.profile),
                           ));
@@ -73,71 +74,89 @@ class ManageAddress extends StatelessWidget {
               ),
               BlocBuilder<AddressBloc, AddressState>(
                 builder: (context, state) {
-                  return ListView.separated(
-                    shrinkWrap: true,
-                    itemCount: state.addressModel!.result.addresses.length,
-                    itemBuilder: (context, index) {
-                      final data = state.addressModel?.result.addresses[index];
-                      final formatedMobile =
-                          '${data?.mobile.toString().substring(data.mobile.toString().length - 4)}';
-                      final String address =
-                          '$formatedMobile ${data!.addressLine} ${data.landmark} ${data.city}\n${data.state} ${data.pincode}';
-                      return Column(
-                        children: [
-                          buildAddresses(
-                            context: context,
-                            phoneNumber: state
-                                .addressModel!.result.addresses[index].mobile,
-                            name: data.name,
-                            address: address,
-                            isSelected: index == state.selectedIndex,
-                            onTap: () {
-                              context.read<AddressBloc>().add(
-                                  SelectAddressEvent(selectedIndex: index));
-                              context
-                                  .read<AddressBloc>()
-                                  .add(SaveAddressId(addressId: data.id));
-                            },
+                  return state.isLoading
+                      ? const Center(
+                          child: CircularProgressIndicator(
+                            color: green24,
                           ),
-                          SizedBox(
-                            width: SizeUtility(context).width,
-                            child: Row(
-                              children: [
-                                Text(
-                                  '${state.addressModel!.result.addresses[index].mobile}',
-                                  style: const TextStyle(
-                                    color: black122,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                                const Spacer(),
-                                InkWell(
-                                  onTap: () {
-                                    context.read<AddressBloc>().add(
-                                        DeleteAddressEvent(
-                                            context: context,
-                                            id: state.addressModel!.result
-                                                .addresses[index].id));
-                                  },
-                                  child: const Icon(
-                                    Icons.delete_outline,
-                                    color: redClr,
-                                  ),
-                                ),
-                                const SizedBox(width: 8),
-                                const Icon(
-                                  Icons.edit_note,
-                                )
-                              ],
-                            ),
-                          ),
-                        ],
-                      );
-                    },
-                    separatorBuilder: (context, index) => const Divider(
-                      color: black198,
-                    ),
-                  );
+                        )
+                      : state.addressModel?.result.addresses == null
+                          ? Padding(
+                              padding: EdgeInsets.only(
+                                  top: SizeUtility(context).height / 3),
+                              child: const Text('Address Is Empty'),
+                            )
+                          : ListView.separated(
+                              shrinkWrap: true,
+                              itemCount:
+                                  state.addressModel!.result.addresses.length,
+                              itemBuilder: (context, index) {
+                                final data =
+                                    state.addressModel?.result.addresses[index];
+                                final formatedMobile =
+                                    '${data?.mobile.toString().substring(data.mobile.toString().length - 4)}';
+                                final String address =
+                                    '$formatedMobile ${data!.addressLine} ${data.landmark} ${data.city}\n${data.state} ${data.pincode}';
+                                return Column(
+                                  children: [
+                                    buildAddresses(
+                                      context: context,
+                                      phoneNumber: state.addressModel!.result
+                                          .addresses[index].mobile,
+                                      name: data.name,
+                                      address: address,
+                                      isSelected: index == state.selectedIndex,
+                                      onTap: () {
+                                        context.read<AddressBloc>().add(
+                                            SelectAddressEvent(
+                                                selectedIndex: index));
+                                        context.read<AddressBloc>().add(
+                                            SaveAddressId(addressId: data.id));
+                                      },
+                                    ),
+                                    SizedBox(
+                                      width: SizeUtility(context).width,
+                                      child: Row(
+                                        children: [
+                                          Text(
+                                            '${state.addressModel!.result.addresses[index].mobile}',
+                                            style: const TextStyle(
+                                              color: black122,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                          const Spacer(),
+                                          InkWell(
+                                            onTap: () {
+                                              context.read<AddressBloc>().add(
+                                                  DeleteAddressEvent(
+                                                      context: context,
+                                                      id: state
+                                                          .addressModel!
+                                                          .result
+                                                          .addresses[index]
+                                                          .id));
+                                            },
+                                            child: const Icon(
+                                              Icons.delete_outline,
+                                              color: redClr,
+                                            ),
+                                          ),
+                                          const SizedBox(width: 8),
+                                          const Icon(
+                                            Icons.edit_note,
+                                          )
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                );
+                              },
+                              separatorBuilder: (context, index) =>
+                                  const Divider(
+                                color: black198,
+                              ),
+                            );
                 },
               ),
             ],

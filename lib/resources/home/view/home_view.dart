@@ -1,9 +1,13 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
 import 'package:millat/resources/profile/views/profile_view.dart';
 import 'package:millat/utils/globals.dart';
 import 'package:millat/utils/size_utility.dart';
 
+import '../../authentication/bloc/logic/database_bloc/database_bloc.dart';
+import '../../shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
 import 'namaz_timing/namaz_timing_view.dart';
 
 class HomeView extends StatefulWidget {
@@ -19,6 +23,9 @@ class _HomeViewState extends State<HomeView> {
   bool _isAppBarCollapsed = false;
   @override
   void initState() {
+    BlocProvider.of<DatabaseBloc>(context).add(const FetchUserDetails());
+    BlocProvider.of<ShopProductsBloc>(context)
+        .add(const ShopProductsEvent.fetchHomeBanners());
     _scrollController.addListener(() {
       if (_scrollController.offset > _appBarHeight - (kToolbarHeight - 180)) {
         setState(() {
@@ -39,6 +46,8 @@ class _HomeViewState extends State<HomeView> {
     super.dispose();
   }
 
+  int _currentIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,6 +56,7 @@ class _HomeViewState extends State<HomeView> {
         controller: _scrollController,
         slivers: [
           SliverAppBar(
+            automaticallyImplyLeading: false,
             collapsedHeight: _appBarHeight,
             backgroundColor: _isAppBarCollapsed ? midGreenColor : Colors.white,
             elevation: 0,
@@ -148,18 +158,21 @@ class _HomeViewState extends State<HomeView> {
                               const SizedBox(
                                 width: 10,
                               ),
-                              const Column(
+                              Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text('Asslamualaikum,',
+                                  const Text('Asslamualaikum,',
                                       style: TextStyle(
                                           color: Colors.white, fontSize: 18)),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 5,
                                   ),
-                                  Text('Hazrat',
-                                      style: TextStyle(
-                                          color: Colors.white, fontSize: 18)),
+                                  BlocBuilder<DatabaseBloc, DatabaseState>(
+                                    builder: (context, state) => Text(
+                                        state.name,
+                                        style: const TextStyle(
+                                            color: Colors.white, fontSize: 18)),
+                                  ),
                                 ],
                               ),
                               const Spacer(),
@@ -471,74 +484,65 @@ class _HomeViewState extends State<HomeView> {
                     ],
                   ),
                   const SizedBox(height: 30),
-                  AspectRatio(
-                    aspectRatio: 2.3,
-                    child: ImageSlideshow(
-                        onPageChanged: (int index) {},
-                        autoPlayInterval: 3000,
-                        indicatorBackgroundColor: Colors.transparent,
-                        indicatorColor: Colors.transparent,
-                        isLoop: false,
+                  BlocBuilder<ShopProductsBloc, ShopProductsState>(
+                    builder: (context, state) {
+                      if (state.homeBanner == null) {
+                        return const SizedBox();
+                      }
+
+                      final banners = state.homeBanner?.result!.banners;
+                      return Column(
                         children: [
-                          Stack(
-                            children: [
-                              ClipRRect(
-                                borderRadius: BorderRadius.circular(10),
-                                child: Image.asset(
-                                  'assets/images/quran_slider.png',
+                          CarouselSlider(
+                            items: banners?.map((banner) {
+                              return ClipRRect(
+                                borderRadius: BorderRadius.circular(20),
+                                child: Image.network(
+                                  banner.image,
                                   fit: BoxFit.contain,
                                 ),
-                              ),
-                              const Padding(
-                                padding: EdgeInsets.symmetric(
-                                    horizontal: 20, vertical: 20),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Row(
-                                      children: [
-                                        ImageIcon(
-                                          AssetImage('assets/icons/readme.png'),
-                                          color: Colors.white,
-                                          size: 30,
-                                        ),
-                                        SizedBox(
-                                          width: 10,
-                                        ),
-                                        Text(
-                                          'Last Read',
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 20),
-                                        )
-                                      ],
-                                    ),
-                                    SizedBox(
-                                      height: 20,
-                                    ),
-                                    Text(
-                                      'Al-Fatiah',
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 22,
-                                          fontWeight: FontWeight.w600),
-                                    ),
-                                    SizedBox(
-                                      height: 15,
-                                    ),
-                                    Text(
-                                      'Ayah No: 1',
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.w400),
-                                    )
-                                  ],
-                                ),
-                              )
-                            ],
+                              );
+                            }).toList(),
+                            options: CarouselOptions(
+                              height: 150,
+                              viewportFraction: 1,
+                              enlargeCenterPage: true,
+                              autoPlay: true,
+                              autoPlayCurve: Curves.fastOutSlowIn,
+                              enableInfiniteScroll: true,
+                              enlargeFactor: 0.3,
+                              scrollDirection: Axis.horizontal,
+                              autoPlayAnimationDuration:
+                                  const Duration(milliseconds: 800),
+                              onPageChanged: (index, reason) {
+                                setState(() {
+                                  _currentIndex = index;
+                                });
+                              },
+                            ),
                           ),
-                        ]),
+                          const SizedBox(height: 10),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: banners!.map((banner) {
+                              int index = banners.indexOf(banner);
+                              return Container(
+                                width: _currentIndex == index ? 24 : 6,
+                                height: 6,
+                                margin:
+                                    const EdgeInsets.symmetric(horizontal: 4),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(30),
+                                  color: _currentIndex == index
+                                      ? green24
+                                      : Colors.grey,
+                                ),
+                              );
+                            }).toList(),
+                          ),
+                        ],
+                      );
+                    },
                   ),
                   const SizedBox(height: 30),
                   Container(

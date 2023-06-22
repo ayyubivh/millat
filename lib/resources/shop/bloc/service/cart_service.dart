@@ -75,7 +75,7 @@ class CartServices extends HttpServices {
           return data;
         } else if (response.statusCode == 409) {
           final Map<String, dynamic> data = json.decode(response.body);
-
+          // print('on the error of add cart twice $data');
           return data;
         } else {
           print('API request failed with status code: ${response.statusCode}');

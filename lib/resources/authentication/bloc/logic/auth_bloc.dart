@@ -18,16 +18,17 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
           emit(AuthError('Please fill in all the fields'));
         } else {
           emit(AuthLoading());
-          final res = await _authService.login(
+          final result = await _authService.login(
               email: event.email, password: event.password);
-          if (res['status'] == true) {
-            final token = res['result'];
-            print('token on the authbloc when the login $token');
-            databaseBloc.add(StoreTokenEvent(token: token));
-            emit(AuthLoaded(event.email));
-          } else {
-            emit(AuthError(res['message']));
-          }
+
+          final token = result?.result?.token;
+          final userDetails = result?.result?.user;
+          print(
+              'token on the authbloc fult result ${result}when the login token $token');
+          databaseBloc.add(StoreTokenEvent(token: token!));
+          databaseBloc.add(StoreUserDetails(
+              email: userDetails!.email!, name: userDetails.name!));
+          emit(AuthLoaded(event.email));
         }
       } else if (event is SignUp) {
         if (event.name.isEmpty ||

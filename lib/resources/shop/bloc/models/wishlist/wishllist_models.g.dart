@@ -8,10 +8,12 @@ part of 'wishllist_models.dart';
 
 _$_WishlistResponse _$$_WishlistResponseFromJson(Map<String, dynamic> json) =>
     _$_WishlistResponse(
-      status: json['status'] as int,
-      message: json['message'] as String,
-      error: json['error'] as String,
-      result: WishlistResult.fromJson(json['result'] as Map<String, dynamic>),
+      status: json['status'] as int?,
+      message: json['message'] as String?,
+      error: json['error'] as String?,
+      result: json['result'] == null
+          ? null
+          : WishlistResult.fromJson(json['result'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$_WishlistResponseToJson(_$_WishlistResponse instance) =>
@@ -57,9 +59,12 @@ _$_Product _$$_ProductFromJson(Map<String, dynamic> json) => _$_Product(
       brand: json['brand'] as String?,
       description: json['description'] as String?,
       otherInfo: json['otherInfo'] as String?,
-      category: Category.fromJson(json['category'] as Map<String, dynamic>),
-      subcategory:
-          Subcategory.fromJson(json['subcategory'] as Map<String, dynamic>),
+      category: json['category'] == null
+          ? null
+          : Category.fromJson(json['category'] as Map<String, dynamic>),
+      subcategory: json['subcategory'] == null
+          ? null
+          : Subcategory.fromJson(json['subcategory'] as Map<String, dynamic>),
       actualPrice: json['actualPrice'] as int,
       discountPrice: json['discountPrice'] as int,
       discount: json['discount'] as int,

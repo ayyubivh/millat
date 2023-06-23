@@ -275,7 +275,7 @@ class _CategoriesViewState extends State<CategoriesView> {
                       if (state.selectedFilter.isNotEmpty) {
                         filteredProducts = state.product!.result!.products
                             .where((product) =>
-                                product.subcategory!.title ==
+                                product.subcategory?.title ==
                                 state.selectedFilter)
                             .toList();
                       } else {

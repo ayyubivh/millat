@@ -16,11 +16,11 @@ class SingleArticleView extends StatelessWidget {
         backgroundColor: Colors.transparent,
         elevation: 0,
         centerTitle: false,
-        title: Text('Single Articles',
+        title: const Text('Single Articles',
             style: TextStyle(color: Colors.black, fontWeight: FontWeight.w700)),
-        actions: [
+        actions: const [
           Padding(
-            padding: const EdgeInsets.only(left: 10),
+            padding: EdgeInsets.only(left: 10),
             child: ImageIcon(
               AssetImage(
                 'assets/icons/search.png',
@@ -29,7 +29,7 @@ class SingleArticleView extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 20, right: 20),
+            padding: EdgeInsets.only(left: 20, right: 20),
             child: ImageIcon(
               AssetImage(
                 'assets/icons/cart.png',
@@ -38,7 +38,7 @@ class SingleArticleView extends StatelessWidget {
             ),
           ),
         ],
-        leading: BackButton(
+        leading: const BackButton(
           color: Colors.black,
         ),
       ),
@@ -62,41 +62,43 @@ class SingleArticleView extends StatelessWidget {
                 children: [
                   Text(
                     '${passValue[index].brand} • ${Utilities.formatDate(passValue[index].date)}',
-                    style: TextStyle(
+                    style: const TextStyle(
                         color: green77,
                         fontSize: 16,
                         fontWeight: FontWeight.bold),
                   ),
                   Container(
-                    padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 10, vertical: 10),
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
                         color: veryLightGreen),
-                    child: Text('Popular',
+                    child: const Text('Popular',
                         style: TextStyle(
                             color: green77, fontWeight: FontWeight.w700)),
                   )
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Text(
                 passValue[index].title,
-                style: TextStyle(
+                style: const TextStyle(
                     color: black16, fontSize: 20, fontWeight: FontWeight.w600),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Text(
                 passValue[index].content,
-                style: TextStyle(color: black122, fontSize: 17, height: 1.3),
+                style:
+                    const TextStyle(color: black122, fontSize: 17, height: 1.3),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 50,
               ),
             ],
@@ -105,7 +107,7 @@ class SingleArticleView extends StatelessWidget {
       ),
       bottomSheet: Container(
         height: 70,
-        margin: EdgeInsets.symmetric(horizontal: 30, vertical: 30),
+        margin: const EdgeInsets.symmetric(horizontal: 30, vertical: 30),
         decoration: BoxDecoration(
             color: green77, borderRadius: BorderRadius.circular(20)),
         child: Row(
@@ -121,7 +123,7 @@ class SingleArticleView extends StatelessWidget {
                     width: 56,
                   )),
             ),
-            SizedBox(
+            const SizedBox(
               width: 10,
             ),
             Column(
@@ -130,15 +132,15 @@ class SingleArticleView extends StatelessWidget {
               children: [
                 Text(
                   passValue[index].title,
-                  style: TextStyle(
+                  style: const TextStyle(
                       color: Colors.white,
                       fontSize: 15,
                       fontWeight: FontWeight.w600),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 5,
                 ),
-                Text(
+                const Text(
                   '₹ 1,523.68',
                   style: TextStyle(
                       color: Colors.white,
@@ -147,8 +149,8 @@ class SingleArticleView extends StatelessWidget {
                 ),
               ],
             ),
-            Spacer(),
-            Text(
+            const Spacer(),
+            const Text(
               'Buy Now',
               style: TextStyle(
                   color: Colors.white,
@@ -160,12 +162,12 @@ class SingleArticleView extends StatelessWidget {
                 // context.read<CartBloc>().add(CartEvent.addCart(productId: passValue[index].id, basePrice: 1523, size: size, context: context, color: color, quantity: quantity))
                 print('object');
               },
-              icon: Icon(
+              icon: const Icon(
                 Icons.arrow_forward_ios,
                 color: Colors.white,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               width: 10,
             ),
           ],

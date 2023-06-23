@@ -21,10 +21,10 @@ class AddressBloc extends Bloc<AddressEvent, AddressState> {
     on<SaveAddressId>(_saveAddressId);
     on<FetchAddressByIdEvent>(_fetchAddressByIdEvent);
     on<DeleteAddressEvent>(_deleteAddressEvent);
+    on<UpdateAddress>(_updateAddress);
   }
 
-  FutureOr<void> _addAddress(
-      AddAddress event, Emitter<AddressState> emit) async {
+  _addAddress(AddAddress event, Emitter<AddressState> emit) async {
     try {
       final data = await _addressService.addAddress(
           context: event.context,
@@ -42,6 +42,31 @@ class AddressBloc extends Bloc<AddressEvent, AddressState> {
         emit(state.copyWith(successMessage: data['message']));
       } else {
         emit(state.copyWith(failMessage: data['message']));
+      }
+    } catch (e) {
+      throw Exception();
+    }
+  }
+
+  _updateAddress(UpdateAddress event, Emitter<AddressState> emit) async {
+    try {
+      final data = await _addressService.updateAddresbyId(
+          id: event.id,
+          context: event.context,
+          addressType: event.addressType,
+          name: event.name,
+          mobile: event.mobile,
+          pincode: event.pincode,
+          landmark: event.landmark,
+          addressLine: event.addressLine,
+          city: event.city,
+          state: event.state,
+          country: event.country);
+      if (data['status'] == 200) {
+        print('on update address address ${data['message']}');
+        emit(state.copyWith(successMessage: data['message']));
+      } else {
+        // emit(state.copyWith(failMessage: data['message']));
       }
     } catch (e) {
       throw Exception();

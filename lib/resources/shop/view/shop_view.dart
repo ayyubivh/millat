@@ -112,11 +112,8 @@ class _ShopViewState extends State<ShopView> {
                         children: [
                           IconButton(
                             onPressed: () {
-                              Navigator.of(context).push(
-                                MaterialPageRoute(
-                                  builder: (context) => const SearchView(),
-                                ),
-                              );
+                              Navigator.of(context)
+                                  .pushNamed(SearchView.routeName);
                             },
                             icon: const Icon(
                               Icons.search,
@@ -275,16 +272,16 @@ class _ShopViewState extends State<ShopView> {
                       ),
                       GestureDetector(
                         onTap: () {
-                          Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => ProductsView(
-                                appBarTitle: "Flash Sale",
-                                passValue: context
-                                    .read<ShopProductsBloc>()
-                                    .state
-                                    .flashSaleproducts
-                                    ?.result
-                                    ?.shopProductCategory),
-                          ));
+                          Navigator.of(context)
+                              .pushNamed(ProductsView.routeName, arguments: {
+                            'appBarTitle': 'Flash Sale',
+                            'passValue': context
+                                .read<ShopProductsBloc>()
+                                .state
+                                .flashSaleproducts
+                                ?.result
+                                ?.shopProductCategory
+                          });
                         },
                         child: const Text(
                           'View All',
@@ -361,16 +358,16 @@ class _ShopViewState extends State<ShopView> {
                       ),
                       GestureDetector(
                           onTap: () {
-                            Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => ProductsView(
-                                  appBarTitle: "Popular Products",
-                                  passValue: context
-                                      .read<ShopProductsBloc>()
-                                      .state
-                                      .popularProducts
-                                      ?.result
-                                      ?.shopProductCategory),
-                            ));
+                            Navigator.of(context)
+                                .pushNamed(ProductsView.routeName, arguments: {
+                              'appBarTitle': 'Popular Products',
+                              'passValue': context
+                                  .read<ShopProductsBloc>()
+                                  .state
+                                  .popularProducts
+                                  ?.result
+                                  ?.shopProductCategory
+                            });
                           },
                           child: const Text(
                             'View All',
@@ -501,16 +498,15 @@ class _ShopViewState extends State<ShopView> {
                       ),
                       GestureDetector(
                         onTap: () {
-                          Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => ProductsView(
-                              appBarTitle: "Recently Added",
-                              passValue: context
-                                  .read<ShopProductsBloc>()
-                                  .state
-                                  .recentProducts
-                                  ?.result,
-                            ),
-                          ));
+                          Navigator.of(context)
+                              .pushNamed(ProductsView.routeName, arguments: {
+                            'appBarTitle': 'Recently Added',
+                            'passValue': context
+                                .read<ShopProductsBloc>()
+                                .state
+                                .recentProducts
+                                ?.result
+                          });
                         },
                         child: const Text(
                           'View All',
@@ -588,11 +584,14 @@ class _ShopViewState extends State<ShopView> {
                               ),
                               GestureDetector(
                                 onTap: () {
-                                  Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (context) => ArticlesView(
-                                        passValue:
-                                            state.articles?.result?.articles),
-                                  ));
+                                  Navigator.of(context).pushNamed(
+                                    ArticlesView.routeName,
+                                    arguments: {
+                                      'passValue':
+                                          state.articles?.result?.articles ??
+                                              [],
+                                    },
+                                  );
                                 },
                                 child: const Text(
                                   'Read More',
@@ -698,6 +697,15 @@ class _ShopViewState extends State<ShopView> {
                                   ?.result,
                             ),
                           ));
+                          Navigator.of(context)
+                              .pushNamed(ProductsView.routeName, arguments: {
+                            'appBarTitle': 'Bestsellers',
+                            'passValue': context
+                                .read<ShopProductsBloc>()
+                                .state
+                                .recentProducts
+                                ?.result
+                          });
                         },
                         child: const Text(
                           'View All',

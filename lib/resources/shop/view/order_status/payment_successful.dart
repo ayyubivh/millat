@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:millat/resources/shop/view/order_status/payment_failed.dart';
-import 'package:millat/resources/shop/view/tabs/shop_tabs_vilew.dart';
 import 'package:millat/utils/globals.dart';
 import 'package:millat/utils/size_utility.dart';
 

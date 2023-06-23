@@ -6,10 +6,14 @@ import 'package:millat/resources/authentication/bloc/logic/auth_bloc.dart';
 import 'package:millat/resources/authentication/bloc/logic/database_bloc/database_bloc.dart';
 import 'package:millat/resources/home/view/namaz_timing/namaz_timing_view.dart';
 import 'package:millat/resources/on_boarding/view/on_boarding_view.dart';
+import 'package:millat/resources/profile/views/manage_address.dart';
+import 'package:millat/resources/shop/articles/view/articles_view.dart';
 import 'package:millat/resources/shop/bloc/logic/address_bloc/address_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/cart_bloc/cart_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/category_bloc/category_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
+import 'package:millat/resources/shop/view/products/products_view.dart';
+import 'package:millat/resources/shop/view/search/search_view.dart';
 import 'package:millat/resources/tabs/view/tabs_view.dart';
 import 'package:millat/utils/string_constants.dart';
 import 'package:responsive_framework/responsive_wrapper.dart';
@@ -82,6 +86,22 @@ class MyApp extends StatelessWidget {
       ),
       routes: {
         NamazTimingView.routeName: (context) => const NamazTimingView(),
+        ManageAddress.routeName: (context) => const ManageAddress(),
+        SearchView.routeName: (context) => const SearchView(),
+        ArticlesView.routeName: (context) {
+          final args = ModalRoute.of(context)!.settings.arguments
+              as Map<String, dynamic>;
+          return ArticlesView(
+            passValue: args['passValue'],
+          );
+        },
+        ProductsView.routeName: (context) {
+          final args = ModalRoute.of(context)!.settings.arguments
+              as Map<String, dynamic>;
+          final appBarTitle = args['appBarTitle'];
+          final passValue = args['passValue'];
+          return ProductsView(appBarTitle: appBarTitle, passValue: passValue);
+        },
       },
       home: _getInitialScreen(),
     );

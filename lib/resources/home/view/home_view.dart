@@ -229,20 +229,16 @@ class _HomeViewState extends State<HomeView> {
                                     ),
                                     const Spacer(),
                                     TextButton.icon(
-                                        onPressed: () {},
+                                        onPressed: () {
+                                          Navigator.of(context).pushNamed(
+                                              NamazTimingView.routeName);
+                                        },
                                         icon: const ImageIcon(
                                             AssetImage('assets/icons/bell.png'),
                                             color: blueColor),
-                                        label: InkWell(
-                                          onTap: () {
-                                            print('objectsdfads');
-                                            Navigator.of(context).pushNamed(
-                                                NamazTimingView.routeName);
-                                          },
-                                          child: const Text(
-                                            'Notify Me',
-                                            style: TextStyle(color: blueColor),
-                                          ),
+                                        label: const Text(
+                                          'Notify Me',
+                                          style: TextStyle(color: blueColor),
                                         )),
                                   ],
                                 ),

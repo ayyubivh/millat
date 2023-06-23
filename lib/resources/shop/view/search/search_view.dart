@@ -6,6 +6,7 @@ import '../../../../utils/globals.dart';
 import '../../../../utils/size_utility.dart';
 
 class SearchView extends StatefulWidget {
+  static const String routeName = "/search-view";
   const SearchView({super.key});
 
   @override

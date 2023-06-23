@@ -5,11 +5,13 @@ import '../../../../components/common_widgets/filters_row_widgets.dart';
 import '../../../../components/common_widgets/shop_products_widget.dart';
 
 class ProductsView extends StatelessWidget {
+  static const String routeName = "/products-view";
+
   final String appBarTitle;
-  final passValue;
+  final dynamic passValue;
+
   const ProductsView({Key? key, required this.appBarTitle, this.passValue})
       : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

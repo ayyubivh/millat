@@ -2,10 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/resources/shop/view/orders/widgets/orders_card_widget.dart';
 import 'package:millat/utils/globals.dart';
-import 'package:millat/utils/size_utility.dart';
-
 import '../../bloc/logic/cart_bloc/cart_bloc.dart';
-import '../checkout/widgets/order_product_card.dart';
 
 class Orders extends StatefulWidget {
   const Orders({Key? key}) : super(key: key);
@@ -33,12 +30,12 @@ class _OrdersState extends State<Orders> with SingleTickerProviderStateMixin {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           'Orders',
           style: TextStyle(color: Colors.black, fontWeight: FontWeight.w700),
         ),
         centerTitle: false,
-        leading: BackButton(color: Colors.black),
+        leading: const BackButton(color: Colors.black),
         elevation: 0,
         backgroundColor: Colors.transparent,
         bottom: TabBar(
@@ -47,7 +44,7 @@ class _OrdersState extends State<Orders> with SingleTickerProviderStateMixin {
           controller: _tabController,
           dividerColor: green77,
           indicatorColor: green77,
-          tabs: [
+          tabs: const [
             Tab(text: 'All'),
             Tab(text: 'Unpaid'),
             Tab(text: 'To Ship'),
@@ -61,12 +58,12 @@ class _OrdersState extends State<Orders> with SingleTickerProviderStateMixin {
         children: [
           SingleChildScrollView(
             child: Container(
-              margin: EdgeInsets.all(10),
+              margin: const EdgeInsets.all(10),
               child: Column(
                 children: [
                   BlocBuilder<CartBloc, CartState>(
                     builder: (context, state) => ListView.builder(
-                      physics: NeverScrollableScrollPhysics(),
+                      physics: const NeverScrollableScrollPhysics(),
                       itemCount: state
                           .cartModel?.result?.cartProducts?.cartItems?.length,
                       shrinkWrap: true,
@@ -74,7 +71,7 @@ class _OrdersState extends State<Orders> with SingleTickerProviderStateMixin {
                         final cartItems =
                             state.cartModel?.result?.cartProducts?.cartItems;
                         final data = cartItems![index];
-                        return Container(
+                        return SizedBox(
                           child: OrdersProfileWidget(
                             id: data.productId!.id,
                             title: data.productId?.title,

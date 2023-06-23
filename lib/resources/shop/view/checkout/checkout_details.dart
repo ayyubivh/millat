@@ -30,6 +30,29 @@ class _CheckoutDetailsState extends State<CheckoutDetails> {
   String addressType = 'Home';
   final formkey = GlobalKey<FormState>();
   @override
+  void initState() {
+    widget.type == AddressNavType.editAddress ? addFieldVal() : null;
+    super.initState();
+  }
+
+  addFieldVal() {
+    BlocProvider.of<AddressBloc>(context).add(FetchAddressByIdEvent(
+        context: context,
+        id: context.read<AddressBloc>().state.addressId.toString()));
+    final data =
+        context.read<AddressBloc>().state.addressIdModel?.result.address;
+    deliveryToController.text = data!.name;
+    addressLineController.text = data.addressLine;
+    landMarkController.text = data.landmark;
+    stateController.text = data.state;
+    mobileNumberController.text = data.mobile.toString();
+    contryController.text = data.country;
+    cityController.text = data.city;
+    pinCodecontroller.text = data.pincode.toString();
+    addressType = data.addressType;
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
@@ -228,17 +251,37 @@ class _CheckoutDetailsState extends State<CheckoutDetails> {
               if (widget.type == AddressNavType.profile &&
                   formkey.currentState!.validate()) {
                 Future.delayed(const Duration(seconds: 2)).then((value) {
-                  Navigator.of(context).pushReplacement(MaterialPageRoute(
-                    builder: (context) => const ManageAddress(),
-                  ));
+                  Navigator.of(context)
+                      .pushReplacementNamed(ManageAddress.routeName);
                 });
               } else if (widget.type == AddressNavType.checkout &&
                   formkey.currentState!.validate()) {
                 Navigator.of(context).push(MaterialPageRoute(
                   builder: (context) => const CheckoutView(),
                 ));
+              } else if (widget.type == AddressNavType.editAddress &&
+                  formkey.currentState!.validate()) {
+                final id = context.read<AddressBloc>().state.addressId;
+                context.read<AddressBloc>().add(UpdateAddress(
+                    context: context,
+                    addressType: addressType,
+                    name: deliveryToController.text,
+                    mobile: int.tryParse(mobileNumberController.text) ?? 0,
+                    pincode: int.tryParse(pinCodecontroller.text) ?? 0,
+                    landmark: landMarkController.text,
+                    addressLine: addressLineController.text,
+                    city: cityController.text,
+                    state: stateController.text,
+                    country: contryController.text,
+                    id: id.toString()));
+                Future.delayed(const Duration(seconds: 2)).then((value) {
+                  Navigator.of(context)
+                      .pushReplacementNamed(ManageAddress.routeName);
+                });
               }
-              if (formkey.currentState!.validate()) {
+              if (formkey.currentState!.validate() &&
+                  widget.type != AddressNavType.editAddress) {
+                print('no the edit type');
                 context.read<AddressBloc>().add(AddressEvent.addAddress(
                     context: context,
                     addressType: addressType,
@@ -252,13 +295,21 @@ class _CheckoutDetailsState extends State<CheckoutDetails> {
                     country: contryController.text));
               }
             },
-            child: const Text(
-              'Save',
-              style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 20,
-                  fontWeight: FontWeight.w700),
-            ),
+            child: widget.type == AddressNavType.editAddress
+                ? const Text(
+                    'Edit and Save',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w700),
+                  )
+                : const Text(
+                    'Save',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w700),
+                  ),
           ),
         ));
   }

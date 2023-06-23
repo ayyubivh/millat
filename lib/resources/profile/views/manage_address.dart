@@ -7,6 +7,7 @@ import 'package:millat/utils/size_utility.dart';
 import '../../shop/bloc/logic/address_bloc/address_bloc.dart';
 
 class ManageAddress extends StatelessWidget {
+  static const String routeName = '/manage-address';
   const ManageAddress({Key? key}) : super(key: key);
 
   @override
@@ -50,8 +51,7 @@ class ManageAddress extends StatelessWidget {
                       ),
                       InkWell(
                         onTap: () {
-                          Navigator.of(context)
-                              .pushReplacement(MaterialPageRoute(
+                          Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) => const CheckoutDetails(
                                 type: AddressNavType.profile),
                           ));
@@ -114,6 +114,9 @@ class ManageAddress extends StatelessWidget {
                                             SaveAddressId(addressId: data.id));
                                       },
                                     ),
+                                    index == state.selectedIndex
+                                        ? const SizedBox(height: 0)
+                                        : const SizedBox(height: 5),
                                     SizedBox(
                                       width: SizeUtility(context).width,
                                       child: Row(
@@ -126,26 +129,47 @@ class ManageAddress extends StatelessWidget {
                                             ),
                                           ),
                                           const Spacer(),
-                                          InkWell(
-                                            onTap: () {
-                                              context.read<AddressBloc>().add(
-                                                  DeleteAddressEvent(
-                                                      context: context,
-                                                      id: state
-                                                          .addressModel!
-                                                          .result
-                                                          .addresses[index]
-                                                          .id));
-                                            },
-                                            child: const Icon(
-                                              Icons.delete_outline,
-                                              color: redClr,
-                                            ),
-                                          ),
-                                          const SizedBox(width: 8),
-                                          const Icon(
-                                            Icons.edit_note,
-                                          )
+                                          index == state.selectedIndex
+                                              ? Row(
+                                                  children: [
+                                                    InkWell(
+                                                      onTap: () {
+                                                        context
+                                                            .read<AddressBloc>()
+                                                            .add(DeleteAddressEvent(
+                                                                context:
+                                                                    context,
+                                                                id: state
+                                                                    .addressModel!
+                                                                    .result
+                                                                    .addresses[
+                                                                        index]
+                                                                    .id));
+                                                      },
+                                                      child: const Icon(
+                                                        Icons.delete_outline,
+                                                        color: redClr,
+                                                      ),
+                                                    ),
+                                                    const SizedBox(width: 8),
+                                                    InkWell(
+                                                      onTap: () {
+                                                        Navigator.of(context)
+                                                            .push(
+                                                                MaterialPageRoute(
+                                                          builder: (context) =>
+                                                              const CheckoutDetails(
+                                                                  type: AddressNavType
+                                                                      .editAddress),
+                                                        ));
+                                                      },
+                                                      child: const Icon(
+                                                        Icons.edit_note,
+                                                      ),
+                                                    ),
+                                                  ],
+                                                )
+                                              : const SizedBox()
                                         ],
                                       ),
                                     ),

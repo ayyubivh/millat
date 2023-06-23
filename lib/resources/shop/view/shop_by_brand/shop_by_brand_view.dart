@@ -132,10 +132,14 @@ class _ShopByBrandViewState extends State<ShopByBrandView> {
               ),
               BlocBuilder<ShopProductsBloc, ShopProductsState>(
                 builder: (context, state) {
-                  return state.isLoading
+                  return state.isLoading ||
+                          state.brandProduct?.result?.products == null
                       ? const Center(
-                          child: CircularProgressIndicator(
-                            color: green77,
+                          child: Padding(
+                            padding: EdgeInsets.only(top: 118.0),
+                            child: CircularProgressIndicator(
+                              color: green77,
+                            ),
                           ),
                         )
                       : state.brandProduct!.result!.products!.isEmpty

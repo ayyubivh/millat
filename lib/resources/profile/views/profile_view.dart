@@ -63,7 +63,7 @@ class _ProfileViewState extends State<ProfileView> {
                                   ),
                                   Text(
                                     state.email,
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                         color: black122,
                                         fontSize: 16,
                                         fontWeight: FontWeight.w600),
@@ -108,9 +108,9 @@ class _ProfileViewState extends State<ProfileView> {
                   builder: (context) => const Orders(),
                 ));
               },
-              child: const Row(
+              child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
+                children: const [
                   Text('My Orders',
                       style:
                           TextStyle(fontSize: 17, fontWeight: FontWeight.w700)),
@@ -118,8 +118,8 @@ class _ProfileViewState extends State<ProfileView> {
                 ],
               ),
             ),
-            const Column(
-              children: [
+            Column(
+              children: const [
                 SizedBox(
                   height: 20,
                 ),
@@ -166,9 +166,9 @@ class _ProfileViewState extends State<ProfileView> {
                   builder: (context) => const ManageAddress(),
                 ));
               },
-              child: const Row(
+              child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
+                children: const [
                   Text('Manage Address',
                       style:
                           TextStyle(fontSize: 17, fontWeight: FontWeight.w700)),
@@ -176,8 +176,8 @@ class _ProfileViewState extends State<ProfileView> {
                 ],
               ),
             ),
-            const Column(
-              children: [
+            Column(
+              children: const [
                 SizedBox(
                   height: 20,
                 ),
@@ -195,9 +195,9 @@ class _ProfileViewState extends State<ProfileView> {
                   builder: (context) => const PaymentMethods(),
                 ));
               },
-              child: const Row(
+              child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
+                children: const [
                   Text('Payment Info',
                       style:
                           TextStyle(fontSize: 17, fontWeight: FontWeight.w700)),
@@ -205,8 +205,8 @@ class _ProfileViewState extends State<ProfileView> {
                 ],
               ),
             ),
-            const Column(
-              children: [
+            Column(
+              children: const [
                 SizedBox(
                   height: 20,
                 ),
@@ -218,9 +218,9 @@ class _ProfileViewState extends State<ProfileView> {
                 ),
               ],
             ),
-            const Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
+              children: const [
                 Text('Logout',
                     style:
                         TextStyle(fontSize: 17, fontWeight: FontWeight.w700)),

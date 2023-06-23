@@ -41,14 +41,9 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                   children: [
                     GestureDetector(
                       onTap: () {
-                        // Navigator.of(context)
-                        //     .push(MaterialPageRoute(
-                        //   builder: (context) => const ProfileView(),
-                        // ));
-                        // Navigator.of(context)
-                        //     .push(MaterialPageRoute(
-                        //   builder: (context) => const Sample(),
-                        // ));
+                        Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => const ProfileView(),
+                        ));
                       },
                       child: const CircleAvatar(
                         backgroundColor: Colors.white,

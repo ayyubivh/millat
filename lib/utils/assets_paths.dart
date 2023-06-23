@@ -10,3 +10,8 @@ const String shopImagePath = '$imagesPath/shop.png';
 const String quranImagePath = '$imagesPath/quran.png';
 
 const String millatMainLogo = '$logosPath/millat_logo.png';
+
+// shop const strings
+const String whiteLogo = 'assets/logos/millat_white_logo.png';
+const String shopText1 = 'Halal & Organic';
+const String shopText2 = 'Search....';

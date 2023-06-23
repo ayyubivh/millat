@@ -10,34 +10,33 @@ part 'database_bloc.freezed.dart';
 class DatabaseBloc extends Bloc<DatabaseEvent, DatabaseState> {
   DatabaseBloc() : super(DatabaseState.initial()) {
     on<StoreTokenEvent>((event, emit) {
-      final authBox = Hive.box('userDetailsBox');
+      final authBox = Hive.box(userBox);
       final token = event.token;
-      authBox.put(AUTHTOKEN, token);
+      authBox.put(authToken, token);
       emit(state.copyWith(token: token));
     });
     on<FetchToken>((event, emit) {
-      final authBox = Hive.box('userDetailsBox');
-      final String? token = authBox.get(AUTHTOKEN);
+      final authBox = Hive.box(userBox);
+      final String? token = authBox.get(authToken);
       if (token != null) {
         emit(state.copyWith(token: token));
       }
     });
     on<StoreUserDetails>((event, emit) {
-      final authBox = Hive.box('userDetailsBox');
+      final authBox = Hive.box(userBox);
       final email = event.email;
       final name = event.name;
-      authBox.put(EMAIL, email);
-      authBox.put(NAME, name);
+      authBox.put(emailKey, email);
+      authBox.put(nameKey, name);
       emit(state.copyWith(email: email, name: name));
       // print('email ${email} and the $name');
       // emit(state.copyWith(userDetails: userDetails));
     });
     on<FetchUserDetails>((event, emit) {
-      final authBox = Hive.box('userDetailsBox');
-      final email = authBox.get(EMAIL);
-      final name = authBox.get(NAME);
+      final authBox = Hive.box(userBox);
+      final email = authBox.get(emailKey);
+      final name = authBox.get(nameKey);
       emit(state.copyWith(email: email, name: name));
-      print('${state.name}');
     });
   }
 }

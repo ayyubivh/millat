@@ -56,7 +56,7 @@ void main() async {
 }
 
 class MyApp extends StatelessWidget {
-  final _tokenBox = Hive.box('userDetailsBox');
+  final _tokenBox = Hive.box(userBox);
 
   MyApp({super.key});
 
@@ -108,7 +108,7 @@ class MyApp extends StatelessWidget {
   }
 
   Widget _getInitialScreen() {
-    final String? token = _tokenBox.get(AUTHTOKEN);
+    final String? token = _tokenBox.get(authToken);
 
     if (token != null) {
       print('on main token ${token}');

@@ -83,9 +83,9 @@ class _CheckoutDetailsState extends State<CheckoutDetails> {
                       ),
                 widget.type == AddressNavType.profile
                     ? const SizedBox()
-                    : const Row(
+                    : Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
+                        children: const [
                           Text(
                             'Personal Info',
                             style: TextStyle(

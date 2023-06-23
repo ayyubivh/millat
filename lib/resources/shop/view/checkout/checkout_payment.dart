@@ -40,9 +40,9 @@ class _CheckoutPaymentState extends State<CheckoutPayment> {
                   value: 3,
                   onChanged: (value) {},
                 ),
-                const Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
+                  children: const [
                     Text(
                       'Personal Info',
                       style: TextStyle(

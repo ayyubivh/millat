@@ -49,9 +49,9 @@ class _CheckoutViewState extends State<CheckoutView> {
                   value: 0,
                   onChanged: (value) {},
                 ),
-                const Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
+                  children: const [
                     Text(
                       'Personal Info',
                       style: TextStyle(
@@ -171,7 +171,7 @@ class _CheckoutViewState extends State<CheckoutView> {
               if (id == null) {
                 print('$id is null man');
                 showSnackBar(context, 'select the address');
-                return null;
+                return;
               }
               Navigator.of(context).push(MaterialPageRoute(
                 builder: (context) {
@@ -213,7 +213,7 @@ class _CheckoutViewState extends State<CheckoutView> {
               ),
             ),
             const SizedBox(height: 20),
-            Container(
+            SizedBox(
               width: 200, // Adjust the width as needed
               child: Text(
                 address.toString(),

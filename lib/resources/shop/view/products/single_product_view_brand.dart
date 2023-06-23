@@ -104,12 +104,12 @@ class _SingleProductViewBrandState extends State<SingleProductViewBrand> {
                 const SizedBox(
                   height: 10,
                 ),
-                const Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     Row(
-                      children: [
+                      children: const [
                         Icon(Icons.star, color: orange255, size: 20),
                         Icon(Icons.star, color: orange255, size: 20),
                         Icon(Icons.star, color: orange255, size: 20),
@@ -127,7 +127,7 @@ class _SingleProductViewBrandState extends State<SingleProductViewBrand> {
                         ),
                       ],
                     ),
-                    ImageIcon(
+                    const ImageIcon(
                       AssetImage(
                         'assets/icons/heart.png',
                       ),
@@ -216,17 +216,17 @@ class _SingleProductViewBrandState extends State<SingleProductViewBrand> {
                 ),
                 Container(
                   padding: const EdgeInsets.symmetric(vertical: 40),
-                  child: const Column(
+                  child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
+                      const Text(
                         'Reviews',
                         style: TextStyle(
                             color: black26,
                             fontSize: 18,
                             fontWeight: FontWeight.w700),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       Row(
@@ -234,7 +234,7 @@ class _SingleProductViewBrandState extends State<SingleProductViewBrand> {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Row(
-                            children: [
+                            children: const [
                               Icon(Icons.star, color: orange255, size: 20),
                               Icon(Icons.star, color: orange255, size: 20),
                               Icon(Icons.star, color: orange255, size: 20),
@@ -262,7 +262,7 @@ class _SingleProductViewBrandState extends State<SingleProductViewBrand> {
                               ),
                             ],
                           ),
-                          Icon(
+                          const Icon(
                             Icons.arrow_forward_ios,
                             color: green77,
                           )
@@ -353,10 +353,10 @@ class _SingleProductViewBrandState extends State<SingleProductViewBrand> {
               fixedSize: MaterialStateProperty.all(
                   Size(SizeUtility(context).width, 60)),
             ),
-            child: const Row(
+            child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
+              children: const [
                 Icon(
                   Icons.shopping_cart,
                   color: green77,
@@ -611,7 +611,7 @@ class _SingleProductViewBrandState extends State<SingleProductViewBrand> {
                   ),
                   onPressed: () async {
                     print(
-                        'hey the test of add cart color ${colorMap.keys.elementAt(selectedColor)}  size ${sizeList[selectedSize]} id-------${widget.passValue.id} quantity +++${quantity}');
+                        'hey the test of add cart color ${colorMap.keys.elementAt(selectedColor)}  size ${sizeList[selectedSize]} id-------${widget.passValue.id} quantity +++$quantity');
                     Navigator.of(context).pop();
                     context.read<CartBloc>().add(AddCartEvent(
                           productId: widget.passValue.id,
@@ -622,10 +622,10 @@ class _SingleProductViewBrandState extends State<SingleProductViewBrand> {
                           quantity: quantity,
                         ));
                   },
-                  child: const Row(
+                  child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
+                    children: const [
                       Icon(
                         Icons.shopping_cart,
                         color: green77,
@@ -707,9 +707,9 @@ class _SingleProductViewBrandState extends State<SingleProductViewBrand> {
             children: [
               SizedBox(
                 width: SizeUtility(context).width * 70 / 100,
-                child: const Row(
+                child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
+                  children: const [
                     Text(
                       'Sujankha',
                       style:
@@ -728,8 +728,8 @@ class _SingleProductViewBrandState extends State<SingleProductViewBrand> {
               const SizedBox(
                 height: 15,
               ),
-              const Row(
-                children: [
+              Row(
+                children: const [
                   Icon(Icons.star, color: orange255, size: 20),
                   Icon(Icons.star, color: orange255, size: 20),
                   Icon(Icons.star, color: orange255, size: 20),
@@ -801,11 +801,11 @@ class _SingleProductViewBrandState extends State<SingleProductViewBrand> {
               const SizedBox(
                 height: 15,
               ),
-              const Row(
+              Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Row(
-                    children: [
+                    children: const [
                       Text(
                         'MRP',
                         style: TextStyle(
@@ -826,7 +826,7 @@ class _SingleProductViewBrandState extends State<SingleProductViewBrand> {
                       ),
                     ],
                   ),
-                  Text(
+                  const Text(
                     '11%off',
                     style: TextStyle(
                         color: orange255,

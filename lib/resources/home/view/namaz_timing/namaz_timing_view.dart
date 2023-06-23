@@ -61,25 +61,25 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                   ? SizeUtility(context).width * 50 / 100
                   : null,
               leading: _isAppBarCollapsed
-                  ? const Row(
+                  ? Row(
                       children: [
-                        SizedBox(
+                        const SizedBox(
                           width: 30,
                         ),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text('Upcoming Namaz',
+                            const Text('Upcoming Namaz',
                                 style: TextStyle(
                                   fontSize: 13,
                                   fontWeight: FontWeight.w100,
                                 )),
-                            SizedBox(
+                            const SizedBox(
                               height: 10,
                             ),
                             Row(
                               crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
+                              children: const [
                                 Text('Zohar',
                                     style: TextStyle(
                                       fontSize: 20,
@@ -149,7 +149,7 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                                     // ));
                                     Navigator.of(context)
                                         .push(MaterialPageRoute(
-                                      builder: (context) => Sample(),
+                                      builder: (context) => const Sample(),
                                     ));
                                   },
                                   child: const CircleAvatar(
@@ -161,9 +161,9 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                                 const SizedBox(
                                   width: 10,
                                 ),
-                                const Column(
+                                Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
+                                  children: const [
                                     Text('Asslamualaikum,',
                                         style: TextStyle(
                                             color: Colors.white, fontSize: 18)),
@@ -744,18 +744,18 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                                     width: 0.5,
                                     height: 40,
                                   ),
-                                  const Column(
+                                  Column(
                                     children: [
-                                      Text(
+                                      const Text(
                                         'Upcoming Namaz',
                                         style: TextStyle(
                                           fontSize: 12,
                                           fontWeight: FontWeight.w300,
                                         ),
                                       ),
-                                      SizedBox(height: 6),
+                                      const SizedBox(height: 6),
                                       Row(
-                                        children: [
+                                        children: const [
                                           Text(
                                             'Zohar ',
                                             style: TextStyle(
@@ -780,12 +780,12 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                               ),
                             ),
                             const SizedBox(height: 15),
-                            const Row(
+                            Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Column(
-                                  children: [
+                                  children: const [
                                     Text(
                                       '26 °',
                                       style: TextStyle(
@@ -806,7 +806,7 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                                   ],
                                 ),
                                 Column(
-                                  children: [
+                                  children: const [
                                     Text(
                                       '2 Dhu al-Qi\'dah,1444',
                                       style: TextStyle(
@@ -1143,7 +1143,7 @@ class _NamazTimingViewState extends State<NamazTimingView> {
         padding: const EdgeInsets.symmetric(horizontal: 28.0),
         child: Column(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 5,
             ),
             Row(

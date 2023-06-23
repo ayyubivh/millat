@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:millat/resources/shop/view/checkout/checkout_details.dart';
 import 'package:millat/resources/shop/view/order_status/order_status.dart';
 import 'package:millat/utils/globals.dart';
 import 'package:millat/utils/size_utility.dart';
@@ -15,31 +14,56 @@ class _PaymentFailedState extends State<PaymentFailed> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SizedBox(
-        width: SizeUtility(context).width,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 30),
-          child: Column(
-            children: [
-              SizedBox(height: 120,),
-              Text('Payment Failed',style: TextStyle(color: green77,fontSize: 19,fontWeight: FontWeight.w700),),
-              SizedBox(height: 40,),
-
-              Image.asset('assets/images/payment_failed.png',width: SizeUtility(context).width * 90 /100,),
-          SizedBox(height: 60,),
-
-
-          Text('OOPS!',style: TextStyle(color: black26,fontSize: 19,fontWeight: FontWeight.bold),),
-    SizedBox(height: 20,),
-
-              Text('Sorry, your payment failed. Please try again or contact support for assistance.',style: TextStyle(color: black122,fontSize: 15,fontWeight: FontWeight.w500),textAlign: TextAlign.center,),
-
-            ],
+        body: SizedBox(
+          width: SizeUtility(context).width,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 30),
+            child: Column(
+              children: [
+                SizedBox(
+                  height: 120,
+                ),
+                Text(
+                  'Payment Failed',
+                  style: TextStyle(
+                      color: green77,
+                      fontSize: 19,
+                      fontWeight: FontWeight.w700),
+                ),
+                SizedBox(
+                  height: 40,
+                ),
+                Image.asset(
+                  'assets/images/payment_failed.png',
+                  width: SizeUtility(context).width * 90 / 100,
+                ),
+                SizedBox(
+                  height: 60,
+                ),
+                Text(
+                  'OOPS!',
+                  style: TextStyle(
+                      color: black26,
+                      fontSize: 19,
+                      fontWeight: FontWeight.bold),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Text(
+                  'Sorry, your payment failed. Please try again or contact support for assistance.',
+                  style: TextStyle(
+                      color: black122,
+                      fontSize: 15,
+                      fontWeight: FontWeight.w500),
+                  textAlign: TextAlign.center,
+                ),
+              ],
+            ),
           ),
         ),
-      ),
         bottomSheet: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 30,horizontal: 20),
+          padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
           child: ElevatedButton(
             style: ButtonStyle(
               backgroundColor: MaterialStateProperty.all(green77),
@@ -50,11 +74,13 @@ class _PaymentFailedState extends State<PaymentFailed> {
                 ),
               ),
               elevation: MaterialStateProperty.all(0),
-              fixedSize: MaterialStateProperty.all(Size(
-                  SizeUtility(context).width , 50)),
+              fixedSize: MaterialStateProperty.all(
+                  Size(SizeUtility(context).width, 50)),
             ),
             onPressed: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) => OrderStatus(),));
+              Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => OrderStatus(),
+              ));
             },
             child: Text(
               'Retry',
@@ -64,7 +90,6 @@ class _PaymentFailedState extends State<PaymentFailed> {
                   fontWeight: FontWeight.w700),
             ),
           ),
-        )
-    );
+        ));
   }
 }

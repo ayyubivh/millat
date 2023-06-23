@@ -1,704 +1,710 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:millat/components/common_widgets/cart_icon_widget.dart';
+import 'package:millat/resources/shop/bloc/logic/cart_bloc/cart_bloc.dart';
+import 'package:millat/resources/shop/view/cart/cart.dart';
 import 'package:millat/resources/shop/view/reviews/reviews_view.dart';
 import 'package:millat/utils/globals.dart';
 import 'package:millat/utils/size_utility.dart';
+import 'package:millat/utils/utils.dart';
 
 class SingleProductView extends StatefulWidget {
-  const SingleProductView({Key? key}) : super(key: key);
+  final passValue;
+  const SingleProductView({Key? key, this.passValue}) : super(key: key);
 
   @override
   State<SingleProductView> createState() => _SingleProductViewState();
 }
 
 class _SingleProductViewState extends State<SingleProductView> {
-  final _scaffoldKey = GlobalKey();
-
-  int? selectedSize;
-  int? selectedColor;
-
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      key: _scaffoldKey,
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        leading: BackButton(color: Colors.black),
-        actions: [
-          Padding(
-            padding: const EdgeInsets.only(left: 10),
-            child: ImageIcon(
-              AssetImage(
-                'assets/icons/search.png',
+    final colorMap = {
+      'Pink': Colors.pink,
+      'Green': Colors.green,
+      'Grey': Colors.grey,
+      'Red': Colors.red,
+      'Black': Colors.black,
+    };
+    int selectedSize = 0;
+    bool isSnackBarVisible = false;
+
+    final sizeList = ['S', 'M', 'L', 'ML', 'XL'];
+    int quantity = 1;
+    int selectedColor = 0;
+    return BlocListener<CartBloc, CartState>(
+      listener: (context, state) {
+        if (state.cartSuccesmessage.isNotEmpty && !isSnackBarVisible) {
+          showSnackBar(context, state.cartSuccesmessage);
+          // isSnackBarVisible = true;
+          // ScaffoldMessenger.of(context).clearSnackBars();
+          // Future.delayed(const Duration(seconds: 2)).then((_) {
+          //   isSnackBarVisible = false;
+          // });
+        }
+      },
+      child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          leading: const BackButton(color: Colors.black),
+          actions: [
+            const Padding(
+              padding: EdgeInsets.only(left: 10),
+              child: ImageIcon(
+                AssetImage(
+                  'assets/icons/search.png',
+                ),
+                color: Colors.black,
               ),
-              color: Colors.black,
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 20, right: 20),
-            child: ImageIcon(
-              AssetImage(
-                'assets/icons/cart.png',
-              ),
-              color: Colors.black,
-            ),
-          ),
-        ],
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Container(
-                height: SizeUtility(context).height * 30 / 100,
-                width: SizeUtility(context).width,
-                decoration: BoxDecoration(
+            BlocBuilder<CartBloc, CartState>(
+              builder: (context, state) {
+                return CartIconWidget(
+                  color: black26,
+                  cartLength: state.cartLength ?? 0,
+                );
+              },
+            )
+          ],
+        ),
+        body: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  height: SizeUtility(context).height * 30 / 100,
+                  width: SizeUtility(context).width,
+                  decoration: BoxDecoration(
                     color: black247,
                     image: DecorationImage(
-                        image: AssetImage('assets/dummy/thope_2.png'))),
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Text(
-                'Men Cotton Silk Only Kurta',
-                style: TextStyle(
-                    fontSize: 22, fontWeight: FontWeight.w600, height: 2),
-              ),
-              Text('1.523,68 ₹',
-                  style: TextStyle(
-                      color: black60,
-                      fontSize: 17,
-                      decoration: TextDecoration.lineThrough,
-                      height: 1.5)),
-              Text('Al- Nayab Store',
-                  style: TextStyle(color: black60, fontSize: 17, height: 1.5)),
-              Text('1.523,68 ₹',
-                  style: TextStyle(color: green77, fontSize: 22, height: 1.5)),
-              SizedBox(
-                height: 10,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  Row(
-                    children: [
-                      Icon(Icons.star, color: orange255, size: 20),
-                      Icon(Icons.star, color: orange255, size: 20),
-                      Icon(Icons.star, color: orange255, size: 20),
-                      Icon(Icons.star, color: orange255, size: 20),
-                      Icon(Icons.star, color: orange255, size: 20),
-                      SizedBox(
-                        width: 10,
+                      image:
+                          NetworkImage(widget.passValue!.colors![0].images![0]),
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                Text(
+                  widget.passValue.title,
+                  style: const TextStyle(
+                      fontSize: 22, fontWeight: FontWeight.w600, height: 2),
+                ),
+                Text('${widget.passValue.actualPrice} ₹',
+                    style: const TextStyle(
+                        color: black60,
+                        fontSize: 17,
+                        decoration: TextDecoration.lineThrough,
+                        height: 1.5)),
+                Text(widget.passValue.brand.name ?? 'null',
+                    style: const TextStyle(
+                        color: black60, fontSize: 17, height: 1.5)),
+                Text('${widget.passValue.discountPrice} ₹',
+                    style: const TextStyle(
+                        color: green77, fontSize: 22, height: 1.5)),
+                const SizedBox(
+                  height: 10,
+                ),
+                const Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    Row(
+                      children: [
+                        Icon(Icons.star, color: orange255, size: 20),
+                        Icon(Icons.star, color: orange255, size: 20),
+                        Icon(Icons.star, color: orange255, size: 20),
+                        Icon(Icons.star, color: orange255, size: 20),
+                        Icon(Icons.star, color: orange255, size: 20),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Text(
+                          '4,5',
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.w700,
+                              fontSize: 15),
+                        ),
+                      ],
+                    ),
+                    ImageIcon(
+                      AssetImage(
+                        'assets/icons/heart.png',
                       ),
-                      Text(
-                        '4,5',
+                      color: black60,
+                    )
+                  ],
+                ),
+                Container(
+                  padding: const EdgeInsets.symmetric(vertical: 40),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const Text(
+                        'Select options',
                         style: TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.w700,
-                            fontSize: 15),
+                            color: green77,
+                            fontSize: 20,
+                            fontWeight: FontWeight.w700),
+                      ),
+                      IconButton(
+                          onPressed: () {
+                            showModalBottomSheet(
+                              context: context,
+                              builder: (context) => StatefulBuilder(
+                                builder: (context, setState) => Padding(
+                                  padding: const EdgeInsets.all(20.0),
+                                  child: buildShowModelSheet(
+                                      context,
+                                      colorMap,
+                                      setState,
+                                      selectedColor,
+                                      sizeList,
+                                      selectedSize,
+                                      quantity),
+                                ),
+                              ),
+                            );
+                          },
+                          icon: const Icon(
+                            Icons.arrow_forward_ios,
+                            color: green77,
+                          ))
+                    ],
+                  ),
+                ),
+                const Text(
+                  'Product Description',
+                  style: TextStyle(
+                      fontWeight: FontWeight.w600,
+                      fontSize: 18,
+                      color: black26),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                Text(
+                  widget.passValue.description,
+                  style: const TextStyle(fontSize: 16, color: black122),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                const Text(
+                  'Fabric: Cotton Silk',
+                  style: TextStyle(
+                      fontWeight: FontWeight.w600,
+                      fontSize: 17,
+                      color: black26),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                const Text(
+                  'Care: Gentle machine wash / Regular Wash',
+                  style: TextStyle(
+                      fontWeight: FontWeight.w600,
+                      fontSize: 17,
+                      color: black26),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                Text(
+                  widget.passValue.otherInfo,
+                  style: const TextStyle(fontSize: 16, color: black122),
+                ),
+                Container(
+                  padding: const EdgeInsets.symmetric(vertical: 40),
+                  child: const Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Reviews',
+                        style: TextStyle(
+                            color: black26,
+                            fontSize: 18,
+                            fontWeight: FontWeight.w700),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Row(
+                            children: [
+                              Icon(Icons.star, color: orange255, size: 20),
+                              Icon(Icons.star, color: orange255, size: 20),
+                              Icon(Icons.star, color: orange255, size: 20),
+                              Icon(Icons.star, color: orange255, size: 20),
+                              Icon(Icons.star, color: orange255, size: 20),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              Text(
+                                '4,5/5',
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w700,
+                                    fontSize: 15),
+                              ),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              Text(
+                                '(120 reviews)',
+                                style: TextStyle(
+                                    color: black122,
+                                    fontWeight: FontWeight.w700,
+                                    fontSize: 15),
+                              ),
+                            ],
+                          ),
+                          Icon(
+                            Icons.arrow_forward_ios,
+                            color: green77,
+                          )
+                        ],
                       ),
                     ],
                   ),
-                  ImageIcon(
-                    AssetImage(
-                      'assets/icons/heart.png',
-                    ),
-                    color: black60,
-                  )
-                ],
-              ),
-              Container(
-                padding: EdgeInsets.symmetric(vertical: 40),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      'Select options',
+                ),
+                buildReviewItem(
+                    context: context,
+                    comment: 'Very good product, I will buy it again'),
+                buildReviewItem(
+                    context: context,
+                    comment: 'A very quality product, I highly recommend it.'),
+                buildReviewItem(
+                    context: context,
+                    comment: 'A very quality product, I highly recommend it.'),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const ReviewsView(),
+                    ));
+                  },
+                  child: Container(
+                    alignment: Alignment.center,
+                    padding: const EdgeInsets.symmetric(vertical: 40),
+                    child: const Text(
+                      'View all (120)',
                       style: TextStyle(
                           color: green77,
                           fontSize: 20,
                           fontWeight: FontWeight.w700),
                     ),
-                    Icon(
-                      Icons.arrow_forward_ios,
-                      color: green77,
-                    )
-                  ],
-                ),
-              ),
-              Text(
-                'Product Description',
-                style: TextStyle(
-                    fontWeight: FontWeight.w600, fontSize: 18, color: black26),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Text(
-                'We bring to you this Stylish yet Comfortable Men Multicolor Cotton Silk Solid Stylish Kurta. Adorn it for a perfect Classy & Trendy look Pair it with a juti or a mojari for the Royal feel',
-                style: TextStyle(fontSize: 16, color: black122),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Text(
-                'Fabric: Cotton Silk',
-                style: TextStyle(
-                    fontWeight: FontWeight.w600, fontSize: 17, color: black26),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Text(
-                'Care: Gentle machine wash / Regular Wash',
-                style: TextStyle(
-                    fontWeight: FontWeight.w600, fontSize: 17, color: black26),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Text(
-                "Other Important Notes: All care has been taken for on screen color resemblance of the product, however 5% - 10% variation may be accepted as different monitor capabilities and Photography effects",
-                style: TextStyle(fontSize: 16, color: black122),
-              ),
-              Container(
-                padding: EdgeInsets.symmetric(vertical: 40),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Reviews',
-                      style: TextStyle(
-                          color: black26,
-                          fontSize: 18,
-                          fontWeight: FontWeight.w700),
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Row(
-                          children: [
-                            Icon(Icons.star, color: orange255, size: 20),
-                            Icon(Icons.star, color: orange255, size: 20),
-                            Icon(Icons.star, color: orange255, size: 20),
-                            Icon(Icons.star, color: orange255, size: 20),
-                            Icon(Icons.star, color: orange255, size: 20),
-                            SizedBox(
-                              width: 10,
-                            ),
-                            Text(
-                              '4,5/5',
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w700,
-                                  fontSize: 15),
-                            ),
-                            SizedBox(
-                              width: 10,
-                            ),
-                            Text(
-                              '(120 reviews)',
-                              style: TextStyle(
-                                  color: black122,
-                                  fontWeight: FontWeight.w700,
-                                  fontSize: 15),
-                            ),
-                          ],
-                        ),
-                        Icon(
-                          Icons.arrow_forward_ios,
-                          color: green77,
-                        )
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-              buildReviewItem(
-                  comment: 'Very good product, I will buy it again'),
-              buildReviewItem(
-                  comment: 'A very quality product, I highly recommend it.'),
-              buildReviewItem(
-                  comment: 'A very quality product, I highly recommend it.'),
-              GestureDetector(
-                onTap: (){
-                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => ReviewsView(),));
-                },
-                child: Container(
-                  alignment: Alignment.center,
-                  padding: EdgeInsets.symmetric(vertical: 40),
-                  child: Text(
-                    'View all (120)',
-                    style: TextStyle(
-                        color: green77,
-                        fontSize: 20,
-                        fontWeight: FontWeight.w700),
                   ),
                 ),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  children: [
-                    buildShopItem(
-                        image: 'assets/dummy/thope.png',
-                        title: "Men Kurta Pyjama Set"),
-                    buildShopItem(
-                        image: 'assets/dummy/sijadah_3.png',
-                        title: "Hometara Velvet Prayer Mat"),
-                    buildShopItem(
-                        image: 'assets/dummy/sijadah.png',
-                        title: "Hijaz Turkish Gold Border Lantern..."),
-                    buildShopItem(
-                        image: 'assets/dummy/sijadah.png',
-                        title: "Hijaz Turkish Gold Border Lantern..."),
-                  ],
+                const SizedBox(
+                  height: 10,
                 ),
-              ),
-              const SizedBox(
-                height: 100,
-              ),
-            ],
-          ),
-        ),
-      ),
-      bottomSheet: Padding(
-        padding: const EdgeInsets.only(bottom: 20),
-        child: ElevatedButton(
-          onPressed: () {
-            showModalBottomSheet(
-              context: context,
-              builder: (context) => StatefulBuilder(
-                builder:(context, setState) =>  Padding(
-                  padding: const EdgeInsets.all(20.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
                     children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            children: [
-                              Container(
-                                height: 130,
-                                width: 130,
-                                decoration: BoxDecoration(
-                                    image: DecorationImage(
-                                        image: AssetImage(
-                                            'assets/dummy/thope_2.png')),
-                                    borderRadius: BorderRadius.circular(20),
-                                    border: Border.all(color: black208)),
-                              ),
-                              SizedBox(
-                                width: 20,
-                              ),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text('1.523,68 ₹',
-                                      style: TextStyle(
-                                          color: green77,
-                                          fontWeight: FontWeight.w700,
-                                          fontSize: 24)),
-                                  SizedBox(
-                                    height: 20,
-                                  ),
-                                  Text('1.523,68 ₹',
-                                      style: TextStyle(
-                                          decoration: TextDecoration.lineThrough,
-                                          fontSize: 20)),
-                                ],
-                              ),
-                            ],
-                          ),
-                          IconButton(
-                              onPressed: () {},
-                              icon: Icon(
-                                Icons.close,
-                                color: black122,
-                              ))
-                        ],
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      Text(
-                        'Colors',
-                        style:
-                            TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      Row(
-                        children: [
-                          GestureDetector(
-                            onTap: (){
-                              setState((){
-                                selectedColor = 0;
-                              });
-                            },
-                            child: CircleAvatar(
-                              radius: 15,
-                              backgroundColor: Colors.pink,
-                              child: selectedColor == 0 ? Container(width: 10,height: 10,decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                  color: Colors.white
-                              ),): null,
-                            ),
-                          ),
-                          SizedBox(
-                            width: 20,
-                          ),
-                          GestureDetector(
-                            onTap: (){
-                              setState((){
-                                selectedColor = 1;
-                              });
-                            },
-                            child: CircleAvatar(
-                              radius: 15,
-                              backgroundColor: Colors.green,
-                              child: selectedColor == 1 ? Container(width: 10,height: 10,decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: Colors.white
-                              ),): null,
-                            ),
-                          ),
-                          SizedBox(
-                            width: 20,
-                          ),
-                          GestureDetector(
-                            onTap: (){
-                              setState((){
-                                selectedColor = 2;
-                              });
-                            },
-                            child: CircleAvatar(
-                              radius: 15,
-                              backgroundColor: Colors.blueGrey,
-                              child: selectedColor ==2 ? Container(width: 10,height: 10,decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: Colors.white
-                              ),): null,
-                            ),
-                          ),
-                          SizedBox(
-                            width: 20,
-                          ),
-                          GestureDetector(
-                            onTap: (){
-                              setState((){
-                                selectedColor = 3;
-                              });
-                            },
-                            child: CircleAvatar(
-                              radius: 15,
-                              backgroundColor: Colors.red,
-                              child: selectedColor == 3 ? Container(width: 10,height: 10,decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: Colors.white
-                              ),): null,
-                            ),
-                          ),
-                          SizedBox(
-                            width: 20,
-                          ),
-                          GestureDetector(
-                            onTap: (){
-                              setState((){
-                                selectedColor = 4;
-                              });
-                            },
-                            child: CircleAvatar(
-                              radius: 15,
-                              backgroundColor: Colors.black,
-                              child: selectedColor ==4 ? Container(width: 10,height: 10,decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: Colors.white
-                              ),): null,
-                            ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      Text(
-                        'Sizes',
-                        style:
-                            TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
-                      ),
-
-                      SizedBox(
-                        height: 20,
-                      ),
-                      Row(
-                        children: [
-                          GestureDetector(
-                            onTap: (){
-                              setState(() {
-                                selectedSize = 0;
-                              });
-                            },
-                            child: Container(
-                              alignment: Alignment.center,
-                              height: 50,
-                              width: 50,
-                              padding: EdgeInsets.all(5),
-                              margin: EdgeInsets.symmetric(horizontal: 10),
-                              decoration: BoxDecoration(
-                                color: selectedSize == 0? green77 : null,
-                                  border: Border.all(color: black208)),
-                              child: Text('S', style: TextStyle(fontSize: 20)),
-                            ),
-                          ),
-
-                          GestureDetector(
-                            onTap: (){
-                              setState(() {
-                                selectedSize = 1;
-                              });
-                            },
-                            child: Container(
-                              alignment: Alignment.center,
-                              height: 50,
-                              width: 50,
-                              padding: EdgeInsets.all(5),
-                              margin: EdgeInsets.symmetric(horizontal: 10),
-                              decoration: BoxDecoration(
-                                  color: selectedSize == 1? green77 : null,
-                                  border: Border.all(color: black208)),
-                              child: Text('M', style: TextStyle(fontSize: 20)),
-                            ),
-                          ),
-
-                          GestureDetector(
-                            onTap: (){
-                              setState(() {
-                                selectedSize = 2;
-                              });
-                            },
-                            child: Container(
-                              alignment: Alignment.center,
-                              height: 50,
-                              width: 50,
-                              padding: EdgeInsets.all(5),
-                              margin: EdgeInsets.symmetric(horizontal: 10),
-                              decoration: BoxDecoration(
-                                  color: selectedSize == 2? green77 : null,
-                                  border: Border.all(color: black208)),
-                              child: Text('L', style: TextStyle(fontSize: 20)),
-                            ),
-                          ),
-
-                          GestureDetector(
-                            onTap: (){
-                              setState(() {
-                                selectedSize = 3;
-                              });
-                            },
-                            child: Container(
-                              alignment: Alignment.center,
-                              height: 50,
-                              width: 50,
-                              padding: EdgeInsets.all(5),
-                              margin: EdgeInsets.symmetric(horizontal: 10),
-                              decoration: BoxDecoration(
-                                  color: selectedSize == 3? green77 : null,
-                                  border: Border.all(color: black208)),
-                              child: Text('ML', style: TextStyle(fontSize: 20)),
-                            ),
-                          ),
-
-                          GestureDetector(
-                            onTap: (){
-                              setState(() {
-                                selectedSize = 4;
-                              });
-                            },
-                            child: Container(
-                              alignment: Alignment.center,
-                              height: 50,
-                              width: 50,
-                              padding: EdgeInsets.all(5),
-                              margin: EdgeInsets.symmetric(horizontal: 10),
-                              decoration: BoxDecoration(
-                                  color: selectedSize == 4? green77 : null,
-                                  border: Border.all(color: black208)),
-                              child: Text('XL', style: TextStyle(fontSize: 20)),
-                            ),
-                          ),
-
-
-                        ],
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            'Quantity',
-                            style: TextStyle(
-                                fontSize: 18, fontWeight: FontWeight.w700),
-                          ),
-                          Row(
-                            children: [
-                              Container(
-                                alignment: Alignment.center,
-                                height: 50,
-                                width: 50,
-                                padding: EdgeInsets.all(5),
-                                margin: EdgeInsets.symmetric(horizontal: 20),
-                                decoration: BoxDecoration(
-                                    border: Border.all(color: black208)),
-                                child: Icon(Icons.remove),
-                              ),
-                              Text(
-                                '1',
-                                style: TextStyle(fontSize: 17),
-                              ),
-                              Container(
-                                alignment: Alignment.center,
-                                height: 50,
-                                width: 50,
-                                padding: EdgeInsets.all(5),
-                                margin: EdgeInsets.symmetric(horizontal: 20),
-                                decoration: BoxDecoration(
-                                    border: Border.all(color: black208)),
-                                child: Icon(Icons.add, color: green77),
-                              ),
-                            ],
-                          )
-                        ],
-                      ),
-                      SizedBox(
-                        height: 30,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          ElevatedButton(
-                            style: ButtonStyle(
-                              backgroundColor:
-                                  MaterialStateProperty.all(Colors.transparent),
-                              shape: MaterialStateProperty.all(
-                                RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(30.0),
-                                  side: BorderSide(color: green77, width: 2.0),
-                                ),
-                              ),
-                              elevation: MaterialStateProperty.all(0),
-                              fixedSize: MaterialStateProperty.all(Size(
-                                  SizeUtility(context).width * 42 / 100, 60)),
-                            ),
-                            onPressed: () {},
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.end,
-                              children: [
-                                Icon(
-                                  Icons.shopping_cart,
-                                  color: green77,
-                                ),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Text(
-                                  'Add to cart',
-                                  style: TextStyle(
-                                      color: green77,
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.w700),
-                                )
-                              ],
-                            ),
-                          ),
-                          ElevatedButton(
-                            style: ButtonStyle(
-                              backgroundColor: MaterialStateProperty.all(green77),
-                              shape: MaterialStateProperty.all(
-                                RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(30.0),
-                                  side: BorderSide(color: green77, width: 2.0),
-                                ),
-                              ),
-                              elevation: MaterialStateProperty.all(0),
-                              fixedSize: MaterialStateProperty.all(Size(
-                                  SizeUtility(context).width * 42 / 100, 60)),
-                            ),
-                            onPressed: () {},
-                            child: Text(
-                              'Buy Now',
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.w700),
-                            ),
-                          )
-                        ],
-                      )
+                      buildShopItem(
+                          context: context,
+                          image: 'assets/dummy/thope.png',
+                          title: "Men Kurta Pyjama Set"),
+                      buildShopItem(
+                          context: context,
+                          image: 'assets/dummy/sijadah_3.png',
+                          title: "Hometara Velvet Prayer Mat"),
+                      buildShopItem(
+                          context: context,
+                          image: 'assets/dummy/sijadah.png',
+                          title: "Hijaz Turkish Gold Border Lantern..."),
+                      buildShopItem(
+                          context: context,
+                          image: 'assets/dummy/sijadah.png',
+                          title: "Hijaz Turkish Gold Border Lantern..."),
                     ],
                   ),
                 ),
-              ),
-            );
-          },
-          style: ButtonStyle(
-            backgroundColor:
-                MaterialStateProperty.all(green77.withOpacity(0.16)),
-            elevation: MaterialStateProperty.all(0),
-            fixedSize:
-                MaterialStateProperty.all(Size(SizeUtility(context).width, 60)),
+                const SizedBox(
+                  height: 100,
+                ),
+              ],
+            ),
           ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-              Icon(
-                Icons.shopping_cart,
-                color: green77,
-              ),
-              SizedBox(
-                width: 10,
-              ),
-              Text(
-                'Add to cart',
-                style: TextStyle(
-                    color: green77, fontSize: 20, fontWeight: FontWeight.w700),
-              )
-            ],
+        ),
+        bottomSheet: Padding(
+          padding: const EdgeInsets.only(bottom: 20),
+          child: ElevatedButton(
+            onPressed: () {
+              showModalBottomSheet(
+                context: context,
+                builder: (context) => StatefulBuilder(
+                  builder: (context, setState) => Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: buildShowModelSheet(context, colorMap, setState,
+                        selectedColor, sizeList, selectedSize, quantity),
+                  ),
+                ),
+              );
+            },
+            style: ButtonStyle(
+              backgroundColor:
+                  MaterialStateProperty.all(green77.withOpacity(0.16)),
+              elevation: MaterialStateProperty.all(0),
+              fixedSize: MaterialStateProperty.all(
+                  Size(SizeUtility(context).width, 60)),
+            ),
+            child: const Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                Icon(
+                  Icons.shopping_cart,
+                  color: green77,
+                ),
+                SizedBox(
+                  width: 10,
+                ),
+                Text(
+                  'Add to cart',
+                  style: TextStyle(
+                      color: green77,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w700),
+                )
+              ],
+            ),
           ),
         ),
       ),
     );
   }
 
-  buildReviewItem({required String comment}) {
+  Widget buildShowModelSheet(
+      BuildContext context,
+      Map<String, Color> colorMap,
+      StateSetter setState,
+      int selectedColor,
+      List<String> sizeList,
+      int selectedSize,
+      int quantity) {
+    return StatefulBuilder(
+      builder: (context, setState) => Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  Container(
+                    height: 130,
+                    width: 130,
+                    decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: NetworkImage(
+                            widget.passValue!.colors![0].images![0],
+                          ),
+                          fit: BoxFit.cover,
+                        ),
+                        borderRadius: BorderRadius.circular(20),
+                        border: Border.all(color: black208)),
+                  ),
+                  const SizedBox(
+                    width: 20,
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text('${widget.passValue.discountPrice} ₹',
+                          style: const TextStyle(
+                              color: green77,
+                              fontWeight: FontWeight.w700,
+                              fontSize: 24)),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      Text('${widget.passValue.actualPrice} ₹',
+                          style: const TextStyle(
+                              decoration: TextDecoration.lineThrough,
+                              fontSize: 20)),
+                    ],
+                  ),
+                ],
+              ),
+              IconButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  icon: const Icon(
+                    Icons.close,
+                    color: black122,
+                  ))
+            ],
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          const Text(
+            'Colors',
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          SizedBox(
+              height: 30,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: colorMap.length,
+                itemBuilder: (BuildContext context, int index) {
+                  final colorEntry = colorMap.entries.toList()[index];
+                  // final colorName = colorEntry.key;
+                  final colorValue = colorEntry.value;
+
+                  return GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        selectedColor = index;
+                        print(selectedColor);
+                        final selectedColorName =
+                            colorMap.keys.toList()[selectedColor];
+                        print(selectedColorName);
+                      });
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.only(right: 20),
+                      child: CircleAvatar(
+                        radius: 15,
+                        backgroundColor: colorValue,
+                        child: selectedColor == index
+                            ? Container(
+                                width: 10,
+                                height: 10,
+                                decoration: const BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: Colors.white,
+                                ),
+                              )
+                            : null,
+                      ),
+                    ),
+                  );
+                },
+              )),
+          const SizedBox(
+            height: 20,
+          ),
+          const Text(
+            'Sizes',
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          Row(
+            children: List.generate(
+              sizeList.length,
+              (index) => GestureDetector(
+                onTap: () {
+                  setState(() {
+                    selectedSize = index;
+                    final selectedSizeValue = sizeList[selectedSize];
+                    print(selectedSizeValue);
+                  });
+                },
+                child: Container(
+                  alignment: Alignment.center,
+                  height: 50,
+                  width: 50,
+                  padding: const EdgeInsets.all(5),
+                  margin: const EdgeInsets.symmetric(horizontal: 10),
+                  decoration: BoxDecoration(
+                    color: selectedSize == index ? Colors.green : null,
+                    border: Border.all(color: Colors.black),
+                  ),
+                  child: Text(
+                    sizeList[index],
+                    style: const TextStyle(fontSize: 20),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          const SizedBox(
+            height: 15,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              const Text(
+                'Quantity',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
+              ),
+              BlocBuilder<CartBloc, CartState>(
+                builder: (context, state) => Row(
+                  children: [
+                    Container(
+                      alignment: Alignment.center,
+                      height: 50,
+                      width: 50,
+                      padding: const EdgeInsets.all(5),
+                      margin: const EdgeInsets.symmetric(horizontal: 20),
+                      decoration:
+                          BoxDecoration(border: Border.all(color: black208)),
+                      child: IconButton(
+                          onPressed: () {
+                            setState(() {
+                              if (quantity > 1) {
+                                quantity -= 1;
+                                print('quantity: $quantity');
+                              }
+                            });
+                          },
+                          icon: const Icon(Icons.remove)),
+                    ),
+                    Text(
+                      quantity.toString(),
+                      style: const TextStyle(fontSize: 17),
+                    ),
+                    Container(
+                      alignment: Alignment.center,
+                      height: 50,
+                      width: 50,
+                      padding: const EdgeInsets.all(5),
+                      margin: const EdgeInsets.symmetric(horizontal: 20),
+                      decoration:
+                          BoxDecoration(border: Border.all(color: black208)),
+                      child: IconButton(
+                          onPressed: () {
+                            setState(() {
+                              quantity += 1;
+                            });
+                          },
+                          icon: const Icon(Icons.add, color: green77)),
+                    ),
+                  ],
+                ),
+              )
+            ],
+          ),
+          const SizedBox(
+            height: 15,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              BlocBuilder<CartBloc, CartState>(
+                builder: (context, state) => ElevatedButton(
+                  style: ButtonStyle(
+                    backgroundColor:
+                        MaterialStateProperty.all(Colors.transparent),
+                    shape: MaterialStateProperty.all(
+                      RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30.0),
+                        side: const BorderSide(color: green77, width: 2.0),
+                      ),
+                    ),
+                    elevation: MaterialStateProperty.all(0),
+                    fixedSize: MaterialStateProperty.all(
+                        Size(SizeUtility(context).width * 42 / 100, 60)),
+                  ),
+                  onPressed: () async {
+                    print(
+                        'hey the test of add cart color ${colorMap.keys.elementAt(selectedColor)}  size ${sizeList[selectedSize]} id-------${widget.passValue.id} quantity +++${quantity}');
+                    Navigator.of(context).pop();
+                    context.read<CartBloc>().add(AddCartEvent(
+                          productId: widget.passValue.id,
+                          basePrice: widget.passValue.discountPrice.toInt(),
+                          size: sizeList[selectedSize],
+                          color: colorMap.keys.elementAt(selectedColor),
+                          context: context,
+                          quantity: quantity,
+                        ));
+                  },
+                  child: const Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Icon(
+                        Icons.shopping_cart,
+                        color: green77,
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Text(
+                        'Add to cart',
+                        style: TextStyle(
+                            color: green77,
+                            fontSize: 20,
+                            fontWeight: FontWeight.w700),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+              ElevatedButton(
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(green77),
+                  shape: MaterialStateProperty.all(
+                    RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30.0),
+                      side: const BorderSide(color: green77, width: 2.0),
+                    ),
+                  ),
+                  elevation: MaterialStateProperty.all(0),
+                  fixedSize: MaterialStateProperty.all(
+                      Size(SizeUtility(context).width * 42 / 100, 60)),
+                ),
+                onPressed: () async {
+                  context.read<CartBloc>().add(AddCartEvent(
+                        productId: widget.passValue.id,
+                        basePrice: widget.passValue.discountPrice.toInt(),
+                        size: sizeList[selectedSize],
+                        color: colorMap.keys.elementAt(selectedColor),
+                        context: context,
+                        quantity: quantity,
+                      ));
+
+                  Future.delayed(const Duration(milliseconds: 400), () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => const CartView()),
+                    );
+                  });
+                },
+                child: const Text(
+                  'Buy Now',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w700),
+                ),
+              )
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  // Padding buildShowBottomModel(
+  buildReviewItem({required String comment, required BuildContext context}) {
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 20),
+      margin: const EdgeInsets.symmetric(vertical: 20),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          CircleAvatar(
+          const CircleAvatar(
             backgroundImage: AssetImage('assets/dummy/dummy_user.png'),
             radius: 30,
           ),
-          SizedBox(
+          const SizedBox(
             width: 15,
           ),
           Column(
@@ -706,7 +712,7 @@ class _SingleProductViewState extends State<SingleProductView> {
             children: [
               SizedBox(
                 width: SizeUtility(context).width * 70 / 100,
-                child: Row(
+                child: const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
@@ -724,10 +730,10 @@ class _SingleProductViewState extends State<SingleProductView> {
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
-              Row(
+              const Row(
                 children: [
                   Icon(Icons.star, color: orange255, size: 20),
                   Icon(Icons.star, color: orange255, size: 20),
@@ -736,19 +742,20 @@ class _SingleProductViewState extends State<SingleProductView> {
                   Icon(Icons.star, color: orange255, size: 20),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
               SizedBox(
                   width: SizeUtility(context).width * 70 / 100,
                   child: Text(
                     comment,
-                    style: TextStyle(fontWeight: FontWeight.w700, fontSize: 17),
+                    style: const TextStyle(
+                        fontWeight: FontWeight.w700, fontSize: 17),
                   )),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
-              Text(
+              const Text(
                 'Apr 18',
                 style: TextStyle(
                     fontWeight: FontWeight.w700, fontSize: 17, color: black122),
@@ -760,15 +767,18 @@ class _SingleProductViewState extends State<SingleProductView> {
     );
   }
 
-  Widget buildShopItem({required String image, required String title}) {
+  Widget buildShopItem(
+      {required String image,
+      required String title,
+      required BuildContext context}) {
     return GestureDetector(
       onTap: () {
         Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => SingleProductView(),
+          builder: (context) => const SingleProductView(),
         ));
       },
       child: Padding(
-        padding: EdgeInsets.only(right: 20.0),
+        padding: const EdgeInsets.only(right: 20.0),
         child: SizedBox(
           width: 160,
           child: Column(
@@ -783,20 +793,20 @@ class _SingleProductViewState extends State<SingleProductView> {
                   borderRadius: BorderRadius.circular(10),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
               Text(title,
-                  style: TextStyle(
+                  style: const TextStyle(
                       color: black83,
                       fontSize: 18,
                       fontWeight: FontWeight.w600,
                       height: 1.3),
                   maxLines: 2),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
-              Row(
+              const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Row(
@@ -830,18 +840,18 @@ class _SingleProductViewState extends State<SingleProductView> {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
-              Text(
+              const Text(
                 'Salman Fragrances',
                 style: TextStyle(
                     color: black131, fontSize: 14, fontWeight: FontWeight.w600),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
-              Text(
+              const Text(
                 '₹307.80',
                 style: TextStyle(
                     color: midGreenColor,

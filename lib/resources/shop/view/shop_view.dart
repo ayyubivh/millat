@@ -1,12 +1,20 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:millat/components/common_widgets/build_categories_widget.dart';
 import 'package:millat/resources/shop/articles/view/articles_view.dart';
-import 'package:millat/resources/shop/view/cart/cart.dart';
-import 'package:millat/resources/shop/view/categories/categories_view.dart';
+import 'package:millat/resources/shop/bloc/logic/category_bloc/category_bloc.dart';
+import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
 import 'package:millat/resources/shop/view/products/products_view.dart';
-import 'package:millat/utils/assets_paths.dart';
+import 'package:millat/resources/shop/view/products/single_product_view.dart';
+import 'package:millat/resources/shop/view/search/search_view.dart';
+import 'package:millat/resources/shop/view/shop_by_brand/shop_by_brand_view.dart';
 import 'package:millat/utils/globals.dart';
 import 'package:millat/utils/size_utility.dart';
+import 'package:millat/utils/utils.dart';
+import '../../../components/common_widgets/cart_icon_widget.dart';
+import '../../../components/common_widgets/shop_products_widget.dart';
+import '../bloc/logic/cart_bloc/cart_bloc.dart';
 
 class ShopView extends StatefulWidget {
   const ShopView({Key? key}) : super(key: key);
@@ -17,6 +25,33 @@ class ShopView extends StatefulWidget {
 
 class _ShopViewState extends State<ShopView> {
   @override
+  void initState() {
+    BlocProvider.of<CategoryBloc>(context)
+        .add(const CategoryEvent.fetchCategories());
+    BlocProvider.of<ShopProductsBloc>(context).add(FetchWishList(context));
+
+    BlocProvider.of<ShopProductsBloc>(context)
+        .add(const ShopProductsEvent.fetchFlashSaleProducts());
+
+    BlocProvider.of<ShopProductsBloc>(context)
+        .add(const ShopProductsEvent.fetchPopularProducts());
+
+    BlocProvider.of<ShopProductsBloc>(context)
+        .add(const ShopProductsEvent.fetchRecentProductProducts());
+    BlocProvider.of<ShopProductsBloc>(context)
+        .add(const ShopProductsEvent.fetchShopByBrand());
+    BlocProvider.of<ShopProductsBloc>(context)
+        .add(const ShopProductsEvent.fetchShopBanners());
+
+    BlocProvider.of<ShopProductsBloc>(context)
+        .add(const ShopProductsEvent.fetchArticles());
+    BlocProvider.of<CartBloc>(context).add(FetchCartEvent(context));
+
+    super.initState();
+  }
+
+  int _currentIndex = 0;
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
@@ -24,19 +59,14 @@ class _ShopViewState extends State<ShopView> {
         child: Column(
           children: [
             Container(
-              padding: EdgeInsets.only(top: 70,left: 20,right: 20),
+              padding: const EdgeInsets.only(top: 70, left: 20, right: 20),
               width: SizeUtility(context).width,
               height: 350,
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [
-                    green77,
-                    green24
-                  ],
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter
-                )
-              ),
+              decoration: const BoxDecoration(
+                  gradient: LinearGradient(
+                      colors: [green77, green24],
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter)),
               child: Column(
                 children: [
                   Row(
@@ -45,383 +75,742 @@ class _ShopViewState extends State<ShopView> {
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
-                          Image.asset('assets/logos/millat_white_logo.png',height: 30,),
-                          SizedBox(width: 5,),
-                          Text('Halal & Organic',style: TextStyle(color: Colors.white,height: 1.8)),
+                          Image.asset(
+                            'assets/logos/millat_white_logo.png',
+                            height: 30,
+                          ),
+                          const SizedBox(
+                            width: 5,
+                          ),
+                          const Text('Halal & Organic',
+                              style: TextStyle(color: whiteClr, height: 1.8)),
                         ],
                       ),
-                      IconButton(onPressed: (){
-                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => CartView(),));
-                      }, icon: ImageIcon(AssetImage('assets/icons/cart.png'),color: Colors.white,))
+                      BlocBuilder<CartBloc, CartState>(
+                        builder: (context, state) {
+                          return CartIconWidget(
+                            color: whiteClr,
+                            cartLength: state.cartLength ?? 0,
+                          );
+                        },
+                      )
                     ],
                   ),
-                  SizedBox(height: 20,),
-                  TextField(
-                    decoration: InputDecoration(
-                      prefixIcon: Icon(Icons.search,color: black142),
-                      filled: true,
-                      fillColor: Colors.white,
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(30.0),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Container(
+                    width: double.infinity,
+                    height: 48,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(30.0),
+                    ),
+                    child: Align(
+                      alignment: Alignment.topLeft,
+                      child: Row(
+                        children: [
+                          IconButton(
+                            onPressed: () {
+                              Navigator.of(context)
+                                  .pushNamed(SearchView.routeName);
+                            },
+                            icon: const Icon(
+                              Icons.search,
+                              color: black102,
+                            ),
+                          ),
+                          const Text(
+                            'Search....',
+                            style: TextStyle(
+                              color: black102,
+                              fontSize: 17,
+                            ),
+                          )
+                        ],
                       ),
-                      hintText: 'Search...',
                     ),
                   ),
-
-                  SizedBox(height: 20,),
+                  const SizedBox(
+                    height: 20,
+                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text('Categories',style: TextStyle(color: Colors.white,fontSize: 18,fontWeight: FontWeight.bold),),
+                      const Text(
+                        'Categories',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold),
+                      ),
                       GestureDetector(
-                      onTap: (){
-                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => Categories(),));
-                      },child: Text('View All',style: TextStyle(color: Colors.white,fontSize: 18,fontWeight: FontWeight.bold),)),
+                          onTap: () {
+                            context
+                                .read<ShopProductsBloc>()
+                                .add(const TabIndexChangeEvent(index: 2));
+                          },
+                          child: const Text(
+                            'View All',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold),
+                          )),
                     ],
                   ),
-                  SizedBox(height: 20,),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Column(
-                        children: [
-                          CircleAvatar(
-                            child: Image.asset('assets/images/man.png',height: 35),
-                            backgroundColor: Colors.white,
-                            radius: 33
-                          ),
-                          SizedBox(height: 10,),
-                          Text('Men',style: TextStyle(color: Colors.white,fontWeight: FontWeight.w600),),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  BlocBuilder<CategoryBloc, CategoryState>(
+                    builder: (context, state) {
+                      return SizedBox(
+                        height: 90,
+                        child: ListView.builder(
+                          itemCount: state.category?.result?.category?.length,
+                          itemExtent: 100,
+                          scrollDirection: Axis.horizontal,
+                          itemBuilder: (context, index) {
+                            if (state.category?.result?.category == null) {
+                              return const SizedBox();
+                            }
 
-                        ],
-                      ),
-
-                      Column(
-                        children: [
-                          CircleAvatar(
-                              child: Image.asset('assets/images/woman.png',height: 35),
-                              backgroundColor: Colors.white,
-                              radius: 33
-                          ),
-                          SizedBox(height: 10,),
-                          Text('Women',style: TextStyle(color: Colors.white,fontWeight: FontWeight.w600),),
-
-                        ],
-                      ),
-                      Column(
-                        children: [
-                          CircleAvatar(
-                              child: Image.asset('assets/images/books.png',height: 35),
-                              backgroundColor: Colors.white,
-                              radius: 33
-                          ),
-                          SizedBox(height: 10,),
-                          Text('Books',style: TextStyle(color: Colors.white,fontWeight: FontWeight.w600),),
-
-                        ],
-                      ),
-                      Column(
-                        children: [
-                          CircleAvatar(
-                              child: Image.asset('assets/images/clothes.png',height: 35),
-                              backgroundColor: Colors.white,
-                              radius: 33
-                          ),
-                          SizedBox(height: 10,),
-                          Text('Fashion',style: TextStyle(color: Colors.white,fontWeight: FontWeight.w600),),
-
-                        ],
-                      ),
-
-                    ],
+                            return BuildCategoryWidget(
+                                image: state
+                                    .category!.result!.category![index].image!,
+                                text: state
+                                    .category!.result!.category![index].title
+                                    .toString());
+                          },
+                        ),
+                      );
+                    },
                   )
                 ],
               ),
             ),
-            SizedBox(height: 20,),
+            const SizedBox(
+              height: 20,
+            ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 30),
               child: Column(
                 children: [
-                  AspectRatio(
-                    aspectRatio: 2,
-                    child: ImageSlideshow(
-                        indicatorBackgroundColor: green77,
-                        indicatorColor: Colors.white,
-                        children:  [
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(20),
-                            child: Image.asset(
-                              'assets/dummy/flash_sale.png',
-                              fit: BoxFit.cover,
-                            ),
-                          ),
+                  BlocBuilder<ShopProductsBloc, ShopProductsState>(
+                    builder: (context, state) {
+                      if (state.shopBanner == null) {
+                        return const SizedBox();
+                      }
 
-                        ]
-                    ),
-                  ),
-
-                  SizedBox(height: 30,),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text('Flash Sale',style: TextStyle(color: black26,fontSize: 18,fontWeight: FontWeight.bold),),
-                      Text('View All',style: TextStyle(color: green77,fontSize: 15,fontWeight: FontWeight.bold),),
-                    ],
-                  ),
-                  SizedBox(height: 20,),
-                  SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      children: [
-                        buildShopItem(image: 'assets/dummy/atiq.png',title: "Ateeq Luxury Attar Perfume 20 ML"),
-                        buildShopItem(image: 'assets/dummy/attr.png',title: "Jasmine Perfume Attar | Motiya | Organic | 3 ml"),
-                        buildShopItem(image: 'assets/dummy/sijadah.png',title: "Hijaz Turkish Gold Border Lantern..."),
-                        buildShopItem(image: 'assets/dummy/sijadah.png',title: "Hijaz Turkish Gold Border Lantern..."),
-                      ],
-                    ),
-                  ),
-
-
-                  SizedBox(height: 50,),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text('Popular Products',style: TextStyle(color: black26,fontSize: 18,fontWeight: FontWeight.bold),),
-                      GestureDetector(onTap: (){
-                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => ProductsView(),));
-
-                      },child: Text('View All',style: TextStyle(color: green77,fontSize: 15,fontWeight: FontWeight.bold),)),
-                    ],
-                  ),
-                  SizedBox(height: 20,),
-                  SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      children: [
-                        buildShopItem(image: 'assets/dummy/mushaf_hamel.png',title: "Ateeq Luxury Attar Perfume 20 ML"),
-                        buildShopItem(image: 'assets/dummy/sijadah_salah.png',title: "Creativehomes Velvet Prayer Mat"),
-                        buildShopItem(image: 'assets/dummy/sijadah.png',title: "Hijaz Turkish Gold Border Lantern..."),
-                        buildShopItem(image: 'assets/dummy/sijadah.png',title: "Hijaz Turkish Gold Border Lantern..."),
-                      ],
-                    ),
-                  ),
-
-
-                  SizedBox(height: 50,),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text('Shop By Brands',style: TextStyle(color: black26,fontSize: 18,fontWeight: FontWeight.bold),),
-                      Text('View All',style: TextStyle(color: green77,fontSize: 15,fontWeight: FontWeight.bold),),
-                    ],
-                  ),
-                  SizedBox(height: 20,),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Column(
+                      final banners = state.shopBanner?.result!.banners;
+                      return Column(
                         children: [
-                          Container(
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              //border: Border.all(color: green77),
-
+                          CarouselSlider(
+                            items: banners?.map((banner) {
+                              return ClipRRect(
+                                borderRadius: BorderRadius.circular(20),
+                                child: Image.network(
+                                  banner.image,
+                                  fit: BoxFit.contain,
+                                ),
+                              );
+                            }).toList(),
+                            options: CarouselOptions(
+                              height: 150,
+                              viewportFraction: 1,
+                              enlargeCenterPage: true,
+                              autoPlay: true,
+                              autoPlayCurve: Curves.fastOutSlowIn,
+                              enableInfiniteScroll: true,
+                              enlargeFactor: 0.3,
+                              scrollDirection: Axis.horizontal,
+                              autoPlayAnimationDuration:
+                                  const Duration(milliseconds: 800),
+                              onPageChanged: (index, reason) {
+                                setState(() {
+                                  _currentIndex = index;
+                                });
+                              },
                             ),
-                           child: Image.asset('assets/dummy/kazima.png',width: 70,height: 70,fit: BoxFit.cover),
                           ),
-                          SizedBox(height: 10,),
-                          Text('Kazima',style: TextStyle(color:black26,fontWeight: FontWeight.w600),),
-
-                        ],
-                      ),
-                      Column(
-                        children: [
-                          Container(
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              //border: Border.all(color: green77),
-
-                            ),
-                            child: Image.asset('assets/dummy/huda.png',width: 70,height: 70,fit: BoxFit.cover),
+                          const SizedBox(height: 10),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: banners!.map((banner) {
+                              int index = banners.indexOf(banner);
+                              return Container(
+                                width: _currentIndex == index ? 24 : 6,
+                                height: 6,
+                                margin:
+                                    const EdgeInsets.symmetric(horizontal: 4),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(30),
+                                  color: _currentIndex == index
+                                      ? green24
+                                      : Colors.grey,
+                                ),
+                              );
+                            }).toList(),
                           ),
-                          SizedBox(height: 10,),
-                          Text('Noor Botigque',style: TextStyle(color:black26,fontWeight: FontWeight.w600),),
-
                         ],
-                      ),
-
-                      Column(
-                        children: [
-                          Container(
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              //border: Border.all(color: green77),
-
-                            ),
-                            child: Image.asset('assets/dummy/huda.png',width: 70,height: 70,fit: BoxFit.cover),
-                          ),
-                          SizedBox(height: 10,),
-                          Text('Huda Beauty',style: TextStyle(color:black26,fontWeight: FontWeight.w600),),
-
-                        ],
-                      ),
-                      Column(
-                        children: [
-                          Container(
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              //border: Border.all(color: green77),
-
-                            ),
-                            child: Image.asset('assets/dummy/farsali.png',width: 70,height: 70,fit: BoxFit.cover),
-                          ),
-                          SizedBox(height: 10,),
-                          Text('Farsali',style: TextStyle(color:black26,fontWeight: FontWeight.w600),),
-
-                        ],
-                      ),
-                    ],
+                      );
+                    },
                   ),
-
-                  SizedBox(height: 50,),
+                  const SizedBox(height: 10),
+                  const SizedBox(
+                    height: 30,
+                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text('Recently Added',style: TextStyle(color: black26,fontSize: 18,fontWeight: FontWeight.bold),),
-                      Text('View All',style: TextStyle(color: green77,fontSize: 15,fontWeight: FontWeight.bold),),
-                    ],
-                  ),
-                  SizedBox(height: 20,),
-                  SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      children: [
-                        buildShopItem(image: 'assets/dummy/thope.png',title: "Men Kurta Pyjama Set"),
-                        buildShopItem(image: 'assets/dummy/sijadah_3.png',title: "Hometara Velvet Prayer Mat"),
-                        buildShopItem(image: 'assets/dummy/sijadah.png',title: "Hijaz Turkish Gold Border Lantern..."),
-                        buildShopItem(image: 'assets/dummy/sijadah.png',title: "Hijaz Turkish Gold Border Lantern..."),
-                      ],
-                    ),
-                  ),
-
-
-                  SizedBox(height: 50,),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text('Articles',style: TextStyle(color: black26,fontSize: 18,fontWeight: FontWeight.bold),),
-                      GestureDetector(onTap: (){
-                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => ArticlesView(),));
-                      },child: Text('Read More',style: TextStyle(color: green77,fontSize: 15,fontWeight: FontWeight.bold),)),
-                    ],
-                  ),
-                  SizedBox(height: 20,),
-                  ClipRRect(
-                    child: Image.asset('assets/dummy/article.png',height: 300),
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SizedBox(height: 20,),
-                      Text('Bilal • 20 Jan 2022',style: TextStyle(color: mainColor,fontSize: 16,fontWeight: FontWeight.w600),),
-
-                      SizedBox(height: 20,),
-                      Text('Bilal Cotton Galabiyya',style: TextStyle(color: black16,fontSize: 15,fontWeight: FontWeight.w600),),
-
-                      SizedBox(height: 20,),
-                      Text('How do you create compelling clothes that wow your friends and impress your managers?',style: TextStyle(color: black102,fontSize: 15,),),
-                      SizedBox(height: 20,),
-                      Container(
-                        padding: EdgeInsets.symmetric(horizontal: 10,vertical: 10),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          color: veryLightGreen
+                      const Text(
+                        'Flash Sale',
+                        style: TextStyle(
+                            color: black26,
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.of(context)
+                              .pushNamed(ProductsView.routeName, arguments: {
+                            'appBarTitle': 'Flash Sale',
+                            'passValue': context
+                                .read<ShopProductsBloc>()
+                                .state
+                                .flashSaleproducts
+                                ?.result
+                                ?.shopProductCategory
+                          });
+                        },
+                        child: const Text(
+                          'View All',
+                          style: TextStyle(
+                              color: mainColor,
+                              fontSize: 15,
+                              fontWeight: FontWeight.bold),
                         ),
-                        child: Text('Popular',style: TextStyle(color: green77,fontWeight: FontWeight.w700)),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  BlocBuilder<ShopProductsBloc, ShopProductsState>(
+                    builder: (context, state) {
+                      return SizedBox(
+                        height: 310,
+                        child: state.isLoading ||
+                                state.flashSaleproducts == null
+                            ? const Center(
+                                child: CircularProgressIndicator(
+                                  color: green77,
+                                ),
+                              )
+                            : ListView.builder(
+                                itemCount: state.flashSaleproducts?.result
+                                    ?.shopProductCategory?.products!.length,
+                                scrollDirection: Axis.horizontal,
+                                itemBuilder: (context, index) {
+                                  final data = state.flashSaleproducts?.result!
+                                      .shopProductCategory?.products![index];
+                                  return GestureDetector(
+                                      onTap: () {
+                                        Navigator.of(context)
+                                            .push(MaterialPageRoute(
+                                          builder: (context) =>
+                                              SingleProductView(
+                                                  passValue: data),
+                                        ));
+                                      },
+                                      child: Padding(
+                                        padding:
+                                            const EdgeInsets.only(right: 15),
+                                        child: ShopProductWidget(
+                                            isWishlisted: state.isWishListed,
+                                            brand: data!.brand!.name.toString(),
+                                            productId: data.id,
+                                            image: data.colors![0].images![0],
+                                            title: data.title.toString(),
+                                            actualPrice:
+                                                data.actualPrice!.toInt(),
+                                            discount: data.discount!.toInt(),
+                                            discountPrice:
+                                                data.discountPrice!.toInt()),
+                                      ));
+                                },
+                              ),
+                      );
+                    },
+                  ),
+                  const SizedBox(
+                    height: 50,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const Text(
+                        'Popular Products',
+                        style: TextStyle(
+                            color: black26,
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold),
+                      ),
+                      GestureDetector(
+                          onTap: () {
+                            Navigator.of(context)
+                                .pushNamed(ProductsView.routeName, arguments: {
+                              'appBarTitle': 'Popular Products',
+                              'passValue': context
+                                  .read<ShopProductsBloc>()
+                                  .state
+                                  .popularProducts
+                                  ?.result
+                                  ?.shopProductCategory
+                            });
+                          },
+                          child: const Text(
+                            'View All',
+                            style: TextStyle(
+                                color: green77,
+                                fontSize: 15,
+                                fontWeight: FontWeight.bold),
+                          )),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  BlocBuilder<ShopProductsBloc, ShopProductsState>(
+                    builder: (context, state) {
+                      if (state.popularProducts?.result?.shopProductCategory
+                              ?.products ==
+                          null) {
+                        return const SizedBox();
+                      }
+                      return SizedBox(
+                        height: 310,
+                        child: ListView.builder(
+                          itemCount: state.popularProducts?.result
+                              ?.shopProductCategory?.products!.length,
+                          scrollDirection: Axis.horizontal,
+                          itemBuilder: (context, index) {
+                            final data = state.popularProducts?.result
+                                ?.shopProductCategory!.products![index];
+                            return GestureDetector(
+                                onTap: () {
+                                  Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (context) =>
+                                        SingleProductView(passValue: data),
+                                  ));
+                                },
+                                child: Padding(
+                                  padding: const EdgeInsets.only(right: 15),
+                                  child: ShopProductWidget(
+                                      isWishlisted: state.isWishListed,
+                                      brand: data!.brand!.name.toString(),
+                                      productId: data.id,
+                                      image: data.colors![0].images![0],
+                                      title: data.title,
+                                      actualPrice: data.actualPrice!.toInt(),
+                                      discount: data.discount!.toInt(),
+                                      discountPrice:
+                                          data.discountPrice!.toInt()),
+                                ));
+                          },
+                        ),
+                      );
+                    },
+                  ),
+                  const SizedBox(
+                    height: 50,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const Text(
+                        'Shop By Brands',
+                        style: TextStyle(
+                            color: black26,
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          // Navigator.of(context).push(MaterialPageRoute(
+                          //     builder: (context) => ShopByBrandView()));
+                        },
+                        child: const Text(
+                          'View All',
+                          style: TextStyle(
+                              color: green77,
+                              fontSize: 15,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  BlocBuilder<ShopProductsBloc, ShopProductsState>(
+                    builder: (context, state) {
+                      return state.shopBrandModel?.users == null
+                          ? const SizedBox()
+                          : SizedBox(
+                              height: 100,
+                              child: ListView.builder(
+                                scrollDirection: Axis.horizontal,
+                                itemCount: state.shopBrandModel?.users!.length,
+                                itemBuilder: (BuildContext context, int index) {
+                                  final data =
+                                      state.shopBrandModel?.users![index];
+                                  return GestureDetector(
+                                    onTap: () {
+                                      Navigator.of(context).push(
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  ShopByBrandView(
+                                                    brandName:
+                                                        data!.name.toString(),
+                                                  )));
+                                    },
+                                    child: buildShopbyBrand(
+                                        data?.image, data?.name),
+                                  );
+                                },
+                              ),
+                            );
+                    },
+                  ),
+                  const SizedBox(
+                    height: 50,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const Text(
+                        'Recently Added',
+                        style: TextStyle(
+                            color: black26,
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.of(context)
+                              .pushNamed(ProductsView.routeName, arguments: {
+                            'appBarTitle': 'Recently Added',
+                            'passValue': context
+                                .read<ShopProductsBloc>()
+                                .state
+                                .recentProducts
+                                ?.result
+                          });
+                        },
+                        child: const Text(
+                          'View All',
+                          style: TextStyle(
+                              color: green77,
+                              fontSize: 15,
+                              fontWeight: FontWeight.bold),
+                        ),
                       )
                     ],
                   ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  BlocBuilder<ShopProductsBloc, ShopProductsState>(
+                    builder: (context, state) {
+                      if (state.recentProducts?.result?.products == null) {
+                        return const SizedBox();
+                      }
+                      return SizedBox(
+                        height: 310,
+                        child: ListView.builder(
+                          itemCount:
+                              state.recentProducts?.result?.products!.length,
+                          scrollDirection: Axis.horizontal,
+                          itemBuilder: (context, index) {
+                            final data =
+                                state.recentProducts?.result?.products![index];
 
-
-
-                  SizedBox(height: 50,),
+                            return GestureDetector(
+                                onTap: () {
+                                  Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (context) =>
+                                        SingleProductView(passValue: data),
+                                  ));
+                                },
+                                child: Padding(
+                                  padding: const EdgeInsets.only(right: 15),
+                                  child: ShopProductWidget(
+                                      isWishlisted: state.isWishListed,
+                                      brand: data!.brand!.name.toString(),
+                                      productId: data.id,
+                                      image: data.colors![0].images![0],
+                                      title: data.title,
+                                      actualPrice: data.actualPrice!.toInt(),
+                                      discount: data.discount!.toInt(),
+                                      discountPrice:
+                                          data.discountPrice!.toInt()),
+                                ));
+                          },
+                        ),
+                      );
+                    },
+                  ),
+                  const SizedBox(
+                    height: 50,
+                  ),
+                  BlocBuilder<ShopProductsBloc, ShopProductsState>(
+                    builder: (context, state) {
+                      if (state.articles?.result?.articles == null) {
+                        return const SizedBox();
+                      }
+                      return Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              const Text(
+                                'Articles',
+                                style: TextStyle(
+                                    color: black26,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.of(context).pushNamed(
+                                    ArticlesView.routeName,
+                                    arguments: {
+                                      'passValue':
+                                          state.articles?.result?.articles ??
+                                              [],
+                                    },
+                                  );
+                                },
+                                child: const Text(
+                                  'Read More',
+                                  style: TextStyle(
+                                      color: green77,
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(20),
+                            child: Image.network(
+                              state.articles!.result!.articles![0].image
+                                  .toString(),
+                              height: 200,
+                              width: double.infinity,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const SizedBox(
+                                height: 20,
+                              ),
+                              Text(
+                                '${state.articles!.result!.articles![0].brand} • ${Utilities.formatDate((state.articles!.result!.articles![0].date!))}',
+                                style: const TextStyle(
+                                    color: mainColor,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w600),
+                              ),
+                              const SizedBox(
+                                height: 20,
+                              ),
+                              Text(
+                                state.articles!.result!.articles![0].title
+                                    .toString(),
+                                style: const TextStyle(
+                                    color: black16,
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.w600),
+                              ),
+                              const SizedBox(
+                                height: 20,
+                              ),
+                              Text(
+                                state.articles!.result!.articles![0].content ??
+                                    'Content is Empty'.toString(),
+                                style: const TextStyle(
+                                  color: black102,
+                                  fontSize: 15,
+                                ),
+                                maxLines: 2,
+                              ),
+                              const SizedBox(
+                                height: 20,
+                              ),
+                              Container(
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 10, vertical: 10),
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(20),
+                                    color: veryLightGreen),
+                                child: const Text('Popular',
+                                    style: TextStyle(
+                                        color: green77,
+                                        fontWeight: FontWeight.w700)),
+                              )
+                            ],
+                          ),
+                        ],
+                      );
+                    },
+                  ),
+                  const SizedBox(
+                    height: 50,
+                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text('Bestsellers',style: TextStyle(color: black26,fontSize: 18,fontWeight: FontWeight.bold),),
-                      Text('View All',style: TextStyle(color: green77,fontSize: 15,fontWeight: FontWeight.bold),),
+                      const Text(
+                        'Bestsellers',
+                        style: TextStyle(
+                            color: black26,
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => ProductsView(
+                              appBarTitle: "Bestsellers",
+                              passValue: context
+                                  .read<ShopProductsBloc>()
+                                  .state
+                                  .recentProducts
+                                  ?.result,
+                            ),
+                          ));
+                          Navigator.of(context)
+                              .pushNamed(ProductsView.routeName, arguments: {
+                            'appBarTitle': 'Bestsellers',
+                            'passValue': context
+                                .read<ShopProductsBloc>()
+                                .state
+                                .recentProducts
+                                ?.result
+                          });
+                        },
+                        child: const Text(
+                          'View All',
+                          style: TextStyle(
+                              color: green77,
+                              fontSize: 15,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      )
                     ],
                   ),
-                  SizedBox(height: 20,),
-                  SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      children: [
-                        buildShopItem(image: 'assets/dummy/khayt.png',title: "Wool Velvet Fabric Kufi"),
-                        buildShopItem(image: 'assets/dummy/tasbih.png',title: "Tasbih 99 beads, Crystal Tasbih, Pearl t..."),
-                        buildShopItem(image: 'assets/dummy/sijadah.png',title: "Hijaz Turkish Gold Border Lantern..."),
-                        buildShopItem(image: 'assets/dummy/sijadah.png',title: "Hijaz Turkish Gold Border Lantern..."),
-                      ],
-                    ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  BlocBuilder<ShopProductsBloc, ShopProductsState>(
+                    builder: (context, state) {
+                      if (state.recentProducts?.result?.products == null) {
+                        return const SizedBox();
+                      }
+                      return SizedBox(
+                        height: 310,
+                        child: ListView.builder(
+                          itemCount:
+                              state.recentProducts?.result?.products!.length,
+                          scrollDirection: Axis.horizontal,
+                          itemBuilder: (context, index) {
+                            final data =
+                                state.recentProducts?.result?.products![index];
+
+                            return GestureDetector(
+                                onTap: () {
+                                  Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (context) =>
+                                        SingleProductView(passValue: data),
+                                  ));
+                                },
+                                child: Padding(
+                                  padding: const EdgeInsets.only(right: 15),
+                                  child: ShopProductWidget(
+                                      isWishlisted: state.isWishListed,
+                                      brand: data!.brand!.name.toString(),
+                                      productId: data.id,
+                                      image: data.colors![0].images![0],
+                                      title: data.title,
+                                      actualPrice: data.actualPrice!.toInt(),
+                                      discount: data.discount!.toInt(),
+                                      discountPrice:
+                                          data.discountPrice!.toInt()),
+                                ));
+                          },
+                        ),
+                      );
+                    },
                   ),
                 ],
               ),
             ),
-
-            SizedBox(height: 120,),
+            const SizedBox(
+              height: 120,
+            ),
           ],
         ),
       ),
     );
   }
 
-  Padding buildShopItem({required String image, required String title}) {
-    return Padding(
-      padding:  EdgeInsets.only(right: 20.0),
-      child: SizedBox(
-        width: 160,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Container(
-              width: 160,
-              height: 160,
-
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage(image),
-                  fit: BoxFit.cover
-                ),
-                  borderRadius: BorderRadius.circular(10),
-
-              ),
+  Widget buildShopbyBrand(String? image, String? name) {
+    return Container(
+      margin: const EdgeInsets.only(right: 10),
+      width: 70,
+      height: 78,
+      child: Column(
+        children: [
+          Container(
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              border: Border.all(color: green77),
             ),
-            SizedBox(height: 15,),
-
-            Text(title,style: TextStyle(
-                color: black83,fontSize: 18,fontWeight: FontWeight.w600,height: 1.3),maxLines: 2),
-            SizedBox(height: 15,),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Row(children: [
-                  Text('MRP',style: TextStyle(color: mainColor,fontSize: 16,fontWeight: FontWeight.w600),),
-                  SizedBox(width: 10,),
-                  Text('(₹.345)',style: TextStyle(color: blue126,fontSize: 16,fontWeight: FontWeight.w600,decoration: TextDecoration.lineThrough),),
-
-                ],),
-                Text('11%off',style: TextStyle(color: orange255,fontSize: 16,fontWeight: FontWeight.w600),),
-              ],
+            child: ClipRRect(
+              borderRadius:
+                  BorderRadius.circular(28), // Half of the width and height
+              child: image != null
+                  ? Image.network(
+                      image,
+                      width: 56,
+                      height: 54.47,
+                      fit: BoxFit.cover,
+                    )
+                  : const Placeholder(
+                      fallbackHeight: 54.47,
+                      fallbackWidth: 56,
+                    ),
             ),
-            SizedBox(height: 15,),
-
-            Text('Salman Fragrances',style: TextStyle(color: black131,fontSize: 14,fontWeight: FontWeight.w600),),
-            SizedBox(height: 15,),
-            Text('₹307.80',style: TextStyle(color: midGreenColor,fontSize: 19,fontWeight: FontWeight.w600),),
-
-          ],
-        ),
+          ),
+          const SizedBox(height: 10),
+          Text(
+            name ?? 'No name',
+            style: const TextStyle(
+              color: black26,
+              fontWeight: FontWeight.w600,
+              fontSize: 14,
+            ),
+            textAlign: TextAlign.center,
+          ),
+        ],
       ),
     );
   }

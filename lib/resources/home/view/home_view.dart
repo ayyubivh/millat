@@ -1,8 +1,14 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
 import 'package:millat/resources/profile/views/profile_view.dart';
 import 'package:millat/utils/globals.dart';
 import 'package:millat/utils/size_utility.dart';
+
+import '../../authentication/bloc/logic/database_bloc/database_bloc.dart';
+import '../../shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
+import 'namaz_timing/namaz_timing_view.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({Key? key}) : super(key: key);
@@ -17,6 +23,9 @@ class _HomeViewState extends State<HomeView> {
   bool _isAppBarCollapsed = false;
   @override
   void initState() {
+    BlocProvider.of<DatabaseBloc>(context).add(const FetchUserDetails());
+    BlocProvider.of<ShopProductsBloc>(context)
+        .add(const ShopProductsEvent.fetchHomeBanners());
     _scrollController.addListener(() {
       if (_scrollController.offset > _appBarHeight - (kToolbarHeight - 180)) {
         setState(() {
@@ -37,6 +46,8 @@ class _HomeViewState extends State<HomeView> {
     super.dispose();
   }
 
+  int _currentIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,6 +56,7 @@ class _HomeViewState extends State<HomeView> {
         controller: _scrollController,
         slivers: [
           SliverAppBar(
+            automaticallyImplyLeading: false,
             collapsedHeight: _appBarHeight,
             backgroundColor: _isAppBarCollapsed ? midGreenColor : Colors.white,
             elevation: 0,
@@ -55,25 +67,25 @@ class _HomeViewState extends State<HomeView> {
                 ? SizeUtility(context).width * 50 / 100
                 : null,
             leading: _isAppBarCollapsed
-                ? Row(
+                ? const Row(
                     children: [
-                      const SizedBox(
+                      SizedBox(
                         width: 30,
                       ),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const Text('Upcoming Namaz',
+                          Text('Upcoming Namaz',
                               style: TextStyle(
                                 fontSize: 13,
                                 fontWeight: FontWeight.w100,
                               )),
-                          const SizedBox(
+                          SizedBox(
                             height: 10,
                           ),
                           Row(
                             crossAxisAlignment: CrossAxisAlignment.center,
-                            children: const [
+                            children: [
                               Text('Zohar',
                                   style: TextStyle(
                                     fontSize: 20,
@@ -95,11 +107,7 @@ class _HomeViewState extends State<HomeView> {
             actions: _isAppBarCollapsed
                 ? [
                     GestureDetector(
-                      onTap: () {
-                        Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => const ProfileView(),
-                        ));
-                      },
+                      onTap: () {},
                       child: CircleAvatar(
                           radius: 15,
                           backgroundColor: Colors.white,
@@ -135,26 +143,36 @@ class _HomeViewState extends State<HomeView> {
                           Row(
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              const CircleAvatar(
-                                backgroundColor: Colors.white,
-                                backgroundImage:
-                                    AssetImage('assets/icons/user.png'),
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (context) => const ProfileView(),
+                                  ));
+                                },
+                                child: const CircleAvatar(
+                                  backgroundColor: Colors.white,
+                                  backgroundImage:
+                                      AssetImage('assets/icons/user.png'),
+                                ),
                               ),
                               const SizedBox(
                                 width: 10,
                               ),
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
-                                children: const [
-                                  Text('Asslamualaikum,',
+                                children: [
+                                  const Text('Asslamualaikum,',
                                       style: TextStyle(
                                           color: Colors.white, fontSize: 18)),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 5,
                                   ),
-                                  Text('Hazrat',
-                                      style: TextStyle(
-                                          color: Colors.white, fontSize: 18)),
+                                  BlocBuilder<DatabaseBloc, DatabaseState>(
+                                    builder: (context, state) => Text(
+                                        state.name,
+                                        style: const TextStyle(
+                                            color: Colors.white, fontSize: 18)),
+                                  ),
                                 ],
                               ),
                               const Spacer(),
@@ -192,10 +210,10 @@ class _HomeViewState extends State<HomeView> {
                                     const SizedBox(
                                       width: 10,
                                     ),
-                                    Column(
+                                    const Column(
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
-                                      children: const [
+                                      children: [
                                         Text(
                                           '13 Shawwal 1444 AH',
                                           style: TextStyle(color: black104),
@@ -211,7 +229,10 @@ class _HomeViewState extends State<HomeView> {
                                     ),
                                     const Spacer(),
                                     TextButton.icon(
-                                        onPressed: () {},
+                                        onPressed: () {
+                                          Navigator.of(context).pushNamed(
+                                              NamazTimingView.routeName);
+                                        },
                                         icon: const ImageIcon(
                                             AssetImage('assets/icons/bell.png'),
                                             color: blueColor),
@@ -228,16 +249,16 @@ class _HomeViewState extends State<HomeView> {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Column(
+                                    const Column(
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
                                       children: [
-                                        const Text(
+                                        Text(
                                           'Now',
                                           style: TextStyle(
                                               color: black104, fontSize: 17),
                                         ),
-                                        const SizedBox(
+                                        SizedBox(
                                           height: 10,
                                         ),
                                         Row(
@@ -245,7 +266,7 @@ class _HomeViewState extends State<HomeView> {
                                               MainAxisAlignment.center,
                                           crossAxisAlignment:
                                               CrossAxisAlignment.start,
-                                          children: const [
+                                          children: [
                                             Text(
                                               'FAJR',
                                               style: TextStyle(
@@ -271,16 +292,16 @@ class _HomeViewState extends State<HomeView> {
                                       width: 0.7,
                                       color: dividerColor,
                                     ),
-                                    Column(
+                                    const Column(
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
                                       children: [
-                                        const Text(
+                                        Text(
                                           'Upcoming Namaz',
                                           style: TextStyle(
                                               color: black104, fontSize: 17),
                                         ),
-                                        const SizedBox(
+                                        SizedBox(
                                           height: 10,
                                         ),
                                         Row(
@@ -288,7 +309,7 @@ class _HomeViewState extends State<HomeView> {
                                               MainAxisAlignment.center,
                                           crossAxisAlignment:
                                               CrossAxisAlignment.start,
-                                          children: const [
+                                          children: [
                                             Text(
                                               'Zohar',
                                               style: TextStyle(
@@ -314,12 +335,12 @@ class _HomeViewState extends State<HomeView> {
                                 const SizedBox(
                                   height: 25,
                                 ),
-                                Row(
+                                const Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     Row(
-                                      children: const [
+                                      children: [
                                         ImageIcon(
                                           AssetImage(
                                               'assets/icons/map-pin.png'),
@@ -334,7 +355,7 @@ class _HomeViewState extends State<HomeView> {
                                       ],
                                     ),
                                     Row(
-                                      children: const [
+                                      children: [
                                         ImageIcon(
                                           AssetImage('assets/icons/share.png'),
                                           color: black165,
@@ -459,74 +480,65 @@ class _HomeViewState extends State<HomeView> {
                     ],
                   ),
                   const SizedBox(height: 30),
-                  AspectRatio(
-                    aspectRatio: 2.3,
-                    child: ImageSlideshow(
-                        onPageChanged: (int index) {},
-                        autoPlayInterval: 3000,
-                        indicatorBackgroundColor: Colors.transparent,
-                        indicatorColor: Colors.transparent,
-                        isLoop: false,
+                  BlocBuilder<ShopProductsBloc, ShopProductsState>(
+                    builder: (context, state) {
+                      if (state.homeBanner == null) {
+                        return const SizedBox();
+                      }
+
+                      final banners = state.homeBanner?.result!.banners;
+                      return Column(
                         children: [
-                          Stack(
-                            children: [
-                              ClipRRect(
-                                borderRadius: BorderRadius.circular(10),
-                                child: Image.asset(
-                                  'assets/images/quran_slider.png',
+                          CarouselSlider(
+                            items: banners?.map((banner) {
+                              return ClipRRect(
+                                borderRadius: BorderRadius.circular(20),
+                                child: Image.network(
+                                  banner.image,
                                   fit: BoxFit.contain,
                                 ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.symmetric(
-                                    horizontal: 20, vertical: 20),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Row(
-                                      children: const [
-                                        ImageIcon(
-                                          AssetImage('assets/icons/readme.png'),
-                                          color: Colors.white,
-                                          size: 30,
-                                        ),
-                                        SizedBox(
-                                          width: 10,
-                                        ),
-                                        Text(
-                                          'Last Read',
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 20),
-                                        )
-                                      ],
-                                    ),
-                                    const SizedBox(
-                                      height: 20,
-                                    ),
-                                    const Text(
-                                      'Al-Fatiah',
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 22,
-                                          fontWeight: FontWeight.w600),
-                                    ),
-                                    const SizedBox(
-                                      height: 15,
-                                    ),
-                                    const Text(
-                                      'Ayah No: 1',
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.w400),
-                                    )
-                                  ],
-                                ),
-                              )
-                            ],
+                              );
+                            }).toList(),
+                            options: CarouselOptions(
+                              height: 150,
+                              viewportFraction: 1,
+                              enlargeCenterPage: true,
+                              autoPlay: true,
+                              autoPlayCurve: Curves.fastOutSlowIn,
+                              enableInfiniteScroll: true,
+                              enlargeFactor: 0.3,
+                              scrollDirection: Axis.horizontal,
+                              autoPlayAnimationDuration:
+                                  const Duration(milliseconds: 800),
+                              onPageChanged: (index, reason) {
+                                setState(() {
+                                  _currentIndex = index;
+                                });
+                              },
+                            ),
                           ),
-                        ]),
+                          const SizedBox(height: 10),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: banners!.map((banner) {
+                              int index = banners.indexOf(banner);
+                              return Container(
+                                width: _currentIndex == index ? 24 : 6,
+                                height: 6,
+                                margin:
+                                    const EdgeInsets.symmetric(horizontal: 4),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(30),
+                                  color: _currentIndex == index
+                                      ? green24
+                                      : Colors.grey,
+                                ),
+                              );
+                            }).toList(),
+                          ),
+                        ],
+                      );
+                    },
                   ),
                   const SizedBox(height: 30),
                   Container(
@@ -545,9 +557,9 @@ class _HomeViewState extends State<HomeView> {
                             const SizedBox(
                               width: 15,
                             ),
-                            Column(
+                            const Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
-                              children: const [
+                              children: [
                                 Text(
                                   'Ramadan Special',
                                   style: TextStyle(
@@ -577,11 +589,11 @@ class _HomeViewState extends State<HomeView> {
                         const SizedBox(
                           height: 20,
                         ),
-                        Row(
+                        const Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Row(
-                              children: const [
+                              children: [
                                 ImageIcon(
                                   AssetImage('assets/icons/heart.png'),
                                   color: black165,
@@ -594,7 +606,7 @@ class _HomeViewState extends State<HomeView> {
                               ],
                             ),
                             Row(
-                              children: const [
+                              children: [
                                 ImageIcon(
                                   AssetImage('assets/icons/share.png'),
                                   color: black165,
@@ -777,13 +789,12 @@ class _HomeViewState extends State<HomeView> {
                                 value: 0.5,
                                 onChanged: (value) {},
                               ),
-                              Padding(
-                                padding:
-                                    const EdgeInsets.symmetric(horizontal: 25),
+                              const Padding(
+                                padding: EdgeInsets.symmetric(horizontal: 25),
                                 child: Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
-                                  children: const [
+                                  children: [
                                     Text(
                                       '2:44',
                                       style: TextStyle(color: black196),
@@ -868,11 +879,11 @@ class _HomeViewState extends State<HomeView> {
             const SizedBox(
               height: 15,
             ),
-            Row(
+            const Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Row(
-                  children: const [
+                  children: [
                     Text(
                       'MRP',
                       style: TextStyle(
@@ -893,7 +904,7 @@ class _HomeViewState extends State<HomeView> {
                     ),
                   ],
                 ),
-                const Text(
+                Text(
                   '11%off',
                   style: TextStyle(
                       color: orange255,

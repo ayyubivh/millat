@@ -1,0 +1,2379 @@
+// coverage:ignore-file
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
+
+part of 'address_bloc.dart';
+
+// **************************************************************************
+// FreezedGenerator
+// **************************************************************************
+
+T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
+/// @nodoc
+mixin _$AddressEvent {
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            BuildContext context,
+            String addressType,
+            String name,
+            int mobile,
+            int pincode,
+            String landmark,
+            String addressLine,
+            String city,
+            String state,
+            String country)
+        addAddress,
+    required TResult Function(BuildContext context) fetchAddressEvent,
+    required TResult Function(int selectedIndex) selectAddressEvent,
+    required TResult Function(String addressId) saveAddressId,
+    required TResult Function(BuildContext context, String id)
+        fetchAddressByIdEvent,
+    required TResult Function(BuildContext context, String id)
+        deleteAddressEvent,
+    required TResult Function(
+            BuildContext context,
+            String addressType,
+            String name,
+            int mobile,
+            int pincode,
+            String landmark,
+            String addressLine,
+            String city,
+            String state,
+            String country,
+            String id)
+        updateAddress,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(
+            BuildContext context,
+            String addressType,
+            String name,
+            int mobile,
+            int pincode,
+            String landmark,
+            String addressLine,
+            String city,
+            String state,
+            String country)?
+        addAddress,
+    TResult? Function(BuildContext context)? fetchAddressEvent,
+    TResult? Function(int selectedIndex)? selectAddressEvent,
+    TResult? Function(String addressId)? saveAddressId,
+    TResult? Function(BuildContext context, String id)? fetchAddressByIdEvent,
+    TResult? Function(BuildContext context, String id)? deleteAddressEvent,
+    TResult? Function(
+            BuildContext context,
+            String addressType,
+            String name,
+            int mobile,
+            int pincode,
+            String landmark,
+            String addressLine,
+            String city,
+            String state,
+            String country,
+            String id)?
+        updateAddress,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            BuildContext context,
+            String addressType,
+            String name,
+            int mobile,
+            int pincode,
+            String landmark,
+            String addressLine,
+            String city,
+            String state,
+            String country)?
+        addAddress,
+    TResult Function(BuildContext context)? fetchAddressEvent,
+    TResult Function(int selectedIndex)? selectAddressEvent,
+    TResult Function(String addressId)? saveAddressId,
+    TResult Function(BuildContext context, String id)? fetchAddressByIdEvent,
+    TResult Function(BuildContext context, String id)? deleteAddressEvent,
+    TResult Function(
+            BuildContext context,
+            String addressType,
+            String name,
+            int mobile,
+            int pincode,
+            String landmark,
+            String addressLine,
+            String city,
+            String state,
+            String country,
+            String id)?
+        updateAddress,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(AddAddress value) addAddress,
+    required TResult Function(FetchAddressEvent value) fetchAddressEvent,
+    required TResult Function(SelectAddressEvent value) selectAddressEvent,
+    required TResult Function(SaveAddressId value) saveAddressId,
+    required TResult Function(FetchAddressByIdEvent value)
+        fetchAddressByIdEvent,
+    required TResult Function(DeleteAddressEvent value) deleteAddressEvent,
+    required TResult Function(UpdateAddress value) updateAddress,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(AddAddress value)? addAddress,
+    TResult? Function(FetchAddressEvent value)? fetchAddressEvent,
+    TResult? Function(SelectAddressEvent value)? selectAddressEvent,
+    TResult? Function(SaveAddressId value)? saveAddressId,
+    TResult? Function(FetchAddressByIdEvent value)? fetchAddressByIdEvent,
+    TResult? Function(DeleteAddressEvent value)? deleteAddressEvent,
+    TResult? Function(UpdateAddress value)? updateAddress,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AddAddress value)? addAddress,
+    TResult Function(FetchAddressEvent value)? fetchAddressEvent,
+    TResult Function(SelectAddressEvent value)? selectAddressEvent,
+    TResult Function(SaveAddressId value)? saveAddressId,
+    TResult Function(FetchAddressByIdEvent value)? fetchAddressByIdEvent,
+    TResult Function(DeleteAddressEvent value)? deleteAddressEvent,
+    TResult Function(UpdateAddress value)? updateAddress,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $AddressEventCopyWith<$Res> {
+  factory $AddressEventCopyWith(
+          AddressEvent value, $Res Function(AddressEvent) then) =
+      _$AddressEventCopyWithImpl<$Res, AddressEvent>;
+}
+
+/// @nodoc
+class _$AddressEventCopyWithImpl<$Res, $Val extends AddressEvent>
+    implements $AddressEventCopyWith<$Res> {
+  _$AddressEventCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+}
+
+/// @nodoc
+abstract class _$$AddAddressCopyWith<$Res> {
+  factory _$$AddAddressCopyWith(
+          _$AddAddress value, $Res Function(_$AddAddress) then) =
+      __$$AddAddressCopyWithImpl<$Res>;
+  @useResult
+  $Res call(
+      {BuildContext context,
+      String addressType,
+      String name,
+      int mobile,
+      int pincode,
+      String landmark,
+      String addressLine,
+      String city,
+      String state,
+      String country});
+}
+
+/// @nodoc
+class __$$AddAddressCopyWithImpl<$Res>
+    extends _$AddressEventCopyWithImpl<$Res, _$AddAddress>
+    implements _$$AddAddressCopyWith<$Res> {
+  __$$AddAddressCopyWithImpl(
+      _$AddAddress _value, $Res Function(_$AddAddress) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? context = null,
+    Object? addressType = null,
+    Object? name = null,
+    Object? mobile = null,
+    Object? pincode = null,
+    Object? landmark = null,
+    Object? addressLine = null,
+    Object? city = null,
+    Object? state = null,
+    Object? country = null,
+  }) {
+    return _then(_$AddAddress(
+      context: null == context
+          ? _value.context
+          : context // ignore: cast_nullable_to_non_nullable
+              as BuildContext,
+      addressType: null == addressType
+          ? _value.addressType
+          : addressType // ignore: cast_nullable_to_non_nullable
+              as String,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      mobile: null == mobile
+          ? _value.mobile
+          : mobile // ignore: cast_nullable_to_non_nullable
+              as int,
+      pincode: null == pincode
+          ? _value.pincode
+          : pincode // ignore: cast_nullable_to_non_nullable
+              as int,
+      landmark: null == landmark
+          ? _value.landmark
+          : landmark // ignore: cast_nullable_to_non_nullable
+              as String,
+      addressLine: null == addressLine
+          ? _value.addressLine
+          : addressLine // ignore: cast_nullable_to_non_nullable
+              as String,
+      city: null == city
+          ? _value.city
+          : city // ignore: cast_nullable_to_non_nullable
+              as String,
+      state: null == state
+          ? _value.state
+          : state // ignore: cast_nullable_to_non_nullable
+              as String,
+      country: null == country
+          ? _value.country
+          : country // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$AddAddress implements AddAddress {
+  const _$AddAddress(
+      {required this.context,
+      required this.addressType,
+      required this.name,
+      required this.mobile,
+      required this.pincode,
+      required this.landmark,
+      required this.addressLine,
+      required this.city,
+      required this.state,
+      required this.country});
+
+  @override
+  final BuildContext context;
+  @override
+  final String addressType;
+  @override
+  final String name;
+  @override
+  final int mobile;
+  @override
+  final int pincode;
+  @override
+  final String landmark;
+  @override
+  final String addressLine;
+  @override
+  final String city;
+  @override
+  final String state;
+  @override
+  final String country;
+
+  @override
+  String toString() {
+    return 'AddressEvent.addAddress(context: $context, addressType: $addressType, name: $name, mobile: $mobile, pincode: $pincode, landmark: $landmark, addressLine: $addressLine, city: $city, state: $state, country: $country)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AddAddress &&
+            (identical(other.context, context) || other.context == context) &&
+            (identical(other.addressType, addressType) ||
+                other.addressType == addressType) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.mobile, mobile) || other.mobile == mobile) &&
+            (identical(other.pincode, pincode) || other.pincode == pincode) &&
+            (identical(other.landmark, landmark) ||
+                other.landmark == landmark) &&
+            (identical(other.addressLine, addressLine) ||
+                other.addressLine == addressLine) &&
+            (identical(other.city, city) || other.city == city) &&
+            (identical(other.state, state) || other.state == state) &&
+            (identical(other.country, country) || other.country == country));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, context, addressType, name,
+      mobile, pincode, landmark, addressLine, city, state, country);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AddAddressCopyWith<_$AddAddress> get copyWith =>
+      __$$AddAddressCopyWithImpl<_$AddAddress>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            BuildContext context,
+            String addressType,
+            String name,
+            int mobile,
+            int pincode,
+            String landmark,
+            String addressLine,
+            String city,
+            String state,
+            String country)
+        addAddress,
+    required TResult Function(BuildContext context) fetchAddressEvent,
+    required TResult Function(int selectedIndex) selectAddressEvent,
+    required TResult Function(String addressId) saveAddressId,
+    required TResult Function(BuildContext context, String id)
+        fetchAddressByIdEvent,
+    required TResult Function(BuildContext context, String id)
+        deleteAddressEvent,
+    required TResult Function(
+            BuildContext context,
+            String addressType,
+            String name,
+            int mobile,
+            int pincode,
+            String landmark,
+            String addressLine,
+            String city,
+            String state,
+            String country,
+            String id)
+        updateAddress,
+  }) {
+    return addAddress(context, addressType, name, mobile, pincode, landmark,
+        addressLine, city, state, country);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(
+            BuildContext context,
+            String addressType,
+            String name,
+            int mobile,
+            int pincode,
+            String landmark,
+            String addressLine,
+            String city,
+            String state,
+            String country)?
+        addAddress,
+    TResult? Function(BuildContext context)? fetchAddressEvent,
+    TResult? Function(int selectedIndex)? selectAddressEvent,
+    TResult? Function(String addressId)? saveAddressId,
+    TResult? Function(BuildContext context, String id)? fetchAddressByIdEvent,
+    TResult? Function(BuildContext context, String id)? deleteAddressEvent,
+    TResult? Function(
+            BuildContext context,
+            String addressType,
+            String name,
+            int mobile,
+            int pincode,
+            String landmark,
+            String addressLine,
+            String city,
+            String state,
+            String country,
+            String id)?
+        updateAddress,
+  }) {
+    return addAddress?.call(context, addressType, name, mobile, pincode,
+        landmark, addressLine, city, state, country);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            BuildContext context,
+            String addressType,
+            String name,
+            int mobile,
+            int pincode,
+            String landmark,
+            String addressLine,
+            String city,
+            String state,
+            String country)?
+        addAddress,
+    TResult Function(BuildContext context)? fetchAddressEvent,
+    TResult Function(int selectedIndex)? selectAddressEvent,
+    TResult Function(String addressId)? saveAddressId,
+    TResult Function(BuildContext context, String id)? fetchAddressByIdEvent,
+    TResult Function(BuildContext context, String id)? deleteAddressEvent,
+    TResult Function(
+            BuildContext context,
+            String addressType,
+            String name,
+            int mobile,
+            int pincode,
+            String landmark,
+            String addressLine,
+            String city,
+            String state,
+            String country,
+            String id)?
+        updateAddress,
+    required TResult orElse(),
+  }) {
+    if (addAddress != null) {
+      return addAddress(context, addressType, name, mobile, pincode, landmark,
+          addressLine, city, state, country);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(AddAddress value) addAddress,
+    required TResult Function(FetchAddressEvent value) fetchAddressEvent,
+    required TResult Function(SelectAddressEvent value) selectAddressEvent,
+    required TResult Function(SaveAddressId value) saveAddressId,
+    required TResult Function(FetchAddressByIdEvent value)
+        fetchAddressByIdEvent,
+    required TResult Function(DeleteAddressEvent value) deleteAddressEvent,
+    required TResult Function(UpdateAddress value) updateAddress,
+  }) {
+    return addAddress(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(AddAddress value)? addAddress,
+    TResult? Function(FetchAddressEvent value)? fetchAddressEvent,
+    TResult? Function(SelectAddressEvent value)? selectAddressEvent,
+    TResult? Function(SaveAddressId value)? saveAddressId,
+    TResult? Function(FetchAddressByIdEvent value)? fetchAddressByIdEvent,
+    TResult? Function(DeleteAddressEvent value)? deleteAddressEvent,
+    TResult? Function(UpdateAddress value)? updateAddress,
+  }) {
+    return addAddress?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AddAddress value)? addAddress,
+    TResult Function(FetchAddressEvent value)? fetchAddressEvent,
+    TResult Function(SelectAddressEvent value)? selectAddressEvent,
+    TResult Function(SaveAddressId value)? saveAddressId,
+    TResult Function(FetchAddressByIdEvent value)? fetchAddressByIdEvent,
+    TResult Function(DeleteAddressEvent value)? deleteAddressEvent,
+    TResult Function(UpdateAddress value)? updateAddress,
+    required TResult orElse(),
+  }) {
+    if (addAddress != null) {
+      return addAddress(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class AddAddress implements AddressEvent {
+  const factory AddAddress(
+      {required final BuildContext context,
+      required final String addressType,
+      required final String name,
+      required final int mobile,
+      required final int pincode,
+      required final String landmark,
+      required final String addressLine,
+      required final String city,
+      required final String state,
+      required final String country}) = _$AddAddress;
+
+  BuildContext get context;
+  String get addressType;
+  String get name;
+  int get mobile;
+  int get pincode;
+  String get landmark;
+  String get addressLine;
+  String get city;
+  String get state;
+  String get country;
+  @JsonKey(ignore: true)
+  _$$AddAddressCopyWith<_$AddAddress> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$FetchAddressEventCopyWith<$Res> {
+  factory _$$FetchAddressEventCopyWith(
+          _$FetchAddressEvent value, $Res Function(_$FetchAddressEvent) then) =
+      __$$FetchAddressEventCopyWithImpl<$Res>;
+  @useResult
+  $Res call({BuildContext context});
+}
+
+/// @nodoc
+class __$$FetchAddressEventCopyWithImpl<$Res>
+    extends _$AddressEventCopyWithImpl<$Res, _$FetchAddressEvent>
+    implements _$$FetchAddressEventCopyWith<$Res> {
+  __$$FetchAddressEventCopyWithImpl(
+      _$FetchAddressEvent _value, $Res Function(_$FetchAddressEvent) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? context = null,
+  }) {
+    return _then(_$FetchAddressEvent(
+      context: null == context
+          ? _value.context
+          : context // ignore: cast_nullable_to_non_nullable
+              as BuildContext,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$FetchAddressEvent implements FetchAddressEvent {
+  const _$FetchAddressEvent({required this.context});
+
+  @override
+  final BuildContext context;
+
+  @override
+  String toString() {
+    return 'AddressEvent.fetchAddressEvent(context: $context)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$FetchAddressEvent &&
+            (identical(other.context, context) || other.context == context));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, context);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$FetchAddressEventCopyWith<_$FetchAddressEvent> get copyWith =>
+      __$$FetchAddressEventCopyWithImpl<_$FetchAddressEvent>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            BuildContext context,
+            String addressType,
+            String name,
+            int mobile,
+            int pincode,
+            String landmark,
+            String addressLine,
+            String city,
+            String state,
+            String country)
+        addAddress,
+    required TResult Function(BuildContext context) fetchAddressEvent,
+    required TResult Function(int selectedIndex) selectAddressEvent,
+    required TResult Function(String addressId) saveAddressId,
+    required TResult Function(BuildContext context, String id)
+        fetchAddressByIdEvent,
+    required TResult Function(BuildContext context, String id)
+        deleteAddressEvent,
+    required TResult Function(
+            BuildContext context,
+            String addressType,
+            String name,
+            int mobile,
+            int pincode,
+            String landmark,
+            String addressLine,
+            String city,
+            String state,
+            String country,
+            String id)
+        updateAddress,
+  }) {
+    return fetchAddressEvent(context);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(
+            BuildContext context,
+            String addressType,
+            String name,
+            int mobile,
+            int pincode,
+            String landmark,
+            String addressLine,
+            String city,
+            String state,
+            String country)?
+        addAddress,
+    TResult? Function(BuildContext context)? fetchAddressEvent,
+    TResult? Function(int selectedIndex)? selectAddressEvent,
+    TResult? Function(String addressId)? saveAddressId,
+    TResult? Function(BuildContext context, String id)? fetchAddressByIdEvent,
+    TResult? Function(BuildContext context, String id)? deleteAddressEvent,
+    TResult? Function(
+            BuildContext context,
+            String addressType,
+            String name,
+            int mobile,
+            int pincode,
+            String landmark,
+            String addressLine,
+            String city,
+            String state,
+            String country,
+            String id)?
+        updateAddress,
+  }) {
+    return fetchAddressEvent?.call(context);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            BuildContext context,
+            String addressType,
+            String name,
+            int mobile,
+            int pincode,
+            String landmark,
+            String addressLine,
+            String city,
+            String state,
+            String country)?
+        addAddress,
+    TResult Function(BuildContext context)? fetchAddressEvent,
+    TResult Function(int selectedIndex)? selectAddressEvent,
+    TResult Function(String addressId)? saveAddressId,
+    TResult Function(BuildContext context, String id)? fetchAddressByIdEvent,
+    TResult Function(BuildContext context, String id)? deleteAddressEvent,
+    TResult Function(
+            BuildContext context,
+            String addressType,
+            String name,
+            int mobile,
+            int pincode,
+            String landmark,
+            String addressLine,
+            String city,
+            String state,
+            String country,
+            String id)?
+        updateAddress,
+    required TResult orElse(),
+  }) {
+    if (fetchAddressEvent != null) {
+      return fetchAddressEvent(context);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(AddAddress value) addAddress,
+    required TResult Function(FetchAddressEvent value) fetchAddressEvent,
+    required TResult Function(SelectAddressEvent value) selectAddressEvent,
+    required TResult Function(SaveAddressId value) saveAddressId,
+    required TResult Function(FetchAddressByIdEvent value)
+        fetchAddressByIdEvent,
+    required TResult Function(DeleteAddressEvent value) deleteAddressEvent,
+    required TResult Function(UpdateAddress value) updateAddress,
+  }) {
+    return fetchAddressEvent(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(AddAddress value)? addAddress,
+    TResult? Function(FetchAddressEvent value)? fetchAddressEvent,
+    TResult? Function(SelectAddressEvent value)? selectAddressEvent,
+    TResult? Function(SaveAddressId value)? saveAddressId,
+    TResult? Function(FetchAddressByIdEvent value)? fetchAddressByIdEvent,
+    TResult? Function(DeleteAddressEvent value)? deleteAddressEvent,
+    TResult? Function(UpdateAddress value)? updateAddress,
+  }) {
+    return fetchAddressEvent?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AddAddress value)? addAddress,
+    TResult Function(FetchAddressEvent value)? fetchAddressEvent,
+    TResult Function(SelectAddressEvent value)? selectAddressEvent,
+    TResult Function(SaveAddressId value)? saveAddressId,
+    TResult Function(FetchAddressByIdEvent value)? fetchAddressByIdEvent,
+    TResult Function(DeleteAddressEvent value)? deleteAddressEvent,
+    TResult Function(UpdateAddress value)? updateAddress,
+    required TResult orElse(),
+  }) {
+    if (fetchAddressEvent != null) {
+      return fetchAddressEvent(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class FetchAddressEvent implements AddressEvent {
+  const factory FetchAddressEvent({required final BuildContext context}) =
+      _$FetchAddressEvent;
+
+  BuildContext get context;
+  @JsonKey(ignore: true)
+  _$$FetchAddressEventCopyWith<_$FetchAddressEvent> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SelectAddressEventCopyWith<$Res> {
+  factory _$$SelectAddressEventCopyWith(_$SelectAddressEvent value,
+          $Res Function(_$SelectAddressEvent) then) =
+      __$$SelectAddressEventCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int selectedIndex});
+}
+
+/// @nodoc
+class __$$SelectAddressEventCopyWithImpl<$Res>
+    extends _$AddressEventCopyWithImpl<$Res, _$SelectAddressEvent>
+    implements _$$SelectAddressEventCopyWith<$Res> {
+  __$$SelectAddressEventCopyWithImpl(
+      _$SelectAddressEvent _value, $Res Function(_$SelectAddressEvent) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? selectedIndex = null,
+  }) {
+    return _then(_$SelectAddressEvent(
+      selectedIndex: null == selectedIndex
+          ? _value.selectedIndex
+          : selectedIndex // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SelectAddressEvent implements SelectAddressEvent {
+  _$SelectAddressEvent({required this.selectedIndex});
+
+  @override
+  final int selectedIndex;
+
+  @override
+  String toString() {
+    return 'AddressEvent.selectAddressEvent(selectedIndex: $selectedIndex)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SelectAddressEvent &&
+            (identical(other.selectedIndex, selectedIndex) ||
+                other.selectedIndex == selectedIndex));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, selectedIndex);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SelectAddressEventCopyWith<_$SelectAddressEvent> get copyWith =>
+      __$$SelectAddressEventCopyWithImpl<_$SelectAddressEvent>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            BuildContext context,
+            String addressType,
+            String name,
+            int mobile,
+            int pincode,
+            String landmark,
+            String addressLine,
+            String city,
+            String state,
+            String country)
+        addAddress,
+    required TResult Function(BuildContext context) fetchAddressEvent,
+    required TResult Function(int selectedIndex) selectAddressEvent,
+    required TResult Function(String addressId) saveAddressId,
+    required TResult Function(BuildContext context, String id)
+        fetchAddressByIdEvent,
+    required TResult Function(BuildContext context, String id)
+        deleteAddressEvent,
+    required TResult Function(
+            BuildContext context,
+            String addressType,
+            String name,
+            int mobile,
+            int pincode,
+            String landmark,
+            String addressLine,
+            String city,
+            String state,
+            String country,
+            String id)
+        updateAddress,
+  }) {
+    return selectAddressEvent(selectedIndex);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(
+            BuildContext context,
+            String addressType,
+            String name,
+            int mobile,
+            int pincode,
+            String landmark,
+            String addressLine,
+            String city,
+            String state,
+            String country)?
+        addAddress,
+    TResult? Function(BuildContext context)? fetchAddressEvent,
+    TResult? Function(int selectedIndex)? selectAddressEvent,
+    TResult? Function(String addressId)? saveAddressId,
+    TResult? Function(BuildContext context, String id)? fetchAddressByIdEvent,
+    TResult? Function(BuildContext context, String id)? deleteAddressEvent,
+    TResult? Function(
+            BuildContext context,
+            String addressType,
+            String name,
+            int mobile,
+            int pincode,
+            String landmark,
+            String addressLine,
+            String city,
+            String state,
+            String country,
+            String id)?
+        updateAddress,
+  }) {
+    return selectAddressEvent?.call(selectedIndex);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            BuildContext context,
+            String addressType,
+            String name,
+            int mobile,
+            int pincode,
+            String landmark,
+            String addressLine,
+            String city,
+            String state,
+            String country)?
+        addAddress,
+    TResult Function(BuildContext context)? fetchAddressEvent,
+    TResult Function(int selectedIndex)? selectAddressEvent,
+    TResult Function(String addressId)? saveAddressId,
+    TResult Function(BuildContext context, String id)? fetchAddressByIdEvent,
+    TResult Function(BuildContext context, String id)? deleteAddressEvent,
+    TResult Function(
+            BuildContext context,
+            String addressType,
+            String name,
+            int mobile,
+            int pincode,
+            String landmark,
+            String addressLine,
+            String city,
+            String state,
+            String country,
+            String id)?
+        updateAddress,
+    required TResult orElse(),
+  }) {
+    if (selectAddressEvent != null) {
+      return selectAddressEvent(selectedIndex);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(AddAddress value) addAddress,
+    required TResult Function(FetchAddressEvent value) fetchAddressEvent,
+    required TResult Function(SelectAddressEvent value) selectAddressEvent,
+    required TResult Function(SaveAddressId value) saveAddressId,
+    required TResult Function(FetchAddressByIdEvent value)
+        fetchAddressByIdEvent,
+    required TResult Function(DeleteAddressEvent value) deleteAddressEvent,
+    required TResult Function(UpdateAddress value) updateAddress,
+  }) {
+    return selectAddressEvent(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(AddAddress value)? addAddress,
+    TResult? Function(FetchAddressEvent value)? fetchAddressEvent,
+    TResult? Function(SelectAddressEvent value)? selectAddressEvent,
+    TResult? Function(SaveAddressId value)? saveAddressId,
+    TResult? Function(FetchAddressByIdEvent value)? fetchAddressByIdEvent,
+    TResult? Function(DeleteAddressEvent value)? deleteAddressEvent,
+    TResult? Function(UpdateAddress value)? updateAddress,
+  }) {
+    return selectAddressEvent?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AddAddress value)? addAddress,
+    TResult Function(FetchAddressEvent value)? fetchAddressEvent,
+    TResult Function(SelectAddressEvent value)? selectAddressEvent,
+    TResult Function(SaveAddressId value)? saveAddressId,
+    TResult Function(FetchAddressByIdEvent value)? fetchAddressByIdEvent,
+    TResult Function(DeleteAddressEvent value)? deleteAddressEvent,
+    TResult Function(UpdateAddress value)? updateAddress,
+    required TResult orElse(),
+  }) {
+    if (selectAddressEvent != null) {
+      return selectAddressEvent(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SelectAddressEvent implements AddressEvent {
+  factory SelectAddressEvent({required final int selectedIndex}) =
+      _$SelectAddressEvent;
+
+  int get selectedIndex;
+  @JsonKey(ignore: true)
+  _$$SelectAddressEventCopyWith<_$SelectAddressEvent> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SaveAddressIdCopyWith<$Res> {
+  factory _$$SaveAddressIdCopyWith(
+          _$SaveAddressId value, $Res Function(_$SaveAddressId) then) =
+      __$$SaveAddressIdCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String addressId});
+}
+
+/// @nodoc
+class __$$SaveAddressIdCopyWithImpl<$Res>
+    extends _$AddressEventCopyWithImpl<$Res, _$SaveAddressId>
+    implements _$$SaveAddressIdCopyWith<$Res> {
+  __$$SaveAddressIdCopyWithImpl(
+      _$SaveAddressId _value, $Res Function(_$SaveAddressId) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? addressId = null,
+  }) {
+    return _then(_$SaveAddressId(
+      addressId: null == addressId
+          ? _value.addressId
+          : addressId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SaveAddressId implements SaveAddressId {
+  _$SaveAddressId({required this.addressId});
+
+  @override
+  final String addressId;
+
+  @override
+  String toString() {
+    return 'AddressEvent.saveAddressId(addressId: $addressId)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SaveAddressId &&
+            (identical(other.addressId, addressId) ||
+                other.addressId == addressId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, addressId);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SaveAddressIdCopyWith<_$SaveAddressId> get copyWith =>
+      __$$SaveAddressIdCopyWithImpl<_$SaveAddressId>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            BuildContext context,
+            String addressType,
+            String name,
+            int mobile,
+            int pincode,
+            String landmark,
+            String addressLine,
+            String city,
+            String state,
+            String country)
+        addAddress,
+    required TResult Function(BuildContext context) fetchAddressEvent,
+    required TResult Function(int selectedIndex) selectAddressEvent,
+    required TResult Function(String addressId) saveAddressId,
+    required TResult Function(BuildContext context, String id)
+        fetchAddressByIdEvent,
+    required TResult Function(BuildContext context, String id)
+        deleteAddressEvent,
+    required TResult Function(
+            BuildContext context,
+            String addressType,
+            String name,
+            int mobile,
+            int pincode,
+            String landmark,
+            String addressLine,
+            String city,
+            String state,
+            String country,
+            String id)
+        updateAddress,
+  }) {
+    return saveAddressId(addressId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(
+            BuildContext context,
+            String addressType,
+            String name,
+            int mobile,
+            int pincode,
+            String landmark,
+            String addressLine,
+            String city,
+            String state,
+            String country)?
+        addAddress,
+    TResult? Function(BuildContext context)? fetchAddressEvent,
+    TResult? Function(int selectedIndex)? selectAddressEvent,
+    TResult? Function(String addressId)? saveAddressId,
+    TResult? Function(BuildContext context, String id)? fetchAddressByIdEvent,
+    TResult? Function(BuildContext context, String id)? deleteAddressEvent,
+    TResult? Function(
+            BuildContext context,
+            String addressType,
+            String name,
+            int mobile,
+            int pincode,
+            String landmark,
+            String addressLine,
+            String city,
+            String state,
+            String country,
+            String id)?
+        updateAddress,
+  }) {
+    return saveAddressId?.call(addressId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            BuildContext context,
+            String addressType,
+            String name,
+            int mobile,
+            int pincode,
+            String landmark,
+            String addressLine,
+            String city,
+            String state,
+            String country)?
+        addAddress,
+    TResult Function(BuildContext context)? fetchAddressEvent,
+    TResult Function(int selectedIndex)? selectAddressEvent,
+    TResult Function(String addressId)? saveAddressId,
+    TResult Function(BuildContext context, String id)? fetchAddressByIdEvent,
+    TResult Function(BuildContext context, String id)? deleteAddressEvent,
+    TResult Function(
+            BuildContext context,
+            String addressType,
+            String name,
+            int mobile,
+            int pincode,
+            String landmark,
+            String addressLine,
+            String city,
+            String state,
+            String country,
+            String id)?
+        updateAddress,
+    required TResult orElse(),
+  }) {
+    if (saveAddressId != null) {
+      return saveAddressId(addressId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(AddAddress value) addAddress,
+    required TResult Function(FetchAddressEvent value) fetchAddressEvent,
+    required TResult Function(SelectAddressEvent value) selectAddressEvent,
+    required TResult Function(SaveAddressId value) saveAddressId,
+    required TResult Function(FetchAddressByIdEvent value)
+        fetchAddressByIdEvent,
+    required TResult Function(DeleteAddressEvent value) deleteAddressEvent,
+    required TResult Function(UpdateAddress value) updateAddress,
+  }) {
+    return saveAddressId(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(AddAddress value)? addAddress,
+    TResult? Function(FetchAddressEvent value)? fetchAddressEvent,
+    TResult? Function(SelectAddressEvent value)? selectAddressEvent,
+    TResult? Function(SaveAddressId value)? saveAddressId,
+    TResult? Function(FetchAddressByIdEvent value)? fetchAddressByIdEvent,
+    TResult? Function(DeleteAddressEvent value)? deleteAddressEvent,
+    TResult? Function(UpdateAddress value)? updateAddress,
+  }) {
+    return saveAddressId?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AddAddress value)? addAddress,
+    TResult Function(FetchAddressEvent value)? fetchAddressEvent,
+    TResult Function(SelectAddressEvent value)? selectAddressEvent,
+    TResult Function(SaveAddressId value)? saveAddressId,
+    TResult Function(FetchAddressByIdEvent value)? fetchAddressByIdEvent,
+    TResult Function(DeleteAddressEvent value)? deleteAddressEvent,
+    TResult Function(UpdateAddress value)? updateAddress,
+    required TResult orElse(),
+  }) {
+    if (saveAddressId != null) {
+      return saveAddressId(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SaveAddressId implements AddressEvent {
+  factory SaveAddressId({required final String addressId}) = _$SaveAddressId;
+
+  String get addressId;
+  @JsonKey(ignore: true)
+  _$$SaveAddressIdCopyWith<_$SaveAddressId> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$FetchAddressByIdEventCopyWith<$Res> {
+  factory _$$FetchAddressByIdEventCopyWith(_$FetchAddressByIdEvent value,
+          $Res Function(_$FetchAddressByIdEvent) then) =
+      __$$FetchAddressByIdEventCopyWithImpl<$Res>;
+  @useResult
+  $Res call({BuildContext context, String id});
+}
+
+/// @nodoc
+class __$$FetchAddressByIdEventCopyWithImpl<$Res>
+    extends _$AddressEventCopyWithImpl<$Res, _$FetchAddressByIdEvent>
+    implements _$$FetchAddressByIdEventCopyWith<$Res> {
+  __$$FetchAddressByIdEventCopyWithImpl(_$FetchAddressByIdEvent _value,
+      $Res Function(_$FetchAddressByIdEvent) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? context = null,
+    Object? id = null,
+  }) {
+    return _then(_$FetchAddressByIdEvent(
+      context: null == context
+          ? _value.context
+          : context // ignore: cast_nullable_to_non_nullable
+              as BuildContext,
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$FetchAddressByIdEvent implements FetchAddressByIdEvent {
+  const _$FetchAddressByIdEvent({required this.context, required this.id});
+
+  @override
+  final BuildContext context;
+  @override
+  final String id;
+
+  @override
+  String toString() {
+    return 'AddressEvent.fetchAddressByIdEvent(context: $context, id: $id)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$FetchAddressByIdEvent &&
+            (identical(other.context, context) || other.context == context) &&
+            (identical(other.id, id) || other.id == id));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, context, id);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$FetchAddressByIdEventCopyWith<_$FetchAddressByIdEvent> get copyWith =>
+      __$$FetchAddressByIdEventCopyWithImpl<_$FetchAddressByIdEvent>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            BuildContext context,
+            String addressType,
+            String name,
+            int mobile,
+            int pincode,
+            String landmark,
+            String addressLine,
+            String city,
+            String state,
+            String country)
+        addAddress,
+    required TResult Function(BuildContext context) fetchAddressEvent,
+    required TResult Function(int selectedIndex) selectAddressEvent,
+    required TResult Function(String addressId) saveAddressId,
+    required TResult Function(BuildContext context, String id)
+        fetchAddressByIdEvent,
+    required TResult Function(BuildContext context, String id)
+        deleteAddressEvent,
+    required TResult Function(
+            BuildContext context,
+            String addressType,
+            String name,
+            int mobile,
+            int pincode,
+            String landmark,
+            String addressLine,
+            String city,
+            String state,
+            String country,
+            String id)
+        updateAddress,
+  }) {
+    return fetchAddressByIdEvent(context, id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(
+            BuildContext context,
+            String addressType,
+            String name,
+            int mobile,
+            int pincode,
+            String landmark,
+            String addressLine,
+            String city,
+            String state,
+            String country)?
+        addAddress,
+    TResult? Function(BuildContext context)? fetchAddressEvent,
+    TResult? Function(int selectedIndex)? selectAddressEvent,
+    TResult? Function(String addressId)? saveAddressId,
+    TResult? Function(BuildContext context, String id)? fetchAddressByIdEvent,
+    TResult? Function(BuildContext context, String id)? deleteAddressEvent,
+    TResult? Function(
+            BuildContext context,
+            String addressType,
+            String name,
+            int mobile,
+            int pincode,
+            String landmark,
+            String addressLine,
+            String city,
+            String state,
+            String country,
+            String id)?
+        updateAddress,
+  }) {
+    return fetchAddressByIdEvent?.call(context, id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            BuildContext context,
+            String addressType,
+            String name,
+            int mobile,
+            int pincode,
+            String landmark,
+            String addressLine,
+            String city,
+            String state,
+            String country)?
+        addAddress,
+    TResult Function(BuildContext context)? fetchAddressEvent,
+    TResult Function(int selectedIndex)? selectAddressEvent,
+    TResult Function(String addressId)? saveAddressId,
+    TResult Function(BuildContext context, String id)? fetchAddressByIdEvent,
+    TResult Function(BuildContext context, String id)? deleteAddressEvent,
+    TResult Function(
+            BuildContext context,
+            String addressType,
+            String name,
+            int mobile,
+            int pincode,
+            String landmark,
+            String addressLine,
+            String city,
+            String state,
+            String country,
+            String id)?
+        updateAddress,
+    required TResult orElse(),
+  }) {
+    if (fetchAddressByIdEvent != null) {
+      return fetchAddressByIdEvent(context, id);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(AddAddress value) addAddress,
+    required TResult Function(FetchAddressEvent value) fetchAddressEvent,
+    required TResult Function(SelectAddressEvent value) selectAddressEvent,
+    required TResult Function(SaveAddressId value) saveAddressId,
+    required TResult Function(FetchAddressByIdEvent value)
+        fetchAddressByIdEvent,
+    required TResult Function(DeleteAddressEvent value) deleteAddressEvent,
+    required TResult Function(UpdateAddress value) updateAddress,
+  }) {
+    return fetchAddressByIdEvent(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(AddAddress value)? addAddress,
+    TResult? Function(FetchAddressEvent value)? fetchAddressEvent,
+    TResult? Function(SelectAddressEvent value)? selectAddressEvent,
+    TResult? Function(SaveAddressId value)? saveAddressId,
+    TResult? Function(FetchAddressByIdEvent value)? fetchAddressByIdEvent,
+    TResult? Function(DeleteAddressEvent value)? deleteAddressEvent,
+    TResult? Function(UpdateAddress value)? updateAddress,
+  }) {
+    return fetchAddressByIdEvent?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AddAddress value)? addAddress,
+    TResult Function(FetchAddressEvent value)? fetchAddressEvent,
+    TResult Function(SelectAddressEvent value)? selectAddressEvent,
+    TResult Function(SaveAddressId value)? saveAddressId,
+    TResult Function(FetchAddressByIdEvent value)? fetchAddressByIdEvent,
+    TResult Function(DeleteAddressEvent value)? deleteAddressEvent,
+    TResult Function(UpdateAddress value)? updateAddress,
+    required TResult orElse(),
+  }) {
+    if (fetchAddressByIdEvent != null) {
+      return fetchAddressByIdEvent(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class FetchAddressByIdEvent implements AddressEvent {
+  const factory FetchAddressByIdEvent(
+      {required final BuildContext context,
+      required final String id}) = _$FetchAddressByIdEvent;
+
+  BuildContext get context;
+  String get id;
+  @JsonKey(ignore: true)
+  _$$FetchAddressByIdEventCopyWith<_$FetchAddressByIdEvent> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$DeleteAddressEventCopyWith<$Res> {
+  factory _$$DeleteAddressEventCopyWith(_$DeleteAddressEvent value,
+          $Res Function(_$DeleteAddressEvent) then) =
+      __$$DeleteAddressEventCopyWithImpl<$Res>;
+  @useResult
+  $Res call({BuildContext context, String id});
+}
+
+/// @nodoc
+class __$$DeleteAddressEventCopyWithImpl<$Res>
+    extends _$AddressEventCopyWithImpl<$Res, _$DeleteAddressEvent>
+    implements _$$DeleteAddressEventCopyWith<$Res> {
+  __$$DeleteAddressEventCopyWithImpl(
+      _$DeleteAddressEvent _value, $Res Function(_$DeleteAddressEvent) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? context = null,
+    Object? id = null,
+  }) {
+    return _then(_$DeleteAddressEvent(
+      context: null == context
+          ? _value.context
+          : context // ignore: cast_nullable_to_non_nullable
+              as BuildContext,
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$DeleteAddressEvent implements DeleteAddressEvent {
+  const _$DeleteAddressEvent({required this.context, required this.id});
+
+  @override
+  final BuildContext context;
+  @override
+  final String id;
+
+  @override
+  String toString() {
+    return 'AddressEvent.deleteAddressEvent(context: $context, id: $id)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DeleteAddressEvent &&
+            (identical(other.context, context) || other.context == context) &&
+            (identical(other.id, id) || other.id == id));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, context, id);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DeleteAddressEventCopyWith<_$DeleteAddressEvent> get copyWith =>
+      __$$DeleteAddressEventCopyWithImpl<_$DeleteAddressEvent>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            BuildContext context,
+            String addressType,
+            String name,
+            int mobile,
+            int pincode,
+            String landmark,
+            String addressLine,
+            String city,
+            String state,
+            String country)
+        addAddress,
+    required TResult Function(BuildContext context) fetchAddressEvent,
+    required TResult Function(int selectedIndex) selectAddressEvent,
+    required TResult Function(String addressId) saveAddressId,
+    required TResult Function(BuildContext context, String id)
+        fetchAddressByIdEvent,
+    required TResult Function(BuildContext context, String id)
+        deleteAddressEvent,
+    required TResult Function(
+            BuildContext context,
+            String addressType,
+            String name,
+            int mobile,
+            int pincode,
+            String landmark,
+            String addressLine,
+            String city,
+            String state,
+            String country,
+            String id)
+        updateAddress,
+  }) {
+    return deleteAddressEvent(context, id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(
+            BuildContext context,
+            String addressType,
+            String name,
+            int mobile,
+            int pincode,
+            String landmark,
+            String addressLine,
+            String city,
+            String state,
+            String country)?
+        addAddress,
+    TResult? Function(BuildContext context)? fetchAddressEvent,
+    TResult? Function(int selectedIndex)? selectAddressEvent,
+    TResult? Function(String addressId)? saveAddressId,
+    TResult? Function(BuildContext context, String id)? fetchAddressByIdEvent,
+    TResult? Function(BuildContext context, String id)? deleteAddressEvent,
+    TResult? Function(
+            BuildContext context,
+            String addressType,
+            String name,
+            int mobile,
+            int pincode,
+            String landmark,
+            String addressLine,
+            String city,
+            String state,
+            String country,
+            String id)?
+        updateAddress,
+  }) {
+    return deleteAddressEvent?.call(context, id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            BuildContext context,
+            String addressType,
+            String name,
+            int mobile,
+            int pincode,
+            String landmark,
+            String addressLine,
+            String city,
+            String state,
+            String country)?
+        addAddress,
+    TResult Function(BuildContext context)? fetchAddressEvent,
+    TResult Function(int selectedIndex)? selectAddressEvent,
+    TResult Function(String addressId)? saveAddressId,
+    TResult Function(BuildContext context, String id)? fetchAddressByIdEvent,
+    TResult Function(BuildContext context, String id)? deleteAddressEvent,
+    TResult Function(
+            BuildContext context,
+            String addressType,
+            String name,
+            int mobile,
+            int pincode,
+            String landmark,
+            String addressLine,
+            String city,
+            String state,
+            String country,
+            String id)?
+        updateAddress,
+    required TResult orElse(),
+  }) {
+    if (deleteAddressEvent != null) {
+      return deleteAddressEvent(context, id);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(AddAddress value) addAddress,
+    required TResult Function(FetchAddressEvent value) fetchAddressEvent,
+    required TResult Function(SelectAddressEvent value) selectAddressEvent,
+    required TResult Function(SaveAddressId value) saveAddressId,
+    required TResult Function(FetchAddressByIdEvent value)
+        fetchAddressByIdEvent,
+    required TResult Function(DeleteAddressEvent value) deleteAddressEvent,
+    required TResult Function(UpdateAddress value) updateAddress,
+  }) {
+    return deleteAddressEvent(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(AddAddress value)? addAddress,
+    TResult? Function(FetchAddressEvent value)? fetchAddressEvent,
+    TResult? Function(SelectAddressEvent value)? selectAddressEvent,
+    TResult? Function(SaveAddressId value)? saveAddressId,
+    TResult? Function(FetchAddressByIdEvent value)? fetchAddressByIdEvent,
+    TResult? Function(DeleteAddressEvent value)? deleteAddressEvent,
+    TResult? Function(UpdateAddress value)? updateAddress,
+  }) {
+    return deleteAddressEvent?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AddAddress value)? addAddress,
+    TResult Function(FetchAddressEvent value)? fetchAddressEvent,
+    TResult Function(SelectAddressEvent value)? selectAddressEvent,
+    TResult Function(SaveAddressId value)? saveAddressId,
+    TResult Function(FetchAddressByIdEvent value)? fetchAddressByIdEvent,
+    TResult Function(DeleteAddressEvent value)? deleteAddressEvent,
+    TResult Function(UpdateAddress value)? updateAddress,
+    required TResult orElse(),
+  }) {
+    if (deleteAddressEvent != null) {
+      return deleteAddressEvent(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class DeleteAddressEvent implements AddressEvent {
+  const factory DeleteAddressEvent(
+      {required final BuildContext context,
+      required final String id}) = _$DeleteAddressEvent;
+
+  BuildContext get context;
+  String get id;
+  @JsonKey(ignore: true)
+  _$$DeleteAddressEventCopyWith<_$DeleteAddressEvent> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UpdateAddressCopyWith<$Res> {
+  factory _$$UpdateAddressCopyWith(
+          _$UpdateAddress value, $Res Function(_$UpdateAddress) then) =
+      __$$UpdateAddressCopyWithImpl<$Res>;
+  @useResult
+  $Res call(
+      {BuildContext context,
+      String addressType,
+      String name,
+      int mobile,
+      int pincode,
+      String landmark,
+      String addressLine,
+      String city,
+      String state,
+      String country,
+      String id});
+}
+
+/// @nodoc
+class __$$UpdateAddressCopyWithImpl<$Res>
+    extends _$AddressEventCopyWithImpl<$Res, _$UpdateAddress>
+    implements _$$UpdateAddressCopyWith<$Res> {
+  __$$UpdateAddressCopyWithImpl(
+      _$UpdateAddress _value, $Res Function(_$UpdateAddress) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? context = null,
+    Object? addressType = null,
+    Object? name = null,
+    Object? mobile = null,
+    Object? pincode = null,
+    Object? landmark = null,
+    Object? addressLine = null,
+    Object? city = null,
+    Object? state = null,
+    Object? country = null,
+    Object? id = null,
+  }) {
+    return _then(_$UpdateAddress(
+      context: null == context
+          ? _value.context
+          : context // ignore: cast_nullable_to_non_nullable
+              as BuildContext,
+      addressType: null == addressType
+          ? _value.addressType
+          : addressType // ignore: cast_nullable_to_non_nullable
+              as String,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      mobile: null == mobile
+          ? _value.mobile
+          : mobile // ignore: cast_nullable_to_non_nullable
+              as int,
+      pincode: null == pincode
+          ? _value.pincode
+          : pincode // ignore: cast_nullable_to_non_nullable
+              as int,
+      landmark: null == landmark
+          ? _value.landmark
+          : landmark // ignore: cast_nullable_to_non_nullable
+              as String,
+      addressLine: null == addressLine
+          ? _value.addressLine
+          : addressLine // ignore: cast_nullable_to_non_nullable
+              as String,
+      city: null == city
+          ? _value.city
+          : city // ignore: cast_nullable_to_non_nullable
+              as String,
+      state: null == state
+          ? _value.state
+          : state // ignore: cast_nullable_to_non_nullable
+              as String,
+      country: null == country
+          ? _value.country
+          : country // ignore: cast_nullable_to_non_nullable
+              as String,
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$UpdateAddress implements UpdateAddress {
+  const _$UpdateAddress(
+      {required this.context,
+      required this.addressType,
+      required this.name,
+      required this.mobile,
+      required this.pincode,
+      required this.landmark,
+      required this.addressLine,
+      required this.city,
+      required this.state,
+      required this.country,
+      required this.id});
+
+  @override
+  final BuildContext context;
+  @override
+  final String addressType;
+  @override
+  final String name;
+  @override
+  final int mobile;
+  @override
+  final int pincode;
+  @override
+  final String landmark;
+  @override
+  final String addressLine;
+  @override
+  final String city;
+  @override
+  final String state;
+  @override
+  final String country;
+  @override
+  final String id;
+
+  @override
+  String toString() {
+    return 'AddressEvent.updateAddress(context: $context, addressType: $addressType, name: $name, mobile: $mobile, pincode: $pincode, landmark: $landmark, addressLine: $addressLine, city: $city, state: $state, country: $country, id: $id)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UpdateAddress &&
+            (identical(other.context, context) || other.context == context) &&
+            (identical(other.addressType, addressType) ||
+                other.addressType == addressType) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.mobile, mobile) || other.mobile == mobile) &&
+            (identical(other.pincode, pincode) || other.pincode == pincode) &&
+            (identical(other.landmark, landmark) ||
+                other.landmark == landmark) &&
+            (identical(other.addressLine, addressLine) ||
+                other.addressLine == addressLine) &&
+            (identical(other.city, city) || other.city == city) &&
+            (identical(other.state, state) || other.state == state) &&
+            (identical(other.country, country) || other.country == country) &&
+            (identical(other.id, id) || other.id == id));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, context, addressType, name,
+      mobile, pincode, landmark, addressLine, city, state, country, id);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UpdateAddressCopyWith<_$UpdateAddress> get copyWith =>
+      __$$UpdateAddressCopyWithImpl<_$UpdateAddress>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            BuildContext context,
+            String addressType,
+            String name,
+            int mobile,
+            int pincode,
+            String landmark,
+            String addressLine,
+            String city,
+            String state,
+            String country)
+        addAddress,
+    required TResult Function(BuildContext context) fetchAddressEvent,
+    required TResult Function(int selectedIndex) selectAddressEvent,
+    required TResult Function(String addressId) saveAddressId,
+    required TResult Function(BuildContext context, String id)
+        fetchAddressByIdEvent,
+    required TResult Function(BuildContext context, String id)
+        deleteAddressEvent,
+    required TResult Function(
+            BuildContext context,
+            String addressType,
+            String name,
+            int mobile,
+            int pincode,
+            String landmark,
+            String addressLine,
+            String city,
+            String state,
+            String country,
+            String id)
+        updateAddress,
+  }) {
+    return updateAddress(context, addressType, name, mobile, pincode, landmark,
+        addressLine, city, state, country, id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(
+            BuildContext context,
+            String addressType,
+            String name,
+            int mobile,
+            int pincode,
+            String landmark,
+            String addressLine,
+            String city,
+            String state,
+            String country)?
+        addAddress,
+    TResult? Function(BuildContext context)? fetchAddressEvent,
+    TResult? Function(int selectedIndex)? selectAddressEvent,
+    TResult? Function(String addressId)? saveAddressId,
+    TResult? Function(BuildContext context, String id)? fetchAddressByIdEvent,
+    TResult? Function(BuildContext context, String id)? deleteAddressEvent,
+    TResult? Function(
+            BuildContext context,
+            String addressType,
+            String name,
+            int mobile,
+            int pincode,
+            String landmark,
+            String addressLine,
+            String city,
+            String state,
+            String country,
+            String id)?
+        updateAddress,
+  }) {
+    return updateAddress?.call(context, addressType, name, mobile, pincode,
+        landmark, addressLine, city, state, country, id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            BuildContext context,
+            String addressType,
+            String name,
+            int mobile,
+            int pincode,
+            String landmark,
+            String addressLine,
+            String city,
+            String state,
+            String country)?
+        addAddress,
+    TResult Function(BuildContext context)? fetchAddressEvent,
+    TResult Function(int selectedIndex)? selectAddressEvent,
+    TResult Function(String addressId)? saveAddressId,
+    TResult Function(BuildContext context, String id)? fetchAddressByIdEvent,
+    TResult Function(BuildContext context, String id)? deleteAddressEvent,
+    TResult Function(
+            BuildContext context,
+            String addressType,
+            String name,
+            int mobile,
+            int pincode,
+            String landmark,
+            String addressLine,
+            String city,
+            String state,
+            String country,
+            String id)?
+        updateAddress,
+    required TResult orElse(),
+  }) {
+    if (updateAddress != null) {
+      return updateAddress(context, addressType, name, mobile, pincode,
+          landmark, addressLine, city, state, country, id);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(AddAddress value) addAddress,
+    required TResult Function(FetchAddressEvent value) fetchAddressEvent,
+    required TResult Function(SelectAddressEvent value) selectAddressEvent,
+    required TResult Function(SaveAddressId value) saveAddressId,
+    required TResult Function(FetchAddressByIdEvent value)
+        fetchAddressByIdEvent,
+    required TResult Function(DeleteAddressEvent value) deleteAddressEvent,
+    required TResult Function(UpdateAddress value) updateAddress,
+  }) {
+    return updateAddress(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(AddAddress value)? addAddress,
+    TResult? Function(FetchAddressEvent value)? fetchAddressEvent,
+    TResult? Function(SelectAddressEvent value)? selectAddressEvent,
+    TResult? Function(SaveAddressId value)? saveAddressId,
+    TResult? Function(FetchAddressByIdEvent value)? fetchAddressByIdEvent,
+    TResult? Function(DeleteAddressEvent value)? deleteAddressEvent,
+    TResult? Function(UpdateAddress value)? updateAddress,
+  }) {
+    return updateAddress?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AddAddress value)? addAddress,
+    TResult Function(FetchAddressEvent value)? fetchAddressEvent,
+    TResult Function(SelectAddressEvent value)? selectAddressEvent,
+    TResult Function(SaveAddressId value)? saveAddressId,
+    TResult Function(FetchAddressByIdEvent value)? fetchAddressByIdEvent,
+    TResult Function(DeleteAddressEvent value)? deleteAddressEvent,
+    TResult Function(UpdateAddress value)? updateAddress,
+    required TResult orElse(),
+  }) {
+    if (updateAddress != null) {
+      return updateAddress(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UpdateAddress implements AddressEvent {
+  const factory UpdateAddress(
+      {required final BuildContext context,
+      required final String addressType,
+      required final String name,
+      required final int mobile,
+      required final int pincode,
+      required final String landmark,
+      required final String addressLine,
+      required final String city,
+      required final String state,
+      required final String country,
+      required final String id}) = _$UpdateAddress;
+
+  BuildContext get context;
+  String get addressType;
+  String get name;
+  int get mobile;
+  int get pincode;
+  String get landmark;
+  String get addressLine;
+  String get city;
+  String get state;
+  String get country;
+  String get id;
+  @JsonKey(ignore: true)
+  _$$UpdateAddressCopyWith<_$UpdateAddress> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+mixin _$AddressState {
+  String? get successMessage => throw _privateConstructorUsedError;
+  String? get failMessage => throw _privateConstructorUsedError;
+  AddressModel? get addressModel => throw _privateConstructorUsedError;
+  int? get selectedIndex => throw _privateConstructorUsedError;
+  String? get addressId => throw _privateConstructorUsedError;
+  AddressIdModel? get addressIdModel => throw _privateConstructorUsedError;
+  bool get isLoading => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $AddressStateCopyWith<AddressState> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $AddressStateCopyWith<$Res> {
+  factory $AddressStateCopyWith(
+          AddressState value, $Res Function(AddressState) then) =
+      _$AddressStateCopyWithImpl<$Res, AddressState>;
+  @useResult
+  $Res call(
+      {String? successMessage,
+      String? failMessage,
+      AddressModel? addressModel,
+      int? selectedIndex,
+      String? addressId,
+      AddressIdModel? addressIdModel,
+      bool isLoading});
+
+  $AddressModelCopyWith<$Res>? get addressModel;
+  $AddressIdModelCopyWith<$Res>? get addressIdModel;
+}
+
+/// @nodoc
+class _$AddressStateCopyWithImpl<$Res, $Val extends AddressState>
+    implements $AddressStateCopyWith<$Res> {
+  _$AddressStateCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? successMessage = freezed,
+    Object? failMessage = freezed,
+    Object? addressModel = freezed,
+    Object? selectedIndex = freezed,
+    Object? addressId = freezed,
+    Object? addressIdModel = freezed,
+    Object? isLoading = null,
+  }) {
+    return _then(_value.copyWith(
+      successMessage: freezed == successMessage
+          ? _value.successMessage
+          : successMessage // ignore: cast_nullable_to_non_nullable
+              as String?,
+      failMessage: freezed == failMessage
+          ? _value.failMessage
+          : failMessage // ignore: cast_nullable_to_non_nullable
+              as String?,
+      addressModel: freezed == addressModel
+          ? _value.addressModel
+          : addressModel // ignore: cast_nullable_to_non_nullable
+              as AddressModel?,
+      selectedIndex: freezed == selectedIndex
+          ? _value.selectedIndex
+          : selectedIndex // ignore: cast_nullable_to_non_nullable
+              as int?,
+      addressId: freezed == addressId
+          ? _value.addressId
+          : addressId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      addressIdModel: freezed == addressIdModel
+          ? _value.addressIdModel
+          : addressIdModel // ignore: cast_nullable_to_non_nullable
+              as AddressIdModel?,
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $AddressModelCopyWith<$Res>? get addressModel {
+    if (_value.addressModel == null) {
+      return null;
+    }
+
+    return $AddressModelCopyWith<$Res>(_value.addressModel!, (value) {
+      return _then(_value.copyWith(addressModel: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $AddressIdModelCopyWith<$Res>? get addressIdModel {
+    if (_value.addressIdModel == null) {
+      return null;
+    }
+
+    return $AddressIdModelCopyWith<$Res>(_value.addressIdModel!, (value) {
+      return _then(_value.copyWith(addressIdModel: value) as $Val);
+    });
+  }
+}
+
+/// @nodoc
+abstract class _$$_InitialCopyWith<$Res>
+    implements $AddressStateCopyWith<$Res> {
+  factory _$$_InitialCopyWith(
+          _$_Initial value, $Res Function(_$_Initial) then) =
+      __$$_InitialCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {String? successMessage,
+      String? failMessage,
+      AddressModel? addressModel,
+      int? selectedIndex,
+      String? addressId,
+      AddressIdModel? addressIdModel,
+      bool isLoading});
+
+  @override
+  $AddressModelCopyWith<$Res>? get addressModel;
+  @override
+  $AddressIdModelCopyWith<$Res>? get addressIdModel;
+}
+
+/// @nodoc
+class __$$_InitialCopyWithImpl<$Res>
+    extends _$AddressStateCopyWithImpl<$Res, _$_Initial>
+    implements _$$_InitialCopyWith<$Res> {
+  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? successMessage = freezed,
+    Object? failMessage = freezed,
+    Object? addressModel = freezed,
+    Object? selectedIndex = freezed,
+    Object? addressId = freezed,
+    Object? addressIdModel = freezed,
+    Object? isLoading = null,
+  }) {
+    return _then(_$_Initial(
+      successMessage: freezed == successMessage
+          ? _value.successMessage
+          : successMessage // ignore: cast_nullable_to_non_nullable
+              as String?,
+      failMessage: freezed == failMessage
+          ? _value.failMessage
+          : failMessage // ignore: cast_nullable_to_non_nullable
+              as String?,
+      addressModel: freezed == addressModel
+          ? _value.addressModel
+          : addressModel // ignore: cast_nullable_to_non_nullable
+              as AddressModel?,
+      selectedIndex: freezed == selectedIndex
+          ? _value.selectedIndex
+          : selectedIndex // ignore: cast_nullable_to_non_nullable
+              as int?,
+      addressId: freezed == addressId
+          ? _value.addressId
+          : addressId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      addressIdModel: freezed == addressIdModel
+          ? _value.addressIdModel
+          : addressIdModel // ignore: cast_nullable_to_non_nullable
+              as AddressIdModel?,
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_Initial implements _Initial {
+  const _$_Initial(
+      {required this.successMessage,
+      required this.failMessage,
+      required this.addressModel,
+      required this.selectedIndex,
+      required this.addressId,
+      required this.addressIdModel,
+      required this.isLoading});
+
+  @override
+  final String? successMessage;
+  @override
+  final String? failMessage;
+  @override
+  final AddressModel? addressModel;
+  @override
+  final int? selectedIndex;
+  @override
+  final String? addressId;
+  @override
+  final AddressIdModel? addressIdModel;
+  @override
+  final bool isLoading;
+
+  @override
+  String toString() {
+    return 'AddressState(successMessage: $successMessage, failMessage: $failMessage, addressModel: $addressModel, selectedIndex: $selectedIndex, addressId: $addressId, addressIdModel: $addressIdModel, isLoading: $isLoading)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_Initial &&
+            (identical(other.successMessage, successMessage) ||
+                other.successMessage == successMessage) &&
+            (identical(other.failMessage, failMessage) ||
+                other.failMessage == failMessage) &&
+            (identical(other.addressModel, addressModel) ||
+                other.addressModel == addressModel) &&
+            (identical(other.selectedIndex, selectedIndex) ||
+                other.selectedIndex == selectedIndex) &&
+            (identical(other.addressId, addressId) ||
+                other.addressId == addressId) &&
+            (identical(other.addressIdModel, addressIdModel) ||
+                other.addressIdModel == addressIdModel) &&
+            (identical(other.isLoading, isLoading) ||
+                other.isLoading == isLoading));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, successMessage, failMessage,
+      addressModel, selectedIndex, addressId, addressIdModel, isLoading);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_InitialCopyWith<_$_Initial> get copyWith =>
+      __$$_InitialCopyWithImpl<_$_Initial>(this, _$identity);
+}
+
+abstract class _Initial implements AddressState {
+  const factory _Initial(
+      {required final String? successMessage,
+      required final String? failMessage,
+      required final AddressModel? addressModel,
+      required final int? selectedIndex,
+      required final String? addressId,
+      required final AddressIdModel? addressIdModel,
+      required final bool isLoading}) = _$_Initial;
+
+  @override
+  String? get successMessage;
+  @override
+  String? get failMessage;
+  @override
+  AddressModel? get addressModel;
+  @override
+  int? get selectedIndex;
+  @override
+  String? get addressId;
+  @override
+  AddressIdModel? get addressIdModel;
+  @override
+  bool get isLoading;
+  @override
+  @JsonKey(ignore: true)
+  _$$_InitialCopyWith<_$_Initial> get copyWith =>
+      throw _privateConstructorUsedError;
+}

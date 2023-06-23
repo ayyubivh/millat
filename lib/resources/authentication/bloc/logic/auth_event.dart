@@ -6,8 +6,8 @@ abstract class AuthEvent {}
 class Login extends AuthEvent {
   final String email;
   final String password;
-
-  Login(this.email, this.password);
+  final BuildContext context;
+  Login(this.email, this.password, this.context);
 }
 
 class SignUp extends AuthEvent {
@@ -27,8 +27,9 @@ class SendOTP extends AuthEvent {
 class VerifyOTP extends AuthEvent {
   final String code;
   final String phoneNumber;
+  final BuildContext context;
 
-  VerifyOTP(this.code, this.phoneNumber);
+  VerifyOTP(this.code, this.phoneNumber, this.context);
 }
 
 class ForgotPassword extends AuthEvent {

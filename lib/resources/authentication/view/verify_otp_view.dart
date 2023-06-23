@@ -175,8 +175,8 @@ class _VerifyOTPViewState extends State<VerifyOTPView> {
                             title: 'Verify OTP',
                             onPressed: () {
                               BlocProvider.of<AuthBloc>(context).add(
-                                VerifyOTP(
-                                    otpController.text, state.phoneNumber),
+                                VerifyOTP(otpController.text, state.phoneNumber,
+                                    context),
                               );
                             },
                           );

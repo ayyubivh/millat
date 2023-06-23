@@ -115,7 +115,9 @@ class _LoginViewState extends State<LoginView> {
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
                       BlocProvider.of<AuthBloc>(context).add(Login(
-                          _emailController.text, _passwordController.text));
+                          _emailController.text,
+                          _passwordController.text,
+                          context));
                     } else {
                       return;
                     }

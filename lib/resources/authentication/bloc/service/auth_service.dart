@@ -1,5 +1,8 @@
 import 'dart:convert';
 
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:millat/resources/authentication/bloc/logic/database_bloc/database_bloc.dart';
 import 'package:millat/resources/authentication/bloc/model/user_model.dart';
 import 'package:millat/services/http_services.dart';
 
@@ -10,27 +13,33 @@ class AuthService extends HttpServices {
   final String verifyOTPAPI = 'auth/verify';
   final String resendOTPAPI = 'auth/resend_otp';
   final String forgotPasswordAPI = 'auth/forgot_password';
-  Future<UserModel?> login(
-      {required String email, required String password}) async {
-    try {
-      final response = await posts(
+  login(
+      {required String email,
+      required String password,
+      required BuildContext context}) async {
+    return await posts(
         endPoint: loginAPI,
-        body: {"email": email, "password": password},
-      );
-      print('login response body: ${response.body}');
+        body: {"email": email, "password": password}).then((value) {
+      print(value.body);
 
-      if (response.statusCode == 200) {
-        final result = UserModel.fromJson(jsonDecode(response.body));
-        print('login result: $result');
-        return result;
+      if (value.statusCode == 200) {
+        final result = UserModel.fromJson(jsonDecode(value.body));
+        print('token on the service $result');
+        context
+            .read<DatabaseBloc>()
+            .add(StoreTokenEvent(token: result.result!.token.toString()));
+        context.read<DatabaseBloc>().add(StoreUserDetails(
+            email: result.result!.user!.email.toString(),
+            name: result.result!.user!.name.toString()));
+        return {
+          'status': true,
+        };
       } else {
-        final errorMessage = jsonDecode(response.body)['message'];
-        throw Exception(errorMessage);
+        return {'status': false, 'message': jsonDecode(value.body)['message']};
       }
-    } catch (error) {
-      print('login error: $error');
-      return null;
-    }
+    }).catchError((error) {
+      return {'status': false};
+    });
   }
 
   signUp(
@@ -77,13 +86,18 @@ class AuthService extends HttpServices {
     });
   }
 
-  verifyOTP({required String phoneNumber, required String OTP}) async {
+  verifyOTP(
+      {required String phoneNumber,
+      required String otp,
+      required BuildContext context}) async {
     return await posts(
         endPoint: verifyOTPAPI,
-        body: {"phone_number": phoneNumber, "otp": OTP}).then((value) {
+        body: {"phone_number": phoneNumber, "otp": otp}).then((value) {
       if (value.statusCode == 200) {
         final token = jsonDecode(value.body)['result']['token'];
-
+        context
+            .read<DatabaseBloc>()
+            .add(StoreTokenEvent(token: token.toString()));
         return {
           'status': true,
           'result': token,

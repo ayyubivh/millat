@@ -1,246 +1,419 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:millat/resources/profile/views/profile_view.dart';
-import 'package:millat/utils/globals.dart';
-import 'package:millat/utils/size_utility.dart';
 
+import '../../../utils/globals.dart';
+import '../../../utils/size_utility.dart';
 import '../../authentication/bloc/logic/database_bloc/database_bloc.dart';
+import '../../profile/views/profile_view.dart';
 import '../../shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
 import 'namaz_timing/namaz_timing_view.dart';
 
+ValueNotifier<bool> scrollNotifier = ValueNotifier(true);
+
 class HomeView extends StatefulWidget {
-  const HomeView({Key? key}) : super(key: key);
+  const HomeView({super.key});
 
   @override
   State<HomeView> createState() => _HomeViewState();
 }
 
 class _HomeViewState extends State<HomeView> {
-  final ScrollController _scrollController = ScrollController();
-  final double _appBarHeight = 60.0;
-  bool _isAppBarCollapsed = false;
-  @override
-  void initState() {
-    BlocProvider.of<DatabaseBloc>(context).add(const FetchUserDetails());
-    BlocProvider.of<ShopProductsBloc>(context)
-        .add(const ShopProductsEvent.fetchHomeBanners());
-    _scrollController.addListener(() {
-      if (_scrollController.offset > _appBarHeight - (kToolbarHeight - 180)) {
-        setState(() {
-          _isAppBarCollapsed = true;
-        });
-      } else {
-        setState(() {
-          _isAppBarCollapsed = false;
-        });
-      }
-    });
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    _scrollController.dispose();
-    super.dispose();
-  }
-
   int _currentIndex = 0;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      body: CustomScrollView(
-        controller: _scrollController,
-        slivers: [
-          SliverAppBar(
-            automaticallyImplyLeading: false,
-            collapsedHeight: _appBarHeight,
-            backgroundColor: _isAppBarCollapsed ? midGreenColor : Colors.white,
-            elevation: 0,
-            pinned: true,
-            centerTitle: true,
-            expandedHeight: 320,
-            leadingWidth: _isAppBarCollapsed
-                ? SizeUtility(context).width * 50 / 100
-                : null,
-            leading: _isAppBarCollapsed
-                ? Row(
-                    children: [
-                      const SizedBox(
-                        width: 30,
-                      ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Text('Upcoming Namaz',
-                              style: TextStyle(
-                                fontSize: 13,
-                                fontWeight: FontWeight.w100,
-                              )),
-                          const SizedBox(
-                            height: 10,
-                          ),
-                          Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: const [
-                              Text('Zohar',
-                                  style: TextStyle(
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.w600,
-                                  )),
-                              SizedBox(width: 8),
-                              Text('1:30 PM',
-                                  style: TextStyle(
-                                    fontSize: 17,
-                                    fontWeight: FontWeight.w500,
-                                  )),
-                            ],
-                          )
-                        ],
-                      ),
-                    ],
-                  )
-                : null,
-            actions: _isAppBarCollapsed
-                ? [
-                    GestureDetector(
-                      onTap: () {},
-                      child: CircleAvatar(
-                          radius: 15,
-                          backgroundColor: Colors.white,
-                          child: Image.asset('assets/icons/user.png')),
-                    ),
-                    const SizedBox(
-                      width: 20,
-                    ),
-                    const ImageIcon(AssetImage('assets/icons/bell.png'),
-                        color: Colors.white, size: 25),
-                    const SizedBox(
-                      width: 20,
-                    ),
-                    const ImageIcon(AssetImage('assets/icons/menu.png'),
-                        color: Colors.white, size: 25),
-                    const SizedBox(
-                      width: 30,
-                    ),
-                  ]
-                : [],
-            flexibleSpace: FlexibleSpaceBar(
-              background: Stack(
-                children: [
-                  Image.asset('assets/images/home_app_bar.png'),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 40),
-                    child: SingleChildScrollView(
-                      child: Column(
-                        children: [
-                          const SizedBox(
-                            height: 70,
-                          ),
-                          Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              GestureDetector(
-                                onTap: () {
-                                  Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (context) => const ProfileView(),
-                                  ));
-                                },
-                                child: const CircleAvatar(
-                                  backgroundColor: Colors.white,
-                                  backgroundImage:
-                                      AssetImage('assets/icons/user.png'),
-                                ),
+      body: ValueListenableBuilder(
+        valueListenable: scrollNotifier,
+        builder: (context, value, child) {
+          return NotificationListener<UserScrollNotification>(
+            onNotification: (notification) {
+              final ScrollDirection direction = notification.direction;
+
+              if (direction == ScrollDirection.reverse) {
+                scrollNotifier.value = false;
+              } else if (direction == ScrollDirection.forward) {
+                scrollNotifier.value = true;
+              }
+              return true;
+            },
+            child: Stack(
+              children: [
+                Image.asset(
+                  'assets/images/home_app_bar.png',
+                  height: 240,
+                  width: SizeUtility(context).width,
+                  fit: BoxFit.fill,
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 40),
+                  child: SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        const SizedBox(
+                          height: 70,
+                        ),
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            GestureDetector(
+                              onTap: () {
+                                Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) => const ProfileView(),
+                                ));
+                              },
+                              child: const CircleAvatar(
+                                backgroundColor: Colors.white,
+                                backgroundImage:
+                                    AssetImage('assets/icons/user.png'),
                               ),
-                              const SizedBox(
-                                width: 10,
-                              ),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  const Text('Asslamualaikum,',
-                                      style: TextStyle(
-                                          color: Colors.white, fontSize: 18)),
-                                  const SizedBox(
-                                    height: 5,
-                                  ),
-                                  BlocBuilder<DatabaseBloc, DatabaseState>(
-                                    builder: (context, state) => Text(
-                                        state.name,
-                                        style: const TextStyle(
-                                            color: Colors.white, fontSize: 18)),
-                                  ),
-                                ],
-                              ),
-                              const Spacer(),
-                              const ImageIcon(
-                                  AssetImage('assets/icons/bell.png'),
-                                  color: Colors.white,
-                                  size: 25),
-                              const SizedBox(
-                                width: 20,
-                              ),
-                              const ImageIcon(
-                                  AssetImage('assets/icons/menu.png'),
-                                  color: Colors.white,
-                                  size: 25),
-                            ],
-                          ),
-                          const SizedBox(
-                            height: 40,
-                          ),
-                          Container(
-                            height: 230,
-                            padding: const EdgeInsets.all(30),
-                            decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(20)),
-                            child: Column(
+                            ),
+                            const SizedBox(
+                              width: 10,
+                            ),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Row(
+                                const Text('Asslamualaikum,',
+                                    style: TextStyle(
+                                        color: Colors.white, fontSize: 18)),
+                                const SizedBox(
+                                  height: 5,
+                                ),
+                                BlocBuilder<DatabaseBloc, DatabaseState>(
+                                  builder: (context, state) => Text(state.name,
+                                      style: const TextStyle(
+                                          color: Colors.white, fontSize: 18)),
+                                ),
+                              ],
+                            ),
+                            const Spacer(),
+                            const ImageIcon(AssetImage('assets/icons/bell.png'),
+                                color: Colors.white, size: 25),
+                            const SizedBox(
+                              width: 20,
+                            ),
+                            const ImageIcon(AssetImage('assets/icons/menu.png'),
+                                color: Colors.white, size: 25),
+                          ],
+                        ),
+                        const SizedBox(
+                          height: 40,
+                        ),
+                        scrollNotifier.value == true
+                            ? AnimatedContainer(
+                                duration: const Duration(milliseconds: 0),
+                                height: 230,
+                                padding: const EdgeInsets.all(30),
+                                decoration: BoxDecoration(
+                                    color: whiteClr,
+                                    borderRadius: BorderRadius.circular(20)),
+                                child: Column(
                                   children: [
-                                    const ImageIcon(
-                                      AssetImage('assets/icons/calendar.png'),
-                                      color: mainColor,
-                                      size: 35,
+                                    Row(
+                                      children: [
+                                        const ImageIcon(
+                                          AssetImage(
+                                              'assets/icons/calendar.png'),
+                                          color: mainColor,
+                                          size: 35,
+                                        ),
+                                        const SizedBox(
+                                          width: 10,
+                                        ),
+                                        const Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              '13 Shawwal 1444 AH',
+                                              style: TextStyle(color: black104),
+                                            ),
+                                            SizedBox(
+                                              height: 5,
+                                            ),
+                                            Text(
+                                              'Thursday 04 May',
+                                              style: TextStyle(color: black104),
+                                            )
+                                          ],
+                                        ),
+                                        const Spacer(),
+                                        TextButton.icon(
+                                            onPressed: () {
+                                              Navigator.of(context).pushNamed(
+                                                  NamazTimingView.routeName);
+                                            },
+                                            icon: const ImageIcon(
+                                                AssetImage(
+                                                    'assets/icons/bell.png'),
+                                                color: blueColor),
+                                            label: const Text(
+                                              'Notify Me',
+                                              style:
+                                                  TextStyle(color: blueColor),
+                                            )),
+                                      ],
                                     ),
                                     const SizedBox(
-                                      width: 10,
+                                      height: 20,
                                     ),
-                                    Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: const [
-                                        Text(
-                                          '13 Shawwal 1444 AH',
-                                          style: TextStyle(color: black104),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        const Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              'Now',
+                                              style: TextStyle(
+                                                  color: black104,
+                                                  fontSize: 17),
+                                            ),
+                                            SizedBox(
+                                              height: 10,
+                                            ),
+                                            Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                Text(
+                                                  'FAJR',
+                                                  style: TextStyle(
+                                                    color: mainColor,
+                                                    fontSize: 20,
+                                                  ),
+                                                ),
+                                                SizedBox(
+                                                  width: 10,
+                                                ),
+                                                Text('4: 30 AM',
+                                                    style: TextStyle(
+                                                        color: black132,
+                                                        fontSize: 17,
+                                                        fontWeight:
+                                                            FontWeight.w600)),
+                                              ],
+                                            ),
+                                          ],
                                         ),
-                                        SizedBox(
-                                          height: 5,
+                                        Container(
+                                          height: 50,
+                                          width: 0.7,
+                                          color: dividerColor,
                                         ),
-                                        Text(
-                                          'Thursday 04 May',
-                                          style: TextStyle(color: black104),
+                                        const Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              'Upcoming Namaz',
+                                              style: TextStyle(
+                                                  color: black104,
+                                                  fontSize: 17),
+                                            ),
+                                            SizedBox(
+                                              height: 10,
+                                            ),
+                                            Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                Text(
+                                                  'Zohar',
+                                                  style: TextStyle(
+                                                    color: mainColor,
+                                                    fontSize: 20,
+                                                  ),
+                                                ),
+                                                SizedBox(
+                                                  width: 10,
+                                                ),
+                                                Text('1: 30 PM',
+                                                    style: TextStyle(
+                                                        color: black132,
+                                                        fontSize: 17,
+                                                        fontWeight:
+                                                            FontWeight.w600)),
+                                              ],
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                    const SizedBox(
+                                      height: 25,
+                                    ),
+                                    const Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Row(
+                                          children: [
+                                            ImageIcon(
+                                              AssetImage(
+                                                  'assets/icons/map-pin.png'),
+                                              color: black165,
+                                              size: 20,
+                                            ),
+                                            SizedBox(
+                                              width: 10,
+                                            ),
+                                            Text('Hyderabad, 39°C',
+                                                style:
+                                                    TextStyle(color: black165))
+                                          ],
+                                        ),
+                                        Row(
+                                          children: [
+                                            ImageIcon(
+                                              AssetImage(
+                                                  'assets/icons/share.png'),
+                                              color: black165,
+                                              size: 20,
+                                            ),
+                                            SizedBox(
+                                              width: 10,
+                                            ),
+                                            Text(
+                                              'Share',
+                                              style: TextStyle(color: black165),
+                                            )
+                                          ],
                                         )
                                       ],
                                     ),
-                                    const Spacer(),
-                                    TextButton.icon(
-                                        onPressed: () {
-                                          Navigator.of(context).pushNamed(
-                                              NamazTimingView.routeName);
-                                        },
-                                        icon: const ImageIcon(
-                                            AssetImage('assets/icons/bell.png'),
-                                            color: blueColor),
-                                        label: const Text(
-                                          'Notify Me',
-                                          style: TextStyle(color: blueColor),
-                                        )),
                                   ],
                                 ),
+                              )
+                            : InkWell(
+                                onTap: () {
+                                  Navigator.of(context)
+                                      .pushNamed(NamazTimingView.routeName);
+                                },
+                                child: AnimatedContainer(
+                                  duration: const Duration(milliseconds: 300),
+                                  height: 90,
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: 15,
+                                  ),
+                                  decoration: BoxDecoration(
+                                    color: whiteClr,
+                                    borderRadius: BorderRadius.circular(20),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.black.withOpacity(0.1),
+                                        blurRadius: 2,
+                                        spreadRadius: 0,
+                                        offset: const Offset(0, 2),
+                                      ),
+                                    ],
+                                  ),
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      const Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            'Now',
+                                            style: TextStyle(
+                                              fontSize: 12,
+                                              fontWeight: FontWeight.w300,
+                                            ),
+                                          ),
+                                          SizedBox(height: 6),
+                                          Row(
+                                            children: [
+                                              Text(
+                                                'Fajr',
+                                                style: TextStyle(
+                                                  fontSize: 20,
+                                                  fontWeight: FontWeight.w600,
+                                                  color: green77,
+                                                ),
+                                              ),
+                                              Text(
+                                                '4 :30 AM',
+                                                style: TextStyle(
+                                                  fontSize: 16,
+                                                  fontWeight: FontWeight.w300,
+                                                  color: black102,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+                                      Container(
+                                        color: black166,
+                                        width: 0.5,
+                                        height: 40,
+                                      ),
+                                      const Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            'Upcoming Namaz',
+                                            style: TextStyle(
+                                              fontSize: 12,
+                                              fontWeight: FontWeight.w300,
+                                            ),
+                                          ),
+                                          SizedBox(height: 6),
+                                          Row(
+                                            children: [
+                                              Text(
+                                                'Zohar ',
+                                                style: TextStyle(
+                                                  fontSize: 20,
+                                                  fontWeight: FontWeight.w600,
+                                                  color: green77,
+                                                ),
+                                              ),
+                                              Text(
+                                                '1 :30 PM',
+                                                style: TextStyle(
+                                                  fontSize: 16,
+                                                  fontWeight: FontWeight.w300,
+                                                  color: black102,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                        /*
+                /
+                /
+                /
+                /
+                 /               */
+                        //--------------------------------------------------------------
+                        SizedBox(
+                          height: 500,
+                          child: SingleChildScrollView(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
                                 const SizedBox(
                                   height: 20,
                                 ),
@@ -249,601 +422,522 @@ class _HomeViewState extends State<HomeView> {
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
                                       children: [
-                                        const Text(
-                                          'Now',
-                                          style: TextStyle(
-                                              color: black104, fontSize: 17),
+                                        Image.asset(
+                                          'assets/icons/quran.png',
+                                          height: 50,
+                                          width: 50,
                                         ),
                                         const SizedBox(
                                           height: 10,
                                         ),
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: const [
-                                            Text(
-                                              'FAJR',
-                                              style: TextStyle(
-                                                color: mainColor,
-                                                fontSize: 20,
-                                              ),
-                                            ),
-                                            SizedBox(
-                                              width: 10,
-                                            ),
-                                            Text('4: 30 AM',
-                                                style: TextStyle(
-                                                    color: black132,
-                                                    fontSize: 17,
-                                                    fontWeight:
-                                                        FontWeight.w600)),
-                                          ],
-                                        ),
+                                        const Text(
+                                          "Qur'an",
+                                          style: TextStyle(color: black165),
+                                        )
                                       ],
-                                    ),
-                                    Container(
-                                      height: 50,
-                                      width: 0.7,
-                                      color: dividerColor,
                                     ),
                                     Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
                                       children: [
-                                        const Text(
-                                          'Upcoming Namaz',
-                                          style: TextStyle(
-                                              color: black104, fontSize: 17),
+                                        Image.asset(
+                                          'assets/icons/adzan.png',
+                                          height: 50,
+                                          width: 50,
                                         ),
                                         const SizedBox(
                                           height: 10,
                                         ),
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: const [
-                                            Text(
-                                              'Zohar',
-                                              style: TextStyle(
-                                                color: mainColor,
-                                                fontSize: 20,
-                                              ),
-                                            ),
-                                            SizedBox(
-                                              width: 10,
-                                            ),
-                                            Text('1: 30 PM',
-                                                style: TextStyle(
-                                                    color: black132,
-                                                    fontSize: 17,
-                                                    fontWeight:
-                                                        FontWeight.w600)),
-                                          ],
-                                        ),
+                                        const Text(
+                                          "Adzan",
+                                          style: TextStyle(color: black165),
+                                        )
                                       ],
                                     ),
-                                  ],
-                                ),
-                                const SizedBox(
-                                  height: 25,
-                                ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Row(
-                                      children: const [
-                                        ImageIcon(
-                                          AssetImage(
-                                              'assets/icons/map-pin.png'),
-                                          color: black165,
-                                          size: 20,
+                                    Column(
+                                      children: [
+                                        Image.asset(
+                                          'assets/icons/qibla.png',
+                                          height: 50,
+                                          width: 50,
                                         ),
-                                        SizedBox(
-                                          width: 10,
+                                        const SizedBox(
+                                          height: 10,
                                         ),
-                                        Text('Hyderabad, 39°C',
-                                            style: TextStyle(color: black165))
+                                        const Text(
+                                          "Qibla",
+                                          style: TextStyle(color: black165),
+                                        )
                                       ],
                                     ),
-                                    Row(
-                                      children: const [
-                                        ImageIcon(
-                                          AssetImage('assets/icons/share.png'),
-                                          color: black165,
-                                          size: 20,
+                                    Column(
+                                      children: [
+                                        Image.asset(
+                                          'assets/icons/tasbih.png',
+                                          height: 50,
+                                          width: 50,
                                         ),
-                                        SizedBox(
-                                          width: 10,
+                                        const SizedBox(
+                                          height: 10,
                                         ),
-                                        Text(
-                                          'Share',
+                                        const Text(
+                                          "Tasbih",
+                                          style: TextStyle(color: black165),
+                                        )
+                                      ],
+                                    ),
+                                    Column(
+                                      children: [
+                                        Image.asset(
+                                          'assets/icons/all.png',
+                                          height: 50,
+                                          width: 50,
+                                        ),
+                                        const SizedBox(
+                                          height: 10,
+                                        ),
+                                        const Text(
+                                          "All",
                                           style: TextStyle(color: black165),
                                         )
                                       ],
                                     )
                                   ],
                                 ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  )
-                ],
-              ),
-            ),
-          ),
-          SliverFillRemaining(
-            hasScrollBody: false,
-            fillOverscroll: true,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 40),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Column(
-                        children: [
-                          Image.asset(
-                            'assets/icons/quran.png',
-                            height: 50,
-                            width: 50,
-                          ),
-                          const SizedBox(
-                            height: 10,
-                          ),
-                          const Text(
-                            "Qur'an",
-                            style: TextStyle(color: black165),
-                          )
-                        ],
-                      ),
-                      Column(
-                        children: [
-                          Image.asset(
-                            'assets/icons/adzan.png',
-                            height: 50,
-                            width: 50,
-                          ),
-                          const SizedBox(
-                            height: 10,
-                          ),
-                          const Text(
-                            "Adzan",
-                            style: TextStyle(color: black165),
-                          )
-                        ],
-                      ),
-                      Column(
-                        children: [
-                          Image.asset(
-                            'assets/icons/qibla.png',
-                            height: 50,
-                            width: 50,
-                          ),
-                          const SizedBox(
-                            height: 10,
-                          ),
-                          const Text(
-                            "Qibla",
-                            style: TextStyle(color: black165),
-                          )
-                        ],
-                      ),
-                      Column(
-                        children: [
-                          Image.asset(
-                            'assets/icons/tasbih.png',
-                            height: 50,
-                            width: 50,
-                          ),
-                          const SizedBox(
-                            height: 10,
-                          ),
-                          const Text(
-                            "Tasbih",
-                            style: TextStyle(color: black165),
-                          )
-                        ],
-                      ),
-                      Column(
-                        children: [
-                          Image.asset(
-                            'assets/icons/all.png',
-                            height: 50,
-                            width: 50,
-                          ),
-                          const SizedBox(
-                            height: 10,
-                          ),
-                          const Text(
-                            "All",
-                            style: TextStyle(color: black165),
-                          )
-                        ],
-                      )
-                    ],
-                  ),
-                  const SizedBox(height: 30),
-                  BlocBuilder<ShopProductsBloc, ShopProductsState>(
-                    builder: (context, state) {
-                      if (state.homeBanner == null) {
-                        return const SizedBox();
-                      }
+                                const SizedBox(height: 30),
+                                BlocBuilder<ShopProductsBloc,
+                                    ShopProductsState>(
+                                  builder: (context, state) {
+                                    if (state.homeBanner == null) {
+                                      return const SizedBox();
+                                    }
 
-                      final banners = state.homeBanner?.result!.banners;
-                      return Column(
-                        children: [
-                          CarouselSlider(
-                            items: banners?.map((banner) {
-                              return ClipRRect(
-                                borderRadius: BorderRadius.circular(20),
-                                child: Image.network(
-                                  banner.image,
-                                  fit: BoxFit.contain,
+                                    final banners =
+                                        state.homeBanner?.result!.banners;
+                                    return Column(
+                                      children: [
+                                        CarouselSlider(
+                                          items: banners?.map((banner) {
+                                            return ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(20),
+                                              child: Image.network(
+                                                banner.image,
+                                                fit: BoxFit.contain,
+                                              ),
+                                            );
+                                          }).toList(),
+                                          options: CarouselOptions(
+                                            height: 150,
+                                            viewportFraction: 1,
+                                            enlargeCenterPage: true,
+                                            autoPlay: true,
+                                            autoPlayCurve: Curves.fastOutSlowIn,
+                                            enableInfiniteScroll: true,
+                                            enlargeFactor: 0.3,
+                                            scrollDirection: Axis.horizontal,
+                                            autoPlayAnimationDuration:
+                                                const Duration(
+                                                    milliseconds: 800),
+                                            onPageChanged: (index, reason) {
+                                              setState(() {
+                                                _currentIndex = index;
+                                              });
+                                            },
+                                          ),
+                                        ),
+                                        const SizedBox(height: 10),
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: banners!.map((banner) {
+                                            int index = banners.indexOf(banner);
+                                            return Container(
+                                              width: _currentIndex == index
+                                                  ? 24
+                                                  : 6,
+                                              height: 6,
+                                              margin:
+                                                  const EdgeInsets.symmetric(
+                                                      horizontal: 4),
+                                              decoration: BoxDecoration(
+                                                borderRadius:
+                                                    BorderRadius.circular(30),
+                                                color: _currentIndex == index
+                                                    ? green24
+                                                    : Colors.grey,
+                                              ),
+                                            );
+                                          }).toList(),
+                                        ),
+                                      ],
+                                    );
+                                  },
                                 ),
-                              );
-                            }).toList(),
-                            options: CarouselOptions(
-                              height: 150,
-                              viewportFraction: 1,
-                              enlargeCenterPage: true,
-                              autoPlay: true,
-                              autoPlayCurve: Curves.fastOutSlowIn,
-                              enableInfiniteScroll: true,
-                              enlargeFactor: 0.3,
-                              scrollDirection: Axis.horizontal,
-                              autoPlayAnimationDuration:
-                                  const Duration(milliseconds: 800),
-                              onPageChanged: (index, reason) {
-                                setState(() {
-                                  _currentIndex = index;
-                                });
-                              },
-                            ),
-                          ),
-                          const SizedBox(height: 10),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: banners!.map((banner) {
-                              int index = banners.indexOf(banner);
-                              return Container(
-                                width: _currentIndex == index ? 24 : 6,
-                                height: 6,
-                                margin:
-                                    const EdgeInsets.symmetric(horizontal: 4),
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(30),
-                                  color: _currentIndex == index
-                                      ? green24
-                                      : Colors.grey,
+                                const SizedBox(height: 30),
+                                Container(
+                                  padding: const EdgeInsets.symmetric(
+                                      vertical: 20, horizontal: 20),
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(10),
+                                      border: Border.all(
+                                          color: const Color.fromRGBO(
+                                              230, 230, 230, 1))),
+                                  child: Column(
+                                    children: [
+                                      Row(
+                                        children: [
+                                          Image.asset(
+                                              'assets/icons/quran_circle.png',
+                                              height: 50,
+                                              width: 50,
+                                              fit: BoxFit.cover),
+                                          const SizedBox(
+                                            width: 15,
+                                          ),
+                                          const Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Text(
+                                                'Ramadan Special',
+                                                style: TextStyle(
+                                                    fontWeight: FontWeight.w600,
+                                                    fontSize: 17),
+                                              ),
+                                              SizedBox(
+                                                height: 10,
+                                              ),
+                                              Text(
+                                                'Mosque',
+                                                style: TextStyle(
+                                                    color: black166,
+                                                    fontSize: 15),
+                                              )
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+                                      const SizedBox(
+                                        height: 20,
+                                      ),
+                                      ClipRRect(
+                                        borderRadius: BorderRadius.circular(20),
+                                        child: Image.asset(
+                                            'assets/images/masjed.png',
+                                            fit: BoxFit.cover),
+                                      ),
+                                      const SizedBox(
+                                        height: 20,
+                                      ),
+                                      const Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Row(
+                                            children: [
+                                              ImageIcon(
+                                                AssetImage(
+                                                    'assets/icons/heart.png'),
+                                                color: black165,
+                                                size: 20,
+                                              ),
+                                              SizedBox(
+                                                width: 10,
+                                              ),
+                                              Text('Like',
+                                                  style: TextStyle(
+                                                      color: black165))
+                                            ],
+                                          ),
+                                          Row(
+                                            children: [
+                                              ImageIcon(
+                                                AssetImage(
+                                                    'assets/icons/share.png'),
+                                                color: black165,
+                                                size: 20,
+                                              ),
+                                              SizedBox(
+                                                width: 10,
+                                              ),
+                                              Text(
+                                                'Share',
+                                                style:
+                                                    TextStyle(color: black165),
+                                              )
+                                            ],
+                                          )
+                                        ],
+                                      ),
+                                    ],
+                                  ),
                                 ),
-                              );
-                            }).toList(),
-                          ),
-                        ],
-                      );
-                    },
-                  ),
-                  const SizedBox(height: 30),
-                  Container(
-                    padding: const EdgeInsets.symmetric(
-                        vertical: 20, horizontal: 20),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        border: Border.all(
-                            color: const Color.fromRGBO(230, 230, 230, 1))),
-                    child: Column(
-                      children: [
-                        Row(
-                          children: [
-                            Image.asset('assets/icons/quran_circle.png',
-                                height: 50, width: 50, fit: BoxFit.cover),
-                            const SizedBox(
-                              width: 15,
-                            ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: const [
-                                Text(
-                                  'Ramadan Special',
+                                const SizedBox(
+                                  height: 40,
+                                ),
+                                const Text(
+                                  'Play Games',
                                   style: TextStyle(
                                       fontWeight: FontWeight.w600,
-                                      fontSize: 17),
+                                      fontSize: 20),
                                 ),
-                                SizedBox(
-                                  height: 10,
+                                const SizedBox(
+                                  height: 30,
                                 ),
-                                Text(
-                                  'Mosque',
-                                  style:
-                                      TextStyle(color: black166, fontSize: 15),
-                                )
-                              ],
-                            ),
-                          ],
-                        ),
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(20),
-                          child: Image.asset('assets/images/masjed.png',
-                              fit: BoxFit.cover),
-                        ),
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Row(
-                              children: const [
-                                ImageIcon(
-                                  AssetImage('assets/icons/heart.png'),
-                                  color: black165,
-                                  size: 20,
-                                ),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Text('Like', style: TextStyle(color: black165))
-                              ],
-                            ),
-                            Row(
-                              children: const [
-                                ImageIcon(
-                                  AssetImage('assets/icons/share.png'),
-                                  color: black165,
-                                  size: 20,
-                                ),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Text(
-                                  'Share',
-                                  style: TextStyle(color: black165),
-                                )
-                              ],
-                            )
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 40,
-                  ),
-                  const Text(
-                    'Play Games',
-                    style: TextStyle(fontWeight: FontWeight.w600, fontSize: 20),
-                  ),
-                  const SizedBox(
-                    height: 30,
-                  ),
-                  Container(
-                    height: 480,
-                    width: SizeUtility(context).width,
-                    padding: const EdgeInsets.all(30),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        gradient: const LinearGradient(
-                            begin: Alignment.centerLeft,
-                            end: Alignment.centerRight,
-                            colors: [lightGreenColor, darkGreenColor])),
-                    child: Column(
-                      children: [
-                        const Text(
-                          'What is the name of the night during which Muslims believe the first verses of the Quran were revealed to Prophet Muhammad?',
-                          style: TextStyle(color: Colors.white, fontSize: 20),
-                        ),
-                        const SizedBox(
-                          height: 30,
-                        ),
-                        Container(
-                          alignment: Alignment.centerLeft,
-                          height: 50,
-                          width: SizeUtility(context).width,
-                          padding: const EdgeInsets.symmetric(horizontal: 20),
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              border: Border.all(color: Colors.white)),
-                          child: const Text('1. Laitaltul Qadr',
-                              style: TextStyle(color: Colors.white)),
-                        ),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        Container(
-                          alignment: Alignment.centerLeft,
-                          height: 50,
-                          width: SizeUtility(context).width,
-                          padding: const EdgeInsets.symmetric(horizontal: 20),
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              border: Border.all(color: Colors.white)),
-                          child: const Text("Laylatul Bara'ah",
-                              style: TextStyle(color: Colors.white)),
-                        ),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        Container(
-                          alignment: Alignment.centerLeft,
-                          height: 50,
-                          width: SizeUtility(context).width,
-                          padding: const EdgeInsets.symmetric(horizontal: 20),
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              border: Border.all(color: Colors.white)),
-                          child: const Text("Laylatul Eid",
-                              style: TextStyle(color: Colors.white)),
-                        ),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        Container(
-                          alignment: Alignment.centerLeft,
-                          height: 50,
-                          width: SizeUtility(context).width,
-                          padding: const EdgeInsets.symmetric(horizontal: 20),
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              border: Border.all(color: Colors.white)),
-                          child: const Text("Lailatul Mi'raj",
-                              style: TextStyle(color: Colors.white)),
-                        ),
-                        const SizedBox(
-                          height: 30,
-                        ),
-                        ElevatedButton(
-                          onPressed: () {},
-                          style: ButtonStyle(
-                              backgroundColor:
-                                  MaterialStateProperty.all(Colors.white),
-                              fixedSize: MaterialStateProperty.all(
-                                  Size(SizeUtility(context).width, 50))),
-                          child: const Text(
-                            'Play Games',
-                            style: TextStyle(
-                                color: dark2GreenColor,
-                                fontWeight: FontWeight.w700,
-                                fontSize: 17),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 30,
-                  ),
-                  const Text(
-                    'Items of the day',
-                    style: TextStyle(fontWeight: FontWeight.w600, fontSize: 20),
-                  ),
-                  const SizedBox(
-                    height: 30,
-                  ),
-                  SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      children: [
-                        buildShopItem(
-                            image: 'assets/dummy/sijadah.png',
-                            title: "Hijaz Turkish Gold Border Lantern..."),
-                        buildShopItem(
-                            image: 'assets/dummy/green_hat.png',
-                            title: "Green Wool Winter Large Skull Ca..."),
-                        buildShopItem(
-                            image: 'assets/dummy/sijadah.png',
-                            title: "Hijaz Turkish Gold Border Lantern..."),
-                        buildShopItem(
-                            image: 'assets/dummy/sijadah.png',
-                            title: "Hijaz Turkish Gold Border Lantern..."),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 30,
-                  ),
-                  const Text(
-                    'Try Sukoon',
-                    style: TextStyle(fontWeight: FontWeight.w600, fontSize: 20),
-                  ),
-                  const SizedBox(
-                    height: 30,
-                  ),
-                  Container(
-                    padding: const EdgeInsets.all(15),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        border: Border.all(color: borderColor)),
-                    child: Row(
-                      children: [
-                        ClipRRect(
-                          child: Image.asset('assets/dummy/try_sukoon.png',
-                              height: 100, width: 100),
-                        ),
-                        Expanded(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Slider(
-                                activeColor: mainColor,
-                                inactiveColor: black153,
-                                value: 0.5,
-                                onChanged: (value) {},
-                              ),
-                              Padding(
-                                padding:
-                                    const EdgeInsets.symmetric(horizontal: 25),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: const [
-                                    Text(
-                                      '2:44',
-                                      style: TextStyle(color: black196),
-                                    ),
-                                    Text(
-                                      '4:13',
-                                      style: TextStyle(color: black196),
-                                    )
-                                  ],
-                                ),
-                              ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  IconButton(
-                                      onPressed: () {},
-                                      icon: const ImageIcon(
-                                        AssetImage(
-                                            'assets/icons/previous_sound.png'),
-                                        color: black217,
-                                      )),
-                                  const CircleAvatar(
-                                    backgroundColor: mainColor,
-                                    child: Icon(Icons.play_arrow,
-                                        color: Colors.white),
+                                Container(
+                                  height: 480,
+                                  width: SizeUtility(context).width,
+                                  padding: const EdgeInsets.all(30),
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(20),
+                                      gradient: const LinearGradient(
+                                          begin: Alignment.centerLeft,
+                                          end: Alignment.centerRight,
+                                          colors: [
+                                            lightGreenColor,
+                                            darkGreenColor
+                                          ])),
+                                  child: Column(
+                                    children: [
+                                      const Text(
+                                        'What is the name of the night during which Muslims believe the first verses of the Quran were revealed to Prophet Muhammad?',
+                                        style: TextStyle(
+                                            color: Colors.white, fontSize: 20),
+                                      ),
+                                      const SizedBox(
+                                        height: 30,
+                                      ),
+                                      Container(
+                                        alignment: Alignment.centerLeft,
+                                        height: 50,
+                                        width: SizeUtility(context).width,
+                                        padding: const EdgeInsets.symmetric(
+                                            horizontal: 20),
+                                        decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(10),
+                                            border: Border.all(
+                                                color: Colors.white)),
+                                        child: const Text('1. Laitaltul Qadr',
+                                            style:
+                                                TextStyle(color: Colors.white)),
+                                      ),
+                                      const SizedBox(
+                                        height: 10,
+                                      ),
+                                      Container(
+                                        alignment: Alignment.centerLeft,
+                                        height: 50,
+                                        width: SizeUtility(context).width,
+                                        padding: const EdgeInsets.symmetric(
+                                            horizontal: 20),
+                                        decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(10),
+                                            border: Border.all(
+                                                color: Colors.white)),
+                                        child: const Text("Laylatul Bara'ah",
+                                            style:
+                                                TextStyle(color: Colors.white)),
+                                      ),
+                                      const SizedBox(
+                                        height: 10,
+                                      ),
+                                      Container(
+                                        alignment: Alignment.centerLeft,
+                                        height: 50,
+                                        width: SizeUtility(context).width,
+                                        padding: const EdgeInsets.symmetric(
+                                            horizontal: 20),
+                                        decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(10),
+                                            border: Border.all(
+                                                color: Colors.white)),
+                                        child: const Text("Laylatul Eid",
+                                            style:
+                                                TextStyle(color: Colors.white)),
+                                      ),
+                                      const SizedBox(
+                                        height: 10,
+                                      ),
+                                      Container(
+                                        alignment: Alignment.centerLeft,
+                                        height: 50,
+                                        width: SizeUtility(context).width,
+                                        padding: const EdgeInsets.symmetric(
+                                            horizontal: 20),
+                                        decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(10),
+                                            border: Border.all(
+                                                color: Colors.white)),
+                                        child: const Text("Lailatul Mi'raj",
+                                            style:
+                                                TextStyle(color: Colors.white)),
+                                      ),
+                                      const SizedBox(
+                                        height: 30,
+                                      ),
+                                      ElevatedButton(
+                                        onPressed: () {},
+                                        style: ButtonStyle(
+                                            backgroundColor:
+                                                MaterialStateProperty.all(
+                                                    Colors.white),
+                                            fixedSize:
+                                                MaterialStateProperty.all(Size(
+                                                    SizeUtility(context).width,
+                                                    50))),
+                                        child: const Text(
+                                          'Play Games',
+                                          style: TextStyle(
+                                              color: dark2GreenColor,
+                                              fontWeight: FontWeight.w700,
+                                              fontSize: 17),
+                                        ),
+                                      )
+                                    ],
                                   ),
-                                  IconButton(
-                                      onPressed: () {},
-                                      icon: const ImageIcon(
-                                        AssetImage(
-                                            'assets/icons/next_sound.png'),
-                                        color: black217,
-                                      ))
-                                ],
-                              )
-                            ],
+                                ),
+                                const SizedBox(
+                                  height: 30,
+                                ),
+                                const Text(
+                                  'Items of the day',
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 20),
+                                ),
+                                const SizedBox(
+                                  height: 30,
+                                ),
+                                SingleChildScrollView(
+                                  scrollDirection: Axis.horizontal,
+                                  child: Row(
+                                    children: [
+                                      buildShopItem(
+                                          image: 'assets/dummy/sijadah.png',
+                                          title:
+                                              "Hijaz Turkish Gold Border Lantern..."),
+                                      buildShopItem(
+                                          image: 'assets/dummy/green_hat.png',
+                                          title:
+                                              "Green Wool Winter Large Skull Ca..."),
+                                      buildShopItem(
+                                          image: 'assets/dummy/sijadah.png',
+                                          title:
+                                              "Hijaz Turkish Gold Border Lantern..."),
+                                      buildShopItem(
+                                          image: 'assets/dummy/sijadah.png',
+                                          title:
+                                              "Hijaz Turkish Gold Border Lantern..."),
+                                    ],
+                                  ),
+                                ),
+                                const SizedBox(
+                                  height: 30,
+                                ),
+                                const Text(
+                                  'Try Sukoon',
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 20),
+                                ),
+                                const SizedBox(
+                                  height: 30,
+                                ),
+                                Container(
+                                  padding: const EdgeInsets.all(15),
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(10),
+                                      border: Border.all(color: borderColor)),
+                                  child: Row(
+                                    children: [
+                                      ClipRRect(
+                                        child: Image.asset(
+                                            'assets/dummy/try_sukoon.png',
+                                            height: 100,
+                                            width: 100),
+                                      ),
+                                      Expanded(
+                                        child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Slider(
+                                              activeColor: mainColor,
+                                              inactiveColor: black153,
+                                              value: 0.5,
+                                              onChanged: (value) {},
+                                            ),
+                                            const Padding(
+                                              padding: EdgeInsets.symmetric(
+                                                  horizontal: 25),
+                                              child: Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
+                                                  Text(
+                                                    '2:44',
+                                                    style: TextStyle(
+                                                        color: black196),
+                                                  ),
+                                                  Text(
+                                                    '4:13',
+                                                    style: TextStyle(
+                                                        color: black196),
+                                                  )
+                                                ],
+                                              ),
+                                            ),
+                                            Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: [
+                                                IconButton(
+                                                    onPressed: () {},
+                                                    icon: const ImageIcon(
+                                                      AssetImage(
+                                                          'assets/icons/previous_sound.png'),
+                                                      color: black217,
+                                                    )),
+                                                const CircleAvatar(
+                                                  backgroundColor: mainColor,
+                                                  child: Icon(Icons.play_arrow,
+                                                      color: Colors.white),
+                                                ),
+                                                IconButton(
+                                                    onPressed: () {},
+                                                    icon: const ImageIcon(
+                                                      AssetImage(
+                                                          'assets/icons/next_sound.png'),
+                                                      color: black217,
+                                                    ))
+                                              ],
+                                            )
+                                          ],
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                                const SizedBox(
+                                  height: 120,
+                                ),
+                              ],
+                            ),
                           ),
-                        )
+                        ),
                       ],
                     ),
                   ),
-                  const SizedBox(
-                    height: 120,
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
-          )
-        ],
+          );
+        },
       ),
     );
   }
@@ -879,11 +973,11 @@ class _HomeViewState extends State<HomeView> {
             const SizedBox(
               height: 15,
             ),
-            Row(
+            const Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Row(
-                  children: const [
+                  children: [
                     Text(
                       'MRP',
                       style: TextStyle(
@@ -904,7 +998,7 @@ class _HomeViewState extends State<HomeView> {
                     ),
                   ],
                 ),
-                const Text(
+                Text(
                   '11%off',
                   style: TextStyle(
                       color: orange255,

@@ -9,6 +9,7 @@ import 'package:millat/resources/shop/view/products/products_view.dart';
 import 'package:millat/resources/shop/view/products/single_product_view.dart';
 import 'package:millat/resources/shop/view/search/search_view.dart';
 import 'package:millat/resources/shop/view/shop_by_brand/shop_by_brand_view.dart';
+import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/globals.dart';
 import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/utils.dart';
@@ -76,13 +77,13 @@ class _ShopViewState extends State<ShopView> {
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
                           Image.asset(
-                            'assets/logos/millat_white_logo.png',
+                            whiteLogo,
                             height: 30,
                           ),
                           const SizedBox(
                             width: 5,
                           ),
-                          const Text('Halal & Organic',
+                          const Text(shopText1,
                               style: TextStyle(color: whiteClr, height: 1.8)),
                         ],
                       ),
@@ -121,7 +122,7 @@ class _ShopViewState extends State<ShopView> {
                             ),
                           ),
                           const Text(
-                            'Search....',
+                            shopText2,
                             style: TextStyle(
                               color: black102,
                               fontSize: 17,

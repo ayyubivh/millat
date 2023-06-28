@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:millat/resources/authentication/bloc/logic/auth_bloc.dart';
 import 'package:millat/resources/authentication/bloc/logic/database_bloc/database_bloc.dart';
+import 'package:millat/resources/home/bloc/logic/location_bloc/location_bloc.dart';
+import 'package:millat/resources/home/bloc/logic/namaz_timing_bloc/namaz_timing_bloc.dart';
 import 'package:millat/resources/home/view/namaz_timing/namaz_timing_view.dart';
 import 'package:millat/resources/on_boarding/view/on_boarding_view.dart';
 import 'package:millat/resources/profile/views/manage_address.dart';
@@ -30,26 +33,24 @@ void main() async {
       splashRemoved = true;
     }
   });
+  // SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
+  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+    statusBarColor: Colors.transparent,
+    statusBarIconBrightness: Brightness.dark,
+  ));
+
   await Hive.initFlutter();
   await Hive.openBox('userDetailsBox');
   runApp(MultiBlocProvider(
     providers: [
-      BlocProvider(
-        create: (context) => AuthBloc(),
-      ),
-      BlocProvider(
-        create: (context) => ShopProductsBloc(),
-      ),
-      BlocProvider(
-        create: (context) => CategoryBloc(),
-      ),
-      BlocProvider(
-        create: (context) => DatabaseBloc(),
-      ),
-      BlocProvider(
-        create: (context) => CartBloc(),
-      ),
+      BlocProvider(create: (context) => AuthBloc()),
+      BlocProvider(create: (context) => ShopProductsBloc()),
+      BlocProvider(create: (context) => CategoryBloc()),
+      BlocProvider(create: (context) => DatabaseBloc()),
+      BlocProvider(create: (context) => CartBloc()),
       BlocProvider(create: (context) => AddressBloc()),
+      BlocProvider(create: (context) => LocationBloc()),
+      BlocProvider(create: (context) => NamazTimingBloc())
     ],
     child: MyApp(),
   ));

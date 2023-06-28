@@ -2,12 +2,13 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
+import 'package:millat/resources/home/bloc/logic/namaz_timing_bloc/namaz_timing_bloc.dart';
 import '../../../utils/globals.dart';
 import '../../../utils/size_utility.dart';
 import '../../authentication/bloc/logic/database_bloc/database_bloc.dart';
 import '../../profile/views/profile_view.dart';
 import '../../shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
+import '../bloc/logic/location_bloc/location_bloc.dart';
 import 'namaz_timing/namaz_timing_view.dart';
 
 ValueNotifier<bool> scrollNotifier = ValueNotifier(true);
@@ -22,6 +23,16 @@ class HomeView extends StatefulWidget {
 class _HomeViewState extends State<HomeView> {
   int _currentIndex = 0;
   @override
+  void initState() {
+    BlocProvider.of<NamazTimingBloc>(context).add(const FetchPrayerTiming());
+    // BlocProvider.of<NamazTimingBloc>(context).add(const PrayerTimingEvent());
+
+    BlocProvider.of<DatabaseBloc>(context).add(const FetchUserDetails());
+    BlocProvider.of<LocationBloc>(context).add(const FetchCurrentLocation());
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: ValueListenableBuilder(
@@ -30,7 +41,6 @@ class _HomeViewState extends State<HomeView> {
           return NotificationListener<UserScrollNotification>(
             onNotification: (notification) {
               final ScrollDirection direction = notification.direction;
-
               if (direction == ScrollDirection.reverse) {
                 scrollNotifier.value = false;
               } else if (direction == ScrollDirection.forward) {
@@ -52,7 +62,7 @@ class _HomeViewState extends State<HomeView> {
                     child: Column(
                       children: [
                         const SizedBox(
-                          height: 70,
+                          height: 50,
                         ),
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
@@ -99,315 +109,11 @@ class _HomeViewState extends State<HomeView> {
                           ],
                         ),
                         const SizedBox(
-                          height: 40,
+                          height: 25,
                         ),
                         scrollNotifier.value == true
-                            ? AnimatedContainer(
-                                duration: const Duration(milliseconds: 0),
-                                height: 230,
-                                padding: const EdgeInsets.all(30),
-                                decoration: BoxDecoration(
-                                    color: whiteClr,
-                                    borderRadius: BorderRadius.circular(20)),
-                                child: Column(
-                                  children: [
-                                    Row(
-                                      children: [
-                                        const ImageIcon(
-                                          AssetImage(
-                                              'assets/icons/calendar.png'),
-                                          color: mainColor,
-                                          size: 35,
-                                        ),
-                                        const SizedBox(
-                                          width: 10,
-                                        ),
-                                        const Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Text(
-                                              '13 Shawwal 1444 AH',
-                                              style: TextStyle(color: black104),
-                                            ),
-                                            SizedBox(
-                                              height: 5,
-                                            ),
-                                            Text(
-                                              'Thursday 04 May',
-                                              style: TextStyle(color: black104),
-                                            )
-                                          ],
-                                        ),
-                                        const Spacer(),
-                                        TextButton.icon(
-                                            onPressed: () {
-                                              Navigator.of(context).pushNamed(
-                                                  NamazTimingView.routeName);
-                                            },
-                                            icon: const ImageIcon(
-                                                AssetImage(
-                                                    'assets/icons/bell.png'),
-                                                color: blueColor),
-                                            label: const Text(
-                                              'Notify Me',
-                                              style:
-                                                  TextStyle(color: blueColor),
-                                            )),
-                                      ],
-                                    ),
-                                    const SizedBox(
-                                      height: 20,
-                                    ),
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        const Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Text(
-                                              'Now',
-                                              style: TextStyle(
-                                                  color: black104,
-                                                  fontSize: 17),
-                                            ),
-                                            SizedBox(
-                                              height: 10,
-                                            ),
-                                            Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                Text(
-                                                  'FAJR',
-                                                  style: TextStyle(
-                                                    color: mainColor,
-                                                    fontSize: 20,
-                                                  ),
-                                                ),
-                                                SizedBox(
-                                                  width: 10,
-                                                ),
-                                                Text('4: 30 AM',
-                                                    style: TextStyle(
-                                                        color: black132,
-                                                        fontSize: 17,
-                                                        fontWeight:
-                                                            FontWeight.w600)),
-                                              ],
-                                            ),
-                                          ],
-                                        ),
-                                        Container(
-                                          height: 50,
-                                          width: 0.7,
-                                          color: dividerColor,
-                                        ),
-                                        const Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Text(
-                                              'Upcoming Namaz',
-                                              style: TextStyle(
-                                                  color: black104,
-                                                  fontSize: 17),
-                                            ),
-                                            SizedBox(
-                                              height: 10,
-                                            ),
-                                            Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                Text(
-                                                  'Zohar',
-                                                  style: TextStyle(
-                                                    color: mainColor,
-                                                    fontSize: 20,
-                                                  ),
-                                                ),
-                                                SizedBox(
-                                                  width: 10,
-                                                ),
-                                                Text('1: 30 PM',
-                                                    style: TextStyle(
-                                                        color: black132,
-                                                        fontSize: 17,
-                                                        fontWeight:
-                                                            FontWeight.w600)),
-                                              ],
-                                            ),
-                                          ],
-                                        ),
-                                      ],
-                                    ),
-                                    const SizedBox(
-                                      height: 25,
-                                    ),
-                                    const Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Row(
-                                          children: [
-                                            ImageIcon(
-                                              AssetImage(
-                                                  'assets/icons/map-pin.png'),
-                                              color: black165,
-                                              size: 20,
-                                            ),
-                                            SizedBox(
-                                              width: 10,
-                                            ),
-                                            Text('Hyderabad, 39°C',
-                                                style:
-                                                    TextStyle(color: black165))
-                                          ],
-                                        ),
-                                        Row(
-                                          children: [
-                                            ImageIcon(
-                                              AssetImage(
-                                                  'assets/icons/share.png'),
-                                              color: black165,
-                                              size: 20,
-                                            ),
-                                            SizedBox(
-                                              width: 10,
-                                            ),
-                                            Text(
-                                              'Share',
-                                              style: TextStyle(color: black165),
-                                            )
-                                          ],
-                                        )
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                              )
-                            : InkWell(
-                                onTap: () {
-                                  Navigator.of(context)
-                                      .pushNamed(NamazTimingView.routeName);
-                                },
-                                child: AnimatedContainer(
-                                  duration: const Duration(milliseconds: 300),
-                                  height: 90,
-                                  padding: const EdgeInsets.symmetric(
-                                    horizontal: 15,
-                                  ),
-                                  decoration: BoxDecoration(
-                                    color: whiteClr,
-                                    borderRadius: BorderRadius.circular(20),
-                                    boxShadow: [
-                                      BoxShadow(
-                                        color: Colors.black.withOpacity(0.1),
-                                        blurRadius: 2,
-                                        spreadRadius: 0,
-                                        offset: const Offset(0, 2),
-                                      ),
-                                    ],
-                                  ),
-                                  child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      const Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            'Now',
-                                            style: TextStyle(
-                                              fontSize: 12,
-                                              fontWeight: FontWeight.w300,
-                                            ),
-                                          ),
-                                          SizedBox(height: 6),
-                                          Row(
-                                            children: [
-                                              Text(
-                                                'Fajr',
-                                                style: TextStyle(
-                                                  fontSize: 20,
-                                                  fontWeight: FontWeight.w600,
-                                                  color: green77,
-                                                ),
-                                              ),
-                                              Text(
-                                                '4 :30 AM',
-                                                style: TextStyle(
-                                                  fontSize: 16,
-                                                  fontWeight: FontWeight.w300,
-                                                  color: black102,
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ],
-                                      ),
-                                      Container(
-                                        color: black166,
-                                        width: 0.5,
-                                        height: 40,
-                                      ),
-                                      const Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            'Upcoming Namaz',
-                                            style: TextStyle(
-                                              fontSize: 12,
-                                              fontWeight: FontWeight.w300,
-                                            ),
-                                          ),
-                                          SizedBox(height: 6),
-                                          Row(
-                                            children: [
-                                              Text(
-                                                'Zohar ',
-                                                style: TextStyle(
-                                                  fontSize: 20,
-                                                  fontWeight: FontWeight.w600,
-                                                  color: green77,
-                                                ),
-                                              ),
-                                              Text(
-                                                '1 :30 PM',
-                                                style: TextStyle(
-                                                  fontSize: 16,
-                                                  fontWeight: FontWeight.w300,
-                                                  color: black102,
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ],
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                        /*
-                /
-                /
-                /
-                /
-                 /               */
-                        //--------------------------------------------------------------
+                            ? animatedContainerWidget1(context)
+                            : animatedContainerWidget2(context),
                         SizedBox(
                           height: 500,
                           child: SingleChildScrollView(
@@ -421,86 +127,21 @@ class _HomeViewState extends State<HomeView> {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Column(
-                                      children: [
-                                        Image.asset(
-                                          'assets/icons/quran.png',
-                                          height: 50,
-                                          width: 50,
-                                        ),
-                                        const SizedBox(
-                                          height: 10,
-                                        ),
-                                        const Text(
-                                          "Qur'an",
-                                          style: TextStyle(color: black165),
-                                        )
-                                      ],
-                                    ),
-                                    Column(
-                                      children: [
-                                        Image.asset(
-                                          'assets/icons/adzan.png',
-                                          height: 50,
-                                          width: 50,
-                                        ),
-                                        const SizedBox(
-                                          height: 10,
-                                        ),
-                                        const Text(
-                                          "Adzan",
-                                          style: TextStyle(color: black165),
-                                        )
-                                      ],
-                                    ),
-                                    Column(
-                                      children: [
-                                        Image.asset(
-                                          'assets/icons/qibla.png',
-                                          height: 50,
-                                          width: 50,
-                                        ),
-                                        const SizedBox(
-                                          height: 10,
-                                        ),
-                                        const Text(
-                                          "Qibla",
-                                          style: TextStyle(color: black165),
-                                        )
-                                      ],
-                                    ),
-                                    Column(
-                                      children: [
-                                        Image.asset(
-                                          'assets/icons/tasbih.png',
-                                          height: 50,
-                                          width: 50,
-                                        ),
-                                        const SizedBox(
-                                          height: 10,
-                                        ),
-                                        const Text(
-                                          "Tasbih",
-                                          style: TextStyle(color: black165),
-                                        )
-                                      ],
-                                    ),
-                                    Column(
-                                      children: [
-                                        Image.asset(
-                                          'assets/icons/all.png',
-                                          height: 50,
-                                          width: 50,
-                                        ),
-                                        const SizedBox(
-                                          height: 10,
-                                        ),
-                                        const Text(
-                                          "All",
-                                          style: TextStyle(color: black165),
-                                        )
-                                      ],
-                                    )
+                                    buildIconWidget(
+                                        image: 'assets/icons/quran.png',
+                                        text: "Qur'an"),
+                                    buildIconWidget(
+                                        image: 'assets/icons/adzan.png',
+                                        text: 'Adzan'),
+                                    buildIconWidget(
+                                        image: 'assets/icons/qibla.png',
+                                        text: 'Qibla'),
+                                    buildIconWidget(
+                                        image: 'assets/icons/tasbih.png',
+                                        text: 'Tasbih'),
+                                    buildIconWidget(
+                                        image: "assets/icons/all.png",
+                                        text: "All")
                                   ],
                                 ),
                                 const SizedBox(height: 30),
@@ -938,6 +579,374 @@ class _HomeViewState extends State<HomeView> {
             ),
           );
         },
+      ),
+    );
+  }
+
+  Widget buildIconWidget({required String image, required String text}) {
+    return Column(
+      children: [
+        Image.asset(
+          image,
+          height: 50,
+          width: 50,
+        ),
+        const SizedBox(
+          height: 10,
+        ),
+        Text(
+          text,
+          style: const TextStyle(color: black165),
+        )
+      ],
+    );
+  }
+
+  animatedContainerWidget2(BuildContext context) {
+    return AnimatedContainer(
+      curve: Curves.decelerate,
+      duration: const Duration(milliseconds: 1000),
+      height: 90,
+      padding: const EdgeInsets.symmetric(
+        horizontal: 15,
+      ),
+      decoration: BoxDecoration(
+        color: whiteClr,
+        borderRadius: BorderRadius.circular(20),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.1),
+            blurRadius: 2,
+            spreadRadius: 0,
+            offset: const Offset(0, 2),
+          ),
+        ],
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Text(
+                'Now',
+                style: TextStyle(
+                  fontSize: 12,
+                  fontWeight: FontWeight.w300,
+                ),
+              ),
+              const SizedBox(height: 6),
+              BlocBuilder<NamazTimingBloc, NamazTimingState>(
+                builder: (context, state) {
+                  return Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        // state.currentNamaz?.keys
+                        //         .toString()
+                        //         .replaceAll('(', '')
+                        //         .replaceAll(')', '') ??
+                        //     '',
+                        'Dhuhr :12 26',
+                        style: const TextStyle(
+                          color: mainColor,
+                          fontSize: 20,
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 10,
+                      ),
+                      Text(
+                          // state.currentNamaz?.values
+                          //         .toString()
+                          //         .replaceAll('(', '')
+                          //         .replaceAll(')', '') ??
+                          //     '',
+                          '',
+                          style: const TextStyle(
+                              color: black132,
+                              fontSize: 17,
+                              fontWeight: FontWeight.w600)),
+                    ],
+                  );
+                },
+              ),
+            ],
+          ),
+          Container(
+            color: black166,
+            width: 0.5,
+            height: 40,
+          ),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Text(
+                'Upcoming Namaz',
+                style: TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.w300,
+                ),
+              ),
+              const SizedBox(height: 6),
+              BlocBuilder<NamazTimingBloc, NamazTimingState>(
+                builder: (context, state) {
+                  // return state.upcomingNamaz!.isEmpty
+                  //     ? const SizedBox()
+                  //     :
+                  return Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        // state.upcomingNamaz?.keys
+                        //         .toString()
+                        //         .replaceAll('(', '')
+                        //         .replaceAll(')', '') ??
+                        //     '',
+                        'Asr: 15:34',
+                        style: const TextStyle(
+                          color: mainColor,
+                          fontSize: 20,
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 10,
+                      ),
+                      Text(
+                          state.upcomingNamaz?.values
+                                  .toString()
+                                  .replaceAll('(', '')
+                                  .replaceAll(')', '') ??
+                              '',
+                          style: const TextStyle(
+                              color: black132,
+                              fontSize: 17,
+                              fontWeight: FontWeight.w600)),
+                    ],
+                  );
+                },
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget animatedContainerWidget1(BuildContext context) {
+    return AnimatedContainer(
+      curve: Curves.decelerate,
+      duration: const Duration(milliseconds: 1000),
+      height: scrollNotifier.value == false ? 180 : 190,
+      padding: const EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        color: whiteClr,
+        borderRadius: BorderRadius.circular(20),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.1),
+            blurRadius: 2,
+            spreadRadius: 0,
+            offset: const Offset(0, 2),
+          ),
+        ],
+      ),
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            Row(
+              children: [
+                const ImageIcon(
+                  AssetImage('assets/icons/calendar.png'),
+                  color: mainColor,
+                  size: 35,
+                ),
+                const SizedBox(
+                  width: 10,
+                ),
+                const Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      '13 Shawwal 1444 AH',
+                      style: TextStyle(color: black104),
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    Text(
+                      'Thursday 04 May',
+                      style: TextStyle(color: black104),
+                    )
+                  ],
+                ),
+                const Spacer(),
+                TextButton.icon(
+                    onPressed: () {
+                      Navigator.of(context)
+                          .pushNamed(NamazTimingView.routeName);
+                    },
+                    icon: const ImageIcon(AssetImage('assets/icons/bell.png'),
+                        color: blueColor),
+                    label: const Text(
+                      'Notify Me',
+                      style: TextStyle(color: blueColor),
+                    )),
+              ],
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text(
+                      'Now',
+                      style: TextStyle(color: black104, fontSize: 15),
+                    ),
+                    const SizedBox(
+                      height: 5,
+                    ),
+                    BlocBuilder<NamazTimingBloc, NamazTimingState>(
+                      builder: (context, state) {
+                        return Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              // state.currentNamaz?.keys
+                              //         .toString()
+                              //         .replaceAll('(', '')
+                              //         .replaceAll(')', '') ??
+                              //     '',
+                              'Dhuhr :12 26',
+                              style: const TextStyle(
+                                color: mainColor,
+                                fontSize: 20,
+                              ),
+                            ),
+                            const SizedBox(
+                              width: 10,
+                            ),
+                            Text(
+                                state.currentNamaz?.values
+                                        .toString()
+                                        .replaceAll('(', '')
+                                        .replaceAll(')', '') ??
+                                    '',
+                                style: const TextStyle(
+                                    color: black132,
+                                    fontSize: 17,
+                                    fontWeight: FontWeight.w600)),
+                          ],
+                        );
+                      },
+                    ),
+                  ],
+                ),
+                Container(
+                  height: 30,
+                  width: 0.7,
+                  color: dividerColor,
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text(
+                      'Upcoming Namaz',
+                      style: TextStyle(color: black104, fontSize: 15),
+                    ),
+                    const SizedBox(
+                      height: 5,
+                    ),
+                    BlocBuilder<NamazTimingBloc, NamazTimingState>(
+                      builder: (context, state) {
+                        return Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              // state.upcomingNamaz?.keys
+                              //         .toString()
+                              //         .replaceAll('(', '')
+                              //         .replaceAll(')', '') ??
+                              //     '',
+                              'Asr: 15:34',
+                              style: const TextStyle(
+                                color: mainColor,
+                                fontSize: 20,
+                              ),
+                            ),
+                            const SizedBox(
+                              width: 10,
+                            ),
+                            Text(
+                                state.upcomingNamaz?.values
+                                        .toString()
+                                        .replaceAll('(', '')
+                                        .replaceAll(')', '') ??
+                                    '',
+                                style: const TextStyle(
+                                    color: black132,
+                                    fontSize: 17,
+                                    fontWeight: FontWeight.w600)),
+                          ],
+                        );
+                      },
+                    ),
+                  ],
+                ),
+              ],
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  children: [
+                    const ImageIcon(
+                      AssetImage('assets/icons/map-pin.png'),
+                      color: black165,
+                      size: 20,
+                    ),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    BlocBuilder<LocationBloc, LocationState>(
+                      builder: (context, state) => Text(state.currentLocaion,
+                          style: const TextStyle(color: black165)),
+                    )
+                  ],
+                ),
+                const Row(
+                  children: [
+                    ImageIcon(
+                      AssetImage('assets/icons/share.png'),
+                      color: black165,
+                      size: 20,
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Text(
+                      'Share',
+                      style: TextStyle(color: black165),
+                    )
+                  ],
+                )
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

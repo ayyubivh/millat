@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/shop/bloc/logic/address_bloc/address_bloc.dart';
+import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
 import 'package:millat/resources/shop/view/checkout/checkout_view.dart';
 import 'package:millat/resources/shop/view/checkout/widgets/order_product_card.dart';
 import 'package:millat/resources/shop/view/order_status/payment_successful.dart';
 import 'package:millat/utils/globals.dart';
 import 'package:millat/utils/size_utility.dart';
 import '../../bloc/logic/cart_bloc/cart_bloc.dart';
-import 'checkout_details.dart';
 import 'checkout_payment.dart';
 
 class CheckoutConfirmation extends StatefulWidget {
@@ -56,9 +55,9 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
                 value: 10,
                 onChanged: (value) {},
               ),
-              Row(
+              const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [
+                children: [
                   Text(
                     'Personal Info',
                     style:
@@ -406,9 +405,9 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
                 const SizedBox(
                   height: 20,
                 ),
-                Row(
+                const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [
+                  children: [
                     Text('Shipping Fee',
                         style: TextStyle(
                             color: black26,
@@ -424,9 +423,9 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
                 const SizedBox(
                   height: 20,
                 ),
-                Row(
+                const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [
+                  children: [
                     Text('Estimating Tax',
                         style: TextStyle(
                             color: black26,
@@ -474,6 +473,13 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
                 BlocBuilder<CartBloc, CartState>(
                   builder: (context, state) => InkWell(
                     onTap: () {
+                      print(
+                          'on the view total $total and the ${state.cartModel!.result!.cartProducts!.id} ');
+                      context.read<ShopProductsBloc>().add(PostOrders(
+                          totalPrice: total,
+                          productId: state.cartModel!.result!.cartProducts!.id
+                              .toString(),
+                          context: context));
                       Navigator.of(context).push(MaterialPageRoute(
                         builder: (context) => const PaymentSuccessful(),
                       ));

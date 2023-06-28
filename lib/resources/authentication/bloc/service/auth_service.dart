@@ -24,13 +24,15 @@ class AuthService extends HttpServices {
 
       if (value.statusCode == 200) {
         final result = UserModel.fromJson(jsonDecode(value.body));
-        print('token on the service $result');
+
         context
             .read<DatabaseBloc>()
             .add(StoreTokenEvent(token: result.result!.token.toString()));
         context.read<DatabaseBloc>().add(StoreUserDetails(
             email: result.result!.user!.email.toString(),
             name: result.result!.user!.name.toString()));
+        print(
+            'token on the service${result.result!.token}------------ email----------- ${result.result!.user!.email} and the name--------- ${result.result!.user!.name}');
         return {
           'status': true,
         };

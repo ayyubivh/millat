@@ -7,6 +7,7 @@ import 'package:geocoding/geocoding.dart';
 import 'package:intl/intl.dart';
 import 'package:millat/resources/home/bloc/service/namaz_timing_service.dart';
 
+import '../../models/namaz_methods/namaz_mthods_model.dart';
 import '../../models/prayer_timing_models/prayer_timing_model.dart';
 
 part 'namaz_timing_event.dart';
@@ -20,13 +21,21 @@ class NamazTimingBloc extends Bloc<NamazTimingEvent, NamazTimingState> {
     // on<PrayerTimingEvent>(_prayerTimingEvent);
     on<ShowImsakEvent>(_showImsakEvent);
     on<ChangeArtCalcMethod>(_changeArtCalcMethod);
+    on<FetchNamazMethods>(_fetchNamazMethods);
+    on<ChangeNamazMethods>(_changeNamaMethods);
+    on<ChangeSchoolEvent>(_changeSchoolEvent);
+    on<ChangeHighLatitudeMethod>(_changeHighLatitudeMethod);
   }
 
   _fetchPrayerTiming(
       FetchPrayerTiming event, Emitter<NamazTimingState> emit) async {
     try {
       final data = await namazTimingService.fetchPrayerTime(
-          date: state.urlDate, school: state.school, method: state.method);
+          context: event.context,
+          date: state.urlDate,
+          school: state.school,
+          method: state.method,
+          highLatMethodVal: state.highLatMethodVal);
       final address = state.prayerModel?.data.meta.method.location;
       final currentAddress = await getAddress(
         address?.latitude ?? 0,
@@ -37,6 +46,50 @@ class NamazTimingBloc extends Bloc<NamazTimingEvent, NamazTimingState> {
       print('data on the bloc method 0 ${currentAddress}');
     } catch (e) {
       emit(state.copyWith(error: e.toString()));
+    }
+  }
+
+  FutureOr<void> _changeSchoolEvent(
+      ChangeSchoolEvent event, Emitter<NamazTimingState> emit) async {
+    try {
+      final data = await namazTimingService.fetchPrayerTime(
+          context: event.context,
+          date: state.urlDate,
+          school: event.school,
+          method: state.method,
+          highLatMethodVal: state.highLatMethodVal);
+      emit(state.copyWith(prayerModel: data, school: event.school));
+      print(data);
+      print(
+          'here on the school ${state.method} and the school ${state.school}');
+    } catch (e) {
+      print('error occured when fetch ${e.toString()}');
+      throw Exception(e);
+    }
+  }
+
+  Future<void> _changeHighLatitudeMethod(
+      ChangeHighLatitudeMethod event, Emitter<NamazTimingState> emit) async {
+    // emit(state.copyWith(
+    //   isHighLatMethodVal: event.boolValue,
+    // ));
+    try {
+      final data = await namazTimingService.fetchPrayerTime(
+        context: event.context,
+        date: state.urlDate,
+        school: state.school,
+        method: state.method,
+        highLatMethodVal: event.numValue,
+      );
+      emit(state.copyWith(
+        prayerModel: data,
+        highLatMethodVal: event.numValue,
+      ));
+      print(
+          'high late method datas ${data.data.meta.latitudeAdjustmentMethod}');
+    } catch (e) {
+      print('error occurred on the change high Latitude Method $e');
+      throw Exception(e);
     }
   }
 
@@ -51,6 +104,39 @@ class NamazTimingBloc extends Bloc<NamazTimingEvent, NamazTimingState> {
     emit(
       state.copyWith(showImsak: state.showImsak == false ? true : false),
     );
+  }
+
+  FutureOr<void> _fetchNamazMethods(
+      FetchNamazMethods event, Emitter<NamazTimingState> emit) async {
+    try {
+      final data = await namazTimingService.fetchPrayerMethods();
+      emit(state.copyWith(namazMethodsModel: data));
+      print('print the data on the namaz method $data');
+    } catch (e) {
+      print('error occured on the bloc of fetch namaz methods $e');
+      throw Exception(e);
+    }
+  }
+
+  Future<void> _changeNamaMethods(
+      ChangeNamazMethods event, Emitter<NamazTimingState> emit) async {
+    // emit(state.copyWith(method: event.method));
+    // print('method current ${state.method}');
+    try {
+      final data = await namazTimingService.fetchPrayerTime(
+          context: event.context,
+          date: state.urlDate,
+          school: state.school,
+          method: event.method,
+          highLatMethodVal: state.highLatMethodVal);
+      emit(state.copyWith(prayerModel: data, method: event.method));
+      print('the data on the $data');
+      print(
+          'here on the school ${state.method} and the school ${state.school}');
+    } catch (e) {
+      print('error on the change methods on the bloc ${e.toString()}');
+      throw Exception(e);
+    }
   }
 
   Future<String> getAddress(double latitude, double longitude) async {

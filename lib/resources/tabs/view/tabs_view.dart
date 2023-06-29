@@ -38,7 +38,8 @@ class _TabsViewState extends State<TabsView> {
 
   @override
   void initState() {
-    BlocProvider.of<NamazTimingBloc>(context).add(const FetchPrayerTiming());
+    BlocProvider.of<NamazTimingBloc>(context)
+        .add(FetchPrayerTiming(context: context));
 
     context.read<DatabaseBloc>().add(const FetchToken());
 

@@ -9,6 +9,7 @@ import '../../../profile/views/profile_view.dart';
 import '../../bloc/logic/location_bloc/location_bloc.dart';
 import '../../bloc/logic/namaz_timing_bloc/namaz_timing_bloc.dart';
 import '../../bloc/service/locatio_service.dart';
+import '../../bloc/service/namaz_timing_service.dart';
 
 class NamazTimingView extends StatefulWidget {
   static const routeName = 'namaz-timing';
@@ -25,11 +26,15 @@ class _NamazTimingViewState extends State<NamazTimingView> {
 
   bool isDetectLocation = false;
   bool isAutomaticSetting = false;
+  int _currentIndex = 0;
   @override
   void initState() {
-    BlocProvider.of<NamazTimingBloc>(context).add(const FetchPrayerTiming());
+    BlocProvider.of<NamazTimingBloc>(context)
+        .add(FetchPrayerTiming(context: context));
     // BlocProvider.of<NamazTimingBloc>(context).add(const PrayerTimingEvent());
     BlocProvider.of<LocationBloc>(context).add(const FetchCities());
+    BlocProvider.of<NamazTimingBloc>(context).add(const FetchNamazMethods());
+    // NamazTimingService().fetchPrayerMethods();
     _fetchCities();
     super.initState();
   }
@@ -196,6 +201,10 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                                                 setState(() {
                                                   isDetectLocation = value;
                                                 });
+                                                if (isDetectLocation == true) {
+                                                  context.read<LocationBloc>().add(
+                                                      const ChangeLocationOnToggle());
+                                                }
                                               },
                                             ),
                                           ],
@@ -252,10 +261,12 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                                               )
                                             : BlocBuilder<LocationBloc,
                                                 LocationState>(
-                                                builder: (context, state) =>
-                                                    Text(state.currentLocaion,
-                                                        style: const TextStyle(
-                                                            color: black165)),
+                                                builder: (context, state) {
+                                                  return Text(
+                                                      state.currentLocaion,
+                                                      style: const TextStyle(
+                                                          color: black165));
+                                                },
                                               ),
                                         const SizedBox(height: 7),
                                         Row(
@@ -711,6 +722,11 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                     ),
                   ],
                 ),
+                BlocBuilder<NamazTimingBloc, NamazTimingState>(
+                    builder: (context, state) => Text(
+                          state.prayerModel?.data.meta.method.name ?? '',
+                          style: const TextStyle(fontSize: 23, color: redClr),
+                        )),
                 const SizedBox(height: 20),
                 BlocBuilder<NamazTimingBloc, NamazTimingState>(
                   builder: (context, state) {
@@ -899,123 +915,6 @@ class _NamazTimingViewState extends State<NamazTimingView> {
     );
   }
 
-  Container highLatitudeWidget(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: whiteClr,
-        borderRadius: BorderRadius.circular(30),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 28.0),
-        child: Column(
-          children: [
-            const SizedBox(
-              height: 5,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                IconButton(
-                    onPressed: () {
-                      Navigator.of(context).pop();
-                    },
-                    icon: const Icon(Icons.arrow_back_ios)),
-                const Text(
-                  'High Latitude method',
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                IconButton(
-                  onPressed: () {
-                    Navigator.of(context).pop();
-                  },
-                  icon: const Icon(
-                    Icons.close,
-                    size: 16,
-                    // color: black122,
-                  ),
-                ),
-              ],
-            ),
-            const Divider(),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const Text(
-                  'None',
-                  style: TextStyle(
-                    fontSize: 17,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                Radio(
-                  value: false,
-                  groupValue: true,
-                  onChanged: (value) {},
-                )
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const Text(
-                  'Middle of the night',
-                  style: TextStyle(
-                    fontSize: 17,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                Radio(
-                  value: false,
-                  groupValue: true,
-                  onChanged: (value) {},
-                )
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const Text(
-                  '1/7th of night',
-                  style: TextStyle(
-                    fontSize: 17,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                Radio(
-                  value: false,
-                  groupValue: true,
-                  onChanged: (value) {},
-                )
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const Text(
-                  'Angle based method',
-                  style: TextStyle(
-                    color: primaryGreen,
-                    fontSize: 17,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                Radio(
-                  value: true,
-                  groupValue: true,
-                  onChanged: (value) {},
-                  fillColor: const MaterialStatePropertyAll(green24),
-                )
-              ],
-            )
-          ],
-        ),
-      ),
-    );
-  }
-
   Container artCalculationWidget(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
@@ -1077,6 +976,9 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                       context
                           .read<NamazTimingBloc>()
                           .add(const ChangeArtCalcMethod());
+                      context
+                          .read<NamazTimingBloc>()
+                          .add(ChangeSchoolEvent(school: 0, context: context));
                     },
                     fillColor: const MaterialStatePropertyAll(green24),
                   )
@@ -1102,6 +1004,152 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                       context
                           .read<NamazTimingBloc>()
                           .add(const ChangeArtCalcMethod());
+                      context
+                          .read<NamazTimingBloc>()
+                          .add(ChangeSchoolEvent(school: 1, context: context));
+                    },
+                    fillColor: const MaterialStatePropertyAll(green24),
+                  )
+                ],
+              )
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget highLatitudeWidget(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        color: whiteClr,
+        borderRadius: BorderRadius.circular(30),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 28.0),
+        child: BlocBuilder<NamazTimingBloc, NamazTimingState>(
+          builder: (context, state) => Column(
+            children: [
+              const SizedBox(
+                height: 5,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  IconButton(
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                      icon: const Icon(Icons.arrow_back_ios)),
+                  const Text(
+                    'High Latitude method',
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  IconButton(
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                    icon: const Icon(
+                      Icons.close,
+                      size: 16,
+                      // color: black122,
+                    ),
+                  ),
+                ],
+              ),
+              const Divider(),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'None',
+                    style: TextStyle(
+                        fontSize: 17,
+                        fontWeight: FontWeight.w600,
+                        color: state.highLatMethodVal == 0
+                            ? primaryGreen
+                            : black26),
+                  ),
+                  Radio(
+                    value: state.highLatMethodVal == 0,
+                    groupValue: true,
+                    onChanged: (value) {
+                      context.read<NamazTimingBloc>().add(
+                          ChangeHighLatitudeMethod(
+                              numValue: 0, context: context));
+                    },
+                    fillColor: const MaterialStatePropertyAll(green24),
+                  )
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Middle of the night',
+                    style: TextStyle(
+                        fontSize: 17,
+                        fontWeight: FontWeight.w600,
+                        color: state.highLatMethodVal == 1
+                            ? primaryGreen
+                            : black26),
+                  ),
+                  Radio(
+                      value: state.highLatMethodVal == 1,
+                      groupValue: true,
+                      onChanged: (value) {
+                        context.read<NamazTimingBloc>().add(
+                            ChangeHighLatitudeMethod(
+                                numValue: 1, context: context));
+                      },
+                      fillColor: const MaterialStatePropertyAll(green24))
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    '1/7th of night',
+                    style: TextStyle(
+                        fontSize: 17,
+                        fontWeight: FontWeight.w600,
+                        color: state.highLatMethodVal == 2
+                            ? primaryGreen
+                            : black26),
+                  ),
+                  Radio(
+                      value: state.highLatMethodVal == 2,
+                      groupValue: true,
+                      onChanged: (value) {
+                        context.read<NamazTimingBloc>().add(
+                            ChangeHighLatitudeMethod(
+                                numValue: 2, context: context));
+                      },
+                      fillColor: const MaterialStatePropertyAll(green24))
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Angle based method',
+                    style: TextStyle(
+                      color:
+                          state.highLatMethodVal == 3 ? primaryGreen : black26,
+                      fontSize: 17,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  Radio(
+                    value: state.highLatMethodVal == 3,
+                    groupValue: true,
+                    onChanged: (value) {
+                      context.read<NamazTimingBloc>().add(
+                          ChangeHighLatitudeMethod(
+                              numValue: 3, context: context));
                     },
                     fillColor: const MaterialStatePropertyAll(green24),
                   )
@@ -1219,310 +1267,182 @@ class _NamazTimingViewState extends State<NamazTimingView> {
     );
   }
 
-  Container calculationMethodWidget(BuildContext context) {
-    return Container(
-      height: SizeUtility(context).height * 0.9,
-      decoration: BoxDecoration(
-        color: whiteClr,
-        borderRadius: BorderRadius.circular(30),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 28.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                IconButton(
+  Widget calculationMethodWidget(BuildContext context) {
+    return StatefulBuilder(
+      builder: (context, setState) => Container(
+        height: SizeUtility(context).height * 0.9,
+        decoration: BoxDecoration(
+          color: whiteClr,
+          borderRadius: BorderRadius.circular(30),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 28.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  IconButton(
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                      icon: const Icon(Icons.arrow_back_ios)),
+                  const Text(
+                    'Calculation method',
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  IconButton(
                     onPressed: () {
                       Navigator.of(context).pop();
                     },
-                    icon: const Icon(Icons.arrow_back_ios)),
-                const Text(
-                  'Calculation method',
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                IconButton(
-                  onPressed: () {
-                    Navigator.of(context).pop();
-                  },
-                  icon: const Icon(
-                    Icons.close,
-                    size: 14,
-                    color: black122,
-                  ),
-                ),
-              ],
-            ),
-            const Divider(),
-            BlocBuilder<NamazTimingBloc, NamazTimingState>(
-              builder: (context, state) {
-                final data = state.prayerModel?.data.meta.method;
-
-                return Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      '1. ${data?.name}',
-                      style: const TextStyle(
-                        fontWeight: FontWeight.w600,
-                        fontSize: 16,
-                        height: 1.5,
-                      ),
+                    icon: const Icon(
+                      Icons.close,
+                      size: 14,
+                      color: black122,
                     ),
-                    const SizedBox(height: 8),
-                    Row(
-                      children: [
-                        Container(
-                          width: SizeUtility(context).width / 3,
-                          height: 80,
-                          alignment: Alignment.topLeft,
-                          child: const Text(
-                            'Calculation:',
-                            style: TextStyle(
-                              fontWeight: FontWeight.w600,
-                              fontSize: 16,
-                            ),
-                          ),
-                        ),
-                        const SizedBox(width: 17),
-                        Text(
-                          'Fajr: ${data?.params.fajr}\nIsha: ${data?.params.isha}\n',
-                          style: const TextStyle(
-                              fontWeight: FontWeight.w400,
-                              fontSize: 17,
-                              height: 1.3,
-                              color: black104),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 8),
-                    Row(
-                      children: [
-                        Container(
-                          width: SizeUtility(context).width / 3,
-                          alignment: Alignment.topLeft,
-                          child: const Text(
-                            'Commonly used',
-                            style: TextStyle(
-                              fontWeight: FontWeight.w600,
-                              fontSize: 16,
-                            ),
-                          ),
-                        ),
-                        const SizedBox(width: 17),
-                        Text(
-                          state.methodPlace,
-                          style: const TextStyle(
-                            fontWeight: FontWeight.w400,
-                            fontSize: 17,
-                            height: 1.3,
-                            color: black104,
-                          ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 10),
-                    const Text(
-                      '2. Custom Method',
-                      style: TextStyle(
-                        fontWeight: FontWeight.w600,
-                        fontSize: 16,
-                        height: 1.5,
-                      ),
-                    ),
-                    Row(
-                      children: [
-                        Container(
-                          width: SizeUtility(context).width / 3,
-                          height: 80,
-                          alignment: Alignment.topLeft,
-                          child: const Text(
-                            'Calculation:',
-                            style: TextStyle(
-                              fontWeight: FontWeight.w600,
-                              fontSize: 16,
-                            ),
-                          ),
-                        ),
-                        const SizedBox(width: 17),
-                        const Text(
-                          'Fajr: 18.0\nMaghrib: 0 Mins after Sunset\nIsha: 17.0°\n',
-                          style: TextStyle(
-                              fontWeight: FontWeight.w400,
-                              fontSize: 17,
-                              height: 1.3,
-                              color: black104),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 8),
-                    Row(
-                      children: [
-                        Container(
-                          width: SizeUtility(context).width / 3,
-                          alignment: Alignment.topLeft,
-                          child: const Text(
-                            'Commonly used in:',
-                            style: TextStyle(
-                              fontWeight: FontWeight.w600,
-                              fontSize: 16,
-                            ),
-                          ),
-                        ),
-                        const SizedBox(width: 17),
-                        const Text(
-                          '-',
-                          style: TextStyle(
-                              fontWeight: FontWeight.w400,
-                              fontSize: 17,
-                              height: 1.3,
-                              color: black104),
-                        ),
-                      ],
-                    ),
-                    const Text(
-                      '3. Custom Method',
-                      style: TextStyle(
-                        fontWeight: FontWeight.w600,
-                        fontSize: 16,
-                        height: 1.5,
-                      ),
-                    ),
-                    Row(
-                      children: [
-                        Container(
-                          width: SizeUtility(context).width / 3,
-                          height: 80,
-                          alignment: Alignment.topLeft,
-                          child: const Text(
-                            'Calculation:',
-                            style: TextStyle(
-                              fontWeight: FontWeight.w600,
-                              fontSize: 16,
-                            ),
-                          ),
-                        ),
-                        const SizedBox(width: 17),
-                        const Text(
-                          'Fajr: 18.0\nMaghrib: 0 Mins after Sunset\nIsha: 17.0°\n',
-                          style: TextStyle(
-                              fontWeight: FontWeight.w400,
-                              fontSize: 17,
-                              height: 1.3,
-                              color: black104),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 8),
-                    Row(
-                      children: [
-                        Container(
-                          width: SizeUtility(context).width / 3,
-                          alignment: Alignment.topLeft,
-                          child: const Text(
-                            'Commonly used in:',
-                            style: TextStyle(
-                              fontWeight: FontWeight.w600,
-                              fontSize: 16,
-                            ),
-                          ),
-                        ),
-                        const SizedBox(width: 17),
-                        const Text(
-                          '-',
-                          style: TextStyle(
-                              fontWeight: FontWeight.w400,
-                              fontSize: 17,
-                              height: 1.3,
-                              color: black104),
-                        ),
-                      ],
-                    ),
-                  ],
-                );
-              },
-            ),
-            const SizedBox(height: 10),
-            Container(
-              width: SizeUtility(context).width,
-              height: 180,
-              padding: const EdgeInsets.only(left: 12, top: 12),
-              decoration: BoxDecoration(
-                  color: black26, borderRadius: BorderRadius.circular(6)),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Text(
-                    '4. University of Islamic Sciences, Karachi',
-                    style: TextStyle(
-                      fontWeight: FontWeight.w600,
-                      fontSize: 16,
-                      height: 1.5,
-                      color: whiteClr,
-                    ),
-                  ),
-                  const SizedBox(height: 8),
-                  Row(
-                    children: [
-                      Container(
-                        width: SizeUtility(context).width / 3,
-                        height: 80,
-                        alignment: Alignment.topLeft,
-                        child: const Text(
-                          'Calculation:',
-                          style: TextStyle(
-                              fontWeight: FontWeight.w600,
-                              fontSize: 16,
-                              color: whiteClr),
-                        ),
-                      ),
-                      const SizedBox(width: 5),
-                      Text(
-                        'Fajr: 18.0\nMaghrib: 0 Mins after Sunset\nIsha: 17.0°\n',
-                        style: TextStyle(
-                            fontWeight: FontWeight.w400,
-                            fontSize: 17,
-                            height: 1.3,
-                            color: whiteClr.withOpacity(0.7)),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 9),
-                  Row(
-                    children: [
-                      Container(
-                        width: SizeUtility(context).width / 3,
-                        alignment: Alignment.topLeft,
-                        child: const Text(
-                          'Commonly used in:',
-                          style: TextStyle(
-                            fontWeight: FontWeight.w600,
-                            fontSize: 16,
-                            color: whiteClr,
-                          ),
-                        ),
-                      ),
-                      const SizedBox(width: 17),
-                      Text(
-                        'Pakistan Banladesh, India',
-                        style: TextStyle(
-                          fontWeight: FontWeight.w400,
-                          fontSize: 17,
-                          height: 1.3,
-                          color: whiteClr.withOpacity(0.8),
-                        ),
-                      ),
-                    ],
                   ),
                 ],
               ),
-            )
-          ],
+              const Divider(),
+              BlocBuilder<NamazTimingBloc, NamazTimingState>(
+                builder: (context, state) {
+                  return Expanded(
+                    child: ListView.builder(
+                      itemCount: 5,
+                      itemBuilder: (context, index) {
+                        final data = state.namazMethodsModel?.data;
+
+                        final values = data?.values.toList();
+
+                        final value = values?[index];
+
+                        final id = value?.id!.toInt();
+                        final name = value?.name;
+                        final params = value?.params;
+                        final location = value?.location;
+
+                        // Use the retrieved values as per your requirements
+
+                        return GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              _currentIndex = index;
+                            });
+                            print('here is the id of the change method $id');
+                            // print(id!.compareTo(id));
+                            context.read<NamazTimingBloc>().add(
+                                ChangeNamazMethods(
+                                    method: id!, context: context));
+                          },
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const SizedBox(height: 10),
+                              Container(
+                                width: SizeUtility(context).width,
+                                height: 180,
+                                padding:
+                                    const EdgeInsets.only(left: 12, top: 12),
+                                decoration: BoxDecoration(
+                                  color: _currentIndex == index
+                                      ? black26
+                                      : whiteClr,
+                                  borderRadius: BorderRadius.circular(6),
+                                ),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      '${index + 1} ${name}',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w600,
+                                        fontSize: 16,
+                                        height: 1.5,
+                                        color: _currentIndex == index
+                                            ? whiteClr
+                                            : black26,
+                                      ),
+                                    ),
+                                    const SizedBox(height: 8),
+                                    Row(
+                                      children: [
+                                        Container(
+                                          width: SizeUtility(context).width / 3,
+                                          height: 80,
+                                          alignment: Alignment.topLeft,
+                                          child: Text(
+                                            'Calculation:',
+                                            style: TextStyle(
+                                              fontWeight: FontWeight.w600,
+                                              fontSize: 16,
+                                              color: _currentIndex == index
+                                                  ? whiteClr
+                                                  : black26,
+                                            ),
+                                          ),
+                                        ),
+                                        const SizedBox(width: 5),
+                                        Text(
+                                          'Fajr: ${params?.fajr}\nMaghrib: ${params?.maghrib ?? ''}\nIsha: ${params?.isha}\n',
+                                          style: TextStyle(
+                                            fontWeight: FontWeight.w400,
+                                            fontSize: 17,
+                                            height: 1.3,
+                                            color: _currentIndex == index
+                                                ? whiteClr.withOpacity(0.7)
+                                                : black26,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    const SizedBox(height: 9),
+                                    Row(
+                                      children: [
+                                        Container(
+                                          width: SizeUtility(context).width / 3,
+                                          alignment: Alignment.topLeft,
+                                          child: Text(
+                                            'Commonly used in:',
+                                            style: TextStyle(
+                                              fontWeight: FontWeight.w600,
+                                              fontSize: 16,
+                                              color: _currentIndex == index
+                                                  ? whiteClr
+                                                  : black26,
+                                            ),
+                                          ),
+                                        ),
+                                        const SizedBox(width: 17),
+                                        Text(
+                                          'Pakistan Banladesh, India',
+                                          style: TextStyle(
+                                            fontWeight: FontWeight.w400,
+                                            fontSize: 17,
+                                            height: 1.3,
+                                            color: _currentIndex == index
+                                                ? whiteClr.withOpacity(0.7)
+                                                : black26,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
+                        );
+                      },
+                    ),
+                  );
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );

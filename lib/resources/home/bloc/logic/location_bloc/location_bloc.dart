@@ -19,6 +19,7 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
     on<FetchCities>(_fetchCities);
     on<SearchCities>(_searchCities);
     on<ChangeLocation>(_changeLocation);
+    on<ChangeLocationOnToggle>(_changeLocationOnToggle);
   }
   FutureOr<void> _fetchCities(
       FetchCities event, Emitter<LocationState> emit) async {
@@ -77,7 +78,9 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
         currentLocation.longitude,
       );
 
-      emit(state.copyWith(currentLocaion: currentAddress));
+      emit(state.copyWith(
+          currentLocaion: currentAddress, location: currentAddress));
+      print('current address is here $currentAddress');
     } catch (e) {
       throw Exception(e);
     }
@@ -112,5 +115,11 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
     } catch (e) {
       throw Exception(e);
     }
+  }
+
+  FutureOr<void> _changeLocationOnToggle(
+      ChangeLocationOnToggle event, Emitter<LocationState> emit) {
+    print(state.location);
+    emit(state.copyWith(currentLocaion: state.location));
   }
 }

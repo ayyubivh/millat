@@ -22,6 +22,7 @@ mixin _$LocationEvent {
     required TResult Function(String location) changeLocation,
     required TResult Function() fetchCities,
     required TResult Function(String query) searchCities,
+    required TResult Function() changeLocationOnToggle,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,6 +31,7 @@ mixin _$LocationEvent {
     TResult? Function(String location)? changeLocation,
     TResult? Function()? fetchCities,
     TResult? Function(String query)? searchCities,
+    TResult? Function()? changeLocationOnToggle,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +40,7 @@ mixin _$LocationEvent {
     TResult Function(String location)? changeLocation,
     TResult Function()? fetchCities,
     TResult Function(String query)? searchCities,
+    TResult Function()? changeLocationOnToggle,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -47,6 +50,8 @@ mixin _$LocationEvent {
     required TResult Function(ChangeLocation value) changeLocation,
     required TResult Function(FetchCities value) fetchCities,
     required TResult Function(SearchCities value) searchCities,
+    required TResult Function(ChangeLocationOnToggle value)
+        changeLocationOnToggle,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +60,7 @@ mixin _$LocationEvent {
     TResult? Function(ChangeLocation value)? changeLocation,
     TResult? Function(FetchCities value)? fetchCities,
     TResult? Function(SearchCities value)? searchCities,
+    TResult? Function(ChangeLocationOnToggle value)? changeLocationOnToggle,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +69,7 @@ mixin _$LocationEvent {
     TResult Function(ChangeLocation value)? changeLocation,
     TResult Function(FetchCities value)? fetchCities,
     TResult Function(SearchCities value)? searchCities,
+    TResult Function(ChangeLocationOnToggle value)? changeLocationOnToggle,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -128,6 +135,7 @@ class _$FetchCurrentLocation implements FetchCurrentLocation {
     required TResult Function(String location) changeLocation,
     required TResult Function() fetchCities,
     required TResult Function(String query) searchCities,
+    required TResult Function() changeLocationOnToggle,
   }) {
     return fetchCurrentLocation();
   }
@@ -139,6 +147,7 @@ class _$FetchCurrentLocation implements FetchCurrentLocation {
     TResult? Function(String location)? changeLocation,
     TResult? Function()? fetchCities,
     TResult? Function(String query)? searchCities,
+    TResult? Function()? changeLocationOnToggle,
   }) {
     return fetchCurrentLocation?.call();
   }
@@ -150,6 +159,7 @@ class _$FetchCurrentLocation implements FetchCurrentLocation {
     TResult Function(String location)? changeLocation,
     TResult Function()? fetchCities,
     TResult Function(String query)? searchCities,
+    TResult Function()? changeLocationOnToggle,
     required TResult orElse(),
   }) {
     if (fetchCurrentLocation != null) {
@@ -165,6 +175,8 @@ class _$FetchCurrentLocation implements FetchCurrentLocation {
     required TResult Function(ChangeLocation value) changeLocation,
     required TResult Function(FetchCities value) fetchCities,
     required TResult Function(SearchCities value) searchCities,
+    required TResult Function(ChangeLocationOnToggle value)
+        changeLocationOnToggle,
   }) {
     return fetchCurrentLocation(this);
   }
@@ -176,6 +188,7 @@ class _$FetchCurrentLocation implements FetchCurrentLocation {
     TResult? Function(ChangeLocation value)? changeLocation,
     TResult? Function(FetchCities value)? fetchCities,
     TResult? Function(SearchCities value)? searchCities,
+    TResult? Function(ChangeLocationOnToggle value)? changeLocationOnToggle,
   }) {
     return fetchCurrentLocation?.call(this);
   }
@@ -187,6 +200,7 @@ class _$FetchCurrentLocation implements FetchCurrentLocation {
     TResult Function(ChangeLocation value)? changeLocation,
     TResult Function(FetchCities value)? fetchCities,
     TResult Function(SearchCities value)? searchCities,
+    TResult Function(ChangeLocationOnToggle value)? changeLocationOnToggle,
     required TResult orElse(),
   }) {
     if (fetchCurrentLocation != null) {
@@ -269,6 +283,7 @@ class _$ChangeLocation implements ChangeLocation {
     required TResult Function(String location) changeLocation,
     required TResult Function() fetchCities,
     required TResult Function(String query) searchCities,
+    required TResult Function() changeLocationOnToggle,
   }) {
     return changeLocation(location);
   }
@@ -280,6 +295,7 @@ class _$ChangeLocation implements ChangeLocation {
     TResult? Function(String location)? changeLocation,
     TResult? Function()? fetchCities,
     TResult? Function(String query)? searchCities,
+    TResult? Function()? changeLocationOnToggle,
   }) {
     return changeLocation?.call(location);
   }
@@ -291,6 +307,7 @@ class _$ChangeLocation implements ChangeLocation {
     TResult Function(String location)? changeLocation,
     TResult Function()? fetchCities,
     TResult Function(String query)? searchCities,
+    TResult Function()? changeLocationOnToggle,
     required TResult orElse(),
   }) {
     if (changeLocation != null) {
@@ -306,6 +323,8 @@ class _$ChangeLocation implements ChangeLocation {
     required TResult Function(ChangeLocation value) changeLocation,
     required TResult Function(FetchCities value) fetchCities,
     required TResult Function(SearchCities value) searchCities,
+    required TResult Function(ChangeLocationOnToggle value)
+        changeLocationOnToggle,
   }) {
     return changeLocation(this);
   }
@@ -317,6 +336,7 @@ class _$ChangeLocation implements ChangeLocation {
     TResult? Function(ChangeLocation value)? changeLocation,
     TResult? Function(FetchCities value)? fetchCities,
     TResult? Function(SearchCities value)? searchCities,
+    TResult? Function(ChangeLocationOnToggle value)? changeLocationOnToggle,
   }) {
     return changeLocation?.call(this);
   }
@@ -328,6 +348,7 @@ class _$ChangeLocation implements ChangeLocation {
     TResult Function(ChangeLocation value)? changeLocation,
     TResult Function(FetchCities value)? fetchCities,
     TResult Function(SearchCities value)? searchCities,
+    TResult Function(ChangeLocationOnToggle value)? changeLocationOnToggle,
     required TResult orElse(),
   }) {
     if (changeLocation != null) {
@@ -389,6 +410,7 @@ class _$FetchCities implements FetchCities {
     required TResult Function(String location) changeLocation,
     required TResult Function() fetchCities,
     required TResult Function(String query) searchCities,
+    required TResult Function() changeLocationOnToggle,
   }) {
     return fetchCities();
   }
@@ -400,6 +422,7 @@ class _$FetchCities implements FetchCities {
     TResult? Function(String location)? changeLocation,
     TResult? Function()? fetchCities,
     TResult? Function(String query)? searchCities,
+    TResult? Function()? changeLocationOnToggle,
   }) {
     return fetchCities?.call();
   }
@@ -411,6 +434,7 @@ class _$FetchCities implements FetchCities {
     TResult Function(String location)? changeLocation,
     TResult Function()? fetchCities,
     TResult Function(String query)? searchCities,
+    TResult Function()? changeLocationOnToggle,
     required TResult orElse(),
   }) {
     if (fetchCities != null) {
@@ -426,6 +450,8 @@ class _$FetchCities implements FetchCities {
     required TResult Function(ChangeLocation value) changeLocation,
     required TResult Function(FetchCities value) fetchCities,
     required TResult Function(SearchCities value) searchCities,
+    required TResult Function(ChangeLocationOnToggle value)
+        changeLocationOnToggle,
   }) {
     return fetchCities(this);
   }
@@ -437,6 +463,7 @@ class _$FetchCities implements FetchCities {
     TResult? Function(ChangeLocation value)? changeLocation,
     TResult? Function(FetchCities value)? fetchCities,
     TResult? Function(SearchCities value)? searchCities,
+    TResult? Function(ChangeLocationOnToggle value)? changeLocationOnToggle,
   }) {
     return fetchCities?.call(this);
   }
@@ -448,6 +475,7 @@ class _$FetchCities implements FetchCities {
     TResult Function(ChangeLocation value)? changeLocation,
     TResult Function(FetchCities value)? fetchCities,
     TResult Function(SearchCities value)? searchCities,
+    TResult Function(ChangeLocationOnToggle value)? changeLocationOnToggle,
     required TResult orElse(),
   }) {
     if (fetchCities != null) {
@@ -529,6 +557,7 @@ class _$SearchCities implements SearchCities {
     required TResult Function(String location) changeLocation,
     required TResult Function() fetchCities,
     required TResult Function(String query) searchCities,
+    required TResult Function() changeLocationOnToggle,
   }) {
     return searchCities(query);
   }
@@ -540,6 +569,7 @@ class _$SearchCities implements SearchCities {
     TResult? Function(String location)? changeLocation,
     TResult? Function()? fetchCities,
     TResult? Function(String query)? searchCities,
+    TResult? Function()? changeLocationOnToggle,
   }) {
     return searchCities?.call(query);
   }
@@ -551,6 +581,7 @@ class _$SearchCities implements SearchCities {
     TResult Function(String location)? changeLocation,
     TResult Function()? fetchCities,
     TResult Function(String query)? searchCities,
+    TResult Function()? changeLocationOnToggle,
     required TResult orElse(),
   }) {
     if (searchCities != null) {
@@ -566,6 +597,8 @@ class _$SearchCities implements SearchCities {
     required TResult Function(ChangeLocation value) changeLocation,
     required TResult Function(FetchCities value) fetchCities,
     required TResult Function(SearchCities value) searchCities,
+    required TResult Function(ChangeLocationOnToggle value)
+        changeLocationOnToggle,
   }) {
     return searchCities(this);
   }
@@ -577,6 +610,7 @@ class _$SearchCities implements SearchCities {
     TResult? Function(ChangeLocation value)? changeLocation,
     TResult? Function(FetchCities value)? fetchCities,
     TResult? Function(SearchCities value)? searchCities,
+    TResult? Function(ChangeLocationOnToggle value)? changeLocationOnToggle,
   }) {
     return searchCities?.call(this);
   }
@@ -588,6 +622,7 @@ class _$SearchCities implements SearchCities {
     TResult Function(ChangeLocation value)? changeLocation,
     TResult Function(FetchCities value)? fetchCities,
     TResult Function(SearchCities value)? searchCities,
+    TResult Function(ChangeLocationOnToggle value)? changeLocationOnToggle,
     required TResult orElse(),
   }) {
     if (searchCities != null) {
@@ -607,12 +642,134 @@ abstract class SearchCities implements LocationEvent {
 }
 
 /// @nodoc
+abstract class _$$ChangeLocationOnToggleCopyWith<$Res> {
+  factory _$$ChangeLocationOnToggleCopyWith(_$ChangeLocationOnToggle value,
+          $Res Function(_$ChangeLocationOnToggle) then) =
+      __$$ChangeLocationOnToggleCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ChangeLocationOnToggleCopyWithImpl<$Res>
+    extends _$LocationEventCopyWithImpl<$Res, _$ChangeLocationOnToggle>
+    implements _$$ChangeLocationOnToggleCopyWith<$Res> {
+  __$$ChangeLocationOnToggleCopyWithImpl(_$ChangeLocationOnToggle _value,
+      $Res Function(_$ChangeLocationOnToggle) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$ChangeLocationOnToggle implements ChangeLocationOnToggle {
+  const _$ChangeLocationOnToggle();
+
+  @override
+  String toString() {
+    return 'LocationEvent.changeLocationOnToggle()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$ChangeLocationOnToggle);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() fetchCurrentLocation,
+    required TResult Function(String location) changeLocation,
+    required TResult Function() fetchCities,
+    required TResult Function(String query) searchCities,
+    required TResult Function() changeLocationOnToggle,
+  }) {
+    return changeLocationOnToggle();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? fetchCurrentLocation,
+    TResult? Function(String location)? changeLocation,
+    TResult? Function()? fetchCities,
+    TResult? Function(String query)? searchCities,
+    TResult? Function()? changeLocationOnToggle,
+  }) {
+    return changeLocationOnToggle?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? fetchCurrentLocation,
+    TResult Function(String location)? changeLocation,
+    TResult Function()? fetchCities,
+    TResult Function(String query)? searchCities,
+    TResult Function()? changeLocationOnToggle,
+    required TResult orElse(),
+  }) {
+    if (changeLocationOnToggle != null) {
+      return changeLocationOnToggle();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FetchCurrentLocation value) fetchCurrentLocation,
+    required TResult Function(ChangeLocation value) changeLocation,
+    required TResult Function(FetchCities value) fetchCities,
+    required TResult Function(SearchCities value) searchCities,
+    required TResult Function(ChangeLocationOnToggle value)
+        changeLocationOnToggle,
+  }) {
+    return changeLocationOnToggle(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(FetchCurrentLocation value)? fetchCurrentLocation,
+    TResult? Function(ChangeLocation value)? changeLocation,
+    TResult? Function(FetchCities value)? fetchCities,
+    TResult? Function(SearchCities value)? searchCities,
+    TResult? Function(ChangeLocationOnToggle value)? changeLocationOnToggle,
+  }) {
+    return changeLocationOnToggle?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FetchCurrentLocation value)? fetchCurrentLocation,
+    TResult Function(ChangeLocation value)? changeLocation,
+    TResult Function(FetchCities value)? fetchCities,
+    TResult Function(SearchCities value)? searchCities,
+    TResult Function(ChangeLocationOnToggle value)? changeLocationOnToggle,
+    required TResult orElse(),
+  }) {
+    if (changeLocationOnToggle != null) {
+      return changeLocationOnToggle(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ChangeLocationOnToggle implements LocationEvent {
+  const factory ChangeLocationOnToggle() = _$ChangeLocationOnToggle;
+}
+
+/// @nodoc
 mixin _$LocationState {
   String get currentLocaion => throw _privateConstructorUsedError;
   String get errorMessage => throw _privateConstructorUsedError;
   String get shortAddress => throw _privateConstructorUsedError;
   CitiesModel? get citiesModel => throw _privateConstructorUsedError;
   List<StateData> get cities => throw _privateConstructorUsedError;
+  String get location => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $LocationStateCopyWith<LocationState> get copyWith =>
@@ -630,7 +787,8 @@ abstract class $LocationStateCopyWith<$Res> {
       String errorMessage,
       String shortAddress,
       CitiesModel? citiesModel,
-      List<StateData> cities});
+      List<StateData> cities,
+      String location});
 
   $CitiesModelCopyWith<$Res>? get citiesModel;
 }
@@ -653,6 +811,7 @@ class _$LocationStateCopyWithImpl<$Res, $Val extends LocationState>
     Object? shortAddress = null,
     Object? citiesModel = freezed,
     Object? cities = null,
+    Object? location = null,
   }) {
     return _then(_value.copyWith(
       currentLocaion: null == currentLocaion
@@ -675,6 +834,10 @@ class _$LocationStateCopyWithImpl<$Res, $Val extends LocationState>
           ? _value.cities
           : cities // ignore: cast_nullable_to_non_nullable
               as List<StateData>,
+      location: null == location
+          ? _value.location
+          : location // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 
@@ -704,7 +867,8 @@ abstract class _$$_InitialCopyWith<$Res>
       String errorMessage,
       String shortAddress,
       CitiesModel? citiesModel,
-      List<StateData> cities});
+      List<StateData> cities,
+      String location});
 
   @override
   $CitiesModelCopyWith<$Res>? get citiesModel;
@@ -725,6 +889,7 @@ class __$$_InitialCopyWithImpl<$Res>
     Object? shortAddress = null,
     Object? citiesModel = freezed,
     Object? cities = null,
+    Object? location = null,
   }) {
     return _then(_$_Initial(
       currentLocaion: null == currentLocaion
@@ -747,6 +912,10 @@ class __$$_InitialCopyWithImpl<$Res>
           ? _value._cities
           : cities // ignore: cast_nullable_to_non_nullable
               as List<StateData>,
+      location: null == location
+          ? _value.location
+          : location // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -759,7 +928,8 @@ class _$_Initial implements _Initial {
       required this.errorMessage,
       required this.shortAddress,
       required this.citiesModel,
-      required final List<StateData> cities})
+      required final List<StateData> cities,
+      required this.location})
       : _cities = cities;
 
   @override
@@ -779,8 +949,11 @@ class _$_Initial implements _Initial {
   }
 
   @override
+  final String location;
+
+  @override
   String toString() {
-    return 'LocationState(currentLocaion: $currentLocaion, errorMessage: $errorMessage, shortAddress: $shortAddress, citiesModel: $citiesModel, cities: $cities)';
+    return 'LocationState(currentLocaion: $currentLocaion, errorMessage: $errorMessage, shortAddress: $shortAddress, citiesModel: $citiesModel, cities: $cities, location: $location)';
   }
 
   @override
@@ -796,12 +969,20 @@ class _$_Initial implements _Initial {
                 other.shortAddress == shortAddress) &&
             (identical(other.citiesModel, citiesModel) ||
                 other.citiesModel == citiesModel) &&
-            const DeepCollectionEquality().equals(other._cities, _cities));
+            const DeepCollectionEquality().equals(other._cities, _cities) &&
+            (identical(other.location, location) ||
+                other.location == location));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, currentLocaion, errorMessage,
-      shortAddress, citiesModel, const DeepCollectionEquality().hash(_cities));
+  int get hashCode => Object.hash(
+      runtimeType,
+      currentLocaion,
+      errorMessage,
+      shortAddress,
+      citiesModel,
+      const DeepCollectionEquality().hash(_cities),
+      location);
 
   @JsonKey(ignore: true)
   @override
@@ -816,7 +997,8 @@ abstract class _Initial implements LocationState {
       required final String errorMessage,
       required final String shortAddress,
       required final CitiesModel? citiesModel,
-      required final List<StateData> cities}) = _$_Initial;
+      required final List<StateData> cities,
+      required final String location}) = _$_Initial;
 
   @override
   String get currentLocaion;
@@ -828,6 +1010,8 @@ abstract class _Initial implements LocationState {
   CitiesModel? get citiesModel;
   @override
   List<StateData> get cities;
+  @override
+  String get location;
   @override
   @JsonKey(ignore: true)
   _$$_InitialCopyWith<_$_Initial> get copyWith =>

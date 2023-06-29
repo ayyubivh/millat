@@ -24,7 +24,8 @@ class _HomeViewState extends State<HomeView> {
   int _currentIndex = 0;
   @override
   void initState() {
-    BlocProvider.of<NamazTimingBloc>(context).add(const FetchPrayerTiming());
+    BlocProvider.of<NamazTimingBloc>(context)
+        .add(FetchPrayerTiming(context: context));
     // BlocProvider.of<NamazTimingBloc>(context).add(const PrayerTimingEvent());
 
     BlocProvider.of<DatabaseBloc>(context).add(const FetchUserDetails());

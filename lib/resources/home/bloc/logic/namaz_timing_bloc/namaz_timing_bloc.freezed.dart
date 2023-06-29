@@ -18,26 +18,43 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$NamazTimingEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() fetchPrayerTiming,
+    required TResult Function(BuildContext context) fetchPrayerTiming,
     required TResult Function() prayerTimingEvent,
     required TResult Function() showImsakEvent,
     required TResult Function() changeArtCalcMethod,
+    required TResult Function() fetchNamazMethods,
+    required TResult Function(int method, BuildContext context)
+        changeNamazMehods,
+    required TResult Function(int school, BuildContext context)
+        changeSchoolEvent,
+    required TResult Function(int numValue, BuildContext context)
+        changeHighLatitudeMethod,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? fetchPrayerTiming,
+    TResult? Function(BuildContext context)? fetchPrayerTiming,
     TResult? Function()? prayerTimingEvent,
     TResult? Function()? showImsakEvent,
     TResult? Function()? changeArtCalcMethod,
+    TResult? Function()? fetchNamazMethods,
+    TResult? Function(int method, BuildContext context)? changeNamazMehods,
+    TResult? Function(int school, BuildContext context)? changeSchoolEvent,
+    TResult? Function(int numValue, BuildContext context)?
+        changeHighLatitudeMethod,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? fetchPrayerTiming,
+    TResult Function(BuildContext context)? fetchPrayerTiming,
     TResult Function()? prayerTimingEvent,
     TResult Function()? showImsakEvent,
     TResult Function()? changeArtCalcMethod,
+    TResult Function()? fetchNamazMethods,
+    TResult Function(int method, BuildContext context)? changeNamazMehods,
+    TResult Function(int school, BuildContext context)? changeSchoolEvent,
+    TResult Function(int numValue, BuildContext context)?
+        changeHighLatitudeMethod,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -47,6 +64,11 @@ mixin _$NamazTimingEvent {
     required TResult Function(PrayerTimingEvent value) prayerTimingEvent,
     required TResult Function(ShowImsakEvent value) showImsakEvent,
     required TResult Function(ChangeArtCalcMethod value) changeArtCalcMethod,
+    required TResult Function(FetchNamazMethods value) fetchNamazMethods,
+    required TResult Function(ChangeNamazMethods value) changeNamazMehods,
+    required TResult Function(ChangeSchoolEvent value) changeSchoolEvent,
+    required TResult Function(ChangeHighLatitudeMethod value)
+        changeHighLatitudeMethod,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +77,10 @@ mixin _$NamazTimingEvent {
     TResult? Function(PrayerTimingEvent value)? prayerTimingEvent,
     TResult? Function(ShowImsakEvent value)? showImsakEvent,
     TResult? Function(ChangeArtCalcMethod value)? changeArtCalcMethod,
+    TResult? Function(FetchNamazMethods value)? fetchNamazMethods,
+    TResult? Function(ChangeNamazMethods value)? changeNamazMehods,
+    TResult? Function(ChangeSchoolEvent value)? changeSchoolEvent,
+    TResult? Function(ChangeHighLatitudeMethod value)? changeHighLatitudeMethod,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +89,10 @@ mixin _$NamazTimingEvent {
     TResult Function(PrayerTimingEvent value)? prayerTimingEvent,
     TResult Function(ShowImsakEvent value)? showImsakEvent,
     TResult Function(ChangeArtCalcMethod value)? changeArtCalcMethod,
+    TResult Function(FetchNamazMethods value)? fetchNamazMethods,
+    TResult Function(ChangeNamazMethods value)? changeNamazMehods,
+    TResult Function(ChangeSchoolEvent value)? changeSchoolEvent,
+    TResult Function(ChangeHighLatitudeMethod value)? changeHighLatitudeMethod,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -91,6 +121,8 @@ abstract class _$$FetchPrayerTimingCopyWith<$Res> {
   factory _$$FetchPrayerTimingCopyWith(
           _$FetchPrayerTiming value, $Res Function(_$FetchPrayerTiming) then) =
       __$$FetchPrayerTimingCopyWithImpl<$Res>;
+  @useResult
+  $Res call({BuildContext context});
 }
 
 /// @nodoc
@@ -100,60 +132,101 @@ class __$$FetchPrayerTimingCopyWithImpl<$Res>
   __$$FetchPrayerTimingCopyWithImpl(
       _$FetchPrayerTiming _value, $Res Function(_$FetchPrayerTiming) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? context = null,
+  }) {
+    return _then(_$FetchPrayerTiming(
+      context: null == context
+          ? _value.context
+          : context // ignore: cast_nullable_to_non_nullable
+              as BuildContext,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$FetchPrayerTiming implements FetchPrayerTiming {
-  const _$FetchPrayerTiming();
+  const _$FetchPrayerTiming({required this.context});
+
+  @override
+  final BuildContext context;
 
   @override
   String toString() {
-    return 'NamazTimingEvent.fetchPrayerTiming()';
+    return 'NamazTimingEvent.fetchPrayerTiming(context: $context)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$FetchPrayerTiming);
+        (other.runtimeType == runtimeType &&
+            other is _$FetchPrayerTiming &&
+            (identical(other.context, context) || other.context == context));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, context);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$FetchPrayerTimingCopyWith<_$FetchPrayerTiming> get copyWith =>
+      __$$FetchPrayerTimingCopyWithImpl<_$FetchPrayerTiming>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() fetchPrayerTiming,
+    required TResult Function(BuildContext context) fetchPrayerTiming,
     required TResult Function() prayerTimingEvent,
     required TResult Function() showImsakEvent,
     required TResult Function() changeArtCalcMethod,
+    required TResult Function() fetchNamazMethods,
+    required TResult Function(int method, BuildContext context)
+        changeNamazMehods,
+    required TResult Function(int school, BuildContext context)
+        changeSchoolEvent,
+    required TResult Function(int numValue, BuildContext context)
+        changeHighLatitudeMethod,
   }) {
-    return fetchPrayerTiming();
+    return fetchPrayerTiming(context);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? fetchPrayerTiming,
+    TResult? Function(BuildContext context)? fetchPrayerTiming,
     TResult? Function()? prayerTimingEvent,
     TResult? Function()? showImsakEvent,
     TResult? Function()? changeArtCalcMethod,
+    TResult? Function()? fetchNamazMethods,
+    TResult? Function(int method, BuildContext context)? changeNamazMehods,
+    TResult? Function(int school, BuildContext context)? changeSchoolEvent,
+    TResult? Function(int numValue, BuildContext context)?
+        changeHighLatitudeMethod,
   }) {
-    return fetchPrayerTiming?.call();
+    return fetchPrayerTiming?.call(context);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? fetchPrayerTiming,
+    TResult Function(BuildContext context)? fetchPrayerTiming,
     TResult Function()? prayerTimingEvent,
     TResult Function()? showImsakEvent,
     TResult Function()? changeArtCalcMethod,
+    TResult Function()? fetchNamazMethods,
+    TResult Function(int method, BuildContext context)? changeNamazMehods,
+    TResult Function(int school, BuildContext context)? changeSchoolEvent,
+    TResult Function(int numValue, BuildContext context)?
+        changeHighLatitudeMethod,
     required TResult orElse(),
   }) {
     if (fetchPrayerTiming != null) {
-      return fetchPrayerTiming();
+      return fetchPrayerTiming(context);
     }
     return orElse();
   }
@@ -165,6 +238,11 @@ class _$FetchPrayerTiming implements FetchPrayerTiming {
     required TResult Function(PrayerTimingEvent value) prayerTimingEvent,
     required TResult Function(ShowImsakEvent value) showImsakEvent,
     required TResult Function(ChangeArtCalcMethod value) changeArtCalcMethod,
+    required TResult Function(FetchNamazMethods value) fetchNamazMethods,
+    required TResult Function(ChangeNamazMethods value) changeNamazMehods,
+    required TResult Function(ChangeSchoolEvent value) changeSchoolEvent,
+    required TResult Function(ChangeHighLatitudeMethod value)
+        changeHighLatitudeMethod,
   }) {
     return fetchPrayerTiming(this);
   }
@@ -176,6 +254,10 @@ class _$FetchPrayerTiming implements FetchPrayerTiming {
     TResult? Function(PrayerTimingEvent value)? prayerTimingEvent,
     TResult? Function(ShowImsakEvent value)? showImsakEvent,
     TResult? Function(ChangeArtCalcMethod value)? changeArtCalcMethod,
+    TResult? Function(FetchNamazMethods value)? fetchNamazMethods,
+    TResult? Function(ChangeNamazMethods value)? changeNamazMehods,
+    TResult? Function(ChangeSchoolEvent value)? changeSchoolEvent,
+    TResult? Function(ChangeHighLatitudeMethod value)? changeHighLatitudeMethod,
   }) {
     return fetchPrayerTiming?.call(this);
   }
@@ -187,6 +269,10 @@ class _$FetchPrayerTiming implements FetchPrayerTiming {
     TResult Function(PrayerTimingEvent value)? prayerTimingEvent,
     TResult Function(ShowImsakEvent value)? showImsakEvent,
     TResult Function(ChangeArtCalcMethod value)? changeArtCalcMethod,
+    TResult Function(FetchNamazMethods value)? fetchNamazMethods,
+    TResult Function(ChangeNamazMethods value)? changeNamazMehods,
+    TResult Function(ChangeSchoolEvent value)? changeSchoolEvent,
+    TResult Function(ChangeHighLatitudeMethod value)? changeHighLatitudeMethod,
     required TResult orElse(),
   }) {
     if (fetchPrayerTiming != null) {
@@ -197,7 +283,13 @@ class _$FetchPrayerTiming implements FetchPrayerTiming {
 }
 
 abstract class FetchPrayerTiming implements NamazTimingEvent {
-  const factory FetchPrayerTiming() = _$FetchPrayerTiming;
+  const factory FetchPrayerTiming({required final BuildContext context}) =
+      _$FetchPrayerTiming;
+
+  BuildContext get context;
+  @JsonKey(ignore: true)
+  _$$FetchPrayerTimingCopyWith<_$FetchPrayerTiming> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -238,10 +330,17 @@ class _$PrayerTimingEvent implements PrayerTimingEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() fetchPrayerTiming,
+    required TResult Function(BuildContext context) fetchPrayerTiming,
     required TResult Function() prayerTimingEvent,
     required TResult Function() showImsakEvent,
     required TResult Function() changeArtCalcMethod,
+    required TResult Function() fetchNamazMethods,
+    required TResult Function(int method, BuildContext context)
+        changeNamazMehods,
+    required TResult Function(int school, BuildContext context)
+        changeSchoolEvent,
+    required TResult Function(int numValue, BuildContext context)
+        changeHighLatitudeMethod,
   }) {
     return prayerTimingEvent();
   }
@@ -249,10 +348,15 @@ class _$PrayerTimingEvent implements PrayerTimingEvent {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? fetchPrayerTiming,
+    TResult? Function(BuildContext context)? fetchPrayerTiming,
     TResult? Function()? prayerTimingEvent,
     TResult? Function()? showImsakEvent,
     TResult? Function()? changeArtCalcMethod,
+    TResult? Function()? fetchNamazMethods,
+    TResult? Function(int method, BuildContext context)? changeNamazMehods,
+    TResult? Function(int school, BuildContext context)? changeSchoolEvent,
+    TResult? Function(int numValue, BuildContext context)?
+        changeHighLatitudeMethod,
   }) {
     return prayerTimingEvent?.call();
   }
@@ -260,10 +364,15 @@ class _$PrayerTimingEvent implements PrayerTimingEvent {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? fetchPrayerTiming,
+    TResult Function(BuildContext context)? fetchPrayerTiming,
     TResult Function()? prayerTimingEvent,
     TResult Function()? showImsakEvent,
     TResult Function()? changeArtCalcMethod,
+    TResult Function()? fetchNamazMethods,
+    TResult Function(int method, BuildContext context)? changeNamazMehods,
+    TResult Function(int school, BuildContext context)? changeSchoolEvent,
+    TResult Function(int numValue, BuildContext context)?
+        changeHighLatitudeMethod,
     required TResult orElse(),
   }) {
     if (prayerTimingEvent != null) {
@@ -279,6 +388,11 @@ class _$PrayerTimingEvent implements PrayerTimingEvent {
     required TResult Function(PrayerTimingEvent value) prayerTimingEvent,
     required TResult Function(ShowImsakEvent value) showImsakEvent,
     required TResult Function(ChangeArtCalcMethod value) changeArtCalcMethod,
+    required TResult Function(FetchNamazMethods value) fetchNamazMethods,
+    required TResult Function(ChangeNamazMethods value) changeNamazMehods,
+    required TResult Function(ChangeSchoolEvent value) changeSchoolEvent,
+    required TResult Function(ChangeHighLatitudeMethod value)
+        changeHighLatitudeMethod,
   }) {
     return prayerTimingEvent(this);
   }
@@ -290,6 +404,10 @@ class _$PrayerTimingEvent implements PrayerTimingEvent {
     TResult? Function(PrayerTimingEvent value)? prayerTimingEvent,
     TResult? Function(ShowImsakEvent value)? showImsakEvent,
     TResult? Function(ChangeArtCalcMethod value)? changeArtCalcMethod,
+    TResult? Function(FetchNamazMethods value)? fetchNamazMethods,
+    TResult? Function(ChangeNamazMethods value)? changeNamazMehods,
+    TResult? Function(ChangeSchoolEvent value)? changeSchoolEvent,
+    TResult? Function(ChangeHighLatitudeMethod value)? changeHighLatitudeMethod,
   }) {
     return prayerTimingEvent?.call(this);
   }
@@ -301,6 +419,10 @@ class _$PrayerTimingEvent implements PrayerTimingEvent {
     TResult Function(PrayerTimingEvent value)? prayerTimingEvent,
     TResult Function(ShowImsakEvent value)? showImsakEvent,
     TResult Function(ChangeArtCalcMethod value)? changeArtCalcMethod,
+    TResult Function(FetchNamazMethods value)? fetchNamazMethods,
+    TResult Function(ChangeNamazMethods value)? changeNamazMehods,
+    TResult Function(ChangeSchoolEvent value)? changeSchoolEvent,
+    TResult Function(ChangeHighLatitudeMethod value)? changeHighLatitudeMethod,
     required TResult orElse(),
   }) {
     if (prayerTimingEvent != null) {
@@ -352,10 +474,17 @@ class _$ShowImsakEvent implements ShowImsakEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() fetchPrayerTiming,
+    required TResult Function(BuildContext context) fetchPrayerTiming,
     required TResult Function() prayerTimingEvent,
     required TResult Function() showImsakEvent,
     required TResult Function() changeArtCalcMethod,
+    required TResult Function() fetchNamazMethods,
+    required TResult Function(int method, BuildContext context)
+        changeNamazMehods,
+    required TResult Function(int school, BuildContext context)
+        changeSchoolEvent,
+    required TResult Function(int numValue, BuildContext context)
+        changeHighLatitudeMethod,
   }) {
     return showImsakEvent();
   }
@@ -363,10 +492,15 @@ class _$ShowImsakEvent implements ShowImsakEvent {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? fetchPrayerTiming,
+    TResult? Function(BuildContext context)? fetchPrayerTiming,
     TResult? Function()? prayerTimingEvent,
     TResult? Function()? showImsakEvent,
     TResult? Function()? changeArtCalcMethod,
+    TResult? Function()? fetchNamazMethods,
+    TResult? Function(int method, BuildContext context)? changeNamazMehods,
+    TResult? Function(int school, BuildContext context)? changeSchoolEvent,
+    TResult? Function(int numValue, BuildContext context)?
+        changeHighLatitudeMethod,
   }) {
     return showImsakEvent?.call();
   }
@@ -374,10 +508,15 @@ class _$ShowImsakEvent implements ShowImsakEvent {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? fetchPrayerTiming,
+    TResult Function(BuildContext context)? fetchPrayerTiming,
     TResult Function()? prayerTimingEvent,
     TResult Function()? showImsakEvent,
     TResult Function()? changeArtCalcMethod,
+    TResult Function()? fetchNamazMethods,
+    TResult Function(int method, BuildContext context)? changeNamazMehods,
+    TResult Function(int school, BuildContext context)? changeSchoolEvent,
+    TResult Function(int numValue, BuildContext context)?
+        changeHighLatitudeMethod,
     required TResult orElse(),
   }) {
     if (showImsakEvent != null) {
@@ -393,6 +532,11 @@ class _$ShowImsakEvent implements ShowImsakEvent {
     required TResult Function(PrayerTimingEvent value) prayerTimingEvent,
     required TResult Function(ShowImsakEvent value) showImsakEvent,
     required TResult Function(ChangeArtCalcMethod value) changeArtCalcMethod,
+    required TResult Function(FetchNamazMethods value) fetchNamazMethods,
+    required TResult Function(ChangeNamazMethods value) changeNamazMehods,
+    required TResult Function(ChangeSchoolEvent value) changeSchoolEvent,
+    required TResult Function(ChangeHighLatitudeMethod value)
+        changeHighLatitudeMethod,
   }) {
     return showImsakEvent(this);
   }
@@ -404,6 +548,10 @@ class _$ShowImsakEvent implements ShowImsakEvent {
     TResult? Function(PrayerTimingEvent value)? prayerTimingEvent,
     TResult? Function(ShowImsakEvent value)? showImsakEvent,
     TResult? Function(ChangeArtCalcMethod value)? changeArtCalcMethod,
+    TResult? Function(FetchNamazMethods value)? fetchNamazMethods,
+    TResult? Function(ChangeNamazMethods value)? changeNamazMehods,
+    TResult? Function(ChangeSchoolEvent value)? changeSchoolEvent,
+    TResult? Function(ChangeHighLatitudeMethod value)? changeHighLatitudeMethod,
   }) {
     return showImsakEvent?.call(this);
   }
@@ -415,6 +563,10 @@ class _$ShowImsakEvent implements ShowImsakEvent {
     TResult Function(PrayerTimingEvent value)? prayerTimingEvent,
     TResult Function(ShowImsakEvent value)? showImsakEvent,
     TResult Function(ChangeArtCalcMethod value)? changeArtCalcMethod,
+    TResult Function(FetchNamazMethods value)? fetchNamazMethods,
+    TResult Function(ChangeNamazMethods value)? changeNamazMehods,
+    TResult Function(ChangeSchoolEvent value)? changeSchoolEvent,
+    TResult Function(ChangeHighLatitudeMethod value)? changeHighLatitudeMethod,
     required TResult orElse(),
   }) {
     if (showImsakEvent != null) {
@@ -466,10 +618,17 @@ class _$ChangeArtCalcMethod implements ChangeArtCalcMethod {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() fetchPrayerTiming,
+    required TResult Function(BuildContext context) fetchPrayerTiming,
     required TResult Function() prayerTimingEvent,
     required TResult Function() showImsakEvent,
     required TResult Function() changeArtCalcMethod,
+    required TResult Function() fetchNamazMethods,
+    required TResult Function(int method, BuildContext context)
+        changeNamazMehods,
+    required TResult Function(int school, BuildContext context)
+        changeSchoolEvent,
+    required TResult Function(int numValue, BuildContext context)
+        changeHighLatitudeMethod,
   }) {
     return changeArtCalcMethod();
   }
@@ -477,10 +636,15 @@ class _$ChangeArtCalcMethod implements ChangeArtCalcMethod {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? fetchPrayerTiming,
+    TResult? Function(BuildContext context)? fetchPrayerTiming,
     TResult? Function()? prayerTimingEvent,
     TResult? Function()? showImsakEvent,
     TResult? Function()? changeArtCalcMethod,
+    TResult? Function()? fetchNamazMethods,
+    TResult? Function(int method, BuildContext context)? changeNamazMehods,
+    TResult? Function(int school, BuildContext context)? changeSchoolEvent,
+    TResult? Function(int numValue, BuildContext context)?
+        changeHighLatitudeMethod,
   }) {
     return changeArtCalcMethod?.call();
   }
@@ -488,10 +652,15 @@ class _$ChangeArtCalcMethod implements ChangeArtCalcMethod {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? fetchPrayerTiming,
+    TResult Function(BuildContext context)? fetchPrayerTiming,
     TResult Function()? prayerTimingEvent,
     TResult Function()? showImsakEvent,
     TResult Function()? changeArtCalcMethod,
+    TResult Function()? fetchNamazMethods,
+    TResult Function(int method, BuildContext context)? changeNamazMehods,
+    TResult Function(int school, BuildContext context)? changeSchoolEvent,
+    TResult Function(int numValue, BuildContext context)?
+        changeHighLatitudeMethod,
     required TResult orElse(),
   }) {
     if (changeArtCalcMethod != null) {
@@ -507,6 +676,11 @@ class _$ChangeArtCalcMethod implements ChangeArtCalcMethod {
     required TResult Function(PrayerTimingEvent value) prayerTimingEvent,
     required TResult Function(ShowImsakEvent value) showImsakEvent,
     required TResult Function(ChangeArtCalcMethod value) changeArtCalcMethod,
+    required TResult Function(FetchNamazMethods value) fetchNamazMethods,
+    required TResult Function(ChangeNamazMethods value) changeNamazMehods,
+    required TResult Function(ChangeSchoolEvent value) changeSchoolEvent,
+    required TResult Function(ChangeHighLatitudeMethod value)
+        changeHighLatitudeMethod,
   }) {
     return changeArtCalcMethod(this);
   }
@@ -518,6 +692,10 @@ class _$ChangeArtCalcMethod implements ChangeArtCalcMethod {
     TResult? Function(PrayerTimingEvent value)? prayerTimingEvent,
     TResult? Function(ShowImsakEvent value)? showImsakEvent,
     TResult? Function(ChangeArtCalcMethod value)? changeArtCalcMethod,
+    TResult? Function(FetchNamazMethods value)? fetchNamazMethods,
+    TResult? Function(ChangeNamazMethods value)? changeNamazMehods,
+    TResult? Function(ChangeSchoolEvent value)? changeSchoolEvent,
+    TResult? Function(ChangeHighLatitudeMethod value)? changeHighLatitudeMethod,
   }) {
     return changeArtCalcMethod?.call(this);
   }
@@ -529,6 +707,10 @@ class _$ChangeArtCalcMethod implements ChangeArtCalcMethod {
     TResult Function(PrayerTimingEvent value)? prayerTimingEvent,
     TResult Function(ShowImsakEvent value)? showImsakEvent,
     TResult Function(ChangeArtCalcMethod value)? changeArtCalcMethod,
+    TResult Function(FetchNamazMethods value)? fetchNamazMethods,
+    TResult Function(ChangeNamazMethods value)? changeNamazMehods,
+    TResult Function(ChangeSchoolEvent value)? changeSchoolEvent,
+    TResult Function(ChangeHighLatitudeMethod value)? changeHighLatitudeMethod,
     required TResult orElse(),
   }) {
     if (changeArtCalcMethod != null) {
@@ -540,6 +722,713 @@ class _$ChangeArtCalcMethod implements ChangeArtCalcMethod {
 
 abstract class ChangeArtCalcMethod implements NamazTimingEvent {
   const factory ChangeArtCalcMethod() = _$ChangeArtCalcMethod;
+}
+
+/// @nodoc
+abstract class _$$FetchNamazMethodsCopyWith<$Res> {
+  factory _$$FetchNamazMethodsCopyWith(
+          _$FetchNamazMethods value, $Res Function(_$FetchNamazMethods) then) =
+      __$$FetchNamazMethodsCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$FetchNamazMethodsCopyWithImpl<$Res>
+    extends _$NamazTimingEventCopyWithImpl<$Res, _$FetchNamazMethods>
+    implements _$$FetchNamazMethodsCopyWith<$Res> {
+  __$$FetchNamazMethodsCopyWithImpl(
+      _$FetchNamazMethods _value, $Res Function(_$FetchNamazMethods) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$FetchNamazMethods implements FetchNamazMethods {
+  const _$FetchNamazMethods();
+
+  @override
+  String toString() {
+    return 'NamazTimingEvent.fetchNamazMethods()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$FetchNamazMethods);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(BuildContext context) fetchPrayerTiming,
+    required TResult Function() prayerTimingEvent,
+    required TResult Function() showImsakEvent,
+    required TResult Function() changeArtCalcMethod,
+    required TResult Function() fetchNamazMethods,
+    required TResult Function(int method, BuildContext context)
+        changeNamazMehods,
+    required TResult Function(int school, BuildContext context)
+        changeSchoolEvent,
+    required TResult Function(int numValue, BuildContext context)
+        changeHighLatitudeMethod,
+  }) {
+    return fetchNamazMethods();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(BuildContext context)? fetchPrayerTiming,
+    TResult? Function()? prayerTimingEvent,
+    TResult? Function()? showImsakEvent,
+    TResult? Function()? changeArtCalcMethod,
+    TResult? Function()? fetchNamazMethods,
+    TResult? Function(int method, BuildContext context)? changeNamazMehods,
+    TResult? Function(int school, BuildContext context)? changeSchoolEvent,
+    TResult? Function(int numValue, BuildContext context)?
+        changeHighLatitudeMethod,
+  }) {
+    return fetchNamazMethods?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(BuildContext context)? fetchPrayerTiming,
+    TResult Function()? prayerTimingEvent,
+    TResult Function()? showImsakEvent,
+    TResult Function()? changeArtCalcMethod,
+    TResult Function()? fetchNamazMethods,
+    TResult Function(int method, BuildContext context)? changeNamazMehods,
+    TResult Function(int school, BuildContext context)? changeSchoolEvent,
+    TResult Function(int numValue, BuildContext context)?
+        changeHighLatitudeMethod,
+    required TResult orElse(),
+  }) {
+    if (fetchNamazMethods != null) {
+      return fetchNamazMethods();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FetchPrayerTiming value) fetchPrayerTiming,
+    required TResult Function(PrayerTimingEvent value) prayerTimingEvent,
+    required TResult Function(ShowImsakEvent value) showImsakEvent,
+    required TResult Function(ChangeArtCalcMethod value) changeArtCalcMethod,
+    required TResult Function(FetchNamazMethods value) fetchNamazMethods,
+    required TResult Function(ChangeNamazMethods value) changeNamazMehods,
+    required TResult Function(ChangeSchoolEvent value) changeSchoolEvent,
+    required TResult Function(ChangeHighLatitudeMethod value)
+        changeHighLatitudeMethod,
+  }) {
+    return fetchNamazMethods(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(FetchPrayerTiming value)? fetchPrayerTiming,
+    TResult? Function(PrayerTimingEvent value)? prayerTimingEvent,
+    TResult? Function(ShowImsakEvent value)? showImsakEvent,
+    TResult? Function(ChangeArtCalcMethod value)? changeArtCalcMethod,
+    TResult? Function(FetchNamazMethods value)? fetchNamazMethods,
+    TResult? Function(ChangeNamazMethods value)? changeNamazMehods,
+    TResult? Function(ChangeSchoolEvent value)? changeSchoolEvent,
+    TResult? Function(ChangeHighLatitudeMethod value)? changeHighLatitudeMethod,
+  }) {
+    return fetchNamazMethods?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FetchPrayerTiming value)? fetchPrayerTiming,
+    TResult Function(PrayerTimingEvent value)? prayerTimingEvent,
+    TResult Function(ShowImsakEvent value)? showImsakEvent,
+    TResult Function(ChangeArtCalcMethod value)? changeArtCalcMethod,
+    TResult Function(FetchNamazMethods value)? fetchNamazMethods,
+    TResult Function(ChangeNamazMethods value)? changeNamazMehods,
+    TResult Function(ChangeSchoolEvent value)? changeSchoolEvent,
+    TResult Function(ChangeHighLatitudeMethod value)? changeHighLatitudeMethod,
+    required TResult orElse(),
+  }) {
+    if (fetchNamazMethods != null) {
+      return fetchNamazMethods(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class FetchNamazMethods implements NamazTimingEvent {
+  const factory FetchNamazMethods() = _$FetchNamazMethods;
+}
+
+/// @nodoc
+abstract class _$$ChangeNamazMethodsCopyWith<$Res> {
+  factory _$$ChangeNamazMethodsCopyWith(_$ChangeNamazMethods value,
+          $Res Function(_$ChangeNamazMethods) then) =
+      __$$ChangeNamazMethodsCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int method, BuildContext context});
+}
+
+/// @nodoc
+class __$$ChangeNamazMethodsCopyWithImpl<$Res>
+    extends _$NamazTimingEventCopyWithImpl<$Res, _$ChangeNamazMethods>
+    implements _$$ChangeNamazMethodsCopyWith<$Res> {
+  __$$ChangeNamazMethodsCopyWithImpl(
+      _$ChangeNamazMethods _value, $Res Function(_$ChangeNamazMethods) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? method = null,
+    Object? context = null,
+  }) {
+    return _then(_$ChangeNamazMethods(
+      method: null == method
+          ? _value.method
+          : method // ignore: cast_nullable_to_non_nullable
+              as int,
+      context: null == context
+          ? _value.context
+          : context // ignore: cast_nullable_to_non_nullable
+              as BuildContext,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ChangeNamazMethods implements ChangeNamazMethods {
+  const _$ChangeNamazMethods({required this.method, required this.context});
+
+  @override
+  final int method;
+  @override
+  final BuildContext context;
+
+  @override
+  String toString() {
+    return 'NamazTimingEvent.changeNamazMehods(method: $method, context: $context)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ChangeNamazMethods &&
+            (identical(other.method, method) || other.method == method) &&
+            (identical(other.context, context) || other.context == context));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, method, context);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ChangeNamazMethodsCopyWith<_$ChangeNamazMethods> get copyWith =>
+      __$$ChangeNamazMethodsCopyWithImpl<_$ChangeNamazMethods>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(BuildContext context) fetchPrayerTiming,
+    required TResult Function() prayerTimingEvent,
+    required TResult Function() showImsakEvent,
+    required TResult Function() changeArtCalcMethod,
+    required TResult Function() fetchNamazMethods,
+    required TResult Function(int method, BuildContext context)
+        changeNamazMehods,
+    required TResult Function(int school, BuildContext context)
+        changeSchoolEvent,
+    required TResult Function(int numValue, BuildContext context)
+        changeHighLatitudeMethod,
+  }) {
+    return changeNamazMehods(method, context);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(BuildContext context)? fetchPrayerTiming,
+    TResult? Function()? prayerTimingEvent,
+    TResult? Function()? showImsakEvent,
+    TResult? Function()? changeArtCalcMethod,
+    TResult? Function()? fetchNamazMethods,
+    TResult? Function(int method, BuildContext context)? changeNamazMehods,
+    TResult? Function(int school, BuildContext context)? changeSchoolEvent,
+    TResult? Function(int numValue, BuildContext context)?
+        changeHighLatitudeMethod,
+  }) {
+    return changeNamazMehods?.call(method, context);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(BuildContext context)? fetchPrayerTiming,
+    TResult Function()? prayerTimingEvent,
+    TResult Function()? showImsakEvent,
+    TResult Function()? changeArtCalcMethod,
+    TResult Function()? fetchNamazMethods,
+    TResult Function(int method, BuildContext context)? changeNamazMehods,
+    TResult Function(int school, BuildContext context)? changeSchoolEvent,
+    TResult Function(int numValue, BuildContext context)?
+        changeHighLatitudeMethod,
+    required TResult orElse(),
+  }) {
+    if (changeNamazMehods != null) {
+      return changeNamazMehods(method, context);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FetchPrayerTiming value) fetchPrayerTiming,
+    required TResult Function(PrayerTimingEvent value) prayerTimingEvent,
+    required TResult Function(ShowImsakEvent value) showImsakEvent,
+    required TResult Function(ChangeArtCalcMethod value) changeArtCalcMethod,
+    required TResult Function(FetchNamazMethods value) fetchNamazMethods,
+    required TResult Function(ChangeNamazMethods value) changeNamazMehods,
+    required TResult Function(ChangeSchoolEvent value) changeSchoolEvent,
+    required TResult Function(ChangeHighLatitudeMethod value)
+        changeHighLatitudeMethod,
+  }) {
+    return changeNamazMehods(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(FetchPrayerTiming value)? fetchPrayerTiming,
+    TResult? Function(PrayerTimingEvent value)? prayerTimingEvent,
+    TResult? Function(ShowImsakEvent value)? showImsakEvent,
+    TResult? Function(ChangeArtCalcMethod value)? changeArtCalcMethod,
+    TResult? Function(FetchNamazMethods value)? fetchNamazMethods,
+    TResult? Function(ChangeNamazMethods value)? changeNamazMehods,
+    TResult? Function(ChangeSchoolEvent value)? changeSchoolEvent,
+    TResult? Function(ChangeHighLatitudeMethod value)? changeHighLatitudeMethod,
+  }) {
+    return changeNamazMehods?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FetchPrayerTiming value)? fetchPrayerTiming,
+    TResult Function(PrayerTimingEvent value)? prayerTimingEvent,
+    TResult Function(ShowImsakEvent value)? showImsakEvent,
+    TResult Function(ChangeArtCalcMethod value)? changeArtCalcMethod,
+    TResult Function(FetchNamazMethods value)? fetchNamazMethods,
+    TResult Function(ChangeNamazMethods value)? changeNamazMehods,
+    TResult Function(ChangeSchoolEvent value)? changeSchoolEvent,
+    TResult Function(ChangeHighLatitudeMethod value)? changeHighLatitudeMethod,
+    required TResult orElse(),
+  }) {
+    if (changeNamazMehods != null) {
+      return changeNamazMehods(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ChangeNamazMethods implements NamazTimingEvent {
+  const factory ChangeNamazMethods(
+      {required final int method,
+      required final BuildContext context}) = _$ChangeNamazMethods;
+
+  int get method;
+  BuildContext get context;
+  @JsonKey(ignore: true)
+  _$$ChangeNamazMethodsCopyWith<_$ChangeNamazMethods> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ChangeSchoolEventCopyWith<$Res> {
+  factory _$$ChangeSchoolEventCopyWith(
+          _$ChangeSchoolEvent value, $Res Function(_$ChangeSchoolEvent) then) =
+      __$$ChangeSchoolEventCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int school, BuildContext context});
+}
+
+/// @nodoc
+class __$$ChangeSchoolEventCopyWithImpl<$Res>
+    extends _$NamazTimingEventCopyWithImpl<$Res, _$ChangeSchoolEvent>
+    implements _$$ChangeSchoolEventCopyWith<$Res> {
+  __$$ChangeSchoolEventCopyWithImpl(
+      _$ChangeSchoolEvent _value, $Res Function(_$ChangeSchoolEvent) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? school = null,
+    Object? context = null,
+  }) {
+    return _then(_$ChangeSchoolEvent(
+      school: null == school
+          ? _value.school
+          : school // ignore: cast_nullable_to_non_nullable
+              as int,
+      context: null == context
+          ? _value.context
+          : context // ignore: cast_nullable_to_non_nullable
+              as BuildContext,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ChangeSchoolEvent implements ChangeSchoolEvent {
+  const _$ChangeSchoolEvent({required this.school, required this.context});
+
+  @override
+  final int school;
+  @override
+  final BuildContext context;
+
+  @override
+  String toString() {
+    return 'NamazTimingEvent.changeSchoolEvent(school: $school, context: $context)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ChangeSchoolEvent &&
+            (identical(other.school, school) || other.school == school) &&
+            (identical(other.context, context) || other.context == context));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, school, context);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ChangeSchoolEventCopyWith<_$ChangeSchoolEvent> get copyWith =>
+      __$$ChangeSchoolEventCopyWithImpl<_$ChangeSchoolEvent>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(BuildContext context) fetchPrayerTiming,
+    required TResult Function() prayerTimingEvent,
+    required TResult Function() showImsakEvent,
+    required TResult Function() changeArtCalcMethod,
+    required TResult Function() fetchNamazMethods,
+    required TResult Function(int method, BuildContext context)
+        changeNamazMehods,
+    required TResult Function(int school, BuildContext context)
+        changeSchoolEvent,
+    required TResult Function(int numValue, BuildContext context)
+        changeHighLatitudeMethod,
+  }) {
+    return changeSchoolEvent(school, context);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(BuildContext context)? fetchPrayerTiming,
+    TResult? Function()? prayerTimingEvent,
+    TResult? Function()? showImsakEvent,
+    TResult? Function()? changeArtCalcMethod,
+    TResult? Function()? fetchNamazMethods,
+    TResult? Function(int method, BuildContext context)? changeNamazMehods,
+    TResult? Function(int school, BuildContext context)? changeSchoolEvent,
+    TResult? Function(int numValue, BuildContext context)?
+        changeHighLatitudeMethod,
+  }) {
+    return changeSchoolEvent?.call(school, context);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(BuildContext context)? fetchPrayerTiming,
+    TResult Function()? prayerTimingEvent,
+    TResult Function()? showImsakEvent,
+    TResult Function()? changeArtCalcMethod,
+    TResult Function()? fetchNamazMethods,
+    TResult Function(int method, BuildContext context)? changeNamazMehods,
+    TResult Function(int school, BuildContext context)? changeSchoolEvent,
+    TResult Function(int numValue, BuildContext context)?
+        changeHighLatitudeMethod,
+    required TResult orElse(),
+  }) {
+    if (changeSchoolEvent != null) {
+      return changeSchoolEvent(school, context);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FetchPrayerTiming value) fetchPrayerTiming,
+    required TResult Function(PrayerTimingEvent value) prayerTimingEvent,
+    required TResult Function(ShowImsakEvent value) showImsakEvent,
+    required TResult Function(ChangeArtCalcMethod value) changeArtCalcMethod,
+    required TResult Function(FetchNamazMethods value) fetchNamazMethods,
+    required TResult Function(ChangeNamazMethods value) changeNamazMehods,
+    required TResult Function(ChangeSchoolEvent value) changeSchoolEvent,
+    required TResult Function(ChangeHighLatitudeMethod value)
+        changeHighLatitudeMethod,
+  }) {
+    return changeSchoolEvent(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(FetchPrayerTiming value)? fetchPrayerTiming,
+    TResult? Function(PrayerTimingEvent value)? prayerTimingEvent,
+    TResult? Function(ShowImsakEvent value)? showImsakEvent,
+    TResult? Function(ChangeArtCalcMethod value)? changeArtCalcMethod,
+    TResult? Function(FetchNamazMethods value)? fetchNamazMethods,
+    TResult? Function(ChangeNamazMethods value)? changeNamazMehods,
+    TResult? Function(ChangeSchoolEvent value)? changeSchoolEvent,
+    TResult? Function(ChangeHighLatitudeMethod value)? changeHighLatitudeMethod,
+  }) {
+    return changeSchoolEvent?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FetchPrayerTiming value)? fetchPrayerTiming,
+    TResult Function(PrayerTimingEvent value)? prayerTimingEvent,
+    TResult Function(ShowImsakEvent value)? showImsakEvent,
+    TResult Function(ChangeArtCalcMethod value)? changeArtCalcMethod,
+    TResult Function(FetchNamazMethods value)? fetchNamazMethods,
+    TResult Function(ChangeNamazMethods value)? changeNamazMehods,
+    TResult Function(ChangeSchoolEvent value)? changeSchoolEvent,
+    TResult Function(ChangeHighLatitudeMethod value)? changeHighLatitudeMethod,
+    required TResult orElse(),
+  }) {
+    if (changeSchoolEvent != null) {
+      return changeSchoolEvent(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ChangeSchoolEvent implements NamazTimingEvent {
+  const factory ChangeSchoolEvent(
+      {required final int school,
+      required final BuildContext context}) = _$ChangeSchoolEvent;
+
+  int get school;
+  BuildContext get context;
+  @JsonKey(ignore: true)
+  _$$ChangeSchoolEventCopyWith<_$ChangeSchoolEvent> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ChangeHighLatitudeMethodCopyWith<$Res> {
+  factory _$$ChangeHighLatitudeMethodCopyWith(_$ChangeHighLatitudeMethod value,
+          $Res Function(_$ChangeHighLatitudeMethod) then) =
+      __$$ChangeHighLatitudeMethodCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int numValue, BuildContext context});
+}
+
+/// @nodoc
+class __$$ChangeHighLatitudeMethodCopyWithImpl<$Res>
+    extends _$NamazTimingEventCopyWithImpl<$Res, _$ChangeHighLatitudeMethod>
+    implements _$$ChangeHighLatitudeMethodCopyWith<$Res> {
+  __$$ChangeHighLatitudeMethodCopyWithImpl(_$ChangeHighLatitudeMethod _value,
+      $Res Function(_$ChangeHighLatitudeMethod) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? numValue = null,
+    Object? context = null,
+  }) {
+    return _then(_$ChangeHighLatitudeMethod(
+      numValue: null == numValue
+          ? _value.numValue
+          : numValue // ignore: cast_nullable_to_non_nullable
+              as int,
+      context: null == context
+          ? _value.context
+          : context // ignore: cast_nullable_to_non_nullable
+              as BuildContext,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ChangeHighLatitudeMethod implements ChangeHighLatitudeMethod {
+  const _$ChangeHighLatitudeMethod(
+      {required this.numValue, required this.context});
+
+  @override
+  final int numValue;
+  @override
+  final BuildContext context;
+
+  @override
+  String toString() {
+    return 'NamazTimingEvent.changeHighLatitudeMethod(numValue: $numValue, context: $context)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ChangeHighLatitudeMethod &&
+            (identical(other.numValue, numValue) ||
+                other.numValue == numValue) &&
+            (identical(other.context, context) || other.context == context));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, numValue, context);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ChangeHighLatitudeMethodCopyWith<_$ChangeHighLatitudeMethod>
+      get copyWith =>
+          __$$ChangeHighLatitudeMethodCopyWithImpl<_$ChangeHighLatitudeMethod>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(BuildContext context) fetchPrayerTiming,
+    required TResult Function() prayerTimingEvent,
+    required TResult Function() showImsakEvent,
+    required TResult Function() changeArtCalcMethod,
+    required TResult Function() fetchNamazMethods,
+    required TResult Function(int method, BuildContext context)
+        changeNamazMehods,
+    required TResult Function(int school, BuildContext context)
+        changeSchoolEvent,
+    required TResult Function(int numValue, BuildContext context)
+        changeHighLatitudeMethod,
+  }) {
+    return changeHighLatitudeMethod(numValue, context);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(BuildContext context)? fetchPrayerTiming,
+    TResult? Function()? prayerTimingEvent,
+    TResult? Function()? showImsakEvent,
+    TResult? Function()? changeArtCalcMethod,
+    TResult? Function()? fetchNamazMethods,
+    TResult? Function(int method, BuildContext context)? changeNamazMehods,
+    TResult? Function(int school, BuildContext context)? changeSchoolEvent,
+    TResult? Function(int numValue, BuildContext context)?
+        changeHighLatitudeMethod,
+  }) {
+    return changeHighLatitudeMethod?.call(numValue, context);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(BuildContext context)? fetchPrayerTiming,
+    TResult Function()? prayerTimingEvent,
+    TResult Function()? showImsakEvent,
+    TResult Function()? changeArtCalcMethod,
+    TResult Function()? fetchNamazMethods,
+    TResult Function(int method, BuildContext context)? changeNamazMehods,
+    TResult Function(int school, BuildContext context)? changeSchoolEvent,
+    TResult Function(int numValue, BuildContext context)?
+        changeHighLatitudeMethod,
+    required TResult orElse(),
+  }) {
+    if (changeHighLatitudeMethod != null) {
+      return changeHighLatitudeMethod(numValue, context);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FetchPrayerTiming value) fetchPrayerTiming,
+    required TResult Function(PrayerTimingEvent value) prayerTimingEvent,
+    required TResult Function(ShowImsakEvent value) showImsakEvent,
+    required TResult Function(ChangeArtCalcMethod value) changeArtCalcMethod,
+    required TResult Function(FetchNamazMethods value) fetchNamazMethods,
+    required TResult Function(ChangeNamazMethods value) changeNamazMehods,
+    required TResult Function(ChangeSchoolEvent value) changeSchoolEvent,
+    required TResult Function(ChangeHighLatitudeMethod value)
+        changeHighLatitudeMethod,
+  }) {
+    return changeHighLatitudeMethod(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(FetchPrayerTiming value)? fetchPrayerTiming,
+    TResult? Function(PrayerTimingEvent value)? prayerTimingEvent,
+    TResult? Function(ShowImsakEvent value)? showImsakEvent,
+    TResult? Function(ChangeArtCalcMethod value)? changeArtCalcMethod,
+    TResult? Function(FetchNamazMethods value)? fetchNamazMethods,
+    TResult? Function(ChangeNamazMethods value)? changeNamazMehods,
+    TResult? Function(ChangeSchoolEvent value)? changeSchoolEvent,
+    TResult? Function(ChangeHighLatitudeMethod value)? changeHighLatitudeMethod,
+  }) {
+    return changeHighLatitudeMethod?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FetchPrayerTiming value)? fetchPrayerTiming,
+    TResult Function(PrayerTimingEvent value)? prayerTimingEvent,
+    TResult Function(ShowImsakEvent value)? showImsakEvent,
+    TResult Function(ChangeArtCalcMethod value)? changeArtCalcMethod,
+    TResult Function(FetchNamazMethods value)? fetchNamazMethods,
+    TResult Function(ChangeNamazMethods value)? changeNamazMehods,
+    TResult Function(ChangeSchoolEvent value)? changeSchoolEvent,
+    TResult Function(ChangeHighLatitudeMethod value)? changeHighLatitudeMethod,
+    required TResult orElse(),
+  }) {
+    if (changeHighLatitudeMethod != null) {
+      return changeHighLatitudeMethod(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ChangeHighLatitudeMethod implements NamazTimingEvent {
+  const factory ChangeHighLatitudeMethod(
+      {required final int numValue,
+      required final BuildContext context}) = _$ChangeHighLatitudeMethod;
+
+  int get numValue;
+  BuildContext get context;
+  @JsonKey(ignore: true)
+  _$$ChangeHighLatitudeMethodCopyWith<_$ChangeHighLatitudeMethod>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -555,6 +1444,9 @@ mixin _$NamazTimingState {
   bool get isArtCalcMehod => throw _privateConstructorUsedError;
   int get method => throw _privateConstructorUsedError;
   String get methodPlace => throw _privateConstructorUsedError;
+  NamazMethodsModel? get namazMethodsModel =>
+      throw _privateConstructorUsedError;
+  int get highLatMethodVal => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $NamazTimingStateCopyWith<NamazTimingState> get copyWith =>
@@ -578,9 +1470,12 @@ abstract class $NamazTimingStateCopyWith<$Res> {
       int school,
       bool isArtCalcMehod,
       int method,
-      String methodPlace});
+      String methodPlace,
+      NamazMethodsModel? namazMethodsModel,
+      int highLatMethodVal});
 
   $PrayerModelCopyWith<$Res>? get prayerModel;
+  $NamazMethodsModelCopyWith<$Res>? get namazMethodsModel;
 }
 
 /// @nodoc
@@ -607,6 +1502,8 @@ class _$NamazTimingStateCopyWithImpl<$Res, $Val extends NamazTimingState>
     Object? isArtCalcMehod = null,
     Object? method = null,
     Object? methodPlace = null,
+    Object? namazMethodsModel = freezed,
+    Object? highLatMethodVal = null,
   }) {
     return _then(_value.copyWith(
       success: null == success
@@ -653,6 +1550,14 @@ class _$NamazTimingStateCopyWithImpl<$Res, $Val extends NamazTimingState>
           ? _value.methodPlace
           : methodPlace // ignore: cast_nullable_to_non_nullable
               as String,
+      namazMethodsModel: freezed == namazMethodsModel
+          ? _value.namazMethodsModel
+          : namazMethodsModel // ignore: cast_nullable_to_non_nullable
+              as NamazMethodsModel?,
+      highLatMethodVal: null == highLatMethodVal
+          ? _value.highLatMethodVal
+          : highLatMethodVal // ignore: cast_nullable_to_non_nullable
+              as int,
     ) as $Val);
   }
 
@@ -665,6 +1570,18 @@ class _$NamazTimingStateCopyWithImpl<$Res, $Val extends NamazTimingState>
 
     return $PrayerModelCopyWith<$Res>(_value.prayerModel!, (value) {
       return _then(_value.copyWith(prayerModel: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $NamazMethodsModelCopyWith<$Res>? get namazMethodsModel {
+    if (_value.namazMethodsModel == null) {
+      return null;
+    }
+
+    return $NamazMethodsModelCopyWith<$Res>(_value.namazMethodsModel!, (value) {
+      return _then(_value.copyWith(namazMethodsModel: value) as $Val);
     });
   }
 }
@@ -688,10 +1605,14 @@ abstract class _$$_InitialCopyWith<$Res>
       int school,
       bool isArtCalcMehod,
       int method,
-      String methodPlace});
+      String methodPlace,
+      NamazMethodsModel? namazMethodsModel,
+      int highLatMethodVal});
 
   @override
   $PrayerModelCopyWith<$Res>? get prayerModel;
+  @override
+  $NamazMethodsModelCopyWith<$Res>? get namazMethodsModel;
 }
 
 /// @nodoc
@@ -715,6 +1636,8 @@ class __$$_InitialCopyWithImpl<$Res>
     Object? isArtCalcMehod = null,
     Object? method = null,
     Object? methodPlace = null,
+    Object? namazMethodsModel = freezed,
+    Object? highLatMethodVal = null,
   }) {
     return _then(_$_Initial(
       success: null == success
@@ -761,6 +1684,14 @@ class __$$_InitialCopyWithImpl<$Res>
           ? _value.methodPlace
           : methodPlace // ignore: cast_nullable_to_non_nullable
               as String,
+      namazMethodsModel: freezed == namazMethodsModel
+          ? _value.namazMethodsModel
+          : namazMethodsModel // ignore: cast_nullable_to_non_nullable
+              as NamazMethodsModel?,
+      highLatMethodVal: null == highLatMethodVal
+          ? _value.highLatMethodVal
+          : highLatMethodVal // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -779,7 +1710,9 @@ class _$_Initial implements _Initial {
       required this.school,
       required this.isArtCalcMehod,
       required this.method,
-      required this.methodPlace})
+      required this.methodPlace,
+      required this.namazMethodsModel,
+      required this.highLatMethodVal})
       : _currentNamaz = currentNamaz,
         _upcomingNamaz = upcomingNamaz;
 
@@ -821,10 +1754,14 @@ class _$_Initial implements _Initial {
   final int method;
   @override
   final String methodPlace;
+  @override
+  final NamazMethodsModel? namazMethodsModel;
+  @override
+  final int highLatMethodVal;
 
   @override
   String toString() {
-    return 'NamazTimingState(success: $success, error: $error, prayerModel: $prayerModel, currentNamaz: $currentNamaz, upcomingNamaz: $upcomingNamaz, showImsak: $showImsak, urlDate: $urlDate, school: $school, isArtCalcMehod: $isArtCalcMehod, method: $method, methodPlace: $methodPlace)';
+    return 'NamazTimingState(success: $success, error: $error, prayerModel: $prayerModel, currentNamaz: $currentNamaz, upcomingNamaz: $upcomingNamaz, showImsak: $showImsak, urlDate: $urlDate, school: $school, isArtCalcMehod: $isArtCalcMehod, method: $method, methodPlace: $methodPlace, namazMethodsModel: $namazMethodsModel, highLatMethodVal: $highLatMethodVal)';
   }
 
   @override
@@ -848,7 +1785,11 @@ class _$_Initial implements _Initial {
                 other.isArtCalcMehod == isArtCalcMehod) &&
             (identical(other.method, method) || other.method == method) &&
             (identical(other.methodPlace, methodPlace) ||
-                other.methodPlace == methodPlace));
+                other.methodPlace == methodPlace) &&
+            (identical(other.namazMethodsModel, namazMethodsModel) ||
+                other.namazMethodsModel == namazMethodsModel) &&
+            (identical(other.highLatMethodVal, highLatMethodVal) ||
+                other.highLatMethodVal == highLatMethodVal));
   }
 
   @override
@@ -864,7 +1805,9 @@ class _$_Initial implements _Initial {
       school,
       isArtCalcMehod,
       method,
-      methodPlace);
+      methodPlace,
+      namazMethodsModel,
+      highLatMethodVal);
 
   @JsonKey(ignore: true)
   @override
@@ -885,7 +1828,9 @@ abstract class _Initial implements NamazTimingState {
       required final int school,
       required final bool isArtCalcMehod,
       required final int method,
-      required final String methodPlace}) = _$_Initial;
+      required final String methodPlace,
+      required final NamazMethodsModel? namazMethodsModel,
+      required final int highLatMethodVal}) = _$_Initial;
 
   @override
   String get success;
@@ -909,6 +1854,10 @@ abstract class _Initial implements NamazTimingState {
   int get method;
   @override
   String get methodPlace;
+  @override
+  NamazMethodsModel? get namazMethodsModel;
+  @override
+  int get highLatMethodVal;
   @override
   @JsonKey(ignore: true)
   _$$_InitialCopyWith<_$_Initial> get copyWith =>

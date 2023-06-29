@@ -1,20 +1,23 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:http/http.dart' as http;
-import 'package:intl/intl.dart';
+import 'package:millat/resources/home/bloc/logic/location_bloc/location_bloc.dart';
 import 'dart:convert';
+import '../models/namaz_methods/namaz_mthods_model.dart';
 import '../models/prayer_timing_models/prayer_timing_model.dart';
+import 'package:intl/intl.dart';
 
 class NamazTimingService {
-  Future<PrayerModel> fetchPrayerTime({
-    required String date,
-    required int school,
-    required int method,
-  }) async {
-    // final int school = 0;
-    // final date = DateFormat('dd-MM-yyyy').format(DateTime.now());
-    // print('to day date is here$date');
-
+  Future<PrayerModel> fetchPrayerTime(
+      {required String date,
+      required int school,
+      required int method,
+      required int highLatMethodVal,
+      required BuildContext context}) async {
+    final address = context.read<LocationBloc>().state.currentLocaion;
+    print('current location on the fetch prayer time $address');
     final response = await http.get(Uri.parse(
-        'http://api.aladhan.com/v1/timingsByAddress/$date?address=India,kerala&school=$school&method=$method'));
+        'http://api.aladhan.com/v1/timingsByAddress/$date?address=$address&school=$school&method=$method&latitudeAdjustmentMethod=$highLatMethodVal'));
 
     if (response.statusCode == 200) {
       final Map<String, dynamic> data = json.decode(response.body);
@@ -27,22 +30,14 @@ class NamazTimingService {
     }
   }
 
-  Future<PrayerModel> fetchPrayerMethods({
-    required String date,
-    required int school,
-    required int method,
-  }) async {
-    // final int school = 0;
-    // final date = DateFormat('dd-MM-yyyy').format(DateTime.now());
-    // print('to day date is here$date');
-
-    final response = await http.get(Uri.parse(
-        'http://api.aladhan.com/v1/timingsByAddress/$date?address=India,kerala&school=$school&method=$method'));
+  Future<NamazMethodsModel> fetchPrayerMethods() async {
+    final response =
+        await http.get(Uri.parse('http://api.aladhan.com/v1/methods'));
 
     if (response.statusCode == 200) {
       final Map<String, dynamic> data = json.decode(response.body);
-      final result = PrayerModel.fromJson(data);
-      // print('new url${result}');
+      final result = NamazMethodsModel.fromJson(data);
+      print('method model for this $result');
 
       return result;
     } else {

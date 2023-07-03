@@ -183,8 +183,8 @@ class Method with _$Method {
 @freezed
 class MethodParams with _$MethodParams {
   factory MethodParams({
-    @JsonKey(name: 'Fajr') required int fajr,
-    @JsonKey(name: 'Isha') required int isha,
+    @JsonKey(name: 'Fajr') required dynamic fajr,
+    @JsonKey(name: 'Isha') required dynamic isha,
   }) = _MethodParams;
 
   factory MethodParams.fromJson(Map<String, dynamic> json) =>

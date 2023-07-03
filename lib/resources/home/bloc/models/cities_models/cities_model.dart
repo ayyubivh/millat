@@ -9,7 +9,7 @@ class CitiesModel with _$CitiesModel {
   const factory CitiesModel({
     required bool error,
     required String msg,
-    required CountryData data,
+    required List<CountryData> data,
   }) = _CitiesModel;
 
   factory CitiesModel.fromJson(Map<String, dynamic> json) =>
@@ -19,23 +19,12 @@ class CitiesModel with _$CitiesModel {
 @freezed
 class CountryData with _$CountryData {
   const factory CountryData({
-    required String name,
     required String iso3,
     required String iso2,
-    required List<StateData> states,
+    required String country,
+    required List<String> cities,
   }) = _CountryData;
 
   factory CountryData.fromJson(Map<String, dynamic> json) =>
       _$CountryDataFromJson(json);
-}
-
-@freezed
-class StateData with _$StateData {
-  const factory StateData({
-    required String? name,
-    @JsonKey(name: 'state_code') required String? stateCode,
-  }) = _StateData;
-
-  factory StateData.fromJson(Map<String, dynamic> json) =>
-      _$StateDataFromJson(json);
 }

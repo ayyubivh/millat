@@ -6,6 +6,7 @@ class LocationEvent with _$LocationEvent {
   const factory LocationEvent.changeLocation({required String location}) =
       ChangeLocation;
   const factory LocationEvent.fetchCities() = FetchCities;
+  const factory LocationEvent.loadMoreCities() = LoadMoreCities;
   const factory LocationEvent.searchCities({required String query}) =
       SearchCities;
   const factory LocationEvent.changeLocationOnToggle() = ChangeLocationOnToggle;

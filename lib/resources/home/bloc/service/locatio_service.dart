@@ -5,14 +5,13 @@ import 'dart:convert';
 class LocationService {
   Future<CitiesModel>? fetchCities() async {
     final response = await http.get(
-      Uri.parse(
-          'https://countriesnow.space/api/v0.1/countries/states/q?country=India'),
+      Uri.parse('https://countriesnow.space/api/v0.1/countries'),
     );
 
     if (response.statusCode == 200) {
       final Map<String, dynamic> data = json.decode(response.body);
       final result = CitiesModel.fromJson(data);
-      // print('here the results $result ');
+
       return result;
     } else {
       throw Exception(

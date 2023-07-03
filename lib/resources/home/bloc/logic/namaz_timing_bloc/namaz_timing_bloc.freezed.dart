@@ -1443,6 +1443,7 @@ mixin _$NamazTimingState {
   int get school => throw _privateConstructorUsedError;
   bool get isArtCalcMehod => throw _privateConstructorUsedError;
   int get method => throw _privateConstructorUsedError;
+  String get namazMethodName => throw _privateConstructorUsedError;
   String get methodPlace => throw _privateConstructorUsedError;
   NamazMethodsModel? get namazMethodsModel =>
       throw _privateConstructorUsedError;
@@ -1470,6 +1471,7 @@ abstract class $NamazTimingStateCopyWith<$Res> {
       int school,
       bool isArtCalcMehod,
       int method,
+      String namazMethodName,
       String methodPlace,
       NamazMethodsModel? namazMethodsModel,
       int highLatMethodVal});
@@ -1501,6 +1503,7 @@ class _$NamazTimingStateCopyWithImpl<$Res, $Val extends NamazTimingState>
     Object? school = null,
     Object? isArtCalcMehod = null,
     Object? method = null,
+    Object? namazMethodName = null,
     Object? methodPlace = null,
     Object? namazMethodsModel = freezed,
     Object? highLatMethodVal = null,
@@ -1546,6 +1549,10 @@ class _$NamazTimingStateCopyWithImpl<$Res, $Val extends NamazTimingState>
           ? _value.method
           : method // ignore: cast_nullable_to_non_nullable
               as int,
+      namazMethodName: null == namazMethodName
+          ? _value.namazMethodName
+          : namazMethodName // ignore: cast_nullable_to_non_nullable
+              as String,
       methodPlace: null == methodPlace
           ? _value.methodPlace
           : methodPlace // ignore: cast_nullable_to_non_nullable
@@ -1605,6 +1612,7 @@ abstract class _$$_InitialCopyWith<$Res>
       int school,
       bool isArtCalcMehod,
       int method,
+      String namazMethodName,
       String methodPlace,
       NamazMethodsModel? namazMethodsModel,
       int highLatMethodVal});
@@ -1635,6 +1643,7 @@ class __$$_InitialCopyWithImpl<$Res>
     Object? school = null,
     Object? isArtCalcMehod = null,
     Object? method = null,
+    Object? namazMethodName = null,
     Object? methodPlace = null,
     Object? namazMethodsModel = freezed,
     Object? highLatMethodVal = null,
@@ -1680,6 +1689,10 @@ class __$$_InitialCopyWithImpl<$Res>
           ? _value.method
           : method // ignore: cast_nullable_to_non_nullable
               as int,
+      namazMethodName: null == namazMethodName
+          ? _value.namazMethodName
+          : namazMethodName // ignore: cast_nullable_to_non_nullable
+              as String,
       methodPlace: null == methodPlace
           ? _value.methodPlace
           : methodPlace // ignore: cast_nullable_to_non_nullable
@@ -1710,6 +1723,7 @@ class _$_Initial implements _Initial {
       required this.school,
       required this.isArtCalcMehod,
       required this.method,
+      required this.namazMethodName,
       required this.methodPlace,
       required this.namazMethodsModel,
       required this.highLatMethodVal})
@@ -1753,6 +1767,8 @@ class _$_Initial implements _Initial {
   @override
   final int method;
   @override
+  final String namazMethodName;
+  @override
   final String methodPlace;
   @override
   final NamazMethodsModel? namazMethodsModel;
@@ -1761,7 +1777,7 @@ class _$_Initial implements _Initial {
 
   @override
   String toString() {
-    return 'NamazTimingState(success: $success, error: $error, prayerModel: $prayerModel, currentNamaz: $currentNamaz, upcomingNamaz: $upcomingNamaz, showImsak: $showImsak, urlDate: $urlDate, school: $school, isArtCalcMehod: $isArtCalcMehod, method: $method, methodPlace: $methodPlace, namazMethodsModel: $namazMethodsModel, highLatMethodVal: $highLatMethodVal)';
+    return 'NamazTimingState(success: $success, error: $error, prayerModel: $prayerModel, currentNamaz: $currentNamaz, upcomingNamaz: $upcomingNamaz, showImsak: $showImsak, urlDate: $urlDate, school: $school, isArtCalcMehod: $isArtCalcMehod, method: $method, namazMethodName: $namazMethodName, methodPlace: $methodPlace, namazMethodsModel: $namazMethodsModel, highLatMethodVal: $highLatMethodVal)';
   }
 
   @override
@@ -1784,6 +1800,8 @@ class _$_Initial implements _Initial {
             (identical(other.isArtCalcMehod, isArtCalcMehod) ||
                 other.isArtCalcMehod == isArtCalcMehod) &&
             (identical(other.method, method) || other.method == method) &&
+            (identical(other.namazMethodName, namazMethodName) ||
+                other.namazMethodName == namazMethodName) &&
             (identical(other.methodPlace, methodPlace) ||
                 other.methodPlace == methodPlace) &&
             (identical(other.namazMethodsModel, namazMethodsModel) ||
@@ -1805,6 +1823,7 @@ class _$_Initial implements _Initial {
       school,
       isArtCalcMehod,
       method,
+      namazMethodName,
       methodPlace,
       namazMethodsModel,
       highLatMethodVal);
@@ -1828,6 +1847,7 @@ abstract class _Initial implements NamazTimingState {
       required final int school,
       required final bool isArtCalcMehod,
       required final int method,
+      required final String namazMethodName,
       required final String methodPlace,
       required final NamazMethodsModel? namazMethodsModel,
       required final int highLatMethodVal}) = _$_Initial;
@@ -1852,6 +1872,8 @@ abstract class _Initial implements NamazTimingState {
   bool get isArtCalcMehod;
   @override
   int get method;
+  @override
+  String get namazMethodName;
   @override
   String get methodPlace;
   @override

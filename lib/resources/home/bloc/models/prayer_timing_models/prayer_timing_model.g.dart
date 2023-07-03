@@ -233,8 +233,8 @@ Map<String, dynamic> _$$_MethodToJson(_$_Method instance) => <String, dynamic>{
 
 _$_MethodParams _$$_MethodParamsFromJson(Map<String, dynamic> json) =>
     _$_MethodParams(
-      fajr: json['Fajr'] as int,
-      isha: json['Isha'] as int,
+      fajr: json['Fajr'],
+      isha: json['Isha'],
     );
 
 Map<String, dynamic> _$$_MethodParamsToJson(_$_MethodParams instance) =>

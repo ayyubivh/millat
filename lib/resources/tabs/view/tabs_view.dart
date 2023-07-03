@@ -6,6 +6,7 @@ import 'package:millat/resources/home/view/home_view.dart';
 import 'package:millat/resources/shop/view/tabs/shop_tabs_vilew.dart';
 import 'package:millat/utils/globals.dart';
 import '../../authentication/bloc/logic/database_bloc/database_bloc.dart';
+import '../../home/bloc/logic/location_bloc/location_bloc.dart';
 import '../../home/bloc/logic/namaz_timing_bloc/namaz_timing_bloc.dart';
 
 class TabsView extends StatefulWidget {
@@ -38,8 +39,8 @@ class _TabsViewState extends State<TabsView> {
 
   @override
   void initState() {
-    BlocProvider.of<NamazTimingBloc>(context)
-        .add(FetchPrayerTiming(context: context));
+    // BlocProvider.of<NamazTimingBloc>(context)
+    //     .add(FetchPrayerTiming(context: context));
 
     context.read<DatabaseBloc>().add(const FetchToken());
 

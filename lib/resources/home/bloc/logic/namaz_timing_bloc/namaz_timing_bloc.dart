@@ -18,7 +18,7 @@ class NamazTimingBloc extends Bloc<NamazTimingEvent, NamazTimingState> {
   final NamazTimingService namazTimingService = NamazTimingService();
   NamazTimingBloc() : super(NamazTimingState.initial()) {
     on<FetchPrayerTiming>(_fetchPrayerTiming);
-    // on<PrayerTimingEvent>(_prayerTimingEvent);
+    on<PrayerTimingEvent>(_prayerTimingEvent);
     on<ShowImsakEvent>(_showImsakEvent);
     on<ChangeArtCalcMethod>(_changeArtCalcMethod);
     on<FetchNamazMethods>(_fetchNamazMethods);
@@ -43,7 +43,6 @@ class NamazTimingBloc extends Bloc<NamazTimingEvent, NamazTimingState> {
       );
 
       emit(state.copyWith(prayerModel: data, methodPlace: currentAddress));
-      print('data on the bloc method 0 ${currentAddress}');
     } catch (e) {
       emit(state.copyWith(error: e.toString()));
     }
@@ -59,9 +58,6 @@ class NamazTimingBloc extends Bloc<NamazTimingEvent, NamazTimingState> {
           method: state.method,
           highLatMethodVal: state.highLatMethodVal);
       emit(state.copyWith(prayerModel: data, school: event.school));
-      print(data);
-      print(
-          'here on the school ${state.method} and the school ${state.school}');
     } catch (e) {
       print('error occured when fetch ${e.toString()}');
       throw Exception(e);
@@ -110,8 +106,9 @@ class NamazTimingBloc extends Bloc<NamazTimingEvent, NamazTimingState> {
       FetchNamazMethods event, Emitter<NamazTimingState> emit) async {
     try {
       final data = await namazTimingService.fetchPrayerMethods();
-      emit(state.copyWith(namazMethodsModel: data));
-      print('print the data on the namaz method $data');
+      emit(state.copyWith(
+          namazMethodsModel: data,
+          namazMethodName: data.data!.values.first.name!));
     } catch (e) {
       print('error occured on the bloc of fetch namaz methods $e');
       throw Exception(e);
@@ -129,10 +126,10 @@ class NamazTimingBloc extends Bloc<NamazTimingEvent, NamazTimingState> {
           school: state.school,
           method: event.method,
           highLatMethodVal: state.highLatMethodVal);
-      emit(state.copyWith(prayerModel: data, method: event.method));
-      print('the data on the $data');
-      print(
-          'here on the school ${state.method} and the school ${state.school}');
+      emit(state.copyWith(
+          prayerModel: data,
+          method: event.method,
+          namazMethodName: data.data.meta.method.name));
     } catch (e) {
       print('error on the change methods on the bloc ${e.toString()}');
       throw Exception(e);
@@ -160,78 +157,82 @@ class NamazTimingBloc extends Bloc<NamazTimingEvent, NamazTimingState> {
 
     return '';
   }
-  // _prayerTimingEvent(PrayerTimingEvent event, Emitter<NamazTimingState> emit) {
-  //   if (state.prayerModel?.today != null) {
-  //     final prayerTimings = state.prayerModel!.today;
 
-  //     final currentNamaz = getCurrentNamaz(prayerTimings as dynamic);
-  //     print('Current time on the bloc: $currentNamaz');
-  //     emit(state.copyWith(currentNamaz: currentNamaz));
+  _prayerTimingEvent(PrayerTimingEvent event, Emitter<NamazTimingState> emit) {
+    final prayerTimings = state.prayerModel?.data.timings;
 
-  //     final upcomingNamaz = getUpcomingNamaz(prayerTimings as dynamic);
-  //     print('Upcoming time on the bloc: $upcomingNamaz');
-  //     emit(state.copyWith(upcomingNamaz: upcomingNamaz));
-  //   }
-  // }
+    if (prayerTimings != null) {
+      final currentNamaz = getCurrentNamaz(prayerTimings);
+      final currentNamazTime = getNamazTime(prayerTimings, currentNamaz);
+      // print('Current namaz on the bloc: $currentNamaz at $currentNamazTime');
+      emit(state.copyWith(
+          currentNamaz: {'name': currentNamaz, 'time': currentNamazTime}));
 
-//   dynamic getCurrentNamaz(PrayerTimings prayerTimings) {
-//     final currentTime = DateTime.now();
-//     if (currentTime.hour < int.parse(prayerTimings.fajr.split(':')[0])) {
-//       return {
-//         'Isha': prayerTimings.isha,
-//       };
-//     } else if (currentTime.hour <
-//         int.parse(prayerTimings.dhuhr.split(':')[0])) {
-//       return {
-//         'Fajr': prayerTimings.fajr,
-//       };
-//     } else if (currentTime.hour < int.parse(prayerTimings.asr.split(':')[0])) {
-//       return {
-//         'Dhuhr': prayerTimings.dhuhr,
-//       };
-//     } else if (currentTime.hour <
-//         int.parse(prayerTimings.maghrib.split(':')[0])) {
-//       return {
-//         'Asr': prayerTimings.asr,
-//       };
-//     } else if (currentTime.hour < int.parse(prayerTimings.isha.split(':')[0])) {
-//       return {
-//         'Magrib': prayerTimings.maghrib,
-//       };
-//     } else {
-//       return null;
-//     }
-//   }
-// }
+      final upcomingNamaz = getUpcomingNamaz(prayerTimings, currentNamaz);
+      final upcomingNamazTime = getNamazTime(prayerTimings, upcomingNamaz);
+      // print('Upcoming namaz on the bloc: $upcomingNamaz at $upcomingNamazTime');
+      emit(state.copyWith(
+          upcomingNamaz: {'name': upcomingNamaz, 'time': upcomingNamazTime}));
+    }
+  }
 
-// dynamic getUpcomingNamaz(
-//   PrayerTimings prayerTimings,
-// ) {
-//   final currentTime = DateTime.now();
-//   print(
-//       'currentTime here on the bloc ${currentTime.hour} fajr time ${int.parse(prayerTimings.fajr.split(':')[0])}');
+  String getCurrentNamaz(PrayerTimings prayerTimings) {
+    final currentTime = DateTime.now();
 
-//   if (currentTime.hour < int.parse(prayerTimings.fajr.split(':')[0])) {
-//     return {
-//       'Fajr': prayerTimings.fajr,
-//     };
-//   } else if (currentTime.hour < int.parse(prayerTimings.dhuhr.split(':')[0])) {
-//     return {
-//       'Dhuhr': prayerTimings.dhuhr,
-//     };
-//   } else if (currentTime.hour < int.parse(prayerTimings.asr.split(':')[0])) {
-//     return {
-//       'Asr': prayerTimings.asr,
-//     };
-//   } else if (currentTime.hour < int.parse(prayerTimings.asr.split(':')[0])) {
-//     return {
-//       'Maghrib': prayerTimings.maghrib,
-//     };
-//   } else if (currentTime.hour < int.parse(prayerTimings.isha.split(':')[0])) {
-//     return {
-//       'Isha': prayerTimings.isha,
-//     };
-//   } else {
-//     return null;
-//   }
+    if (currentTime.isBefore(parseTime(prayerTimings.fajr!))) {
+      return 'Isha';
+    } else if (currentTime.isBefore(parseTime(prayerTimings.dhuhr!))) {
+      return 'Fajr';
+    } else if (currentTime.isBefore(parseTime(prayerTimings.asr!))) {
+      return 'Dhuhr';
+    } else if (currentTime.isBefore(parseTime(prayerTimings.maghrib!))) {
+      return 'Asr';
+    } else if (currentTime.isBefore(parseTime(prayerTimings.isha!))) {
+      return 'Maghrib';
+    } else {
+      return 'Isha';
+    }
+  }
+
+  String getUpcomingNamaz(PrayerTimings prayerTimings, String currentNamaz) {
+    switch (currentNamaz) {
+      case 'Isha':
+        return 'Fajr';
+      case 'Fajr':
+        return 'Dhuhr';
+      case 'Dhuhr':
+        return 'Asr';
+      case 'Asr':
+        return 'Maghrib';
+      case 'Maghrib':
+        return 'Isha';
+      default:
+        return 'No upcoming namaz';
+    }
+  }
+
+  String getNamazTime(PrayerTimings prayerTimings, String namazName) {
+    switch (namazName) {
+      case 'Fajr':
+        return prayerTimings.fajr!;
+      case 'Dhuhr':
+        return prayerTimings.dhuhr!;
+      case 'Asr':
+        return prayerTimings.asr!;
+      case 'Maghrib':
+        return prayerTimings.maghrib!;
+      case 'Isha':
+        return prayerTimings.isha!;
+      default:
+        return '';
+    }
+  }
+
+  DateTime parseTime(String timeString) {
+    final components = timeString.split(':');
+    final hour = int.parse(components[0]);
+    final minute = int.parse(components[1]);
+    return DateTime(DateTime.now().year, DateTime.now().month,
+        DateTime.now().day, hour, minute);
+  }
 }

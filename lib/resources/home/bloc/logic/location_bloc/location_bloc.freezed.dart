@@ -21,6 +21,7 @@ mixin _$LocationEvent {
     required TResult Function() fetchCurrentLocation,
     required TResult Function(String location) changeLocation,
     required TResult Function() fetchCities,
+    required TResult Function() loadMoreCities,
     required TResult Function(String query) searchCities,
     required TResult Function() changeLocationOnToggle,
   }) =>
@@ -30,6 +31,7 @@ mixin _$LocationEvent {
     TResult? Function()? fetchCurrentLocation,
     TResult? Function(String location)? changeLocation,
     TResult? Function()? fetchCities,
+    TResult? Function()? loadMoreCities,
     TResult? Function(String query)? searchCities,
     TResult? Function()? changeLocationOnToggle,
   }) =>
@@ -39,6 +41,7 @@ mixin _$LocationEvent {
     TResult Function()? fetchCurrentLocation,
     TResult Function(String location)? changeLocation,
     TResult Function()? fetchCities,
+    TResult Function()? loadMoreCities,
     TResult Function(String query)? searchCities,
     TResult Function()? changeLocationOnToggle,
     required TResult orElse(),
@@ -49,6 +52,7 @@ mixin _$LocationEvent {
     required TResult Function(FetchCurrentLocation value) fetchCurrentLocation,
     required TResult Function(ChangeLocation value) changeLocation,
     required TResult Function(FetchCities value) fetchCities,
+    required TResult Function(LoadMoreCities value) loadMoreCities,
     required TResult Function(SearchCities value) searchCities,
     required TResult Function(ChangeLocationOnToggle value)
         changeLocationOnToggle,
@@ -59,6 +63,7 @@ mixin _$LocationEvent {
     TResult? Function(FetchCurrentLocation value)? fetchCurrentLocation,
     TResult? Function(ChangeLocation value)? changeLocation,
     TResult? Function(FetchCities value)? fetchCities,
+    TResult? Function(LoadMoreCities value)? loadMoreCities,
     TResult? Function(SearchCities value)? searchCities,
     TResult? Function(ChangeLocationOnToggle value)? changeLocationOnToggle,
   }) =>
@@ -68,6 +73,7 @@ mixin _$LocationEvent {
     TResult Function(FetchCurrentLocation value)? fetchCurrentLocation,
     TResult Function(ChangeLocation value)? changeLocation,
     TResult Function(FetchCities value)? fetchCities,
+    TResult Function(LoadMoreCities value)? loadMoreCities,
     TResult Function(SearchCities value)? searchCities,
     TResult Function(ChangeLocationOnToggle value)? changeLocationOnToggle,
     required TResult orElse(),
@@ -111,12 +117,21 @@ class __$$FetchCurrentLocationCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FetchCurrentLocation implements FetchCurrentLocation {
+class _$FetchCurrentLocation
+    with DiagnosticableTreeMixin
+    implements FetchCurrentLocation {
   const _$FetchCurrentLocation();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'LocationEvent.fetchCurrentLocation()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+        .add(DiagnosticsProperty('type', 'LocationEvent.fetchCurrentLocation'));
   }
 
   @override
@@ -134,6 +149,7 @@ class _$FetchCurrentLocation implements FetchCurrentLocation {
     required TResult Function() fetchCurrentLocation,
     required TResult Function(String location) changeLocation,
     required TResult Function() fetchCities,
+    required TResult Function() loadMoreCities,
     required TResult Function(String query) searchCities,
     required TResult Function() changeLocationOnToggle,
   }) {
@@ -146,6 +162,7 @@ class _$FetchCurrentLocation implements FetchCurrentLocation {
     TResult? Function()? fetchCurrentLocation,
     TResult? Function(String location)? changeLocation,
     TResult? Function()? fetchCities,
+    TResult? Function()? loadMoreCities,
     TResult? Function(String query)? searchCities,
     TResult? Function()? changeLocationOnToggle,
   }) {
@@ -158,6 +175,7 @@ class _$FetchCurrentLocation implements FetchCurrentLocation {
     TResult Function()? fetchCurrentLocation,
     TResult Function(String location)? changeLocation,
     TResult Function()? fetchCities,
+    TResult Function()? loadMoreCities,
     TResult Function(String query)? searchCities,
     TResult Function()? changeLocationOnToggle,
     required TResult orElse(),
@@ -174,6 +192,7 @@ class _$FetchCurrentLocation implements FetchCurrentLocation {
     required TResult Function(FetchCurrentLocation value) fetchCurrentLocation,
     required TResult Function(ChangeLocation value) changeLocation,
     required TResult Function(FetchCities value) fetchCities,
+    required TResult Function(LoadMoreCities value) loadMoreCities,
     required TResult Function(SearchCities value) searchCities,
     required TResult Function(ChangeLocationOnToggle value)
         changeLocationOnToggle,
@@ -187,6 +206,7 @@ class _$FetchCurrentLocation implements FetchCurrentLocation {
     TResult? Function(FetchCurrentLocation value)? fetchCurrentLocation,
     TResult? Function(ChangeLocation value)? changeLocation,
     TResult? Function(FetchCities value)? fetchCities,
+    TResult? Function(LoadMoreCities value)? loadMoreCities,
     TResult? Function(SearchCities value)? searchCities,
     TResult? Function(ChangeLocationOnToggle value)? changeLocationOnToggle,
   }) {
@@ -199,6 +219,7 @@ class _$FetchCurrentLocation implements FetchCurrentLocation {
     TResult Function(FetchCurrentLocation value)? fetchCurrentLocation,
     TResult Function(ChangeLocation value)? changeLocation,
     TResult Function(FetchCities value)? fetchCities,
+    TResult Function(LoadMoreCities value)? loadMoreCities,
     TResult Function(SearchCities value)? searchCities,
     TResult Function(ChangeLocationOnToggle value)? changeLocationOnToggle,
     required TResult orElse(),
@@ -247,15 +268,23 @@ class __$$ChangeLocationCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ChangeLocation implements ChangeLocation {
+class _$ChangeLocation with DiagnosticableTreeMixin implements ChangeLocation {
   const _$ChangeLocation({required this.location});
 
   @override
   final String location;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'LocationEvent.changeLocation(location: $location)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'LocationEvent.changeLocation'))
+      ..add(DiagnosticsProperty('location', location));
   }
 
   @override
@@ -282,6 +311,7 @@ class _$ChangeLocation implements ChangeLocation {
     required TResult Function() fetchCurrentLocation,
     required TResult Function(String location) changeLocation,
     required TResult Function() fetchCities,
+    required TResult Function() loadMoreCities,
     required TResult Function(String query) searchCities,
     required TResult Function() changeLocationOnToggle,
   }) {
@@ -294,6 +324,7 @@ class _$ChangeLocation implements ChangeLocation {
     TResult? Function()? fetchCurrentLocation,
     TResult? Function(String location)? changeLocation,
     TResult? Function()? fetchCities,
+    TResult? Function()? loadMoreCities,
     TResult? Function(String query)? searchCities,
     TResult? Function()? changeLocationOnToggle,
   }) {
@@ -306,6 +337,7 @@ class _$ChangeLocation implements ChangeLocation {
     TResult Function()? fetchCurrentLocation,
     TResult Function(String location)? changeLocation,
     TResult Function()? fetchCities,
+    TResult Function()? loadMoreCities,
     TResult Function(String query)? searchCities,
     TResult Function()? changeLocationOnToggle,
     required TResult orElse(),
@@ -322,6 +354,7 @@ class _$ChangeLocation implements ChangeLocation {
     required TResult Function(FetchCurrentLocation value) fetchCurrentLocation,
     required TResult Function(ChangeLocation value) changeLocation,
     required TResult Function(FetchCities value) fetchCities,
+    required TResult Function(LoadMoreCities value) loadMoreCities,
     required TResult Function(SearchCities value) searchCities,
     required TResult Function(ChangeLocationOnToggle value)
         changeLocationOnToggle,
@@ -335,6 +368,7 @@ class _$ChangeLocation implements ChangeLocation {
     TResult? Function(FetchCurrentLocation value)? fetchCurrentLocation,
     TResult? Function(ChangeLocation value)? changeLocation,
     TResult? Function(FetchCities value)? fetchCities,
+    TResult? Function(LoadMoreCities value)? loadMoreCities,
     TResult? Function(SearchCities value)? searchCities,
     TResult? Function(ChangeLocationOnToggle value)? changeLocationOnToggle,
   }) {
@@ -347,6 +381,7 @@ class _$ChangeLocation implements ChangeLocation {
     TResult Function(FetchCurrentLocation value)? fetchCurrentLocation,
     TResult Function(ChangeLocation value)? changeLocation,
     TResult Function(FetchCities value)? fetchCities,
+    TResult Function(LoadMoreCities value)? loadMoreCities,
     TResult Function(SearchCities value)? searchCities,
     TResult Function(ChangeLocationOnToggle value)? changeLocationOnToggle,
     required TResult orElse(),
@@ -386,12 +421,18 @@ class __$$FetchCitiesCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FetchCities implements FetchCities {
+class _$FetchCities with DiagnosticableTreeMixin implements FetchCities {
   const _$FetchCities();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'LocationEvent.fetchCities()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'LocationEvent.fetchCities'));
   }
 
   @override
@@ -409,6 +450,7 @@ class _$FetchCities implements FetchCities {
     required TResult Function() fetchCurrentLocation,
     required TResult Function(String location) changeLocation,
     required TResult Function() fetchCities,
+    required TResult Function() loadMoreCities,
     required TResult Function(String query) searchCities,
     required TResult Function() changeLocationOnToggle,
   }) {
@@ -421,6 +463,7 @@ class _$FetchCities implements FetchCities {
     TResult? Function()? fetchCurrentLocation,
     TResult? Function(String location)? changeLocation,
     TResult? Function()? fetchCities,
+    TResult? Function()? loadMoreCities,
     TResult? Function(String query)? searchCities,
     TResult? Function()? changeLocationOnToggle,
   }) {
@@ -433,6 +476,7 @@ class _$FetchCities implements FetchCities {
     TResult Function()? fetchCurrentLocation,
     TResult Function(String location)? changeLocation,
     TResult Function()? fetchCities,
+    TResult Function()? loadMoreCities,
     TResult Function(String query)? searchCities,
     TResult Function()? changeLocationOnToggle,
     required TResult orElse(),
@@ -449,6 +493,7 @@ class _$FetchCities implements FetchCities {
     required TResult Function(FetchCurrentLocation value) fetchCurrentLocation,
     required TResult Function(ChangeLocation value) changeLocation,
     required TResult Function(FetchCities value) fetchCities,
+    required TResult Function(LoadMoreCities value) loadMoreCities,
     required TResult Function(SearchCities value) searchCities,
     required TResult Function(ChangeLocationOnToggle value)
         changeLocationOnToggle,
@@ -462,6 +507,7 @@ class _$FetchCities implements FetchCities {
     TResult? Function(FetchCurrentLocation value)? fetchCurrentLocation,
     TResult? Function(ChangeLocation value)? changeLocation,
     TResult? Function(FetchCities value)? fetchCities,
+    TResult? Function(LoadMoreCities value)? loadMoreCities,
     TResult? Function(SearchCities value)? searchCities,
     TResult? Function(ChangeLocationOnToggle value)? changeLocationOnToggle,
   }) {
@@ -474,6 +520,7 @@ class _$FetchCities implements FetchCities {
     TResult Function(FetchCurrentLocation value)? fetchCurrentLocation,
     TResult Function(ChangeLocation value)? changeLocation,
     TResult Function(FetchCities value)? fetchCities,
+    TResult Function(LoadMoreCities value)? loadMoreCities,
     TResult Function(SearchCities value)? searchCities,
     TResult Function(ChangeLocationOnToggle value)? changeLocationOnToggle,
     required TResult orElse(),
@@ -487,6 +534,139 @@ class _$FetchCities implements FetchCities {
 
 abstract class FetchCities implements LocationEvent {
   const factory FetchCities() = _$FetchCities;
+}
+
+/// @nodoc
+abstract class _$$LoadMoreCitiesCopyWith<$Res> {
+  factory _$$LoadMoreCitiesCopyWith(
+          _$LoadMoreCities value, $Res Function(_$LoadMoreCities) then) =
+      __$$LoadMoreCitiesCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$LoadMoreCitiesCopyWithImpl<$Res>
+    extends _$LocationEventCopyWithImpl<$Res, _$LoadMoreCities>
+    implements _$$LoadMoreCitiesCopyWith<$Res> {
+  __$$LoadMoreCitiesCopyWithImpl(
+      _$LoadMoreCities _value, $Res Function(_$LoadMoreCities) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$LoadMoreCities with DiagnosticableTreeMixin implements LoadMoreCities {
+  const _$LoadMoreCities();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'LocationEvent.loadMoreCities()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'LocationEvent.loadMoreCities'));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$LoadMoreCities);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() fetchCurrentLocation,
+    required TResult Function(String location) changeLocation,
+    required TResult Function() fetchCities,
+    required TResult Function() loadMoreCities,
+    required TResult Function(String query) searchCities,
+    required TResult Function() changeLocationOnToggle,
+  }) {
+    return loadMoreCities();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? fetchCurrentLocation,
+    TResult? Function(String location)? changeLocation,
+    TResult? Function()? fetchCities,
+    TResult? Function()? loadMoreCities,
+    TResult? Function(String query)? searchCities,
+    TResult? Function()? changeLocationOnToggle,
+  }) {
+    return loadMoreCities?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? fetchCurrentLocation,
+    TResult Function(String location)? changeLocation,
+    TResult Function()? fetchCities,
+    TResult Function()? loadMoreCities,
+    TResult Function(String query)? searchCities,
+    TResult Function()? changeLocationOnToggle,
+    required TResult orElse(),
+  }) {
+    if (loadMoreCities != null) {
+      return loadMoreCities();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FetchCurrentLocation value) fetchCurrentLocation,
+    required TResult Function(ChangeLocation value) changeLocation,
+    required TResult Function(FetchCities value) fetchCities,
+    required TResult Function(LoadMoreCities value) loadMoreCities,
+    required TResult Function(SearchCities value) searchCities,
+    required TResult Function(ChangeLocationOnToggle value)
+        changeLocationOnToggle,
+  }) {
+    return loadMoreCities(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(FetchCurrentLocation value)? fetchCurrentLocation,
+    TResult? Function(ChangeLocation value)? changeLocation,
+    TResult? Function(FetchCities value)? fetchCities,
+    TResult? Function(LoadMoreCities value)? loadMoreCities,
+    TResult? Function(SearchCities value)? searchCities,
+    TResult? Function(ChangeLocationOnToggle value)? changeLocationOnToggle,
+  }) {
+    return loadMoreCities?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FetchCurrentLocation value)? fetchCurrentLocation,
+    TResult Function(ChangeLocation value)? changeLocation,
+    TResult Function(FetchCities value)? fetchCities,
+    TResult Function(LoadMoreCities value)? loadMoreCities,
+    TResult Function(SearchCities value)? searchCities,
+    TResult Function(ChangeLocationOnToggle value)? changeLocationOnToggle,
+    required TResult orElse(),
+  }) {
+    if (loadMoreCities != null) {
+      return loadMoreCities(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class LoadMoreCities implements LocationEvent {
+  const factory LoadMoreCities() = _$LoadMoreCities;
 }
 
 /// @nodoc
@@ -522,15 +702,23 @@ class __$$SearchCitiesCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SearchCities implements SearchCities {
+class _$SearchCities with DiagnosticableTreeMixin implements SearchCities {
   const _$SearchCities({required this.query});
 
   @override
   final String query;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'LocationEvent.searchCities(query: $query)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'LocationEvent.searchCities'))
+      ..add(DiagnosticsProperty('query', query));
   }
 
   @override
@@ -556,6 +744,7 @@ class _$SearchCities implements SearchCities {
     required TResult Function() fetchCurrentLocation,
     required TResult Function(String location) changeLocation,
     required TResult Function() fetchCities,
+    required TResult Function() loadMoreCities,
     required TResult Function(String query) searchCities,
     required TResult Function() changeLocationOnToggle,
   }) {
@@ -568,6 +757,7 @@ class _$SearchCities implements SearchCities {
     TResult? Function()? fetchCurrentLocation,
     TResult? Function(String location)? changeLocation,
     TResult? Function()? fetchCities,
+    TResult? Function()? loadMoreCities,
     TResult? Function(String query)? searchCities,
     TResult? Function()? changeLocationOnToggle,
   }) {
@@ -580,6 +770,7 @@ class _$SearchCities implements SearchCities {
     TResult Function()? fetchCurrentLocation,
     TResult Function(String location)? changeLocation,
     TResult Function()? fetchCities,
+    TResult Function()? loadMoreCities,
     TResult Function(String query)? searchCities,
     TResult Function()? changeLocationOnToggle,
     required TResult orElse(),
@@ -596,6 +787,7 @@ class _$SearchCities implements SearchCities {
     required TResult Function(FetchCurrentLocation value) fetchCurrentLocation,
     required TResult Function(ChangeLocation value) changeLocation,
     required TResult Function(FetchCities value) fetchCities,
+    required TResult Function(LoadMoreCities value) loadMoreCities,
     required TResult Function(SearchCities value) searchCities,
     required TResult Function(ChangeLocationOnToggle value)
         changeLocationOnToggle,
@@ -609,6 +801,7 @@ class _$SearchCities implements SearchCities {
     TResult? Function(FetchCurrentLocation value)? fetchCurrentLocation,
     TResult? Function(ChangeLocation value)? changeLocation,
     TResult? Function(FetchCities value)? fetchCities,
+    TResult? Function(LoadMoreCities value)? loadMoreCities,
     TResult? Function(SearchCities value)? searchCities,
     TResult? Function(ChangeLocationOnToggle value)? changeLocationOnToggle,
   }) {
@@ -621,6 +814,7 @@ class _$SearchCities implements SearchCities {
     TResult Function(FetchCurrentLocation value)? fetchCurrentLocation,
     TResult Function(ChangeLocation value)? changeLocation,
     TResult Function(FetchCities value)? fetchCities,
+    TResult Function(LoadMoreCities value)? loadMoreCities,
     TResult Function(SearchCities value)? searchCities,
     TResult Function(ChangeLocationOnToggle value)? changeLocationOnToggle,
     required TResult orElse(),
@@ -659,12 +853,21 @@ class __$$ChangeLocationOnToggleCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ChangeLocationOnToggle implements ChangeLocationOnToggle {
+class _$ChangeLocationOnToggle
+    with DiagnosticableTreeMixin
+    implements ChangeLocationOnToggle {
   const _$ChangeLocationOnToggle();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'LocationEvent.changeLocationOnToggle()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(
+        DiagnosticsProperty('type', 'LocationEvent.changeLocationOnToggle'));
   }
 
   @override
@@ -682,6 +885,7 @@ class _$ChangeLocationOnToggle implements ChangeLocationOnToggle {
     required TResult Function() fetchCurrentLocation,
     required TResult Function(String location) changeLocation,
     required TResult Function() fetchCities,
+    required TResult Function() loadMoreCities,
     required TResult Function(String query) searchCities,
     required TResult Function() changeLocationOnToggle,
   }) {
@@ -694,6 +898,7 @@ class _$ChangeLocationOnToggle implements ChangeLocationOnToggle {
     TResult? Function()? fetchCurrentLocation,
     TResult? Function(String location)? changeLocation,
     TResult? Function()? fetchCities,
+    TResult? Function()? loadMoreCities,
     TResult? Function(String query)? searchCities,
     TResult? Function()? changeLocationOnToggle,
   }) {
@@ -706,6 +911,7 @@ class _$ChangeLocationOnToggle implements ChangeLocationOnToggle {
     TResult Function()? fetchCurrentLocation,
     TResult Function(String location)? changeLocation,
     TResult Function()? fetchCities,
+    TResult Function()? loadMoreCities,
     TResult Function(String query)? searchCities,
     TResult Function()? changeLocationOnToggle,
     required TResult orElse(),
@@ -722,6 +928,7 @@ class _$ChangeLocationOnToggle implements ChangeLocationOnToggle {
     required TResult Function(FetchCurrentLocation value) fetchCurrentLocation,
     required TResult Function(ChangeLocation value) changeLocation,
     required TResult Function(FetchCities value) fetchCities,
+    required TResult Function(LoadMoreCities value) loadMoreCities,
     required TResult Function(SearchCities value) searchCities,
     required TResult Function(ChangeLocationOnToggle value)
         changeLocationOnToggle,
@@ -735,6 +942,7 @@ class _$ChangeLocationOnToggle implements ChangeLocationOnToggle {
     TResult? Function(FetchCurrentLocation value)? fetchCurrentLocation,
     TResult? Function(ChangeLocation value)? changeLocation,
     TResult? Function(FetchCities value)? fetchCities,
+    TResult? Function(LoadMoreCities value)? loadMoreCities,
     TResult? Function(SearchCities value)? searchCities,
     TResult? Function(ChangeLocationOnToggle value)? changeLocationOnToggle,
   }) {
@@ -747,6 +955,7 @@ class _$ChangeLocationOnToggle implements ChangeLocationOnToggle {
     TResult Function(FetchCurrentLocation value)? fetchCurrentLocation,
     TResult Function(ChangeLocation value)? changeLocation,
     TResult Function(FetchCities value)? fetchCities,
+    TResult Function(LoadMoreCities value)? loadMoreCities,
     TResult Function(SearchCities value)? searchCities,
     TResult Function(ChangeLocationOnToggle value)? changeLocationOnToggle,
     required TResult orElse(),
@@ -768,8 +977,14 @@ mixin _$LocationState {
   String get errorMessage => throw _privateConstructorUsedError;
   String get shortAddress => throw _privateConstructorUsedError;
   CitiesModel? get citiesModel => throw _privateConstructorUsedError;
-  List<StateData> get cities => throw _privateConstructorUsedError;
+  List<CountryData> get cities => throw _privateConstructorUsedError;
+  List<CountryData> get searchCities => throw _privateConstructorUsedError;
+  int get currentPage => throw _privateConstructorUsedError;
+  int get itemsPerPage => throw _privateConstructorUsedError;
   String get location => throw _privateConstructorUsedError;
+  bool get isLoadingMore => throw _privateConstructorUsedError;
+  List<List<String>> get loadedCities => throw _privateConstructorUsedError;
+  bool get hasReachedEnd => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $LocationStateCopyWith<LocationState> get copyWith =>
@@ -787,8 +1002,14 @@ abstract class $LocationStateCopyWith<$Res> {
       String errorMessage,
       String shortAddress,
       CitiesModel? citiesModel,
-      List<StateData> cities,
-      String location});
+      List<CountryData> cities,
+      List<CountryData> searchCities,
+      int currentPage,
+      int itemsPerPage,
+      String location,
+      bool isLoadingMore,
+      List<List<String>> loadedCities,
+      bool hasReachedEnd});
 
   $CitiesModelCopyWith<$Res>? get citiesModel;
 }
@@ -811,7 +1032,13 @@ class _$LocationStateCopyWithImpl<$Res, $Val extends LocationState>
     Object? shortAddress = null,
     Object? citiesModel = freezed,
     Object? cities = null,
+    Object? searchCities = null,
+    Object? currentPage = null,
+    Object? itemsPerPage = null,
     Object? location = null,
+    Object? isLoadingMore = null,
+    Object? loadedCities = null,
+    Object? hasReachedEnd = null,
   }) {
     return _then(_value.copyWith(
       currentLocaion: null == currentLocaion
@@ -833,11 +1060,35 @@ class _$LocationStateCopyWithImpl<$Res, $Val extends LocationState>
       cities: null == cities
           ? _value.cities
           : cities // ignore: cast_nullable_to_non_nullable
-              as List<StateData>,
+              as List<CountryData>,
+      searchCities: null == searchCities
+          ? _value.searchCities
+          : searchCities // ignore: cast_nullable_to_non_nullable
+              as List<CountryData>,
+      currentPage: null == currentPage
+          ? _value.currentPage
+          : currentPage // ignore: cast_nullable_to_non_nullable
+              as int,
+      itemsPerPage: null == itemsPerPage
+          ? _value.itemsPerPage
+          : itemsPerPage // ignore: cast_nullable_to_non_nullable
+              as int,
       location: null == location
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
               as String,
+      isLoadingMore: null == isLoadingMore
+          ? _value.isLoadingMore
+          : isLoadingMore // ignore: cast_nullable_to_non_nullable
+              as bool,
+      loadedCities: null == loadedCities
+          ? _value.loadedCities
+          : loadedCities // ignore: cast_nullable_to_non_nullable
+              as List<List<String>>,
+      hasReachedEnd: null == hasReachedEnd
+          ? _value.hasReachedEnd
+          : hasReachedEnd // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 
@@ -867,8 +1118,14 @@ abstract class _$$_InitialCopyWith<$Res>
       String errorMessage,
       String shortAddress,
       CitiesModel? citiesModel,
-      List<StateData> cities,
-      String location});
+      List<CountryData> cities,
+      List<CountryData> searchCities,
+      int currentPage,
+      int itemsPerPage,
+      String location,
+      bool isLoadingMore,
+      List<List<String>> loadedCities,
+      bool hasReachedEnd});
 
   @override
   $CitiesModelCopyWith<$Res>? get citiesModel;
@@ -889,7 +1146,13 @@ class __$$_InitialCopyWithImpl<$Res>
     Object? shortAddress = null,
     Object? citiesModel = freezed,
     Object? cities = null,
+    Object? searchCities = null,
+    Object? currentPage = null,
+    Object? itemsPerPage = null,
     Object? location = null,
+    Object? isLoadingMore = null,
+    Object? loadedCities = null,
+    Object? hasReachedEnd = null,
   }) {
     return _then(_$_Initial(
       currentLocaion: null == currentLocaion
@@ -911,26 +1174,58 @@ class __$$_InitialCopyWithImpl<$Res>
       cities: null == cities
           ? _value._cities
           : cities // ignore: cast_nullable_to_non_nullable
-              as List<StateData>,
+              as List<CountryData>,
+      searchCities: null == searchCities
+          ? _value._searchCities
+          : searchCities // ignore: cast_nullable_to_non_nullable
+              as List<CountryData>,
+      currentPage: null == currentPage
+          ? _value.currentPage
+          : currentPage // ignore: cast_nullable_to_non_nullable
+              as int,
+      itemsPerPage: null == itemsPerPage
+          ? _value.itemsPerPage
+          : itemsPerPage // ignore: cast_nullable_to_non_nullable
+              as int,
       location: null == location
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
               as String,
+      isLoadingMore: null == isLoadingMore
+          ? _value.isLoadingMore
+          : isLoadingMore // ignore: cast_nullable_to_non_nullable
+              as bool,
+      loadedCities: null == loadedCities
+          ? _value._loadedCities
+          : loadedCities // ignore: cast_nullable_to_non_nullable
+              as List<List<String>>,
+      hasReachedEnd: null == hasReachedEnd
+          ? _value.hasReachedEnd
+          : hasReachedEnd // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
 
 /// @nodoc
 
-class _$_Initial implements _Initial {
+class _$_Initial with DiagnosticableTreeMixin implements _Initial {
   const _$_Initial(
       {required this.currentLocaion,
       required this.errorMessage,
       required this.shortAddress,
       required this.citiesModel,
-      required final List<StateData> cities,
-      required this.location})
-      : _cities = cities;
+      required final List<CountryData> cities,
+      required final List<CountryData> searchCities,
+      required this.currentPage,
+      required this.itemsPerPage,
+      required this.location,
+      required this.isLoadingMore,
+      required final List<List<String>> loadedCities,
+      required this.hasReachedEnd})
+      : _cities = cities,
+        _searchCities = searchCities,
+        _loadedCities = loadedCities;
 
   @override
   final String currentLocaion;
@@ -940,20 +1235,63 @@ class _$_Initial implements _Initial {
   final String shortAddress;
   @override
   final CitiesModel? citiesModel;
-  final List<StateData> _cities;
+  final List<CountryData> _cities;
   @override
-  List<StateData> get cities {
+  List<CountryData> get cities {
     if (_cities is EqualUnmodifiableListView) return _cities;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_cities);
   }
 
+  final List<CountryData> _searchCities;
   @override
-  final String location;
+  List<CountryData> get searchCities {
+    if (_searchCities is EqualUnmodifiableListView) return _searchCities;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_searchCities);
+  }
 
   @override
-  String toString() {
-    return 'LocationState(currentLocaion: $currentLocaion, errorMessage: $errorMessage, shortAddress: $shortAddress, citiesModel: $citiesModel, cities: $cities, location: $location)';
+  final int currentPage;
+  @override
+  final int itemsPerPage;
+  @override
+  final String location;
+  @override
+  final bool isLoadingMore;
+  final List<List<String>> _loadedCities;
+  @override
+  List<List<String>> get loadedCities {
+    if (_loadedCities is EqualUnmodifiableListView) return _loadedCities;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_loadedCities);
+  }
+
+  @override
+  final bool hasReachedEnd;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'LocationState(currentLocaion: $currentLocaion, errorMessage: $errorMessage, shortAddress: $shortAddress, citiesModel: $citiesModel, cities: $cities, searchCities: $searchCities, currentPage: $currentPage, itemsPerPage: $itemsPerPage, location: $location, isLoadingMore: $isLoadingMore, loadedCities: $loadedCities, hasReachedEnd: $hasReachedEnd)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'LocationState'))
+      ..add(DiagnosticsProperty('currentLocaion', currentLocaion))
+      ..add(DiagnosticsProperty('errorMessage', errorMessage))
+      ..add(DiagnosticsProperty('shortAddress', shortAddress))
+      ..add(DiagnosticsProperty('citiesModel', citiesModel))
+      ..add(DiagnosticsProperty('cities', cities))
+      ..add(DiagnosticsProperty('searchCities', searchCities))
+      ..add(DiagnosticsProperty('currentPage', currentPage))
+      ..add(DiagnosticsProperty('itemsPerPage', itemsPerPage))
+      ..add(DiagnosticsProperty('location', location))
+      ..add(DiagnosticsProperty('isLoadingMore', isLoadingMore))
+      ..add(DiagnosticsProperty('loadedCities', loadedCities))
+      ..add(DiagnosticsProperty('hasReachedEnd', hasReachedEnd));
   }
 
   @override
@@ -970,8 +1308,20 @@ class _$_Initial implements _Initial {
             (identical(other.citiesModel, citiesModel) ||
                 other.citiesModel == citiesModel) &&
             const DeepCollectionEquality().equals(other._cities, _cities) &&
+            const DeepCollectionEquality()
+                .equals(other._searchCities, _searchCities) &&
+            (identical(other.currentPage, currentPage) ||
+                other.currentPage == currentPage) &&
+            (identical(other.itemsPerPage, itemsPerPage) ||
+                other.itemsPerPage == itemsPerPage) &&
             (identical(other.location, location) ||
-                other.location == location));
+                other.location == location) &&
+            (identical(other.isLoadingMore, isLoadingMore) ||
+                other.isLoadingMore == isLoadingMore) &&
+            const DeepCollectionEquality()
+                .equals(other._loadedCities, _loadedCities) &&
+            (identical(other.hasReachedEnd, hasReachedEnd) ||
+                other.hasReachedEnd == hasReachedEnd));
   }
 
   @override
@@ -982,7 +1332,13 @@ class _$_Initial implements _Initial {
       shortAddress,
       citiesModel,
       const DeepCollectionEquality().hash(_cities),
-      location);
+      const DeepCollectionEquality().hash(_searchCities),
+      currentPage,
+      itemsPerPage,
+      location,
+      isLoadingMore,
+      const DeepCollectionEquality().hash(_loadedCities),
+      hasReachedEnd);
 
   @JsonKey(ignore: true)
   @override
@@ -997,8 +1353,14 @@ abstract class _Initial implements LocationState {
       required final String errorMessage,
       required final String shortAddress,
       required final CitiesModel? citiesModel,
-      required final List<StateData> cities,
-      required final String location}) = _$_Initial;
+      required final List<CountryData> cities,
+      required final List<CountryData> searchCities,
+      required final int currentPage,
+      required final int itemsPerPage,
+      required final String location,
+      required final bool isLoadingMore,
+      required final List<List<String>> loadedCities,
+      required final bool hasReachedEnd}) = _$_Initial;
 
   @override
   String get currentLocaion;
@@ -1009,9 +1371,21 @@ abstract class _Initial implements LocationState {
   @override
   CitiesModel? get citiesModel;
   @override
-  List<StateData> get cities;
+  List<CountryData> get cities;
+  @override
+  List<CountryData> get searchCities;
+  @override
+  int get currentPage;
+  @override
+  int get itemsPerPage;
   @override
   String get location;
+  @override
+  bool get isLoadingMore;
+  @override
+  List<List<String>> get loadedCities;
+  @override
+  bool get hasReachedEnd;
   @override
   @JsonKey(ignore: true)
   _$$_InitialCopyWith<_$_Initial> get copyWith =>

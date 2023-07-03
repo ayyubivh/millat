@@ -1,6 +1,6 @@
 import 'dart:async';
-
 import 'package:bloc/bloc.dart';
+import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
@@ -21,34 +21,46 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
     on<ChangeLocation>(_changeLocation);
     on<ChangeLocationOnToggle>(_changeLocationOnToggle);
   }
-  FutureOr<void> _fetchCities(
+  Future<void> _fetchCities(
       FetchCities event, Emitter<LocationState> emit) async {
     try {
       final data = await locationService.fetchCities();
-      final List<StateData> cities = data?.data.states ?? [];
-
+      final List<CountryData> cities = data!.data.toList();
       emit(state.copyWith(
-        citiesModel: data,
-        cities: cities,
-      ));
+          citiesModel: data, cities: cities, searchCities: cities));
+      // print('cities on the bloc $data');
     } catch (e, stackTrace) {
-      print('Error fetching cities: $e');
-      print('Stack trace: $stackTrace');
+      if (kDebugMode) {
+        print('Error fetching cities: $e');
+        print('Stack trace: $stackTrace');
+      }
       emit(state.copyWith(
-          errorMessage: 'An error occurred while fetching cities.'));
+        errorMessage: 'An error occurred while fetching cities.',
+      ));
     }
   }
 
   FutureOr<void> _searchCities(
-      SearchCities event, Emitter<LocationState> emit) {
+      SearchCities event, Emitter<LocationState> emit) async {
     final query = event.query.toLowerCase();
+
     if (query.isEmpty) {
-      emit(state.copyWith(cities: state.cities));
+      emit(state.copyWith(searchCities: state.cities));
+      print('empty query cities ${state.cities}');
     } else {
-      final searchResults = state.cities.where((city) {
-        return city.name!.toLowerCase().contains(query);
-      }).toList();
-      emit(state.copyWith(cities: searchResults));
+      final searchResults = state.searchCities
+          .map((countryData) => CountryData(
+                iso3: countryData.iso3,
+                iso2: countryData.iso2,
+                country: countryData.country,
+                cities: countryData.cities
+                    .where((city) => city.toLowerCase().contains(query))
+                    .toList(),
+              ))
+          .where((countryData) => countryData.cities.isNotEmpty)
+          .toList();
+
+      emit(state.copyWith(searchCities: searchResults));
     }
   }
 
@@ -61,14 +73,17 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
 
       servicePermission = await Geolocator.isLocationServiceEnabled();
       if (!servicePermission) {
-        emit(state.copyWith(errorMessage: 'Service Disabled'));
-
-        return;
+        emit(state.copyWith(errorMessage: 'Location service is disabled'));
+        return null;
       }
 
       permission = await Geolocator.checkPermission();
       if (permission == LocationPermission.denied) {
         permission = await Geolocator.requestPermission();
+        if (permission == LocationPermission.denied) {
+          emit(state.copyWith(errorMessage: 'Location permission denied'));
+          return null;
+        }
       }
 
       currentLocation = await Geolocator.getCurrentPosition();
@@ -80,9 +95,10 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
 
       emit(state.copyWith(
           currentLocaion: currentAddress, location: currentAddress));
-      print('current address is here $currentAddress');
+      print('Current address: $currentAddress');
     } catch (e) {
-      throw Exception(e);
+      emit(state.copyWith(errorMessage: 'Error fetching location'));
+      print('Error fetching location: $e');
     }
   }
 
@@ -119,7 +135,6 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
 
   FutureOr<void> _changeLocationOnToggle(
       ChangeLocationOnToggle event, Emitter<LocationState> emit) {
-    print(state.location);
     emit(state.copyWith(currentLocaion: state.location));
   }
 }

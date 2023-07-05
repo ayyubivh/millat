@@ -170,7 +170,7 @@ class NamazTimingBloc extends Bloc<NamazTimingEvent, NamazTimingState> {
     return '';
   }
 
-  void sheduleInitialNamazTimingNotification(
+  void scheduleInitialNamazTimingNotification(
       DateTime upcomingNamazTime, String namazTimeName) {
     NotificationService().scheduleNotification(
       scheduledNotificationDateTime: upcomingNamazTime,
@@ -185,31 +185,14 @@ class NamazTimingBloc extends Bloc<NamazTimingEvent, NamazTimingState> {
     if (prayerTimings != null) {
       final currentNamaz = getCurrentNamaz(prayerTimings);
       final currentNamazTime = getNamazTime(prayerTimings, currentNamaz);
-      // print('Current namaz on the bloc: $currentNamaz at $currentNamazTime');
+      setNamazTimeNotification(prayerTimings);
       emit(state.copyWith(
           currentNamaz: {'name': currentNamaz, 'time': currentNamazTime}));
 
       final upcomingNamaz = getUpcomingNamaz(prayerTimings, currentNamaz);
       final upcomingNamazTime = getNamazTime(prayerTimings, upcomingNamaz);
-      // print('Upcoming namaz on the bloc: $upcomingNamaz at $upcomingNamazTime');
       emit(state.copyWith(
           upcomingNamaz: {'name': upcomingNamaz, 'time': upcomingNamazTime}));
-      final currentNama = state.upcomingNamaz;
-      final currentNamazTim = currentNama?['time'] ?? '';
-      final currentNamazTimeName = currentNama?['name'] ?? '';
-      final parsedCurrentNamazTime = DateFormat('HH:mm').parse(currentNamazTim);
-      final now = DateTime.now();
-
-      final scheduledDateTime = DateTime(
-        now.year,
-        now.month,
-        now.day,
-        parsedCurrentNamazTime.hour,
-        parsedCurrentNamazTime.minute,
-      );
-      print('here it the schedule time $scheduledDateTime');
-      sheduleInitialNamazTimingNotification(
-          scheduledDateTime, currentNamazTimeName);
     }
   }
 
@@ -229,6 +212,47 @@ class NamazTimingBloc extends Bloc<NamazTimingEvent, NamazTimingState> {
     } else {
       return 'Isha';
     }
+  }
+
+  setNamazTimeNotification(PrayerTimings prayerTimings) {
+    if (prayerTimings.asr != null) {
+      scheduleInitialNamazTimingNotification(
+          formatTime(prayerTimings.asr!), 'Asr');
+    }
+    if (prayerTimings.dhuhr != null) {
+      scheduleInitialNamazTimingNotification(
+          formatTime(prayerTimings.dhuhr!), 'Dhuhr');
+    }
+    if (prayerTimings.fajr != null) {
+      scheduleInitialNamazTimingNotification(
+          formatTime(prayerTimings.fajr!), 'Fajr');
+    }
+    if (prayerTimings.isha != null) {
+      scheduleInitialNamazTimingNotification(
+          formatTime(prayerTimings.isha!), 'Isha');
+    }
+    if (prayerTimings.maghrib != null) {
+      scheduleInitialNamazTimingNotification(
+          formatTime(prayerTimings.maghrib!), 'Maghrib');
+    }
+    if (prayerTimings.sunrise != null) {
+      scheduleInitialNamazTimingNotification(
+          formatTime(prayerTimings.sunrise!), 'Sunrise');
+    }
+    if (prayerTimings.imsak != null) {
+      scheduleInitialNamazTimingNotification(
+          formatTime(prayerTimings.imsak!), 'Qiyam');
+    }
+  }
+
+  DateTime formatTime(String time) {
+    var parsedCurrentNamazTime =
+        DateFormat('HH:mm').parse(time);
+    var now = DateTime.now();
+    
+    DateTime scheduledDateTime = DateTime(now.year, now.month, now.day,
+        parsedCurrentNamazTime.hour, parsedCurrentNamazTime.minute);
+    return scheduledDateTime;
   }
 
   String getUpcomingNamaz(PrayerTimings prayerTimings, String currentNamaz) {

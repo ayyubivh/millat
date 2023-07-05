@@ -257,10 +257,10 @@ class _HomeViewState extends State<HomeView> {
                                               const SizedBox(
                                                 width: 15,
                                               ),
-                                              const Column(
+                                              Column(
                                                 crossAxisAlignment:
                                                     CrossAxisAlignment.start,
-                                                children: [
+                                                children: const [
                                                   Text(
                                                     'Ramadan Special',
                                                     style: TextStyle(
@@ -294,12 +294,12 @@ class _HomeViewState extends State<HomeView> {
                                           const SizedBox(
                                             height: 20,
                                           ),
-                                          const Row(
+                                          Row(
                                             mainAxisAlignment:
                                                 MainAxisAlignment.spaceBetween,
                                             children: [
                                               Row(
-                                                children: [
+                                                children: const [
                                                   ImageIcon(
                                                     AssetImage(
                                                         'assets/icons/heart.png'),
@@ -315,7 +315,7 @@ class _HomeViewState extends State<HomeView> {
                                                 ],
                                               ),
                                               Row(
-                                                children: [
+                                                children: const [
                                                   ImageIcon(
                                                     AssetImage(
                                                         'assets/icons/share.png'),
@@ -546,14 +546,15 @@ class _HomeViewState extends State<HomeView> {
                                                   value: 0.5,
                                                   onChanged: (value) {},
                                                 ),
-                                                const Padding(
-                                                  padding: EdgeInsets.symmetric(
+                                                Padding(
+                                                  padding: const EdgeInsets
+                                                          .symmetric(
                                                       horizontal: 25),
                                                   child: Row(
                                                     mainAxisAlignment:
                                                         MainAxisAlignment
                                                             .spaceBetween,
-                                                    children: [
+                                                    children: const [
                                                       Text(
                                                         '2:44',
                                                         style: TextStyle(
@@ -1025,8 +1026,8 @@ class _HomeViewState extends State<HomeView> {
                 )
               ],
             ),
-            const Row(
-              children: [
+            Row(
+              children: const [
                 ImageIcon(
                   AssetImage('assets/icons/share.png'),
                   color: black165,
@@ -1078,11 +1079,11 @@ class _HomeViewState extends State<HomeView> {
             const SizedBox(
               height: 15,
             ),
-            const Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Row(
-                  children: [
+                  children: const [
                     Text(
                       'MRP',
                       style: TextStyle(
@@ -1103,7 +1104,7 @@ class _HomeViewState extends State<HomeView> {
                     ),
                   ],
                 ),
-                Text(
+                const Text(
                   '11%off',
                   style: TextStyle(
                       color: orange255,

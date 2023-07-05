@@ -55,9 +55,9 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
                 value: 10,
                 onChanged: (value) {},
               ),
-              const Row(
+              Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
+                children: const [
                   Text(
                     'Personal Info',
                     style:
@@ -405,9 +405,9 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
                 const SizedBox(
                   height: 20,
                 ),
-                const Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
+                  children: const [
                     Text('Shipping Fee',
                         style: TextStyle(
                             color: black26,
@@ -423,9 +423,9 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
                 const SizedBox(
                   height: 20,
                 ),
-                const Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
+                  children: const [
                     Text('Estimating Tax',
                         style: TextStyle(
                             color: black26,

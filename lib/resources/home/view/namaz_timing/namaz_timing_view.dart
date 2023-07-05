@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:geocoding/geocoding.dart';
+import 'package:intl/intl.dart';
 import 'package:millat/resources/authentication/bloc/logic/database_bloc/database_bloc.dart';
 import '../../../../utils/globals.dart';
 import '../../../../utils/size_utility.dart';
+import '../../../../utils/utils.dart';
 import '../../../profile/views/profile_view.dart';
 import '../../bloc/logic/location_bloc/location_bloc.dart';
 import '../../bloc/logic/namaz_timing_bloc/namaz_timing_bloc.dart';
+import '../../bloc/service/notification_service.dart';
 
 class NamazTimingView extends StatefulWidget {
   static const routeName = 'namaz-timing';
@@ -893,11 +896,11 @@ class _NamazTimingViewState extends State<NamazTimingView> {
           child: Column(
             children: [
               const SizedBox(height: 15),
-              const Row(
+              Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Column(
+                  const Column(
                     children: [
                       Text(
                         '26 °',
@@ -920,18 +923,21 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                   ),
                   Column(
                     children: [
-                      Text(
-                        '2 Dhu al-Qi\'dah,1444',
-                        style: TextStyle(
-                          color: primaryGreen,
-                          fontSize: 20,
-                          fontWeight: FontWeight.w600,
+                      BlocBuilder<NamazTimingBloc, NamazTimingState>(
+                        builder: (context, state) => Text(
+                          state.arabicDate,
+                          style: const TextStyle(
+                            fontFamily: 'ArabicFont',
+                            color: primaryGreen,
+                            fontSize: 20,
+                            fontWeight: FontWeight.w600,
+                          ),
                         ),
                       ),
-                      SizedBox(height: 9),
+                      const SizedBox(height: 9),
                       Text(
-                        'Monday,22nd May 2023',
-                        style: TextStyle(
+                        Utilities.formatDate(DateTime.now().toString()),
+                        style: const TextStyle(
                           color: black104,
                           fontSize: 14,
                           fontWeight: FontWeight.w400,
@@ -1524,10 +1530,11 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   IconButton(
-                      onPressed: () {
-                        Navigator.of(context).pop();
-                      },
-                      icon: const Icon(Icons.arrow_back_ios)),
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                    icon: const Icon(Icons.arrow_back_ios),
+                  ),
                   const Text(
                     'Calculation method',
                     style: TextStyle(
@@ -1563,19 +1570,28 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                         final id = value?.id!.toInt();
                         final name = value?.name;
                         final params = value?.params;
-                        // final location = value?.location;
-
-                        // Use the retrieved values as per your requirements
-
+                        final location = value?.location;
+                        final address = location;
                         return GestureDetector(
-                          onTap: () {
+                          onTap: () async {
                             setState(() {
                               _currentIndex = index;
                             });
 
+                            final currentAddress = await _getAddress(
+                              address?.latitude ?? 0,
+                              address?.longitude ?? 0,
+                            );
+                            print(
+                              'here is the address the changed in the UI address-----========== $currentAddress',
+                            );
+
                             context.read<NamazTimingBloc>().add(
-                                ChangeNamazMethods(
-                                    method: id!, context: context));
+                                  ChangeNamazMethods(
+                                    method: id!,
+                                    context: context,
+                                  ),
+                                );
                           },
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -1583,7 +1599,7 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                               const SizedBox(height: 10),
                               Container(
                                 width: SizeUtility(context).width,
-                                height: 188,
+                                height: 200,
                                 padding:
                                     const EdgeInsets.only(left: 12, top: 12),
                                 decoration: BoxDecoration(
@@ -1596,7 +1612,7 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      '${index + 1} ${name}',
+                                      '${index + 1} $name',
                                       style: TextStyle(
                                         fontWeight: FontWeight.w600,
                                         fontSize: 16,
@@ -1656,15 +1672,61 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                                           ),
                                         ),
                                         const SizedBox(width: 17),
-                                        Text(
-                                          'Pakistan Banladesh, India',
-                                          style: TextStyle(
-                                            fontWeight: FontWeight.w400,
-                                            fontSize: 17,
-                                            height: 1.3,
-                                            color: _currentIndex == index
-                                                ? whiteClr.withOpacity(0.7)
-                                                : black26,
+                                        Expanded(
+                                          child: FutureBuilder<String>(
+                                            future: _getAddress(
+                                              address?.latitude ?? 0,
+                                              address?.longitude ?? 0,
+                                            ),
+                                            builder: (context, snapshot) {
+                                              if (snapshot.connectionState ==
+                                                  ConnectionState.waiting) {
+                                                return Text(
+                                                  'Loading...',
+                                                  style: TextStyle(
+                                                    fontWeight: FontWeight.w400,
+                                                    fontSize: 17,
+                                                    height: 1.3,
+                                                    color: _currentIndex ==
+                                                            index
+                                                        ? whiteClr
+                                                            .withOpacity(0.7)
+                                                        : black26,
+                                                  ),
+                                                );
+                                              } else if (snapshot.hasError) {
+                                                return Text(
+                                                  'Error: ${snapshot.error}',
+                                                  style: TextStyle(
+                                                    fontWeight: FontWeight.w400,
+                                                    fontSize: 17,
+                                                    height: 1.3,
+                                                    color: _currentIndex ==
+                                                            index
+                                                        ? whiteClr
+                                                            .withOpacity(0.7)
+                                                        : black26,
+                                                  ),
+                                                );
+                                              } else {
+                                                final currentAddress =
+                                                    snapshot.data;
+                                                return Text(
+                                                  currentAddress ?? '',
+                                                  style: TextStyle(
+                                                    fontWeight: FontWeight.w400,
+                                                    fontSize: 17,
+                                                    height: 1.3,
+                                                    color: _currentIndex ==
+                                                            index
+                                                        ? whiteClr
+                                                            .withOpacity(0.7)
+                                                        : black26,
+                                                  ),
+                                                  overflow: TextOverflow.fade,
+                                                );
+                                              }
+                                            },
                                           ),
                                         ),
                                       ],
@@ -1688,15 +1750,12 @@ class _NamazTimingViewState extends State<NamazTimingView> {
     );
   }
 
-  _getAddress(double latitude, double longitude) async {
+  Future<String> _getAddress(double latitude, double longitude) async {
     try {
       List<Placemark> placemarks =
           await placemarkFromCoordinates(latitude, longitude);
       if (placemarks.isNotEmpty) {
         Placemark placemark = placemarks[0];
-        // String address = placemark.thoroughfare ?? '';
-        // String locality = placemark.locality ?? '';
-        // String subAdministrativeArea = placemark.subAdministrativeArea ?? '';
         String administrativeArea = placemark.administrativeArea ?? '';
         String country = placemark.country ?? '';
 
@@ -1746,7 +1805,17 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                 ),
               ),
               const SizedBox(width: 12),
-              const Icon(Icons.notifications_off_outlined),
+              IconButton(
+                  onPressed: () {
+                    var scheduleTime = DateFormat("yyyy-MM-dd hh:mm:ss")
+                        .parse((DateTime.now().second + 4).toString());
+                    NotificationService().scheduleNotification(
+                      scheduledNotificationDateTime: scheduleTime,
+                      title: 'Namaz Reminder',
+                      body: title,
+                    );
+                  },
+                  icon: Icon(Icons.notifications_off_outlined)),
             ],
           ),
         ),

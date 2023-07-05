@@ -985,6 +985,7 @@ mixin _$LocationState {
   bool get isLoadingMore => throw _privateConstructorUsedError;
   List<List<String>> get loadedCities => throw _privateConstructorUsedError;
   bool get hasReachedEnd => throw _privateConstructorUsedError;
+  bool get isPermissionDenied => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $LocationStateCopyWith<LocationState> get copyWith =>
@@ -1009,7 +1010,8 @@ abstract class $LocationStateCopyWith<$Res> {
       String location,
       bool isLoadingMore,
       List<List<String>> loadedCities,
-      bool hasReachedEnd});
+      bool hasReachedEnd,
+      bool isPermissionDenied});
 
   $CitiesModelCopyWith<$Res>? get citiesModel;
 }
@@ -1039,6 +1041,7 @@ class _$LocationStateCopyWithImpl<$Res, $Val extends LocationState>
     Object? isLoadingMore = null,
     Object? loadedCities = null,
     Object? hasReachedEnd = null,
+    Object? isPermissionDenied = null,
   }) {
     return _then(_value.copyWith(
       currentLocaion: null == currentLocaion
@@ -1089,6 +1092,10 @@ class _$LocationStateCopyWithImpl<$Res, $Val extends LocationState>
           ? _value.hasReachedEnd
           : hasReachedEnd // ignore: cast_nullable_to_non_nullable
               as bool,
+      isPermissionDenied: null == isPermissionDenied
+          ? _value.isPermissionDenied
+          : isPermissionDenied // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 
@@ -1125,7 +1132,8 @@ abstract class _$$_InitialCopyWith<$Res>
       String location,
       bool isLoadingMore,
       List<List<String>> loadedCities,
-      bool hasReachedEnd});
+      bool hasReachedEnd,
+      bool isPermissionDenied});
 
   @override
   $CitiesModelCopyWith<$Res>? get citiesModel;
@@ -1153,6 +1161,7 @@ class __$$_InitialCopyWithImpl<$Res>
     Object? isLoadingMore = null,
     Object? loadedCities = null,
     Object? hasReachedEnd = null,
+    Object? isPermissionDenied = null,
   }) {
     return _then(_$_Initial(
       currentLocaion: null == currentLocaion
@@ -1203,6 +1212,10 @@ class __$$_InitialCopyWithImpl<$Res>
           ? _value.hasReachedEnd
           : hasReachedEnd // ignore: cast_nullable_to_non_nullable
               as bool,
+      isPermissionDenied: null == isPermissionDenied
+          ? _value.isPermissionDenied
+          : isPermissionDenied // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -1222,7 +1235,8 @@ class _$_Initial with DiagnosticableTreeMixin implements _Initial {
       required this.location,
       required this.isLoadingMore,
       required final List<List<String>> loadedCities,
-      required this.hasReachedEnd})
+      required this.hasReachedEnd,
+      required this.isPermissionDenied})
       : _cities = cities,
         _searchCities = searchCities,
         _loadedCities = loadedCities;
@@ -1269,10 +1283,12 @@ class _$_Initial with DiagnosticableTreeMixin implements _Initial {
 
   @override
   final bool hasReachedEnd;
+  @override
+  final bool isPermissionDenied;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'LocationState(currentLocaion: $currentLocaion, errorMessage: $errorMessage, shortAddress: $shortAddress, citiesModel: $citiesModel, cities: $cities, searchCities: $searchCities, currentPage: $currentPage, itemsPerPage: $itemsPerPage, location: $location, isLoadingMore: $isLoadingMore, loadedCities: $loadedCities, hasReachedEnd: $hasReachedEnd)';
+    return 'LocationState(currentLocaion: $currentLocaion, errorMessage: $errorMessage, shortAddress: $shortAddress, citiesModel: $citiesModel, cities: $cities, searchCities: $searchCities, currentPage: $currentPage, itemsPerPage: $itemsPerPage, location: $location, isLoadingMore: $isLoadingMore, loadedCities: $loadedCities, hasReachedEnd: $hasReachedEnd, isPermissionDenied: $isPermissionDenied)';
   }
 
   @override
@@ -1291,7 +1307,8 @@ class _$_Initial with DiagnosticableTreeMixin implements _Initial {
       ..add(DiagnosticsProperty('location', location))
       ..add(DiagnosticsProperty('isLoadingMore', isLoadingMore))
       ..add(DiagnosticsProperty('loadedCities', loadedCities))
-      ..add(DiagnosticsProperty('hasReachedEnd', hasReachedEnd));
+      ..add(DiagnosticsProperty('hasReachedEnd', hasReachedEnd))
+      ..add(DiagnosticsProperty('isPermissionDenied', isPermissionDenied));
   }
 
   @override
@@ -1321,7 +1338,9 @@ class _$_Initial with DiagnosticableTreeMixin implements _Initial {
             const DeepCollectionEquality()
                 .equals(other._loadedCities, _loadedCities) &&
             (identical(other.hasReachedEnd, hasReachedEnd) ||
-                other.hasReachedEnd == hasReachedEnd));
+                other.hasReachedEnd == hasReachedEnd) &&
+            (identical(other.isPermissionDenied, isPermissionDenied) ||
+                other.isPermissionDenied == isPermissionDenied));
   }
 
   @override
@@ -1338,7 +1357,8 @@ class _$_Initial with DiagnosticableTreeMixin implements _Initial {
       location,
       isLoadingMore,
       const DeepCollectionEquality().hash(_loadedCities),
-      hasReachedEnd);
+      hasReachedEnd,
+      isPermissionDenied);
 
   @JsonKey(ignore: true)
   @override
@@ -1360,7 +1380,8 @@ abstract class _Initial implements LocationState {
       required final String location,
       required final bool isLoadingMore,
       required final List<List<String>> loadedCities,
-      required final bool hasReachedEnd}) = _$_Initial;
+      required final bool hasReachedEnd,
+      required final bool isPermissionDenied}) = _$_Initial;
 
   @override
   String get currentLocaion;
@@ -1386,6 +1407,8 @@ abstract class _Initial implements LocationState {
   List<List<String>> get loadedCities;
   @override
   bool get hasReachedEnd;
+  @override
+  bool get isPermissionDenied;
   @override
   @JsonKey(ignore: true)
   _$$_InitialCopyWith<_$_Initial> get copyWith =>

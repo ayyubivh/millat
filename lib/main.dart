@@ -3,10 +3,12 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:intl/intl.dart';
 import 'package:millat/resources/authentication/bloc/logic/auth_bloc.dart';
 import 'package:millat/resources/authentication/bloc/logic/database_bloc/database_bloc.dart';
 import 'package:millat/resources/home/bloc/logic/location_bloc/location_bloc.dart';
 import 'package:millat/resources/home/bloc/logic/namaz_timing_bloc/namaz_timing_bloc.dart';
+import 'package:millat/resources/home/bloc/service/notification_service.dart';
 import 'package:millat/resources/home/view/namaz_timing/namaz_timing_view.dart';
 import 'package:millat/resources/on_boarding/view/on_boarding_view.dart';
 import 'package:millat/resources/profile/views/manage_address.dart';
@@ -21,6 +23,7 @@ import 'package:millat/resources/tabs/view/tabs_view.dart';
 import 'package:millat/utils/string_constants.dart';
 import 'package:responsive_framework/responsive_wrapper.dart';
 import 'package:responsive_framework/utils/scroll_behavior.dart';
+import 'package:timezone/data/latest.dart' as tz;
 
 void main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
@@ -33,12 +36,13 @@ void main() async {
       splashRemoved = true;
     }
   });
-  // SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
+  NotificationService().initNotification();
+  tz.initializeTimeZones();
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
     statusBarColor: Colors.transparent,
     statusBarIconBrightness: Brightness.dark,
   ));
-
+  // sheduleInitialNamazTimingNotification();
   await Hive.initFlutter();
   await Hive.openBox('userDetailsBox');
   runApp(MultiBlocProvider(
@@ -55,6 +59,27 @@ void main() async {
     child: MyApp(),
   ));
 }
+
+// void sheduleInitialNamazTimingNotification() {
+//   String upcomingNamazTime = '10:01';
+//   DateTime parsedUpcomingNamazTime =
+//       DateFormat('HH:mm').parse(upcomingNamazTime);
+
+//   DateTime now = DateTime.now();
+//   DateTime scheduledNotificationDateTime = DateTime(
+//     now.year,
+//     now.month,
+//     now.day,
+//     parsedUpcomingNamazTime.hour,
+//     parsedUpcomingNamazTime.minute,
+//   );
+
+//   NotificationService().scheduleNotification(
+//     scheduledNotificationDateTime: scheduledNotificationDateTime,
+//     title: 'Namaz Reminder',
+//     body: 'It is time for the upcoming namaz.',
+//   );
+// }
 
 class MyApp extends StatelessWidget {
   final _tokenBox = Hive.box(userBox);

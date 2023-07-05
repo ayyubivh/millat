@@ -15,7 +15,7 @@ class LocationState with _$LocationState {
     required bool isLoadingMore,
     required List<List<String>> loadedCities,
     required bool hasReachedEnd,
-
+    required bool isPermissionDenied,
     // required String? changedLocation,
   }) = _Initial;
   factory LocationState.initial() => const LocationState(
@@ -30,5 +30,6 @@ class LocationState with _$LocationState {
       searchCities: [],
       isLoadingMore: false,
       hasReachedEnd: false,
+      isPermissionDenied: false,
       loadedCities: []);
 }

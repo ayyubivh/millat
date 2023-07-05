@@ -16,4 +16,6 @@ class NamazTimingEvent with _$NamazTimingEvent {
   const factory NamazTimingEvent.changeHighLatitudeMethod(
       {required int numValue,
       required BuildContext context}) = ChangeHighLatitudeMethod;
+  const factory NamazTimingEvent.changeLangLongtoAddress() =
+      ChangeLangLongtoAddress;
 }

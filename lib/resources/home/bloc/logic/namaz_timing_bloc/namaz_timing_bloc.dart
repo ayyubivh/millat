@@ -6,6 +6,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:intl/intl.dart';
 import 'package:millat/resources/home/bloc/service/namaz_timing_service.dart';
+import 'package:millat/resources/home/bloc/service/notification_service.dart';
 
 import '../../models/namaz_methods/namaz_mthods_model.dart';
 import '../../models/prayer_timing_models/prayer_timing_model.dart';
@@ -16,6 +17,7 @@ part 'namaz_timing_bloc.freezed.dart';
 
 class NamazTimingBloc extends Bloc<NamazTimingEvent, NamazTimingState> {
   final NamazTimingService namazTimingService = NamazTimingService();
+  final NotificationService notificationService = NotificationService();
   NamazTimingBloc() : super(NamazTimingState.initial()) {
     on<FetchPrayerTiming>(_fetchPrayerTiming);
     on<PrayerTimingEvent>(_prayerTimingEvent);
@@ -37,12 +39,20 @@ class NamazTimingBloc extends Bloc<NamazTimingEvent, NamazTimingState> {
           method: state.method,
           highLatMethodVal: state.highLatMethodVal);
       final address = state.prayerModel?.data.meta.method.location;
-      final currentAddress = await getAddress(
+      final currentAddress = await _getAddress(
         address?.latitude ?? 0,
         address?.longitude ?? 0,
       );
-
-      emit(state.copyWith(prayerModel: data, methodPlace: currentAddress));
+      print('fetch timing address ${state.methodPlace}');
+      final dateDay = data.data.date.hijri.day;
+      final dateMonth = data.data.date.hijri.month.en;
+      final dateYear = data.data.date.hijri.year;
+      emit(state.copyWith(
+        prayerModel: data,
+        methodPlace: currentAddress,
+        arabicDate: "$dateDay $dateMonth $dateYear",
+      ));
+      print('here is the arabic date ${state.arabicDate}');
     } catch (e) {
       emit(state.copyWith(error: e.toString()));
     }
@@ -77,12 +87,13 @@ class NamazTimingBloc extends Bloc<NamazTimingEvent, NamazTimingState> {
         method: state.method,
         highLatMethodVal: event.numValue,
       );
+
       emit(state.copyWith(
         prayerModel: data,
         highLatMethodVal: event.numValue,
       ));
-      print(
-          'high late method datas ${data.data.meta.latitudeAdjustmentMethod}');
+      // print(
+      //     'high late method datas ${data.data.meta.latitudeAdjustmentMethod}');
     } catch (e) {
       print('error occurred on the change high Latitude Method $e');
       throw Exception(e);
@@ -106,6 +117,7 @@ class NamazTimingBloc extends Bloc<NamazTimingEvent, NamazTimingState> {
       FetchNamazMethods event, Emitter<NamazTimingState> emit) async {
     try {
       final data = await namazTimingService.fetchPrayerMethods();
+
       emit(state.copyWith(
           namazMethodsModel: data,
           namazMethodName: data.data!.values.first.name!));
@@ -117,8 +129,6 @@ class NamazTimingBloc extends Bloc<NamazTimingEvent, NamazTimingState> {
 
   Future<void> _changeNamaMethods(
       ChangeNamazMethods event, Emitter<NamazTimingState> emit) async {
-    // emit(state.copyWith(method: event.method));
-    // print('method current ${state.method}');
     try {
       final data = await namazTimingService.fetchPrayerTime(
           context: event.context,
@@ -126,17 +136,19 @@ class NamazTimingBloc extends Bloc<NamazTimingEvent, NamazTimingState> {
           school: state.school,
           method: event.method,
           highLatMethodVal: state.highLatMethodVal);
+
       emit(state.copyWith(
-          prayerModel: data,
-          method: event.method,
-          namazMethodName: data.data.meta.method.name));
+        prayerModel: data,
+        method: event.method,
+        namazMethodName: data.data.meta.method.name,
+      ));
     } catch (e) {
       print('error on the change methods on the bloc ${e.toString()}');
       throw Exception(e);
     }
   }
 
-  Future<String> getAddress(double latitude, double longitude) async {
+  Future<String> _getAddress(double latitude, double longitude) async {
     try {
       List<Placemark> placemarks =
           await placemarkFromCoordinates(latitude, longitude);
@@ -158,6 +170,15 @@ class NamazTimingBloc extends Bloc<NamazTimingEvent, NamazTimingState> {
     return '';
   }
 
+  void sheduleInitialNamazTimingNotification(
+      DateTime upcomingNamazTime, String namazTimeName) {
+    NotificationService().scheduleNotification(
+      scheduledNotificationDateTime: upcomingNamazTime,
+      title: 'Namaz Reminder',
+      body: namazTimeName,
+    );
+  }
+
   _prayerTimingEvent(PrayerTimingEvent event, Emitter<NamazTimingState> emit) {
     final prayerTimings = state.prayerModel?.data.timings;
 
@@ -173,6 +194,22 @@ class NamazTimingBloc extends Bloc<NamazTimingEvent, NamazTimingState> {
       // print('Upcoming namaz on the bloc: $upcomingNamaz at $upcomingNamazTime');
       emit(state.copyWith(
           upcomingNamaz: {'name': upcomingNamaz, 'time': upcomingNamazTime}));
+      final currentNama = state.upcomingNamaz;
+      final currentNamazTim = currentNama?['time'] ?? '';
+      final currentNamazTimeName = currentNama?['name'] ?? '';
+      final parsedCurrentNamazTime = DateFormat('HH:mm').parse(currentNamazTim);
+      final now = DateTime.now();
+
+      final scheduledDateTime = DateTime(
+        now.year,
+        now.month,
+        now.day,
+        parsedCurrentNamazTime.hour,
+        parsedCurrentNamazTime.minute,
+      );
+      print('here it the schedule time $scheduledDateTime');
+      sheduleInitialNamazTimingNotification(
+          scheduledDateTime, currentNamazTimeName);
     }
   }
 

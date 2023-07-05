@@ -5,6 +5,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:millat/resources/home/bloc/service/locatio_service.dart';
+import 'package:permission_handler/permission_handler.dart' as perm;
+import 'package:permission_handler/permission_handler.dart';
 
 import '../../models/cities_models/cities_model.dart';
 
@@ -28,11 +30,11 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
       final List<CountryData> cities = data!.data.toList();
       emit(state.copyWith(
           citiesModel: data, cities: cities, searchCities: cities));
-      // print('cities on the bloc $data');
+      // debugPrint('cities on the bloc $data');
     } catch (e, stackTrace) {
       if (kDebugMode) {
-        print('Error fetching cities: $e');
-        print('Stack trace: $stackTrace');
+        debugPrint('Error fetching cities: $e');
+        debugPrint('Stack trace: $stackTrace');
       }
       emit(state.copyWith(
         errorMessage: 'An error occurred while fetching cities.',
@@ -46,7 +48,7 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
 
     if (query.isEmpty) {
       emit(state.copyWith(searchCities: state.cities));
-      print('empty query cities ${state.cities}');
+      debugPrint('empty query cities ${state.cities}');
     } else {
       final searchResults = state.searchCities
           .map((countryData) => CountryData(
@@ -64,41 +66,51 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
     }
   }
 
-  FutureOr<void> _fetchCurrentLocation(
+  Future<void> _fetchCurrentLocation(
       FetchCurrentLocation event, Emitter<LocationState> emit) async {
     try {
-      bool servicePermission = false;
-      LocationPermission permission;
+      PermissionStatus permissionStatus = await Permission.location.request();
+      debugPrint('here the permission status $permissionStatus');
+
       Position currentLocation;
 
-      servicePermission = await Geolocator.isLocationServiceEnabled();
-      if (!servicePermission) {
-        emit(state.copyWith(errorMessage: 'Location service is disabled'));
-        return null;
-      }
+      if (await perm.Permission.locationWhenInUse.isGranted ||
+          await perm.Permission.location.isGranted) {
+        await Geolocator.isLocationServiceEnabled();
 
-      permission = await Geolocator.checkPermission();
-      if (permission == LocationPermission.denied) {
-        permission = await Geolocator.requestPermission();
-        if (permission == LocationPermission.denied) {
-          emit(state.copyWith(errorMessage: 'Location permission denied'));
-          return null;
+        permissionStatus = await perm.Permission.locationWhenInUse.status;
+        if (permissionStatus.isDenied || permissionStatus.isPermanentlyDenied) {
+          permissionStatus = await perm.Permission.locationWhenInUse.request();
+          if (permissionStatus.isPermanentlyDenied) {
+            debugPrint('denied');
+            emit(state.copyWith(errorMessage: 'Location permission denied'));
+            await perm.openAppSettings();
+            return;
+          }
         }
+
+        if (permissionStatus.isGranted) {
+          currentLocation = await Geolocator.getCurrentPosition();
+
+          String currentAddress = await getAddress(
+            currentLocation.latitude,
+            currentLocation.longitude,
+          );
+
+          emit(state.copyWith(
+            currentLocaion: currentAddress,
+            location: currentAddress,
+          ));
+          debugPrint('Current address: $currentAddress');
+        }
+      } else {
+        emit(state.copyWith(errorMessage: 'Location permission denied'));
+        await perm.openAppSettings();
+        return;
       }
-
-      currentLocation = await Geolocator.getCurrentPosition();
-
-      String currentAddress = await getAddress(
-        currentLocation.latitude,
-        currentLocation.longitude,
-      );
-
-      emit(state.copyWith(
-          currentLocaion: currentAddress, location: currentAddress));
-      print('Current address: $currentAddress');
     } catch (e) {
       emit(state.copyWith(errorMessage: 'Error fetching location'));
-      print('Error fetching location: $e');
+      debugPrint('Error fetching location: $e');
     }
   }
 
@@ -109,16 +121,17 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
       if (placemarks.isNotEmpty) {
         Placemark placemark = placemarks[0];
         // String address = placemark.thoroughfare ?? '';
-        // String locality = placemark.locality ?? '';
+        String locality = placemark.locality ?? '';
         // String subAdministrativeArea = placemark.subAdministrativeArea ?? '';
         String administrativeArea = placemark.administrativeArea ?? '';
-        String country = placemark.country ?? '';
-
-        String currentAddress = '$administrativeArea, $country';
+        // String country = placemark.country ?? '';
+        // print(
+        //     "=======$placemark address :::: $address===========\nlocality ::::: $locality=============\n subadminstrative area:::::$subAdministrativeArea========\n");
+        String currentAddress = '$administrativeArea, $locality';
         return currentAddress;
       }
     } catch (e) {
-      print('Error: $e');
+      debugPrint('Error:-------- $e');
     }
 
     return '';

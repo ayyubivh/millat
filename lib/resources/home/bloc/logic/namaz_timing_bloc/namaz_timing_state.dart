@@ -17,6 +17,7 @@ class NamazTimingState with _$NamazTimingState {
     required String methodPlace,
     required NamazMethodsModel? namazMethodsModel,
     required int highLatMethodVal,
+    required String arabicDate,
   }) = _Initial;
   factory NamazTimingState.initial() => NamazTimingState(
         success: "",
@@ -32,6 +33,7 @@ class NamazTimingState with _$NamazTimingState {
         namazMethodName: "",
         highLatMethodVal: 0,
         namazMethodsModel: null,
+        arabicDate: "",
         urlDate: DateFormat('dd-MM-yyyy').format(DateTime.now()).toString(),
       );
 }

@@ -22,33 +22,20 @@ class NotificationService {
     tz.initializeTimeZones();
   }
 
-  // notificationDetails() {
-  //   return const NotificationDetails(
-  //     android: AndroidNotificationDetails(
-  //       'channelId',
-  //       'channelName',
-  //       importance: Importance.max,
-  //       fullScreenIntent: true,
-  //       largeIcon: DrawableResourceAndroidBitmap('app_icon'),
-  //       playSound: true,
-  //     ),
-  //   );
-  // }
-
-  // Future showNotification(
-  //     {int id = 0, String? title, String? body, String? payLoad}) async {
-  //   return notificationsPlugin.show(
-  //       id, title, body, await notificationDetails());
-  // }
-
   Future<void> scheduleNotification({
     int id = 0,
     String? title,
     String? body,
     String? payload,
     required DateTime scheduledNotificationDateTime,
+    bool isNotificationOn = true,
   }) async {
-    tz.initializeTimeZones(); // Initialize time zones
+    tz.initializeTimeZones();
+    if (!isNotificationOn) {
+      await FlutterLocalNotificationsPlugin().cancel(id);
+      return;
+    }
+
     var androidPlatformChannelSpecifics = const AndroidNotificationDetails(
       'channelId',
       'channelName',
@@ -75,6 +62,7 @@ class NotificationService {
     if (scheduledDateTime.isBefore(now)) {
       return;
     }
+
     await FlutterLocalNotificationsPlugin().zonedSchedule(
       id,
       title,

@@ -31,40 +31,13 @@ class _NamazTimingViewState extends State<NamazTimingView> {
 
     BlocProvider.of<NamazTimingBloc>(context)
         .add(FetchPrayerTiming(context: context));
+    _currentIndex = context.read<NamazTimingBloc>().state.method;
     // _fetchCities();
     super.initState();
   }
 
-  // Future<void> _fetchCities() async {
-  //   try {
-  //     final cities = context.read<LocationBloc>().state.cities;
-  //     setState(() {
-  //       _cities = cities;
-  //     });
-  //   } catch (e) {
-  //     throw Exception(e);
-  //   }
-  // }
-
-  // void _search(String query) {
-  //   _searchResults.clear();
-
-  //   if (query.isNotEmpty) {
-  //     for (var city in _cities) {
-  //       if (city.name!.toLowerCase().contains(query.toLowerCase())) {
-  //         _searchResults.add(city);
-  //       }
-  //     }
-  //   } else {
-  //     _searchResults.addAll(_cities);
-  //   }
-
-  //   setState(() {});
-  // }
-
   @override
   Widget build(BuildContext context) {
-    // print('location ${_currentAddress}');
     return Scaffold(
         body: Column(
       children: [
@@ -123,9 +96,6 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                         const Spacer(),
                         InkWell(
                           onTap: () {
-                            // context
-                            //     .read<NamazTimingBloc>()
-                            //     .add(const NamazTimingEvent.prayerTimingEvent());
                             showModalBottomSheet(
                               backgroundColor: Colors.transparent,
                               context: context,
@@ -579,15 +549,15 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                                                                             ],
                                                                           ),
                                                                           const Divider(),
-                                                                          Padding(
+                                                                          const Padding(
                                                                             padding:
-                                                                                const EdgeInsets.all(18.0),
+                                                                                EdgeInsets.all(18.0),
                                                                             child:
                                                                                 Column(
                                                                               children: [
                                                                                 Row(
                                                                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                                                  children: const [
+                                                                                  children: [
                                                                                     Text(
                                                                                       'Fajr',
                                                                                       style: TextStyle(
@@ -598,10 +568,10 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                                                                                     Text('0 Minutes')
                                                                                   ],
                                                                                 ),
-                                                                                const SizedBox(height: 15),
+                                                                                SizedBox(height: 15),
                                                                                 Row(
                                                                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                                                  children: const [
+                                                                                  children: [
                                                                                     Text(
                                                                                       'Sunrise',
                                                                                       style: TextStyle(
@@ -612,10 +582,10 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                                                                                     Text('0 Minutes')
                                                                                   ],
                                                                                 ),
-                                                                                const SizedBox(height: 15),
+                                                                                SizedBox(height: 15),
                                                                                 Row(
                                                                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                                                  children: const [
+                                                                                  children: [
                                                                                     Text(
                                                                                       'Dhuhr',
                                                                                       style: TextStyle(
@@ -626,10 +596,10 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                                                                                     Text('0 Minutes')
                                                                                   ],
                                                                                 ),
-                                                                                const SizedBox(height: 15),
+                                                                                SizedBox(height: 15),
                                                                                 Row(
                                                                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                                                  children: const [
+                                                                                  children: [
                                                                                     Text(
                                                                                       'Asr',
                                                                                       style: TextStyle(
@@ -640,10 +610,10 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                                                                                     Text('0 Minutes')
                                                                                   ],
                                                                                 ),
-                                                                                const SizedBox(height: 15),
+                                                                                SizedBox(height: 15),
                                                                                 Row(
                                                                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                                                  children: const [
+                                                                                  children: [
                                                                                     Text(
                                                                                       'Magrib',
                                                                                       style: TextStyle(
@@ -654,10 +624,10 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                                                                                     Text('0 Minutes')
                                                                                   ],
                                                                                 ),
-                                                                                const SizedBox(height: 15),
+                                                                                SizedBox(height: 15),
                                                                                 Row(
                                                                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                                                  children: const [
+                                                                                  children: [
                                                                                     Text(
                                                                                       'Isha',
                                                                                       style: TextStyle(
@@ -668,10 +638,10 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                                                                                     Text('0 Minutes')
                                                                                   ],
                                                                                 ),
-                                                                                const SizedBox(height: 15),
+                                                                                SizedBox(height: 15),
                                                                                 Row(
                                                                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                                                  children: const [
+                                                                                  children: [
                                                                                     Text(
                                                                                       'Qiyam',
                                                                                       style: TextStyle(
@@ -899,8 +869,8 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Column(
-                    children: const [
+                  const Column(
+                    children: [
                       Text(
                         '26 °',
                         style: TextStyle(
@@ -981,6 +951,7 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                       final List prayerTimes = times.values.toList();
 
                       return buildNamazTile(
+                          isNotiy: state.isNotify,
                           title: prayerNames[index],
                           time: prayerTimes[index],
                           image: images[index]);
@@ -993,6 +964,69 @@ class _NamazTimingViewState extends State<NamazTimingView> {
         )
       ],
     ));
+  }
+
+  buildNamazTile({
+    required String title,
+    required String time,
+    required String image,
+    required bool isNotiy,
+  }) {
+    return Column(
+      children: [
+        ListTile(
+          onTap: () {},
+          leading: CircleAvatar(
+            radius: 18,
+            backgroundColor: green24,
+            child: Image.asset(
+              image,
+              width: 22,
+              height: 17,
+            ),
+          ),
+          title: Text(
+            title,
+            style: const TextStyle(
+              fontWeight: FontWeight.w600,
+              fontSize: 17,
+            ),
+          ),
+          trailing: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                time,
+                style: const TextStyle(
+                  fontWeight: FontWeight.w600,
+                  fontSize: 17,
+                ),
+              ),
+              const SizedBox(width: 12),
+              IconButton(
+                  onPressed: () {
+                    setState(() {
+                      isNotiy = !isNotiy;
+                    });
+                    print("here on the notify $isNotiy");
+                    context
+                        .read<NamazTimingBloc>()
+                        .add(OnNotiyOnOffEvent(value: isNotiy));
+                    context
+                        .read<NamazTimingBloc>()
+                        .add(const PrayerTimingEvent());
+                  },
+                  icon: isNotiy == true
+                      ? const Icon(Icons.notifications_none_rounded,
+                          color: primaryGreen)
+                      : const Icon(Icons.notifications_off_rounded,
+                          color: primaryGreen)),
+            ],
+          ),
+        ),
+        const Divider()
+      ],
+    );
   }
 
   Container daylightSavingWidget(BuildContext context) {
@@ -1558,11 +1592,11 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                 builder: (context, state) {
                   return Expanded(
                     child: ListView.builder(
-                      itemCount: state.namazMethodsModel?.data?.length,
+                      itemCount: state.namazMethodsModel?.length,
                       itemBuilder: (context, index) {
-                        final data = state.namazMethodsModel?.data;
+                        final data = state.namazMethodsModel;
 
-                        final values = data?.values.toList();
+                        final values = data;
 
                         final value = values?[index];
 
@@ -1571,19 +1605,12 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                         final params = value?.params;
                         final location = value?.location;
                         final address = location;
+
                         return GestureDetector(
                           onTap: () async {
                             setState(() {
                               _currentIndex = index;
                             });
-
-                            final currentAddress = await _getAddress(
-                              address?.latitude ?? 0,
-                              address?.longitude ?? 0,
-                            );
-                            print(
-                              'here is the address the changed in the UI address-----========== $currentAddress',
-                            );
 
                             context.read<NamazTimingBloc>().add(
                                   ChangeNamazMethods(
@@ -1641,7 +1668,7 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                                         ),
                                         const SizedBox(width: 5),
                                         Text(
-                                          'Fajr: ${params?.fajr}\nMaghrib: ${params?.maghrib ?? ''}\nIsha: ${params?.isha}\n',
+                                          'Fajr: ${params?.fajr ?? 0}\nMaghrib: ${params?.maghrib ?? 0}\nIsha: ${params?.isha ?? 0}\n',
                                           style: TextStyle(
                                             fontWeight: FontWeight.w400,
                                             fontSize: 17,
@@ -1755,7 +1782,7 @@ class _NamazTimingViewState extends State<NamazTimingView> {
           await placemarkFromCoordinates(latitude, longitude);
       if (placemarks.isNotEmpty) {
         Placemark placemark = placemarks[0];
-        String administrativeArea = placemark.administrativeArea ?? '';
+        String administrativeArea = placemark.locality ?? '';
         String country = placemark.country ?? '';
 
         String currentAddress = '$administrativeArea, $country';
@@ -1766,52 +1793,5 @@ class _NamazTimingViewState extends State<NamazTimingView> {
     }
 
     return '';
-  }
-
-  buildNamazTile({
-    required String title,
-    required String time,
-    required String image,
-  }) {
-    return Column(
-      children: [
-        ListTile(
-          onTap: () {},
-          leading: CircleAvatar(
-            radius: 18,
-            backgroundColor: green24,
-            child: Image.asset(
-              image,
-              width: 22,
-              height: 17,
-            ),
-          ),
-          title: Text(
-            title,
-            style: const TextStyle(
-              fontWeight: FontWeight.w600,
-              fontSize: 17,
-            ),
-          ),
-          trailing: Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(
-                time,
-                style: const TextStyle(
-                  fontWeight: FontWeight.w600,
-                  fontSize: 17,
-                ),
-              ),
-              const SizedBox(width: 12),
-              IconButton(
-                  onPressed: () {},
-                  icon: const Icon(Icons.notifications_none_rounded, color: primaryGreen)),
-            ],
-          ),
-        ),
-        const Divider()
-      ],
-    );
   }
 }

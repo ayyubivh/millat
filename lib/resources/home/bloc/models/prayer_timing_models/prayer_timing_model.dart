@@ -185,6 +185,7 @@ class MethodParams with _$MethodParams {
   factory MethodParams({
     @JsonKey(name: 'Fajr') required dynamic fajr,
     @JsonKey(name: 'Isha') required dynamic isha,
+    @JsonKey(name: "shafaq") dynamic shafaq,
   }) = _MethodParams;
 
   factory MethodParams.fromJson(Map<String, dynamic> json) =>

@@ -235,12 +235,14 @@ _$_MethodParams _$$_MethodParamsFromJson(Map<String, dynamic> json) =>
     _$_MethodParams(
       fajr: json['Fajr'],
       isha: json['Isha'],
+      shafaq: json['shafaq'],
     );
 
 Map<String, dynamic> _$$_MethodParamsToJson(_$_MethodParams instance) =>
     <String, dynamic>{
       'Fajr': instance.fajr,
       'Isha': instance.isha,
+      'shafaq': instance.shafaq,
     };
 
 _$_MethodLocation _$$_MethodLocationFromJson(Map<String, dynamic> json) =>

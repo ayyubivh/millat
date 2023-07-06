@@ -27,6 +27,7 @@ class NamazTimingBloc extends Bloc<NamazTimingEvent, NamazTimingState> {
     on<ChangeNamazMethods>(_changeNamaMethods);
     on<ChangeSchoolEvent>(_changeSchoolEvent);
     on<ChangeHighLatitudeMethod>(_changeHighLatitudeMethod);
+    on<OnNotiyOnOffEvent>(_onNotiyOnOffEvent);
   }
 
   _fetchPrayerTiming(
@@ -43,16 +44,22 @@ class NamazTimingBloc extends Bloc<NamazTimingEvent, NamazTimingState> {
         address?.latitude ?? 0,
         address?.longitude ?? 0,
       );
-      print('fetch timing address ${state.methodPlace}');
+
       final dateDay = data.data.date.hijri.day;
       final dateMonth = data.data.date.hijri.month.en;
       final dateYear = data.data.date.hijri.year;
+      final method = data.data.meta.method;
+      final methodId = method.id;
+      final methodaName = method.name;
       emit(state.copyWith(
         prayerModel: data,
         methodPlace: currentAddress,
         arabicDate: "$dateDay $dateMonth $dateYear",
+        method: methodId,
+        namazMethodName: methodaName,
       ));
-      print('here is the arabic date ${state.arabicDate}');
+      // print('fetch method ${state.method} and the $method');
+      // print('here is the data $data');
     } catch (e) {
       emit(state.copyWith(error: e.toString()));
     }
@@ -117,9 +124,11 @@ class NamazTimingBloc extends Bloc<NamazTimingEvent, NamazTimingState> {
       FetchNamazMethods event, Emitter<NamazTimingState> emit) async {
     try {
       final data = await namazTimingService.fetchPrayerMethods();
-
+      final sortedMethods = data.data!.values.toList()
+        ..sort((a, b) => a.id!.compareTo(b.id!));
+      print('here is the sorted methods $sortedMethods');
       emit(state.copyWith(
-          namazMethodsModel: data,
+          namazMethodsModel: sortedMethods,
           namazMethodName: data.data!.values.first.name!));
     } catch (e) {
       print('error occured on the bloc of fetch namaz methods $e');
@@ -136,7 +145,6 @@ class NamazTimingBloc extends Bloc<NamazTimingEvent, NamazTimingState> {
           school: state.school,
           method: event.method,
           highLatMethodVal: state.highLatMethodVal);
-
       emit(state.copyWith(
         prayerModel: data,
         method: event.method,
@@ -164,7 +172,7 @@ class NamazTimingBloc extends Bloc<NamazTimingEvent, NamazTimingState> {
         return currentAddress;
       }
     } catch (e) {
-      print('Error: $e');
+      debugPrint('Error: $e');
     }
 
     return '';
@@ -176,6 +184,7 @@ class NamazTimingBloc extends Bloc<NamazTimingEvent, NamazTimingState> {
       scheduledNotificationDateTime: upcomingNamazTime,
       title: 'Namaz Reminder',
       body: namazTimeName,
+      isNotificationOn: state.isNotify,
     );
   }
 
@@ -246,10 +255,9 @@ class NamazTimingBloc extends Bloc<NamazTimingEvent, NamazTimingState> {
   }
 
   DateTime formatTime(String time) {
-    var parsedCurrentNamazTime =
-        DateFormat('HH:mm').parse(time);
+    var parsedCurrentNamazTime = DateFormat('HH:mm').parse(time);
     var now = DateTime.now();
-    
+
     DateTime scheduledDateTime = DateTime(now.year, now.month, now.day,
         parsedCurrentNamazTime.hour, parsedCurrentNamazTime.minute);
     return scheduledDateTime;
@@ -295,5 +303,10 @@ class NamazTimingBloc extends Bloc<NamazTimingEvent, NamazTimingState> {
     final minute = int.parse(components[1]);
     return DateTime(DateTime.now().year, DateTime.now().month,
         DateTime.now().day, hour, minute);
+  }
+
+  FutureOr<void> _onNotiyOnOffEvent(
+      OnNotiyOnOffEvent event, Emitter<NamazTimingState> emit) {
+    emit(state.copyWith(isNotify: event.value));
   }
 }

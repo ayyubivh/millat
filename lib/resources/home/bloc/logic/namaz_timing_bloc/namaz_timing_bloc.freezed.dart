@@ -30,6 +30,7 @@ mixin _$NamazTimingEvent {
     required TResult Function(int numValue, BuildContext context)
         changeHighLatitudeMethod,
     required TResult Function() changeLangLongtoAddress,
+    required TResult Function(bool value) onNotiyOnOffEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -44,6 +45,7 @@ mixin _$NamazTimingEvent {
     TResult? Function(int numValue, BuildContext context)?
         changeHighLatitudeMethod,
     TResult? Function()? changeLangLongtoAddress,
+    TResult? Function(bool value)? onNotiyOnOffEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -58,6 +60,7 @@ mixin _$NamazTimingEvent {
     TResult Function(int numValue, BuildContext context)?
         changeHighLatitudeMethod,
     TResult Function()? changeLangLongtoAddress,
+    TResult Function(bool value)? onNotiyOnOffEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -74,6 +77,7 @@ mixin _$NamazTimingEvent {
         changeHighLatitudeMethod,
     required TResult Function(ChangeLangLongtoAddress value)
         changeLangLongtoAddress,
+    required TResult Function(OnNotiyOnOffEvent value) onNotiyOnOffEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -87,6 +91,7 @@ mixin _$NamazTimingEvent {
     TResult? Function(ChangeSchoolEvent value)? changeSchoolEvent,
     TResult? Function(ChangeHighLatitudeMethod value)? changeHighLatitudeMethod,
     TResult? Function(ChangeLangLongtoAddress value)? changeLangLongtoAddress,
+    TResult? Function(OnNotiyOnOffEvent value)? onNotiyOnOffEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -100,6 +105,7 @@ mixin _$NamazTimingEvent {
     TResult Function(ChangeSchoolEvent value)? changeSchoolEvent,
     TResult Function(ChangeHighLatitudeMethod value)? changeHighLatitudeMethod,
     TResult Function(ChangeLangLongtoAddress value)? changeLangLongtoAddress,
+    TResult Function(OnNotiyOnOffEvent value)? onNotiyOnOffEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -199,6 +205,7 @@ class _$FetchPrayerTiming implements FetchPrayerTiming {
     required TResult Function(int numValue, BuildContext context)
         changeHighLatitudeMethod,
     required TResult Function() changeLangLongtoAddress,
+    required TResult Function(bool value) onNotiyOnOffEvent,
   }) {
     return fetchPrayerTiming(context);
   }
@@ -216,6 +223,7 @@ class _$FetchPrayerTiming implements FetchPrayerTiming {
     TResult? Function(int numValue, BuildContext context)?
         changeHighLatitudeMethod,
     TResult? Function()? changeLangLongtoAddress,
+    TResult? Function(bool value)? onNotiyOnOffEvent,
   }) {
     return fetchPrayerTiming?.call(context);
   }
@@ -233,6 +241,7 @@ class _$FetchPrayerTiming implements FetchPrayerTiming {
     TResult Function(int numValue, BuildContext context)?
         changeHighLatitudeMethod,
     TResult Function()? changeLangLongtoAddress,
+    TResult Function(bool value)? onNotiyOnOffEvent,
     required TResult orElse(),
   }) {
     if (fetchPrayerTiming != null) {
@@ -255,6 +264,7 @@ class _$FetchPrayerTiming implements FetchPrayerTiming {
         changeHighLatitudeMethod,
     required TResult Function(ChangeLangLongtoAddress value)
         changeLangLongtoAddress,
+    required TResult Function(OnNotiyOnOffEvent value) onNotiyOnOffEvent,
   }) {
     return fetchPrayerTiming(this);
   }
@@ -271,6 +281,7 @@ class _$FetchPrayerTiming implements FetchPrayerTiming {
     TResult? Function(ChangeSchoolEvent value)? changeSchoolEvent,
     TResult? Function(ChangeHighLatitudeMethod value)? changeHighLatitudeMethod,
     TResult? Function(ChangeLangLongtoAddress value)? changeLangLongtoAddress,
+    TResult? Function(OnNotiyOnOffEvent value)? onNotiyOnOffEvent,
   }) {
     return fetchPrayerTiming?.call(this);
   }
@@ -287,6 +298,7 @@ class _$FetchPrayerTiming implements FetchPrayerTiming {
     TResult Function(ChangeSchoolEvent value)? changeSchoolEvent,
     TResult Function(ChangeHighLatitudeMethod value)? changeHighLatitudeMethod,
     TResult Function(ChangeLangLongtoAddress value)? changeLangLongtoAddress,
+    TResult Function(OnNotiyOnOffEvent value)? onNotiyOnOffEvent,
     required TResult orElse(),
   }) {
     if (fetchPrayerTiming != null) {
@@ -356,6 +368,7 @@ class _$PrayerTimingEvent implements PrayerTimingEvent {
     required TResult Function(int numValue, BuildContext context)
         changeHighLatitudeMethod,
     required TResult Function() changeLangLongtoAddress,
+    required TResult Function(bool value) onNotiyOnOffEvent,
   }) {
     return prayerTimingEvent();
   }
@@ -373,6 +386,7 @@ class _$PrayerTimingEvent implements PrayerTimingEvent {
     TResult? Function(int numValue, BuildContext context)?
         changeHighLatitudeMethod,
     TResult? Function()? changeLangLongtoAddress,
+    TResult? Function(bool value)? onNotiyOnOffEvent,
   }) {
     return prayerTimingEvent?.call();
   }
@@ -390,6 +404,7 @@ class _$PrayerTimingEvent implements PrayerTimingEvent {
     TResult Function(int numValue, BuildContext context)?
         changeHighLatitudeMethod,
     TResult Function()? changeLangLongtoAddress,
+    TResult Function(bool value)? onNotiyOnOffEvent,
     required TResult orElse(),
   }) {
     if (prayerTimingEvent != null) {
@@ -412,6 +427,7 @@ class _$PrayerTimingEvent implements PrayerTimingEvent {
         changeHighLatitudeMethod,
     required TResult Function(ChangeLangLongtoAddress value)
         changeLangLongtoAddress,
+    required TResult Function(OnNotiyOnOffEvent value) onNotiyOnOffEvent,
   }) {
     return prayerTimingEvent(this);
   }
@@ -428,6 +444,7 @@ class _$PrayerTimingEvent implements PrayerTimingEvent {
     TResult? Function(ChangeSchoolEvent value)? changeSchoolEvent,
     TResult? Function(ChangeHighLatitudeMethod value)? changeHighLatitudeMethod,
     TResult? Function(ChangeLangLongtoAddress value)? changeLangLongtoAddress,
+    TResult? Function(OnNotiyOnOffEvent value)? onNotiyOnOffEvent,
   }) {
     return prayerTimingEvent?.call(this);
   }
@@ -444,6 +461,7 @@ class _$PrayerTimingEvent implements PrayerTimingEvent {
     TResult Function(ChangeSchoolEvent value)? changeSchoolEvent,
     TResult Function(ChangeHighLatitudeMethod value)? changeHighLatitudeMethod,
     TResult Function(ChangeLangLongtoAddress value)? changeLangLongtoAddress,
+    TResult Function(OnNotiyOnOffEvent value)? onNotiyOnOffEvent,
     required TResult orElse(),
   }) {
     if (prayerTimingEvent != null) {
@@ -507,6 +525,7 @@ class _$ShowImsakEvent implements ShowImsakEvent {
     required TResult Function(int numValue, BuildContext context)
         changeHighLatitudeMethod,
     required TResult Function() changeLangLongtoAddress,
+    required TResult Function(bool value) onNotiyOnOffEvent,
   }) {
     return showImsakEvent();
   }
@@ -524,6 +543,7 @@ class _$ShowImsakEvent implements ShowImsakEvent {
     TResult? Function(int numValue, BuildContext context)?
         changeHighLatitudeMethod,
     TResult? Function()? changeLangLongtoAddress,
+    TResult? Function(bool value)? onNotiyOnOffEvent,
   }) {
     return showImsakEvent?.call();
   }
@@ -541,6 +561,7 @@ class _$ShowImsakEvent implements ShowImsakEvent {
     TResult Function(int numValue, BuildContext context)?
         changeHighLatitudeMethod,
     TResult Function()? changeLangLongtoAddress,
+    TResult Function(bool value)? onNotiyOnOffEvent,
     required TResult orElse(),
   }) {
     if (showImsakEvent != null) {
@@ -563,6 +584,7 @@ class _$ShowImsakEvent implements ShowImsakEvent {
         changeHighLatitudeMethod,
     required TResult Function(ChangeLangLongtoAddress value)
         changeLangLongtoAddress,
+    required TResult Function(OnNotiyOnOffEvent value) onNotiyOnOffEvent,
   }) {
     return showImsakEvent(this);
   }
@@ -579,6 +601,7 @@ class _$ShowImsakEvent implements ShowImsakEvent {
     TResult? Function(ChangeSchoolEvent value)? changeSchoolEvent,
     TResult? Function(ChangeHighLatitudeMethod value)? changeHighLatitudeMethod,
     TResult? Function(ChangeLangLongtoAddress value)? changeLangLongtoAddress,
+    TResult? Function(OnNotiyOnOffEvent value)? onNotiyOnOffEvent,
   }) {
     return showImsakEvent?.call(this);
   }
@@ -595,6 +618,7 @@ class _$ShowImsakEvent implements ShowImsakEvent {
     TResult Function(ChangeSchoolEvent value)? changeSchoolEvent,
     TResult Function(ChangeHighLatitudeMethod value)? changeHighLatitudeMethod,
     TResult Function(ChangeLangLongtoAddress value)? changeLangLongtoAddress,
+    TResult Function(OnNotiyOnOffEvent value)? onNotiyOnOffEvent,
     required TResult orElse(),
   }) {
     if (showImsakEvent != null) {
@@ -658,6 +682,7 @@ class _$ChangeArtCalcMethod implements ChangeArtCalcMethod {
     required TResult Function(int numValue, BuildContext context)
         changeHighLatitudeMethod,
     required TResult Function() changeLangLongtoAddress,
+    required TResult Function(bool value) onNotiyOnOffEvent,
   }) {
     return changeArtCalcMethod();
   }
@@ -675,6 +700,7 @@ class _$ChangeArtCalcMethod implements ChangeArtCalcMethod {
     TResult? Function(int numValue, BuildContext context)?
         changeHighLatitudeMethod,
     TResult? Function()? changeLangLongtoAddress,
+    TResult? Function(bool value)? onNotiyOnOffEvent,
   }) {
     return changeArtCalcMethod?.call();
   }
@@ -692,6 +718,7 @@ class _$ChangeArtCalcMethod implements ChangeArtCalcMethod {
     TResult Function(int numValue, BuildContext context)?
         changeHighLatitudeMethod,
     TResult Function()? changeLangLongtoAddress,
+    TResult Function(bool value)? onNotiyOnOffEvent,
     required TResult orElse(),
   }) {
     if (changeArtCalcMethod != null) {
@@ -714,6 +741,7 @@ class _$ChangeArtCalcMethod implements ChangeArtCalcMethod {
         changeHighLatitudeMethod,
     required TResult Function(ChangeLangLongtoAddress value)
         changeLangLongtoAddress,
+    required TResult Function(OnNotiyOnOffEvent value) onNotiyOnOffEvent,
   }) {
     return changeArtCalcMethod(this);
   }
@@ -730,6 +758,7 @@ class _$ChangeArtCalcMethod implements ChangeArtCalcMethod {
     TResult? Function(ChangeSchoolEvent value)? changeSchoolEvent,
     TResult? Function(ChangeHighLatitudeMethod value)? changeHighLatitudeMethod,
     TResult? Function(ChangeLangLongtoAddress value)? changeLangLongtoAddress,
+    TResult? Function(OnNotiyOnOffEvent value)? onNotiyOnOffEvent,
   }) {
     return changeArtCalcMethod?.call(this);
   }
@@ -746,6 +775,7 @@ class _$ChangeArtCalcMethod implements ChangeArtCalcMethod {
     TResult Function(ChangeSchoolEvent value)? changeSchoolEvent,
     TResult Function(ChangeHighLatitudeMethod value)? changeHighLatitudeMethod,
     TResult Function(ChangeLangLongtoAddress value)? changeLangLongtoAddress,
+    TResult Function(OnNotiyOnOffEvent value)? onNotiyOnOffEvent,
     required TResult orElse(),
   }) {
     if (changeArtCalcMethod != null) {
@@ -809,6 +839,7 @@ class _$FetchNamazMethods implements FetchNamazMethods {
     required TResult Function(int numValue, BuildContext context)
         changeHighLatitudeMethod,
     required TResult Function() changeLangLongtoAddress,
+    required TResult Function(bool value) onNotiyOnOffEvent,
   }) {
     return fetchNamazMethods();
   }
@@ -826,6 +857,7 @@ class _$FetchNamazMethods implements FetchNamazMethods {
     TResult? Function(int numValue, BuildContext context)?
         changeHighLatitudeMethod,
     TResult? Function()? changeLangLongtoAddress,
+    TResult? Function(bool value)? onNotiyOnOffEvent,
   }) {
     return fetchNamazMethods?.call();
   }
@@ -843,6 +875,7 @@ class _$FetchNamazMethods implements FetchNamazMethods {
     TResult Function(int numValue, BuildContext context)?
         changeHighLatitudeMethod,
     TResult Function()? changeLangLongtoAddress,
+    TResult Function(bool value)? onNotiyOnOffEvent,
     required TResult orElse(),
   }) {
     if (fetchNamazMethods != null) {
@@ -865,6 +898,7 @@ class _$FetchNamazMethods implements FetchNamazMethods {
         changeHighLatitudeMethod,
     required TResult Function(ChangeLangLongtoAddress value)
         changeLangLongtoAddress,
+    required TResult Function(OnNotiyOnOffEvent value) onNotiyOnOffEvent,
   }) {
     return fetchNamazMethods(this);
   }
@@ -881,6 +915,7 @@ class _$FetchNamazMethods implements FetchNamazMethods {
     TResult? Function(ChangeSchoolEvent value)? changeSchoolEvent,
     TResult? Function(ChangeHighLatitudeMethod value)? changeHighLatitudeMethod,
     TResult? Function(ChangeLangLongtoAddress value)? changeLangLongtoAddress,
+    TResult? Function(OnNotiyOnOffEvent value)? onNotiyOnOffEvent,
   }) {
     return fetchNamazMethods?.call(this);
   }
@@ -897,6 +932,7 @@ class _$FetchNamazMethods implements FetchNamazMethods {
     TResult Function(ChangeSchoolEvent value)? changeSchoolEvent,
     TResult Function(ChangeHighLatitudeMethod value)? changeHighLatitudeMethod,
     TResult Function(ChangeLangLongtoAddress value)? changeLangLongtoAddress,
+    TResult Function(OnNotiyOnOffEvent value)? onNotiyOnOffEvent,
     required TResult orElse(),
   }) {
     if (fetchNamazMethods != null) {
@@ -995,6 +1031,7 @@ class _$ChangeNamazMethods implements ChangeNamazMethods {
     required TResult Function(int numValue, BuildContext context)
         changeHighLatitudeMethod,
     required TResult Function() changeLangLongtoAddress,
+    required TResult Function(bool value) onNotiyOnOffEvent,
   }) {
     return changeNamazMehods(method, context);
   }
@@ -1012,6 +1049,7 @@ class _$ChangeNamazMethods implements ChangeNamazMethods {
     TResult? Function(int numValue, BuildContext context)?
         changeHighLatitudeMethod,
     TResult? Function()? changeLangLongtoAddress,
+    TResult? Function(bool value)? onNotiyOnOffEvent,
   }) {
     return changeNamazMehods?.call(method, context);
   }
@@ -1029,6 +1067,7 @@ class _$ChangeNamazMethods implements ChangeNamazMethods {
     TResult Function(int numValue, BuildContext context)?
         changeHighLatitudeMethod,
     TResult Function()? changeLangLongtoAddress,
+    TResult Function(bool value)? onNotiyOnOffEvent,
     required TResult orElse(),
   }) {
     if (changeNamazMehods != null) {
@@ -1051,6 +1090,7 @@ class _$ChangeNamazMethods implements ChangeNamazMethods {
         changeHighLatitudeMethod,
     required TResult Function(ChangeLangLongtoAddress value)
         changeLangLongtoAddress,
+    required TResult Function(OnNotiyOnOffEvent value) onNotiyOnOffEvent,
   }) {
     return changeNamazMehods(this);
   }
@@ -1067,6 +1107,7 @@ class _$ChangeNamazMethods implements ChangeNamazMethods {
     TResult? Function(ChangeSchoolEvent value)? changeSchoolEvent,
     TResult? Function(ChangeHighLatitudeMethod value)? changeHighLatitudeMethod,
     TResult? Function(ChangeLangLongtoAddress value)? changeLangLongtoAddress,
+    TResult? Function(OnNotiyOnOffEvent value)? onNotiyOnOffEvent,
   }) {
     return changeNamazMehods?.call(this);
   }
@@ -1083,6 +1124,7 @@ class _$ChangeNamazMethods implements ChangeNamazMethods {
     TResult Function(ChangeSchoolEvent value)? changeSchoolEvent,
     TResult Function(ChangeHighLatitudeMethod value)? changeHighLatitudeMethod,
     TResult Function(ChangeLangLongtoAddress value)? changeLangLongtoAddress,
+    TResult Function(OnNotiyOnOffEvent value)? onNotiyOnOffEvent,
     required TResult orElse(),
   }) {
     if (changeNamazMehods != null) {
@@ -1188,6 +1230,7 @@ class _$ChangeSchoolEvent implements ChangeSchoolEvent {
     required TResult Function(int numValue, BuildContext context)
         changeHighLatitudeMethod,
     required TResult Function() changeLangLongtoAddress,
+    required TResult Function(bool value) onNotiyOnOffEvent,
   }) {
     return changeSchoolEvent(school, context);
   }
@@ -1205,6 +1248,7 @@ class _$ChangeSchoolEvent implements ChangeSchoolEvent {
     TResult? Function(int numValue, BuildContext context)?
         changeHighLatitudeMethod,
     TResult? Function()? changeLangLongtoAddress,
+    TResult? Function(bool value)? onNotiyOnOffEvent,
   }) {
     return changeSchoolEvent?.call(school, context);
   }
@@ -1222,6 +1266,7 @@ class _$ChangeSchoolEvent implements ChangeSchoolEvent {
     TResult Function(int numValue, BuildContext context)?
         changeHighLatitudeMethod,
     TResult Function()? changeLangLongtoAddress,
+    TResult Function(bool value)? onNotiyOnOffEvent,
     required TResult orElse(),
   }) {
     if (changeSchoolEvent != null) {
@@ -1244,6 +1289,7 @@ class _$ChangeSchoolEvent implements ChangeSchoolEvent {
         changeHighLatitudeMethod,
     required TResult Function(ChangeLangLongtoAddress value)
         changeLangLongtoAddress,
+    required TResult Function(OnNotiyOnOffEvent value) onNotiyOnOffEvent,
   }) {
     return changeSchoolEvent(this);
   }
@@ -1260,6 +1306,7 @@ class _$ChangeSchoolEvent implements ChangeSchoolEvent {
     TResult? Function(ChangeSchoolEvent value)? changeSchoolEvent,
     TResult? Function(ChangeHighLatitudeMethod value)? changeHighLatitudeMethod,
     TResult? Function(ChangeLangLongtoAddress value)? changeLangLongtoAddress,
+    TResult? Function(OnNotiyOnOffEvent value)? onNotiyOnOffEvent,
   }) {
     return changeSchoolEvent?.call(this);
   }
@@ -1276,6 +1323,7 @@ class _$ChangeSchoolEvent implements ChangeSchoolEvent {
     TResult Function(ChangeSchoolEvent value)? changeSchoolEvent,
     TResult Function(ChangeHighLatitudeMethod value)? changeHighLatitudeMethod,
     TResult Function(ChangeLangLongtoAddress value)? changeLangLongtoAddress,
+    TResult Function(OnNotiyOnOffEvent value)? onNotiyOnOffEvent,
     required TResult orElse(),
   }) {
     if (changeSchoolEvent != null) {
@@ -1385,6 +1433,7 @@ class _$ChangeHighLatitudeMethod implements ChangeHighLatitudeMethod {
     required TResult Function(int numValue, BuildContext context)
         changeHighLatitudeMethod,
     required TResult Function() changeLangLongtoAddress,
+    required TResult Function(bool value) onNotiyOnOffEvent,
   }) {
     return changeHighLatitudeMethod(numValue, context);
   }
@@ -1402,6 +1451,7 @@ class _$ChangeHighLatitudeMethod implements ChangeHighLatitudeMethod {
     TResult? Function(int numValue, BuildContext context)?
         changeHighLatitudeMethod,
     TResult? Function()? changeLangLongtoAddress,
+    TResult? Function(bool value)? onNotiyOnOffEvent,
   }) {
     return changeHighLatitudeMethod?.call(numValue, context);
   }
@@ -1419,6 +1469,7 @@ class _$ChangeHighLatitudeMethod implements ChangeHighLatitudeMethod {
     TResult Function(int numValue, BuildContext context)?
         changeHighLatitudeMethod,
     TResult Function()? changeLangLongtoAddress,
+    TResult Function(bool value)? onNotiyOnOffEvent,
     required TResult orElse(),
   }) {
     if (changeHighLatitudeMethod != null) {
@@ -1441,6 +1492,7 @@ class _$ChangeHighLatitudeMethod implements ChangeHighLatitudeMethod {
         changeHighLatitudeMethod,
     required TResult Function(ChangeLangLongtoAddress value)
         changeLangLongtoAddress,
+    required TResult Function(OnNotiyOnOffEvent value) onNotiyOnOffEvent,
   }) {
     return changeHighLatitudeMethod(this);
   }
@@ -1457,6 +1509,7 @@ class _$ChangeHighLatitudeMethod implements ChangeHighLatitudeMethod {
     TResult? Function(ChangeSchoolEvent value)? changeSchoolEvent,
     TResult? Function(ChangeHighLatitudeMethod value)? changeHighLatitudeMethod,
     TResult? Function(ChangeLangLongtoAddress value)? changeLangLongtoAddress,
+    TResult? Function(OnNotiyOnOffEvent value)? onNotiyOnOffEvent,
   }) {
     return changeHighLatitudeMethod?.call(this);
   }
@@ -1473,6 +1526,7 @@ class _$ChangeHighLatitudeMethod implements ChangeHighLatitudeMethod {
     TResult Function(ChangeSchoolEvent value)? changeSchoolEvent,
     TResult Function(ChangeHighLatitudeMethod value)? changeHighLatitudeMethod,
     TResult Function(ChangeLangLongtoAddress value)? changeLangLongtoAddress,
+    TResult Function(OnNotiyOnOffEvent value)? onNotiyOnOffEvent,
     required TResult orElse(),
   }) {
     if (changeHighLatitudeMethod != null) {
@@ -1545,6 +1599,7 @@ class _$ChangeLangLongtoAddress implements ChangeLangLongtoAddress {
     required TResult Function(int numValue, BuildContext context)
         changeHighLatitudeMethod,
     required TResult Function() changeLangLongtoAddress,
+    required TResult Function(bool value) onNotiyOnOffEvent,
   }) {
     return changeLangLongtoAddress();
   }
@@ -1562,6 +1617,7 @@ class _$ChangeLangLongtoAddress implements ChangeLangLongtoAddress {
     TResult? Function(int numValue, BuildContext context)?
         changeHighLatitudeMethod,
     TResult? Function()? changeLangLongtoAddress,
+    TResult? Function(bool value)? onNotiyOnOffEvent,
   }) {
     return changeLangLongtoAddress?.call();
   }
@@ -1579,6 +1635,7 @@ class _$ChangeLangLongtoAddress implements ChangeLangLongtoAddress {
     TResult Function(int numValue, BuildContext context)?
         changeHighLatitudeMethod,
     TResult Function()? changeLangLongtoAddress,
+    TResult Function(bool value)? onNotiyOnOffEvent,
     required TResult orElse(),
   }) {
     if (changeLangLongtoAddress != null) {
@@ -1601,6 +1658,7 @@ class _$ChangeLangLongtoAddress implements ChangeLangLongtoAddress {
         changeHighLatitudeMethod,
     required TResult Function(ChangeLangLongtoAddress value)
         changeLangLongtoAddress,
+    required TResult Function(OnNotiyOnOffEvent value) onNotiyOnOffEvent,
   }) {
     return changeLangLongtoAddress(this);
   }
@@ -1617,6 +1675,7 @@ class _$ChangeLangLongtoAddress implements ChangeLangLongtoAddress {
     TResult? Function(ChangeSchoolEvent value)? changeSchoolEvent,
     TResult? Function(ChangeHighLatitudeMethod value)? changeHighLatitudeMethod,
     TResult? Function(ChangeLangLongtoAddress value)? changeLangLongtoAddress,
+    TResult? Function(OnNotiyOnOffEvent value)? onNotiyOnOffEvent,
   }) {
     return changeLangLongtoAddress?.call(this);
   }
@@ -1633,6 +1692,7 @@ class _$ChangeLangLongtoAddress implements ChangeLangLongtoAddress {
     TResult Function(ChangeSchoolEvent value)? changeSchoolEvent,
     TResult Function(ChangeHighLatitudeMethod value)? changeHighLatitudeMethod,
     TResult Function(ChangeLangLongtoAddress value)? changeLangLongtoAddress,
+    TResult Function(OnNotiyOnOffEvent value)? onNotiyOnOffEvent,
     required TResult orElse(),
   }) {
     if (changeLangLongtoAddress != null) {
@@ -1644,6 +1704,195 @@ class _$ChangeLangLongtoAddress implements ChangeLangLongtoAddress {
 
 abstract class ChangeLangLongtoAddress implements NamazTimingEvent {
   const factory ChangeLangLongtoAddress() = _$ChangeLangLongtoAddress;
+}
+
+/// @nodoc
+abstract class _$$OnNotiyOnOffEventCopyWith<$Res> {
+  factory _$$OnNotiyOnOffEventCopyWith(
+          _$OnNotiyOnOffEvent value, $Res Function(_$OnNotiyOnOffEvent) then) =
+      __$$OnNotiyOnOffEventCopyWithImpl<$Res>;
+  @useResult
+  $Res call({bool value});
+}
+
+/// @nodoc
+class __$$OnNotiyOnOffEventCopyWithImpl<$Res>
+    extends _$NamazTimingEventCopyWithImpl<$Res, _$OnNotiyOnOffEvent>
+    implements _$$OnNotiyOnOffEventCopyWith<$Res> {
+  __$$OnNotiyOnOffEventCopyWithImpl(
+      _$OnNotiyOnOffEvent _value, $Res Function(_$OnNotiyOnOffEvent) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? value = null,
+  }) {
+    return _then(_$OnNotiyOnOffEvent(
+      value: null == value
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$OnNotiyOnOffEvent implements OnNotiyOnOffEvent {
+  const _$OnNotiyOnOffEvent({required this.value});
+
+  @override
+  final bool value;
+
+  @override
+  String toString() {
+    return 'NamazTimingEvent.onNotiyOnOffEvent(value: $value)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$OnNotiyOnOffEvent &&
+            (identical(other.value, value) || other.value == value));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, value);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$OnNotiyOnOffEventCopyWith<_$OnNotiyOnOffEvent> get copyWith =>
+      __$$OnNotiyOnOffEventCopyWithImpl<_$OnNotiyOnOffEvent>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(BuildContext context) fetchPrayerTiming,
+    required TResult Function() prayerTimingEvent,
+    required TResult Function() showImsakEvent,
+    required TResult Function() changeArtCalcMethod,
+    required TResult Function() fetchNamazMethods,
+    required TResult Function(int method, BuildContext context)
+        changeNamazMehods,
+    required TResult Function(int school, BuildContext context)
+        changeSchoolEvent,
+    required TResult Function(int numValue, BuildContext context)
+        changeHighLatitudeMethod,
+    required TResult Function() changeLangLongtoAddress,
+    required TResult Function(bool value) onNotiyOnOffEvent,
+  }) {
+    return onNotiyOnOffEvent(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(BuildContext context)? fetchPrayerTiming,
+    TResult? Function()? prayerTimingEvent,
+    TResult? Function()? showImsakEvent,
+    TResult? Function()? changeArtCalcMethod,
+    TResult? Function()? fetchNamazMethods,
+    TResult? Function(int method, BuildContext context)? changeNamazMehods,
+    TResult? Function(int school, BuildContext context)? changeSchoolEvent,
+    TResult? Function(int numValue, BuildContext context)?
+        changeHighLatitudeMethod,
+    TResult? Function()? changeLangLongtoAddress,
+    TResult? Function(bool value)? onNotiyOnOffEvent,
+  }) {
+    return onNotiyOnOffEvent?.call(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(BuildContext context)? fetchPrayerTiming,
+    TResult Function()? prayerTimingEvent,
+    TResult Function()? showImsakEvent,
+    TResult Function()? changeArtCalcMethod,
+    TResult Function()? fetchNamazMethods,
+    TResult Function(int method, BuildContext context)? changeNamazMehods,
+    TResult Function(int school, BuildContext context)? changeSchoolEvent,
+    TResult Function(int numValue, BuildContext context)?
+        changeHighLatitudeMethod,
+    TResult Function()? changeLangLongtoAddress,
+    TResult Function(bool value)? onNotiyOnOffEvent,
+    required TResult orElse(),
+  }) {
+    if (onNotiyOnOffEvent != null) {
+      return onNotiyOnOffEvent(value);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FetchPrayerTiming value) fetchPrayerTiming,
+    required TResult Function(PrayerTimingEvent value) prayerTimingEvent,
+    required TResult Function(ShowImsakEvent value) showImsakEvent,
+    required TResult Function(ChangeArtCalcMethod value) changeArtCalcMethod,
+    required TResult Function(FetchNamazMethods value) fetchNamazMethods,
+    required TResult Function(ChangeNamazMethods value) changeNamazMehods,
+    required TResult Function(ChangeSchoolEvent value) changeSchoolEvent,
+    required TResult Function(ChangeHighLatitudeMethod value)
+        changeHighLatitudeMethod,
+    required TResult Function(ChangeLangLongtoAddress value)
+        changeLangLongtoAddress,
+    required TResult Function(OnNotiyOnOffEvent value) onNotiyOnOffEvent,
+  }) {
+    return onNotiyOnOffEvent(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(FetchPrayerTiming value)? fetchPrayerTiming,
+    TResult? Function(PrayerTimingEvent value)? prayerTimingEvent,
+    TResult? Function(ShowImsakEvent value)? showImsakEvent,
+    TResult? Function(ChangeArtCalcMethod value)? changeArtCalcMethod,
+    TResult? Function(FetchNamazMethods value)? fetchNamazMethods,
+    TResult? Function(ChangeNamazMethods value)? changeNamazMehods,
+    TResult? Function(ChangeSchoolEvent value)? changeSchoolEvent,
+    TResult? Function(ChangeHighLatitudeMethod value)? changeHighLatitudeMethod,
+    TResult? Function(ChangeLangLongtoAddress value)? changeLangLongtoAddress,
+    TResult? Function(OnNotiyOnOffEvent value)? onNotiyOnOffEvent,
+  }) {
+    return onNotiyOnOffEvent?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FetchPrayerTiming value)? fetchPrayerTiming,
+    TResult Function(PrayerTimingEvent value)? prayerTimingEvent,
+    TResult Function(ShowImsakEvent value)? showImsakEvent,
+    TResult Function(ChangeArtCalcMethod value)? changeArtCalcMethod,
+    TResult Function(FetchNamazMethods value)? fetchNamazMethods,
+    TResult Function(ChangeNamazMethods value)? changeNamazMehods,
+    TResult Function(ChangeSchoolEvent value)? changeSchoolEvent,
+    TResult Function(ChangeHighLatitudeMethod value)? changeHighLatitudeMethod,
+    TResult Function(ChangeLangLongtoAddress value)? changeLangLongtoAddress,
+    TResult Function(OnNotiyOnOffEvent value)? onNotiyOnOffEvent,
+    required TResult orElse(),
+  }) {
+    if (onNotiyOnOffEvent != null) {
+      return onNotiyOnOffEvent(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class OnNotiyOnOffEvent implements NamazTimingEvent {
+  const factory OnNotiyOnOffEvent({required final bool value}) =
+      _$OnNotiyOnOffEvent;
+
+  bool get value;
+  @JsonKey(ignore: true)
+  _$$OnNotiyOnOffEventCopyWith<_$OnNotiyOnOffEvent> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1660,10 +1909,11 @@ mixin _$NamazTimingState {
   int get method => throw _privateConstructorUsedError;
   String get namazMethodName => throw _privateConstructorUsedError;
   String get methodPlace => throw _privateConstructorUsedError;
-  NamazMethodsModel? get namazMethodsModel =>
+  List<NamazTimeData>? get namazMethodsModel =>
       throw _privateConstructorUsedError;
   int get highLatMethodVal => throw _privateConstructorUsedError;
   String get arabicDate => throw _privateConstructorUsedError;
+  bool get isNotify => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $NamazTimingStateCopyWith<NamazTimingState> get copyWith =>
@@ -1689,12 +1939,12 @@ abstract class $NamazTimingStateCopyWith<$Res> {
       int method,
       String namazMethodName,
       String methodPlace,
-      NamazMethodsModel? namazMethodsModel,
+      List<NamazTimeData>? namazMethodsModel,
       int highLatMethodVal,
-      String arabicDate});
+      String arabicDate,
+      bool isNotify});
 
   $PrayerModelCopyWith<$Res>? get prayerModel;
-  $NamazMethodsModelCopyWith<$Res>? get namazMethodsModel;
 }
 
 /// @nodoc
@@ -1725,6 +1975,7 @@ class _$NamazTimingStateCopyWithImpl<$Res, $Val extends NamazTimingState>
     Object? namazMethodsModel = freezed,
     Object? highLatMethodVal = null,
     Object? arabicDate = null,
+    Object? isNotify = null,
   }) {
     return _then(_value.copyWith(
       success: null == success
@@ -1778,7 +2029,7 @@ class _$NamazTimingStateCopyWithImpl<$Res, $Val extends NamazTimingState>
       namazMethodsModel: freezed == namazMethodsModel
           ? _value.namazMethodsModel
           : namazMethodsModel // ignore: cast_nullable_to_non_nullable
-              as NamazMethodsModel?,
+              as List<NamazTimeData>?,
       highLatMethodVal: null == highLatMethodVal
           ? _value.highLatMethodVal
           : highLatMethodVal // ignore: cast_nullable_to_non_nullable
@@ -1787,6 +2038,10 @@ class _$NamazTimingStateCopyWithImpl<$Res, $Val extends NamazTimingState>
           ? _value.arabicDate
           : arabicDate // ignore: cast_nullable_to_non_nullable
               as String,
+      isNotify: null == isNotify
+          ? _value.isNotify
+          : isNotify // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 
@@ -1799,18 +2054,6 @@ class _$NamazTimingStateCopyWithImpl<$Res, $Val extends NamazTimingState>
 
     return $PrayerModelCopyWith<$Res>(_value.prayerModel!, (value) {
       return _then(_value.copyWith(prayerModel: value) as $Val);
-    });
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $NamazMethodsModelCopyWith<$Res>? get namazMethodsModel {
-    if (_value.namazMethodsModel == null) {
-      return null;
-    }
-
-    return $NamazMethodsModelCopyWith<$Res>(_value.namazMethodsModel!, (value) {
-      return _then(_value.copyWith(namazMethodsModel: value) as $Val);
     });
   }
 }
@@ -1836,14 +2079,13 @@ abstract class _$$_InitialCopyWith<$Res>
       int method,
       String namazMethodName,
       String methodPlace,
-      NamazMethodsModel? namazMethodsModel,
+      List<NamazTimeData>? namazMethodsModel,
       int highLatMethodVal,
-      String arabicDate});
+      String arabicDate,
+      bool isNotify});
 
   @override
   $PrayerModelCopyWith<$Res>? get prayerModel;
-  @override
-  $NamazMethodsModelCopyWith<$Res>? get namazMethodsModel;
 }
 
 /// @nodoc
@@ -1871,6 +2113,7 @@ class __$$_InitialCopyWithImpl<$Res>
     Object? namazMethodsModel = freezed,
     Object? highLatMethodVal = null,
     Object? arabicDate = null,
+    Object? isNotify = null,
   }) {
     return _then(_$_Initial(
       success: null == success
@@ -1922,9 +2165,9 @@ class __$$_InitialCopyWithImpl<$Res>
           : methodPlace // ignore: cast_nullable_to_non_nullable
               as String,
       namazMethodsModel: freezed == namazMethodsModel
-          ? _value.namazMethodsModel
+          ? _value._namazMethodsModel
           : namazMethodsModel // ignore: cast_nullable_to_non_nullable
-              as NamazMethodsModel?,
+              as List<NamazTimeData>?,
       highLatMethodVal: null == highLatMethodVal
           ? _value.highLatMethodVal
           : highLatMethodVal // ignore: cast_nullable_to_non_nullable
@@ -1933,6 +2176,10 @@ class __$$_InitialCopyWithImpl<$Res>
           ? _value.arabicDate
           : arabicDate // ignore: cast_nullable_to_non_nullable
               as String,
+      isNotify: null == isNotify
+          ? _value.isNotify
+          : isNotify // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -1953,11 +2200,13 @@ class _$_Initial implements _Initial {
       required this.method,
       required this.namazMethodName,
       required this.methodPlace,
-      required this.namazMethodsModel,
+      required final List<NamazTimeData>? namazMethodsModel,
       required this.highLatMethodVal,
-      required this.arabicDate})
+      required this.arabicDate,
+      required this.isNotify})
       : _currentNamaz = currentNamaz,
-        _upcomingNamaz = upcomingNamaz;
+        _upcomingNamaz = upcomingNamaz,
+        _namazMethodsModel = namazMethodsModel;
 
   @override
   final String success;
@@ -1999,16 +2248,27 @@ class _$_Initial implements _Initial {
   final String namazMethodName;
   @override
   final String methodPlace;
+  final List<NamazTimeData>? _namazMethodsModel;
   @override
-  final NamazMethodsModel? namazMethodsModel;
+  List<NamazTimeData>? get namazMethodsModel {
+    final value = _namazMethodsModel;
+    if (value == null) return null;
+    if (_namazMethodsModel is EqualUnmodifiableListView)
+      return _namazMethodsModel;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   @override
   final int highLatMethodVal;
   @override
   final String arabicDate;
+  @override
+  final bool isNotify;
 
   @override
   String toString() {
-    return 'NamazTimingState(success: $success, error: $error, prayerModel: $prayerModel, currentNamaz: $currentNamaz, upcomingNamaz: $upcomingNamaz, showImsak: $showImsak, urlDate: $urlDate, school: $school, isArtCalcMehod: $isArtCalcMehod, method: $method, namazMethodName: $namazMethodName, methodPlace: $methodPlace, namazMethodsModel: $namazMethodsModel, highLatMethodVal: $highLatMethodVal, arabicDate: $arabicDate)';
+    return 'NamazTimingState(success: $success, error: $error, prayerModel: $prayerModel, currentNamaz: $currentNamaz, upcomingNamaz: $upcomingNamaz, showImsak: $showImsak, urlDate: $urlDate, school: $school, isArtCalcMehod: $isArtCalcMehod, method: $method, namazMethodName: $namazMethodName, methodPlace: $methodPlace, namazMethodsModel: $namazMethodsModel, highLatMethodVal: $highLatMethodVal, arabicDate: $arabicDate, isNotify: $isNotify)';
   }
 
   @override
@@ -2035,12 +2295,14 @@ class _$_Initial implements _Initial {
                 other.namazMethodName == namazMethodName) &&
             (identical(other.methodPlace, methodPlace) ||
                 other.methodPlace == methodPlace) &&
-            (identical(other.namazMethodsModel, namazMethodsModel) ||
-                other.namazMethodsModel == namazMethodsModel) &&
+            const DeepCollectionEquality()
+                .equals(other._namazMethodsModel, _namazMethodsModel) &&
             (identical(other.highLatMethodVal, highLatMethodVal) ||
                 other.highLatMethodVal == highLatMethodVal) &&
             (identical(other.arabicDate, arabicDate) ||
-                other.arabicDate == arabicDate));
+                other.arabicDate == arabicDate) &&
+            (identical(other.isNotify, isNotify) ||
+                other.isNotify == isNotify));
   }
 
   @override
@@ -2058,9 +2320,10 @@ class _$_Initial implements _Initial {
       method,
       namazMethodName,
       methodPlace,
-      namazMethodsModel,
+      const DeepCollectionEquality().hash(_namazMethodsModel),
       highLatMethodVal,
-      arabicDate);
+      arabicDate,
+      isNotify);
 
   @JsonKey(ignore: true)
   @override
@@ -2083,9 +2346,10 @@ abstract class _Initial implements NamazTimingState {
       required final int method,
       required final String namazMethodName,
       required final String methodPlace,
-      required final NamazMethodsModel? namazMethodsModel,
+      required final List<NamazTimeData>? namazMethodsModel,
       required final int highLatMethodVal,
-      required final String arabicDate}) = _$_Initial;
+      required final String arabicDate,
+      required final bool isNotify}) = _$_Initial;
 
   @override
   String get success;
@@ -2112,11 +2376,13 @@ abstract class _Initial implements NamazTimingState {
   @override
   String get methodPlace;
   @override
-  NamazMethodsModel? get namazMethodsModel;
+  List<NamazTimeData>? get namazMethodsModel;
   @override
   int get highLatMethodVal;
   @override
   String get arabicDate;
+  @override
+  bool get isNotify;
   @override
   @JsonKey(ignore: true)
   _$$_InitialCopyWith<_$_Initial> get copyWith =>

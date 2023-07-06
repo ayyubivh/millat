@@ -5,8 +5,7 @@ import 'package:millat/resources/home/bloc/logic/location_bloc/location_bloc.dar
 import 'dart:convert';
 import '../models/namaz_methods/namaz_mthods_model.dart';
 import '../models/prayer_timing_models/prayer_timing_model.dart';
-import 'package:intl/intl.dart';
-
+ 
 class NamazTimingService {
   Future<PrayerModel> fetchPrayerTime(
       {required String date,

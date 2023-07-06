@@ -2964,6 +2964,8 @@ mixin _$MethodParams {
   dynamic get fajr => throw _privateConstructorUsedError;
   @JsonKey(name: 'Isha')
   dynamic get isha => throw _privateConstructorUsedError;
+  @JsonKey(name: "shafaq")
+  dynamic get shafaq => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -2979,7 +2981,8 @@ abstract class $MethodParamsCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: 'Fajr') dynamic fajr,
-      @JsonKey(name: 'Isha') dynamic isha});
+      @JsonKey(name: 'Isha') dynamic isha,
+      @JsonKey(name: "shafaq") dynamic shafaq});
 }
 
 /// @nodoc
@@ -2997,6 +3000,7 @@ class _$MethodParamsCopyWithImpl<$Res, $Val extends MethodParams>
   $Res call({
     Object? fajr = freezed,
     Object? isha = freezed,
+    Object? shafaq = freezed,
   }) {
     return _then(_value.copyWith(
       fajr: freezed == fajr
@@ -3006,6 +3010,10 @@ class _$MethodParamsCopyWithImpl<$Res, $Val extends MethodParams>
       isha: freezed == isha
           ? _value.isha
           : isha // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+      shafaq: freezed == shafaq
+          ? _value.shafaq
+          : shafaq // ignore: cast_nullable_to_non_nullable
               as dynamic,
     ) as $Val);
   }
@@ -3021,7 +3029,8 @@ abstract class _$$_MethodParamsCopyWith<$Res>
   @useResult
   $Res call(
       {@JsonKey(name: 'Fajr') dynamic fajr,
-      @JsonKey(name: 'Isha') dynamic isha});
+      @JsonKey(name: 'Isha') dynamic isha,
+      @JsonKey(name: "shafaq") dynamic shafaq});
 }
 
 /// @nodoc
@@ -3037,6 +3046,7 @@ class __$$_MethodParamsCopyWithImpl<$Res>
   $Res call({
     Object? fajr = freezed,
     Object? isha = freezed,
+    Object? shafaq = freezed,
   }) {
     return _then(_$_MethodParams(
       fajr: freezed == fajr
@@ -3047,6 +3057,10 @@ class __$$_MethodParamsCopyWithImpl<$Res>
           ? _value.isha
           : isha // ignore: cast_nullable_to_non_nullable
               as dynamic,
+      shafaq: freezed == shafaq
+          ? _value.shafaq
+          : shafaq // ignore: cast_nullable_to_non_nullable
+              as dynamic,
     ));
   }
 }
@@ -3056,7 +3070,8 @@ class __$$_MethodParamsCopyWithImpl<$Res>
 class _$_MethodParams implements _MethodParams {
   _$_MethodParams(
       {@JsonKey(name: 'Fajr') required this.fajr,
-      @JsonKey(name: 'Isha') required this.isha});
+      @JsonKey(name: 'Isha') required this.isha,
+      @JsonKey(name: "shafaq") this.shafaq});
 
   factory _$_MethodParams.fromJson(Map<String, dynamic> json) =>
       _$$_MethodParamsFromJson(json);
@@ -3067,10 +3082,13 @@ class _$_MethodParams implements _MethodParams {
   @override
   @JsonKey(name: 'Isha')
   final dynamic isha;
+  @override
+  @JsonKey(name: "shafaq")
+  final dynamic shafaq;
 
   @override
   String toString() {
-    return 'MethodParams(fajr: $fajr, isha: $isha)';
+    return 'MethodParams(fajr: $fajr, isha: $isha, shafaq: $shafaq)';
   }
 
   @override
@@ -3079,7 +3097,8 @@ class _$_MethodParams implements _MethodParams {
         (other.runtimeType == runtimeType &&
             other is _$_MethodParams &&
             const DeepCollectionEquality().equals(other.fajr, fajr) &&
-            const DeepCollectionEquality().equals(other.isha, isha));
+            const DeepCollectionEquality().equals(other.isha, isha) &&
+            const DeepCollectionEquality().equals(other.shafaq, shafaq));
   }
 
   @JsonKey(ignore: true)
@@ -3087,7 +3106,8 @@ class _$_MethodParams implements _MethodParams {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(fajr),
-      const DeepCollectionEquality().hash(isha));
+      const DeepCollectionEquality().hash(isha),
+      const DeepCollectionEquality().hash(shafaq));
 
   @JsonKey(ignore: true)
   @override
@@ -3106,7 +3126,8 @@ class _$_MethodParams implements _MethodParams {
 abstract class _MethodParams implements MethodParams {
   factory _MethodParams(
       {@JsonKey(name: 'Fajr') required final dynamic fajr,
-      @JsonKey(name: 'Isha') required final dynamic isha}) = _$_MethodParams;
+      @JsonKey(name: 'Isha') required final dynamic isha,
+      @JsonKey(name: "shafaq") final dynamic shafaq}) = _$_MethodParams;
 
   factory _MethodParams.fromJson(Map<String, dynamic> json) =
       _$_MethodParams.fromJson;
@@ -3117,6 +3138,9 @@ abstract class _MethodParams implements MethodParams {
   @override
   @JsonKey(name: 'Isha')
   dynamic get isha;
+  @override
+  @JsonKey(name: "shafaq")
+  dynamic get shafaq;
   @override
   @JsonKey(ignore: true)
   _$$_MethodParamsCopyWith<_$_MethodParams> get copyWith =>

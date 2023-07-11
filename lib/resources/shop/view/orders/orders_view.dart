@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/resources/shop/view/orders/widgets/orders_card_widget.dart';
 import 'package:millat/utils/globals.dart';
 import '../../bloc/logic/cart_bloc/cart_bloc.dart';
+import '../../bloc/logic/shop_bloc/shop_products_bloc.dart';
 
 class Orders extends StatefulWidget {
   const Orders({Key? key}) : super(key: key);
@@ -61,31 +62,36 @@ class _OrdersState extends State<Orders> with SingleTickerProviderStateMixin {
               margin: const EdgeInsets.all(10),
               child: Column(
                 children: [
-                  BlocBuilder<CartBloc, CartState>(
-                    builder: (context, state) => ListView.builder(
-                      physics: const NeverScrollableScrollPhysics(),
-                      itemCount: state
-                          .cartModel?.result?.cartProducts?.cartItems?.length,
-                      shrinkWrap: true,
-                      itemBuilder: (context, index) {
-                        final cartItems =
-                            state.cartModel?.result?.cartProducts?.cartItems;
-                        final data = cartItems![index];
-                        return SizedBox(
-                          child: OrdersProfileWidget(
-                            id: data.productId!.id,
-                            title: data.productId?.title,
-                            size: data.size,
-                            image: data.productId?.colors![0].images![0],
-                            price: data.basePrice!.toInt(),
-                            jsonColor: data.color,
-                            colorName: data.color,
-                            quantity: data.quantity!.toInt(),
-                            productId: data.productId?.id,
-                          ),
-                        );
-                      },
-                    ),
+                  BlocBuilder<ShopProductsBloc, ShopProductsState>(
+                    builder: (context, state) {
+                      if (state.orderModel?.result?.orderProducts == null) {
+                        return const CircularProgressIndicator(color: green24);
+                      }
+                      return ListView.builder(
+                        physics: const NeverScrollableScrollPhysics(),
+                        itemCount:
+                            state.orderModel?.result?.orderProducts?.length,
+                        shrinkWrap: true,
+                        itemBuilder: (context, index) {
+                          final data = state.orderModel?.result
+                              ?.orderProducts?[index].orderItems?[0];
+
+                          return SizedBox(
+                            child: OrdersProfileWidget(
+                              id: data?.product?.id,
+                              title: data?.product?.title,
+                              size: data?.size,
+                              image: data?.product?.colors![0].images![0],
+                              price: data!.basePrice!.toInt(),
+                              jsonColor: data.color,
+                              colorName: data.color,
+                              quantity: data.quantity!.toInt(),
+                              productId: data.product?.id,
+                            ),
+                          );
+                        },
+                      );
+                    },
                   ),
                 ],
               ),

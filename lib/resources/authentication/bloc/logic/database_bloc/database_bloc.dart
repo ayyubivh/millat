@@ -37,6 +37,8 @@ class DatabaseBloc extends Bloc<DatabaseEvent, DatabaseState> {
       final email = authBox.get(emailKey);
       final name = authBox.get(nameKey);
       emit(state.copyWith(email: email, name: name));
+      print(
+          'email on the database bloc ${state.email} ane the username ${state.name}');
     });
   }
 }

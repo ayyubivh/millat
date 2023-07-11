@@ -16,6 +16,7 @@ import 'package:millat/utils/utils.dart';
 import '../../../components/common_widgets/cart_icon_widget.dart';
 import '../../../components/common_widgets/shop_products_widget.dart';
 import '../bloc/logic/cart_bloc/cart_bloc.dart';
+import '../bloc/service/shop_services.dart';
 
 class ShopView extends StatefulWidget {
   const ShopView({Key? key}) : super(key: key);
@@ -47,6 +48,7 @@ class _ShopViewState extends State<ShopView> {
     BlocProvider.of<ShopProductsBloc>(context)
         .add(const ShopProductsEvent.fetchArticles());
     BlocProvider.of<CartBloc>(context).add(FetchCartEvent(context));
+    BlocProvider.of<ShopProductsBloc>(context).add(FetchOrders(context));
 
     super.initState();
   }

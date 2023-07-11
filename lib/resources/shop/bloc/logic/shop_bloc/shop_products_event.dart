@@ -25,4 +25,13 @@ class ShopProductsEvent with _$ShopProductsEvent {
   const factory ShopProductsEvent.tabIndexChangeEvent({
     required int index,
   }) = TabIndexChangeEvent;
+
+  const factory ShopProductsEvent.postOrders({
+    required String productId,
+    required BuildContext context,
+    required int totalPrice,
+  }) = PostOrders;
+  const factory ShopProductsEvent.fetchOrders(
+    BuildContext context,
+  ) = FetchOrders;
 }

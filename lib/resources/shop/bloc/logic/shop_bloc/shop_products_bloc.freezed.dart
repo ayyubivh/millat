@@ -33,6 +33,10 @@ mixin _$ShopProductsEvent {
         removeWishlistEvent,
     required TResult Function(String brandName) fetchShopByBrandProducts,
     required TResult Function(int index) tabIndexChangeEvent,
+    required TResult Function(
+            String productId, BuildContext context, int totalPrice)
+        postOrders,
+    required TResult Function(BuildContext context) fetchOrders,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -51,6 +55,9 @@ mixin _$ShopProductsEvent {
         removeWishlistEvent,
     TResult? Function(String brandName)? fetchShopByBrandProducts,
     TResult? Function(int index)? tabIndexChangeEvent,
+    TResult? Function(String productId, BuildContext context, int totalPrice)?
+        postOrders,
+    TResult? Function(BuildContext context)? fetchOrders,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -69,6 +76,9 @@ mixin _$ShopProductsEvent {
         removeWishlistEvent,
     TResult Function(String brandName)? fetchShopByBrandProducts,
     TResult Function(int index)? tabIndexChangeEvent,
+    TResult Function(String productId, BuildContext context, int totalPrice)?
+        postOrders,
+    TResult Function(BuildContext context)? fetchOrders,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -90,6 +100,8 @@ mixin _$ShopProductsEvent {
     required TResult Function(FetchShopByBrandProducts value)
         fetchShopByBrandProducts,
     required TResult Function(TabIndexChangeEvent value) tabIndexChangeEvent,
+    required TResult Function(PostOrders value) postOrders,
+    required TResult Function(FetchOrders value) fetchOrders,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -108,6 +120,8 @@ mixin _$ShopProductsEvent {
     TResult? Function(RemoveWishlistEvent value)? removeWishlistEvent,
     TResult? Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult? Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
+    TResult? Function(PostOrders value)? postOrders,
+    TResult? Function(FetchOrders value)? fetchOrders,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -126,6 +140,8 @@ mixin _$ShopProductsEvent {
     TResult Function(RemoveWishlistEvent value)? removeWishlistEvent,
     TResult Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
+    TResult Function(PostOrders value)? postOrders,
+    TResult Function(FetchOrders value)? fetchOrders,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -202,6 +218,10 @@ class _$FetchFlashSaleProducts implements FetchFlashSaleProducts {
         removeWishlistEvent,
     required TResult Function(String brandName) fetchShopByBrandProducts,
     required TResult Function(int index) tabIndexChangeEvent,
+    required TResult Function(
+            String productId, BuildContext context, int totalPrice)
+        postOrders,
+    required TResult Function(BuildContext context) fetchOrders,
   }) {
     return fetchFlashSaleProducts();
   }
@@ -223,6 +243,9 @@ class _$FetchFlashSaleProducts implements FetchFlashSaleProducts {
         removeWishlistEvent,
     TResult? Function(String brandName)? fetchShopByBrandProducts,
     TResult? Function(int index)? tabIndexChangeEvent,
+    TResult? Function(String productId, BuildContext context, int totalPrice)?
+        postOrders,
+    TResult? Function(BuildContext context)? fetchOrders,
   }) {
     return fetchFlashSaleProducts?.call();
   }
@@ -244,6 +267,9 @@ class _$FetchFlashSaleProducts implements FetchFlashSaleProducts {
         removeWishlistEvent,
     TResult Function(String brandName)? fetchShopByBrandProducts,
     TResult Function(int index)? tabIndexChangeEvent,
+    TResult Function(String productId, BuildContext context, int totalPrice)?
+        postOrders,
+    TResult Function(BuildContext context)? fetchOrders,
     required TResult orElse(),
   }) {
     if (fetchFlashSaleProducts != null) {
@@ -271,6 +297,8 @@ class _$FetchFlashSaleProducts implements FetchFlashSaleProducts {
     required TResult Function(FetchShopByBrandProducts value)
         fetchShopByBrandProducts,
     required TResult Function(TabIndexChangeEvent value) tabIndexChangeEvent,
+    required TResult Function(PostOrders value) postOrders,
+    required TResult Function(FetchOrders value) fetchOrders,
   }) {
     return fetchFlashSaleProducts(this);
   }
@@ -292,6 +320,8 @@ class _$FetchFlashSaleProducts implements FetchFlashSaleProducts {
     TResult? Function(RemoveWishlistEvent value)? removeWishlistEvent,
     TResult? Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult? Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
+    TResult? Function(PostOrders value)? postOrders,
+    TResult? Function(FetchOrders value)? fetchOrders,
   }) {
     return fetchFlashSaleProducts?.call(this);
   }
@@ -313,6 +343,8 @@ class _$FetchFlashSaleProducts implements FetchFlashSaleProducts {
     TResult Function(RemoveWishlistEvent value)? removeWishlistEvent,
     TResult Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
+    TResult Function(PostOrders value)? postOrders,
+    TResult Function(FetchOrders value)? fetchOrders,
     required TResult orElse(),
   }) {
     if (fetchFlashSaleProducts != null) {
@@ -379,6 +411,10 @@ class _$FetchPopularProducts implements FetchPopularProducts {
         removeWishlistEvent,
     required TResult Function(String brandName) fetchShopByBrandProducts,
     required TResult Function(int index) tabIndexChangeEvent,
+    required TResult Function(
+            String productId, BuildContext context, int totalPrice)
+        postOrders,
+    required TResult Function(BuildContext context) fetchOrders,
   }) {
     return fetchPopularProducts();
   }
@@ -400,6 +436,9 @@ class _$FetchPopularProducts implements FetchPopularProducts {
         removeWishlistEvent,
     TResult? Function(String brandName)? fetchShopByBrandProducts,
     TResult? Function(int index)? tabIndexChangeEvent,
+    TResult? Function(String productId, BuildContext context, int totalPrice)?
+        postOrders,
+    TResult? Function(BuildContext context)? fetchOrders,
   }) {
     return fetchPopularProducts?.call();
   }
@@ -421,6 +460,9 @@ class _$FetchPopularProducts implements FetchPopularProducts {
         removeWishlistEvent,
     TResult Function(String brandName)? fetchShopByBrandProducts,
     TResult Function(int index)? tabIndexChangeEvent,
+    TResult Function(String productId, BuildContext context, int totalPrice)?
+        postOrders,
+    TResult Function(BuildContext context)? fetchOrders,
     required TResult orElse(),
   }) {
     if (fetchPopularProducts != null) {
@@ -448,6 +490,8 @@ class _$FetchPopularProducts implements FetchPopularProducts {
     required TResult Function(FetchShopByBrandProducts value)
         fetchShopByBrandProducts,
     required TResult Function(TabIndexChangeEvent value) tabIndexChangeEvent,
+    required TResult Function(PostOrders value) postOrders,
+    required TResult Function(FetchOrders value) fetchOrders,
   }) {
     return fetchPopularProducts(this);
   }
@@ -469,6 +513,8 @@ class _$FetchPopularProducts implements FetchPopularProducts {
     TResult? Function(RemoveWishlistEvent value)? removeWishlistEvent,
     TResult? Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult? Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
+    TResult? Function(PostOrders value)? postOrders,
+    TResult? Function(FetchOrders value)? fetchOrders,
   }) {
     return fetchPopularProducts?.call(this);
   }
@@ -490,6 +536,8 @@ class _$FetchPopularProducts implements FetchPopularProducts {
     TResult Function(RemoveWishlistEvent value)? removeWishlistEvent,
     TResult Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
+    TResult Function(PostOrders value)? postOrders,
+    TResult Function(FetchOrders value)? fetchOrders,
     required TResult orElse(),
   }) {
     if (fetchPopularProducts != null) {
@@ -559,6 +607,10 @@ class _$FetchRecentProductProducts implements FetchRecentProductProducts {
         removeWishlistEvent,
     required TResult Function(String brandName) fetchShopByBrandProducts,
     required TResult Function(int index) tabIndexChangeEvent,
+    required TResult Function(
+            String productId, BuildContext context, int totalPrice)
+        postOrders,
+    required TResult Function(BuildContext context) fetchOrders,
   }) {
     return fetchRecentProductProducts();
   }
@@ -580,6 +632,9 @@ class _$FetchRecentProductProducts implements FetchRecentProductProducts {
         removeWishlistEvent,
     TResult? Function(String brandName)? fetchShopByBrandProducts,
     TResult? Function(int index)? tabIndexChangeEvent,
+    TResult? Function(String productId, BuildContext context, int totalPrice)?
+        postOrders,
+    TResult? Function(BuildContext context)? fetchOrders,
   }) {
     return fetchRecentProductProducts?.call();
   }
@@ -601,6 +656,9 @@ class _$FetchRecentProductProducts implements FetchRecentProductProducts {
         removeWishlistEvent,
     TResult Function(String brandName)? fetchShopByBrandProducts,
     TResult Function(int index)? tabIndexChangeEvent,
+    TResult Function(String productId, BuildContext context, int totalPrice)?
+        postOrders,
+    TResult Function(BuildContext context)? fetchOrders,
     required TResult orElse(),
   }) {
     if (fetchRecentProductProducts != null) {
@@ -628,6 +686,8 @@ class _$FetchRecentProductProducts implements FetchRecentProductProducts {
     required TResult Function(FetchShopByBrandProducts value)
         fetchShopByBrandProducts,
     required TResult Function(TabIndexChangeEvent value) tabIndexChangeEvent,
+    required TResult Function(PostOrders value) postOrders,
+    required TResult Function(FetchOrders value) fetchOrders,
   }) {
     return fetchRecentProductProducts(this);
   }
@@ -649,6 +709,8 @@ class _$FetchRecentProductProducts implements FetchRecentProductProducts {
     TResult? Function(RemoveWishlistEvent value)? removeWishlistEvent,
     TResult? Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult? Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
+    TResult? Function(PostOrders value)? postOrders,
+    TResult? Function(FetchOrders value)? fetchOrders,
   }) {
     return fetchRecentProductProducts?.call(this);
   }
@@ -670,6 +732,8 @@ class _$FetchRecentProductProducts implements FetchRecentProductProducts {
     TResult Function(RemoveWishlistEvent value)? removeWishlistEvent,
     TResult Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
+    TResult Function(PostOrders value)? postOrders,
+    TResult Function(FetchOrders value)? fetchOrders,
     required TResult orElse(),
   }) {
     if (fetchRecentProductProducts != null) {
@@ -736,6 +800,10 @@ class _$FetchHomeBanners implements FetchHomeBanners {
         removeWishlistEvent,
     required TResult Function(String brandName) fetchShopByBrandProducts,
     required TResult Function(int index) tabIndexChangeEvent,
+    required TResult Function(
+            String productId, BuildContext context, int totalPrice)
+        postOrders,
+    required TResult Function(BuildContext context) fetchOrders,
   }) {
     return fetchHomeBanners();
   }
@@ -757,6 +825,9 @@ class _$FetchHomeBanners implements FetchHomeBanners {
         removeWishlistEvent,
     TResult? Function(String brandName)? fetchShopByBrandProducts,
     TResult? Function(int index)? tabIndexChangeEvent,
+    TResult? Function(String productId, BuildContext context, int totalPrice)?
+        postOrders,
+    TResult? Function(BuildContext context)? fetchOrders,
   }) {
     return fetchHomeBanners?.call();
   }
@@ -778,6 +849,9 @@ class _$FetchHomeBanners implements FetchHomeBanners {
         removeWishlistEvent,
     TResult Function(String brandName)? fetchShopByBrandProducts,
     TResult Function(int index)? tabIndexChangeEvent,
+    TResult Function(String productId, BuildContext context, int totalPrice)?
+        postOrders,
+    TResult Function(BuildContext context)? fetchOrders,
     required TResult orElse(),
   }) {
     if (fetchHomeBanners != null) {
@@ -805,6 +879,8 @@ class _$FetchHomeBanners implements FetchHomeBanners {
     required TResult Function(FetchShopByBrandProducts value)
         fetchShopByBrandProducts,
     required TResult Function(TabIndexChangeEvent value) tabIndexChangeEvent,
+    required TResult Function(PostOrders value) postOrders,
+    required TResult Function(FetchOrders value) fetchOrders,
   }) {
     return fetchHomeBanners(this);
   }
@@ -826,6 +902,8 @@ class _$FetchHomeBanners implements FetchHomeBanners {
     TResult? Function(RemoveWishlistEvent value)? removeWishlistEvent,
     TResult? Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult? Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
+    TResult? Function(PostOrders value)? postOrders,
+    TResult? Function(FetchOrders value)? fetchOrders,
   }) {
     return fetchHomeBanners?.call(this);
   }
@@ -847,6 +925,8 @@ class _$FetchHomeBanners implements FetchHomeBanners {
     TResult Function(RemoveWishlistEvent value)? removeWishlistEvent,
     TResult Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
+    TResult Function(PostOrders value)? postOrders,
+    TResult Function(FetchOrders value)? fetchOrders,
     required TResult orElse(),
   }) {
     if (fetchHomeBanners != null) {
@@ -913,6 +993,10 @@ class _$FetchShopBanners implements FetchShopBanners {
         removeWishlistEvent,
     required TResult Function(String brandName) fetchShopByBrandProducts,
     required TResult Function(int index) tabIndexChangeEvent,
+    required TResult Function(
+            String productId, BuildContext context, int totalPrice)
+        postOrders,
+    required TResult Function(BuildContext context) fetchOrders,
   }) {
     return fetchShopBanners();
   }
@@ -934,6 +1018,9 @@ class _$FetchShopBanners implements FetchShopBanners {
         removeWishlistEvent,
     TResult? Function(String brandName)? fetchShopByBrandProducts,
     TResult? Function(int index)? tabIndexChangeEvent,
+    TResult? Function(String productId, BuildContext context, int totalPrice)?
+        postOrders,
+    TResult? Function(BuildContext context)? fetchOrders,
   }) {
     return fetchShopBanners?.call();
   }
@@ -955,6 +1042,9 @@ class _$FetchShopBanners implements FetchShopBanners {
         removeWishlistEvent,
     TResult Function(String brandName)? fetchShopByBrandProducts,
     TResult Function(int index)? tabIndexChangeEvent,
+    TResult Function(String productId, BuildContext context, int totalPrice)?
+        postOrders,
+    TResult Function(BuildContext context)? fetchOrders,
     required TResult orElse(),
   }) {
     if (fetchShopBanners != null) {
@@ -982,6 +1072,8 @@ class _$FetchShopBanners implements FetchShopBanners {
     required TResult Function(FetchShopByBrandProducts value)
         fetchShopByBrandProducts,
     required TResult Function(TabIndexChangeEvent value) tabIndexChangeEvent,
+    required TResult Function(PostOrders value) postOrders,
+    required TResult Function(FetchOrders value) fetchOrders,
   }) {
     return fetchShopBanners(this);
   }
@@ -1003,6 +1095,8 @@ class _$FetchShopBanners implements FetchShopBanners {
     TResult? Function(RemoveWishlistEvent value)? removeWishlistEvent,
     TResult? Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult? Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
+    TResult? Function(PostOrders value)? postOrders,
+    TResult? Function(FetchOrders value)? fetchOrders,
   }) {
     return fetchShopBanners?.call(this);
   }
@@ -1024,6 +1118,8 @@ class _$FetchShopBanners implements FetchShopBanners {
     TResult Function(RemoveWishlistEvent value)? removeWishlistEvent,
     TResult Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
+    TResult Function(PostOrders value)? postOrders,
+    TResult Function(FetchOrders value)? fetchOrders,
     required TResult orElse(),
   }) {
     if (fetchShopBanners != null) {
@@ -1090,6 +1186,10 @@ class _$FetchArticles implements FetchArticles {
         removeWishlistEvent,
     required TResult Function(String brandName) fetchShopByBrandProducts,
     required TResult Function(int index) tabIndexChangeEvent,
+    required TResult Function(
+            String productId, BuildContext context, int totalPrice)
+        postOrders,
+    required TResult Function(BuildContext context) fetchOrders,
   }) {
     return fetchArticles();
   }
@@ -1111,6 +1211,9 @@ class _$FetchArticles implements FetchArticles {
         removeWishlistEvent,
     TResult? Function(String brandName)? fetchShopByBrandProducts,
     TResult? Function(int index)? tabIndexChangeEvent,
+    TResult? Function(String productId, BuildContext context, int totalPrice)?
+        postOrders,
+    TResult? Function(BuildContext context)? fetchOrders,
   }) {
     return fetchArticles?.call();
   }
@@ -1132,6 +1235,9 @@ class _$FetchArticles implements FetchArticles {
         removeWishlistEvent,
     TResult Function(String brandName)? fetchShopByBrandProducts,
     TResult Function(int index)? tabIndexChangeEvent,
+    TResult Function(String productId, BuildContext context, int totalPrice)?
+        postOrders,
+    TResult Function(BuildContext context)? fetchOrders,
     required TResult orElse(),
   }) {
     if (fetchArticles != null) {
@@ -1159,6 +1265,8 @@ class _$FetchArticles implements FetchArticles {
     required TResult Function(FetchShopByBrandProducts value)
         fetchShopByBrandProducts,
     required TResult Function(TabIndexChangeEvent value) tabIndexChangeEvent,
+    required TResult Function(PostOrders value) postOrders,
+    required TResult Function(FetchOrders value) fetchOrders,
   }) {
     return fetchArticles(this);
   }
@@ -1180,6 +1288,8 @@ class _$FetchArticles implements FetchArticles {
     TResult? Function(RemoveWishlistEvent value)? removeWishlistEvent,
     TResult? Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult? Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
+    TResult? Function(PostOrders value)? postOrders,
+    TResult? Function(FetchOrders value)? fetchOrders,
   }) {
     return fetchArticles?.call(this);
   }
@@ -1201,6 +1311,8 @@ class _$FetchArticles implements FetchArticles {
     TResult Function(RemoveWishlistEvent value)? removeWishlistEvent,
     TResult Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
+    TResult Function(PostOrders value)? postOrders,
+    TResult Function(FetchOrders value)? fetchOrders,
     required TResult orElse(),
   }) {
     if (fetchArticles != null) {
@@ -1267,6 +1379,10 @@ class _$FetchShopByBrand implements FetchShopByBrand {
         removeWishlistEvent,
     required TResult Function(String brandName) fetchShopByBrandProducts,
     required TResult Function(int index) tabIndexChangeEvent,
+    required TResult Function(
+            String productId, BuildContext context, int totalPrice)
+        postOrders,
+    required TResult Function(BuildContext context) fetchOrders,
   }) {
     return fetchShopByBrand();
   }
@@ -1288,6 +1404,9 @@ class _$FetchShopByBrand implements FetchShopByBrand {
         removeWishlistEvent,
     TResult? Function(String brandName)? fetchShopByBrandProducts,
     TResult? Function(int index)? tabIndexChangeEvent,
+    TResult? Function(String productId, BuildContext context, int totalPrice)?
+        postOrders,
+    TResult? Function(BuildContext context)? fetchOrders,
   }) {
     return fetchShopByBrand?.call();
   }
@@ -1309,6 +1428,9 @@ class _$FetchShopByBrand implements FetchShopByBrand {
         removeWishlistEvent,
     TResult Function(String brandName)? fetchShopByBrandProducts,
     TResult Function(int index)? tabIndexChangeEvent,
+    TResult Function(String productId, BuildContext context, int totalPrice)?
+        postOrders,
+    TResult Function(BuildContext context)? fetchOrders,
     required TResult orElse(),
   }) {
     if (fetchShopByBrand != null) {
@@ -1336,6 +1458,8 @@ class _$FetchShopByBrand implements FetchShopByBrand {
     required TResult Function(FetchShopByBrandProducts value)
         fetchShopByBrandProducts,
     required TResult Function(TabIndexChangeEvent value) tabIndexChangeEvent,
+    required TResult Function(PostOrders value) postOrders,
+    required TResult Function(FetchOrders value) fetchOrders,
   }) {
     return fetchShopByBrand(this);
   }
@@ -1357,6 +1481,8 @@ class _$FetchShopByBrand implements FetchShopByBrand {
     TResult? Function(RemoveWishlistEvent value)? removeWishlistEvent,
     TResult? Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult? Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
+    TResult? Function(PostOrders value)? postOrders,
+    TResult? Function(FetchOrders value)? fetchOrders,
   }) {
     return fetchShopByBrand?.call(this);
   }
@@ -1378,6 +1504,8 @@ class _$FetchShopByBrand implements FetchShopByBrand {
     TResult Function(RemoveWishlistEvent value)? removeWishlistEvent,
     TResult Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
+    TResult Function(PostOrders value)? postOrders,
+    TResult Function(FetchOrders value)? fetchOrders,
     required TResult orElse(),
   }) {
     if (fetchShopByBrand != null) {
@@ -1470,6 +1598,10 @@ class _$FetchWishList implements FetchWishList {
         removeWishlistEvent,
     required TResult Function(String brandName) fetchShopByBrandProducts,
     required TResult Function(int index) tabIndexChangeEvent,
+    required TResult Function(
+            String productId, BuildContext context, int totalPrice)
+        postOrders,
+    required TResult Function(BuildContext context) fetchOrders,
   }) {
     return fetchWishList(context);
   }
@@ -1491,6 +1623,9 @@ class _$FetchWishList implements FetchWishList {
         removeWishlistEvent,
     TResult? Function(String brandName)? fetchShopByBrandProducts,
     TResult? Function(int index)? tabIndexChangeEvent,
+    TResult? Function(String productId, BuildContext context, int totalPrice)?
+        postOrders,
+    TResult? Function(BuildContext context)? fetchOrders,
   }) {
     return fetchWishList?.call(context);
   }
@@ -1512,6 +1647,9 @@ class _$FetchWishList implements FetchWishList {
         removeWishlistEvent,
     TResult Function(String brandName)? fetchShopByBrandProducts,
     TResult Function(int index)? tabIndexChangeEvent,
+    TResult Function(String productId, BuildContext context, int totalPrice)?
+        postOrders,
+    TResult Function(BuildContext context)? fetchOrders,
     required TResult orElse(),
   }) {
     if (fetchWishList != null) {
@@ -1539,6 +1677,8 @@ class _$FetchWishList implements FetchWishList {
     required TResult Function(FetchShopByBrandProducts value)
         fetchShopByBrandProducts,
     required TResult Function(TabIndexChangeEvent value) tabIndexChangeEvent,
+    required TResult Function(PostOrders value) postOrders,
+    required TResult Function(FetchOrders value) fetchOrders,
   }) {
     return fetchWishList(this);
   }
@@ -1560,6 +1700,8 @@ class _$FetchWishList implements FetchWishList {
     TResult? Function(RemoveWishlistEvent value)? removeWishlistEvent,
     TResult? Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult? Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
+    TResult? Function(PostOrders value)? postOrders,
+    TResult? Function(FetchOrders value)? fetchOrders,
   }) {
     return fetchWishList?.call(this);
   }
@@ -1581,6 +1723,8 @@ class _$FetchWishList implements FetchWishList {
     TResult Function(RemoveWishlistEvent value)? removeWishlistEvent,
     TResult Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
+    TResult Function(PostOrders value)? postOrders,
+    TResult Function(FetchOrders value)? fetchOrders,
     required TResult orElse(),
   }) {
     if (fetchWishList != null) {
@@ -1678,6 +1822,10 @@ class _$SearchProduct implements SearchProduct {
         removeWishlistEvent,
     required TResult Function(String brandName) fetchShopByBrandProducts,
     required TResult Function(int index) tabIndexChangeEvent,
+    required TResult Function(
+            String productId, BuildContext context, int totalPrice)
+        postOrders,
+    required TResult Function(BuildContext context) fetchOrders,
   }) {
     return searchProduct(query);
   }
@@ -1699,6 +1847,9 @@ class _$SearchProduct implements SearchProduct {
         removeWishlistEvent,
     TResult? Function(String brandName)? fetchShopByBrandProducts,
     TResult? Function(int index)? tabIndexChangeEvent,
+    TResult? Function(String productId, BuildContext context, int totalPrice)?
+        postOrders,
+    TResult? Function(BuildContext context)? fetchOrders,
   }) {
     return searchProduct?.call(query);
   }
@@ -1720,6 +1871,9 @@ class _$SearchProduct implements SearchProduct {
         removeWishlistEvent,
     TResult Function(String brandName)? fetchShopByBrandProducts,
     TResult Function(int index)? tabIndexChangeEvent,
+    TResult Function(String productId, BuildContext context, int totalPrice)?
+        postOrders,
+    TResult Function(BuildContext context)? fetchOrders,
     required TResult orElse(),
   }) {
     if (searchProduct != null) {
@@ -1747,6 +1901,8 @@ class _$SearchProduct implements SearchProduct {
     required TResult Function(FetchShopByBrandProducts value)
         fetchShopByBrandProducts,
     required TResult Function(TabIndexChangeEvent value) tabIndexChangeEvent,
+    required TResult Function(PostOrders value) postOrders,
+    required TResult Function(FetchOrders value) fetchOrders,
   }) {
     return searchProduct(this);
   }
@@ -1768,6 +1924,8 @@ class _$SearchProduct implements SearchProduct {
     TResult? Function(RemoveWishlistEvent value)? removeWishlistEvent,
     TResult? Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult? Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
+    TResult? Function(PostOrders value)? postOrders,
+    TResult? Function(FetchOrders value)? fetchOrders,
   }) {
     return searchProduct?.call(this);
   }
@@ -1789,6 +1947,8 @@ class _$SearchProduct implements SearchProduct {
     TResult Function(RemoveWishlistEvent value)? removeWishlistEvent,
     TResult Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
+    TResult Function(PostOrders value)? postOrders,
+    TResult Function(FetchOrders value)? fetchOrders,
     required TResult orElse(),
   }) {
     if (searchProduct != null) {
@@ -1895,6 +2055,10 @@ class _$AddWishListEvent implements AddWishListEvent {
         removeWishlistEvent,
     required TResult Function(String brandName) fetchShopByBrandProducts,
     required TResult Function(int index) tabIndexChangeEvent,
+    required TResult Function(
+            String productId, BuildContext context, int totalPrice)
+        postOrders,
+    required TResult Function(BuildContext context) fetchOrders,
   }) {
     return addWishListEvent(productId, context);
   }
@@ -1916,6 +2080,9 @@ class _$AddWishListEvent implements AddWishListEvent {
         removeWishlistEvent,
     TResult? Function(String brandName)? fetchShopByBrandProducts,
     TResult? Function(int index)? tabIndexChangeEvent,
+    TResult? Function(String productId, BuildContext context, int totalPrice)?
+        postOrders,
+    TResult? Function(BuildContext context)? fetchOrders,
   }) {
     return addWishListEvent?.call(productId, context);
   }
@@ -1937,6 +2104,9 @@ class _$AddWishListEvent implements AddWishListEvent {
         removeWishlistEvent,
     TResult Function(String brandName)? fetchShopByBrandProducts,
     TResult Function(int index)? tabIndexChangeEvent,
+    TResult Function(String productId, BuildContext context, int totalPrice)?
+        postOrders,
+    TResult Function(BuildContext context)? fetchOrders,
     required TResult orElse(),
   }) {
     if (addWishListEvent != null) {
@@ -1964,6 +2134,8 @@ class _$AddWishListEvent implements AddWishListEvent {
     required TResult Function(FetchShopByBrandProducts value)
         fetchShopByBrandProducts,
     required TResult Function(TabIndexChangeEvent value) tabIndexChangeEvent,
+    required TResult Function(PostOrders value) postOrders,
+    required TResult Function(FetchOrders value) fetchOrders,
   }) {
     return addWishListEvent(this);
   }
@@ -1985,6 +2157,8 @@ class _$AddWishListEvent implements AddWishListEvent {
     TResult? Function(RemoveWishlistEvent value)? removeWishlistEvent,
     TResult? Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult? Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
+    TResult? Function(PostOrders value)? postOrders,
+    TResult? Function(FetchOrders value)? fetchOrders,
   }) {
     return addWishListEvent?.call(this);
   }
@@ -2006,6 +2180,8 @@ class _$AddWishListEvent implements AddWishListEvent {
     TResult Function(RemoveWishlistEvent value)? removeWishlistEvent,
     TResult Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
+    TResult Function(PostOrders value)? postOrders,
+    TResult Function(FetchOrders value)? fetchOrders,
     required TResult orElse(),
   }) {
     if (addWishListEvent != null) {
@@ -2116,6 +2292,10 @@ class _$RemoveWishlistEvent implements RemoveWishlistEvent {
         removeWishlistEvent,
     required TResult Function(String brandName) fetchShopByBrandProducts,
     required TResult Function(int index) tabIndexChangeEvent,
+    required TResult Function(
+            String productId, BuildContext context, int totalPrice)
+        postOrders,
+    required TResult Function(BuildContext context) fetchOrders,
   }) {
     return removeWishlistEvent(productId, context);
   }
@@ -2137,6 +2317,9 @@ class _$RemoveWishlistEvent implements RemoveWishlistEvent {
         removeWishlistEvent,
     TResult? Function(String brandName)? fetchShopByBrandProducts,
     TResult? Function(int index)? tabIndexChangeEvent,
+    TResult? Function(String productId, BuildContext context, int totalPrice)?
+        postOrders,
+    TResult? Function(BuildContext context)? fetchOrders,
   }) {
     return removeWishlistEvent?.call(productId, context);
   }
@@ -2158,6 +2341,9 @@ class _$RemoveWishlistEvent implements RemoveWishlistEvent {
         removeWishlistEvent,
     TResult Function(String brandName)? fetchShopByBrandProducts,
     TResult Function(int index)? tabIndexChangeEvent,
+    TResult Function(String productId, BuildContext context, int totalPrice)?
+        postOrders,
+    TResult Function(BuildContext context)? fetchOrders,
     required TResult orElse(),
   }) {
     if (removeWishlistEvent != null) {
@@ -2185,6 +2371,8 @@ class _$RemoveWishlistEvent implements RemoveWishlistEvent {
     required TResult Function(FetchShopByBrandProducts value)
         fetchShopByBrandProducts,
     required TResult Function(TabIndexChangeEvent value) tabIndexChangeEvent,
+    required TResult Function(PostOrders value) postOrders,
+    required TResult Function(FetchOrders value) fetchOrders,
   }) {
     return removeWishlistEvent(this);
   }
@@ -2206,6 +2394,8 @@ class _$RemoveWishlistEvent implements RemoveWishlistEvent {
     TResult? Function(RemoveWishlistEvent value)? removeWishlistEvent,
     TResult? Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult? Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
+    TResult? Function(PostOrders value)? postOrders,
+    TResult? Function(FetchOrders value)? fetchOrders,
   }) {
     return removeWishlistEvent?.call(this);
   }
@@ -2227,6 +2417,8 @@ class _$RemoveWishlistEvent implements RemoveWishlistEvent {
     TResult Function(RemoveWishlistEvent value)? removeWishlistEvent,
     TResult Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
+    TResult Function(PostOrders value)? postOrders,
+    TResult Function(FetchOrders value)? fetchOrders,
     required TResult orElse(),
   }) {
     if (removeWishlistEvent != null) {
@@ -2330,6 +2522,10 @@ class _$FetchShopByBrandProducts implements FetchShopByBrandProducts {
         removeWishlistEvent,
     required TResult Function(String brandName) fetchShopByBrandProducts,
     required TResult Function(int index) tabIndexChangeEvent,
+    required TResult Function(
+            String productId, BuildContext context, int totalPrice)
+        postOrders,
+    required TResult Function(BuildContext context) fetchOrders,
   }) {
     return fetchShopByBrandProducts(brandName);
   }
@@ -2351,6 +2547,9 @@ class _$FetchShopByBrandProducts implements FetchShopByBrandProducts {
         removeWishlistEvent,
     TResult? Function(String brandName)? fetchShopByBrandProducts,
     TResult? Function(int index)? tabIndexChangeEvent,
+    TResult? Function(String productId, BuildContext context, int totalPrice)?
+        postOrders,
+    TResult? Function(BuildContext context)? fetchOrders,
   }) {
     return fetchShopByBrandProducts?.call(brandName);
   }
@@ -2372,6 +2571,9 @@ class _$FetchShopByBrandProducts implements FetchShopByBrandProducts {
         removeWishlistEvent,
     TResult Function(String brandName)? fetchShopByBrandProducts,
     TResult Function(int index)? tabIndexChangeEvent,
+    TResult Function(String productId, BuildContext context, int totalPrice)?
+        postOrders,
+    TResult Function(BuildContext context)? fetchOrders,
     required TResult orElse(),
   }) {
     if (fetchShopByBrandProducts != null) {
@@ -2399,6 +2601,8 @@ class _$FetchShopByBrandProducts implements FetchShopByBrandProducts {
     required TResult Function(FetchShopByBrandProducts value)
         fetchShopByBrandProducts,
     required TResult Function(TabIndexChangeEvent value) tabIndexChangeEvent,
+    required TResult Function(PostOrders value) postOrders,
+    required TResult Function(FetchOrders value) fetchOrders,
   }) {
     return fetchShopByBrandProducts(this);
   }
@@ -2420,6 +2624,8 @@ class _$FetchShopByBrandProducts implements FetchShopByBrandProducts {
     TResult? Function(RemoveWishlistEvent value)? removeWishlistEvent,
     TResult? Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult? Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
+    TResult? Function(PostOrders value)? postOrders,
+    TResult? Function(FetchOrders value)? fetchOrders,
   }) {
     return fetchShopByBrandProducts?.call(this);
   }
@@ -2441,6 +2647,8 @@ class _$FetchShopByBrandProducts implements FetchShopByBrandProducts {
     TResult Function(RemoveWishlistEvent value)? removeWishlistEvent,
     TResult Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
+    TResult Function(PostOrders value)? postOrders,
+    TResult Function(FetchOrders value)? fetchOrders,
     required TResult orElse(),
   }) {
     if (fetchShopByBrandProducts != null) {
@@ -2540,6 +2748,10 @@ class _$TabIndexChangeEvent implements TabIndexChangeEvent {
         removeWishlistEvent,
     required TResult Function(String brandName) fetchShopByBrandProducts,
     required TResult Function(int index) tabIndexChangeEvent,
+    required TResult Function(
+            String productId, BuildContext context, int totalPrice)
+        postOrders,
+    required TResult Function(BuildContext context) fetchOrders,
   }) {
     return tabIndexChangeEvent(index);
   }
@@ -2561,6 +2773,9 @@ class _$TabIndexChangeEvent implements TabIndexChangeEvent {
         removeWishlistEvent,
     TResult? Function(String brandName)? fetchShopByBrandProducts,
     TResult? Function(int index)? tabIndexChangeEvent,
+    TResult? Function(String productId, BuildContext context, int totalPrice)?
+        postOrders,
+    TResult? Function(BuildContext context)? fetchOrders,
   }) {
     return tabIndexChangeEvent?.call(index);
   }
@@ -2582,6 +2797,9 @@ class _$TabIndexChangeEvent implements TabIndexChangeEvent {
         removeWishlistEvent,
     TResult Function(String brandName)? fetchShopByBrandProducts,
     TResult Function(int index)? tabIndexChangeEvent,
+    TResult Function(String productId, BuildContext context, int totalPrice)?
+        postOrders,
+    TResult Function(BuildContext context)? fetchOrders,
     required TResult orElse(),
   }) {
     if (tabIndexChangeEvent != null) {
@@ -2609,6 +2827,8 @@ class _$TabIndexChangeEvent implements TabIndexChangeEvent {
     required TResult Function(FetchShopByBrandProducts value)
         fetchShopByBrandProducts,
     required TResult Function(TabIndexChangeEvent value) tabIndexChangeEvent,
+    required TResult Function(PostOrders value) postOrders,
+    required TResult Function(FetchOrders value) fetchOrders,
   }) {
     return tabIndexChangeEvent(this);
   }
@@ -2630,6 +2850,8 @@ class _$TabIndexChangeEvent implements TabIndexChangeEvent {
     TResult? Function(RemoveWishlistEvent value)? removeWishlistEvent,
     TResult? Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult? Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
+    TResult? Function(PostOrders value)? postOrders,
+    TResult? Function(FetchOrders value)? fetchOrders,
   }) {
     return tabIndexChangeEvent?.call(this);
   }
@@ -2651,6 +2873,8 @@ class _$TabIndexChangeEvent implements TabIndexChangeEvent {
     TResult Function(RemoveWishlistEvent value)? removeWishlistEvent,
     TResult Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
+    TResult Function(PostOrders value)? postOrders,
+    TResult Function(FetchOrders value)? fetchOrders,
     required TResult orElse(),
   }) {
     if (tabIndexChangeEvent != null) {
@@ -2667,6 +2891,480 @@ abstract class TabIndexChangeEvent implements ShopProductsEvent {
   int get index;
   @JsonKey(ignore: true)
   _$$TabIndexChangeEventCopyWith<_$TabIndexChangeEvent> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$PostOrdersCopyWith<$Res> {
+  factory _$$PostOrdersCopyWith(
+          _$PostOrders value, $Res Function(_$PostOrders) then) =
+      __$$PostOrdersCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String productId, BuildContext context, int totalPrice});
+}
+
+/// @nodoc
+class __$$PostOrdersCopyWithImpl<$Res>
+    extends _$ShopProductsEventCopyWithImpl<$Res, _$PostOrders>
+    implements _$$PostOrdersCopyWith<$Res> {
+  __$$PostOrdersCopyWithImpl(
+      _$PostOrders _value, $Res Function(_$PostOrders) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? productId = null,
+    Object? context = null,
+    Object? totalPrice = null,
+  }) {
+    return _then(_$PostOrders(
+      productId: null == productId
+          ? _value.productId
+          : productId // ignore: cast_nullable_to_non_nullable
+              as String,
+      context: null == context
+          ? _value.context
+          : context // ignore: cast_nullable_to_non_nullable
+              as BuildContext,
+      totalPrice: null == totalPrice
+          ? _value.totalPrice
+          : totalPrice // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$PostOrders implements PostOrders {
+  const _$PostOrders(
+      {required this.productId,
+      required this.context,
+      required this.totalPrice});
+
+  @override
+  final String productId;
+  @override
+  final BuildContext context;
+  @override
+  final int totalPrice;
+
+  @override
+  String toString() {
+    return 'ShopProductsEvent.postOrders(productId: $productId, context: $context, totalPrice: $totalPrice)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$PostOrders &&
+            (identical(other.productId, productId) ||
+                other.productId == productId) &&
+            (identical(other.context, context) || other.context == context) &&
+            (identical(other.totalPrice, totalPrice) ||
+                other.totalPrice == totalPrice));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, productId, context, totalPrice);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$PostOrdersCopyWith<_$PostOrders> get copyWith =>
+      __$$PostOrdersCopyWithImpl<_$PostOrders>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() fetchFlashSaleProducts,
+    required TResult Function() fetchPopularProducts,
+    required TResult Function() fetchRecentProductProducts,
+    required TResult Function() fetchHomeBanners,
+    required TResult Function() fetchShopBanners,
+    required TResult Function() fetchArticles,
+    required TResult Function() fetchShopByBrand,
+    required TResult Function(BuildContext context) fetchWishList,
+    required TResult Function(String query) searchProduct,
+    required TResult Function(String productId, BuildContext context)
+        addWishListEvent,
+    required TResult Function(String productId, BuildContext context)
+        removeWishlistEvent,
+    required TResult Function(String brandName) fetchShopByBrandProducts,
+    required TResult Function(int index) tabIndexChangeEvent,
+    required TResult Function(
+            String productId, BuildContext context, int totalPrice)
+        postOrders,
+    required TResult Function(BuildContext context) fetchOrders,
+  }) {
+    return postOrders(productId, context, totalPrice);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? fetchFlashSaleProducts,
+    TResult? Function()? fetchPopularProducts,
+    TResult? Function()? fetchRecentProductProducts,
+    TResult? Function()? fetchHomeBanners,
+    TResult? Function()? fetchShopBanners,
+    TResult? Function()? fetchArticles,
+    TResult? Function()? fetchShopByBrand,
+    TResult? Function(BuildContext context)? fetchWishList,
+    TResult? Function(String query)? searchProduct,
+    TResult? Function(String productId, BuildContext context)? addWishListEvent,
+    TResult? Function(String productId, BuildContext context)?
+        removeWishlistEvent,
+    TResult? Function(String brandName)? fetchShopByBrandProducts,
+    TResult? Function(int index)? tabIndexChangeEvent,
+    TResult? Function(String productId, BuildContext context, int totalPrice)?
+        postOrders,
+    TResult? Function(BuildContext context)? fetchOrders,
+  }) {
+    return postOrders?.call(productId, context, totalPrice);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? fetchFlashSaleProducts,
+    TResult Function()? fetchPopularProducts,
+    TResult Function()? fetchRecentProductProducts,
+    TResult Function()? fetchHomeBanners,
+    TResult Function()? fetchShopBanners,
+    TResult Function()? fetchArticles,
+    TResult Function()? fetchShopByBrand,
+    TResult Function(BuildContext context)? fetchWishList,
+    TResult Function(String query)? searchProduct,
+    TResult Function(String productId, BuildContext context)? addWishListEvent,
+    TResult Function(String productId, BuildContext context)?
+        removeWishlistEvent,
+    TResult Function(String brandName)? fetchShopByBrandProducts,
+    TResult Function(int index)? tabIndexChangeEvent,
+    TResult Function(String productId, BuildContext context, int totalPrice)?
+        postOrders,
+    TResult Function(BuildContext context)? fetchOrders,
+    required TResult orElse(),
+  }) {
+    if (postOrders != null) {
+      return postOrders(productId, context, totalPrice);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FetchFlashSaleProducts value)
+        fetchFlashSaleProducts,
+    required TResult Function(FetchPopularProducts value) fetchPopularProducts,
+    required TResult Function(FetchRecentProductProducts value)
+        fetchRecentProductProducts,
+    required TResult Function(FetchHomeBanners value) fetchHomeBanners,
+    required TResult Function(FetchShopBanners value) fetchShopBanners,
+    required TResult Function(FetchArticles value) fetchArticles,
+    required TResult Function(FetchShopByBrand value) fetchShopByBrand,
+    required TResult Function(FetchWishList value) fetchWishList,
+    required TResult Function(SearchProduct value) searchProduct,
+    required TResult Function(AddWishListEvent value) addWishListEvent,
+    required TResult Function(RemoveWishlistEvent value) removeWishlistEvent,
+    required TResult Function(FetchShopByBrandProducts value)
+        fetchShopByBrandProducts,
+    required TResult Function(TabIndexChangeEvent value) tabIndexChangeEvent,
+    required TResult Function(PostOrders value) postOrders,
+    required TResult Function(FetchOrders value) fetchOrders,
+  }) {
+    return postOrders(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(FetchFlashSaleProducts value)? fetchFlashSaleProducts,
+    TResult? Function(FetchPopularProducts value)? fetchPopularProducts,
+    TResult? Function(FetchRecentProductProducts value)?
+        fetchRecentProductProducts,
+    TResult? Function(FetchHomeBanners value)? fetchHomeBanners,
+    TResult? Function(FetchShopBanners value)? fetchShopBanners,
+    TResult? Function(FetchArticles value)? fetchArticles,
+    TResult? Function(FetchShopByBrand value)? fetchShopByBrand,
+    TResult? Function(FetchWishList value)? fetchWishList,
+    TResult? Function(SearchProduct value)? searchProduct,
+    TResult? Function(AddWishListEvent value)? addWishListEvent,
+    TResult? Function(RemoveWishlistEvent value)? removeWishlistEvent,
+    TResult? Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
+    TResult? Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
+    TResult? Function(PostOrders value)? postOrders,
+    TResult? Function(FetchOrders value)? fetchOrders,
+  }) {
+    return postOrders?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FetchFlashSaleProducts value)? fetchFlashSaleProducts,
+    TResult Function(FetchPopularProducts value)? fetchPopularProducts,
+    TResult Function(FetchRecentProductProducts value)?
+        fetchRecentProductProducts,
+    TResult Function(FetchHomeBanners value)? fetchHomeBanners,
+    TResult Function(FetchShopBanners value)? fetchShopBanners,
+    TResult Function(FetchArticles value)? fetchArticles,
+    TResult Function(FetchShopByBrand value)? fetchShopByBrand,
+    TResult Function(FetchWishList value)? fetchWishList,
+    TResult Function(SearchProduct value)? searchProduct,
+    TResult Function(AddWishListEvent value)? addWishListEvent,
+    TResult Function(RemoveWishlistEvent value)? removeWishlistEvent,
+    TResult Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
+    TResult Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
+    TResult Function(PostOrders value)? postOrders,
+    TResult Function(FetchOrders value)? fetchOrders,
+    required TResult orElse(),
+  }) {
+    if (postOrders != null) {
+      return postOrders(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class PostOrders implements ShopProductsEvent {
+  const factory PostOrders(
+      {required final String productId,
+      required final BuildContext context,
+      required final int totalPrice}) = _$PostOrders;
+
+  String get productId;
+  BuildContext get context;
+  int get totalPrice;
+  @JsonKey(ignore: true)
+  _$$PostOrdersCopyWith<_$PostOrders> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$FetchOrdersCopyWith<$Res> {
+  factory _$$FetchOrdersCopyWith(
+          _$FetchOrders value, $Res Function(_$FetchOrders) then) =
+      __$$FetchOrdersCopyWithImpl<$Res>;
+  @useResult
+  $Res call({BuildContext context});
+}
+
+/// @nodoc
+class __$$FetchOrdersCopyWithImpl<$Res>
+    extends _$ShopProductsEventCopyWithImpl<$Res, _$FetchOrders>
+    implements _$$FetchOrdersCopyWith<$Res> {
+  __$$FetchOrdersCopyWithImpl(
+      _$FetchOrders _value, $Res Function(_$FetchOrders) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? context = null,
+  }) {
+    return _then(_$FetchOrders(
+      null == context
+          ? _value.context
+          : context // ignore: cast_nullable_to_non_nullable
+              as BuildContext,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$FetchOrders implements FetchOrders {
+  const _$FetchOrders(this.context);
+
+  @override
+  final BuildContext context;
+
+  @override
+  String toString() {
+    return 'ShopProductsEvent.fetchOrders(context: $context)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$FetchOrders &&
+            (identical(other.context, context) || other.context == context));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, context);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$FetchOrdersCopyWith<_$FetchOrders> get copyWith =>
+      __$$FetchOrdersCopyWithImpl<_$FetchOrders>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() fetchFlashSaleProducts,
+    required TResult Function() fetchPopularProducts,
+    required TResult Function() fetchRecentProductProducts,
+    required TResult Function() fetchHomeBanners,
+    required TResult Function() fetchShopBanners,
+    required TResult Function() fetchArticles,
+    required TResult Function() fetchShopByBrand,
+    required TResult Function(BuildContext context) fetchWishList,
+    required TResult Function(String query) searchProduct,
+    required TResult Function(String productId, BuildContext context)
+        addWishListEvent,
+    required TResult Function(String productId, BuildContext context)
+        removeWishlistEvent,
+    required TResult Function(String brandName) fetchShopByBrandProducts,
+    required TResult Function(int index) tabIndexChangeEvent,
+    required TResult Function(
+            String productId, BuildContext context, int totalPrice)
+        postOrders,
+    required TResult Function(BuildContext context) fetchOrders,
+  }) {
+    return fetchOrders(context);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? fetchFlashSaleProducts,
+    TResult? Function()? fetchPopularProducts,
+    TResult? Function()? fetchRecentProductProducts,
+    TResult? Function()? fetchHomeBanners,
+    TResult? Function()? fetchShopBanners,
+    TResult? Function()? fetchArticles,
+    TResult? Function()? fetchShopByBrand,
+    TResult? Function(BuildContext context)? fetchWishList,
+    TResult? Function(String query)? searchProduct,
+    TResult? Function(String productId, BuildContext context)? addWishListEvent,
+    TResult? Function(String productId, BuildContext context)?
+        removeWishlistEvent,
+    TResult? Function(String brandName)? fetchShopByBrandProducts,
+    TResult? Function(int index)? tabIndexChangeEvent,
+    TResult? Function(String productId, BuildContext context, int totalPrice)?
+        postOrders,
+    TResult? Function(BuildContext context)? fetchOrders,
+  }) {
+    return fetchOrders?.call(context);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? fetchFlashSaleProducts,
+    TResult Function()? fetchPopularProducts,
+    TResult Function()? fetchRecentProductProducts,
+    TResult Function()? fetchHomeBanners,
+    TResult Function()? fetchShopBanners,
+    TResult Function()? fetchArticles,
+    TResult Function()? fetchShopByBrand,
+    TResult Function(BuildContext context)? fetchWishList,
+    TResult Function(String query)? searchProduct,
+    TResult Function(String productId, BuildContext context)? addWishListEvent,
+    TResult Function(String productId, BuildContext context)?
+        removeWishlistEvent,
+    TResult Function(String brandName)? fetchShopByBrandProducts,
+    TResult Function(int index)? tabIndexChangeEvent,
+    TResult Function(String productId, BuildContext context, int totalPrice)?
+        postOrders,
+    TResult Function(BuildContext context)? fetchOrders,
+    required TResult orElse(),
+  }) {
+    if (fetchOrders != null) {
+      return fetchOrders(context);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FetchFlashSaleProducts value)
+        fetchFlashSaleProducts,
+    required TResult Function(FetchPopularProducts value) fetchPopularProducts,
+    required TResult Function(FetchRecentProductProducts value)
+        fetchRecentProductProducts,
+    required TResult Function(FetchHomeBanners value) fetchHomeBanners,
+    required TResult Function(FetchShopBanners value) fetchShopBanners,
+    required TResult Function(FetchArticles value) fetchArticles,
+    required TResult Function(FetchShopByBrand value) fetchShopByBrand,
+    required TResult Function(FetchWishList value) fetchWishList,
+    required TResult Function(SearchProduct value) searchProduct,
+    required TResult Function(AddWishListEvent value) addWishListEvent,
+    required TResult Function(RemoveWishlistEvent value) removeWishlistEvent,
+    required TResult Function(FetchShopByBrandProducts value)
+        fetchShopByBrandProducts,
+    required TResult Function(TabIndexChangeEvent value) tabIndexChangeEvent,
+    required TResult Function(PostOrders value) postOrders,
+    required TResult Function(FetchOrders value) fetchOrders,
+  }) {
+    return fetchOrders(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(FetchFlashSaleProducts value)? fetchFlashSaleProducts,
+    TResult? Function(FetchPopularProducts value)? fetchPopularProducts,
+    TResult? Function(FetchRecentProductProducts value)?
+        fetchRecentProductProducts,
+    TResult? Function(FetchHomeBanners value)? fetchHomeBanners,
+    TResult? Function(FetchShopBanners value)? fetchShopBanners,
+    TResult? Function(FetchArticles value)? fetchArticles,
+    TResult? Function(FetchShopByBrand value)? fetchShopByBrand,
+    TResult? Function(FetchWishList value)? fetchWishList,
+    TResult? Function(SearchProduct value)? searchProduct,
+    TResult? Function(AddWishListEvent value)? addWishListEvent,
+    TResult? Function(RemoveWishlistEvent value)? removeWishlistEvent,
+    TResult? Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
+    TResult? Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
+    TResult? Function(PostOrders value)? postOrders,
+    TResult? Function(FetchOrders value)? fetchOrders,
+  }) {
+    return fetchOrders?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FetchFlashSaleProducts value)? fetchFlashSaleProducts,
+    TResult Function(FetchPopularProducts value)? fetchPopularProducts,
+    TResult Function(FetchRecentProductProducts value)?
+        fetchRecentProductProducts,
+    TResult Function(FetchHomeBanners value)? fetchHomeBanners,
+    TResult Function(FetchShopBanners value)? fetchShopBanners,
+    TResult Function(FetchArticles value)? fetchArticles,
+    TResult Function(FetchShopByBrand value)? fetchShopByBrand,
+    TResult Function(FetchWishList value)? fetchWishList,
+    TResult Function(SearchProduct value)? searchProduct,
+    TResult Function(AddWishListEvent value)? addWishListEvent,
+    TResult Function(RemoveWishlistEvent value)? removeWishlistEvent,
+    TResult Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
+    TResult Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
+    TResult Function(PostOrders value)? postOrders,
+    TResult Function(FetchOrders value)? fetchOrders,
+    required TResult orElse(),
+  }) {
+    if (fetchOrders != null) {
+      return fetchOrders(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class FetchOrders implements ShopProductsEvent {
+  const factory FetchOrders(final BuildContext context) = _$FetchOrders;
+
+  BuildContext get context;
+  @JsonKey(ignore: true)
+  _$$FetchOrdersCopyWith<_$FetchOrders> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -2693,6 +3391,7 @@ mixin _$ShopProductsState {
   ShopBrandProductModel? get brandProduct => throw _privateConstructorUsedError;
   int get index => throw _privateConstructorUsedError;
   bool get isWishListed => throw _privateConstructorUsedError;
+  OrderModel? get orderModel => throw _privateConstructorUsedError;
   String get errorMessage => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -2728,6 +3427,7 @@ abstract class $ShopProductsStateCopyWith<$Res> {
       ShopBrandProductModel? brandProduct,
       int index,
       bool isWishListed,
+      OrderModel? orderModel,
       String errorMessage});
 
   $ShopProductsCopyWith<$Res>? get flashSaleproducts;
@@ -2740,6 +3440,7 @@ abstract class $ShopProductsStateCopyWith<$Res> {
   $WishlistResponseCopyWith<$Res>? get wishList;
   $ProductModelCopyWith<$Res>? get searchProducts;
   $ShopBrandProductModelCopyWith<$Res>? get brandProduct;
+  $OrderModelCopyWith<$Res>? get orderModel;
 }
 
 /// @nodoc
@@ -2776,6 +3477,7 @@ class _$ShopProductsStateCopyWithImpl<$Res, $Val extends ShopProductsState>
     Object? brandProduct = freezed,
     Object? index = null,
     Object? isWishListed = null,
+    Object? orderModel = freezed,
     Object? errorMessage = null,
   }) {
     return _then(_value.copyWith(
@@ -2863,6 +3565,10 @@ class _$ShopProductsStateCopyWithImpl<$Res, $Val extends ShopProductsState>
           ? _value.isWishListed
           : isWishListed // ignore: cast_nullable_to_non_nullable
               as bool,
+      orderModel: freezed == orderModel
+          ? _value.orderModel
+          : orderModel // ignore: cast_nullable_to_non_nullable
+              as OrderModel?,
       errorMessage: null == errorMessage
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
@@ -2989,6 +3695,18 @@ class _$ShopProductsStateCopyWithImpl<$Res, $Val extends ShopProductsState>
       return _then(_value.copyWith(brandProduct: value) as $Val);
     });
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $OrderModelCopyWith<$Res>? get orderModel {
+    if (_value.orderModel == null) {
+      return null;
+    }
+
+    return $OrderModelCopyWith<$Res>(_value.orderModel!, (value) {
+      return _then(_value.copyWith(orderModel: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -3021,6 +3739,7 @@ abstract class _$$_InitialCopyWith<$Res>
       ShopBrandProductModel? brandProduct,
       int index,
       bool isWishListed,
+      OrderModel? orderModel,
       String errorMessage});
 
   @override
@@ -3043,6 +3762,8 @@ abstract class _$$_InitialCopyWith<$Res>
   $ProductModelCopyWith<$Res>? get searchProducts;
   @override
   $ShopBrandProductModelCopyWith<$Res>? get brandProduct;
+  @override
+  $OrderModelCopyWith<$Res>? get orderModel;
 }
 
 /// @nodoc
@@ -3076,6 +3797,7 @@ class __$$_InitialCopyWithImpl<$Res>
     Object? brandProduct = freezed,
     Object? index = null,
     Object? isWishListed = null,
+    Object? orderModel = freezed,
     Object? errorMessage = null,
   }) {
     return _then(_$_Initial(
@@ -3163,6 +3885,10 @@ class __$$_InitialCopyWithImpl<$Res>
           ? _value.isWishListed
           : isWishListed // ignore: cast_nullable_to_non_nullable
               as bool,
+      orderModel: freezed == orderModel
+          ? _value.orderModel
+          : orderModel // ignore: cast_nullable_to_non_nullable
+              as OrderModel?,
       errorMessage: null == errorMessage
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
@@ -3196,6 +3922,7 @@ class _$_Initial implements _Initial {
       required this.brandProduct,
       required this.index,
       required this.isWishListed,
+      required this.orderModel,
       required this.errorMessage})
       : _wishListItems = wishListItems;
 
@@ -3250,11 +3977,13 @@ class _$_Initial implements _Initial {
   @override
   final bool isWishListed;
   @override
+  final OrderModel? orderModel;
+  @override
   final String errorMessage;
 
   @override
   String toString() {
-    return 'ShopProductsState(flashSaleproducts: $flashSaleproducts, flashSaleLoading: $flashSaleLoading, popularProducts: $popularProducts, popularProductLoading: $popularProductLoading, recentProducts: $recentProducts, recentProductLoading: $recentProductLoading, homeBanner: $homeBanner, bannersLoading: $bannersLoading, shopBanner: $shopBanner, shopBannerLoading: $shopBannerLoading, articles: $articles, articleLoading: $articleLoading, isLoading: $isLoading, shopBrandModel: $shopBrandModel, wishList: $wishList, wishListMessage: $wishListMessage, wishListItems: $wishListItems, searchProducts: $searchProducts, brandProduct: $brandProduct, index: $index, isWishListed: $isWishListed, errorMessage: $errorMessage)';
+    return 'ShopProductsState(flashSaleproducts: $flashSaleproducts, flashSaleLoading: $flashSaleLoading, popularProducts: $popularProducts, popularProductLoading: $popularProductLoading, recentProducts: $recentProducts, recentProductLoading: $recentProductLoading, homeBanner: $homeBanner, bannersLoading: $bannersLoading, shopBanner: $shopBanner, shopBannerLoading: $shopBannerLoading, articles: $articles, articleLoading: $articleLoading, isLoading: $isLoading, shopBrandModel: $shopBrandModel, wishList: $wishList, wishListMessage: $wishListMessage, wishListItems: $wishListItems, searchProducts: $searchProducts, brandProduct: $brandProduct, index: $index, isWishListed: $isWishListed, orderModel: $orderModel, errorMessage: $errorMessage)';
   }
 
   @override
@@ -3303,6 +4032,8 @@ class _$_Initial implements _Initial {
             (identical(other.index, index) || other.index == index) &&
             (identical(other.isWishListed, isWishListed) ||
                 other.isWishListed == isWishListed) &&
+            (identical(other.orderModel, orderModel) ||
+                other.orderModel == orderModel) &&
             (identical(other.errorMessage, errorMessage) ||
                 other.errorMessage == errorMessage));
   }
@@ -3331,6 +4062,7 @@ class _$_Initial implements _Initial {
         brandProduct,
         index,
         isWishListed,
+        orderModel,
         errorMessage
       ]);
 
@@ -3364,6 +4096,7 @@ abstract class _Initial implements ShopProductsState {
       required final ShopBrandProductModel? brandProduct,
       required final int index,
       required final bool isWishListed,
+      required final OrderModel? orderModel,
       required final String errorMessage}) = _$_Initial;
 
   @override
@@ -3408,6 +4141,8 @@ abstract class _Initial implements ShopProductsState {
   int get index;
   @override
   bool get isWishListed;
+  @override
+  OrderModel? get orderModel;
   @override
   String get errorMessage;
   @override

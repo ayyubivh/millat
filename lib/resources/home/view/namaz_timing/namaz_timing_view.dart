@@ -130,7 +130,7 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                                                   child: Align(
                                                     alignment: Alignment.center,
                                                     child: Text(
-                                                      'Prayer Timmings Setting',
+                                                      'Prayer Timings Setting',
                                                       style: TextStyle(
                                                         fontSize: 16,
                                                         fontWeight:

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/resources/home/bloc/logic/namaz_timing_bloc/namaz_timing_bloc.dart';
+import '../../../components/common_widgets/reusable_methods.dart';
 import '../../../utils/globals.dart';
 import '../../../utils/size_utility.dart';
 import '../../../utils/utils.dart';
@@ -10,6 +11,7 @@ import '../../authentication/bloc/logic/database_bloc/database_bloc.dart';
 import '../../profile/views/profile_view.dart';
 import '../../shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
 import '../bloc/logic/location_bloc/location_bloc.dart';
+import 'al_quran/al_quran_view.dart';
 import 'namaz_timing/namaz_timing_view.dart';
 
 ValueNotifier<bool> scrollNotifier = ValueNotifier(true);
@@ -132,480 +134,473 @@ class _HomeViewState extends State<HomeView> {
                               ? animatedContainerWidget1(context)
                               : animatedContainerWidget2(context),
                           Expanded(
-                            child: Container(
-                              child: SingleChildScrollView(
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    const SizedBox(
-                                      height: 20,
-                                    ),
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        buildIconWidget(
-                                            image: 'assets/icons/quran.png',
-                                            text: "Qur'an"),
-                                        buildIconWidget(
-                                            image: 'assets/icons/adzan.png',
-                                            text: 'Adzan'),
-                                        buildIconWidget(
-                                            image: 'assets/icons/qibla.png',
-                                            text: 'Qibla'),
-                                        buildIconWidget(
-                                            image: 'assets/icons/tasbih.png',
-                                            text: 'Tasbih'),
-                                        buildIconWidget(
-                                            image: "assets/icons/all.png",
-                                            text: "All")
-                                      ],
-                                    ),
-                                    const SizedBox(height: 30),
-                                    BlocBuilder<ShopProductsBloc,
-                                        ShopProductsState>(
-                                      builder: (context, state) {
-                                        if (state.homeBanner == null) {
-                                          return const SizedBox();
-                                        }
+                            child: SingleChildScrollView(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  const SizedBox(
+                                    height: 20,
+                                  ),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      buildIconWidget(
+                                        image: 'assets/icons/quran.png',
+                                        text: "Qur'an",
+                                        onTap: () {
+                                          Navigator.of(context)
+                                              .push(MaterialPageRoute(
+                                            builder: (context) =>
+                                                const AlQuranView(),
+                                          ));
+                                        },
+                                      ),
+                                      buildIconWidget(
+                                        image: 'assets/icons/adzan.png',
+                                        text: 'Adzan',
+                                        onTap: () {},
+                                      ),
+                                      buildIconWidget(
+                                        image: 'assets/icons/qibla.png',
+                                        text: 'Qibla',
+                                        onTap: () {},
+                                      ),
+                                      buildIconWidget(
+                                        image: 'assets/icons/tasbih.png',
+                                        text: 'Tasbih',
+                                        onTap: () {},
+                                      ),
+                                      buildIconWidget(
+                                        image: "assets/icons/all.png",
+                                        text: "All",
+                                        onTap: () {},
+                                      )
+                                    ],
+                                  ),
+                                  const SizedBox(height: 30),
+                                  BlocBuilder<ShopProductsBloc,
+                                      ShopProductsState>(
+                                    builder: (context, state) {
+                                      if (state.homeBanner == null) {
+                                        return const SizedBox();
+                                      }
 
-                                        final banners =
-                                            state.homeBanner?.result!.banners;
-                                        return Column(
-                                          children: [
-                                            CarouselSlider(
-                                              items: banners?.map((banner) {
-                                                return ClipRRect(
-                                                  borderRadius:
-                                                      BorderRadius.circular(20),
-                                                  child: Image.network(
-                                                    banner.image,
-                                                    fit: BoxFit.contain,
-                                                  ),
-                                                );
-                                              }).toList(),
-                                              options: CarouselOptions(
-                                                height: 150,
-                                                viewportFraction: 1,
-                                                enlargeCenterPage: true,
-                                                autoPlay: true,
-                                                autoPlayCurve:
-                                                    Curves.fastOutSlowIn,
-                                                enableInfiniteScroll: true,
-                                                enlargeFactor: 0.3,
-                                                scrollDirection:
-                                                    Axis.horizontal,
-                                                autoPlayAnimationDuration:
-                                                    const Duration(
-                                                        milliseconds: 800),
-                                                onPageChanged: (index, reason) {
-                                                  setState(() {
-                                                    _currentIndex = index;
-                                                  });
-                                                },
-                                              ),
+                                      final banners =
+                                          state.homeBanner?.result!.banners;
+                                      return Column(
+                                        children: [
+                                          CarouselSlider(
+                                            items: banners?.map((banner) {
+                                              return ClipRRect(
+                                                borderRadius:
+                                                    BorderRadius.circular(20),
+                                                child: Image.network(
+                                                  banner.image,
+                                                  fit: BoxFit.contain,
+                                                ),
+                                              );
+                                            }).toList(),
+                                            options: CarouselOptions(
+                                              height: 150,
+                                              viewportFraction: 1,
+                                              enlargeCenterPage: true,
+                                              autoPlay: true,
+                                              autoPlayCurve:
+                                                  Curves.fastOutSlowIn,
+                                              enableInfiniteScroll: true,
+                                              enlargeFactor: 0.3,
+                                              scrollDirection: Axis.horizontal,
+                                              autoPlayAnimationDuration:
+                                                  const Duration(
+                                                      milliseconds: 800),
+                                              onPageChanged: (index, reason) {
+                                                setState(() {
+                                                  _currentIndex = index;
+                                                });
+                                              },
                                             ),
-                                            const SizedBox(height: 10),
-                                            Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
-                                              children: banners!.map((banner) {
-                                                int index =
-                                                    banners.indexOf(banner);
-                                                return Container(
-                                                  width: _currentIndex == index
-                                                      ? 24
-                                                      : 6,
-                                                  height: 6,
-                                                  margin: const EdgeInsets
-                                                      .symmetric(horizontal: 4),
-                                                  decoration: BoxDecoration(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            30),
-                                                    color:
-                                                        _currentIndex == index
-                                                            ? green24
-                                                            : Colors.grey,
-                                                  ),
-                                                );
-                                              }).toList(),
+                                          ),
+                                          const SizedBox(height: 10),
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: banners!.map((banner) {
+                                              int index =
+                                                  banners.indexOf(banner);
+                                              return Container(
+                                                width: _currentIndex == index
+                                                    ? 24
+                                                    : 6,
+                                                height: 6,
+                                                margin:
+                                                    const EdgeInsets.symmetric(
+                                                        horizontal: 4),
+                                                decoration: BoxDecoration(
+                                                  borderRadius:
+                                                      BorderRadius.circular(30),
+                                                  color: _currentIndex == index
+                                                      ? green24
+                                                      : Colors.grey,
+                                                ),
+                                              );
+                                            }).toList(),
+                                          ),
+                                        ],
+                                      );
+                                    },
+                                  ),
+                                  const SizedBox(height: 30),
+                                  Container(
+                                    padding: const EdgeInsets.symmetric(
+                                        vertical: 20, horizontal: 20),
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(10),
+                                        border: Border.all(
+                                            color: const Color.fromRGBO(
+                                                230, 230, 230, 1))),
+                                    child: Column(
+                                      children: [
+                                        Row(
+                                          children: [
+                                            Image.asset(
+                                                'assets/icons/quran_circle.png',
+                                                height: 50,
+                                                width: 50,
+                                                fit: BoxFit.cover),
+                                            const SizedBox(
+                                              width: 15,
+                                            ),
+                                            const Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                Text(
+                                                  'Ramadan Special',
+                                                  style: TextStyle(
+                                                      fontWeight:
+                                                          FontWeight.w600,
+                                                      fontSize: 17),
+                                                ),
+                                                SizedBox(
+                                                  height: 10,
+                                                ),
+                                                Text(
+                                                  'Mosque',
+                                                  style: TextStyle(
+                                                      color: black166,
+                                                      fontSize: 15),
+                                                )
+                                              ],
                                             ),
                                           ],
-                                        );
-                                      },
-                                    ),
-                                    const SizedBox(height: 30),
-                                    Container(
-                                      padding: const EdgeInsets.symmetric(
-                                          vertical: 20, horizontal: 20),
-                                      decoration: BoxDecoration(
+                                        ),
+                                        const SizedBox(
+                                          height: 20,
+                                        ),
+                                        ClipRRect(
                                           borderRadius:
-                                              BorderRadius.circular(10),
-                                          border: Border.all(
-                                              color: const Color.fromRGBO(
-                                                  230, 230, 230, 1))),
-                                      child: Column(
-                                        children: [
-                                          Row(
-                                            children: [
-                                              Image.asset(
-                                                  'assets/icons/quran_circle.png',
-                                                  height: 50,
-                                                  width: 50,
-                                                  fit: BoxFit.cover),
-                                              const SizedBox(
-                                                width: 15,
-                                              ),
-                                              Column(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: const [
-                                                  Text(
-                                                    'Ramadan Special',
+                                              BorderRadius.circular(20),
+                                          child: Image.asset(
+                                              'assets/images/masjed.png',
+                                              fit: BoxFit.cover),
+                                        ),
+                                        const SizedBox(
+                                          height: 20,
+                                        ),
+                                        const Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Row(
+                                              children: [
+                                                ImageIcon(
+                                                  AssetImage(
+                                                      'assets/icons/heart.png'),
+                                                  color: black165,
+                                                  size: 20,
+                                                ),
+                                                SizedBox(
+                                                  width: 10,
+                                                ),
+                                                Text('Like',
                                                     style: TextStyle(
-                                                        fontWeight:
-                                                            FontWeight.w600,
-                                                        fontSize: 17),
-                                                  ),
-                                                  SizedBox(
-                                                    height: 10,
-                                                  ),
-                                                  Text(
-                                                    'Mosque',
-                                                    style: TextStyle(
-                                                        color: black166,
-                                                        fontSize: 15),
-                                                  )
-                                                ],
-                                              ),
-                                            ],
+                                                        color: black165))
+                                              ],
+                                            ),
+                                            Row(
+                                              children: [
+                                                ImageIcon(
+                                                  AssetImage(
+                                                      'assets/icons/share.png'),
+                                                  color: black165,
+                                                  size: 20,
+                                                ),
+                                                SizedBox(
+                                                  width: 10,
+                                                ),
+                                                Text(
+                                                  'Share',
+                                                  style: TextStyle(
+                                                      color: black165),
+                                                )
+                                              ],
+                                            )
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  const SizedBox(
+                                    height: 40,
+                                  ),
+                                  const Text(
+                                    'Play Games',
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.w600,
+                                        fontSize: 20),
+                                  ),
+                                  const SizedBox(
+                                    height: 30,
+                                  ),
+                                  gradientContainer(
+                                    height: 480,
+                                    width: SizeUtility(context).width,
+                                    padding: const EdgeInsets.all(30),
+                                    child: Column(
+                                      children: [
+                                        const Text(
+                                          'What is the name of the night during which Muslims believe the first verses of the Quran were revealed to Prophet Muhammad?',
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 20),
+                                        ),
+                                        const SizedBox(
+                                          height: 30,
+                                        ),
+                                        Container(
+                                          alignment: Alignment.centerLeft,
+                                          height: 50,
+                                          width: SizeUtility(context).width,
+                                          padding: const EdgeInsets.symmetric(
+                                              horizontal: 20),
+                                          decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
+                                              border: Border.all(
+                                                  color: Colors.white)),
+                                          child: const Text('1. Laitaltul Qadr',
+                                              style: TextStyle(
+                                                  color: Colors.white)),
+                                        ),
+                                        const SizedBox(
+                                          height: 10,
+                                        ),
+                                        Container(
+                                          alignment: Alignment.centerLeft,
+                                          height: 50,
+                                          width: SizeUtility(context).width,
+                                          padding: const EdgeInsets.symmetric(
+                                              horizontal: 20),
+                                          decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
+                                              border: Border.all(
+                                                  color: Colors.white)),
+                                          child: const Text("Laylatul Bara'ah",
+                                              style: TextStyle(
+                                                  color: Colors.white)),
+                                        ),
+                                        const SizedBox(
+                                          height: 10,
+                                        ),
+                                        Container(
+                                          alignment: Alignment.centerLeft,
+                                          height: 50,
+                                          width: SizeUtility(context).width,
+                                          padding: const EdgeInsets.symmetric(
+                                              horizontal: 20),
+                                          decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
+                                              border: Border.all(
+                                                  color: Colors.white)),
+                                          child: const Text("Laylatul Eid",
+                                              style: TextStyle(
+                                                  color: Colors.white)),
+                                        ),
+                                        const SizedBox(
+                                          height: 10,
+                                        ),
+                                        Container(
+                                          alignment: Alignment.centerLeft,
+                                          height: 50,
+                                          width: SizeUtility(context).width,
+                                          padding: const EdgeInsets.symmetric(
+                                              horizontal: 20),
+                                          decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
+                                              border: Border.all(
+                                                  color: Colors.white)),
+                                          child: const Text("Lailatul Mi'raj",
+                                              style: TextStyle(
+                                                  color: Colors.white)),
+                                        ),
+                                        const SizedBox(
+                                          height: 30,
+                                        ),
+                                        ElevatedButton(
+                                          onPressed: () {},
+                                          style: ButtonStyle(
+                                              backgroundColor:
+                                                  MaterialStateProperty.all(
+                                                      Colors.white),
+                                              fixedSize:
+                                                  MaterialStateProperty.all(
+                                                      Size(
+                                                          SizeUtility(context)
+                                                              .width,
+                                                          50))),
+                                          child: const Text(
+                                            'Play Games',
+                                            style: TextStyle(
+                                                color: dark2GreenColor,
+                                                fontWeight: FontWeight.w700,
+                                                fontSize: 17),
                                           ),
-                                          const SizedBox(
-                                            height: 20,
-                                          ),
-                                          ClipRRect(
-                                            borderRadius:
-                                                BorderRadius.circular(20),
-                                            child: Image.asset(
-                                                'assets/images/masjed.png',
-                                                fit: BoxFit.cover),
-                                          ),
-                                          const SizedBox(
-                                            height: 20,
-                                          ),
-                                          Row(
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                  const SizedBox(
+                                    height: 30,
+                                  ),
+                                  const Text(
+                                    'Items of the day',
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.w600,
+                                        fontSize: 20),
+                                  ),
+                                  const SizedBox(
+                                    height: 30,
+                                  ),
+                                  SingleChildScrollView(
+                                    scrollDirection: Axis.horizontal,
+                                    child: Row(
+                                      children: [
+                                        buildShopItem(
+                                            image: 'assets/dummy/sijadah.png',
+                                            title:
+                                                "Hijaz Turkish Gold Border Lantern..."),
+                                        buildShopItem(
+                                            image: 'assets/dummy/green_hat.png',
+                                            title:
+                                                "Green Wool Winter Large Skull Ca..."),
+                                        buildShopItem(
+                                            image: 'assets/dummy/sijadah.png',
+                                            title:
+                                                "Hijaz Turkish Gold Border Lantern..."),
+                                        buildShopItem(
+                                            image: 'assets/dummy/sijadah.png',
+                                            title:
+                                                "Hijaz Turkish Gold Border Lantern..."),
+                                      ],
+                                    ),
+                                  ),
+                                  const SizedBox(
+                                    height: 30,
+                                  ),
+                                  const Text(
+                                    'Try Sukoon',
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.w600,
+                                        fontSize: 20),
+                                  ),
+                                  const SizedBox(
+                                    height: 30,
+                                  ),
+                                  Container(
+                                    padding: const EdgeInsets.all(15),
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(10),
+                                        border: Border.all(color: borderColor)),
+                                    child: Row(
+                                      children: [
+                                        ClipRRect(
+                                          child: Image.asset(
+                                              'assets/dummy/try_sukoon.png',
+                                              height: 100,
+                                              width: 100),
+                                        ),
+                                        Expanded(
+                                          child: Column(
                                             mainAxisAlignment:
                                                 MainAxisAlignment.spaceBetween,
                                             children: [
-                                              Row(
-                                                children: const [
-                                                  ImageIcon(
-                                                    AssetImage(
-                                                        'assets/icons/heart.png'),
-                                                    color: black165,
-                                                    size: 20,
-                                                  ),
-                                                  SizedBox(
-                                                    width: 10,
-                                                  ),
-                                                  Text('Like',
+                                              Slider(
+                                                activeColor: mainColor,
+                                                inactiveColor: black153,
+                                                value: 0.5,
+                                                onChanged: (value) {},
+                                              ),
+                                              const Padding(
+                                                padding: EdgeInsets.symmetric(
+                                                    horizontal: 25),
+                                                child: Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
+                                                  children: [
+                                                    Text(
+                                                      '2:44',
                                                       style: TextStyle(
-                                                          color: black165))
-                                                ],
+                                                          color: black196),
+                                                    ),
+                                                    Text(
+                                                      '4:13',
+                                                      style: TextStyle(
+                                                          color: black196),
+                                                    )
+                                                  ],
+                                                ),
                                               ),
                                               Row(
-                                                children: const [
-                                                  ImageIcon(
-                                                    AssetImage(
-                                                        'assets/icons/share.png'),
-                                                    color: black165,
-                                                    size: 20,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: [
+                                                  IconButton(
+                                                      onPressed: () {},
+                                                      icon: const ImageIcon(
+                                                        AssetImage(
+                                                            'assets/icons/previous_sound.png'),
+                                                        color: black217,
+                                                      )),
+                                                  const CircleAvatar(
+                                                    backgroundColor: mainColor,
+                                                    child: Icon(
+                                                        Icons.play_arrow,
+                                                        color: Colors.white),
                                                   ),
-                                                  SizedBox(
-                                                    width: 10,
-                                                  ),
-                                                  Text(
-                                                    'Share',
-                                                    style: TextStyle(
-                                                        color: black165),
-                                                  )
+                                                  IconButton(
+                                                      onPressed: () {},
+                                                      icon: const ImageIcon(
+                                                        AssetImage(
+                                                            'assets/icons/next_sound.png'),
+                                                        color: black217,
+                                                      ))
                                                 ],
                                               )
                                             ],
                                           ),
-                                        ],
-                                      ),
+                                        )
+                                      ],
                                     ),
-                                    const SizedBox(
-                                      height: 40,
-                                    ),
-                                    const Text(
-                                      'Play Games',
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.w600,
-                                          fontSize: 20),
-                                    ),
-                                    const SizedBox(
-                                      height: 30,
-                                    ),
-                                    Container(
-                                      height: 480,
-                                      width: SizeUtility(context).width,
-                                      padding: const EdgeInsets.all(30),
-                                      decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(20),
-                                          gradient: const LinearGradient(
-                                              begin: Alignment.centerLeft,
-                                              end: Alignment.centerRight,
-                                              colors: [
-                                                lightGreenColor,
-                                                darkGreenColor
-                                              ])),
-                                      child: Column(
-                                        children: [
-                                          const Text(
-                                            'What is the name of the night during which Muslims believe the first verses of the Quran were revealed to Prophet Muhammad?',
-                                            style: TextStyle(
-                                                color: Colors.white,
-                                                fontSize: 20),
-                                          ),
-                                          const SizedBox(
-                                            height: 30,
-                                          ),
-                                          Container(
-                                            alignment: Alignment.centerLeft,
-                                            height: 50,
-                                            width: SizeUtility(context).width,
-                                            padding: const EdgeInsets.symmetric(
-                                                horizontal: 20),
-                                            decoration: BoxDecoration(
-                                                borderRadius:
-                                                    BorderRadius.circular(10),
-                                                border: Border.all(
-                                                    color: Colors.white)),
-                                            child: const Text(
-                                                '1. Laitaltul Qadr',
-                                                style: TextStyle(
-                                                    color: Colors.white)),
-                                          ),
-                                          const SizedBox(
-                                            height: 10,
-                                          ),
-                                          Container(
-                                            alignment: Alignment.centerLeft,
-                                            height: 50,
-                                            width: SizeUtility(context).width,
-                                            padding: const EdgeInsets.symmetric(
-                                                horizontal: 20),
-                                            decoration: BoxDecoration(
-                                                borderRadius:
-                                                    BorderRadius.circular(10),
-                                                border: Border.all(
-                                                    color: Colors.white)),
-                                            child: const Text(
-                                                "Laylatul Bara'ah",
-                                                style: TextStyle(
-                                                    color: Colors.white)),
-                                          ),
-                                          const SizedBox(
-                                            height: 10,
-                                          ),
-                                          Container(
-                                            alignment: Alignment.centerLeft,
-                                            height: 50,
-                                            width: SizeUtility(context).width,
-                                            padding: const EdgeInsets.symmetric(
-                                                horizontal: 20),
-                                            decoration: BoxDecoration(
-                                                borderRadius:
-                                                    BorderRadius.circular(10),
-                                                border: Border.all(
-                                                    color: Colors.white)),
-                                            child: const Text("Laylatul Eid",
-                                                style: TextStyle(
-                                                    color: Colors.white)),
-                                          ),
-                                          const SizedBox(
-                                            height: 10,
-                                          ),
-                                          Container(
-                                            alignment: Alignment.centerLeft,
-                                            height: 50,
-                                            width: SizeUtility(context).width,
-                                            padding: const EdgeInsets.symmetric(
-                                                horizontal: 20),
-                                            decoration: BoxDecoration(
-                                                borderRadius:
-                                                    BorderRadius.circular(10),
-                                                border: Border.all(
-                                                    color: Colors.white)),
-                                            child: const Text("Lailatul Mi'raj",
-                                                style: TextStyle(
-                                                    color: Colors.white)),
-                                          ),
-                                          const SizedBox(
-                                            height: 30,
-                                          ),
-                                          ElevatedButton(
-                                            onPressed: () {},
-                                            style: ButtonStyle(
-                                                backgroundColor:
-                                                    MaterialStateProperty.all(
-                                                        Colors.white),
-                                                fixedSize:
-                                                    MaterialStateProperty.all(
-                                                        Size(
-                                                            SizeUtility(context)
-                                                                .width,
-                                                            50))),
-                                            child: const Text(
-                                              'Play Games',
-                                              style: TextStyle(
-                                                  color: dark2GreenColor,
-                                                  fontWeight: FontWeight.w700,
-                                                  fontSize: 17),
-                                            ),
-                                          )
-                                        ],
-                                      ),
-                                    ),
-                                    const SizedBox(
-                                      height: 30,
-                                    ),
-                                    const Text(
-                                      'Items of the day',
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.w600,
-                                          fontSize: 20),
-                                    ),
-                                    const SizedBox(
-                                      height: 30,
-                                    ),
-                                    SingleChildScrollView(
-                                      scrollDirection: Axis.horizontal,
-                                      child: Row(
-                                        children: [
-                                          buildShopItem(
-                                              image: 'assets/dummy/sijadah.png',
-                                              title:
-                                                  "Hijaz Turkish Gold Border Lantern..."),
-                                          buildShopItem(
-                                              image:
-                                                  'assets/dummy/green_hat.png',
-                                              title:
-                                                  "Green Wool Winter Large Skull Ca..."),
-                                          buildShopItem(
-                                              image: 'assets/dummy/sijadah.png',
-                                              title:
-                                                  "Hijaz Turkish Gold Border Lantern..."),
-                                          buildShopItem(
-                                              image: 'assets/dummy/sijadah.png',
-                                              title:
-                                                  "Hijaz Turkish Gold Border Lantern..."),
-                                        ],
-                                      ),
-                                    ),
-                                    const SizedBox(
-                                      height: 30,
-                                    ),
-                                    const Text(
-                                      'Try Sukoon',
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.w600,
-                                          fontSize: 20),
-                                    ),
-                                    const SizedBox(
-                                      height: 30,
-                                    ),
-                                    Container(
-                                      padding: const EdgeInsets.all(15),
-                                      decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(10),
-                                          border:
-                                              Border.all(color: borderColor)),
-                                      child: Row(
-                                        children: [
-                                          ClipRRect(
-                                            child: Image.asset(
-                                                'assets/dummy/try_sukoon.png',
-                                                height: 100,
-                                                width: 100),
-                                          ),
-                                          Expanded(
-                                            child: Column(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
-                                              children: [
-                                                Slider(
-                                                  activeColor: mainColor,
-                                                  inactiveColor: black153,
-                                                  value: 0.5,
-                                                  onChanged: (value) {},
-                                                ),
-                                                Padding(
-                                                  padding: const EdgeInsets
-                                                          .symmetric(
-                                                      horizontal: 25),
-                                                  child: Row(
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .spaceBetween,
-                                                    children: const [
-                                                      Text(
-                                                        '2:44',
-                                                        style: TextStyle(
-                                                            color: black196),
-                                                      ),
-                                                      Text(
-                                                        '4:13',
-                                                        style: TextStyle(
-                                                            color: black196),
-                                                      )
-                                                    ],
-                                                  ),
-                                                ),
-                                                Row(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.center,
-                                                  children: [
-                                                    IconButton(
-                                                        onPressed: () {},
-                                                        icon: const ImageIcon(
-                                                          AssetImage(
-                                                              'assets/icons/previous_sound.png'),
-                                                          color: black217,
-                                                        )),
-                                                    const CircleAvatar(
-                                                      backgroundColor:
-                                                          mainColor,
-                                                      child: Icon(
-                                                          Icons.play_arrow,
-                                                          color: Colors.white),
-                                                    ),
-                                                    IconButton(
-                                                        onPressed: () {},
-                                                        icon: const ImageIcon(
-                                                          AssetImage(
-                                                              'assets/icons/next_sound.png'),
-                                                          color: black217,
-                                                        ))
-                                                  ],
-                                                )
-                                              ],
-                                            ),
-                                          )
-                                        ],
-                                      ),
-                                    ),
-                                    const SizedBox(
-                                      height: 120,
-                                    ),
-                                  ],
-                                ),
+                                  ),
+                                  const SizedBox(
+                                    height: 120,
+                                  ),
+                                ],
                               ),
                             ),
                           ),
@@ -622,22 +617,28 @@ class _HomeViewState extends State<HomeView> {
     );
   }
 
-  Widget buildIconWidget({required String image, required String text}) {
-    return Column(
-      children: [
-        Image.asset(
-          image,
-          height: 50,
-          width: 50,
-        ),
-        const SizedBox(
-          height: 10,
-        ),
-        Text(
-          text,
-          style: const TextStyle(color: black165),
-        )
-      ],
+  Widget buildIconWidget(
+      {required String image,
+      required String text,
+      required VoidCallback onTap}) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Column(
+        children: [
+          Image.asset(
+            image,
+            height: 50,
+            width: 50,
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          Text(
+            text,
+            style: const TextStyle(color: black165),
+          )
+        ],
+      ),
     );
   }
 
@@ -654,7 +655,7 @@ class _HomeViewState extends State<HomeView> {
           borderRadius: BorderRadius.circular(20),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.1),
+              color: primaryGreen.withOpacity(0.1),
               blurRadius: 2,
               spreadRadius: 0,
               offset: const Offset(0, 2),
@@ -809,9 +810,9 @@ class _HomeViewState extends State<HomeView> {
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.1),
+            color: primaryGreen.withOpacity(0.1),
             blurRadius: 2,
-            spreadRadius: 0,
+            spreadRadius: 1,
             offset: const Offset(0, 2),
           ),
         ],
@@ -1026,8 +1027,8 @@ class _HomeViewState extends State<HomeView> {
                 )
               ],
             ),
-            Row(
-              children: const [
+            const Row(
+              children: [
                 ImageIcon(
                   AssetImage('assets/icons/share.png'),
                   color: black165,
@@ -1079,11 +1080,11 @@ class _HomeViewState extends State<HomeView> {
             const SizedBox(
               height: 15,
             ),
-            Row(
+            const Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Row(
-                  children: const [
+                  children: [
                     Text(
                       'MRP',
                       style: TextStyle(
@@ -1104,7 +1105,7 @@ class _HomeViewState extends State<HomeView> {
                     ),
                   ],
                 ),
-                const Text(
+                Text(
                   '11%off',
                   style: TextStyle(
                       color: orange255,

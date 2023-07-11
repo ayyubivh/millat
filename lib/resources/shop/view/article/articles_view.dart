@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:millat/resources/shop/articles/view/single_article_view.dart';
+import 'package:millat/resources/shop/view/article/single_article_view.dart';
 import 'package:millat/utils/globals.dart';
 import 'package:millat/utils/utils.dart';
 

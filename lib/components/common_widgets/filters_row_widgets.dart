@@ -21,8 +21,8 @@ class FiltersRowWidgets extends StatelessWidget {
               ));
             },
             child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-              margin: EdgeInsets.symmetric(
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+              margin: const EdgeInsets.symmetric(
                 horizontal: 10,
               ),
               decoration: BoxDecoration(
@@ -46,8 +46,8 @@ class FiltersRowWidgets extends StatelessWidget {
                     fontWeight: FontWeight.w700)),
           ),
           Container(
-            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-            margin: EdgeInsets.symmetric(
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+            margin: const EdgeInsets.symmetric(
               horizontal: 10,
             ),
             decoration: BoxDecoration(

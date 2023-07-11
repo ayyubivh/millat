@@ -12,7 +12,7 @@ import 'package:millat/resources/home/bloc/service/notification_service.dart';
 import 'package:millat/resources/home/view/namaz_timing/namaz_timing_view.dart';
 import 'package:millat/resources/on_boarding/view/on_boarding_view.dart';
 import 'package:millat/resources/profile/views/manage_address.dart';
-import 'package:millat/resources/shop/articles/view/articles_view.dart';
+import 'package:millat/resources/shop/view/article/articles_view.dart';
 import 'package:millat/resources/shop/bloc/logic/address_bloc/address_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/cart_bloc/cart_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/category_bloc/category_bloc.dart';

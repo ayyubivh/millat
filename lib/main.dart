@@ -6,6 +6,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:intl/intl.dart';
 import 'package:millat/resources/authentication/bloc/logic/auth_bloc.dart';
 import 'package:millat/resources/authentication/bloc/logic/database_bloc/database_bloc.dart';
+import 'package:millat/resources/home/bloc/logic/bloc/quran_bloc.dart';
 import 'package:millat/resources/home/bloc/logic/location_bloc/location_bloc.dart';
 import 'package:millat/resources/home/bloc/logic/namaz_timing_bloc/namaz_timing_bloc.dart';
 import 'package:millat/resources/home/bloc/service/notification_service.dart';
@@ -54,32 +55,12 @@ void main() async {
       BlocProvider(create: (context) => CartBloc()),
       BlocProvider(create: (context) => AddressBloc()),
       BlocProvider(create: (context) => LocationBloc()),
-      BlocProvider(create: (context) => NamazTimingBloc())
+      BlocProvider(create: (context) => NamazTimingBloc()),
+      BlocProvider(create: (context) => QuranBloc()),
     ],
     child: MyApp(),
   ));
 }
-
-// void sheduleInitialNamazTimingNotification() {
-//   String upcomingNamazTime = '10:01';
-//   DateTime parsedUpcomingNamazTime =
-//       DateFormat('HH:mm').parse(upcomingNamazTime);
-
-//   DateTime now = DateTime.now();
-//   DateTime scheduledNotificationDateTime = DateTime(
-//     now.year,
-//     now.month,
-//     now.day,
-//     parsedUpcomingNamazTime.hour,
-//     parsedUpcomingNamazTime.minute,
-//   );
-
-//   NotificationService().scheduleNotification(
-//     scheduledNotificationDateTime: scheduledNotificationDateTime,
-//     title: 'Namaz Reminder',
-//     body: 'It is time for the upcoming namaz.',
-//   );
-// }
 
 class MyApp extends StatelessWidget {
   final _tokenBox = Hive.box(userBox);
@@ -137,7 +118,7 @@ class MyApp extends StatelessWidget {
     final String? token = _tokenBox.get(authToken);
 
     if (token != null) {
-      print('on main token ${token}');
+      print('on main token $token');
       return const TabsView();
     } else {
       return const OnBoardingView();

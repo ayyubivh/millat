@@ -10,12 +10,13 @@ Widget gradientContainer(
   return Container(
     decoration: BoxDecoration(
       borderRadius: BorderRadius.circular(12),
-      gradient: const LinearGradient(
-        begin: Alignment.centerLeft,
-        end: Alignment.centerRight,
+      gradient: const RadialGradient(
+        center: Alignment.topLeft,
+        radius: 5,
         colors: [
           lightGreenColor,
           darkGreenColor,
+          dark2GreenColor,
         ],
       ),
     ),
@@ -31,7 +32,7 @@ Widget buildSurahContainer(
     required String surah,
     required String surahMeaning}) {
   return Container(
-    padding: const EdgeInsets.all(10),
+    padding: const EdgeInsets.symmetric(horizontal: 10).copyWith(top: 10),
     decoration: BoxDecoration(
       borderRadius: BorderRadius.circular(5),
       color: whiteClr,
@@ -44,7 +45,7 @@ Widget buildSurahContainer(
         ),
       ],
     ),
-    height: 198,
+    height: 190,
     width: double.infinity,
     child: Column(
       children: [
@@ -98,7 +99,7 @@ Widget buildSurahContainer(
           ),
         ),
         const SizedBox(
-          height: 7,
+          height: 10,
         ),
         Container(
           padding: const EdgeInsets.symmetric(horizontal: 10),

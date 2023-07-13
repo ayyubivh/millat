@@ -17,7 +17,7 @@ class LocationState with _$LocationState {
     required bool hasReachedEnd,
     required bool isPermissionDenied,
     // required String? changedLocation,
-  }) = _Initial;
+  }) = _LocationState;
   factory LocationState.initial() => const LocationState(
       currentLocaion: "",
       errorMessage: "",

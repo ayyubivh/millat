@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 const Color mainColor = Color.fromRGBO(68, 187, 136, 1);
-const Color darkGreenColor = Color.fromRGBO(5, 101, 75, 1);
+const Color darkGreenColor = Color(0xFF188D5B);
 const Color dark2GreenColor = Color.fromRGBO(5, 126, 93, 1);
 const Color green77 = Color.fromRGBO(77, 197, 145, 1);
 const Color green24 = Color(0xFF00A05B);
@@ -38,6 +38,7 @@ const Color black130 = Color.fromRGBO(130, 130, 130, 1);
 const Color black169 = Color.fromRGBO(169, 169, 169, 1);
 const Color dividerColor = Color.fromRGBO(222, 222, 222, 1);
 const Color lightGreenColor = Color.fromRGBO(0, 200, 145, 1);
+const Color lightGreenGradient = Color(0xFF188D5B);
 const Color borderColor = Color.fromRGBO(198, 198, 198, 1);
 const Color blue126 = Color.fromRGBO(126, 159, 172, 1);
 const Color orange255 = Color.fromRGBO(255, 162, 53, 1);

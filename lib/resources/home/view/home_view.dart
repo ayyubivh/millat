@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/resources/home/bloc/logic/namaz_timing_bloc/namaz_timing_bloc.dart';
-import '../../../components/common_widgets/reusable_methods.dart';
+import 'package:millat/utils/constants.dart';
 import '../../../utils/globals.dart';
 import '../../../utils/size_utility.dart';
 import '../../../utils/utils.dart';
@@ -65,11 +65,20 @@ class _HomeViewState extends State<HomeView> {
                 },
                 child: Stack(
                   children: [
-                    Image.asset(
-                      'assets/images/home_app_bar.png',
-                      height: 240,
+                    AnimatedContainer(
+                      duration: const Duration(milliseconds: 300),
+                      height: scrollNotifier.value ? 240 : 200,
                       width: SizeUtility(context).width,
-                      fit: BoxFit.fill,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: AssetImage(
+                            scrollNotifier.value
+                                ? 'assets/images/home_app_bar.png'
+                                : 'assets/images/namaz_timing_appBar.png',
+                          ),
+                          fit: BoxFit.fill,
+                        ),
+                      ),
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 40),
@@ -363,10 +372,19 @@ class _HomeViewState extends State<HomeView> {
                                   const SizedBox(
                                     height: 30,
                                   ),
-                                  gradientContainer(
+                                  Container(
                                     height: 480,
                                     width: SizeUtility(context).width,
                                     padding: const EdgeInsets.all(30),
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(20),
+                                        gradient: const LinearGradient(
+                                            begin: Alignment.centerLeft,
+                                            end: Alignment.centerRight,
+                                            colors: [
+                                              lightGreenColor,
+                                              darkGreenColor
+                                            ])),
                                     child: Column(
                                       children: [
                                         const Text(
@@ -667,27 +685,8 @@ class _HomeViewState extends State<HomeView> {
               ? Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text(
-                      'Please allow permission to get the feature',
-                      style: TextStyle(fontSize: 16),
-                    ),
-                    const SizedBox(height: 20),
-                    ElevatedButton(
-                      onPressed: () {
-                        context
-                            .read<LocationBloc>()
-                            .add(const FetchCurrentLocation());
-                      },
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: primaryGreen,
-                      ),
-                      child: const Text(
-                        'Enable Location',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    )
+                    _offlineText(),
+                    _locationButton(context),
                   ],
                 )
               : Row(
@@ -821,35 +820,7 @@ class _HomeViewState extends State<HomeView> {
         child: BlocBuilder<LocationBloc, LocationState>(
           builder: (context, state) {
             return state.currentLocaion.isEmpty
-                ? Padding(
-                    padding: const EdgeInsets.only(top: 20),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        const Text(
-                          'Please allow permission to get the feature',
-                          style: TextStyle(fontSize: 16),
-                        ),
-                        const SizedBox(height: 20),
-                        ElevatedButton(
-                          onPressed: () {
-                            context
-                                .read<LocationBloc>()
-                                .add(const FetchCurrentLocation());
-                          },
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: primaryGreen,
-                          ),
-                          child: const Text(
-                            'Enable Location',
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        )
-                      ],
-                    ),
-                  )
+                ? offlineContainer(context)
                 : buildNamazTiming(context);
           },
         ),
@@ -857,8 +828,9 @@ class _HomeViewState extends State<HomeView> {
     );
   }
 
-  Widget buildNamazTiming(BuildContext context) {
+  Widget offlineContainer(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Row(
           children: [
@@ -896,6 +868,135 @@ class _HomeViewState extends State<HomeView> {
                 onPressed: () {
                   Navigator.of(context).pushNamed(NamazTimingView.routeName);
                 },
+                icon: const ImageIcon(AssetImage('assets/icons/location.png'),
+                    color: blueColor),
+                label: const Text(
+                  'Allow Me',
+                  style: TextStyle(
+                    color: blueColor,
+                    fontSize: 15,
+                  ),
+                )),
+          ],
+        ),
+        Padding(
+          padding: const EdgeInsets.only(top: 20),
+          child: _offlineText(),
+        ),
+        kHeight5,
+        _locationButton(context)
+      ],
+    );
+  }
+
+  Row _offlineText() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        const Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Now',
+              style: TextStyle(color: black104, fontSize: 15),
+            ),
+            kHeight5,
+            Text(
+              "----------",
+              style: TextStyle(
+                fontSize: 16,
+                color: black165,
+              ),
+            )
+          ],
+        ),
+        Container(
+          height: 30,
+          width: 0.7,
+          color: dividerColor,
+        ),
+        const Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Upcoming Namaz',
+              style: TextStyle(color: black104, fontSize: 15),
+            ),
+            kHeight5,
+            Text(
+              "----------",
+              style: TextStyle(
+                fontSize: 16,
+                color: black165,
+              ),
+            )
+          ],
+        ),
+      ],
+    );
+  }
+
+  SizedBox _locationButton(BuildContext context) {
+    return SizedBox(
+      height: 35,
+      width: SizeUtility(context).width / 2.8,
+      child: ElevatedButton(
+        onPressed: () {
+          context.read<LocationBloc>().add(const FetchCurrentLocation());
+        },
+        style: ElevatedButton.styleFrom(
+          backgroundColor: primaryGreen,
+        ),
+        child: const Row(
+          children: [
+            Icon(Icons.location_on),
+            Text(
+              'Enable Location',
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget buildNamazTiming(BuildContext context) {
+    return Column(
+      children: [
+        Row(
+          children: [
+            const ImageIcon(
+              AssetImage('assets/icons/calendar.png'),
+              color: mainColor,
+              size: 35,
+            ),
+            const SizedBox(
+              width: 10,
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                BlocBuilder<NamazTimingBloc, NamazTimingState>(
+                  builder: (context, state) => Text(
+                    state.arabicDate,
+                    style: const TextStyle(
+                      fontFamily: 'ArabicFont',
+                      color: black104,
+                    ),
+                  ),
+                ),
+                kHeight5,
+                Text(
+                  Utilities.formatDate(DateTime.now().toString()),
+                  style: const TextStyle(color: black104),
+                )
+              ],
+            ),
+            const Spacer(),
+            TextButton.icon(
+                onPressed: () {
+                  Navigator.of(context).pushNamed(NamazTimingView.routeName);
+                },
                 icon: const ImageIcon(AssetImage('assets/icons/bell.png'),
                     color: blueColor),
                 label: const Text(
@@ -917,9 +1018,7 @@ class _HomeViewState extends State<HomeView> {
                   'Now',
                   style: TextStyle(color: black104, fontSize: 15),
                 ),
-                const SizedBox(
-                  height: 5,
-                ),
+                kHeight5,
                 BlocBuilder<NamazTimingBloc, NamazTimingState>(
                   builder: (context, state) {
                     final currentNamaz = state.currentNamaz;
@@ -966,9 +1065,7 @@ class _HomeViewState extends State<HomeView> {
                   'Upcoming Namaz',
                   style: TextStyle(color: black104, fontSize: 15),
                 ),
-                const SizedBox(
-                  height: 5,
-                ),
+                kHeight5,
                 BlocBuilder<NamazTimingBloc, NamazTimingState>(
                   builder: (context, state) {
                     final upcomingNamaz = state.upcomingNamaz;

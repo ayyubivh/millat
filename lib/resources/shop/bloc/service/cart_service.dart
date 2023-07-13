@@ -67,27 +67,23 @@ class CartServices extends HttpServices {
     final response = await http.put(Uri.parse(webBaseUrl + endPoint),
         headers: headers, body: jsonEncode(body));
 
-    if (response.statusCode == 200 || response.statusCode == 409) {
-      try {
-        if (response.statusCode == 200) {
-          final Map<String, dynamic> data = json.decode(response.body);
+    try {
+      if (response.statusCode == 200) {
+        final Map<String, dynamic> data = json.decode(response.body);
 
-          return data;
-        } else if (response.statusCode == 409) {
-          final Map<String, dynamic> data = json.decode(response.body);
-          // print('on the error of add cart twice $data');
-          return data;
-        } else {
-          print('API request failed with status code: ${response.statusCode}');
-          throw Exception(
-              'API request failed with status code: ${response.statusCode}');
-        }
-      } catch (e) {
-        print('error on API fetch: ${e.toString()}');
-        throw Exception('Failed to parse response');
+        return data;
+      } else if (response.statusCode == 409) {
+        final Map<String, dynamic> data = json.decode(response.body);
+
+        return data;
+      } else {
+        print('API request failed with status code: ${response.statusCode}');
+        throw Exception(
+            'API request failed with status code: ${response.statusCode}');
       }
-    } else {
-      throw Exception('Token not available');
+    } catch (e) {
+      print('error on API fetch: ${e.toString()}');
+      throw Exception('Failed to parse response');
     }
   }
 // updating the cart quantity

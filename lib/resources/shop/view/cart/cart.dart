@@ -73,10 +73,14 @@ class _CartViewState extends State<CartView> {
                     itemBuilder: (context, index) {
                       final data = state
                           .cartModel?.result?.cartProducts?.cartItems![index];
+
+                      if (data == null) {
+                        return null;
+                      }
                       return CartProductWidget(
-                        id: data?.productId?.id,
-                        title: data?.productId!.title,
-                        size: data!.size ?? "",
+                        id: data.productId?.id,
+                        title: data.productId!.title,
+                        size: data.size ?? "",
                         image: data.productId!.colors![0].images![0],
                         price: data.basePrice!.toInt(),
                         jsonColor: data.color,

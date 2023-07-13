@@ -627,10 +627,10 @@ class _SingleProductViewState extends State<SingleProductView> {
                           quantity: quantity,
                         ));
                   },
-                  child: Row(
+                  child: const Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.end,
-                    children: const [
+                    children: [
                       Icon(
                         Icons.shopping_cart,
                         color: green77,

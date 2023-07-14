@@ -9,7 +9,7 @@ class OrderModel with _$OrderModel {
     int? status,
     String? message,
     String? error,
-    Result? result,
+    OrderResult? result,
   }) = _OrderModel;
 
   factory OrderModel.fromJson(Map<String, dynamic> json) =>
@@ -17,12 +17,13 @@ class OrderModel with _$OrderModel {
 }
 
 @freezed
-class Result with _$Result {
-  const factory Result({
+class OrderResult with _$OrderResult {
+  const factory OrderResult({
     List<OrderProduct>? orderProducts,
-  }) = _Result;
+  }) = _OrderResult;
 
-  factory Result.fromJson(Map<String, dynamic> json) => _$ResultFromJson(json);
+  factory OrderResult.fromJson(Map<String, dynamic> json) =>
+      _$OrderResultFromJson(json);
 }
 
 @freezed
@@ -30,13 +31,18 @@ class OrderProduct with _$OrderProduct {
   const factory OrderProduct({
     String? id,
     String? userId,
+    String? orderId,
     List<OrderItem>? orderItems,
-    int? totalPrice,
+    String? pickupLocation,
+    double? subTotal,
+    double? totalDiscount,
     String? orderDate,
     String? shippingStatus,
     String? paymentMethod,
+    double? shippingCharges,
     String? paymentStatus,
-    dynamic address, // Update the type of address based on your requirements
+    double? weight,
+    Address? address,
     String? createdAt,
     String? updatedAt,
   }) = _OrderProduct;
@@ -48,10 +54,11 @@ class OrderProduct with _$OrderProduct {
 @freezed
 class OrderItem with _$OrderItem {
   const factory OrderItem({
-    @JsonKey(name: '_id') String? id,
-    @JsonKey(name: 'productId') Product? product,
+    Product? product,
     int? quantity,
-    int? basePrice,
+    double? sellingPrice,
+    double? discount,
+    double? tax,
     String? size,
     String? color,
   }) = _OrderItem;
@@ -63,18 +70,18 @@ class OrderItem with _$OrderItem {
 @freezed
 class Product with _$Product {
   const factory Product({
-    @JsonKey(name: '_id') String? id,
+    String? id,
     String? title,
     String? brand,
     String? description,
     String? otherInfo,
     String? category,
     String? subcategory,
-    int? actualPrice,
-    int? discountPrice,
+    double? actualPrice,
+    double? discountPrice,
     int? discount,
-    List<Color>? colors,
-    List<Size>? size,
+    List<ColorOption>? colors,
+    List<SizeOption>? size,
     List<Meta>? meta,
     List<String>? keywords,
     String? createdAt,
@@ -86,22 +93,25 @@ class Product with _$Product {
 }
 
 @freezed
-class Color with _$Color {
-  const factory Color({
+class ColorOption with _$ColorOption {
+  const factory ColorOption({
     String? text,
     List<String>? images,
-  }) = _Color;
+  }) = _ColorOption;
 
-  factory Color.fromJson(Map<String, dynamic> json) => _$ColorFromJson(json);
+  factory ColorOption.fromJson(Map<String, dynamic> json) =>
+      _$ColorOptionFromJson(json);
 }
 
 @freezed
-class Size with _$Size {
-  const factory Size({
+class SizeOption with _$SizeOption {
+  const factory SizeOption({
     String? value,
-  }) = _Size;
+    double? price,
+  }) = _SizeOption;
 
-  factory Size.fromJson(Map<String, dynamic> json) => _$SizeFromJson(json);
+  factory SizeOption.fromJson(Map<String, dynamic> json) =>
+      _$SizeOptionFromJson(json);
 }
 
 @freezed
@@ -112,4 +122,26 @@ class Meta with _$Meta {
   }) = _Meta;
 
   factory Meta.fromJson(Map<String, dynamic> json) => _$MetaFromJson(json);
+}
+
+@freezed
+class Address with _$Address {
+  const factory Address({
+    String? id,
+    String? userId,
+    String? addressType,
+    String? name,
+    int? mobile,
+    int? pincode,
+    String? landmark,
+    String? addressLine,
+    String? city,
+    String? state,
+    String? country,
+    String? createdAt,
+    String? updatedAt,
+  }) = _Address;
+
+  factory Address.fromJson(Map<String, dynamic> json) =>
+      _$AddressFromJson(json);
 }

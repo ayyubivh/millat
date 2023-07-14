@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:millat/resources/home/bloc/logic/bloc/quran_bloc.dart';
-import 'package:percent_indicator/linear_percent_indicator.dart';
+import 'package:millat/resources/home/bloc/models/quran_chapter_models/quran_chapter_models.dart';
+import 'package:millat/utils/loader.dart';
 import '../../../../../utils/constants.dart';
 import '../../../../../utils/globals.dart';
+import '../../../bloc/logic/quran_bloc/quran_bloc.dart';
 import '../surah_view.dart';
 
 class QuranTabBarWidget extends StatefulWidget {
@@ -14,6 +15,12 @@ class QuranTabBarWidget extends StatefulWidget {
 }
 
 class _QuranTabBarWidgetState extends State<QuranTabBarWidget> {
+  @override
+  void initState() {
+    BlocProvider.of<QuranBloc>(context).add(const FetchQuaranChaptersEvent());
+    super.initState();
+  }
+
   int _expandedIndex = -1;
   @override
   Widget build(BuildContext context) {
@@ -131,97 +138,59 @@ class _QuranTabBarWidgetState extends State<QuranTabBarWidget> {
   }
 
   Widget _paraTabBar() {
-    return Column(
-      children: [
-        kHeight20,
-        Container(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          height: 60,
-          width: double.infinity,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(8),
-            color: lightGreen1,
-          ),
-          child: const Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    return ListView.separated(
+      itemCount: 10,
+      itemBuilder: (context, index) {
+        return ListTile(
+          leading: Stack(
             children: [
-              Text(
-                "Para 1",
-                style: TextStyle(
-                  fontSize: 17,
-                  fontWeight: FontWeight.w600,
-                  color: primaryGreen,
-                ),
+              SizedBox(
+                height: 40,
+                width: 40,
+                child: Image.asset("assets/images/muslim_1.png"),
               ),
-              Icon(
-                Icons.check_circle,
-                color: primaryGreen,
-              )
-            ],
-          ),
-        ),
-        kHeight10,
-        _paraTabBarContainer(20),
-        kHeight10,
-        _paraTabBarContainer(0)
-      ],
-    );
-  }
-
-  Widget _paraTabBarContainer(int percentage) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-      height: 102,
-      width: double.infinity,
-      decoration: BoxDecoration(
-        color: black247,
-        borderRadius: BorderRadius.circular(8),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                "Para 2",
-                style: TextStyle(
-                  fontSize: 17,
-                  fontWeight: FontWeight.w600,
-                  color: black26,
-                ),
-              ),
-              Text(
-                "Mark as Read",
-                style: TextStyle(
-                  fontSize: 17,
-                  fontWeight: FontWeight.w600,
-                  color: primaryGreen,
+              Positioned.fill(
+                child: Align(
+                  alignment: Alignment.center,
+                  child: Text(
+                    '${index + 1}',
+                    style: const TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
                 ),
               ),
             ],
           ),
-          kHeight8,
-          const Text(
-            "Last Read: Al-Baqara 2:145",
-            style: TextStyle(
-              color: black132,
-              fontWeight: FontWeight.w500,
-            ),
+          title: const Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                "Alif Laam meem",
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              kHeight5,
+              Text(
+                "سَيَقُولُ",
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w800,
+                ),
+              ),
+            ],
           ),
-          kHeight15,
-          LinearPercentIndicator(
-            padding: const EdgeInsets.symmetric(horizontal: 0),
-            animation: true,
-            animationDuration: 1000,
-            lineHeight: 9.0,
-            percent: percentage / 100,
-            barRadius: const Radius.circular(16),
-            progressColor: primaryGreen,
-            backgroundColor: lightGreen1,
-          )
-        ],
-      ),
+          trailing: const Icon(
+            Icons.arrow_forward_ios,
+            color: black26,
+            size: 20,
+          ),
+        );
+      },
+      separatorBuilder: (context, index) => const Divider(thickness: 1),
     );
   }
 
@@ -229,9 +198,7 @@ class _QuranTabBarWidgetState extends State<QuranTabBarWidget> {
     return BlocBuilder<QuranBloc, QuranState>(
       builder: (context, state) {
         if (state.isLoading || state.quranChaptersModel?.chapters == null) {
-          return Center(
-            child: CircularProgressIndicator(color: primaryGreen),
-          );
+          return const Loader();
         }
 
         final chapters = state.quranChaptersModel!.chapters;
@@ -241,60 +208,70 @@ class _QuranTabBarWidgetState extends State<QuranTabBarWidget> {
           itemBuilder: (context, index) {
             final chapter = chapters[index];
 
-            return ListTile(
-              onTap: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => const Surahview(),
-                ));
-              },
-              leading: Stack(
-                children: [
-                  SizedBox(
-                    height: 40,
-                    width: 40,
-                    child: Image.asset("assets/images/muslim_1.png"),
-                  ),
-                  Positioned(
-                    top: 13,
-                    left: 16,
-                    child: Text(
-                      '${index + 1}',
-                      style: const TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  )
-                ],
-              ),
-              title: Text(
-                chapter.nameSimple,
-                style: const TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              subtitle: Text(
-                "${chapter.revelatioPlace.toUpperCase()} ${chapter.versesCount} VERSES",
-                style: const TextStyle(
-                  fontSize: 13,
-                  fontWeight: FontWeight.w600,
-                  color: lightBlackColor,
-                ),
-              ),
-              trailing: Text(
-                chapter.nameArabic,
-                textDirection: TextDirection.rtl,
-                style: const TextStyle(
-                  fontSize: 21,
-                  fontWeight: FontWeight.w800,
-                ),
-              ),
+            return _buildSurahTile(
+              context,
+              chapter,
+              index,
             );
           },
           separatorBuilder: (context, index) => const Divider(),
         );
       },
+    );
+  }
+
+  ListTile _buildSurahTile(BuildContext context, Chapters chapter, int index) {
+    return ListTile(
+      onTap: () {
+        context.read<QuranBloc>().add(FetchChaperVersesEvent(id: chapter.id));
+        Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) => const Surahview(),
+        ));
+      },
+      leading: Stack(
+        children: [
+          SizedBox(
+            height: 40,
+            width: 40,
+            child: Image.asset("assets/images/muslim_1.png"),
+          ),
+          Positioned.fill(
+            child: Align(
+              alignment: Alignment.center,
+              child: Text(
+                '${index + 1}',
+                style: const TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+      title: Text(
+        chapter.nameSimple,
+        style: const TextStyle(
+          fontSize: 16,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+      subtitle: Text(
+        "${chapter.revelatioPlace.toUpperCase()} ${chapter.versesCount} VERSES",
+        style: const TextStyle(
+          fontSize: 13,
+          fontWeight: FontWeight.w600,
+          color: lightBlackColor,
+        ),
+      ),
+      trailing: Text(
+        chapter.nameArabic,
+        textDirection: TextDirection.rtl,
+        style: const TextStyle(
+          fontSize: 21,
+          fontWeight: FontWeight.w800,
+        ),
+      ),
     );
   }
 }

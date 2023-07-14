@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
-
+import 'package:millat/utils/constants.dart';
 import '../../utils/globals.dart';
 
+// Loader
+
+// Gradient Container
 Widget gradientContainer(
     {required Widget child,
     required double width,
@@ -27,14 +30,16 @@ Widget gradientContainer(
   );
 }
 
+// Surah container
 Widget buildSurahContainer(
     {required int numValue,
     required String surah,
     required String surahMeaning}) {
   return Container(
     padding: const EdgeInsets.symmetric(horizontal: 10).copyWith(top: 10),
+    margin: const EdgeInsets.all(5),
     decoration: BoxDecoration(
-      borderRadius: BorderRadius.circular(5),
+      borderRadius: BorderRadius.circular(7),
       color: whiteClr,
       boxShadow: [
         BoxShadow(
@@ -45,7 +50,7 @@ Widget buildSurahContainer(
         ),
       ],
     ),
-    height: 190,
+    height: 195,
     width: double.infinity,
     child: Column(
       children: [
@@ -55,42 +60,48 @@ Widget buildSurahContainer(
             Stack(
               children: [
                 SizedBox(
-                    height: 40,
-                    width: 40,
-                    child: Image.asset(
-                      "assets/images/muslim_1.png",
-                    )),
-                Positioned(
-                  top: 13,
-                  left: 16,
-                  child: Text(
-                    '$numValue',
-                    style: const TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
+                  height: 40,
+                  width: 40,
+                  child: Image.asset("assets/images/muslim_1.png"),
+                ),
+                Positioned.fill(
+                  child: Align(
+                    alignment: Alignment.center,
+                    child: LayoutBuilder(
+                      builder: (context, constraints) {
+                        final digits = numValue.toString().length;
+                        final fontSize = digits > 3 ? 12 : 16;
+
+                        return Text(
+                          '$numValue',
+                          style: TextStyle(
+                            fontSize: fontSize.toDouble(),
+                            fontWeight: FontWeight.bold,
+                          ),
+                        );
+                      },
                     ),
                   ),
-                )
+                ),
               ],
             ),
-            const Icon(
-              Icons.more_horiz,
-              color: primaryGreen,
-            )
           ],
         ),
         Align(
           alignment: Alignment.topRight,
-          child: Text(
-            surah,
-            style: const TextStyle(
-              fontSize: 17,
-              fontWeight: FontWeight.bold,
+          child: SizedBox(
+            height: 60,
+            child: Text(
+              surah,
+              style: const TextStyle(
+                fontSize: 17,
+                fontWeight: FontWeight.w800,
+              ),
+              textDirection: TextDirection.rtl,
             ),
-            textDirection: TextDirection.rtl,
           ),
         ),
-        const SizedBox(height: 15),
+        kHeight5,
         Text(
           surahMeaning,
           style: const TextStyle(
@@ -99,47 +110,38 @@ Widget buildSurahContainer(
           ),
         ),
         const SizedBox(
-          height: 10,
+          height: 5,
         ),
         Container(
           padding: const EdgeInsets.symmetric(horizontal: 10),
           height: 53,
           width: double.infinity,
           decoration: BoxDecoration(
-            color: primaryGreen.withOpacity(0.2),
-            borderRadius: BorderRadius.circular(5),
+            color: black247,
+            borderRadius: BorderRadius.circular(7),
           ),
-          child: Row(
+          child: const Row(
             children: [
-              Container(
-                width: 30,
-                height: 30,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(30),
+              Text(
+                "Tafseer",
+                style: TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.bold,
                   color: primaryGreen,
                 ),
-                child: Center(
-                  child: Text(
-                    "$numValue",
-                    style: const TextStyle(
-                      color: whiteClr,
-                      fontSize: 16,
-                    ),
-                  ),
-                ),
               ),
-              const Spacer(),
-              const ImageIcon(
+              Spacer(),
+              ImageIcon(
                 AssetImage("assets/icons/share.png"),
                 color: primaryGreen,
               ),
-              const SizedBox(width: 7),
-              const ImageIcon(
+              kWidht10,
+              ImageIcon(
                 AssetImage("assets/icons/play.png"),
                 color: primaryGreen,
               ),
-              const SizedBox(width: 7),
-              const ImageIcon(
+              kWidht10,
+              ImageIcon(
                 AssetImage("assets/icons/bookmark.png"),
                 color: primaryGreen,
               ),

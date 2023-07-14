@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/components/common_widgets/reusable_methods.dart';
 import 'package:millat/resources/authentication/bloc/logic/database_bloc/database_bloc.dart';
-import 'package:millat/resources/home/bloc/logic/bloc/quran_bloc.dart';
 import 'package:millat/resources/home/view/al_quran/bookmark_view.dart';
 import 'package:millat/resources/home/view/al_quran/widgets/quran_tabbar_widget.dart';
 import 'package:millat/utils/constants.dart';
@@ -14,9 +13,6 @@ class AlQuranView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      BlocProvider.of<QuranBloc>(context).add(const FetchQuaranChapters());
-    });
     return Scaffold(
       backgroundColor: whiteClr,
       appBar: AppBar(
@@ -79,7 +75,13 @@ class AlQuranView extends StatelessWidget {
   Widget _section3(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [_gradienContainer(context), _gradienContainer(context)],
+      children: [
+        _gradienContainer(context, "assets/images/quran_2.png", "Topic Wise",
+            "Explore Quran by\n50+ topics", ""),
+        _gradienContainer(context, "assets/images/hafiz.png", "Haiz-e-Quran",
+            "Read by pages", "15 Lines"),
+        // _gradienContainer(context, ""),
+      ],
     );
   }
 
@@ -89,6 +91,7 @@ class AlQuranView extends StatelessWidget {
       height: 131,
       width: double.infinity,
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -96,7 +99,7 @@ class AlQuranView extends StatelessWidget {
               const Column(
                 children: [
                   Text(
-                    "Hifz Smartcheck",
+                    "Al-Fatiah",
                     style: TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.w400,
@@ -105,7 +108,7 @@ class AlQuranView extends StatelessWidget {
                   ),
                   SizedBox(height: 15),
                   Text(
-                    "Recite Quran",
+                    "1:3",
                     style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.w600,
@@ -114,7 +117,7 @@ class AlQuranView extends StatelessWidget {
                   ),
                   SizedBox(height: 10),
                   Text(
-                    "Recite and learn",
+                    "Last Read",
                     style: TextStyle(
                         color: whiteClr,
                         fontWeight: FontWeight.w400,
@@ -126,7 +129,7 @@ class AlQuranView extends StatelessWidget {
                 height: 80,
                 width: 80,
                 child: Image.asset(
-                  "assets/images/mic 1.png",
+                  "assets/images/quran_3.png",
                 ),
               )
             ],
@@ -138,6 +141,7 @@ class AlQuranView extends StatelessWidget {
 
   Widget _section1(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const Text(
           "Assalamualaikum",
@@ -160,7 +164,8 @@ class AlQuranView extends StatelessWidget {
     );
   }
 
-  Widget _gradienContainer(BuildContext context) {
+  Widget _gradienContainer(BuildContext context, String image, String mainText,
+      String subText, String? lineText) {
     return gradientContainer(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -168,48 +173,46 @@ class AlQuranView extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Column(
+              Column(
                 children: [
                   Text(
-                    "Al-Faithah",
-                    style: TextStyle(
+                    mainText,
+                    style: const TextStyle(
                       fontSize: 12,
                       fontWeight: FontWeight.bold,
                       color: whiteClr,
                     ),
                   ),
-                  SizedBox(height: 5),
+                  const SizedBox(height: 5),
                   Text(
-                    "1:3",
-                    style: TextStyle(
+                    lineText ?? "",
+                    style: const TextStyle(
                       fontSize: 12,
-                      fontWeight: FontWeight.bold,
+                      fontWeight: FontWeight.w400,
                       color: whiteClr,
                     ),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   Text(
-                    "Recite and learn",
-                    style: TextStyle(
+                    subText,
+                    style: const TextStyle(
                         color: whiteClr,
                         fontWeight: FontWeight.w400,
-                        fontSize: 14),
+                        fontSize: 10),
                   ),
                 ],
               ),
               SizedBox(
                 height: 32,
                 width: 32,
-                child: Image.asset(
-                  "assets/images/quran_2.png",
-                ),
+                child: Image.asset(image),
               )
             ],
           ),
         ],
       ),
       width: SizeUtility(context).width / 2.38,
-      height: 84,
+      height: 90,
       padding: const EdgeInsets.all(15),
     );
   }

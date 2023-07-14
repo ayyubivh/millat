@@ -1,14 +1,13 @@
 import 'package:http/http.dart' as http;
+import 'package:millat/utils/string_constants.dart';
 
 class HttpServices {
-  final String webBaseUrl = 'http://35.172.93.164:8000/';
-
   Future<http.Response> get({
     required String endPoint,
     Map<String, String>? headers,
   }) async {
     final response =
-        await http.get(Uri.parse(webBaseUrl + endPoint), headers: headers);
+        await http.get(Uri.parse(kBaseUrl + endPoint), headers: headers);
 
     return response;
   }
@@ -19,7 +18,7 @@ class HttpServices {
     Map<String, String>? headers,
   }) async {
     final response = await http.post(
-      Uri.parse(webBaseUrl + endPoint),
+      Uri.parse(kBaseUrl + endPoint),
       body: body,
       headers: headers,
     );

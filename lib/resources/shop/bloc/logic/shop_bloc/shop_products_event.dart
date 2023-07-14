@@ -30,8 +30,14 @@ class ShopProductsEvent with _$ShopProductsEvent {
     required String productId,
     required BuildContext context,
     required int totalPrice,
+    required String pickupLocation,
+    required int quantity,
   }) = PostOrders;
   const factory ShopProductsEvent.fetchOrders(
     BuildContext context,
   ) = FetchOrders;
+  const factory ShopProductsEvent.fetchOrdersById(
+    BuildContext context,
+    int id,
+  ) = FetchOrdersById;
 }

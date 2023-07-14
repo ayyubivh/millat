@@ -1,20 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:millat/resources/home/bloc/logic/quran_bloc/quran_bloc.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/globals.dart';
-
+import 'package:millat/utils/loader.dart';
 import '../../../../components/common_widgets/reusable_methods.dart';
 
-class Surahview extends StatefulWidget {
+class Surahview extends StatelessWidget {
   const Surahview({super.key});
 
   @override
-  State<Surahview> createState() => _SurahviewState();
-}
-
-class _SurahviewState extends State<Surahview> {
-  int _currentIndex = -1;
-  @override
   Widget build(BuildContext context) {
+    int currentIndex = -1;
+
     return Scaffold(
       backgroundColor: scaffoldBgColor,
       appBar: AppBar(
@@ -51,45 +49,27 @@ class _SurahviewState extends State<Surahview> {
         ],
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 20),
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              buildSurahContainer(
-                numValue: 1,
-                surah: "بسم الله الرحمن الرحيم",
-                surahMeaning:
-                    "In the name of Allah, the Entirely Merciful, the Especially Merciful.",
-              ),
-              const SizedBox(height: 15),
-              buildSurahContainer(
-                numValue: 2,
-                surah: "الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ",
-                surahMeaning:
-                    "[All] praise is [due] to Allah, Lord of the worlds -",
-              ),
-              const SizedBox(height: 15),
-              buildSurahContainer(
-                numValue: 3,
-                surah: "الرَّحْمَـٰنِ الرَّحِيمِ",
-                surahMeaning: "The Entirely Merciful, the Especially Merciful,",
-              ),
-              const SizedBox(height: 15),
-              buildSurahContainer(
-                numValue: 4,
-                surah: "الرَّحْمَـٰنِ الرَّحِيمِ",
-                surahMeaning: "The Entirely Merciful, the Especially Merciful,",
-              ),
-              const SizedBox(height: 15),
-              buildSurahContainer(
-                numValue: 5,
-                surah: "الرَّحْمَـٰنِ الرَّحِيمِ",
-                surahMeaning: "The Entirely Merciful, the Especially Merciful,",
-              ),
-            ],
-          ),
-        ),
-      ),
+          padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 20),
+          child: BlocBuilder<QuranBloc, QuranState>(
+            builder: (context, state) {
+              if (state.isLoading ||
+                  state.chapterVersesModel?.data.ayahs == null) {
+                return const Loader();
+              }
+              final data = state.chapterVersesModel?.data.ayahs;
+              return ListView.builder(
+                itemCount: data!.length,
+                itemBuilder: (context, index) {
+                  return buildSurahContainer(
+                    numValue: data[index].number,
+                    surah: data[index].text,
+                    surahMeaning:
+                        "The Entirely Merciful, the Especially Merciful,",
+                  );
+                },
+              );
+            },
+          )),
       bottomSheet: Container(
         margin: const EdgeInsets.symmetric(horizontal: 35),
         padding: const EdgeInsets.symmetric(horizontal: 12),
@@ -158,12 +138,12 @@ class _SurahviewState extends State<Surahview> {
                                 shrinkWrap: true,
                                 itemCount: 4,
                                 itemBuilder: (context, index) {
-                                  final isIndex = _currentIndex == index;
+                                  final isIndex = currentIndex == index;
                                   return InkWell(
                                     onTap: () {
                                       setState(
                                         () {
-                                          _currentIndex = index;
+                                          currentIndex = index;
                                         },
                                       );
                                     },

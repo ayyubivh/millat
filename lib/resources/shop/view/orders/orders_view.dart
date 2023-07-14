@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/resources/shop/view/orders/widgets/orders_card_widget.dart';
 import 'package:millat/utils/globals.dart';
-import '../../bloc/logic/cart_bloc/cart_bloc.dart';
 import '../../bloc/logic/shop_bloc/shop_products_bloc.dart';
 
 class Orders extends StatefulWidget {
@@ -64,7 +63,7 @@ class _OrdersState extends State<Orders> with SingleTickerProviderStateMixin {
                 children: [
                   BlocBuilder<ShopProductsBloc, ShopProductsState>(
                     builder: (context, state) {
-                      if (state.orderModel?.result?.orderProducts == null) {
+                      if (state.orderModel?.result == null) {
                         return const CircularProgressIndicator(color: green24);
                       }
                       return ListView.builder(
@@ -74,21 +73,21 @@ class _OrdersState extends State<Orders> with SingleTickerProviderStateMixin {
                         shrinkWrap: true,
                         itemBuilder: (context, index) {
                           final data = state.orderModel?.result
-                              ?.orderProducts?[index].orderItems?[0];
-
-                          return SizedBox(
-                            child: OrdersProfileWidget(
-                              id: data?.product?.id,
-                              title: data?.product?.title,
-                              size: data?.size,
-                              image: data?.product?.colors![0].images![0],
-                              price: data!.basePrice!.toInt(),
-                              jsonColor: data.color,
-                              colorName: data.color,
-                              quantity: data.quantity!.toInt(),
-                              productId: data.product?.id,
-                            ),
-                          );
+                              ?.orderProducts?[index].orderItems?[index];
+                          return Text(state.orderModel.toString());
+                          // return SizedBox(
+                          //   child: OrdersProfileWidget(
+                          //     id: data?.product?.id,
+                          //     title: data?.product?.title,
+                          //     size: data?.size,
+                          //     image: data?.product?.colors![0].images![0],
+                          //     price: data?.sellingPrice?.toInt() ?? 0,
+                          //     jsonColor: data?.color,
+                          //     colorName: data?.color,
+                          //     quantity: data?.quantity!.toInt() ?? 0,
+                          //     productId: data?.product?.id,
+                          //   ),
+                          // );
                         },
                       );
                     },

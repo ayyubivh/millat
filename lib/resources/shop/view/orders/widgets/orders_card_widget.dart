@@ -39,15 +39,15 @@ class OrdersProfileWidget extends StatelessWidget {
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Container(
-                    width: 60,
-                    height: 60,
-                    decoration: BoxDecoration(
-                      border: Border.all(color: Colors.black),
-                      borderRadius: BorderRadius.circular(5),
-                      image: DecorationImage(image: NetworkImage(image!)),
-                    ),
-                  ),
+                  // Container(
+                  //   width: 60,
+                  //   height: 60,
+                  //   decoration: BoxDecoration(
+                  //     border: Border.all(color: Colors.black),
+                  //     borderRadius: BorderRadius.circular(5),
+                  //     image: DecorationImage(image: NetworkImage(image!)),
+                  //   ),
+                  // ),
                   SizedBox(width: 20),
                   Expanded(
                     child: Column(

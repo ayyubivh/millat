@@ -82,7 +82,7 @@ class _CartViewState extends State<CartView> {
                         title: data.productId!.title,
                         size: data.size ?? "",
                         image: data.productId!.colors![0].images![0],
-                        price: data.basePrice!.toInt(),
+                        price: data.sellingPrice,
                         jsonColor: data.color,
                         colorName: data.color,
                         quantity: data.quantity!.toInt(),

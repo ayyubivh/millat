@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/address_bloc/address_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
+import 'package:millat/resources/shop/bloc/service/orders_service.dart';
 import 'package:millat/resources/shop/view/checkout/checkout_view.dart';
 import 'package:millat/resources/shop/view/checkout/widgets/order_product_card.dart';
 import 'package:millat/resources/shop/view/order_status/payment_successful.dart';
@@ -190,7 +191,7 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
                               title: data.productId?.title,
                               size: data.size,
                               image: data.productId?.colors![0].images![0],
-                              price: data.basePrice!.toInt(),
+                              price: data.sellingPrice,
                               jsonColor: data.color,
                               colorName: data.color,
                               quantity: data.quantity!.toInt(),
@@ -473,16 +474,25 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
                 BlocBuilder<CartBloc, CartState>(
                   builder: (context, state) => InkWell(
                     onTap: () {
+                      OrdersService().postOrder(
+                          context: context,
+                          productId: state.cartModel!.result!.cartProducts!.id!,
+                          totalPrice: total,
+                          pickUpAddress: "kochi",
+                          totalQuantity: 5);
                       print(
                           'on the view total $total and the ${state.cartModel!.result!.cartProducts!.id} ');
-                      context.read<ShopProductsBloc>().add(PostOrders(
-                          totalPrice: total,
-                          productId: state.cartModel!.result!.cartProducts!.id
-                              .toString(),
-                          context: context));
-                      Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => const PaymentSuccessful(),
-                      ));
+
+                      // context.read<ShopProductsBloc>().add(PostOrders(
+                      //     pickupLocation: 'kochi',
+                      //     quantity: 2,
+                      //     totalPrice: total,
+                      //     productId: state.cartModel!.result!.cartProducts!.id
+                      //         .toString(),
+                      //     context: context));
+                      // Navigator.of(context).push(MaterialPageRoute(
+                      //   builder: (context) => const PaymentSuccessful(),
+                      // ));
                     },
                     child: Container(
                         alignment: Alignment.center,

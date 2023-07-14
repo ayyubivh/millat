@@ -30,12 +30,14 @@ class _HomeViewState extends State<HomeView> {
     BlocProvider.of<LocationBloc>(context).add(const FetchCurrentLocation());
     BlocProvider.of<DatabaseBloc>(context).add(const FetchUserDetails());
     BlocProvider.of<LocationBloc>(context).add(const FetchCities());
+    BlocProvider.of<ShopProductsBloc>(context).add(FetchOrders(context));
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: whiteClr,
       body: BlocListener<LocationBloc, LocationState>(
         listener: (context, state) {
           if (state.currentLocaion.isNotEmpty) {
@@ -167,7 +169,7 @@ class _HomeViewState extends State<HomeView> {
                                       ),
                                       buildIconWidget(
                                         image: 'assets/icons/adzan.png',
-                                        text: 'Adzan',
+                                        text: 'Hadith',
                                         onTap: () {},
                                       ),
                                       buildIconWidget(
@@ -181,8 +183,8 @@ class _HomeViewState extends State<HomeView> {
                                         onTap: () {},
                                       ),
                                       buildIconWidget(
-                                        image: "assets/icons/all.png",
-                                        text: "All",
+                                        image: "assets/icons/dua.png",
+                                        text: "Dua",
                                         onTap: () {},
                                       )
                                     ],
@@ -643,10 +645,17 @@ class _HomeViewState extends State<HomeView> {
       onTap: onTap,
       child: Column(
         children: [
-          Image.asset(
-            image,
-            height: 50,
-            width: 50,
+          Container(
+            height: 54,
+            width: 54,
+            padding: const EdgeInsets.all(10),
+            decoration: BoxDecoration(
+              color: black247,
+              borderRadius: BorderRadius.circular(5),
+            ),
+            child: Image.asset(
+              image,
+            ),
           ),
           const SizedBox(
             height: 10,
@@ -889,7 +898,7 @@ class _HomeViewState extends State<HomeView> {
     );
   }
 
-  Row _offlineText() {
+  Widget _offlineText() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [

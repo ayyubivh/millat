@@ -31,7 +31,7 @@ class CartServices extends HttpServices {
               'API request failed with status code: ${response.statusCode}');
         }
       } catch (e) {
-        print('error on Cart API fetch: ${e.toString()}');
+        print('error on order API fetch: ${e.toString()}');
         throw Exception('Failed to parse response');
       }
     } else {
@@ -58,7 +58,7 @@ class CartServices extends HttpServices {
     };
     final body = {
       "productId": productId,
-      "basePrice": basePrice,
+      "selling_price": basePrice,
       "size": size,
       "color": color,
       "quantity": quantity

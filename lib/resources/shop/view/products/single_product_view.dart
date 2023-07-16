@@ -37,11 +37,6 @@ class _SingleProductViewState extends State<SingleProductView> {
       listener: (context, state) {
         if (state.cartSuccesmessage.isNotEmpty && !isSnackBarVisible) {
           showSnackBar(context, state.cartSuccesmessage);
-          // isSnackBarVisible = true;
-          // ScaffoldMessenger.of(context).clearSnackBars();
-          // Future.delayed(const Duration(seconds: 2)).then((_) {
-          //   isSnackBarVisible = false;
-          // });
         }
       },
       child: Scaffold(
@@ -63,7 +58,7 @@ class _SingleProductViewState extends State<SingleProductView> {
               builder: (context, state) {
                 return CartIconWidget(
                   color: black26,
-                  cartLength: state.cartLength ?? 0,
+                  cartLength: state.cartLength!.toInt(),
                 );
               },
             )
@@ -615,8 +610,6 @@ class _SingleProductViewState extends State<SingleProductView> {
                         Size(SizeUtility(context).width * 42 / 100, 60)),
                   ),
                   onPressed: () async {
-                    print(
-                        'hey the test of add cart color ${colorMap.keys.elementAt(selectedColor)}  size ${sizeList[selectedSize]} id-------${widget.passValue.id} quantity +++$quantity');
                     Navigator.of(context).pop();
                     context.read<CartBloc>().add(AddCartEvent(
                           productId: widget.passValue.id,

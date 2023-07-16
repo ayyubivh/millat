@@ -474,25 +474,32 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
                 BlocBuilder<CartBloc, CartState>(
                   builder: (context, state) => InkWell(
                     onTap: () {
-                      OrdersService().postOrder(
-                          context: context,
-                          productId: state.cartModel!.result!.cartProducts!.id!,
-                          totalPrice: total,
-                          pickUpAddress: "kochi",
-                          totalQuantity: 5);
+                      final pickUpaddress = context
+                          .read<AddressBloc>()
+                          .state
+                          .addressIdModel!
+                          .result
+                          .address
+                          .addressLine;
+                      final cart = state.cartModel!.result!.cartProducts;
+                      print(
+                          "here is the address ${context.read<AddressBloc>().state.addressIdModel!.result.address.addressLine}");
+
                       print(
                           'on the view total $total and the ${state.cartModel!.result!.cartProducts!.id} ');
 
-                      // context.read<ShopProductsBloc>().add(PostOrders(
-                      //     pickupLocation: 'kochi',
-                      //     quantity: 2,
-                      //     totalPrice: total,
-                      //     productId: state.cartModel!.result!.cartProducts!.id
-                      //         .toString(),
-                      //     context: context));
-                      // Navigator.of(context).push(MaterialPageRoute(
-                      //   builder: (context) => const PaymentSuccessful(),
-                      // ));
+                      context.read<ShopProductsBloc>().add(PostOrders(
+                          shippingCharges: shippingFee,
+                          totalDiscount: 0,
+                          weight: 4,
+                          pickupLocation: pickUpaddress,
+                          quantity: 2,
+                          totalPrice: total,
+                          productId: cart!.id.toString(),
+                          context: context));
+                      Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const PaymentSuccessful(),
+                      ));
                     },
                     child: Container(
                         alignment: Alignment.center,

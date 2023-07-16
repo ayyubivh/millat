@@ -16,6 +16,9 @@ class OrdersService extends HttpServices {
     required int totalPrice,
     required String pickUpAddress,
     required int totalQuantity,
+    required int totalDiscount,
+    required int shippingCharges,
+    required int weight,
   }) async {
     const endPoint = 'order/payment/COD';
 
@@ -24,26 +27,19 @@ class OrdersService extends HttpServices {
 
     final headers = {
       'Content-Type': 'application/json; charset=utf-8',
-      'Authorization':
-          'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDViYmMxZTM0OGJmZmUzMTQ3Yjg3YzIiLCJpYXQiOjE2ODkwMTY4MjR9.skXg3wBQKaUlekAoCXzkjWfgh9q8X9mIp5khosMYYfU',
+      'Authorization': 'Bearer $token',
     };
-
+    print('here is the token man $token');
     final body = {
-      "address": productId,
+      "address": "64ac5d71591ebf9102734995",
       "pickup_location": pickUpAddress,
       "sub_total": totalPrice,
-      "total_discount": 0.0,
-      "shipping_charges": 0.0,
-      "weight": 4.0,
+      "total_discount": totalDiscount,
+      "shipping_charges": shippingCharges,
+      "weight": weight,
       "total_quantity": totalQuantity,
     };
-    // "address": "64ac5d71591ebf9102734995",
-    //   "pickup_location":"kerala",
-    //   "sub_total":8888,
-    //   "total_discount":0,
-    //   "shipping_charges":0,
-    //   "weight":60,
-    //   "total_quantity":5
+
     final response = await http.post(Uri.parse(kBaseUrl + endPoint),
         headers: headers, body: jsonEncode(body));
 
@@ -76,6 +72,8 @@ class OrdersService extends HttpServices {
 
     if (response.statusCode == 200) {
       try {
+        print('here is the response in the body ${response.body}');
+
         final Map<String, dynamic> data = json.decode(response.body);
         final result = OrderModel.fromJson(data);
         return result;

@@ -33,8 +33,15 @@ mixin _$ShopProductsEvent {
         removeWishlistEvent,
     required TResult Function(String brandName) fetchShopByBrandProducts,
     required TResult Function(int index) tabIndexChangeEvent,
-    required TResult Function(String productId, BuildContext context,
-            int totalPrice, String pickupLocation, int quantity)
+    required TResult Function(
+            String productId,
+            BuildContext context,
+            int totalPrice,
+            String pickupLocation,
+            int quantity,
+            int totalDiscount,
+            int shippingCharges,
+            int weight)
         postOrders,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
@@ -56,8 +63,15 @@ mixin _$ShopProductsEvent {
         removeWishlistEvent,
     TResult? Function(String brandName)? fetchShopByBrandProducts,
     TResult? Function(int index)? tabIndexChangeEvent,
-    TResult? Function(String productId, BuildContext context, int totalPrice,
-            String pickupLocation, int quantity)?
+    TResult? Function(
+            String productId,
+            BuildContext context,
+            int totalPrice,
+            String pickupLocation,
+            int quantity,
+            int totalDiscount,
+            int shippingCharges,
+            int weight)?
         postOrders,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
@@ -79,8 +93,15 @@ mixin _$ShopProductsEvent {
         removeWishlistEvent,
     TResult Function(String brandName)? fetchShopByBrandProducts,
     TResult Function(int index)? tabIndexChangeEvent,
-    TResult Function(String productId, BuildContext context, int totalPrice,
-            String pickupLocation, int quantity)?
+    TResult Function(
+            String productId,
+            BuildContext context,
+            int totalPrice,
+            String pickupLocation,
+            int quantity,
+            int totalDiscount,
+            int shippingCharges,
+            int weight)?
         postOrders,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
@@ -226,8 +247,15 @@ class _$FetchFlashSaleProducts implements FetchFlashSaleProducts {
         removeWishlistEvent,
     required TResult Function(String brandName) fetchShopByBrandProducts,
     required TResult Function(int index) tabIndexChangeEvent,
-    required TResult Function(String productId, BuildContext context,
-            int totalPrice, String pickupLocation, int quantity)
+    required TResult Function(
+            String productId,
+            BuildContext context,
+            int totalPrice,
+            String pickupLocation,
+            int quantity,
+            int totalDiscount,
+            int shippingCharges,
+            int weight)
         postOrders,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
@@ -252,8 +280,15 @@ class _$FetchFlashSaleProducts implements FetchFlashSaleProducts {
         removeWishlistEvent,
     TResult? Function(String brandName)? fetchShopByBrandProducts,
     TResult? Function(int index)? tabIndexChangeEvent,
-    TResult? Function(String productId, BuildContext context, int totalPrice,
-            String pickupLocation, int quantity)?
+    TResult? Function(
+            String productId,
+            BuildContext context,
+            int totalPrice,
+            String pickupLocation,
+            int quantity,
+            int totalDiscount,
+            int shippingCharges,
+            int weight)?
         postOrders,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
@@ -278,8 +313,15 @@ class _$FetchFlashSaleProducts implements FetchFlashSaleProducts {
         removeWishlistEvent,
     TResult Function(String brandName)? fetchShopByBrandProducts,
     TResult Function(int index)? tabIndexChangeEvent,
-    TResult Function(String productId, BuildContext context, int totalPrice,
-            String pickupLocation, int quantity)?
+    TResult Function(
+            String productId,
+            BuildContext context,
+            int totalPrice,
+            String pickupLocation,
+            int quantity,
+            int totalDiscount,
+            int shippingCharges,
+            int weight)?
         postOrders,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
@@ -427,8 +469,15 @@ class _$FetchPopularProducts implements FetchPopularProducts {
         removeWishlistEvent,
     required TResult Function(String brandName) fetchShopByBrandProducts,
     required TResult Function(int index) tabIndexChangeEvent,
-    required TResult Function(String productId, BuildContext context,
-            int totalPrice, String pickupLocation, int quantity)
+    required TResult Function(
+            String productId,
+            BuildContext context,
+            int totalPrice,
+            String pickupLocation,
+            int quantity,
+            int totalDiscount,
+            int shippingCharges,
+            int weight)
         postOrders,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
@@ -453,8 +502,15 @@ class _$FetchPopularProducts implements FetchPopularProducts {
         removeWishlistEvent,
     TResult? Function(String brandName)? fetchShopByBrandProducts,
     TResult? Function(int index)? tabIndexChangeEvent,
-    TResult? Function(String productId, BuildContext context, int totalPrice,
-            String pickupLocation, int quantity)?
+    TResult? Function(
+            String productId,
+            BuildContext context,
+            int totalPrice,
+            String pickupLocation,
+            int quantity,
+            int totalDiscount,
+            int shippingCharges,
+            int weight)?
         postOrders,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
@@ -479,8 +535,15 @@ class _$FetchPopularProducts implements FetchPopularProducts {
         removeWishlistEvent,
     TResult Function(String brandName)? fetchShopByBrandProducts,
     TResult Function(int index)? tabIndexChangeEvent,
-    TResult Function(String productId, BuildContext context, int totalPrice,
-            String pickupLocation, int quantity)?
+    TResult Function(
+            String productId,
+            BuildContext context,
+            int totalPrice,
+            String pickupLocation,
+            int quantity,
+            int totalDiscount,
+            int shippingCharges,
+            int weight)?
         postOrders,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
@@ -631,8 +694,15 @@ class _$FetchRecentProductProducts implements FetchRecentProductProducts {
         removeWishlistEvent,
     required TResult Function(String brandName) fetchShopByBrandProducts,
     required TResult Function(int index) tabIndexChangeEvent,
-    required TResult Function(String productId, BuildContext context,
-            int totalPrice, String pickupLocation, int quantity)
+    required TResult Function(
+            String productId,
+            BuildContext context,
+            int totalPrice,
+            String pickupLocation,
+            int quantity,
+            int totalDiscount,
+            int shippingCharges,
+            int weight)
         postOrders,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
@@ -657,8 +727,15 @@ class _$FetchRecentProductProducts implements FetchRecentProductProducts {
         removeWishlistEvent,
     TResult? Function(String brandName)? fetchShopByBrandProducts,
     TResult? Function(int index)? tabIndexChangeEvent,
-    TResult? Function(String productId, BuildContext context, int totalPrice,
-            String pickupLocation, int quantity)?
+    TResult? Function(
+            String productId,
+            BuildContext context,
+            int totalPrice,
+            String pickupLocation,
+            int quantity,
+            int totalDiscount,
+            int shippingCharges,
+            int weight)?
         postOrders,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
@@ -683,8 +760,15 @@ class _$FetchRecentProductProducts implements FetchRecentProductProducts {
         removeWishlistEvent,
     TResult Function(String brandName)? fetchShopByBrandProducts,
     TResult Function(int index)? tabIndexChangeEvent,
-    TResult Function(String productId, BuildContext context, int totalPrice,
-            String pickupLocation, int quantity)?
+    TResult Function(
+            String productId,
+            BuildContext context,
+            int totalPrice,
+            String pickupLocation,
+            int quantity,
+            int totalDiscount,
+            int shippingCharges,
+            int weight)?
         postOrders,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
@@ -832,8 +916,15 @@ class _$FetchHomeBanners implements FetchHomeBanners {
         removeWishlistEvent,
     required TResult Function(String brandName) fetchShopByBrandProducts,
     required TResult Function(int index) tabIndexChangeEvent,
-    required TResult Function(String productId, BuildContext context,
-            int totalPrice, String pickupLocation, int quantity)
+    required TResult Function(
+            String productId,
+            BuildContext context,
+            int totalPrice,
+            String pickupLocation,
+            int quantity,
+            int totalDiscount,
+            int shippingCharges,
+            int weight)
         postOrders,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
@@ -858,8 +949,15 @@ class _$FetchHomeBanners implements FetchHomeBanners {
         removeWishlistEvent,
     TResult? Function(String brandName)? fetchShopByBrandProducts,
     TResult? Function(int index)? tabIndexChangeEvent,
-    TResult? Function(String productId, BuildContext context, int totalPrice,
-            String pickupLocation, int quantity)?
+    TResult? Function(
+            String productId,
+            BuildContext context,
+            int totalPrice,
+            String pickupLocation,
+            int quantity,
+            int totalDiscount,
+            int shippingCharges,
+            int weight)?
         postOrders,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
@@ -884,8 +982,15 @@ class _$FetchHomeBanners implements FetchHomeBanners {
         removeWishlistEvent,
     TResult Function(String brandName)? fetchShopByBrandProducts,
     TResult Function(int index)? tabIndexChangeEvent,
-    TResult Function(String productId, BuildContext context, int totalPrice,
-            String pickupLocation, int quantity)?
+    TResult Function(
+            String productId,
+            BuildContext context,
+            int totalPrice,
+            String pickupLocation,
+            int quantity,
+            int totalDiscount,
+            int shippingCharges,
+            int weight)?
         postOrders,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
@@ -1033,8 +1138,15 @@ class _$FetchShopBanners implements FetchShopBanners {
         removeWishlistEvent,
     required TResult Function(String brandName) fetchShopByBrandProducts,
     required TResult Function(int index) tabIndexChangeEvent,
-    required TResult Function(String productId, BuildContext context,
-            int totalPrice, String pickupLocation, int quantity)
+    required TResult Function(
+            String productId,
+            BuildContext context,
+            int totalPrice,
+            String pickupLocation,
+            int quantity,
+            int totalDiscount,
+            int shippingCharges,
+            int weight)
         postOrders,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
@@ -1059,8 +1171,15 @@ class _$FetchShopBanners implements FetchShopBanners {
         removeWishlistEvent,
     TResult? Function(String brandName)? fetchShopByBrandProducts,
     TResult? Function(int index)? tabIndexChangeEvent,
-    TResult? Function(String productId, BuildContext context, int totalPrice,
-            String pickupLocation, int quantity)?
+    TResult? Function(
+            String productId,
+            BuildContext context,
+            int totalPrice,
+            String pickupLocation,
+            int quantity,
+            int totalDiscount,
+            int shippingCharges,
+            int weight)?
         postOrders,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
@@ -1085,8 +1204,15 @@ class _$FetchShopBanners implements FetchShopBanners {
         removeWishlistEvent,
     TResult Function(String brandName)? fetchShopByBrandProducts,
     TResult Function(int index)? tabIndexChangeEvent,
-    TResult Function(String productId, BuildContext context, int totalPrice,
-            String pickupLocation, int quantity)?
+    TResult Function(
+            String productId,
+            BuildContext context,
+            int totalPrice,
+            String pickupLocation,
+            int quantity,
+            int totalDiscount,
+            int shippingCharges,
+            int weight)?
         postOrders,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
@@ -1234,8 +1360,15 @@ class _$FetchArticles implements FetchArticles {
         removeWishlistEvent,
     required TResult Function(String brandName) fetchShopByBrandProducts,
     required TResult Function(int index) tabIndexChangeEvent,
-    required TResult Function(String productId, BuildContext context,
-            int totalPrice, String pickupLocation, int quantity)
+    required TResult Function(
+            String productId,
+            BuildContext context,
+            int totalPrice,
+            String pickupLocation,
+            int quantity,
+            int totalDiscount,
+            int shippingCharges,
+            int weight)
         postOrders,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
@@ -1260,8 +1393,15 @@ class _$FetchArticles implements FetchArticles {
         removeWishlistEvent,
     TResult? Function(String brandName)? fetchShopByBrandProducts,
     TResult? Function(int index)? tabIndexChangeEvent,
-    TResult? Function(String productId, BuildContext context, int totalPrice,
-            String pickupLocation, int quantity)?
+    TResult? Function(
+            String productId,
+            BuildContext context,
+            int totalPrice,
+            String pickupLocation,
+            int quantity,
+            int totalDiscount,
+            int shippingCharges,
+            int weight)?
         postOrders,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
@@ -1286,8 +1426,15 @@ class _$FetchArticles implements FetchArticles {
         removeWishlistEvent,
     TResult Function(String brandName)? fetchShopByBrandProducts,
     TResult Function(int index)? tabIndexChangeEvent,
-    TResult Function(String productId, BuildContext context, int totalPrice,
-            String pickupLocation, int quantity)?
+    TResult Function(
+            String productId,
+            BuildContext context,
+            int totalPrice,
+            String pickupLocation,
+            int quantity,
+            int totalDiscount,
+            int shippingCharges,
+            int weight)?
         postOrders,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
@@ -1435,8 +1582,15 @@ class _$FetchShopByBrand implements FetchShopByBrand {
         removeWishlistEvent,
     required TResult Function(String brandName) fetchShopByBrandProducts,
     required TResult Function(int index) tabIndexChangeEvent,
-    required TResult Function(String productId, BuildContext context,
-            int totalPrice, String pickupLocation, int quantity)
+    required TResult Function(
+            String productId,
+            BuildContext context,
+            int totalPrice,
+            String pickupLocation,
+            int quantity,
+            int totalDiscount,
+            int shippingCharges,
+            int weight)
         postOrders,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
@@ -1461,8 +1615,15 @@ class _$FetchShopByBrand implements FetchShopByBrand {
         removeWishlistEvent,
     TResult? Function(String brandName)? fetchShopByBrandProducts,
     TResult? Function(int index)? tabIndexChangeEvent,
-    TResult? Function(String productId, BuildContext context, int totalPrice,
-            String pickupLocation, int quantity)?
+    TResult? Function(
+            String productId,
+            BuildContext context,
+            int totalPrice,
+            String pickupLocation,
+            int quantity,
+            int totalDiscount,
+            int shippingCharges,
+            int weight)?
         postOrders,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
@@ -1487,8 +1648,15 @@ class _$FetchShopByBrand implements FetchShopByBrand {
         removeWishlistEvent,
     TResult Function(String brandName)? fetchShopByBrandProducts,
     TResult Function(int index)? tabIndexChangeEvent,
-    TResult Function(String productId, BuildContext context, int totalPrice,
-            String pickupLocation, int quantity)?
+    TResult Function(
+            String productId,
+            BuildContext context,
+            int totalPrice,
+            String pickupLocation,
+            int quantity,
+            int totalDiscount,
+            int shippingCharges,
+            int weight)?
         postOrders,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
@@ -1662,8 +1830,15 @@ class _$FetchWishList implements FetchWishList {
         removeWishlistEvent,
     required TResult Function(String brandName) fetchShopByBrandProducts,
     required TResult Function(int index) tabIndexChangeEvent,
-    required TResult Function(String productId, BuildContext context,
-            int totalPrice, String pickupLocation, int quantity)
+    required TResult Function(
+            String productId,
+            BuildContext context,
+            int totalPrice,
+            String pickupLocation,
+            int quantity,
+            int totalDiscount,
+            int shippingCharges,
+            int weight)
         postOrders,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
@@ -1688,8 +1863,15 @@ class _$FetchWishList implements FetchWishList {
         removeWishlistEvent,
     TResult? Function(String brandName)? fetchShopByBrandProducts,
     TResult? Function(int index)? tabIndexChangeEvent,
-    TResult? Function(String productId, BuildContext context, int totalPrice,
-            String pickupLocation, int quantity)?
+    TResult? Function(
+            String productId,
+            BuildContext context,
+            int totalPrice,
+            String pickupLocation,
+            int quantity,
+            int totalDiscount,
+            int shippingCharges,
+            int weight)?
         postOrders,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
@@ -1714,8 +1896,15 @@ class _$FetchWishList implements FetchWishList {
         removeWishlistEvent,
     TResult Function(String brandName)? fetchShopByBrandProducts,
     TResult Function(int index)? tabIndexChangeEvent,
-    TResult Function(String productId, BuildContext context, int totalPrice,
-            String pickupLocation, int quantity)?
+    TResult Function(
+            String productId,
+            BuildContext context,
+            int totalPrice,
+            String pickupLocation,
+            int quantity,
+            int totalDiscount,
+            int shippingCharges,
+            int weight)?
         postOrders,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
@@ -1894,8 +2083,15 @@ class _$SearchProduct implements SearchProduct {
         removeWishlistEvent,
     required TResult Function(String brandName) fetchShopByBrandProducts,
     required TResult Function(int index) tabIndexChangeEvent,
-    required TResult Function(String productId, BuildContext context,
-            int totalPrice, String pickupLocation, int quantity)
+    required TResult Function(
+            String productId,
+            BuildContext context,
+            int totalPrice,
+            String pickupLocation,
+            int quantity,
+            int totalDiscount,
+            int shippingCharges,
+            int weight)
         postOrders,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
@@ -1920,8 +2116,15 @@ class _$SearchProduct implements SearchProduct {
         removeWishlistEvent,
     TResult? Function(String brandName)? fetchShopByBrandProducts,
     TResult? Function(int index)? tabIndexChangeEvent,
-    TResult? Function(String productId, BuildContext context, int totalPrice,
-            String pickupLocation, int quantity)?
+    TResult? Function(
+            String productId,
+            BuildContext context,
+            int totalPrice,
+            String pickupLocation,
+            int quantity,
+            int totalDiscount,
+            int shippingCharges,
+            int weight)?
         postOrders,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
@@ -1946,8 +2149,15 @@ class _$SearchProduct implements SearchProduct {
         removeWishlistEvent,
     TResult Function(String brandName)? fetchShopByBrandProducts,
     TResult Function(int index)? tabIndexChangeEvent,
-    TResult Function(String productId, BuildContext context, int totalPrice,
-            String pickupLocation, int quantity)?
+    TResult Function(
+            String productId,
+            BuildContext context,
+            int totalPrice,
+            String pickupLocation,
+            int quantity,
+            int totalDiscount,
+            int shippingCharges,
+            int weight)?
         postOrders,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
@@ -2135,8 +2345,15 @@ class _$AddWishListEvent implements AddWishListEvent {
         removeWishlistEvent,
     required TResult Function(String brandName) fetchShopByBrandProducts,
     required TResult Function(int index) tabIndexChangeEvent,
-    required TResult Function(String productId, BuildContext context,
-            int totalPrice, String pickupLocation, int quantity)
+    required TResult Function(
+            String productId,
+            BuildContext context,
+            int totalPrice,
+            String pickupLocation,
+            int quantity,
+            int totalDiscount,
+            int shippingCharges,
+            int weight)
         postOrders,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
@@ -2161,8 +2378,15 @@ class _$AddWishListEvent implements AddWishListEvent {
         removeWishlistEvent,
     TResult? Function(String brandName)? fetchShopByBrandProducts,
     TResult? Function(int index)? tabIndexChangeEvent,
-    TResult? Function(String productId, BuildContext context, int totalPrice,
-            String pickupLocation, int quantity)?
+    TResult? Function(
+            String productId,
+            BuildContext context,
+            int totalPrice,
+            String pickupLocation,
+            int quantity,
+            int totalDiscount,
+            int shippingCharges,
+            int weight)?
         postOrders,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
@@ -2187,8 +2411,15 @@ class _$AddWishListEvent implements AddWishListEvent {
         removeWishlistEvent,
     TResult Function(String brandName)? fetchShopByBrandProducts,
     TResult Function(int index)? tabIndexChangeEvent,
-    TResult Function(String productId, BuildContext context, int totalPrice,
-            String pickupLocation, int quantity)?
+    TResult Function(
+            String productId,
+            BuildContext context,
+            int totalPrice,
+            String pickupLocation,
+            int quantity,
+            int totalDiscount,
+            int shippingCharges,
+            int weight)?
         postOrders,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
@@ -2380,8 +2611,15 @@ class _$RemoveWishlistEvent implements RemoveWishlistEvent {
         removeWishlistEvent,
     required TResult Function(String brandName) fetchShopByBrandProducts,
     required TResult Function(int index) tabIndexChangeEvent,
-    required TResult Function(String productId, BuildContext context,
-            int totalPrice, String pickupLocation, int quantity)
+    required TResult Function(
+            String productId,
+            BuildContext context,
+            int totalPrice,
+            String pickupLocation,
+            int quantity,
+            int totalDiscount,
+            int shippingCharges,
+            int weight)
         postOrders,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
@@ -2406,8 +2644,15 @@ class _$RemoveWishlistEvent implements RemoveWishlistEvent {
         removeWishlistEvent,
     TResult? Function(String brandName)? fetchShopByBrandProducts,
     TResult? Function(int index)? tabIndexChangeEvent,
-    TResult? Function(String productId, BuildContext context, int totalPrice,
-            String pickupLocation, int quantity)?
+    TResult? Function(
+            String productId,
+            BuildContext context,
+            int totalPrice,
+            String pickupLocation,
+            int quantity,
+            int totalDiscount,
+            int shippingCharges,
+            int weight)?
         postOrders,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
@@ -2432,8 +2677,15 @@ class _$RemoveWishlistEvent implements RemoveWishlistEvent {
         removeWishlistEvent,
     TResult Function(String brandName)? fetchShopByBrandProducts,
     TResult Function(int index)? tabIndexChangeEvent,
-    TResult Function(String productId, BuildContext context, int totalPrice,
-            String pickupLocation, int quantity)?
+    TResult Function(
+            String productId,
+            BuildContext context,
+            int totalPrice,
+            String pickupLocation,
+            int quantity,
+            int totalDiscount,
+            int shippingCharges,
+            int weight)?
         postOrders,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
@@ -2618,8 +2870,15 @@ class _$FetchShopByBrandProducts implements FetchShopByBrandProducts {
         removeWishlistEvent,
     required TResult Function(String brandName) fetchShopByBrandProducts,
     required TResult Function(int index) tabIndexChangeEvent,
-    required TResult Function(String productId, BuildContext context,
-            int totalPrice, String pickupLocation, int quantity)
+    required TResult Function(
+            String productId,
+            BuildContext context,
+            int totalPrice,
+            String pickupLocation,
+            int quantity,
+            int totalDiscount,
+            int shippingCharges,
+            int weight)
         postOrders,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
@@ -2644,8 +2903,15 @@ class _$FetchShopByBrandProducts implements FetchShopByBrandProducts {
         removeWishlistEvent,
     TResult? Function(String brandName)? fetchShopByBrandProducts,
     TResult? Function(int index)? tabIndexChangeEvent,
-    TResult? Function(String productId, BuildContext context, int totalPrice,
-            String pickupLocation, int quantity)?
+    TResult? Function(
+            String productId,
+            BuildContext context,
+            int totalPrice,
+            String pickupLocation,
+            int quantity,
+            int totalDiscount,
+            int shippingCharges,
+            int weight)?
         postOrders,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
@@ -2670,8 +2936,15 @@ class _$FetchShopByBrandProducts implements FetchShopByBrandProducts {
         removeWishlistEvent,
     TResult Function(String brandName)? fetchShopByBrandProducts,
     TResult Function(int index)? tabIndexChangeEvent,
-    TResult Function(String productId, BuildContext context, int totalPrice,
-            String pickupLocation, int quantity)?
+    TResult Function(
+            String productId,
+            BuildContext context,
+            int totalPrice,
+            String pickupLocation,
+            int quantity,
+            int totalDiscount,
+            int shippingCharges,
+            int weight)?
         postOrders,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
@@ -2852,8 +3125,15 @@ class _$TabIndexChangeEvent implements TabIndexChangeEvent {
         removeWishlistEvent,
     required TResult Function(String brandName) fetchShopByBrandProducts,
     required TResult Function(int index) tabIndexChangeEvent,
-    required TResult Function(String productId, BuildContext context,
-            int totalPrice, String pickupLocation, int quantity)
+    required TResult Function(
+            String productId,
+            BuildContext context,
+            int totalPrice,
+            String pickupLocation,
+            int quantity,
+            int totalDiscount,
+            int shippingCharges,
+            int weight)
         postOrders,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
@@ -2878,8 +3158,15 @@ class _$TabIndexChangeEvent implements TabIndexChangeEvent {
         removeWishlistEvent,
     TResult? Function(String brandName)? fetchShopByBrandProducts,
     TResult? Function(int index)? tabIndexChangeEvent,
-    TResult? Function(String productId, BuildContext context, int totalPrice,
-            String pickupLocation, int quantity)?
+    TResult? Function(
+            String productId,
+            BuildContext context,
+            int totalPrice,
+            String pickupLocation,
+            int quantity,
+            int totalDiscount,
+            int shippingCharges,
+            int weight)?
         postOrders,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
@@ -2904,8 +3191,15 @@ class _$TabIndexChangeEvent implements TabIndexChangeEvent {
         removeWishlistEvent,
     TResult Function(String brandName)? fetchShopByBrandProducts,
     TResult Function(int index)? tabIndexChangeEvent,
-    TResult Function(String productId, BuildContext context, int totalPrice,
-            String pickupLocation, int quantity)?
+    TResult Function(
+            String productId,
+            BuildContext context,
+            int totalPrice,
+            String pickupLocation,
+            int quantity,
+            int totalDiscount,
+            int shippingCharges,
+            int weight)?
         postOrders,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
@@ -3017,7 +3311,10 @@ abstract class _$$PostOrdersCopyWith<$Res> {
       BuildContext context,
       int totalPrice,
       String pickupLocation,
-      int quantity});
+      int quantity,
+      int totalDiscount,
+      int shippingCharges,
+      int weight});
 }
 
 /// @nodoc
@@ -3036,6 +3333,9 @@ class __$$PostOrdersCopyWithImpl<$Res>
     Object? totalPrice = null,
     Object? pickupLocation = null,
     Object? quantity = null,
+    Object? totalDiscount = null,
+    Object? shippingCharges = null,
+    Object? weight = null,
   }) {
     return _then(_$PostOrders(
       productId: null == productId
@@ -3058,6 +3358,18 @@ class __$$PostOrdersCopyWithImpl<$Res>
           ? _value.quantity
           : quantity // ignore: cast_nullable_to_non_nullable
               as int,
+      totalDiscount: null == totalDiscount
+          ? _value.totalDiscount
+          : totalDiscount // ignore: cast_nullable_to_non_nullable
+              as int,
+      shippingCharges: null == shippingCharges
+          ? _value.shippingCharges
+          : shippingCharges // ignore: cast_nullable_to_non_nullable
+              as int,
+      weight: null == weight
+          ? _value.weight
+          : weight // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -3070,7 +3382,10 @@ class _$PostOrders implements PostOrders {
       required this.context,
       required this.totalPrice,
       required this.pickupLocation,
-      required this.quantity});
+      required this.quantity,
+      required this.totalDiscount,
+      required this.shippingCharges,
+      required this.weight});
 
   @override
   final String productId;
@@ -3082,10 +3397,16 @@ class _$PostOrders implements PostOrders {
   final String pickupLocation;
   @override
   final int quantity;
+  @override
+  final int totalDiscount;
+  @override
+  final int shippingCharges;
+  @override
+  final int weight;
 
   @override
   String toString() {
-    return 'ShopProductsEvent.postOrders(productId: $productId, context: $context, totalPrice: $totalPrice, pickupLocation: $pickupLocation, quantity: $quantity)';
+    return 'ShopProductsEvent.postOrders(productId: $productId, context: $context, totalPrice: $totalPrice, pickupLocation: $pickupLocation, quantity: $quantity, totalDiscount: $totalDiscount, shippingCharges: $shippingCharges, weight: $weight)';
   }
 
   @override
@@ -3101,12 +3422,17 @@ class _$PostOrders implements PostOrders {
             (identical(other.pickupLocation, pickupLocation) ||
                 other.pickupLocation == pickupLocation) &&
             (identical(other.quantity, quantity) ||
-                other.quantity == quantity));
+                other.quantity == quantity) &&
+            (identical(other.totalDiscount, totalDiscount) ||
+                other.totalDiscount == totalDiscount) &&
+            (identical(other.shippingCharges, shippingCharges) ||
+                other.shippingCharges == shippingCharges) &&
+            (identical(other.weight, weight) || other.weight == weight));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, productId, context, totalPrice, pickupLocation, quantity);
+  int get hashCode => Object.hash(runtimeType, productId, context, totalPrice,
+      pickupLocation, quantity, totalDiscount, shippingCharges, weight);
 
   @JsonKey(ignore: true)
   @override
@@ -3132,13 +3458,21 @@ class _$PostOrders implements PostOrders {
         removeWishlistEvent,
     required TResult Function(String brandName) fetchShopByBrandProducts,
     required TResult Function(int index) tabIndexChangeEvent,
-    required TResult Function(String productId, BuildContext context,
-            int totalPrice, String pickupLocation, int quantity)
+    required TResult Function(
+            String productId,
+            BuildContext context,
+            int totalPrice,
+            String pickupLocation,
+            int quantity,
+            int totalDiscount,
+            int shippingCharges,
+            int weight)
         postOrders,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
   }) {
-    return postOrders(productId, context, totalPrice, pickupLocation, quantity);
+    return postOrders(productId, context, totalPrice, pickupLocation, quantity,
+        totalDiscount, shippingCharges, weight);
   }
 
   @override
@@ -3158,14 +3492,21 @@ class _$PostOrders implements PostOrders {
         removeWishlistEvent,
     TResult? Function(String brandName)? fetchShopByBrandProducts,
     TResult? Function(int index)? tabIndexChangeEvent,
-    TResult? Function(String productId, BuildContext context, int totalPrice,
-            String pickupLocation, int quantity)?
+    TResult? Function(
+            String productId,
+            BuildContext context,
+            int totalPrice,
+            String pickupLocation,
+            int quantity,
+            int totalDiscount,
+            int shippingCharges,
+            int weight)?
         postOrders,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
   }) {
-    return postOrders?.call(
-        productId, context, totalPrice, pickupLocation, quantity);
+    return postOrders?.call(productId, context, totalPrice, pickupLocation,
+        quantity, totalDiscount, shippingCharges, weight);
   }
 
   @override
@@ -3185,16 +3526,23 @@ class _$PostOrders implements PostOrders {
         removeWishlistEvent,
     TResult Function(String brandName)? fetchShopByBrandProducts,
     TResult Function(int index)? tabIndexChangeEvent,
-    TResult Function(String productId, BuildContext context, int totalPrice,
-            String pickupLocation, int quantity)?
+    TResult Function(
+            String productId,
+            BuildContext context,
+            int totalPrice,
+            String pickupLocation,
+            int quantity,
+            int totalDiscount,
+            int shippingCharges,
+            int weight)?
         postOrders,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     required TResult orElse(),
   }) {
     if (postOrders != null) {
-      return postOrders(
-          productId, context, totalPrice, pickupLocation, quantity);
+      return postOrders(productId, context, totalPrice, pickupLocation,
+          quantity, totalDiscount, shippingCharges, weight);
     }
     return orElse();
   }
@@ -3284,13 +3632,19 @@ abstract class PostOrders implements ShopProductsEvent {
       required final BuildContext context,
       required final int totalPrice,
       required final String pickupLocation,
-      required final int quantity}) = _$PostOrders;
+      required final int quantity,
+      required final int totalDiscount,
+      required final int shippingCharges,
+      required final int weight}) = _$PostOrders;
 
   String get productId;
   BuildContext get context;
   int get totalPrice;
   String get pickupLocation;
   int get quantity;
+  int get totalDiscount;
+  int get shippingCharges;
+  int get weight;
   @JsonKey(ignore: true)
   _$$PostOrdersCopyWith<_$PostOrders> get copyWith =>
       throw _privateConstructorUsedError;
@@ -3375,8 +3729,15 @@ class _$FetchOrders implements FetchOrders {
         removeWishlistEvent,
     required TResult Function(String brandName) fetchShopByBrandProducts,
     required TResult Function(int index) tabIndexChangeEvent,
-    required TResult Function(String productId, BuildContext context,
-            int totalPrice, String pickupLocation, int quantity)
+    required TResult Function(
+            String productId,
+            BuildContext context,
+            int totalPrice,
+            String pickupLocation,
+            int quantity,
+            int totalDiscount,
+            int shippingCharges,
+            int weight)
         postOrders,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
@@ -3401,8 +3762,15 @@ class _$FetchOrders implements FetchOrders {
         removeWishlistEvent,
     TResult? Function(String brandName)? fetchShopByBrandProducts,
     TResult? Function(int index)? tabIndexChangeEvent,
-    TResult? Function(String productId, BuildContext context, int totalPrice,
-            String pickupLocation, int quantity)?
+    TResult? Function(
+            String productId,
+            BuildContext context,
+            int totalPrice,
+            String pickupLocation,
+            int quantity,
+            int totalDiscount,
+            int shippingCharges,
+            int weight)?
         postOrders,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
@@ -3427,8 +3795,15 @@ class _$FetchOrders implements FetchOrders {
         removeWishlistEvent,
     TResult Function(String brandName)? fetchShopByBrandProducts,
     TResult Function(int index)? tabIndexChangeEvent,
-    TResult Function(String productId, BuildContext context, int totalPrice,
-            String pickupLocation, int quantity)?
+    TResult Function(
+            String productId,
+            BuildContext context,
+            int totalPrice,
+            String pickupLocation,
+            int quantity,
+            int totalDiscount,
+            int shippingCharges,
+            int weight)?
         postOrders,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
@@ -3615,8 +3990,15 @@ class _$FetchOrdersById implements FetchOrdersById {
         removeWishlistEvent,
     required TResult Function(String brandName) fetchShopByBrandProducts,
     required TResult Function(int index) tabIndexChangeEvent,
-    required TResult Function(String productId, BuildContext context,
-            int totalPrice, String pickupLocation, int quantity)
+    required TResult Function(
+            String productId,
+            BuildContext context,
+            int totalPrice,
+            String pickupLocation,
+            int quantity,
+            int totalDiscount,
+            int shippingCharges,
+            int weight)
         postOrders,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
@@ -3641,8 +4023,15 @@ class _$FetchOrdersById implements FetchOrdersById {
         removeWishlistEvent,
     TResult? Function(String brandName)? fetchShopByBrandProducts,
     TResult? Function(int index)? tabIndexChangeEvent,
-    TResult? Function(String productId, BuildContext context, int totalPrice,
-            String pickupLocation, int quantity)?
+    TResult? Function(
+            String productId,
+            BuildContext context,
+            int totalPrice,
+            String pickupLocation,
+            int quantity,
+            int totalDiscount,
+            int shippingCharges,
+            int weight)?
         postOrders,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
@@ -3667,8 +4056,15 @@ class _$FetchOrdersById implements FetchOrdersById {
         removeWishlistEvent,
     TResult Function(String brandName)? fetchShopByBrandProducts,
     TResult Function(int index)? tabIndexChangeEvent,
-    TResult Function(String productId, BuildContext context, int totalPrice,
-            String pickupLocation, int quantity)?
+    TResult Function(
+            String productId,
+            BuildContext context,
+            int totalPrice,
+            String pickupLocation,
+            int quantity,
+            int totalDiscount,
+            int shippingCharges,
+            int weight)?
         postOrders,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,

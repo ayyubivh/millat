@@ -69,25 +69,29 @@ class _OrdersState extends State<Orders> with SingleTickerProviderStateMixin {
                       return ListView.builder(
                         physics: const NeverScrollableScrollPhysics(),
                         itemCount:
-                            state.orderModel?.result?.orderProducts?.length,
+                            state.orderModel?.result?.orderProducts?.length ??
+                                0,
                         shrinkWrap: true,
                         itemBuilder: (context, index) {
                           final data = state.orderModel?.result
-                              ?.orderProducts?[index].orderItems?[index];
-                          return Text(state.orderModel.toString());
-                          // return SizedBox(
-                          //   child: OrdersProfileWidget(
-                          //     id: data?.product?.id,
-                          //     title: data?.product?.title,
-                          //     size: data?.size,
-                          //     image: data?.product?.colors![0].images![0],
-                          //     price: data?.sellingPrice?.toInt() ?? 0,
-                          //     jsonColor: data?.color,
-                          //     colorName: data?.color,
-                          //     quantity: data?.quantity!.toInt() ?? 0,
-                          //     productId: data?.product?.id,
-                          //   ),
-                          // );
+                              ?.orderProducts?[index].orderItems?[0];
+
+                          return SizedBox(
+                            child: OrdersProfileWidget(
+                              id: data?.productId?.id ?? "0",
+                              title: data?.productId?.title,
+                              size: data?.size,
+                              image:
+                                  data?.productId?.colors?[0].images?[0] ?? "",
+                              price: state.orderModel!.result!
+                                  .orderProducts![index].subTotal!
+                                  .toDouble(),
+                              jsonColor: data?.color,
+                              colorName: data?.color,
+                              quantity: data?.quantity?.toInt() ?? 0,
+                              productId: data?.productId?.id,
+                            ),
+                          );
                         },
                       );
                     },

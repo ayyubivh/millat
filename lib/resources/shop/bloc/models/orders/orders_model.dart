@@ -1,3 +1,5 @@
+// ignore_for_file: invalid_annotation_target
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'orders_model.g.dart';
@@ -29,22 +31,22 @@ class OrderResult with _$OrderResult {
 @freezed
 class OrderProduct with _$OrderProduct {
   const factory OrderProduct({
-    String? id,
-    String? userId,
-    String? orderId,
-    List<OrderItem>? orderItems,
-    String? pickupLocation,
-    double? subTotal,
-    double? totalDiscount,
-    String? orderDate,
-    String? shippingStatus,
-    String? paymentMethod,
-    double? shippingCharges,
-    String? paymentStatus,
+    @JsonKey(name: '_id') String? id,
+    @JsonKey(name: 'userId') String? userId,
+    @JsonKey(name: 'order_id') String? orderId,
+    @JsonKey(name: 'order_items') List<OrderItem>? orderItems,
+    @JsonKey(name: 'pickup_location') String? pickupLocation,
+    @JsonKey(name: 'sub_total') double? subTotal,
+    @JsonKey(name: 'total_discount') double? totalDiscount,
+    @JsonKey(name: 'order_date') String? orderDate,
+    @JsonKey(name: 'shipping_status') String? shippingStatus,
+    @JsonKey(name: 'payment_method') String? paymentMethod,
+    @JsonKey(name: 'shipping_charges') double? shippingCharges,
+    @JsonKey(name: 'payment_status') String? paymentStatus,
     double? weight,
     Address? address,
-    String? createdAt,
-    String? updatedAt,
+    @JsonKey(name: 'createdAt') String? createdAt,
+    @JsonKey(name: 'updatedAt') String? updatedAt,
   }) = _OrderProduct;
 
   factory OrderProduct.fromJson(Map<String, dynamic> json) =>
@@ -54,9 +56,9 @@ class OrderProduct with _$OrderProduct {
 @freezed
 class OrderItem with _$OrderItem {
   const factory OrderItem({
-    Product? product,
+    Product? productId,
     int? quantity,
-    double? sellingPrice,
+    @JsonKey(name: 'selling_price') double? sellingPrice,
     double? discount,
     double? tax,
     String? size,
@@ -70,22 +72,22 @@ class OrderItem with _$OrderItem {
 @freezed
 class Product with _$Product {
   const factory Product({
-    String? id,
+    @JsonKey(name: '_id') String? id,
     String? title,
     String? brand,
     String? description,
-    String? otherInfo,
-    String? category,
-    String? subcategory,
-    double? actualPrice,
-    double? discountPrice,
+    @JsonKey(name: 'otherInfo') String? otherInfo,
+    @JsonKey(name: 'category') String? category,
+    @JsonKey(name: 'subcategory') String? subcategory,
+    @JsonKey(name: 'actualPrice') double? actualPrice,
+    @JsonKey(name: 'discountPrice') double? discountPrice,
     int? discount,
     List<ColorOption>? colors,
     List<SizeOption>? size,
     List<Meta>? meta,
     List<String>? keywords,
-    String? createdAt,
-    String? updatedAt,
+    @JsonKey(name: 'createdAt') String? createdAt,
+    @JsonKey(name: 'updatedAt') String? updatedAt,
   }) = _Product;
 
   factory Product.fromJson(Map<String, dynamic> json) =>
@@ -127,19 +129,19 @@ class Meta with _$Meta {
 @freezed
 class Address with _$Address {
   const factory Address({
-    String? id,
-    String? userId,
-    String? addressType,
+    @JsonKey(name: '_id') String? id,
+    @JsonKey(name: 'userId') String? userId,
+    @JsonKey(name: 'addressType') String? addressType,
     String? name,
     int? mobile,
     int? pincode,
     String? landmark,
-    String? addressLine,
+    @JsonKey(name: 'addressLine') String? addressLine,
     String? city,
     String? state,
     String? country,
-    String? createdAt,
-    String? updatedAt,
+    @JsonKey(name: 'createdAt') String? createdAt,
+    @JsonKey(name: 'updatedAt') String? updatedAt,
   }) = _Address;
 
   factory Address.fromJson(Map<String, dynamic> json) =>

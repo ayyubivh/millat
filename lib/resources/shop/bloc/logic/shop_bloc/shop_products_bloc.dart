@@ -263,11 +263,15 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
     emit(state.copyWith(errorMessage: ""));
     try {
       final data = ordersService.postOrder(
-          context: event.context,
-          productId: event.productId,
-          totalPrice: event.totalPrice,
-          pickUpAddress: event.pickupLocation,
-          totalQuantity: event.quantity);
+        context: event.context,
+        productId: event.productId,
+        totalPrice: event.totalPrice,
+        pickUpAddress: event.pickupLocation,
+        totalQuantity: event.quantity,
+        shippingCharges: event.shippingCharges,
+        totalDiscount: event.totalDiscount,
+        weight: event.totalDiscount,
+      );
       print('data on the bloc  of the orders$data');
     } catch (e) {
       emit(state.copyWith(errorMessage: e.toString()));

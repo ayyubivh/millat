@@ -7,7 +7,7 @@ class OrdersProfileWidget extends StatelessWidget {
   final String? title;
   final String? size;
   final String? image;
-  final int price;
+  final double price;
   final String? jsonColor;
   final String? colorName;
   final int quantity;
@@ -39,16 +39,16 @@ class OrdersProfileWidget extends StatelessWidget {
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // Container(
-                  //   width: 60,
-                  //   height: 60,
-                  //   decoration: BoxDecoration(
-                  //     border: Border.all(color: Colors.black),
-                  //     borderRadius: BorderRadius.circular(5),
-                  //     image: DecorationImage(image: NetworkImage(image!)),
-                  //   ),
-                  // ),
-                  SizedBox(width: 20),
+                  Container(
+                    width: 60,
+                    height: 60,
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.black),
+                      borderRadius: BorderRadius.circular(5),
+                      image: DecorationImage(image: NetworkImage(image!)),
+                    ),
+                  ),
+                  const SizedBox(width: 20),
                   Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,

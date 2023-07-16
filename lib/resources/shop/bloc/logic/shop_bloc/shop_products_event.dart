@@ -32,6 +32,9 @@ class ShopProductsEvent with _$ShopProductsEvent {
     required int totalPrice,
     required String pickupLocation,
     required int quantity,
+    required int totalDiscount,
+    required int shippingCharges,
+    required int weight,
   }) = PostOrders;
   const factory ShopProductsEvent.fetchOrders(
     BuildContext context,

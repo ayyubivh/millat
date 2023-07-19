@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:millat/resources/shop/view/order_status/order_status.dart';
-import 'package:millat/utils/globals.dart';
+import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/size_utility.dart';
 
 class PaymentFailed extends StatefulWidget {
@@ -20,37 +20,37 @@ class _PaymentFailedState extends State<PaymentFailed> {
             padding: const EdgeInsets.symmetric(horizontal: 30),
             child: Column(
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 120,
                 ),
                 Text(
                   'Payment Failed',
                   style: TextStyle(
-                      color: green77,
+                      color: ColorManager.greenColor1,
                       fontSize: 19,
                       fontWeight: FontWeight.w700),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 40,
                 ),
                 Image.asset(
                   'assets/images/payment_failed.png',
                   width: SizeUtility(context).width * 90 / 100,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 60,
                 ),
                 Text(
                   'OOPS!',
                   style: TextStyle(
-                      color: black26,
+                      color: ColorManager.blackColor,
                       fontSize: 19,
                       fontWeight: FontWeight.bold),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
-                Text(
+                const Text(
                   'Sorry, your payment failed. Please try again or contact support for assistance.',
                   style: TextStyle(
                       color: black122,
@@ -66,11 +66,12 @@ class _PaymentFailedState extends State<PaymentFailed> {
           padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
           child: ElevatedButton(
             style: ButtonStyle(
-              backgroundColor: MaterialStateProperty.all(green77),
+              backgroundColor:
+                  MaterialStateProperty.all(ColorManager.greenColor1),
               shape: MaterialStateProperty.all(
                 RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(30.0),
-                  side: BorderSide(color: green77, width: 2.0),
+                  side: BorderSide(color: ColorManager.greenColor1, width: 2.0),
                 ),
               ),
               elevation: MaterialStateProperty.all(0),
@@ -79,10 +80,10 @@ class _PaymentFailedState extends State<PaymentFailed> {
             ),
             onPressed: () {
               Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => OrderStatus(),
+                builder: (context) => const OrderStatus(),
               ));
             },
-            child: Text(
+            child: const Text(
               'Retry',
               style: TextStyle(
                   color: Colors.white,

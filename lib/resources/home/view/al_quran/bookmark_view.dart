@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:millat/components/common_widgets/reusable_methods.dart';
-import 'package:millat/utils/globals.dart';
+import 'package:millat/resources/home/view/al_quran/widgets/addnew_collection_view.dart';
+import 'package:millat/utils/color_manager.dart';
+import 'package:millat/utils/constants.dart';
 
 class BookmarkView extends StatelessWidget {
   const BookmarkView({super.key});
@@ -9,54 +11,104 @@ class BookmarkView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: whiteClr,
+        backgroundColor: ColorManager.whiteColor,
         elevation: 0,
-        foregroundColor: black26,
+        foregroundColor: ColorManager.blackColor,
         centerTitle: true,
-        title: const Text(
+        title: Text(
           "Bookmarks",
           style: TextStyle(
-            color: primaryGreen,
+            color: ColorManager.primary,
             fontSize: 18,
             fontWeight: FontWeight.bold,
           ),
         ),
-        actions: const [
+        actions: [
           ImageIcon(
-            AssetImage("assets/icons/bookmark.png"),
-            color: primaryGreen,
+            const AssetImage("assets/icons/bookmark.png"),
+            color: ColorManager.primary,
           ),
-          SizedBox(width: 8),
+          kWidht10,
           ImageIcon(
-            AssetImage("assets/icons/settings.png"),
-            color: black26,
+            const AssetImage("assets/icons/settings.png"),
+            color: ColorManager.blackColor,
           ),
-          SizedBox(width: 8),
+          kWidht10,
           ImageIcon(
-            AssetImage("assets/icons/search.png"),
-            color: black26,
+            const AssetImage("assets/icons/search.png"),
+            color: ColorManager.blackColor,
           ),
-          SizedBox(width: 8),
+          kWidht10,
         ],
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 25),
         child: Column(
           children: [
-            const SizedBox(height: 20),
-            buildSurahContainer(
-              numValue: 1,
-              surah: "بسم الله الرحمن الرحيم",
-              surahMeaning:
-                  "In the name of Allah, the Entirely Merciful, the Especially Merciful.",
+            kHeight20,
+            Row(
+              children: [
+                Image.asset("assets/images/quran_bookmark.png"),
+                kWidht10,
+                InkWell(
+                  onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const AddNewBookMarkCollection(),
+                    ));
+                  },
+                  child: Icon(
+                    Icons.add_circle_outline,
+                    color: ColorManager.primary,
+                    size: 25,
+                  ),
+                ),
+                kWidth5,
+                const Text(
+                  'Create Collection',
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
             ),
-            const SizedBox(height: 15),
-            buildSurahContainer(
-              numValue: 2,
-              surah: "الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ",
-              surahMeaning:
-                  "[All] praise is [due] to Allah, Lord of the worlds -",
-            ),
+            kHeight20,
+            SizedBox(
+              height: 88,
+              child: Row(
+                children: [
+                  Image.asset("assets/images/quran_bookmark_2.png"),
+                  kWidht10,
+                  const Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'My Favourites',
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Text(
+                        'By sarfarz ali',
+                        style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                      Text(
+                        '1 Sura',
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            )
           ],
         ),
       ),

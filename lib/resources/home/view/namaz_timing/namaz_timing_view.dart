@@ -2,13 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:millat/resources/authentication/bloc/logic/database_bloc/database_bloc.dart';
-import '../../../../utils/globals.dart';
+import '../../../../utils/color_manager.dart';
 import '../../../../utils/size_utility.dart';
 import '../../../../utils/utils.dart';
 import '../../../profile/views/profile_view.dart';
 import '../../bloc/logic/location_bloc/location_bloc.dart';
 import '../../bloc/logic/namaz_timing_bloc/namaz_timing_bloc.dart';
-import '../../bloc/service/notification_service.dart';
 
 class NamazTimingView extends StatefulWidget {
   static const routeName = 'namaz-timing';
@@ -174,7 +173,8 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                                                   ),
                                                 ),
                                                 Switch(
-                                                  activeColor: green24,
+                                                  activeColor:
+                                                      ColorManager.primary,
                                                   value: isDetectLocation,
                                                   onChanged: (value) {
                                                     setState(() {
@@ -269,7 +269,8 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                                                   ),
                                                 ),
                                                 Switch(
-                                                  activeColor: green24,
+                                                  activeColor:
+                                                      ColorManager.primary,
                                                   value: isAutomaticSetting,
                                                   onChanged: (value) {
                                                     setState(() {
@@ -689,7 +690,8 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                                                     NamazTimingState>(
                                                   builder: (context, state) {
                                                     return Switch(
-                                                      activeColor: green24,
+                                                      activeColor:
+                                                          ColorManager.primary,
                                                       value: state.showImsak,
                                                       onChanged: (value) {
                                                         context
@@ -737,7 +739,7 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                       height: 81,
                       padding: const EdgeInsets.all(20),
                       decoration: BoxDecoration(
-                        color: whiteClr,
+                        color: ColorManager.whiteColor,
                         borderRadius: BorderRadius.circular(20),
                         boxShadow: [
                           BoxShadow(
@@ -777,8 +779,8 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                                     children: [
                                       Text(
                                         currentNamazName,
-                                        style: const TextStyle(
-                                          color: mainColor,
+                                        style: TextStyle(
+                                          color: ColorManager.mainColor,
                                           fontSize: 20,
                                         ),
                                       ),
@@ -829,8 +831,8 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                                     children: [
                                       Text(
                                         upcomingNamazName,
-                                        style: const TextStyle(
-                                          color: mainColor,
+                                        style: TextStyle(
+                                          color: ColorManager.mainColor,
                                           fontSize: 20,
                                         ),
                                       ),
@@ -869,18 +871,18 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Column(
+                  Column(
                     children: [
                       Text(
                         '26 °',
                         style: TextStyle(
                           fontSize: 24,
                           fontWeight: FontWeight.w600,
-                          color: primaryGreen,
+                          color: ColorManager.primary,
                         ),
                       ),
-                      SizedBox(height: 9),
-                      Text(
+                      const SizedBox(height: 9),
+                      const Text(
                         'Few clouds',
                         style: TextStyle(
                           fontSize: 14,
@@ -895,9 +897,9 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                       BlocBuilder<NamazTimingBloc, NamazTimingState>(
                         builder: (context, state) => Text(
                           state.arabicDate,
-                          style: const TextStyle(
+                          style: TextStyle(
                             fontFamily: 'ArabicFont',
-                            color: primaryGreen,
+                            color: ColorManager.primary,
                             fontSize: 20,
                             fontWeight: FontWeight.w600,
                           ),
@@ -978,7 +980,7 @@ class _NamazTimingViewState extends State<NamazTimingView> {
           onTap: () {},
           leading: CircleAvatar(
             radius: 18,
-            backgroundColor: green24,
+            backgroundColor: ColorManager.primary,
             child: Image.asset(
               image,
               width: 22,
@@ -1017,10 +1019,10 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                         .add(const PrayerTimingEvent());
                   },
                   icon: isNotiy == true
-                      ? const Icon(Icons.notifications_none_rounded,
-                          color: primaryGreen)
-                      : const Icon(Icons.notifications_off_rounded,
-                          color: primaryGreen)),
+                      ? Icon(Icons.notifications_none_rounded,
+                          color: ColorManager.primary)
+                      : Icon(Icons.notifications_off_rounded,
+                          color: ColorManager.primary)),
             ],
           ),
         ),
@@ -1032,7 +1034,7 @@ class _NamazTimingViewState extends State<NamazTimingView> {
   Container daylightSavingWidget(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: whiteClr,
+        color: ColorManager.whiteColor,
         borderRadius: BorderRadius.circular(30),
       ),
       child: Padding(
@@ -1073,10 +1075,10 @@ class _NamazTimingViewState extends State<NamazTimingView> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text(
+                Text(
                   'Auto',
                   style: TextStyle(
-                    color: primaryGreen,
+                    color: ColorManager.primary,
                     fontSize: 17,
                     fontWeight: FontWeight.w600,
                   ),
@@ -1085,7 +1087,7 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                   value: true,
                   groupValue: true,
                   onChanged: (value) {},
-                  fillColor: const MaterialStatePropertyAll(green24),
+                  fillColor: MaterialStatePropertyAll(ColorManager.primary),
                 )
               ],
             ),
@@ -1170,7 +1172,7 @@ class _NamazTimingViewState extends State<NamazTimingView> {
   Container artCalculationWidget(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: whiteClr,
+        color: ColorManager.whiteColor,
         borderRadius: BorderRadius.circular(30),
       ),
       child: Padding(
@@ -1217,8 +1219,9 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                     style: TextStyle(
                       fontSize: 17,
                       fontWeight: FontWeight.w600,
-                      color:
-                          state.isArtCalcMehod == true ? primaryGreen : black26,
+                      color: state.isArtCalcMehod == true
+                          ? ColorManager.primary
+                          : ColorManager.blackColor,
                     ),
                   ),
                   Radio(
@@ -1232,7 +1235,7 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                           .read<NamazTimingBloc>()
                           .add(ChangeSchoolEvent(school: 0, context: context));
                     },
-                    fillColor: const MaterialStatePropertyAll(green24),
+                    fillColor: MaterialStatePropertyAll(ColorManager.primary),
                   )
                 ],
               ),
@@ -1243,8 +1246,8 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                     'Hanafi',
                     style: TextStyle(
                       color: state.isArtCalcMehod == false
-                          ? primaryGreen
-                          : black26,
+                          ? ColorManager.primary
+                          : ColorManager.blackColor,
                       fontSize: 17,
                       fontWeight: FontWeight.w600,
                     ),
@@ -1260,7 +1263,7 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                           .read<NamazTimingBloc>()
                           .add(ChangeSchoolEvent(school: 1, context: context));
                     },
-                    fillColor: const MaterialStatePropertyAll(green24),
+                    fillColor: MaterialStatePropertyAll(ColorManager.primary),
                   )
                 ],
               )
@@ -1274,7 +1277,7 @@ class _NamazTimingViewState extends State<NamazTimingView> {
   Widget highLatitudeWidget(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: whiteClr,
+        color: ColorManager.whiteColor,
         borderRadius: BorderRadius.circular(30),
       ),
       child: Padding(
@@ -1322,8 +1325,8 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                         fontSize: 17,
                         fontWeight: FontWeight.w600,
                         color: state.highLatMethodVal == 0
-                            ? primaryGreen
-                            : black26),
+                            ? ColorManager.primary
+                            : ColorManager.blackColor),
                   ),
                   Radio(
                     value: state.highLatMethodVal == 0,
@@ -1333,7 +1336,7 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                           ChangeHighLatitudeMethod(
                               numValue: 0, context: context));
                     },
-                    fillColor: const MaterialStatePropertyAll(green24),
+                    fillColor: MaterialStatePropertyAll(ColorManager.primary),
                   )
                 ],
               ),
@@ -1346,8 +1349,8 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                         fontSize: 17,
                         fontWeight: FontWeight.w600,
                         color: state.highLatMethodVal == 1
-                            ? primaryGreen
-                            : black26),
+                            ? ColorManager.primary
+                            : ColorManager.blackColor),
                   ),
                   Radio(
                       value: state.highLatMethodVal == 1,
@@ -1357,7 +1360,7 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                             ChangeHighLatitudeMethod(
                                 numValue: 1, context: context));
                       },
-                      fillColor: const MaterialStatePropertyAll(green24))
+                      fillColor: MaterialStatePropertyAll(ColorManager.primary))
                 ],
               ),
               Row(
@@ -1369,8 +1372,8 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                         fontSize: 17,
                         fontWeight: FontWeight.w600,
                         color: state.highLatMethodVal == 2
-                            ? primaryGreen
-                            : black26),
+                            ? ColorManager.primary
+                            : ColorManager.blackColor),
                   ),
                   Radio(
                       value: state.highLatMethodVal == 2,
@@ -1380,7 +1383,7 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                             ChangeHighLatitudeMethod(
                                 numValue: 2, context: context));
                       },
-                      fillColor: const MaterialStatePropertyAll(green24))
+                      fillColor: MaterialStatePropertyAll(ColorManager.primary))
                 ],
               ),
               Row(
@@ -1389,8 +1392,9 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                   Text(
                     'Angle based method',
                     style: TextStyle(
-                      color:
-                          state.highLatMethodVal == 3 ? primaryGreen : black26,
+                      color: state.highLatMethodVal == 3
+                          ? ColorManager.primary
+                          : ColorManager.blackColor,
                       fontSize: 17,
                       fontWeight: FontWeight.w600,
                     ),
@@ -1403,7 +1407,7 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                           ChangeHighLatitudeMethod(
                               numValue: 3, context: context));
                     },
-                    fillColor: const MaterialStatePropertyAll(green24),
+                    fillColor: MaterialStatePropertyAll(ColorManager.primary),
                   )
                 ],
               )
@@ -1417,9 +1421,9 @@ class _NamazTimingViewState extends State<NamazTimingView> {
   Container locationWidget(BuildContext context) {
     return Container(
       height: SizeUtility(context).height * 0.8,
-      decoration: const BoxDecoration(
-        color: whiteClr,
-        borderRadius: BorderRadius.only(
+      decoration: BoxDecoration(
+        color: ColorManager.whiteColor,
+        borderRadius: const BorderRadius.only(
           topLeft: Radius.circular(30.0),
           topRight: Radius.circular(30.0),
         ),
@@ -1551,7 +1555,7 @@ class _NamazTimingViewState extends State<NamazTimingView> {
       builder: (context, setState) => Container(
         height: SizeUtility(context).height * 0.9,
         decoration: BoxDecoration(
-          color: whiteClr,
+          color: ColorManager.whiteColor,
           borderRadius: BorderRadius.circular(30),
         ),
         child: Padding(
@@ -1630,8 +1634,8 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                                     const EdgeInsets.only(left: 12, top: 12),
                                 decoration: BoxDecoration(
                                   color: _currentIndex == index
-                                      ? black26
-                                      : whiteClr,
+                                      ? ColorManager.blackColor
+                                      : ColorManager.whiteColor,
                                   borderRadius: BorderRadius.circular(6),
                                 ),
                                 child: Column(
@@ -1644,8 +1648,8 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                                         fontSize: 16,
                                         height: 1.5,
                                         color: _currentIndex == index
-                                            ? whiteClr
-                                            : black26,
+                                            ? ColorManager.whiteColor
+                                            : ColorManager.blackColor,
                                       ),
                                     ),
                                     const SizedBox(height: 8),
@@ -1661,8 +1665,8 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                                               fontWeight: FontWeight.w600,
                                               fontSize: 16,
                                               color: _currentIndex == index
-                                                  ? whiteClr
-                                                  : black26,
+                                                  ? ColorManager.whiteColor
+                                                  : ColorManager.blackColor,
                                             ),
                                           ),
                                         ),
@@ -1674,8 +1678,9 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                                             fontSize: 17,
                                             height: 1.3,
                                             color: _currentIndex == index
-                                                ? whiteClr.withOpacity(0.7)
-                                                : black26,
+                                                ? ColorManager.whiteColor
+                                                    .withOpacity(0.7)
+                                                : ColorManager.blackColor,
                                           ),
                                         ),
                                       ],
@@ -1692,8 +1697,8 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                                               fontWeight: FontWeight.w600,
                                               fontSize: 16,
                                               color: _currentIndex == index
-                                                  ? whiteClr
-                                                  : black26,
+                                                  ? ColorManager.whiteColor
+                                                  : ColorManager.blackColor,
                                             ),
                                           ),
                                         ),
@@ -1715,9 +1720,11 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                                                     height: 1.3,
                                                     color: _currentIndex ==
                                                             index
-                                                        ? whiteClr
+                                                        ? ColorManager
+                                                            .whiteColor
                                                             .withOpacity(0.7)
-                                                        : black26,
+                                                        : ColorManager
+                                                            .blackColor,
                                                   ),
                                                 );
                                               } else if (snapshot.hasError) {
@@ -1729,9 +1736,11 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                                                     height: 1.3,
                                                     color: _currentIndex ==
                                                             index
-                                                        ? whiteClr
+                                                        ? ColorManager
+                                                            .whiteColor
                                                             .withOpacity(0.7)
-                                                        : black26,
+                                                        : ColorManager
+                                                            .blackColor,
                                                   ),
                                                 );
                                               } else {
@@ -1745,9 +1754,11 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                                                     height: 1.3,
                                                     color: _currentIndex ==
                                                             index
-                                                        ? whiteClr
+                                                        ? ColorManager
+                                                            .whiteColor
                                                             .withOpacity(0.7)
-                                                        : black26,
+                                                        : ColorManager
+                                                            .blackColor,
                                                   ),
                                                   overflow: TextOverflow.fade,
                                                 );

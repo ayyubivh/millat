@@ -13,13 +13,15 @@ class CartEvent with _$CartEvent {
     required String productId,
     required int quantity,
   }) = UpdateCartEventWithSub;
-  const factory CartEvent.addCart(
-      {required String productId,
-      required int basePrice,
-      required String size,
-      required BuildContext context,
-      required String color,
-      required int quantity}) = AddCartEvent;
+  const factory CartEvent.addCart({
+    required String productId,
+    required int basePrice,
+    required String size,
+    required BuildContext context,
+    required String color,
+    required int quantity,
+    required String brandId,
+  }) = AddCartEvent;
   const factory CartEvent.removeCartItemEvent({
     required BuildContext context,
     required String productId,

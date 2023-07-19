@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/resources/shop/bloc/models/cart/cart_models.dart';
 import 'package:millat/resources/shop/view/tabs/shop_tabs_vilew.dart';
-import 'package:millat/utils/globals.dart';
+import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/size_utility.dart';
 
+import '../../../../utils/constants.dart';
 import '../../bloc/logic/address_bloc/address_bloc.dart';
 import '../../bloc/logic/cart_bloc/cart_bloc.dart';
 import '../checkout/widgets/order_product_card.dart';
@@ -24,7 +25,7 @@ class _OrderStatusState extends State<OrderStatus> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: false,
-        leading: BackButton(color: Colors.black),
+        leading: const BackButton(color: Colors.black),
         elevation: 0,
         backgroundColor: Colors.transparent,
       ),
@@ -48,26 +49,26 @@ class _OrderStatusState extends State<OrderStatus> {
                       children: [
                         Row(
                           children: [
-                            Container(
+                            SizedBox(
                               height: 19,
                               width: 16,
                               child: Image.asset(
                                 'assets/icons/preparing_order_icon.png',
                               ),
                             ),
-                            SizedBox(width: 5),
+                            const SizedBox(width: 5),
                             Text(
                               'Preparing Order',
                               style: TextStyle(
                                 fontSize: 22,
-                                color: green24,
+                                color: ColorManager.primary,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
                           ],
                         ),
-                        SizedBox(height: 8),
-                        Text(
+                        const SizedBox(height: 8),
+                        const Text(
                           'The seller is prepared orders for you',
                           style: TextStyle(
                             fontSize: 17,
@@ -75,10 +76,10 @@ class _OrderStatusState extends State<OrderStatus> {
                             color: black102,
                           ),
                         ),
-                        SizedBox(height: 8),
-                        Divider(),
-                        SizedBox(height: 8),
-                        Text(
+                        const SizedBox(height: 8),
+                        const Divider(),
+                        const SizedBox(height: 8),
+                        const Text(
                           'Est. delivery by Apr 22-Apr 27',
                           style: TextStyle(
                             fontSize: 17,
@@ -92,24 +93,25 @@ class _OrderStatusState extends State<OrderStatus> {
                 ),
               ),
               addressCard(),
-              SizedBox(height: 15),
+              const SizedBox(height: 15),
               Text(
                 'Prducts (${context.read<CartBloc>().state.cartLength})',
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 17,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(height: 15),
+              const SizedBox(height: 15),
               BlocBuilder<CartBloc, CartState>(
                 builder: (context, state) {
                   if (state.cartLoading) {
                     return Center(
-                      child: CircularProgressIndicator(color: green77),
+                      child: CircularProgressIndicator(
+                          color: ColorManager.greenColor1),
                     );
                   } else if (state.cartModel?.result?.cartProducts?.cartItems ==
                       null) {
-                    return Center(
+                    return const Center(
                       child: Text('Cart is Empty'),
                     );
                   }
@@ -131,92 +133,47 @@ class _OrderStatusState extends State<OrderStatus> {
                   );
                 },
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Card(
-                elevation: 0,
+                elevation: 0.2,
                 child: Container(
-                  height: 250,
-                  padding: EdgeInsets.symmetric(vertical: 20, horizontal: 30),
+                  height: 179,
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 20, horizontal: 30),
                   child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text('Order Summary',
                           style: TextStyle(
-                              color: black26,
-                              fontSize: 19,
-                              fontWeight: FontWeight.w500)),
-                      SizedBox(
-                        height: 20,
-                      ),
+                            color: ColorManager.blackColor,
+                            fontSize: 17,
+                            fontWeight: FontWeight.bold,
+                          )),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text('Sub Total',
-                              style: TextStyle(
-                                  color: black122,
-                                  fontSize: 19,
-                                  fontWeight: FontWeight.w500)),
-                          Text('₹3,000',
-                              style: TextStyle(
-                                  color: black122,
-                                  fontSize: 19,
-                                  fontWeight: FontWeight.w500)),
+                          Text('Sub Total', style: _priceStyle()),
+                          Text('₹3,000', style: _priceStyle()),
                         ],
                       ),
-                      SizedBox(
-                        height: 20,
-                      ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text('Shipping Fee',
-                              style: TextStyle(
-                                  color: black122,
-                                  fontSize: 19,
-                                  fontWeight: FontWeight.w500)),
-                          Text('₹27',
-                              style: TextStyle(
-                                  color: black122,
-                                  fontSize: 19,
-                                  fontWeight: FontWeight.w500)),
+                          Text('Shipping Fee', style: _priceStyle()),
+                          Text('₹27', style: _priceStyle()),
                         ],
                       ),
-                      SizedBox(
-                        height: 20,
-                      ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text('Estimating Tax',
-                              style: TextStyle(
-                                  color: black122,
-                                  fontSize: 19,
-                                  fontWeight: FontWeight.w500)),
-                          Text('₹20,36',
-                              style: TextStyle(
-                                  color: black122,
-                                  fontSize: 19,
-                                  fontWeight: FontWeight.w500)),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 25,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text('Total',
-                              style: TextStyle(
-                                  color: black122,
-                                  fontSize: 19,
-                                  fontWeight: FontWeight.w500)),
-                          Text('₹3,047,36',
-                              style: TextStyle(
-                                  color: black122,
-                                  fontSize: 19,
-                                  fontWeight: FontWeight.w500)),
+                          Text('Total', style: _priceStyle()),
+                          Text(
+                            '₹3,047,36',
+                            style: _priceStyle(),
+                          ),
                         ],
                       ),
                     ],
@@ -224,95 +181,47 @@ class _OrderStatusState extends State<OrderStatus> {
                 ),
               ),
               Card(
-                elevation: 0,
+                elevation: 0.3,
                 child: Container(
-                  height: 250,
-                  padding: EdgeInsets.symmetric(vertical: 20, horizontal: 30),
+                  height: 180,
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 20, horizontal: 30),
                   child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text('Order Details',
                           style: TextStyle(
-                              color: black26,
-                              fontSize: 19,
-                              fontWeight: FontWeight.w500)),
-                      SizedBox(
-                        height: 20,
-                      ),
+                            color: ColorManager.blackColor,
+                            fontSize: 17,
+                            fontWeight: FontWeight.bold,
+                          )),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text('Order Number',
-                              style: TextStyle(
-                                  color: black122,
-                                  fontSize: 19,
-                                  fontWeight: FontWeight.w500)),
-                          Text('87364',
-                              style: TextStyle(
-                                  color: black122,
-                                  fontSize: 19,
-                                  fontWeight: FontWeight.w500)),
+                          Text('Order Number', style: _priceStyle()),
+                          Text('87364', style: _priceStyle()),
                         ],
                       ),
-                      SizedBox(
-                        height: 20,
-                      ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text('Payment Method',
-                              style: TextStyle(
-                                  color: black122,
-                                  fontSize: 19,
-                                  fontWeight: FontWeight.w500)),
-                          Text('Paytm',
-                              style: TextStyle(
-                                  color: black122,
-                                  fontSize: 19,
-                                  fontWeight: FontWeight.w500)),
+                          Text('Payment Method', style: _priceStyle()),
+                          Text('Paytm', style: _priceStyle()),
                         ],
                       ),
-                      SizedBox(
-                        height: 20,
-                      ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text('Order Date',
-                              style: TextStyle(
-                                  color: black122,
-                                  fontSize: 19,
-                                  fontWeight: FontWeight.w500)),
-                          Text('Apr 20, 2022 8:43 PM',
-                              style: TextStyle(
-                                  color: black122,
-                                  fontSize: 19,
-                                  fontWeight: FontWeight.w500)),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 25,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text('Total',
-                              style: TextStyle(
-                                  color: black122,
-                                  fontSize: 19,
-                                  fontWeight: FontWeight.w500)),
-                          Text('₹3,047,36',
-                              style: TextStyle(
-                                  color: black122,
-                                  fontSize: 19,
-                                  fontWeight: FontWeight.w500)),
+                          Text('Order Date', style: _priceStyle()),
+                          Text('Apr 20, 2022 8:43 PM', style: _priceStyle()),
                         ],
                       ),
                     ],
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 100,
               ),
             ],
@@ -321,7 +230,7 @@ class _OrderStatusState extends State<OrderStatus> {
       ),
       bottomSheet: Container(
         height: 50,
-        margin: EdgeInsets.symmetric(vertical: 30, horizontal: 20),
+        margin: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
         child: InkWell(
           onTap: () {
             // Navigator.of(context).push(MaterialPageRoute(builder: (context) => PaymentSuccessful(),));
@@ -329,21 +238,21 @@ class _OrderStatusState extends State<OrderStatus> {
           child: Container(
               alignment: Alignment.center,
               width: SizeUtility(context).width,
-              padding: EdgeInsets.all(15),
+              padding: const EdgeInsets.all(15),
               decoration: BoxDecoration(
-                color: redClr.withOpacity(0.16),
+                color: ColorManager.redColor.withOpacity(0.16),
                 borderRadius: BorderRadius.circular(30),
               ),
               child: GestureDetector(
                 onTap: () {
                   Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => ShopTabsView(),
+                    builder: (context) => const ShopTabsView(),
                   ));
                 },
                 child: Text(
                   'Cancel Order',
                   style: TextStyle(
-                    color: redClr,
+                    color: ColorManager.redColor,
                     fontSize: 20,
                     fontWeight: FontWeight.w700,
                   ),
@@ -354,13 +263,21 @@ class _OrderStatusState extends State<OrderStatus> {
     );
   }
 
-  Column productsCard(int itemCount, int itemsToShow, List<CartItem>? cartItems,
+  TextStyle _priceStyle() {
+    return TextStyle(
+      color: black122,
+      fontSize: 17,
+      fontWeight: FontWeight.w500,
+    );
+  }
+
+  Widget productsCard(int itemCount, int itemsToShow, List<CartItem>? cartItems,
       bool showMoreButton, BuildContext context, CartState state) {
     return Column(
       children: [
         if (itemCount > 0)
           ListView.builder(
-            physics: NeverScrollableScrollPhysics(),
+            physics: const NeverScrollableScrollPhysics(),
             itemCount: itemCount == 1 ? 1 : itemsToShow,
             shrinkWrap: true,
             itemBuilder: (context, index) {
@@ -370,7 +287,7 @@ class _OrderStatusState extends State<OrderStatus> {
                 title: data.productId?.title,
                 size: data.size,
                 image: data.productId?.colors![0].images![0],
-                price: data.basePrice!.toInt(),
+                price: data.sellingPrice,
                 jsonColor: data.color,
                 colorName: data.color,
                 quantity: data.quantity!.toInt(),
@@ -381,18 +298,18 @@ class _OrderStatusState extends State<OrderStatus> {
         if (showMoreButton && itemCount > 1)
           TextButton(
             onPressed: () {
-              context.read<CartBloc>().add(ToggleShowMoreEvent());
+              context.read<CartBloc>().add(const ToggleShowMoreEvent());
             },
             child: Text(
               state.showMore ? 'Show Less' : 'Show More',
-              style: TextStyle(
+              style: const TextStyle(
                 color: Colors.blue,
                 fontWeight: FontWeight.bold,
               ),
             ),
           ),
         if (showMoreButton && itemCount <= 1)
-          Text(
+          const Text(
             'No more items to show',
             style: TextStyle(
               color: Colors.grey,
@@ -414,19 +331,20 @@ class _OrderStatusState extends State<OrderStatus> {
             if (data == null) {
               return Center(
                 child: CircularProgressIndicator(
-                  color: green77,
+                  color: ColorManager.greenColor1,
                 ),
               );
             }
-            final formatedMobile =
-                '${data.mobile.toString().substring(data.mobile.toString().length - 4)}';
+            final formatedMobile = data.mobile
+                .toString()
+                .substring(data.mobile.toString().length - 4);
             final String address =
                 '$formatedMobile ${data.addressLine} ${data.landmark} ${data.city}\n${data.state} ${data.pincode}';
 
             return Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Icon(Icons.location_on_outlined),
+                const Icon(Icons.location_on_outlined),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -435,16 +353,16 @@ class _OrderStatusState extends State<OrderStatus> {
                       style: TextStyle(
                           fontWeight: FontWeight.w700,
                           fontSize: 18,
-                          color: black26),
+                          color: ColorManager.blackColor),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     SizedBox(
                         width: SizeUtility(context).width * 60 / 100,
                         child: Text(
                           address.toString(),
-                          style: TextStyle(
+                          style: const TextStyle(
                               height: 1.7,
                               fontWeight: FontWeight.w700,
                               color: black122),

@@ -4,7 +4,7 @@ import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/shop/bloc/logic/category_bloc/category_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
 import 'package:millat/resources/shop/view/categories/categories_view.dart';
-import 'package:millat/utils/globals.dart';
+import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/size_utility.dart';
 
 class FiltersView extends StatefulWidget {
@@ -87,12 +87,14 @@ class _FiltersViewState extends State<FiltersView> {
                                 title: Text(
                                   category[index],
                                   style: TextStyle(
-                                      color: isSelected ? green24 : black122),
+                                      color: isSelected
+                                          ? ColorManager.primary
+                                          : black122),
                                 ),
                                 trailing: Icon(
                                   isSelected ? Icons.arrow_forward_ios : null,
                                   size: 15,
-                                  color: green77,
+                                  color: ColorManager.greenColor1,
                                 ));
                           },
                         )
@@ -129,7 +131,8 @@ class _FiltersViewState extends State<FiltersView> {
                                           .toString(),
                                       subCategory: ""));
                                 },
-                                fillColor: MaterialStateProperty.all(green77),
+                                fillColor: MaterialStateProperty.all(
+                                    ColorManager.greenColor1),
                               ),
                             );
                           },
@@ -160,7 +163,8 @@ class _FiltersViewState extends State<FiltersView> {
                                           ?.subCategory![subCategoryIndex].title
                                           .toString()));
                                 },
-                                fillColor: MaterialStateProperty.all(green77),
+                                fillColor: MaterialStateProperty.all(
+                                    ColorManager.greenColor1),
                               ),
                             );
                           },
@@ -187,7 +191,8 @@ class _FiltersViewState extends State<FiltersView> {
                                       FilterBrandPickEvent(
                                           brand: brand[index].name.toString()));
                                 },
-                                fillColor: MaterialStateProperty.all(green77),
+                                fillColor: MaterialStateProperty.all(
+                                    ColorManager.greenColor1),
                               ),
                             );
                           },
@@ -217,8 +222,8 @@ class _FiltersViewState extends State<FiltersView> {
                                       .read<CategoryBloc>()
                                       .add(PriceRangeEvent(index: index));
                                 },
-                                fillColor:
-                                    const MaterialStatePropertyAll(green24),
+                                fillColor: MaterialStatePropertyAll(
+                                    ColorManager.primary),
                               ),
                             );
                           },
@@ -259,7 +264,7 @@ class _FiltersViewState extends State<FiltersView> {
                 ));
               },
               child: Container(
-                color: green77,
+                color: ColorManager.greenColor1,
                 alignment: Alignment.center,
                 width: SizeUtility(context).width * 55 / 100,
                 child: const Text('Apply',

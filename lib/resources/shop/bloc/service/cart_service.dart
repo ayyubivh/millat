@@ -40,13 +40,15 @@ class CartServices extends HttpServices {
   }
 
 // add to cart
-  addCart(
-      {required BuildContext context,
-      required String productId,
-      required int basePrice,
-      required String size,
-      required String color,
-      required int quantity}) async {
+  addCart({
+    required BuildContext context,
+    required String productId,
+    required int basePrice,
+    required String size,
+    required String color,
+    required int quantity,
+    required String brandId,
+  }) async {
     const String webBaseUrl = 'http://35.172.93.164:8000/';
 
     const endPoint = 'cart/add';
@@ -61,7 +63,8 @@ class CartServices extends HttpServices {
       "selling_price": basePrice,
       "size": size,
       "color": color,
-      "quantity": quantity
+      "quantity": quantity,
+      "brandId": brandId
     };
 
     final response = await http.put(Uri.parse(webBaseUrl + endPoint),

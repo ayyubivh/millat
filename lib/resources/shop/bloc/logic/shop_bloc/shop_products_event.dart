@@ -27,7 +27,6 @@ class ShopProductsEvent with _$ShopProductsEvent {
   }) = TabIndexChangeEvent;
 
   const factory ShopProductsEvent.postOrders({
-    required String productId,
     required BuildContext context,
     required int totalPrice,
     required String pickupLocation,
@@ -35,6 +34,7 @@ class ShopProductsEvent with _$ShopProductsEvent {
     required int totalDiscount,
     required int shippingCharges,
     required int weight,
+    required String id,
   }) = PostOrders;
   const factory ShopProductsEvent.fetchOrders(
     BuildContext context,
@@ -43,4 +43,8 @@ class ShopProductsEvent with _$ShopProductsEvent {
     BuildContext context,
     int id,
   ) = FetchOrdersById;
+  const factory ShopProductsEvent.fetchOrdersbyFilterEvent({
+    required BuildContext context,
+    required String filterName,
+  }) = FetchOrdersbyFilterEvent;
 }

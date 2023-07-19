@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../resources/shop/view/filters/filters.dart';
-import '../../utils/globals.dart';
+import '../../utils/color_manager.dart';
 
 class FiltersRowWidgets extends StatelessWidget {
   const FiltersRowWidgets({
@@ -26,10 +26,11 @@ class FiltersRowWidgets extends StatelessWidget {
                 horizontal: 10,
               ),
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: veryLightGreen),
-              child: const ImageIcon(AssetImage('assets/icons/filter.png'),
-                  color: green77),
+                borderRadius: BorderRadius.circular(20),
+                color: ColorManager.veryLightGreen,
+              ),
+              child: ImageIcon(AssetImage('assets/icons/filter.png'),
+                  color: ColorManager.greenColor1),
             ),
           ),
           Container(
@@ -38,7 +39,8 @@ class FiltersRowWidgets extends StatelessWidget {
               horizontal: 10,
             ),
             decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20), color: green77),
+                borderRadius: BorderRadius.circular(20),
+                color: ColorManager.greenColor1),
             child: const Text('All',
                 style: TextStyle(
                     fontSize: 18,

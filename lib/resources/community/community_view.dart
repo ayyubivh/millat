@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:millat/utils/globals.dart';
+import 'package:millat/utils/color_manager.dart';
 
 class CommunityView extends StatefulWidget {
   const CommunityView({super.key});
@@ -13,15 +13,15 @@ class _CommunityViewState extends State<CommunityView> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: whiteClr,
+          backgroundColor: ColorManager.whiteColor,
           elevation: 0,
-          leading: const BackButton(
-            color: black26,
+          leading: BackButton(
+            color: ColorManager.blackColor,
           ),
-          title: const Text(
+          title: Text(
             "Fill Your Profile",
             style: TextStyle(
-              color: black26,
+              color: ColorManager.blackColor,
               fontSize: 19,
               fontWeight: FontWeight.bold,
             ),

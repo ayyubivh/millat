@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/home/bloc/logic/quran_bloc/quran_bloc.dart';
 import 'package:millat/utils/constants.dart';
-import 'package:millat/utils/globals.dart';
+import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/loader.dart';
-import '../../../../components/common_widgets/reusable_methods.dart';
+import '../../../../../components/common_widgets/reusable_methods.dart';
 
-class Surahview extends StatelessWidget {
-  const Surahview({super.key});
+class VersesView extends StatelessWidget {
+  final Qurantype type;
+  const VersesView({super.key, required this.type});
 
   @override
   Widget build(BuildContext context) {
@@ -16,16 +18,16 @@ class Surahview extends StatelessWidget {
     return Scaffold(
       backgroundColor: scaffoldBgColor,
       appBar: AppBar(
-        backgroundColor: whiteClr,
+        backgroundColor: ColorManager.whiteColor,
         elevation: 0,
-        foregroundColor: black26,
+        foregroundColor: ColorManager.blackColor,
         centerTitle: true,
-        title: const Column(
+        title: Column(
           children: [
             Text(
               "Al-Faatiha",
               style: TextStyle(
-                color: primaryGreen,
+                color: ColorManager.primary,
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
               ),
@@ -33,50 +35,78 @@ class Surahview extends StatelessWidget {
             Text(
               "Meccan",
               style: TextStyle(
-                color: lightBlackColor,
+                color: ColorManager.lightBlackColor,
                 fontSize: 12,
                 fontWeight: FontWeight.bold,
               ),
             ),
           ],
         ),
-        actions: const [
+        actions: [
           ImageIcon(
-            AssetImage("assets/icons/search.png"),
-            color: black26,
+            const AssetImage("assets/icons/search.png"),
+            color: ColorManager.blackColor,
           ),
-          SizedBox(width: 18),
+          const SizedBox(width: 18),
         ],
       ),
       body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 20),
-          child: BlocBuilder<QuranBloc, QuranState>(
-            builder: (context, state) {
-              if (state.isLoading ||
-                  state.chapterVersesModel?.data.ayahs == null) {
-                return const Loader();
-              }
-              final data = state.chapterVersesModel?.data.ayahs;
-              return ListView.builder(
-                itemCount: data!.length,
-                itemBuilder: (context, index) {
-                  return buildSurahContainer(
-                    numValue: data[index].number,
-                    surah: data[index].text,
-                    surahMeaning:
-                        "The Entirely Merciful, the Especially Merciful,",
+        padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 20),
+        child: type == Qurantype.sura
+            ? BlocBuilder<QuranBloc, QuranState>(
+                builder: (context, state) {
+                  if (state.isLoading ||
+                      state.chapterVersesModel?.data.ayahs == null) {
+                    return const Loader();
+                  }
+                  final data = state.chapterVersesModel?.data.ayahs;
+                  return ListView.builder(
+                    itemCount: data!.length,
+                    itemBuilder: (context, index) {
+                      return buildSurahContainer(
+                        numValue: index + 1,
+                        surah: data[index].text,
+                        surahMeaning: removeFootnotesFromMeaning(
+                          state.versesTranslationModel?.translations[index]
+                                  .text ??
+                              '',
+                        ),
+                      );
+                    },
                   );
                 },
-              );
-            },
-          )),
+              )
+            : BlocBuilder<QuranBloc, QuranState>(
+                builder: (context, state) {
+                  if (state.isLoading || state.paraVersesModel == null) {
+                    return const Loader();
+                  }
+                  final data = state.paraVersesModel!.verses;
+
+                  return ListView.builder(
+                    itemCount: data.length,
+                    itemBuilder: (context, index) {
+                      return buildSurahContainer(
+                        numValue: data[index].id!,
+                        surah: data[index].textIndopak.toString(),
+                        surahMeaning: removeFootnotesFromMeaning(
+                          state.versesTranslationModel?.translations[index]
+                                  .text ??
+                              '',
+                        ),
+                      );
+                    },
+                  );
+                },
+              ),
+      ),
       bottomSheet: Container(
         margin: const EdgeInsets.symmetric(horizontal: 35),
         padding: const EdgeInsets.symmetric(horizontal: 12),
         height: 70,
-        decoration: const BoxDecoration(
-            color: primaryGreen,
-            borderRadius: BorderRadius.only(
+        decoration: BoxDecoration(
+            color: ColorManager.primary,
+            borderRadius: const BorderRadius.only(
               topLeft: Radius.circular(12),
               topRight: Radius.circular(12),
             )),
@@ -91,9 +121,9 @@ class Surahview extends StatelessWidget {
                     return StatefulBuilder(
                       builder: (context, setState) => Container(
                         height: 270,
-                        decoration: const BoxDecoration(
-                          color: whiteClr,
-                          borderRadius: BorderRadius.only(
+                        decoration: BoxDecoration(
+                          color: ColorManager.whiteColor,
+                          borderRadius: const BorderRadius.only(
                             topLeft: Radius.circular(30.0),
                             topRight: Radius.circular(30.0),
                           ),
@@ -149,8 +179,9 @@ class Surahview extends StatelessWidget {
                                     },
                                     child: Container(
                                       color: isIndex
-                                          ? lightBlackColor.withOpacity(0.2)
-                                          : whiteClr,
+                                          ? ColorManager.lightBlackColor
+                                              .withOpacity(0.2)
+                                          : ColorManager.whiteColor,
                                       margin: const EdgeInsets.symmetric(
                                         vertical: 10,
                                       ),
@@ -169,16 +200,18 @@ class Surahview extends StatelessWidget {
                                                 fontSize: 17,
                                                 fontWeight: FontWeight.bold,
                                                 color: isIndex
-                                                    ? primaryGreen
-                                                    : lightBlackColor),
+                                                    ? ColorManager.primary
+                                                    : ColorManager
+                                                        .lightBlackColor),
                                           ),
                                           Text(
                                             "${index + 1}.Al-Faathiha",
                                             style: TextStyle(
                                                 fontSize: 17,
                                                 color: isIndex
-                                                    ? primaryGreen
-                                                    : lightBlackColor,
+                                                    ? ColorManager.primary
+                                                    : ColorManager
+                                                        .lightBlackColor,
                                                 fontWeight: FontWeight.bold),
                                           ),
                                           Text(
@@ -187,8 +220,9 @@ class Surahview extends StatelessWidget {
                                                 fontSize: 17,
                                                 fontWeight: FontWeight.bold,
                                                 color: isIndex
-                                                    ? primaryGreen
-                                                    : lightBlackColor),
+                                                    ? ColorManager.primary
+                                                    : ColorManager
+                                                        .lightBlackColor),
                                           ),
                                         ],
                                       ),
@@ -204,9 +238,9 @@ class Surahview extends StatelessWidget {
                   },
                 );
               },
-              child: const Icon(
+              child: Icon(
                 Icons.expand_more,
-                color: whiteClr,
+                color: ColorManager.whiteColor,
                 size: 22,
               ),
             ),
@@ -222,19 +256,19 @@ class Surahview extends StatelessWidget {
                   children: [
                     Icon(
                       Icons.skip_previous,
-                      color: whiteClr.withOpacity(0.5),
+                      color: ColorManager.whiteColor.withOpacity(0.5),
                       size: 24,
                     ),
                     const SizedBox(width: 5),
-                    const Icon(
+                    Icon(
                       Icons.play_circle_fill,
-                      color: whiteClr,
+                      color: ColorManager.whiteColor,
                       size: 34,
                     ),
                     const SizedBox(width: 5),
                     Icon(
                       Icons.skip_next,
-                      color: whiteClr.withOpacity(0.5),
+                      color: ColorManager.whiteColor.withOpacity(0.5),
                       size: 24,
                     ),
                   ],
@@ -247,19 +281,25 @@ class Surahview extends StatelessWidget {
     );
   }
 
+  String removeFootnotesFromMeaning(String meaning) {
+    RegExp regex = RegExp(r"<sup\sfoot_note=\d+>\d+</sup>");
+
+    return meaning.replaceAll(regex, '');
+  }
+
   Column _buildPlayIcons(String imageUrl, String name) {
     return Column(
       children: [
         ImageIcon(
           AssetImage(imageUrl),
-          color: whiteClr,
+          color: ColorManager.whiteColor,
           size: 18,
         ),
         const SizedBox(height: 5),
         Text(
           name,
-          style: const TextStyle(
-            color: whiteClr,
+          style: TextStyle(
+            color: ColorManager.whiteColor,
             fontSize: 12,
             fontWeight: FontWeight.w400,
           ),

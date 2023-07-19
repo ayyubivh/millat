@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/components/common_widgets/shop_products_widget.dart';
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
 import 'package:millat/resources/shop/view/products/single_product_view_brand.dart';
-import 'package:millat/utils/globals.dart';
+import 'package:millat/utils/color_manager.dart';
 
 class WishListView extends StatefulWidget {
   const WishListView({super.key});
@@ -42,9 +42,9 @@ class _WishListViewState extends State<WishListView> {
         builder: (context, state) {
           return state.isLoading ||
                   state.wishList?.result?.wishlist.products == null
-              ? const Center(
+              ? Center(
                   child: CircularProgressIndicator(
-                    color: green77,
+                    color: ColorManager.greenColor1,
                   ),
                 )
               : state.wishList!.result!.wishlist.products!.isEmpty
@@ -65,10 +65,12 @@ class _WishListViewState extends State<WishListView> {
                             state.wishList?.result?.wishlist.products?[index];
                         return GestureDetector(
                           onTap: () {
-                            Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => SingleProductViewBrand(
-                                      passValue: data,
-                                    )));
+                            Navigator.of(context)
+                                .push(MaterialPageRoute(builder: (context) {
+                              return SingleProductViewBrand(
+                                passValue: data,
+                              );
+                            }));
                           },
                           child: Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 15),

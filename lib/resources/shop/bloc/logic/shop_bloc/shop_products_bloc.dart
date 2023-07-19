@@ -40,6 +40,7 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
     on<FetchOrders>(_fetchOrders);
     on<PostOrders>(_postOrders);
     on<FetchOrdersById>(_fetchOrdersById);
+    on<FetchOrdersbyFilterEvent>(_fetchOrdersbyFilterEvent);
   }
 
   FutureOr<void> _fetchFlashSaleProducts(
@@ -252,7 +253,6 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
     try {
       final data = await ordersService.fetchOrders(event.context);
       emit(state.copyWith(orderModel: data, isLoading: false));
-      print('jsone here on a orders the result of bloc $data');
     } catch (e) {
       emit(state.copyWith(errorMessage: e.toString(), isLoading: false));
     }
@@ -264,13 +264,13 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
     try {
       final data = ordersService.postOrder(
         context: event.context,
-        productId: event.productId,
         totalPrice: event.totalPrice,
         pickUpAddress: event.pickupLocation,
         totalQuantity: event.quantity,
         shippingCharges: event.shippingCharges,
         totalDiscount: event.totalDiscount,
         weight: event.totalDiscount,
+        id: event.id,
       );
       print('data on the bloc  of the orders$data');
     } catch (e) {
@@ -284,6 +284,19 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
     try {
       final data = await ordersService.fetchOrdersById(event.context, event.id);
       emit(state.copyWith(ordersByIdModel: data, isLoading: false));
+    } catch (e) {
+      emit(state.copyWith(errorMessage: e.toString(), isLoading: false));
+    }
+  }
+
+  _fetchOrdersbyFilterEvent(
+      FetchOrdersbyFilterEvent event, Emitter<ShopProductsState> emit) async {
+    emit(state.copyWith(isLoading: true, errorMessage: ""));
+    try {
+      final data = await ordersService.fetchFilterOrders(
+          event.context, event.filterName);
+      emit(state.copyWith(orderModel: data, isLoading: false));
+      print('jsone here on a orders the result of filteres bloc $data');
     } catch (e) {
       emit(state.copyWith(errorMessage: e.toString(), isLoading: false));
     }

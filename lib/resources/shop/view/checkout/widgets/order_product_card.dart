@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../../../utils/globals.dart';
+import '../../../../../utils/color_manager.dart';
 
 class OrderProductCard extends StatelessWidget {
   final String? id;

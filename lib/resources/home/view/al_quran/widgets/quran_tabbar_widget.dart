@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/home/bloc/models/quran_chapter_models/quran_chapter_models.dart';
 import 'package:millat/utils/loader.dart';
 import '../../../../../utils/constants.dart';
-import '../../../../../utils/globals.dart';
+import '../../../../../utils/color_manager.dart';
 import '../../../bloc/logic/quran_bloc/quran_bloc.dart';
-import '../surah_view.dart';
+import 'verses-view.dart';
 
 class QuranTabBarWidget extends StatefulWidget {
   const QuranTabBarWidget({super.key});
@@ -18,6 +19,8 @@ class _QuranTabBarWidgetState extends State<QuranTabBarWidget> {
   @override
   void initState() {
     BlocProvider.of<QuranBloc>(context).add(const FetchQuaranChaptersEvent());
+    BlocProvider.of<QuranBloc>(context).add(const FetchQuranPara());
+
     super.initState();
   }
 
@@ -29,14 +32,14 @@ class _QuranTabBarWidgetState extends State<QuranTabBarWidget> {
         length: 3,
         child: Column(
           children: [
-            const PreferredSize(
-              preferredSize: Size.fromHeight(kToolbarHeight),
+            PreferredSize(
+              preferredSize: const Size.fromHeight(kToolbarHeight),
               child: TabBar(
-                unselectedLabelColor: lightBlackColor,
-                labelColor: primaryGreen,
-                indicatorColor: primaryGreen,
-                labelStyle: TextStyle(fontSize: 16),
-                tabs: [
+                unselectedLabelColor: ColorManager.lightBlackColor,
+                labelColor: ColorManager.primary,
+                indicatorColor: ColorManager.primary,
+                labelStyle: const TextStyle(fontSize: 16),
+                tabs: const [
                   Tab(
                     child: Text('Surah'),
                   ),
@@ -83,12 +86,12 @@ class _QuranTabBarWidgetState extends State<QuranTabBarWidget> {
 
               return ExpansionPanel(
                 headerBuilder: (context, isExpanded) {
-                  return const ListTile(
+                  return ListTile(
                     title: Text(
                       "Daily Verse (8)",
                       style: TextStyle(
                         fontSize: 17,
-                        color: black26,
+                        color: ColorManager.blackColor,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -99,11 +102,11 @@ class _QuranTabBarWidgetState extends State<QuranTabBarWidget> {
                   child: ListView.builder(
                     itemCount: 5,
                     itemBuilder: (context, index) {
-                      return const ListTile(
+                      return ListTile(
                         title: Text(
                           "Al-A'raaf, Verse 199",
                           style: TextStyle(
-                            color: primaryGreen,
+                            color: ColorManager.primary,
                             fontSize: 17,
                             fontWeight: FontWeight.w600,
                           ),
@@ -111,12 +114,12 @@ class _QuranTabBarWidgetState extends State<QuranTabBarWidget> {
                         subtitle: Text(
                           'The Heights(7:199)',
                           style: TextStyle(
-                              color: black26,
+                              color: ColorManager.blackColor,
                               fontSize: 13,
                               fontWeight: FontWeight.bold,
                               height: 2),
                         ),
-                        trailing: Text(
+                        trailing: const Text(
                           'Today',
                           style: TextStyle(
                             fontWeight: FontWeight.w600,
@@ -139,55 +142,70 @@ class _QuranTabBarWidgetState extends State<QuranTabBarWidget> {
 
   Widget _paraTabBar() {
     return ListView.separated(
-      itemCount: 10,
+      itemCount: verses.length,
       itemBuilder: (context, index) {
-        return ListTile(
-          leading: Stack(
-            children: [
-              SizedBox(
-                height: 40,
-                width: 40,
-                child: Image.asset("assets/images/muslim_1.png"),
+        final verse = verses[index];
+        String englishVerse = verse['english'] ?? '';
+        String arabicVerse = verse['arabic'] ?? '';
+        return BlocBuilder<QuranBloc, QuranState>(
+          builder: (context, state) {
+            return ListTile(
+              onTap: () {
+                final id = state.quranParaModel!.juzs[index].juzNumber!.toInt();
+                context.read<QuranBloc>().add(FetchParaVerses(id: id));
+                context.read<QuranBloc>().add(FetchTranslationJuz(juzId: id));
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => const VersesView(type: Qurantype.para),
+                ));
+              },
+              leading: Stack(
+                children: [
+                  SizedBox(
+                    height: 40,
+                    width: 40,
+                    child: Image.asset("assets/images/muslim_1.png"),
+                  ),
+                  Positioned.fill(
+                    child: Align(
+                      alignment: Alignment.center,
+                      child: Text(
+                        state.quranParaModel!.juzs[index].juzNumber.toString(),
+                        style: const TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
               ),
-              Positioned.fill(
-                child: Align(
-                  alignment: Alignment.center,
-                  child: Text(
-                    '${index + 1}',
+              title: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    englishVerse,
                     style: const TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                ),
+                  kHeight5,
+                  Text(
+                    arabicVerse,
+                    style: const TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w800,
+                    ),
+                  ),
+                ],
               ),
-            ],
-          ),
-          title: const Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                "Alif Laam meem",
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                ),
+              trailing: Icon(
+                Icons.arrow_forward_ios,
+                color: ColorManager.blackColor,
+                size: 20,
               ),
-              kHeight5,
-              Text(
-                "سَيَقُولُ",
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w800,
-                ),
-              ),
-            ],
-          ),
-          trailing: const Icon(
-            Icons.arrow_forward_ios,
-            color: black26,
-            size: 20,
-          ),
+            );
+          },
         );
       },
       separatorBuilder: (context, index) => const Divider(thickness: 1),
@@ -224,8 +242,13 @@ class _QuranTabBarWidgetState extends State<QuranTabBarWidget> {
     return ListTile(
       onTap: () {
         context.read<QuranBloc>().add(FetchChaperVersesEvent(id: chapter.id));
+        context
+            .read<QuranBloc>()
+            .add(FetchTranslationChapter(chapterId: chapter.id));
         Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => const Surahview(),
+          builder: (context) => const VersesView(
+            type: Qurantype.sura,
+          ),
         ));
       },
       leading: Stack(
@@ -258,10 +281,10 @@ class _QuranTabBarWidgetState extends State<QuranTabBarWidget> {
       ),
       subtitle: Text(
         "${chapter.revelatioPlace.toUpperCase()} ${chapter.versesCount} VERSES",
-        style: const TextStyle(
+        style: TextStyle(
           fontSize: 13,
           fontWeight: FontWeight.w600,
-          color: lightBlackColor,
+          color: ColorManager.lightBlackColor,
         ),
       ),
       trailing: Text(
@@ -275,3 +298,126 @@ class _QuranTabBarWidgetState extends State<QuranTabBarWidget> {
     );
   }
 }
+
+List<Map<String, String>> verses = [
+  {
+    'english': 'Alif laam meem',
+    'arabic': 'الٓمّٓ',
+  },
+  {
+    'english': 'Sayaqulu',
+    'arabic': 'سَيَقُوۡلُ',
+  },
+  {
+    'english': 'Tilka r Rusulu',
+    'arabic': 'تِلۡكَ الرُّسُلُ ',
+  },
+  {
+    'english': 'Kullu Thaamu',
+    'arabic': 'كُلُّ الطَّعَامِ كَانَ ',
+  },
+  {
+    'english': 'Al Muhzanthu',
+    'arabic': 'وَّالۡمُحۡصَنٰتُ مِنَ',
+  },
+  {
+    'english': 'La Yuhibbu',
+    'arabic': 'لَا يُحِبُّ اللّٰهُ ',
+  },
+  {
+    'english': 'LaThajidhanna Ashadha',
+    'arabic': 'لَـتَجِدَنَّ اَشَدَّ',
+  },
+  {
+    'english': 'Valav Annana',
+    'arabic': 'وَلَوۡ اَنَّـنَا نَزَّلۡنَاۤ',
+  },
+  {
+    'english': 'Kaal Almalau',
+    'arabic': 'قَالَ الۡمَلَاُ',
+  },
+  {
+    'english': 'Va Alamu Annama',
+    'arabic': 'وَاعۡلَمُوۡۤا اَنَّمَا ',
+  },
+  {
+    'english': 'Inna Ma Sabeelu',
+    'arabic': 'اِنَّمَا السَّبِيۡلُ عَلَى ',
+  },
+  {
+    'english': 'Vama Min Dhaabathi',
+    'arabic': 'وَمَا مِنۡ دَآ بَّةٍ',
+  },
+  {
+    'english': 'Vama  Ubarriu Nafsee',
+    'arabic': 'وَمَاۤ اُبَرِّئُ نَفۡسِىۡ​ۚ',
+  },
+  {
+    'english': 'Thilk Ayathu Kithab',
+    'arabic': 'تِلۡكَ اٰيٰتُ الۡـكِتٰبِ ',
+  },
+  {
+    'english': 'Subhana Alladhee Asraa',
+    'arabic': 'سُبۡحٰنَ الَّذِىۡۤ اَسۡرٰى',
+  },
+  {
+    'english': 'Kaal Alam Akul',
+    'arabic': 'قَالَ اَ لَمۡ اَ قُلْ ',
+  },
+  {
+    'english': 'Iftharab Linnaasi',
+    'arabic': 'اِقۡتَرَبَ لِلنَّاسِ حِسَابُهُمۡ',
+  },
+  {
+    'english': 'Iftharab Linnaasi',
+    'arabic': 'قَدۡ اَفۡلَحَ',
+  },
+  {
+    'english': 'Va Kaala Ladheena',
+    'arabic': 'وَقَالَ الَّذِيۡنَ',
+  },
+  {
+    'english': 'Fama Kama Javab',
+    'arabic': 'فَمَا كَانَ جَوَابَ',
+  },
+  {
+    'english': 'Vala Thujadhalu',
+    'arabic': 'وَلَا تُجَادِلُوۡٓا ',
+  },
+  {
+    'english': 'Vaman Yukadhibu',
+    'arabic': 'وَمَنۡ يَّقۡنُتۡ مِنۡكُنَّ',
+  },
+  {
+    'english': 'Vama Anzalna Ala',
+    'arabic': 'وَمَاۤ اَنۡزَلۡنَا عَلٰى',
+  },
+  {
+    'english': 'Faman Adhlama',
+    'arabic': 'فَمَنۡ اَظۡلَمُ مِمَّنۡ',
+  },
+  {
+    'english': 'Eleyhi Yuradhu',
+    'arabic': 'اِلَيۡهِ يُرَدُّ عِلۡمُ ',
+  },
+  {
+    'english': 'Hameen',
+    'arabic': 'حٰمٓ',
+  },
+  {
+    'english': 'Kaal Fama Hatbukum',
+    'arabic': 'قَالَ فَمَا خَطۡبُكُمۡ',
+  },
+  {
+    'english': 'Kadh Samia Allahu',
+    'arabic': 'قَدۡ سَمِعَ اللّٰهُ',
+  },
+  {
+    'english': 'Vahuva Ala',
+    'arabic': 'وَهُوَ عَلٰى',
+  },
+  {
+    'english': 'Amma Yatha Saloon',
+    'arabic': 'عَمَّ يَتَسَآءَلُوۡنَ​ۚ',
+  },
+];

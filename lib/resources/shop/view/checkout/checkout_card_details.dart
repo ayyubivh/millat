@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:millat/resources/shop/view/checkout/checkout_confirmation.dart';
-import 'package:millat/utils/globals.dart';
+import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/size_utility.dart';
 
 class CheckoutCardDetails extends StatefulWidget {
@@ -15,11 +15,11 @@ class _CheckoutCardDetailsState extends State<CheckoutCardDetails> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('Checkout',
+          title: const Text('Checkout',
               style:
                   TextStyle(color: Colors.black, fontWeight: FontWeight.w700)),
           centerTitle: false,
-          leading: BackButton(color: Colors.black),
+          leading: const BackButton(color: Colors.black),
           elevation: 0,
           backgroundColor: Colors.transparent,
         ),
@@ -30,7 +30,7 @@ class _CheckoutCardDetailsState extends State<CheckoutCardDetails> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Slider(
-                  activeColor: green77,
+                  activeColor: ColorManager.greenColor1,
                   inactiveColor: black195,
                   max: 10,
                   min: 0,
@@ -44,79 +44,81 @@ class _CheckoutCardDetailsState extends State<CheckoutCardDetails> {
                     Text(
                       'Personal Info',
                       style: TextStyle(
-                          fontWeight: FontWeight.w700, color: green77),
+                          fontWeight: FontWeight.w700,
+                          color: ColorManager.greenColor1),
                     ),
                     Text(
                       'Payment',
                       style: TextStyle(
-                          fontWeight: FontWeight.w600, color: green77),
+                          fontWeight: FontWeight.w600,
+                          color: ColorManager.greenColor1),
                     ),
-                    Text(
+                    const Text(
                       'Confirmation',
                       style: TextStyle(
                           fontWeight: FontWeight.w600, color: black131),
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 60,
                 ),
                 Text(
                   'Payment Methods',
                   style: TextStyle(
-                      color: black26,
+                      color: ColorManager.blackColor,
                       fontSize: 17,
                       fontWeight: FontWeight.w700),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 TextField(
                   decoration: InputDecoration(
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(5),
-                        borderSide: BorderSide(color: black198),
+                        borderSide: const BorderSide(color: black198),
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(5),
-                        borderSide: BorderSide(color: black198),
+                        borderSide: const BorderSide(color: black198),
                       ),
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(5),
-                        borderSide: BorderSide(color: black198),
+                        borderSide: const BorderSide(color: black198),
                       ),
                       filled: true,
                       fillColor: black247,
                       label: Text(
                         'Card Number',
-                        style: TextStyle(color: black26),
+                        style: TextStyle(color: ColorManager.blackColor),
                       )),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
                 TextField(
                   decoration: InputDecoration(
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(5),
-                        borderSide: BorderSide(color: black198),
+                        borderSide: const BorderSide(color: black198),
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(5),
-                        borderSide: BorderSide(color: black198),
+                        borderSide: const BorderSide(color: black198),
                       ),
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(5),
-                        borderSide: BorderSide(color: black198),
+                        borderSide: const BorderSide(color: black198),
                       ),
                       filled: true,
                       fillColor: black247,
                       label: Text(
                         'Card Holder Name',
-                        style: TextStyle(color: black26),
+                        style: TextStyle(color: ColorManager.blackColor),
                       )),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
                 Row(
@@ -128,25 +130,25 @@ class _CheckoutCardDetailsState extends State<CheckoutCardDetails> {
                         decoration: InputDecoration(
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(5),
-                              borderSide: BorderSide(color: black198),
+                              borderSide: const BorderSide(color: black198),
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(5),
-                              borderSide: BorderSide(color: black198),
+                              borderSide: const BorderSide(color: black198),
                             ),
                             enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(5),
-                              borderSide: BorderSide(color: black198),
+                              borderSide: const BorderSide(color: black198),
                             ),
                             filled: true,
                             fillColor: black247,
                             label: Text(
                               'Expiry Date',
-                              style: TextStyle(color: black26),
+                              style: TextStyle(color: ColorManager.blackColor),
                             )),
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 10,
                     ),
                     SizedBox(
@@ -155,57 +157,58 @@ class _CheckoutCardDetailsState extends State<CheckoutCardDetails> {
                         decoration: InputDecoration(
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(5),
-                              borderSide: BorderSide(color: black198),
+                              borderSide: const BorderSide(color: black198),
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(5),
-                              borderSide: BorderSide(color: black198),
+                              borderSide: const BorderSide(color: black198),
                             ),
                             enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(5),
-                              borderSide: BorderSide(color: black198),
+                              borderSide: const BorderSide(color: black198),
                             ),
                             filled: true,
                             fillColor: black247,
                             label: Text(
                               'CVV',
-                              style: TextStyle(color: black26),
+                              style: TextStyle(color: ColorManager.blackColor),
                             )),
                       ),
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Icon(Icons.lock_outline, size: 25, color: black26),
-                    SizedBox(
+                    Icon(Icons.lock_outline,
+                        size: 25, color: ColorManager.blackColor),
+                    const SizedBox(
                       width: 20,
                     ),
                     SizedBox(
                         width: SizeUtility(context).width * 75 / 100,
-                        child: Text(
+                        child: const Text(
                           'We follow the Payment Card Industry Data Security Standard (PCI DSS) and use industry-standard encryption to protect the confidentiality of your personal information.',
                           style: TextStyle(color: black122),
                         ))
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
                 SizedBox(
                     width: SizeUtility(context).width * 75 / 100,
-                    child: Text(
+                    child: const Text(
                       'Payment will be processed separately by PIPO according to the PIPO Privacy Policy',
                       style: TextStyle(color: black122, fontSize: 15),
                     )),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 100,
                 )
               ],
@@ -216,11 +219,12 @@ class _CheckoutCardDetailsState extends State<CheckoutCardDetails> {
           padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
           child: ElevatedButton(
             style: ButtonStyle(
-              backgroundColor: MaterialStateProperty.all(green77),
+              backgroundColor:
+                  MaterialStateProperty.all(ColorManager.greenColor1),
               shape: MaterialStateProperty.all(
                 RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(30.0),
-                  side: BorderSide(color: green77, width: 2.0),
+                  side: BorderSide(color: ColorManager.greenColor1, width: 2.0),
                 ),
               ),
               elevation: MaterialStateProperty.all(0),
@@ -229,10 +233,10 @@ class _CheckoutCardDetailsState extends State<CheckoutCardDetails> {
             ),
             onPressed: () {
               Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => CheckoutConfirmation(),
+                builder: (context) => const CheckoutConfirmation(),
               ));
             },
-            child: Text(
+            child: const Text(
               'Continue',
               style: TextStyle(
                   color: Colors.white,

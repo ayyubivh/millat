@@ -7,7 +7,7 @@ import 'package:millat/resources/shop/view/products/single_product_view.dart';
 import 'package:millat/utils/size_utility.dart';
 import '../../../../components/common_widgets/cart_icon_widget.dart';
 import '../../../../components/common_widgets/shop_products_widget.dart';
-import '../../../../utils/globals.dart';
+import '../../../../utils/color_manager.dart';
 import '../../bloc/logic/cart_bloc/cart_bloc.dart';
 import '../../bloc/logic/category_bloc/category_bloc.dart';
 import '../../bloc/logic/shop_bloc/shop_products_bloc.dart';
@@ -63,7 +63,7 @@ class _CategoriesViewState extends State<CategoriesView> {
             BlocBuilder<CartBloc, CartState>(
               builder: (context, state) {
                 return CartIconWidget(
-                  color: black26,
+                  color: ColorManager.blackColor,
                   cartLength: state.cartLength ?? 0,
                 );
               },
@@ -111,11 +111,11 @@ class _CategoriesViewState extends State<CategoriesView> {
                                   const EdgeInsets.symmetric(horizontal: 10),
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(20),
-                                color: veryLightGreen,
+                                color: ColorManager.veryLightGreen,
                               ),
-                              child: const ImageIcon(
+                              child: ImageIcon(
                                 AssetImage('assets/icons/filter.png'),
-                                color: green77,
+                                color: ColorManager.greenColor1,
                               ),
                             ),
                           ),
@@ -136,19 +136,20 @@ class _CategoriesViewState extends State<CategoriesView> {
                                               height: 34,
                                               decoration: BoxDecoration(
                                                 color: isSelected
-                                                    ? green77
-                                                    : whiteClr,
+                                                    ? ColorManager.greenColor1
+                                                    : ColorManager.whiteColor,
                                                 borderRadius:
                                                     BorderRadius.circular(30),
                                                 border: Border.all(
                                                   color: isSelected
-                                                      ? green77
+                                                      ? ColorManager.greenColor1
                                                       : Colors.grey
                                                           .withOpacity(0.5),
                                                 ),
                                               ),
                                               child: FilterChip(
-                                                backgroundColor: whiteClr,
+                                                backgroundColor:
+                                                    ColorManager.whiteColor,
                                                 label: Text(
                                                   subCategory,
                                                   style: const TextStyle(
@@ -163,7 +164,8 @@ class _CategoriesViewState extends State<CategoriesView> {
                                                             value: subCategory),
                                                       );
                                                 },
-                                                selectedColor: green77,
+                                                selectedColor:
+                                                    ColorManager.greenColor1,
                                                 checkmarkColor: Colors.white,
                                                 shape: RoundedRectangleBorder(
                                                   borderRadius:
@@ -236,7 +238,7 @@ class _CategoriesViewState extends State<CategoriesView> {
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(30),
                                 color: _currentIndex == index
-                                    ? green24
+                                    ? ColorManager.primary
                                     : Colors.grey,
                               ),
                             );
@@ -284,16 +286,17 @@ class _CategoriesViewState extends State<CategoriesView> {
                     }
 
                     return state.productLoading
-                        ? const Center(
-                            child: CircularProgressIndicator(color: green77),
+                        ? Center(
+                            child: CircularProgressIndicator(
+                                color: ColorManager.greenColor1),
                           )
                         : filteredProducts.isEmpty
-                            ? const Center(
+                            ? Center(
                                 child: Text(
                                   'No result found',
                                   style: TextStyle(
                                     fontSize: 20,
-                                    color: green77,
+                                    color: ColorManager.greenColor1,
                                   ),
                                 ),
                               )

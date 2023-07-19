@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:millat/utils/constants.dart';
-import '../../utils/globals.dart';
+import '../../utils/color_manager.dart';
 
 // Loader
 
@@ -13,12 +13,12 @@ Widget gradientContainer(
   return Container(
     decoration: BoxDecoration(
       borderRadius: BorderRadius.circular(12),
-      gradient: const RadialGradient(
+      gradient: RadialGradient(
         center: Alignment.topLeft,
         radius: 5,
         colors: [
           lightGreenColor,
-          darkGreenColor,
+          ColorManager.darkGreenColor,
           dark2GreenColor,
         ],
       ),
@@ -40,17 +40,16 @@ Widget buildSurahContainer(
     margin: const EdgeInsets.all(5),
     decoration: BoxDecoration(
       borderRadius: BorderRadius.circular(7),
-      color: whiteClr,
+      color: ColorManager.whiteColor,
       boxShadow: [
         BoxShadow(
-          color: primaryGreen.withOpacity(0.1),
+          color: ColorManager.primary.withOpacity(0.1),
           blurRadius: 5,
           spreadRadius: 0,
           offset: const Offset(0, 2),
         ),
       ],
     ),
-    height: 195,
     width: double.infinity,
     child: Column(
       children: [
@@ -90,7 +89,6 @@ Widget buildSurahContainer(
         Align(
           alignment: Alignment.topRight,
           child: SizedBox(
-            height: 60,
             child: Text(
               surah,
               style: const TextStyle(
@@ -98,6 +96,7 @@ Widget buildSurahContainer(
                 fontWeight: FontWeight.w800,
               ),
               textDirection: TextDirection.rtl,
+              maxLines: 4,
             ),
           ),
         ),
@@ -120,30 +119,30 @@ Widget buildSurahContainer(
             color: black247,
             borderRadius: BorderRadius.circular(7),
           ),
-          child: const Row(
+          child: Row(
             children: [
               Text(
                 "Tafseer",
                 style: TextStyle(
                   fontSize: 15,
                   fontWeight: FontWeight.bold,
-                  color: primaryGreen,
+                  color: ColorManager.primary,
                 ),
               ),
-              Spacer(),
+              const Spacer(),
               ImageIcon(
-                AssetImage("assets/icons/share.png"),
-                color: primaryGreen,
+                const AssetImage("assets/icons/share.png"),
+                color: ColorManager.primary,
               ),
               kWidht10,
               ImageIcon(
-                AssetImage("assets/icons/play.png"),
-                color: primaryGreen,
+                const AssetImage("assets/icons/play.png"),
+                color: ColorManager.primary,
               ),
               kWidht10,
               ImageIcon(
-                AssetImage("assets/icons/bookmark.png"),
-                color: primaryGreen,
+                const AssetImage("assets/icons/bookmark.png"),
+                color: ColorManager.primary,
               ),
             ],
           ),

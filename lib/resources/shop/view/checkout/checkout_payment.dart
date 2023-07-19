@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:millat/resources/shop/view/checkout/checkout_confirmation.dart';
-import 'package:millat/utils/globals.dart';
+import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/utils.dart';
 
@@ -32,7 +32,7 @@ class _CheckoutPaymentState extends State<CheckoutPayment> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Slider(
-                  activeColor: green77,
+                  activeColor: ColorManager.greenColor1,
                   inactiveColor: black195,
                   max: 10,
                   min: 0,
@@ -42,16 +42,18 @@ class _CheckoutPaymentState extends State<CheckoutPayment> {
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [
+                  children: [
                     Text(
                       'Personal Info',
                       style: TextStyle(
-                          fontWeight: FontWeight.w700, color: green77),
+                          fontWeight: FontWeight.w700,
+                          color: ColorManager.greenColor1),
                     ),
                     Text(
                       'Payment',
                       style: TextStyle(
-                          fontWeight: FontWeight.w600, color: green77),
+                          fontWeight: FontWeight.w600,
+                          color: ColorManager.greenColor1),
                     ),
                     Text(
                       'Confirmation',
@@ -63,10 +65,10 @@ class _CheckoutPaymentState extends State<CheckoutPayment> {
                 const SizedBox(
                   height: 60,
                 ),
-                const Text(
+                Text(
                   'Payment Methods',
                   style: TextStyle(
-                      color: black26,
+                      color: ColorManager.blackColor,
                       fontSize: 17,
                       fontWeight: FontWeight.w700),
                 ),
@@ -147,10 +149,10 @@ class _CheckoutPaymentState extends State<CheckoutPayment> {
                 const SizedBox(
                   height: 40,
                 ),
-                const Text(
+                Text(
                   'Other Payment Methods',
                   style: TextStyle(
-                      color: black26,
+                      color: ColorManager.blackColor,
                       fontSize: 17,
                       fontWeight: FontWeight.w700),
                 ),
@@ -192,11 +194,12 @@ class _CheckoutPaymentState extends State<CheckoutPayment> {
           padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
           child: ElevatedButton(
             style: ButtonStyle(
-              backgroundColor: MaterialStateProperty.all(green77),
+              backgroundColor:
+                  MaterialStateProperty.all(ColorManager.greenColor1),
               shape: MaterialStateProperty.all(
                 RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(30.0),
-                  side: const BorderSide(color: green77, width: 2.0),
+                  side: BorderSide(color: ColorManager.greenColor1, width: 2.0),
                 ),
               ),
               elevation: MaterialStateProperty.all(0),
@@ -257,7 +260,7 @@ class _CheckoutPaymentState extends State<CheckoutPayment> {
                     onTap();
                   });
                 },
-                fillColor: MaterialStateProperty.all(green77)),
+                fillColor: MaterialStateProperty.all(ColorManager.greenColor1)),
           ],
         ),
       ),

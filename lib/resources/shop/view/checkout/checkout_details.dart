@@ -4,7 +4,7 @@ import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/profile/views/manage_address.dart';
 import 'package:millat/resources/shop/bloc/logic/address_bloc/address_bloc.dart';
 import 'package:millat/resources/shop/view/checkout/checkout_view.dart';
-import 'package:millat/utils/globals.dart';
+import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/size_utility.dart';
 
 class CheckoutDetails extends StatefulWidget {
@@ -71,9 +71,9 @@ class _CheckoutDetailsState extends State<CheckoutDetails> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 widget.type == AddressNavType.profile
-                    ? const SizedBox()
+                    ? SizedBox()
                     : Slider(
-                        activeColor: green77,
+                        activeColor: ColorManager.greenColor1,
                         inactiveColor: black195,
                         max: 10,
                         min: 0,
@@ -85,11 +85,12 @@ class _CheckoutDetailsState extends State<CheckoutDetails> {
                     ? const SizedBox()
                     : Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: const [
+                        children: [
                           Text(
                             'Personal Info',
                             style: TextStyle(
-                                fontWeight: FontWeight.w700, color: green77),
+                                fontWeight: FontWeight.w700,
+                                color: ColorManager.greenColor1),
                           ),
                           Text(
                             'Payment',
@@ -179,10 +180,10 @@ class _CheckoutDetailsState extends State<CheckoutDetails> {
                 const SizedBox(
                   height: 30,
                 ),
-                const Text(
+                Text(
                   'Address Type',
                   style: TextStyle(
-                      color: black26,
+                      color: ColorManager.blackColor,
                       fontSize: 17,
                       fontWeight: FontWeight.w700),
                 ),
@@ -236,11 +237,12 @@ class _CheckoutDetailsState extends State<CheckoutDetails> {
           padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
           child: ElevatedButton(
             style: ButtonStyle(
-              backgroundColor: MaterialStateProperty.all(green77),
+              backgroundColor:
+                  MaterialStateProperty.all(ColorManager.greenColor1),
               shape: MaterialStateProperty.all(
                 RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(30.0),
-                  side: const BorderSide(color: green77, width: 2.0),
+                  side: BorderSide(color: ColorManager.greenColor1, width: 2.0),
                 ),
               ),
               elevation: MaterialStateProperty.all(0),
@@ -335,7 +337,7 @@ class _CheckoutDetailsState extends State<CheckoutDetails> {
         fillColor: black247,
         label: Text(
           hintText,
-          style: const TextStyle(color: black26),
+          style: TextStyle(color: ColorManager.blackColor),
         ),
       ),
       validator: (value) {

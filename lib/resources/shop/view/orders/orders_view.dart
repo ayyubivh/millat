@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:millat/resources/shop/view/orders/widgets/order_filter_view.dart';
 import 'package:millat/resources/shop/view/orders/widgets/orders_card_widget.dart';
-import 'package:millat/utils/globals.dart';
+import 'package:millat/utils/color_manager.dart';
 import '../../bloc/logic/shop_bloc/shop_products_bloc.dart';
 
 class Orders extends StatefulWidget {
@@ -17,7 +18,7 @@ class _OrdersState extends State<Orders> with SingleTickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 5, vsync: this);
+    _tabController = TabController(length: 4, vsync: this);
   }
 
   @override
@@ -39,79 +40,34 @@ class _OrdersState extends State<Orders> with SingleTickerProviderStateMixin {
         elevation: 0,
         backgroundColor: Colors.transparent,
         bottom: TabBar(
-          labelColor: green77,
+          labelColor: ColorManager.greenColor1,
           unselectedLabelColor: black122,
           controller: _tabController,
-          dividerColor: green77,
-          indicatorColor: green77,
+          dividerColor: ColorManager.greenColor1,
+          indicatorColor: ColorManager.greenColor1,
           tabs: const [
             Tab(text: 'All'),
-            Tab(text: 'Unpaid'),
-            Tab(text: 'To Ship'),
-            Tab(text: 'Shipped'),
-            Tab(text: 'Completed'),
+            Tab(text: 'To ship'),
+            Tab(text: 'Delivered'),
+            Tab(text: 'Canceled'),
           ],
         ),
       ),
       body: TabBarView(
         controller: _tabController,
-        children: [
-          SingleChildScrollView(
-            child: Container(
-              margin: const EdgeInsets.all(10),
-              child: Column(
-                children: [
-                  BlocBuilder<ShopProductsBloc, ShopProductsState>(
-                    builder: (context, state) {
-                      if (state.orderModel?.result == null) {
-                        return const CircularProgressIndicator(color: green24);
-                      }
-                      return ListView.builder(
-                        physics: const NeverScrollableScrollPhysics(),
-                        itemCount:
-                            state.orderModel?.result?.orderProducts?.length ??
-                                0,
-                        shrinkWrap: true,
-                        itemBuilder: (context, index) {
-                          final data = state.orderModel?.result
-                              ?.orderProducts?[index].orderItems?[0];
-
-                          return SizedBox(
-                            child: OrdersProfileWidget(
-                              id: data?.productId?.id ?? "0",
-                              title: data?.productId?.title,
-                              size: data?.size,
-                              image:
-                                  data?.productId?.colors?[0].images?[0] ?? "",
-                              price: state.orderModel!.result!
-                                  .orderProducts![index].subTotal!
-                                  .toDouble(),
-                              jsonColor: data?.color,
-                              colorName: data?.color,
-                              quantity: data?.quantity?.toInt() ?? 0,
-                              productId: data?.productId?.id,
-                            ),
-                          );
-                        },
-                      );
-                    },
-                  ),
-                ],
-              ),
-            ),
+        children: const [
+          OrderFilterView(
+            filterName: "All",
           ),
-          Container(
-            color: Colors.blue,
+          OrderFilterView(
+            filterName: 'To Ship',
           ),
-          Container(
-            color: Colors.green,
+          OrderFilterView(
+            filterName: 'Delivered',
           ),
-          Container(
-            color: Colors.red,
-          ),
-          Container(
-            color: Colors.yellow,
-          ),
+          OrderFilterView(
+            filterName: 'cancelled',
+          )
         ],
       ),
     );

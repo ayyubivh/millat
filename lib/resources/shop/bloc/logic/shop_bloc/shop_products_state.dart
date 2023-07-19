@@ -25,7 +25,7 @@ class ShopProductsState with _$ShopProductsState {
       required int index,
       required bool isWishListed,
       required OrderModel? orderModel,
-      required OrdersById? ordersByIdModel,
+      required OrderModel? ordersByIdModel,
       required String errorMessage}) = _Initial;
 
   factory ShopProductsState.initial() => const ShopProductsState(

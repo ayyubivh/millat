@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:millat/utils/globals.dart';
+import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/size_utility.dart';
 
 class MainButton extends StatelessWidget {
@@ -15,7 +15,7 @@ class MainButton extends StatelessWidget {
         style: ButtonStyle(
           fixedSize:
               MaterialStateProperty.all(Size(SizeUtility(context).width, 50)),
-          backgroundColor: MaterialStateProperty.all(mainColor),
+          backgroundColor: MaterialStateProperty.all(ColorManager.primary),
           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
             RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(100.0),

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
 import 'package:millat/resources/shop/view/products/single_product_view.dart';
-import '../../../../utils/globals.dart';
+import '../../../../utils/color_manager.dart';
 import '../../../../utils/size_utility.dart';
 
 class SearchView extends StatefulWidget {
@@ -28,7 +28,7 @@ class _SearchViewState extends State<SearchView> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              padding: EdgeInsets.only(
+              padding: const EdgeInsets.only(
                 top: 30,
                 left: 15,
                 right: 20,
@@ -37,7 +37,7 @@ class _SearchViewState extends State<SearchView> {
               height: 157,
               decoration: BoxDecoration(
                 gradient: LinearGradient(
-                    colors: [green77, green24],
+                    colors: [ColorManager.greenColor1, ColorManager.primary],
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter),
               ),
@@ -49,21 +49,21 @@ class _SearchViewState extends State<SearchView> {
                         onPressed: () {
                           Navigator.of(context).pop();
                         },
-                        icon: Icon(Icons.arrow_back),
-                        color: whiteClr,
+                        icon: const Icon(Icons.arrow_back),
+                        color: ColorManager.whiteColor,
                         // iconSize: 22,
                       ),
                       Text(
                         'Back',
                         style: TextStyle(
-                          color: whiteClr,
+                          color: ColorManager.whiteColor,
                           fontWeight: FontWeight.bold,
                           fontSize: 16,
                         ),
                       ),
                     ],
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   Container(
                     height: 48,
                     child: TextFormField(
@@ -76,7 +76,7 @@ class _SearchViewState extends State<SearchView> {
                                   .read<ShopProductsBloc>()
                                   .add(SearchProduct(searchController.text));
                             },
-                            icon: Icon(Icons.search, color: black142)),
+                            icon: const Icon(Icons.search, color: black142)),
                         filled: true,
                         fillColor: Colors.white,
                         border: OutlineInputBorder(
@@ -99,7 +99,7 @@ class _SearchViewState extends State<SearchView> {
               ),
             ),
             Padding(
-              padding: EdgeInsets.only(
+              padding: const EdgeInsets.only(
                 top: 10,
                 left: 15,
                 right: 20,
@@ -111,27 +111,27 @@ class _SearchViewState extends State<SearchView> {
                   return Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
+                      const Text(
                         'offer',
                         style: TextStyle(
                           color: black102,
                           fontSize: 14,
                         ),
                       ),
-                      SizedBox(height: 25),
+                      const SizedBox(height: 25),
                       Text(
                         '${searchController.text} (${itemCount})',
                         style: TextStyle(
-                          color: black26,
+                          color: ColorManager.blackColor,
                           fontSize: 14,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text(
+                          const Text(
                             'product',
                             style: TextStyle(
                               color: black102,
@@ -141,7 +141,7 @@ class _SearchViewState extends State<SearchView> {
                           Text(
                             'See All',
                             style: TextStyle(
-                              color: green77,
+                              color: ColorManager.greenColor1,
                               fontWeight: FontWeight.w600,
                               fontSize: 15,
                             ),
@@ -149,8 +149,8 @@ class _SearchViewState extends State<SearchView> {
                         ],
                       ),
                       state.searchProducts?.result?.products == null
-                          ? Padding(
-                              padding: const EdgeInsets.only(top: 158.0),
+                          ? const Padding(
+                              padding: EdgeInsets.only(top: 158.0),
                               child: Center(
                                 child: Text('no result found'),
                               ),
@@ -209,35 +209,35 @@ class _SearchViewState extends State<SearchView> {
               borderRadius: BorderRadius.circular(10),
             ),
           ),
-          SizedBox(width: 8),
+          const SizedBox(width: 8),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
                 produchName.toString(),
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 14,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
               Text(
                 '\$ ${rate}',
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.w600,
                   color: textBlack,
                 ),
               ),
-              SizedBox(height: 18),
+              const SizedBox(height: 18),
               RichText(
                 text: TextSpan(
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 16,
                     color: Colors.black,
                   ),
                   children: [
-                    TextSpan(
+                    const TextSpan(
                         text: 'by  ',
                         style: TextStyle(
                           fontSize: 13,
@@ -248,7 +248,7 @@ class _SearchViewState extends State<SearchView> {
                       style: TextStyle(
                         fontSize: 15,
                         fontWeight: FontWeight.bold,
-                        color: blue5,
+                        color: ColorManager.blue5,
                       ),
                     ),
                   ],

@@ -4,7 +4,7 @@ import 'package:millat/components/buttons/main_button.dart';
 import 'package:millat/components/textFields/custom_text_field.dart';
 import 'package:millat/resources/authentication/bloc/logic/auth_bloc.dart';
 import 'package:millat/resources/authentication/view/login_view.dart';
-import 'package:millat/utils/globals.dart';
+import 'package:millat/utils/color_manager.dart';
 
 class ForgotPasswordView extends StatefulWidget {
   const ForgotPasswordView({Key? key}) : super(key: key);
@@ -32,8 +32,8 @@ class _ForgotPasswordViewState extends State<ForgotPasswordView> {
       },
       builder: (context, state) {
         if (state is AuthLoading) {
-          return const Center(
-            child: CircularProgressIndicator(color: green77),
+          return Center(
+            child: CircularProgressIndicator(color: ColorManager.greenColor1),
           );
         } else {
           return Padding(
@@ -46,8 +46,8 @@ class _ForgotPasswordViewState extends State<ForgotPasswordView> {
                     height: 70,
                   ),
                   RichText(
-                      text: const TextSpan(children: [
-                    TextSpan(
+                      text: TextSpan(children: [
+                    const TextSpan(
                         text: 'Forgot ',
                         style: TextStyle(
                             color: Colors.black,
@@ -56,7 +56,7 @@ class _ForgotPasswordViewState extends State<ForgotPasswordView> {
                     TextSpan(
                         text: 'Password?',
                         style: TextStyle(
-                            color: mainColor,
+                            color: ColorManager.mainColor,
                             fontSize: 24,
                             fontWeight: FontWeight.w500)),
                   ])),
@@ -69,7 +69,7 @@ class _ForgotPasswordViewState extends State<ForgotPasswordView> {
                     height: 40,
                   ),
                   CustomTextField(
-                      icon: Icon(Icons.email),
+                      icon: const Icon(Icons.email),
                       hint: 'example@gmail.com',
                       controller: _emailController),
                   const SizedBox(

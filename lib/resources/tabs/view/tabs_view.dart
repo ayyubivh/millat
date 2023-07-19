@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/resources/home/view/home_view.dart';
 import 'package:millat/resources/shop/view/tabs/shop_tabs_vilew.dart';
-import 'package:millat/utils/globals.dart';
+import 'package:millat/utils/color_manager.dart';
 import '../../authentication/bloc/logic/database_bloc/database_bloc.dart';
 import '../../home/bloc/logic/location_bloc/location_bloc.dart';
 import '../../home/bloc/logic/namaz_timing_bloc/namaz_timing_bloc.dart';
@@ -59,9 +59,10 @@ class _TabsViewState extends State<TabsView> {
             onTap: onTap,
             currentIndex: index,
             unselectedItemColor: black137,
-            selectedItemColor: green24,
+            selectedItemColor: ColorManager.primary,
             showUnselectedLabels: true,
-            selectedIconTheme: const IconThemeData(color: green24, size: 25),
+            selectedIconTheme:
+                IconThemeData(color: ColorManager.primary, size: 25),
             unselectedIconTheme: const IconThemeData(color: black137, size: 25),
             type: BottomNavigationBarType.fixed,
             items: const [
@@ -109,7 +110,7 @@ class _TabsViewState extends State<TabsView> {
             contentPadding: EdgeInsets.zero,
             children: <Widget>[
               Container(
-                color: green24,
+                color: ColorManager.primary,
                 padding: const EdgeInsets.only(bottom: 10, top: 10),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
@@ -144,15 +145,16 @@ class _TabsViewState extends State<TabsView> {
                   children: [
                     Container(
                       margin: const EdgeInsets.only(right: 10),
-                      child: const Icon(
+                      child: Icon(
                         Icons.cancel,
-                        color: green24,
+                        color: ColorManager.primary,
                       ),
                     ),
-                    const Text(
+                    Text(
                       'Cancel',
                       style: TextStyle(
-                          color: green24, fontWeight: FontWeight.bold),
+                          color: ColorManager.primary,
+                          fontWeight: FontWeight.bold),
                     )
                   ],
                 ),
@@ -165,15 +167,16 @@ class _TabsViewState extends State<TabsView> {
                   children: [
                     Container(
                       margin: const EdgeInsets.only(right: 10),
-                      child: const Icon(
+                      child: Icon(
                         Icons.check_circle,
-                        color: green24,
+                        color: ColorManager.primary,
                       ),
                     ),
-                    const Text(
+                    Text(
                       'Yes',
                       style: TextStyle(
-                          color: green24, fontWeight: FontWeight.bold),
+                          color: ColorManager.primary,
+                          fontWeight: FontWeight.bold),
                     )
                   ],
                 ),

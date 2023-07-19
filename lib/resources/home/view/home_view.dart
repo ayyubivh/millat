@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/resources/home/bloc/logic/namaz_timing_bloc/namaz_timing_bloc.dart';
+import 'package:millat/resources/home/bloc/logic/quran_bloc/quran_bloc.dart';
+import 'package:millat/resources/home/bloc/service/quran_service.dart';
 import 'package:millat/utils/constants.dart';
-import '../../../utils/globals.dart';
+import '../../../utils/color_manager.dart';
 import '../../../utils/size_utility.dart';
 import '../../../utils/utils.dart';
 import '../../authentication/bloc/logic/database_bloc/database_bloc.dart';
@@ -30,13 +32,16 @@ class _HomeViewState extends State<HomeView> {
     BlocProvider.of<LocationBloc>(context).add(const FetchCurrentLocation());
     BlocProvider.of<DatabaseBloc>(context).add(const FetchUserDetails());
     BlocProvider.of<LocationBloc>(context).add(const FetchCities());
+    BlocProvider.of<ShopProductsBloc>(context).add(const FetchHomeBanners());
+    BlocProvider.of<ShopProductsBloc>(context).add(FetchOrders(context));
+
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: whiteClr,
+      backgroundColor: ColorManager.whiteColor,
       body: BlocListener<LocationBloc, LocationState>(
         listener: (context, state) {
           if (state.currentLocaion.isNotEmpty) {
@@ -250,7 +255,7 @@ class _HomeViewState extends State<HomeView> {
                                                   borderRadius:
                                                       BorderRadius.circular(30),
                                                   color: _currentIndex == index
-                                                      ? green24
+                                                      ? ColorManager.primary
                                                       : Colors.grey,
                                                 ),
                                               );
@@ -558,7 +563,8 @@ class _HomeViewState extends State<HomeView> {
                                                 MainAxisAlignment.spaceBetween,
                                             children: [
                                               Slider(
-                                                activeColor: mainColor,
+                                                activeColor:
+                                                    ColorManager.mainColor,
                                                 inactiveColor: black153,
                                                 value: 0.5,
                                                 onChanged: (value) {},
@@ -595,9 +601,10 @@ class _HomeViewState extends State<HomeView> {
                                                             'assets/icons/previous_sound.png'),
                                                         color: black217,
                                                       )),
-                                                  const CircleAvatar(
-                                                    backgroundColor: mainColor,
-                                                    child: Icon(
+                                                  CircleAvatar(
+                                                    backgroundColor:
+                                                        ColorManager.mainColor,
+                                                    child: const Icon(
                                                         Icons.play_arrow,
                                                         color: Colors.white),
                                                   ),
@@ -677,11 +684,11 @@ class _HomeViewState extends State<HomeView> {
           horizontal: 15,
         ),
         decoration: BoxDecoration(
-          color: whiteClr,
+          color: ColorManager.whiteColor,
           borderRadius: BorderRadius.circular(20),
           boxShadow: [
             BoxShadow(
-              color: primaryGreen.withOpacity(0.1),
+              color: ColorManager.primary.withOpacity(0.1),
               blurRadius: 2,
               spreadRadius: 0,
               offset: const Offset(0, 2),
@@ -726,8 +733,8 @@ class _HomeViewState extends State<HomeView> {
                               children: [
                                 Text(
                                   currentNamazName,
-                                  style: const TextStyle(
-                                    color: mainColor,
+                                  style: TextStyle(
+                                    color: ColorManager.mainColor,
                                     fontSize: 20,
                                   ),
                                 ),
@@ -779,8 +786,8 @@ class _HomeViewState extends State<HomeView> {
                               children: [
                                 Text(
                                   upcomingNamazName,
-                                  style: const TextStyle(
-                                    color: mainColor,
+                                  style: TextStyle(
+                                    color: ColorManager.mainColor,
                                     fontSize: 20,
                                   ),
                                 ),
@@ -813,11 +820,11 @@ class _HomeViewState extends State<HomeView> {
       height: scrollNotifier.value == false ? 180 : 190,
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
-        color: whiteClr,
+        color: ColorManager.whiteColor,
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-            color: primaryGreen.withOpacity(0.1),
+            color: ColorManager.primary.withOpacity(0.1),
             blurRadius: 2,
             spreadRadius: 1,
             offset: const Offset(0, 2),
@@ -842,9 +849,9 @@ class _HomeViewState extends State<HomeView> {
       children: [
         Row(
           children: [
-            const ImageIcon(
-              AssetImage('assets/icons/calendar.png'),
-              color: mainColor,
+            ImageIcon(
+              const AssetImage('assets/icons/calendar.png'),
+              color: ColorManager.mainColor,
               size: 35,
             ),
             const SizedBox(
@@ -953,7 +960,7 @@ class _HomeViewState extends State<HomeView> {
           context.read<LocationBloc>().add(const FetchCurrentLocation());
         },
         style: ElevatedButton.styleFrom(
-          backgroundColor: primaryGreen,
+          backgroundColor: ColorManager.primary,
         ),
         child: const Row(
           children: [
@@ -973,9 +980,9 @@ class _HomeViewState extends State<HomeView> {
       children: [
         Row(
           children: [
-            const ImageIcon(
-              AssetImage('assets/icons/calendar.png'),
-              color: mainColor,
+            ImageIcon(
+              const AssetImage('assets/icons/calendar.png'),
+              color: ColorManager.mainColor,
               size: 35,
             ),
             const SizedBox(
@@ -1039,8 +1046,8 @@ class _HomeViewState extends State<HomeView> {
                       children: [
                         Text(
                           currentNamazName,
-                          style: const TextStyle(
-                            color: mainColor,
+                          style: TextStyle(
+                            color: ColorManager.mainColor,
                             fontSize: 20,
                           ),
                         ),
@@ -1086,8 +1093,8 @@ class _HomeViewState extends State<HomeView> {
                       children: [
                         Text(
                           upcomingNamazName,
-                          style: const TextStyle(
-                            color: mainColor,
+                          style: TextStyle(
+                            color: ColorManager.mainColor,
                             fontSize: 20,
                           ),
                         ),
@@ -1185,7 +1192,7 @@ class _HomeViewState extends State<HomeView> {
             const SizedBox(
               height: 15,
             ),
-            const Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Row(
@@ -1193,14 +1200,14 @@ class _HomeViewState extends State<HomeView> {
                     Text(
                       'MRP',
                       style: TextStyle(
-                          color: mainColor,
+                          color: ColorManager.mainColor,
                           fontSize: 16,
                           fontWeight: FontWeight.w600),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 10,
                     ),
-                    Text(
+                    const Text(
                       '(₹.345)',
                       style: TextStyle(
                           color: blue126,
@@ -1210,7 +1217,7 @@ class _HomeViewState extends State<HomeView> {
                     ),
                   ],
                 ),
-                Text(
+                const Text(
                   '11%off',
                   style: TextStyle(
                       color: orange255,
@@ -1222,10 +1229,10 @@ class _HomeViewState extends State<HomeView> {
             const SizedBox(
               height: 15,
             ),
-            const Text(
+            Text(
               '₹307.80',
               style: TextStyle(
-                  color: midGreenColor,
+                  color: ColorManager.midGreenColor,
                   fontSize: 19,
                   fontWeight: FontWeight.w600),
             ),

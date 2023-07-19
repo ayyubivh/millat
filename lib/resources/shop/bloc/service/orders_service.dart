@@ -12,13 +12,13 @@ class OrdersService extends HttpServices {
   //For adding the orders
   postOrder({
     required BuildContext context,
-    required String productId,
     required int totalPrice,
     required String pickUpAddress,
     required int totalQuantity,
     required int totalDiscount,
     required int shippingCharges,
     required int weight,
+    required String id,
   }) async {
     const endPoint = 'order/payment/COD';
 
@@ -29,15 +29,9 @@ class OrdersService extends HttpServices {
       'Content-Type': 'application/json; charset=utf-8',
       'Authorization': 'Bearer $token',
     };
-    print('here is the token man $token');
+
     final body = {
-      "address": "64ac5d71591ebf9102734995",
-      "pickup_location": pickUpAddress,
-      "sub_total": totalPrice,
-      "total_discount": totalDiscount,
-      "shipping_charges": shippingCharges,
-      "weight": weight,
-      "total_quantity": totalQuantity,
+      "address": id,
     };
 
     final response = await http.post(Uri.parse(kBaseUrl + endPoint),
@@ -72,8 +66,6 @@ class OrdersService extends HttpServices {
 
     if (response.statusCode == 200) {
       try {
-        print('here is the response in the body ${response.body}');
-
         final Map<String, dynamic> data = json.decode(response.body);
         final result = OrderModel.fromJson(data);
         return result;
@@ -88,8 +80,8 @@ class OrdersService extends HttpServices {
   }
 
 //For Getting orders by id
-  Future<OrdersById> fetchOrdersById(BuildContext context, int id) async {
-    final endPoint = "order/from/shiprocket/$id";
+  Future<OrderModel> fetchOrdersById(BuildContext context, int id) async {
+    final endPoint = "order/$id";
 
     final databaseState = context.read<DatabaseBloc>().state;
     final token = databaseState.token;
@@ -101,10 +93,39 @@ class OrdersService extends HttpServices {
 
     if (response.statusCode == 200) {
       try {
-        print('jsone here on a mat cha${response.body}');
+        print('jsone here by id${response.body}');
         final Map<String, dynamic> data = json.decode(response.body);
-        final result = OrdersById.fromJson(data);
+        final result = OrderModel.fromJson(data);
 
+        return result;
+      } catch (e) {
+        print('error on orders  API fetch: ${e.toString()}');
+        throw Exception('Failed to parse response');
+      }
+    } else {
+      throw Exception(
+          'API request failed with status code: ${response.statusCode}');
+    }
+  }
+
+  //fetch orders by filter
+  Future<OrderModel> fetchFilterOrders(
+      BuildContext context, String filterName) async {
+    final endPoint = "order?status=$filterName";
+
+    final databaseState = context.read<DatabaseBloc>().state;
+    final token = databaseState.token;
+    final headers = {
+      'Content-Type': 'application/json; charset=utf-8',
+      'Authorization': 'Bearer $token',
+    };
+    final response = await get(endPoint: endPoint, headers: headers);
+
+    if (response.statusCode == 200) {
+      try {
+        print("filtered orders ${response.body}");
+        final Map<String, dynamic> data = json.decode(response.body);
+        final result = OrderModel.fromJson(data);
         return result;
       } catch (e) {
         print('error on orders  API fetch: ${e.toString()}');

@@ -90,6 +90,7 @@ class SubCategory with _$SubCategory {
 @freezed
 class Brand with _$Brand {
   const factory Brand({
+    @JsonKey(name: "_id") required String id,
     required String? name,
   }) = _Brand;
 

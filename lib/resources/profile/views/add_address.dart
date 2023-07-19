@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:millat/resources/shop/view/checkout/checkout_payment.dart';
-import 'package:millat/utils/globals.dart';
+import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/size_utility.dart';
 
 class AddAddress extends StatefulWidget {
@@ -15,11 +15,11 @@ class _AddAddressState extends State<AddAddress> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('Add Address',
+          title: const Text('Add Address',
               style:
                   TextStyle(color: Colors.black, fontWeight: FontWeight.w700)),
           centerTitle: false,
-          leading: BackButton(color: Colors.black),
+          leading: const BackButton(color: Colors.black),
           elevation: 0,
           backgroundColor: Colors.transparent,
         ),
@@ -33,72 +33,72 @@ class _AddAddressState extends State<AddAddress> {
                   decoration: InputDecoration(
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(5),
-                        borderSide: BorderSide(color: black198),
+                        borderSide: const BorderSide(color: black198),
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(5),
-                        borderSide: BorderSide(color: black198),
+                        borderSide: const BorderSide(color: black198),
                       ),
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(5),
-                        borderSide: BorderSide(color: black198),
+                        borderSide: const BorderSide(color: black198),
                       ),
                       filled: true,
                       fillColor: black247,
                       label: Text(
                         'Deliver to',
-                        style: TextStyle(color: black26),
+                        style: TextStyle(color: ColorManager.blackColor),
                       )),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
                 TextField(
                   decoration: InputDecoration(
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(5),
-                        borderSide: BorderSide(color: black198),
+                        borderSide: const BorderSide(color: black198),
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(5),
-                        borderSide: BorderSide(color: black198),
+                        borderSide: const BorderSide(color: black198),
                       ),
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(5),
-                        borderSide: BorderSide(color: black198),
+                        borderSide: const BorderSide(color: black198),
                       ),
                       filled: true,
                       fillColor: black247,
                       label: Text(
                         'Address to',
-                        style: TextStyle(color: black26),
+                        style: TextStyle(color: ColorManager.blackColor),
                       )),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
                 TextField(
                   decoration: InputDecoration(
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(5),
-                        borderSide: BorderSide(color: black198),
+                        borderSide: const BorderSide(color: black198),
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(5),
-                        borderSide: BorderSide(color: black198),
+                        borderSide: const BorderSide(color: black198),
                       ),
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(5),
-                        borderSide: BorderSide(color: black198),
+                        borderSide: const BorderSide(color: black198),
                       ),
                       filled: true,
                       fillColor: black247,
                       label: Text(
                         'Landmark',
-                        style: TextStyle(color: black26),
+                        style: TextStyle(color: ColorManager.blackColor),
                       )),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
                 Row(
@@ -110,25 +110,25 @@ class _AddAddressState extends State<AddAddress> {
                         decoration: InputDecoration(
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(5),
-                              borderSide: BorderSide(color: black198),
+                              borderSide: const BorderSide(color: black198),
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(5),
-                              borderSide: BorderSide(color: black198),
+                              borderSide: const BorderSide(color: black198),
                             ),
                             enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(5),
-                              borderSide: BorderSide(color: black198),
+                              borderSide: const BorderSide(color: black198),
                             ),
                             filled: true,
                             fillColor: black247,
                             label: Text(
                               'City',
-                              style: TextStyle(color: black26),
+                              style: TextStyle(color: ColorManager.blackColor),
                             )),
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 10,
                     ),
                     SizedBox(
@@ -137,140 +137,140 @@ class _AddAddressState extends State<AddAddress> {
                         decoration: InputDecoration(
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(5),
-                              borderSide: BorderSide(color: black198),
+                              borderSide: const BorderSide(color: black198),
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(5),
-                              borderSide: BorderSide(color: black198),
+                              borderSide: const BorderSide(color: black198),
                             ),
                             enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(5),
-                              borderSide: BorderSide(color: black198),
+                              borderSide: const BorderSide(color: black198),
                             ),
                             filled: true,
                             fillColor: black247,
                             label: Text(
                               'Landmark',
-                              style: TextStyle(color: black26),
+                              style: TextStyle(color: ColorManager.blackColor),
                             )),
                       ),
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
                 TextField(
                   decoration: InputDecoration(
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(5),
-                        borderSide: BorderSide(color: black198),
+                        borderSide: const BorderSide(color: black198),
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(5),
-                        borderSide: BorderSide(color: black198),
+                        borderSide: const BorderSide(color: black198),
                       ),
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(5),
-                        borderSide: BorderSide(color: black198),
+                        borderSide: const BorderSide(color: black198),
                       ),
                       filled: true,
                       fillColor: black247,
                       label: Text(
                         'Landmark',
-                        style: TextStyle(color: black26),
+                        style: TextStyle(color: ColorManager.blackColor),
                       )),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
                 TextField(
                   decoration: InputDecoration(
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(5),
-                        borderSide: BorderSide(color: black198),
+                        borderSide: const BorderSide(color: black198),
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(5),
-                        borderSide: BorderSide(color: black198),
+                        borderSide: const BorderSide(color: black198),
                       ),
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(5),
-                        borderSide: BorderSide(color: black198),
+                        borderSide: const BorderSide(color: black198),
                       ),
                       filled: true,
                       fillColor: black247,
                       label: Text(
                         'Select State',
-                        style: TextStyle(color: black26),
+                        style: TextStyle(color: ColorManager.blackColor),
                       )),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
                 TextField(
                   decoration: InputDecoration(
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(5),
-                        borderSide: BorderSide(color: black198),
+                        borderSide: const BorderSide(color: black198),
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(5),
-                        borderSide: BorderSide(color: black198),
+                        borderSide: const BorderSide(color: black198),
                       ),
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(5),
-                        borderSide: BorderSide(color: black198),
+                        borderSide: const BorderSide(color: black198),
                       ),
                       filled: true,
                       fillColor: black247,
                       label: Text(
                         'Country',
-                        style: TextStyle(color: black26),
+                        style: TextStyle(color: ColorManager.blackColor),
                       )),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
                 TextField(
                   decoration: InputDecoration(
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(5),
-                        borderSide: BorderSide(color: black198),
+                        borderSide: const BorderSide(color: black198),
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(5),
-                        borderSide: BorderSide(color: black198),
+                        borderSide: const BorderSide(color: black198),
                       ),
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(5),
-                        borderSide: BorderSide(color: black198),
+                        borderSide: const BorderSide(color: black198),
                       ),
                       filled: true,
                       fillColor: black247,
                       label: Text(
                         'Mobile Number',
-                        style: TextStyle(color: black26),
+                        style: TextStyle(color: ColorManager.blackColor),
                       )),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
-                Text(
+                const Text(
                   'For all delivery related communication',
                   style: TextStyle(color: black130),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
                 Text(
                   'Address Type',
                   style: TextStyle(
-                      color: black26,
+                      color: ColorManager.blackColor,
                       fontSize: 17,
                       fontWeight: FontWeight.w700),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 Row(
@@ -282,10 +282,10 @@ class _AddAddressState extends State<AddAddress> {
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(30),
                           border: Border.all(color: black169)),
-                      child: Text('Home',
+                      child: const Text('Home',
                           style: TextStyle(color: black169, fontSize: 16)),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 10,
                     ),
                     Container(
@@ -295,10 +295,10 @@ class _AddAddressState extends State<AddAddress> {
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(30),
                           border: Border.all(color: black169)),
-                      child: Text('Work',
+                      child: const Text('Work',
                           style: TextStyle(color: black169, fontSize: 16)),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 10,
                     ),
                     Container(
@@ -308,12 +308,12 @@ class _AddAddressState extends State<AddAddress> {
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(30),
                           border: Border.all(color: black169)),
-                      child: Text('Others',
+                      child: const Text('Others',
                           style: TextStyle(color: black169, fontSize: 16)),
                     )
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 100,
                 )
               ],
@@ -324,11 +324,12 @@ class _AddAddressState extends State<AddAddress> {
           padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
           child: ElevatedButton(
             style: ButtonStyle(
-              backgroundColor: MaterialStateProperty.all(green77),
+              backgroundColor:
+                  MaterialStateProperty.all(ColorManager.greenColor1),
               shape: MaterialStateProperty.all(
                 RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(30.0),
-                  side: BorderSide(color: green77, width: 2.0),
+                  side: BorderSide(color: ColorManager.greenColor1, width: 2.0),
                 ),
               ),
               elevation: MaterialStateProperty.all(0),
@@ -337,10 +338,10 @@ class _AddAddressState extends State<AddAddress> {
             ),
             onPressed: () {
               Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => CheckoutPayment(),
+                builder: (context) => const CheckoutPayment(),
               ));
             },
-            child: Text(
+            child: const Text(
               'Save',
               style: TextStyle(
                   color: Colors.white,

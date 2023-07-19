@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/shop/view/checkout/checkout_details.dart';
-import 'package:millat/utils/globals.dart';
+import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/utils.dart';
 import '../../bloc/logic/address_bloc/address_bloc.dart';
@@ -41,7 +41,7 @@ class _CheckoutViewState extends State<CheckoutView> {
             child: Column(
               children: [
                 Slider(
-                  activeColor: green77,
+                  activeColor: ColorManager.greenColor1,
                   inactiveColor: black195,
                   max: 10,
                   min: 0,
@@ -51,11 +51,12 @@ class _CheckoutViewState extends State<CheckoutView> {
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [
+                  children: [
                     Text(
                       'Personal Info',
                       style: TextStyle(
-                          fontWeight: FontWeight.w700, color: black26),
+                          fontWeight: FontWeight.w700,
+                          color: ColorManager.blackColor),
                     ),
                     Text(
                       'Payment',
@@ -75,18 +76,18 @@ class _CheckoutViewState extends State<CheckoutView> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Text(
+                    Text(
                       'Address',
                       style: TextStyle(
                           fontWeight: FontWeight.w700,
                           fontSize: 17,
-                          color: black26),
+                          color: ColorManager.blackColor),
                     ),
                     Row(
                       children: [
-                        const Icon(
+                        Icon(
                           Icons.add,
-                          color: green77,
+                          color: ColorManager.greenColor1,
                         ),
                         InkWell(
                           onTap: () {
@@ -96,11 +97,11 @@ class _CheckoutViewState extends State<CheckoutView> {
                               ),
                             ));
                           },
-                          child: const Text(
+                          child: Text(
                             'Add Address',
                             style: TextStyle(
                                 fontWeight: FontWeight.w600,
-                                color: green77,
+                                color: ColorManager.greenColor1,
                                 fontSize: 16),
                           ),
                         ),
@@ -155,11 +156,12 @@ class _CheckoutViewState extends State<CheckoutView> {
           padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
           child: ElevatedButton(
             style: ButtonStyle(
-              backgroundColor: MaterialStateProperty.all(green77),
+              backgroundColor:
+                  MaterialStateProperty.all(ColorManager.greenColor1),
               shape: MaterialStateProperty.all(
                 RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(30.0),
-                  side: const BorderSide(color: green77, width: 2.0),
+                  side: BorderSide(color: ColorManager.greenColor1, width: 2.0),
                 ),
               ),
               elevation: MaterialStateProperty.all(0),
@@ -169,13 +171,13 @@ class _CheckoutViewState extends State<CheckoutView> {
             onPressed: () {
               String? id = context.read<AddressBloc>().state.addressId;
               if (id == null) {
-                print('$id is null man');
+                print('$id is null ');
                 showSnackBar(context, 'select the address');
                 return;
               }
               Navigator.of(context).push(MaterialPageRoute(
                 builder: (context) {
-                  print('$id is null man');
+                  print('$id is null ');
 
                   return const CheckoutPayment();
                 },
@@ -206,10 +208,10 @@ class _CheckoutViewState extends State<CheckoutView> {
           children: [
             Text(
               name.toString(),
-              style: const TextStyle(
+              style: TextStyle(
                 fontWeight: FontWeight.w700,
                 fontSize: 18,
-                color: black26,
+                color: ColorManager.blackColor,
               ),
             ),
             const SizedBox(height: 20),
@@ -233,7 +235,7 @@ class _CheckoutViewState extends State<CheckoutView> {
           onChanged: (value) {
             onTap();
           },
-          fillColor: MaterialStateProperty.all(green77),
+          fillColor: MaterialStateProperty.all(ColorManager.greenColor1),
         ),
       ],
     );

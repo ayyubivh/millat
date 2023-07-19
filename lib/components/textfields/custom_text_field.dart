@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:millat/utils/globals.dart';
+
+import '../../utils/color_manager.dart';
 
 class CustomTextField extends StatefulWidget {
   final String hint;

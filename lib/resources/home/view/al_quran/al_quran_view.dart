@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:millat/components/buttons/main_button.dart';
 import 'package:millat/components/common_widgets/reusable_methods.dart';
 import 'package:millat/resources/authentication/bloc/logic/database_bloc/database_bloc.dart';
 import 'package:millat/resources/home/view/al_quran/bookmark_view.dart';
 import 'package:millat/resources/home/view/al_quran/widgets/quran_tabbar_widget.dart';
 import 'package:millat/utils/constants.dart';
-import 'package:millat/utils/globals.dart';
+import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/size_utility.dart';
 
 class AlQuranView extends StatelessWidget {
@@ -14,16 +15,16 @@ class AlQuranView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: whiteClr,
+      backgroundColor: ColorManager.whiteColor,
       appBar: AppBar(
-        backgroundColor: whiteClr,
-        foregroundColor: black26,
+        backgroundColor: ColorManager.whiteColor,
+        foregroundColor: ColorManager.blackColor,
         elevation: 0,
         centerTitle: true,
-        title: const Text(
+        title: Text(
           "Al-Quran",
           style: TextStyle(
-            color: primaryGreen,
+            color: ColorManager.primary,
             fontSize: 18,
             fontWeight: FontWeight.bold,
           ),
@@ -31,24 +32,35 @@ class AlQuranView extends StatelessWidget {
         actions: [
           InkWell(
             onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => const BookmarkView(),
-              ));
+              // Navigator.of(context).push(MaterialPageRoute(
+              //   builder: (context) => const BookmarkView(),
+              // ));
+              showModalBottomSheet(
+                context: context,
+                backgroundColor: Colors.transparent,
+                builder: (context) {
+                  return StatefulBuilder(
+                    builder: (context, setState) {
+                      return _buildBookmarkPopUp(context);
+                    },
+                  );
+                },
+              );
             },
-            child: const ImageIcon(
-              AssetImage("assets/icons/bookmark.png"),
-              color: black26,
+            child: ImageIcon(
+              const AssetImage("assets/icons/bookmark.png"),
+              color: ColorManager.blackColor,
             ),
           ),
           kWidth15,
-          const ImageIcon(
-            AssetImage("assets/icons/settings.png"),
-            color: black26,
+          ImageIcon(
+            const AssetImage("assets/icons/settings.png"),
+            color: ColorManager.blackColor,
           ),
           kWidth15,
-          const ImageIcon(
-            AssetImage("assets/icons/search.png"),
-            color: black26,
+          ImageIcon(
+            const AssetImage("assets/icons/search.png"),
+            color: ColorManager.blackColor,
           ),
           kWidth15,
           kWidth15,
@@ -68,6 +80,66 @@ class AlQuranView extends StatelessWidget {
             const QuranTabBarWidget()
           ],
         ),
+      ),
+    );
+  }
+
+  Widget _buildBookmarkPopUp(BuildContext context) {
+    return Container(
+      height: SizeUtility(context).height / 2.6,
+      decoration: BoxDecoration(
+        color: ColorManager.whiteColor,
+        borderRadius: const BorderRadius.only(
+          topLeft: Radius.circular(30.0),
+          topRight: Radius.circular(30.0),
+        ),
+      ),
+      padding: const EdgeInsets.symmetric(horizontal: 30),
+      child: Column(
+        children: [
+          Align(
+            alignment: Alignment.topRight,
+            child: IconButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              icon: const Icon(
+                Icons.close,
+                size: 14,
+                color: black122,
+              ),
+            ),
+          ),
+          Image.asset("assets/images/notepad.png"),
+          kHeight25,
+          Text(
+            'Create a Collection of your own',
+            style: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+              color: ColorManager.blackColor,
+            ),
+          ),
+          kHeight20,
+          Text(
+            'Listen to your favourite collection of Suras/\nAyas and Share them with your loved ones',
+            style: TextStyle(
+              fontSize: 14,
+              fontWeight: FontWeight.w500,
+              color: ColorManager.blackColor,
+              height: 1.3,
+            ),
+          ),
+          kHeight25,
+          MainButton(
+            title: "Create Now",
+            onPressed: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => const BookmarkView(),
+              ));
+            },
+          ),
+        ],
       ),
     );
   }
@@ -96,14 +168,14 @@ class AlQuranView extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Column(
+              Column(
                 children: [
                   Text(
                     "Al-Fatiah",
                     style: TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.w400,
-                      color: whiteClr,
+                      color: ColorManager.whiteColor,
                     ),
                   ),
                   SizedBox(height: 15),
@@ -112,14 +184,14 @@ class AlQuranView extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.w600,
-                      color: whiteClr,
+                      color: ColorManager.whiteColor,
                     ),
                   ),
-                  SizedBox(height: 10),
+                  kHeight10,
                   Text(
                     "Last Read",
                     style: TextStyle(
-                        color: whiteClr,
+                        color: ColorManager.whiteColor,
                         fontWeight: FontWeight.w400,
                         fontSize: 14),
                   ),
@@ -143,21 +215,21 @@ class AlQuranView extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text(
+        Text(
           "Assalamualaikum",
           style: TextStyle(
             fontSize: 18,
             fontWeight: FontWeight.bold,
-            color: lightBlackColor,
+            color: ColorManager.lightBlackColor,
           ),
         ),
         const SizedBox(height: 15),
         Text(
           context.read<DatabaseBloc>().state.name,
-          style: const TextStyle(
+          style: TextStyle(
             fontSize: 24,
             fontWeight: FontWeight.bold,
-            color: black26,
+            color: ColorManager.blackColor,
           ),
         ),
       ],
@@ -177,26 +249,26 @@ class AlQuranView extends StatelessWidget {
                 children: [
                   Text(
                     mainText,
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontSize: 12,
                       fontWeight: FontWeight.bold,
-                      color: whiteClr,
+                      color: ColorManager.whiteColor,
                     ),
                   ),
                   const SizedBox(height: 5),
                   Text(
                     lineText ?? "",
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontSize: 12,
                       fontWeight: FontWeight.w400,
-                      color: whiteClr,
+                      color: ColorManager.whiteColor,
                     ),
                   ),
                   const SizedBox(height: 10),
                   Text(
                     subText,
-                    style: const TextStyle(
-                        color: whiteClr,
+                    style: TextStyle(
+                        color: ColorManager.whiteColor,
                         fontWeight: FontWeight.w400,
                         fontSize: 10),
                   ),

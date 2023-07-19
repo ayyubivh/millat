@@ -5,7 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/components/buttons/main_button.dart';
 import 'package:millat/resources/authentication/bloc/logic/auth_bloc.dart';
 import 'package:millat/utils/assets_paths.dart';
-import 'package:millat/utils/globals.dart';
+import 'package:millat/utils/color_manager.dart';
 import 'package:pinput/pinput.dart';
 
 import '../../tabs/view/tabs_view.dart';
@@ -95,8 +95,8 @@ class _VerifyOTPViewState extends State<VerifyOTPView> {
         },
         builder: (context, state) {
           if (state is AuthLoading) {
-            return const Center(
-              child: CircularProgressIndicator(color: green77),
+            return Center(
+              child: CircularProgressIndicator(color: ColorManager.greenColor1),
             );
           } else {
             return Padding(
@@ -148,15 +148,15 @@ class _VerifyOTPViewState extends State<VerifyOTPView> {
                           style: TextStyle(
                               color: isResendTextGreen
                                   ? black133
-                                  : mainColor.withOpacity(0.0),
+                                  : ColorManager.mainColor.withOpacity(0.0),
                               fontSize: 13,
                               fontWeight: FontWeight.w500)),
                       TextSpan(
                           text: 'Please resend',
                           style: TextStyle(
                               color: isResendTextGreen
-                                  ? mainColor
-                                  : mainColor.withOpacity(0.0),
+                                  ? ColorManager.mainColor
+                                  : ColorManager.mainColor.withOpacity(0.0),
                               fontSize: 13,
                               fontWeight: FontWeight.w500)),
                     ])),

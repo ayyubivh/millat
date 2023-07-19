@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:millat/utils/globals.dart';
+import 'package:millat/utils/color_manager.dart';
 
 class ManagePaymentMethods extends StatefulWidget {
   const ManagePaymentMethods({Key? key}) : super(key: key);

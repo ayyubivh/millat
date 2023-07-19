@@ -5,7 +5,7 @@ import 'package:millat/components/buttons/main_button.dart';
 import 'package:millat/resources/authentication/bloc/logic/auth_bloc.dart';
 import 'package:millat/resources/authentication/view/verify_otp_view.dart';
 import 'package:millat/utils/assets_paths.dart';
-import 'package:millat/utils/globals.dart';
+import 'package:millat/utils/color_manager.dart';
 
 class SendOTPView extends StatefulWidget {
   const SendOTPView({Key? key}) : super(key: key);
@@ -32,8 +32,8 @@ class _SendOTPViewState extends State<SendOTPView> {
       },
       builder: (context, state) {
         if (state is AuthLoading) {
-          return const Center(
-            child: CircularProgressIndicator(color: green77),
+          return Center(
+            child: CircularProgressIndicator(color: ColorManager.greenColor1),
           );
         } else {
           return Padding(

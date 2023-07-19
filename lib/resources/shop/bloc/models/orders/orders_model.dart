@@ -21,7 +21,7 @@ class OrderModel with _$OrderModel {
 @freezed
 class OrderResult with _$OrderResult {
   const factory OrderResult({
-    List<OrderProduct>? orderProducts,
+    @JsonKey(name: 'orderProducts') List<OrderProduct>? orderProducts,
   }) = _OrderResult;
 
   factory OrderResult.fromJson(Map<String, dynamic> json) =>
@@ -33,17 +33,23 @@ class OrderProduct with _$OrderProduct {
   const factory OrderProduct({
     @JsonKey(name: '_id') String? id,
     @JsonKey(name: 'userId') String? userId,
+    @JsonKey(name: 'brandId') Brand? brand,
     @JsonKey(name: 'order_id') String? orderId,
-    @JsonKey(name: 'order_items') List<OrderItem>? orderItems,
-    @JsonKey(name: 'pickup_location') String? pickupLocation,
+    @JsonKey(name: 'shiprocket_order_id') String? shiprocketOrderId,
+    @JsonKey(name: 'shipment_id') String? shipmentId,
+    @JsonKey(name: 'productId') Product? productId,
+    int? quantity,
+    @JsonKey(name: 'selling_price') double? sellingPrice,
+    double? discount,
+    double? tax,
+    String? size,
+    String? color,
     @JsonKey(name: 'sub_total') double? subTotal,
-    @JsonKey(name: 'total_discount') double? totalDiscount,
     @JsonKey(name: 'order_date') String? orderDate,
     @JsonKey(name: 'shipping_status') String? shippingStatus,
     @JsonKey(name: 'payment_method') String? paymentMethod,
     @JsonKey(name: 'shipping_charges') double? shippingCharges,
     @JsonKey(name: 'payment_status') String? paymentStatus,
-    double? weight,
     Address? address,
     @JsonKey(name: 'createdAt') String? createdAt,
     @JsonKey(name: 'updatedAt') String? updatedAt,
@@ -54,19 +60,23 @@ class OrderProduct with _$OrderProduct {
 }
 
 @freezed
-class OrderItem with _$OrderItem {
-  const factory OrderItem({
-    Product? productId,
-    int? quantity,
-    @JsonKey(name: 'selling_price') double? sellingPrice,
-    double? discount,
-    double? tax,
-    String? size,
-    String? color,
-  }) = _OrderItem;
+class Brand with _$Brand {
+  const factory Brand({
+    @JsonKey(name: '_id') String? id,
+    String? name,
+    String? email,
+    String? password,
+    String? roles,
+    bool? active,
+    @JsonKey(name: 'createdAt') String? createdAt,
+    @JsonKey(name: 'updatedAt') String? updatedAt,
+    String? otp,
+    @JsonKey(name: 'phone_number') String? phoneNumber,
+    String? description,
+    String? image,
+  }) = _Brand;
 
-  factory OrderItem.fromJson(Map<String, dynamic> json) =>
-      _$OrderItemFromJson(json);
+  factory Brand.fromJson(Map<String, dynamic> json) => _$BrandFromJson(json);
 }
 
 @freezed
@@ -78,7 +88,7 @@ class Product with _$Product {
     String? description,
     @JsonKey(name: 'otherInfo') String? otherInfo,
     @JsonKey(name: 'category') String? category,
-    @JsonKey(name: 'subcategory') String? subcategory,
+    @JsonKey(name: 'subcategory') String? subCategory,
     @JsonKey(name: 'actualPrice') double? actualPrice,
     @JsonKey(name: 'discountPrice') double? discountPrice,
     int? discount,

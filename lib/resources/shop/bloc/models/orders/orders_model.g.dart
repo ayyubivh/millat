@@ -40,19 +40,27 @@ _$_OrderProduct _$$_OrderProductFromJson(Map<String, dynamic> json) =>
     _$_OrderProduct(
       id: json['_id'] as String?,
       userId: json['userId'] as String?,
+      brand: json['brandId'] == null
+          ? null
+          : Brand.fromJson(json['brandId'] as Map<String, dynamic>),
       orderId: json['order_id'] as String?,
-      orderItems: (json['order_items'] as List<dynamic>?)
-          ?.map((e) => OrderItem.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      pickupLocation: json['pickup_location'] as String?,
+      shiprocketOrderId: json['shiprocket_order_id'] as String?,
+      shipmentId: json['shipment_id'] as String?,
+      productId: json['productId'] == null
+          ? null
+          : Product.fromJson(json['productId'] as Map<String, dynamic>),
+      quantity: json['quantity'] as int?,
+      sellingPrice: (json['selling_price'] as num?)?.toDouble(),
+      discount: (json['discount'] as num?)?.toDouble(),
+      tax: (json['tax'] as num?)?.toDouble(),
+      size: json['size'] as String?,
+      color: json['color'] as String?,
       subTotal: (json['sub_total'] as num?)?.toDouble(),
-      totalDiscount: (json['total_discount'] as num?)?.toDouble(),
       orderDate: json['order_date'] as String?,
       shippingStatus: json['shipping_status'] as String?,
       paymentMethod: json['payment_method'] as String?,
       shippingCharges: (json['shipping_charges'] as num?)?.toDouble(),
       paymentStatus: json['payment_status'] as String?,
-      weight: (json['weight'] as num?)?.toDouble(),
       address: json['address'] == null
           ? null
           : Address.fromJson(json['address'] as Map<String, dynamic>),
@@ -64,36 +72,10 @@ Map<String, dynamic> _$$_OrderProductToJson(_$_OrderProduct instance) =>
     <String, dynamic>{
       '_id': instance.id,
       'userId': instance.userId,
+      'brandId': instance.brand,
       'order_id': instance.orderId,
-      'order_items': instance.orderItems,
-      'pickup_location': instance.pickupLocation,
-      'sub_total': instance.subTotal,
-      'total_discount': instance.totalDiscount,
-      'order_date': instance.orderDate,
-      'shipping_status': instance.shippingStatus,
-      'payment_method': instance.paymentMethod,
-      'shipping_charges': instance.shippingCharges,
-      'payment_status': instance.paymentStatus,
-      'weight': instance.weight,
-      'address': instance.address,
-      'createdAt': instance.createdAt,
-      'updatedAt': instance.updatedAt,
-    };
-
-_$_OrderItem _$$_OrderItemFromJson(Map<String, dynamic> json) => _$_OrderItem(
-      productId: json['productId'] == null
-          ? null
-          : Product.fromJson(json['productId'] as Map<String, dynamic>),
-      quantity: json['quantity'] as int?,
-      sellingPrice: (json['selling_price'] as num?)?.toDouble(),
-      discount: (json['discount'] as num?)?.toDouble(),
-      tax: (json['tax'] as num?)?.toDouble(),
-      size: json['size'] as String?,
-      color: json['color'] as String?,
-    );
-
-Map<String, dynamic> _$$_OrderItemToJson(_$_OrderItem instance) =>
-    <String, dynamic>{
+      'shiprocket_order_id': instance.shiprocketOrderId,
+      'shipment_id': instance.shipmentId,
       'productId': instance.productId,
       'quantity': instance.quantity,
       'selling_price': instance.sellingPrice,
@@ -101,6 +83,45 @@ Map<String, dynamic> _$$_OrderItemToJson(_$_OrderItem instance) =>
       'tax': instance.tax,
       'size': instance.size,
       'color': instance.color,
+      'sub_total': instance.subTotal,
+      'order_date': instance.orderDate,
+      'shipping_status': instance.shippingStatus,
+      'payment_method': instance.paymentMethod,
+      'shipping_charges': instance.shippingCharges,
+      'payment_status': instance.paymentStatus,
+      'address': instance.address,
+      'createdAt': instance.createdAt,
+      'updatedAt': instance.updatedAt,
+    };
+
+_$_Brand _$$_BrandFromJson(Map<String, dynamic> json) => _$_Brand(
+      id: json['_id'] as String?,
+      name: json['name'] as String?,
+      email: json['email'] as String?,
+      password: json['password'] as String?,
+      roles: json['roles'] as String?,
+      active: json['active'] as bool?,
+      createdAt: json['createdAt'] as String?,
+      updatedAt: json['updatedAt'] as String?,
+      otp: json['otp'] as String?,
+      phoneNumber: json['phone_number'] as String?,
+      description: json['description'] as String?,
+      image: json['image'] as String?,
+    );
+
+Map<String, dynamic> _$$_BrandToJson(_$_Brand instance) => <String, dynamic>{
+      '_id': instance.id,
+      'name': instance.name,
+      'email': instance.email,
+      'password': instance.password,
+      'roles': instance.roles,
+      'active': instance.active,
+      'createdAt': instance.createdAt,
+      'updatedAt': instance.updatedAt,
+      'otp': instance.otp,
+      'phone_number': instance.phoneNumber,
+      'description': instance.description,
+      'image': instance.image,
     };
 
 _$_Product _$$_ProductFromJson(Map<String, dynamic> json) => _$_Product(
@@ -110,7 +131,7 @@ _$_Product _$$_ProductFromJson(Map<String, dynamic> json) => _$_Product(
       description: json['description'] as String?,
       otherInfo: json['otherInfo'] as String?,
       category: json['category'] as String?,
-      subcategory: json['subcategory'] as String?,
+      subCategory: json['subcategory'] as String?,
       actualPrice: (json['actualPrice'] as num?)?.toDouble(),
       discountPrice: (json['discountPrice'] as num?)?.toDouble(),
       discount: json['discount'] as int?,
@@ -138,7 +159,7 @@ Map<String, dynamic> _$$_ProductToJson(_$_Product instance) =>
       'description': instance.description,
       'otherInfo': instance.otherInfo,
       'category': instance.category,
-      'subcategory': instance.subcategory,
+      'subcategory': instance.subCategory,
       'actualPrice': instance.actualPrice,
       'discountPrice': instance.discountPrice,
       'discount': instance.discount,

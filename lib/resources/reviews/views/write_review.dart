@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:millat/utils/globals.dart';
+import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/size_utility.dart';
 
 class WriteReview extends StatefulWidget {
@@ -14,11 +14,11 @@ class _WriteReviewState extends State<WriteReview> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('Write Reviews',
+          title: const Text('Write Reviews',
               style:
                   TextStyle(color: Colors.black, fontWeight: FontWeight.w700)),
           centerTitle: false,
-          leading: BackButton(color: Colors.black),
+          leading: const BackButton(color: Colors.black),
           elevation: 0,
           backgroundColor: Colors.transparent,
         ),
@@ -27,64 +27,64 @@ class _WriteReviewState extends State<WriteReview> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
               Center(
                   child: Image.asset('assets/images/thump_up.png',
                       height: SizeUtility(context).height * 20 / 100)),
-              SizedBox(height: 60),
+              const SizedBox(height: 60),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Icon(
                     Icons.star_border,
-                    color: black26,
+                    color: ColorManager.blackColor,
                   ),
                   Icon(
                     Icons.star_border,
-                    color: black26,
+                    color: ColorManager.blackColor,
                   ),
                   Icon(
                     Icons.star_border,
-                    color: black26,
+                    color: ColorManager.blackColor,
                   ),
                   Icon(
                     Icons.star_border,
-                    color: black26,
+                    color: ColorManager.blackColor,
                   ),
                   Icon(
                     Icons.star_border,
-                    color: black26,
+                    color: ColorManager.blackColor,
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 50,
               ),
               Text(
                 'Your Name',
                 style: TextStyle(
-                  color: black26,
+                  color: ColorManager.blackColor,
                   fontWeight: FontWeight.w600,
                 ),
               ),
-              TextField(),
-              SizedBox(
+              const TextField(),
+              const SizedBox(
                 height: 20,
               ),
               Text(
                 'Write Your Review',
                 style: TextStyle(
-                  color: black26,
+                  color: ColorManager.blackColor,
                   fontWeight: FontWeight.w600,
                 ),
               ),
-              TextField(maxLines: 5),
-              SizedBox(
+              const TextField(maxLines: 5),
+              const SizedBox(
                 height: 20,
               ),
-              Text(
+              const Text(
                 'Minimum Characters : 260',
                 style: TextStyle(
                   color: black122,
@@ -98,11 +98,12 @@ class _WriteReviewState extends State<WriteReview> {
           padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
           child: ElevatedButton(
             style: ButtonStyle(
-              backgroundColor: MaterialStateProperty.all(green77),
+              backgroundColor:
+                  MaterialStateProperty.all(ColorManager.greenColor1),
               shape: MaterialStateProperty.all(
                 RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(30.0),
-                  side: BorderSide(color: green77, width: 2.0),
+                  side: BorderSide(color: ColorManager.greenColor1, width: 2.0),
                 ),
               ),
               elevation: MaterialStateProperty.all(0),
@@ -112,7 +113,7 @@ class _WriteReviewState extends State<WriteReview> {
             onPressed: () {
               //   Navigator.of(context).push(MaterialPageRoute(builder: (context) => CheckoutConfirmation(),));
             },
-            child: Text(
+            child: const Text(
               'Submit',
               style: TextStyle(
                   color: Colors.white,

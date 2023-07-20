@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/utils/constants.dart';
+import '../../resources/home/bloc/logic/bookmark_bloc/bookmark_bloc.dart';
 import '../../utils/color_manager.dart';
 
 // Loader
@@ -148,6 +150,22 @@ Widget buildSurahContainer(
           ),
         )
       ],
+    ),
+  );
+}
+
+// book mark veres Tile
+Widget bookMarkVersesTile(int index) {
+  return ListTile(
+    leading: ImageIcon(
+      const AssetImage("assets/images/folder_red.png"),
+      color: ColorManager.redColor,
+    ),
+    title: Text('Aya ${index + 1}'),
+    trailing: Icon(
+      Icons.navigate_next,
+      size: 30,
+      color: ColorManager.blackColor,
     ),
   );
 }

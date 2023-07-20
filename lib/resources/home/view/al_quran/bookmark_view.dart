@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:millat/components/common_widgets/reusable_methods.dart';
 import 'package:millat/resources/home/view/al_quran/widgets/addnew_collection_view.dart';
+import 'package:millat/resources/home/view/al_quran/widgets/bookmark_collection_view.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
+import '../../bloc/db/db_functions.dart';
 
 class BookmarkView extends StatelessWidget {
   const BookmarkView({super.key});
@@ -73,42 +74,88 @@ class BookmarkView extends StatelessWidget {
               ],
             ),
             kHeight20,
-            SizedBox(
-              height: 88,
-              child: Row(
-                children: [
-                  Image.asset("assets/images/quran_bookmark_2.png"),
-                  kWidht10,
-                  const Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'My Favourites',
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                        ),
+            Expanded(
+              child: ValueListenableBuilder(
+                valueListenable: BookMarkDB.instance.bookMarkListNotifier,
+                builder: (context, value, child) {
+                  if (value.isEmpty) {
+                    Text(
+                      "No Collections",
+                      style: TextStyle(
+                        color: ColorManager.blackColor,
                       ),
-                      Text(
-                        'By sarfarz ali',
-                        style: TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                      Text(
-                        '1 Sura',
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
+                    );
+                  }
+                  return ListView.builder(
+                    itemCount: value.length,
+                    itemBuilder: (context, index) {
+                      final data = value[index];
+                      return InkWell(
+                        onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) =>
+                                  BookmarkCollectionView(passvalue: data)));
+                        },
+                        child: _buildCollectionContainer(
+                            context: context,
+                            img: data.image,
+                            collectionName: data.name,
+                            userName: data.discription),
+                      );
+                    },
+                  );
+                },
               ),
-            )
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildCollectionContainer(
+      {required BuildContext context,
+      required String img,
+      required String collectionName,
+      required String userName}) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 15),
+      child: SizedBox(
+        height: 88,
+        child: Row(
+          children: [
+            ClipRRect(
+              borderRadius: BorderRadius.circular(12),
+              child: Image.asset(img),
+            ),
+            kWidht10,
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  collectionName,
+                  style: const TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Text(
+                  userName,
+                  style: const TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+                Text(
+                  '1 Sura',
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ],
+            ),
           ],
         ),
       ),

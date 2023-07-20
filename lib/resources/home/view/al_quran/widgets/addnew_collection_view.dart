@@ -1,10 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:millat/components/common_widgets/book_mark_collection.dart';
 import 'package:millat/components/textFields/custom_text_field.dart';
+import 'package:millat/enums/enumertations.dart';
+import 'package:millat/resources/home/bloc/logic/bookmark_bloc/bookmark_bloc.dart';
+import 'package:millat/resources/home/bloc/logic/quran_bloc/quran_bloc.dart';
+import 'package:millat/resources/home/view/al_quran/widgets/add_sura_search_view.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:dotted_border/dotted_border.dart';
-
+import 'package:millat/utils/utils.dart';
 import '../../../../../components/buttons/main_button.dart';
+import '../../../../../components/common_widgets/reusable_methods.dart';
+import '../../../../../utils/size_utility.dart';
 
 class AddNewBookMarkCollection extends StatefulWidget {
   const AddNewBookMarkCollection({super.key});
@@ -15,53 +23,66 @@ class AddNewBookMarkCollection extends StatefulWidget {
 }
 
 class _AddNewBookMarkCollectionState extends State<AddNewBookMarkCollection> {
-  bool isExpand = false;
+  final TextEditingController nameTextEditingController =
+      TextEditingController();
+  final TextEditingController descriptionTextEditingController =
+      TextEditingController();
+  String img = '';
+  @override
+  void initState() {
+    context.read<BookmarkBloc>().add(const SaveImageEvent(img: ""));
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    nameTextEditingController.dispose();
+    descriptionTextEditingController.dispose();
+
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorManager.whiteColor,
-      appBar: AppBar(
-          backgroundColor: ColorManager.appBarColor,
-          elevation: 0,
-          centerTitle: true,
-          leading: Center(
-            child: Text(
-              "Cancel",
-              style: TextStyle(
-                fontSize: 17,
-                color: ColorManager.redColor,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
-          title: Text(
-            'Create Collection',
-            style: TextStyle(
-              color: ColorManager.blackColor,
-              fontSize: 16,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          actions: [
-            Center(
-              child: Text(
-                'Done',
-                style: TextStyle(
-                  color: ColorManager.primary,
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-            kWidth15,
-          ]),
+      appBar: customAppBarBookMark(context),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 30),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             kHeight25,
-            _dottedbutton(),
+            BlocBuilder<BookmarkBloc, BookmarkState>(
+              builder: (context, state) {
+                return state.image.isEmpty
+                    ? _dottedbutton(context)
+                    : InkWell(
+                        onTap: () {
+                          showModalBottomSheet(
+                            backgroundColor: Colors.transparent,
+                            context: context,
+                            isScrollControlled: true,
+                            builder: (context) => StatefulBuilder(
+                              builder: (context, setState) {
+                                return _popUpWidget(context);
+                              },
+                            ),
+                          );
+                        },
+                        child: Align(
+                          alignment: Alignment.center,
+                          child: ClipRRect(
+                              borderRadius: BorderRadius.circular(12),
+                              child: Image.asset(
+                                state.image,
+                                width: 156,
+                                height: 151,
+                              )),
+                        ),
+                      );
+              },
+            ),
             kHeight20,
             const Text(
               'Collection Name',
@@ -71,9 +92,13 @@ class _AddNewBookMarkCollectionState extends State<AddNewBookMarkCollection> {
               ),
             ),
             kHeight15,
-            const CustomTextField(
-              icon: Icon(null),
+            CustomTextField(
+              controller: nameTextEditingController,
+              icon: const Icon(null),
               hint: "Give a Name",
+              onChanged: (value) {
+                context.read<BookmarkBloc>().add(NameChanged(nameValue: value));
+              },
             ),
             kHeight20,
             const Text(
@@ -84,134 +109,203 @@ class _AddNewBookMarkCollectionState extends State<AddNewBookMarkCollection> {
               ),
             ),
             kHeight15,
-            const CustomTextField(
-              icon: Icon(null),
+            CustomTextField(
+              controller: descriptionTextEditingController,
+              icon: const Icon(null),
               hint: "Add Description",
+              onChanged: (value) {
+                context
+                    .read<BookmarkBloc>()
+                    .add(DescriptionChanged(descriptionValue: value));
+              },
             ),
             kHeight30,
             MainButton(
               title: "Add Suras",
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => const AddSuraSearchView(),
+                ));
+              },
             ),
             kHeight25,
-            Container(
-              color: ColorManager.whiteColor,
-              child: Row(
-                children: [
-                  ImageIcon(
-                    const AssetImage("assets/images/folder_red.png"),
-                    color: ColorManager.redColor,
-                  ),
-                  kWidht10,
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Al-Fatiah',
-                        style: TextStyle(
-                          color: ColorManager.blackColor,
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      kHeight8,
-                      Text(
-                        'MECCAN 7 VERSES',
-                        style: TextStyle(
-                          color: ColorManager.textGrey,
-                          fontSize: 12,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ],
-                  ),
-                  const Spacer(),
-                  const Text(
-                    'ةحتافلا',
-                    style: TextStyle(
-                      fontSize: 21,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  kWidth5,
-                  InkWell(
-                    onTap: () {
-                      setState(() {
-                        isExpand = !isExpand;
-                      });
-                    },
-                    child: isExpand == true
-                        ? const Icon(
-                            Icons.expand_more,
-                            size: 30,
-                          )
-                        : const Icon(
-                            Icons.navigate_next,
-                            size: 30,
-                          ),
-                  ),
-                ],
-              ),
+            BookMarkCollectionContainer(
+              versesName: "Al Fathiha",
+              versesCount: 7,
+              arabicName: '',
+              type: ExpandTypeonBookmark.first,
+              onTap: () {
+                context.read<QuranBloc>().add(const ChangeExpandEvent());
+              },
             ),
             kHeight10,
             const Divider(),
-            isExpand == true
-                ? Expanded(
-                    child: ListView.builder(
-                      itemCount: 10,
-                      itemBuilder: (context, index) {
-                        return ListTile(
-                          leading: ImageIcon(
-                            const AssetImage("assets/images/folder_red.png"),
-                            color: ColorManager.redColor,
-                          ),
-                          title: Text('Aya ${index + 1}'),
-                          trailing: Icon(
-                            Icons.navigate_next,
-                            size: 30,
-                            color: ColorManager.blackColor,
-                          ),
-                        );
-                      },
-                    ),
-                  )
-                : const SizedBox()
+            BlocBuilder<QuranBloc, QuranState>(
+              builder: (context, state) {
+                return state.isExpand == true
+                    ? Expanded(
+                        child: ListView.builder(
+                          itemCount: 10,
+                          itemBuilder: (context, index) {
+                            return bookMarkVersesTile(index);
+                          },
+                        ),
+                      )
+                    : const SizedBox();
+              },
+            )
           ],
         ),
       ),
     );
   }
 
-  Align _dottedbutton() {
-    return Align(
-      alignment: Alignment.center,
-      child: DottedBorder(
-        dashPattern: const [5, 5],
-        strokeWidth: 1.5,
-        borderType: BorderType.RRect,
-        radius: const Radius.circular(12),
-        padding: const EdgeInsets.all(6),
-        child: ClipRRect(
-          borderRadius: const BorderRadius.all(Radius.circular(12)),
-          child: SizedBox(
-            height: 155,
-            width: 160,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Image.asset("assets/images/add_image_1.png"),
-                kHeight10,
-                const Text(
-                  'Choose Image',
-                  style: TextStyle(
-                    fontSize: 15,
-                    fontWeight: FontWeight.w500,
-                  ),
-                )
-              ],
+  PreferredSize customAppBarBookMark(BuildContext ctx) {
+    return PreferredSize(
+      preferredSize: const Size.fromHeight(54),
+      child: Stack(
+        fit: StackFit.expand,
+        alignment: Alignment.topCenter,
+        children: [
+          Container(
+            height: 50,
+            color: ColorManager.appBarColor,
+            padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 50)
+                .copyWith(bottom: 0),
+            child: Align(
+                alignment: Alignment.topCenter,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.of(ctx).pop();
+                      },
+                      child: Text(
+                        "Cancel",
+                        style: TextStyle(
+                          fontSize: 17,
+                          color: ColorManager.redColor,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    Text(
+                      'Create Collection',
+                      style: TextStyle(
+                        color: ColorManager.blackColor,
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    BlocBuilder<BookmarkBloc, BookmarkState>(
+                      builder: (context, state) => GestureDetector(
+                        onTap: () {
+                          ctx.read<BookmarkBloc>().add(AddCollection(
+                              name: state.name,
+                              description: state.description,
+                              id: state.id,
+                              image: state.image));
+                        },
+                        child: Text(
+                          'Done',
+                          style: TextStyle(
+                            color: ColorManager.primary,
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                )),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _dottedbutton(BuildContext context) {
+    return InkWell(
+      onTap: () {
+        showModalBottomSheet(
+          backgroundColor: Colors.transparent,
+          context: context,
+          isScrollControlled: true,
+          builder: (context) => StatefulBuilder(
+            builder: (context, setState) {
+              return _popUpWidget(context);
+            },
+          ),
+        );
+      },
+      child: Align(
+        alignment: Alignment.center,
+        child: DottedBorder(
+          dashPattern: const [5, 5],
+          strokeWidth: 1.5,
+          borderType: BorderType.RRect,
+          radius: const Radius.circular(12),
+          padding: const EdgeInsets.all(6),
+          child: ClipRRect(
+            borderRadius: const BorderRadius.all(Radius.circular(12)),
+            child: SizedBox(
+              height: 155,
+              width: 160,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image.asset("assets/images/add_image_1.png"),
+                  kHeight10,
+                  const Text(
+                    'Choose Image',
+                    style: TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  )
+                ],
+              ),
             ),
           ),
         ),
+      ),
+    );
+  }
+
+  Container _popUpWidget(BuildContext context) {
+    return Container(
+      height: SizeUtility(context).height * 0.90,
+      decoration: BoxDecoration(
+        color: ColorManager.whiteColor,
+        borderRadius: const BorderRadius.only(
+          topLeft: Radius.circular(30.0),
+          topRight: Radius.circular(30.0),
+        ),
+      ),
+      child: GridView.builder(
+        itemCount: 8,
+        gridDelegate:
+            const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+        itemBuilder: (context, index) {
+          return Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: InkWell(
+              onTap: () {
+                context.read<BookmarkBloc>().add(SaveImageEvent(
+                    img: "assets/images/bookmark_profile_${index + 1}.png"));
+                Navigator.of(context).pop();
+              },
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(12),
+                child: Image.asset(
+                  "assets/images/bookmark_profile_${index + 1}.png",
+                  fit: BoxFit.fill,
+                ),
+              ),
+            ),
+          );
+        },
       ),
     );
   }

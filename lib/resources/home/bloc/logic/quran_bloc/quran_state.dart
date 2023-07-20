@@ -8,18 +8,21 @@ class QuranState with _$QuranState {
     required ChapterVersesModel? chapterVersesModel,
     required ParaVersesModel? paraVersesModel,
     required QuranParaModel? quranParaModel,
+    required ChapterByIdModel? chapterByIdModel,
     required VersesTranslationModel? versesTranslationModel,
-    int? paraId,
-    int? chatpterId,
+    required List<Chapters>? searchChapters,
+    required bool isExpand,
+    required bool isExpand2,
   }) = _QuranState;
   factory QuranState.initial() => const QuranState(
-        isLoading: false,
-        quranChaptersModel: null,
-        chapterVersesModel: null,
-        paraVersesModel: null,
-        quranParaModel: null,
-        versesTranslationModel: null,
-        paraId: null,
-        chatpterId: null,
-      );
+      isLoading: false,
+      quranChaptersModel: null,
+      chapterVersesModel: null,
+      paraVersesModel: null,
+      quranParaModel: null,
+      chapterByIdModel: null,
+      versesTranslationModel: null,
+      isExpand: false,
+      searchChapters: [],
+      isExpand2: false);
 }

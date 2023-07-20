@@ -7,6 +7,7 @@ import 'package:millat/resources/home/bloc/models/chapter_verses_model/chapter_v
 import 'package:millat/resources/home/bloc/models/para_verses/para_verses_model.dart';
 import 'package:millat/resources/home/bloc/service/quran_service.dart';
 
+import '../../models/chapter_by_id_model/chapter_by_id_model.dart';
 import '../../models/quran_chapter_models/quran_chapter_models.dart';
 import '../../models/quran_para_model/quran_para_model.dart';
 import '../../models/verses_translation_model/verses_translation.dart';
@@ -24,6 +25,10 @@ class QuranBloc extends Bloc<QuranEvent, QuranState> {
     on<FetchQuranPara>(_fetchQuranPara);
     on<FetchTranslationChapter>(_fetchTranslationChapter);
     on<FetchTranslationJuz>(_fetchTranslationJuz);
+    on<ChangeExpandEvent>(_chageExpandedEvent);
+    on<ChangeExpandOnSearchEvent>(_changeExpandOnSearchEvent);
+    on<FechtChapterbyId>(_fechtChapterbyId);
+    on<SearchChapterEvent>(_searchChapterEvent);
   }
 
   _fetchQuranChapters(
@@ -43,7 +48,9 @@ class QuranBloc extends Bloc<QuranEvent, QuranState> {
     try {
       final data = await quranServices.fetchChapterVerses(id: event.id);
       emit(state.copyWith(
-          chapterVersesModel: data, isLoading: false, chatpterId: event.id));
+        chapterVersesModel: data,
+        isLoading: false,
+      ));
     } catch (e) {
       emit(state.copyWith(isLoading: false));
       debugPrint("error fetch quran bloc $e");
@@ -55,7 +62,9 @@ class QuranBloc extends Bloc<QuranEvent, QuranState> {
     try {
       final data = await quranServices.fetchParaVerses(id: event.id);
       emit(state.copyWith(
-          paraVersesModel: data, isLoading: false, paraId: event.id));
+        paraVersesModel: data,
+        isLoading: false,
+      ));
     } catch (e) {
       emit(state.copyWith(isLoading: false));
       debugPrint("error fetch quran bloc $e");
@@ -100,6 +109,38 @@ class QuranBloc extends Bloc<QuranEvent, QuranState> {
     } catch (e) {
       emit(state.copyWith(isLoading: false));
       debugPrint("error fetch quran bloc $e");
+    }
+  }
+
+  _chageExpandedEvent(ChangeExpandEvent event, Emitter<QuranState> emit) {
+    emit(state.copyWith(isExpand: state.isExpand == false ? true : false));
+  }
+
+  _fechtChapterbyId(FechtChapterbyId event, Emitter<QuranState> emit) async {
+    try {
+      final data = await quranServices.fetchChapterById(event.id);
+      emit(state.copyWith(chapterByIdModel: data, isLoading: false));
+    } catch (e) {
+      emit(state.copyWith(isLoading: false));
+      debugPrint("error fetch quran bloc $e");
+    }
+  }
+
+  _changeExpandOnSearchEvent(
+      ChangeExpandOnSearchEvent event, Emitter<QuranState> emit) {
+    emit(state.copyWith(isExpand2: state.isExpand2 == false ? true : false));
+  }
+
+  _searchChapterEvent(SearchChapterEvent event, Emitter<QuranState> emit) {
+    final query = event.query.toLowerCase();
+    if (query.isEmpty) {
+      emit(state.copyWith(searchChapters: state.quranChaptersModel?.chapters));
+    } else {
+      final filteredChapters = state.quranChaptersModel!.chapters
+          .where((chapter) => chapter.nameSimple.toLowerCase().contains(query))
+          .toList();
+
+      emit(state.copyWith(searchChapters: filteredChapters));
     }
   }
 }

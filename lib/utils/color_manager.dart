@@ -16,6 +16,7 @@ class ColorManager {
   static Color whiteColor = HexColor.fromHex("#FFFFFF");
   static Color appBarColor = HexColor.fromHex("#F7F7F7");
   static Color textGrey = HexColor.fromHex("#8789A3");
+  static Color scaffolBgColor = HexColor.fromHex("#F7F7F7");
 }
 
 extension HexColor on Color {

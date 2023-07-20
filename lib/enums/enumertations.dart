@@ -13,3 +13,8 @@ enum Qurantype {
   para,
   sura,
 }
+
+enum ExpandTypeonBookmark {
+  first,
+  second,
+}

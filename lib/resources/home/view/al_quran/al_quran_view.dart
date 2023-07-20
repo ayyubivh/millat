@@ -9,6 +9,8 @@ import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/size_utility.dart';
 
+import '../../bloc/db/db_functions.dart';
+
 class AlQuranView extends StatelessWidget {
   const AlQuranView({super.key});
 
@@ -32,20 +34,21 @@ class AlQuranView extends StatelessWidget {
         actions: [
           InkWell(
             onTap: () {
-              // Navigator.of(context).push(MaterialPageRoute(
-              //   builder: (context) => const BookmarkView(),
-              // ));
-              showModalBottomSheet(
-                context: context,
-                backgroundColor: Colors.transparent,
-                builder: (context) {
-                  return StatefulBuilder(
-                    builder: (context, setState) {
-                      return _buildBookmarkPopUp(context);
-                    },
-                  );
-                },
-              );
+              BookMarkDB.instance.bookMarkListNotifier.value.isNotEmpty
+                  ? Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const BookmarkView(),
+                    ))
+                  : showModalBottomSheet(
+                      context: context,
+                      backgroundColor: Colors.transparent,
+                      builder: (context) {
+                        return StatefulBuilder(
+                          builder: (context, setState) {
+                            return _buildBookmarkPopUp(context);
+                          },
+                        );
+                      },
+                    );
             },
             child: ImageIcon(
               const AssetImage("assets/icons/bookmark.png"),

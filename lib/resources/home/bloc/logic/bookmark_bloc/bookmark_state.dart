@@ -2,12 +2,22 @@ part of 'bookmark_bloc.dart';
 
 @freezed
 class BookmarkState with _$BookmarkState {
-  const factory BookmarkState(
-      {required String image,
-      required String name,
-      required String description,
-      required String errorMessage,
-      required int id}) = _BookmarkState;
+  const factory BookmarkState({
+    required String image,
+    required String name,
+    required String description,
+    required String errorMessage,
+    required int id,
+    required String dbId,
+    required bool isSuccess,
+  }) = _BookmarkState;
   factory BookmarkState.initial() => const BookmarkState(
-      image: "", description: "", name: "", id: 0, errorMessage: "");
+        image: "",
+        description: "",
+        name: "",
+        id: 0,
+        errorMessage: "",
+        dbId: '',
+        isSuccess: false,
+      );
 }

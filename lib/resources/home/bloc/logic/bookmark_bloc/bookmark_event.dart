@@ -7,6 +7,7 @@ class BookmarkEvent with _$BookmarkEvent {
     required String description,
     required int id,
     required String image,
+    String? dbId,
   }) = AddCollection;
   const factory BookmarkEvent.saveImageEvent({
     required String img,
@@ -19,4 +20,11 @@ class BookmarkEvent with _$BookmarkEvent {
   const factory BookmarkEvent.descriptionChanged({
     required String descriptionValue,
   }) = DescriptionChanged;
+  const factory BookmarkEvent.editCollection({
+    required String name,
+    required String description,
+    required int id,
+    required String image,
+    required String dbId,
+  }) = EditCollection;
 }

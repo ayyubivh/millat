@@ -16,7 +16,7 @@ import '../../../components/common_widgets/cart_icon_widget.dart';
 import '../../../components/common_widgets/shop_products_widget.dart';
 import '../../../utils/color_manager.dart';
 import '../bloc/logic/cart_bloc/cart_bloc.dart';
-import '../bloc/service/orders_service.dart';
+ 
 
 class ShopView extends StatefulWidget {
   const ShopView({Key? key}) : super(key: key);

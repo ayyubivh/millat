@@ -18,3 +18,8 @@ enum ExpandTypeonBookmark {
   first,
   second,
 }
+
+enum BookMarkCollectionType {
+  add,
+  edit,
+}

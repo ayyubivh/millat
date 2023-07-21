@@ -6,7 +6,9 @@ import '../models/book_mark_hive_model/book_mark_hive_model.dart';
 
 abstract class BookMarkDbFunctions {
   Future<void> addCollection(BookMarktCollectionModel obj);
+  Future<void> editCollection(BookMarktCollectionModel obj, index);
   Future<List<BookMarktCollectionModel>> getAllBookmarkCollection();
+
   Future<void> removeCollection(String id);
 }
 
@@ -41,8 +43,22 @@ class BookMarkDB implements BookMarkDbFunctions {
   }
 
   @override
-  Future<void> removeCollection(String id) {
-    // TODO: implement removeCollection
-    throw UnimplementedError();
+  Future<void> removeCollection(String id) async {
+    final _db = await Hive.openBox<BookMarktCollectionModel>(bookmarkDb);
+    await _db.delete(id);
+    refresh();
+  }
+
+  @override
+  Future<void> editCollection(BookMarktCollectionModel obj, index) async {
+    final db = await Hive.openBox<BookMarktCollectionModel>(bookmarkDb);
+    final Map dbMap = db.toMap();
+    dynamic desiredKey;
+    dbMap.forEach((key, value) {
+      if (value.id == index) {
+        desiredKey = key;
+      }
+    });
+    db.put(desiredKey, obj);
   }
 }

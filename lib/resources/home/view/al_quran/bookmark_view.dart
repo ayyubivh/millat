@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/home/view/al_quran/widgets/addnew_collection_view.dart';
 import 'package:millat/resources/home/view/al_quran/widgets/bookmark_collection_view.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
 import '../../bloc/db/db_functions.dart';
+import '../../bloc/models/book_mark_hive_model/book_mark_hive_model.dart';
 
 class BookmarkView extends StatelessWidget {
   const BookmarkView({super.key});
@@ -54,7 +56,8 @@ class BookmarkView extends StatelessWidget {
                 InkWell(
                   onTap: () {
                     Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const AddNewBookMarkCollection(),
+                      builder: (context) => const AddNewBookMarkCollection(
+                          type: BookMarkCollectionType.add),
                     ));
                   },
                   child: Icon(
@@ -97,6 +100,7 @@ class BookmarkView extends StatelessWidget {
                                   BookmarkCollectionView(passvalue: data)));
                         },
                         child: _buildCollectionContainer(
+                            passvalue: data,
                             context: context,
                             img: data.image,
                             collectionName: data.name,
@@ -113,15 +117,18 @@ class BookmarkView extends StatelessWidget {
     );
   }
 
-  Widget _buildCollectionContainer(
-      {required BuildContext context,
-      required String img,
-      required String collectionName,
-      required String userName}) {
+  Widget _buildCollectionContainer({
+    required BuildContext context,
+    required String img,
+    required String collectionName,
+    required String userName,
+    required BookMarktCollectionModel passvalue,
+  }) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 15),
       child: SizedBox(
         height: 88,
+        width: double.infinity,
         child: Row(
           children: [
             ClipRRect(
@@ -129,32 +136,53 @@ class BookmarkView extends StatelessWidget {
               child: Image.asset(img),
             ),
             kWidht10,
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  collectionName,
-                  style: const TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(
+                    children: [
+                      Text(
+                        collectionName,
+                        style: const TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      const Spacer(),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => AddNewBookMarkCollection(
+                                passvalue: passvalue,
+                                type: BookMarkCollectionType.edit),
+                          ));
+                        },
+                        child: ImageIcon(
+                          const AssetImage("assets/icons/edit.png"),
+                          size: 20,
+                          color: ColorManager.primary,
+                        ),
+                      )
+                    ],
                   ),
-                ),
-                Text(
-                  userName,
-                  style: const TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w500,
+                  Text(
+                    userName,
+                    style: const TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
-                ),
-                Text(
-                  '1 Sura',
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w500,
+                  const Text(
+                    '1 Sura',
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ],
         ),

@@ -1,21 +1,31 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 import 'package:millat/components/common_widgets/book_mark_collection.dart';
 import 'package:millat/components/textFields/custom_text_field.dart';
 import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/home/bloc/logic/bookmark_bloc/bookmark_bloc.dart';
 import 'package:millat/resources/home/bloc/logic/quran_bloc/quran_bloc.dart';
+import 'package:millat/resources/home/view/al_quran/bookmark_view.dart';
 import 'package:millat/resources/home/view/al_quran/widgets/add_sura_search_view.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
-import 'package:dotted_border/dotted_border.dart';
-import 'package:millat/utils/utils.dart';
+
 import '../../../../../components/buttons/main_button.dart';
 import '../../../../../components/common_widgets/reusable_methods.dart';
 import '../../../../../utils/size_utility.dart';
+import '../../../bloc/models/book_mark_hive_model/book_mark_hive_model.dart';
 
 class AddNewBookMarkCollection extends StatefulWidget {
-  const AddNewBookMarkCollection({super.key});
+  final BookMarkCollectionType type;
+  final BookMarktCollectionModel? passvalue;
+  const AddNewBookMarkCollection({
+    Key? key,
+    required this.type,
+    this.passvalue,
+  }) : super(key: key);
 
   @override
   State<AddNewBookMarkCollection> createState() =>
@@ -27,11 +37,19 @@ class _AddNewBookMarkCollectionState extends State<AddNewBookMarkCollection> {
       TextEditingController();
   final TextEditingController descriptionTextEditingController =
       TextEditingController();
-  String img = '';
+  String img = "";
+
   @override
   void initState() {
+    widget.type == BookMarkCollectionType.edit ? addField() : null;
     context.read<BookmarkBloc>().add(const SaveImageEvent(img: ""));
     super.initState();
+  }
+
+  addField() {
+    nameTextEditingController.text = widget.passvalue!.name;
+    descriptionTextEditingController.text = widget.passvalue!.discription;
+    img = widget.passvalue!.image;
   }
 
   @override
@@ -46,7 +64,7 @@ class _AddNewBookMarkCollectionState extends State<AddNewBookMarkCollection> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorManager.whiteColor,
-      appBar: customAppBarBookMark(context),
+      appBar: customAppBarBookMark(ctx: context, passValue: widget.passvalue),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 30),
         child: Column(
@@ -55,6 +73,48 @@ class _AddNewBookMarkCollectionState extends State<AddNewBookMarkCollection> {
             kHeight25,
             BlocBuilder<BookmarkBloc, BookmarkState>(
               builder: (context, state) {
+                if (img.isNotEmpty) {
+                  return Align(
+                      alignment: Alignment.center,
+                      child: ClipRRect(
+                          borderRadius: BorderRadius.circular(12),
+                          child: Stack(
+                            children: [
+                              Image.asset(widget.passvalue!.image.toString()),
+                              Positioned(
+                                right: -3,
+                                child: InkWell(
+                                  onTap: () {
+                                    img = "";
+                                    showModalBottomSheet(
+                                      backgroundColor: Colors.transparent,
+                                      context: context,
+                                      isScrollControlled: true,
+                                      builder: (context) => StatefulBuilder(
+                                        builder: (context, setState) {
+                                          return _popUpWidget(context);
+                                        },
+                                      ),
+                                    );
+                                  },
+                                  child: Container(
+                                    height: 25,
+                                    width: 25,
+                                    decoration: BoxDecoration(
+                                      color: ColorManager.whiteColor,
+                                      borderRadius: BorderRadius.circular(13),
+                                    ),
+                                    child: ImageIcon(
+                                      const AssetImage(
+                                          "assets/icons/edit_2.png"),
+                                      color: ColorManager.primary,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          )));
+                }
                 return state.image.isEmpty
                     ? _dottedbutton(context)
                     : InkWell(
@@ -129,13 +189,28 @@ class _AddNewBookMarkCollectionState extends State<AddNewBookMarkCollection> {
               },
             ),
             kHeight25,
-            BookMarkCollectionContainer(
-              versesName: "Al Fathiha",
-              versesCount: 7,
-              arabicName: '',
-              type: ExpandTypeonBookmark.first,
-              onTap: () {
-                context.read<QuranBloc>().add(const ChangeExpandEvent());
+            BlocBuilder<BookmarkBloc, BookmarkState>(
+              builder: (context, state) {
+                return state.id == 0 &&
+                        widget.type != BookMarkCollectionType.edit
+                    ? const SizedBox()
+                    : BlocBuilder<QuranBloc, QuranState>(
+                        builder: (context, state) {
+                          final chapter = state.chapterByIdModel?.chapter;
+
+                          return BookMarkCollectionContainer(
+                            versesName: chapter!.nameSimple,
+                            versesCount: chapter.versesCount,
+                            arabicName: chapter.nameArabic,
+                            type: ExpandTypeonBookmark.first,
+                            onTap: () {
+                              context
+                                  .read<QuranBloc>()
+                                  .add(const ChangeExpandEvent());
+                            },
+                          );
+                        },
+                      );
               },
             ),
             kHeight10,
@@ -160,7 +235,9 @@ class _AddNewBookMarkCollectionState extends State<AddNewBookMarkCollection> {
     );
   }
 
-  PreferredSize customAppBarBookMark(BuildContext ctx) {
+  PreferredSize customAppBarBookMark(
+      {required BuildContext ctx,
+      required BookMarktCollectionModel? passValue}) {
     return PreferredSize(
       preferredSize: const Size.fromHeight(54),
       child: Stack(
@@ -179,6 +256,10 @@ class _AddNewBookMarkCollectionState extends State<AddNewBookMarkCollection> {
                   children: [
                     GestureDetector(
                       onTap: () {
+                        context
+                            .read<BookmarkBloc>()
+                            .add(const SaveQuranChapterId(id: 0));
+
                         Navigator.of(ctx).pop();
                       },
                       child: Text(
@@ -201,11 +282,37 @@ class _AddNewBookMarkCollectionState extends State<AddNewBookMarkCollection> {
                     BlocBuilder<BookmarkBloc, BookmarkState>(
                       builder: (context, state) => GestureDetector(
                         onTap: () {
-                          ctx.read<BookmarkBloc>().add(AddCollection(
-                              name: state.name,
-                              description: state.description,
-                              id: state.id,
-                              image: state.image));
+                          if (nameTextEditingController.text.isEmpty ||
+                              descriptionTextEditingController.text.isEmpty) {
+                            return;
+                          }
+                          widget.type == BookMarkCollectionType.add
+                              ? ctx.read<BookmarkBloc>().add(AddCollection(
+                                  name: nameTextEditingController.text,
+                                  description:
+                                      descriptionTextEditingController.text,
+                                  id: state.id,
+                                  image: state.image,
+                                  dbId: DateTime.now()
+                                      .millisecondsSinceEpoch
+                                      .toString()))
+                              : ctx.read<BookmarkBloc>().add(
+                                    EditCollection(
+                                        name: nameTextEditingController.text,
+                                        description:
+                                            descriptionTextEditingController
+                                                .text,
+                                        id: state.id == 0
+                                            ? passValue!.surahId
+                                            : state.id,
+                                        image: img == "" ? state.image : img,
+                                        dbId: passValue!.id!),
+                                  );
+                          context
+                              .read<BookmarkBloc>()
+                              .add(const SaveQuranChapterId(id: 0));
+
+                          Navigator.of(context).pop();
                         },
                         child: Text(
                           'Done',

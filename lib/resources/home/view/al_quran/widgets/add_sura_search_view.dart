@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/components/common_widgets/book_mark_collection.dart';
 import 'package:millat/resources/home/bloc/logic/quran_bloc/quran_bloc.dart';
 import 'package:millat/utils/color_manager.dart';
+import 'package:millat/utils/loader.dart';
 
 import '../../../../../enums/enumertations.dart';
 import '../../../bloc/logic/bookmark_bloc/bookmark_bloc.dart';
@@ -31,13 +32,17 @@ class _AddSuraSearchViewState extends State<AddSuraSearchView> {
       body: BlocBuilder<QuranBloc, QuranState>(
         builder: (context, state) {
           final chapters = state.searchChapters;
+          if (chapters == null) {
+            return const Loader();
+          }
 
           return SingleChildScrollView(
             child: Column(
               children: [
                 ListView.separated(
                   shrinkWrap: true,
-                  itemCount: chapters!.length,
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemCount: chapters.length,
                   itemBuilder: (context, index) => InkWell(
                     onTap: () {
                       setState(() {
@@ -110,6 +115,9 @@ class _AddSuraSearchViewState extends State<AddSuraSearchView> {
                       ),
                       GestureDetector(
                         onTap: () {
+                          context.read<QuranBloc>().add(FechtChapterbyId(
+                              id: context.read<BookmarkBloc>().state.id));
+
                           Navigator.of(context).pop();
                         },
                         child: Text(

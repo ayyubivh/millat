@@ -4,7 +4,7 @@ part 'book_mark_hive_model.g.dart';
 @HiveType(typeId: 1)
 class BookMarktCollectionModel {
   @HiveField(0)
-  String? id;
+  final String? id;
   @HiveField(1)
   final String name;
   @HiveField(2)
@@ -15,11 +15,10 @@ class BookMarktCollectionModel {
   final int surahId;
 
   BookMarktCollectionModel({
+    required this.id,
     required this.surahId,
     required this.name,
     required this.discription,
     required this.image,
-  }) {
-    id = DateTime.now().microsecondsSinceEpoch.toString();
-  }
+  });
 }

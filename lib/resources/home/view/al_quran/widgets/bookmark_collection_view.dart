@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:millat/resources/home/bloc/db/db_functions.dart';
 import 'package:millat/resources/home/bloc/logic/quran_bloc/quran_bloc.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/size_utility.dart';
 
+import '../../../../../enums/enumertations.dart';
 import '../../../../../utils/color_manager.dart';
 import '../../../bloc/models/book_mark_hive_model/book_mark_hive_model.dart';
+import 'addnew_collection_view.dart';
 
 class BookmarkCollectionView extends StatelessWidget {
   final BookMarktCollectionModel passvalue;
@@ -128,7 +131,7 @@ class BookmarkCollectionView extends StatelessWidget {
           children: [
             Text(
               name,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
               ),
@@ -185,23 +188,38 @@ class BookmarkCollectionView extends StatelessWidget {
               ),
             ),
           ),
-          Text(
-            'Delete',
-            style: TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.w400,
-              color: ColorManager.redColor,
+          InkWell(
+            onTap: () {
+              if (passvalue.id == null) {
+                return;
+              }
+              BookMarkDB.instance.removeCollection(passvalue.id!);
+
+              Navigator.of(context).pop();
+            },
+            child: Text(
+              'Delete',
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.w400,
+                color: ColorManager.redColor,
+              ),
             ),
           ),
           kHeight10,
           const Divider(),
           kHeight10,
-          Text(
-            'Cancel',
-            style: TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.w400,
-              color: ColorManager.primary,
+          InkWell(
+            onTap: () {
+              Navigator.of(context).pop();
+            },
+            child: Text(
+              'Cancel',
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.w400,
+                color: ColorManager.primary,
+              ),
             ),
           )
         ],
@@ -244,7 +262,12 @@ class BookmarkCollectionView extends StatelessWidget {
         color: ColorManager.primary,
       )),
       child: TextButton.icon(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) => AddNewBookMarkCollection(
+                passvalue: passvalue, type: BookMarkCollectionType.edit),
+          ));
+        },
         icon: ImageIcon(
           const AssetImage("assets/icons/edit_2.png"),
           color: ColorManager.primary,

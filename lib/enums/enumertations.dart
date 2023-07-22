@@ -12,6 +12,7 @@ enum FilterType {
 enum Qurantype {
   para,
   sura,
+  verse,
 }
 
 enum ExpandTypeonBookmark {

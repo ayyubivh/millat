@@ -5,7 +5,7 @@ import 'package:flutter/cupertino.dart';
 import '../../../../services/http_services.dart';
 import '../../../../utils/string_constants.dart';
 import '../../../authentication/bloc/logic/database_bloc/database_bloc.dart';
-import '../models/orders/fetch_orderbyid_model.dart';
+
 import '../models/orders/orders_model.dart';
 
 class OrdersService extends HttpServices {
@@ -67,6 +67,7 @@ class OrdersService extends HttpServices {
     if (response.statusCode == 200) {
       try {
         final Map<String, dynamic> data = json.decode(response.body);
+
         final result = OrderModel.fromJson(data);
         return result;
       } catch (e) {

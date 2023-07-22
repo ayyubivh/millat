@@ -23,7 +23,8 @@ class _AddSuraSearchViewState extends State<AddSuraSearchView> {
     super.initState();
   }
 
-  int _currentIndex = -1;
+  final List<int> _index = [];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,23 +47,30 @@ class _AddSuraSearchViewState extends State<AddSuraSearchView> {
                   itemBuilder: (context, index) => InkWell(
                     onTap: () {
                       setState(() {
-                        _currentIndex = index;
+                        _index.add(index + 1);
+
+                        context
+                            .read<BookmarkBloc>()
+                            .add(SaveIndexEvent(indexList: index));
                       });
                       context
                           .read<BookmarkBloc>()
-                          .add(SaveQuranChapterId(id: chapters[index].id));
+                          .add(SaveQuranChapterId(id: _index));
+                      print('here idnes $_index');
                     },
-                    child: BookMarkCollectionContainer(
-                      isSelected: _currentIndex == index,
-                      versesName: chapters[index].nameSimple,
-                      versesCount: chapters[index].versesCount,
-                      arabicName: chapters[index].nameArabic,
-                      type: ExpandTypeonBookmark.second,
-                      onTap: () {
-                        context
-                            .read<QuranBloc>()
-                            .add(const ChangeExpandOnSearchEvent());
-                      },
+                    child: BlocBuilder<BookmarkBloc, BookmarkState>(
+                      builder: (context, state) => BookMarkCollectionContainer(
+                        isSelected: state.indexList.contains(index),
+                        versesName: chapters[index].nameSimple,
+                        versesCount: chapters[index].versesCount,
+                        arabicName: chapters[index].nameArabic,
+                        type: ExpandTypeonBookmark.second,
+                        onTap: () {
+                          context
+                              .read<QuranBloc>()
+                              .add(const ChangeExpandOnSearchEvent());
+                        },
+                      ),
                     ),
                   ),
                   separatorBuilder: (context, index) => const Divider(),

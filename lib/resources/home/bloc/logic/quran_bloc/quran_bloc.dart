@@ -8,9 +8,11 @@ import 'package:millat/resources/home/bloc/models/para_verses/para_verses_model.
 import 'package:millat/resources/home/bloc/service/quran_service.dart';
 
 import '../../models/chapter_by_id_model/chapter_by_id_model.dart';
+// import '../../models/para_verses/verses_by_key_model.dart';
 import '../../models/quran_chapter_models/quran_chapter_models.dart';
 import '../../models/quran_para_model/quran_para_model.dart';
 import '../../models/verses_translation_model/verses_translation.dart';
+import '../../models/versesbykey_model/verses_by_key_model.dart';
 
 part 'quran_event.dart';
 part 'quran_state.dart';
@@ -29,6 +31,7 @@ class QuranBloc extends Bloc<QuranEvent, QuranState> {
     on<ChangeExpandOnSearchEvent>(_changeExpandOnSearchEvent);
     on<FechtChapterbyId>(_fechtChapterbyId);
     on<SearchChapterEvent>(_searchChapterEvent);
+    on<FetchVersesByKey>(_fetchVerseByKey);
   }
 
   _fetchQuranChapters(
@@ -117,9 +120,11 @@ class QuranBloc extends Bloc<QuranEvent, QuranState> {
   }
 
   _fechtChapterbyId(FechtChapterbyId event, Emitter<QuranState> emit) async {
+    emit(state.copyWith(isLoading: true));
     try {
-      final data = await quranServices.fetchChapterById(event.id);
+      final data = await quranServices.fetchChaptersByIds(event.id);
       emit(state.copyWith(chapterByIdModel: data, isLoading: false));
+      print('here is the data of lists of quan by id $data');
     } catch (e) {
       emit(state.copyWith(isLoading: false));
       debugPrint("error fetch quran bloc $e");
@@ -141,6 +146,17 @@ class QuranBloc extends Bloc<QuranEvent, QuranState> {
           .toList();
 
       emit(state.copyWith(searchChapters: filteredChapters));
+    }
+  }
+
+  _fetchVerseByKey(FetchVersesByKey event, Emitter<QuranState> emit) async {
+    emit(state.copyWith(isLoading: true));
+    try {
+      final data = await quranServices.fetchVersesbyKey(event.verseKey);
+      emit(state.copyWith(versesByKeyModel: data, isLoading: false));
+    } catch (e) {
+      emit(state.copyWith(isLoading: false));
+      debugPrint("error fetch quran bloc $e");
     }
   }
 }

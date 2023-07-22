@@ -155,8 +155,9 @@ Widget buildSurahContainer(
 }
 
 // book mark veres Tile
-Widget bookMarkVersesTile(int index) {
+Widget bookMarkVersesTile(int index, VoidCallback onTap) {
   return ListTile(
+    onTap: onTap,
     leading: ImageIcon(
       const AssetImage("assets/images/folder_red.png"),
       color: ColorManager.redColor,

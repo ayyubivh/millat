@@ -6,6 +6,8 @@ import 'package:millat/resources/shop/bloc/logic/address_bloc/address_bloc.dart'
 import 'package:millat/resources/shop/view/checkout/checkout_view.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/size_utility.dart';
+import 'package:millat/utils/utils.dart';
+import 'package:pinput/pinput.dart';
 
 class CheckoutDetails extends StatefulWidget {
   const CheckoutDetails({Key? key, required this.type}) : super(key: key);
@@ -31,14 +33,14 @@ class _CheckoutDetailsState extends State<CheckoutDetails> {
   final formkey = GlobalKey<FormState>();
   @override
   void initState() {
+    BlocProvider.of<AddressBloc>(context).add(FetchAddressByIdEvent(
+        context: context,
+        id: context.read<AddressBloc>().state.addressId.toString()));
     widget.type == AddressNavType.editAddress ? addFieldVal() : null;
     super.initState();
   }
 
   addFieldVal() {
-    BlocProvider.of<AddressBloc>(context).add(FetchAddressByIdEvent(
-        context: context,
-        id: context.read<AddressBloc>().state.addressId.toString()));
     final data =
         context.read<AddressBloc>().state.addressIdModel?.result.address;
     deliveryToController.text = data!.name;
@@ -71,7 +73,7 @@ class _CheckoutDetailsState extends State<CheckoutDetails> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 widget.type == AddressNavType.profile
-                    ? SizedBox()
+                    ? const SizedBox()
                     : Slider(
                         activeColor: ColorManager.greenColor1,
                         inactiveColor: black195,
@@ -92,12 +94,12 @@ class _CheckoutDetailsState extends State<CheckoutDetails> {
                                 fontWeight: FontWeight.w700,
                                 color: ColorManager.greenColor1),
                           ),
-                          Text(
+                          const Text(
                             'Payment',
                             style: TextStyle(
                                 fontWeight: FontWeight.w600, color: black131),
                           ),
-                          Text(
+                          const Text(
                             'Confirmation',
                             style: TextStyle(
                                 fontWeight: FontWeight.w600, color: black131),
@@ -161,8 +163,10 @@ class _CheckoutDetailsState extends State<CheckoutDetails> {
                         height: 30,
                       ),
                       _addressTextfeld(
-                          controller: mobileNumberController,
-                          hintText: 'Mobile Number'),
+                        controller: mobileNumberController,
+                        hintText: 'Mobile Number',
+                        maxLength: 10,
+                      ),
                       const SizedBox(
                         height: 30,
                       ),
@@ -284,6 +288,7 @@ class _CheckoutDetailsState extends State<CheckoutDetails> {
               if (formkey.currentState!.validate() &&
                   widget.type != AddressNavType.editAddress) {
                 print('no the edit type');
+
                 context.read<AddressBloc>().add(AddressEvent.addAddress(
                     context: context,
                     addressType: addressType,
@@ -316,10 +321,14 @@ class _CheckoutDetailsState extends State<CheckoutDetails> {
         ));
   }
 
-  Widget _addressTextfeld(
-      {required TextEditingController controller, required String hintText}) {
+  Widget _addressTextfeld({
+    required TextEditingController controller,
+    required String hintText,
+    int? maxLength, // Add an optional parameter for maxLength
+  }) {
     return TextFormField(
       controller: controller,
+      maxLength: maxLength, // Set the maxLength property if provided
       decoration: InputDecoration(
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(5),
@@ -343,6 +352,10 @@ class _CheckoutDetailsState extends State<CheckoutDetails> {
       validator: (value) {
         if (value == null || value.isEmpty) {
           return 'please enter the $hintText';
+        }
+
+        if (maxLength != null && value.length != maxLength) {
+          return 'Please provide $maxLength digits';
         }
         return null;
       },

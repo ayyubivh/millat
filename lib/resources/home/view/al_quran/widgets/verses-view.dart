@@ -51,55 +51,78 @@ class VersesView extends StatelessWidget {
         ],
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 20),
-        child: type == Qurantype.sura
-            ? BlocBuilder<QuranBloc, QuranState>(
-                builder: (context, state) {
-                  if (state.isLoading ||
-                      state.chapterVersesModel?.data.ayahs == null) {
-                    return const Loader();
-                  }
-                  final data = state.chapterVersesModel?.data.ayahs;
-                  return ListView.builder(
-                    itemCount: data!.length,
-                    itemBuilder: (context, index) {
-                      return buildSurahContainer(
-                        numValue: index + 1,
-                        surah: data[index].text,
-                        surahMeaning: removeFootnotesFromMeaning(
-                          state.versesTranslationModel?.translations[index]
-                                  .text ??
-                              '',
-                        ),
-                      );
-                    },
-                  );
-                },
-              )
-            : BlocBuilder<QuranBloc, QuranState>(
-                builder: (context, state) {
-                  if (state.isLoading || state.paraVersesModel == null) {
-                    return const Loader();
-                  }
-                  final data = state.paraVersesModel!.verses;
+          padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 20),
+          child: type == Qurantype.sura
+              ? BlocBuilder<QuranBloc, QuranState>(
+                  builder: (context, state) {
+                    if (state.isLoading ||
+                        state.chapterVersesModel?.data.ayahs == null) {
+                      return const Loader();
+                    }
+                    final data = state.chapterVersesModel?.data.ayahs;
+                    return ListView.builder(
+                      itemCount: data!.length,
+                      itemBuilder: (context, index) {
+                        return buildSurahContainer(
+                          numValue: index + 1,
+                          surah: data[index].text,
+                          surahMeaning: removeFootnotesFromMeaning(
+                            state.versesTranslationModel?.translations[index]
+                                    .text ??
+                                '',
+                          ),
+                        );
+                      },
+                    );
+                  },
+                )
+              : type == Qurantype.para
+                  ? BlocBuilder<QuranBloc, QuranState>(
+                      builder: (context, state) {
+                        if (state.isLoading || state.paraVersesModel == null) {
+                          return const Loader();
+                        }
+                        final data = state.paraVersesModel!.verses;
 
-                  return ListView.builder(
-                    itemCount: data.length,
-                    itemBuilder: (context, index) {
-                      return buildSurahContainer(
-                        numValue: data[index].id!,
-                        surah: data[index].textIndopak.toString(),
-                        surahMeaning: removeFootnotesFromMeaning(
-                          state.versesTranslationModel?.translations[index]
-                                  .text ??
-                              '',
-                        ),
-                      );
-                    },
-                  );
-                },
-              ),
-      ),
+                        return ListView.builder(
+                          itemCount: data.length,
+                          itemBuilder: (context, index) {
+                            return buildSurahContainer(
+                              numValue: data[index].id!,
+                              surah: data[index].textIndopak.toString(),
+                              surahMeaning: removeFootnotesFromMeaning(
+                                state.versesTranslationModel
+                                        ?.translations[index].text ??
+                                    '',
+                              ),
+                            );
+                          },
+                        );
+                      },
+                    )
+                  : BlocBuilder<QuranBloc, QuranState>(
+                      builder: (context, state) {
+                        if (state.isLoading || state.versesByKeyModel == null) {
+                          return const Loader();
+                        }
+                        final data = state.versesByKeyModel!.verses;
+
+                        return ListView.builder(
+                          itemCount: data.length,
+                          itemBuilder: (context, index) {
+                            return buildSurahContainer(
+                              numValue: data[index].id,
+                              surah: data[index].textIndopak,
+                              surahMeaning: removeFootnotesFromMeaning(
+                                state.versesTranslationModel
+                                        ?.translations[index].text ??
+                                    '',
+                              ),
+                            );
+                          },
+                        );
+                      },
+                    )),
       bottomSheet: Container(
         margin: const EdgeInsets.symmetric(horizontal: 35),
         padding: const EdgeInsets.symmetric(horizontal: 12),

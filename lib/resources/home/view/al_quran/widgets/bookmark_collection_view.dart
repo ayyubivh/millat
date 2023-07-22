@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/resources/home/bloc/db/db_functions.dart';
 import 'package:millat/resources/home/bloc/logic/quran_bloc/quran_bloc.dart';
+import 'package:millat/resources/home/bloc/models/chapter_by_id_model/chapter_by_id_model.dart';
 import 'package:millat/utils/constants.dart';
+import 'package:millat/utils/loader.dart';
 import 'package:millat/utils/size_utility.dart';
 
 import '../../../../../enums/enumertations.dart';
@@ -104,15 +106,28 @@ class BookmarkCollectionView extends StatelessWidget {
               ],
             ),
             kHeight30,
-            BlocBuilder<QuranBloc, QuranState>(builder: (context, state) {
-              final chapter = state.chapterByIdModel?.chapter;
+            Expanded(
+              child: BlocBuilder<QuranBloc, QuranState>(
+                builder: (context, state) {
+                  if (state.chapterByIdModel == null) {
+                    return const Loader();
+                  }
+                  final chapters = state.chapterByIdModel;
 
-              print('here is the chapter man $chapter');
-              return _buildSurahWidget(
-                  name: chapter?.nameSimple ?? '',
-                  arabicName: chapter?.nameArabic ?? '',
-                  versCount: chapter?.versesCount ?? 0);
-            })
+                  print('here is the chapter man $chapters');
+                  return ListView.builder(
+                    itemCount: chapters!.length,
+                    itemBuilder: (context, index) {
+                      final chapter = chapters[index].chapter;
+                      return _buildSurahWidget(
+                          name: chapter.nameSimple,
+                          arabicName: chapter.nameArabic,
+                          versCount: chapter.versesCount);
+                    },
+                  );
+                },
+              ),
+            )
           ],
         ),
       ),

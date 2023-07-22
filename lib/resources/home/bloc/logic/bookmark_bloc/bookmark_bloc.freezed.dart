@@ -18,44 +18,47 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$BookmarkEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            String name, String description, int id, String image, String? dbId)
+    required TResult Function(String name, String description, List<int> id,
+            String image, String? dbId)
         addCollection,
     required TResult Function(String img) saveImageEvent,
-    required TResult Function(int id) saveQuranChapterId,
+    required TResult Function(List<int> id) saveQuranChapterId,
     required TResult Function(String nameValue) nameChanged,
     required TResult Function(String descriptionValue) descriptionChanged,
-    required TResult Function(
-            String name, String description, int id, String image, String dbId)
+    required TResult Function(String name, String description, List<int> id,
+            String image, String dbId)
         editCollection,
+    required TResult Function(int indexList) saveIndexEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String name, String description, int id, String image,
-            String? dbId)?
+    TResult? Function(String name, String description, List<int> id,
+            String image, String? dbId)?
         addCollection,
     TResult? Function(String img)? saveImageEvent,
-    TResult? Function(int id)? saveQuranChapterId,
+    TResult? Function(List<int> id)? saveQuranChapterId,
     TResult? Function(String nameValue)? nameChanged,
     TResult? Function(String descriptionValue)? descriptionChanged,
-    TResult? Function(
-            String name, String description, int id, String image, String dbId)?
+    TResult? Function(String name, String description, List<int> id,
+            String image, String dbId)?
         editCollection,
+    TResult? Function(int indexList)? saveIndexEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String name, String description, int id, String image,
-            String? dbId)?
+    TResult Function(String name, String description, List<int> id,
+            String image, String? dbId)?
         addCollection,
     TResult Function(String img)? saveImageEvent,
-    TResult Function(int id)? saveQuranChapterId,
+    TResult Function(List<int> id)? saveQuranChapterId,
     TResult Function(String nameValue)? nameChanged,
     TResult Function(String descriptionValue)? descriptionChanged,
-    TResult Function(
-            String name, String description, int id, String image, String dbId)?
+    TResult Function(String name, String description, List<int> id,
+            String image, String dbId)?
         editCollection,
+    TResult Function(int indexList)? saveIndexEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -67,6 +70,7 @@ mixin _$BookmarkEvent {
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(DescriptionChanged value) descriptionChanged,
     required TResult Function(EditCollection value) editCollection,
+    required TResult Function(SaveIndexEvent value) saveIndexEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -77,6 +81,7 @@ mixin _$BookmarkEvent {
     TResult? Function(NameChanged value)? nameChanged,
     TResult? Function(DescriptionChanged value)? descriptionChanged,
     TResult? Function(EditCollection value)? editCollection,
+    TResult? Function(SaveIndexEvent value)? saveIndexEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -87,6 +92,7 @@ mixin _$BookmarkEvent {
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(DescriptionChanged value)? descriptionChanged,
     TResult Function(EditCollection value)? editCollection,
+    TResult Function(SaveIndexEvent value)? saveIndexEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -117,7 +123,11 @@ abstract class _$$AddCollectionCopyWith<$Res> {
       __$$AddCollectionCopyWithImpl<$Res>;
   @useResult
   $Res call(
-      {String name, String description, int id, String image, String? dbId});
+      {String name,
+      String description,
+      List<int> id,
+      String image,
+      String? dbId});
 }
 
 /// @nodoc
@@ -147,9 +157,9 @@ class __$$AddCollectionCopyWithImpl<$Res>
           : description // ignore: cast_nullable_to_non_nullable
               as String,
       id: null == id
-          ? _value.id
+          ? _value._id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as List<int>,
       image: null == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
@@ -168,16 +178,23 @@ class _$AddCollection implements AddCollection {
   const _$AddCollection(
       {required this.name,
       required this.description,
-      required this.id,
+      required final List<int> id,
       required this.image,
-      this.dbId});
+      this.dbId})
+      : _id = id;
 
   @override
   final String name;
   @override
   final String description;
+  final List<int> _id;
   @override
-  final int id;
+  List<int> get id {
+    if (_id is EqualUnmodifiableListView) return _id;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_id);
+  }
+
   @override
   final String image;
   @override
@@ -196,14 +213,14 @@ class _$AddCollection implements AddCollection {
             (identical(other.name, name) || other.name == name) &&
             (identical(other.description, description) ||
                 other.description == description) &&
-            (identical(other.id, id) || other.id == id) &&
+            const DeepCollectionEquality().equals(other._id, _id) &&
             (identical(other.image, image) || other.image == image) &&
             (identical(other.dbId, dbId) || other.dbId == dbId));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, name, description, id, image, dbId);
+  int get hashCode => Object.hash(runtimeType, name, description,
+      const DeepCollectionEquality().hash(_id), image, dbId);
 
   @JsonKey(ignore: true)
   @override
@@ -214,16 +231,17 @@ class _$AddCollection implements AddCollection {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            String name, String description, int id, String image, String? dbId)
+    required TResult Function(String name, String description, List<int> id,
+            String image, String? dbId)
         addCollection,
     required TResult Function(String img) saveImageEvent,
-    required TResult Function(int id) saveQuranChapterId,
+    required TResult Function(List<int> id) saveQuranChapterId,
     required TResult Function(String nameValue) nameChanged,
     required TResult Function(String descriptionValue) descriptionChanged,
-    required TResult Function(
-            String name, String description, int id, String image, String dbId)
+    required TResult Function(String name, String description, List<int> id,
+            String image, String dbId)
         editCollection,
+    required TResult Function(int indexList) saveIndexEvent,
   }) {
     return addCollection(name, description, id, image, dbId);
   }
@@ -231,16 +249,17 @@ class _$AddCollection implements AddCollection {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String name, String description, int id, String image,
-            String? dbId)?
+    TResult? Function(String name, String description, List<int> id,
+            String image, String? dbId)?
         addCollection,
     TResult? Function(String img)? saveImageEvent,
-    TResult? Function(int id)? saveQuranChapterId,
+    TResult? Function(List<int> id)? saveQuranChapterId,
     TResult? Function(String nameValue)? nameChanged,
     TResult? Function(String descriptionValue)? descriptionChanged,
-    TResult? Function(
-            String name, String description, int id, String image, String dbId)?
+    TResult? Function(String name, String description, List<int> id,
+            String image, String dbId)?
         editCollection,
+    TResult? Function(int indexList)? saveIndexEvent,
   }) {
     return addCollection?.call(name, description, id, image, dbId);
   }
@@ -248,16 +267,17 @@ class _$AddCollection implements AddCollection {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String name, String description, int id, String image,
-            String? dbId)?
+    TResult Function(String name, String description, List<int> id,
+            String image, String? dbId)?
         addCollection,
     TResult Function(String img)? saveImageEvent,
-    TResult Function(int id)? saveQuranChapterId,
+    TResult Function(List<int> id)? saveQuranChapterId,
     TResult Function(String nameValue)? nameChanged,
     TResult Function(String descriptionValue)? descriptionChanged,
-    TResult Function(
-            String name, String description, int id, String image, String dbId)?
+    TResult Function(String name, String description, List<int> id,
+            String image, String dbId)?
         editCollection,
+    TResult Function(int indexList)? saveIndexEvent,
     required TResult orElse(),
   }) {
     if (addCollection != null) {
@@ -275,6 +295,7 @@ class _$AddCollection implements AddCollection {
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(DescriptionChanged value) descriptionChanged,
     required TResult Function(EditCollection value) editCollection,
+    required TResult Function(SaveIndexEvent value) saveIndexEvent,
   }) {
     return addCollection(this);
   }
@@ -288,6 +309,7 @@ class _$AddCollection implements AddCollection {
     TResult? Function(NameChanged value)? nameChanged,
     TResult? Function(DescriptionChanged value)? descriptionChanged,
     TResult? Function(EditCollection value)? editCollection,
+    TResult? Function(SaveIndexEvent value)? saveIndexEvent,
   }) {
     return addCollection?.call(this);
   }
@@ -301,6 +323,7 @@ class _$AddCollection implements AddCollection {
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(DescriptionChanged value)? descriptionChanged,
     TResult Function(EditCollection value)? editCollection,
+    TResult Function(SaveIndexEvent value)? saveIndexEvent,
     required TResult orElse(),
   }) {
     if (addCollection != null) {
@@ -314,13 +337,13 @@ abstract class AddCollection implements BookmarkEvent {
   const factory AddCollection(
       {required final String name,
       required final String description,
-      required final int id,
+      required final List<int> id,
       required final String image,
       final String? dbId}) = _$AddCollection;
 
   String get name;
   String get description;
-  int get id;
+  List<int> get id;
   String get image;
   String? get dbId;
   @JsonKey(ignore: true)
@@ -392,16 +415,17 @@ class _$SaveImageEvent implements SaveImageEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            String name, String description, int id, String image, String? dbId)
+    required TResult Function(String name, String description, List<int> id,
+            String image, String? dbId)
         addCollection,
     required TResult Function(String img) saveImageEvent,
-    required TResult Function(int id) saveQuranChapterId,
+    required TResult Function(List<int> id) saveQuranChapterId,
     required TResult Function(String nameValue) nameChanged,
     required TResult Function(String descriptionValue) descriptionChanged,
-    required TResult Function(
-            String name, String description, int id, String image, String dbId)
+    required TResult Function(String name, String description, List<int> id,
+            String image, String dbId)
         editCollection,
+    required TResult Function(int indexList) saveIndexEvent,
   }) {
     return saveImageEvent(img);
   }
@@ -409,16 +433,17 @@ class _$SaveImageEvent implements SaveImageEvent {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String name, String description, int id, String image,
-            String? dbId)?
+    TResult? Function(String name, String description, List<int> id,
+            String image, String? dbId)?
         addCollection,
     TResult? Function(String img)? saveImageEvent,
-    TResult? Function(int id)? saveQuranChapterId,
+    TResult? Function(List<int> id)? saveQuranChapterId,
     TResult? Function(String nameValue)? nameChanged,
     TResult? Function(String descriptionValue)? descriptionChanged,
-    TResult? Function(
-            String name, String description, int id, String image, String dbId)?
+    TResult? Function(String name, String description, List<int> id,
+            String image, String dbId)?
         editCollection,
+    TResult? Function(int indexList)? saveIndexEvent,
   }) {
     return saveImageEvent?.call(img);
   }
@@ -426,16 +451,17 @@ class _$SaveImageEvent implements SaveImageEvent {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String name, String description, int id, String image,
-            String? dbId)?
+    TResult Function(String name, String description, List<int> id,
+            String image, String? dbId)?
         addCollection,
     TResult Function(String img)? saveImageEvent,
-    TResult Function(int id)? saveQuranChapterId,
+    TResult Function(List<int> id)? saveQuranChapterId,
     TResult Function(String nameValue)? nameChanged,
     TResult Function(String descriptionValue)? descriptionChanged,
-    TResult Function(
-            String name, String description, int id, String image, String dbId)?
+    TResult Function(String name, String description, List<int> id,
+            String image, String dbId)?
         editCollection,
+    TResult Function(int indexList)? saveIndexEvent,
     required TResult orElse(),
   }) {
     if (saveImageEvent != null) {
@@ -453,6 +479,7 @@ class _$SaveImageEvent implements SaveImageEvent {
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(DescriptionChanged value) descriptionChanged,
     required TResult Function(EditCollection value) editCollection,
+    required TResult Function(SaveIndexEvent value) saveIndexEvent,
   }) {
     return saveImageEvent(this);
   }
@@ -466,6 +493,7 @@ class _$SaveImageEvent implements SaveImageEvent {
     TResult? Function(NameChanged value)? nameChanged,
     TResult? Function(DescriptionChanged value)? descriptionChanged,
     TResult? Function(EditCollection value)? editCollection,
+    TResult? Function(SaveIndexEvent value)? saveIndexEvent,
   }) {
     return saveImageEvent?.call(this);
   }
@@ -479,6 +507,7 @@ class _$SaveImageEvent implements SaveImageEvent {
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(DescriptionChanged value)? descriptionChanged,
     TResult Function(EditCollection value)? editCollection,
+    TResult Function(SaveIndexEvent value)? saveIndexEvent,
     required TResult orElse(),
   }) {
     if (saveImageEvent != null) {
@@ -503,7 +532,7 @@ abstract class _$$SaveQuranChapterIdCopyWith<$Res> {
           $Res Function(_$SaveQuranChapterId) then) =
       __$$SaveQuranChapterIdCopyWithImpl<$Res>;
   @useResult
-  $Res call({int id});
+  $Res call({List<int> id});
 }
 
 /// @nodoc
@@ -521,9 +550,9 @@ class __$$SaveQuranChapterIdCopyWithImpl<$Res>
   }) {
     return _then(_$SaveQuranChapterId(
       id: null == id
-          ? _value.id
+          ? _value._id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as List<int>,
     ));
   }
 }
@@ -531,10 +560,15 @@ class __$$SaveQuranChapterIdCopyWithImpl<$Res>
 /// @nodoc
 
 class _$SaveQuranChapterId implements SaveQuranChapterId {
-  const _$SaveQuranChapterId({required this.id});
+  const _$SaveQuranChapterId({required final List<int> id}) : _id = id;
 
+  final List<int> _id;
   @override
-  final int id;
+  List<int> get id {
+    if (_id is EqualUnmodifiableListView) return _id;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_id);
+  }
 
   @override
   String toString() {
@@ -546,11 +580,12 @@ class _$SaveQuranChapterId implements SaveQuranChapterId {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SaveQuranChapterId &&
-            (identical(other.id, id) || other.id == id));
+            const DeepCollectionEquality().equals(other._id, _id));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_id));
 
   @JsonKey(ignore: true)
   @override
@@ -562,16 +597,17 @@ class _$SaveQuranChapterId implements SaveQuranChapterId {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            String name, String description, int id, String image, String? dbId)
+    required TResult Function(String name, String description, List<int> id,
+            String image, String? dbId)
         addCollection,
     required TResult Function(String img) saveImageEvent,
-    required TResult Function(int id) saveQuranChapterId,
+    required TResult Function(List<int> id) saveQuranChapterId,
     required TResult Function(String nameValue) nameChanged,
     required TResult Function(String descriptionValue) descriptionChanged,
-    required TResult Function(
-            String name, String description, int id, String image, String dbId)
+    required TResult Function(String name, String description, List<int> id,
+            String image, String dbId)
         editCollection,
+    required TResult Function(int indexList) saveIndexEvent,
   }) {
     return saveQuranChapterId(id);
   }
@@ -579,16 +615,17 @@ class _$SaveQuranChapterId implements SaveQuranChapterId {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String name, String description, int id, String image,
-            String? dbId)?
+    TResult? Function(String name, String description, List<int> id,
+            String image, String? dbId)?
         addCollection,
     TResult? Function(String img)? saveImageEvent,
-    TResult? Function(int id)? saveQuranChapterId,
+    TResult? Function(List<int> id)? saveQuranChapterId,
     TResult? Function(String nameValue)? nameChanged,
     TResult? Function(String descriptionValue)? descriptionChanged,
-    TResult? Function(
-            String name, String description, int id, String image, String dbId)?
+    TResult? Function(String name, String description, List<int> id,
+            String image, String dbId)?
         editCollection,
+    TResult? Function(int indexList)? saveIndexEvent,
   }) {
     return saveQuranChapterId?.call(id);
   }
@@ -596,16 +633,17 @@ class _$SaveQuranChapterId implements SaveQuranChapterId {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String name, String description, int id, String image,
-            String? dbId)?
+    TResult Function(String name, String description, List<int> id,
+            String image, String? dbId)?
         addCollection,
     TResult Function(String img)? saveImageEvent,
-    TResult Function(int id)? saveQuranChapterId,
+    TResult Function(List<int> id)? saveQuranChapterId,
     TResult Function(String nameValue)? nameChanged,
     TResult Function(String descriptionValue)? descriptionChanged,
-    TResult Function(
-            String name, String description, int id, String image, String dbId)?
+    TResult Function(String name, String description, List<int> id,
+            String image, String dbId)?
         editCollection,
+    TResult Function(int indexList)? saveIndexEvent,
     required TResult orElse(),
   }) {
     if (saveQuranChapterId != null) {
@@ -623,6 +661,7 @@ class _$SaveQuranChapterId implements SaveQuranChapterId {
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(DescriptionChanged value) descriptionChanged,
     required TResult Function(EditCollection value) editCollection,
+    required TResult Function(SaveIndexEvent value) saveIndexEvent,
   }) {
     return saveQuranChapterId(this);
   }
@@ -636,6 +675,7 @@ class _$SaveQuranChapterId implements SaveQuranChapterId {
     TResult? Function(NameChanged value)? nameChanged,
     TResult? Function(DescriptionChanged value)? descriptionChanged,
     TResult? Function(EditCollection value)? editCollection,
+    TResult? Function(SaveIndexEvent value)? saveIndexEvent,
   }) {
     return saveQuranChapterId?.call(this);
   }
@@ -649,6 +689,7 @@ class _$SaveQuranChapterId implements SaveQuranChapterId {
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(DescriptionChanged value)? descriptionChanged,
     TResult Function(EditCollection value)? editCollection,
+    TResult Function(SaveIndexEvent value)? saveIndexEvent,
     required TResult orElse(),
   }) {
     if (saveQuranChapterId != null) {
@@ -659,10 +700,10 @@ class _$SaveQuranChapterId implements SaveQuranChapterId {
 }
 
 abstract class SaveQuranChapterId implements BookmarkEvent {
-  const factory SaveQuranChapterId({required final int id}) =
+  const factory SaveQuranChapterId({required final List<int> id}) =
       _$SaveQuranChapterId;
 
-  int get id;
+  List<int> get id;
   @JsonKey(ignore: true)
   _$$SaveQuranChapterIdCopyWith<_$SaveQuranChapterId> get copyWith =>
       throw _privateConstructorUsedError;
@@ -733,16 +774,17 @@ class _$NameChanged implements NameChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            String name, String description, int id, String image, String? dbId)
+    required TResult Function(String name, String description, List<int> id,
+            String image, String? dbId)
         addCollection,
     required TResult Function(String img) saveImageEvent,
-    required TResult Function(int id) saveQuranChapterId,
+    required TResult Function(List<int> id) saveQuranChapterId,
     required TResult Function(String nameValue) nameChanged,
     required TResult Function(String descriptionValue) descriptionChanged,
-    required TResult Function(
-            String name, String description, int id, String image, String dbId)
+    required TResult Function(String name, String description, List<int> id,
+            String image, String dbId)
         editCollection,
+    required TResult Function(int indexList) saveIndexEvent,
   }) {
     return nameChanged(nameValue);
   }
@@ -750,16 +792,17 @@ class _$NameChanged implements NameChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String name, String description, int id, String image,
-            String? dbId)?
+    TResult? Function(String name, String description, List<int> id,
+            String image, String? dbId)?
         addCollection,
     TResult? Function(String img)? saveImageEvent,
-    TResult? Function(int id)? saveQuranChapterId,
+    TResult? Function(List<int> id)? saveQuranChapterId,
     TResult? Function(String nameValue)? nameChanged,
     TResult? Function(String descriptionValue)? descriptionChanged,
-    TResult? Function(
-            String name, String description, int id, String image, String dbId)?
+    TResult? Function(String name, String description, List<int> id,
+            String image, String dbId)?
         editCollection,
+    TResult? Function(int indexList)? saveIndexEvent,
   }) {
     return nameChanged?.call(nameValue);
   }
@@ -767,16 +810,17 @@ class _$NameChanged implements NameChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String name, String description, int id, String image,
-            String? dbId)?
+    TResult Function(String name, String description, List<int> id,
+            String image, String? dbId)?
         addCollection,
     TResult Function(String img)? saveImageEvent,
-    TResult Function(int id)? saveQuranChapterId,
+    TResult Function(List<int> id)? saveQuranChapterId,
     TResult Function(String nameValue)? nameChanged,
     TResult Function(String descriptionValue)? descriptionChanged,
-    TResult Function(
-            String name, String description, int id, String image, String dbId)?
+    TResult Function(String name, String description, List<int> id,
+            String image, String dbId)?
         editCollection,
+    TResult Function(int indexList)? saveIndexEvent,
     required TResult orElse(),
   }) {
     if (nameChanged != null) {
@@ -794,6 +838,7 @@ class _$NameChanged implements NameChanged {
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(DescriptionChanged value) descriptionChanged,
     required TResult Function(EditCollection value) editCollection,
+    required TResult Function(SaveIndexEvent value) saveIndexEvent,
   }) {
     return nameChanged(this);
   }
@@ -807,6 +852,7 @@ class _$NameChanged implements NameChanged {
     TResult? Function(NameChanged value)? nameChanged,
     TResult? Function(DescriptionChanged value)? descriptionChanged,
     TResult? Function(EditCollection value)? editCollection,
+    TResult? Function(SaveIndexEvent value)? saveIndexEvent,
   }) {
     return nameChanged?.call(this);
   }
@@ -820,6 +866,7 @@ class _$NameChanged implements NameChanged {
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(DescriptionChanged value)? descriptionChanged,
     TResult Function(EditCollection value)? editCollection,
+    TResult Function(SaveIndexEvent value)? saveIndexEvent,
     required TResult orElse(),
   }) {
     if (nameChanged != null) {
@@ -904,16 +951,17 @@ class _$DescriptionChanged implements DescriptionChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            String name, String description, int id, String image, String? dbId)
+    required TResult Function(String name, String description, List<int> id,
+            String image, String? dbId)
         addCollection,
     required TResult Function(String img) saveImageEvent,
-    required TResult Function(int id) saveQuranChapterId,
+    required TResult Function(List<int> id) saveQuranChapterId,
     required TResult Function(String nameValue) nameChanged,
     required TResult Function(String descriptionValue) descriptionChanged,
-    required TResult Function(
-            String name, String description, int id, String image, String dbId)
+    required TResult Function(String name, String description, List<int> id,
+            String image, String dbId)
         editCollection,
+    required TResult Function(int indexList) saveIndexEvent,
   }) {
     return descriptionChanged(descriptionValue);
   }
@@ -921,16 +969,17 @@ class _$DescriptionChanged implements DescriptionChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String name, String description, int id, String image,
-            String? dbId)?
+    TResult? Function(String name, String description, List<int> id,
+            String image, String? dbId)?
         addCollection,
     TResult? Function(String img)? saveImageEvent,
-    TResult? Function(int id)? saveQuranChapterId,
+    TResult? Function(List<int> id)? saveQuranChapterId,
     TResult? Function(String nameValue)? nameChanged,
     TResult? Function(String descriptionValue)? descriptionChanged,
-    TResult? Function(
-            String name, String description, int id, String image, String dbId)?
+    TResult? Function(String name, String description, List<int> id,
+            String image, String dbId)?
         editCollection,
+    TResult? Function(int indexList)? saveIndexEvent,
   }) {
     return descriptionChanged?.call(descriptionValue);
   }
@@ -938,16 +987,17 @@ class _$DescriptionChanged implements DescriptionChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String name, String description, int id, String image,
-            String? dbId)?
+    TResult Function(String name, String description, List<int> id,
+            String image, String? dbId)?
         addCollection,
     TResult Function(String img)? saveImageEvent,
-    TResult Function(int id)? saveQuranChapterId,
+    TResult Function(List<int> id)? saveQuranChapterId,
     TResult Function(String nameValue)? nameChanged,
     TResult Function(String descriptionValue)? descriptionChanged,
-    TResult Function(
-            String name, String description, int id, String image, String dbId)?
+    TResult Function(String name, String description, List<int> id,
+            String image, String dbId)?
         editCollection,
+    TResult Function(int indexList)? saveIndexEvent,
     required TResult orElse(),
   }) {
     if (descriptionChanged != null) {
@@ -965,6 +1015,7 @@ class _$DescriptionChanged implements DescriptionChanged {
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(DescriptionChanged value) descriptionChanged,
     required TResult Function(EditCollection value) editCollection,
+    required TResult Function(SaveIndexEvent value) saveIndexEvent,
   }) {
     return descriptionChanged(this);
   }
@@ -978,6 +1029,7 @@ class _$DescriptionChanged implements DescriptionChanged {
     TResult? Function(NameChanged value)? nameChanged,
     TResult? Function(DescriptionChanged value)? descriptionChanged,
     TResult? Function(EditCollection value)? editCollection,
+    TResult? Function(SaveIndexEvent value)? saveIndexEvent,
   }) {
     return descriptionChanged?.call(this);
   }
@@ -991,6 +1043,7 @@ class _$DescriptionChanged implements DescriptionChanged {
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(DescriptionChanged value)? descriptionChanged,
     TResult Function(EditCollection value)? editCollection,
+    TResult Function(SaveIndexEvent value)? saveIndexEvent,
     required TResult orElse(),
   }) {
     if (descriptionChanged != null) {
@@ -1017,7 +1070,11 @@ abstract class _$$EditCollectionCopyWith<$Res> {
       __$$EditCollectionCopyWithImpl<$Res>;
   @useResult
   $Res call(
-      {String name, String description, int id, String image, String dbId});
+      {String name,
+      String description,
+      List<int> id,
+      String image,
+      String dbId});
 }
 
 /// @nodoc
@@ -1047,9 +1104,9 @@ class __$$EditCollectionCopyWithImpl<$Res>
           : description // ignore: cast_nullable_to_non_nullable
               as String,
       id: null == id
-          ? _value.id
+          ? _value._id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as List<int>,
       image: null == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
@@ -1068,16 +1125,23 @@ class _$EditCollection implements EditCollection {
   const _$EditCollection(
       {required this.name,
       required this.description,
-      required this.id,
+      required final List<int> id,
       required this.image,
-      required this.dbId});
+      required this.dbId})
+      : _id = id;
 
   @override
   final String name;
   @override
   final String description;
+  final List<int> _id;
   @override
-  final int id;
+  List<int> get id {
+    if (_id is EqualUnmodifiableListView) return _id;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_id);
+  }
+
   @override
   final String image;
   @override
@@ -1096,14 +1160,14 @@ class _$EditCollection implements EditCollection {
             (identical(other.name, name) || other.name == name) &&
             (identical(other.description, description) ||
                 other.description == description) &&
-            (identical(other.id, id) || other.id == id) &&
+            const DeepCollectionEquality().equals(other._id, _id) &&
             (identical(other.image, image) || other.image == image) &&
             (identical(other.dbId, dbId) || other.dbId == dbId));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, name, description, id, image, dbId);
+  int get hashCode => Object.hash(runtimeType, name, description,
+      const DeepCollectionEquality().hash(_id), image, dbId);
 
   @JsonKey(ignore: true)
   @override
@@ -1114,16 +1178,17 @@ class _$EditCollection implements EditCollection {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            String name, String description, int id, String image, String? dbId)
+    required TResult Function(String name, String description, List<int> id,
+            String image, String? dbId)
         addCollection,
     required TResult Function(String img) saveImageEvent,
-    required TResult Function(int id) saveQuranChapterId,
+    required TResult Function(List<int> id) saveQuranChapterId,
     required TResult Function(String nameValue) nameChanged,
     required TResult Function(String descriptionValue) descriptionChanged,
-    required TResult Function(
-            String name, String description, int id, String image, String dbId)
+    required TResult Function(String name, String description, List<int> id,
+            String image, String dbId)
         editCollection,
+    required TResult Function(int indexList) saveIndexEvent,
   }) {
     return editCollection(name, description, id, image, dbId);
   }
@@ -1131,16 +1196,17 @@ class _$EditCollection implements EditCollection {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String name, String description, int id, String image,
-            String? dbId)?
+    TResult? Function(String name, String description, List<int> id,
+            String image, String? dbId)?
         addCollection,
     TResult? Function(String img)? saveImageEvent,
-    TResult? Function(int id)? saveQuranChapterId,
+    TResult? Function(List<int> id)? saveQuranChapterId,
     TResult? Function(String nameValue)? nameChanged,
     TResult? Function(String descriptionValue)? descriptionChanged,
-    TResult? Function(
-            String name, String description, int id, String image, String dbId)?
+    TResult? Function(String name, String description, List<int> id,
+            String image, String dbId)?
         editCollection,
+    TResult? Function(int indexList)? saveIndexEvent,
   }) {
     return editCollection?.call(name, description, id, image, dbId);
   }
@@ -1148,16 +1214,17 @@ class _$EditCollection implements EditCollection {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String name, String description, int id, String image,
-            String? dbId)?
+    TResult Function(String name, String description, List<int> id,
+            String image, String? dbId)?
         addCollection,
     TResult Function(String img)? saveImageEvent,
-    TResult Function(int id)? saveQuranChapterId,
+    TResult Function(List<int> id)? saveQuranChapterId,
     TResult Function(String nameValue)? nameChanged,
     TResult Function(String descriptionValue)? descriptionChanged,
-    TResult Function(
-            String name, String description, int id, String image, String dbId)?
+    TResult Function(String name, String description, List<int> id,
+            String image, String dbId)?
         editCollection,
+    TResult Function(int indexList)? saveIndexEvent,
     required TResult orElse(),
   }) {
     if (editCollection != null) {
@@ -1175,6 +1242,7 @@ class _$EditCollection implements EditCollection {
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(DescriptionChanged value) descriptionChanged,
     required TResult Function(EditCollection value) editCollection,
+    required TResult Function(SaveIndexEvent value) saveIndexEvent,
   }) {
     return editCollection(this);
   }
@@ -1188,6 +1256,7 @@ class _$EditCollection implements EditCollection {
     TResult? Function(NameChanged value)? nameChanged,
     TResult? Function(DescriptionChanged value)? descriptionChanged,
     TResult? Function(EditCollection value)? editCollection,
+    TResult? Function(SaveIndexEvent value)? saveIndexEvent,
   }) {
     return editCollection?.call(this);
   }
@@ -1201,6 +1270,7 @@ class _$EditCollection implements EditCollection {
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(DescriptionChanged value)? descriptionChanged,
     TResult Function(EditCollection value)? editCollection,
+    TResult Function(SaveIndexEvent value)? saveIndexEvent,
     required TResult orElse(),
   }) {
     if (editCollection != null) {
@@ -1214,17 +1284,194 @@ abstract class EditCollection implements BookmarkEvent {
   const factory EditCollection(
       {required final String name,
       required final String description,
-      required final int id,
+      required final List<int> id,
       required final String image,
       required final String dbId}) = _$EditCollection;
 
   String get name;
   String get description;
-  int get id;
+  List<int> get id;
   String get image;
   String get dbId;
   @JsonKey(ignore: true)
   _$$EditCollectionCopyWith<_$EditCollection> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SaveIndexEventCopyWith<$Res> {
+  factory _$$SaveIndexEventCopyWith(
+          _$SaveIndexEvent value, $Res Function(_$SaveIndexEvent) then) =
+      __$$SaveIndexEventCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int indexList});
+}
+
+/// @nodoc
+class __$$SaveIndexEventCopyWithImpl<$Res>
+    extends _$BookmarkEventCopyWithImpl<$Res, _$SaveIndexEvent>
+    implements _$$SaveIndexEventCopyWith<$Res> {
+  __$$SaveIndexEventCopyWithImpl(
+      _$SaveIndexEvent _value, $Res Function(_$SaveIndexEvent) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? indexList = null,
+  }) {
+    return _then(_$SaveIndexEvent(
+      indexList: null == indexList
+          ? _value.indexList
+          : indexList // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SaveIndexEvent implements SaveIndexEvent {
+  const _$SaveIndexEvent({required this.indexList});
+
+  @override
+  final int indexList;
+
+  @override
+  String toString() {
+    return 'BookmarkEvent.saveIndexEvent(indexList: $indexList)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SaveIndexEvent &&
+            (identical(other.indexList, indexList) ||
+                other.indexList == indexList));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, indexList);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SaveIndexEventCopyWith<_$SaveIndexEvent> get copyWith =>
+      __$$SaveIndexEventCopyWithImpl<_$SaveIndexEvent>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String name, String description, List<int> id,
+            String image, String? dbId)
+        addCollection,
+    required TResult Function(String img) saveImageEvent,
+    required TResult Function(List<int> id) saveQuranChapterId,
+    required TResult Function(String nameValue) nameChanged,
+    required TResult Function(String descriptionValue) descriptionChanged,
+    required TResult Function(String name, String description, List<int> id,
+            String image, String dbId)
+        editCollection,
+    required TResult Function(int indexList) saveIndexEvent,
+  }) {
+    return saveIndexEvent(indexList);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name, String description, List<int> id,
+            String image, String? dbId)?
+        addCollection,
+    TResult? Function(String img)? saveImageEvent,
+    TResult? Function(List<int> id)? saveQuranChapterId,
+    TResult? Function(String nameValue)? nameChanged,
+    TResult? Function(String descriptionValue)? descriptionChanged,
+    TResult? Function(String name, String description, List<int> id,
+            String image, String dbId)?
+        editCollection,
+    TResult? Function(int indexList)? saveIndexEvent,
+  }) {
+    return saveIndexEvent?.call(indexList);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String name, String description, List<int> id,
+            String image, String? dbId)?
+        addCollection,
+    TResult Function(String img)? saveImageEvent,
+    TResult Function(List<int> id)? saveQuranChapterId,
+    TResult Function(String nameValue)? nameChanged,
+    TResult Function(String descriptionValue)? descriptionChanged,
+    TResult Function(String name, String description, List<int> id,
+            String image, String dbId)?
+        editCollection,
+    TResult Function(int indexList)? saveIndexEvent,
+    required TResult orElse(),
+  }) {
+    if (saveIndexEvent != null) {
+      return saveIndexEvent(indexList);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(AddCollection value) addCollection,
+    required TResult Function(SaveImageEvent value) saveImageEvent,
+    required TResult Function(SaveQuranChapterId value) saveQuranChapterId,
+    required TResult Function(NameChanged value) nameChanged,
+    required TResult Function(DescriptionChanged value) descriptionChanged,
+    required TResult Function(EditCollection value) editCollection,
+    required TResult Function(SaveIndexEvent value) saveIndexEvent,
+  }) {
+    return saveIndexEvent(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(AddCollection value)? addCollection,
+    TResult? Function(SaveImageEvent value)? saveImageEvent,
+    TResult? Function(SaveQuranChapterId value)? saveQuranChapterId,
+    TResult? Function(NameChanged value)? nameChanged,
+    TResult? Function(DescriptionChanged value)? descriptionChanged,
+    TResult? Function(EditCollection value)? editCollection,
+    TResult? Function(SaveIndexEvent value)? saveIndexEvent,
+  }) {
+    return saveIndexEvent?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AddCollection value)? addCollection,
+    TResult Function(SaveImageEvent value)? saveImageEvent,
+    TResult Function(SaveQuranChapterId value)? saveQuranChapterId,
+    TResult Function(NameChanged value)? nameChanged,
+    TResult Function(DescriptionChanged value)? descriptionChanged,
+    TResult Function(EditCollection value)? editCollection,
+    TResult Function(SaveIndexEvent value)? saveIndexEvent,
+    required TResult orElse(),
+  }) {
+    if (saveIndexEvent != null) {
+      return saveIndexEvent(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SaveIndexEvent implements BookmarkEvent {
+  const factory SaveIndexEvent({required final int indexList}) =
+      _$SaveIndexEvent;
+
+  int get indexList;
+  @JsonKey(ignore: true)
+  _$$SaveIndexEventCopyWith<_$SaveIndexEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1234,7 +1481,8 @@ mixin _$BookmarkState {
   String get name => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
   String get errorMessage => throw _privateConstructorUsedError;
-  int get id => throw _privateConstructorUsedError;
+  List<int> get id => throw _privateConstructorUsedError;
+  List<int> get indexList => throw _privateConstructorUsedError;
   String get dbId => throw _privateConstructorUsedError;
   bool get isSuccess => throw _privateConstructorUsedError;
 
@@ -1254,7 +1502,8 @@ abstract class $BookmarkStateCopyWith<$Res> {
       String name,
       String description,
       String errorMessage,
-      int id,
+      List<int> id,
+      List<int> indexList,
       String dbId,
       bool isSuccess});
 }
@@ -1277,6 +1526,7 @@ class _$BookmarkStateCopyWithImpl<$Res, $Val extends BookmarkState>
     Object? description = null,
     Object? errorMessage = null,
     Object? id = null,
+    Object? indexList = null,
     Object? dbId = null,
     Object? isSuccess = null,
   }) {
@@ -1300,7 +1550,11 @@ class _$BookmarkStateCopyWithImpl<$Res, $Val extends BookmarkState>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as List<int>,
+      indexList: null == indexList
+          ? _value.indexList
+          : indexList // ignore: cast_nullable_to_non_nullable
+              as List<int>,
       dbId: null == dbId
           ? _value.dbId
           : dbId // ignore: cast_nullable_to_non_nullable
@@ -1326,7 +1580,8 @@ abstract class _$$_BookmarkStateCopyWith<$Res>
       String name,
       String description,
       String errorMessage,
-      int id,
+      List<int> id,
+      List<int> indexList,
       String dbId,
       bool isSuccess});
 }
@@ -1347,6 +1602,7 @@ class __$$_BookmarkStateCopyWithImpl<$Res>
     Object? description = null,
     Object? errorMessage = null,
     Object? id = null,
+    Object? indexList = null,
     Object? dbId = null,
     Object? isSuccess = null,
   }) {
@@ -1368,9 +1624,13 @@ class __$$_BookmarkStateCopyWithImpl<$Res>
           : errorMessage // ignore: cast_nullable_to_non_nullable
               as String,
       id: null == id
-          ? _value.id
+          ? _value._id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as List<int>,
+      indexList: null == indexList
+          ? _value._indexList
+          : indexList // ignore: cast_nullable_to_non_nullable
+              as List<int>,
       dbId: null == dbId
           ? _value.dbId
           : dbId // ignore: cast_nullable_to_non_nullable
@@ -1391,9 +1651,12 @@ class _$_BookmarkState implements _BookmarkState {
       required this.name,
       required this.description,
       required this.errorMessage,
-      required this.id,
+      required final List<int> id,
+      required final List<int> indexList,
       required this.dbId,
-      required this.isSuccess});
+      required this.isSuccess})
+      : _id = id,
+        _indexList = indexList;
 
   @override
   final String image;
@@ -1403,8 +1666,22 @@ class _$_BookmarkState implements _BookmarkState {
   final String description;
   @override
   final String errorMessage;
+  final List<int> _id;
   @override
-  final int id;
+  List<int> get id {
+    if (_id is EqualUnmodifiableListView) return _id;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_id);
+  }
+
+  final List<int> _indexList;
+  @override
+  List<int> get indexList {
+    if (_indexList is EqualUnmodifiableListView) return _indexList;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_indexList);
+  }
+
   @override
   final String dbId;
   @override
@@ -1412,7 +1689,7 @@ class _$_BookmarkState implements _BookmarkState {
 
   @override
   String toString() {
-    return 'BookmarkState(image: $image, name: $name, description: $description, errorMessage: $errorMessage, id: $id, dbId: $dbId, isSuccess: $isSuccess)';
+    return 'BookmarkState(image: $image, name: $name, description: $description, errorMessage: $errorMessage, id: $id, indexList: $indexList, dbId: $dbId, isSuccess: $isSuccess)';
   }
 
   @override
@@ -1426,7 +1703,9 @@ class _$_BookmarkState implements _BookmarkState {
                 other.description == description) &&
             (identical(other.errorMessage, errorMessage) ||
                 other.errorMessage == errorMessage) &&
-            (identical(other.id, id) || other.id == id) &&
+            const DeepCollectionEquality().equals(other._id, _id) &&
+            const DeepCollectionEquality()
+                .equals(other._indexList, _indexList) &&
             (identical(other.dbId, dbId) || other.dbId == dbId) &&
             (identical(other.isSuccess, isSuccess) ||
                 other.isSuccess == isSuccess));
@@ -1434,7 +1713,15 @@ class _$_BookmarkState implements _BookmarkState {
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, image, name, description, errorMessage, id, dbId, isSuccess);
+      runtimeType,
+      image,
+      name,
+      description,
+      errorMessage,
+      const DeepCollectionEquality().hash(_id),
+      const DeepCollectionEquality().hash(_indexList),
+      dbId,
+      isSuccess);
 
   @JsonKey(ignore: true)
   @override
@@ -1449,7 +1736,8 @@ abstract class _BookmarkState implements BookmarkState {
       required final String name,
       required final String description,
       required final String errorMessage,
-      required final int id,
+      required final List<int> id,
+      required final List<int> indexList,
       required final String dbId,
       required final bool isSuccess}) = _$_BookmarkState;
 
@@ -1462,7 +1750,9 @@ abstract class _BookmarkState implements BookmarkState {
   @override
   String get errorMessage;
   @override
-  int get id;
+  List<int> get id;
+  @override
+  List<int> get indexList;
   @override
   String get dbId;
   @override

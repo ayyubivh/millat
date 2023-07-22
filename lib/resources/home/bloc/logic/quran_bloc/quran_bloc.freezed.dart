@@ -26,8 +26,9 @@ mixin _$QuranEvent {
     required TResult Function(int? juzId) fetchTranslationJuz,
     required TResult Function() changeExpandEvent,
     required TResult Function() changeExpandOnSearchEvent,
-    required TResult Function(int id) fechtChapterbyId,
+    required TResult Function(List<int> id) fechtChapterbyId,
     required TResult Function(String query) searchChapterEvent,
+    required TResult Function(String verseKey) fetchVersesByKey,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -40,8 +41,9 @@ mixin _$QuranEvent {
     TResult? Function(int? juzId)? fetchTranslationJuz,
     TResult? Function()? changeExpandEvent,
     TResult? Function()? changeExpandOnSearchEvent,
-    TResult? Function(int id)? fechtChapterbyId,
+    TResult? Function(List<int> id)? fechtChapterbyId,
     TResult? Function(String query)? searchChapterEvent,
+    TResult? Function(String verseKey)? fetchVersesByKey,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -54,8 +56,9 @@ mixin _$QuranEvent {
     TResult Function(int? juzId)? fetchTranslationJuz,
     TResult Function()? changeExpandEvent,
     TResult Function()? changeExpandOnSearchEvent,
-    TResult Function(int id)? fechtChapterbyId,
+    TResult Function(List<int> id)? fechtChapterbyId,
     TResult Function(String query)? searchChapterEvent,
+    TResult Function(String verseKey)? fetchVersesByKey,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -75,6 +78,7 @@ mixin _$QuranEvent {
         changeExpandOnSearchEvent,
     required TResult Function(FechtChapterbyId value) fechtChapterbyId,
     required TResult Function(SearchChapterEvent value) searchChapterEvent,
+    required TResult Function(FetchVersesByKey value) fetchVersesByKey,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -90,6 +94,7 @@ mixin _$QuranEvent {
         changeExpandOnSearchEvent,
     TResult? Function(FechtChapterbyId value)? fechtChapterbyId,
     TResult? Function(SearchChapterEvent value)? searchChapterEvent,
+    TResult? Function(FetchVersesByKey value)? fetchVersesByKey,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -105,6 +110,7 @@ mixin _$QuranEvent {
         changeExpandOnSearchEvent,
     TResult Function(FechtChapterbyId value)? fechtChapterbyId,
     TResult Function(SearchChapterEvent value)? searchChapterEvent,
+    TResult Function(FetchVersesByKey value)? fetchVersesByKey,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -175,8 +181,9 @@ class _$FetchQuaranChaptersEvent implements FetchQuaranChaptersEvent {
     required TResult Function(int? juzId) fetchTranslationJuz,
     required TResult Function() changeExpandEvent,
     required TResult Function() changeExpandOnSearchEvent,
-    required TResult Function(int id) fechtChapterbyId,
+    required TResult Function(List<int> id) fechtChapterbyId,
     required TResult Function(String query) searchChapterEvent,
+    required TResult Function(String verseKey) fetchVersesByKey,
   }) {
     return fetchQuaranChaptersEvent();
   }
@@ -192,8 +199,9 @@ class _$FetchQuaranChaptersEvent implements FetchQuaranChaptersEvent {
     TResult? Function(int? juzId)? fetchTranslationJuz,
     TResult? Function()? changeExpandEvent,
     TResult? Function()? changeExpandOnSearchEvent,
-    TResult? Function(int id)? fechtChapterbyId,
+    TResult? Function(List<int> id)? fechtChapterbyId,
     TResult? Function(String query)? searchChapterEvent,
+    TResult? Function(String verseKey)? fetchVersesByKey,
   }) {
     return fetchQuaranChaptersEvent?.call();
   }
@@ -209,8 +217,9 @@ class _$FetchQuaranChaptersEvent implements FetchQuaranChaptersEvent {
     TResult Function(int? juzId)? fetchTranslationJuz,
     TResult Function()? changeExpandEvent,
     TResult Function()? changeExpandOnSearchEvent,
-    TResult Function(int id)? fechtChapterbyId,
+    TResult Function(List<int> id)? fechtChapterbyId,
     TResult Function(String query)? searchChapterEvent,
+    TResult Function(String verseKey)? fetchVersesByKey,
     required TResult orElse(),
   }) {
     if (fetchQuaranChaptersEvent != null) {
@@ -236,6 +245,7 @@ class _$FetchQuaranChaptersEvent implements FetchQuaranChaptersEvent {
         changeExpandOnSearchEvent,
     required TResult Function(FechtChapterbyId value) fechtChapterbyId,
     required TResult Function(SearchChapterEvent value) searchChapterEvent,
+    required TResult Function(FetchVersesByKey value) fetchVersesByKey,
   }) {
     return fetchQuaranChaptersEvent(this);
   }
@@ -254,6 +264,7 @@ class _$FetchQuaranChaptersEvent implements FetchQuaranChaptersEvent {
         changeExpandOnSearchEvent,
     TResult? Function(FechtChapterbyId value)? fechtChapterbyId,
     TResult? Function(SearchChapterEvent value)? searchChapterEvent,
+    TResult? Function(FetchVersesByKey value)? fetchVersesByKey,
   }) {
     return fetchQuaranChaptersEvent?.call(this);
   }
@@ -272,6 +283,7 @@ class _$FetchQuaranChaptersEvent implements FetchQuaranChaptersEvent {
         changeExpandOnSearchEvent,
     TResult Function(FechtChapterbyId value)? fechtChapterbyId,
     TResult Function(SearchChapterEvent value)? searchChapterEvent,
+    TResult Function(FetchVersesByKey value)? fetchVersesByKey,
     required TResult orElse(),
   }) {
     if (fetchQuaranChaptersEvent != null) {
@@ -358,8 +370,9 @@ class _$FetchChaperVersesEvent implements FetchChaperVersesEvent {
     required TResult Function(int? juzId) fetchTranslationJuz,
     required TResult Function() changeExpandEvent,
     required TResult Function() changeExpandOnSearchEvent,
-    required TResult Function(int id) fechtChapterbyId,
+    required TResult Function(List<int> id) fechtChapterbyId,
     required TResult Function(String query) searchChapterEvent,
+    required TResult Function(String verseKey) fetchVersesByKey,
   }) {
     return fetchChaperVersesEvent(id);
   }
@@ -375,8 +388,9 @@ class _$FetchChaperVersesEvent implements FetchChaperVersesEvent {
     TResult? Function(int? juzId)? fetchTranslationJuz,
     TResult? Function()? changeExpandEvent,
     TResult? Function()? changeExpandOnSearchEvent,
-    TResult? Function(int id)? fechtChapterbyId,
+    TResult? Function(List<int> id)? fechtChapterbyId,
     TResult? Function(String query)? searchChapterEvent,
+    TResult? Function(String verseKey)? fetchVersesByKey,
   }) {
     return fetchChaperVersesEvent?.call(id);
   }
@@ -392,8 +406,9 @@ class _$FetchChaperVersesEvent implements FetchChaperVersesEvent {
     TResult Function(int? juzId)? fetchTranslationJuz,
     TResult Function()? changeExpandEvent,
     TResult Function()? changeExpandOnSearchEvent,
-    TResult Function(int id)? fechtChapterbyId,
+    TResult Function(List<int> id)? fechtChapterbyId,
     TResult Function(String query)? searchChapterEvent,
+    TResult Function(String verseKey)? fetchVersesByKey,
     required TResult orElse(),
   }) {
     if (fetchChaperVersesEvent != null) {
@@ -419,6 +434,7 @@ class _$FetchChaperVersesEvent implements FetchChaperVersesEvent {
         changeExpandOnSearchEvent,
     required TResult Function(FechtChapterbyId value) fechtChapterbyId,
     required TResult Function(SearchChapterEvent value) searchChapterEvent,
+    required TResult Function(FetchVersesByKey value) fetchVersesByKey,
   }) {
     return fetchChaperVersesEvent(this);
   }
@@ -437,6 +453,7 @@ class _$FetchChaperVersesEvent implements FetchChaperVersesEvent {
         changeExpandOnSearchEvent,
     TResult? Function(FechtChapterbyId value)? fechtChapterbyId,
     TResult? Function(SearchChapterEvent value)? searchChapterEvent,
+    TResult? Function(FetchVersesByKey value)? fetchVersesByKey,
   }) {
     return fetchChaperVersesEvent?.call(this);
   }
@@ -455,6 +472,7 @@ class _$FetchChaperVersesEvent implements FetchChaperVersesEvent {
         changeExpandOnSearchEvent,
     TResult Function(FechtChapterbyId value)? fechtChapterbyId,
     TResult Function(SearchChapterEvent value)? searchChapterEvent,
+    TResult Function(FetchVersesByKey value)? fetchVersesByKey,
     required TResult orElse(),
   }) {
     if (fetchChaperVersesEvent != null) {
@@ -546,8 +564,9 @@ class _$FetchParaVerses implements FetchParaVerses {
     required TResult Function(int? juzId) fetchTranslationJuz,
     required TResult Function() changeExpandEvent,
     required TResult Function() changeExpandOnSearchEvent,
-    required TResult Function(int id) fechtChapterbyId,
+    required TResult Function(List<int> id) fechtChapterbyId,
     required TResult Function(String query) searchChapterEvent,
+    required TResult Function(String verseKey) fetchVersesByKey,
   }) {
     return fetchParaVerses(id);
   }
@@ -563,8 +582,9 @@ class _$FetchParaVerses implements FetchParaVerses {
     TResult? Function(int? juzId)? fetchTranslationJuz,
     TResult? Function()? changeExpandEvent,
     TResult? Function()? changeExpandOnSearchEvent,
-    TResult? Function(int id)? fechtChapterbyId,
+    TResult? Function(List<int> id)? fechtChapterbyId,
     TResult? Function(String query)? searchChapterEvent,
+    TResult? Function(String verseKey)? fetchVersesByKey,
   }) {
     return fetchParaVerses?.call(id);
   }
@@ -580,8 +600,9 @@ class _$FetchParaVerses implements FetchParaVerses {
     TResult Function(int? juzId)? fetchTranslationJuz,
     TResult Function()? changeExpandEvent,
     TResult Function()? changeExpandOnSearchEvent,
-    TResult Function(int id)? fechtChapterbyId,
+    TResult Function(List<int> id)? fechtChapterbyId,
     TResult Function(String query)? searchChapterEvent,
+    TResult Function(String verseKey)? fetchVersesByKey,
     required TResult orElse(),
   }) {
     if (fetchParaVerses != null) {
@@ -607,6 +628,7 @@ class _$FetchParaVerses implements FetchParaVerses {
         changeExpandOnSearchEvent,
     required TResult Function(FechtChapterbyId value) fechtChapterbyId,
     required TResult Function(SearchChapterEvent value) searchChapterEvent,
+    required TResult Function(FetchVersesByKey value) fetchVersesByKey,
   }) {
     return fetchParaVerses(this);
   }
@@ -625,6 +647,7 @@ class _$FetchParaVerses implements FetchParaVerses {
         changeExpandOnSearchEvent,
     TResult? Function(FechtChapterbyId value)? fechtChapterbyId,
     TResult? Function(SearchChapterEvent value)? searchChapterEvent,
+    TResult? Function(FetchVersesByKey value)? fetchVersesByKey,
   }) {
     return fetchParaVerses?.call(this);
   }
@@ -643,6 +666,7 @@ class _$FetchParaVerses implements FetchParaVerses {
         changeExpandOnSearchEvent,
     TResult Function(FechtChapterbyId value)? fechtChapterbyId,
     TResult Function(SearchChapterEvent value)? searchChapterEvent,
+    TResult Function(FetchVersesByKey value)? fetchVersesByKey,
     required TResult orElse(),
   }) {
     if (fetchParaVerses != null) {
@@ -707,8 +731,9 @@ class _$FetchQuranPara implements FetchQuranPara {
     required TResult Function(int? juzId) fetchTranslationJuz,
     required TResult Function() changeExpandEvent,
     required TResult Function() changeExpandOnSearchEvent,
-    required TResult Function(int id) fechtChapterbyId,
+    required TResult Function(List<int> id) fechtChapterbyId,
     required TResult Function(String query) searchChapterEvent,
+    required TResult Function(String verseKey) fetchVersesByKey,
   }) {
     return fetchQuranPara();
   }
@@ -724,8 +749,9 @@ class _$FetchQuranPara implements FetchQuranPara {
     TResult? Function(int? juzId)? fetchTranslationJuz,
     TResult? Function()? changeExpandEvent,
     TResult? Function()? changeExpandOnSearchEvent,
-    TResult? Function(int id)? fechtChapterbyId,
+    TResult? Function(List<int> id)? fechtChapterbyId,
     TResult? Function(String query)? searchChapterEvent,
+    TResult? Function(String verseKey)? fetchVersesByKey,
   }) {
     return fetchQuranPara?.call();
   }
@@ -741,8 +767,9 @@ class _$FetchQuranPara implements FetchQuranPara {
     TResult Function(int? juzId)? fetchTranslationJuz,
     TResult Function()? changeExpandEvent,
     TResult Function()? changeExpandOnSearchEvent,
-    TResult Function(int id)? fechtChapterbyId,
+    TResult Function(List<int> id)? fechtChapterbyId,
     TResult Function(String query)? searchChapterEvent,
+    TResult Function(String verseKey)? fetchVersesByKey,
     required TResult orElse(),
   }) {
     if (fetchQuranPara != null) {
@@ -768,6 +795,7 @@ class _$FetchQuranPara implements FetchQuranPara {
         changeExpandOnSearchEvent,
     required TResult Function(FechtChapterbyId value) fechtChapterbyId,
     required TResult Function(SearchChapterEvent value) searchChapterEvent,
+    required TResult Function(FetchVersesByKey value) fetchVersesByKey,
   }) {
     return fetchQuranPara(this);
   }
@@ -786,6 +814,7 @@ class _$FetchQuranPara implements FetchQuranPara {
         changeExpandOnSearchEvent,
     TResult? Function(FechtChapterbyId value)? fechtChapterbyId,
     TResult? Function(SearchChapterEvent value)? searchChapterEvent,
+    TResult? Function(FetchVersesByKey value)? fetchVersesByKey,
   }) {
     return fetchQuranPara?.call(this);
   }
@@ -804,6 +833,7 @@ class _$FetchQuranPara implements FetchQuranPara {
         changeExpandOnSearchEvent,
     TResult Function(FechtChapterbyId value)? fechtChapterbyId,
     TResult Function(SearchChapterEvent value)? searchChapterEvent,
+    TResult Function(FetchVersesByKey value)? fetchVersesByKey,
     required TResult orElse(),
   }) {
     if (fetchQuranPara != null) {
@@ -891,8 +921,9 @@ class _$FetchTranslationChapter implements FetchTranslationChapter {
     required TResult Function(int? juzId) fetchTranslationJuz,
     required TResult Function() changeExpandEvent,
     required TResult Function() changeExpandOnSearchEvent,
-    required TResult Function(int id) fechtChapterbyId,
+    required TResult Function(List<int> id) fechtChapterbyId,
     required TResult Function(String query) searchChapterEvent,
+    required TResult Function(String verseKey) fetchVersesByKey,
   }) {
     return fetchTranslationChapter(chapterId);
   }
@@ -908,8 +939,9 @@ class _$FetchTranslationChapter implements FetchTranslationChapter {
     TResult? Function(int? juzId)? fetchTranslationJuz,
     TResult? Function()? changeExpandEvent,
     TResult? Function()? changeExpandOnSearchEvent,
-    TResult? Function(int id)? fechtChapterbyId,
+    TResult? Function(List<int> id)? fechtChapterbyId,
     TResult? Function(String query)? searchChapterEvent,
+    TResult? Function(String verseKey)? fetchVersesByKey,
   }) {
     return fetchTranslationChapter?.call(chapterId);
   }
@@ -925,8 +957,9 @@ class _$FetchTranslationChapter implements FetchTranslationChapter {
     TResult Function(int? juzId)? fetchTranslationJuz,
     TResult Function()? changeExpandEvent,
     TResult Function()? changeExpandOnSearchEvent,
-    TResult Function(int id)? fechtChapterbyId,
+    TResult Function(List<int> id)? fechtChapterbyId,
     TResult Function(String query)? searchChapterEvent,
+    TResult Function(String verseKey)? fetchVersesByKey,
     required TResult orElse(),
   }) {
     if (fetchTranslationChapter != null) {
@@ -952,6 +985,7 @@ class _$FetchTranslationChapter implements FetchTranslationChapter {
         changeExpandOnSearchEvent,
     required TResult Function(FechtChapterbyId value) fechtChapterbyId,
     required TResult Function(SearchChapterEvent value) searchChapterEvent,
+    required TResult Function(FetchVersesByKey value) fetchVersesByKey,
   }) {
     return fetchTranslationChapter(this);
   }
@@ -970,6 +1004,7 @@ class _$FetchTranslationChapter implements FetchTranslationChapter {
         changeExpandOnSearchEvent,
     TResult? Function(FechtChapterbyId value)? fechtChapterbyId,
     TResult? Function(SearchChapterEvent value)? searchChapterEvent,
+    TResult? Function(FetchVersesByKey value)? fetchVersesByKey,
   }) {
     return fetchTranslationChapter?.call(this);
   }
@@ -988,6 +1023,7 @@ class _$FetchTranslationChapter implements FetchTranslationChapter {
         changeExpandOnSearchEvent,
     TResult Function(FechtChapterbyId value)? fechtChapterbyId,
     TResult Function(SearchChapterEvent value)? searchChapterEvent,
+    TResult Function(FetchVersesByKey value)? fetchVersesByKey,
     required TResult orElse(),
   }) {
     if (fetchTranslationChapter != null) {
@@ -1080,8 +1116,9 @@ class _$FetchTranslationJuz implements FetchTranslationJuz {
     required TResult Function(int? juzId) fetchTranslationJuz,
     required TResult Function() changeExpandEvent,
     required TResult Function() changeExpandOnSearchEvent,
-    required TResult Function(int id) fechtChapterbyId,
+    required TResult Function(List<int> id) fechtChapterbyId,
     required TResult Function(String query) searchChapterEvent,
+    required TResult Function(String verseKey) fetchVersesByKey,
   }) {
     return fetchTranslationJuz(juzId);
   }
@@ -1097,8 +1134,9 @@ class _$FetchTranslationJuz implements FetchTranslationJuz {
     TResult? Function(int? juzId)? fetchTranslationJuz,
     TResult? Function()? changeExpandEvent,
     TResult? Function()? changeExpandOnSearchEvent,
-    TResult? Function(int id)? fechtChapterbyId,
+    TResult? Function(List<int> id)? fechtChapterbyId,
     TResult? Function(String query)? searchChapterEvent,
+    TResult? Function(String verseKey)? fetchVersesByKey,
   }) {
     return fetchTranslationJuz?.call(juzId);
   }
@@ -1114,8 +1152,9 @@ class _$FetchTranslationJuz implements FetchTranslationJuz {
     TResult Function(int? juzId)? fetchTranslationJuz,
     TResult Function()? changeExpandEvent,
     TResult Function()? changeExpandOnSearchEvent,
-    TResult Function(int id)? fechtChapterbyId,
+    TResult Function(List<int> id)? fechtChapterbyId,
     TResult Function(String query)? searchChapterEvent,
+    TResult Function(String verseKey)? fetchVersesByKey,
     required TResult orElse(),
   }) {
     if (fetchTranslationJuz != null) {
@@ -1141,6 +1180,7 @@ class _$FetchTranslationJuz implements FetchTranslationJuz {
         changeExpandOnSearchEvent,
     required TResult Function(FechtChapterbyId value) fechtChapterbyId,
     required TResult Function(SearchChapterEvent value) searchChapterEvent,
+    required TResult Function(FetchVersesByKey value) fetchVersesByKey,
   }) {
     return fetchTranslationJuz(this);
   }
@@ -1159,6 +1199,7 @@ class _$FetchTranslationJuz implements FetchTranslationJuz {
         changeExpandOnSearchEvent,
     TResult? Function(FechtChapterbyId value)? fechtChapterbyId,
     TResult? Function(SearchChapterEvent value)? searchChapterEvent,
+    TResult? Function(FetchVersesByKey value)? fetchVersesByKey,
   }) {
     return fetchTranslationJuz?.call(this);
   }
@@ -1177,6 +1218,7 @@ class _$FetchTranslationJuz implements FetchTranslationJuz {
         changeExpandOnSearchEvent,
     TResult Function(FechtChapterbyId value)? fechtChapterbyId,
     TResult Function(SearchChapterEvent value)? searchChapterEvent,
+    TResult Function(FetchVersesByKey value)? fetchVersesByKey,
     required TResult orElse(),
   }) {
     if (fetchTranslationJuz != null) {
@@ -1241,8 +1283,9 @@ class _$ChangeExpandEvent implements ChangeExpandEvent {
     required TResult Function(int? juzId) fetchTranslationJuz,
     required TResult Function() changeExpandEvent,
     required TResult Function() changeExpandOnSearchEvent,
-    required TResult Function(int id) fechtChapterbyId,
+    required TResult Function(List<int> id) fechtChapterbyId,
     required TResult Function(String query) searchChapterEvent,
+    required TResult Function(String verseKey) fetchVersesByKey,
   }) {
     return changeExpandEvent();
   }
@@ -1258,8 +1301,9 @@ class _$ChangeExpandEvent implements ChangeExpandEvent {
     TResult? Function(int? juzId)? fetchTranslationJuz,
     TResult? Function()? changeExpandEvent,
     TResult? Function()? changeExpandOnSearchEvent,
-    TResult? Function(int id)? fechtChapterbyId,
+    TResult? Function(List<int> id)? fechtChapterbyId,
     TResult? Function(String query)? searchChapterEvent,
+    TResult? Function(String verseKey)? fetchVersesByKey,
   }) {
     return changeExpandEvent?.call();
   }
@@ -1275,8 +1319,9 @@ class _$ChangeExpandEvent implements ChangeExpandEvent {
     TResult Function(int? juzId)? fetchTranslationJuz,
     TResult Function()? changeExpandEvent,
     TResult Function()? changeExpandOnSearchEvent,
-    TResult Function(int id)? fechtChapterbyId,
+    TResult Function(List<int> id)? fechtChapterbyId,
     TResult Function(String query)? searchChapterEvent,
+    TResult Function(String verseKey)? fetchVersesByKey,
     required TResult orElse(),
   }) {
     if (changeExpandEvent != null) {
@@ -1302,6 +1347,7 @@ class _$ChangeExpandEvent implements ChangeExpandEvent {
         changeExpandOnSearchEvent,
     required TResult Function(FechtChapterbyId value) fechtChapterbyId,
     required TResult Function(SearchChapterEvent value) searchChapterEvent,
+    required TResult Function(FetchVersesByKey value) fetchVersesByKey,
   }) {
     return changeExpandEvent(this);
   }
@@ -1320,6 +1366,7 @@ class _$ChangeExpandEvent implements ChangeExpandEvent {
         changeExpandOnSearchEvent,
     TResult? Function(FechtChapterbyId value)? fechtChapterbyId,
     TResult? Function(SearchChapterEvent value)? searchChapterEvent,
+    TResult? Function(FetchVersesByKey value)? fetchVersesByKey,
   }) {
     return changeExpandEvent?.call(this);
   }
@@ -1338,6 +1385,7 @@ class _$ChangeExpandEvent implements ChangeExpandEvent {
         changeExpandOnSearchEvent,
     TResult Function(FechtChapterbyId value)? fechtChapterbyId,
     TResult Function(SearchChapterEvent value)? searchChapterEvent,
+    TResult Function(FetchVersesByKey value)? fetchVersesByKey,
     required TResult orElse(),
   }) {
     if (changeExpandEvent != null) {
@@ -1399,8 +1447,9 @@ class _$ChangeExpandOnSearchEvent implements ChangeExpandOnSearchEvent {
     required TResult Function(int? juzId) fetchTranslationJuz,
     required TResult Function() changeExpandEvent,
     required TResult Function() changeExpandOnSearchEvent,
-    required TResult Function(int id) fechtChapterbyId,
+    required TResult Function(List<int> id) fechtChapterbyId,
     required TResult Function(String query) searchChapterEvent,
+    required TResult Function(String verseKey) fetchVersesByKey,
   }) {
     return changeExpandOnSearchEvent();
   }
@@ -1416,8 +1465,9 @@ class _$ChangeExpandOnSearchEvent implements ChangeExpandOnSearchEvent {
     TResult? Function(int? juzId)? fetchTranslationJuz,
     TResult? Function()? changeExpandEvent,
     TResult? Function()? changeExpandOnSearchEvent,
-    TResult? Function(int id)? fechtChapterbyId,
+    TResult? Function(List<int> id)? fechtChapterbyId,
     TResult? Function(String query)? searchChapterEvent,
+    TResult? Function(String verseKey)? fetchVersesByKey,
   }) {
     return changeExpandOnSearchEvent?.call();
   }
@@ -1433,8 +1483,9 @@ class _$ChangeExpandOnSearchEvent implements ChangeExpandOnSearchEvent {
     TResult Function(int? juzId)? fetchTranslationJuz,
     TResult Function()? changeExpandEvent,
     TResult Function()? changeExpandOnSearchEvent,
-    TResult Function(int id)? fechtChapterbyId,
+    TResult Function(List<int> id)? fechtChapterbyId,
     TResult Function(String query)? searchChapterEvent,
+    TResult Function(String verseKey)? fetchVersesByKey,
     required TResult orElse(),
   }) {
     if (changeExpandOnSearchEvent != null) {
@@ -1460,6 +1511,7 @@ class _$ChangeExpandOnSearchEvent implements ChangeExpandOnSearchEvent {
         changeExpandOnSearchEvent,
     required TResult Function(FechtChapterbyId value) fechtChapterbyId,
     required TResult Function(SearchChapterEvent value) searchChapterEvent,
+    required TResult Function(FetchVersesByKey value) fetchVersesByKey,
   }) {
     return changeExpandOnSearchEvent(this);
   }
@@ -1478,6 +1530,7 @@ class _$ChangeExpandOnSearchEvent implements ChangeExpandOnSearchEvent {
         changeExpandOnSearchEvent,
     TResult? Function(FechtChapterbyId value)? fechtChapterbyId,
     TResult? Function(SearchChapterEvent value)? searchChapterEvent,
+    TResult? Function(FetchVersesByKey value)? fetchVersesByKey,
   }) {
     return changeExpandOnSearchEvent?.call(this);
   }
@@ -1496,6 +1549,7 @@ class _$ChangeExpandOnSearchEvent implements ChangeExpandOnSearchEvent {
         changeExpandOnSearchEvent,
     TResult Function(FechtChapterbyId value)? fechtChapterbyId,
     TResult Function(SearchChapterEvent value)? searchChapterEvent,
+    TResult Function(FetchVersesByKey value)? fetchVersesByKey,
     required TResult orElse(),
   }) {
     if (changeExpandOnSearchEvent != null) {
@@ -1515,7 +1569,7 @@ abstract class _$$FechtChapterbyIdCopyWith<$Res> {
           _$FechtChapterbyId value, $Res Function(_$FechtChapterbyId) then) =
       __$$FechtChapterbyIdCopyWithImpl<$Res>;
   @useResult
-  $Res call({int id});
+  $Res call({List<int> id});
 }
 
 /// @nodoc
@@ -1533,9 +1587,9 @@ class __$$FechtChapterbyIdCopyWithImpl<$Res>
   }) {
     return _then(_$FechtChapterbyId(
       id: null == id
-          ? _value.id
+          ? _value._id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as List<int>,
     ));
   }
 }
@@ -1543,10 +1597,15 @@ class __$$FechtChapterbyIdCopyWithImpl<$Res>
 /// @nodoc
 
 class _$FechtChapterbyId implements FechtChapterbyId {
-  const _$FechtChapterbyId({required this.id});
+  const _$FechtChapterbyId({required final List<int> id}) : _id = id;
 
+  final List<int> _id;
   @override
-  final int id;
+  List<int> get id {
+    if (_id is EqualUnmodifiableListView) return _id;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_id);
+  }
 
   @override
   String toString() {
@@ -1558,11 +1617,12 @@ class _$FechtChapterbyId implements FechtChapterbyId {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FechtChapterbyId &&
-            (identical(other.id, id) || other.id == id));
+            const DeepCollectionEquality().equals(other._id, _id));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_id));
 
   @JsonKey(ignore: true)
   @override
@@ -1581,8 +1641,9 @@ class _$FechtChapterbyId implements FechtChapterbyId {
     required TResult Function(int? juzId) fetchTranslationJuz,
     required TResult Function() changeExpandEvent,
     required TResult Function() changeExpandOnSearchEvent,
-    required TResult Function(int id) fechtChapterbyId,
+    required TResult Function(List<int> id) fechtChapterbyId,
     required TResult Function(String query) searchChapterEvent,
+    required TResult Function(String verseKey) fetchVersesByKey,
   }) {
     return fechtChapterbyId(id);
   }
@@ -1598,8 +1659,9 @@ class _$FechtChapterbyId implements FechtChapterbyId {
     TResult? Function(int? juzId)? fetchTranslationJuz,
     TResult? Function()? changeExpandEvent,
     TResult? Function()? changeExpandOnSearchEvent,
-    TResult? Function(int id)? fechtChapterbyId,
+    TResult? Function(List<int> id)? fechtChapterbyId,
     TResult? Function(String query)? searchChapterEvent,
+    TResult? Function(String verseKey)? fetchVersesByKey,
   }) {
     return fechtChapterbyId?.call(id);
   }
@@ -1615,8 +1677,9 @@ class _$FechtChapterbyId implements FechtChapterbyId {
     TResult Function(int? juzId)? fetchTranslationJuz,
     TResult Function()? changeExpandEvent,
     TResult Function()? changeExpandOnSearchEvent,
-    TResult Function(int id)? fechtChapterbyId,
+    TResult Function(List<int> id)? fechtChapterbyId,
     TResult Function(String query)? searchChapterEvent,
+    TResult Function(String verseKey)? fetchVersesByKey,
     required TResult orElse(),
   }) {
     if (fechtChapterbyId != null) {
@@ -1642,6 +1705,7 @@ class _$FechtChapterbyId implements FechtChapterbyId {
         changeExpandOnSearchEvent,
     required TResult Function(FechtChapterbyId value) fechtChapterbyId,
     required TResult Function(SearchChapterEvent value) searchChapterEvent,
+    required TResult Function(FetchVersesByKey value) fetchVersesByKey,
   }) {
     return fechtChapterbyId(this);
   }
@@ -1660,6 +1724,7 @@ class _$FechtChapterbyId implements FechtChapterbyId {
         changeExpandOnSearchEvent,
     TResult? Function(FechtChapterbyId value)? fechtChapterbyId,
     TResult? Function(SearchChapterEvent value)? searchChapterEvent,
+    TResult? Function(FetchVersesByKey value)? fetchVersesByKey,
   }) {
     return fechtChapterbyId?.call(this);
   }
@@ -1678,6 +1743,7 @@ class _$FechtChapterbyId implements FechtChapterbyId {
         changeExpandOnSearchEvent,
     TResult Function(FechtChapterbyId value)? fechtChapterbyId,
     TResult Function(SearchChapterEvent value)? searchChapterEvent,
+    TResult Function(FetchVersesByKey value)? fetchVersesByKey,
     required TResult orElse(),
   }) {
     if (fechtChapterbyId != null) {
@@ -1688,9 +1754,10 @@ class _$FechtChapterbyId implements FechtChapterbyId {
 }
 
 abstract class FechtChapterbyId implements QuranEvent {
-  const factory FechtChapterbyId({required final int id}) = _$FechtChapterbyId;
+  const factory FechtChapterbyId({required final List<int> id}) =
+      _$FechtChapterbyId;
 
-  int get id;
+  List<int> get id;
   @JsonKey(ignore: true)
   _$$FechtChapterbyIdCopyWith<_$FechtChapterbyId> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1769,8 +1836,9 @@ class _$SearchChapterEvent implements SearchChapterEvent {
     required TResult Function(int? juzId) fetchTranslationJuz,
     required TResult Function() changeExpandEvent,
     required TResult Function() changeExpandOnSearchEvent,
-    required TResult Function(int id) fechtChapterbyId,
+    required TResult Function(List<int> id) fechtChapterbyId,
     required TResult Function(String query) searchChapterEvent,
+    required TResult Function(String verseKey) fetchVersesByKey,
   }) {
     return searchChapterEvent(query);
   }
@@ -1786,8 +1854,9 @@ class _$SearchChapterEvent implements SearchChapterEvent {
     TResult? Function(int? juzId)? fetchTranslationJuz,
     TResult? Function()? changeExpandEvent,
     TResult? Function()? changeExpandOnSearchEvent,
-    TResult? Function(int id)? fechtChapterbyId,
+    TResult? Function(List<int> id)? fechtChapterbyId,
     TResult? Function(String query)? searchChapterEvent,
+    TResult? Function(String verseKey)? fetchVersesByKey,
   }) {
     return searchChapterEvent?.call(query);
   }
@@ -1803,8 +1872,9 @@ class _$SearchChapterEvent implements SearchChapterEvent {
     TResult Function(int? juzId)? fetchTranslationJuz,
     TResult Function()? changeExpandEvent,
     TResult Function()? changeExpandOnSearchEvent,
-    TResult Function(int id)? fechtChapterbyId,
+    TResult Function(List<int> id)? fechtChapterbyId,
     TResult Function(String query)? searchChapterEvent,
+    TResult Function(String verseKey)? fetchVersesByKey,
     required TResult orElse(),
   }) {
     if (searchChapterEvent != null) {
@@ -1830,6 +1900,7 @@ class _$SearchChapterEvent implements SearchChapterEvent {
         changeExpandOnSearchEvent,
     required TResult Function(FechtChapterbyId value) fechtChapterbyId,
     required TResult Function(SearchChapterEvent value) searchChapterEvent,
+    required TResult Function(FetchVersesByKey value) fetchVersesByKey,
   }) {
     return searchChapterEvent(this);
   }
@@ -1848,6 +1919,7 @@ class _$SearchChapterEvent implements SearchChapterEvent {
         changeExpandOnSearchEvent,
     TResult? Function(FechtChapterbyId value)? fechtChapterbyId,
     TResult? Function(SearchChapterEvent value)? searchChapterEvent,
+    TResult? Function(FetchVersesByKey value)? fetchVersesByKey,
   }) {
     return searchChapterEvent?.call(this);
   }
@@ -1866,6 +1938,7 @@ class _$SearchChapterEvent implements SearchChapterEvent {
         changeExpandOnSearchEvent,
     TResult Function(FechtChapterbyId value)? fechtChapterbyId,
     TResult Function(SearchChapterEvent value)? searchChapterEvent,
+    TResult Function(FetchVersesByKey value)? fetchVersesByKey,
     required TResult orElse(),
   }) {
     if (searchChapterEvent != null) {
@@ -1886,6 +1959,201 @@ abstract class SearchChapterEvent implements QuranEvent {
 }
 
 /// @nodoc
+abstract class _$$FetchVersesByKeyCopyWith<$Res> {
+  factory _$$FetchVersesByKeyCopyWith(
+          _$FetchVersesByKey value, $Res Function(_$FetchVersesByKey) then) =
+      __$$FetchVersesByKeyCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String verseKey});
+}
+
+/// @nodoc
+class __$$FetchVersesByKeyCopyWithImpl<$Res>
+    extends _$QuranEventCopyWithImpl<$Res, _$FetchVersesByKey>
+    implements _$$FetchVersesByKeyCopyWith<$Res> {
+  __$$FetchVersesByKeyCopyWithImpl(
+      _$FetchVersesByKey _value, $Res Function(_$FetchVersesByKey) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? verseKey = null,
+  }) {
+    return _then(_$FetchVersesByKey(
+      verseKey: null == verseKey
+          ? _value.verseKey
+          : verseKey // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$FetchVersesByKey implements FetchVersesByKey {
+  const _$FetchVersesByKey({required this.verseKey});
+
+  @override
+  final String verseKey;
+
+  @override
+  String toString() {
+    return 'QuranEvent.fetchVersesByKey(verseKey: $verseKey)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$FetchVersesByKey &&
+            (identical(other.verseKey, verseKey) ||
+                other.verseKey == verseKey));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, verseKey);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$FetchVersesByKeyCopyWith<_$FetchVersesByKey> get copyWith =>
+      __$$FetchVersesByKeyCopyWithImpl<_$FetchVersesByKey>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() fetchQuaranChaptersEvent,
+    required TResult Function(int id) fetchChaperVersesEvent,
+    required TResult Function(int id) fetchParaVerses,
+    required TResult Function() fetchQuranPara,
+    required TResult Function(int? chapterId) fetchTranslationChapter,
+    required TResult Function(int? juzId) fetchTranslationJuz,
+    required TResult Function() changeExpandEvent,
+    required TResult Function() changeExpandOnSearchEvent,
+    required TResult Function(List<int> id) fechtChapterbyId,
+    required TResult Function(String query) searchChapterEvent,
+    required TResult Function(String verseKey) fetchVersesByKey,
+  }) {
+    return fetchVersesByKey(verseKey);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? fetchQuaranChaptersEvent,
+    TResult? Function(int id)? fetchChaperVersesEvent,
+    TResult? Function(int id)? fetchParaVerses,
+    TResult? Function()? fetchQuranPara,
+    TResult? Function(int? chapterId)? fetchTranslationChapter,
+    TResult? Function(int? juzId)? fetchTranslationJuz,
+    TResult? Function()? changeExpandEvent,
+    TResult? Function()? changeExpandOnSearchEvent,
+    TResult? Function(List<int> id)? fechtChapterbyId,
+    TResult? Function(String query)? searchChapterEvent,
+    TResult? Function(String verseKey)? fetchVersesByKey,
+  }) {
+    return fetchVersesByKey?.call(verseKey);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? fetchQuaranChaptersEvent,
+    TResult Function(int id)? fetchChaperVersesEvent,
+    TResult Function(int id)? fetchParaVerses,
+    TResult Function()? fetchQuranPara,
+    TResult Function(int? chapterId)? fetchTranslationChapter,
+    TResult Function(int? juzId)? fetchTranslationJuz,
+    TResult Function()? changeExpandEvent,
+    TResult Function()? changeExpandOnSearchEvent,
+    TResult Function(List<int> id)? fechtChapterbyId,
+    TResult Function(String query)? searchChapterEvent,
+    TResult Function(String verseKey)? fetchVersesByKey,
+    required TResult orElse(),
+  }) {
+    if (fetchVersesByKey != null) {
+      return fetchVersesByKey(verseKey);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FetchQuaranChaptersEvent value)
+        fetchQuaranChaptersEvent,
+    required TResult Function(FetchChaperVersesEvent value)
+        fetchChaperVersesEvent,
+    required TResult Function(FetchParaVerses value) fetchParaVerses,
+    required TResult Function(FetchQuranPara value) fetchQuranPara,
+    required TResult Function(FetchTranslationChapter value)
+        fetchTranslationChapter,
+    required TResult Function(FetchTranslationJuz value) fetchTranslationJuz,
+    required TResult Function(ChangeExpandEvent value) changeExpandEvent,
+    required TResult Function(ChangeExpandOnSearchEvent value)
+        changeExpandOnSearchEvent,
+    required TResult Function(FechtChapterbyId value) fechtChapterbyId,
+    required TResult Function(SearchChapterEvent value) searchChapterEvent,
+    required TResult Function(FetchVersesByKey value) fetchVersesByKey,
+  }) {
+    return fetchVersesByKey(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(FetchQuaranChaptersEvent value)? fetchQuaranChaptersEvent,
+    TResult? Function(FetchChaperVersesEvent value)? fetchChaperVersesEvent,
+    TResult? Function(FetchParaVerses value)? fetchParaVerses,
+    TResult? Function(FetchQuranPara value)? fetchQuranPara,
+    TResult? Function(FetchTranslationChapter value)? fetchTranslationChapter,
+    TResult? Function(FetchTranslationJuz value)? fetchTranslationJuz,
+    TResult? Function(ChangeExpandEvent value)? changeExpandEvent,
+    TResult? Function(ChangeExpandOnSearchEvent value)?
+        changeExpandOnSearchEvent,
+    TResult? Function(FechtChapterbyId value)? fechtChapterbyId,
+    TResult? Function(SearchChapterEvent value)? searchChapterEvent,
+    TResult? Function(FetchVersesByKey value)? fetchVersesByKey,
+  }) {
+    return fetchVersesByKey?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FetchQuaranChaptersEvent value)? fetchQuaranChaptersEvent,
+    TResult Function(FetchChaperVersesEvent value)? fetchChaperVersesEvent,
+    TResult Function(FetchParaVerses value)? fetchParaVerses,
+    TResult Function(FetchQuranPara value)? fetchQuranPara,
+    TResult Function(FetchTranslationChapter value)? fetchTranslationChapter,
+    TResult Function(FetchTranslationJuz value)? fetchTranslationJuz,
+    TResult Function(ChangeExpandEvent value)? changeExpandEvent,
+    TResult Function(ChangeExpandOnSearchEvent value)?
+        changeExpandOnSearchEvent,
+    TResult Function(FechtChapterbyId value)? fechtChapterbyId,
+    TResult Function(SearchChapterEvent value)? searchChapterEvent,
+    TResult Function(FetchVersesByKey value)? fetchVersesByKey,
+    required TResult orElse(),
+  }) {
+    if (fetchVersesByKey != null) {
+      return fetchVersesByKey(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class FetchVersesByKey implements QuranEvent {
+  const factory FetchVersesByKey({required final String verseKey}) =
+      _$FetchVersesByKey;
+
+  String get verseKey;
+  @JsonKey(ignore: true)
+  _$$FetchVersesByKeyCopyWith<_$FetchVersesByKey> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$QuranState {
   bool get isLoading => throw _privateConstructorUsedError;
   QuranChapters? get quranChaptersModel => throw _privateConstructorUsedError;
@@ -1893,12 +2161,14 @@ mixin _$QuranState {
       throw _privateConstructorUsedError;
   ParaVersesModel? get paraVersesModel => throw _privateConstructorUsedError;
   QuranParaModel? get quranParaModel => throw _privateConstructorUsedError;
-  ChapterByIdModel? get chapterByIdModel => throw _privateConstructorUsedError;
+  List<ChapterByIdModel>? get chapterByIdModel =>
+      throw _privateConstructorUsedError;
   VersesTranslationModel? get versesTranslationModel =>
       throw _privateConstructorUsedError;
   List<Chapters>? get searchChapters => throw _privateConstructorUsedError;
   bool get isExpand => throw _privateConstructorUsedError;
   bool get isExpand2 => throw _privateConstructorUsedError;
+  VersesByKeyModel? get versesByKeyModel => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $QuranStateCopyWith<QuranState> get copyWith =>
@@ -1917,18 +2187,19 @@ abstract class $QuranStateCopyWith<$Res> {
       ChapterVersesModel? chapterVersesModel,
       ParaVersesModel? paraVersesModel,
       QuranParaModel? quranParaModel,
-      ChapterByIdModel? chapterByIdModel,
+      List<ChapterByIdModel>? chapterByIdModel,
       VersesTranslationModel? versesTranslationModel,
       List<Chapters>? searchChapters,
       bool isExpand,
-      bool isExpand2});
+      bool isExpand2,
+      VersesByKeyModel? versesByKeyModel});
 
   $QuranChaptersCopyWith<$Res>? get quranChaptersModel;
   $ChapterVersesModelCopyWith<$Res>? get chapterVersesModel;
   $ParaVersesModelCopyWith<$Res>? get paraVersesModel;
   $QuranParaModelCopyWith<$Res>? get quranParaModel;
-  $ChapterByIdModelCopyWith<$Res>? get chapterByIdModel;
   $VersesTranslationModelCopyWith<$Res>? get versesTranslationModel;
+  $VersesByKeyModelCopyWith<$Res>? get versesByKeyModel;
 }
 
 /// @nodoc
@@ -1954,6 +2225,7 @@ class _$QuranStateCopyWithImpl<$Res, $Val extends QuranState>
     Object? searchChapters = freezed,
     Object? isExpand = null,
     Object? isExpand2 = null,
+    Object? versesByKeyModel = freezed,
   }) {
     return _then(_value.copyWith(
       isLoading: null == isLoading
@@ -1979,7 +2251,7 @@ class _$QuranStateCopyWithImpl<$Res, $Val extends QuranState>
       chapterByIdModel: freezed == chapterByIdModel
           ? _value.chapterByIdModel
           : chapterByIdModel // ignore: cast_nullable_to_non_nullable
-              as ChapterByIdModel?,
+              as List<ChapterByIdModel>?,
       versesTranslationModel: freezed == versesTranslationModel
           ? _value.versesTranslationModel
           : versesTranslationModel // ignore: cast_nullable_to_non_nullable
@@ -1996,6 +2268,10 @@ class _$QuranStateCopyWithImpl<$Res, $Val extends QuranState>
           ? _value.isExpand2
           : isExpand2 // ignore: cast_nullable_to_non_nullable
               as bool,
+      versesByKeyModel: freezed == versesByKeyModel
+          ? _value.versesByKeyModel
+          : versesByKeyModel // ignore: cast_nullable_to_non_nullable
+              as VersesByKeyModel?,
     ) as $Val);
   }
 
@@ -2050,18 +2326,6 @@ class _$QuranStateCopyWithImpl<$Res, $Val extends QuranState>
 
   @override
   @pragma('vm:prefer-inline')
-  $ChapterByIdModelCopyWith<$Res>? get chapterByIdModel {
-    if (_value.chapterByIdModel == null) {
-      return null;
-    }
-
-    return $ChapterByIdModelCopyWith<$Res>(_value.chapterByIdModel!, (value) {
-      return _then(_value.copyWith(chapterByIdModel: value) as $Val);
-    });
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
   $VersesTranslationModelCopyWith<$Res>? get versesTranslationModel {
     if (_value.versesTranslationModel == null) {
       return null;
@@ -2070,6 +2334,18 @@ class _$QuranStateCopyWithImpl<$Res, $Val extends QuranState>
     return $VersesTranslationModelCopyWith<$Res>(_value.versesTranslationModel!,
         (value) {
       return _then(_value.copyWith(versesTranslationModel: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $VersesByKeyModelCopyWith<$Res>? get versesByKeyModel {
+    if (_value.versesByKeyModel == null) {
+      return null;
+    }
+
+    return $VersesByKeyModelCopyWith<$Res>(_value.versesByKeyModel!, (value) {
+      return _then(_value.copyWith(versesByKeyModel: value) as $Val);
     });
   }
 }
@@ -2088,11 +2364,12 @@ abstract class _$$_QuranStateCopyWith<$Res>
       ChapterVersesModel? chapterVersesModel,
       ParaVersesModel? paraVersesModel,
       QuranParaModel? quranParaModel,
-      ChapterByIdModel? chapterByIdModel,
+      List<ChapterByIdModel>? chapterByIdModel,
       VersesTranslationModel? versesTranslationModel,
       List<Chapters>? searchChapters,
       bool isExpand,
-      bool isExpand2});
+      bool isExpand2,
+      VersesByKeyModel? versesByKeyModel});
 
   @override
   $QuranChaptersCopyWith<$Res>? get quranChaptersModel;
@@ -2103,9 +2380,9 @@ abstract class _$$_QuranStateCopyWith<$Res>
   @override
   $QuranParaModelCopyWith<$Res>? get quranParaModel;
   @override
-  $ChapterByIdModelCopyWith<$Res>? get chapterByIdModel;
-  @override
   $VersesTranslationModelCopyWith<$Res>? get versesTranslationModel;
+  @override
+  $VersesByKeyModelCopyWith<$Res>? get versesByKeyModel;
 }
 
 /// @nodoc
@@ -2129,6 +2406,7 @@ class __$$_QuranStateCopyWithImpl<$Res>
     Object? searchChapters = freezed,
     Object? isExpand = null,
     Object? isExpand2 = null,
+    Object? versesByKeyModel = freezed,
   }) {
     return _then(_$_QuranState(
       isLoading: null == isLoading
@@ -2152,9 +2430,9 @@ class __$$_QuranStateCopyWithImpl<$Res>
           : quranParaModel // ignore: cast_nullable_to_non_nullable
               as QuranParaModel?,
       chapterByIdModel: freezed == chapterByIdModel
-          ? _value.chapterByIdModel
+          ? _value._chapterByIdModel
           : chapterByIdModel // ignore: cast_nullable_to_non_nullable
-              as ChapterByIdModel?,
+              as List<ChapterByIdModel>?,
       versesTranslationModel: freezed == versesTranslationModel
           ? _value.versesTranslationModel
           : versesTranslationModel // ignore: cast_nullable_to_non_nullable
@@ -2171,6 +2449,10 @@ class __$$_QuranStateCopyWithImpl<$Res>
           ? _value.isExpand2
           : isExpand2 // ignore: cast_nullable_to_non_nullable
               as bool,
+      versesByKeyModel: freezed == versesByKeyModel
+          ? _value.versesByKeyModel
+          : versesByKeyModel // ignore: cast_nullable_to_non_nullable
+              as VersesByKeyModel?,
     ));
   }
 }
@@ -2184,12 +2466,14 @@ class _$_QuranState implements _QuranState {
       required this.chapterVersesModel,
       required this.paraVersesModel,
       required this.quranParaModel,
-      required this.chapterByIdModel,
+      required final List<ChapterByIdModel>? chapterByIdModel,
       required this.versesTranslationModel,
       required final List<Chapters>? searchChapters,
       required this.isExpand,
-      required this.isExpand2})
-      : _searchChapters = searchChapters;
+      required this.isExpand2,
+      required this.versesByKeyModel})
+      : _chapterByIdModel = chapterByIdModel,
+        _searchChapters = searchChapters;
 
   @override
   final bool isLoading;
@@ -2201,8 +2485,17 @@ class _$_QuranState implements _QuranState {
   final ParaVersesModel? paraVersesModel;
   @override
   final QuranParaModel? quranParaModel;
+  final List<ChapterByIdModel>? _chapterByIdModel;
   @override
-  final ChapterByIdModel? chapterByIdModel;
+  List<ChapterByIdModel>? get chapterByIdModel {
+    final value = _chapterByIdModel;
+    if (value == null) return null;
+    if (_chapterByIdModel is EqualUnmodifiableListView)
+      return _chapterByIdModel;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   @override
   final VersesTranslationModel? versesTranslationModel;
   final List<Chapters>? _searchChapters;
@@ -2219,10 +2512,12 @@ class _$_QuranState implements _QuranState {
   final bool isExpand;
   @override
   final bool isExpand2;
+  @override
+  final VersesByKeyModel? versesByKeyModel;
 
   @override
   String toString() {
-    return 'QuranState(isLoading: $isLoading, quranChaptersModel: $quranChaptersModel, chapterVersesModel: $chapterVersesModel, paraVersesModel: $paraVersesModel, quranParaModel: $quranParaModel, chapterByIdModel: $chapterByIdModel, versesTranslationModel: $versesTranslationModel, searchChapters: $searchChapters, isExpand: $isExpand, isExpand2: $isExpand2)';
+    return 'QuranState(isLoading: $isLoading, quranChaptersModel: $quranChaptersModel, chapterVersesModel: $chapterVersesModel, paraVersesModel: $paraVersesModel, quranParaModel: $quranParaModel, chapterByIdModel: $chapterByIdModel, versesTranslationModel: $versesTranslationModel, searchChapters: $searchChapters, isExpand: $isExpand, isExpand2: $isExpand2, versesByKeyModel: $versesByKeyModel)';
   }
 
   @override
@@ -2240,8 +2535,8 @@ class _$_QuranState implements _QuranState {
                 other.paraVersesModel == paraVersesModel) &&
             (identical(other.quranParaModel, quranParaModel) ||
                 other.quranParaModel == quranParaModel) &&
-            (identical(other.chapterByIdModel, chapterByIdModel) ||
-                other.chapterByIdModel == chapterByIdModel) &&
+            const DeepCollectionEquality()
+                .equals(other._chapterByIdModel, _chapterByIdModel) &&
             (identical(other.versesTranslationModel, versesTranslationModel) ||
                 other.versesTranslationModel == versesTranslationModel) &&
             const DeepCollectionEquality()
@@ -2249,7 +2544,9 @@ class _$_QuranState implements _QuranState {
             (identical(other.isExpand, isExpand) ||
                 other.isExpand == isExpand) &&
             (identical(other.isExpand2, isExpand2) ||
-                other.isExpand2 == isExpand2));
+                other.isExpand2 == isExpand2) &&
+            (identical(other.versesByKeyModel, versesByKeyModel) ||
+                other.versesByKeyModel == versesByKeyModel));
   }
 
   @override
@@ -2260,11 +2557,12 @@ class _$_QuranState implements _QuranState {
       chapterVersesModel,
       paraVersesModel,
       quranParaModel,
-      chapterByIdModel,
+      const DeepCollectionEquality().hash(_chapterByIdModel),
       versesTranslationModel,
       const DeepCollectionEquality().hash(_searchChapters),
       isExpand,
-      isExpand2);
+      isExpand2,
+      versesByKeyModel);
 
   @JsonKey(ignore: true)
   @override
@@ -2280,11 +2578,12 @@ abstract class _QuranState implements QuranState {
       required final ChapterVersesModel? chapterVersesModel,
       required final ParaVersesModel? paraVersesModel,
       required final QuranParaModel? quranParaModel,
-      required final ChapterByIdModel? chapterByIdModel,
+      required final List<ChapterByIdModel>? chapterByIdModel,
       required final VersesTranslationModel? versesTranslationModel,
       required final List<Chapters>? searchChapters,
       required final bool isExpand,
-      required final bool isExpand2}) = _$_QuranState;
+      required final bool isExpand2,
+      required final VersesByKeyModel? versesByKeyModel}) = _$_QuranState;
 
   @override
   bool get isLoading;
@@ -2297,7 +2596,7 @@ abstract class _QuranState implements QuranState {
   @override
   QuranParaModel? get quranParaModel;
   @override
-  ChapterByIdModel? get chapterByIdModel;
+  List<ChapterByIdModel>? get chapterByIdModel;
   @override
   VersesTranslationModel? get versesTranslationModel;
   @override
@@ -2306,6 +2605,8 @@ abstract class _QuranState implements QuranState {
   bool get isExpand;
   @override
   bool get isExpand2;
+  @override
+  VersesByKeyModel? get versesByKeyModel;
   @override
   @JsonKey(ignore: true)
   _$$_QuranStateCopyWith<_$_QuranState> get copyWith =>

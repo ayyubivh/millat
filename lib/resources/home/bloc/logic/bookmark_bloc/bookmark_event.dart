@@ -5,7 +5,7 @@ class BookmarkEvent with _$BookmarkEvent {
   const factory BookmarkEvent.addCollection({
     required String name,
     required String description,
-    required int id,
+    required List<int> id,
     required String image,
     String? dbId,
   }) = AddCollection;
@@ -13,7 +13,7 @@ class BookmarkEvent with _$BookmarkEvent {
     required String img,
   }) = SaveImageEvent;
   const factory BookmarkEvent.saveQuranChapterId({
-    required int id,
+    required List<int> id,
   }) = SaveQuranChapterId;
   const factory BookmarkEvent.nameChanged({required String nameValue}) =
       NameChanged;
@@ -23,8 +23,11 @@ class BookmarkEvent with _$BookmarkEvent {
   const factory BookmarkEvent.editCollection({
     required String name,
     required String description,
-    required int id,
+    required List<int> id,
     required String image,
     required String dbId,
   }) = EditCollection;
+  const factory BookmarkEvent.saveIndexEvent({
+    required int indexList,
+  }) = SaveIndexEvent;
 }

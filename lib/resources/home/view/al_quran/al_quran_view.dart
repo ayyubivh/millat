@@ -137,6 +137,7 @@ class AlQuranView extends StatelessWidget {
           MainButton(
             title: "Create Now",
             onPressed: () {
+              Navigator.of(context).pop();
               Navigator.of(context).push(MaterialPageRoute(
                 builder: (context) => const BookmarkView(),
               ));

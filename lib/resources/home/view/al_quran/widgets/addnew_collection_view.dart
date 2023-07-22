@@ -8,10 +8,12 @@ import 'package:millat/components/textFields/custom_text_field.dart';
 import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/home/bloc/logic/bookmark_bloc/bookmark_bloc.dart';
 import 'package:millat/resources/home/bloc/logic/quran_bloc/quran_bloc.dart';
-import 'package:millat/resources/home/view/al_quran/bookmark_view.dart';
+
 import 'package:millat/resources/home/view/al_quran/widgets/add_sura_search_view.dart';
+import 'package:millat/resources/home/view/al_quran/widgets/verses-view.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
+import 'package:millat/utils/loader.dart';
 
 import '../../../../../components/buttons/main_button.dart';
 import '../../../../../components/common_widgets/reusable_methods.dart';
@@ -62,6 +64,7 @@ class _AddNewBookMarkCollectionState extends State<AddNewBookMarkCollection> {
 
   @override
   Widget build(BuildContext context) {
+    int _currentIndex = -1;
     return Scaffold(
       backgroundColor: ColorManager.whiteColor,
       appBar: customAppBarBookMark(ctx: context, passValue: widget.passvalue),
@@ -191,44 +194,77 @@ class _AddNewBookMarkCollectionState extends State<AddNewBookMarkCollection> {
             kHeight25,
             BlocBuilder<BookmarkBloc, BookmarkState>(
               builder: (context, state) {
-                return state.id == 0 &&
+                return state.id.isEmpty &&
                         widget.type != BookMarkCollectionType.edit
                     ? const SizedBox()
                     : BlocBuilder<QuranBloc, QuranState>(
                         builder: (context, state) {
-                          final chapter = state.chapterByIdModel?.chapter;
+                          final chapters = state.chapterByIdModel;
+                          if (chapters == null) {
+                            return const SizedBox();
+                          }
 
-                          return BookMarkCollectionContainer(
-                            versesName: chapter!.nameSimple,
-                            versesCount: chapter.versesCount,
-                            arabicName: chapter.nameArabic,
-                            type: ExpandTypeonBookmark.first,
-                            onTap: () {
-                              context
-                                  .read<QuranBloc>()
-                                  .add(const ChangeExpandEvent());
-                            },
-                          );
+                          return state.isLoading
+                              ? const Loader()
+                              : Expanded(
+                                  child: ListView.builder(
+                                    itemCount: chapters.length,
+                                    itemBuilder: (context, index) {
+                                      final chapter = chapters[index].chapter;
+                                      return InkWell(
+                                        onTap: () {},
+                                        child: Column(
+                                          children: [
+                                            BookMarkCollectionContainer(
+                                              versesName: chapter.nameSimple,
+                                              versesCount: chapter.versesCount,
+                                              arabicName: chapter.nameArabic,
+                                              type: ExpandTypeonBookmark.first,
+                                              onTap: () {
+                                                context.read<QuranBloc>().add(
+                                                    const ChangeExpandEvent());
+                                              },
+                                            ),
+                                            if (state.isExpand)
+                                              Column(
+                                                children: List.generate(
+                                                  chapter.versesCount,
+                                                  (index) {
+                                                    return bookMarkVersesTile(
+                                                      index,
+                                                      () {
+                                                        context
+                                                            .read<QuranBloc>()
+                                                            .add(FetchVersesByKey(
+                                                                verseKey:
+                                                                    "${chapter.id}:${index + 1}"));
+                                                        Navigator.of(context)
+                                                            .push(
+                                                          MaterialPageRoute(
+                                                            builder: (context) =>
+                                                                const VersesView(
+                                                              type: Qurantype
+                                                                  .verse,
+                                                            ),
+                                                          ),
+                                                        );
+                                                      },
+                                                    );
+                                                  },
+                                                ),
+                                              ),
+                                          ],
+                                        ),
+                                      );
+                                    },
+                                  ),
+                                );
                         },
                       );
               },
             ),
             kHeight10,
             const Divider(),
-            BlocBuilder<QuranBloc, QuranState>(
-              builder: (context, state) {
-                return state.isExpand == true
-                    ? Expanded(
-                        child: ListView.builder(
-                          itemCount: 10,
-                          itemBuilder: (context, index) {
-                            return bookMarkVersesTile(index);
-                          },
-                        ),
-                      )
-                    : const SizedBox();
-              },
-            )
           ],
         ),
       ),
@@ -258,7 +294,7 @@ class _AddNewBookMarkCollectionState extends State<AddNewBookMarkCollection> {
                       onTap: () {
                         context
                             .read<BookmarkBloc>()
-                            .add(const SaveQuranChapterId(id: 0));
+                            .add(const SaveQuranChapterId(id: []));
 
                         Navigator.of(ctx).pop();
                       },
@@ -302,7 +338,7 @@ class _AddNewBookMarkCollectionState extends State<AddNewBookMarkCollection> {
                                         description:
                                             descriptionTextEditingController
                                                 .text,
-                                        id: state.id == 0
+                                        id: state.id == []
                                             ? passValue!.surahId
                                             : state.id,
                                         image: img == "" ? state.image : img,
@@ -310,7 +346,7 @@ class _AddNewBookMarkCollectionState extends State<AddNewBookMarkCollection> {
                                   );
                           context
                               .read<BookmarkBloc>()
-                              .add(const SaveQuranChapterId(id: 0));
+                              .add(const SaveQuranChapterId(id: []));
 
                           Navigator.of(context).pop();
                         },

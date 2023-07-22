@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/resources/home/bloc/logic/namaz_timing_bloc/namaz_timing_bloc.dart';
-import 'package:millat/resources/home/bloc/logic/quran_bloc/quran_bloc.dart';
 import 'package:millat/resources/home/bloc/service/quran_service.dart';
 import 'package:millat/utils/constants.dart';
 import '../../../utils/color_manager.dart';
@@ -13,7 +12,9 @@ import '../../authentication/bloc/logic/database_bloc/database_bloc.dart';
 import '../../profile/views/profile_view.dart';
 import '../../shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
 import '../bloc/logic/location_bloc/location_bloc.dart';
+import '../bloc/models/chapter_by_id_model/chapter_by_id_model.dart';
 import 'al_quran/al_quran_view.dart';
+
 import 'namaz_timing/namaz_timing_view.dart';
 
 ValueNotifier<bool> scrollNotifier = ValueNotifier(true);
@@ -189,7 +190,13 @@ class _HomeViewState extends State<HomeView> {
                                       buildIconWidget(
                                         image: "assets/icons/dua.png",
                                         text: "Dua",
-                                        onTap: () {},
+                                        onTap: () {
+                                          // Navigator.of(context)
+                                          //     .push(MaterialPageRoute(
+                                          //   builder: (context) =>
+                                          //       const Duav,
+                                          // ));
+                                        },
                                       )
                                     ],
                                   ),

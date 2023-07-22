@@ -103,9 +103,6 @@ _$_Brand _$$_BrandFromJson(Map<String, dynamic> json) => _$_Brand(
       active: json['active'] as bool?,
       createdAt: json['createdAt'] as String?,
       updatedAt: json['updatedAt'] as String?,
-      otp: json['otp'] as String?,
-      phoneNumber: json['phone_number'] as String?,
-      description: json['description'] as String?,
       image: json['image'] as String?,
     );
 
@@ -118,19 +115,15 @@ Map<String, dynamic> _$$_BrandToJson(_$_Brand instance) => <String, dynamic>{
       'active': instance.active,
       'createdAt': instance.createdAt,
       'updatedAt': instance.updatedAt,
-      'otp': instance.otp,
-      'phone_number': instance.phoneNumber,
-      'description': instance.description,
       'image': instance.image,
     };
 
 _$_Product _$$_ProductFromJson(Map<String, dynamic> json) => _$_Product(
       id: json['_id'] as String?,
       title: json['title'] as String?,
-      brand: json['brand'] as String?,
+      brandId: json['brand'] as String?,
       description: json['description'] as String?,
       otherInfo: json['otherInfo'] as String?,
-      category: json['category'] as String?,
       subCategory: json['subcategory'] as String?,
       actualPrice: (json['actualPrice'] as num?)?.toDouble(),
       discountPrice: (json['discountPrice'] as num?)?.toDouble(),
@@ -155,10 +148,9 @@ Map<String, dynamic> _$$_ProductToJson(_$_Product instance) =>
     <String, dynamic>{
       '_id': instance.id,
       'title': instance.title,
-      'brand': instance.brand,
+      'brand': instance.brandId,
       'description': instance.description,
       'otherInfo': instance.otherInfo,
-      'category': instance.category,
       'subcategory': instance.subCategory,
       'actualPrice': instance.actualPrice,
       'discountPrice': instance.discountPrice,

@@ -17,6 +17,7 @@ class BookmarkBloc extends Bloc<BookmarkEvent, BookmarkState> {
     on<SaveImageEvent>(_saveImageEvent);
     on<SaveQuranChapterId>(_saveQuranChapterId);
     on<EditCollection>(_editCollection);
+    on<SaveIndexEvent>(_saveIndexEvent);
   }
 
   _addCollection(AddCollection event, Emitter<BookmarkState> emit) {
@@ -38,7 +39,7 @@ class BookmarkBloc extends Bloc<BookmarkEvent, BookmarkState> {
     final model = BookMarktCollectionModel(
         id: dbId, surahId: id, name: name, discription: desc, image: img);
     print('here is the model man ${model.toString()}');
-    if (name.isEmpty || img.isEmpty || desc.isEmpty || id == 0) {
+    if (name.isEmpty || img.isEmpty || desc.isEmpty || id == []) {
       print('empty field');
     } else {
       BookMarkDB.instance.addCollection(model);
@@ -92,6 +93,16 @@ class BookmarkBloc extends Bloc<BookmarkEvent, BookmarkState> {
     } else {
       BookMarkDB.instance.editCollection(model, model.id);
       BookMarkDB.instance.refresh();
+    }
+  }
+
+  _saveIndexEvent(SaveIndexEvent event, Emitter<BookmarkState> emit) {
+    List<int> updatedIndexList = List.from(state.indexList);
+    updatedIndexList.add(event.indexList);
+    if (state.indexList.contains(event.indexList)) {
+      return;
+    } else {
+      emit(state.copyWith(indexList: updatedIndexList));
     }
   }
 }

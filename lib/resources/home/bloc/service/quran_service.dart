@@ -7,6 +7,8 @@ import 'package:millat/resources/home/bloc/models/quran_chapter_models/quran_cha
 import 'package:millat/resources/home/bloc/models/quran_para_model/quran_para_model.dart';
 import 'package:millat/resources/home/bloc/models/verses_translation_model/verses_translation.dart';
 
+import '../models/versesbykey_model/verses_by_key_model.dart';
+
 class QuranServices {
   // fetch quran chapters
   Future<QuranChapters> fetchQuranChapters() async {
@@ -45,6 +47,30 @@ class QuranServices {
         throw Exception(
             "Failed to fetch Quran chapters. Status code: ${response.statusCode}");
       }
+    } catch (e) {
+      throw Exception("Error fetching Quran chapters: $e");
+    }
+  }
+
+  Future<List<ChapterByIdModel>> fetchChaptersByIds(List<int> ids) async {
+    final url = "https://api.quran.com/api/v4/chapters/";
+
+    try {
+      final List<Future<ChapterByIdModel>> futures = ids.map((id) async {
+        final response = await http.get(Uri.parse("$url$id"));
+        if (response.statusCode == 200) {
+          final Map<String, dynamic> data = json.decode(response.body);
+          print('here is the list of data $data');
+          return ChapterByIdModel.fromJson(data);
+        } else {
+          throw Exception(
+              "Failed to fetch Quran chapter with ID $id. Status code: ${response.statusCode}");
+        }
+      }).toList();
+
+      final List<ChapterByIdModel> results = await Future.wait(futures);
+
+      return results;
     } catch (e) {
       throw Exception("Error fetching Quran chapters: $e");
     }
@@ -126,6 +152,28 @@ class QuranServices {
 
         final result = VersesTranslationModel.fromJson(data);
         print('here is the result moenee $result');
+        return result;
+      } else {
+        throw Exception(
+            "Failed to fetch Quran chapters. Status code: ${response.statusCode}");
+      }
+    } catch (e) {
+      throw Exception("Error fetching Quran chapters: $e");
+    }
+  }
+
+//fetch verses ayah by id
+  Future<VersesByKeyModel> fetchVersesbyKey(String verseKey) async {
+    final url =
+        "https://api.quran.com/api/v4/quran/verses/indopak?verse_key=$verseKey";
+
+    try {
+      final response = await http.get(Uri.parse(url));
+      if (response.statusCode == 200) {
+        final Map<String, dynamic> data = json.decode(response.body);
+
+        final result = VersesByKeyModel.fromJson(data);
+        print('here is the result by key $result');
         return result;
       } else {
         throw Exception(

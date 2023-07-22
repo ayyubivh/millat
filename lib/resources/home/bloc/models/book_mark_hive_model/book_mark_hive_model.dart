@@ -12,7 +12,7 @@ class BookMarktCollectionModel {
   @HiveField(3)
   final String image;
   @HiveField(4)
-  final int surahId;
+  final List<int> surahId;
 
   BookMarktCollectionModel({
     required this.id,

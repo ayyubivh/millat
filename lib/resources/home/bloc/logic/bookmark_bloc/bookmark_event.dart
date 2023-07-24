@@ -30,4 +30,5 @@ class BookmarkEvent with _$BookmarkEvent {
   const factory BookmarkEvent.saveIndexEvent({
     required int indexList,
   }) = SaveIndexEvent;
+  const factory BookmarkEvent.clearIndexEvent() = ClearIndexEvent;
 }

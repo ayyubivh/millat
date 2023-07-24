@@ -29,6 +29,7 @@ mixin _$BookmarkEvent {
             String image, String dbId)
         editCollection,
     required TResult Function(int indexList) saveIndexEvent,
+    required TResult Function() clearIndexEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -44,6 +45,7 @@ mixin _$BookmarkEvent {
             String image, String dbId)?
         editCollection,
     TResult? Function(int indexList)? saveIndexEvent,
+    TResult? Function()? clearIndexEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -59,6 +61,7 @@ mixin _$BookmarkEvent {
             String image, String dbId)?
         editCollection,
     TResult Function(int indexList)? saveIndexEvent,
+    TResult Function()? clearIndexEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -71,6 +74,7 @@ mixin _$BookmarkEvent {
     required TResult Function(DescriptionChanged value) descriptionChanged,
     required TResult Function(EditCollection value) editCollection,
     required TResult Function(SaveIndexEvent value) saveIndexEvent,
+    required TResult Function(ClearIndexEvent value) clearIndexEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -82,6 +86,7 @@ mixin _$BookmarkEvent {
     TResult? Function(DescriptionChanged value)? descriptionChanged,
     TResult? Function(EditCollection value)? editCollection,
     TResult? Function(SaveIndexEvent value)? saveIndexEvent,
+    TResult? Function(ClearIndexEvent value)? clearIndexEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -93,6 +98,7 @@ mixin _$BookmarkEvent {
     TResult Function(DescriptionChanged value)? descriptionChanged,
     TResult Function(EditCollection value)? editCollection,
     TResult Function(SaveIndexEvent value)? saveIndexEvent,
+    TResult Function(ClearIndexEvent value)? clearIndexEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -242,6 +248,7 @@ class _$AddCollection implements AddCollection {
             String image, String dbId)
         editCollection,
     required TResult Function(int indexList) saveIndexEvent,
+    required TResult Function() clearIndexEvent,
   }) {
     return addCollection(name, description, id, image, dbId);
   }
@@ -260,6 +267,7 @@ class _$AddCollection implements AddCollection {
             String image, String dbId)?
         editCollection,
     TResult? Function(int indexList)? saveIndexEvent,
+    TResult? Function()? clearIndexEvent,
   }) {
     return addCollection?.call(name, description, id, image, dbId);
   }
@@ -278,6 +286,7 @@ class _$AddCollection implements AddCollection {
             String image, String dbId)?
         editCollection,
     TResult Function(int indexList)? saveIndexEvent,
+    TResult Function()? clearIndexEvent,
     required TResult orElse(),
   }) {
     if (addCollection != null) {
@@ -296,6 +305,7 @@ class _$AddCollection implements AddCollection {
     required TResult Function(DescriptionChanged value) descriptionChanged,
     required TResult Function(EditCollection value) editCollection,
     required TResult Function(SaveIndexEvent value) saveIndexEvent,
+    required TResult Function(ClearIndexEvent value) clearIndexEvent,
   }) {
     return addCollection(this);
   }
@@ -310,6 +320,7 @@ class _$AddCollection implements AddCollection {
     TResult? Function(DescriptionChanged value)? descriptionChanged,
     TResult? Function(EditCollection value)? editCollection,
     TResult? Function(SaveIndexEvent value)? saveIndexEvent,
+    TResult? Function(ClearIndexEvent value)? clearIndexEvent,
   }) {
     return addCollection?.call(this);
   }
@@ -324,6 +335,7 @@ class _$AddCollection implements AddCollection {
     TResult Function(DescriptionChanged value)? descriptionChanged,
     TResult Function(EditCollection value)? editCollection,
     TResult Function(SaveIndexEvent value)? saveIndexEvent,
+    TResult Function(ClearIndexEvent value)? clearIndexEvent,
     required TResult orElse(),
   }) {
     if (addCollection != null) {
@@ -426,6 +438,7 @@ class _$SaveImageEvent implements SaveImageEvent {
             String image, String dbId)
         editCollection,
     required TResult Function(int indexList) saveIndexEvent,
+    required TResult Function() clearIndexEvent,
   }) {
     return saveImageEvent(img);
   }
@@ -444,6 +457,7 @@ class _$SaveImageEvent implements SaveImageEvent {
             String image, String dbId)?
         editCollection,
     TResult? Function(int indexList)? saveIndexEvent,
+    TResult? Function()? clearIndexEvent,
   }) {
     return saveImageEvent?.call(img);
   }
@@ -462,6 +476,7 @@ class _$SaveImageEvent implements SaveImageEvent {
             String image, String dbId)?
         editCollection,
     TResult Function(int indexList)? saveIndexEvent,
+    TResult Function()? clearIndexEvent,
     required TResult orElse(),
   }) {
     if (saveImageEvent != null) {
@@ -480,6 +495,7 @@ class _$SaveImageEvent implements SaveImageEvent {
     required TResult Function(DescriptionChanged value) descriptionChanged,
     required TResult Function(EditCollection value) editCollection,
     required TResult Function(SaveIndexEvent value) saveIndexEvent,
+    required TResult Function(ClearIndexEvent value) clearIndexEvent,
   }) {
     return saveImageEvent(this);
   }
@@ -494,6 +510,7 @@ class _$SaveImageEvent implements SaveImageEvent {
     TResult? Function(DescriptionChanged value)? descriptionChanged,
     TResult? Function(EditCollection value)? editCollection,
     TResult? Function(SaveIndexEvent value)? saveIndexEvent,
+    TResult? Function(ClearIndexEvent value)? clearIndexEvent,
   }) {
     return saveImageEvent?.call(this);
   }
@@ -508,6 +525,7 @@ class _$SaveImageEvent implements SaveImageEvent {
     TResult Function(DescriptionChanged value)? descriptionChanged,
     TResult Function(EditCollection value)? editCollection,
     TResult Function(SaveIndexEvent value)? saveIndexEvent,
+    TResult Function(ClearIndexEvent value)? clearIndexEvent,
     required TResult orElse(),
   }) {
     if (saveImageEvent != null) {
@@ -608,6 +626,7 @@ class _$SaveQuranChapterId implements SaveQuranChapterId {
             String image, String dbId)
         editCollection,
     required TResult Function(int indexList) saveIndexEvent,
+    required TResult Function() clearIndexEvent,
   }) {
     return saveQuranChapterId(id);
   }
@@ -626,6 +645,7 @@ class _$SaveQuranChapterId implements SaveQuranChapterId {
             String image, String dbId)?
         editCollection,
     TResult? Function(int indexList)? saveIndexEvent,
+    TResult? Function()? clearIndexEvent,
   }) {
     return saveQuranChapterId?.call(id);
   }
@@ -644,6 +664,7 @@ class _$SaveQuranChapterId implements SaveQuranChapterId {
             String image, String dbId)?
         editCollection,
     TResult Function(int indexList)? saveIndexEvent,
+    TResult Function()? clearIndexEvent,
     required TResult orElse(),
   }) {
     if (saveQuranChapterId != null) {
@@ -662,6 +683,7 @@ class _$SaveQuranChapterId implements SaveQuranChapterId {
     required TResult Function(DescriptionChanged value) descriptionChanged,
     required TResult Function(EditCollection value) editCollection,
     required TResult Function(SaveIndexEvent value) saveIndexEvent,
+    required TResult Function(ClearIndexEvent value) clearIndexEvent,
   }) {
     return saveQuranChapterId(this);
   }
@@ -676,6 +698,7 @@ class _$SaveQuranChapterId implements SaveQuranChapterId {
     TResult? Function(DescriptionChanged value)? descriptionChanged,
     TResult? Function(EditCollection value)? editCollection,
     TResult? Function(SaveIndexEvent value)? saveIndexEvent,
+    TResult? Function(ClearIndexEvent value)? clearIndexEvent,
   }) {
     return saveQuranChapterId?.call(this);
   }
@@ -690,6 +713,7 @@ class _$SaveQuranChapterId implements SaveQuranChapterId {
     TResult Function(DescriptionChanged value)? descriptionChanged,
     TResult Function(EditCollection value)? editCollection,
     TResult Function(SaveIndexEvent value)? saveIndexEvent,
+    TResult Function(ClearIndexEvent value)? clearIndexEvent,
     required TResult orElse(),
   }) {
     if (saveQuranChapterId != null) {
@@ -785,6 +809,7 @@ class _$NameChanged implements NameChanged {
             String image, String dbId)
         editCollection,
     required TResult Function(int indexList) saveIndexEvent,
+    required TResult Function() clearIndexEvent,
   }) {
     return nameChanged(nameValue);
   }
@@ -803,6 +828,7 @@ class _$NameChanged implements NameChanged {
             String image, String dbId)?
         editCollection,
     TResult? Function(int indexList)? saveIndexEvent,
+    TResult? Function()? clearIndexEvent,
   }) {
     return nameChanged?.call(nameValue);
   }
@@ -821,6 +847,7 @@ class _$NameChanged implements NameChanged {
             String image, String dbId)?
         editCollection,
     TResult Function(int indexList)? saveIndexEvent,
+    TResult Function()? clearIndexEvent,
     required TResult orElse(),
   }) {
     if (nameChanged != null) {
@@ -839,6 +866,7 @@ class _$NameChanged implements NameChanged {
     required TResult Function(DescriptionChanged value) descriptionChanged,
     required TResult Function(EditCollection value) editCollection,
     required TResult Function(SaveIndexEvent value) saveIndexEvent,
+    required TResult Function(ClearIndexEvent value) clearIndexEvent,
   }) {
     return nameChanged(this);
   }
@@ -853,6 +881,7 @@ class _$NameChanged implements NameChanged {
     TResult? Function(DescriptionChanged value)? descriptionChanged,
     TResult? Function(EditCollection value)? editCollection,
     TResult? Function(SaveIndexEvent value)? saveIndexEvent,
+    TResult? Function(ClearIndexEvent value)? clearIndexEvent,
   }) {
     return nameChanged?.call(this);
   }
@@ -867,6 +896,7 @@ class _$NameChanged implements NameChanged {
     TResult Function(DescriptionChanged value)? descriptionChanged,
     TResult Function(EditCollection value)? editCollection,
     TResult Function(SaveIndexEvent value)? saveIndexEvent,
+    TResult Function(ClearIndexEvent value)? clearIndexEvent,
     required TResult orElse(),
   }) {
     if (nameChanged != null) {
@@ -962,6 +992,7 @@ class _$DescriptionChanged implements DescriptionChanged {
             String image, String dbId)
         editCollection,
     required TResult Function(int indexList) saveIndexEvent,
+    required TResult Function() clearIndexEvent,
   }) {
     return descriptionChanged(descriptionValue);
   }
@@ -980,6 +1011,7 @@ class _$DescriptionChanged implements DescriptionChanged {
             String image, String dbId)?
         editCollection,
     TResult? Function(int indexList)? saveIndexEvent,
+    TResult? Function()? clearIndexEvent,
   }) {
     return descriptionChanged?.call(descriptionValue);
   }
@@ -998,6 +1030,7 @@ class _$DescriptionChanged implements DescriptionChanged {
             String image, String dbId)?
         editCollection,
     TResult Function(int indexList)? saveIndexEvent,
+    TResult Function()? clearIndexEvent,
     required TResult orElse(),
   }) {
     if (descriptionChanged != null) {
@@ -1016,6 +1049,7 @@ class _$DescriptionChanged implements DescriptionChanged {
     required TResult Function(DescriptionChanged value) descriptionChanged,
     required TResult Function(EditCollection value) editCollection,
     required TResult Function(SaveIndexEvent value) saveIndexEvent,
+    required TResult Function(ClearIndexEvent value) clearIndexEvent,
   }) {
     return descriptionChanged(this);
   }
@@ -1030,6 +1064,7 @@ class _$DescriptionChanged implements DescriptionChanged {
     TResult? Function(DescriptionChanged value)? descriptionChanged,
     TResult? Function(EditCollection value)? editCollection,
     TResult? Function(SaveIndexEvent value)? saveIndexEvent,
+    TResult? Function(ClearIndexEvent value)? clearIndexEvent,
   }) {
     return descriptionChanged?.call(this);
   }
@@ -1044,6 +1079,7 @@ class _$DescriptionChanged implements DescriptionChanged {
     TResult Function(DescriptionChanged value)? descriptionChanged,
     TResult Function(EditCollection value)? editCollection,
     TResult Function(SaveIndexEvent value)? saveIndexEvent,
+    TResult Function(ClearIndexEvent value)? clearIndexEvent,
     required TResult orElse(),
   }) {
     if (descriptionChanged != null) {
@@ -1189,6 +1225,7 @@ class _$EditCollection implements EditCollection {
             String image, String dbId)
         editCollection,
     required TResult Function(int indexList) saveIndexEvent,
+    required TResult Function() clearIndexEvent,
   }) {
     return editCollection(name, description, id, image, dbId);
   }
@@ -1207,6 +1244,7 @@ class _$EditCollection implements EditCollection {
             String image, String dbId)?
         editCollection,
     TResult? Function(int indexList)? saveIndexEvent,
+    TResult? Function()? clearIndexEvent,
   }) {
     return editCollection?.call(name, description, id, image, dbId);
   }
@@ -1225,6 +1263,7 @@ class _$EditCollection implements EditCollection {
             String image, String dbId)?
         editCollection,
     TResult Function(int indexList)? saveIndexEvent,
+    TResult Function()? clearIndexEvent,
     required TResult orElse(),
   }) {
     if (editCollection != null) {
@@ -1243,6 +1282,7 @@ class _$EditCollection implements EditCollection {
     required TResult Function(DescriptionChanged value) descriptionChanged,
     required TResult Function(EditCollection value) editCollection,
     required TResult Function(SaveIndexEvent value) saveIndexEvent,
+    required TResult Function(ClearIndexEvent value) clearIndexEvent,
   }) {
     return editCollection(this);
   }
@@ -1257,6 +1297,7 @@ class _$EditCollection implements EditCollection {
     TResult? Function(DescriptionChanged value)? descriptionChanged,
     TResult? Function(EditCollection value)? editCollection,
     TResult? Function(SaveIndexEvent value)? saveIndexEvent,
+    TResult? Function(ClearIndexEvent value)? clearIndexEvent,
   }) {
     return editCollection?.call(this);
   }
@@ -1271,6 +1312,7 @@ class _$EditCollection implements EditCollection {
     TResult Function(DescriptionChanged value)? descriptionChanged,
     TResult Function(EditCollection value)? editCollection,
     TResult Function(SaveIndexEvent value)? saveIndexEvent,
+    TResult Function(ClearIndexEvent value)? clearIndexEvent,
     required TResult orElse(),
   }) {
     if (editCollection != null) {
@@ -1374,6 +1416,7 @@ class _$SaveIndexEvent implements SaveIndexEvent {
             String image, String dbId)
         editCollection,
     required TResult Function(int indexList) saveIndexEvent,
+    required TResult Function() clearIndexEvent,
   }) {
     return saveIndexEvent(indexList);
   }
@@ -1392,6 +1435,7 @@ class _$SaveIndexEvent implements SaveIndexEvent {
             String image, String dbId)?
         editCollection,
     TResult? Function(int indexList)? saveIndexEvent,
+    TResult? Function()? clearIndexEvent,
   }) {
     return saveIndexEvent?.call(indexList);
   }
@@ -1410,6 +1454,7 @@ class _$SaveIndexEvent implements SaveIndexEvent {
             String image, String dbId)?
         editCollection,
     TResult Function(int indexList)? saveIndexEvent,
+    TResult Function()? clearIndexEvent,
     required TResult orElse(),
   }) {
     if (saveIndexEvent != null) {
@@ -1428,6 +1473,7 @@ class _$SaveIndexEvent implements SaveIndexEvent {
     required TResult Function(DescriptionChanged value) descriptionChanged,
     required TResult Function(EditCollection value) editCollection,
     required TResult Function(SaveIndexEvent value) saveIndexEvent,
+    required TResult Function(ClearIndexEvent value) clearIndexEvent,
   }) {
     return saveIndexEvent(this);
   }
@@ -1442,6 +1488,7 @@ class _$SaveIndexEvent implements SaveIndexEvent {
     TResult? Function(DescriptionChanged value)? descriptionChanged,
     TResult? Function(EditCollection value)? editCollection,
     TResult? Function(SaveIndexEvent value)? saveIndexEvent,
+    TResult? Function(ClearIndexEvent value)? clearIndexEvent,
   }) {
     return saveIndexEvent?.call(this);
   }
@@ -1456,6 +1503,7 @@ class _$SaveIndexEvent implements SaveIndexEvent {
     TResult Function(DescriptionChanged value)? descriptionChanged,
     TResult Function(EditCollection value)? editCollection,
     TResult Function(SaveIndexEvent value)? saveIndexEvent,
+    TResult Function(ClearIndexEvent value)? clearIndexEvent,
     required TResult orElse(),
   }) {
     if (saveIndexEvent != null) {
@@ -1473,6 +1521,156 @@ abstract class SaveIndexEvent implements BookmarkEvent {
   @JsonKey(ignore: true)
   _$$SaveIndexEventCopyWith<_$SaveIndexEvent> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ClearIndexEventCopyWith<$Res> {
+  factory _$$ClearIndexEventCopyWith(
+          _$ClearIndexEvent value, $Res Function(_$ClearIndexEvent) then) =
+      __$$ClearIndexEventCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ClearIndexEventCopyWithImpl<$Res>
+    extends _$BookmarkEventCopyWithImpl<$Res, _$ClearIndexEvent>
+    implements _$$ClearIndexEventCopyWith<$Res> {
+  __$$ClearIndexEventCopyWithImpl(
+      _$ClearIndexEvent _value, $Res Function(_$ClearIndexEvent) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$ClearIndexEvent implements ClearIndexEvent {
+  const _$ClearIndexEvent();
+
+  @override
+  String toString() {
+    return 'BookmarkEvent.clearIndexEvent()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$ClearIndexEvent);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String name, String description, List<int> id,
+            String image, String? dbId)
+        addCollection,
+    required TResult Function(String img) saveImageEvent,
+    required TResult Function(List<int> id) saveQuranChapterId,
+    required TResult Function(String nameValue) nameChanged,
+    required TResult Function(String descriptionValue) descriptionChanged,
+    required TResult Function(String name, String description, List<int> id,
+            String image, String dbId)
+        editCollection,
+    required TResult Function(int indexList) saveIndexEvent,
+    required TResult Function() clearIndexEvent,
+  }) {
+    return clearIndexEvent();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name, String description, List<int> id,
+            String image, String? dbId)?
+        addCollection,
+    TResult? Function(String img)? saveImageEvent,
+    TResult? Function(List<int> id)? saveQuranChapterId,
+    TResult? Function(String nameValue)? nameChanged,
+    TResult? Function(String descriptionValue)? descriptionChanged,
+    TResult? Function(String name, String description, List<int> id,
+            String image, String dbId)?
+        editCollection,
+    TResult? Function(int indexList)? saveIndexEvent,
+    TResult? Function()? clearIndexEvent,
+  }) {
+    return clearIndexEvent?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String name, String description, List<int> id,
+            String image, String? dbId)?
+        addCollection,
+    TResult Function(String img)? saveImageEvent,
+    TResult Function(List<int> id)? saveQuranChapterId,
+    TResult Function(String nameValue)? nameChanged,
+    TResult Function(String descriptionValue)? descriptionChanged,
+    TResult Function(String name, String description, List<int> id,
+            String image, String dbId)?
+        editCollection,
+    TResult Function(int indexList)? saveIndexEvent,
+    TResult Function()? clearIndexEvent,
+    required TResult orElse(),
+  }) {
+    if (clearIndexEvent != null) {
+      return clearIndexEvent();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(AddCollection value) addCollection,
+    required TResult Function(SaveImageEvent value) saveImageEvent,
+    required TResult Function(SaveQuranChapterId value) saveQuranChapterId,
+    required TResult Function(NameChanged value) nameChanged,
+    required TResult Function(DescriptionChanged value) descriptionChanged,
+    required TResult Function(EditCollection value) editCollection,
+    required TResult Function(SaveIndexEvent value) saveIndexEvent,
+    required TResult Function(ClearIndexEvent value) clearIndexEvent,
+  }) {
+    return clearIndexEvent(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(AddCollection value)? addCollection,
+    TResult? Function(SaveImageEvent value)? saveImageEvent,
+    TResult? Function(SaveQuranChapterId value)? saveQuranChapterId,
+    TResult? Function(NameChanged value)? nameChanged,
+    TResult? Function(DescriptionChanged value)? descriptionChanged,
+    TResult? Function(EditCollection value)? editCollection,
+    TResult? Function(SaveIndexEvent value)? saveIndexEvent,
+    TResult? Function(ClearIndexEvent value)? clearIndexEvent,
+  }) {
+    return clearIndexEvent?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AddCollection value)? addCollection,
+    TResult Function(SaveImageEvent value)? saveImageEvent,
+    TResult Function(SaveQuranChapterId value)? saveQuranChapterId,
+    TResult Function(NameChanged value)? nameChanged,
+    TResult Function(DescriptionChanged value)? descriptionChanged,
+    TResult Function(EditCollection value)? editCollection,
+    TResult Function(SaveIndexEvent value)? saveIndexEvent,
+    TResult Function(ClearIndexEvent value)? clearIndexEvent,
+    required TResult orElse(),
+  }) {
+    if (clearIndexEvent != null) {
+      return clearIndexEvent(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ClearIndexEvent implements BookmarkEvent {
+  const factory ClearIndexEvent() = _$ClearIndexEvent;
 }
 
 /// @nodoc

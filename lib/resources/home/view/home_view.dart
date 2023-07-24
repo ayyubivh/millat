@@ -4,6 +4,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/resources/home/bloc/logic/namaz_timing_bloc/namaz_timing_bloc.dart';
 import 'package:millat/resources/home/bloc/service/quran_service.dart';
+import 'package:millat/resources/home/view/dua/dua_view.dart';
 import 'package:millat/utils/constants.dart';
 import '../../../utils/color_manager.dart';
 import '../../../utils/size_utility.dart';
@@ -191,11 +192,11 @@ class _HomeViewState extends State<HomeView> {
                                         image: "assets/icons/dua.png",
                                         text: "Dua",
                                         onTap: () {
-                                          // Navigator.of(context)
-                                          //     .push(MaterialPageRoute(
-                                          //   builder: (context) =>
-                                          //       const Duav,
-                                          // ));
+                                          Navigator.of(context)
+                                              .push(MaterialPageRoute(
+                                            builder: (context) =>
+                                                const DuaView(),
+                                          ));
                                         },
                                       )
                                     ],

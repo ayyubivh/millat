@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/resources/home/bloc/db/db_functions.dart';
 import 'package:millat/resources/home/bloc/logic/quran_bloc/quran_bloc.dart';
-import 'package:millat/resources/home/bloc/models/chapter_by_id_model/chapter_by_id_model.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/loader.dart';
 import 'package:millat/utils/size_utility.dart';
@@ -119,10 +118,13 @@ class BookmarkCollectionView extends StatelessWidget {
                     itemCount: chapters!.length,
                     itemBuilder: (context, index) {
                       final chapter = chapters[index].chapter;
-                      return _buildSurahWidget(
-                          name: chapter.nameSimple,
-                          arabicName: chapter.nameArabic,
-                          versCount: chapter.versesCount);
+                      return Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: _buildSurahWidget(
+                            name: chapter.nameSimple,
+                            arabicName: chapter.nameArabic,
+                            versCount: chapter.versesCount),
+                      );
                     },
                   );
                 },

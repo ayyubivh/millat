@@ -21,6 +21,8 @@ class ColorManager {
   static Color gradientGreenBC = HexColor.fromHex("#5FD3A1");
   static Color textGrey2 = HexColor.fromHex("#A0A0A0");
   static Color greyD9 = HexColor.fromHex("D9D9D9");
+  static Color black4F = HexColor.fromHex("#4F4F4F");
+  static Color black79 = HexColor.fromHex("#797979");
 }
 
 extension HexColor on Color {

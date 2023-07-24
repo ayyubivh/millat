@@ -20,10 +20,11 @@ class _AddSuraSearchViewState extends State<AddSuraSearchView> {
   void initState() {
     BlocProvider.of<QuranBloc>(context)
         .add(const SearchChapterEvent(query: ""));
+    BlocProvider.of<BookmarkBloc>(context).add(const ClearIndexEvent());
     super.initState();
   }
 
-  final List<int> _index = [];
+  List<int> _index = [];
 
   @override
   Widget build(BuildContext context) {
@@ -48,11 +49,13 @@ class _AddSuraSearchViewState extends State<AddSuraSearchView> {
                     onTap: () {
                       setState(() {
                         _index.add(index + 1);
+                        _index = _index.toSet().toList(); // Remove duplicates
 
                         context
                             .read<BookmarkBloc>()
                             .add(SaveIndexEvent(indexList: index));
                       });
+
                       context
                           .read<BookmarkBloc>()
                           .add(SaveQuranChapterId(id: _index));
@@ -123,8 +126,11 @@ class _AddSuraSearchViewState extends State<AddSuraSearchView> {
                       ),
                       GestureDetector(
                         onTap: () {
-                          context.read<QuranBloc>().add(FechtChapterbyId(
-                              id: context.read<BookmarkBloc>().state.id));
+                          final id = context.read<BookmarkBloc>().state.id;
+                          print('here is the $id');
+                          context
+                              .read<QuranBloc>()
+                              .add(FechtChapterbyId(id: id));
 
                           Navigator.of(context).pop();
                         },

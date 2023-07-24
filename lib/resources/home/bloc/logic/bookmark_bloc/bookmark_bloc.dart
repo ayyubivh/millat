@@ -18,6 +18,7 @@ class BookmarkBloc extends Bloc<BookmarkEvent, BookmarkState> {
     on<SaveQuranChapterId>(_saveQuranChapterId);
     on<EditCollection>(_editCollection);
     on<SaveIndexEvent>(_saveIndexEvent);
+    on<ClearIndexEvent>(_clearIndexEvent);
   }
 
   _addCollection(AddCollection event, Emitter<BookmarkState> emit) {
@@ -104,5 +105,9 @@ class BookmarkBloc extends Bloc<BookmarkEvent, BookmarkState> {
     } else {
       emit(state.copyWith(indexList: updatedIndexList));
     }
+  }
+
+  _clearIndexEvent(ClearIndexEvent event, Emitter<BookmarkState> emit) {
+    emit(state.copyWith(indexList: []));
   }
 }

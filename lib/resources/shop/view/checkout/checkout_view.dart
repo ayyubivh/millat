@@ -58,12 +58,12 @@ class _CheckoutViewState extends State<CheckoutView> {
                           fontWeight: FontWeight.w700,
                           color: ColorManager.blackColor),
                     ),
-                    Text(
+                    const Text(
                       'Payment',
                       style: TextStyle(
                           fontWeight: FontWeight.w600, color: black131),
                     ),
-                    Text(
+                    const Text(
                       'Confirmation',
                       style: TextStyle(
                           fontWeight: FontWeight.w600, color: black131),
@@ -121,22 +121,31 @@ class _CheckoutViewState extends State<CheckoutView> {
                       itemBuilder: (context, index) {
                         final data =
                             state.addressModel?.result.addresses[index];
-                        final formatedMobile =
-                            '${data?.mobile.toString().substring(data.mobile.toString().length - 4)}';
                         final String address =
-                            '$formatedMobile ${data!.addressLine} ${data.landmark} ${data.city}\n${data.state} ${data.pincode}';
-                        return buildAddresses(
-                          name: data.name,
-                          address: address,
-                          isSelected: index == state.selectedIndex,
-                          onTap: () {
-                            context
-                                .read<AddressBloc>()
-                                .add(SelectAddressEvent(selectedIndex: index));
-                            context
-                                .read<AddressBloc>()
-                                .add(SaveAddressId(addressId: data.id));
-                          },
+                            '${data?.name}\n${data!.addressLine}\n${data.landmark}\n${data.city}, ${data.state}, ${data.pincode}';
+                        return Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            buildAddresses(
+                              name: data.name,
+                              address: address,
+                              isSelected: index == state.selectedIndex,
+                              onTap: () {
+                                context.read<AddressBloc>().add(
+                                    SelectAddressEvent(selectedIndex: index));
+                                context
+                                    .read<AddressBloc>()
+                                    .add(SaveAddressId(addressId: data.id));
+                              },
+                            ),
+                            Text(
+                              '${state.addressModel!.result.addresses[index].mobile}',
+                              style: const TextStyle(
+                                color: black122,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
                         );
                       },
                       separatorBuilder: (context, index) => const Divider(
@@ -224,7 +233,7 @@ class _CheckoutViewState extends State<CheckoutView> {
                   color: black122,
                 ),
                 overflow: TextOverflow.visible,
-                maxLines: 2, // Set the maximum number of lines to display
+                // maxLines: 2, // Set the maximum number of lines to display
               ),
             ),
           ],

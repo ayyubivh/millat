@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/profile/views/manage_address.dart';
@@ -6,8 +7,6 @@ import 'package:millat/resources/shop/bloc/logic/address_bloc/address_bloc.dart'
 import 'package:millat/resources/shop/view/checkout/checkout_view.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/size_utility.dart';
-import 'package:millat/utils/utils.dart';
-import 'package:pinput/pinput.dart';
 
 class CheckoutDetails extends StatefulWidget {
   const CheckoutDetails({Key? key, required this.type}) : super(key: key);
@@ -121,7 +120,8 @@ class _CheckoutDetailsState extends State<CheckoutDetails> {
                       ),
                       _addressTextfeld(
                           controller: addressLineController,
-                          hintText: 'Address Line'),
+                          hintText: 'Address Line',
+                          keyboardType: TextInputType.streetAddress),
                       const SizedBox(
                         height: 30,
                       ),
@@ -145,7 +145,11 @@ class _CheckoutDetailsState extends State<CheckoutDetails> {
                               width: SizeUtility(context).width * 37 / 100,
                               child: _addressTextfeld(
                                   controller: pinCodecontroller,
-                                  hintText: "Pincode")),
+                                  hintText: "Pincode",
+                                  keyboardType: TextInputType.number,
+                                  inputFormatters: [
+                                    LengthLimitingTextInputFormatter(6),
+                                  ])),
                         ],
                       ),
                       const SizedBox(
@@ -165,6 +169,11 @@ class _CheckoutDetailsState extends State<CheckoutDetails> {
                       _addressTextfeld(
                         controller: mobileNumberController,
                         hintText: 'Mobile Number',
+                        inputFormatters: [
+                          LengthLimitingTextInputFormatter(10),
+                          FilteringTextInputFormatter.digitsOnly
+                        ],
+                        keyboardType: TextInputType.phone,
                         maxLength: 10,
                       ),
                       const SizedBox(
@@ -324,11 +333,15 @@ class _CheckoutDetailsState extends State<CheckoutDetails> {
   Widget _addressTextfeld({
     required TextEditingController controller,
     required String hintText,
-    int? maxLength, // Add an optional parameter for maxLength
+    int? maxLength, // Add an optional parameter for maxLength\
+    List<TextInputFormatter>? inputFormatters,
+    TextInputType? keyboardType,
   }) {
     return TextFormField(
       controller: controller,
       maxLength: maxLength, // Set the maxLength property if provided
+      inputFormatters: inputFormatters,
+      keyboardType: keyboardType,
       decoration: InputDecoration(
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(5),

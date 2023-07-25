@@ -5,11 +5,11 @@ import 'package:http/http.dart' as http;
 import 'package:millat/resources/shop/bloc/models/articles/articles_model.dart'
     as Articles;
 import 'package:millat/resources/shop/bloc/models/banners/banners_model.dart';
-import 'package:millat/resources/shop/bloc/models/orders/orders_model.dart';
 import 'package:millat/resources/shop/bloc/models/recent_products/recent_products_model.dart';
 import 'package:millat/resources/shop/bloc/models/shop_by_brand/shop_by_brand_models.dart';
 import 'package:millat/resources/shop/bloc/models/wishlist/wishllist_models.dart';
 import 'package:millat/services/http_services.dart';
+import 'package:millat/utils/string_constants.dart';
 import '../../../authentication/bloc/logic/database_bloc/database_bloc.dart';
 
 import '../models/products/products_model.dart';
@@ -171,7 +171,6 @@ class ShopService extends HttpServices {
     required BuildContext context,
     required String productId,
   }) async {
-    const String webBaseUrl = 'http://35.172.93.164:8000/';
     const endPoint = "wishlist/add";
     final databaseState = context.read<DatabaseBloc>().state;
     final token = databaseState.token;
@@ -185,7 +184,7 @@ class ShopService extends HttpServices {
 
     try {
       final response = await http.put(
-        Uri.parse(webBaseUrl + endPoint),
+        Uri.parse(kBaseUrl + endPoint),
         headers: headers,
         body: jsonEncode(body),
       );
@@ -212,7 +211,6 @@ class ShopService extends HttpServices {
     required BuildContext context,
     required String productId,
   }) async {
-    const String webBaseUrl = 'http://35.172.93.164:8000/';
     const endPoint = "wishlist/remove";
     final databaseState = context.read<DatabaseBloc>().state;
     final token = databaseState.token;
@@ -226,7 +224,7 @@ class ShopService extends HttpServices {
 
     try {
       final response = await http.put(
-        Uri.parse(webBaseUrl + endPoint),
+        Uri.parse(kBaseUrl + endPoint),
         headers: headers,
         body: jsonEncode(body),
       );
@@ -331,75 +329,6 @@ class ShopService extends HttpServices {
     } else {
       print('HTTP request failed with status code: ${response.statusCode}');
       throw Exception('Failed to fetch products');
-    }
-  }
-
-  //For adding the orders
-  Future<Map<String, dynamic>> postOrder(
-      {required BuildContext context,
-      required String productId,
-      required int totalPrice}) async {
-    const String webBaseUrl = 'http://35.172.93.164:8000/';
-    const endPoint = 'order/payment/COD';
-
-    final databaseState = context.read<DatabaseBloc>().state;
-    final token = databaseState.token;
-
-    final headers = {
-      'Content-Type': 'application/json; charset=utf-8',
-      'Authorization': 'Bearer $token',
-    };
-
-    final body = {
-      "address": productId,
-      "totalPrice": totalPrice,
-    };
-
-    final response = await http.post(Uri.parse(webBaseUrl + endPoint),
-        headers: headers, body: jsonEncode(body));
-
-    try {
-      if (response.statusCode == 200) {
-        final Map<String, dynamic> data = json.decode(response.body);
-        print('Response data in the postOrder function: $data');
-        return data;
-      } else {
-        print('API request failed with status code: ${response.statusCode}');
-        throw Exception(
-            'API request failed with status code: ${response.statusCode}');
-      }
-    } catch (e) {
-      print('Error on API fetch: ${e.toString()}');
-      throw Exception('Failed to parse response');
-    }
-  }
-
-  //For Getting Orders
-  Future<OrderModel> fetchOrders(BuildContext context) async {
-    const endPoint = "order";
-
-    final databaseState = context.read<DatabaseBloc>().state;
-    final token = databaseState.token;
-    final headers = {
-      'Content-Type': 'application/json; charset=utf-8',
-      'Authorization': 'Bearer $token',
-    };
-    final response = await get(endPoint: endPoint, headers: headers);
-
-    if (response.statusCode == 200) {
-      try {
-        final Map<String, dynamic> data = json.decode(response.body);
-        final result = OrderModel.fromJson(data);
-        print('jsone here on a mat cha${result}');
-
-        return result;
-      } catch (e) {
-        print('error on shop by brand API fetch: ${e.toString()}');
-        throw Exception('Failed to parse response');
-      }
-    } else {
-      throw Exception(
-          'API request failed with status code: ${response.statusCode}');
     }
   }
 }

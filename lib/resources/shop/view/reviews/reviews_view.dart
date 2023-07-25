@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:millat/utils/globals.dart';
+import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/size_utility.dart';
 
 class ReviewsView extends StatefulWidget {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
-import '../../utils/globals.dart';
+import '../../utils/color_manager.dart';
 
 class ShopProductWidget extends StatelessWidget {
   final String? image;
@@ -88,7 +88,7 @@ class ShopProductWidget extends StatelessWidget {
                     },
                     child: Icon(
                       isWishlisted ? Icons.favorite : Icons.favorite_border,
-                      color: isWishlisted ? redClr : black122,
+                      color: isWishlisted ? ColorManager.redColor : black122,
                       size: 19.94,
                     ),
                   );
@@ -102,10 +102,10 @@ class ShopProductWidget extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  const Text(
+                  Text(
                     'MRP',
                     style: TextStyle(
-                      color: mainColor,
+                      color: ColorManager.mainColor,
                       fontSize: 16,
                       fontWeight: FontWeight.w600,
                     ),
@@ -145,8 +145,8 @@ class ShopProductWidget extends StatelessWidget {
           const SizedBox(height: 15),
           Text(
             '₹$discountPrice',
-            style: const TextStyle(
-              color: midGreenColor,
+            style: TextStyle(
+              color: ColorManager.midGreenColor,
               fontSize: 19,
               fontWeight: FontWeight.w600,
             ),

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/shop/view/checkout/checkout_details.dart';
-import 'package:millat/utils/globals.dart';
+import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/size_utility.dart';
 import '../../shop/bloc/logic/address_bloc/address_bloc.dart';
 
@@ -35,19 +35,19 @@ class ManageAddress extends StatelessWidget {
               ),
               Row(
                 children: [
-                  const Text(
+                  Text(
                     'Address',
                     style: TextStyle(
                         fontWeight: FontWeight.w700,
                         fontSize: 17,
-                        color: black26),
+                        color: ColorManager.blackColor),
                   ),
                   const Spacer(),
                   Row(
                     children: [
-                      const Icon(
+                      Icon(
                         Icons.add,
-                        color: green77,
+                        color: ColorManager.greenColor1,
                       ),
                       InkWell(
                         onTap: () {
@@ -56,11 +56,11 @@ class ManageAddress extends StatelessWidget {
                                 type: AddressNavType.profile),
                           ));
                         },
-                        child: const Text(
+                        child: Text(
                           'Add Address',
                           style: TextStyle(
                             fontWeight: FontWeight.w600,
-                            color: green77,
+                            color: ColorManager.greenColor1,
                             fontSize: 16,
                           ),
                         ),
@@ -75,9 +75,9 @@ class ManageAddress extends StatelessWidget {
               BlocBuilder<AddressBloc, AddressState>(
                 builder: (context, state) {
                   return state.isLoading
-                      ? const Center(
+                      ? Center(
                           child: CircularProgressIndicator(
-                            color: green24,
+                            color: ColorManager.primary,
                           ),
                         )
                       : state.addressModel?.result.addresses == null
@@ -146,9 +146,10 @@ class ManageAddress extends StatelessWidget {
                                                                         index]
                                                                     .id));
                                                       },
-                                                      child: const Icon(
+                                                      child: Icon(
                                                         Icons.delete_outline,
-                                                        color: redClr,
+                                                        color: ColorManager
+                                                            .redColor,
                                                       ),
                                                     ),
                                                     const SizedBox(width: 8),
@@ -206,10 +207,10 @@ class ManageAddress extends StatelessWidget {
           children: [
             Text(
               name.toString(),
-              style: const TextStyle(
+              style: TextStyle(
                 fontWeight: FontWeight.w700,
                 fontSize: 18,
-                color: black26,
+                color: ColorManager.blackColor,
               ),
             ),
             const SizedBox(height: 20),
@@ -233,7 +234,7 @@ class ManageAddress extends StatelessWidget {
           onChanged: (value) {
             onTap();
           },
-          fillColor: MaterialStateProperty.all(green77),
+          fillColor: MaterialStateProperty.all(ColorManager.greenColor1),
         ),
       ],
     );

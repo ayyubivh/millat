@@ -6,7 +6,7 @@ import 'package:millat/resources/shop/bloc/logic/cart_bloc/cart_bloc.dart';
 import 'package:millat/resources/shop/view/cart/cart.dart';
 import 'package:millat/resources/shop/view/products/single_product_view.dart';
 import 'package:millat/resources/shop/view/reviews/reviews_view.dart';
-import 'package:millat/utils/globals.dart';
+import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/utils.dart';
 
@@ -57,7 +57,7 @@ class _SingleProductViewBrandState extends State<SingleProductViewBrand> {
             BlocBuilder<CartBloc, CartState>(
               builder: (context, state) {
                 return CartIconWidget(
-                  color: black26,
+                  color: ColorManager.blackColor,
                   cartLength: state.cartLength ?? 0,
                 );
               },
@@ -99,17 +99,19 @@ class _SingleProductViewBrandState extends State<SingleProductViewBrand> {
                     style: const TextStyle(
                         color: black60, fontSize: 17, height: 1.5)),
                 Text('${widget.passValue.discountPrice} ₹',
-                    style: const TextStyle(
-                        color: green77, fontSize: 22, height: 1.5)),
+                    style: TextStyle(
+                        color: ColorManager.greenColor1,
+                        fontSize: 22,
+                        height: 1.5)),
                 const SizedBox(
                   height: 10,
                 ),
-                Row(
+                const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     Row(
-                      children: const [
+                      children: [
                         Icon(Icons.star, color: orange255, size: 20),
                         Icon(Icons.star, color: orange255, size: 20),
                         Icon(Icons.star, color: orange255, size: 20),
@@ -127,7 +129,7 @@ class _SingleProductViewBrandState extends State<SingleProductViewBrand> {
                         ),
                       ],
                     ),
-                    const ImageIcon(
+                    ImageIcon(
                       AssetImage(
                         'assets/icons/heart.png',
                       ),
@@ -140,10 +142,10 @@ class _SingleProductViewBrandState extends State<SingleProductViewBrand> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      const Text(
+                      Text(
                         'Select options',
                         style: TextStyle(
-                            color: green77,
+                            color: ColorManager.greenColor1,
                             fontSize: 20,
                             fontWeight: FontWeight.w700),
                       ),
@@ -166,19 +168,19 @@ class _SingleProductViewBrandState extends State<SingleProductViewBrand> {
                               ),
                             );
                           },
-                          icon: const Icon(
+                          icon: Icon(
                             Icons.arrow_forward_ios,
-                            color: green77,
+                            color: ColorManager.greenColor1,
                           ))
                     ],
                   ),
                 ),
-                const Text(
+                Text(
                   'Product Description',
                   style: TextStyle(
                       fontWeight: FontWeight.w600,
                       fontSize: 18,
-                      color: black26),
+                      color: ColorManager.blackColor),
                 ),
                 const SizedBox(
                   height: 20,
@@ -190,22 +192,22 @@ class _SingleProductViewBrandState extends State<SingleProductViewBrand> {
                 const SizedBox(
                   height: 20,
                 ),
-                const Text(
+                Text(
                   'Fabric: Cotton Silk',
                   style: TextStyle(
                       fontWeight: FontWeight.w600,
                       fontSize: 17,
-                      color: black26),
+                      color: ColorManager.blackColor),
                 ),
                 const SizedBox(
                   height: 20,
                 ),
-                const Text(
+                Text(
                   'Care: Gentle machine wash / Regular Wash',
                   style: TextStyle(
                       fontWeight: FontWeight.w600,
                       fontSize: 17,
-                      color: black26),
+                      color: ColorManager.blackColor),
                 ),
                 const SizedBox(
                   height: 20,
@@ -219,10 +221,10 @@ class _SingleProductViewBrandState extends State<SingleProductViewBrand> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text(
+                      Text(
                         'Reviews',
                         style: TextStyle(
-                            color: black26,
+                            color: ColorManager.blackColor,
                             fontSize: 18,
                             fontWeight: FontWeight.w700),
                       ),
@@ -233,8 +235,8 @@ class _SingleProductViewBrandState extends State<SingleProductViewBrand> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          Row(
-                            children: const [
+                          const Row(
+                            children: [
                               Icon(Icons.star, color: orange255, size: 20),
                               Icon(Icons.star, color: orange255, size: 20),
                               Icon(Icons.star, color: orange255, size: 20),
@@ -262,9 +264,9 @@ class _SingleProductViewBrandState extends State<SingleProductViewBrand> {
                               ),
                             ],
                           ),
-                          const Icon(
+                          Icon(
                             Icons.arrow_forward_ios,
-                            color: green77,
+                            color: ColorManager.greenColor1,
                           )
                         ],
                       ),
@@ -289,10 +291,10 @@ class _SingleProductViewBrandState extends State<SingleProductViewBrand> {
                   child: Container(
                     alignment: Alignment.center,
                     padding: const EdgeInsets.symmetric(vertical: 40),
-                    child: const Text(
+                    child: Text(
                       'View all (120)',
                       style: TextStyle(
-                          color: green77,
+                          color: ColorManager.greenColor1,
                           fontSize: 20,
                           fontWeight: FontWeight.w700),
                     ),
@@ -347,8 +349,8 @@ class _SingleProductViewBrandState extends State<SingleProductViewBrand> {
               );
             },
             style: ButtonStyle(
-              backgroundColor:
-                  MaterialStateProperty.all(green77.withOpacity(0.16)),
+              backgroundColor: MaterialStateProperty.all(
+                  ColorManager.greenColor1.withOpacity(0.16)),
               elevation: MaterialStateProperty.all(0),
               fixedSize: MaterialStateProperty.all(
                   Size(SizeUtility(context).width, 60)),
@@ -356,18 +358,18 @@ class _SingleProductViewBrandState extends State<SingleProductViewBrand> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.end,
-              children: const [
+              children: [
                 Icon(
                   Icons.shopping_cart,
-                  color: green77,
+                  color: ColorManager.greenColor1,
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 10,
                 ),
                 Text(
                   'Add to cart',
                   style: TextStyle(
-                      color: green77,
+                      color: ColorManager.greenColor1,
                       fontSize: 20,
                       fontWeight: FontWeight.w700),
                 )
@@ -417,8 +419,8 @@ class _SingleProductViewBrandState extends State<SingleProductViewBrand> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text('${widget.passValue.discountPrice} ₹',
-                          style: const TextStyle(
-                              color: green77,
+                          style: TextStyle(
+                              color: ColorManager.greenColor1,
                               fontWeight: FontWeight.w700,
                               fontSize: 24)),
                       const SizedBox(
@@ -581,7 +583,8 @@ class _SingleProductViewBrandState extends State<SingleProductViewBrand> {
                               quantity += 1;
                             });
                           },
-                          icon: const Icon(Icons.add, color: green77)),
+                          icon:
+                              Icon(Icons.add, color: ColorManager.greenColor1)),
                     ),
                   ],
                 ),
@@ -602,7 +605,8 @@ class _SingleProductViewBrandState extends State<SingleProductViewBrand> {
                     shape: MaterialStateProperty.all(
                       RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(30.0),
-                        side: const BorderSide(color: green77, width: 2.0),
+                        side: BorderSide(
+                            color: ColorManager.greenColor1, width: 2.0),
                       ),
                     ),
                     elevation: MaterialStateProperty.all(0),
@@ -610,33 +614,33 @@ class _SingleProductViewBrandState extends State<SingleProductViewBrand> {
                         Size(SizeUtility(context).width * 42 / 100, 60)),
                   ),
                   onPressed: () async {
-                    print(
-                        'hey the test of add cart color ${colorMap.keys.elementAt(selectedColor)}  size ${sizeList[selectedSize]} id-------${widget.passValue.id} quantity +++$quantity');
+                    print('hi');
+                    print('here is the ${widget.passValue.brand}');
                     Navigator.of(context).pop();
                     context.read<CartBloc>().add(AddCartEvent(
-                          productId: widget.passValue.id,
-                          basePrice: widget.passValue.discountPrice.toInt(),
-                          size: sizeList[selectedSize],
-                          color: colorMap.keys.elementAt(selectedColor),
-                          context: context,
-                          quantity: quantity,
-                        ));
+                        productId: widget.passValue.id,
+                        basePrice: widget.passValue.discountPrice.toInt(),
+                        size: sizeList[selectedSize],
+                        color: colorMap.keys.elementAt(selectedColor),
+                        context: context,
+                        quantity: quantity,
+                        brandId: widget.passValue.brand));
                   },
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.end,
-                    children: const [
+                    children: [
                       Icon(
                         Icons.shopping_cart,
-                        color: green77,
+                        color: ColorManager.greenColor1,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 10,
                       ),
                       Text(
                         'Add to cart',
                         style: TextStyle(
-                            color: green77,
+                            color: ColorManager.greenColor1,
                             fontSize: 20,
                             fontWeight: FontWeight.w700),
                       )
@@ -646,11 +650,13 @@ class _SingleProductViewBrandState extends State<SingleProductViewBrand> {
               ),
               ElevatedButton(
                 style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(green77),
+                  backgroundColor:
+                      MaterialStateProperty.all(ColorManager.greenColor1),
                   shape: MaterialStateProperty.all(
                     RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30.0),
-                      side: const BorderSide(color: green77, width: 2.0),
+                      side: BorderSide(
+                          color: ColorManager.greenColor1, width: 2.0),
                     ),
                   ),
                   elevation: MaterialStateProperty.all(0),
@@ -659,13 +665,13 @@ class _SingleProductViewBrandState extends State<SingleProductViewBrand> {
                 ),
                 onPressed: () async {
                   context.read<CartBloc>().add(AddCartEvent(
-                        productId: widget.passValue.id,
-                        basePrice: widget.passValue.discountPrice.toInt(),
-                        size: sizeList[selectedSize],
-                        color: colorMap.keys.elementAt(selectedColor),
-                        context: context,
-                        quantity: quantity,
-                      ));
+                      productId: widget.passValue.id,
+                      basePrice: widget.passValue.discountPrice.toInt(),
+                      size: sizeList[selectedSize],
+                      color: colorMap.keys.elementAt(selectedColor),
+                      context: context,
+                      quantity: quantity,
+                      brandId: widget.passValue.brand.id));
 
                   Future.delayed(const Duration(milliseconds: 400), () {
                     Navigator.of(context).push(
@@ -707,9 +713,9 @@ class _SingleProductViewBrandState extends State<SingleProductViewBrand> {
             children: [
               SizedBox(
                 width: SizeUtility(context).width * 70 / 100,
-                child: Row(
+                child: const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [
+                  children: [
                     Text(
                       'Sujankha',
                       style:
@@ -728,8 +734,8 @@ class _SingleProductViewBrandState extends State<SingleProductViewBrand> {
               const SizedBox(
                 height: 15,
               ),
-              Row(
-                children: const [
+              const Row(
+                children: [
                   Icon(Icons.star, color: orange255, size: 20),
                   Icon(Icons.star, color: orange255, size: 20),
                   Icon(Icons.star, color: orange255, size: 20),
@@ -805,18 +811,18 @@ class _SingleProductViewBrandState extends State<SingleProductViewBrand> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Row(
-                    children: const [
+                    children: [
                       Text(
                         'MRP',
                         style: TextStyle(
-                            color: mainColor,
+                            color: ColorManager.mainColor,
                             fontSize: 16,
                             fontWeight: FontWeight.w600),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 10,
                       ),
-                      Text(
+                      const Text(
                         '(₹.345)',
                         style: TextStyle(
                             color: blue126,
@@ -846,10 +852,10 @@ class _SingleProductViewBrandState extends State<SingleProductViewBrand> {
               const SizedBox(
                 height: 15,
               ),
-              const Text(
+              Text(
                 '₹307.80',
                 style: TextStyle(
-                    color: midGreenColor,
+                    color: ColorManager.midGreenColor,
                     fontSize: 19,
                     fontWeight: FontWeight.w600),
               ),

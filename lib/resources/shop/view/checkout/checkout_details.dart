@@ -4,8 +4,10 @@ import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/profile/views/manage_address.dart';
 import 'package:millat/resources/shop/bloc/logic/address_bloc/address_bloc.dart';
 import 'package:millat/resources/shop/view/checkout/checkout_view.dart';
-import 'package:millat/utils/globals.dart';
+import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/size_utility.dart';
+import 'package:millat/utils/utils.dart';
+import 'package:pinput/pinput.dart';
 
 class CheckoutDetails extends StatefulWidget {
   const CheckoutDetails({Key? key, required this.type}) : super(key: key);
@@ -31,14 +33,14 @@ class _CheckoutDetailsState extends State<CheckoutDetails> {
   final formkey = GlobalKey<FormState>();
   @override
   void initState() {
+    BlocProvider.of<AddressBloc>(context).add(FetchAddressByIdEvent(
+        context: context,
+        id: context.read<AddressBloc>().state.addressId.toString()));
     widget.type == AddressNavType.editAddress ? addFieldVal() : null;
     super.initState();
   }
 
   addFieldVal() {
-    BlocProvider.of<AddressBloc>(context).add(FetchAddressByIdEvent(
-        context: context,
-        id: context.read<AddressBloc>().state.addressId.toString()));
     final data =
         context.read<AddressBloc>().state.addressIdModel?.result.address;
     deliveryToController.text = data!.name;
@@ -73,7 +75,7 @@ class _CheckoutDetailsState extends State<CheckoutDetails> {
                 widget.type == AddressNavType.profile
                     ? const SizedBox()
                     : Slider(
-                        activeColor: green77,
+                        activeColor: ColorManager.greenColor1,
                         inactiveColor: black195,
                         max: 10,
                         min: 0,
@@ -85,18 +87,19 @@ class _CheckoutDetailsState extends State<CheckoutDetails> {
                     ? const SizedBox()
                     : Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: const [
+                        children: [
                           Text(
                             'Personal Info',
                             style: TextStyle(
-                                fontWeight: FontWeight.w700, color: green77),
+                                fontWeight: FontWeight.w700,
+                                color: ColorManager.greenColor1),
                           ),
-                          Text(
+                          const Text(
                             'Payment',
                             style: TextStyle(
                                 fontWeight: FontWeight.w600, color: black131),
                           ),
-                          Text(
+                          const Text(
                             'Confirmation',
                             style: TextStyle(
                                 fontWeight: FontWeight.w600, color: black131),
@@ -160,8 +163,10 @@ class _CheckoutDetailsState extends State<CheckoutDetails> {
                         height: 30,
                       ),
                       _addressTextfeld(
-                          controller: mobileNumberController,
-                          hintText: 'Mobile Number'),
+                        controller: mobileNumberController,
+                        hintText: 'Mobile Number',
+                        maxLength: 10,
+                      ),
                       const SizedBox(
                         height: 30,
                       ),
@@ -179,10 +184,10 @@ class _CheckoutDetailsState extends State<CheckoutDetails> {
                 const SizedBox(
                   height: 30,
                 ),
-                const Text(
+                Text(
                   'Address Type',
                   style: TextStyle(
-                      color: black26,
+                      color: ColorManager.blackColor,
                       fontSize: 17,
                       fontWeight: FontWeight.w700),
                 ),
@@ -236,11 +241,12 @@ class _CheckoutDetailsState extends State<CheckoutDetails> {
           padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
           child: ElevatedButton(
             style: ButtonStyle(
-              backgroundColor: MaterialStateProperty.all(green77),
+              backgroundColor:
+                  MaterialStateProperty.all(ColorManager.greenColor1),
               shape: MaterialStateProperty.all(
                 RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(30.0),
-                  side: const BorderSide(color: green77, width: 2.0),
+                  side: BorderSide(color: ColorManager.greenColor1, width: 2.0),
                 ),
               ),
               elevation: MaterialStateProperty.all(0),
@@ -282,6 +288,7 @@ class _CheckoutDetailsState extends State<CheckoutDetails> {
               if (formkey.currentState!.validate() &&
                   widget.type != AddressNavType.editAddress) {
                 print('no the edit type');
+
                 context.read<AddressBloc>().add(AddressEvent.addAddress(
                     context: context,
                     addressType: addressType,
@@ -314,10 +321,14 @@ class _CheckoutDetailsState extends State<CheckoutDetails> {
         ));
   }
 
-  Widget _addressTextfeld(
-      {required TextEditingController controller, required String hintText}) {
+  Widget _addressTextfeld({
+    required TextEditingController controller,
+    required String hintText,
+    int? maxLength, // Add an optional parameter for maxLength
+  }) {
     return TextFormField(
       controller: controller,
+      maxLength: maxLength, // Set the maxLength property if provided
       decoration: InputDecoration(
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(5),
@@ -335,12 +346,16 @@ class _CheckoutDetailsState extends State<CheckoutDetails> {
         fillColor: black247,
         label: Text(
           hintText,
-          style: const TextStyle(color: black26),
+          style: TextStyle(color: ColorManager.blackColor),
         ),
       ),
       validator: (value) {
         if (value == null || value.isEmpty) {
           return 'please enter the $hintText';
+        }
+
+        if (maxLength != null && value.length != maxLength) {
+          return 'Please provide $maxLength digits';
         }
         return null;
       },

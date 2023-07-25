@@ -50,6 +50,7 @@ class CartItem with _$CartItem {
     required int? basePrice,
     required String? size,
     required String? color,
+    @JsonKey(name: "selling_price") required int sellingPrice,
   }) = _CartItem;
 
   factory CartItem.fromJson(Map<String, dynamic> json) =>

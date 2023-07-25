@@ -10,7 +10,7 @@ import 'package:millat/resources/authentication/view/login_view.dart';
 import 'package:millat/resources/authentication/view/send_otp_view.dart';
 import 'package:millat/resources/tabs/view/tabs_view.dart';
 import 'package:millat/utils/assets_paths.dart';
-import 'package:millat/utils/globals.dart';
+import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/validators.dart';
 
 class SignUpView extends StatefulWidget {
@@ -45,8 +45,8 @@ class _SignUpViewState extends State<SignUpView> {
         },
         builder: (context, state) {
           if (state is AuthLoading) {
-            return const Center(
-              child: CircularProgressIndicator(color: green77),
+            return Center(
+              child: CircularProgressIndicator(color: ColorManager.greenColor1),
             );
           } else {
             return Padding(
@@ -141,7 +141,7 @@ class _SignUpViewState extends State<SignUpView> {
                           ));
                         },
                         child: RichText(
-                            text: const TextSpan(children: [
+                            text: TextSpan(children: [
                           TextSpan(
                               text: 'Already have an account? ',
                               style: TextStyle(
@@ -151,7 +151,7 @@ class _SignUpViewState extends State<SignUpView> {
                           TextSpan(
                               text: 'Login',
                               style: TextStyle(
-                                  color: mainColor,
+                                  color: ColorManager.mainColor,
                                   fontSize: 13,
                                   fontWeight: FontWeight.w500)),
                         ])),
@@ -217,7 +217,7 @@ class _SignUpViewState extends State<SignUpView> {
             contentPadding: EdgeInsets.zero,
             children: <Widget>[
               Container(
-                color: green24,
+                color: ColorManager.primary,
                 padding: const EdgeInsets.only(bottom: 10, top: 10),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
@@ -252,15 +252,16 @@ class _SignUpViewState extends State<SignUpView> {
                   children: [
                     Container(
                       margin: const EdgeInsets.only(right: 10),
-                      child: const Icon(
+                      child: Icon(
                         Icons.cancel,
-                        color: green24,
+                        color: ColorManager.primary,
                       ),
                     ),
-                    const Text(
+                    Text(
                       'Cancel',
                       style: TextStyle(
-                          color: green24, fontWeight: FontWeight.bold),
+                          color: ColorManager.primary,
+                          fontWeight: FontWeight.bold),
                     )
                   ],
                 ),
@@ -273,15 +274,16 @@ class _SignUpViewState extends State<SignUpView> {
                   children: [
                     Container(
                       margin: const EdgeInsets.only(right: 10),
-                      child: const Icon(
+                      child: Icon(
                         Icons.check_circle,
-                        color: green24,
+                        color: ColorManager.primary,
                       ),
                     ),
-                    const Text(
+                    Text(
                       'Yes',
                       style: TextStyle(
-                          color: green24, fontWeight: FontWeight.bold),
+                          color: ColorManager.primary,
+                          fontWeight: FontWeight.bold),
                     )
                   ],
                 ),

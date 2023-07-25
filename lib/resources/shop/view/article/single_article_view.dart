@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:millat/utils/globals.dart';
+import 'package:millat/utils/color_manager.dart';
 
 import '../../../../utils/utils.dart';
 
@@ -62,8 +62,8 @@ class SingleArticleView extends StatelessWidget {
                 children: [
                   Text(
                     '${passValue[index].brand} • ${Utilities.formatDate(passValue[index].date)}',
-                    style: const TextStyle(
-                        color: green77,
+                    style: TextStyle(
+                        color: ColorManager.greenColor1,
                         fontSize: 16,
                         fontWeight: FontWeight.bold),
                   ),
@@ -71,11 +71,13 @@ class SingleArticleView extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(
                         horizontal: 10, vertical: 10),
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color: veryLightGreen),
-                    child: const Text('Popular',
+                      borderRadius: BorderRadius.circular(20),
+                      color: ColorManager.veryLightGreen,
+                    ),
+                    child: Text('Popular',
                         style: TextStyle(
-                            color: green77, fontWeight: FontWeight.w700)),
+                            color: ColorManager.greenColor1,
+                            fontWeight: FontWeight.w700)),
                   )
                 ],
               ),
@@ -109,7 +111,8 @@ class SingleArticleView extends StatelessWidget {
         height: 70,
         margin: const EdgeInsets.symmetric(horizontal: 30, vertical: 30),
         decoration: BoxDecoration(
-            color: green77, borderRadius: BorderRadius.circular(20)),
+            color: ColorManager.greenColor1,
+            borderRadius: BorderRadius.circular(20)),
         child: Row(
           children: [
             Padding(

@@ -9,13 +9,14 @@ class CartState with _$CartState {
       required String cartSuccesmessage,
       required int? statusCode,
       required bool showMore,
-      required int? cartLength}) = _CartState;
+      required int cartLength}) = _CartState;
   factory CartState.initial() => const CartState(
-      cartModel: null,
-      cartLoading: false,
-      errorMessage: "",
-      cartSuccesmessage: "",
-      showMore: false,
-      cartLength: null,
-      statusCode: null);
+        cartModel: null,
+        cartLoading: false,
+        errorMessage: "",
+        cartSuccesmessage: "",
+        showMore: false,
+        cartLength: 0,
+        statusCode: null,
+      );
 }

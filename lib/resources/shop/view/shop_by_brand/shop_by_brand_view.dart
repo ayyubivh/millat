@@ -1,7 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:millat/utils/globals.dart';
+import 'package:millat/utils/color_manager.dart';
 import '../../../../components/common_widgets/filters_row_widgets.dart';
 import '../../../../components/common_widgets/shop_products_widget.dart';
 import '../../../../utils/size_utility.dart';
@@ -120,7 +120,7 @@ class _ShopByBrandViewState extends State<ShopByBrandView> {
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(30),
                               color: _currentIndex == index
-                                  ? green24
+                                  ? ColorManager.primary
                                   : Colors.grey,
                             ),
                           );
@@ -134,11 +134,11 @@ class _ShopByBrandViewState extends State<ShopByBrandView> {
                 builder: (context, state) {
                   return state.isLoading ||
                           state.brandProduct?.result?.products == null
-                      ? const Center(
+                      ? Center(
                           child: Padding(
-                            padding: EdgeInsets.only(top: 118.0),
+                            padding: const EdgeInsets.only(top: 118.0),
                             child: CircularProgressIndicator(
-                              color: green77,
+                              color: ColorManager.greenColor1,
                             ),
                           ),
                         )

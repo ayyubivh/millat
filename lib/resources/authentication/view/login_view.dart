@@ -9,8 +9,9 @@ import 'package:millat/resources/authentication/view/send_otp_view.dart';
 import 'package:millat/resources/authentication/view/sign_up_view.dart';
 import 'package:millat/resources/tabs/view/tabs_view.dart';
 import 'package:millat/utils/assets_paths.dart';
-import 'package:millat/utils/globals.dart';
 import 'package:millat/utils/validators.dart';
+
+import '../../../utils/color_manager.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({Key? key}) : super(key: key);
@@ -39,8 +40,8 @@ class _LoginViewState extends State<LoginView> {
       },
       builder: (context, state) {
         if (state is AuthLoading) {
-          return const Center(
-            child: CircularProgressIndicator(color: green77),
+          return Center(
+            child: CircularProgressIndicator(color: ColorManager.greenColor1),
           );
         } else {
           return buildLoginWidget(context);
@@ -132,8 +133,8 @@ class _LoginViewState extends State<LoginView> {
                   ));
                 },
                 child: RichText(
-                    text: const TextSpan(children: [
-                  TextSpan(
+                    text: TextSpan(children: [
+                  const TextSpan(
                       text: "Don't have an account? ",
                       style: TextStyle(
                           color: black133,
@@ -142,7 +143,7 @@ class _LoginViewState extends State<LoginView> {
                   TextSpan(
                       text: 'Sign Up',
                       style: TextStyle(
-                          color: mainColor,
+                          color: ColorManager.mainColor,
                           fontSize: 13,
                           fontWeight: FontWeight.w500)),
                 ])),

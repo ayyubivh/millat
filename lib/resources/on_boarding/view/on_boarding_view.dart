@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:millat/components/buttons/main_button.dart';
 import 'package:millat/components/buttons/main_text_button.dart';
 import 'package:millat/utils/assets_paths.dart';
-import 'package:millat/utils/globals.dart';
+import 'package:millat/utils/color_manager.dart';
 import 'package:millat/resources/authentication/view/sign_up_view.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -30,8 +30,8 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                   content:
                       'Muslim consumers to access a range of halal products and services conveniently. making it easier for them to shop for halal products and services without compromising their faith.',
                   titleWidget: RichText(
-                      text: const TextSpan(children: [
-                    TextSpan(
+                      text: TextSpan(children: [
+                    const TextSpan(
                         text: 'Trusted Source for ',
                         style: TextStyle(
                             color: Colors.black,
@@ -40,10 +40,10 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                     TextSpan(
                         text: 'Halal',
                         style: TextStyle(
-                            color: mainColor,
+                            color: ColorManager.mainColor,
                             fontSize: 23,
                             fontWeight: FontWeight.w500)),
-                    TextSpan(
+                    const TextSpan(
                         text: ' Products and Services',
                         style: TextStyle(
                             color: Colors.black,
@@ -56,8 +56,8 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                   content:
                       'Muslim consumers to access a range of halal products and services conveniently. making it easier for them to shop for halal products and services without compromising their faith.',
                   titleWidget: RichText(
-                      text: const TextSpan(children: [
-                    TextSpan(
+                      text: TextSpan(children: [
+                    const TextSpan(
                         text: 'Empowering the ',
                         style: TextStyle(
                             color: Colors.black,
@@ -66,10 +66,10 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                     TextSpan(
                         text: 'Muslim Community',
                         style: TextStyle(
-                            color: mainColor,
+                            color: ColorManager.mainColor,
                             fontSize: 23,
                             fontWeight: FontWeight.w500)),
-                    TextSpan(
+                    const TextSpan(
                         text: ' with Linger',
                         style: TextStyle(
                             color: Colors.black,
@@ -82,8 +82,8 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                   content:
                       'Namaz Time is an essential mobile app for Muslims around the world who want to stay connected to their faith by ensuring they never miss a prayer.',
                   titleWidget: RichText(
-                      text: const TextSpan(children: [
-                    TextSpan(
+                      text: TextSpan(children: [
+                    const TextSpan(
                         text: 'Your Ultimate Companion for Accurate ',
                         style: TextStyle(
                             color: Colors.black,
@@ -92,7 +92,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                     TextSpan(
                         text: 'Prayer Timings',
                         style: TextStyle(
-                            color: mainColor,
+                            color: ColorManager.mainColor,
                             fontSize: 24,
                             fontWeight: FontWeight.w500)),
                   ])),
@@ -102,8 +102,8 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                     quranImagePath,
                   ),
                   titleWidget: RichText(
-                      text: const TextSpan(children: [
-                    TextSpan(
+                      text: TextSpan(children: [
+                    const TextSpan(
                         text:
                             'Your Ultimate Guide to Reading and Understanding the ',
                         style: TextStyle(
@@ -113,7 +113,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                     TextSpan(
                         text: 'Quran',
                         style: TextStyle(
-                            color: mainColor,
+                            color: ColorManager.mainColor,
                             fontSize: 24,
                             fontWeight: FontWeight.w500)),
                   ])),
@@ -129,9 +129,9 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                   controller: _pageController,
                   count: 4,
                   axisDirection: Axis.horizontal,
-                  effect: const WormEffect(
-                      activeDotColor: mainColor,
-                      dotColor: dotsColor,
+                  effect: WormEffect(
+                      activeDotColor: ColorManager.mainColor,
+                      dotColor: ColorManager.dotGrey,
                       dotHeight: 10,
                       dotWidth: 10),
                 ),
@@ -189,8 +189,8 @@ class _OnBoardingViewState extends State<OnBoardingView> {
           ),
           if (content != null)
             Text(content,
-                style: const TextStyle(
-                    color: lightBlackColor,
+                style: TextStyle(
+                    color: ColorManager.lightBlackColor,
                     fontSize: 16,
                     height: 1.3,
                     fontWeight: FontWeight.w100)),

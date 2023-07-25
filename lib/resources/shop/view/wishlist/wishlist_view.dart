@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:millat/components/buttons/main_button.dart';
 import 'package:millat/components/common_widgets/shop_products_widget.dart';
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
 import 'package:millat/resources/shop/view/products/single_product_view_brand.dart';
-import 'package:millat/utils/globals.dart';
+import 'package:millat/utils/color_manager.dart';
+import 'package:millat/utils/constants.dart';
 
 class WishListView extends StatefulWidget {
   const WishListView({super.key});
@@ -23,7 +25,7 @@ class _WishListViewState extends State<WishListView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+        backgroundColor: ColorManager.appBarColor,
         elevation: 0,
         centerTitle: false,
         title: const Text("Wishlist",
@@ -42,14 +44,38 @@ class _WishListViewState extends State<WishListView> {
         builder: (context, state) {
           return state.isLoading ||
                   state.wishList?.result?.wishlist.products == null
-              ? const Center(
+              ? Center(
                   child: CircularProgressIndicator(
-                    color: green77,
+                    color: ColorManager.greenColor1,
                   ),
                 )
               : state.wishList!.result!.wishlist.products!.isEmpty
-                  ? const Center(
-                      child: Text('Wishlist is Empty'),
+                  ? Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 30),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          kHeight10,
+                          Text(
+                            'Oops!!',
+                            style: TextStyle(
+                              color: ColorManager.redColor,
+                              fontSize: 24,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                          kHeight10,
+                          Text(
+                            'Your Wishlist is Empty',
+                            style: TextStyle(
+                              color: ColorManager.blackColor,
+                              fontSize: 24,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                          Image.asset("assets/images/wishlist_empty.png"),
+                        ],
+                      ),
                     )
                   : GridView.builder(
                       gridDelegate:
@@ -65,10 +91,12 @@ class _WishListViewState extends State<WishListView> {
                             state.wishList?.result?.wishlist.products?[index];
                         return GestureDetector(
                           onTap: () {
-                            Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => SingleProductViewBrand(
-                                      passValue: data,
-                                    )));
+                            Navigator.of(context)
+                                .push(MaterialPageRoute(builder: (context) {
+                              return SingleProductViewBrand(
+                                passValue: data,
+                              );
+                            }));
                           },
                           child: Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 15),
@@ -94,6 +122,36 @@ class _WishListViewState extends State<WishListView> {
                       },
                     );
         },
+      ),
+      bottomSheet: BlocBuilder<ShopProductsBloc, ShopProductsState>(
+        builder: (context, state) =>
+            state.wishList!.result!.wishlist.products!.isNotEmpty
+                ? const SizedBox()
+                : Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 25),
+                    height: 240,
+                    child: Column(
+                      children: [
+                        const Text(
+                          'Start adding items to your wishlist and save your favorite products for later.',
+                          style: TextStyle(
+                            fontSize: 17,
+                            fontWeight: FontWeight.w600,
+                            height: 1.2,
+                          ),
+                        ),
+                        kHeight20,
+                        MainButton(
+                          title: 'Start Exploring',
+                          onPressed: () {
+                            context
+                                .read<ShopProductsBloc>()
+                                .add(const TabIndexChangeEvent(index: 0));
+                          },
+                        )
+                      ],
+                    ),
+                  ),
       ),
     );
   }

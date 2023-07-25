@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/address_bloc/address_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
+import 'package:millat/resources/shop/bloc/service/orders_service.dart';
 import 'package:millat/resources/shop/view/checkout/checkout_view.dart';
 import 'package:millat/resources/shop/view/checkout/widgets/order_product_card.dart';
 import 'package:millat/resources/shop/view/order_status/payment_successful.dart';
-import 'package:millat/utils/globals.dart';
+import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/size_utility.dart';
 import '../../bloc/logic/cart_bloc/cart_bloc.dart';
 import 'checkout_payment.dart';
@@ -47,7 +48,7 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Slider(
-                activeColor: green77,
+                activeColor: ColorManager.greenColor1,
                 inactiveColor: black195,
                 max: 10,
                 min: 0,
@@ -57,21 +58,24 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [
+                children: [
                   Text(
                     'Personal Info',
-                    style:
-                        TextStyle(fontWeight: FontWeight.w700, color: green77),
+                    style: TextStyle(
+                        fontWeight: FontWeight.w700,
+                        color: ColorManager.greenColor1),
                   ),
                   Text(
                     'Payment',
-                    style:
-                        TextStyle(fontWeight: FontWeight.w600, color: green77),
+                    style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                        color: ColorManager.greenColor1),
                   ),
                   Text(
                     'Confirmation',
-                    style:
-                        TextStyle(fontWeight: FontWeight.w600, color: green77),
+                    style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                        color: ColorManager.greenColor1),
                   ),
                 ],
               ),
@@ -87,9 +91,9 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
                     builder: (context, state) {
                       final data = state.addressIdModel?.result.address;
                       if (data == null) {
-                        return const Center(
+                        return Center(
                           child: CircularProgressIndicator(
-                            color: green77,
+                            color: ColorManager.greenColor1,
                           ),
                         );
                       }
@@ -109,10 +113,10 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
                             children: [
                               Text(
                                 data.name,
-                                style: const TextStyle(
+                                style: TextStyle(
                                     fontWeight: FontWeight.w700,
                                     fontSize: 18,
-                                    color: black26),
+                                    color: ColorManager.blackColor),
                               ),
                               const SizedBox(
                                 height: 10,
@@ -134,10 +138,10 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
                                   builder: (context) => const CheckoutView(),
                                 ));
                               },
-                              icon: const Icon(
+                              icon: Icon(
                                 Icons.edit,
                                 size: 20,
-                                color: green77,
+                                color: ColorManager.greenColor1,
                               )),
                         ],
                       );
@@ -148,10 +152,12 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
               const SizedBox(
                 height: 30,
               ),
-              const Text(
+              Text(
                 'Products',
                 style: TextStyle(
-                    color: black26, fontSize: 17, fontWeight: FontWeight.w700),
+                    color: ColorManager.blackColor,
+                    fontSize: 17,
+                    fontWeight: FontWeight.w700),
               ),
               const SizedBox(
                 height: 20,
@@ -159,8 +165,9 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
               BlocBuilder<CartBloc, CartState>(
                 builder: (context, state) {
                   if (state.cartLoading) {
-                    return const Center(
-                      child: CircularProgressIndicator(color: green77),
+                    return Center(
+                      child: CircularProgressIndicator(
+                          color: ColorManager.greenColor1),
                     );
                   } else if (state.cartModel?.result?.cartProducts?.cartItems ==
                       null) {
@@ -190,7 +197,7 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
                               title: data.productId?.title,
                               size: data.size,
                               image: data.productId?.colors![0].images![0],
-                              price: data.basePrice!.toInt(),
+                              price: data.sellingPrice,
                               jsonColor: data.color,
                               colorName: data.color,
                               quantity: data.quantity!.toInt(),
@@ -225,10 +232,12 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
                   );
                 },
               ),
-              const Text(
+              Text(
                 'Standard Shipping',
                 style: TextStyle(
-                    color: black26, fontSize: 17, fontWeight: FontWeight.w700),
+                    color: ColorManager.blackColor,
+                    fontSize: 17,
+                    fontWeight: FontWeight.w700),
               ),
               const SizedBox(
                 height: 10,
@@ -241,10 +250,12 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
               const SizedBox(
                 height: 20,
               ),
-              const Text(
+              Text(
                 'Message',
                 style: TextStyle(
-                    color: black26, fontSize: 17, fontWeight: FontWeight.w700),
+                    color: ColorManager.blackColor,
+                    fontSize: 17,
+                    fontWeight: FontWeight.w700),
               ),
               const SizedBox(
                 height: 20,
@@ -256,10 +267,10 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text(
+                      Text(
                         'Promo Code',
                         style: TextStyle(
-                            color: black26,
+                            color: ColorManager.blackColor,
                             fontSize: 17,
                             fontWeight: FontWeight.w700),
                       ),
@@ -274,13 +285,14 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
                           ),
                           ElevatedButton(
                             style: ButtonStyle(
-                              backgroundColor:
-                                  MaterialStateProperty.all(green77),
+                              backgroundColor: MaterialStateProperty.all(
+                                  ColorManager.greenColor1),
                               shape: MaterialStateProperty.all(
                                 RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(10.0),
-                                  side: const BorderSide(
-                                      color: green77, width: 2.0),
+                                  side: BorderSide(
+                                      color: ColorManager.greenColor1,
+                                      width: 2.0),
                                 ),
                               ),
                               elevation: MaterialStateProperty.all(0),
@@ -310,10 +322,12 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
               const SizedBox(
                 height: 30,
               ),
-              const Text(
+              Text(
                 'Payment Method',
                 style: TextStyle(
-                    color: black26, fontSize: 17, fontWeight: FontWeight.w700),
+                    color: ColorManager.blackColor,
+                    fontSize: 17,
+                    fontWeight: FontWeight.w700),
               ),
               const SizedBox(
                 height: 20,
@@ -345,9 +359,9 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
                             builder: (context) => const CheckoutPayment(),
                           ));
                         },
-                        icon: const Icon(
+                        icon: Icon(
                           Icons.edit,
-                          color: green24,
+                          color: ColorManager.primary,
                         ),
                       )
                     ],
@@ -390,14 +404,14 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Text('Sub Total',
+                    Text('Sub Total',
                         style: TextStyle(
-                            color: black26,
+                            color: ColorManager.blackColor,
                             fontSize: 17,
                             fontWeight: FontWeight.w600)),
                     Text('₹$subTotal',
-                        style: const TextStyle(
-                            color: black26,
+                        style: TextStyle(
+                            color: ColorManager.blackColor,
                             fontSize: 17,
                             fontWeight: FontWeight.w600)),
                   ],
@@ -407,15 +421,15 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [
+                  children: [
                     Text('Shipping Fee',
                         style: TextStyle(
-                            color: black26,
+                            color: ColorManager.blackColor,
                             fontSize: 16,
                             fontWeight: FontWeight.w600)),
                     Text('₹$shippingFee',
                         style: TextStyle(
-                            color: black26,
+                            color: ColorManager.blackColor,
                             fontSize: 16,
                             fontWeight: FontWeight.w600)),
                   ],
@@ -425,15 +439,15 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [
+                  children: [
                     Text('Estimating Tax',
                         style: TextStyle(
-                            color: black26,
+                            color: ColorManager.blackColor,
                             fontSize: 16,
                             fontWeight: FontWeight.w600)),
                     Text('₹$estimatingTax',
                         style: TextStyle(
-                            color: black26,
+                            color: ColorManager.blackColor,
                             fontSize: 16,
                             fontWeight: FontWeight.w600)),
                   ],
@@ -448,9 +462,9 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Text('Total',
+                    Text('Total',
                         style: TextStyle(
-                            color: black26,
+                            color: ColorManager.blackColor,
                             fontSize: 19,
                             fontWeight: FontWeight.w700)),
                     const Text(
@@ -461,8 +475,8 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
                       ),
                     ),
                     Text('₹$total',
-                        style: const TextStyle(
-                            color: green24,
+                        style: TextStyle(
+                            color: ColorManager.primary,
                             fontSize: 19,
                             fontWeight: FontWeight.w700)),
                   ],
@@ -470,35 +484,48 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
                 const SizedBox(
                   height: 30,
                 ),
-                BlocBuilder<CartBloc, CartState>(
-                  builder: (context, state) => InkWell(
-                    onTap: () {
-                      print(
-                          'on the view total $total and the ${state.cartModel!.result!.cartProducts!.id} ');
-                      context.read<ShopProductsBloc>().add(PostOrders(
+                InkWell(
+                  onTap: () {
+                    final pickUpaddress = context
+                        .read<AddressBloc>()
+                        .state
+                        .addressIdModel!
+                        .result
+                        .address;
+
+                    print(
+                        "here is the address ${context.read<AddressBloc>().state.addressIdModel!.result.address.addressLine}");
+
+                    print('here is the address id ${pickUpaddress.id}');
+
+                    context.read<ShopProductsBloc>().add(PostOrders(
+                          id: pickUpaddress.id,
+                          shippingCharges: shippingFee,
+                          totalDiscount: 0,
+                          weight: 4,
+                          pickupLocation: pickUpaddress.addressLine,
+                          quantity: 2,
                           totalPrice: total,
-                          productId: state.cartModel!.result!.cartProducts!.id
-                              .toString(),
-                          context: context));
-                      Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => const PaymentSuccessful(),
-                      ));
-                    },
-                    child: Container(
-                        alignment: Alignment.center,
-                        width: SizeUtility(context).width,
-                        padding: const EdgeInsets.all(15),
-                        decoration: BoxDecoration(
-                            color: green24,
-                            borderRadius: BorderRadius.circular(30)),
-                        child: const Text(
-                          'Continue',
-                          style: TextStyle(
-                              color: whiteClr,
-                              fontSize: 20,
-                              fontWeight: FontWeight.w700),
-                        )),
-                  ),
+                          context: context,
+                        ));
+                    Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const PaymentSuccessful(),
+                    ));
+                  },
+                  child: Container(
+                      alignment: Alignment.center,
+                      width: SizeUtility(context).width,
+                      padding: const EdgeInsets.all(15),
+                      decoration: BoxDecoration(
+                          color: ColorManager.primary,
+                          borderRadius: BorderRadius.circular(30)),
+                      child: Text(
+                        'Continue',
+                        style: TextStyle(
+                            color: ColorManager.whiteColor,
+                            fontSize: 20,
+                            fontWeight: FontWeight.w700),
+                      )),
                 ),
               ],
             );

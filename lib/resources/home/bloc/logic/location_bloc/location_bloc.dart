@@ -48,7 +48,6 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
 
     if (query.isEmpty) {
       emit(state.copyWith(searchCities: state.cities));
-      debugPrint('empty query cities ${state.cities}');
     } else {
       final searchResults = state.searchCities
           .map((countryData) => CountryData(

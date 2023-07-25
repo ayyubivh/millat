@@ -3,9 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/resources/profile/views/edit_profile_view.dart';
 import 'package:millat/resources/profile/views/manage_address.dart';
 import 'package:millat/resources/profile/views/payments_methods.dart';
-import 'package:millat/resources/reviews/views/write_review.dart';
 import 'package:millat/resources/shop/view/orders/orders_view.dart';
-import 'package:millat/utils/globals.dart';
+import 'package:millat/utils/color_manager.dart';
+import 'package:millat/utils/constants.dart';
 
 import '../../authentication/bloc/logic/database_bloc/database_bloc.dart';
 import '../../shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
@@ -22,8 +22,9 @@ class _ProfileViewState extends State<ProfileView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Profile',
-            style: TextStyle(color: black26, fontWeight: FontWeight.w700)),
+        title: Text('Profile',
+            style: TextStyle(
+                color: ColorManager.blackColor, fontWeight: FontWeight.w700)),
         centerTitle: false,
         leading: IconButton(
           onPressed: () {
@@ -31,9 +32,9 @@ class _ProfileViewState extends State<ProfileView> {
                 .read<ShopProductsBloc>()
                 .add(const TabIndexChangeEvent(index: 0));
           },
-          icon: const Icon(
+          icon: Icon(
             Icons.arrow_back,
-            color: black26,
+            color: ColorManager.blackColor,
           ),
         ),
         elevation: 0,
@@ -54,8 +55,8 @@ class _ProfileViewState extends State<ProfileView> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(state.name,
-                                      style: const TextStyle(
-                                          color: black26,
+                                      style: TextStyle(
+                                          color: ColorManager.blackColor,
                                           fontSize: 18,
                                           fontWeight: FontWeight.w600)),
                                   const SizedBox(
@@ -91,8 +92,8 @@ class _ProfileViewState extends State<ProfileView> {
                                 fontSize: 17,
                                 fontWeight: FontWeight.w700)),
                         style: ButtonStyle(
-                            backgroundColor:
-                                MaterialStateProperty.all(green77)),
+                            backgroundColor: MaterialStateProperty.all(
+                                ColorManager.greenColor1)),
                       )
                     ],
                   )
@@ -108,9 +109,9 @@ class _ProfileViewState extends State<ProfileView> {
                   builder: (context) => const Orders(),
                 ));
               },
-              child: Row(
+              child: const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [
+                children: [
                   Text('My Orders',
                       style:
                           TextStyle(fontSize: 17, fontWeight: FontWeight.w700)),
@@ -118,17 +119,13 @@ class _ProfileViewState extends State<ProfileView> {
                 ],
               ),
             ),
-            Column(
-              children: const [
-                SizedBox(
-                  height: 20,
-                ),
+            const Column(
+              children: [
+                kHeight20,
                 Divider(
                   color: black198,
                 ),
-                SizedBox(
-                  height: 20,
-                ),
+                kHeight20,
               ],
             ),
             // InkWell(
@@ -166,9 +163,9 @@ class _ProfileViewState extends State<ProfileView> {
                   builder: (context) => const ManageAddress(),
                 ));
               },
-              child: Row(
+              child: const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [
+                children: [
                   Text('Manage Address',
                       style:
                           TextStyle(fontSize: 17, fontWeight: FontWeight.w700)),
@@ -176,17 +173,13 @@ class _ProfileViewState extends State<ProfileView> {
                 ],
               ),
             ),
-            Column(
-              children: const [
-                SizedBox(
-                  height: 20,
-                ),
+            const Column(
+              children: [
+                kHeight20,
                 Divider(
                   color: black198,
                 ),
-                SizedBox(
-                  height: 20,
-                ),
+                kHeight20,
               ],
             ),
             InkWell(
@@ -195,9 +188,9 @@ class _ProfileViewState extends State<ProfileView> {
                   builder: (context) => const PaymentMethods(),
                 ));
               },
-              child: Row(
+              child: const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [
+                children: [
                   Text('Payment Info',
                       style:
                           TextStyle(fontSize: 17, fontWeight: FontWeight.w700)),
@@ -205,22 +198,18 @@ class _ProfileViewState extends State<ProfileView> {
                 ],
               ),
             ),
-            Column(
-              children: const [
-                SizedBox(
-                  height: 20,
-                ),
+            const Column(
+              children: [
+                kHeight20,
                 Divider(
                   color: black198,
                 ),
-                SizedBox(
-                  height: 20,
-                ),
+                kHeight20,
               ],
             ),
-            Row(
+            const Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: const [
+              children: [
                 Text('Logout',
                     style:
                         TextStyle(fontSize: 17, fontWeight: FontWeight.w700)),

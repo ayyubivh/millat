@@ -2,7 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/components/common_widgets/build_categories_widget.dart';
-import 'package:millat/resources/shop/articles/view/articles_view.dart';
+import 'package:millat/resources/shop/view/article/articles_view.dart';
 import 'package:millat/resources/shop/bloc/logic/category_bloc/category_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
 import 'package:millat/resources/shop/view/products/products_view.dart';
@@ -10,13 +10,13 @@ import 'package:millat/resources/shop/view/products/single_product_view.dart';
 import 'package:millat/resources/shop/view/search/search_view.dart';
 import 'package:millat/resources/shop/view/shop_by_brand/shop_by_brand_view.dart';
 import 'package:millat/utils/assets_paths.dart';
-import 'package:millat/utils/globals.dart';
 import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/utils.dart';
 import '../../../components/common_widgets/cart_icon_widget.dart';
 import '../../../components/common_widgets/shop_products_widget.dart';
+import '../../../utils/color_manager.dart';
 import '../bloc/logic/cart_bloc/cart_bloc.dart';
-import '../bloc/service/shop_services.dart';
+ 
 
 class ShopView extends StatefulWidget {
   const ShopView({Key? key}) : super(key: key);
@@ -48,7 +48,6 @@ class _ShopViewState extends State<ShopView> {
     BlocProvider.of<ShopProductsBloc>(context)
         .add(const ShopProductsEvent.fetchArticles());
     BlocProvider.of<CartBloc>(context).add(FetchCartEvent(context));
-    BlocProvider.of<ShopProductsBloc>(context).add(FetchOrders(context));
 
     super.initState();
   }
@@ -65,9 +64,9 @@ class _ShopViewState extends State<ShopView> {
               padding: const EdgeInsets.only(top: 70, left: 20, right: 20),
               width: SizeUtility(context).width,
               height: 350,
-              decoration: const BoxDecoration(
+              decoration: BoxDecoration(
                   gradient: LinearGradient(
-                      colors: [green77, green24],
+                      colors: [ColorManager.greenColor1, ColorManager.primary],
                       begin: Alignment.topCenter,
                       end: Alignment.bottomCenter)),
               child: Column(
@@ -85,14 +84,15 @@ class _ShopViewState extends State<ShopView> {
                           const SizedBox(
                             width: 5,
                           ),
-                          const Text(shopText1,
-                              style: TextStyle(color: whiteClr, height: 1.8)),
+                          Text(shopText1,
+                              style: TextStyle(
+                                  color: ColorManager.whiteColor, height: 1.8)),
                         ],
                       ),
                       BlocBuilder<CartBloc, CartState>(
                         builder: (context, state) {
                           return CartIconWidget(
-                            color: whiteClr,
+                            color: ColorManager.whiteColor,
                             cartLength: state.cartLength ?? 0,
                           );
                         },
@@ -249,7 +249,7 @@ class _ShopViewState extends State<ShopView> {
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(30),
                                   color: _currentIndex == index
-                                      ? green24
+                                      ? ColorManager.primary
                                       : Colors.grey,
                                 ),
                               );
@@ -266,10 +266,10 @@ class _ShopViewState extends State<ShopView> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      const Text(
+                      Text(
                         'Flash Sale',
                         style: TextStyle(
-                            color: black26,
+                            color: ColorManager.blackColor,
                             fontSize: 18,
                             fontWeight: FontWeight.bold),
                       ),
@@ -286,10 +286,10 @@ class _ShopViewState extends State<ShopView> {
                                 ?.shopProductCategory
                           });
                         },
-                        child: const Text(
+                        child: Text(
                           'View All',
                           style: TextStyle(
-                              color: mainColor,
+                              color: ColorManager.mainColor,
                               fontSize: 15,
                               fontWeight: FontWeight.bold),
                         ),
@@ -305,9 +305,9 @@ class _ShopViewState extends State<ShopView> {
                         height: 310,
                         child: state.isLoading ||
                                 state.flashSaleproducts == null
-                            ? const Center(
+                            ? Center(
                                 child: CircularProgressIndicator(
-                                  color: green77,
+                                  color: ColorManager.greenColor1,
                                 ),
                               )
                             : ListView.builder(
@@ -352,10 +352,10 @@ class _ShopViewState extends State<ShopView> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      const Text(
+                      Text(
                         'Popular Products',
                         style: TextStyle(
-                            color: black26,
+                            color: ColorManager.blackColor,
                             fontSize: 18,
                             fontWeight: FontWeight.bold),
                       ),
@@ -372,10 +372,10 @@ class _ShopViewState extends State<ShopView> {
                                   ?.shopProductCategory
                             });
                           },
-                          child: const Text(
+                          child: Text(
                             'View All',
                             style: TextStyle(
-                                color: green77,
+                                color: ColorManager.greenColor1,
                                 fontSize: 15,
                                 fontWeight: FontWeight.bold),
                           )),
@@ -431,10 +431,10 @@ class _ShopViewState extends State<ShopView> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      const Text(
+                      Text(
                         'Shop By Brands',
                         style: TextStyle(
-                            color: black26,
+                            color: ColorManager.blackColor,
                             fontSize: 18,
                             fontWeight: FontWeight.bold),
                       ),
@@ -443,10 +443,10 @@ class _ShopViewState extends State<ShopView> {
                           // Navigator.of(context).push(MaterialPageRoute(
                           //     builder: (context) => ShopByBrandView()));
                         },
-                        child: const Text(
+                        child: Text(
                           'View All',
                           style: TextStyle(
-                              color: green77,
+                              color: ColorManager.greenColor1,
                               fontSize: 15,
                               fontWeight: FontWeight.bold),
                         ),
@@ -492,10 +492,10 @@ class _ShopViewState extends State<ShopView> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      const Text(
+                      Text(
                         'Recently Added',
                         style: TextStyle(
-                            color: black26,
+                            color: ColorManager.blackColor,
                             fontSize: 18,
                             fontWeight: FontWeight.bold),
                       ),
@@ -511,10 +511,10 @@ class _ShopViewState extends State<ShopView> {
                                 ?.result
                           });
                         },
-                        child: const Text(
+                        child: Text(
                           'View All',
                           style: TextStyle(
-                              color: green77,
+                              color: ColorManager.greenColor1,
                               fontSize: 15,
                               fontWeight: FontWeight.bold),
                         ),
@@ -578,10 +578,10 @@ class _ShopViewState extends State<ShopView> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              const Text(
+                              Text(
                                 'Articles',
                                 style: TextStyle(
-                                    color: black26,
+                                    color: ColorManager.blackColor,
                                     fontSize: 18,
                                     fontWeight: FontWeight.bold),
                               ),
@@ -596,10 +596,10 @@ class _ShopViewState extends State<ShopView> {
                                     },
                                   );
                                 },
-                                child: const Text(
+                                child: Text(
                                   'Read More',
                                   style: TextStyle(
-                                      color: green77,
+                                      color: ColorManager.greenColor1,
                                       fontSize: 15,
                                       fontWeight: FontWeight.bold),
                                 ),
@@ -627,8 +627,8 @@ class _ShopViewState extends State<ShopView> {
                               ),
                               Text(
                                 '${state.articles!.result!.articles![0].brand} • ${Utilities.formatDate((state.articles!.result!.articles![0].date!))}',
-                                style: const TextStyle(
-                                    color: mainColor,
+                                style: TextStyle(
+                                    color: ColorManager.mainColor,
                                     fontSize: 16,
                                     fontWeight: FontWeight.w600),
                               ),
@@ -663,10 +663,10 @@ class _ShopViewState extends State<ShopView> {
                                     horizontal: 10, vertical: 10),
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(20),
-                                    color: veryLightGreen),
-                                child: const Text('Popular',
+                                    color: ColorManager.veryLightGreen),
+                                child: Text('Popular',
                                     style: TextStyle(
-                                        color: green77,
+                                        color: ColorManager.greenColor1,
                                         fontWeight: FontWeight.w700)),
                               )
                             ],
@@ -681,10 +681,10 @@ class _ShopViewState extends State<ShopView> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      const Text(
+                      Text(
                         'Bestsellers',
                         style: TextStyle(
-                            color: black26,
+                            color: ColorManager.blackColor,
                             fontSize: 18,
                             fontWeight: FontWeight.bold),
                       ),
@@ -710,10 +710,10 @@ class _ShopViewState extends State<ShopView> {
                                 ?.result
                           });
                         },
-                        child: const Text(
+                        child: Text(
                           'View All',
                           style: TextStyle(
-                              color: green77,
+                              color: ColorManager.greenColor1,
                               fontSize: 15,
                               fontWeight: FontWeight.bold),
                         ),
@@ -785,7 +785,7 @@ class _ShopViewState extends State<ShopView> {
           Container(
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              border: Border.all(color: green77),
+              border: Border.all(color: ColorManager.greenColor1),
             ),
             child: ClipRRect(
               borderRadius:
@@ -806,8 +806,8 @@ class _ShopViewState extends State<ShopView> {
           const SizedBox(height: 10),
           Text(
             name ?? 'No name',
-            style: const TextStyle(
-              color: black26,
+            style: TextStyle(
+              color: ColorManager.blackColor,
               fontWeight: FontWeight.w600,
               fontSize: 14,
             ),

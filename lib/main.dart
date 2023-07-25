@@ -3,16 +3,20 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:intl/intl.dart';
+
 import 'package:millat/resources/authentication/bloc/logic/auth_bloc.dart';
 import 'package:millat/resources/authentication/bloc/logic/database_bloc/database_bloc.dart';
+import 'package:millat/resources/home/bloc/db/db_functions.dart';
+import 'package:millat/resources/home/bloc/logic/bookmark_bloc/bookmark_bloc.dart';
 import 'package:millat/resources/home/bloc/logic/location_bloc/location_bloc.dart';
 import 'package:millat/resources/home/bloc/logic/namaz_timing_bloc/namaz_timing_bloc.dart';
+import 'package:millat/resources/home/bloc/logic/quran_bloc/quran_bloc.dart';
+import 'package:millat/resources/home/bloc/models/book_mark_hive_model/book_mark_hive_model.dart';
 import 'package:millat/resources/home/bloc/service/notification_service.dart';
 import 'package:millat/resources/home/view/namaz_timing/namaz_timing_view.dart';
 import 'package:millat/resources/on_boarding/view/on_boarding_view.dart';
 import 'package:millat/resources/profile/views/manage_address.dart';
-import 'package:millat/resources/shop/articles/view/articles_view.dart';
+import 'package:millat/resources/shop/view/article/articles_view.dart';
 import 'package:millat/resources/shop/bloc/logic/address_bloc/address_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/cart_bloc/cart_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/category_bloc/category_bloc.dart';
@@ -42,9 +46,13 @@ void main() async {
     statusBarColor: Colors.transparent,
     statusBarIconBrightness: Brightness.dark,
   ));
-  // sheduleInitialNamazTimingNotification();
+
+  if (!Hive.isAdapterRegistered(BookMarktCollectionModelAdapter().typeId)) {
+    Hive.registerAdapter(BookMarktCollectionModelAdapter());
+  }
   await Hive.initFlutter();
   await Hive.openBox('userDetailsBox');
+  await BookMarkDB.instance.refresh();
   runApp(MultiBlocProvider(
     providers: [
       BlocProvider(create: (context) => AuthBloc()),
@@ -54,32 +62,15 @@ void main() async {
       BlocProvider(create: (context) => CartBloc()),
       BlocProvider(create: (context) => AddressBloc()),
       BlocProvider(create: (context) => LocationBloc()),
-      BlocProvider(create: (context) => NamazTimingBloc())
+      BlocProvider(create: (context) => NamazTimingBloc()),
+      BlocProvider(create: (context) => QuranBloc()),
+      BlocProvider(
+        create: (context) => BookmarkBloc(),
+      )
     ],
     child: MyApp(),
   ));
 }
-
-// void sheduleInitialNamazTimingNotification() {
-//   String upcomingNamazTime = '10:01';
-//   DateTime parsedUpcomingNamazTime =
-//       DateFormat('HH:mm').parse(upcomingNamazTime);
-
-//   DateTime now = DateTime.now();
-//   DateTime scheduledNotificationDateTime = DateTime(
-//     now.year,
-//     now.month,
-//     now.day,
-//     parsedUpcomingNamazTime.hour,
-//     parsedUpcomingNamazTime.minute,
-//   );
-
-//   NotificationService().scheduleNotification(
-//     scheduledNotificationDateTime: scheduledNotificationDateTime,
-//     title: 'Namaz Reminder',
-//     body: 'It is time for the upcoming namaz.',
-//   );
-// }
 
 class MyApp extends StatelessWidget {
   final _tokenBox = Hive.box(userBox);
@@ -137,7 +128,7 @@ class MyApp extends StatelessWidget {
     final String? token = _tokenBox.get(authToken);
 
     if (token != null) {
-      print('on main token ${token}');
+      print('on main token $token');
       return const TabsView();
     } else {
       return const OnBoardingView();

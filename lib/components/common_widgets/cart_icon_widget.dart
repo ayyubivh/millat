@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../resources/shop/view/cart/cart.dart';
-import '../../utils/globals.dart';
+import '../../utils/color_manager.dart';
 
 class CartIconWidget extends StatelessWidget {
   final Color color;
@@ -31,8 +31,8 @@ class CartIconWidget extends StatelessWidget {
               child: cartLength > 0
                   ? Container(
                       padding: const EdgeInsets.all(2),
-                      decoration: const BoxDecoration(
-                        color: black26,
+                      decoration: BoxDecoration(
+                        color: ColorManager.blackColor,
                         shape: BoxShape.circle,
                       ),
                       constraints: const BoxConstraints(

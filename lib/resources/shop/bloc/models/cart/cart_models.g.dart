@@ -63,6 +63,7 @@ _$_CartItem _$$_CartItemFromJson(Map<String, dynamic> json) => _$_CartItem(
       basePrice: json['basePrice'] as int?,
       size: json['size'] as String?,
       color: json['color'] as String?,
+      sellingPrice: json['selling_price'] as int,
     );
 
 Map<String, dynamic> _$$_CartItemToJson(_$_CartItem instance) =>
@@ -72,6 +73,7 @@ Map<String, dynamic> _$$_CartItemToJson(_$_CartItem instance) =>
       'basePrice': instance.basePrice,
       'size': instance.size,
       'color': instance.color,
+      'selling_price': instance.sellingPrice,
     };
 
 _$_ProductInfo _$$_ProductInfoFromJson(Map<String, dynamic> json) =>

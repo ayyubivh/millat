@@ -58,8 +58,6 @@ class NamazTimingBloc extends Bloc<NamazTimingEvent, NamazTimingState> {
         method: methodId,
         namazMethodName: methodaName,
       ));
-      // print('fetch method ${state.method} and the $method');
-      // print('here is the data $data');
     } catch (e) {
       emit(state.copyWith(error: e.toString()));
     }

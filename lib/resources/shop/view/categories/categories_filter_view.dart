@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/components/common_widgets/build_category_full_view.dart';
 import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/shop/bloc/logic/category_bloc/category_bloc.dart';
-import 'package:millat/utils/globals.dart';
+import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/size_utility.dart';
 import '../../bloc/logic/shop_bloc/shop_products_bloc.dart';
 import 'categories_view.dart';
@@ -51,9 +51,9 @@ class _CategoriesFilterState extends State<CategoriesFilter> {
             icon: const Icon(Icons.arrow_back),
           ),
           flexibleSpace: Container(
-            decoration: const BoxDecoration(
+            decoration: BoxDecoration(
               gradient: LinearGradient(
-                colors: [green77, green24],
+                colors: [ColorManager.greenColor1, ColorManager.primary],
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
               ),
@@ -77,8 +77,8 @@ class _CategoriesFilterState extends State<CategoriesFilter> {
                             ? Padding(
                                 padding: EdgeInsets.only(
                                     top: SizeUtility(context).height / 2),
-                                child: const CircularProgressIndicator(
-                                    color: whiteClr),
+                                child: CircularProgressIndicator(
+                                    color: ColorManager.whiteColor),
                               )
                             : SizedBox(
                                 width: 90,
@@ -107,8 +107,9 @@ class _CategoriesFilterState extends State<CategoriesFilter> {
                                             );
                                       },
                                       child: Container(
-                                        color:
-                                            isSelected ? lightGreen1 : whiteClr,
+                                        color: isSelected
+                                            ? lightGreen1
+                                            : ColorManager.whiteColor,
                                         child: CategoryFullView(
                                           iconImage: category.image.toString(),
                                           categoryTitle:
@@ -129,11 +130,11 @@ class _CategoriesFilterState extends State<CategoriesFilter> {
               builder: (context, state) {
                 return state.productLoading ||
                         state.product?.result?.products == null
-                    ? const Padding(
+                    ? Padding(
                         padding: EdgeInsets.only(left: 130),
                         child: Center(
                           child: CircularProgressIndicator(
-                            color: green77,
+                            color: ColorManager.greenColor1,
                           ),
                         ),
                       )

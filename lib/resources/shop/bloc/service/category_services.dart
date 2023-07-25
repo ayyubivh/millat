@@ -15,7 +15,7 @@ class CategoryService extends HttpServices {
       try {
         final Map<String, dynamic> data = json.decode(response.body);
         final result = CategoryModel.fromJson(data);
-        print('categroy service $result');
+
         return result;
       } catch (e) {
         print('error on Category API fetch: ${e.toString()}');

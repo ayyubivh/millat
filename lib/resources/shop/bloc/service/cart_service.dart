@@ -31,7 +31,7 @@ class CartServices extends HttpServices {
               'API request failed with status code: ${response.statusCode}');
         }
       } catch (e) {
-        print('error on Cart API fetch: ${e.toString()}');
+        print('error on order API fetch: ${e.toString()}');
         throw Exception('Failed to parse response');
       }
     } else {
@@ -40,13 +40,15 @@ class CartServices extends HttpServices {
   }
 
 // add to cart
-  addCart(
-      {required BuildContext context,
-      required String productId,
-      required int basePrice,
-      required String size,
-      required String color,
-      required int quantity}) async {
+  addCart({
+    required BuildContext context,
+    required String productId,
+    required int basePrice,
+    required String size,
+    required String color,
+    required int quantity,
+    required String brandId,
+  }) async {
     const String webBaseUrl = 'http://35.172.93.164:8000/';
 
     const endPoint = 'cart/add';
@@ -58,36 +60,33 @@ class CartServices extends HttpServices {
     };
     final body = {
       "productId": productId,
-      "basePrice": basePrice,
+      "selling_price": basePrice,
       "size": size,
       "color": color,
-      "quantity": quantity
+      "quantity": quantity,
+      "brandId": brandId
     };
 
     final response = await http.put(Uri.parse(webBaseUrl + endPoint),
         headers: headers, body: jsonEncode(body));
 
-    if (response.statusCode == 200 || response.statusCode == 409) {
-      try {
-        if (response.statusCode == 200) {
-          final Map<String, dynamic> data = json.decode(response.body);
+    try {
+      if (response.statusCode == 200) {
+        final Map<String, dynamic> data = json.decode(response.body);
 
-          return data;
-        } else if (response.statusCode == 409) {
-          final Map<String, dynamic> data = json.decode(response.body);
-          // print('on the error of add cart twice $data');
-          return data;
-        } else {
-          print('API request failed with status code: ${response.statusCode}');
-          throw Exception(
-              'API request failed with status code: ${response.statusCode}');
-        }
-      } catch (e) {
-        print('error on API fetch: ${e.toString()}');
-        throw Exception('Failed to parse response');
+        return data;
+      } else if (response.statusCode == 409) {
+        final Map<String, dynamic> data = json.decode(response.body);
+
+        return data;
+      } else {
+        print('API request failed with status code: ${response.statusCode}');
+        throw Exception(
+            'API request failed with status code: ${response.statusCode}');
       }
-    } else {
-      throw Exception('Token not available');
+    } catch (e) {
+      print('error on API fetch: ${e.toString()}');
+      throw Exception('Failed to parse response');
     }
   }
 // updating the cart quantity

@@ -1,7 +1,9 @@
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-import 'package:millat/utils/globals.dart';
+
 import 'package:timezone/data/latest.dart' as tz;
 import 'package:timezone/timezone.dart' as tz;
+
+import '../../../../utils/color_manager.dart';
 
 class NotificationService {
   final FlutterLocalNotificationsPlugin notificationsPlugin =
@@ -36,16 +38,16 @@ class NotificationService {
       return;
     }
 
-    var androidPlatformChannelSpecifics = const AndroidNotificationDetails(
+    var androidPlatformChannelSpecifics = AndroidNotificationDetails(
       'channelId',
       'channelName',
       importance: Importance.max,
       priority: Priority.high,
       fullScreenIntent: true,
-      largeIcon: DrawableResourceAndroidBitmap('app_icon'),
+      largeIcon: const DrawableResourceAndroidBitmap('app_icon'),
       playSound: true,
       autoCancel: true,
-      color: primaryGreen,
+      color: ColorManager.primary,
     );
 
     var platformChannelSpecifics =

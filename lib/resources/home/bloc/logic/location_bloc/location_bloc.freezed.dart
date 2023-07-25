@@ -1113,11 +1113,11 @@ class _$LocationStateCopyWithImpl<$Res, $Val extends LocationState>
 }
 
 /// @nodoc
-abstract class _$$_InitialCopyWith<$Res>
+abstract class _$$_LocationStateCopyWith<$Res>
     implements $LocationStateCopyWith<$Res> {
-  factory _$$_InitialCopyWith(
-          _$_Initial value, $Res Function(_$_Initial) then) =
-      __$$_InitialCopyWithImpl<$Res>;
+  factory _$$_LocationStateCopyWith(
+          _$_LocationState value, $Res Function(_$_LocationState) then) =
+      __$$_LocationStateCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -1140,10 +1140,11 @@ abstract class _$$_InitialCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_InitialCopyWithImpl<$Res>
-    extends _$LocationStateCopyWithImpl<$Res, _$_Initial>
-    implements _$$_InitialCopyWith<$Res> {
-  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
+class __$$_LocationStateCopyWithImpl<$Res>
+    extends _$LocationStateCopyWithImpl<$Res, _$_LocationState>
+    implements _$$_LocationStateCopyWith<$Res> {
+  __$$_LocationStateCopyWithImpl(
+      _$_LocationState _value, $Res Function(_$_LocationState) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1163,7 +1164,7 @@ class __$$_InitialCopyWithImpl<$Res>
     Object? hasReachedEnd = null,
     Object? isPermissionDenied = null,
   }) {
-    return _then(_$_Initial(
+    return _then(_$_LocationState(
       currentLocaion: null == currentLocaion
           ? _value.currentLocaion
           : currentLocaion // ignore: cast_nullable_to_non_nullable
@@ -1222,8 +1223,8 @@ class __$$_InitialCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Initial with DiagnosticableTreeMixin implements _Initial {
-  const _$_Initial(
+class _$_LocationState with DiagnosticableTreeMixin implements _LocationState {
+  const _$_LocationState(
       {required this.currentLocaion,
       required this.errorMessage,
       required this.shortAddress,
@@ -1315,7 +1316,7 @@ class _$_Initial with DiagnosticableTreeMixin implements _Initial {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Initial &&
+            other is _$_LocationState &&
             (identical(other.currentLocaion, currentLocaion) ||
                 other.currentLocaion == currentLocaion) &&
             (identical(other.errorMessage, errorMessage) ||
@@ -1363,12 +1364,12 @@ class _$_Initial with DiagnosticableTreeMixin implements _Initial {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_InitialCopyWith<_$_Initial> get copyWith =>
-      __$$_InitialCopyWithImpl<_$_Initial>(this, _$identity);
+  _$$_LocationStateCopyWith<_$_LocationState> get copyWith =>
+      __$$_LocationStateCopyWithImpl<_$_LocationState>(this, _$identity);
 }
 
-abstract class _Initial implements LocationState {
-  const factory _Initial(
+abstract class _LocationState implements LocationState {
+  const factory _LocationState(
       {required final String currentLocaion,
       required final String errorMessage,
       required final String shortAddress,
@@ -1381,7 +1382,7 @@ abstract class _Initial implements LocationState {
       required final bool isLoadingMore,
       required final List<List<String>> loadedCities,
       required final bool hasReachedEnd,
-      required final bool isPermissionDenied}) = _$_Initial;
+      required final bool isPermissionDenied}) = _$_LocationState;
 
   @override
   String get currentLocaion;
@@ -1411,6 +1412,6 @@ abstract class _Initial implements LocationState {
   bool get isPermissionDenied;
   @override
   @JsonKey(ignore: true)
-  _$$_InitialCopyWith<_$_Initial> get copyWith =>
+  _$$_LocationStateCopyWith<_$_LocationState> get copyWith =>
       throw _privateConstructorUsedError;
 }

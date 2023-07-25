@@ -623,6 +623,8 @@ mixin _$CartItem {
   int? get basePrice => throw _privateConstructorUsedError;
   String? get size => throw _privateConstructorUsedError;
   String? get color => throw _privateConstructorUsedError;
+  @JsonKey(name: "selling_price")
+  int get sellingPrice => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -640,7 +642,8 @@ abstract class $CartItemCopyWith<$Res> {
       int? quantity,
       int? basePrice,
       String? size,
-      String? color});
+      String? color,
+      @JsonKey(name: "selling_price") int sellingPrice});
 
   $ProductInfoCopyWith<$Res>? get productId;
 }
@@ -663,6 +666,7 @@ class _$CartItemCopyWithImpl<$Res, $Val extends CartItem>
     Object? basePrice = freezed,
     Object? size = freezed,
     Object? color = freezed,
+    Object? sellingPrice = null,
   }) {
     return _then(_value.copyWith(
       productId: freezed == productId
@@ -685,6 +689,10 @@ class _$CartItemCopyWithImpl<$Res, $Val extends CartItem>
           ? _value.color
           : color // ignore: cast_nullable_to_non_nullable
               as String?,
+      sellingPrice: null == sellingPrice
+          ? _value.sellingPrice
+          : sellingPrice // ignore: cast_nullable_to_non_nullable
+              as int,
     ) as $Val);
   }
 
@@ -713,7 +721,8 @@ abstract class _$$_CartItemCopyWith<$Res> implements $CartItemCopyWith<$Res> {
       int? quantity,
       int? basePrice,
       String? size,
-      String? color});
+      String? color,
+      @JsonKey(name: "selling_price") int sellingPrice});
 
   @override
   $ProductInfoCopyWith<$Res>? get productId;
@@ -735,6 +744,7 @@ class __$$_CartItemCopyWithImpl<$Res>
     Object? basePrice = freezed,
     Object? size = freezed,
     Object? color = freezed,
+    Object? sellingPrice = null,
   }) {
     return _then(_$_CartItem(
       productId: freezed == productId
@@ -757,6 +767,10 @@ class __$$_CartItemCopyWithImpl<$Res>
           ? _value.color
           : color // ignore: cast_nullable_to_non_nullable
               as String?,
+      sellingPrice: null == sellingPrice
+          ? _value.sellingPrice
+          : sellingPrice // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -769,7 +783,8 @@ class _$_CartItem implements _CartItem {
       required this.quantity,
       required this.basePrice,
       required this.size,
-      required this.color});
+      required this.color,
+      @JsonKey(name: "selling_price") required this.sellingPrice});
 
   factory _$_CartItem.fromJson(Map<String, dynamic> json) =>
       _$$_CartItemFromJson(json);
@@ -784,10 +799,13 @@ class _$_CartItem implements _CartItem {
   final String? size;
   @override
   final String? color;
+  @override
+  @JsonKey(name: "selling_price")
+  final int sellingPrice;
 
   @override
   String toString() {
-    return 'CartItem(productId: $productId, quantity: $quantity, basePrice: $basePrice, size: $size, color: $color)';
+    return 'CartItem(productId: $productId, quantity: $quantity, basePrice: $basePrice, size: $size, color: $color, sellingPrice: $sellingPrice)';
   }
 
   @override
@@ -802,13 +820,15 @@ class _$_CartItem implements _CartItem {
             (identical(other.basePrice, basePrice) ||
                 other.basePrice == basePrice) &&
             (identical(other.size, size) || other.size == size) &&
-            (identical(other.color, color) || other.color == color));
+            (identical(other.color, color) || other.color == color) &&
+            (identical(other.sellingPrice, sellingPrice) ||
+                other.sellingPrice == sellingPrice));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, productId, quantity, basePrice, size, color);
+  int get hashCode => Object.hash(
+      runtimeType, productId, quantity, basePrice, size, color, sellingPrice);
 
   @JsonKey(ignore: true)
   @override
@@ -826,11 +846,13 @@ class _$_CartItem implements _CartItem {
 
 abstract class _CartItem implements CartItem {
   const factory _CartItem(
-      {required final ProductInfo? productId,
-      required final int? quantity,
-      required final int? basePrice,
-      required final String? size,
-      required final String? color}) = _$_CartItem;
+          {required final ProductInfo? productId,
+          required final int? quantity,
+          required final int? basePrice,
+          required final String? size,
+          required final String? color,
+          @JsonKey(name: "selling_price") required final int sellingPrice}) =
+      _$_CartItem;
 
   factory _CartItem.fromJson(Map<String, dynamic> json) = _$_CartItem.fromJson;
 
@@ -844,6 +866,9 @@ abstract class _CartItem implements CartItem {
   String? get size;
   @override
   String? get color;
+  @override
+  @JsonKey(name: "selling_price")
+  int get sellingPrice;
   @override
   @JsonKey(ignore: true)
   _$$_CartItemCopyWith<_$_CartItem> get copyWith =>

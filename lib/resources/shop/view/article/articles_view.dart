@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:millat/resources/shop/articles/view/single_article_view.dart';
-import 'package:millat/utils/globals.dart';
+import 'package:millat/resources/shop/view/article/single_article_view.dart';
+import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/utils.dart';
 
 import '../../../../utils/size_utility.dart';
@@ -57,7 +57,7 @@ class ArticlesView extends StatelessWidget {
                       height: 34,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20),
-                          color: green77),
+                          color: ColorManager.greenColor1),
                       child: const Center(
                         child: Text('All',
                             style: TextStyle(
@@ -130,10 +130,12 @@ class ArticlesView extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 10),
-              const Text(
+              Text(
                 'All',
                 style: TextStyle(
-                    color: black26, fontSize: 18, fontWeight: FontWeight.bold),
+                    color: ColorManager.blackColor,
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 10),
               SizedBox(
@@ -190,8 +192,10 @@ class ArticlesView extends StatelessWidget {
         ),
         Text(
           '${brand} • ${date}',
-          style: const TextStyle(
-              color: mainColor, fontSize: 16, fontWeight: FontWeight.w600),
+          style: TextStyle(
+              color: ColorManager.mainColor,
+              fontSize: 16,
+              fontWeight: FontWeight.w600),
         ),
         const SizedBox(
           height: 20,
@@ -217,9 +221,12 @@ class ArticlesView extends StatelessWidget {
         Container(
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20), color: veryLightGreen),
-          child: const Text('Popular',
-              style: TextStyle(color: green77, fontWeight: FontWeight.w700)),
+              borderRadius: BorderRadius.circular(20),
+              color: ColorManager.veryLightGreen),
+          child: Text('Popular',
+              style: TextStyle(
+                  color: ColorManager.greenColor1,
+                  fontWeight: FontWeight.w700)),
         ),
       ],
     );

@@ -4,11 +4,12 @@ import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:millat/resources/home/bloc/service/locatio_service.dart';
+
 import 'package:permission_handler/permission_handler.dart' as perm;
 import 'package:permission_handler/permission_handler.dart';
 
 import '../../models/cities_models/cities_model.dart';
+import '../../service/location_service.dart';
 
 part 'location_event.dart';
 part 'location_state.dart';

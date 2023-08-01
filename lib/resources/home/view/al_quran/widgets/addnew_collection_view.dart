@@ -7,7 +7,7 @@ import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/home/bloc/logic/bookmark_bloc/bookmark_bloc.dart';
 import 'package:millat/resources/home/bloc/logic/quran_bloc/quran_bloc.dart';
 import 'package:millat/resources/home/view/al_quran/widgets/add_sura_search_view.dart';
-import 'package:millat/resources/home/view/al_quran/widgets/verses-view.dart';
+import 'package:millat/resources/home/view/al_quran/widgets/verses_view.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
 import '../../../../../components/buttons/main_button.dart';
@@ -325,9 +325,7 @@ class _AddNewBookMarkCollectionState extends State<AddNewBookMarkCollection> {
                           context
                               .read<BookmarkBloc>()
                               .add(const SaveQuranChapterId(id: []));
-                          // context
-                          //     .read<BookmarkBloc>()
-                          //     .add(  FetchCollectionItem());
+
                           Navigator.of(context).pop();
                         },
                         child: Text(

@@ -29,6 +29,9 @@ class BookmarkEvent with _$BookmarkEvent {
     required String dbId,
     required BuildContext context,
   }) = EditCollection;
+  const factory BookmarkEvent.addFavCollection({
+    required List<String> verskey,
+  }) = AddFavCollection;
   const factory BookmarkEvent.saveIndexEvent({
     required int indexList,
   }) = SaveIndexEvent;
@@ -41,7 +44,5 @@ class BookmarkEvent with _$BookmarkEvent {
   const factory BookmarkEvent.saveVerseKeyEvent(String versekey) =
       SaveVerseKeyEvent;
   const factory BookmarkEvent.emptyVerseKeyEvent() = EmptyVerseKeyEvent;
-  const factory BookmarkEvent.fetchCollectionItem({
-    required List<BookMarktCollectionModel> bookMarkCollectionModel,
-  }) = FetchCollectionItem;
+  const factory BookmarkEvent.fetchCollectionItem() = FetchCollectionItem;
 }

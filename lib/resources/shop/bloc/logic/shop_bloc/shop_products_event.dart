@@ -25,7 +25,6 @@ class ShopProductsEvent with _$ShopProductsEvent {
   const factory ShopProductsEvent.tabIndexChangeEvent({
     required int index,
   }) = TabIndexChangeEvent;
-
   const factory ShopProductsEvent.postOrders({
     required BuildContext context,
     required int totalPrice,
@@ -47,4 +46,8 @@ class ShopProductsEvent with _$ShopProductsEvent {
     required BuildContext context,
     required String filterName,
   }) = FetchOrdersbyFilterEvent;
+  const factory ShopProductsEvent.cancelOrder({
+    required BuildContext context,
+    required int shiprockeId,
+  }) = CancelOrder;
 }

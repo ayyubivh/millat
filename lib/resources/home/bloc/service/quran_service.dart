@@ -1,13 +1,19 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:millat/resources/home/bloc/models/chapter_by_id_model/chapter_by_id_model.dart';
-import 'package:millat/resources/home/bloc/models/chapter_verses_model/chapter_verses_model.dart';
-import 'package:millat/resources/home/bloc/models/para_verses/para_verses_model.dart';
-import 'package:millat/resources/home/bloc/models/quran_chapter_models/quran_chapter_models.dart';
-import 'package:millat/resources/home/bloc/models/quran_para_model/quran_para_model.dart';
-import 'package:millat/resources/home/bloc/models/verses_translation_model/verses_translation.dart';
-
-import '../models/versesbykey_model/verses_by_key_model.dart';
+import 'package:millat/resources/home/bloc/models/al-quran/chapter_verses_model/chapter_verses_indoPak_model.dart';
+import 'package:millat/resources/home/bloc/models/al-quran/chapter_verses_model/chapter_verses_of_noSymbol.dart';
+import 'package:millat/resources/home/bloc/models/al-quran/chapter_verses_model/chapter_verses_uthmani_model.dart';
+import '../../../../utils/string_constants.dart';
+import '../models/al-quran/chapter_by_id_model/chapter_by_id_model.dart';
+import '../models/al-quran/chapter_verses_model/chapter_verses_model.dart';
+import '../models/al-quran/para_verses/para_verse_nosymbol.dart';
+import '../models/al-quran/para_verses/para_verse_uthmani.dart';
+import '../models/al-quran/para_verses/para_verses_model.dart';
+import '../models/al-quran/quran_all_translations_model/quran_all_translations_model.dart';
+import '../models/al-quran/quran_chapter_models/quran_chapter_models.dart';
+import '../models/al-quran/quran_para_model/quran_para_model.dart';
+import '../models/al-quran/recitors_mode/recitors_model.dart';
+import '../models/al-quran/versesbykey_model/verses_by_key_model.dart';
 
 class QuranServices {
   // fetch quran chapters
@@ -28,6 +34,40 @@ class QuranServices {
       }
     } catch (e) {
       throw Exception("Error fetching Quran chapters: $e");
+    }
+  }
+
+//fetch audio files of juz
+  Future<List<Map<String, dynamic>>> fetchParaAudioFiles(
+      {required int recitorId, required id}) async {
+    final String apiUrl =
+        "https://api.quran.com/api/v4/recitations/$recitorId/by_juz/$id?per_page=1000";
+
+    final response = await http.get(Uri.parse(apiUrl));
+    if (response.statusCode == 200) {
+      final data = json.decode(response.body) as Map<String, dynamic>;
+      final audioFiles = data['audio_files'] as List<dynamic>;
+
+      return List<Map<String, dynamic>>.from(audioFiles);
+    } else {
+      throw Exception('Failed to fetch data from the API');
+    }
+  }
+
+//fetch audio of files of chapter
+  Future<List<Map<String, dynamic>>> fetchChapterAudiofiles(
+      {required int recitorId, required id}) async {
+    final String apiUrl =
+        "https://api.quran.com/api/v4/recitations/$recitorId/by_chapter/$id?per_page=1000";
+
+    final response = await http.get(Uri.parse(apiUrl));
+    if (response.statusCode == 200) {
+      final data = json.decode(response.body) as Map<String, dynamic>;
+      final audioFiles = data['audio_files'] as List<dynamic>;
+
+      return List<Map<String, dynamic>>.from(audioFiles);
+    } else {
+      throw Exception('Failed to fetch data from the API');
     }
   }
 
@@ -72,19 +112,57 @@ class QuranServices {
     }
   }
 
-//fetch para verses
-  Future<dynamic> fetchParaVerses(
+// fetch quran chapters verses by text name
+  Future<dynamic> fetchChapterVersesbyTextName(
       {required int id, required String textName}) async {
     final url =
-        "https://api.quran.com/api/v4/quran/verses/indopak?juz_number=$id";
+        "https://api.quran.com/api/v4/quran/verses/$textName?chapter_number=$id";
 
     try {
       final response = await http.get(Uri.parse(url));
       if (response.statusCode == 200) {
         final Map<String, dynamic> decodedData = jsonDecode(response.body);
-        final result = ParaVersesModel.fromJson(decodedData);
+        if (textName == nosymbol) {
+          final result = ChapterVersesOfNosymbol.fromJson(decodedData);
 
-        return result;
+          return result;
+        } else if (textName == uthmani) {
+          final result = ChapterVersesOfUthmani.fromJson(decodedData);
+          return result;
+        } else {
+          final result = ChapterVersesIndoPakModel.fromJson(decodedData);
+          return result;
+        }
+      } else {
+        throw Exception(
+            "Failed to fetch Quran para Status code: ${response.statusCode}");
+      }
+    } catch (e) {
+      throw Exception("Error fetching para verses: $e");
+    }
+  }
+
+//fetch para verses
+  Future<dynamic> fetchParaVerses(
+      {required int id, required String textName}) async {
+    final url =
+        "https://api.quran.com/api/v4/quran/verses/$textName?juz_number=$id";
+
+    try {
+      final response = await http.get(Uri.parse(url));
+      if (response.statusCode == 200) {
+        final Map<String, dynamic> decodedData = jsonDecode(response.body);
+        if (textName == nosymbol) {
+          final result = ParaVersesModelofNoSymbol.fromJson(decodedData);
+
+          return result;
+        } else if (textName == uthmani) {
+          final result = ParaVersesModelofUthmani.fromJson(decodedData);
+          return result;
+        } else {
+          final result = ParaVersesModel.fromJson(decodedData);
+          return result;
+        }
       } else {
         throw Exception(
             "Failed to fetch Quran para Status code: ${response.statusCode}");
@@ -115,32 +193,8 @@ class QuranServices {
     }
   }
 
-  //fetcht verse by translation chapter
-  Future<VersesTranslationModel> fetcTranslationChapter(
-      int? chapterNumber) async {
-    final url =
-        "https://api.quran.com/api/v4/quran/translations/131?chapter_number=$chapterNumber";
-
-    try {
-      final response = await http.get(Uri.parse(url));
-      if (response.statusCode == 200) {
-        print("here is the verses translation ${response.body}");
-        final Map<String, dynamic> data = json.decode(response.body);
-
-        final result = VersesTranslationModel.fromJson(data);
-        print('here is the result moenee $result');
-        return result;
-      } else {
-        throw Exception(
-            "Failed to fetch Quran chapters. Status code: ${response.statusCode}");
-      }
-    } catch (e) {
-      throw Exception("Error fetching Quran chapters: $e");
-    }
-  }
-
   Future<List<ChapterByIdModel>> fetchChaptersByIds(List<int> ids) async {
-    final url = "https://api.quran.com/api/v4/chapters/";
+    const url = "https://api.quran.com/api/v4/chapters/";
 
     try {
       final List<Future<ChapterByIdModel>> futures = ids.map((id) async {
@@ -165,46 +219,126 @@ class QuranServices {
 
 //fetch verses ayah by id
   Future<List<VersesByKeyModel>> fetchVersesbyKey(List<String> verseKey) async {
-    final url = "https://api.quran.com/api/v4/quran/verses/indopak?verse_key=";
+    const url = "https://api.quran.com/api/v4/quran/verses/indopak?verse_key=";
 
     try {
-      final List<Future<VersesByKeyModel>> futures = verseKey.map((e) async {
-        final response = await http.get(Uri.parse("$url$e"));
-
+      final List<Future<VersesByKeyModel>> futures =
+          verseKey.map((verseKey) async {
+        final response = await http.get(Uri.parse("$url$verseKey"));
         if (response.statusCode == 200) {
-          final List<dynamic> data = json.decode(response.body)['data'];
-
-          if (data.isNotEmpty) {
-            final Map<String, dynamic> verseData =
-                data[0]; // Assuming you want the first item in the list
-            return VersesByKeyModel.fromJson(verseData);
-          } else {
-            throw Exception("No data found for verse key: $e");
-          }
+          final Map<String, dynamic> data = json.decode(response.body);
+          print('here is the data for verse key $verseKey: $data');
+          return VersesByKeyModel.fromJson(data);
         } else {
-          throw Exception("Failed to load verse key: $e");
+          throw Exception(
+              "Failed to fetch Quran chapter for verse key $verseKey. Status code: ${response.statusCode}");
         }
       }).toList();
+
       final List<VersesByKeyModel> results = await Future.wait(futures);
+
       return results;
     } catch (e) {
-      throw Exception("Error fetching Quran verses: $e");
+      throw Exception("Error fetching Quran chapters by verse keys: $e");
     }
   }
 
-  //fetcht verse by translation chapter
-  Future<VersesTranslationModel> fetchTranslationJuz(int? juzNumber) async {
-    final url =
-        "https://api.quran.com/api/v4/quran/translations/131?juz_number=$juzNumber";
+  //fetch quran all translations
+  Future<TranslationsModel> fetchAllTranslations() async {
+    const url = "https://api.quran.com/api/v4/resources/translations";
 
     try {
       final response = await http.get(Uri.parse(url));
       if (response.statusCode == 200) {
-        print("here is the verses translation ${response.body}");
         final Map<String, dynamic> data = json.decode(response.body);
 
-        final result = VersesTranslationModel.fromJson(data);
-        print('here is the result moenee $result');
+        final result = TranslationsModel.fromJson(data);
+        print('here is the results of translations $result');
+        return result;
+      } else {
+        throw Exception(
+            "Failed to fetch Quran chapters. Status code: ${response.statusCode}");
+      }
+    } catch (e) {
+      throw Exception("Error fetching Quran chapters: $e");
+    }
+  }
+
+//fetch all chapter translations
+  Future<List<String?>> fetchAllChapterTranslationTexts({
+    required int translationId,
+    required int chapterId,
+  }) async {
+    // The translation resource_id
+    final apiUrl =
+        'https://api.quran.com/api/v4/quran/translations/$translationId?chapter_number=$chapterId';
+
+    try {
+      final response = await http.get(Uri.parse(apiUrl));
+
+      if (response.statusCode == 200) {
+        final jsonResponse = json.decode(response.body);
+        final translations = jsonResponse['translations'] as List<dynamic>;
+
+        // Extract texts from each translation item and create a list of texts.
+        final List<String?> texts = translations.map((translation) {
+          final text = translation['text'] as String?;
+          return text;
+        }).toList();
+
+        print('here are all the translated texts: $texts');
+        return texts;
+      }
+
+      return [];
+    } catch (e) {
+      return [];
+    }
+  }
+
+  //fetch all para translations
+  Future<List<String?>> fetchAllParaTranslationTexts({
+    required int translationId,
+    required int paraId,
+  }) async {
+    // The translation resource_id
+    final apiUrl =
+        'https://api.quran.com/api/v4/quran/translations/$translationId?juz_number=$paraId';
+
+    try {
+      final response = await http.get(Uri.parse(apiUrl));
+
+      if (response.statusCode == 200) {
+        final jsonResponse = json.decode(response.body);
+        final translations = jsonResponse['translations'] as List<dynamic>;
+
+        // Extract texts from each translation item and create a list of texts.
+        final List<String?> texts = translations.map((translation) {
+          final text = translation['text'] as String?;
+          return text;
+        }).toList();
+
+        print('here are all the translated texts: $texts');
+        return texts;
+      }
+
+      return [];
+    } catch (e) {
+      return [];
+    }
+  }
+
+  //fetcha all recitors
+  Future<RecitationsModel> fetchAllRecitors() async {
+    const url = "https://api.quran.com/api/v4/resources/recitations";
+
+    try {
+      final response = await http.get(Uri.parse(url));
+      if (response.statusCode == 200) {
+        final Map<String, dynamic> data = json.decode(response.body);
+
+        final result = RecitationsModel.fromJson(data);
+        print('here is the results of recitors $result');
         return result;
       } else {
         throw Exception(

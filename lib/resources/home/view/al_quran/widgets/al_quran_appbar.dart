@@ -9,6 +9,7 @@ AppBar alQuranAppbar({
   required String text,
   required Color color,
   Color? iconColor,
+  bool isShowbookMark = false,
 }) {
   return AppBar(
     backgroundColor: color,
@@ -24,13 +25,15 @@ AppBar alQuranAppbar({
       ),
     ),
     actions: [
-      InkWell(
-        onTap: onTap,
-        child: ImageIcon(
-          const AssetImage("assets/icons/bookmark.png"),
-          color: ColorManager.blackColor,
-        ),
-      ),
+      isShowbookMark == false
+          ? InkWell(
+              onTap: onTap,
+              child: ImageIcon(
+                const AssetImage("assets/icons/bookmark.png"),
+                color: ColorManager.blackColor,
+              ),
+            )
+          : const SizedBox(),
       kWidth15,
       InkWell(
         onTap: () {

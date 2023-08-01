@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/resources/shop/view/orders/widgets/order_filter_view.dart';
-import 'package:millat/resources/shop/view/orders/widgets/orders_card_widget.dart';
 import 'package:millat/utils/color_manager.dart';
-import '../../bloc/logic/shop_bloc/shop_products_bloc.dart';
 
 class Orders extends StatefulWidget {
   const Orders({Key? key}) : super(key: key);

@@ -47,6 +47,8 @@ mixin _$ShopProductsEvent {
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
         fetchOrdersbyFilterEvent,
+    required TResult Function(BuildContext context, int shiprockeId)
+        cancelOrder,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -79,6 +81,7 @@ mixin _$ShopProductsEvent {
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
+    TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -111,6 +114,7 @@ mixin _$ShopProductsEvent {
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
+    TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -137,6 +141,7 @@ mixin _$ShopProductsEvent {
     required TResult Function(FetchOrdersById value) fetchOrdersById,
     required TResult Function(FetchOrdersbyFilterEvent value)
         fetchOrdersbyFilterEvent,
+    required TResult Function(CancelOrder value) cancelOrder,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -159,6 +164,7 @@ mixin _$ShopProductsEvent {
     TResult? Function(FetchOrders value)? fetchOrders,
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
+    TResult? Function(CancelOrder value)? cancelOrder,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -181,6 +187,7 @@ mixin _$ShopProductsEvent {
     TResult Function(FetchOrders value)? fetchOrders,
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
+    TResult Function(CancelOrder value)? cancelOrder,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -271,6 +278,8 @@ class _$FetchFlashSaleProducts implements FetchFlashSaleProducts {
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
         fetchOrdersbyFilterEvent,
+    required TResult Function(BuildContext context, int shiprockeId)
+        cancelOrder,
   }) {
     return fetchFlashSaleProducts();
   }
@@ -306,6 +315,7 @@ class _$FetchFlashSaleProducts implements FetchFlashSaleProducts {
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
+    TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
   }) {
     return fetchFlashSaleProducts?.call();
   }
@@ -341,6 +351,7 @@ class _$FetchFlashSaleProducts implements FetchFlashSaleProducts {
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
+    TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
     required TResult orElse(),
   }) {
     if (fetchFlashSaleProducts != null) {
@@ -373,6 +384,7 @@ class _$FetchFlashSaleProducts implements FetchFlashSaleProducts {
     required TResult Function(FetchOrdersById value) fetchOrdersById,
     required TResult Function(FetchOrdersbyFilterEvent value)
         fetchOrdersbyFilterEvent,
+    required TResult Function(CancelOrder value) cancelOrder,
   }) {
     return fetchFlashSaleProducts(this);
   }
@@ -398,6 +410,7 @@ class _$FetchFlashSaleProducts implements FetchFlashSaleProducts {
     TResult? Function(FetchOrders value)? fetchOrders,
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
+    TResult? Function(CancelOrder value)? cancelOrder,
   }) {
     return fetchFlashSaleProducts?.call(this);
   }
@@ -423,6 +436,7 @@ class _$FetchFlashSaleProducts implements FetchFlashSaleProducts {
     TResult Function(FetchOrders value)? fetchOrders,
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
+    TResult Function(CancelOrder value)? cancelOrder,
     required TResult orElse(),
   }) {
     if (fetchFlashSaleProducts != null) {
@@ -503,6 +517,8 @@ class _$FetchPopularProducts implements FetchPopularProducts {
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
         fetchOrdersbyFilterEvent,
+    required TResult Function(BuildContext context, int shiprockeId)
+        cancelOrder,
   }) {
     return fetchPopularProducts();
   }
@@ -538,6 +554,7 @@ class _$FetchPopularProducts implements FetchPopularProducts {
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
+    TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
   }) {
     return fetchPopularProducts?.call();
   }
@@ -573,6 +590,7 @@ class _$FetchPopularProducts implements FetchPopularProducts {
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
+    TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
     required TResult orElse(),
   }) {
     if (fetchPopularProducts != null) {
@@ -605,6 +623,7 @@ class _$FetchPopularProducts implements FetchPopularProducts {
     required TResult Function(FetchOrdersById value) fetchOrdersById,
     required TResult Function(FetchOrdersbyFilterEvent value)
         fetchOrdersbyFilterEvent,
+    required TResult Function(CancelOrder value) cancelOrder,
   }) {
     return fetchPopularProducts(this);
   }
@@ -630,6 +649,7 @@ class _$FetchPopularProducts implements FetchPopularProducts {
     TResult? Function(FetchOrders value)? fetchOrders,
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
+    TResult? Function(CancelOrder value)? cancelOrder,
   }) {
     return fetchPopularProducts?.call(this);
   }
@@ -655,6 +675,7 @@ class _$FetchPopularProducts implements FetchPopularProducts {
     TResult Function(FetchOrders value)? fetchOrders,
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
+    TResult Function(CancelOrder value)? cancelOrder,
     required TResult orElse(),
   }) {
     if (fetchPopularProducts != null) {
@@ -738,6 +759,8 @@ class _$FetchRecentProductProducts implements FetchRecentProductProducts {
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
         fetchOrdersbyFilterEvent,
+    required TResult Function(BuildContext context, int shiprockeId)
+        cancelOrder,
   }) {
     return fetchRecentProductProducts();
   }
@@ -773,6 +796,7 @@ class _$FetchRecentProductProducts implements FetchRecentProductProducts {
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
+    TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
   }) {
     return fetchRecentProductProducts?.call();
   }
@@ -808,6 +832,7 @@ class _$FetchRecentProductProducts implements FetchRecentProductProducts {
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
+    TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
     required TResult orElse(),
   }) {
     if (fetchRecentProductProducts != null) {
@@ -840,6 +865,7 @@ class _$FetchRecentProductProducts implements FetchRecentProductProducts {
     required TResult Function(FetchOrdersById value) fetchOrdersById,
     required TResult Function(FetchOrdersbyFilterEvent value)
         fetchOrdersbyFilterEvent,
+    required TResult Function(CancelOrder value) cancelOrder,
   }) {
     return fetchRecentProductProducts(this);
   }
@@ -865,6 +891,7 @@ class _$FetchRecentProductProducts implements FetchRecentProductProducts {
     TResult? Function(FetchOrders value)? fetchOrders,
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
+    TResult? Function(CancelOrder value)? cancelOrder,
   }) {
     return fetchRecentProductProducts?.call(this);
   }
@@ -890,6 +917,7 @@ class _$FetchRecentProductProducts implements FetchRecentProductProducts {
     TResult Function(FetchOrders value)? fetchOrders,
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
+    TResult Function(CancelOrder value)? cancelOrder,
     required TResult orElse(),
   }) {
     if (fetchRecentProductProducts != null) {
@@ -970,6 +998,8 @@ class _$FetchHomeBanners implements FetchHomeBanners {
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
         fetchOrdersbyFilterEvent,
+    required TResult Function(BuildContext context, int shiprockeId)
+        cancelOrder,
   }) {
     return fetchHomeBanners();
   }
@@ -1005,6 +1035,7 @@ class _$FetchHomeBanners implements FetchHomeBanners {
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
+    TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
   }) {
     return fetchHomeBanners?.call();
   }
@@ -1040,6 +1071,7 @@ class _$FetchHomeBanners implements FetchHomeBanners {
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
+    TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
     required TResult orElse(),
   }) {
     if (fetchHomeBanners != null) {
@@ -1072,6 +1104,7 @@ class _$FetchHomeBanners implements FetchHomeBanners {
     required TResult Function(FetchOrdersById value) fetchOrdersById,
     required TResult Function(FetchOrdersbyFilterEvent value)
         fetchOrdersbyFilterEvent,
+    required TResult Function(CancelOrder value) cancelOrder,
   }) {
     return fetchHomeBanners(this);
   }
@@ -1097,6 +1130,7 @@ class _$FetchHomeBanners implements FetchHomeBanners {
     TResult? Function(FetchOrders value)? fetchOrders,
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
+    TResult? Function(CancelOrder value)? cancelOrder,
   }) {
     return fetchHomeBanners?.call(this);
   }
@@ -1122,6 +1156,7 @@ class _$FetchHomeBanners implements FetchHomeBanners {
     TResult Function(FetchOrders value)? fetchOrders,
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
+    TResult Function(CancelOrder value)? cancelOrder,
     required TResult orElse(),
   }) {
     if (fetchHomeBanners != null) {
@@ -1202,6 +1237,8 @@ class _$FetchShopBanners implements FetchShopBanners {
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
         fetchOrdersbyFilterEvent,
+    required TResult Function(BuildContext context, int shiprockeId)
+        cancelOrder,
   }) {
     return fetchShopBanners();
   }
@@ -1237,6 +1274,7 @@ class _$FetchShopBanners implements FetchShopBanners {
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
+    TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
   }) {
     return fetchShopBanners?.call();
   }
@@ -1272,6 +1310,7 @@ class _$FetchShopBanners implements FetchShopBanners {
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
+    TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
     required TResult orElse(),
   }) {
     if (fetchShopBanners != null) {
@@ -1304,6 +1343,7 @@ class _$FetchShopBanners implements FetchShopBanners {
     required TResult Function(FetchOrdersById value) fetchOrdersById,
     required TResult Function(FetchOrdersbyFilterEvent value)
         fetchOrdersbyFilterEvent,
+    required TResult Function(CancelOrder value) cancelOrder,
   }) {
     return fetchShopBanners(this);
   }
@@ -1329,6 +1369,7 @@ class _$FetchShopBanners implements FetchShopBanners {
     TResult? Function(FetchOrders value)? fetchOrders,
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
+    TResult? Function(CancelOrder value)? cancelOrder,
   }) {
     return fetchShopBanners?.call(this);
   }
@@ -1354,6 +1395,7 @@ class _$FetchShopBanners implements FetchShopBanners {
     TResult Function(FetchOrders value)? fetchOrders,
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
+    TResult Function(CancelOrder value)? cancelOrder,
     required TResult orElse(),
   }) {
     if (fetchShopBanners != null) {
@@ -1434,6 +1476,8 @@ class _$FetchArticles implements FetchArticles {
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
         fetchOrdersbyFilterEvent,
+    required TResult Function(BuildContext context, int shiprockeId)
+        cancelOrder,
   }) {
     return fetchArticles();
   }
@@ -1469,6 +1513,7 @@ class _$FetchArticles implements FetchArticles {
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
+    TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
   }) {
     return fetchArticles?.call();
   }
@@ -1504,6 +1549,7 @@ class _$FetchArticles implements FetchArticles {
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
+    TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
     required TResult orElse(),
   }) {
     if (fetchArticles != null) {
@@ -1536,6 +1582,7 @@ class _$FetchArticles implements FetchArticles {
     required TResult Function(FetchOrdersById value) fetchOrdersById,
     required TResult Function(FetchOrdersbyFilterEvent value)
         fetchOrdersbyFilterEvent,
+    required TResult Function(CancelOrder value) cancelOrder,
   }) {
     return fetchArticles(this);
   }
@@ -1561,6 +1608,7 @@ class _$FetchArticles implements FetchArticles {
     TResult? Function(FetchOrders value)? fetchOrders,
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
+    TResult? Function(CancelOrder value)? cancelOrder,
   }) {
     return fetchArticles?.call(this);
   }
@@ -1586,6 +1634,7 @@ class _$FetchArticles implements FetchArticles {
     TResult Function(FetchOrders value)? fetchOrders,
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
+    TResult Function(CancelOrder value)? cancelOrder,
     required TResult orElse(),
   }) {
     if (fetchArticles != null) {
@@ -1666,6 +1715,8 @@ class _$FetchShopByBrand implements FetchShopByBrand {
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
         fetchOrdersbyFilterEvent,
+    required TResult Function(BuildContext context, int shiprockeId)
+        cancelOrder,
   }) {
     return fetchShopByBrand();
   }
@@ -1701,6 +1752,7 @@ class _$FetchShopByBrand implements FetchShopByBrand {
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
+    TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
   }) {
     return fetchShopByBrand?.call();
   }
@@ -1736,6 +1788,7 @@ class _$FetchShopByBrand implements FetchShopByBrand {
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
+    TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
     required TResult orElse(),
   }) {
     if (fetchShopByBrand != null) {
@@ -1768,6 +1821,7 @@ class _$FetchShopByBrand implements FetchShopByBrand {
     required TResult Function(FetchOrdersById value) fetchOrdersById,
     required TResult Function(FetchOrdersbyFilterEvent value)
         fetchOrdersbyFilterEvent,
+    required TResult Function(CancelOrder value) cancelOrder,
   }) {
     return fetchShopByBrand(this);
   }
@@ -1793,6 +1847,7 @@ class _$FetchShopByBrand implements FetchShopByBrand {
     TResult? Function(FetchOrders value)? fetchOrders,
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
+    TResult? Function(CancelOrder value)? cancelOrder,
   }) {
     return fetchShopByBrand?.call(this);
   }
@@ -1818,6 +1873,7 @@ class _$FetchShopByBrand implements FetchShopByBrand {
     TResult Function(FetchOrders value)? fetchOrders,
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
+    TResult Function(CancelOrder value)? cancelOrder,
     required TResult orElse(),
   }) {
     if (fetchShopByBrand != null) {
@@ -1924,6 +1980,8 @@ class _$FetchWishList implements FetchWishList {
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
         fetchOrdersbyFilterEvent,
+    required TResult Function(BuildContext context, int shiprockeId)
+        cancelOrder,
   }) {
     return fetchWishList(context);
   }
@@ -1959,6 +2017,7 @@ class _$FetchWishList implements FetchWishList {
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
+    TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
   }) {
     return fetchWishList?.call(context);
   }
@@ -1994,6 +2053,7 @@ class _$FetchWishList implements FetchWishList {
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
+    TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
     required TResult orElse(),
   }) {
     if (fetchWishList != null) {
@@ -2026,6 +2086,7 @@ class _$FetchWishList implements FetchWishList {
     required TResult Function(FetchOrdersById value) fetchOrdersById,
     required TResult Function(FetchOrdersbyFilterEvent value)
         fetchOrdersbyFilterEvent,
+    required TResult Function(CancelOrder value) cancelOrder,
   }) {
     return fetchWishList(this);
   }
@@ -2051,6 +2112,7 @@ class _$FetchWishList implements FetchWishList {
     TResult? Function(FetchOrders value)? fetchOrders,
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
+    TResult? Function(CancelOrder value)? cancelOrder,
   }) {
     return fetchWishList?.call(this);
   }
@@ -2076,6 +2138,7 @@ class _$FetchWishList implements FetchWishList {
     TResult Function(FetchOrders value)? fetchOrders,
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
+    TResult Function(CancelOrder value)? cancelOrder,
     required TResult orElse(),
   }) {
     if (fetchWishList != null) {
@@ -2187,6 +2250,8 @@ class _$SearchProduct implements SearchProduct {
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
         fetchOrdersbyFilterEvent,
+    required TResult Function(BuildContext context, int shiprockeId)
+        cancelOrder,
   }) {
     return searchProduct(query);
   }
@@ -2222,6 +2287,7 @@ class _$SearchProduct implements SearchProduct {
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
+    TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
   }) {
     return searchProduct?.call(query);
   }
@@ -2257,6 +2323,7 @@ class _$SearchProduct implements SearchProduct {
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
+    TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
     required TResult orElse(),
   }) {
     if (searchProduct != null) {
@@ -2289,6 +2356,7 @@ class _$SearchProduct implements SearchProduct {
     required TResult Function(FetchOrdersById value) fetchOrdersById,
     required TResult Function(FetchOrdersbyFilterEvent value)
         fetchOrdersbyFilterEvent,
+    required TResult Function(CancelOrder value) cancelOrder,
   }) {
     return searchProduct(this);
   }
@@ -2314,6 +2382,7 @@ class _$SearchProduct implements SearchProduct {
     TResult? Function(FetchOrders value)? fetchOrders,
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
+    TResult? Function(CancelOrder value)? cancelOrder,
   }) {
     return searchProduct?.call(this);
   }
@@ -2339,6 +2408,7 @@ class _$SearchProduct implements SearchProduct {
     TResult Function(FetchOrders value)? fetchOrders,
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
+    TResult Function(CancelOrder value)? cancelOrder,
     required TResult orElse(),
   }) {
     if (searchProduct != null) {
@@ -2459,6 +2529,8 @@ class _$AddWishListEvent implements AddWishListEvent {
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
         fetchOrdersbyFilterEvent,
+    required TResult Function(BuildContext context, int shiprockeId)
+        cancelOrder,
   }) {
     return addWishListEvent(productId, context);
   }
@@ -2494,6 +2566,7 @@ class _$AddWishListEvent implements AddWishListEvent {
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
+    TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
   }) {
     return addWishListEvent?.call(productId, context);
   }
@@ -2529,6 +2602,7 @@ class _$AddWishListEvent implements AddWishListEvent {
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
+    TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
     required TResult orElse(),
   }) {
     if (addWishListEvent != null) {
@@ -2561,6 +2635,7 @@ class _$AddWishListEvent implements AddWishListEvent {
     required TResult Function(FetchOrdersById value) fetchOrdersById,
     required TResult Function(FetchOrdersbyFilterEvent value)
         fetchOrdersbyFilterEvent,
+    required TResult Function(CancelOrder value) cancelOrder,
   }) {
     return addWishListEvent(this);
   }
@@ -2586,6 +2661,7 @@ class _$AddWishListEvent implements AddWishListEvent {
     TResult? Function(FetchOrders value)? fetchOrders,
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
+    TResult? Function(CancelOrder value)? cancelOrder,
   }) {
     return addWishListEvent?.call(this);
   }
@@ -2611,6 +2687,7 @@ class _$AddWishListEvent implements AddWishListEvent {
     TResult Function(FetchOrders value)? fetchOrders,
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
+    TResult Function(CancelOrder value)? cancelOrder,
     required TResult orElse(),
   }) {
     if (addWishListEvent != null) {
@@ -2735,6 +2812,8 @@ class _$RemoveWishlistEvent implements RemoveWishlistEvent {
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
         fetchOrdersbyFilterEvent,
+    required TResult Function(BuildContext context, int shiprockeId)
+        cancelOrder,
   }) {
     return removeWishlistEvent(productId, context);
   }
@@ -2770,6 +2849,7 @@ class _$RemoveWishlistEvent implements RemoveWishlistEvent {
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
+    TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
   }) {
     return removeWishlistEvent?.call(productId, context);
   }
@@ -2805,6 +2885,7 @@ class _$RemoveWishlistEvent implements RemoveWishlistEvent {
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
+    TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
     required TResult orElse(),
   }) {
     if (removeWishlistEvent != null) {
@@ -2837,6 +2918,7 @@ class _$RemoveWishlistEvent implements RemoveWishlistEvent {
     required TResult Function(FetchOrdersById value) fetchOrdersById,
     required TResult Function(FetchOrdersbyFilterEvent value)
         fetchOrdersbyFilterEvent,
+    required TResult Function(CancelOrder value) cancelOrder,
   }) {
     return removeWishlistEvent(this);
   }
@@ -2862,6 +2944,7 @@ class _$RemoveWishlistEvent implements RemoveWishlistEvent {
     TResult? Function(FetchOrders value)? fetchOrders,
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
+    TResult? Function(CancelOrder value)? cancelOrder,
   }) {
     return removeWishlistEvent?.call(this);
   }
@@ -2887,6 +2970,7 @@ class _$RemoveWishlistEvent implements RemoveWishlistEvent {
     TResult Function(FetchOrders value)? fetchOrders,
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
+    TResult Function(CancelOrder value)? cancelOrder,
     required TResult orElse(),
   }) {
     if (removeWishlistEvent != null) {
@@ -3004,6 +3088,8 @@ class _$FetchShopByBrandProducts implements FetchShopByBrandProducts {
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
         fetchOrdersbyFilterEvent,
+    required TResult Function(BuildContext context, int shiprockeId)
+        cancelOrder,
   }) {
     return fetchShopByBrandProducts(brandName);
   }
@@ -3039,6 +3125,7 @@ class _$FetchShopByBrandProducts implements FetchShopByBrandProducts {
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
+    TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
   }) {
     return fetchShopByBrandProducts?.call(brandName);
   }
@@ -3074,6 +3161,7 @@ class _$FetchShopByBrandProducts implements FetchShopByBrandProducts {
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
+    TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
     required TResult orElse(),
   }) {
     if (fetchShopByBrandProducts != null) {
@@ -3106,6 +3194,7 @@ class _$FetchShopByBrandProducts implements FetchShopByBrandProducts {
     required TResult Function(FetchOrdersById value) fetchOrdersById,
     required TResult Function(FetchOrdersbyFilterEvent value)
         fetchOrdersbyFilterEvent,
+    required TResult Function(CancelOrder value) cancelOrder,
   }) {
     return fetchShopByBrandProducts(this);
   }
@@ -3131,6 +3220,7 @@ class _$FetchShopByBrandProducts implements FetchShopByBrandProducts {
     TResult? Function(FetchOrders value)? fetchOrders,
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
+    TResult? Function(CancelOrder value)? cancelOrder,
   }) {
     return fetchShopByBrandProducts?.call(this);
   }
@@ -3156,6 +3246,7 @@ class _$FetchShopByBrandProducts implements FetchShopByBrandProducts {
     TResult Function(FetchOrders value)? fetchOrders,
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
+    TResult Function(CancelOrder value)? cancelOrder,
     required TResult orElse(),
   }) {
     if (fetchShopByBrandProducts != null) {
@@ -3269,6 +3360,8 @@ class _$TabIndexChangeEvent implements TabIndexChangeEvent {
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
         fetchOrdersbyFilterEvent,
+    required TResult Function(BuildContext context, int shiprockeId)
+        cancelOrder,
   }) {
     return tabIndexChangeEvent(index);
   }
@@ -3304,6 +3397,7 @@ class _$TabIndexChangeEvent implements TabIndexChangeEvent {
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
+    TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
   }) {
     return tabIndexChangeEvent?.call(index);
   }
@@ -3339,6 +3433,7 @@ class _$TabIndexChangeEvent implements TabIndexChangeEvent {
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
+    TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
     required TResult orElse(),
   }) {
     if (tabIndexChangeEvent != null) {
@@ -3371,6 +3466,7 @@ class _$TabIndexChangeEvent implements TabIndexChangeEvent {
     required TResult Function(FetchOrdersById value) fetchOrdersById,
     required TResult Function(FetchOrdersbyFilterEvent value)
         fetchOrdersbyFilterEvent,
+    required TResult Function(CancelOrder value) cancelOrder,
   }) {
     return tabIndexChangeEvent(this);
   }
@@ -3396,6 +3492,7 @@ class _$TabIndexChangeEvent implements TabIndexChangeEvent {
     TResult? Function(FetchOrders value)? fetchOrders,
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
+    TResult? Function(CancelOrder value)? cancelOrder,
   }) {
     return tabIndexChangeEvent?.call(this);
   }
@@ -3421,6 +3518,7 @@ class _$TabIndexChangeEvent implements TabIndexChangeEvent {
     TResult Function(FetchOrders value)? fetchOrders,
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
+    TResult Function(CancelOrder value)? cancelOrder,
     required TResult orElse(),
   }) {
     if (tabIndexChangeEvent != null) {
@@ -3611,6 +3709,8 @@ class _$PostOrders implements PostOrders {
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
         fetchOrdersbyFilterEvent,
+    required TResult Function(BuildContext context, int shiprockeId)
+        cancelOrder,
   }) {
     return postOrders(context, totalPrice, pickupLocation, quantity,
         totalDiscount, shippingCharges, weight, id);
@@ -3647,6 +3747,7 @@ class _$PostOrders implements PostOrders {
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
+    TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
   }) {
     return postOrders?.call(context, totalPrice, pickupLocation, quantity,
         totalDiscount, shippingCharges, weight, id);
@@ -3683,6 +3784,7 @@ class _$PostOrders implements PostOrders {
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
+    TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
     required TResult orElse(),
   }) {
     if (postOrders != null) {
@@ -3716,6 +3818,7 @@ class _$PostOrders implements PostOrders {
     required TResult Function(FetchOrdersById value) fetchOrdersById,
     required TResult Function(FetchOrdersbyFilterEvent value)
         fetchOrdersbyFilterEvent,
+    required TResult Function(CancelOrder value) cancelOrder,
   }) {
     return postOrders(this);
   }
@@ -3741,6 +3844,7 @@ class _$PostOrders implements PostOrders {
     TResult? Function(FetchOrders value)? fetchOrders,
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
+    TResult? Function(CancelOrder value)? cancelOrder,
   }) {
     return postOrders?.call(this);
   }
@@ -3766,6 +3870,7 @@ class _$PostOrders implements PostOrders {
     TResult Function(FetchOrders value)? fetchOrders,
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
+    TResult Function(CancelOrder value)? cancelOrder,
     required TResult orElse(),
   }) {
     if (postOrders != null) {
@@ -3892,6 +3997,8 @@ class _$FetchOrders implements FetchOrders {
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
         fetchOrdersbyFilterEvent,
+    required TResult Function(BuildContext context, int shiprockeId)
+        cancelOrder,
   }) {
     return fetchOrders(context);
   }
@@ -3927,6 +4034,7 @@ class _$FetchOrders implements FetchOrders {
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
+    TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
   }) {
     return fetchOrders?.call(context);
   }
@@ -3962,6 +4070,7 @@ class _$FetchOrders implements FetchOrders {
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
+    TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
     required TResult orElse(),
   }) {
     if (fetchOrders != null) {
@@ -3994,6 +4103,7 @@ class _$FetchOrders implements FetchOrders {
     required TResult Function(FetchOrdersById value) fetchOrdersById,
     required TResult Function(FetchOrdersbyFilterEvent value)
         fetchOrdersbyFilterEvent,
+    required TResult Function(CancelOrder value) cancelOrder,
   }) {
     return fetchOrders(this);
   }
@@ -4019,6 +4129,7 @@ class _$FetchOrders implements FetchOrders {
     TResult? Function(FetchOrders value)? fetchOrders,
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
+    TResult? Function(CancelOrder value)? cancelOrder,
   }) {
     return fetchOrders?.call(this);
   }
@@ -4044,6 +4155,7 @@ class _$FetchOrders implements FetchOrders {
     TResult Function(FetchOrders value)? fetchOrders,
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
+    TResult Function(CancelOrder value)? cancelOrder,
     required TResult orElse(),
   }) {
     if (fetchOrders != null) {
@@ -4163,6 +4275,8 @@ class _$FetchOrdersById implements FetchOrdersById {
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
         fetchOrdersbyFilterEvent,
+    required TResult Function(BuildContext context, int shiprockeId)
+        cancelOrder,
   }) {
     return fetchOrdersById(context, id);
   }
@@ -4198,6 +4312,7 @@ class _$FetchOrdersById implements FetchOrdersById {
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
+    TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
   }) {
     return fetchOrdersById?.call(context, id);
   }
@@ -4233,6 +4348,7 @@ class _$FetchOrdersById implements FetchOrdersById {
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
+    TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
     required TResult orElse(),
   }) {
     if (fetchOrdersById != null) {
@@ -4265,6 +4381,7 @@ class _$FetchOrdersById implements FetchOrdersById {
     required TResult Function(FetchOrdersById value) fetchOrdersById,
     required TResult Function(FetchOrdersbyFilterEvent value)
         fetchOrdersbyFilterEvent,
+    required TResult Function(CancelOrder value) cancelOrder,
   }) {
     return fetchOrdersById(this);
   }
@@ -4290,6 +4407,7 @@ class _$FetchOrdersById implements FetchOrdersById {
     TResult? Function(FetchOrders value)? fetchOrders,
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
+    TResult? Function(CancelOrder value)? cancelOrder,
   }) {
     return fetchOrdersById?.call(this);
   }
@@ -4315,6 +4433,7 @@ class _$FetchOrdersById implements FetchOrdersById {
     TResult Function(FetchOrders value)? fetchOrders,
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
+    TResult Function(CancelOrder value)? cancelOrder,
     required TResult orElse(),
   }) {
     if (fetchOrdersById != null) {
@@ -4440,6 +4559,8 @@ class _$FetchOrdersbyFilterEvent implements FetchOrdersbyFilterEvent {
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
         fetchOrdersbyFilterEvent,
+    required TResult Function(BuildContext context, int shiprockeId)
+        cancelOrder,
   }) {
     return fetchOrdersbyFilterEvent(context, filterName);
   }
@@ -4475,6 +4596,7 @@ class _$FetchOrdersbyFilterEvent implements FetchOrdersbyFilterEvent {
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
+    TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
   }) {
     return fetchOrdersbyFilterEvent?.call(context, filterName);
   }
@@ -4510,6 +4632,7 @@ class _$FetchOrdersbyFilterEvent implements FetchOrdersbyFilterEvent {
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
+    TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
     required TResult orElse(),
   }) {
     if (fetchOrdersbyFilterEvent != null) {
@@ -4542,6 +4665,7 @@ class _$FetchOrdersbyFilterEvent implements FetchOrdersbyFilterEvent {
     required TResult Function(FetchOrdersById value) fetchOrdersById,
     required TResult Function(FetchOrdersbyFilterEvent value)
         fetchOrdersbyFilterEvent,
+    required TResult Function(CancelOrder value) cancelOrder,
   }) {
     return fetchOrdersbyFilterEvent(this);
   }
@@ -4567,6 +4691,7 @@ class _$FetchOrdersbyFilterEvent implements FetchOrdersbyFilterEvent {
     TResult? Function(FetchOrders value)? fetchOrders,
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
+    TResult? Function(CancelOrder value)? cancelOrder,
   }) {
     return fetchOrdersbyFilterEvent?.call(this);
   }
@@ -4592,6 +4717,7 @@ class _$FetchOrdersbyFilterEvent implements FetchOrdersbyFilterEvent {
     TResult Function(FetchOrders value)? fetchOrders,
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
+    TResult Function(CancelOrder value)? cancelOrder,
     required TResult orElse(),
   }) {
     if (fetchOrdersbyFilterEvent != null) {
@@ -4611,6 +4737,288 @@ abstract class FetchOrdersbyFilterEvent implements ShopProductsEvent {
   @JsonKey(ignore: true)
   _$$FetchOrdersbyFilterEventCopyWith<_$FetchOrdersbyFilterEvent>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$CancelOrderCopyWith<$Res> {
+  factory _$$CancelOrderCopyWith(
+          _$CancelOrder value, $Res Function(_$CancelOrder) then) =
+      __$$CancelOrderCopyWithImpl<$Res>;
+  @useResult
+  $Res call({BuildContext context, int shiprockeId});
+}
+
+/// @nodoc
+class __$$CancelOrderCopyWithImpl<$Res>
+    extends _$ShopProductsEventCopyWithImpl<$Res, _$CancelOrder>
+    implements _$$CancelOrderCopyWith<$Res> {
+  __$$CancelOrderCopyWithImpl(
+      _$CancelOrder _value, $Res Function(_$CancelOrder) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? context = null,
+    Object? shiprockeId = null,
+  }) {
+    return _then(_$CancelOrder(
+      context: null == context
+          ? _value.context
+          : context // ignore: cast_nullable_to_non_nullable
+              as BuildContext,
+      shiprockeId: null == shiprockeId
+          ? _value.shiprockeId
+          : shiprockeId // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$CancelOrder implements CancelOrder {
+  const _$CancelOrder({required this.context, required this.shiprockeId});
+
+  @override
+  final BuildContext context;
+  @override
+  final int shiprockeId;
+
+  @override
+  String toString() {
+    return 'ShopProductsEvent.cancelOrder(context: $context, shiprockeId: $shiprockeId)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$CancelOrder &&
+            (identical(other.context, context) || other.context == context) &&
+            (identical(other.shiprockeId, shiprockeId) ||
+                other.shiprockeId == shiprockeId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, context, shiprockeId);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$CancelOrderCopyWith<_$CancelOrder> get copyWith =>
+      __$$CancelOrderCopyWithImpl<_$CancelOrder>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() fetchFlashSaleProducts,
+    required TResult Function() fetchPopularProducts,
+    required TResult Function() fetchRecentProductProducts,
+    required TResult Function() fetchHomeBanners,
+    required TResult Function() fetchShopBanners,
+    required TResult Function() fetchArticles,
+    required TResult Function() fetchShopByBrand,
+    required TResult Function(BuildContext context) fetchWishList,
+    required TResult Function(String query) searchProduct,
+    required TResult Function(String productId, BuildContext context)
+        addWishListEvent,
+    required TResult Function(String productId, BuildContext context)
+        removeWishlistEvent,
+    required TResult Function(String brandName) fetchShopByBrandProducts,
+    required TResult Function(int index) tabIndexChangeEvent,
+    required TResult Function(
+            BuildContext context,
+            int totalPrice,
+            String pickupLocation,
+            int quantity,
+            int totalDiscount,
+            int shippingCharges,
+            int weight,
+            String id)
+        postOrders,
+    required TResult Function(BuildContext context) fetchOrders,
+    required TResult Function(BuildContext context, int id) fetchOrdersById,
+    required TResult Function(BuildContext context, String filterName)
+        fetchOrdersbyFilterEvent,
+    required TResult Function(BuildContext context, int shiprockeId)
+        cancelOrder,
+  }) {
+    return cancelOrder(context, shiprockeId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? fetchFlashSaleProducts,
+    TResult? Function()? fetchPopularProducts,
+    TResult? Function()? fetchRecentProductProducts,
+    TResult? Function()? fetchHomeBanners,
+    TResult? Function()? fetchShopBanners,
+    TResult? Function()? fetchArticles,
+    TResult? Function()? fetchShopByBrand,
+    TResult? Function(BuildContext context)? fetchWishList,
+    TResult? Function(String query)? searchProduct,
+    TResult? Function(String productId, BuildContext context)? addWishListEvent,
+    TResult? Function(String productId, BuildContext context)?
+        removeWishlistEvent,
+    TResult? Function(String brandName)? fetchShopByBrandProducts,
+    TResult? Function(int index)? tabIndexChangeEvent,
+    TResult? Function(
+            BuildContext context,
+            int totalPrice,
+            String pickupLocation,
+            int quantity,
+            int totalDiscount,
+            int shippingCharges,
+            int weight,
+            String id)?
+        postOrders,
+    TResult? Function(BuildContext context)? fetchOrders,
+    TResult? Function(BuildContext context, int id)? fetchOrdersById,
+    TResult? Function(BuildContext context, String filterName)?
+        fetchOrdersbyFilterEvent,
+    TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
+  }) {
+    return cancelOrder?.call(context, shiprockeId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? fetchFlashSaleProducts,
+    TResult Function()? fetchPopularProducts,
+    TResult Function()? fetchRecentProductProducts,
+    TResult Function()? fetchHomeBanners,
+    TResult Function()? fetchShopBanners,
+    TResult Function()? fetchArticles,
+    TResult Function()? fetchShopByBrand,
+    TResult Function(BuildContext context)? fetchWishList,
+    TResult Function(String query)? searchProduct,
+    TResult Function(String productId, BuildContext context)? addWishListEvent,
+    TResult Function(String productId, BuildContext context)?
+        removeWishlistEvent,
+    TResult Function(String brandName)? fetchShopByBrandProducts,
+    TResult Function(int index)? tabIndexChangeEvent,
+    TResult Function(
+            BuildContext context,
+            int totalPrice,
+            String pickupLocation,
+            int quantity,
+            int totalDiscount,
+            int shippingCharges,
+            int weight,
+            String id)?
+        postOrders,
+    TResult Function(BuildContext context)? fetchOrders,
+    TResult Function(BuildContext context, int id)? fetchOrdersById,
+    TResult Function(BuildContext context, String filterName)?
+        fetchOrdersbyFilterEvent,
+    TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
+    required TResult orElse(),
+  }) {
+    if (cancelOrder != null) {
+      return cancelOrder(context, shiprockeId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FetchFlashSaleProducts value)
+        fetchFlashSaleProducts,
+    required TResult Function(FetchPopularProducts value) fetchPopularProducts,
+    required TResult Function(FetchRecentProductProducts value)
+        fetchRecentProductProducts,
+    required TResult Function(FetchHomeBanners value) fetchHomeBanners,
+    required TResult Function(FetchShopBanners value) fetchShopBanners,
+    required TResult Function(FetchArticles value) fetchArticles,
+    required TResult Function(FetchShopByBrand value) fetchShopByBrand,
+    required TResult Function(FetchWishList value) fetchWishList,
+    required TResult Function(SearchProduct value) searchProduct,
+    required TResult Function(AddWishListEvent value) addWishListEvent,
+    required TResult Function(RemoveWishlistEvent value) removeWishlistEvent,
+    required TResult Function(FetchShopByBrandProducts value)
+        fetchShopByBrandProducts,
+    required TResult Function(TabIndexChangeEvent value) tabIndexChangeEvent,
+    required TResult Function(PostOrders value) postOrders,
+    required TResult Function(FetchOrders value) fetchOrders,
+    required TResult Function(FetchOrdersById value) fetchOrdersById,
+    required TResult Function(FetchOrdersbyFilterEvent value)
+        fetchOrdersbyFilterEvent,
+    required TResult Function(CancelOrder value) cancelOrder,
+  }) {
+    return cancelOrder(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(FetchFlashSaleProducts value)? fetchFlashSaleProducts,
+    TResult? Function(FetchPopularProducts value)? fetchPopularProducts,
+    TResult? Function(FetchRecentProductProducts value)?
+        fetchRecentProductProducts,
+    TResult? Function(FetchHomeBanners value)? fetchHomeBanners,
+    TResult? Function(FetchShopBanners value)? fetchShopBanners,
+    TResult? Function(FetchArticles value)? fetchArticles,
+    TResult? Function(FetchShopByBrand value)? fetchShopByBrand,
+    TResult? Function(FetchWishList value)? fetchWishList,
+    TResult? Function(SearchProduct value)? searchProduct,
+    TResult? Function(AddWishListEvent value)? addWishListEvent,
+    TResult? Function(RemoveWishlistEvent value)? removeWishlistEvent,
+    TResult? Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
+    TResult? Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
+    TResult? Function(PostOrders value)? postOrders,
+    TResult? Function(FetchOrders value)? fetchOrders,
+    TResult? Function(FetchOrdersById value)? fetchOrdersById,
+    TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
+    TResult? Function(CancelOrder value)? cancelOrder,
+  }) {
+    return cancelOrder?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FetchFlashSaleProducts value)? fetchFlashSaleProducts,
+    TResult Function(FetchPopularProducts value)? fetchPopularProducts,
+    TResult Function(FetchRecentProductProducts value)?
+        fetchRecentProductProducts,
+    TResult Function(FetchHomeBanners value)? fetchHomeBanners,
+    TResult Function(FetchShopBanners value)? fetchShopBanners,
+    TResult Function(FetchArticles value)? fetchArticles,
+    TResult Function(FetchShopByBrand value)? fetchShopByBrand,
+    TResult Function(FetchWishList value)? fetchWishList,
+    TResult Function(SearchProduct value)? searchProduct,
+    TResult Function(AddWishListEvent value)? addWishListEvent,
+    TResult Function(RemoveWishlistEvent value)? removeWishlistEvent,
+    TResult Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
+    TResult Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
+    TResult Function(PostOrders value)? postOrders,
+    TResult Function(FetchOrders value)? fetchOrders,
+    TResult Function(FetchOrdersById value)? fetchOrdersById,
+    TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
+    TResult Function(CancelOrder value)? cancelOrder,
+    required TResult orElse(),
+  }) {
+    if (cancelOrder != null) {
+      return cancelOrder(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class CancelOrder implements ShopProductsEvent {
+  const factory CancelOrder(
+      {required final BuildContext context,
+      required final int shiprockeId}) = _$CancelOrder;
+
+  BuildContext get context;
+  int get shiprockeId;
+  @JsonKey(ignore: true)
+  _$$CancelOrderCopyWith<_$CancelOrder> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -4637,7 +5045,9 @@ mixin _$ShopProductsState {
   int get index => throw _privateConstructorUsedError;
   bool get isWishListed => throw _privateConstructorUsedError;
   OrderModel? get orderModel => throw _privateConstructorUsedError;
-  OrderModel? get ordersByIdModel => throw _privateConstructorUsedError;
+  OrderModelbyIdModel? get ordersByIdModel =>
+      throw _privateConstructorUsedError;
+  int? get orderId => throw _privateConstructorUsedError;
   String get errorMessage => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -4674,7 +5084,8 @@ abstract class $ShopProductsStateCopyWith<$Res> {
       int index,
       bool isWishListed,
       OrderModel? orderModel,
-      OrderModel? ordersByIdModel,
+      OrderModelbyIdModel? ordersByIdModel,
+      int? orderId,
       String errorMessage});
 
   $ShopProductsCopyWith<$Res>? get flashSaleproducts;
@@ -4688,7 +5099,7 @@ abstract class $ShopProductsStateCopyWith<$Res> {
   $ProductModelCopyWith<$Res>? get searchProducts;
   $ShopBrandProductModelCopyWith<$Res>? get brandProduct;
   $OrderModelCopyWith<$Res>? get orderModel;
-  $OrderModelCopyWith<$Res>? get ordersByIdModel;
+  $OrderModelbyIdModelCopyWith<$Res>? get ordersByIdModel;
 }
 
 /// @nodoc
@@ -4727,6 +5138,7 @@ class _$ShopProductsStateCopyWithImpl<$Res, $Val extends ShopProductsState>
     Object? isWishListed = null,
     Object? orderModel = freezed,
     Object? ordersByIdModel = freezed,
+    Object? orderId = freezed,
     Object? errorMessage = null,
   }) {
     return _then(_value.copyWith(
@@ -4821,7 +5233,11 @@ class _$ShopProductsStateCopyWithImpl<$Res, $Val extends ShopProductsState>
       ordersByIdModel: freezed == ordersByIdModel
           ? _value.ordersByIdModel
           : ordersByIdModel // ignore: cast_nullable_to_non_nullable
-              as OrderModel?,
+              as OrderModelbyIdModel?,
+      orderId: freezed == orderId
+          ? _value.orderId
+          : orderId // ignore: cast_nullable_to_non_nullable
+              as int?,
       errorMessage: null == errorMessage
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
@@ -4963,12 +5379,12 @@ class _$ShopProductsStateCopyWithImpl<$Res, $Val extends ShopProductsState>
 
   @override
   @pragma('vm:prefer-inline')
-  $OrderModelCopyWith<$Res>? get ordersByIdModel {
+  $OrderModelbyIdModelCopyWith<$Res>? get ordersByIdModel {
     if (_value.ordersByIdModel == null) {
       return null;
     }
 
-    return $OrderModelCopyWith<$Res>(_value.ordersByIdModel!, (value) {
+    return $OrderModelbyIdModelCopyWith<$Res>(_value.ordersByIdModel!, (value) {
       return _then(_value.copyWith(ordersByIdModel: value) as $Val);
     });
   }
@@ -5005,7 +5421,8 @@ abstract class _$$_InitialCopyWith<$Res>
       int index,
       bool isWishListed,
       OrderModel? orderModel,
-      OrderModel? ordersByIdModel,
+      OrderModelbyIdModel? ordersByIdModel,
+      int? orderId,
       String errorMessage});
 
   @override
@@ -5031,7 +5448,7 @@ abstract class _$$_InitialCopyWith<$Res>
   @override
   $OrderModelCopyWith<$Res>? get orderModel;
   @override
-  $OrderModelCopyWith<$Res>? get ordersByIdModel;
+  $OrderModelbyIdModelCopyWith<$Res>? get ordersByIdModel;
 }
 
 /// @nodoc
@@ -5067,6 +5484,7 @@ class __$$_InitialCopyWithImpl<$Res>
     Object? isWishListed = null,
     Object? orderModel = freezed,
     Object? ordersByIdModel = freezed,
+    Object? orderId = freezed,
     Object? errorMessage = null,
   }) {
     return _then(_$_Initial(
@@ -5161,7 +5579,11 @@ class __$$_InitialCopyWithImpl<$Res>
       ordersByIdModel: freezed == ordersByIdModel
           ? _value.ordersByIdModel
           : ordersByIdModel // ignore: cast_nullable_to_non_nullable
-              as OrderModel?,
+              as OrderModelbyIdModel?,
+      orderId: freezed == orderId
+          ? _value.orderId
+          : orderId // ignore: cast_nullable_to_non_nullable
+              as int?,
       errorMessage: null == errorMessage
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
@@ -5197,6 +5619,7 @@ class _$_Initial implements _Initial {
       required this.isWishListed,
       required this.orderModel,
       required this.ordersByIdModel,
+      required this.orderId,
       required this.errorMessage})
       : _wishListItems = wishListItems;
 
@@ -5253,13 +5676,15 @@ class _$_Initial implements _Initial {
   @override
   final OrderModel? orderModel;
   @override
-  final OrderModel? ordersByIdModel;
+  final OrderModelbyIdModel? ordersByIdModel;
+  @override
+  final int? orderId;
   @override
   final String errorMessage;
 
   @override
   String toString() {
-    return 'ShopProductsState(flashSaleproducts: $flashSaleproducts, flashSaleLoading: $flashSaleLoading, popularProducts: $popularProducts, popularProductLoading: $popularProductLoading, recentProducts: $recentProducts, recentProductLoading: $recentProductLoading, homeBanner: $homeBanner, bannersLoading: $bannersLoading, shopBanner: $shopBanner, shopBannerLoading: $shopBannerLoading, articles: $articles, articleLoading: $articleLoading, isLoading: $isLoading, shopBrandModel: $shopBrandModel, wishList: $wishList, wishListMessage: $wishListMessage, wishListItems: $wishListItems, searchProducts: $searchProducts, brandProduct: $brandProduct, index: $index, isWishListed: $isWishListed, orderModel: $orderModel, ordersByIdModel: $ordersByIdModel, errorMessage: $errorMessage)';
+    return 'ShopProductsState(flashSaleproducts: $flashSaleproducts, flashSaleLoading: $flashSaleLoading, popularProducts: $popularProducts, popularProductLoading: $popularProductLoading, recentProducts: $recentProducts, recentProductLoading: $recentProductLoading, homeBanner: $homeBanner, bannersLoading: $bannersLoading, shopBanner: $shopBanner, shopBannerLoading: $shopBannerLoading, articles: $articles, articleLoading: $articleLoading, isLoading: $isLoading, shopBrandModel: $shopBrandModel, wishList: $wishList, wishListMessage: $wishListMessage, wishListItems: $wishListItems, searchProducts: $searchProducts, brandProduct: $brandProduct, index: $index, isWishListed: $isWishListed, orderModel: $orderModel, ordersByIdModel: $ordersByIdModel, orderId: $orderId, errorMessage: $errorMessage)';
   }
 
   @override
@@ -5312,6 +5737,7 @@ class _$_Initial implements _Initial {
                 other.orderModel == orderModel) &&
             (identical(other.ordersByIdModel, ordersByIdModel) ||
                 other.ordersByIdModel == ordersByIdModel) &&
+            (identical(other.orderId, orderId) || other.orderId == orderId) &&
             (identical(other.errorMessage, errorMessage) ||
                 other.errorMessage == errorMessage));
   }
@@ -5342,6 +5768,7 @@ class _$_Initial implements _Initial {
         isWishListed,
         orderModel,
         ordersByIdModel,
+        orderId,
         errorMessage
       ]);
 
@@ -5376,7 +5803,8 @@ abstract class _Initial implements ShopProductsState {
       required final int index,
       required final bool isWishListed,
       required final OrderModel? orderModel,
-      required final OrderModel? ordersByIdModel,
+      required final OrderModelbyIdModel? ordersByIdModel,
+      required final int? orderId,
       required final String errorMessage}) = _$_Initial;
 
   @override
@@ -5424,7 +5852,9 @@ abstract class _Initial implements ShopProductsState {
   @override
   OrderModel? get orderModel;
   @override
-  OrderModel? get ordersByIdModel;
+  OrderModelbyIdModel? get ordersByIdModel;
+  @override
+  int? get orderId;
   @override
   String get errorMessage;
   @override

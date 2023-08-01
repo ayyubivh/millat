@@ -12,7 +12,7 @@ class AudioRecitorsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      // BlocProvider.of<QuranBloc>(context).add(const FetchAllRecitors());
+      BlocProvider.of<QuranBloc>(context).add(const FetchAllRecitors());
     });
     return Scaffold(
         backgroundColor: ColorManager.whiteColor,
@@ -42,9 +42,9 @@ class AudioRecitorsView extends StatelessWidget {
                     final data = state.recitationsModel!.recitations[index];
                     return GestureDetector(
                       onTap: () {
-                        // context.read<QuranBloc>().add(SaveRecitorNameAndId(
-                        //     recitorId: data.id, recitorName: data.recitorName));
-                        // Navigator.of(context).pop();
+                        context.read<QuranBloc>().add(SaveRecitorNameAndId(
+                            recitorId: data.id, recitorName: data.recitorName));
+                        Navigator.of(context).pop();
                       },
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -52,7 +52,7 @@ class AudioRecitorsView extends StatelessWidget {
                           Row(
                             children: [
                               Text(
-                                '  data.recitorName',
+                                data.recitorName,
                                 style: TextStyle(
                                   fontSize: 18,
                                   fontWeight: FontWeight.bold,

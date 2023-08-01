@@ -1,27 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:millat/resources/home/view/home_view.dart';
+import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
 import 'package:millat/resources/shop/bloc/models/cart/cart_models.dart';
-import 'package:millat/resources/shop/view/tabs/shop_tabs_vilew.dart';
+import 'package:millat/resources/tabs/view/tabs_view.dart';
 import 'package:millat/utils/color_manager.dart';
+import 'package:millat/utils/loader.dart';
 import 'package:millat/utils/size_utility.dart';
 
-import '../../../../utils/constants.dart';
 import '../../bloc/logic/address_bloc/address_bloc.dart';
 import '../../bloc/logic/cart_bloc/cart_bloc.dart';
 import '../checkout/widgets/order_product_card.dart';
 
-class OrderStatus extends StatefulWidget {
+class OrderStatus extends StatelessWidget {
   const OrderStatus({Key? key}) : super(key: key);
 
   @override
-  State<OrderStatus> createState() => _OrderStatusState();
-}
-
-class _OrderStatusState extends State<OrderStatus> {
-  int maxItemsToShow = 2;
-
-  @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      BlocProvider.of<ShopProductsBloc>(context).add(FetchOrdersById(
+        context,
+        context.read<ShopProductsBloc>().state.orderId!,
+      ));
+    });
+    int maxItemsToShow = 2;
     return Scaffold(
       appBar: AppBar(
         centerTitle: false,
@@ -35,63 +37,7 @@ class _OrderStatusState extends State<OrderStatus> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(13),
-                ),
-                child: Card(
-                  elevation: 0,
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                        vertical: 30, horizontal: 20),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
-                          children: [
-                            SizedBox(
-                              height: 19,
-                              width: 16,
-                              child: Image.asset(
-                                'assets/icons/preparing_order_icon.png',
-                              ),
-                            ),
-                            const SizedBox(width: 5),
-                            Text(
-                              'Preparing Order',
-                              style: TextStyle(
-                                fontSize: 22,
-                                color: ColorManager.primary,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ],
-                        ),
-                        const SizedBox(height: 8),
-                        const Text(
-                          'The seller is prepared orders for you',
-                          style: TextStyle(
-                            fontSize: 17,
-                            fontWeight: FontWeight.w400,
-                            color: black102,
-                          ),
-                        ),
-                        const SizedBox(height: 8),
-                        const Divider(),
-                        const SizedBox(height: 8),
-                        const Text(
-                          'Est. delivery by Apr 22-Apr 27',
-                          style: TextStyle(
-                            fontSize: 17,
-                            fontWeight: FontWeight.w400,
-                            color: black102,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
+              _orderStatusContainer(),
               addressCard(),
               const SizedBox(height: 15),
               Text(
@@ -136,91 +82,8 @@ class _OrderStatusState extends State<OrderStatus> {
               const SizedBox(
                 height: 20,
               ),
-              Card(
-                elevation: 0.2,
-                child: Container(
-                  height: 179,
-                  padding:
-                      const EdgeInsets.symmetric(vertical: 20, horizontal: 30),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text('Order Summary',
-                          style: TextStyle(
-                            color: ColorManager.blackColor,
-                            fontSize: 17,
-                            fontWeight: FontWeight.bold,
-                          )),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text('Sub Total', style: _priceStyle()),
-                          Text('₹3,000', style: _priceStyle()),
-                        ],
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text('Shipping Fee', style: _priceStyle()),
-                          Text('₹27', style: _priceStyle()),
-                        ],
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text('Total', style: _priceStyle()),
-                          Text(
-                            '₹3,047,36',
-                            style: _priceStyle(),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              Card(
-                elevation: 0.3,
-                child: Container(
-                  height: 180,
-                  padding:
-                      const EdgeInsets.symmetric(vertical: 20, horizontal: 30),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text('Order Details',
-                          style: TextStyle(
-                            color: ColorManager.blackColor,
-                            fontSize: 17,
-                            fontWeight: FontWeight.bold,
-                          )),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text('Order Number', style: _priceStyle()),
-                          Text('87364', style: _priceStyle()),
-                        ],
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text('Payment Method', style: _priceStyle()),
-                          Text('Paytm', style: _priceStyle()),
-                        ],
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text('Order Date', style: _priceStyle()),
-                          Text('Apr 20, 2022 8:43 PM', style: _priceStyle()),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              ),
+              _orderSummaryWidget(),
+              _orderDetailsWidget(),
               const SizedBox(
                 height: 100,
               ),
@@ -245,9 +108,18 @@ class _OrderStatusState extends State<OrderStatus> {
               ),
               child: GestureDetector(
                 onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => const ShopTabsView(),
-                  ));
+                  final id = context
+                      .read<ShopProductsBloc>()
+                      .state
+                      .ordersByIdModel!
+                      .result!
+                      .order!
+                      .shiprocketOrderId;
+
+                  context.read<ShopProductsBloc>().add(CancelOrder(
+                      context: context, shiprockeId: int.parse(id!)));
+                  Navigator.of(context).pushReplacement(MaterialPageRoute(
+                      builder: (context) => const TabsView()));
                 },
                 child: Text(
                   'Cancel Order',
@@ -263,8 +135,177 @@ class _OrderStatusState extends State<OrderStatus> {
     );
   }
 
+  Widget _orderDetailsWidget() {
+    return BlocBuilder<ShopProductsBloc, ShopProductsState>(
+      builder: (context, state) {
+        final data = state.ordersByIdModel?.result?.order;
+        return Card(
+          elevation: 0.3,
+          child: Container(
+            height: 180,
+            padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 30),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text('Order Details',
+                    style: TextStyle(
+                      color: ColorManager.blackColor,
+                      fontSize: 17,
+                      fontWeight: FontWeight.bold,
+                    )),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text('Order Number', style: _priceStyle()),
+                    Text(data?.orderId ?? '', style: _priceStyle()),
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text('Payment Method', style: _priceStyle()),
+                    Text(data?.paymentMethod ?? '', style: _priceStyle()),
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text('Order Date', style: _priceStyle()),
+                    Text(data?.orderDate ?? '', style: _priceStyle()),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  BlocBuilder<ShopProductsBloc, ShopProductsState> _orderSummaryWidget() {
+    return BlocBuilder<ShopProductsBloc, ShopProductsState>(
+      builder: (context, state) {
+        final data = state.ordersByIdModel?.result?.order;
+
+        return Card(
+          elevation: 0.2,
+          child: Container(
+            height: 179,
+            padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 30),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text('Order Summary',
+                    style: TextStyle(
+                      color: ColorManager.blackColor,
+                      fontSize: 17,
+                      fontWeight: FontWeight.bold,
+                    )),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text('Sub Total', style: _priceStyle()),
+                    Text(data?.subTotal.toString() ?? '0',
+                        style: _priceStyle()),
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text('Shipping Fee', style: _priceStyle()),
+                    Text(data?.shippingCharges.toString() ?? '0',
+                        style: _priceStyle()),
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text('Total', style: _priceStyle()),
+                    Text(
+                      data?.subTotal.toString() ?? '',
+                      style: _priceStyle(),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  Widget _orderStatusContainer() {
+    return BlocBuilder<ShopProductsBloc, ShopProductsState>(
+      builder: (context, state) {
+        final data = state.ordersByIdModel?.result?.order;
+        return data == null
+            ? const Loader()
+            : Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(13),
+                ),
+                child: Card(
+                  elevation: 0,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 30, horizontal: 20),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          children: [
+                            SizedBox(
+                              height: 19,
+                              width: 16,
+                              child: Image.asset(
+                                'assets/icons/preparing_order_icon.png',
+                              ),
+                            ),
+                            const SizedBox(width: 5),
+                            Text(
+                              data.shippingStatus.toString(),
+                              style: TextStyle(
+                                fontSize: 22,
+                                color: ColorManager.primary,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 8),
+                        const Text(
+                          'Your order has been packed and is awaiting shipping',
+                          style: TextStyle(
+                            fontSize: 17,
+                            fontWeight: FontWeight.w400,
+                            color: black102,
+                          ),
+                        ),
+                        const SizedBox(height: 8),
+                        const Divider(),
+                        const SizedBox(height: 8),
+                        const Text(
+                          'Est. delivery by Apr 22-Apr 27',
+                          style: TextStyle(
+                            fontSize: 17,
+                            fontWeight: FontWeight.w400,
+                            color: black102,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              );
+      },
+    );
+  }
+
   TextStyle _priceStyle() {
-    return TextStyle(
+    return const TextStyle(
       color: black122,
       fontSize: 17,
       fontWeight: FontWeight.w500,

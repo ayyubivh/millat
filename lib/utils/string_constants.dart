@@ -4,11 +4,18 @@ String nameKey = 'name';
 String bookmarkDb = "Bookmark-db";
 String userBox = 'userDetailsBox';
 String kBaseUrl = "http://35.172.93.164:8000/";
-String favImage = "assets/images/favorite-g8d1445ac4_1280.png";
 
-String indoPak = 'indopak';
-String uthmani = 'uthmani';
-String noSymbol = 'uthmani_simple';
+//quran texts types
+final quranTexts = [
+  'IndoPak',
+  'Uthmani',
+  'No diacritics or symbols',
+];
+
+//al quran
+String indopak = "indopak";
+String uthmani = "uthmani";
+String nosymbol = "uthmani_simple";
 //list of string in dua
 final duaTexts = [
   'All Dua\'s',
@@ -24,3 +31,5 @@ final duaTexts = [
   "Sickness & Death",
   "Food & Drink"
 ];
+//image strings
+String favoriteImg = "assets/images/favorite_collection.png";

@@ -43,6 +43,7 @@ mixin _$QuranEvent {
     required TResult Function(bool isExpand) isExpandonSearchEvent,
     required TResult Function(int transilationId, String translationName)
         saveGlobalTransilationIdAndName,
+    required TResult Function() fetchAllRecitors,
     required TResult Function(int recitorId, String recitorName)
         saveRecitorNameAndId,
     required TResult Function(String textName) saveQuranTexttypeName,
@@ -77,6 +78,7 @@ mixin _$QuranEvent {
     TResult? Function(bool isExpand)? isExpandonSearchEvent,
     TResult? Function(int transilationId, String translationName)?
         saveGlobalTransilationIdAndName,
+    TResult? Function()? fetchAllRecitors,
     TResult? Function(int recitorId, String recitorName)? saveRecitorNameAndId,
     TResult? Function(String textName)? saveQuranTexttypeName,
     TResult? Function()? onTapofNextEvent,
@@ -110,6 +112,7 @@ mixin _$QuranEvent {
     TResult Function(bool isExpand)? isExpandonSearchEvent,
     TResult Function(int transilationId, String translationName)?
         saveGlobalTransilationIdAndName,
+    TResult Function()? fetchAllRecitors,
     TResult Function(int recitorId, String recitorName)? saveRecitorNameAndId,
     TResult Function(String textName)? saveQuranTexttypeName,
     TResult Function()? onTapofNextEvent,
@@ -154,6 +157,7 @@ mixin _$QuranEvent {
         isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
+    required TResult Function(FetchAllRecitors value) fetchAllRecitors,
     required TResult Function(SaveRecitorNameAndId value) saveRecitorNameAndId,
     required TResult Function(SaveQuranTexttypeName value)
         saveQuranTexttypeName,
@@ -192,6 +196,7 @@ mixin _$QuranEvent {
     TResult? Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
     TResult? Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
+    TResult? Function(FetchAllRecitors value)? fetchAllRecitors,
     TResult? Function(SaveRecitorNameAndId value)? saveRecitorNameAndId,
     TResult? Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult? Function(OnTapofNextEvent value)? onTapofNextEvent,
@@ -229,6 +234,7 @@ mixin _$QuranEvent {
     TResult Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
     TResult Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
+    TResult Function(FetchAllRecitors value)? fetchAllRecitors,
     TResult Function(SaveRecitorNameAndId value)? saveRecitorNameAndId,
     TResult Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult Function(OnTapofNextEvent value)? onTapofNextEvent,
@@ -320,6 +326,7 @@ class _$FetchQuaranChaptersEvent implements FetchQuaranChaptersEvent {
     required TResult Function(bool isExpand) isExpandonSearchEvent,
     required TResult Function(int transilationId, String translationName)
         saveGlobalTransilationIdAndName,
+    required TResult Function() fetchAllRecitors,
     required TResult Function(int recitorId, String recitorName)
         saveRecitorNameAndId,
     required TResult Function(String textName) saveQuranTexttypeName,
@@ -357,6 +364,7 @@ class _$FetchQuaranChaptersEvent implements FetchQuaranChaptersEvent {
     TResult? Function(bool isExpand)? isExpandonSearchEvent,
     TResult? Function(int transilationId, String translationName)?
         saveGlobalTransilationIdAndName,
+    TResult? Function()? fetchAllRecitors,
     TResult? Function(int recitorId, String recitorName)? saveRecitorNameAndId,
     TResult? Function(String textName)? saveQuranTexttypeName,
     TResult? Function()? onTapofNextEvent,
@@ -393,6 +401,7 @@ class _$FetchQuaranChaptersEvent implements FetchQuaranChaptersEvent {
     TResult Function(bool isExpand)? isExpandonSearchEvent,
     TResult Function(int transilationId, String translationName)?
         saveGlobalTransilationIdAndName,
+    TResult Function()? fetchAllRecitors,
     TResult Function(int recitorId, String recitorName)? saveRecitorNameAndId,
     TResult Function(String textName)? saveQuranTexttypeName,
     TResult Function()? onTapofNextEvent,
@@ -443,6 +452,7 @@ class _$FetchQuaranChaptersEvent implements FetchQuaranChaptersEvent {
         isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
+    required TResult Function(FetchAllRecitors value) fetchAllRecitors,
     required TResult Function(SaveRecitorNameAndId value) saveRecitorNameAndId,
     required TResult Function(SaveQuranTexttypeName value)
         saveQuranTexttypeName,
@@ -484,6 +494,7 @@ class _$FetchQuaranChaptersEvent implements FetchQuaranChaptersEvent {
     TResult? Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
     TResult? Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
+    TResult? Function(FetchAllRecitors value)? fetchAllRecitors,
     TResult? Function(SaveRecitorNameAndId value)? saveRecitorNameAndId,
     TResult? Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult? Function(OnTapofNextEvent value)? onTapofNextEvent,
@@ -524,6 +535,7 @@ class _$FetchQuaranChaptersEvent implements FetchQuaranChaptersEvent {
     TResult Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
     TResult Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
+    TResult Function(FetchAllRecitors value)? fetchAllRecitors,
     TResult Function(SaveRecitorNameAndId value)? saveRecitorNameAndId,
     TResult Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult Function(OnTapofNextEvent value)? onTapofNextEvent,
@@ -631,6 +643,7 @@ class _$FetchChaperVersesEvent implements FetchChaperVersesEvent {
     required TResult Function(bool isExpand) isExpandonSearchEvent,
     required TResult Function(int transilationId, String translationName)
         saveGlobalTransilationIdAndName,
+    required TResult Function() fetchAllRecitors,
     required TResult Function(int recitorId, String recitorName)
         saveRecitorNameAndId,
     required TResult Function(String textName) saveQuranTexttypeName,
@@ -668,6 +681,7 @@ class _$FetchChaperVersesEvent implements FetchChaperVersesEvent {
     TResult? Function(bool isExpand)? isExpandonSearchEvent,
     TResult? Function(int transilationId, String translationName)?
         saveGlobalTransilationIdAndName,
+    TResult? Function()? fetchAllRecitors,
     TResult? Function(int recitorId, String recitorName)? saveRecitorNameAndId,
     TResult? Function(String textName)? saveQuranTexttypeName,
     TResult? Function()? onTapofNextEvent,
@@ -704,6 +718,7 @@ class _$FetchChaperVersesEvent implements FetchChaperVersesEvent {
     TResult Function(bool isExpand)? isExpandonSearchEvent,
     TResult Function(int transilationId, String translationName)?
         saveGlobalTransilationIdAndName,
+    TResult Function()? fetchAllRecitors,
     TResult Function(int recitorId, String recitorName)? saveRecitorNameAndId,
     TResult Function(String textName)? saveQuranTexttypeName,
     TResult Function()? onTapofNextEvent,
@@ -754,6 +769,7 @@ class _$FetchChaperVersesEvent implements FetchChaperVersesEvent {
         isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
+    required TResult Function(FetchAllRecitors value) fetchAllRecitors,
     required TResult Function(SaveRecitorNameAndId value) saveRecitorNameAndId,
     required TResult Function(SaveQuranTexttypeName value)
         saveQuranTexttypeName,
@@ -795,6 +811,7 @@ class _$FetchChaperVersesEvent implements FetchChaperVersesEvent {
     TResult? Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
     TResult? Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
+    TResult? Function(FetchAllRecitors value)? fetchAllRecitors,
     TResult? Function(SaveRecitorNameAndId value)? saveRecitorNameAndId,
     TResult? Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult? Function(OnTapofNextEvent value)? onTapofNextEvent,
@@ -835,6 +852,7 @@ class _$FetchChaperVersesEvent implements FetchChaperVersesEvent {
     TResult Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
     TResult Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
+    TResult Function(FetchAllRecitors value)? fetchAllRecitors,
     TResult Function(SaveRecitorNameAndId value)? saveRecitorNameAndId,
     TResult Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult Function(OnTapofNextEvent value)? onTapofNextEvent,
@@ -950,6 +968,7 @@ class _$FetchChapterVersesbyTextName implements FetchChapterVersesbyTextName {
     required TResult Function(bool isExpand) isExpandonSearchEvent,
     required TResult Function(int transilationId, String translationName)
         saveGlobalTransilationIdAndName,
+    required TResult Function() fetchAllRecitors,
     required TResult Function(int recitorId, String recitorName)
         saveRecitorNameAndId,
     required TResult Function(String textName) saveQuranTexttypeName,
@@ -987,6 +1006,7 @@ class _$FetchChapterVersesbyTextName implements FetchChapterVersesbyTextName {
     TResult? Function(bool isExpand)? isExpandonSearchEvent,
     TResult? Function(int transilationId, String translationName)?
         saveGlobalTransilationIdAndName,
+    TResult? Function()? fetchAllRecitors,
     TResult? Function(int recitorId, String recitorName)? saveRecitorNameAndId,
     TResult? Function(String textName)? saveQuranTexttypeName,
     TResult? Function()? onTapofNextEvent,
@@ -1023,6 +1043,7 @@ class _$FetchChapterVersesbyTextName implements FetchChapterVersesbyTextName {
     TResult Function(bool isExpand)? isExpandonSearchEvent,
     TResult Function(int transilationId, String translationName)?
         saveGlobalTransilationIdAndName,
+    TResult Function()? fetchAllRecitors,
     TResult Function(int recitorId, String recitorName)? saveRecitorNameAndId,
     TResult Function(String textName)? saveQuranTexttypeName,
     TResult Function()? onTapofNextEvent,
@@ -1073,6 +1094,7 @@ class _$FetchChapterVersesbyTextName implements FetchChapterVersesbyTextName {
         isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
+    required TResult Function(FetchAllRecitors value) fetchAllRecitors,
     required TResult Function(SaveRecitorNameAndId value) saveRecitorNameAndId,
     required TResult Function(SaveQuranTexttypeName value)
         saveQuranTexttypeName,
@@ -1114,6 +1136,7 @@ class _$FetchChapterVersesbyTextName implements FetchChapterVersesbyTextName {
     TResult? Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
     TResult? Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
+    TResult? Function(FetchAllRecitors value)? fetchAllRecitors,
     TResult? Function(SaveRecitorNameAndId value)? saveRecitorNameAndId,
     TResult? Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult? Function(OnTapofNextEvent value)? onTapofNextEvent,
@@ -1154,6 +1177,7 @@ class _$FetchChapterVersesbyTextName implements FetchChapterVersesbyTextName {
     TResult Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
     TResult Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
+    TResult Function(FetchAllRecitors value)? fetchAllRecitors,
     TResult Function(SaveRecitorNameAndId value)? saveRecitorNameAndId,
     TResult Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult Function(OnTapofNextEvent value)? onTapofNextEvent,
@@ -1266,6 +1290,7 @@ class _$FetchParaVerses implements FetchParaVerses {
     required TResult Function(bool isExpand) isExpandonSearchEvent,
     required TResult Function(int transilationId, String translationName)
         saveGlobalTransilationIdAndName,
+    required TResult Function() fetchAllRecitors,
     required TResult Function(int recitorId, String recitorName)
         saveRecitorNameAndId,
     required TResult Function(String textName) saveQuranTexttypeName,
@@ -1303,6 +1328,7 @@ class _$FetchParaVerses implements FetchParaVerses {
     TResult? Function(bool isExpand)? isExpandonSearchEvent,
     TResult? Function(int transilationId, String translationName)?
         saveGlobalTransilationIdAndName,
+    TResult? Function()? fetchAllRecitors,
     TResult? Function(int recitorId, String recitorName)? saveRecitorNameAndId,
     TResult? Function(String textName)? saveQuranTexttypeName,
     TResult? Function()? onTapofNextEvent,
@@ -1339,6 +1365,7 @@ class _$FetchParaVerses implements FetchParaVerses {
     TResult Function(bool isExpand)? isExpandonSearchEvent,
     TResult Function(int transilationId, String translationName)?
         saveGlobalTransilationIdAndName,
+    TResult Function()? fetchAllRecitors,
     TResult Function(int recitorId, String recitorName)? saveRecitorNameAndId,
     TResult Function(String textName)? saveQuranTexttypeName,
     TResult Function()? onTapofNextEvent,
@@ -1389,6 +1416,7 @@ class _$FetchParaVerses implements FetchParaVerses {
         isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
+    required TResult Function(FetchAllRecitors value) fetchAllRecitors,
     required TResult Function(SaveRecitorNameAndId value) saveRecitorNameAndId,
     required TResult Function(SaveQuranTexttypeName value)
         saveQuranTexttypeName,
@@ -1430,6 +1458,7 @@ class _$FetchParaVerses implements FetchParaVerses {
     TResult? Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
     TResult? Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
+    TResult? Function(FetchAllRecitors value)? fetchAllRecitors,
     TResult? Function(SaveRecitorNameAndId value)? saveRecitorNameAndId,
     TResult? Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult? Function(OnTapofNextEvent value)? onTapofNextEvent,
@@ -1470,6 +1499,7 @@ class _$FetchParaVerses implements FetchParaVerses {
     TResult Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
     TResult Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
+    TResult Function(FetchAllRecitors value)? fetchAllRecitors,
     TResult Function(SaveRecitorNameAndId value)? saveRecitorNameAndId,
     TResult Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult Function(OnTapofNextEvent value)? onTapofNextEvent,
@@ -1555,6 +1585,7 @@ class _$FetchQuranPara implements FetchQuranPara {
     required TResult Function(bool isExpand) isExpandonSearchEvent,
     required TResult Function(int transilationId, String translationName)
         saveGlobalTransilationIdAndName,
+    required TResult Function() fetchAllRecitors,
     required TResult Function(int recitorId, String recitorName)
         saveRecitorNameAndId,
     required TResult Function(String textName) saveQuranTexttypeName,
@@ -1592,6 +1623,7 @@ class _$FetchQuranPara implements FetchQuranPara {
     TResult? Function(bool isExpand)? isExpandonSearchEvent,
     TResult? Function(int transilationId, String translationName)?
         saveGlobalTransilationIdAndName,
+    TResult? Function()? fetchAllRecitors,
     TResult? Function(int recitorId, String recitorName)? saveRecitorNameAndId,
     TResult? Function(String textName)? saveQuranTexttypeName,
     TResult? Function()? onTapofNextEvent,
@@ -1628,6 +1660,7 @@ class _$FetchQuranPara implements FetchQuranPara {
     TResult Function(bool isExpand)? isExpandonSearchEvent,
     TResult Function(int transilationId, String translationName)?
         saveGlobalTransilationIdAndName,
+    TResult Function()? fetchAllRecitors,
     TResult Function(int recitorId, String recitorName)? saveRecitorNameAndId,
     TResult Function(String textName)? saveQuranTexttypeName,
     TResult Function()? onTapofNextEvent,
@@ -1678,6 +1711,7 @@ class _$FetchQuranPara implements FetchQuranPara {
         isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
+    required TResult Function(FetchAllRecitors value) fetchAllRecitors,
     required TResult Function(SaveRecitorNameAndId value) saveRecitorNameAndId,
     required TResult Function(SaveQuranTexttypeName value)
         saveQuranTexttypeName,
@@ -1719,6 +1753,7 @@ class _$FetchQuranPara implements FetchQuranPara {
     TResult? Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
     TResult? Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
+    TResult? Function(FetchAllRecitors value)? fetchAllRecitors,
     TResult? Function(SaveRecitorNameAndId value)? saveRecitorNameAndId,
     TResult? Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult? Function(OnTapofNextEvent value)? onTapofNextEvent,
@@ -1759,6 +1794,7 @@ class _$FetchQuranPara implements FetchQuranPara {
     TResult Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
     TResult Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
+    TResult Function(FetchAllRecitors value)? fetchAllRecitors,
     TResult Function(SaveRecitorNameAndId value)? saveRecitorNameAndId,
     TResult Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult Function(OnTapofNextEvent value)? onTapofNextEvent,
@@ -1841,6 +1877,7 @@ class _$ChangeExpandOnSearchEvent implements ChangeExpandOnSearchEvent {
     required TResult Function(bool isExpand) isExpandonSearchEvent,
     required TResult Function(int transilationId, String translationName)
         saveGlobalTransilationIdAndName,
+    required TResult Function() fetchAllRecitors,
     required TResult Function(int recitorId, String recitorName)
         saveRecitorNameAndId,
     required TResult Function(String textName) saveQuranTexttypeName,
@@ -1878,6 +1915,7 @@ class _$ChangeExpandOnSearchEvent implements ChangeExpandOnSearchEvent {
     TResult? Function(bool isExpand)? isExpandonSearchEvent,
     TResult? Function(int transilationId, String translationName)?
         saveGlobalTransilationIdAndName,
+    TResult? Function()? fetchAllRecitors,
     TResult? Function(int recitorId, String recitorName)? saveRecitorNameAndId,
     TResult? Function(String textName)? saveQuranTexttypeName,
     TResult? Function()? onTapofNextEvent,
@@ -1914,6 +1952,7 @@ class _$ChangeExpandOnSearchEvent implements ChangeExpandOnSearchEvent {
     TResult Function(bool isExpand)? isExpandonSearchEvent,
     TResult Function(int transilationId, String translationName)?
         saveGlobalTransilationIdAndName,
+    TResult Function()? fetchAllRecitors,
     TResult Function(int recitorId, String recitorName)? saveRecitorNameAndId,
     TResult Function(String textName)? saveQuranTexttypeName,
     TResult Function()? onTapofNextEvent,
@@ -1964,6 +2003,7 @@ class _$ChangeExpandOnSearchEvent implements ChangeExpandOnSearchEvent {
         isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
+    required TResult Function(FetchAllRecitors value) fetchAllRecitors,
     required TResult Function(SaveRecitorNameAndId value) saveRecitorNameAndId,
     required TResult Function(SaveQuranTexttypeName value)
         saveQuranTexttypeName,
@@ -2005,6 +2045,7 @@ class _$ChangeExpandOnSearchEvent implements ChangeExpandOnSearchEvent {
     TResult? Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
     TResult? Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
+    TResult? Function(FetchAllRecitors value)? fetchAllRecitors,
     TResult? Function(SaveRecitorNameAndId value)? saveRecitorNameAndId,
     TResult? Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult? Function(OnTapofNextEvent value)? onTapofNextEvent,
@@ -2045,6 +2086,7 @@ class _$ChangeExpandOnSearchEvent implements ChangeExpandOnSearchEvent {
     TResult Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
     TResult Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
+    TResult Function(FetchAllRecitors value)? fetchAllRecitors,
     TResult Function(SaveRecitorNameAndId value)? saveRecitorNameAndId,
     TResult Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult Function(OnTapofNextEvent value)? onTapofNextEvent,
@@ -2157,6 +2199,7 @@ class _$FechtChapterbyId implements FechtChapterbyId {
     required TResult Function(bool isExpand) isExpandonSearchEvent,
     required TResult Function(int transilationId, String translationName)
         saveGlobalTransilationIdAndName,
+    required TResult Function() fetchAllRecitors,
     required TResult Function(int recitorId, String recitorName)
         saveRecitorNameAndId,
     required TResult Function(String textName) saveQuranTexttypeName,
@@ -2194,6 +2237,7 @@ class _$FechtChapterbyId implements FechtChapterbyId {
     TResult? Function(bool isExpand)? isExpandonSearchEvent,
     TResult? Function(int transilationId, String translationName)?
         saveGlobalTransilationIdAndName,
+    TResult? Function()? fetchAllRecitors,
     TResult? Function(int recitorId, String recitorName)? saveRecitorNameAndId,
     TResult? Function(String textName)? saveQuranTexttypeName,
     TResult? Function()? onTapofNextEvent,
@@ -2230,6 +2274,7 @@ class _$FechtChapterbyId implements FechtChapterbyId {
     TResult Function(bool isExpand)? isExpandonSearchEvent,
     TResult Function(int transilationId, String translationName)?
         saveGlobalTransilationIdAndName,
+    TResult Function()? fetchAllRecitors,
     TResult Function(int recitorId, String recitorName)? saveRecitorNameAndId,
     TResult Function(String textName)? saveQuranTexttypeName,
     TResult Function()? onTapofNextEvent,
@@ -2280,6 +2325,7 @@ class _$FechtChapterbyId implements FechtChapterbyId {
         isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
+    required TResult Function(FetchAllRecitors value) fetchAllRecitors,
     required TResult Function(SaveRecitorNameAndId value) saveRecitorNameAndId,
     required TResult Function(SaveQuranTexttypeName value)
         saveQuranTexttypeName,
@@ -2321,6 +2367,7 @@ class _$FechtChapterbyId implements FechtChapterbyId {
     TResult? Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
     TResult? Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
+    TResult? Function(FetchAllRecitors value)? fetchAllRecitors,
     TResult? Function(SaveRecitorNameAndId value)? saveRecitorNameAndId,
     TResult? Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult? Function(OnTapofNextEvent value)? onTapofNextEvent,
@@ -2361,6 +2408,7 @@ class _$FechtChapterbyId implements FechtChapterbyId {
     TResult Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
     TResult Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
+    TResult Function(FetchAllRecitors value)? fetchAllRecitors,
     TResult Function(SaveRecitorNameAndId value)? saveRecitorNameAndId,
     TResult Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult Function(OnTapofNextEvent value)? onTapofNextEvent,
@@ -2474,6 +2522,7 @@ class _$SearchChapterEvent implements SearchChapterEvent {
     required TResult Function(bool isExpand) isExpandonSearchEvent,
     required TResult Function(int transilationId, String translationName)
         saveGlobalTransilationIdAndName,
+    required TResult Function() fetchAllRecitors,
     required TResult Function(int recitorId, String recitorName)
         saveRecitorNameAndId,
     required TResult Function(String textName) saveQuranTexttypeName,
@@ -2511,6 +2560,7 @@ class _$SearchChapterEvent implements SearchChapterEvent {
     TResult? Function(bool isExpand)? isExpandonSearchEvent,
     TResult? Function(int transilationId, String translationName)?
         saveGlobalTransilationIdAndName,
+    TResult? Function()? fetchAllRecitors,
     TResult? Function(int recitorId, String recitorName)? saveRecitorNameAndId,
     TResult? Function(String textName)? saveQuranTexttypeName,
     TResult? Function()? onTapofNextEvent,
@@ -2547,6 +2597,7 @@ class _$SearchChapterEvent implements SearchChapterEvent {
     TResult Function(bool isExpand)? isExpandonSearchEvent,
     TResult Function(int transilationId, String translationName)?
         saveGlobalTransilationIdAndName,
+    TResult Function()? fetchAllRecitors,
     TResult Function(int recitorId, String recitorName)? saveRecitorNameAndId,
     TResult Function(String textName)? saveQuranTexttypeName,
     TResult Function()? onTapofNextEvent,
@@ -2597,6 +2648,7 @@ class _$SearchChapterEvent implements SearchChapterEvent {
         isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
+    required TResult Function(FetchAllRecitors value) fetchAllRecitors,
     required TResult Function(SaveRecitorNameAndId value) saveRecitorNameAndId,
     required TResult Function(SaveQuranTexttypeName value)
         saveQuranTexttypeName,
@@ -2638,6 +2690,7 @@ class _$SearchChapterEvent implements SearchChapterEvent {
     TResult? Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
     TResult? Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
+    TResult? Function(FetchAllRecitors value)? fetchAllRecitors,
     TResult? Function(SaveRecitorNameAndId value)? saveRecitorNameAndId,
     TResult? Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult? Function(OnTapofNextEvent value)? onTapofNextEvent,
@@ -2678,6 +2731,7 @@ class _$SearchChapterEvent implements SearchChapterEvent {
     TResult Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
     TResult Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
+    TResult Function(FetchAllRecitors value)? fetchAllRecitors,
     TResult Function(SaveRecitorNameAndId value)? saveRecitorNameAndId,
     TResult Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult Function(OnTapofNextEvent value)? onTapofNextEvent,
@@ -2797,6 +2851,7 @@ class _$FetchVersesByKey implements FetchVersesByKey {
     required TResult Function(bool isExpand) isExpandonSearchEvent,
     required TResult Function(int transilationId, String translationName)
         saveGlobalTransilationIdAndName,
+    required TResult Function() fetchAllRecitors,
     required TResult Function(int recitorId, String recitorName)
         saveRecitorNameAndId,
     required TResult Function(String textName) saveQuranTexttypeName,
@@ -2834,6 +2889,7 @@ class _$FetchVersesByKey implements FetchVersesByKey {
     TResult? Function(bool isExpand)? isExpandonSearchEvent,
     TResult? Function(int transilationId, String translationName)?
         saveGlobalTransilationIdAndName,
+    TResult? Function()? fetchAllRecitors,
     TResult? Function(int recitorId, String recitorName)? saveRecitorNameAndId,
     TResult? Function(String textName)? saveQuranTexttypeName,
     TResult? Function()? onTapofNextEvent,
@@ -2870,6 +2926,7 @@ class _$FetchVersesByKey implements FetchVersesByKey {
     TResult Function(bool isExpand)? isExpandonSearchEvent,
     TResult Function(int transilationId, String translationName)?
         saveGlobalTransilationIdAndName,
+    TResult Function()? fetchAllRecitors,
     TResult Function(int recitorId, String recitorName)? saveRecitorNameAndId,
     TResult Function(String textName)? saveQuranTexttypeName,
     TResult Function()? onTapofNextEvent,
@@ -2920,6 +2977,7 @@ class _$FetchVersesByKey implements FetchVersesByKey {
         isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
+    required TResult Function(FetchAllRecitors value) fetchAllRecitors,
     required TResult Function(SaveRecitorNameAndId value) saveRecitorNameAndId,
     required TResult Function(SaveQuranTexttypeName value)
         saveQuranTexttypeName,
@@ -2961,6 +3019,7 @@ class _$FetchVersesByKey implements FetchVersesByKey {
     TResult? Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
     TResult? Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
+    TResult? Function(FetchAllRecitors value)? fetchAllRecitors,
     TResult? Function(SaveRecitorNameAndId value)? saveRecitorNameAndId,
     TResult? Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult? Function(OnTapofNextEvent value)? onTapofNextEvent,
@@ -3001,6 +3060,7 @@ class _$FetchVersesByKey implements FetchVersesByKey {
     TResult Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
     TResult Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
+    TResult Function(FetchAllRecitors value)? fetchAllRecitors,
     TResult Function(SaveRecitorNameAndId value)? saveRecitorNameAndId,
     TResult Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult Function(OnTapofNextEvent value)? onTapofNextEvent,
@@ -3122,6 +3182,7 @@ class _$FetchParaAudios implements FetchParaAudios {
     required TResult Function(bool isExpand) isExpandonSearchEvent,
     required TResult Function(int transilationId, String translationName)
         saveGlobalTransilationIdAndName,
+    required TResult Function() fetchAllRecitors,
     required TResult Function(int recitorId, String recitorName)
         saveRecitorNameAndId,
     required TResult Function(String textName) saveQuranTexttypeName,
@@ -3159,6 +3220,7 @@ class _$FetchParaAudios implements FetchParaAudios {
     TResult? Function(bool isExpand)? isExpandonSearchEvent,
     TResult? Function(int transilationId, String translationName)?
         saveGlobalTransilationIdAndName,
+    TResult? Function()? fetchAllRecitors,
     TResult? Function(int recitorId, String recitorName)? saveRecitorNameAndId,
     TResult? Function(String textName)? saveQuranTexttypeName,
     TResult? Function()? onTapofNextEvent,
@@ -3195,6 +3257,7 @@ class _$FetchParaAudios implements FetchParaAudios {
     TResult Function(bool isExpand)? isExpandonSearchEvent,
     TResult Function(int transilationId, String translationName)?
         saveGlobalTransilationIdAndName,
+    TResult Function()? fetchAllRecitors,
     TResult Function(int recitorId, String recitorName)? saveRecitorNameAndId,
     TResult Function(String textName)? saveQuranTexttypeName,
     TResult Function()? onTapofNextEvent,
@@ -3245,6 +3308,7 @@ class _$FetchParaAudios implements FetchParaAudios {
         isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
+    required TResult Function(FetchAllRecitors value) fetchAllRecitors,
     required TResult Function(SaveRecitorNameAndId value) saveRecitorNameAndId,
     required TResult Function(SaveQuranTexttypeName value)
         saveQuranTexttypeName,
@@ -3286,6 +3350,7 @@ class _$FetchParaAudios implements FetchParaAudios {
     TResult? Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
     TResult? Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
+    TResult? Function(FetchAllRecitors value)? fetchAllRecitors,
     TResult? Function(SaveRecitorNameAndId value)? saveRecitorNameAndId,
     TResult? Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult? Function(OnTapofNextEvent value)? onTapofNextEvent,
@@ -3326,6 +3391,7 @@ class _$FetchParaAudios implements FetchParaAudios {
     TResult Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
     TResult Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
+    TResult Function(FetchAllRecitors value)? fetchAllRecitors,
     TResult Function(SaveRecitorNameAndId value)? saveRecitorNameAndId,
     TResult Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult Function(OnTapofNextEvent value)? onTapofNextEvent,
@@ -3450,6 +3516,7 @@ class _$FetchChapterAudioFiles implements FetchChapterAudioFiles {
     required TResult Function(bool isExpand) isExpandonSearchEvent,
     required TResult Function(int transilationId, String translationName)
         saveGlobalTransilationIdAndName,
+    required TResult Function() fetchAllRecitors,
     required TResult Function(int recitorId, String recitorName)
         saveRecitorNameAndId,
     required TResult Function(String textName) saveQuranTexttypeName,
@@ -3487,6 +3554,7 @@ class _$FetchChapterAudioFiles implements FetchChapterAudioFiles {
     TResult? Function(bool isExpand)? isExpandonSearchEvent,
     TResult? Function(int transilationId, String translationName)?
         saveGlobalTransilationIdAndName,
+    TResult? Function()? fetchAllRecitors,
     TResult? Function(int recitorId, String recitorName)? saveRecitorNameAndId,
     TResult? Function(String textName)? saveQuranTexttypeName,
     TResult? Function()? onTapofNextEvent,
@@ -3523,6 +3591,7 @@ class _$FetchChapterAudioFiles implements FetchChapterAudioFiles {
     TResult Function(bool isExpand)? isExpandonSearchEvent,
     TResult Function(int transilationId, String translationName)?
         saveGlobalTransilationIdAndName,
+    TResult Function()? fetchAllRecitors,
     TResult Function(int recitorId, String recitorName)? saveRecitorNameAndId,
     TResult Function(String textName)? saveQuranTexttypeName,
     TResult Function()? onTapofNextEvent,
@@ -3573,6 +3642,7 @@ class _$FetchChapterAudioFiles implements FetchChapterAudioFiles {
         isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
+    required TResult Function(FetchAllRecitors value) fetchAllRecitors,
     required TResult Function(SaveRecitorNameAndId value) saveRecitorNameAndId,
     required TResult Function(SaveQuranTexttypeName value)
         saveQuranTexttypeName,
@@ -3614,6 +3684,7 @@ class _$FetchChapterAudioFiles implements FetchChapterAudioFiles {
     TResult? Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
     TResult? Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
+    TResult? Function(FetchAllRecitors value)? fetchAllRecitors,
     TResult? Function(SaveRecitorNameAndId value)? saveRecitorNameAndId,
     TResult? Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult? Function(OnTapofNextEvent value)? onTapofNextEvent,
@@ -3654,6 +3725,7 @@ class _$FetchChapterAudioFiles implements FetchChapterAudioFiles {
     TResult Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
     TResult Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
+    TResult Function(FetchAllRecitors value)? fetchAllRecitors,
     TResult Function(SaveRecitorNameAndId value)? saveRecitorNameAndId,
     TResult Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult Function(OnTapofNextEvent value)? onTapofNextEvent,
@@ -3771,6 +3843,7 @@ class _$ChangeIndexBackGroundSetting implements ChangeIndexBackGroundSetting {
     required TResult Function(bool isExpand) isExpandonSearchEvent,
     required TResult Function(int transilationId, String translationName)
         saveGlobalTransilationIdAndName,
+    required TResult Function() fetchAllRecitors,
     required TResult Function(int recitorId, String recitorName)
         saveRecitorNameAndId,
     required TResult Function(String textName) saveQuranTexttypeName,
@@ -3808,6 +3881,7 @@ class _$ChangeIndexBackGroundSetting implements ChangeIndexBackGroundSetting {
     TResult? Function(bool isExpand)? isExpandonSearchEvent,
     TResult? Function(int transilationId, String translationName)?
         saveGlobalTransilationIdAndName,
+    TResult? Function()? fetchAllRecitors,
     TResult? Function(int recitorId, String recitorName)? saveRecitorNameAndId,
     TResult? Function(String textName)? saveQuranTexttypeName,
     TResult? Function()? onTapofNextEvent,
@@ -3844,6 +3918,7 @@ class _$ChangeIndexBackGroundSetting implements ChangeIndexBackGroundSetting {
     TResult Function(bool isExpand)? isExpandonSearchEvent,
     TResult Function(int transilationId, String translationName)?
         saveGlobalTransilationIdAndName,
+    TResult Function()? fetchAllRecitors,
     TResult Function(int recitorId, String recitorName)? saveRecitorNameAndId,
     TResult Function(String textName)? saveQuranTexttypeName,
     TResult Function()? onTapofNextEvent,
@@ -3894,6 +3969,7 @@ class _$ChangeIndexBackGroundSetting implements ChangeIndexBackGroundSetting {
         isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
+    required TResult Function(FetchAllRecitors value) fetchAllRecitors,
     required TResult Function(SaveRecitorNameAndId value) saveRecitorNameAndId,
     required TResult Function(SaveQuranTexttypeName value)
         saveQuranTexttypeName,
@@ -3935,6 +4011,7 @@ class _$ChangeIndexBackGroundSetting implements ChangeIndexBackGroundSetting {
     TResult? Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
     TResult? Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
+    TResult? Function(FetchAllRecitors value)? fetchAllRecitors,
     TResult? Function(SaveRecitorNameAndId value)? saveRecitorNameAndId,
     TResult? Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult? Function(OnTapofNextEvent value)? onTapofNextEvent,
@@ -3975,6 +4052,7 @@ class _$ChangeIndexBackGroundSetting implements ChangeIndexBackGroundSetting {
     TResult Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
     TResult Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
+    TResult Function(FetchAllRecitors value)? fetchAllRecitors,
     TResult Function(SaveRecitorNameAndId value)? saveRecitorNameAndId,
     TResult Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult Function(OnTapofNextEvent value)? onTapofNextEvent,
@@ -4061,6 +4139,7 @@ class _$IncreaseFontsize implements IncreaseFontsize {
     required TResult Function(bool isExpand) isExpandonSearchEvent,
     required TResult Function(int transilationId, String translationName)
         saveGlobalTransilationIdAndName,
+    required TResult Function() fetchAllRecitors,
     required TResult Function(int recitorId, String recitorName)
         saveRecitorNameAndId,
     required TResult Function(String textName) saveQuranTexttypeName,
@@ -4098,6 +4177,7 @@ class _$IncreaseFontsize implements IncreaseFontsize {
     TResult? Function(bool isExpand)? isExpandonSearchEvent,
     TResult? Function(int transilationId, String translationName)?
         saveGlobalTransilationIdAndName,
+    TResult? Function()? fetchAllRecitors,
     TResult? Function(int recitorId, String recitorName)? saveRecitorNameAndId,
     TResult? Function(String textName)? saveQuranTexttypeName,
     TResult? Function()? onTapofNextEvent,
@@ -4134,6 +4214,7 @@ class _$IncreaseFontsize implements IncreaseFontsize {
     TResult Function(bool isExpand)? isExpandonSearchEvent,
     TResult Function(int transilationId, String translationName)?
         saveGlobalTransilationIdAndName,
+    TResult Function()? fetchAllRecitors,
     TResult Function(int recitorId, String recitorName)? saveRecitorNameAndId,
     TResult Function(String textName)? saveQuranTexttypeName,
     TResult Function()? onTapofNextEvent,
@@ -4184,6 +4265,7 @@ class _$IncreaseFontsize implements IncreaseFontsize {
         isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
+    required TResult Function(FetchAllRecitors value) fetchAllRecitors,
     required TResult Function(SaveRecitorNameAndId value) saveRecitorNameAndId,
     required TResult Function(SaveQuranTexttypeName value)
         saveQuranTexttypeName,
@@ -4225,6 +4307,7 @@ class _$IncreaseFontsize implements IncreaseFontsize {
     TResult? Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
     TResult? Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
+    TResult? Function(FetchAllRecitors value)? fetchAllRecitors,
     TResult? Function(SaveRecitorNameAndId value)? saveRecitorNameAndId,
     TResult? Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult? Function(OnTapofNextEvent value)? onTapofNextEvent,
@@ -4265,6 +4348,7 @@ class _$IncreaseFontsize implements IncreaseFontsize {
     TResult Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
     TResult Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
+    TResult Function(FetchAllRecitors value)? fetchAllRecitors,
     TResult Function(SaveRecitorNameAndId value)? saveRecitorNameAndId,
     TResult Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult Function(OnTapofNextEvent value)? onTapofNextEvent,
@@ -4345,6 +4429,7 @@ class _$DecreaseFontsize implements DecreaseFontsize {
     required TResult Function(bool isExpand) isExpandonSearchEvent,
     required TResult Function(int transilationId, String translationName)
         saveGlobalTransilationIdAndName,
+    required TResult Function() fetchAllRecitors,
     required TResult Function(int recitorId, String recitorName)
         saveRecitorNameAndId,
     required TResult Function(String textName) saveQuranTexttypeName,
@@ -4382,6 +4467,7 @@ class _$DecreaseFontsize implements DecreaseFontsize {
     TResult? Function(bool isExpand)? isExpandonSearchEvent,
     TResult? Function(int transilationId, String translationName)?
         saveGlobalTransilationIdAndName,
+    TResult? Function()? fetchAllRecitors,
     TResult? Function(int recitorId, String recitorName)? saveRecitorNameAndId,
     TResult? Function(String textName)? saveQuranTexttypeName,
     TResult? Function()? onTapofNextEvent,
@@ -4418,6 +4504,7 @@ class _$DecreaseFontsize implements DecreaseFontsize {
     TResult Function(bool isExpand)? isExpandonSearchEvent,
     TResult Function(int transilationId, String translationName)?
         saveGlobalTransilationIdAndName,
+    TResult Function()? fetchAllRecitors,
     TResult Function(int recitorId, String recitorName)? saveRecitorNameAndId,
     TResult Function(String textName)? saveQuranTexttypeName,
     TResult Function()? onTapofNextEvent,
@@ -4468,6 +4555,7 @@ class _$DecreaseFontsize implements DecreaseFontsize {
         isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
+    required TResult Function(FetchAllRecitors value) fetchAllRecitors,
     required TResult Function(SaveRecitorNameAndId value) saveRecitorNameAndId,
     required TResult Function(SaveQuranTexttypeName value)
         saveQuranTexttypeName,
@@ -4509,6 +4597,7 @@ class _$DecreaseFontsize implements DecreaseFontsize {
     TResult? Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
     TResult? Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
+    TResult? Function(FetchAllRecitors value)? fetchAllRecitors,
     TResult? Function(SaveRecitorNameAndId value)? saveRecitorNameAndId,
     TResult? Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult? Function(OnTapofNextEvent value)? onTapofNextEvent,
@@ -4549,6 +4638,7 @@ class _$DecreaseFontsize implements DecreaseFontsize {
     TResult Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
     TResult Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
+    TResult Function(FetchAllRecitors value)? fetchAllRecitors,
     TResult Function(SaveRecitorNameAndId value)? saveRecitorNameAndId,
     TResult Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult Function(OnTapofNextEvent value)? onTapofNextEvent,
@@ -4631,6 +4721,7 @@ class _$FetchAllTranslationsEvent implements FetchAllTranslationsEvent {
     required TResult Function(bool isExpand) isExpandonSearchEvent,
     required TResult Function(int transilationId, String translationName)
         saveGlobalTransilationIdAndName,
+    required TResult Function() fetchAllRecitors,
     required TResult Function(int recitorId, String recitorName)
         saveRecitorNameAndId,
     required TResult Function(String textName) saveQuranTexttypeName,
@@ -4668,6 +4759,7 @@ class _$FetchAllTranslationsEvent implements FetchAllTranslationsEvent {
     TResult? Function(bool isExpand)? isExpandonSearchEvent,
     TResult? Function(int transilationId, String translationName)?
         saveGlobalTransilationIdAndName,
+    TResult? Function()? fetchAllRecitors,
     TResult? Function(int recitorId, String recitorName)? saveRecitorNameAndId,
     TResult? Function(String textName)? saveQuranTexttypeName,
     TResult? Function()? onTapofNextEvent,
@@ -4704,6 +4796,7 @@ class _$FetchAllTranslationsEvent implements FetchAllTranslationsEvent {
     TResult Function(bool isExpand)? isExpandonSearchEvent,
     TResult Function(int transilationId, String translationName)?
         saveGlobalTransilationIdAndName,
+    TResult Function()? fetchAllRecitors,
     TResult Function(int recitorId, String recitorName)? saveRecitorNameAndId,
     TResult Function(String textName)? saveQuranTexttypeName,
     TResult Function()? onTapofNextEvent,
@@ -4754,6 +4847,7 @@ class _$FetchAllTranslationsEvent implements FetchAllTranslationsEvent {
         isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
+    required TResult Function(FetchAllRecitors value) fetchAllRecitors,
     required TResult Function(SaveRecitorNameAndId value) saveRecitorNameAndId,
     required TResult Function(SaveQuranTexttypeName value)
         saveQuranTexttypeName,
@@ -4795,6 +4889,7 @@ class _$FetchAllTranslationsEvent implements FetchAllTranslationsEvent {
     TResult? Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
     TResult? Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
+    TResult? Function(FetchAllRecitors value)? fetchAllRecitors,
     TResult? Function(SaveRecitorNameAndId value)? saveRecitorNameAndId,
     TResult? Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult? Function(OnTapofNextEvent value)? onTapofNextEvent,
@@ -4835,6 +4930,7 @@ class _$FetchAllTranslationsEvent implements FetchAllTranslationsEvent {
     TResult Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
     TResult Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
+    TResult Function(FetchAllRecitors value)? fetchAllRecitors,
     TResult Function(SaveRecitorNameAndId value)? saveRecitorNameAndId,
     TResult Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult Function(OnTapofNextEvent value)? onTapofNextEvent,
@@ -4955,6 +5051,7 @@ class _$FetchTranslationChapterTexts implements FetchTranslationChapterTexts {
     required TResult Function(bool isExpand) isExpandonSearchEvent,
     required TResult Function(int transilationId, String translationName)
         saveGlobalTransilationIdAndName,
+    required TResult Function() fetchAllRecitors,
     required TResult Function(int recitorId, String recitorName)
         saveRecitorNameAndId,
     required TResult Function(String textName) saveQuranTexttypeName,
@@ -4992,6 +5089,7 @@ class _$FetchTranslationChapterTexts implements FetchTranslationChapterTexts {
     TResult? Function(bool isExpand)? isExpandonSearchEvent,
     TResult? Function(int transilationId, String translationName)?
         saveGlobalTransilationIdAndName,
+    TResult? Function()? fetchAllRecitors,
     TResult? Function(int recitorId, String recitorName)? saveRecitorNameAndId,
     TResult? Function(String textName)? saveQuranTexttypeName,
     TResult? Function()? onTapofNextEvent,
@@ -5028,6 +5126,7 @@ class _$FetchTranslationChapterTexts implements FetchTranslationChapterTexts {
     TResult Function(bool isExpand)? isExpandonSearchEvent,
     TResult Function(int transilationId, String translationName)?
         saveGlobalTransilationIdAndName,
+    TResult Function()? fetchAllRecitors,
     TResult Function(int recitorId, String recitorName)? saveRecitorNameAndId,
     TResult Function(String textName)? saveQuranTexttypeName,
     TResult Function()? onTapofNextEvent,
@@ -5078,6 +5177,7 @@ class _$FetchTranslationChapterTexts implements FetchTranslationChapterTexts {
         isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
+    required TResult Function(FetchAllRecitors value) fetchAllRecitors,
     required TResult Function(SaveRecitorNameAndId value) saveRecitorNameAndId,
     required TResult Function(SaveQuranTexttypeName value)
         saveQuranTexttypeName,
@@ -5119,6 +5219,7 @@ class _$FetchTranslationChapterTexts implements FetchTranslationChapterTexts {
     TResult? Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
     TResult? Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
+    TResult? Function(FetchAllRecitors value)? fetchAllRecitors,
     TResult? Function(SaveRecitorNameAndId value)? saveRecitorNameAndId,
     TResult? Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult? Function(OnTapofNextEvent value)? onTapofNextEvent,
@@ -5159,6 +5260,7 @@ class _$FetchTranslationChapterTexts implements FetchTranslationChapterTexts {
     TResult Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
     TResult Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
+    TResult Function(FetchAllRecitors value)? fetchAllRecitors,
     TResult Function(SaveRecitorNameAndId value)? saveRecitorNameAndId,
     TResult Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult Function(OnTapofNextEvent value)? onTapofNextEvent,
@@ -5285,6 +5387,7 @@ class _$FetchTranslationParaTexts implements FetchTranslationParaTexts {
     required TResult Function(bool isExpand) isExpandonSearchEvent,
     required TResult Function(int transilationId, String translationName)
         saveGlobalTransilationIdAndName,
+    required TResult Function() fetchAllRecitors,
     required TResult Function(int recitorId, String recitorName)
         saveRecitorNameAndId,
     required TResult Function(String textName) saveQuranTexttypeName,
@@ -5322,6 +5425,7 @@ class _$FetchTranslationParaTexts implements FetchTranslationParaTexts {
     TResult? Function(bool isExpand)? isExpandonSearchEvent,
     TResult? Function(int transilationId, String translationName)?
         saveGlobalTransilationIdAndName,
+    TResult? Function()? fetchAllRecitors,
     TResult? Function(int recitorId, String recitorName)? saveRecitorNameAndId,
     TResult? Function(String textName)? saveQuranTexttypeName,
     TResult? Function()? onTapofNextEvent,
@@ -5358,6 +5462,7 @@ class _$FetchTranslationParaTexts implements FetchTranslationParaTexts {
     TResult Function(bool isExpand)? isExpandonSearchEvent,
     TResult Function(int transilationId, String translationName)?
         saveGlobalTransilationIdAndName,
+    TResult Function()? fetchAllRecitors,
     TResult Function(int recitorId, String recitorName)? saveRecitorNameAndId,
     TResult Function(String textName)? saveQuranTexttypeName,
     TResult Function()? onTapofNextEvent,
@@ -5408,6 +5513,7 @@ class _$FetchTranslationParaTexts implements FetchTranslationParaTexts {
         isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
+    required TResult Function(FetchAllRecitors value) fetchAllRecitors,
     required TResult Function(SaveRecitorNameAndId value) saveRecitorNameAndId,
     required TResult Function(SaveQuranTexttypeName value)
         saveQuranTexttypeName,
@@ -5449,6 +5555,7 @@ class _$FetchTranslationParaTexts implements FetchTranslationParaTexts {
     TResult? Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
     TResult? Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
+    TResult? Function(FetchAllRecitors value)? fetchAllRecitors,
     TResult? Function(SaveRecitorNameAndId value)? saveRecitorNameAndId,
     TResult? Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult? Function(OnTapofNextEvent value)? onTapofNextEvent,
@@ -5489,6 +5596,7 @@ class _$FetchTranslationParaTexts implements FetchTranslationParaTexts {
     TResult Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
     TResult Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
+    TResult Function(FetchAllRecitors value)? fetchAllRecitors,
     TResult Function(SaveRecitorNameAndId value)? saveRecitorNameAndId,
     TResult Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult Function(OnTapofNextEvent value)? onTapofNextEvent,
@@ -5604,6 +5712,7 @@ class _$PlayAllParaAudiosAuto implements PlayAllParaAudiosAuto {
     required TResult Function(bool isExpand) isExpandonSearchEvent,
     required TResult Function(int transilationId, String translationName)
         saveGlobalTransilationIdAndName,
+    required TResult Function() fetchAllRecitors,
     required TResult Function(int recitorId, String recitorName)
         saveRecitorNameAndId,
     required TResult Function(String textName) saveQuranTexttypeName,
@@ -5641,6 +5750,7 @@ class _$PlayAllParaAudiosAuto implements PlayAllParaAudiosAuto {
     TResult? Function(bool isExpand)? isExpandonSearchEvent,
     TResult? Function(int transilationId, String translationName)?
         saveGlobalTransilationIdAndName,
+    TResult? Function()? fetchAllRecitors,
     TResult? Function(int recitorId, String recitorName)? saveRecitorNameAndId,
     TResult? Function(String textName)? saveQuranTexttypeName,
     TResult? Function()? onTapofNextEvent,
@@ -5677,6 +5787,7 @@ class _$PlayAllParaAudiosAuto implements PlayAllParaAudiosAuto {
     TResult Function(bool isExpand)? isExpandonSearchEvent,
     TResult Function(int transilationId, String translationName)?
         saveGlobalTransilationIdAndName,
+    TResult Function()? fetchAllRecitors,
     TResult Function(int recitorId, String recitorName)? saveRecitorNameAndId,
     TResult Function(String textName)? saveQuranTexttypeName,
     TResult Function()? onTapofNextEvent,
@@ -5727,6 +5838,7 @@ class _$PlayAllParaAudiosAuto implements PlayAllParaAudiosAuto {
         isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
+    required TResult Function(FetchAllRecitors value) fetchAllRecitors,
     required TResult Function(SaveRecitorNameAndId value) saveRecitorNameAndId,
     required TResult Function(SaveQuranTexttypeName value)
         saveQuranTexttypeName,
@@ -5768,6 +5880,7 @@ class _$PlayAllParaAudiosAuto implements PlayAllParaAudiosAuto {
     TResult? Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
     TResult? Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
+    TResult? Function(FetchAllRecitors value)? fetchAllRecitors,
     TResult? Function(SaveRecitorNameAndId value)? saveRecitorNameAndId,
     TResult? Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult? Function(OnTapofNextEvent value)? onTapofNextEvent,
@@ -5808,6 +5921,7 @@ class _$PlayAllParaAudiosAuto implements PlayAllParaAudiosAuto {
     TResult Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
     TResult Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
+    TResult Function(FetchAllRecitors value)? fetchAllRecitors,
     TResult Function(SaveRecitorNameAndId value)? saveRecitorNameAndId,
     TResult Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult Function(OnTapofNextEvent value)? onTapofNextEvent,
@@ -5922,6 +6036,7 @@ class _$PlayAllChapterAudiosAuto implements PlayAllChapterAudiosAuto {
     required TResult Function(bool isExpand) isExpandonSearchEvent,
     required TResult Function(int transilationId, String translationName)
         saveGlobalTransilationIdAndName,
+    required TResult Function() fetchAllRecitors,
     required TResult Function(int recitorId, String recitorName)
         saveRecitorNameAndId,
     required TResult Function(String textName) saveQuranTexttypeName,
@@ -5959,6 +6074,7 @@ class _$PlayAllChapterAudiosAuto implements PlayAllChapterAudiosAuto {
     TResult? Function(bool isExpand)? isExpandonSearchEvent,
     TResult? Function(int transilationId, String translationName)?
         saveGlobalTransilationIdAndName,
+    TResult? Function()? fetchAllRecitors,
     TResult? Function(int recitorId, String recitorName)? saveRecitorNameAndId,
     TResult? Function(String textName)? saveQuranTexttypeName,
     TResult? Function()? onTapofNextEvent,
@@ -5995,6 +6111,7 @@ class _$PlayAllChapterAudiosAuto implements PlayAllChapterAudiosAuto {
     TResult Function(bool isExpand)? isExpandonSearchEvent,
     TResult Function(int transilationId, String translationName)?
         saveGlobalTransilationIdAndName,
+    TResult Function()? fetchAllRecitors,
     TResult Function(int recitorId, String recitorName)? saveRecitorNameAndId,
     TResult Function(String textName)? saveQuranTexttypeName,
     TResult Function()? onTapofNextEvent,
@@ -6045,6 +6162,7 @@ class _$PlayAllChapterAudiosAuto implements PlayAllChapterAudiosAuto {
         isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
+    required TResult Function(FetchAllRecitors value) fetchAllRecitors,
     required TResult Function(SaveRecitorNameAndId value) saveRecitorNameAndId,
     required TResult Function(SaveQuranTexttypeName value)
         saveQuranTexttypeName,
@@ -6086,6 +6204,7 @@ class _$PlayAllChapterAudiosAuto implements PlayAllChapterAudiosAuto {
     TResult? Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
     TResult? Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
+    TResult? Function(FetchAllRecitors value)? fetchAllRecitors,
     TResult? Function(SaveRecitorNameAndId value)? saveRecitorNameAndId,
     TResult? Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult? Function(OnTapofNextEvent value)? onTapofNextEvent,
@@ -6126,6 +6245,7 @@ class _$PlayAllChapterAudiosAuto implements PlayAllChapterAudiosAuto {
     TResult Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
     TResult Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
+    TResult Function(FetchAllRecitors value)? fetchAllRecitors,
     TResult Function(SaveRecitorNameAndId value)? saveRecitorNameAndId,
     TResult Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult Function(OnTapofNextEvent value)? onTapofNextEvent,
@@ -6212,6 +6332,7 @@ class _$ShowMusicbar implements ShowMusicbar {
     required TResult Function(bool isExpand) isExpandonSearchEvent,
     required TResult Function(int transilationId, String translationName)
         saveGlobalTransilationIdAndName,
+    required TResult Function() fetchAllRecitors,
     required TResult Function(int recitorId, String recitorName)
         saveRecitorNameAndId,
     required TResult Function(String textName) saveQuranTexttypeName,
@@ -6249,6 +6370,7 @@ class _$ShowMusicbar implements ShowMusicbar {
     TResult? Function(bool isExpand)? isExpandonSearchEvent,
     TResult? Function(int transilationId, String translationName)?
         saveGlobalTransilationIdAndName,
+    TResult? Function()? fetchAllRecitors,
     TResult? Function(int recitorId, String recitorName)? saveRecitorNameAndId,
     TResult? Function(String textName)? saveQuranTexttypeName,
     TResult? Function()? onTapofNextEvent,
@@ -6285,6 +6407,7 @@ class _$ShowMusicbar implements ShowMusicbar {
     TResult Function(bool isExpand)? isExpandonSearchEvent,
     TResult Function(int transilationId, String translationName)?
         saveGlobalTransilationIdAndName,
+    TResult Function()? fetchAllRecitors,
     TResult Function(int recitorId, String recitorName)? saveRecitorNameAndId,
     TResult Function(String textName)? saveQuranTexttypeName,
     TResult Function()? onTapofNextEvent,
@@ -6335,6 +6458,7 @@ class _$ShowMusicbar implements ShowMusicbar {
         isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
+    required TResult Function(FetchAllRecitors value) fetchAllRecitors,
     required TResult Function(SaveRecitorNameAndId value) saveRecitorNameAndId,
     required TResult Function(SaveQuranTexttypeName value)
         saveQuranTexttypeName,
@@ -6376,6 +6500,7 @@ class _$ShowMusicbar implements ShowMusicbar {
     TResult? Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
     TResult? Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
+    TResult? Function(FetchAllRecitors value)? fetchAllRecitors,
     TResult? Function(SaveRecitorNameAndId value)? saveRecitorNameAndId,
     TResult? Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult? Function(OnTapofNextEvent value)? onTapofNextEvent,
@@ -6416,6 +6541,7 @@ class _$ShowMusicbar implements ShowMusicbar {
     TResult Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
     TResult Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
+    TResult Function(FetchAllRecitors value)? fetchAllRecitors,
     TResult Function(SaveRecitorNameAndId value)? saveRecitorNameAndId,
     TResult Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult Function(OnTapofNextEvent value)? onTapofNextEvent,
@@ -6524,6 +6650,7 @@ class _$IsExpandonSearchEvent implements IsExpandonSearchEvent {
     required TResult Function(bool isExpand) isExpandonSearchEvent,
     required TResult Function(int transilationId, String translationName)
         saveGlobalTransilationIdAndName,
+    required TResult Function() fetchAllRecitors,
     required TResult Function(int recitorId, String recitorName)
         saveRecitorNameAndId,
     required TResult Function(String textName) saveQuranTexttypeName,
@@ -6561,6 +6688,7 @@ class _$IsExpandonSearchEvent implements IsExpandonSearchEvent {
     TResult? Function(bool isExpand)? isExpandonSearchEvent,
     TResult? Function(int transilationId, String translationName)?
         saveGlobalTransilationIdAndName,
+    TResult? Function()? fetchAllRecitors,
     TResult? Function(int recitorId, String recitorName)? saveRecitorNameAndId,
     TResult? Function(String textName)? saveQuranTexttypeName,
     TResult? Function()? onTapofNextEvent,
@@ -6597,6 +6725,7 @@ class _$IsExpandonSearchEvent implements IsExpandonSearchEvent {
     TResult Function(bool isExpand)? isExpandonSearchEvent,
     TResult Function(int transilationId, String translationName)?
         saveGlobalTransilationIdAndName,
+    TResult Function()? fetchAllRecitors,
     TResult Function(int recitorId, String recitorName)? saveRecitorNameAndId,
     TResult Function(String textName)? saveQuranTexttypeName,
     TResult Function()? onTapofNextEvent,
@@ -6647,6 +6776,7 @@ class _$IsExpandonSearchEvent implements IsExpandonSearchEvent {
         isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
+    required TResult Function(FetchAllRecitors value) fetchAllRecitors,
     required TResult Function(SaveRecitorNameAndId value) saveRecitorNameAndId,
     required TResult Function(SaveQuranTexttypeName value)
         saveQuranTexttypeName,
@@ -6688,6 +6818,7 @@ class _$IsExpandonSearchEvent implements IsExpandonSearchEvent {
     TResult? Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
     TResult? Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
+    TResult? Function(FetchAllRecitors value)? fetchAllRecitors,
     TResult? Function(SaveRecitorNameAndId value)? saveRecitorNameAndId,
     TResult? Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult? Function(OnTapofNextEvent value)? onTapofNextEvent,
@@ -6728,6 +6859,7 @@ class _$IsExpandonSearchEvent implements IsExpandonSearchEvent {
     TResult Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
     TResult Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
+    TResult Function(FetchAllRecitors value)? fetchAllRecitors,
     TResult Function(SaveRecitorNameAndId value)? saveRecitorNameAndId,
     TResult Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult Function(OnTapofNextEvent value)? onTapofNextEvent,
@@ -6855,6 +6987,7 @@ class _$SaveGlobalTransilationIdAndName
     required TResult Function(bool isExpand) isExpandonSearchEvent,
     required TResult Function(int transilationId, String translationName)
         saveGlobalTransilationIdAndName,
+    required TResult Function() fetchAllRecitors,
     required TResult Function(int recitorId, String recitorName)
         saveRecitorNameAndId,
     required TResult Function(String textName) saveQuranTexttypeName,
@@ -6892,6 +7025,7 @@ class _$SaveGlobalTransilationIdAndName
     TResult? Function(bool isExpand)? isExpandonSearchEvent,
     TResult? Function(int transilationId, String translationName)?
         saveGlobalTransilationIdAndName,
+    TResult? Function()? fetchAllRecitors,
     TResult? Function(int recitorId, String recitorName)? saveRecitorNameAndId,
     TResult? Function(String textName)? saveQuranTexttypeName,
     TResult? Function()? onTapofNextEvent,
@@ -6929,6 +7063,7 @@ class _$SaveGlobalTransilationIdAndName
     TResult Function(bool isExpand)? isExpandonSearchEvent,
     TResult Function(int transilationId, String translationName)?
         saveGlobalTransilationIdAndName,
+    TResult Function()? fetchAllRecitors,
     TResult Function(int recitorId, String recitorName)? saveRecitorNameAndId,
     TResult Function(String textName)? saveQuranTexttypeName,
     TResult Function()? onTapofNextEvent,
@@ -6979,6 +7114,7 @@ class _$SaveGlobalTransilationIdAndName
         isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
+    required TResult Function(FetchAllRecitors value) fetchAllRecitors,
     required TResult Function(SaveRecitorNameAndId value) saveRecitorNameAndId,
     required TResult Function(SaveQuranTexttypeName value)
         saveQuranTexttypeName,
@@ -7020,6 +7156,7 @@ class _$SaveGlobalTransilationIdAndName
     TResult? Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
     TResult? Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
+    TResult? Function(FetchAllRecitors value)? fetchAllRecitors,
     TResult? Function(SaveRecitorNameAndId value)? saveRecitorNameAndId,
     TResult? Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult? Function(OnTapofNextEvent value)? onTapofNextEvent,
@@ -7060,6 +7197,7 @@ class _$SaveGlobalTransilationIdAndName
     TResult Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
     TResult Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
+    TResult Function(FetchAllRecitors value)? fetchAllRecitors,
     TResult Function(SaveRecitorNameAndId value)? saveRecitorNameAndId,
     TResult Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult Function(OnTapofNextEvent value)? onTapofNextEvent,
@@ -7084,6 +7222,296 @@ abstract class SaveGlobalTransilationIdAndName implements QuranEvent {
   @JsonKey(ignore: true)
   _$$SaveGlobalTransilationIdAndNameCopyWith<_$SaveGlobalTransilationIdAndName>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$FetchAllRecitorsCopyWith<$Res> {
+  factory _$$FetchAllRecitorsCopyWith(
+          _$FetchAllRecitors value, $Res Function(_$FetchAllRecitors) then) =
+      __$$FetchAllRecitorsCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$FetchAllRecitorsCopyWithImpl<$Res>
+    extends _$QuranEventCopyWithImpl<$Res, _$FetchAllRecitors>
+    implements _$$FetchAllRecitorsCopyWith<$Res> {
+  __$$FetchAllRecitorsCopyWithImpl(
+      _$FetchAllRecitors _value, $Res Function(_$FetchAllRecitors) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$FetchAllRecitors implements FetchAllRecitors {
+  const _$FetchAllRecitors();
+
+  @override
+  String toString() {
+    return 'QuranEvent.fetchAllRecitors()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$FetchAllRecitors);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() fetchQuaranChaptersEvent,
+    required TResult Function(int id) fetchChaperVersesEvent,
+    required TResult Function(int id) fetchChapterVersesbyTextName,
+    required TResult Function(int id) fetchParaVerses,
+    required TResult Function() fetchQuranPara,
+    required TResult Function() changeExpandOnSearchEvent,
+    required TResult Function(List<int> id) fechtChapterbyId,
+    required TResult Function(String query) searchChapterEvent,
+    required TResult Function(List<String> verseKey) fetchVersesByKey,
+    required TResult Function(int id, int recitorId) fetchParaAudios,
+    required TResult Function(int id, int recitorId) fetchChapterAudioFiles,
+    required TResult Function(int index) changeIndexBackGroundSetting,
+    required TResult Function() increaseFontsize,
+    required TResult Function() decreaseFontsize,
+    required TResult Function() fetchAllTranslationsEvent,
+    required TResult Function(int chapterId, int translationId)
+        fetchAllChapterTranslationTexts,
+    required TResult Function(int paraId, int translationId)
+        fetchAllParaTranslationTexts,
+    required TResult Function(int index) playAllParaAudiosAuto,
+    required TResult Function(int? index) playAllChapterAudiosAuto,
+    required TResult Function() showMusicbar,
+    required TResult Function(bool isExpand) isExpandonSearchEvent,
+    required TResult Function(int transilationId, String translationName)
+        saveGlobalTransilationIdAndName,
+    required TResult Function() fetchAllRecitors,
+    required TResult Function(int recitorId, String recitorName)
+        saveRecitorNameAndId,
+    required TResult Function(String textName) saveQuranTexttypeName,
+    required TResult Function() onTapofNextEvent,
+    required TResult Function() onTapofPrevEvent,
+  }) {
+    return fetchAllRecitors();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? fetchQuaranChaptersEvent,
+    TResult? Function(int id)? fetchChaperVersesEvent,
+    TResult? Function(int id)? fetchChapterVersesbyTextName,
+    TResult? Function(int id)? fetchParaVerses,
+    TResult? Function()? fetchQuranPara,
+    TResult? Function()? changeExpandOnSearchEvent,
+    TResult? Function(List<int> id)? fechtChapterbyId,
+    TResult? Function(String query)? searchChapterEvent,
+    TResult? Function(List<String> verseKey)? fetchVersesByKey,
+    TResult? Function(int id, int recitorId)? fetchParaAudios,
+    TResult? Function(int id, int recitorId)? fetchChapterAudioFiles,
+    TResult? Function(int index)? changeIndexBackGroundSetting,
+    TResult? Function()? increaseFontsize,
+    TResult? Function()? decreaseFontsize,
+    TResult? Function()? fetchAllTranslationsEvent,
+    TResult? Function(int chapterId, int translationId)?
+        fetchAllChapterTranslationTexts,
+    TResult? Function(int paraId, int translationId)?
+        fetchAllParaTranslationTexts,
+    TResult? Function(int index)? playAllParaAudiosAuto,
+    TResult? Function(int? index)? playAllChapterAudiosAuto,
+    TResult? Function()? showMusicbar,
+    TResult? Function(bool isExpand)? isExpandonSearchEvent,
+    TResult? Function(int transilationId, String translationName)?
+        saveGlobalTransilationIdAndName,
+    TResult? Function()? fetchAllRecitors,
+    TResult? Function(int recitorId, String recitorName)? saveRecitorNameAndId,
+    TResult? Function(String textName)? saveQuranTexttypeName,
+    TResult? Function()? onTapofNextEvent,
+    TResult? Function()? onTapofPrevEvent,
+  }) {
+    return fetchAllRecitors?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? fetchQuaranChaptersEvent,
+    TResult Function(int id)? fetchChaperVersesEvent,
+    TResult Function(int id)? fetchChapterVersesbyTextName,
+    TResult Function(int id)? fetchParaVerses,
+    TResult Function()? fetchQuranPara,
+    TResult Function()? changeExpandOnSearchEvent,
+    TResult Function(List<int> id)? fechtChapterbyId,
+    TResult Function(String query)? searchChapterEvent,
+    TResult Function(List<String> verseKey)? fetchVersesByKey,
+    TResult Function(int id, int recitorId)? fetchParaAudios,
+    TResult Function(int id, int recitorId)? fetchChapterAudioFiles,
+    TResult Function(int index)? changeIndexBackGroundSetting,
+    TResult Function()? increaseFontsize,
+    TResult Function()? decreaseFontsize,
+    TResult Function()? fetchAllTranslationsEvent,
+    TResult Function(int chapterId, int translationId)?
+        fetchAllChapterTranslationTexts,
+    TResult Function(int paraId, int translationId)?
+        fetchAllParaTranslationTexts,
+    TResult Function(int index)? playAllParaAudiosAuto,
+    TResult Function(int? index)? playAllChapterAudiosAuto,
+    TResult Function()? showMusicbar,
+    TResult Function(bool isExpand)? isExpandonSearchEvent,
+    TResult Function(int transilationId, String translationName)?
+        saveGlobalTransilationIdAndName,
+    TResult Function()? fetchAllRecitors,
+    TResult Function(int recitorId, String recitorName)? saveRecitorNameAndId,
+    TResult Function(String textName)? saveQuranTexttypeName,
+    TResult Function()? onTapofNextEvent,
+    TResult Function()? onTapofPrevEvent,
+    required TResult orElse(),
+  }) {
+    if (fetchAllRecitors != null) {
+      return fetchAllRecitors();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FetchQuaranChaptersEvent value)
+        fetchQuaranChaptersEvent,
+    required TResult Function(FetchChaperVersesEvent value)
+        fetchChaperVersesEvent,
+    required TResult Function(FetchChapterVersesbyTextName value)
+        fetchChapterVersesbyTextName,
+    required TResult Function(FetchParaVerses value) fetchParaVerses,
+    required TResult Function(FetchQuranPara value) fetchQuranPara,
+    required TResult Function(ChangeExpandOnSearchEvent value)
+        changeExpandOnSearchEvent,
+    required TResult Function(FechtChapterbyId value) fechtChapterbyId,
+    required TResult Function(SearchChapterEvent value) searchChapterEvent,
+    required TResult Function(FetchVersesByKey value) fetchVersesByKey,
+    required TResult Function(FetchParaAudios value) fetchParaAudios,
+    required TResult Function(FetchChapterAudioFiles value)
+        fetchChapterAudioFiles,
+    required TResult Function(ChangeIndexBackGroundSetting value)
+        changeIndexBackGroundSetting,
+    required TResult Function(IncreaseFontsize value) increaseFontsize,
+    required TResult Function(DecreaseFontsize value) decreaseFontsize,
+    required TResult Function(FetchAllTranslationsEvent value)
+        fetchAllTranslationsEvent,
+    required TResult Function(FetchTranslationChapterTexts value)
+        fetchAllChapterTranslationTexts,
+    required TResult Function(FetchTranslationParaTexts value)
+        fetchAllParaTranslationTexts,
+    required TResult Function(PlayAllParaAudiosAuto value)
+        playAllParaAudiosAuto,
+    required TResult Function(PlayAllChapterAudiosAuto value)
+        playAllChapterAudiosAuto,
+    required TResult Function(ShowMusicbar value) showMusicbar,
+    required TResult Function(IsExpandonSearchEvent value)
+        isExpandonSearchEvent,
+    required TResult Function(SaveGlobalTransilationIdAndName value)
+        saveGlobalTransilationIdAndName,
+    required TResult Function(FetchAllRecitors value) fetchAllRecitors,
+    required TResult Function(SaveRecitorNameAndId value) saveRecitorNameAndId,
+    required TResult Function(SaveQuranTexttypeName value)
+        saveQuranTexttypeName,
+    required TResult Function(OnTapofNextEvent value) onTapofNextEvent,
+    required TResult Function(OnTapofPrevEvent value) onTapofPrevEvent,
+  }) {
+    return fetchAllRecitors(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(FetchQuaranChaptersEvent value)? fetchQuaranChaptersEvent,
+    TResult? Function(FetchChaperVersesEvent value)? fetchChaperVersesEvent,
+    TResult? Function(FetchChapterVersesbyTextName value)?
+        fetchChapterVersesbyTextName,
+    TResult? Function(FetchParaVerses value)? fetchParaVerses,
+    TResult? Function(FetchQuranPara value)? fetchQuranPara,
+    TResult? Function(ChangeExpandOnSearchEvent value)?
+        changeExpandOnSearchEvent,
+    TResult? Function(FechtChapterbyId value)? fechtChapterbyId,
+    TResult? Function(SearchChapterEvent value)? searchChapterEvent,
+    TResult? Function(FetchVersesByKey value)? fetchVersesByKey,
+    TResult? Function(FetchParaAudios value)? fetchParaAudios,
+    TResult? Function(FetchChapterAudioFiles value)? fetchChapterAudioFiles,
+    TResult? Function(ChangeIndexBackGroundSetting value)?
+        changeIndexBackGroundSetting,
+    TResult? Function(IncreaseFontsize value)? increaseFontsize,
+    TResult? Function(DecreaseFontsize value)? decreaseFontsize,
+    TResult? Function(FetchAllTranslationsEvent value)?
+        fetchAllTranslationsEvent,
+    TResult? Function(FetchTranslationChapterTexts value)?
+        fetchAllChapterTranslationTexts,
+    TResult? Function(FetchTranslationParaTexts value)?
+        fetchAllParaTranslationTexts,
+    TResult? Function(PlayAllParaAudiosAuto value)? playAllParaAudiosAuto,
+    TResult? Function(PlayAllChapterAudiosAuto value)? playAllChapterAudiosAuto,
+    TResult? Function(ShowMusicbar value)? showMusicbar,
+    TResult? Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
+    TResult? Function(SaveGlobalTransilationIdAndName value)?
+        saveGlobalTransilationIdAndName,
+    TResult? Function(FetchAllRecitors value)? fetchAllRecitors,
+    TResult? Function(SaveRecitorNameAndId value)? saveRecitorNameAndId,
+    TResult? Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
+    TResult? Function(OnTapofNextEvent value)? onTapofNextEvent,
+    TResult? Function(OnTapofPrevEvent value)? onTapofPrevEvent,
+  }) {
+    return fetchAllRecitors?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FetchQuaranChaptersEvent value)? fetchQuaranChaptersEvent,
+    TResult Function(FetchChaperVersesEvent value)? fetchChaperVersesEvent,
+    TResult Function(FetchChapterVersesbyTextName value)?
+        fetchChapterVersesbyTextName,
+    TResult Function(FetchParaVerses value)? fetchParaVerses,
+    TResult Function(FetchQuranPara value)? fetchQuranPara,
+    TResult Function(ChangeExpandOnSearchEvent value)?
+        changeExpandOnSearchEvent,
+    TResult Function(FechtChapterbyId value)? fechtChapterbyId,
+    TResult Function(SearchChapterEvent value)? searchChapterEvent,
+    TResult Function(FetchVersesByKey value)? fetchVersesByKey,
+    TResult Function(FetchParaAudios value)? fetchParaAudios,
+    TResult Function(FetchChapterAudioFiles value)? fetchChapterAudioFiles,
+    TResult Function(ChangeIndexBackGroundSetting value)?
+        changeIndexBackGroundSetting,
+    TResult Function(IncreaseFontsize value)? increaseFontsize,
+    TResult Function(DecreaseFontsize value)? decreaseFontsize,
+    TResult Function(FetchAllTranslationsEvent value)?
+        fetchAllTranslationsEvent,
+    TResult Function(FetchTranslationChapterTexts value)?
+        fetchAllChapterTranslationTexts,
+    TResult Function(FetchTranslationParaTexts value)?
+        fetchAllParaTranslationTexts,
+    TResult Function(PlayAllParaAudiosAuto value)? playAllParaAudiosAuto,
+    TResult Function(PlayAllChapterAudiosAuto value)? playAllChapterAudiosAuto,
+    TResult Function(ShowMusicbar value)? showMusicbar,
+    TResult Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
+    TResult Function(SaveGlobalTransilationIdAndName value)?
+        saveGlobalTransilationIdAndName,
+    TResult Function(FetchAllRecitors value)? fetchAllRecitors,
+    TResult Function(SaveRecitorNameAndId value)? saveRecitorNameAndId,
+    TResult Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
+    TResult Function(OnTapofNextEvent value)? onTapofNextEvent,
+    TResult Function(OnTapofPrevEvent value)? onTapofPrevEvent,
+    required TResult orElse(),
+  }) {
+    if (fetchAllRecitors != null) {
+      return fetchAllRecitors(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class FetchAllRecitors implements QuranEvent {
+  const factory FetchAllRecitors() = _$FetchAllRecitors;
 }
 
 /// @nodoc
@@ -7187,6 +7615,7 @@ class _$SaveRecitorNameAndId implements SaveRecitorNameAndId {
     required TResult Function(bool isExpand) isExpandonSearchEvent,
     required TResult Function(int transilationId, String translationName)
         saveGlobalTransilationIdAndName,
+    required TResult Function() fetchAllRecitors,
     required TResult Function(int recitorId, String recitorName)
         saveRecitorNameAndId,
     required TResult Function(String textName) saveQuranTexttypeName,
@@ -7224,6 +7653,7 @@ class _$SaveRecitorNameAndId implements SaveRecitorNameAndId {
     TResult? Function(bool isExpand)? isExpandonSearchEvent,
     TResult? Function(int transilationId, String translationName)?
         saveGlobalTransilationIdAndName,
+    TResult? Function()? fetchAllRecitors,
     TResult? Function(int recitorId, String recitorName)? saveRecitorNameAndId,
     TResult? Function(String textName)? saveQuranTexttypeName,
     TResult? Function()? onTapofNextEvent,
@@ -7260,6 +7690,7 @@ class _$SaveRecitorNameAndId implements SaveRecitorNameAndId {
     TResult Function(bool isExpand)? isExpandonSearchEvent,
     TResult Function(int transilationId, String translationName)?
         saveGlobalTransilationIdAndName,
+    TResult Function()? fetchAllRecitors,
     TResult Function(int recitorId, String recitorName)? saveRecitorNameAndId,
     TResult Function(String textName)? saveQuranTexttypeName,
     TResult Function()? onTapofNextEvent,
@@ -7310,6 +7741,7 @@ class _$SaveRecitorNameAndId implements SaveRecitorNameAndId {
         isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
+    required TResult Function(FetchAllRecitors value) fetchAllRecitors,
     required TResult Function(SaveRecitorNameAndId value) saveRecitorNameAndId,
     required TResult Function(SaveQuranTexttypeName value)
         saveQuranTexttypeName,
@@ -7351,6 +7783,7 @@ class _$SaveRecitorNameAndId implements SaveRecitorNameAndId {
     TResult? Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
     TResult? Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
+    TResult? Function(FetchAllRecitors value)? fetchAllRecitors,
     TResult? Function(SaveRecitorNameAndId value)? saveRecitorNameAndId,
     TResult? Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult? Function(OnTapofNextEvent value)? onTapofNextEvent,
@@ -7391,6 +7824,7 @@ class _$SaveRecitorNameAndId implements SaveRecitorNameAndId {
     TResult Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
     TResult Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
+    TResult Function(FetchAllRecitors value)? fetchAllRecitors,
     TResult Function(SaveRecitorNameAndId value)? saveRecitorNameAndId,
     TResult Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult Function(OnTapofNextEvent value)? onTapofNextEvent,
@@ -7507,6 +7941,7 @@ class _$SaveQuranTexttypeName implements SaveQuranTexttypeName {
     required TResult Function(bool isExpand) isExpandonSearchEvent,
     required TResult Function(int transilationId, String translationName)
         saveGlobalTransilationIdAndName,
+    required TResult Function() fetchAllRecitors,
     required TResult Function(int recitorId, String recitorName)
         saveRecitorNameAndId,
     required TResult Function(String textName) saveQuranTexttypeName,
@@ -7544,6 +7979,7 @@ class _$SaveQuranTexttypeName implements SaveQuranTexttypeName {
     TResult? Function(bool isExpand)? isExpandonSearchEvent,
     TResult? Function(int transilationId, String translationName)?
         saveGlobalTransilationIdAndName,
+    TResult? Function()? fetchAllRecitors,
     TResult? Function(int recitorId, String recitorName)? saveRecitorNameAndId,
     TResult? Function(String textName)? saveQuranTexttypeName,
     TResult? Function()? onTapofNextEvent,
@@ -7580,6 +8016,7 @@ class _$SaveQuranTexttypeName implements SaveQuranTexttypeName {
     TResult Function(bool isExpand)? isExpandonSearchEvent,
     TResult Function(int transilationId, String translationName)?
         saveGlobalTransilationIdAndName,
+    TResult Function()? fetchAllRecitors,
     TResult Function(int recitorId, String recitorName)? saveRecitorNameAndId,
     TResult Function(String textName)? saveQuranTexttypeName,
     TResult Function()? onTapofNextEvent,
@@ -7630,6 +8067,7 @@ class _$SaveQuranTexttypeName implements SaveQuranTexttypeName {
         isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
+    required TResult Function(FetchAllRecitors value) fetchAllRecitors,
     required TResult Function(SaveRecitorNameAndId value) saveRecitorNameAndId,
     required TResult Function(SaveQuranTexttypeName value)
         saveQuranTexttypeName,
@@ -7671,6 +8109,7 @@ class _$SaveQuranTexttypeName implements SaveQuranTexttypeName {
     TResult? Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
     TResult? Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
+    TResult? Function(FetchAllRecitors value)? fetchAllRecitors,
     TResult? Function(SaveRecitorNameAndId value)? saveRecitorNameAndId,
     TResult? Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult? Function(OnTapofNextEvent value)? onTapofNextEvent,
@@ -7711,6 +8150,7 @@ class _$SaveQuranTexttypeName implements SaveQuranTexttypeName {
     TResult Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
     TResult Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
+    TResult Function(FetchAllRecitors value)? fetchAllRecitors,
     TResult Function(SaveRecitorNameAndId value)? saveRecitorNameAndId,
     TResult Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult Function(OnTapofNextEvent value)? onTapofNextEvent,
@@ -7797,6 +8237,7 @@ class _$OnTapofNextEvent implements OnTapofNextEvent {
     required TResult Function(bool isExpand) isExpandonSearchEvent,
     required TResult Function(int transilationId, String translationName)
         saveGlobalTransilationIdAndName,
+    required TResult Function() fetchAllRecitors,
     required TResult Function(int recitorId, String recitorName)
         saveRecitorNameAndId,
     required TResult Function(String textName) saveQuranTexttypeName,
@@ -7834,6 +8275,7 @@ class _$OnTapofNextEvent implements OnTapofNextEvent {
     TResult? Function(bool isExpand)? isExpandonSearchEvent,
     TResult? Function(int transilationId, String translationName)?
         saveGlobalTransilationIdAndName,
+    TResult? Function()? fetchAllRecitors,
     TResult? Function(int recitorId, String recitorName)? saveRecitorNameAndId,
     TResult? Function(String textName)? saveQuranTexttypeName,
     TResult? Function()? onTapofNextEvent,
@@ -7870,6 +8312,7 @@ class _$OnTapofNextEvent implements OnTapofNextEvent {
     TResult Function(bool isExpand)? isExpandonSearchEvent,
     TResult Function(int transilationId, String translationName)?
         saveGlobalTransilationIdAndName,
+    TResult Function()? fetchAllRecitors,
     TResult Function(int recitorId, String recitorName)? saveRecitorNameAndId,
     TResult Function(String textName)? saveQuranTexttypeName,
     TResult Function()? onTapofNextEvent,
@@ -7920,6 +8363,7 @@ class _$OnTapofNextEvent implements OnTapofNextEvent {
         isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
+    required TResult Function(FetchAllRecitors value) fetchAllRecitors,
     required TResult Function(SaveRecitorNameAndId value) saveRecitorNameAndId,
     required TResult Function(SaveQuranTexttypeName value)
         saveQuranTexttypeName,
@@ -7961,6 +8405,7 @@ class _$OnTapofNextEvent implements OnTapofNextEvent {
     TResult? Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
     TResult? Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
+    TResult? Function(FetchAllRecitors value)? fetchAllRecitors,
     TResult? Function(SaveRecitorNameAndId value)? saveRecitorNameAndId,
     TResult? Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult? Function(OnTapofNextEvent value)? onTapofNextEvent,
@@ -8001,6 +8446,7 @@ class _$OnTapofNextEvent implements OnTapofNextEvent {
     TResult Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
     TResult Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
+    TResult Function(FetchAllRecitors value)? fetchAllRecitors,
     TResult Function(SaveRecitorNameAndId value)? saveRecitorNameAndId,
     TResult Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult Function(OnTapofNextEvent value)? onTapofNextEvent,
@@ -8081,6 +8527,7 @@ class _$OnTapofPrevEvent implements OnTapofPrevEvent {
     required TResult Function(bool isExpand) isExpandonSearchEvent,
     required TResult Function(int transilationId, String translationName)
         saveGlobalTransilationIdAndName,
+    required TResult Function() fetchAllRecitors,
     required TResult Function(int recitorId, String recitorName)
         saveRecitorNameAndId,
     required TResult Function(String textName) saveQuranTexttypeName,
@@ -8118,6 +8565,7 @@ class _$OnTapofPrevEvent implements OnTapofPrevEvent {
     TResult? Function(bool isExpand)? isExpandonSearchEvent,
     TResult? Function(int transilationId, String translationName)?
         saveGlobalTransilationIdAndName,
+    TResult? Function()? fetchAllRecitors,
     TResult? Function(int recitorId, String recitorName)? saveRecitorNameAndId,
     TResult? Function(String textName)? saveQuranTexttypeName,
     TResult? Function()? onTapofNextEvent,
@@ -8154,6 +8602,7 @@ class _$OnTapofPrevEvent implements OnTapofPrevEvent {
     TResult Function(bool isExpand)? isExpandonSearchEvent,
     TResult Function(int transilationId, String translationName)?
         saveGlobalTransilationIdAndName,
+    TResult Function()? fetchAllRecitors,
     TResult Function(int recitorId, String recitorName)? saveRecitorNameAndId,
     TResult Function(String textName)? saveQuranTexttypeName,
     TResult Function()? onTapofNextEvent,
@@ -8204,6 +8653,7 @@ class _$OnTapofPrevEvent implements OnTapofPrevEvent {
         isExpandonSearchEvent,
     required TResult Function(SaveGlobalTransilationIdAndName value)
         saveGlobalTransilationIdAndName,
+    required TResult Function(FetchAllRecitors value) fetchAllRecitors,
     required TResult Function(SaveRecitorNameAndId value) saveRecitorNameAndId,
     required TResult Function(SaveQuranTexttypeName value)
         saveQuranTexttypeName,
@@ -8245,6 +8695,7 @@ class _$OnTapofPrevEvent implements OnTapofPrevEvent {
     TResult? Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
     TResult? Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
+    TResult? Function(FetchAllRecitors value)? fetchAllRecitors,
     TResult? Function(SaveRecitorNameAndId value)? saveRecitorNameAndId,
     TResult? Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult? Function(OnTapofNextEvent value)? onTapofNextEvent,
@@ -8285,6 +8736,7 @@ class _$OnTapofPrevEvent implements OnTapofPrevEvent {
     TResult Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
     TResult Function(SaveGlobalTransilationIdAndName value)?
         saveGlobalTransilationIdAndName,
+    TResult Function(FetchAllRecitors value)? fetchAllRecitors,
     TResult Function(SaveRecitorNameAndId value)? saveRecitorNameAndId,
     TResult Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult Function(OnTapofNextEvent value)? onTapofNextEvent,
@@ -8320,8 +8772,9 @@ mixin _$QuranState {
   bool get audioPaused => throw _privateConstructorUsedError;
   bool get audioStopped => throw _privateConstructorUsedError;
   List<dynamic> get paraAudios => throw _privateConstructorUsedError;
-  List<dynamic> get chapterAudios =>
-      throw _privateConstructorUsedError; // required TranslationsModel? translationsModel,
+  List<dynamic> get chapterAudios => throw _privateConstructorUsedError;
+  TranslationsModel? get translationsModel =>
+      throw _privateConstructorUsedError;
   int get currentSettingBgIndex => throw _privateConstructorUsedError;
   double get fontsize => throw _privateConstructorUsedError;
   List<String?>? get chapterTranslationText =>
@@ -8332,13 +8785,19 @@ mixin _$QuranState {
   bool get isExpand => throw _privateConstructorUsedError;
   int get globalTransilationId => throw _privateConstructorUsedError;
   String get transilationName => throw _privateConstructorUsedError;
-  RecitationModel? get recitationsModel => throw _privateConstructorUsedError;
+  RecitationsModel? get recitationsModel => throw _privateConstructorUsedError;
   String get recitorName => throw _privateConstructorUsedError;
   int get recitorId => throw _privateConstructorUsedError;
   String get quranTextTypeName => throw _privateConstructorUsedError;
-  ParaVersesModelOfUthmani? get paraVersesModelofUthmani =>
+  ChapterVersesIndoPakModel? get chapterVersesIndoPakModel =>
       throw _privateConstructorUsedError;
-  ParaVersesModelOfNoSymbol? get paraVersesModelofNoSymbol =>
+  ChapterVersesOfUthmani? get chapterVersesOfUthmani =>
+      throw _privateConstructorUsedError;
+  ChapterVersesOfNosymbol? get chapterVersesOfNosymbol =>
+      throw _privateConstructorUsedError;
+  ParaVersesModelofUthmani? get paraVersesModelofUthmani =>
+      throw _privateConstructorUsedError;
+  ParaVersesModelofNoSymbol? get paraVersesModelofNoSymbol =>
       throw _privateConstructorUsedError;
   String get chapterName => throw _privateConstructorUsedError;
   int get nxtAndprevValue => throw _privateConstructorUsedError;
@@ -8369,6 +8828,7 @@ abstract class $QuranStateCopyWith<$Res> {
       bool audioStopped,
       List<dynamic> paraAudios,
       List<dynamic> chapterAudios,
+      TranslationsModel? translationsModel,
       int currentSettingBgIndex,
       double fontsize,
       List<String?>? chapterTranslationText,
@@ -8378,12 +8838,15 @@ abstract class $QuranStateCopyWith<$Res> {
       bool isExpand,
       int globalTransilationId,
       String transilationName,
-      RecitationModel? recitationsModel,
+      RecitationsModel? recitationsModel,
       String recitorName,
       int recitorId,
       String quranTextTypeName,
-      ParaVersesModelOfUthmani? paraVersesModelofUthmani,
-      ParaVersesModelOfNoSymbol? paraVersesModelofNoSymbol,
+      ChapterVersesIndoPakModel? chapterVersesIndoPakModel,
+      ChapterVersesOfUthmani? chapterVersesOfUthmani,
+      ChapterVersesOfNosymbol? chapterVersesOfNosymbol,
+      ParaVersesModelofUthmani? paraVersesModelofUthmani,
+      ParaVersesModelofNoSymbol? paraVersesModelofNoSymbol,
       String chapterName,
       int nxtAndprevValue});
 
@@ -8391,9 +8854,13 @@ abstract class $QuranStateCopyWith<$Res> {
   $ChapterVersesModelCopyWith<$Res>? get chapterVersesModel;
   $ParaVersesModelCopyWith<$Res>? get paraVersesModel;
   $QuranParaModelCopyWith<$Res>? get quranParaModel;
-  $RecitationModelCopyWith<$Res>? get recitationsModel;
-  $ParaVersesModelOfUthmaniCopyWith<$Res>? get paraVersesModelofUthmani;
-  $ParaVersesModelOfNoSymbolCopyWith<$Res>? get paraVersesModelofNoSymbol;
+  $TranslationsModelCopyWith<$Res>? get translationsModel;
+  $RecitationsModelCopyWith<$Res>? get recitationsModel;
+  $ChapterVersesIndoPakModelCopyWith<$Res>? get chapterVersesIndoPakModel;
+  $ChapterVersesOfUthmaniCopyWith<$Res>? get chapterVersesOfUthmani;
+  $ChapterVersesOfNosymbolCopyWith<$Res>? get chapterVersesOfNosymbol;
+  $ParaVersesModelofUthmaniCopyWith<$Res>? get paraVersesModelofUthmani;
+  $ParaVersesModelofNoSymbolCopyWith<$Res>? get paraVersesModelofNoSymbol;
 }
 
 /// @nodoc
@@ -8423,6 +8890,7 @@ class _$QuranStateCopyWithImpl<$Res, $Val extends QuranState>
     Object? audioStopped = null,
     Object? paraAudios = null,
     Object? chapterAudios = null,
+    Object? translationsModel = freezed,
     Object? currentSettingBgIndex = null,
     Object? fontsize = null,
     Object? chapterTranslationText = freezed,
@@ -8436,6 +8904,9 @@ class _$QuranStateCopyWithImpl<$Res, $Val extends QuranState>
     Object? recitorName = null,
     Object? recitorId = null,
     Object? quranTextTypeName = null,
+    Object? chapterVersesIndoPakModel = freezed,
+    Object? chapterVersesOfUthmani = freezed,
+    Object? chapterVersesOfNosymbol = freezed,
     Object? paraVersesModelofUthmani = freezed,
     Object? paraVersesModelofNoSymbol = freezed,
     Object? chapterName = null,
@@ -8498,6 +8969,10 @@ class _$QuranStateCopyWithImpl<$Res, $Val extends QuranState>
           ? _value.chapterAudios
           : chapterAudios // ignore: cast_nullable_to_non_nullable
               as List<dynamic>,
+      translationsModel: freezed == translationsModel
+          ? _value.translationsModel
+          : translationsModel // ignore: cast_nullable_to_non_nullable
+              as TranslationsModel?,
       currentSettingBgIndex: null == currentSettingBgIndex
           ? _value.currentSettingBgIndex
           : currentSettingBgIndex // ignore: cast_nullable_to_non_nullable
@@ -8537,7 +9012,7 @@ class _$QuranStateCopyWithImpl<$Res, $Val extends QuranState>
       recitationsModel: freezed == recitationsModel
           ? _value.recitationsModel
           : recitationsModel // ignore: cast_nullable_to_non_nullable
-              as RecitationModel?,
+              as RecitationsModel?,
       recitorName: null == recitorName
           ? _value.recitorName
           : recitorName // ignore: cast_nullable_to_non_nullable
@@ -8550,14 +9025,26 @@ class _$QuranStateCopyWithImpl<$Res, $Val extends QuranState>
           ? _value.quranTextTypeName
           : quranTextTypeName // ignore: cast_nullable_to_non_nullable
               as String,
+      chapterVersesIndoPakModel: freezed == chapterVersesIndoPakModel
+          ? _value.chapterVersesIndoPakModel
+          : chapterVersesIndoPakModel // ignore: cast_nullable_to_non_nullable
+              as ChapterVersesIndoPakModel?,
+      chapterVersesOfUthmani: freezed == chapterVersesOfUthmani
+          ? _value.chapterVersesOfUthmani
+          : chapterVersesOfUthmani // ignore: cast_nullable_to_non_nullable
+              as ChapterVersesOfUthmani?,
+      chapterVersesOfNosymbol: freezed == chapterVersesOfNosymbol
+          ? _value.chapterVersesOfNosymbol
+          : chapterVersesOfNosymbol // ignore: cast_nullable_to_non_nullable
+              as ChapterVersesOfNosymbol?,
       paraVersesModelofUthmani: freezed == paraVersesModelofUthmani
           ? _value.paraVersesModelofUthmani
           : paraVersesModelofUthmani // ignore: cast_nullable_to_non_nullable
-              as ParaVersesModelOfUthmani?,
+              as ParaVersesModelofUthmani?,
       paraVersesModelofNoSymbol: freezed == paraVersesModelofNoSymbol
           ? _value.paraVersesModelofNoSymbol
           : paraVersesModelofNoSymbol // ignore: cast_nullable_to_non_nullable
-              as ParaVersesModelOfNoSymbol?,
+              as ParaVersesModelofNoSymbol?,
       chapterName: null == chapterName
           ? _value.chapterName
           : chapterName // ignore: cast_nullable_to_non_nullable
@@ -8620,24 +9107,75 @@ class _$QuranStateCopyWithImpl<$Res, $Val extends QuranState>
 
   @override
   @pragma('vm:prefer-inline')
-  $RecitationModelCopyWith<$Res>? get recitationsModel {
+  $TranslationsModelCopyWith<$Res>? get translationsModel {
+    if (_value.translationsModel == null) {
+      return null;
+    }
+
+    return $TranslationsModelCopyWith<$Res>(_value.translationsModel!, (value) {
+      return _then(_value.copyWith(translationsModel: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $RecitationsModelCopyWith<$Res>? get recitationsModel {
     if (_value.recitationsModel == null) {
       return null;
     }
 
-    return $RecitationModelCopyWith<$Res>(_value.recitationsModel!, (value) {
+    return $RecitationsModelCopyWith<$Res>(_value.recitationsModel!, (value) {
       return _then(_value.copyWith(recitationsModel: value) as $Val);
     });
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $ParaVersesModelOfUthmaniCopyWith<$Res>? get paraVersesModelofUthmani {
+  $ChapterVersesIndoPakModelCopyWith<$Res>? get chapterVersesIndoPakModel {
+    if (_value.chapterVersesIndoPakModel == null) {
+      return null;
+    }
+
+    return $ChapterVersesIndoPakModelCopyWith<$Res>(
+        _value.chapterVersesIndoPakModel!, (value) {
+      return _then(_value.copyWith(chapterVersesIndoPakModel: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ChapterVersesOfUthmaniCopyWith<$Res>? get chapterVersesOfUthmani {
+    if (_value.chapterVersesOfUthmani == null) {
+      return null;
+    }
+
+    return $ChapterVersesOfUthmaniCopyWith<$Res>(_value.chapterVersesOfUthmani!,
+        (value) {
+      return _then(_value.copyWith(chapterVersesOfUthmani: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ChapterVersesOfNosymbolCopyWith<$Res>? get chapterVersesOfNosymbol {
+    if (_value.chapterVersesOfNosymbol == null) {
+      return null;
+    }
+
+    return $ChapterVersesOfNosymbolCopyWith<$Res>(
+        _value.chapterVersesOfNosymbol!, (value) {
+      return _then(_value.copyWith(chapterVersesOfNosymbol: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ParaVersesModelofUthmaniCopyWith<$Res>? get paraVersesModelofUthmani {
     if (_value.paraVersesModelofUthmani == null) {
       return null;
     }
 
-    return $ParaVersesModelOfUthmaniCopyWith<$Res>(
+    return $ParaVersesModelofUthmaniCopyWith<$Res>(
         _value.paraVersesModelofUthmani!, (value) {
       return _then(_value.copyWith(paraVersesModelofUthmani: value) as $Val);
     });
@@ -8645,12 +9183,12 @@ class _$QuranStateCopyWithImpl<$Res, $Val extends QuranState>
 
   @override
   @pragma('vm:prefer-inline')
-  $ParaVersesModelOfNoSymbolCopyWith<$Res>? get paraVersesModelofNoSymbol {
+  $ParaVersesModelofNoSymbolCopyWith<$Res>? get paraVersesModelofNoSymbol {
     if (_value.paraVersesModelofNoSymbol == null) {
       return null;
     }
 
-    return $ParaVersesModelOfNoSymbolCopyWith<$Res>(
+    return $ParaVersesModelofNoSymbolCopyWith<$Res>(
         _value.paraVersesModelofNoSymbol!, (value) {
       return _then(_value.copyWith(paraVersesModelofNoSymbol: value) as $Val);
     });
@@ -8680,6 +9218,7 @@ abstract class _$$_QuranStateCopyWith<$Res>
       bool audioStopped,
       List<dynamic> paraAudios,
       List<dynamic> chapterAudios,
+      TranslationsModel? translationsModel,
       int currentSettingBgIndex,
       double fontsize,
       List<String?>? chapterTranslationText,
@@ -8689,12 +9228,15 @@ abstract class _$$_QuranStateCopyWith<$Res>
       bool isExpand,
       int globalTransilationId,
       String transilationName,
-      RecitationModel? recitationsModel,
+      RecitationsModel? recitationsModel,
       String recitorName,
       int recitorId,
       String quranTextTypeName,
-      ParaVersesModelOfUthmani? paraVersesModelofUthmani,
-      ParaVersesModelOfNoSymbol? paraVersesModelofNoSymbol,
+      ChapterVersesIndoPakModel? chapterVersesIndoPakModel,
+      ChapterVersesOfUthmani? chapterVersesOfUthmani,
+      ChapterVersesOfNosymbol? chapterVersesOfNosymbol,
+      ParaVersesModelofUthmani? paraVersesModelofUthmani,
+      ParaVersesModelofNoSymbol? paraVersesModelofNoSymbol,
       String chapterName,
       int nxtAndprevValue});
 
@@ -8707,11 +9249,19 @@ abstract class _$$_QuranStateCopyWith<$Res>
   @override
   $QuranParaModelCopyWith<$Res>? get quranParaModel;
   @override
-  $RecitationModelCopyWith<$Res>? get recitationsModel;
+  $TranslationsModelCopyWith<$Res>? get translationsModel;
   @override
-  $ParaVersesModelOfUthmaniCopyWith<$Res>? get paraVersesModelofUthmani;
+  $RecitationsModelCopyWith<$Res>? get recitationsModel;
   @override
-  $ParaVersesModelOfNoSymbolCopyWith<$Res>? get paraVersesModelofNoSymbol;
+  $ChapterVersesIndoPakModelCopyWith<$Res>? get chapterVersesIndoPakModel;
+  @override
+  $ChapterVersesOfUthmaniCopyWith<$Res>? get chapterVersesOfUthmani;
+  @override
+  $ChapterVersesOfNosymbolCopyWith<$Res>? get chapterVersesOfNosymbol;
+  @override
+  $ParaVersesModelofUthmaniCopyWith<$Res>? get paraVersesModelofUthmani;
+  @override
+  $ParaVersesModelofNoSymbolCopyWith<$Res>? get paraVersesModelofNoSymbol;
 }
 
 /// @nodoc
@@ -8739,6 +9289,7 @@ class __$$_QuranStateCopyWithImpl<$Res>
     Object? audioStopped = null,
     Object? paraAudios = null,
     Object? chapterAudios = null,
+    Object? translationsModel = freezed,
     Object? currentSettingBgIndex = null,
     Object? fontsize = null,
     Object? chapterTranslationText = freezed,
@@ -8752,6 +9303,9 @@ class __$$_QuranStateCopyWithImpl<$Res>
     Object? recitorName = null,
     Object? recitorId = null,
     Object? quranTextTypeName = null,
+    Object? chapterVersesIndoPakModel = freezed,
+    Object? chapterVersesOfUthmani = freezed,
+    Object? chapterVersesOfNosymbol = freezed,
     Object? paraVersesModelofUthmani = freezed,
     Object? paraVersesModelofNoSymbol = freezed,
     Object? chapterName = null,
@@ -8814,6 +9368,10 @@ class __$$_QuranStateCopyWithImpl<$Res>
           ? _value._chapterAudios
           : chapterAudios // ignore: cast_nullable_to_non_nullable
               as List<dynamic>,
+      translationsModel: freezed == translationsModel
+          ? _value.translationsModel
+          : translationsModel // ignore: cast_nullable_to_non_nullable
+              as TranslationsModel?,
       currentSettingBgIndex: null == currentSettingBgIndex
           ? _value.currentSettingBgIndex
           : currentSettingBgIndex // ignore: cast_nullable_to_non_nullable
@@ -8853,7 +9411,7 @@ class __$$_QuranStateCopyWithImpl<$Res>
       recitationsModel: freezed == recitationsModel
           ? _value.recitationsModel
           : recitationsModel // ignore: cast_nullable_to_non_nullable
-              as RecitationModel?,
+              as RecitationsModel?,
       recitorName: null == recitorName
           ? _value.recitorName
           : recitorName // ignore: cast_nullable_to_non_nullable
@@ -8866,14 +9424,26 @@ class __$$_QuranStateCopyWithImpl<$Res>
           ? _value.quranTextTypeName
           : quranTextTypeName // ignore: cast_nullable_to_non_nullable
               as String,
+      chapterVersesIndoPakModel: freezed == chapterVersesIndoPakModel
+          ? _value.chapterVersesIndoPakModel
+          : chapterVersesIndoPakModel // ignore: cast_nullable_to_non_nullable
+              as ChapterVersesIndoPakModel?,
+      chapterVersesOfUthmani: freezed == chapterVersesOfUthmani
+          ? _value.chapterVersesOfUthmani
+          : chapterVersesOfUthmani // ignore: cast_nullable_to_non_nullable
+              as ChapterVersesOfUthmani?,
+      chapterVersesOfNosymbol: freezed == chapterVersesOfNosymbol
+          ? _value.chapterVersesOfNosymbol
+          : chapterVersesOfNosymbol // ignore: cast_nullable_to_non_nullable
+              as ChapterVersesOfNosymbol?,
       paraVersesModelofUthmani: freezed == paraVersesModelofUthmani
           ? _value.paraVersesModelofUthmani
           : paraVersesModelofUthmani // ignore: cast_nullable_to_non_nullable
-              as ParaVersesModelOfUthmani?,
+              as ParaVersesModelofUthmani?,
       paraVersesModelofNoSymbol: freezed == paraVersesModelofNoSymbol
           ? _value.paraVersesModelofNoSymbol
           : paraVersesModelofNoSymbol // ignore: cast_nullable_to_non_nullable
-              as ParaVersesModelOfNoSymbol?,
+              as ParaVersesModelofNoSymbol?,
       chapterName: null == chapterName
           ? _value.chapterName
           : chapterName // ignore: cast_nullable_to_non_nullable
@@ -8904,6 +9474,7 @@ class _$_QuranState implements _QuranState {
       required this.audioStopped,
       required final List<dynamic> paraAudios,
       required final List<dynamic> chapterAudios,
+      required this.translationsModel,
       required this.currentSettingBgIndex,
       required this.fontsize,
       required final List<String?>? chapterTranslationText,
@@ -8917,6 +9488,9 @@ class _$_QuranState implements _QuranState {
       required this.recitorName,
       required this.recitorId,
       required this.quranTextTypeName,
+      required this.chapterVersesIndoPakModel,
+      required this.chapterVersesOfUthmani,
+      required this.chapterVersesOfNosymbol,
       required this.paraVersesModelofUthmani,
       required this.paraVersesModelofNoSymbol,
       required this.chapterName,
@@ -8995,7 +9569,8 @@ class _$_QuranState implements _QuranState {
     return EqualUnmodifiableListView(_chapterAudios);
   }
 
-// required TranslationsModel? translationsModel,
+  @override
+  final TranslationsModel? translationsModel;
   @override
   final int currentSettingBgIndex;
   @override
@@ -9033,7 +9608,7 @@ class _$_QuranState implements _QuranState {
   @override
   final String transilationName;
   @override
-  final RecitationModel? recitationsModel;
+  final RecitationsModel? recitationsModel;
   @override
   final String recitorName;
   @override
@@ -9041,9 +9616,15 @@ class _$_QuranState implements _QuranState {
   @override
   final String quranTextTypeName;
   @override
-  final ParaVersesModelOfUthmani? paraVersesModelofUthmani;
+  final ChapterVersesIndoPakModel? chapterVersesIndoPakModel;
   @override
-  final ParaVersesModelOfNoSymbol? paraVersesModelofNoSymbol;
+  final ChapterVersesOfUthmani? chapterVersesOfUthmani;
+  @override
+  final ChapterVersesOfNosymbol? chapterVersesOfNosymbol;
+  @override
+  final ParaVersesModelofUthmani? paraVersesModelofUthmani;
+  @override
+  final ParaVersesModelofNoSymbol? paraVersesModelofNoSymbol;
   @override
   final String chapterName;
   @override
@@ -9051,7 +9632,7 @@ class _$_QuranState implements _QuranState {
 
   @override
   String toString() {
-    return 'QuranState(isLoading: $isLoading, quranChaptersModel: $quranChaptersModel, chapterVersesModel: $chapterVersesModel, paraVersesModel: $paraVersesModel, quranParaModel: $quranParaModel, chapterByIdModel: $chapterByIdModel, searchChapters: $searchChapters, isExpand2: $isExpand2, versesByKeyModel: $versesByKeyModel, audioPlaying: $audioPlaying, audioPaused: $audioPaused, audioStopped: $audioStopped, paraAudios: $paraAudios, chapterAudios: $chapterAudios, currentSettingBgIndex: $currentSettingBgIndex, fontsize: $fontsize, chapterTranslationText: $chapterTranslationText, paraTranslationText: $paraTranslationText, isShowMusicbar: $isShowMusicbar, audioIndex: $audioIndex, isExpand: $isExpand, globalTransilationId: $globalTransilationId, transilationName: $transilationName, recitationsModel: $recitationsModel, recitorName: $recitorName, recitorId: $recitorId, quranTextTypeName: $quranTextTypeName, paraVersesModelofUthmani: $paraVersesModelofUthmani, paraVersesModelofNoSymbol: $paraVersesModelofNoSymbol, chapterName: $chapterName, nxtAndprevValue: $nxtAndprevValue)';
+    return 'QuranState(isLoading: $isLoading, quranChaptersModel: $quranChaptersModel, chapterVersesModel: $chapterVersesModel, paraVersesModel: $paraVersesModel, quranParaModel: $quranParaModel, chapterByIdModel: $chapterByIdModel, searchChapters: $searchChapters, isExpand2: $isExpand2, versesByKeyModel: $versesByKeyModel, audioPlaying: $audioPlaying, audioPaused: $audioPaused, audioStopped: $audioStopped, paraAudios: $paraAudios, chapterAudios: $chapterAudios, translationsModel: $translationsModel, currentSettingBgIndex: $currentSettingBgIndex, fontsize: $fontsize, chapterTranslationText: $chapterTranslationText, paraTranslationText: $paraTranslationText, isShowMusicbar: $isShowMusicbar, audioIndex: $audioIndex, isExpand: $isExpand, globalTransilationId: $globalTransilationId, transilationName: $transilationName, recitationsModel: $recitationsModel, recitorName: $recitorName, recitorId: $recitorId, quranTextTypeName: $quranTextTypeName, chapterVersesIndoPakModel: $chapterVersesIndoPakModel, chapterVersesOfUthmani: $chapterVersesOfUthmani, chapterVersesOfNosymbol: $chapterVersesOfNosymbol, paraVersesModelofUthmani: $paraVersesModelofUthmani, paraVersesModelofNoSymbol: $paraVersesModelofNoSymbol, chapterName: $chapterName, nxtAndprevValue: $nxtAndprevValue)';
   }
 
   @override
@@ -9087,6 +9668,8 @@ class _$_QuranState implements _QuranState {
                 .equals(other._paraAudios, _paraAudios) &&
             const DeepCollectionEquality()
                 .equals(other._chapterAudios, _chapterAudios) &&
+            (identical(other.translationsModel, translationsModel) ||
+                other.translationsModel == translationsModel) &&
             (identical(other.currentSettingBgIndex, currentSettingBgIndex) ||
                 other.currentSettingBgIndex == currentSettingBgIndex) &&
             (identical(other.fontsize, fontsize) ||
@@ -9113,8 +9696,14 @@ class _$_QuranState implements _QuranState {
                 other.recitorId == recitorId) &&
             (identical(other.quranTextTypeName, quranTextTypeName) ||
                 other.quranTextTypeName == quranTextTypeName) &&
-            (identical(
-                    other.paraVersesModelofUthmani, paraVersesModelofUthmani) ||
+            (identical(other.chapterVersesIndoPakModel,
+                    chapterVersesIndoPakModel) ||
+                other.chapterVersesIndoPakModel == chapterVersesIndoPakModel) &&
+            (identical(other.chapterVersesOfUthmani, chapterVersesOfUthmani) ||
+                other.chapterVersesOfUthmani == chapterVersesOfUthmani) &&
+            (identical(other.chapterVersesOfNosymbol, chapterVersesOfNosymbol) ||
+                other.chapterVersesOfNosymbol == chapterVersesOfNosymbol) &&
+            (identical(other.paraVersesModelofUthmani, paraVersesModelofUthmani) ||
                 other.paraVersesModelofUthmani == paraVersesModelofUthmani) &&
             (identical(other.paraVersesModelofNoSymbol,
                     paraVersesModelofNoSymbol) ||
@@ -9142,6 +9731,7 @@ class _$_QuranState implements _QuranState {
         audioStopped,
         const DeepCollectionEquality().hash(_paraAudios),
         const DeepCollectionEquality().hash(_chapterAudios),
+        translationsModel,
         currentSettingBgIndex,
         fontsize,
         const DeepCollectionEquality().hash(_chapterTranslationText),
@@ -9155,6 +9745,9 @@ class _$_QuranState implements _QuranState {
         recitorName,
         recitorId,
         quranTextTypeName,
+        chapterVersesIndoPakModel,
+        chapterVersesOfUthmani,
+        chapterVersesOfNosymbol,
         paraVersesModelofUthmani,
         paraVersesModelofNoSymbol,
         chapterName,
@@ -9184,6 +9777,7 @@ abstract class _QuranState implements QuranState {
       required final bool audioStopped,
       required final List<dynamic> paraAudios,
       required final List<dynamic> chapterAudios,
+      required final TranslationsModel? translationsModel,
       required final int currentSettingBgIndex,
       required final double fontsize,
       required final List<String?>? chapterTranslationText,
@@ -9193,12 +9787,15 @@ abstract class _QuranState implements QuranState {
       required final bool isExpand,
       required final int globalTransilationId,
       required final String transilationName,
-      required final RecitationModel? recitationsModel,
+      required final RecitationsModel? recitationsModel,
       required final String recitorName,
       required final int recitorId,
       required final String quranTextTypeName,
-      required final ParaVersesModelOfUthmani? paraVersesModelofUthmani,
-      required final ParaVersesModelOfNoSymbol? paraVersesModelofNoSymbol,
+      required final ChapterVersesIndoPakModel? chapterVersesIndoPakModel,
+      required final ChapterVersesOfUthmani? chapterVersesOfUthmani,
+      required final ChapterVersesOfNosymbol? chapterVersesOfNosymbol,
+      required final ParaVersesModelofUthmani? paraVersesModelofUthmani,
+      required final ParaVersesModelofNoSymbol? paraVersesModelofNoSymbol,
       required final String chapterName,
       required final int nxtAndprevValue}) = _$_QuranState;
 
@@ -9230,7 +9827,9 @@ abstract class _QuranState implements QuranState {
   List<dynamic> get paraAudios;
   @override
   List<dynamic> get chapterAudios;
-  @override // required TranslationsModel? translationsModel,
+  @override
+  TranslationsModel? get translationsModel;
+  @override
   int get currentSettingBgIndex;
   @override
   double get fontsize;
@@ -9249,7 +9848,7 @@ abstract class _QuranState implements QuranState {
   @override
   String get transilationName;
   @override
-  RecitationModel? get recitationsModel;
+  RecitationsModel? get recitationsModel;
   @override
   String get recitorName;
   @override
@@ -9257,9 +9856,15 @@ abstract class _QuranState implements QuranState {
   @override
   String get quranTextTypeName;
   @override
-  ParaVersesModelOfUthmani? get paraVersesModelofUthmani;
+  ChapterVersesIndoPakModel? get chapterVersesIndoPakModel;
   @override
-  ParaVersesModelOfNoSymbol? get paraVersesModelofNoSymbol;
+  ChapterVersesOfUthmani? get chapterVersesOfUthmani;
+  @override
+  ChapterVersesOfNosymbol? get chapterVersesOfNosymbol;
+  @override
+  ParaVersesModelofUthmani? get paraVersesModelofUthmani;
+  @override
+  ParaVersesModelofNoSymbol? get paraVersesModelofNoSymbol;
   @override
   String get chapterName;
   @override

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/address_bloc/address_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
-import 'package:millat/resources/shop/bloc/service/orders_service.dart';
 import 'package:millat/resources/shop/view/checkout/checkout_view.dart';
 import 'package:millat/resources/shop/view/checkout/widgets/order_product_card.dart';
 import 'package:millat/resources/shop/view/order_status/payment_successful.dart';
@@ -508,6 +507,7 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
                           totalPrice: total,
                           context: context,
                         ));
+
                     Navigator.of(context).push(MaterialPageRoute(
                       builder: (context) => const PaymentSuccessful(),
                     ));

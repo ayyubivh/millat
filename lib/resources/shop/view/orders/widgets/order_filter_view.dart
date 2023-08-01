@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:millat/resources/shop/view/orders/widgets/order_status_view.dart';
+import 'package:millat/resources/shop/view/order_status/order_status.dart';
 import 'package:millat/utils/loader.dart';
 import 'package:millat/utils/size_utility.dart';
 import '../../../bloc/logic/shop_bloc/shop_products_bloc.dart';
@@ -58,7 +58,7 @@ class OrderFilterView extends StatelessWidget {
                         orderId: data.shiprocketOrderId,
                         onTap: () {
                           Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => const OrderStatusView(),
+                            builder: (context) => const OrderStatus(),
                           ));
                           final id = data.orderId;
                           context

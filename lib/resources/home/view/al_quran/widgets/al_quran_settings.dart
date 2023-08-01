@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/resources/home/view/al_quran/widgets/al_quran_appbar.dart';
-import 'package:millat/resources/home/view/al_quran/widgets/text_settings_view.dart';
-
+import 'package:millat/resources/home/view/al_quran/widgets/audio_recitors_view.dart';
+import 'package:millat/resources/home/view/al_quran/widgets/text_setting_view.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/string_constants.dart';
 
@@ -10,7 +10,6 @@ import '../../../../../utils/color_manager.dart';
 import '../../../../../utils/loader.dart';
 import '../../../../../utils/size_utility.dart';
 import '../../../bloc/logic/quran_bloc/quran_bloc.dart';
-import 'audio_recitors_view.dart';
 
 class AlQuranSettings extends StatelessWidget {
   const AlQuranSettings({super.key});
@@ -21,7 +20,7 @@ class AlQuranSettings extends StatelessWidget {
       BlocProvider.of<QuranBloc>(context)
           .add(const FetchAllTranslationsEvent());
 
-      // BlocProvider.of<QuranBloc>(context).add(const FetchAllRecitors());
+      BlocProvider.of<QuranBloc>(context).add(const FetchAllRecitors());
     });
     return Scaffold(
       backgroundColor: ColorManager.whiteColor,
@@ -52,7 +51,7 @@ class AlQuranSettings extends StatelessWidget {
                   BlocBuilder<QuranBloc, QuranState>(
                     builder: (context, state) => _buildListTile(
                       title: "Arabic Text",
-                      subTitle: state.quranTextTypeName == noSymbol
+                      subTitle: state.quranTextTypeName == nosymbol
                           ? "no diacritics or symbols"
                           : state.quranTextTypeName,
                       onTap: () {
@@ -235,62 +234,62 @@ class AlQuranSettings extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 17,
                       fontWeight: FontWeight.w600,
-                      color: ColorManager.textGrey,
+                      color: ColorManager.textGrey84,
                     ),
                   ),
                   kHeight20,
-                  // Expanded(
-                  //   child: Container(
-                  //     width: double.infinity,
-                  //     decoration: BoxDecoration(
-                  //       color: ColorManager.veryLightGreen,
-                  //       borderRadius: BorderRadius.circular(6),
-                  //     ),
-                  //     child: BlocBuilder<QuranBloc, QuranState>(
-                  //       builder: (context, state) {
-                  //         if (state.translationsModel?.translations == null) {
-                  //           const Loader();
-                  //         }
-                  //         return ListView.separated(
-                  //           separatorBuilder: (context, index) =>
-                  //               const Divider(thickness: 1),
-                  //           itemCount:
-                  //               state.translationsModel!.translations.length,
-                  //           itemBuilder: (context, index) {
-                  //             final data =
-                  //                 state.translationsModel?.translations[index];
-                  //             return ListTile(
-                  //               onTap: () {
-                  //                 context.read<QuranBloc>().add(
-                  //                     SaveGlobalTransilationIdAndName(
-                  //                         transilationId: data.id!.toInt(),
-                  //                         translationName:
-                  //                             "${data.languageName.toString()} (${data.authorName.toString()})"));
-                  //                 Navigator.of(context).pop();
-                  //               },
-                  //               title: Text(
-                  //                 '${data!.languageName.toString()} ${data.id}',
-                  //                 style: TextStyle(
-                  //                   fontSize: 17,
-                  //                   fontWeight: FontWeight.w500,
-                  //                   color: ColorManager.textGrey,
-                  //                 ),
-                  //               ),
-                  //               subtitle: Text(
-                  //                 data.authorName.toString(),
-                  //                 style: TextStyle(
-                  //                   color: ColorManager.textGrey,
-                  //                   fontSize: 14,
-                  //                   fontWeight: FontWeight.w500,
-                  //                 ),
-                  //               ),
-                  //             );
-                  //           },
-                  //         );
-                  //       },
-                  //     ),
-                  //   ),
-                  // ),
+                  Expanded(
+                    child: Container(
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        color: ColorManager.veryLightGreen,
+                        borderRadius: BorderRadius.circular(6),
+                      ),
+                      child: BlocBuilder<QuranBloc, QuranState>(
+                        builder: (context, state) {
+                          if (state.translationsModel?.translations == null) {
+                            const Loader();
+                          }
+                          return ListView.separated(
+                            separatorBuilder: (context, index) =>
+                                const Divider(thickness: 1),
+                            itemCount:
+                                state.translationsModel!.translations.length,
+                            itemBuilder: (context, index) {
+                              final data =
+                                  state.translationsModel?.translations[index];
+                              return ListTile(
+                                onTap: () {
+                                  context.read<QuranBloc>().add(
+                                      SaveGlobalTransilationIdAndName(
+                                          transilationId: data.id!.toInt(),
+                                          translationName:
+                                              "${data.languageName.toString()} (${data.authorName.toString()})"));
+                                  Navigator.of(context).pop();
+                                },
+                                title: Text(
+                                  '${data!.languageName.toString()} ${data.id}',
+                                  style: TextStyle(
+                                    fontSize: 17,
+                                    fontWeight: FontWeight.w500,
+                                    color: ColorManager.textGrey84,
+                                  ),
+                                ),
+                                subtitle: Text(
+                                  data.authorName.toString(),
+                                  style: TextStyle(
+                                    color: ColorManager.textGreyAd,
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                              );
+                            },
+                          );
+                        },
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),

@@ -3,13 +3,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/components/buttons/main_button.dart';
 import 'package:millat/components/common_widgets/reusable_methods.dart';
 import 'package:millat/resources/authentication/bloc/logic/database_bloc/database_bloc.dart';
+import 'package:millat/resources/home/bloc/logic/bookmark_bloc/bookmark_bloc.dart';
 import 'package:millat/resources/home/view/al_quran/bookmark_view.dart';
+import 'package:millat/resources/home/view/al_quran/widgets/al_quran_appbar.dart';
 import 'package:millat/resources/home/view/al_quran/widgets/quran_tabbar_widget.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/size_utility.dart';
-
-import '../../bloc/db/db_functions.dart';
 
 class AlQuranView extends StatelessWidget {
   const AlQuranView({super.key});
@@ -18,56 +18,26 @@ class AlQuranView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorManager.whiteColor,
-      appBar: AppBar(
-        backgroundColor: ColorManager.whiteColor,
-        foregroundColor: ColorManager.blackColor,
-        elevation: 0,
-        centerTitle: true,
-        title: Text(
-          "Al-Quran",
-          style: TextStyle(
-            color: ColorManager.primary,
-            fontSize: 18,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        actions: [
-          InkWell(
-            onTap: () {
-              BookMarkDB.instance.bookMarkListNotifier.value.isNotEmpty
-                  ? Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const BookmarkView(),
-                    ))
-                  : showModalBottomSheet(
-                      context: context,
-                      backgroundColor: Colors.transparent,
-                      builder: (context) {
-                        return StatefulBuilder(
-                          builder: (context, setState) {
-                            return _buildBookmarkPopUp(context);
-                          },
-                        );
+      appBar: alQuranAppbar(
+        color: ColorManager.whiteColor,
+        context: context,
+        text: "Al-Quran",
+        onTap: () {
+          context.read<BookmarkBloc>().state.dbCollectionItems.isNotEmpty
+              ? Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => const BookmarkView()))
+              : showModalBottomSheet(
+                  context: context,
+                  backgroundColor: Colors.transparent,
+                  builder: (context) {
+                    return StatefulBuilder(
+                      builder: (context, setState) {
+                        return _buildBookmarkPopUp(context);
                       },
                     );
-            },
-            child: ImageIcon(
-              const AssetImage("assets/icons/bookmark.png"),
-              color: ColorManager.blackColor,
-            ),
-          ),
-          kWidth15,
-          ImageIcon(
-            const AssetImage("assets/icons/settings.png"),
-            color: ColorManager.blackColor,
-          ),
-          kWidth15,
-          ImageIcon(
-            const AssetImage("assets/icons/search.png"),
-            color: ColorManager.blackColor,
-          ),
-          kWidth15,
-          kWidth15,
-        ],
+                  },
+                );
+        },
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
@@ -182,7 +152,7 @@ class AlQuranView extends StatelessWidget {
                       color: ColorManager.whiteColor,
                     ),
                   ),
-                  SizedBox(height: 15),
+                  const SizedBox(height: 15),
                   Text(
                     "1:3",
                     style: TextStyle(

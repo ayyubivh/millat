@@ -57,7 +57,7 @@ class QuranEvent with _$QuranEvent {
     required int transilationId,
     required String translationName,
   }) = SaveGlobalTransilationIdAndName;
-  // const factory QuranEvent.fetchAllRecitors() = FetchAllRecitors;
+  const factory QuranEvent.fetchAllRecitors() = FetchAllRecitors;
   const factory QuranEvent.saveRecitorNameAndId({
     required int recitorId,
     required String recitorName,

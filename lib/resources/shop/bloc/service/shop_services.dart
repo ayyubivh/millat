@@ -35,7 +35,6 @@ class ShopService extends HttpServices {
 
         return result;
       } catch (e) {
-        print('error on Flash API fetch: ${e.toString()}');
         throw Exception('Failed to parse response');
       }
     } else {

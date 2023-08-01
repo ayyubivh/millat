@@ -6,6 +6,7 @@ import '../../../../services/http_services.dart';
 import '../../../../utils/string_constants.dart';
 import '../../../authentication/bloc/logic/database_bloc/database_bloc.dart';
 
+import '../models/orders/fetch_order_byId_model.dart';
 import '../models/orders/orders_model.dart';
 
 class OrdersService extends HttpServices {
@@ -43,7 +44,6 @@ class OrdersService extends HttpServices {
         print('Response data in the postOrder function: $data');
         return data;
       } else {
-        print('API request failed with status code: ${response.statusCode}');
         throw Exception(
             'API request failed with status code: ${response.statusCode}');
       }
@@ -81,7 +81,8 @@ class OrdersService extends HttpServices {
   }
 
 //For Getting orders by id
-  Future<OrderModel> fetchOrdersById(BuildContext context, int id) async {
+  Future<OrderModelbyIdModel> fetchOrdersById(
+      BuildContext context, int id) async {
     final endPoint = "order/$id";
 
     final databaseState = context.read<DatabaseBloc>().state;
@@ -94,10 +95,9 @@ class OrdersService extends HttpServices {
 
     if (response.statusCode == 200) {
       try {
-        print('jsone here by id${response.body}');
         final Map<String, dynamic> data = json.decode(response.body);
-        final result = OrderModel.fromJson(data);
-
+        final result = OrderModelbyIdModel.fromJson(data);
+        print('jsone here by resul $result}');
         return result;
       } catch (e) {
         print('error on orders  API fetch: ${e.toString()}');
@@ -135,6 +135,42 @@ class OrdersService extends HttpServices {
     } else {
       throw Exception(
           'API request failed with status code: ${response.statusCode}');
+    }
+  }
+
+  //For cancelling the orders
+  cancelOrder({
+    required BuildContext context,
+    required int shiprocketId,
+  }) async {
+    const endPoint = 'order/cancel';
+
+    final databaseState = context.read<DatabaseBloc>().state;
+    final token = databaseState.token;
+
+    final headers = {
+      'Content-Type': 'application/json; charset=utf-8',
+      'Authorization': 'Bearer $token',
+    };
+
+    final body = {
+      "shiprocket_order_id": shiprocketId,
+    };
+
+    final response = await http.post(Uri.parse(kBaseUrl + endPoint),
+        headers: headers, body: jsonEncode(body));
+
+    try {
+      if (response.statusCode == 200) {
+        final Map<String, dynamic> data = json.decode(response.body);
+        print('Response data in the postOrder function: $data');
+        return data;
+      } else {
+        throw Exception(
+            'API request failed with status code: ${response.statusCode}');
+      }
+    } catch (e) {
+      print('Error on API fetch: ${e.toString()}');
     }
   }
 }

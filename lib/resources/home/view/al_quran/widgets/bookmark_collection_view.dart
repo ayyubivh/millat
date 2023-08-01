@@ -3,11 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/resources/home/bloc/db/db_functions.dart';
 import 'package:millat/resources/home/bloc/logic/bookmark_bloc/bookmark_bloc.dart';
 import 'package:millat/resources/home/bloc/logic/quran_bloc/quran_bloc.dart';
-import 'package:millat/resources/home/view/al_quran/widgets/quran_tabbar_widget.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/loader.dart';
 import 'package:millat/utils/size_utility.dart';
-
 import '../../../../../enums/enumertations.dart';
 import '../../../../../utils/color_manager.dart';
 import '../../../bloc/models/book_mark_hive_model/book_mark_hive_model.dart';
@@ -121,8 +119,8 @@ class BookmarkCollectionView extends StatelessWidget {
                       return Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: _buildSurahWidget(
+                            context: context,
                             name: data[index].verses[0].textIndopak,
-                            arabicName: ' ',
                             versCount: data[index].verses[0].verseKey),
                       );
                     },
@@ -139,46 +137,36 @@ class BookmarkCollectionView extends StatelessWidget {
   Widget _buildSurahWidget({
     required String name,
     required String versCount,
-    required String arabicName,
+    required BuildContext context,
   }) {
     return Row(
       children: [
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              name,
-              style: const TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
+        Flexible(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                name,
+                style: const TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),
+                // maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+                textDirection: TextDirection.rtl,
               ),
-              maxLines: 2,
-              overflow: TextOverflow.ellipsis,
-            ),
-            kHeight10,
-            Text(
-              'Aya $versCount  ',
-              style: TextStyle(
-                color: ColorManager.textGrey,
-                fontSize: 16,
-                fontWeight: FontWeight.w600,
-              ),
-            )
-          ],
-        ),
-        const Spacer(),
-        Text(
-          arabicName,
-          style: const TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 20,
+              kHeight10,
+              Text(
+                'Aya $versCount  ',
+                style: TextStyle(
+                  color: ColorManager.textGrey,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w600,
+                ),
+              )
+            ],
           ),
         ),
-        kWidht10,
-        const Icon(
-          Icons.arrow_forward_ios,
-          size: 18,
-        )
       ],
     );
   }
@@ -214,7 +202,7 @@ class BookmarkCollectionView extends StatelessWidget {
                 return;
               }
               BookMarkDB.instance.removeCollection(passvalue.id!);
-
+              context.read<BookmarkBloc>().add(const FetchCollectionItem());
               Navigator.of(context).pop();
             },
             child: Text(

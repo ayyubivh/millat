@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/enums/enumertations.dart';
-import 'package:millat/resources/home/bloc/models/quran_chapter_models/quran_chapter_models.dart';
-import 'package:millat/resources/home/view/al_quran/widgets/verses-view.dart';
+import 'package:millat/resources/home/bloc/logic/bookmark_bloc/bookmark_bloc.dart';
 import 'package:millat/utils/loader.dart';
 import '../../../../../utils/constants.dart';
 import '../../../../../utils/color_manager.dart';
 import '../../../bloc/logic/quran_bloc/quran_bloc.dart';
+import '../../../bloc/models/al-quran/quran_chapter_models/quran_chapter_models.dart';
+import 'verses_view.dart';
 
 class QuranTabBarWidget extends StatefulWidget {
   const QuranTabBarWidget({super.key});
@@ -70,72 +71,81 @@ class _QuranTabBarWidgetState extends State<QuranTabBarWidget> {
 
   Widget _myQuranTabBar() {
     return SizedBox(
-      child: ListView(
-        shrinkWrap: true,
-        children: [
-          ExpansionPanelList(
-            elevation: 0,
-            expandedHeaderPadding: EdgeInsets.zero,
-            expansionCallback: (panelIndex, isExpanded) {
-              setState(() {
-                _expandedIndex = isExpanded ? -1 : panelIndex;
-              });
-            },
-            children: List.generate(2, (index) {
-              bool isExpanded = index == _expandedIndex;
+      child: BlocBuilder<BookmarkBloc, BookmarkState>(
+        builder: (context, state) => ListView(
+          shrinkWrap: true,
+          children: [
+            ExpansionPanelList(
+              elevation: 0,
+              expandedHeaderPadding: EdgeInsets.zero,
+              expansionCallback: (panelIndex, isExpanded) {
+                setState(() {
+                  context.read<QuranBloc>().add(FetchVersesByKey(
+                      verseKey: state.dbCollectionItems[panelIndex].verseKey));
+                  _expandedIndex = isExpanded ? -1 : panelIndex;
+                });
+              },
+              children: List.generate(state.dbCollectionItems.length, (index) {
+                bool isExpanded = index == _expandedIndex;
 
-              return ExpansionPanel(
-                headerBuilder: (context, isExpanded) {
-                  return ListTile(
-                    title: Text(
-                      "Daily Verse (8)",
-                      style: TextStyle(
-                        fontSize: 17,
-                        color: ColorManager.blackColor,
-                        fontWeight: FontWeight.bold,
+                return ExpansionPanel(
+                  headerBuilder: (context, isExpanded) {
+                    return ListTile(
+                      title: Text(
+                        state.dbCollectionItems[index].name,
+                        style: TextStyle(
+                          fontSize: 17,
+                          color: ColorManager.blackColor,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
+                    );
+                  },
+                  body: SizedBox(
+                    height: 400,
+                    child: BlocBuilder<QuranBloc, QuranState>(
+                      builder: (context, state) {
+                        final data = state.versesByKeyModel;
+                        return ListView.builder(
+                          itemCount: data!.length,
+                          itemBuilder: (context, index) {
+                            return ListTile(
+                              title: Text(
+                                data[index].verses[0].textIndopak,
+                                style: TextStyle(
+                                  color: ColorManager.primary,
+                                  fontSize: 17,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                              subtitle: Text(
+                                data[index].verses[0].verseKey,
+                                style: TextStyle(
+                                    color: ColorManager.blackColor,
+                                    fontSize: 13,
+                                    fontWeight: FontWeight.bold,
+                                    height: 2),
+                              ),
+                              trailing: const Text(
+                                'Today',
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 16,
+                                  color: black132,
+                                ),
+                              ),
+                            );
+                          },
+                        );
+                      },
                     ),
-                  );
-                },
-                body: SizedBox(
-                  height: 400,
-                  child: ListView.builder(
-                    itemCount: 5,
-                    itemBuilder: (context, index) {
-                      return ListTile(
-                        title: Text(
-                          "Al-A'raaf, Verse 199",
-                          style: TextStyle(
-                            color: ColorManager.primary,
-                            fontSize: 17,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                        subtitle: Text(
-                          'The Heights(7:199)',
-                          style: TextStyle(
-                              color: ColorManager.blackColor,
-                              fontSize: 13,
-                              fontWeight: FontWeight.bold,
-                              height: 2),
-                        ),
-                        trailing: const Text(
-                          'Today',
-                          style: TextStyle(
-                            fontWeight: FontWeight.w600,
-                            fontSize: 16,
-                            color: black132,
-                          ),
-                        ),
-                      );
-                    },
                   ),
-                ),
-                isExpanded: isExpanded,
-              );
-            }),
-          ),
-        ],
+                  isExpanded: isExpanded,
+                );
+              }),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -253,6 +263,9 @@ class _QuranTabBarWidgetState extends State<QuranTabBarWidget> {
         final quranState = context.read<QuranBloc>().state;
 
         context.read<QuranBloc>().add(FetchChaperVersesEvent(id: chapter.id));
+        context
+            .read<QuranBloc>()
+            .add(FetchChapterVersesbyTextName(id: chapter.id));
         context.read<QuranBloc>().add(FetchTranslationChapterTexts(
             translationId: quranState.globalTransilationId,
             chapterId: chapter.id));

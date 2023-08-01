@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/enums/enumertations.dart';
+import 'package:millat/resources/home/bloc/logic/bookmark_bloc/bookmark_bloc.dart';
 import 'package:millat/resources/home/view/al_quran/widgets/addnew_collection_view.dart';
 import 'package:millat/resources/home/view/al_quran/widgets/bookmark_collection_view.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
-import '../../bloc/db/db_functions.dart';
 import '../../bloc/models/book_mark_hive_model/book_mark_hive_model.dart';
 
 class BookmarkView extends StatelessWidget {
@@ -12,6 +13,9 @@ class BookmarkView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      BlocProvider.of<BookmarkBloc>(context).add(const FetchCollectionItem());
+    });
     return Scaffold(
       appBar: AppBar(
         backgroundColor: ColorManager.whiteColor,
@@ -47,41 +51,16 @@ class BookmarkView extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 25),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             kHeight20,
-            Row(
-              children: [
-                Image.asset("assets/images/quran_bookmark.png"),
-                kWidht10,
-                InkWell(
-                  onTap: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const AddNewBookMarkCollection(
-                          type: BookMarkCollectionType.add),
-                    ));
-                  },
-                  child: Icon(
-                    Icons.add_circle_outline,
-                    color: ColorManager.primary,
-                    size: 25,
-                  ),
-                ),
-                kWidth5,
-                const Text(
-                  'Create Collection',
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ],
-            ),
+            _newCollectionWidget(context),
+            kHeight20,
             kHeight20,
             Expanded(
-              child: ValueListenableBuilder(
-                valueListenable: BookMarkDB.instance.bookMarkListNotifier,
-                builder: (context, value, child) {
-                  if (value.isEmpty) {
+              child: BlocBuilder<BookmarkBloc, BookmarkState>(
+                builder: (context, state) {
+                  if (state.dbCollectionItems.isEmpty) {
                     Text(
                       "No Collections",
                       style: TextStyle(
@@ -89,10 +68,12 @@ class BookmarkView extends StatelessWidget {
                       ),
                     );
                   }
+                  final value = state.dbCollectionItems;
                   return ListView.builder(
                     itemCount: value.length,
                     itemBuilder: (context, index) {
                       final data = value[index];
+
                       return InkWell(
                         onTap: () {
                           Navigator.of(context).push(MaterialPageRoute(
@@ -114,6 +95,36 @@ class BookmarkView extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+
+  Row _newCollectionWidget(BuildContext context) {
+    return Row(
+      children: [
+        Image.asset("assets/images/quran_bookmark.png"),
+        kWidht10,
+        InkWell(
+          onTap: () {
+            Navigator.of(context).push(MaterialPageRoute(
+              builder: (context) => const AddNewBookMarkCollection(
+                  type: BookMarkCollectionType.add),
+            ));
+          },
+          child: Icon(
+            Icons.add_circle_outline,
+            color: ColorManager.primary,
+            size: 25,
+          ),
+        ),
+        kWidth5,
+        const Text(
+          'Create Collection',
+          style: TextStyle(
+            fontSize: 18,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ],
     );
   }
 

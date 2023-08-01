@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:millat/resources/home/bloc/models/book_mark_hive_model/book_mark_hive_model.dart';
+import '../../../../../utils/string_constants.dart';
 import '../../db/db_functions.dart';
 
 part 'bookmark_event.dart';
@@ -26,7 +27,8 @@ class BookmarkBloc extends Bloc<BookmarkEvent, BookmarkState> {
     on<SaveVerseKeyEvent>(_saveVerseKeyEvent);
     on<EmptyIndexEvent>(_emptyIndexEvent);
     on<EmptyVerseKeyEvent>(_emptyVerseKeyEvent);
-    on<FetchCollectionItem>(_fetchCollectionItme);
+    on<FetchCollectionItem>(_fetchCollectionItem);
+    on<AddFavCollection>(_addFavCollection);
   }
 
   _addCollection(AddCollection event, Emitter<BookmarkState> emit) {
@@ -55,7 +57,31 @@ class BookmarkBloc extends Bloc<BookmarkEvent, BookmarkState> {
     if (name.isEmpty || img.isEmpty || desc.isEmpty || versekey == []) {
     } else {
       BookMarkDB.instance.addCollection(model);
-      BookMarkDB.instance.refresh();
+    }
+  }
+
+  _addFavCollection(
+    AddFavCollection event,
+    Emitter<BookmarkState> emit,
+  ) {
+    final model = BookMarktCollectionModel(
+        id: '1',
+        verseKey: event.verskey,
+        name: "Favorite",
+        discription: "Favorite Item Collections",
+        image: favoriteImg);
+
+    BookMarkDB.instance.addCollection(model);
+  }
+
+  _fetchCollectionItem(
+      FetchCollectionItem event, Emitter<BookmarkState> emit) async {
+    try {
+      final data = await BookMarkDB.instance.getAllBookmarkCollection();
+      emit(state.copyWith(dbCollectionItems: data));
+      print('hive datas ${data.map((e) => e.verseKey)}');
+    } catch (e) {
+      throw Exception(e);
     }
   }
 
@@ -102,7 +128,6 @@ class BookmarkBloc extends Bloc<BookmarkEvent, BookmarkState> {
     if (name.isEmpty || img.isEmpty || desc.isEmpty || id == 0) {
     } else {
       BookMarkDB.instance.editCollection(model, model.id);
-      BookMarkDB.instance.refresh();
     }
   }
 
@@ -151,9 +176,5 @@ class BookmarkBloc extends Bloc<BookmarkEvent, BookmarkState> {
 
   _emptyVerseKeyEvent(EmptyVerseKeyEvent event, Emitter<BookmarkState> emit) {
     emit(state.copyWith(verskey: []));
-  }
-
-  _fetchCollectionItme(event, Emitter<BookmarkState> emit) {
-    emit(state.copyWith(dbCollectionItems: event.bookMarkCollectionModel));
   }
 }

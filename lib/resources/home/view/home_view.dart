@@ -2,8 +2,8 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:millat/resources/home/bloc/logic/bookmark_bloc/bookmark_bloc.dart';
 import 'package:millat/resources/home/bloc/logic/namaz_timing_bloc/namaz_timing_bloc.dart';
-import 'package:millat/resources/home/bloc/service/quran_service.dart';
 import 'package:millat/resources/home/view/dua/dua_view.dart';
 import 'package:millat/utils/constants.dart';
 import '../../../utils/color_manager.dart';
@@ -12,10 +12,9 @@ import '../../../utils/utils.dart';
 import '../../authentication/bloc/logic/database_bloc/database_bloc.dart';
 import '../../profile/views/profile_view.dart';
 import '../../shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
+import '../../shop/view/order_status/order_status.dart';
 import '../bloc/logic/location_bloc/location_bloc.dart';
-import '../bloc/models/chapter_by_id_model/chapter_by_id_model.dart';
 import 'al_quran/al_quran_view.dart';
-
 import 'namaz_timing/namaz_timing_view.dart';
 
 ValueNotifier<bool> scrollNotifier = ValueNotifier(true);
@@ -29,8 +28,10 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> {
   int _currentIndex = 0;
+
   @override
   void initState() {
+    BlocProvider.of<BookmarkBloc>(context).add(const FetchCollectionItem());
     BlocProvider.of<LocationBloc>(context).add(const FetchCurrentLocation());
     BlocProvider.of<DatabaseBloc>(context).add(const FetchUserDetails());
     BlocProvider.of<LocationBloc>(context).add(const FetchCities());

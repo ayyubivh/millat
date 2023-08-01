@@ -8,8 +8,7 @@ import 'package:millat/resources/shop/bloc/models/recent_products/recent_product
 import 'package:millat/resources/shop/bloc/service/orders_service.dart';
 import 'package:millat/resources/shop/bloc/service/shop_services.dart';
 import '../../models/banners/banners_model.dart';
-
-import '../../models/orders/fetch_orderbyid_model.dart';
+import '../../models/orders/fetch_order_byId_model.dart';
 import '../../models/orders/orders_model.dart';
 import '../../models/shop_by_brand/shop_by_brand_models.dart';
 import '../../models/shop_by_brand/shop_by_brand_products.dart';
@@ -41,6 +40,7 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
     on<PostOrders>(_postOrders);
     on<FetchOrdersById>(_fetchOrdersById);
     on<FetchOrdersbyFilterEvent>(_fetchOrdersbyFilterEvent);
+    on<CancelOrder>(_cancelOrder);
   }
 
   FutureOr<void> _fetchFlashSaleProducts(
@@ -259,10 +259,10 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
   }
 
   FutureOr<void> _postOrders(
-      PostOrders event, Emitter<ShopProductsState> emit) {
-    emit(state.copyWith(errorMessage: ""));
+      PostOrders event, Emitter<ShopProductsState> emit) async {
+    emit(state.copyWith(errorMessage: "", isLoading: true));
     try {
-      final data = ordersService.postOrder(
+      final data = await ordersService.postOrder(
         context: event.context,
         totalPrice: event.totalPrice,
         pickUpAddress: event.pickupLocation,
@@ -272,9 +272,14 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
         weight: event.totalDiscount,
         id: event.id,
       );
-      print('data on the bloc  of the orders$data');
+
+      final orderIds = data["result"]["orderIds"][0];
+      print('here before $orderIds');
+
+      emit(state.copyWith(isLoading: false, orderId: orderIds));
+      print('here is the order id in the bloc ${state.orderId}');
     } catch (e) {
-      emit(state.copyWith(errorMessage: e.toString()));
+      emit(state.copyWith(errorMessage: e.toString(), isLoading: false));
     }
   }
 
@@ -283,6 +288,7 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
     emit(state.copyWith(isLoading: true, errorMessage: ""));
     try {
       final data = await ordersService.fetchOrdersById(event.context, event.id);
+      print('here ares the results of ordersy by id in the bloc $data');
       emit(state.copyWith(ordersByIdModel: data, isLoading: false));
     } catch (e) {
       emit(state.copyWith(errorMessage: e.toString(), isLoading: false));
@@ -299,6 +305,17 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
       print('jsone here on a orders the result of filteres bloc $data');
     } catch (e) {
       emit(state.copyWith(errorMessage: e.toString(), isLoading: false));
+    }
+  }
+
+  _cancelOrder(CancelOrder event, Emitter<ShopProductsState> emit) {
+    emit(state.copyWith(isLoading: true, errorMessage: ""));
+    try {
+      ordersService.cancelOrder(
+          context: event.context, shiprocketId: event.shiprockeId);
+      emit(state.copyWith(isLoading: false, errorMessage: ""));
+    } catch (e) {
+      emit(state.copyWith(isLoading: false, errorMessage: "$e"));
     }
   }
 }

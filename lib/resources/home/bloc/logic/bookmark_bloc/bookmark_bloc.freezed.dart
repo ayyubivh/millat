@@ -38,6 +38,7 @@ mixin _$BookmarkEvent {
             String dbId,
             BuildContext context)
         editCollection,
+    required TResult Function(List<String> verskey) addFavCollection,
     required TResult Function(int indexList) saveIndexEvent,
     required TResult Function(int versesIndexList) saveVersesIndexEvent,
     required TResult Function() clearIndexEvent,
@@ -45,9 +46,7 @@ mixin _$BookmarkEvent {
     required TResult Function() emptyIndexEvent,
     required TResult Function(String versekey) saveVerseKeyEvent,
     required TResult Function() emptyVerseKeyEvent,
-    required TResult Function(
-            List<BookMarktCollectionModel> bookMarkCollectionModel)
-        fetchCollectionItem,
+    required TResult Function() fetchCollectionItem,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -62,6 +61,7 @@ mixin _$BookmarkEvent {
     TResult? Function(String name, String description, List<String> verskey,
             String image, String dbId, BuildContext context)?
         editCollection,
+    TResult? Function(List<String> verskey)? addFavCollection,
     TResult? Function(int indexList)? saveIndexEvent,
     TResult? Function(int versesIndexList)? saveVersesIndexEvent,
     TResult? Function()? clearIndexEvent,
@@ -69,8 +69,7 @@ mixin _$BookmarkEvent {
     TResult? Function()? emptyIndexEvent,
     TResult? Function(String versekey)? saveVerseKeyEvent,
     TResult? Function()? emptyVerseKeyEvent,
-    TResult? Function(List<BookMarktCollectionModel> bookMarkCollectionModel)?
-        fetchCollectionItem,
+    TResult? Function()? fetchCollectionItem,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -85,6 +84,7 @@ mixin _$BookmarkEvent {
     TResult Function(String name, String description, List<String> verskey,
             String image, String dbId, BuildContext context)?
         editCollection,
+    TResult Function(List<String> verskey)? addFavCollection,
     TResult Function(int indexList)? saveIndexEvent,
     TResult Function(int versesIndexList)? saveVersesIndexEvent,
     TResult Function()? clearIndexEvent,
@@ -92,8 +92,7 @@ mixin _$BookmarkEvent {
     TResult Function()? emptyIndexEvent,
     TResult Function(String versekey)? saveVerseKeyEvent,
     TResult Function()? emptyVerseKeyEvent,
-    TResult Function(List<BookMarktCollectionModel> bookMarkCollectionModel)?
-        fetchCollectionItem,
+    TResult Function()? fetchCollectionItem,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -105,6 +104,7 @@ mixin _$BookmarkEvent {
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(DescriptionChanged value) descriptionChanged,
     required TResult Function(EditCollection value) editCollection,
+    required TResult Function(AddFavCollection value) addFavCollection,
     required TResult Function(SaveIndexEvent value) saveIndexEvent,
     required TResult Function(SaveVersesIndexEvent value) saveVersesIndexEvent,
     required TResult Function(ClearIndexEvent value) clearIndexEvent,
@@ -123,6 +123,7 @@ mixin _$BookmarkEvent {
     TResult? Function(NameChanged value)? nameChanged,
     TResult? Function(DescriptionChanged value)? descriptionChanged,
     TResult? Function(EditCollection value)? editCollection,
+    TResult? Function(AddFavCollection value)? addFavCollection,
     TResult? Function(SaveIndexEvent value)? saveIndexEvent,
     TResult? Function(SaveVersesIndexEvent value)? saveVersesIndexEvent,
     TResult? Function(ClearIndexEvent value)? clearIndexEvent,
@@ -141,6 +142,7 @@ mixin _$BookmarkEvent {
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(DescriptionChanged value)? descriptionChanged,
     TResult Function(EditCollection value)? editCollection,
+    TResult Function(AddFavCollection value)? addFavCollection,
     TResult Function(SaveIndexEvent value)? saveIndexEvent,
     TResult Function(SaveVersesIndexEvent value)? saveVersesIndexEvent,
     TResult Function(ClearIndexEvent value)? clearIndexEvent,
@@ -317,6 +319,7 @@ class _$AddCollection implements AddCollection {
             String dbId,
             BuildContext context)
         editCollection,
+    required TResult Function(List<String> verskey) addFavCollection,
     required TResult Function(int indexList) saveIndexEvent,
     required TResult Function(int versesIndexList) saveVersesIndexEvent,
     required TResult Function() clearIndexEvent,
@@ -324,9 +327,7 @@ class _$AddCollection implements AddCollection {
     required TResult Function() emptyIndexEvent,
     required TResult Function(String versekey) saveVerseKeyEvent,
     required TResult Function() emptyVerseKeyEvent,
-    required TResult Function(
-            List<BookMarktCollectionModel> bookMarkCollectionModel)
-        fetchCollectionItem,
+    required TResult Function() fetchCollectionItem,
   }) {
     return addCollection(name, description, verskey, image, context, dbId);
   }
@@ -344,6 +345,7 @@ class _$AddCollection implements AddCollection {
     TResult? Function(String name, String description, List<String> verskey,
             String image, String dbId, BuildContext context)?
         editCollection,
+    TResult? Function(List<String> verskey)? addFavCollection,
     TResult? Function(int indexList)? saveIndexEvent,
     TResult? Function(int versesIndexList)? saveVersesIndexEvent,
     TResult? Function()? clearIndexEvent,
@@ -351,8 +353,7 @@ class _$AddCollection implements AddCollection {
     TResult? Function()? emptyIndexEvent,
     TResult? Function(String versekey)? saveVerseKeyEvent,
     TResult? Function()? emptyVerseKeyEvent,
-    TResult? Function(List<BookMarktCollectionModel> bookMarkCollectionModel)?
-        fetchCollectionItem,
+    TResult? Function()? fetchCollectionItem,
   }) {
     return addCollection?.call(
         name, description, verskey, image, context, dbId);
@@ -371,6 +372,7 @@ class _$AddCollection implements AddCollection {
     TResult Function(String name, String description, List<String> verskey,
             String image, String dbId, BuildContext context)?
         editCollection,
+    TResult Function(List<String> verskey)? addFavCollection,
     TResult Function(int indexList)? saveIndexEvent,
     TResult Function(int versesIndexList)? saveVersesIndexEvent,
     TResult Function()? clearIndexEvent,
@@ -378,8 +380,7 @@ class _$AddCollection implements AddCollection {
     TResult Function()? emptyIndexEvent,
     TResult Function(String versekey)? saveVerseKeyEvent,
     TResult Function()? emptyVerseKeyEvent,
-    TResult Function(List<BookMarktCollectionModel> bookMarkCollectionModel)?
-        fetchCollectionItem,
+    TResult Function()? fetchCollectionItem,
     required TResult orElse(),
   }) {
     if (addCollection != null) {
@@ -397,6 +398,7 @@ class _$AddCollection implements AddCollection {
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(DescriptionChanged value) descriptionChanged,
     required TResult Function(EditCollection value) editCollection,
+    required TResult Function(AddFavCollection value) addFavCollection,
     required TResult Function(SaveIndexEvent value) saveIndexEvent,
     required TResult Function(SaveVersesIndexEvent value) saveVersesIndexEvent,
     required TResult Function(ClearIndexEvent value) clearIndexEvent,
@@ -418,6 +420,7 @@ class _$AddCollection implements AddCollection {
     TResult? Function(NameChanged value)? nameChanged,
     TResult? Function(DescriptionChanged value)? descriptionChanged,
     TResult? Function(EditCollection value)? editCollection,
+    TResult? Function(AddFavCollection value)? addFavCollection,
     TResult? Function(SaveIndexEvent value)? saveIndexEvent,
     TResult? Function(SaveVersesIndexEvent value)? saveVersesIndexEvent,
     TResult? Function(ClearIndexEvent value)? clearIndexEvent,
@@ -439,6 +442,7 @@ class _$AddCollection implements AddCollection {
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(DescriptionChanged value)? descriptionChanged,
     TResult Function(EditCollection value)? editCollection,
+    TResult Function(AddFavCollection value)? addFavCollection,
     TResult Function(SaveIndexEvent value)? saveIndexEvent,
     TResult Function(SaveVersesIndexEvent value)? saveVersesIndexEvent,
     TResult Function(ClearIndexEvent value)? clearIndexEvent,
@@ -560,6 +564,7 @@ class _$SaveImageEvent implements SaveImageEvent {
             String dbId,
             BuildContext context)
         editCollection,
+    required TResult Function(List<String> verskey) addFavCollection,
     required TResult Function(int indexList) saveIndexEvent,
     required TResult Function(int versesIndexList) saveVersesIndexEvent,
     required TResult Function() clearIndexEvent,
@@ -567,9 +572,7 @@ class _$SaveImageEvent implements SaveImageEvent {
     required TResult Function() emptyIndexEvent,
     required TResult Function(String versekey) saveVerseKeyEvent,
     required TResult Function() emptyVerseKeyEvent,
-    required TResult Function(
-            List<BookMarktCollectionModel> bookMarkCollectionModel)
-        fetchCollectionItem,
+    required TResult Function() fetchCollectionItem,
   }) {
     return saveImageEvent(img);
   }
@@ -587,6 +590,7 @@ class _$SaveImageEvent implements SaveImageEvent {
     TResult? Function(String name, String description, List<String> verskey,
             String image, String dbId, BuildContext context)?
         editCollection,
+    TResult? Function(List<String> verskey)? addFavCollection,
     TResult? Function(int indexList)? saveIndexEvent,
     TResult? Function(int versesIndexList)? saveVersesIndexEvent,
     TResult? Function()? clearIndexEvent,
@@ -594,8 +598,7 @@ class _$SaveImageEvent implements SaveImageEvent {
     TResult? Function()? emptyIndexEvent,
     TResult? Function(String versekey)? saveVerseKeyEvent,
     TResult? Function()? emptyVerseKeyEvent,
-    TResult? Function(List<BookMarktCollectionModel> bookMarkCollectionModel)?
-        fetchCollectionItem,
+    TResult? Function()? fetchCollectionItem,
   }) {
     return saveImageEvent?.call(img);
   }
@@ -613,6 +616,7 @@ class _$SaveImageEvent implements SaveImageEvent {
     TResult Function(String name, String description, List<String> verskey,
             String image, String dbId, BuildContext context)?
         editCollection,
+    TResult Function(List<String> verskey)? addFavCollection,
     TResult Function(int indexList)? saveIndexEvent,
     TResult Function(int versesIndexList)? saveVersesIndexEvent,
     TResult Function()? clearIndexEvent,
@@ -620,8 +624,7 @@ class _$SaveImageEvent implements SaveImageEvent {
     TResult Function()? emptyIndexEvent,
     TResult Function(String versekey)? saveVerseKeyEvent,
     TResult Function()? emptyVerseKeyEvent,
-    TResult Function(List<BookMarktCollectionModel> bookMarkCollectionModel)?
-        fetchCollectionItem,
+    TResult Function()? fetchCollectionItem,
     required TResult orElse(),
   }) {
     if (saveImageEvent != null) {
@@ -639,6 +642,7 @@ class _$SaveImageEvent implements SaveImageEvent {
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(DescriptionChanged value) descriptionChanged,
     required TResult Function(EditCollection value) editCollection,
+    required TResult Function(AddFavCollection value) addFavCollection,
     required TResult Function(SaveIndexEvent value) saveIndexEvent,
     required TResult Function(SaveVersesIndexEvent value) saveVersesIndexEvent,
     required TResult Function(ClearIndexEvent value) clearIndexEvent,
@@ -660,6 +664,7 @@ class _$SaveImageEvent implements SaveImageEvent {
     TResult? Function(NameChanged value)? nameChanged,
     TResult? Function(DescriptionChanged value)? descriptionChanged,
     TResult? Function(EditCollection value)? editCollection,
+    TResult? Function(AddFavCollection value)? addFavCollection,
     TResult? Function(SaveIndexEvent value)? saveIndexEvent,
     TResult? Function(SaveVersesIndexEvent value)? saveVersesIndexEvent,
     TResult? Function(ClearIndexEvent value)? clearIndexEvent,
@@ -681,6 +686,7 @@ class _$SaveImageEvent implements SaveImageEvent {
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(DescriptionChanged value)? descriptionChanged,
     TResult Function(EditCollection value)? editCollection,
+    TResult Function(AddFavCollection value)? addFavCollection,
     TResult Function(SaveIndexEvent value)? saveIndexEvent,
     TResult Function(SaveVersesIndexEvent value)? saveVersesIndexEvent,
     TResult Function(ClearIndexEvent value)? clearIndexEvent,
@@ -798,6 +804,7 @@ class _$SaveQuranChapterId implements SaveQuranChapterId {
             String dbId,
             BuildContext context)
         editCollection,
+    required TResult Function(List<String> verskey) addFavCollection,
     required TResult Function(int indexList) saveIndexEvent,
     required TResult Function(int versesIndexList) saveVersesIndexEvent,
     required TResult Function() clearIndexEvent,
@@ -805,9 +812,7 @@ class _$SaveQuranChapterId implements SaveQuranChapterId {
     required TResult Function() emptyIndexEvent,
     required TResult Function(String versekey) saveVerseKeyEvent,
     required TResult Function() emptyVerseKeyEvent,
-    required TResult Function(
-            List<BookMarktCollectionModel> bookMarkCollectionModel)
-        fetchCollectionItem,
+    required TResult Function() fetchCollectionItem,
   }) {
     return saveQuranChapterId(id);
   }
@@ -825,6 +830,7 @@ class _$SaveQuranChapterId implements SaveQuranChapterId {
     TResult? Function(String name, String description, List<String> verskey,
             String image, String dbId, BuildContext context)?
         editCollection,
+    TResult? Function(List<String> verskey)? addFavCollection,
     TResult? Function(int indexList)? saveIndexEvent,
     TResult? Function(int versesIndexList)? saveVersesIndexEvent,
     TResult? Function()? clearIndexEvent,
@@ -832,8 +838,7 @@ class _$SaveQuranChapterId implements SaveQuranChapterId {
     TResult? Function()? emptyIndexEvent,
     TResult? Function(String versekey)? saveVerseKeyEvent,
     TResult? Function()? emptyVerseKeyEvent,
-    TResult? Function(List<BookMarktCollectionModel> bookMarkCollectionModel)?
-        fetchCollectionItem,
+    TResult? Function()? fetchCollectionItem,
   }) {
     return saveQuranChapterId?.call(id);
   }
@@ -851,6 +856,7 @@ class _$SaveQuranChapterId implements SaveQuranChapterId {
     TResult Function(String name, String description, List<String> verskey,
             String image, String dbId, BuildContext context)?
         editCollection,
+    TResult Function(List<String> verskey)? addFavCollection,
     TResult Function(int indexList)? saveIndexEvent,
     TResult Function(int versesIndexList)? saveVersesIndexEvent,
     TResult Function()? clearIndexEvent,
@@ -858,8 +864,7 @@ class _$SaveQuranChapterId implements SaveQuranChapterId {
     TResult Function()? emptyIndexEvent,
     TResult Function(String versekey)? saveVerseKeyEvent,
     TResult Function()? emptyVerseKeyEvent,
-    TResult Function(List<BookMarktCollectionModel> bookMarkCollectionModel)?
-        fetchCollectionItem,
+    TResult Function()? fetchCollectionItem,
     required TResult orElse(),
   }) {
     if (saveQuranChapterId != null) {
@@ -877,6 +882,7 @@ class _$SaveQuranChapterId implements SaveQuranChapterId {
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(DescriptionChanged value) descriptionChanged,
     required TResult Function(EditCollection value) editCollection,
+    required TResult Function(AddFavCollection value) addFavCollection,
     required TResult Function(SaveIndexEvent value) saveIndexEvent,
     required TResult Function(SaveVersesIndexEvent value) saveVersesIndexEvent,
     required TResult Function(ClearIndexEvent value) clearIndexEvent,
@@ -898,6 +904,7 @@ class _$SaveQuranChapterId implements SaveQuranChapterId {
     TResult? Function(NameChanged value)? nameChanged,
     TResult? Function(DescriptionChanged value)? descriptionChanged,
     TResult? Function(EditCollection value)? editCollection,
+    TResult? Function(AddFavCollection value)? addFavCollection,
     TResult? Function(SaveIndexEvent value)? saveIndexEvent,
     TResult? Function(SaveVersesIndexEvent value)? saveVersesIndexEvent,
     TResult? Function(ClearIndexEvent value)? clearIndexEvent,
@@ -919,6 +926,7 @@ class _$SaveQuranChapterId implements SaveQuranChapterId {
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(DescriptionChanged value)? descriptionChanged,
     TResult Function(EditCollection value)? editCollection,
+    TResult Function(AddFavCollection value)? addFavCollection,
     TResult Function(SaveIndexEvent value)? saveIndexEvent,
     TResult Function(SaveVersesIndexEvent value)? saveVersesIndexEvent,
     TResult Function(ClearIndexEvent value)? clearIndexEvent,
@@ -1031,6 +1039,7 @@ class _$NameChanged implements NameChanged {
             String dbId,
             BuildContext context)
         editCollection,
+    required TResult Function(List<String> verskey) addFavCollection,
     required TResult Function(int indexList) saveIndexEvent,
     required TResult Function(int versesIndexList) saveVersesIndexEvent,
     required TResult Function() clearIndexEvent,
@@ -1038,9 +1047,7 @@ class _$NameChanged implements NameChanged {
     required TResult Function() emptyIndexEvent,
     required TResult Function(String versekey) saveVerseKeyEvent,
     required TResult Function() emptyVerseKeyEvent,
-    required TResult Function(
-            List<BookMarktCollectionModel> bookMarkCollectionModel)
-        fetchCollectionItem,
+    required TResult Function() fetchCollectionItem,
   }) {
     return nameChanged(nameValue);
   }
@@ -1058,6 +1065,7 @@ class _$NameChanged implements NameChanged {
     TResult? Function(String name, String description, List<String> verskey,
             String image, String dbId, BuildContext context)?
         editCollection,
+    TResult? Function(List<String> verskey)? addFavCollection,
     TResult? Function(int indexList)? saveIndexEvent,
     TResult? Function(int versesIndexList)? saveVersesIndexEvent,
     TResult? Function()? clearIndexEvent,
@@ -1065,8 +1073,7 @@ class _$NameChanged implements NameChanged {
     TResult? Function()? emptyIndexEvent,
     TResult? Function(String versekey)? saveVerseKeyEvent,
     TResult? Function()? emptyVerseKeyEvent,
-    TResult? Function(List<BookMarktCollectionModel> bookMarkCollectionModel)?
-        fetchCollectionItem,
+    TResult? Function()? fetchCollectionItem,
   }) {
     return nameChanged?.call(nameValue);
   }
@@ -1084,6 +1091,7 @@ class _$NameChanged implements NameChanged {
     TResult Function(String name, String description, List<String> verskey,
             String image, String dbId, BuildContext context)?
         editCollection,
+    TResult Function(List<String> verskey)? addFavCollection,
     TResult Function(int indexList)? saveIndexEvent,
     TResult Function(int versesIndexList)? saveVersesIndexEvent,
     TResult Function()? clearIndexEvent,
@@ -1091,8 +1099,7 @@ class _$NameChanged implements NameChanged {
     TResult Function()? emptyIndexEvent,
     TResult Function(String versekey)? saveVerseKeyEvent,
     TResult Function()? emptyVerseKeyEvent,
-    TResult Function(List<BookMarktCollectionModel> bookMarkCollectionModel)?
-        fetchCollectionItem,
+    TResult Function()? fetchCollectionItem,
     required TResult orElse(),
   }) {
     if (nameChanged != null) {
@@ -1110,6 +1117,7 @@ class _$NameChanged implements NameChanged {
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(DescriptionChanged value) descriptionChanged,
     required TResult Function(EditCollection value) editCollection,
+    required TResult Function(AddFavCollection value) addFavCollection,
     required TResult Function(SaveIndexEvent value) saveIndexEvent,
     required TResult Function(SaveVersesIndexEvent value) saveVersesIndexEvent,
     required TResult Function(ClearIndexEvent value) clearIndexEvent,
@@ -1131,6 +1139,7 @@ class _$NameChanged implements NameChanged {
     TResult? Function(NameChanged value)? nameChanged,
     TResult? Function(DescriptionChanged value)? descriptionChanged,
     TResult? Function(EditCollection value)? editCollection,
+    TResult? Function(AddFavCollection value)? addFavCollection,
     TResult? Function(SaveIndexEvent value)? saveIndexEvent,
     TResult? Function(SaveVersesIndexEvent value)? saveVersesIndexEvent,
     TResult? Function(ClearIndexEvent value)? clearIndexEvent,
@@ -1152,6 +1161,7 @@ class _$NameChanged implements NameChanged {
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(DescriptionChanged value)? descriptionChanged,
     TResult Function(EditCollection value)? editCollection,
+    TResult Function(AddFavCollection value)? addFavCollection,
     TResult Function(SaveIndexEvent value)? saveIndexEvent,
     TResult Function(SaveVersesIndexEvent value)? saveVersesIndexEvent,
     TResult Function(ClearIndexEvent value)? clearIndexEvent,
@@ -1264,6 +1274,7 @@ class _$DescriptionChanged implements DescriptionChanged {
             String dbId,
             BuildContext context)
         editCollection,
+    required TResult Function(List<String> verskey) addFavCollection,
     required TResult Function(int indexList) saveIndexEvent,
     required TResult Function(int versesIndexList) saveVersesIndexEvent,
     required TResult Function() clearIndexEvent,
@@ -1271,9 +1282,7 @@ class _$DescriptionChanged implements DescriptionChanged {
     required TResult Function() emptyIndexEvent,
     required TResult Function(String versekey) saveVerseKeyEvent,
     required TResult Function() emptyVerseKeyEvent,
-    required TResult Function(
-            List<BookMarktCollectionModel> bookMarkCollectionModel)
-        fetchCollectionItem,
+    required TResult Function() fetchCollectionItem,
   }) {
     return descriptionChanged(descriptionValue);
   }
@@ -1291,6 +1300,7 @@ class _$DescriptionChanged implements DescriptionChanged {
     TResult? Function(String name, String description, List<String> verskey,
             String image, String dbId, BuildContext context)?
         editCollection,
+    TResult? Function(List<String> verskey)? addFavCollection,
     TResult? Function(int indexList)? saveIndexEvent,
     TResult? Function(int versesIndexList)? saveVersesIndexEvent,
     TResult? Function()? clearIndexEvent,
@@ -1298,8 +1308,7 @@ class _$DescriptionChanged implements DescriptionChanged {
     TResult? Function()? emptyIndexEvent,
     TResult? Function(String versekey)? saveVerseKeyEvent,
     TResult? Function()? emptyVerseKeyEvent,
-    TResult? Function(List<BookMarktCollectionModel> bookMarkCollectionModel)?
-        fetchCollectionItem,
+    TResult? Function()? fetchCollectionItem,
   }) {
     return descriptionChanged?.call(descriptionValue);
   }
@@ -1317,6 +1326,7 @@ class _$DescriptionChanged implements DescriptionChanged {
     TResult Function(String name, String description, List<String> verskey,
             String image, String dbId, BuildContext context)?
         editCollection,
+    TResult Function(List<String> verskey)? addFavCollection,
     TResult Function(int indexList)? saveIndexEvent,
     TResult Function(int versesIndexList)? saveVersesIndexEvent,
     TResult Function()? clearIndexEvent,
@@ -1324,8 +1334,7 @@ class _$DescriptionChanged implements DescriptionChanged {
     TResult Function()? emptyIndexEvent,
     TResult Function(String versekey)? saveVerseKeyEvent,
     TResult Function()? emptyVerseKeyEvent,
-    TResult Function(List<BookMarktCollectionModel> bookMarkCollectionModel)?
-        fetchCollectionItem,
+    TResult Function()? fetchCollectionItem,
     required TResult orElse(),
   }) {
     if (descriptionChanged != null) {
@@ -1343,6 +1352,7 @@ class _$DescriptionChanged implements DescriptionChanged {
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(DescriptionChanged value) descriptionChanged,
     required TResult Function(EditCollection value) editCollection,
+    required TResult Function(AddFavCollection value) addFavCollection,
     required TResult Function(SaveIndexEvent value) saveIndexEvent,
     required TResult Function(SaveVersesIndexEvent value) saveVersesIndexEvent,
     required TResult Function(ClearIndexEvent value) clearIndexEvent,
@@ -1364,6 +1374,7 @@ class _$DescriptionChanged implements DescriptionChanged {
     TResult? Function(NameChanged value)? nameChanged,
     TResult? Function(DescriptionChanged value)? descriptionChanged,
     TResult? Function(EditCollection value)? editCollection,
+    TResult? Function(AddFavCollection value)? addFavCollection,
     TResult? Function(SaveIndexEvent value)? saveIndexEvent,
     TResult? Function(SaveVersesIndexEvent value)? saveVersesIndexEvent,
     TResult? Function(ClearIndexEvent value)? clearIndexEvent,
@@ -1385,6 +1396,7 @@ class _$DescriptionChanged implements DescriptionChanged {
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(DescriptionChanged value)? descriptionChanged,
     TResult Function(EditCollection value)? editCollection,
+    TResult Function(AddFavCollection value)? addFavCollection,
     TResult Function(SaveIndexEvent value)? saveIndexEvent,
     TResult Function(SaveVersesIndexEvent value)? saveVersesIndexEvent,
     TResult Function(ClearIndexEvent value)? clearIndexEvent,
@@ -1557,6 +1569,7 @@ class _$EditCollection implements EditCollection {
             String dbId,
             BuildContext context)
         editCollection,
+    required TResult Function(List<String> verskey) addFavCollection,
     required TResult Function(int indexList) saveIndexEvent,
     required TResult Function(int versesIndexList) saveVersesIndexEvent,
     required TResult Function() clearIndexEvent,
@@ -1564,9 +1577,7 @@ class _$EditCollection implements EditCollection {
     required TResult Function() emptyIndexEvent,
     required TResult Function(String versekey) saveVerseKeyEvent,
     required TResult Function() emptyVerseKeyEvent,
-    required TResult Function(
-            List<BookMarktCollectionModel> bookMarkCollectionModel)
-        fetchCollectionItem,
+    required TResult Function() fetchCollectionItem,
   }) {
     return editCollection(name, description, verskey, image, dbId, context);
   }
@@ -1584,6 +1595,7 @@ class _$EditCollection implements EditCollection {
     TResult? Function(String name, String description, List<String> verskey,
             String image, String dbId, BuildContext context)?
         editCollection,
+    TResult? Function(List<String> verskey)? addFavCollection,
     TResult? Function(int indexList)? saveIndexEvent,
     TResult? Function(int versesIndexList)? saveVersesIndexEvent,
     TResult? Function()? clearIndexEvent,
@@ -1591,8 +1603,7 @@ class _$EditCollection implements EditCollection {
     TResult? Function()? emptyIndexEvent,
     TResult? Function(String versekey)? saveVerseKeyEvent,
     TResult? Function()? emptyVerseKeyEvent,
-    TResult? Function(List<BookMarktCollectionModel> bookMarkCollectionModel)?
-        fetchCollectionItem,
+    TResult? Function()? fetchCollectionItem,
   }) {
     return editCollection?.call(
         name, description, verskey, image, dbId, context);
@@ -1611,6 +1622,7 @@ class _$EditCollection implements EditCollection {
     TResult Function(String name, String description, List<String> verskey,
             String image, String dbId, BuildContext context)?
         editCollection,
+    TResult Function(List<String> verskey)? addFavCollection,
     TResult Function(int indexList)? saveIndexEvent,
     TResult Function(int versesIndexList)? saveVersesIndexEvent,
     TResult Function()? clearIndexEvent,
@@ -1618,8 +1630,7 @@ class _$EditCollection implements EditCollection {
     TResult Function()? emptyIndexEvent,
     TResult Function(String versekey)? saveVerseKeyEvent,
     TResult Function()? emptyVerseKeyEvent,
-    TResult Function(List<BookMarktCollectionModel> bookMarkCollectionModel)?
-        fetchCollectionItem,
+    TResult Function()? fetchCollectionItem,
     required TResult orElse(),
   }) {
     if (editCollection != null) {
@@ -1637,6 +1648,7 @@ class _$EditCollection implements EditCollection {
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(DescriptionChanged value) descriptionChanged,
     required TResult Function(EditCollection value) editCollection,
+    required TResult Function(AddFavCollection value) addFavCollection,
     required TResult Function(SaveIndexEvent value) saveIndexEvent,
     required TResult Function(SaveVersesIndexEvent value) saveVersesIndexEvent,
     required TResult Function(ClearIndexEvent value) clearIndexEvent,
@@ -1658,6 +1670,7 @@ class _$EditCollection implements EditCollection {
     TResult? Function(NameChanged value)? nameChanged,
     TResult? Function(DescriptionChanged value)? descriptionChanged,
     TResult? Function(EditCollection value)? editCollection,
+    TResult? Function(AddFavCollection value)? addFavCollection,
     TResult? Function(SaveIndexEvent value)? saveIndexEvent,
     TResult? Function(SaveVersesIndexEvent value)? saveVersesIndexEvent,
     TResult? Function(ClearIndexEvent value)? clearIndexEvent,
@@ -1679,6 +1692,7 @@ class _$EditCollection implements EditCollection {
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(DescriptionChanged value)? descriptionChanged,
     TResult Function(EditCollection value)? editCollection,
+    TResult Function(AddFavCollection value)? addFavCollection,
     TResult Function(SaveIndexEvent value)? saveIndexEvent,
     TResult Function(SaveVersesIndexEvent value)? saveVersesIndexEvent,
     TResult Function(ClearIndexEvent value)? clearIndexEvent,
@@ -1713,6 +1727,247 @@ abstract class EditCollection implements BookmarkEvent {
   BuildContext get context;
   @JsonKey(ignore: true)
   _$$EditCollectionCopyWith<_$EditCollection> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$AddFavCollectionCopyWith<$Res> {
+  factory _$$AddFavCollectionCopyWith(
+          _$AddFavCollection value, $Res Function(_$AddFavCollection) then) =
+      __$$AddFavCollectionCopyWithImpl<$Res>;
+  @useResult
+  $Res call({List<String> verskey});
+}
+
+/// @nodoc
+class __$$AddFavCollectionCopyWithImpl<$Res>
+    extends _$BookmarkEventCopyWithImpl<$Res, _$AddFavCollection>
+    implements _$$AddFavCollectionCopyWith<$Res> {
+  __$$AddFavCollectionCopyWithImpl(
+      _$AddFavCollection _value, $Res Function(_$AddFavCollection) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? verskey = null,
+  }) {
+    return _then(_$AddFavCollection(
+      verskey: null == verskey
+          ? _value._verskey
+          : verskey // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$AddFavCollection implements AddFavCollection {
+  const _$AddFavCollection({required final List<String> verskey})
+      : _verskey = verskey;
+
+  final List<String> _verskey;
+  @override
+  List<String> get verskey {
+    if (_verskey is EqualUnmodifiableListView) return _verskey;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_verskey);
+  }
+
+  @override
+  String toString() {
+    return 'BookmarkEvent.addFavCollection(verskey: $verskey)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AddFavCollection &&
+            const DeepCollectionEquality().equals(other._verskey, _verskey));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_verskey));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AddFavCollectionCopyWith<_$AddFavCollection> get copyWith =>
+      __$$AddFavCollectionCopyWithImpl<_$AddFavCollection>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            String name,
+            String description,
+            List<String> verskey,
+            String image,
+            BuildContext context,
+            String? dbId)
+        addCollection,
+    required TResult Function(String img) saveImageEvent,
+    required TResult Function(List<int> id) saveQuranChapterId,
+    required TResult Function(String nameValue) nameChanged,
+    required TResult Function(String descriptionValue) descriptionChanged,
+    required TResult Function(
+            String name,
+            String description,
+            List<String> verskey,
+            String image,
+            String dbId,
+            BuildContext context)
+        editCollection,
+    required TResult Function(List<String> verskey) addFavCollection,
+    required TResult Function(int indexList) saveIndexEvent,
+    required TResult Function(int versesIndexList) saveVersesIndexEvent,
+    required TResult Function() clearIndexEvent,
+    required TResult Function(int index) changeIndexEvent,
+    required TResult Function() emptyIndexEvent,
+    required TResult Function(String versekey) saveVerseKeyEvent,
+    required TResult Function() emptyVerseKeyEvent,
+    required TResult Function() fetchCollectionItem,
+  }) {
+    return addFavCollection(verskey);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name, String description, List<String> verskey,
+            String image, BuildContext context, String? dbId)?
+        addCollection,
+    TResult? Function(String img)? saveImageEvent,
+    TResult? Function(List<int> id)? saveQuranChapterId,
+    TResult? Function(String nameValue)? nameChanged,
+    TResult? Function(String descriptionValue)? descriptionChanged,
+    TResult? Function(String name, String description, List<String> verskey,
+            String image, String dbId, BuildContext context)?
+        editCollection,
+    TResult? Function(List<String> verskey)? addFavCollection,
+    TResult? Function(int indexList)? saveIndexEvent,
+    TResult? Function(int versesIndexList)? saveVersesIndexEvent,
+    TResult? Function()? clearIndexEvent,
+    TResult? Function(int index)? changeIndexEvent,
+    TResult? Function()? emptyIndexEvent,
+    TResult? Function(String versekey)? saveVerseKeyEvent,
+    TResult? Function()? emptyVerseKeyEvent,
+    TResult? Function()? fetchCollectionItem,
+  }) {
+    return addFavCollection?.call(verskey);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String name, String description, List<String> verskey,
+            String image, BuildContext context, String? dbId)?
+        addCollection,
+    TResult Function(String img)? saveImageEvent,
+    TResult Function(List<int> id)? saveQuranChapterId,
+    TResult Function(String nameValue)? nameChanged,
+    TResult Function(String descriptionValue)? descriptionChanged,
+    TResult Function(String name, String description, List<String> verskey,
+            String image, String dbId, BuildContext context)?
+        editCollection,
+    TResult Function(List<String> verskey)? addFavCollection,
+    TResult Function(int indexList)? saveIndexEvent,
+    TResult Function(int versesIndexList)? saveVersesIndexEvent,
+    TResult Function()? clearIndexEvent,
+    TResult Function(int index)? changeIndexEvent,
+    TResult Function()? emptyIndexEvent,
+    TResult Function(String versekey)? saveVerseKeyEvent,
+    TResult Function()? emptyVerseKeyEvent,
+    TResult Function()? fetchCollectionItem,
+    required TResult orElse(),
+  }) {
+    if (addFavCollection != null) {
+      return addFavCollection(verskey);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(AddCollection value) addCollection,
+    required TResult Function(SaveImageEvent value) saveImageEvent,
+    required TResult Function(SaveQuranChapterId value) saveQuranChapterId,
+    required TResult Function(NameChanged value) nameChanged,
+    required TResult Function(DescriptionChanged value) descriptionChanged,
+    required TResult Function(EditCollection value) editCollection,
+    required TResult Function(AddFavCollection value) addFavCollection,
+    required TResult Function(SaveIndexEvent value) saveIndexEvent,
+    required TResult Function(SaveVersesIndexEvent value) saveVersesIndexEvent,
+    required TResult Function(ClearIndexEvent value) clearIndexEvent,
+    required TResult Function(ChangeIndexEvent value) changeIndexEvent,
+    required TResult Function(EmptyIndexEvent value) emptyIndexEvent,
+    required TResult Function(SaveVerseKeyEvent value) saveVerseKeyEvent,
+    required TResult Function(EmptyVerseKeyEvent value) emptyVerseKeyEvent,
+    required TResult Function(FetchCollectionItem value) fetchCollectionItem,
+  }) {
+    return addFavCollection(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(AddCollection value)? addCollection,
+    TResult? Function(SaveImageEvent value)? saveImageEvent,
+    TResult? Function(SaveQuranChapterId value)? saveQuranChapterId,
+    TResult? Function(NameChanged value)? nameChanged,
+    TResult? Function(DescriptionChanged value)? descriptionChanged,
+    TResult? Function(EditCollection value)? editCollection,
+    TResult? Function(AddFavCollection value)? addFavCollection,
+    TResult? Function(SaveIndexEvent value)? saveIndexEvent,
+    TResult? Function(SaveVersesIndexEvent value)? saveVersesIndexEvent,
+    TResult? Function(ClearIndexEvent value)? clearIndexEvent,
+    TResult? Function(ChangeIndexEvent value)? changeIndexEvent,
+    TResult? Function(EmptyIndexEvent value)? emptyIndexEvent,
+    TResult? Function(SaveVerseKeyEvent value)? saveVerseKeyEvent,
+    TResult? Function(EmptyVerseKeyEvent value)? emptyVerseKeyEvent,
+    TResult? Function(FetchCollectionItem value)? fetchCollectionItem,
+  }) {
+    return addFavCollection?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AddCollection value)? addCollection,
+    TResult Function(SaveImageEvent value)? saveImageEvent,
+    TResult Function(SaveQuranChapterId value)? saveQuranChapterId,
+    TResult Function(NameChanged value)? nameChanged,
+    TResult Function(DescriptionChanged value)? descriptionChanged,
+    TResult Function(EditCollection value)? editCollection,
+    TResult Function(AddFavCollection value)? addFavCollection,
+    TResult Function(SaveIndexEvent value)? saveIndexEvent,
+    TResult Function(SaveVersesIndexEvent value)? saveVersesIndexEvent,
+    TResult Function(ClearIndexEvent value)? clearIndexEvent,
+    TResult Function(ChangeIndexEvent value)? changeIndexEvent,
+    TResult Function(EmptyIndexEvent value)? emptyIndexEvent,
+    TResult Function(SaveVerseKeyEvent value)? saveVerseKeyEvent,
+    TResult Function(EmptyVerseKeyEvent value)? emptyVerseKeyEvent,
+    TResult Function(FetchCollectionItem value)? fetchCollectionItem,
+    required TResult orElse(),
+  }) {
+    if (addFavCollection != null) {
+      return addFavCollection(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class AddFavCollection implements BookmarkEvent {
+  const factory AddFavCollection({required final List<String> verskey}) =
+      _$AddFavCollection;
+
+  List<String> get verskey;
+  @JsonKey(ignore: true)
+  _$$AddFavCollectionCopyWith<_$AddFavCollection> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1801,6 +2056,7 @@ class _$SaveIndexEvent implements SaveIndexEvent {
             String dbId,
             BuildContext context)
         editCollection,
+    required TResult Function(List<String> verskey) addFavCollection,
     required TResult Function(int indexList) saveIndexEvent,
     required TResult Function(int versesIndexList) saveVersesIndexEvent,
     required TResult Function() clearIndexEvent,
@@ -1808,9 +2064,7 @@ class _$SaveIndexEvent implements SaveIndexEvent {
     required TResult Function() emptyIndexEvent,
     required TResult Function(String versekey) saveVerseKeyEvent,
     required TResult Function() emptyVerseKeyEvent,
-    required TResult Function(
-            List<BookMarktCollectionModel> bookMarkCollectionModel)
-        fetchCollectionItem,
+    required TResult Function() fetchCollectionItem,
   }) {
     return saveIndexEvent(indexList);
   }
@@ -1828,6 +2082,7 @@ class _$SaveIndexEvent implements SaveIndexEvent {
     TResult? Function(String name, String description, List<String> verskey,
             String image, String dbId, BuildContext context)?
         editCollection,
+    TResult? Function(List<String> verskey)? addFavCollection,
     TResult? Function(int indexList)? saveIndexEvent,
     TResult? Function(int versesIndexList)? saveVersesIndexEvent,
     TResult? Function()? clearIndexEvent,
@@ -1835,8 +2090,7 @@ class _$SaveIndexEvent implements SaveIndexEvent {
     TResult? Function()? emptyIndexEvent,
     TResult? Function(String versekey)? saveVerseKeyEvent,
     TResult? Function()? emptyVerseKeyEvent,
-    TResult? Function(List<BookMarktCollectionModel> bookMarkCollectionModel)?
-        fetchCollectionItem,
+    TResult? Function()? fetchCollectionItem,
   }) {
     return saveIndexEvent?.call(indexList);
   }
@@ -1854,6 +2108,7 @@ class _$SaveIndexEvent implements SaveIndexEvent {
     TResult Function(String name, String description, List<String> verskey,
             String image, String dbId, BuildContext context)?
         editCollection,
+    TResult Function(List<String> verskey)? addFavCollection,
     TResult Function(int indexList)? saveIndexEvent,
     TResult Function(int versesIndexList)? saveVersesIndexEvent,
     TResult Function()? clearIndexEvent,
@@ -1861,8 +2116,7 @@ class _$SaveIndexEvent implements SaveIndexEvent {
     TResult Function()? emptyIndexEvent,
     TResult Function(String versekey)? saveVerseKeyEvent,
     TResult Function()? emptyVerseKeyEvent,
-    TResult Function(List<BookMarktCollectionModel> bookMarkCollectionModel)?
-        fetchCollectionItem,
+    TResult Function()? fetchCollectionItem,
     required TResult orElse(),
   }) {
     if (saveIndexEvent != null) {
@@ -1880,6 +2134,7 @@ class _$SaveIndexEvent implements SaveIndexEvent {
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(DescriptionChanged value) descriptionChanged,
     required TResult Function(EditCollection value) editCollection,
+    required TResult Function(AddFavCollection value) addFavCollection,
     required TResult Function(SaveIndexEvent value) saveIndexEvent,
     required TResult Function(SaveVersesIndexEvent value) saveVersesIndexEvent,
     required TResult Function(ClearIndexEvent value) clearIndexEvent,
@@ -1901,6 +2156,7 @@ class _$SaveIndexEvent implements SaveIndexEvent {
     TResult? Function(NameChanged value)? nameChanged,
     TResult? Function(DescriptionChanged value)? descriptionChanged,
     TResult? Function(EditCollection value)? editCollection,
+    TResult? Function(AddFavCollection value)? addFavCollection,
     TResult? Function(SaveIndexEvent value)? saveIndexEvent,
     TResult? Function(SaveVersesIndexEvent value)? saveVersesIndexEvent,
     TResult? Function(ClearIndexEvent value)? clearIndexEvent,
@@ -1922,6 +2178,7 @@ class _$SaveIndexEvent implements SaveIndexEvent {
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(DescriptionChanged value)? descriptionChanged,
     TResult Function(EditCollection value)? editCollection,
+    TResult Function(AddFavCollection value)? addFavCollection,
     TResult Function(SaveIndexEvent value)? saveIndexEvent,
     TResult Function(SaveVersesIndexEvent value)? saveVersesIndexEvent,
     TResult Function(ClearIndexEvent value)? clearIndexEvent,
@@ -2035,6 +2292,7 @@ class _$SaveVersesIndexEvent implements SaveVersesIndexEvent {
             String dbId,
             BuildContext context)
         editCollection,
+    required TResult Function(List<String> verskey) addFavCollection,
     required TResult Function(int indexList) saveIndexEvent,
     required TResult Function(int versesIndexList) saveVersesIndexEvent,
     required TResult Function() clearIndexEvent,
@@ -2042,9 +2300,7 @@ class _$SaveVersesIndexEvent implements SaveVersesIndexEvent {
     required TResult Function() emptyIndexEvent,
     required TResult Function(String versekey) saveVerseKeyEvent,
     required TResult Function() emptyVerseKeyEvent,
-    required TResult Function(
-            List<BookMarktCollectionModel> bookMarkCollectionModel)
-        fetchCollectionItem,
+    required TResult Function() fetchCollectionItem,
   }) {
     return saveVersesIndexEvent(versesIndexList);
   }
@@ -2062,6 +2318,7 @@ class _$SaveVersesIndexEvent implements SaveVersesIndexEvent {
     TResult? Function(String name, String description, List<String> verskey,
             String image, String dbId, BuildContext context)?
         editCollection,
+    TResult? Function(List<String> verskey)? addFavCollection,
     TResult? Function(int indexList)? saveIndexEvent,
     TResult? Function(int versesIndexList)? saveVersesIndexEvent,
     TResult? Function()? clearIndexEvent,
@@ -2069,8 +2326,7 @@ class _$SaveVersesIndexEvent implements SaveVersesIndexEvent {
     TResult? Function()? emptyIndexEvent,
     TResult? Function(String versekey)? saveVerseKeyEvent,
     TResult? Function()? emptyVerseKeyEvent,
-    TResult? Function(List<BookMarktCollectionModel> bookMarkCollectionModel)?
-        fetchCollectionItem,
+    TResult? Function()? fetchCollectionItem,
   }) {
     return saveVersesIndexEvent?.call(versesIndexList);
   }
@@ -2088,6 +2344,7 @@ class _$SaveVersesIndexEvent implements SaveVersesIndexEvent {
     TResult Function(String name, String description, List<String> verskey,
             String image, String dbId, BuildContext context)?
         editCollection,
+    TResult Function(List<String> verskey)? addFavCollection,
     TResult Function(int indexList)? saveIndexEvent,
     TResult Function(int versesIndexList)? saveVersesIndexEvent,
     TResult Function()? clearIndexEvent,
@@ -2095,8 +2352,7 @@ class _$SaveVersesIndexEvent implements SaveVersesIndexEvent {
     TResult Function()? emptyIndexEvent,
     TResult Function(String versekey)? saveVerseKeyEvent,
     TResult Function()? emptyVerseKeyEvent,
-    TResult Function(List<BookMarktCollectionModel> bookMarkCollectionModel)?
-        fetchCollectionItem,
+    TResult Function()? fetchCollectionItem,
     required TResult orElse(),
   }) {
     if (saveVersesIndexEvent != null) {
@@ -2114,6 +2370,7 @@ class _$SaveVersesIndexEvent implements SaveVersesIndexEvent {
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(DescriptionChanged value) descriptionChanged,
     required TResult Function(EditCollection value) editCollection,
+    required TResult Function(AddFavCollection value) addFavCollection,
     required TResult Function(SaveIndexEvent value) saveIndexEvent,
     required TResult Function(SaveVersesIndexEvent value) saveVersesIndexEvent,
     required TResult Function(ClearIndexEvent value) clearIndexEvent,
@@ -2135,6 +2392,7 @@ class _$SaveVersesIndexEvent implements SaveVersesIndexEvent {
     TResult? Function(NameChanged value)? nameChanged,
     TResult? Function(DescriptionChanged value)? descriptionChanged,
     TResult? Function(EditCollection value)? editCollection,
+    TResult? Function(AddFavCollection value)? addFavCollection,
     TResult? Function(SaveIndexEvent value)? saveIndexEvent,
     TResult? Function(SaveVersesIndexEvent value)? saveVersesIndexEvent,
     TResult? Function(ClearIndexEvent value)? clearIndexEvent,
@@ -2156,6 +2414,7 @@ class _$SaveVersesIndexEvent implements SaveVersesIndexEvent {
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(DescriptionChanged value)? descriptionChanged,
     TResult Function(EditCollection value)? editCollection,
+    TResult Function(AddFavCollection value)? addFavCollection,
     TResult Function(SaveIndexEvent value)? saveIndexEvent,
     TResult Function(SaveVersesIndexEvent value)? saveVersesIndexEvent,
     TResult Function(ClearIndexEvent value)? clearIndexEvent,
@@ -2241,6 +2500,7 @@ class _$ClearIndexEvent implements ClearIndexEvent {
             String dbId,
             BuildContext context)
         editCollection,
+    required TResult Function(List<String> verskey) addFavCollection,
     required TResult Function(int indexList) saveIndexEvent,
     required TResult Function(int versesIndexList) saveVersesIndexEvent,
     required TResult Function() clearIndexEvent,
@@ -2248,9 +2508,7 @@ class _$ClearIndexEvent implements ClearIndexEvent {
     required TResult Function() emptyIndexEvent,
     required TResult Function(String versekey) saveVerseKeyEvent,
     required TResult Function() emptyVerseKeyEvent,
-    required TResult Function(
-            List<BookMarktCollectionModel> bookMarkCollectionModel)
-        fetchCollectionItem,
+    required TResult Function() fetchCollectionItem,
   }) {
     return clearIndexEvent();
   }
@@ -2268,6 +2526,7 @@ class _$ClearIndexEvent implements ClearIndexEvent {
     TResult? Function(String name, String description, List<String> verskey,
             String image, String dbId, BuildContext context)?
         editCollection,
+    TResult? Function(List<String> verskey)? addFavCollection,
     TResult? Function(int indexList)? saveIndexEvent,
     TResult? Function(int versesIndexList)? saveVersesIndexEvent,
     TResult? Function()? clearIndexEvent,
@@ -2275,8 +2534,7 @@ class _$ClearIndexEvent implements ClearIndexEvent {
     TResult? Function()? emptyIndexEvent,
     TResult? Function(String versekey)? saveVerseKeyEvent,
     TResult? Function()? emptyVerseKeyEvent,
-    TResult? Function(List<BookMarktCollectionModel> bookMarkCollectionModel)?
-        fetchCollectionItem,
+    TResult? Function()? fetchCollectionItem,
   }) {
     return clearIndexEvent?.call();
   }
@@ -2294,6 +2552,7 @@ class _$ClearIndexEvent implements ClearIndexEvent {
     TResult Function(String name, String description, List<String> verskey,
             String image, String dbId, BuildContext context)?
         editCollection,
+    TResult Function(List<String> verskey)? addFavCollection,
     TResult Function(int indexList)? saveIndexEvent,
     TResult Function(int versesIndexList)? saveVersesIndexEvent,
     TResult Function()? clearIndexEvent,
@@ -2301,8 +2560,7 @@ class _$ClearIndexEvent implements ClearIndexEvent {
     TResult Function()? emptyIndexEvent,
     TResult Function(String versekey)? saveVerseKeyEvent,
     TResult Function()? emptyVerseKeyEvent,
-    TResult Function(List<BookMarktCollectionModel> bookMarkCollectionModel)?
-        fetchCollectionItem,
+    TResult Function()? fetchCollectionItem,
     required TResult orElse(),
   }) {
     if (clearIndexEvent != null) {
@@ -2320,6 +2578,7 @@ class _$ClearIndexEvent implements ClearIndexEvent {
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(DescriptionChanged value) descriptionChanged,
     required TResult Function(EditCollection value) editCollection,
+    required TResult Function(AddFavCollection value) addFavCollection,
     required TResult Function(SaveIndexEvent value) saveIndexEvent,
     required TResult Function(SaveVersesIndexEvent value) saveVersesIndexEvent,
     required TResult Function(ClearIndexEvent value) clearIndexEvent,
@@ -2341,6 +2600,7 @@ class _$ClearIndexEvent implements ClearIndexEvent {
     TResult? Function(NameChanged value)? nameChanged,
     TResult? Function(DescriptionChanged value)? descriptionChanged,
     TResult? Function(EditCollection value)? editCollection,
+    TResult? Function(AddFavCollection value)? addFavCollection,
     TResult? Function(SaveIndexEvent value)? saveIndexEvent,
     TResult? Function(SaveVersesIndexEvent value)? saveVersesIndexEvent,
     TResult? Function(ClearIndexEvent value)? clearIndexEvent,
@@ -2362,6 +2622,7 @@ class _$ClearIndexEvent implements ClearIndexEvent {
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(DescriptionChanged value)? descriptionChanged,
     TResult Function(EditCollection value)? editCollection,
+    TResult Function(AddFavCollection value)? addFavCollection,
     TResult Function(SaveIndexEvent value)? saveIndexEvent,
     TResult Function(SaveVersesIndexEvent value)? saveVersesIndexEvent,
     TResult Function(ClearIndexEvent value)? clearIndexEvent,
@@ -2467,6 +2728,7 @@ class _$ChangeIndexEvent implements ChangeIndexEvent {
             String dbId,
             BuildContext context)
         editCollection,
+    required TResult Function(List<String> verskey) addFavCollection,
     required TResult Function(int indexList) saveIndexEvent,
     required TResult Function(int versesIndexList) saveVersesIndexEvent,
     required TResult Function() clearIndexEvent,
@@ -2474,9 +2736,7 @@ class _$ChangeIndexEvent implements ChangeIndexEvent {
     required TResult Function() emptyIndexEvent,
     required TResult Function(String versekey) saveVerseKeyEvent,
     required TResult Function() emptyVerseKeyEvent,
-    required TResult Function(
-            List<BookMarktCollectionModel> bookMarkCollectionModel)
-        fetchCollectionItem,
+    required TResult Function() fetchCollectionItem,
   }) {
     return changeIndexEvent(index);
   }
@@ -2494,6 +2754,7 @@ class _$ChangeIndexEvent implements ChangeIndexEvent {
     TResult? Function(String name, String description, List<String> verskey,
             String image, String dbId, BuildContext context)?
         editCollection,
+    TResult? Function(List<String> verskey)? addFavCollection,
     TResult? Function(int indexList)? saveIndexEvent,
     TResult? Function(int versesIndexList)? saveVersesIndexEvent,
     TResult? Function()? clearIndexEvent,
@@ -2501,8 +2762,7 @@ class _$ChangeIndexEvent implements ChangeIndexEvent {
     TResult? Function()? emptyIndexEvent,
     TResult? Function(String versekey)? saveVerseKeyEvent,
     TResult? Function()? emptyVerseKeyEvent,
-    TResult? Function(List<BookMarktCollectionModel> bookMarkCollectionModel)?
-        fetchCollectionItem,
+    TResult? Function()? fetchCollectionItem,
   }) {
     return changeIndexEvent?.call(index);
   }
@@ -2520,6 +2780,7 @@ class _$ChangeIndexEvent implements ChangeIndexEvent {
     TResult Function(String name, String description, List<String> verskey,
             String image, String dbId, BuildContext context)?
         editCollection,
+    TResult Function(List<String> verskey)? addFavCollection,
     TResult Function(int indexList)? saveIndexEvent,
     TResult Function(int versesIndexList)? saveVersesIndexEvent,
     TResult Function()? clearIndexEvent,
@@ -2527,8 +2788,7 @@ class _$ChangeIndexEvent implements ChangeIndexEvent {
     TResult Function()? emptyIndexEvent,
     TResult Function(String versekey)? saveVerseKeyEvent,
     TResult Function()? emptyVerseKeyEvent,
-    TResult Function(List<BookMarktCollectionModel> bookMarkCollectionModel)?
-        fetchCollectionItem,
+    TResult Function()? fetchCollectionItem,
     required TResult orElse(),
   }) {
     if (changeIndexEvent != null) {
@@ -2546,6 +2806,7 @@ class _$ChangeIndexEvent implements ChangeIndexEvent {
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(DescriptionChanged value) descriptionChanged,
     required TResult Function(EditCollection value) editCollection,
+    required TResult Function(AddFavCollection value) addFavCollection,
     required TResult Function(SaveIndexEvent value) saveIndexEvent,
     required TResult Function(SaveVersesIndexEvent value) saveVersesIndexEvent,
     required TResult Function(ClearIndexEvent value) clearIndexEvent,
@@ -2567,6 +2828,7 @@ class _$ChangeIndexEvent implements ChangeIndexEvent {
     TResult? Function(NameChanged value)? nameChanged,
     TResult? Function(DescriptionChanged value)? descriptionChanged,
     TResult? Function(EditCollection value)? editCollection,
+    TResult? Function(AddFavCollection value)? addFavCollection,
     TResult? Function(SaveIndexEvent value)? saveIndexEvent,
     TResult? Function(SaveVersesIndexEvent value)? saveVersesIndexEvent,
     TResult? Function(ClearIndexEvent value)? clearIndexEvent,
@@ -2588,6 +2850,7 @@ class _$ChangeIndexEvent implements ChangeIndexEvent {
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(DescriptionChanged value)? descriptionChanged,
     TResult Function(EditCollection value)? editCollection,
+    TResult Function(AddFavCollection value)? addFavCollection,
     TResult Function(SaveIndexEvent value)? saveIndexEvent,
     TResult Function(SaveVersesIndexEvent value)? saveVersesIndexEvent,
     TResult Function(ClearIndexEvent value)? clearIndexEvent,
@@ -2672,6 +2935,7 @@ class _$EmptyIndexEvent implements EmptyIndexEvent {
             String dbId,
             BuildContext context)
         editCollection,
+    required TResult Function(List<String> verskey) addFavCollection,
     required TResult Function(int indexList) saveIndexEvent,
     required TResult Function(int versesIndexList) saveVersesIndexEvent,
     required TResult Function() clearIndexEvent,
@@ -2679,9 +2943,7 @@ class _$EmptyIndexEvent implements EmptyIndexEvent {
     required TResult Function() emptyIndexEvent,
     required TResult Function(String versekey) saveVerseKeyEvent,
     required TResult Function() emptyVerseKeyEvent,
-    required TResult Function(
-            List<BookMarktCollectionModel> bookMarkCollectionModel)
-        fetchCollectionItem,
+    required TResult Function() fetchCollectionItem,
   }) {
     return emptyIndexEvent();
   }
@@ -2699,6 +2961,7 @@ class _$EmptyIndexEvent implements EmptyIndexEvent {
     TResult? Function(String name, String description, List<String> verskey,
             String image, String dbId, BuildContext context)?
         editCollection,
+    TResult? Function(List<String> verskey)? addFavCollection,
     TResult? Function(int indexList)? saveIndexEvent,
     TResult? Function(int versesIndexList)? saveVersesIndexEvent,
     TResult? Function()? clearIndexEvent,
@@ -2706,8 +2969,7 @@ class _$EmptyIndexEvent implements EmptyIndexEvent {
     TResult? Function()? emptyIndexEvent,
     TResult? Function(String versekey)? saveVerseKeyEvent,
     TResult? Function()? emptyVerseKeyEvent,
-    TResult? Function(List<BookMarktCollectionModel> bookMarkCollectionModel)?
-        fetchCollectionItem,
+    TResult? Function()? fetchCollectionItem,
   }) {
     return emptyIndexEvent?.call();
   }
@@ -2725,6 +2987,7 @@ class _$EmptyIndexEvent implements EmptyIndexEvent {
     TResult Function(String name, String description, List<String> verskey,
             String image, String dbId, BuildContext context)?
         editCollection,
+    TResult Function(List<String> verskey)? addFavCollection,
     TResult Function(int indexList)? saveIndexEvent,
     TResult Function(int versesIndexList)? saveVersesIndexEvent,
     TResult Function()? clearIndexEvent,
@@ -2732,8 +2995,7 @@ class _$EmptyIndexEvent implements EmptyIndexEvent {
     TResult Function()? emptyIndexEvent,
     TResult Function(String versekey)? saveVerseKeyEvent,
     TResult Function()? emptyVerseKeyEvent,
-    TResult Function(List<BookMarktCollectionModel> bookMarkCollectionModel)?
-        fetchCollectionItem,
+    TResult Function()? fetchCollectionItem,
     required TResult orElse(),
   }) {
     if (emptyIndexEvent != null) {
@@ -2751,6 +3013,7 @@ class _$EmptyIndexEvent implements EmptyIndexEvent {
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(DescriptionChanged value) descriptionChanged,
     required TResult Function(EditCollection value) editCollection,
+    required TResult Function(AddFavCollection value) addFavCollection,
     required TResult Function(SaveIndexEvent value) saveIndexEvent,
     required TResult Function(SaveVersesIndexEvent value) saveVersesIndexEvent,
     required TResult Function(ClearIndexEvent value) clearIndexEvent,
@@ -2772,6 +3035,7 @@ class _$EmptyIndexEvent implements EmptyIndexEvent {
     TResult? Function(NameChanged value)? nameChanged,
     TResult? Function(DescriptionChanged value)? descriptionChanged,
     TResult? Function(EditCollection value)? editCollection,
+    TResult? Function(AddFavCollection value)? addFavCollection,
     TResult? Function(SaveIndexEvent value)? saveIndexEvent,
     TResult? Function(SaveVersesIndexEvent value)? saveVersesIndexEvent,
     TResult? Function(ClearIndexEvent value)? clearIndexEvent,
@@ -2793,6 +3057,7 @@ class _$EmptyIndexEvent implements EmptyIndexEvent {
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(DescriptionChanged value)? descriptionChanged,
     TResult Function(EditCollection value)? editCollection,
+    TResult Function(AddFavCollection value)? addFavCollection,
     TResult Function(SaveIndexEvent value)? saveIndexEvent,
     TResult Function(SaveVersesIndexEvent value)? saveVersesIndexEvent,
     TResult Function(ClearIndexEvent value)? clearIndexEvent,
@@ -2899,6 +3164,7 @@ class _$SaveVerseKeyEvent implements SaveVerseKeyEvent {
             String dbId,
             BuildContext context)
         editCollection,
+    required TResult Function(List<String> verskey) addFavCollection,
     required TResult Function(int indexList) saveIndexEvent,
     required TResult Function(int versesIndexList) saveVersesIndexEvent,
     required TResult Function() clearIndexEvent,
@@ -2906,9 +3172,7 @@ class _$SaveVerseKeyEvent implements SaveVerseKeyEvent {
     required TResult Function() emptyIndexEvent,
     required TResult Function(String versekey) saveVerseKeyEvent,
     required TResult Function() emptyVerseKeyEvent,
-    required TResult Function(
-            List<BookMarktCollectionModel> bookMarkCollectionModel)
-        fetchCollectionItem,
+    required TResult Function() fetchCollectionItem,
   }) {
     return saveVerseKeyEvent(versekey);
   }
@@ -2926,6 +3190,7 @@ class _$SaveVerseKeyEvent implements SaveVerseKeyEvent {
     TResult? Function(String name, String description, List<String> verskey,
             String image, String dbId, BuildContext context)?
         editCollection,
+    TResult? Function(List<String> verskey)? addFavCollection,
     TResult? Function(int indexList)? saveIndexEvent,
     TResult? Function(int versesIndexList)? saveVersesIndexEvent,
     TResult? Function()? clearIndexEvent,
@@ -2933,8 +3198,7 @@ class _$SaveVerseKeyEvent implements SaveVerseKeyEvent {
     TResult? Function()? emptyIndexEvent,
     TResult? Function(String versekey)? saveVerseKeyEvent,
     TResult? Function()? emptyVerseKeyEvent,
-    TResult? Function(List<BookMarktCollectionModel> bookMarkCollectionModel)?
-        fetchCollectionItem,
+    TResult? Function()? fetchCollectionItem,
   }) {
     return saveVerseKeyEvent?.call(versekey);
   }
@@ -2952,6 +3216,7 @@ class _$SaveVerseKeyEvent implements SaveVerseKeyEvent {
     TResult Function(String name, String description, List<String> verskey,
             String image, String dbId, BuildContext context)?
         editCollection,
+    TResult Function(List<String> verskey)? addFavCollection,
     TResult Function(int indexList)? saveIndexEvent,
     TResult Function(int versesIndexList)? saveVersesIndexEvent,
     TResult Function()? clearIndexEvent,
@@ -2959,8 +3224,7 @@ class _$SaveVerseKeyEvent implements SaveVerseKeyEvent {
     TResult Function()? emptyIndexEvent,
     TResult Function(String versekey)? saveVerseKeyEvent,
     TResult Function()? emptyVerseKeyEvent,
-    TResult Function(List<BookMarktCollectionModel> bookMarkCollectionModel)?
-        fetchCollectionItem,
+    TResult Function()? fetchCollectionItem,
     required TResult orElse(),
   }) {
     if (saveVerseKeyEvent != null) {
@@ -2978,6 +3242,7 @@ class _$SaveVerseKeyEvent implements SaveVerseKeyEvent {
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(DescriptionChanged value) descriptionChanged,
     required TResult Function(EditCollection value) editCollection,
+    required TResult Function(AddFavCollection value) addFavCollection,
     required TResult Function(SaveIndexEvent value) saveIndexEvent,
     required TResult Function(SaveVersesIndexEvent value) saveVersesIndexEvent,
     required TResult Function(ClearIndexEvent value) clearIndexEvent,
@@ -2999,6 +3264,7 @@ class _$SaveVerseKeyEvent implements SaveVerseKeyEvent {
     TResult? Function(NameChanged value)? nameChanged,
     TResult? Function(DescriptionChanged value)? descriptionChanged,
     TResult? Function(EditCollection value)? editCollection,
+    TResult? Function(AddFavCollection value)? addFavCollection,
     TResult? Function(SaveIndexEvent value)? saveIndexEvent,
     TResult? Function(SaveVersesIndexEvent value)? saveVersesIndexEvent,
     TResult? Function(ClearIndexEvent value)? clearIndexEvent,
@@ -3020,6 +3286,7 @@ class _$SaveVerseKeyEvent implements SaveVerseKeyEvent {
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(DescriptionChanged value)? descriptionChanged,
     TResult Function(EditCollection value)? editCollection,
+    TResult Function(AddFavCollection value)? addFavCollection,
     TResult Function(SaveIndexEvent value)? saveIndexEvent,
     TResult Function(SaveVersesIndexEvent value)? saveVersesIndexEvent,
     TResult Function(ClearIndexEvent value)? clearIndexEvent,
@@ -3104,6 +3371,7 @@ class _$EmptyVerseKeyEvent implements EmptyVerseKeyEvent {
             String dbId,
             BuildContext context)
         editCollection,
+    required TResult Function(List<String> verskey) addFavCollection,
     required TResult Function(int indexList) saveIndexEvent,
     required TResult Function(int versesIndexList) saveVersesIndexEvent,
     required TResult Function() clearIndexEvent,
@@ -3111,9 +3379,7 @@ class _$EmptyVerseKeyEvent implements EmptyVerseKeyEvent {
     required TResult Function() emptyIndexEvent,
     required TResult Function(String versekey) saveVerseKeyEvent,
     required TResult Function() emptyVerseKeyEvent,
-    required TResult Function(
-            List<BookMarktCollectionModel> bookMarkCollectionModel)
-        fetchCollectionItem,
+    required TResult Function() fetchCollectionItem,
   }) {
     return emptyVerseKeyEvent();
   }
@@ -3131,6 +3397,7 @@ class _$EmptyVerseKeyEvent implements EmptyVerseKeyEvent {
     TResult? Function(String name, String description, List<String> verskey,
             String image, String dbId, BuildContext context)?
         editCollection,
+    TResult? Function(List<String> verskey)? addFavCollection,
     TResult? Function(int indexList)? saveIndexEvent,
     TResult? Function(int versesIndexList)? saveVersesIndexEvent,
     TResult? Function()? clearIndexEvent,
@@ -3138,8 +3405,7 @@ class _$EmptyVerseKeyEvent implements EmptyVerseKeyEvent {
     TResult? Function()? emptyIndexEvent,
     TResult? Function(String versekey)? saveVerseKeyEvent,
     TResult? Function()? emptyVerseKeyEvent,
-    TResult? Function(List<BookMarktCollectionModel> bookMarkCollectionModel)?
-        fetchCollectionItem,
+    TResult? Function()? fetchCollectionItem,
   }) {
     return emptyVerseKeyEvent?.call();
   }
@@ -3157,6 +3423,7 @@ class _$EmptyVerseKeyEvent implements EmptyVerseKeyEvent {
     TResult Function(String name, String description, List<String> verskey,
             String image, String dbId, BuildContext context)?
         editCollection,
+    TResult Function(List<String> verskey)? addFavCollection,
     TResult Function(int indexList)? saveIndexEvent,
     TResult Function(int versesIndexList)? saveVersesIndexEvent,
     TResult Function()? clearIndexEvent,
@@ -3164,8 +3431,7 @@ class _$EmptyVerseKeyEvent implements EmptyVerseKeyEvent {
     TResult Function()? emptyIndexEvent,
     TResult Function(String versekey)? saveVerseKeyEvent,
     TResult Function()? emptyVerseKeyEvent,
-    TResult Function(List<BookMarktCollectionModel> bookMarkCollectionModel)?
-        fetchCollectionItem,
+    TResult Function()? fetchCollectionItem,
     required TResult orElse(),
   }) {
     if (emptyVerseKeyEvent != null) {
@@ -3183,6 +3449,7 @@ class _$EmptyVerseKeyEvent implements EmptyVerseKeyEvent {
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(DescriptionChanged value) descriptionChanged,
     required TResult Function(EditCollection value) editCollection,
+    required TResult Function(AddFavCollection value) addFavCollection,
     required TResult Function(SaveIndexEvent value) saveIndexEvent,
     required TResult Function(SaveVersesIndexEvent value) saveVersesIndexEvent,
     required TResult Function(ClearIndexEvent value) clearIndexEvent,
@@ -3204,6 +3471,7 @@ class _$EmptyVerseKeyEvent implements EmptyVerseKeyEvent {
     TResult? Function(NameChanged value)? nameChanged,
     TResult? Function(DescriptionChanged value)? descriptionChanged,
     TResult? Function(EditCollection value)? editCollection,
+    TResult? Function(AddFavCollection value)? addFavCollection,
     TResult? Function(SaveIndexEvent value)? saveIndexEvent,
     TResult? Function(SaveVersesIndexEvent value)? saveVersesIndexEvent,
     TResult? Function(ClearIndexEvent value)? clearIndexEvent,
@@ -3225,6 +3493,7 @@ class _$EmptyVerseKeyEvent implements EmptyVerseKeyEvent {
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(DescriptionChanged value)? descriptionChanged,
     TResult Function(EditCollection value)? editCollection,
+    TResult Function(AddFavCollection value)? addFavCollection,
     TResult Function(SaveIndexEvent value)? saveIndexEvent,
     TResult Function(SaveVersesIndexEvent value)? saveVersesIndexEvent,
     TResult Function(ClearIndexEvent value)? clearIndexEvent,
@@ -3251,8 +3520,6 @@ abstract class _$$FetchCollectionItemCopyWith<$Res> {
   factory _$$FetchCollectionItemCopyWith(_$FetchCollectionItem value,
           $Res Function(_$FetchCollectionItem) then) =
       __$$FetchCollectionItemCopyWithImpl<$Res>;
-  @useResult
-  $Res call({List<BookMarktCollectionModel> bookMarkCollectionModel});
 }
 
 /// @nodoc
@@ -3262,61 +3529,26 @@ class __$$FetchCollectionItemCopyWithImpl<$Res>
   __$$FetchCollectionItemCopyWithImpl(
       _$FetchCollectionItem _value, $Res Function(_$FetchCollectionItem) _then)
       : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? bookMarkCollectionModel = null,
-  }) {
-    return _then(_$FetchCollectionItem(
-      bookMarkCollectionModel: null == bookMarkCollectionModel
-          ? _value._bookMarkCollectionModel
-          : bookMarkCollectionModel // ignore: cast_nullable_to_non_nullable
-              as List<BookMarktCollectionModel>,
-    ));
-  }
 }
 
 /// @nodoc
 
 class _$FetchCollectionItem implements FetchCollectionItem {
-  const _$FetchCollectionItem(
-      {required final List<BookMarktCollectionModel> bookMarkCollectionModel})
-      : _bookMarkCollectionModel = bookMarkCollectionModel;
-
-  final List<BookMarktCollectionModel> _bookMarkCollectionModel;
-  @override
-  List<BookMarktCollectionModel> get bookMarkCollectionModel {
-    if (_bookMarkCollectionModel is EqualUnmodifiableListView)
-      return _bookMarkCollectionModel;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_bookMarkCollectionModel);
-  }
+  const _$FetchCollectionItem();
 
   @override
   String toString() {
-    return 'BookmarkEvent.fetchCollectionItem(bookMarkCollectionModel: $bookMarkCollectionModel)';
+    return 'BookmarkEvent.fetchCollectionItem()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$FetchCollectionItem &&
-            const DeepCollectionEquality().equals(
-                other._bookMarkCollectionModel, _bookMarkCollectionModel));
+        (other.runtimeType == runtimeType && other is _$FetchCollectionItem);
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType,
-      const DeepCollectionEquality().hash(_bookMarkCollectionModel));
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$FetchCollectionItemCopyWith<_$FetchCollectionItem> get copyWith =>
-      __$$FetchCollectionItemCopyWithImpl<_$FetchCollectionItem>(
-          this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
@@ -3341,6 +3573,7 @@ class _$FetchCollectionItem implements FetchCollectionItem {
             String dbId,
             BuildContext context)
         editCollection,
+    required TResult Function(List<String> verskey) addFavCollection,
     required TResult Function(int indexList) saveIndexEvent,
     required TResult Function(int versesIndexList) saveVersesIndexEvent,
     required TResult Function() clearIndexEvent,
@@ -3348,11 +3581,9 @@ class _$FetchCollectionItem implements FetchCollectionItem {
     required TResult Function() emptyIndexEvent,
     required TResult Function(String versekey) saveVerseKeyEvent,
     required TResult Function() emptyVerseKeyEvent,
-    required TResult Function(
-            List<BookMarktCollectionModel> bookMarkCollectionModel)
-        fetchCollectionItem,
+    required TResult Function() fetchCollectionItem,
   }) {
-    return fetchCollectionItem(bookMarkCollectionModel);
+    return fetchCollectionItem();
   }
 
   @override
@@ -3368,6 +3599,7 @@ class _$FetchCollectionItem implements FetchCollectionItem {
     TResult? Function(String name, String description, List<String> verskey,
             String image, String dbId, BuildContext context)?
         editCollection,
+    TResult? Function(List<String> verskey)? addFavCollection,
     TResult? Function(int indexList)? saveIndexEvent,
     TResult? Function(int versesIndexList)? saveVersesIndexEvent,
     TResult? Function()? clearIndexEvent,
@@ -3375,10 +3607,9 @@ class _$FetchCollectionItem implements FetchCollectionItem {
     TResult? Function()? emptyIndexEvent,
     TResult? Function(String versekey)? saveVerseKeyEvent,
     TResult? Function()? emptyVerseKeyEvent,
-    TResult? Function(List<BookMarktCollectionModel> bookMarkCollectionModel)?
-        fetchCollectionItem,
+    TResult? Function()? fetchCollectionItem,
   }) {
-    return fetchCollectionItem?.call(bookMarkCollectionModel);
+    return fetchCollectionItem?.call();
   }
 
   @override
@@ -3394,6 +3625,7 @@ class _$FetchCollectionItem implements FetchCollectionItem {
     TResult Function(String name, String description, List<String> verskey,
             String image, String dbId, BuildContext context)?
         editCollection,
+    TResult Function(List<String> verskey)? addFavCollection,
     TResult Function(int indexList)? saveIndexEvent,
     TResult Function(int versesIndexList)? saveVersesIndexEvent,
     TResult Function()? clearIndexEvent,
@@ -3401,12 +3633,11 @@ class _$FetchCollectionItem implements FetchCollectionItem {
     TResult Function()? emptyIndexEvent,
     TResult Function(String versekey)? saveVerseKeyEvent,
     TResult Function()? emptyVerseKeyEvent,
-    TResult Function(List<BookMarktCollectionModel> bookMarkCollectionModel)?
-        fetchCollectionItem,
+    TResult Function()? fetchCollectionItem,
     required TResult orElse(),
   }) {
     if (fetchCollectionItem != null) {
-      return fetchCollectionItem(bookMarkCollectionModel);
+      return fetchCollectionItem();
     }
     return orElse();
   }
@@ -3420,6 +3651,7 @@ class _$FetchCollectionItem implements FetchCollectionItem {
     required TResult Function(NameChanged value) nameChanged,
     required TResult Function(DescriptionChanged value) descriptionChanged,
     required TResult Function(EditCollection value) editCollection,
+    required TResult Function(AddFavCollection value) addFavCollection,
     required TResult Function(SaveIndexEvent value) saveIndexEvent,
     required TResult Function(SaveVersesIndexEvent value) saveVersesIndexEvent,
     required TResult Function(ClearIndexEvent value) clearIndexEvent,
@@ -3441,6 +3673,7 @@ class _$FetchCollectionItem implements FetchCollectionItem {
     TResult? Function(NameChanged value)? nameChanged,
     TResult? Function(DescriptionChanged value)? descriptionChanged,
     TResult? Function(EditCollection value)? editCollection,
+    TResult? Function(AddFavCollection value)? addFavCollection,
     TResult? Function(SaveIndexEvent value)? saveIndexEvent,
     TResult? Function(SaveVersesIndexEvent value)? saveVersesIndexEvent,
     TResult? Function(ClearIndexEvent value)? clearIndexEvent,
@@ -3462,6 +3695,7 @@ class _$FetchCollectionItem implements FetchCollectionItem {
     TResult Function(NameChanged value)? nameChanged,
     TResult Function(DescriptionChanged value)? descriptionChanged,
     TResult Function(EditCollection value)? editCollection,
+    TResult Function(AddFavCollection value)? addFavCollection,
     TResult Function(SaveIndexEvent value)? saveIndexEvent,
     TResult Function(SaveVersesIndexEvent value)? saveVersesIndexEvent,
     TResult Function(ClearIndexEvent value)? clearIndexEvent,
@@ -3480,14 +3714,7 @@ class _$FetchCollectionItem implements FetchCollectionItem {
 }
 
 abstract class FetchCollectionItem implements BookmarkEvent {
-  const factory FetchCollectionItem(
-      {required final List<BookMarktCollectionModel>
-          bookMarkCollectionModel}) = _$FetchCollectionItem;
-
-  List<BookMarktCollectionModel> get bookMarkCollectionModel;
-  @JsonKey(ignore: true)
-  _$$FetchCollectionItemCopyWith<_$FetchCollectionItem> get copyWith =>
-      throw _privateConstructorUsedError;
+  const factory FetchCollectionItem() = _$FetchCollectionItem;
 }
 
 /// @nodoc

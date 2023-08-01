@@ -1,21 +1,26 @@
+import 'dart:async';
+
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:just_audio/just_audio.dart';
-import 'package:millat/resources/home/bloc/models/chapter_verses_model/chapter_verses_model.dart';
-import 'package:millat/resources/home/bloc/models/para_verses/para_verses_model.dart';
 import 'package:millat/resources/home/bloc/service/quran_service.dart';
-
 import '../../../../../utils/string_constants.dart';
-import '../../models/chapter_by_id_model/chapter_by_id_model.dart';
-// import '../../models/para_verses/verses_by_key_model.dart';
-import '../../models/para_verses/para_verse_of_no_symbol.dart';
-import '../../models/para_verses/para_verses_of_uthmani_model.dart';
-import '../../models/quran_chapter_models/quran_chapter_models.dart';
-import '../../models/quran_para_model/quran_para_model.dart';
+import '../../models/al-quran/chapter_by_id_model/chapter_by_id_model.dart';
+import '../../models/al-quran/chapter_verses_model/chapter_verses_indoPak_model.dart';
+import '../../models/al-quran/chapter_verses_model/chapter_verses_model.dart';
+import '../../models/al-quran/chapter_verses_model/chapter_verses_of_noSymbol.dart';
+import '../../models/al-quran/chapter_verses_model/chapter_verses_uthmani_model.dart';
+import '../../models/al-quran/para_verses/para_verse_nosymbol.dart';
+import '../../models/al-quran/para_verses/para_verse_uthmani.dart';
+import '../../models/al-quran/para_verses/para_verses_model.dart';
+import '../../models/al-quran/quran_all_translations_model/quran_all_translations_model.dart';
+import '../../models/al-quran/quran_chapter_models/quran_chapter_models.dart';
+import '../../models/al-quran/quran_para_model/quran_para_model.dart';
+import '../../models/al-quran/recitors_mode/recitors_model.dart';
+import '../../models/al-quran/versesbykey_model/verses_by_key_model.dart';
 
-import '../../models/recitors_model/recitors_model.dart';
-import '../../models/versesbykey_model/verses_by_key_model.dart';
+// import '../../models/para_verses/verses_by_key_model.dart';
 
 part 'quran_event.dart';
 part 'quran_state.dart';
@@ -28,6 +33,7 @@ class QuranBloc extends Bloc<QuranEvent, QuranState> {
     on<FetchQuaranChaptersEvent>(_fetchQuranChapters);
     on<FetchChaperVersesEvent>(_fetchChaperVersesEvent);
     on<FetchParaVerses>(_fetchParaVerses);
+    on<FetchChapterVersesbyTextName>(_fetchChapterVersesbyTextName);
     on<FetchQuranPara>(_fetchQuranPara);
     on<ChangeExpandOnSearchEvent>(_changeExpandOnSearchEvent);
     on<FechtChapterbyId>(_fechtChapterbyId);
@@ -46,7 +52,7 @@ class QuranBloc extends Bloc<QuranEvent, QuranState> {
     on<PlayAllChapterAudiosAuto>(_playAllChapterAudiosAuto);
     on<IsExpandonSearchEvent>(_isExpandonSearchEvent);
     on<SaveGlobalTransilationIdAndName>(_saveTransilationId);
-    // on<FetchAllRecitors>(_fetchAllRecitors);
+    on<FetchAllRecitors>(_fetchAllRecitors);
     on<SaveRecitorNameAndId>(_saveRecitorNameAndId);
     on<SaveQuranTexttypeName>(_saveQuranTexttypeName);
     on<OnTapofNextEvent>(_onTapofNextEvent);
@@ -59,6 +65,39 @@ class QuranBloc extends Bloc<QuranEvent, QuranState> {
     try {
       final data = await quranServices.fetchQuranChapters();
       emit(state.copyWith(quranChaptersModel: data, isLoading: false));
+    } catch (e) {
+      emit(state.copyWith(isLoading: false));
+      debugPrint("error fetch quran bloc $e");
+    }
+  }
+
+  _fetchChapterVersesbyTextName(event, Emitter<QuranState> emit) async {
+    emit(state.copyWith(isLoading: true));
+    try {
+      final data = await quranServices.fetchChapterVersesbyTextName(
+          id: event.id, textName: state.quranTextTypeName);
+
+      if (state.quranTextTypeName == indopak) {
+        emit(
+          state.copyWith(
+              chapterVersesIndoPakModel: data,
+              isLoading: false,
+              chapterName: "Juz ${event.id}"),
+        );
+        print('indopak aya $data');
+      } else if (state.quranTextTypeName == uthmani) {
+        emit(state.copyWith(
+            chapterVersesOfUthmani: data,
+            isLoading: false,
+            chapterName: "Juz ${event.id}"));
+        print('uthmani aya $data');
+      } else if (state.quranTextTypeName == nosymbol) {
+        emit(state.copyWith(
+            chapterVersesOfNosymbol: data,
+            isLoading: false,
+            chapterName: "Juz ${event.id}"));
+        print('nosymbol aya $data');
+      }
     } catch (e) {
       emit(state.copyWith(isLoading: false));
       debugPrint("error fetch quran bloc $e");
@@ -87,7 +126,7 @@ class QuranBloc extends Bloc<QuranEvent, QuranState> {
       final data = await quranServices.fetchParaVerses(
           id: event.id, textName: state.quranTextTypeName);
 
-      if (state.quranTextTypeName == indoPak) {
+      if (state.quranTextTypeName == indopak) {
         emit(
           state.copyWith(
               paraVersesModel: data,
@@ -99,7 +138,7 @@ class QuranBloc extends Bloc<QuranEvent, QuranState> {
             paraVersesModelofUthmani: data,
             isLoading: false,
             chapterName: "Juz ${event.id}"));
-      } else if (state.quranTextTypeName == noSymbol) {
+      } else if (state.quranTextTypeName == nosymbol) {
         emit(state.copyWith(
             paraVersesModelofNoSymbol: data,
             isLoading: false,
@@ -179,54 +218,54 @@ class QuranBloc extends Bloc<QuranEvent, QuranState> {
 
   _fetchAllTranslationsEvent(event, Emitter<QuranState> emit) async {
     emit(state.copyWith(isLoading: true));
-    // try {
-    //   final data = await quranServices.fetchAllTranslations();
-    //   emit(state.copyWith(translationsModel: data, isLoading: false));
-    //   print('here is the translation files in the bloc ${data}');
-    // } catch (e) {
-    //   emit(state.copyWith(isLoading: false));
-    //   debugPrint("error fetch quran bloc $e");
-    // }
+    try {
+      final data = await quranServices.fetchAllTranslations();
+      emit(state.copyWith(translationsModel: data, isLoading: false));
+      print('here is the translation files in the bloc ${data}');
+    } catch (e) {
+      emit(state.copyWith(isLoading: false));
+      debugPrint("error fetch quran bloc $e");
+    }
   }
 
   _fetchTranslationTexts(
       FetchTranslationChapterTexts event, Emitter<QuranState> emit) async {
     emit(state.copyWith(isLoading: true));
-    // try {
-    //   final data = await quranServices.fetchAllChapterTranslationTexts(
-    //       chapterId: event.chapterId, translationId: event.translationId);
-    //   emit(state.copyWith(chapterTranslationText: data, isLoading: false));
-    //   print('here is the audion files in the bloc ${data}');
-    // } catch (e) {
-    //   emit(state.copyWith(isLoading: false));
-    //   debugPrint("error fetch quran bloc $e");
-    // }
+    try {
+      final data = await quranServices.fetchAllChapterTranslationTexts(
+          chapterId: event.chapterId, translationId: event.translationId);
+      emit(state.copyWith(chapterTranslationText: data, isLoading: false));
+      print('here is the audion files in the bloc ${data}');
+    } catch (e) {
+      emit(state.copyWith(isLoading: false));
+      debugPrint("error fetch quran bloc $e");
+    }
   }
 
   _fetchTranslationParaTexts(
       FetchTranslationParaTexts event, Emitter<QuranState> emit) async {
     emit(state.copyWith(isLoading: true));
-    // try {
-    //   final data = await quranServices.fetchAllParaTranslationTexts(
-    //       paraId: event.paraId, translationId: event.translationId);
-    //   emit(state.copyWith(paraTranslationText: data, isLoading: false));
-    //   print('here is the audion files in the bloc ${data}');
-    // } catch (e) {
-    //   emit(state.copyWith(isLoading: false));
-    //   debugPrint("error fetch quran bloc $e");
-    // }
+    try {
+      final data = await quranServices.fetchAllParaTranslationTexts(
+          paraId: event.paraId, translationId: event.translationId);
+      emit(state.copyWith(paraTranslationText: data, isLoading: false));
+      print('here is the audion files in the bloc ${data}');
+    } catch (e) {
+      emit(state.copyWith(isLoading: false));
+      debugPrint("error fetch quran bloc $e");
+    }
   }
 
   _fetchParaAudios(FetchParaAudios event, Emitter<QuranState> emit) async {
     emit(state.copyWith(isLoading: true));
-    // try {
-    //   final data = await quranServices.fetchParaAudioFiles(
-    //       recitorId: event.recitorId, id: event.id);
-    //   emit(state.copyWith(paraAudios: data, isLoading: false));
-    // } catch (e) {
-    //   emit(state.copyWith(isLoading: false));
-    //   debugPrint("error fetch quran bloc $e");
-    // }
+    try {
+      final data = await quranServices.fetchParaAudioFiles(
+          recitorId: event.recitorId, id: event.id);
+      emit(state.copyWith(paraAudios: data, isLoading: false));
+    } catch (e) {
+      emit(state.copyWith(isLoading: false));
+      debugPrint("error fetch quran bloc $e");
+    }
   }
 
   _playAllAudioParaAuto(
@@ -303,15 +342,15 @@ class QuranBloc extends Bloc<QuranEvent, QuranState> {
   _fetchChapterAudioFiles(
       FetchChapterAudioFiles event, Emitter<QuranState> emit) async {
     emit(state.copyWith(isLoading: true));
-    // try {
-    //   final data = await quranServices.fetchChapterAudiofiles(
-    //       id: event.id, recitorId: event.recitorId);
-    //   emit(state.copyWith(chapterAudios: data, isLoading: false));
-    //   print('here is the chapter audios files ${state.chapterAudios}');
-    // } catch (e) {
-    //   emit(state.copyWith(isLoading: false));
-    //   debugPrint("error fetch quran bloc $e");
-    // }
+    try {
+      final data = await quranServices.fetchChapterAudiofiles(
+          id: event.id, recitorId: event.recitorId);
+      emit(state.copyWith(chapterAudios: data, isLoading: false));
+      print('here is the chapter audios files ${state.chapterAudios}');
+    } catch (e) {
+      emit(state.copyWith(isLoading: false));
+      debugPrint("error fetch quran bloc $e");
+    }
   }
 
   _showMusicBar(ShowMusicbar event, Emitter<QuranState> emit) {
@@ -332,17 +371,17 @@ class QuranBloc extends Bloc<QuranEvent, QuranState> {
         transilationName: event.translationName));
   }
 
-  // _fetchAllRecitors(FetchAllRecitors event, Emitter<QuranState> emit) async {
-  //   emit(state.copyWith(isLoading: true));
-  //   try {
-  //     final data = await quranServices.fetchAllRecitors();
-  //     emit(state.copyWith(recitationsModel: data, isLoading: false));
-  //     print('here is the recite dat on the bloc $data');
-  //   } catch (e) {
-  //     emit(state.copyWith(isLoading: false));
-  //     throw Exception(e);
-  //   }
-  // }
+  _fetchAllRecitors(FetchAllRecitors event, Emitter<QuranState> emit) async {
+    emit(state.copyWith(isLoading: true));
+    try {
+      final data = await quranServices.fetchAllRecitors();
+      emit(state.copyWith(recitationsModel: data, isLoading: false));
+      print('here is the recite dat on the bloc $data');
+    } catch (e) {
+      emit(state.copyWith(isLoading: false));
+      throw Exception(e);
+    }
+  }
 
   _saveRecitorNameAndId(SaveRecitorNameAndId event, Emitter<QuranState> emit) {
     emit(state.copyWith(

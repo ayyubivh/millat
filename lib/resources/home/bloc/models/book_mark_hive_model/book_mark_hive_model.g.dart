@@ -19,7 +19,7 @@ class BookMarktCollectionModelAdapter
     };
     return BookMarktCollectionModel(
       id: fields[0] as String?,
-      surahId: (fields[4] as List).cast<int>(),
+      verseKey: (fields[4] as List).cast<String>(),
       name: fields[1] as String,
       discription: fields[2] as String,
       image: fields[3] as String,
@@ -39,7 +39,7 @@ class BookMarktCollectionModelAdapter
       ..writeByte(3)
       ..write(obj.image)
       ..writeByte(4)
-      ..write(obj.surahId);
+      ..write(obj.verseKey);
   }
 
   @override

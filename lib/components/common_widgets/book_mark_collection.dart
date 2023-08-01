@@ -1,39 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:millat/enums/enumertations.dart';
 import '../../resources/home/bloc/logic/quran_bloc/quran_bloc.dart';
 import '../../utils/color_manager.dart';
 import '../../utils/constants.dart';
 
-class BookMarkCollectionContainer extends StatefulWidget {
-  final ExpandTypeonBookmark type;
+class BookMarkCollectionContainer extends StatelessWidget {
   final String versesName;
   final int versesCount;
   final String arabicName;
-  final VoidCallback onTap;
-  final bool isSelected;
 
+  final bool isSelected;
+  final bool isIndex;
   const BookMarkCollectionContainer(
       {super.key,
       required this.versesName,
       required this.versesCount,
       required this.arabicName,
-      required this.type,
-      required this.onTap,
-      this.isSelected = false});
+      this.isSelected = false,
+      required this.isIndex});
 
-  @override
-  State<BookMarkCollectionContainer> createState() =>
-      _BookMarkCollectionContainerState();
-}
-
-class _BookMarkCollectionContainerState
-    extends State<BookMarkCollectionContainer> {
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-      color: widget.isSelected == true
+      color: isSelected == true
           ? ColorManager.primary.withOpacity(0.2)
           : ColorManager.whiteColor,
       child: Row(
@@ -63,7 +53,7 @@ class _BookMarkCollectionContainerState
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                widget.versesName,
+                versesName,
                 style: TextStyle(
                   color: ColorManager.blackColor,
                   fontSize: 16,
@@ -72,7 +62,7 @@ class _BookMarkCollectionContainerState
               ),
               kHeight8,
               Text(
-                'MECCAN ${widget.versesCount} VERSES',
+                'MECCAN $versesCount VERSES',
                 style: TextStyle(
                   color: ColorManager.textGrey,
                   fontSize: 12,
@@ -83,7 +73,7 @@ class _BookMarkCollectionContainerState
           ),
           const Spacer(),
           Text(
-            widget.arabicName,
+            arabicName,
             style: const TextStyle(
               fontSize: 21,
               fontWeight: FontWeight.bold,
@@ -91,18 +81,15 @@ class _BookMarkCollectionContainerState
           ),
           kWidth5,
           BlocBuilder<QuranBloc, QuranState>(
-            builder: (context, state) => InkWell(
-              onTap: widget.onTap,
-              child: state.isExpand == true
-                  ? const Icon(
-                      Icons.expand_more,
-                      size: 30,
-                    )
-                  : const Icon(
-                      Icons.navigate_next,
-                      size: 30,
-                    ),
-            ),
+            builder: (context, state) => state.isExpand2 == true && isIndex
+                ? const Icon(
+                    Icons.expand_more,
+                    size: 30,
+                  )
+                : const Icon(
+                    Icons.navigate_next,
+                    size: 30,
+                  ),
           ),
         ],
       ),

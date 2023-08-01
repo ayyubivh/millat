@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/resources/home/bloc/db/db_functions.dart';
+import 'package:millat/resources/home/bloc/logic/bookmark_bloc/bookmark_bloc.dart';
 import 'package:millat/resources/home/bloc/logic/quran_bloc/quran_bloc.dart';
+import 'package:millat/resources/home/view/al_quran/widgets/quran_tabbar_widget.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/loader.dart';
 import 'package:millat/utils/size_utility.dart';
@@ -19,7 +21,7 @@ class BookmarkCollectionView extends StatelessWidget {
   Widget build(BuildContext context) {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       BlocProvider.of<QuranBloc>(context)
-          .add(FechtChapterbyId(id: passvalue.surahId));
+          .add(FetchVersesByKey(verseKey: passvalue.verseKey));
     });
     return Scaffold(
       backgroundColor: ColorManager.whiteColor,
@@ -108,22 +110,20 @@ class BookmarkCollectionView extends StatelessWidget {
             Expanded(
               child: BlocBuilder<QuranBloc, QuranState>(
                 builder: (context, state) {
-                  if (state.chapterByIdModel == null) {
+                  if (state.versesByKeyModel == null) {
                     return const Loader();
                   }
-                  final chapters = state.chapterByIdModel;
+                  final data = state.versesByKeyModel;
 
-                  print('here is the chapter man $chapters');
                   return ListView.builder(
-                    itemCount: chapters!.length,
+                    itemCount: data!.length,
                     itemBuilder: (context, index) {
-                      final chapter = chapters[index].chapter;
                       return Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: _buildSurahWidget(
-                            name: chapter.nameSimple,
-                            arabicName: chapter.nameArabic,
-                            versCount: chapter.versesCount),
+                            name: data[index].verses[0].textIndopak,
+                            arabicName: ' ',
+                            versCount: data[index].verses[0].verseKey),
                       );
                     },
                   );
@@ -138,7 +138,7 @@ class BookmarkCollectionView extends StatelessWidget {
 
   Widget _buildSurahWidget({
     required String name,
-    required int versCount,
+    required String versCount,
     required String arabicName,
   }) {
     return Row(
@@ -152,13 +152,16 @@ class BookmarkCollectionView extends StatelessWidget {
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
               ),
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
             ),
             kHeight10,
             Text(
-              'MECCAN $versCount VERSES',
+              'Aya $versCount  ',
               style: TextStyle(
                 color: ColorManager.textGrey,
-                fontSize: 13,
+                fontSize: 16,
+                fontWeight: FontWeight.w600,
               ),
             )
           ],

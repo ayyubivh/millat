@@ -2,34 +2,27 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/components/common_widgets/book_mark_collection.dart';
 import 'package:millat/resources/home/bloc/logic/quran_bloc/quran_bloc.dart';
+
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/loader.dart';
+import '../../../../../components/common_widgets/reusable_methods.dart';
 
-import '../../../../../enums/enumertations.dart';
 import '../../../bloc/logic/bookmark_bloc/bookmark_bloc.dart';
 
-class AddSuraSearchView extends StatefulWidget {
-  const AddSuraSearchView({super.key});
-
-  @override
-  State<AddSuraSearchView> createState() => _AddSuraSearchViewState();
-}
-
-class _AddSuraSearchViewState extends State<AddSuraSearchView> {
-  @override
-  void initState() {
-    BlocProvider.of<QuranBloc>(context)
-        .add(const SearchChapterEvent(query: ""));
-    BlocProvider.of<BookmarkBloc>(context).add(const ClearIndexEvent());
-    super.initState();
-  }
-
-  List<int> _index = [];
+class AddSuraSearchView extends StatelessWidget {
+  const AddSuraSearchView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      BlocProvider.of<QuranBloc>(context)
+          .add(const SearchChapterEvent(query: ""));
+      BlocProvider.of<BookmarkBloc>(context).add(const ClearIndexEvent());
+      context.read<BookmarkBloc>().add(const EmptyIndexEvent());
+    });
+
     return Scaffold(
-      appBar: _appBar(),
+      appBar: _appBar(context),
       backgroundColor: ColorManager.whiteColor,
       body: BlocBuilder<QuranBloc, QuranState>(
         builder: (context, state) {
@@ -45,37 +38,91 @@ class _AddSuraSearchViewState extends State<AddSuraSearchView> {
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
                   itemCount: chapters.length,
-                  itemBuilder: (context, index) => InkWell(
-                    onTap: () {
-                      setState(() {
-                        _index.add(index + 1);
-                        _index = _index.toSet().toList(); // Remove duplicates
-
+                  itemBuilder: (context, index) {
+                    return InkWell(
+                      onTap: () {
                         context
                             .read<BookmarkBloc>()
-                            .add(SaveIndexEvent(indexList: index));
-                      });
+                            .add(const EmptyIndexEvent());
+                        context
+                            .read<BookmarkBloc>()
+                            .add(ChangeIndexEvent(index));
 
-                      context
-                          .read<BookmarkBloc>()
-                          .add(SaveQuranChapterId(id: _index));
-                      print('here idnes $_index');
-                    },
-                    child: BlocBuilder<BookmarkBloc, BookmarkState>(
-                      builder: (context, state) => BookMarkCollectionContainer(
-                        isSelected: state.indexList.contains(index),
-                        versesName: chapters[index].nameSimple,
-                        versesCount: chapters[index].versesCount,
-                        arabicName: chapters[index].nameArabic,
-                        type: ExpandTypeonBookmark.second,
-                        onTap: () {
+                        if (state.isExpand &&
+                            context.read<BookmarkBloc>().state.index == index) {
+                          context.read<QuranBloc>().add(
+                              const IsExpandonSearchEvent(isExpand: false));
+                        } else {
+                          context
+                              .read<BookmarkBloc>()
+                              .add(SaveIndexEvent(indexList: index));
                           context
                               .read<QuranBloc>()
-                              .add(const ChangeExpandOnSearchEvent());
-                        },
+                              .add(FechtChapterbyId(id: [index + 1]));
+                          context
+                              .read<QuranBloc>()
+                              .add(const IsExpandonSearchEvent(isExpand: true));
+                          context
+                              .read<BookmarkBloc>()
+                              .add(SaveQuranChapterId(id: [index + 1]));
+                        }
+                      },
+                      child: Column(
+                        children: [
+                          BlocBuilder<BookmarkBloc, BookmarkState>(
+                            builder: (context, state) {
+                              return BookMarkCollectionContainer(
+                                isSelected: state.indexList.contains(index),
+                                versesName: chapters[index].nameSimple,
+                                versesCount: chapters[index].versesCount,
+                                arabicName: chapters[index].nameArabic,
+                                isIndex: state.index == index,
+                              );
+                            },
+                          ),
+                          if (state.isExpand &&
+                              context.read<BookmarkBloc>().state.index == index)
+                            ListView.builder(
+                              shrinkWrap: true,
+                              physics: const NeverScrollableScrollPhysics(),
+                              itemCount: state.chapterByIdModel?.length ?? 0,
+                              itemBuilder: (context, index) {
+                                final chapter =
+                                    state.chapterByIdModel?[index].chapter;
+                                return BlocBuilder<BookmarkBloc, BookmarkState>(
+                                  builder: (context, state) => Column(
+                                    children: List.generate(
+                                      chapter?.versesCount ?? 0,
+                                      (verseIndex) {
+                                        final ayah = verseIndex + 1;
+                                        return bookMarkVersesTile(
+                                          isSelected: state.versesIndexList
+                                              .contains(verseIndex),
+                                          text: 'Aya $ayah',
+                                          index: ayah,
+                                          onTap: () {
+                                            context.read<BookmarkBloc>().add(
+                                                SaveVerseKeyEvent(
+                                                    "${chapter?.id}:$ayah"));
+                                            context.read<BookmarkBloc>().add(
+                                                SaveVersesIndexEvent(
+                                                    versesIndexList:
+                                                        verseIndex));
+
+                                            print(
+                                                'here is the chapter ${chapter?.id ?? ''} and the aya is here $ayah');
+                                          },
+                                        );
+                                      },
+                                    ),
+                                  ),
+                                );
+                              },
+                            ),
+                        ],
                       ),
-                    ),
-                  ),
+                    );
+                  },
                   separatorBuilder: (context, index) => const Divider(),
                 ),
               ],
@@ -86,7 +133,7 @@ class _AddSuraSearchViewState extends State<AddSuraSearchView> {
     );
   }
 
-  PreferredSize _appBar() {
+  PreferredSizeWidget _appBar(BuildContext context) {
     return PreferredSize(
       preferredSize: const Size.fromHeight(130),
       child: Stack(
@@ -124,22 +171,26 @@ class _AddSuraSearchViewState extends State<AddSuraSearchView> {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      GestureDetector(
-                        onTap: () {
-                          final id = context.read<BookmarkBloc>().state.id;
-                          print('here is the $id');
-                          context
-                              .read<QuranBloc>()
-                              .add(FechtChapterbyId(id: id));
+                      BlocBuilder<BookmarkBloc, BookmarkState>(
+                        builder: (context, state) => GestureDetector(
+                          onTap: () {
+                            // final id = context.read<BookmarkBloc>().state.id;
+                            // print('here is the $id');
+                            // context.read<QuranBloc>().add(FechtChapterbyId(id: id));
 
-                          Navigator.of(context).pop();
-                        },
-                        child: Text(
-                          'Done',
-                          style: TextStyle(
-                            color: ColorManager.primary,
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
+                            context.read<QuranBloc>().add(FetchVersesByKey(
+                                  verseKey: state.verskey,
+                                ));
+                            print('versekey ${state.verskey}');
+                            Navigator.of(context).pop();
+                          },
+                          child: Text(
+                            'Done',
+                            style: TextStyle(
+                              color: ColorManager.primary,
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
                       ),

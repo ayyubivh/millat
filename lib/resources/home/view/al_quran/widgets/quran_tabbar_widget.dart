@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/home/bloc/models/quran_chapter_models/quran_chapter_models.dart';
+import 'package:millat/resources/home/view/al_quran/widgets/verses-view.dart';
 import 'package:millat/utils/loader.dart';
 import '../../../../../utils/constants.dart';
 import '../../../../../utils/color_manager.dart';
 import '../../../bloc/logic/quran_bloc/quran_bloc.dart';
-import 'verses-view.dart';
 
 class QuranTabBarWidget extends StatefulWidget {
   const QuranTabBarWidget({super.key});
@@ -152,10 +152,19 @@ class _QuranTabBarWidgetState extends State<QuranTabBarWidget> {
             return ListTile(
               onTap: () {
                 final id = state.quranParaModel!.juzs[index].juzNumber!.toInt();
+
                 context.read<QuranBloc>().add(FetchParaVerses(id: id));
-                context.read<QuranBloc>().add(FetchTranslationJuz(juzId: id));
+                context.read<QuranBloc>().add(FetchTranslationParaTexts(
+                    translationId: state.globalTransilationId, paraId: id));
+                context
+                    .read<QuranBloc>()
+                    .add(FetchParaAudios(id: id, recitorId: state.recitorId));
+
                 Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => const VersesView(type: Qurantype.para),
+                  builder: (context) => VersesView(
+                    chapterid: id,
+                    type: Qurantype.para,
+                  ),
                 ));
               },
               leading: Stack(
@@ -241,12 +250,17 @@ class _QuranTabBarWidgetState extends State<QuranTabBarWidget> {
   ListTile _buildSurahTile(BuildContext context, Chapters chapter, int index) {
     return ListTile(
       onTap: () {
+        final quranState = context.read<QuranBloc>().state;
+
         context.read<QuranBloc>().add(FetchChaperVersesEvent(id: chapter.id));
-        context
-            .read<QuranBloc>()
-            .add(FetchTranslationChapter(chapterId: chapter.id));
+        context.read<QuranBloc>().add(FetchTranslationChapterTexts(
+            translationId: quranState.globalTransilationId,
+            chapterId: chapter.id));
+        context.read<QuranBloc>().add(FetchChapterAudioFiles(
+            id: chapter.id, recitorId: quranState.recitorId));
         Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => const VersesView(
+          builder: (context) => VersesView(
+            chapterid: chapter.id,
             type: Qurantype.sura,
           ),
         ));

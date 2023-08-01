@@ -64,9 +64,7 @@ void main() async {
       BlocProvider(create: (context) => LocationBloc()),
       BlocProvider(create: (context) => NamazTimingBloc()),
       BlocProvider(create: (context) => QuranBloc()),
-      BlocProvider(
-        create: (context) => BookmarkBloc(),
-      )
+      BlocProvider(create: (context) => BookmarkBloc())
     ],
     child: MyApp(),
   ));

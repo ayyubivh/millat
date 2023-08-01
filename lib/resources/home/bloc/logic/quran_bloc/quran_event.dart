@@ -7,17 +7,13 @@ class QuranEvent with _$QuranEvent {
   const factory QuranEvent.fetchChaperVersesEvent({
     required int id,
   }) = FetchChaperVersesEvent;
+  const factory QuranEvent.fetchChapterVersesbyTextName({
+    required int id,
+  }) = FetchChapterVersesbyTextName;
   const factory QuranEvent.fetchParaVerses({
     required int id,
   }) = FetchParaVerses;
   const factory QuranEvent.fetchQuranPara() = FetchQuranPara;
-  const factory QuranEvent.fetchTranslationChapter({
-    int? chapterId,
-  }) = FetchTranslationChapter;
-  const factory QuranEvent.fetchTranslationJuz({
-    int? juzId,
-  }) = FetchTranslationJuz;
-  const factory QuranEvent.changeExpandEvent() = ChangeExpandEvent;
   const factory QuranEvent.changeExpandOnSearchEvent() =
       ChangeExpandOnSearchEvent;
   const factory QuranEvent.fechtChapterbyId({
@@ -26,6 +22,49 @@ class QuranEvent with _$QuranEvent {
   const factory QuranEvent.searchChapterEvent({
     required String query,
   }) = SearchChapterEvent;
-  const factory QuranEvent.fetchVersesByKey({required String verseKey}) =
+  const factory QuranEvent.fetchVersesByKey({required List<String> verseKey}) =
       FetchVersesByKey;
+  const factory QuranEvent.fetchParaAudios(
+      {required int id, required int recitorId}) = FetchParaAudios;
+  const factory QuranEvent.fetchChapterAudioFiles(
+      {required int id, required int recitorId}) = FetchChapterAudioFiles;
+  const factory QuranEvent.changeIndexBackGroundSetting({
+    required int index,
+  }) = ChangeIndexBackGroundSetting;
+  const factory QuranEvent.increaseFontsize() = IncreaseFontsize;
+  const factory QuranEvent.decreaseFontsize() = DecreaseFontsize;
+  const factory QuranEvent.fetchAllTranslationsEvent() =
+      FetchAllTranslationsEvent;
+  const factory QuranEvent.fetchAllChapterTranslationTexts({
+    required int chapterId,
+    required int translationId,
+  }) = FetchTranslationChapterTexts;
+  const factory QuranEvent.fetchAllParaTranslationTexts({
+    required int paraId,
+    required int translationId,
+  }) = FetchTranslationParaTexts;
+  const factory QuranEvent.playAllParaAudiosAuto({
+    required int index,
+  }) = PlayAllParaAudiosAuto;
+  const factory QuranEvent.playAllChapterAudiosAuto({
+    int? index,
+  }) = PlayAllChapterAudiosAuto;
+  const factory QuranEvent.showMusicbar() = ShowMusicbar;
+  const factory QuranEvent.isExpandonSearchEvent({
+    required bool isExpand,
+  }) = IsExpandonSearchEvent;
+  const factory QuranEvent.saveGlobalTransilationIdAndName({
+    required int transilationId,
+    required String translationName,
+  }) = SaveGlobalTransilationIdAndName;
+  // const factory QuranEvent.fetchAllRecitors() = FetchAllRecitors;
+  const factory QuranEvent.saveRecitorNameAndId({
+    required int recitorId,
+    required String recitorName,
+  }) = SaveRecitorNameAndId;
+  const factory QuranEvent.saveQuranTexttypeName({
+    required String textName,
+  }) = SaveQuranTexttypeName;
+  const factory QuranEvent.onTapofNextEvent() = OnTapofNextEvent;
+  const factory QuranEvent.onTapofPrevEvent() = OnTapofPrevEvent;
 }

@@ -52,30 +52,6 @@ class QuranServices {
     }
   }
 
-  Future<List<ChapterByIdModel>> fetchChaptersByIds(List<int> ids) async {
-    final url = "https://api.quran.com/api/v4/chapters/";
-
-    try {
-      final List<Future<ChapterByIdModel>> futures = ids.map((id) async {
-        final response = await http.get(Uri.parse("$url$id"));
-        if (response.statusCode == 200) {
-          final Map<String, dynamic> data = json.decode(response.body);
-          print('here is the list of data $data');
-          return ChapterByIdModel.fromJson(data);
-        } else {
-          throw Exception(
-              "Failed to fetch Quran chapter with ID $id. Status code: ${response.statusCode}");
-        }
-      }).toList();
-
-      final List<ChapterByIdModel> results = await Future.wait(futures);
-
-      return results;
-    } catch (e) {
-      throw Exception("Error fetching Quran chapters: $e");
-    }
-  }
-
 // fetch quran chapters verses
   Future<ChapterVersesModel> fetchChapterVerses({required int id}) async {
     final url = "https://api.alquran.cloud/v1/surah/$id";
@@ -97,7 +73,8 @@ class QuranServices {
   }
 
 //fetch para verses
-  Future<ParaVersesModel> fetchParaVerses({required int id}) async {
+  Future<dynamic> fetchParaVerses(
+      {required int id, required String textName}) async {
     final url =
         "https://api.quran.com/api/v4/quran/verses/indopak?juz_number=$id";
 
@@ -162,25 +139,56 @@ class QuranServices {
     }
   }
 
-//fetch verses ayah by id
-  Future<VersesByKeyModel> fetchVersesbyKey(String verseKey) async {
-    final url =
-        "https://api.quran.com/api/v4/quran/verses/indopak?verse_key=$verseKey";
+  Future<List<ChapterByIdModel>> fetchChaptersByIds(List<int> ids) async {
+    final url = "https://api.quran.com/api/v4/chapters/";
 
     try {
-      final response = await http.get(Uri.parse(url));
-      if (response.statusCode == 200) {
-        final Map<String, dynamic> data = json.decode(response.body);
+      final List<Future<ChapterByIdModel>> futures = ids.map((id) async {
+        final response = await http.get(Uri.parse("$url$id"));
+        if (response.statusCode == 200) {
+          final Map<String, dynamic> data = json.decode(response.body);
+          print('here is the list of data $data');
+          return ChapterByIdModel.fromJson(data);
+        } else {
+          throw Exception(
+              "Failed to fetch Quran chapter with ID $id. Status code: ${response.statusCode}");
+        }
+      }).toList();
 
-        final result = VersesByKeyModel.fromJson(data);
-        print('here is the result by key $result');
-        return result;
-      } else {
-        throw Exception(
-            "Failed to fetch Quran chapters. Status code: ${response.statusCode}");
-      }
+      final List<ChapterByIdModel> results = await Future.wait(futures);
+
+      return results;
     } catch (e) {
       throw Exception("Error fetching Quran chapters: $e");
+    }
+  }
+
+//fetch verses ayah by id
+  Future<List<VersesByKeyModel>> fetchVersesbyKey(List<String> verseKey) async {
+    final url = "https://api.quran.com/api/v4/quran/verses/indopak?verse_key=";
+
+    try {
+      final List<Future<VersesByKeyModel>> futures = verseKey.map((e) async {
+        final response = await http.get(Uri.parse("$url$e"));
+
+        if (response.statusCode == 200) {
+          final List<dynamic> data = json.decode(response.body)['data'];
+
+          if (data.isNotEmpty) {
+            final Map<String, dynamic> verseData =
+                data[0]; // Assuming you want the first item in the list
+            return VersesByKeyModel.fromJson(verseData);
+          } else {
+            throw Exception("No data found for verse key: $e");
+          }
+        } else {
+          throw Exception("Failed to load verse key: $e");
+        }
+      }).toList();
+      final List<VersesByKeyModel> results = await Future.wait(futures);
+      return results;
+    } catch (e) {
+      throw Exception("Error fetching Quran verses: $e");
     }
   }
 

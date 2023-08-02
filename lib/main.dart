@@ -6,8 +6,8 @@ import 'package:hive_flutter/hive_flutter.dart';
 
 import 'package:millat/resources/authentication/bloc/logic/auth_bloc.dart';
 import 'package:millat/resources/authentication/bloc/logic/database_bloc/database_bloc.dart';
-import 'package:millat/resources/home/bloc/db/db_functions.dart';
 import 'package:millat/resources/home/bloc/logic/bookmark_bloc/bookmark_bloc.dart';
+import 'package:millat/resources/home/bloc/logic/dua_bloc/dua_bloc.dart';
 import 'package:millat/resources/home/bloc/logic/location_bloc/location_bloc.dart';
 import 'package:millat/resources/home/bloc/logic/namaz_timing_bloc/namaz_timing_bloc.dart';
 import 'package:millat/resources/home/bloc/logic/quran_bloc/quran_bloc.dart';
@@ -52,7 +52,7 @@ void main() async {
   }
   await Hive.initFlutter();
   await Hive.openBox('userDetailsBox');
-  await BookMarkDB.instance.refresh();
+
   runApp(MultiBlocProvider(
     providers: [
       BlocProvider(create: (context) => AuthBloc()),
@@ -64,7 +64,8 @@ void main() async {
       BlocProvider(create: (context) => LocationBloc()),
       BlocProvider(create: (context) => NamazTimingBloc()),
       BlocProvider(create: (context) => QuranBloc()),
-      BlocProvider(create: (context) => BookmarkBloc())
+      BlocProvider(create: (context) => BookmarkBloc()),
+      BlocProvider(create: (context) => DuaBloc()),
     ],
     child: MyApp(),
   ));

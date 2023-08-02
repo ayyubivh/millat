@@ -79,7 +79,7 @@ class DuaView extends StatelessWidget {
               const Divider(),
               kHeight15,
               Image.asset('assets/images/main_dua.png'),
-              Expanded(child: DuaTabbarview()),
+              const Expanded(child: DuaTabbarview()),
             ],
           ),
         ));

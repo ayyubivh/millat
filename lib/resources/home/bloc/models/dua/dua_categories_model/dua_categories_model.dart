@@ -27,7 +27,7 @@ class Result with _$Result {
 @freezed
 class DuaCategory with _$DuaCategory {
   const factory DuaCategory({
-    String? id,
+    @JsonKey(name: "_id") String? id,
     String? category,
     String? image,
     String? createdAt,

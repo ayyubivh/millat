@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/resources/home/bloc/logic/bookmark_bloc/bookmark_bloc.dart';
+import 'package:millat/resources/home/bloc/logic/dua_bloc/dua_bloc.dart';
 import 'package:millat/resources/home/bloc/logic/namaz_timing_bloc/namaz_timing_bloc.dart';
+import 'package:millat/resources/home/bloc/service/dua_services.dart';
 import 'package:millat/resources/home/view/dua/dua_view.dart';
 import 'package:millat/utils/constants.dart';
 import '../../../utils/color_manager.dart';
@@ -37,7 +39,6 @@ class _HomeViewState extends State<HomeView> {
     BlocProvider.of<LocationBloc>(context).add(const FetchCities());
     BlocProvider.of<ShopProductsBloc>(context).add(const FetchHomeBanners());
     BlocProvider.of<ShopProductsBloc>(context).add(FetchOrders(context));
-
     super.initState();
   }
 

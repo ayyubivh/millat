@@ -34,7 +34,7 @@ Map<String, dynamic> _$$_ResultToJson(_$_Result instance) => <String, dynamic>{
 
 _$_DuaCategory _$$_DuaCategoryFromJson(Map<String, dynamic> json) =>
     _$_DuaCategory(
-      id: json['id'] as String?,
+      id: json['_id'] as String?,
       category: json['category'] as String?,
       image: json['image'] as String?,
       createdAt: json['createdAt'] as String?,
@@ -43,7 +43,7 @@ _$_DuaCategory _$$_DuaCategoryFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$$_DuaCategoryToJson(_$_DuaCategory instance) =>
     <String, dynamic>{
-      'id': instance.id,
+      '_id': instance.id,
       'category': instance.category,
       'image': instance.image,
       'createdAt': instance.createdAt,

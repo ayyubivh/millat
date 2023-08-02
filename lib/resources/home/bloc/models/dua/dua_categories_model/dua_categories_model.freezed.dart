@@ -361,6 +361,7 @@ DuaCategory _$DuaCategoryFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$DuaCategory {
+  @JsonKey(name: "_id")
   String? get id => throw _privateConstructorUsedError;
   String? get category => throw _privateConstructorUsedError;
   String? get image => throw _privateConstructorUsedError;
@@ -380,7 +381,7 @@ abstract class $DuaCategoryCopyWith<$Res> {
       _$DuaCategoryCopyWithImpl<$Res, DuaCategory>;
   @useResult
   $Res call(
-      {String? id,
+      {@JsonKey(name: "_id") String? id,
       String? category,
       String? image,
       String? createdAt,
@@ -440,7 +441,7 @@ abstract class _$$_DuaCategoryCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String? id,
+      {@JsonKey(name: "_id") String? id,
       String? category,
       String? image,
       String? createdAt,
@@ -493,12 +494,17 @@ class __$$_DuaCategoryCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_DuaCategory implements _DuaCategory {
   const _$_DuaCategory(
-      {this.id, this.category, this.image, this.createdAt, this.updatedAt});
+      {@JsonKey(name: "_id") this.id,
+      this.category,
+      this.image,
+      this.createdAt,
+      this.updatedAt});
 
   factory _$_DuaCategory.fromJson(Map<String, dynamic> json) =>
       _$$_DuaCategoryFromJson(json);
 
   @override
+  @JsonKey(name: "_id")
   final String? id;
   @override
   final String? category;
@@ -550,7 +556,7 @@ class _$_DuaCategory implements _DuaCategory {
 
 abstract class _DuaCategory implements DuaCategory {
   const factory _DuaCategory(
-      {final String? id,
+      {@JsonKey(name: "_id") final String? id,
       final String? category,
       final String? image,
       final String? createdAt,
@@ -560,6 +566,7 @@ abstract class _DuaCategory implements DuaCategory {
       _$_DuaCategory.fromJson;
 
   @override
+  @JsonKey(name: "_id")
   String? get id;
   @override
   String? get category;

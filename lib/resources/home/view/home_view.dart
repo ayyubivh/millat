@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/resources/home/bloc/logic/bookmark_bloc/bookmark_bloc.dart';
 import 'package:millat/resources/home/bloc/logic/namaz_timing_bloc/namaz_timing_bloc.dart';
 import 'package:millat/resources/home/view/dua/dua_view.dart';
+import 'package:millat/resources/home/view/qibla/qibla_view.dart';
 import 'package:millat/utils/constants.dart';
 import '../../../utils/color_manager.dart';
 import '../../../utils/size_utility.dart';
@@ -12,7 +13,6 @@ import '../../../utils/utils.dart';
 import '../../authentication/bloc/logic/database_bloc/database_bloc.dart';
 import '../../profile/views/profile_view.dart';
 import '../../shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
-import '../../shop/view/order_status/order_status.dart';
 import '../bloc/logic/location_bloc/location_bloc.dart';
 import 'al_quran/al_quran_view.dart';
 import 'namaz_timing/namaz_timing_view.dart';
@@ -37,7 +37,6 @@ class _HomeViewState extends State<HomeView> {
     BlocProvider.of<LocationBloc>(context).add(const FetchCities());
     BlocProvider.of<ShopProductsBloc>(context).add(const FetchHomeBanners());
     BlocProvider.of<ShopProductsBloc>(context).add(FetchOrders(context));
-
     super.initState();
   }
 
@@ -182,7 +181,12 @@ class _HomeViewState extends State<HomeView> {
                                       buildIconWidget(
                                         image: 'assets/icons/qibla.png',
                                         text: 'Qibla',
-                                        onTap: () {},
+                                        onTap: () => Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (context) =>
+                                                  const QiblahScreen(),
+                                            )),
                                       ),
                                       buildIconWidget(
                                         image: 'assets/icons/tasbih.png',

@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:millat/resources/home/bloc/logic/dua_bloc/dua_bloc.dart';
 import 'package:millat/resources/home/view/dua/widgets/inside_dua_view.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
+import 'package:millat/utils/loader.dart';
 import 'package:millat/utils/string_constants.dart';
 
 class DuaCategoryView extends StatefulWidget {
@@ -76,46 +79,60 @@ class _DuaCategoryViewState extends State<DuaCategoryView> {
               ),
             ),
             kHeight15,
-            Expanded(
-                child: ListView.builder(
-              itemCount: 8,
-              itemBuilder: (context, index) {
-                return GestureDetector(
-                  onTap: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const InsideDuaView(),
-                    ));
-                  },
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        color: ColorManager.appBarColor,
-                        height: 25,
-                        width: 25,
-                        child: const Center(
-                          child: Text("1"),
-                        ),
-                      ),
-                      kHeight10,
-                      const Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            "When working up",
-                            style: TextStyle(
-                              fontSize: 15,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                          Icon(Icons.navigate_next_outlined)
-                        ],
-                      ),
-                      kHeight10,
-                      const Divider(),
-                    ],
-                  ),
-                );
+            Expanded(child: BlocBuilder<DuaBloc, DuaState>(
+              builder: (context, state) {
+                return state.duaSubcategoryModel == null
+                    ? const Loader()
+                    : state.isLoading
+                        ? const Loader()
+                        : ListView.builder(
+                            itemCount: state.duaSubcategoryModel?.result
+                                .duaSubCategory!.length,
+                            itemBuilder: (context, index) {
+                              final data = state.duaSubcategoryModel!.result
+                                  .duaSubCategory![index];
+                              return GestureDetector(
+                                onTap: () {
+                                  context.read<DuaBloc>().add(
+                                      FetchDuaBySubcategoryEvent(
+                                          subCategoryId: data.id!));
+                                  Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (context) => const InsideDuaView(),
+                                  ));
+                                },
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Container(
+                                      color: ColorManager.appBarColor,
+                                      height: 25,
+                                      width: 25,
+                                      child: Center(
+                                        child: Text("${data.count}"),
+                                      ),
+                                    ),
+                                    kHeight10,
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text(
+                                          data.subCategory.toString(),
+                                          style: const TextStyle(
+                                            fontSize: 15,
+                                            fontWeight: FontWeight.w600,
+                                          ),
+                                        ),
+                                        const Icon(Icons.navigate_next_outlined)
+                                      ],
+                                    ),
+                                    kHeight10,
+                                    const Divider(),
+                                  ],
+                                ),
+                              );
+                            },
+                          );
               },
             ))
           ],

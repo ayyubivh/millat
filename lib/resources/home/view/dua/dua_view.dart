@@ -83,7 +83,7 @@ class DuaView extends StatelessWidget {
                 ),
                 subtitle: BlocBuilder<DuaBloc, DuaState>(
                   builder: (context, state) => Text(
-                    '${state.duaBookMarkModel?.result?.bookmarks[0].bookmarks.length} Items',
+                    '${state.bookMarkLength} Items',
                     style: const TextStyle(
                         fontSize: 14, fontWeight: FontWeight.bold, height: 1.3),
                   ),

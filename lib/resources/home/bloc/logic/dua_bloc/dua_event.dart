@@ -25,4 +25,6 @@ class DuaEvent with _$DuaEvent {
   const factory DuaEvent.fetchDuaById() = FetchDuaById;
   const factory DuaEvent.changeSubcategoryNameEvent({required String newName}) =
       ChangeSubcategoryNameEvent;
+  const factory DuaEvent.selectTranslationText({required int value}) =
+      SelectTranslationText;
 }

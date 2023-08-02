@@ -5,6 +5,8 @@ import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/loader.dart';
 
+import '../../../../../utils/size_utility.dart';
+
 class DuaBookMarkView extends StatelessWidget {
   const DuaBookMarkView({super.key});
 
@@ -44,6 +46,18 @@ class DuaBookMarkView extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
+              );
+            } else if (state
+                .duaBookMarkModel!.result!.bookmarks[0].bookmarks.isEmpty) {
+              return Padding(
+                padding: EdgeInsets.only(top: SizeUtility(context).height / 3),
+                child: const Center(
+                    child: Text(
+                  "Book Mark is Empty",
+                  style: TextStyle(
+                    fontSize: 20,
+                  ),
+                )),
               );
             } else {
               return Expanded(
@@ -109,6 +123,9 @@ class DuaBookMarkView extends StatelessWidget {
                                                         .bookmarks[0]
                                                         .bookmarks[index]
                                                         .duaId));
+                                            context
+                                                .read<DuaBloc>()
+                                                .add(const FetchDuaById());
                                           },
                                           icon: const Icon(
                                             Icons.close,
@@ -119,7 +136,7 @@ class DuaBookMarkView extends StatelessWidget {
                                 ),
                                 kHeight10,
                                 Text(
-                                  'Dua : ${data!.resource}',
+                                  'Dua : ${data.resource}',
                                   style: TextStyle(
                                     fontSize: 13,
                                     fontWeight: FontWeight.w600,

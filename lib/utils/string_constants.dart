@@ -33,3 +33,6 @@ final duaTexts = [
 ];
 //image strings
 String favoriteImg = "assets/images/favorite_collection.png";
+
+// List of Translate Texts
+final translateTexts = ['English', 'Hindi'];

@@ -49,9 +49,10 @@ class InsideDuaView extends StatelessWidget {
             return ListView.separated(
                 itemBuilder: (context, index) {
                   final data = state.duaModel!.result!.duas![index];
-                  String translationText = data.translate?.isNotEmpty == true
-                      ? data.translate![0].content ?? ""
-                      : '';
+                  String translationText =
+                      data.translate != null && data.translate!.isNotEmpty
+                          ? data.translate![state.translationText].content ?? ''
+                          : '';
 
                   return _builDuaContainer(
                     context: context,
@@ -181,6 +182,9 @@ class InsideDuaView extends StatelessWidget {
                               onTap: () {
                                 context.read<DuaBloc>().add(AddBookmarkEvent(
                                     context: context, duaId: duaId!));
+                                context
+                                    .read<DuaBloc>()
+                                    .add(FetchDuaBookMarksEvent(context));
                               },
                               child: const ImageIcon(
                                 AssetImage("assets/icons/bookmark.png"),

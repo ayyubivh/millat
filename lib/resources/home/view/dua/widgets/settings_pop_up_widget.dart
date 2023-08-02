@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:millat/resources/home/bloc/models/dua/dua_model/dua_model_byId.dart';
 
 import '../../../../../utils/color_manager.dart';
 import '../../../../../utils/constants.dart';
+import '../../../../../utils/string_constants.dart';
 import '../../../bloc/logic/dua_bloc/dua_bloc.dart';
 
 class SettingsPopUpWidget extends StatelessWidget {
@@ -173,23 +175,73 @@ class SettingsPopUpWidget extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     const Text(
-                      'Location',
+                      'Auto Translate Language',
                       style: TextStyle(
                         fontWeight: FontWeight.w600,
                         fontSize: 16,
                       ),
                     ),
-                    Row(
-                      children: [
-                        Text('Hindi',
-                            style: TextStyle(color: ColorManager.textGrey)),
-                        IconButton(
-                          onPressed: () {},
-                          icon: const Icon(Icons.arrow_forward_ios_rounded),
-                          iconSize: 14,
-                          color: black102,
-                        )
-                      ],
+                    GestureDetector(
+                      onTap: () {
+                        showModalBottomSheet(
+                          context: context,
+                          isScrollControlled: true,
+                          builder: (context) {
+                            return BlocBuilder<DuaBloc, DuaState>(
+                                builder: (context, state) => SizedBox(
+                                      height: 200,
+                                      child: ListView.separated(
+                                          separatorBuilder: (context, index) =>
+                                              const Divider(
+                                                thickness: 2,
+                                              ),
+                                          itemCount: translateTexts.length,
+                                          itemBuilder: (context, index) =>
+                                              Padding(
+                                                padding:
+                                                    const EdgeInsets.symmetric(
+                                                            horizontal: 20,
+                                                            vertical: 10)
+                                                        .copyWith(top: 20),
+                                                child: InkWell(
+                                                  onTap: () {
+                                                    context.read<DuaBloc>().add(
+                                                        SelectTranslationText(
+                                                            value: index));
+                                                    Navigator.of(context).pop();
+                                                  },
+                                                  child: Center(
+                                                      child: Text(
+                                                    translateTexts[index],
+                                                    style: const TextStyle(
+                                                      fontSize: 18,
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                    ),
+                                                  )),
+                                                ),
+                                              )),
+                                    ));
+                          },
+                        );
+                      },
+                      child: Row(
+                        children: [
+                          BlocBuilder<DuaBloc, DuaState>(
+                            builder: (context, state) => Text(
+                                state.translationText == 0
+                                    ? "English"
+                                    : "Hindi",
+                                style: TextStyle(color: ColorManager.textGrey)),
+                          ),
+                          IconButton(
+                            onPressed: () {},
+                            icon: const Icon(Icons.arrow_forward_ios_rounded),
+                            iconSize: 14,
+                            color: black102,
+                          )
+                        ],
+                      ),
                     ),
                   ],
                 ),

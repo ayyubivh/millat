@@ -32,7 +32,7 @@ class VersesView extends StatelessWidget {
       BlocProvider.of<QuranBloc>(context).add(const FetchAllRecitors());
     });
     int currentIndex = -1;
-    int _currentIndex = -1;
+
     return Scaffold(
       backgroundColor: scaffoldBgColor,
       appBar: PreferredSize(
@@ -226,7 +226,7 @@ class VersesView extends StatelessWidget {
                                       final indoPakdata =
                                           state.paraVersesModel!.verses;
 
-                                      return state.paraTranslationText == null
+                                      return state.paraTranslationText!.isEmpty
                                           ? const Loader()
                                           : VersesCardWidget(
                                               isValue:

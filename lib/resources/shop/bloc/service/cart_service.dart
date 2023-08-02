@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:http/http.dart' as http;
 import 'package:millat/resources/shop/bloc/models/cart/cart_models.dart';
+import 'package:millat/utils/string_constants.dart';
 import '../../../../services/http_services.dart';
 import '../../../authentication/bloc/logic/database_bloc/database_bloc.dart';
 
@@ -49,8 +50,6 @@ class CartServices extends HttpServices {
     required int quantity,
     required String brandId,
   }) async {
-    const String webBaseUrl = 'http://35.172.93.164:8000/';
-
     const endPoint = 'cart/add';
     final databaseState = context.read<DatabaseBloc>().state;
     final token = databaseState.token;
@@ -67,7 +66,7 @@ class CartServices extends HttpServices {
       "brandId": brandId
     };
 
-    final response = await http.put(Uri.parse(webBaseUrl + endPoint),
+    final response = await http.put(Uri.parse(kBaseUrl + endPoint),
         headers: headers, body: jsonEncode(body));
 
     try {

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:millat/resources/home/bloc/logic/dua_bloc/dua_bloc.dart';
 import 'package:millat/resources/home/view/dua/widgets/dua_bookmar_view.dart';
 import 'package:millat/resources/home/view/dua/widgets/dua_tabbarview.dart';
+import 'package:millat/resources/home/view/dua/widgets/settings_pop_up_widget.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
 
@@ -11,6 +14,9 @@ class DuaView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      BlocProvider.of<DuaBloc>(context).add(FetchDuaBookMarksEvent(context));
+    });
     return Scaffold(
         appBar: PreferredSize(
           preferredSize: const Size.fromHeight(70),
@@ -39,9 +45,14 @@ class DuaView extends StatelessWidget {
                   fontWeight: FontWeight.w400,
                 ),
               ),
-              actions: const [
-                ImageIcon(
-                  AssetImage("assets/icons/settings.png"),
+              actions: [
+                GestureDetector(
+                  onTap: () {
+                    _buildPopUp(context);
+                  },
+                  child: const ImageIcon(
+                    AssetImage("assets/icons/settings.png"),
+                  ),
                 ),
                 kWidth15,
               ],
@@ -70,10 +81,12 @@ class DuaView extends StatelessWidget {
                   Icons.navigate_next,
                   color: ColorManager.blackColor,
                 ),
-                subtitle: const Text(
-                  '2 Items',
-                  style: TextStyle(
-                      fontSize: 14, fontWeight: FontWeight.bold, height: 1.3),
+                subtitle: BlocBuilder<DuaBloc, DuaState>(
+                  builder: (context, state) => Text(
+                    '${state.duaBookMarkModel?.result?.bookmarks[0].bookmarks.length} Items',
+                    style: const TextStyle(
+                        fontSize: 14, fontWeight: FontWeight.bold, height: 1.3),
+                  ),
                 ),
               ),
               const Divider(),
@@ -83,5 +96,20 @@ class DuaView extends StatelessWidget {
             ],
           ),
         ));
+  }
+
+  Future<dynamic> _buildPopUp(BuildContext context) {
+    return showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      backgroundColor: Colors.transparent,
+      builder: (context) {
+        return StatefulBuilder(
+          builder: (context, setState) {
+            return const SettingsPopUpWidget();
+          },
+        );
+      },
+    );
   }
 }

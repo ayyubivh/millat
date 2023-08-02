@@ -2,9 +2,11 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:millat/resources/home/bloc/models/dua/dua_model/dua_model_byId.dart';
 import 'package:millat/resources/home/bloc/models/dua/dua_subcategoryby_category_model/dua_subcategory_by_category_model.dart';
 import 'package:millat/services/http_services.dart';
-
+import 'package:http/http.dart' as http;
+import '../../../../utils/string_constants.dart';
 import '../../../authentication/bloc/logic/database_bloc/database_bloc.dart';
 import '../models/dua/dua_categories_model/dua_categories_model.dart';
 import '../models/dua/dua_model/dua_model.dart';
@@ -50,19 +52,17 @@ class DuaServices extends HttpServices {
     }
   }
 
-//fetch dua
+//fetch dua by subcategory
   Future<DuaModel> fetchDuabySubCategory(
       {required String subCategoryId}) async {
     final String duaSubcategory = "dua?subcategory=$subCategoryId";
 
     final response = await get(endPoint: duaSubcategory);
     if (response.statusCode == 200) {
-      print('here is the response of the duas ${response.body}');
-
       try {
         final Map<String, dynamic> data = json.decode(response.body);
         final result = DuaModel.fromJson(data);
-        print('here is the result of the duas $result');
+
         return result;
       } catch (e) {
         throw Exception('Failed to parse response $e');
@@ -70,6 +70,80 @@ class DuaServices extends HttpServices {
     } else {
       throw Exception(
           'API request failed with status code: ${response.statusCode}');
+    }
+  }
+
+// adding dua to bookmark
+  addBookmark({
+    required BuildContext context,
+    required String duaId,
+  }) async {
+    const endPoint = 'dua_bookmark/add';
+    final databaseState = context.read<DatabaseBloc>().state;
+    final token = databaseState.token;
+    final headers = {
+      'Content-Type': 'application/json; charset=utf-8',
+      'Authorization': 'Bearer $token',
+    };
+    final body = {"duaId": duaId};
+
+    final response = await http.patch(Uri.parse(kBaseUrl + endPoint),
+        headers: headers, body: jsonEncode(body));
+
+    try {
+      if (response.statusCode == 200) {
+        final Map<String, dynamic> data = json.decode(response.body);
+
+        return data;
+      } else if (response.statusCode == 409) {
+        final Map<String, dynamic> data = json.decode(response.body);
+
+        return data;
+      } else {
+        print('API request failed with status code: ${response.statusCode}');
+        throw Exception(
+            'API request failed with status code: ${response.statusCode}');
+      }
+    } catch (e) {
+      print('error on API fetch: ${e.toString()}');
+      throw Exception('Failed to parse response');
+    }
+  }
+
+//remove book mark
+  removeBookmark({
+    required BuildContext context,
+    required String duaId,
+  }) async {
+    const endPoint = 'dua_bookmark/remove';
+    final databaseState = context.read<DatabaseBloc>().state;
+    final token = databaseState.token;
+    final headers = {
+      'Content-Type': 'application/json; charset=utf-8',
+      'Authorization': 'Bearer $token',
+    };
+    final body = {"duaId": duaId};
+
+    final response = await http.patch(Uri.parse(kBaseUrl + endPoint),
+        headers: headers, body: jsonEncode(body));
+
+    try {
+      if (response.statusCode == 200) {
+        final Map<String, dynamic> data = json.decode(response.body);
+
+        return data;
+      } else if (response.statusCode == 409) {
+        final Map<String, dynamic> data = json.decode(response.body);
+
+        return data;
+      } else {
+        print('API request failed with status code: ${response.statusCode}');
+        throw Exception(
+            'API request failed with status code: ${response.statusCode}');
+      }
+    } catch (e) {
+      print('error on API fetch: ${e.toString()}');
+      throw Exception('Failed to parse response');
     }
   }
 
@@ -85,8 +159,6 @@ class DuaServices extends HttpServices {
     final response = await get(endPoint: endPoint, headers: headers);
     if (response.statusCode == 200) {
       try {
-        print('here on the fetch bookmark response body ${response.body}');
-
         final Map<String, dynamic> data = json.decode(response.body);
 
         final result = DuaBookMarkModel.fromJson(data);
@@ -98,6 +170,31 @@ class DuaServices extends HttpServices {
       }
     } else {
       throw Exception('Token not available');
+    }
+  }
+  //fetch dua by id
+
+  Future<List<DuaModelById>> fetchDuasByIds(List<String> ids) async {
+    const url = "dua";
+
+    try {
+      final List<Future<DuaModelById>> futures = ids.map((id) async {
+        final response = await get(endPoint: "$url/$id");
+        if (response.statusCode == 200) {
+          final Map<String, dynamic> data = json.decode(response.body);
+          print('here is the list of data $data');
+          return DuaModelById.fromJson(data);
+        } else {
+          throw Exception(
+              "Failed to fetch Duas  with ID $id. Status code: ${response.statusCode}");
+        }
+      }).toList();
+
+      final List<DuaModelById> results = await Future.wait(futures);
+
+      return results;
+    } catch (e) {
+      throw Exception("Error fetching dua by id chapters: $e");
     }
   }
 }

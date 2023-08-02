@@ -216,6 +216,7 @@ class _AddNewBookMarkCollectionState extends State<AddNewBookMarkCollection> {
                                   style: const TextStyle(
                                     fontSize: 18,
                                     fontWeight: FontWeight.w600,
+                                    fontFamily: 'Hafs',
                                   ),
                                   maxLines: 1,
                                   textDirection: TextDirection.rtl,

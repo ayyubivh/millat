@@ -1,0 +1,273 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../../../../utils/color_manager.dart';
+import '../../../../../utils/constants.dart';
+import '../../../bloc/logic/dua_bloc/dua_bloc.dart';
+
+class SettingsPopUpWidget extends StatelessWidget {
+  const SettingsPopUpWidget({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 700,
+      decoration: BoxDecoration(
+        color: ColorManager.whiteColor,
+        borderRadius: BorderRadius.circular(30),
+      ),
+      child: Column(
+        children: [
+          kHeight15,
+          Row(
+            children: [
+              const Expanded(
+                child: Center(
+                  child: Text(
+                    'Select Category',
+                    style: TextStyle(
+                      fontSize: 17,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ),
+              ),
+              Align(
+                alignment: Alignment.topRight,
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).pop;
+                  },
+                  child: IconButton(
+                      onPressed: () {},
+                      icon: const Icon(
+                        Icons.close,
+                        size: 16,
+                      )),
+                ),
+              ),
+              kWidth15
+            ],
+          ),
+          kHeight15,
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 25),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                _aprnceText('Appearance'),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Text(
+                      'Display Arabic Text',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 17,
+                      ),
+                    ),
+                    Switch(
+                      activeColor: ColorManager.primary,
+                      value: true,
+                      onChanged: (value) {
+                        // setState(() {
+                        //   isDetectLocation = value;
+                        // });
+                        // if (isDetectLocation ==
+                        //     true) {
+                        //   context
+                        //       .read<LocationBloc>()
+                        //       .add(
+                        //           const ChangeLocationOnToggle());
+                        // }
+                      },
+                    ),
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Text(
+                      'Display Translation Text',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 17,
+                      ),
+                    ),
+                    Switch(
+                      activeColor: ColorManager.primary,
+                      value: true,
+                      onChanged: (value) {
+                        // setState(() {
+                        //   isDetectLocation = value;
+                        // });
+                        // if (isDetectLocation ==
+                        //     true) {
+                        //   context
+                        //       .read<LocationBloc>()
+                        //       .add(
+                        //           const ChangeLocationOnToggle());
+                        // }
+                      },
+                    ),
+                  ],
+                ),
+                kHeight10,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Text(
+                      'Display Translation Text',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 17,
+                      ),
+                    ),
+                    Text(
+                      'Reset to Default',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 16,
+                        color: ColorManager.primary,
+                      ),
+                    ),
+                  ],
+                ),
+                kHeight10,
+                BlocBuilder<DuaBloc, DuaState>(
+                  builder: (context, state) => Slider(
+                    thumbColor: ColorManager.whiteColor,
+                    inactiveColor: ColorManager.dotGrey,
+                    activeColor: ColorManager.primary,
+                    value: state.sliderValue,
+                    max: 60,
+                    min: 10.0,
+
+                    // label: _currentSliderValue.round().toString(),
+                    onChanged: (double value) {
+                      context
+                          .read<DuaBloc>()
+                          .add(ChangeSliderEvent(sliderVal: value));
+                    },
+                  ),
+                ),
+                kHeight15,
+                BlocBuilder<DuaBloc, DuaState>(
+                  builder: (context, state) => Center(
+                    child: Text(
+                      'بسم الله',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                        fontSize: state.sliderValue,
+                        color: ColorManager.primary,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                ),
+                kHeight10,
+                const Divider(thickness: 1),
+                _aprnceText('Translation'),
+                kHeight15,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Text(
+                      'Location',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 16,
+                      ),
+                    ),
+                    Row(
+                      children: [
+                        Text('Hindi',
+                            style: TextStyle(color: ColorManager.textGrey)),
+                        IconButton(
+                          onPressed: () {},
+                          icon: const Icon(Icons.arrow_forward_ios_rounded),
+                          iconSize: 14,
+                          color: black102,
+                        )
+                      ],
+                    ),
+                  ],
+                ),
+                kHeight15,
+                _aprnceText("Appearance"),
+                kHeight15,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Text(
+                      'Recite Hadith Arabic',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 17,
+                      ),
+                    ),
+                    Switch(
+                      activeColor: ColorManager.primary,
+                      value: true,
+                      onChanged: (value) {
+                        // setState(() {
+                        //   isDetectLocation = value;
+                        // });
+                        // if (isDetectLocation ==
+                        //     true) {
+                        //   context
+                        //       .read<LocationBloc>()
+                        //       .add(
+                        //           const ChangeLocationOnToggle());
+                        // }
+                      },
+                    ),
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Text(
+                      'Recent Hadith Translation',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 17,
+                      ),
+                    ),
+                    Switch(
+                      activeColor: ColorManager.primary,
+                      value: true,
+                      onChanged: (value) {
+                        // setState(() {
+                        //   isDetectLocation = value;
+                        // });
+                        // if (isDetectLocation ==
+                        //     true) {
+                        //   context
+                        //       .read<LocationBloc>()
+                        //       .add(
+                        //           const ChangeLocationOnToggle());
+                        // }
+                      },
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
+  Text _aprnceText(String text) {
+    return Text(
+      text,
+      style: TextStyle(
+        fontSize: 13,
+        fontWeight: FontWeight.w600,
+        color: ColorManager.black4F,
+      ),
+    );
+  }
+}

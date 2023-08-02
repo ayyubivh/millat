@@ -5,18 +5,12 @@ import 'package:millat/resources/home/view/dua/widgets/inside_dua_view.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/loader.dart';
-import 'package:millat/utils/string_constants.dart';
 
-class DuaCategoryView extends StatefulWidget {
-  final String category;
-  const DuaCategoryView({super.key, required this.category});
+class DuaCategoryView extends StatelessWidget {
+  const DuaCategoryView({
+    super.key,
+  });
 
-  @override
-  State<DuaCategoryView> createState() => _DuaCategoryViewState();
-}
-
-class _DuaCategoryViewState extends State<DuaCategoryView> {
-  int _currentIndex = -1;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -68,12 +62,14 @@ class _DuaCategoryViewState extends State<DuaCategoryView> {
                 ),
               ),
               child: Center(
-                child: Text(
-                  widget.category,
-                  style: TextStyle(
-                    color: ColorManager.whiteColor,
-                    fontSize: 17,
-                    fontWeight: FontWeight.w600,
+                child: BlocBuilder<DuaBloc, DuaState>(
+                  builder: (context, state) => Text(
+                    state.subCategoryName,
+                    style: TextStyle(
+                      color: ColorManager.whiteColor,
+                      fontSize: 17,
+                      fontWeight: FontWeight.w600,
+                    ),
                   ),
                 ),
               ),
@@ -192,33 +188,39 @@ class _DuaCategoryViewState extends State<DuaCategoryView> {
                     kHeight15,
                     const Divider(),
                     Expanded(
-                      child: ListView.builder(
-                        itemCount: duaTexts.length,
-                        itemBuilder: (context, index) {
-                          return InkWell(
-                            onTap: () {
-                              setState(
-                                () {
-                                  _currentIndex = index;
+                      child: BlocBuilder<DuaBloc, DuaState>(
+                        builder: (context, state) {
+                          final data =
+                              state.duaCategoryModel?.result.duaCategory;
+
+                          return ListView.builder(
+                            itemCount: data!.length,
+                            itemBuilder: (context, index) {
+                              return InkWell(
+                                onTap: () {
+                                  final data = state.duaCategoryModel!.result
+                                      .duaCategory[index];
+                                  context.read<DuaBloc>()
+                                    ..add(FetchDuaSubCategorybyCategory(
+                                        categoryId: data.id.toString()))
+                                    ..add(ChangeSubcategoryNameEvent(
+                                        newName: data.category!));
+                                  Navigator.of(context).pop();
                                 },
+                                child: Padding(
+                                  padding: const EdgeInsets.all(14.0),
+                                  child: Text(
+                                    data[index].category!,
+                                    style: TextStyle(
+                                      fontSize: 17,
+                                      fontWeight: FontWeight.bold,
+                                      color: ColorManager.textGrey,
+                                    ),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                ),
                               );
                             },
-                            child: Padding(
-                              padding: const EdgeInsets.all(14.0),
-                              child: Text(
-                                duaTexts[index],
-                                style: TextStyle(
-                                  fontSize: 17,
-                                  fontWeight: _currentIndex == index
-                                      ? FontWeight.bold
-                                      : FontWeight.w500,
-                                  color: _currentIndex == index
-                                      ? ColorManager.primary
-                                      : ColorManager.textGrey,
-                                ),
-                                textAlign: TextAlign.center,
-                              ),
-                            ),
                           );
                         },
                       ),

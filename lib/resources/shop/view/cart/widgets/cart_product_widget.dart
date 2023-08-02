@@ -30,7 +30,7 @@ class CartProductWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final backgroundColor = _getColorFromJson(jsonColor);
     return Container(
-      margin: EdgeInsets.only(bottom: 10),
+      margin: const EdgeInsets.only(bottom: 10),
       width: double.infinity,
       color: Colors.white,
       child: SizedBox(
@@ -51,7 +51,7 @@ class CartProductWidget extends StatelessWidget {
                       image: DecorationImage(image: NetworkImage(image!)),
                     ),
                   ),
-                  SizedBox(width: 20),
+                  const SizedBox(width: 20),
                   Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -63,7 +63,7 @@ class CartProductWidget extends StatelessWidget {
                               width: MediaQuery.of(context).size.width * 0.4,
                               child: Text(
                                 title.toString(),
-                                style: TextStyle(
+                                style: const TextStyle(
                                   color: textBlack,
                                   fontSize: 16,
                                   fontWeight: FontWeight.w600,
@@ -78,27 +78,27 @@ class CartProductWidget extends StatelessWidget {
                                         productId: id.toString()));
                                 print('Delete icon tapped  ${id}');
                               },
-                              child: Icon(
+                              child: const Icon(
                                 Icons.delete_outline,
                                 color: black104,
                               ),
                             ),
                           ],
                         ),
-                        SizedBox(height: 5),
+                        const SizedBox(height: 5),
                         Container(
-                          padding:
-                              EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 10, vertical: 5),
                           color: Colors.black12.withOpacity(0.15),
                           child: Text(
                             '${colorName}, ${size}',
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: Colors.black,
                               fontSize: 13,
                             ),
                           ),
                         ),
-                        SizedBox(height: 10),
+                        const SizedBox(height: 10),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -106,20 +106,20 @@ class CartProductWidget extends StatelessWidget {
                               children: [
                                 Text(
                                   price.toString(),
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     color: Colors.green,
                                     fontSize: 13,
                                   ),
                                 ),
-                                SizedBox(width: 20),
+                                const SizedBox(width: 20),
                                 CircleAvatar(
                                   radius: 6,
                                   backgroundColor: backgroundColor,
                                 ),
-                                SizedBox(width: 5),
+                                const SizedBox(width: 5),
                                 Text(
                                   colorName.toString(),
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     fontSize: 13,
                                     fontWeight: FontWeight.w500,
                                   ),
@@ -149,13 +149,13 @@ class CartProductWidget extends StatelessWidget {
                                     alignment: Alignment.center,
                                     height: 30,
                                     width: 30,
-                                    padding: EdgeInsets.all(5),
-                                    margin:
-                                        EdgeInsets.symmetric(horizontal: 15),
+                                    padding: const EdgeInsets.all(5),
+                                    margin: const EdgeInsets.symmetric(
+                                        horizontal: 15),
                                     decoration: BoxDecoration(
                                       border: Border.all(color: Colors.black),
                                     ),
-                                    child: Icon(
+                                    child: const Icon(
                                       Icons.remove,
                                       size: 15,
                                     ),
@@ -163,7 +163,7 @@ class CartProductWidget extends StatelessWidget {
                                 ),
                                 Text(
                                   quantity.toString(),
-                                  style: TextStyle(fontSize: 17),
+                                  style: const TextStyle(fontSize: 17),
                                 ),
                                 InkWell(
                                   onTap: () {
@@ -183,13 +183,13 @@ class CartProductWidget extends StatelessWidget {
                                     alignment: Alignment.center,
                                     height: 30,
                                     width: 30,
-                                    padding: EdgeInsets.all(5),
-                                    margin:
-                                        EdgeInsets.symmetric(horizontal: 15),
+                                    padding: const EdgeInsets.all(5),
+                                    margin: const EdgeInsets.symmetric(
+                                        horizontal: 15),
                                     decoration: BoxDecoration(
                                       border: Border.all(color: Colors.black),
                                     ),
-                                    child: Icon(
+                                    child: const Icon(
                                       Icons.add,
                                       color: Colors.green,
                                       size: 15,

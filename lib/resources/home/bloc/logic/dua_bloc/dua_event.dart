@@ -27,4 +27,8 @@ class DuaEvent with _$DuaEvent {
       ChangeSubcategoryNameEvent;
   const factory DuaEvent.selectTranslationText({required int value}) =
       SelectTranslationText;
+  const factory DuaEvent.switchDisplayArabicTextEvent(
+      {required bool newValue}) = SwitchDisplayArabicTextEvent;
+  const factory DuaEvent.switchDisplayTranslationTextEvent(
+      {required bool newValue}) = SwitchDisplayTranslationTextEvent;
 }

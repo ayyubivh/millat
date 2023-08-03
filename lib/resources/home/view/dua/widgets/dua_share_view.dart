@@ -5,7 +5,8 @@ import 'package:millat/utils/constants.dart';
 import '../../../../../utils/color_manager.dart';
 
 class DuaShareView extends StatelessWidget {
-  const DuaShareView({super.key});
+  final String text;
+  const DuaShareView({super.key, required this.text});
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +30,7 @@ class DuaShareView extends StatelessWidget {
         child: Column(
           children: [
             kHeight10,
-            Divider(thickness: 1),
+            const Divider(thickness: 1),
             kHeight10,
             Expanded(
                 child: GridView.builder(
@@ -44,7 +45,8 @@ class DuaShareView extends StatelessWidget {
                     onTap: () {
                       Navigator.of(context).push(MaterialPageRoute(
                         builder: (context) => ShareBgSingleView(
-                            image: "assets/images/share_bg_${index + 1}.png"),
+                            image: "assets/images/share_bg_${index + 1}.png",
+                            text: text),
                       ));
                     },
                     child:

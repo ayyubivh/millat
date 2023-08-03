@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/resources/home/bloc/logic/dua_bloc/dua_bloc.dart';
 import 'package:millat/resources/home/view/dua/widgets/dua_share_view.dart';
 import 'package:millat/resources/home/view/dua/widgets/settings_pop_up_widget.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/loader.dart';
+import 'package:millat/utils/utils.dart';
 
 import '../../../../../utils/constants.dart';
+import '../../../../../utils/string_constants.dart';
 
 class InsideDuaView extends StatelessWidget {
   const InsideDuaView({super.key});
@@ -57,11 +60,25 @@ class InsideDuaView extends StatelessWidget {
                   return _builDuaContainer(
                     context: context,
                     index: index,
-                    arabicText: data.content!,
-                    translationText: translationText,
+                    arabicText: state.displayArabicText ? data.content! : "",
+                    translationText:
+                        state.displayTranslationText ? translationText : "",
                     resource: data.resource.toString(),
                     duaId: data.id,
                     textSize: state.sliderValue,
+                    onTapCopyText: () {
+                      if (state.displayArabicText) {
+                        String arabicTextToCopy = data.content ?? '';
+                        Clipboard.setData(
+                            ClipboardData(text: arabicTextToCopy));
+                        showSnackBar(context, "Text Copied!");
+                      }
+                    },
+                    onTapShare: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => DuaShareView(text: data.content!),
+                      ));
+                    },
                   );
                 },
                 separatorBuilder: (context, index) {
@@ -82,6 +99,8 @@ class InsideDuaView extends StatelessWidget {
       required String? translationText,
       required String? resource,
       required double textSize,
+      required VoidCallback onTapCopyText,
+      required VoidCallback onTapShare,
       String? duaId}) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 25.0, vertical: 18),
@@ -138,18 +157,61 @@ class InsideDuaView extends StatelessWidget {
             ),
             child: Row(
               children: [
-                const Row(
+                Row(
                   children: [
-                    ImageIcon(
+                    const ImageIcon(
                       AssetImage("assets/icons/dua_play.png"),
                     ),
                     kWidht10,
-                    ImageIcon(
+                    const ImageIcon(
                       AssetImage("assets/icons/dua_tasbih.png"),
                     ),
                     kWidht10,
-                    ImageIcon(
-                      AssetImage("assets/icons/dua_gpay.png"),
+                    GestureDetector(
+                      onTap: () {
+                        showModalBottomSheet(
+                          context: context,
+                          isScrollControlled: true,
+                          builder: (context) {
+                            return BlocBuilder<DuaBloc, DuaState>(
+                                builder: (context, state) => SizedBox(
+                                      height: 160,
+                                      child: ListView.separated(
+                                          separatorBuilder: (context, index) =>
+                                              const Divider(thickness: 1),
+                                          itemCount: translateTexts.length,
+                                          itemBuilder: (context, index) =>
+                                              Padding(
+                                                padding:
+                                                    const EdgeInsets.symmetric(
+                                                            horizontal: 20,
+                                                            vertical: 10)
+                                                        .copyWith(top: 20),
+                                                child: InkWell(
+                                                  onTap: () {
+                                                    context.read<DuaBloc>().add(
+                                                        SelectTranslationText(
+                                                            value: index));
+                                                    Navigator.of(context).pop();
+                                                  },
+                                                  child: Center(
+                                                      child: Text(
+                                                    translateTexts[index],
+                                                    style: const TextStyle(
+                                                      fontSize: 18,
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                    ),
+                                                  )),
+                                                ),
+                                              )),
+                                    ));
+                          },
+                        );
+                      },
+                      child: const ImageIcon(
+                        AssetImage("assets/icons/dua_gpay.png"),
+                      ),
                     ),
                   ],
                 ),
@@ -157,18 +219,17 @@ class InsideDuaView extends StatelessWidget {
                 Row(
                   children: [
                     InkWell(
-                      onTap: () {
-                        Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => const DuaShareView(),
-                        ));
-                      },
+                      onTap: onTapShare,
                       child: const ImageIcon(
                         AssetImage("assets/icons/send.png"),
                       ),
                     ),
                     kWidht10,
-                    const ImageIcon(
-                      AssetImage("assets/icons/copy.png"),
+                    InkWell(
+                      onTap: onTapCopyText,
+                      child: const ImageIcon(
+                        AssetImage("assets/icons/copy.png"),
+                      ),
                     ),
                     kWidht10,
                     BlocBuilder<DuaBloc, DuaState>(

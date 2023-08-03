@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:bloc/bloc.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -29,6 +27,8 @@ class DuaBloc extends Bloc<DuaEvent, DuaState> {
     on<FetchDuaById>(_fetchDuabyId);
     on<ChangeSubcategoryNameEvent>(_changeSubcategoryNameEvent);
     on<SelectTranslationText>(_selectTranslationText);
+    on<SwitchDisplayArabicTextEvent>(_switchDisplayArabicTextEvent);
+    on<SwitchDisplayTranslationTextEvent>(_switchDisplayTranslationTextEvent);
   }
 
   _fetchDuaCategoryEvent(
@@ -118,6 +118,9 @@ class DuaBloc extends Bloc<DuaEvent, DuaState> {
           context: event.context, duaId: event.duaId);
 
       if (data['status'] == 200) {
+        emit(state.copyWith(
+          bookMarkLength: state.bookMarkLength - 1,
+        ));
         final updatedList = state
             .duaBookMarkModel?.result?.bookmarks[0].bookmarks
             .where((element) => element.duaId != event.duaId)
@@ -133,7 +136,6 @@ class DuaBloc extends Bloc<DuaEvent, DuaState> {
 
           print('here is the removed is list $updatedListid');
           emit(state.copyWith(
-            bookMarkLength: state.bookMarkLength - 1,
             bookmarkItems: updatedListid,
             duaBookMarkModel:
                 state.duaBookMarkModel!.copyWith(result: updatedResult),
@@ -172,5 +174,19 @@ class DuaBloc extends Bloc<DuaEvent, DuaState> {
 
   _selectTranslationText(SelectTranslationText event, Emitter<DuaState> emit) {
     emit(state.copyWith(translationText: event.value));
+  }
+
+  _switchDisplayArabicTextEvent(
+      SwitchDisplayArabicTextEvent event, Emitter<DuaState> emit) {
+    emit(state.copyWith(
+        displayArabicText: event.newValue,
+        displayTranslationText: event.newValue == false ? true : true));
+  }
+
+  _switchDisplayTranslationTextEvent(
+      SwitchDisplayTranslationTextEvent event, Emitter<DuaState> emit) {
+    emit(state.copyWith(
+        displayTranslationText: event.newValue,
+        displayArabicText: event.newValue == false ? true : true));
   }
 }

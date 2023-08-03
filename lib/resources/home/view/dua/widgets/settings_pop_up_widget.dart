@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:millat/resources/home/bloc/models/dua/dua_model/dua_model_byId.dart';
-
 import '../../../../../utils/color_manager.dart';
 import '../../../../../utils/constants.dart';
 import '../../../../../utils/string_constants.dart';
@@ -58,61 +56,50 @@ class SettingsPopUpWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 _aprnceText('Appearance'),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    const Text(
-                      'Display Arabic Text',
-                      style: TextStyle(
-                        fontWeight: FontWeight.w600,
-                        fontSize: 17,
+                BlocBuilder<DuaBloc, DuaState>(
+                  builder: (context, state) => Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const Text(
+                        'Display Arabic Text',
+                        style: TextStyle(
+                          fontWeight: FontWeight.w600,
+                          fontSize: 17,
+                        ),
                       ),
-                    ),
-                    Switch(
-                      activeColor: ColorManager.primary,
-                      value: true,
-                      onChanged: (value) {
-                        // setState(() {
-                        //   isDetectLocation = value;
-                        // });
-                        // if (isDetectLocation ==
-                        //     true) {
-                        //   context
-                        //       .read<LocationBloc>()
-                        //       .add(
-                        //           const ChangeLocationOnToggle());
-                        // }
-                      },
-                    ),
-                  ],
+                      Switch(
+                        activeColor: ColorManager.primary,
+                        value: state.displayArabicText,
+                        onChanged: (value) {
+                          context.read<DuaBloc>().add(
+                              SwitchDisplayArabicTextEvent(newValue: value));
+                        },
+                      ),
+                    ],
+                  ),
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    const Text(
-                      'Display Translation Text',
-                      style: TextStyle(
-                        fontWeight: FontWeight.w600,
-                        fontSize: 17,
+                BlocBuilder<DuaBloc, DuaState>(
+                  builder: (context, state) => Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const Text(
+                        'Display Translation Text',
+                        style: TextStyle(
+                          fontWeight: FontWeight.w600,
+                          fontSize: 17,
+                        ),
                       ),
-                    ),
-                    Switch(
-                      activeColor: ColorManager.primary,
-                      value: true,
-                      onChanged: (value) {
-                        // setState(() {
-                        //   isDetectLocation = value;
-                        // });
-                        // if (isDetectLocation ==
-                        //     true) {
-                        //   context
-                        //       .read<LocationBloc>()
-                        //       .add(
-                        //           const ChangeLocationOnToggle());
-                        // }
-                      },
-                    ),
-                  ],
+                      Switch(
+                        activeColor: ColorManager.primary,
+                        value: state.displayTranslationText,
+                        onChanged: (value) {
+                          context.read<DuaBloc>().add(
+                              SwitchDisplayTranslationTextEvent(
+                                  newValue: value));
+                        },
+                      ),
+                    ],
+                  ),
                 ),
                 kHeight10,
                 Row(
@@ -181,67 +168,22 @@ class SettingsPopUpWidget extends StatelessWidget {
                         fontSize: 16,
                       ),
                     ),
-                    GestureDetector(
-                      onTap: () {
-                        showModalBottomSheet(
-                          context: context,
-                          isScrollControlled: true,
-                          builder: (context) {
-                            return BlocBuilder<DuaBloc, DuaState>(
-                                builder: (context, state) => SizedBox(
-                                      height: 200,
-                                      child: ListView.separated(
-                                          separatorBuilder: (context, index) =>
-                                              const Divider(
-                                                thickness: 2,
-                                              ),
-                                          itemCount: translateTexts.length,
-                                          itemBuilder: (context, index) =>
-                                              Padding(
-                                                padding:
-                                                    const EdgeInsets.symmetric(
-                                                            horizontal: 20,
-                                                            vertical: 10)
-                                                        .copyWith(top: 20),
-                                                child: InkWell(
-                                                  onTap: () {
-                                                    context.read<DuaBloc>().add(
-                                                        SelectTranslationText(
-                                                            value: index));
-                                                    Navigator.of(context).pop();
-                                                  },
-                                                  child: Center(
-                                                      child: Text(
-                                                    translateTexts[index],
-                                                    style: const TextStyle(
-                                                      fontSize: 18,
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                    ),
-                                                  )),
-                                                ),
-                                              )),
-                                    ));
+                    Row(
+                      children: [
+                        BlocBuilder<DuaBloc, DuaState>(
+                          builder: (context, state) => Text(
+                              state.translationText == 0 ? "English" : "Hindi",
+                              style: TextStyle(color: ColorManager.textGrey)),
+                        ),
+                        IconButton(
+                          onPressed: () {
+                            buildPopup(context);
                           },
-                        );
-                      },
-                      child: Row(
-                        children: [
-                          BlocBuilder<DuaBloc, DuaState>(
-                            builder: (context, state) => Text(
-                                state.translationText == 0
-                                    ? "English"
-                                    : "Hindi",
-                                style: TextStyle(color: ColorManager.textGrey)),
-                          ),
-                          IconButton(
-                            onPressed: () {},
-                            icon: const Icon(Icons.arrow_forward_ios_rounded),
-                            iconSize: 14,
-                            color: black102,
-                          )
-                        ],
-                      ),
+                          icon: const Icon(Icons.arrow_forward_ios_rounded),
+                          iconSize: 14,
+                          color: black102,
+                        )
+                      ],
                     ),
                   ],
                 ),
@@ -309,6 +251,44 @@ class SettingsPopUpWidget extends StatelessWidget {
           )
         ],
       ),
+    );
+  }
+
+  Future<dynamic> buildPopup(BuildContext context) {
+    return showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      builder: (context) {
+        return BlocBuilder<DuaBloc, DuaState>(
+            builder: (context, state) => SizedBox(
+                  height: 160,
+                  child: ListView.separated(
+                      separatorBuilder: (context, index) =>
+                          const Divider(thickness: 1),
+                      itemCount: translateTexts.length,
+                      itemBuilder: (context, index) => Padding(
+                            padding: const EdgeInsets.symmetric(
+                                    horizontal: 20, vertical: 10)
+                                .copyWith(top: 20),
+                            child: InkWell(
+                              onTap: () {
+                                context
+                                    .read<DuaBloc>()
+                                    .add(SelectTranslationText(value: index));
+                                Navigator.of(context).pop();
+                              },
+                              child: Center(
+                                  child: Text(
+                                translateTexts[index],
+                                style: const TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              )),
+                            ),
+                          )),
+                ));
+      },
     );
   }
 

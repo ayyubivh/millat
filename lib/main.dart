@@ -11,6 +11,7 @@ import 'package:millat/resources/home/bloc/logic/dua_bloc/dua_bloc.dart';
 import 'package:millat/resources/home/bloc/logic/location_bloc/location_bloc.dart';
 import 'package:millat/resources/home/bloc/logic/namaz_timing_bloc/namaz_timing_bloc.dart';
 import 'package:millat/resources/home/bloc/logic/quran_bloc/quran_bloc.dart';
+import 'package:millat/resources/home/bloc/logic/tasbih_bloc/tasbih_bloc.dart';
 import 'package:millat/resources/home/bloc/models/book_mark_hive_model/book_mark_hive_model.dart';
 import 'package:millat/resources/home/bloc/service/notification_service.dart';
 import 'package:millat/resources/home/view/namaz_timing/namaz_timing_view.dart';
@@ -66,6 +67,7 @@ void main() async {
       BlocProvider(create: (context) => QuranBloc()),
       BlocProvider(create: (context) => BookmarkBloc()),
       BlocProvider(create: (context) => DuaBloc()),
+      BlocProvider(create: (context) => TasbihBloc()),
     ],
     child: MyApp(),
   ));

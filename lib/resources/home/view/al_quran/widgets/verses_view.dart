@@ -11,6 +11,7 @@ import 'package:millat/utils/string_constants.dart';
 import 'package:share_plus/share_plus.dart';
 import '../../../../../utils/constants.dart';
 import '../../../bloc/models/book_mark_hive_model/book_mark_hive_model.dart';
+import 'package:html/parser.dart';
 
 class VersesView extends StatelessWidget {
   final Qurantype type;
@@ -1141,9 +1142,9 @@ class VersesView extends StatelessWidget {
   }
 
   String removeFootnotesFromMeaning(String meaning) {
-    RegExp regex = RegExp(r"<sup\sfoot_note=\d+>\d+</sup>");
-
-    return meaning.replaceAll(regex, '');
+    final text = parse(meaning);
+    final String plainText = text.body!.text;
+    return plainText;
   }
 
   Widget _buildPlayIcons(String imageUrl, String name, VoidCallback onTap) {

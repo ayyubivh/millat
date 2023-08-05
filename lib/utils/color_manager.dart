@@ -26,7 +26,17 @@ class ColorManager {
   static Color black4A = HexColor.fromHex("#4A4A4A");
   static Color textGrey84 = HexColor.fromHex("#848484");
   static Color textGreyAd = HexColor.fromHex("#ADADAD");
-  static Color tasbihPinkClr = HexColor.fromHex("#FBE5E8");
+
+  // Tasbih Colors
+  static Color tasbihPinkBgClr = HexColor.fromHex("#FBE5E8");
+  static Color tasbihPurpleBgClr = HexColor.fromHex("#9D9BEA");
+  static Color tasbihGreenBgClr = HexColor.fromHex("#328247");
+  static Color tasbihLightPurplClr = HexColor.fromHex("#BDBBF4");
+  static Color tasbihPinkClr = HexColor.fromHex("#E74BA5");
+ 
+  static Color tasbihGradientClr1 = HexColor.fromHex("#FF7DC8");
+  static Color tasbihGradientClr2 = HexColor.fromHex("#C11E7C");
+  static Color textPink89 = HexColor.fromHex("#895674");
 }
 
 extension HexColor on Color {
@@ -39,6 +49,7 @@ extension HexColor on Color {
   }
 }
 
+const Color sam = Color(0xFFE74BA5);
 const Color darkGreenColor = Color(0xFF188D5B);
 const Color dark2GreenColor = Color.fromRGBO(5, 126, 93, 1);
 

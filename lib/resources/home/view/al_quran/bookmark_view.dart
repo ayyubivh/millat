@@ -61,7 +61,7 @@ class BookmarkView extends StatelessWidget {
               child: BlocBuilder<BookmarkBloc, BookmarkState>(
                 builder: (context, state) {
                   if (state.dbCollectionItems.isEmpty) {
-                    Text(
+                    return Text(
                       "No Collections",
                       style: TextStyle(
                         color: ColorManager.blackColor,

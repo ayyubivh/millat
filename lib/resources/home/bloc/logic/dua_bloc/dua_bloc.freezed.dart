@@ -21,7 +21,17 @@ mixin _$DuaEvent {
     required TResult Function() fetchDuaCategoryEvent,
     required TResult Function(String categoryId) fetchDuaSubCategorybyCategory,
     required TResult Function(String subCategoryId) fetchDuaBySubcategoryEvent,
+    required TResult Function(BuildContext context, String duaId)
+        addBookmarkEvent,
     required TResult Function(BuildContext buildcontext) fetchDuaBookMarksEvent,
+    required TResult Function(BuildContext context, String duaId)
+        removeBookmark,
+    required TResult Function(double sliderVal) changeSliderEvent,
+    required TResult Function() fetchDuaById,
+    required TResult Function(String newName) changeSubcategoryNameEvent,
+    required TResult Function(int value) selectTranslationText,
+    required TResult Function(bool newValue) switchDisplayArabicTextEvent,
+    required TResult Function(bool newValue) switchDisplayTranslationTextEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -29,7 +39,15 @@ mixin _$DuaEvent {
     TResult? Function()? fetchDuaCategoryEvent,
     TResult? Function(String categoryId)? fetchDuaSubCategorybyCategory,
     TResult? Function(String subCategoryId)? fetchDuaBySubcategoryEvent,
+    TResult? Function(BuildContext context, String duaId)? addBookmarkEvent,
     TResult? Function(BuildContext buildcontext)? fetchDuaBookMarksEvent,
+    TResult? Function(BuildContext context, String duaId)? removeBookmark,
+    TResult? Function(double sliderVal)? changeSliderEvent,
+    TResult? Function()? fetchDuaById,
+    TResult? Function(String newName)? changeSubcategoryNameEvent,
+    TResult? Function(int value)? selectTranslationText,
+    TResult? Function(bool newValue)? switchDisplayArabicTextEvent,
+    TResult? Function(bool newValue)? switchDisplayTranslationTextEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -37,7 +55,15 @@ mixin _$DuaEvent {
     TResult Function()? fetchDuaCategoryEvent,
     TResult Function(String categoryId)? fetchDuaSubCategorybyCategory,
     TResult Function(String subCategoryId)? fetchDuaBySubcategoryEvent,
+    TResult Function(BuildContext context, String duaId)? addBookmarkEvent,
     TResult Function(BuildContext buildcontext)? fetchDuaBookMarksEvent,
+    TResult Function(BuildContext context, String duaId)? removeBookmark,
+    TResult Function(double sliderVal)? changeSliderEvent,
+    TResult Function()? fetchDuaById,
+    TResult Function(String newName)? changeSubcategoryNameEvent,
+    TResult Function(int value)? selectTranslationText,
+    TResult Function(bool newValue)? switchDisplayArabicTextEvent,
+    TResult Function(bool newValue)? switchDisplayTranslationTextEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -49,8 +75,20 @@ mixin _$DuaEvent {
         fetchDuaSubCategorybyCategory,
     required TResult Function(FetchDuaBySubcategoryEvent value)
         fetchDuaBySubcategoryEvent,
+    required TResult Function(AddBookmarkEvent value) addBookmarkEvent,
     required TResult Function(FetchDuaBookMarksEvent value)
         fetchDuaBookMarksEvent,
+    required TResult Function(RemoveBookmark value) removeBookmark,
+    required TResult Function(ChangeSliderEvent value) changeSliderEvent,
+    required TResult Function(FetchDuaById value) fetchDuaById,
+    required TResult Function(ChangeSubcategoryNameEvent value)
+        changeSubcategoryNameEvent,
+    required TResult Function(SelectTranslationText value)
+        selectTranslationText,
+    required TResult Function(SwitchDisplayArabicTextEvent value)
+        switchDisplayArabicTextEvent,
+    required TResult Function(SwitchDisplayTranslationTextEvent value)
+        switchDisplayTranslationTextEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -60,7 +98,18 @@ mixin _$DuaEvent {
         fetchDuaSubCategorybyCategory,
     TResult? Function(FetchDuaBySubcategoryEvent value)?
         fetchDuaBySubcategoryEvent,
+    TResult? Function(AddBookmarkEvent value)? addBookmarkEvent,
     TResult? Function(FetchDuaBookMarksEvent value)? fetchDuaBookMarksEvent,
+    TResult? Function(RemoveBookmark value)? removeBookmark,
+    TResult? Function(ChangeSliderEvent value)? changeSliderEvent,
+    TResult? Function(FetchDuaById value)? fetchDuaById,
+    TResult? Function(ChangeSubcategoryNameEvent value)?
+        changeSubcategoryNameEvent,
+    TResult? Function(SelectTranslationText value)? selectTranslationText,
+    TResult? Function(SwitchDisplayArabicTextEvent value)?
+        switchDisplayArabicTextEvent,
+    TResult? Function(SwitchDisplayTranslationTextEvent value)?
+        switchDisplayTranslationTextEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -70,7 +119,18 @@ mixin _$DuaEvent {
         fetchDuaSubCategorybyCategory,
     TResult Function(FetchDuaBySubcategoryEvent value)?
         fetchDuaBySubcategoryEvent,
+    TResult Function(AddBookmarkEvent value)? addBookmarkEvent,
     TResult Function(FetchDuaBookMarksEvent value)? fetchDuaBookMarksEvent,
+    TResult Function(RemoveBookmark value)? removeBookmark,
+    TResult Function(ChangeSliderEvent value)? changeSliderEvent,
+    TResult Function(FetchDuaById value)? fetchDuaById,
+    TResult Function(ChangeSubcategoryNameEvent value)?
+        changeSubcategoryNameEvent,
+    TResult Function(SelectTranslationText value)? selectTranslationText,
+    TResult Function(SwitchDisplayArabicTextEvent value)?
+        switchDisplayArabicTextEvent,
+    TResult Function(SwitchDisplayTranslationTextEvent value)?
+        switchDisplayTranslationTextEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -111,12 +171,21 @@ class __$$FetchDuaCategoryEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FetchDuaCategoryEvent implements FetchDuaCategoryEvent {
+class _$FetchDuaCategoryEvent
+    with DiagnosticableTreeMixin
+    implements FetchDuaCategoryEvent {
   const _$FetchDuaCategoryEvent();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'DuaEvent.fetchDuaCategoryEvent()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+        .add(DiagnosticsProperty('type', 'DuaEvent.fetchDuaCategoryEvent'));
   }
 
   @override
@@ -134,7 +203,17 @@ class _$FetchDuaCategoryEvent implements FetchDuaCategoryEvent {
     required TResult Function() fetchDuaCategoryEvent,
     required TResult Function(String categoryId) fetchDuaSubCategorybyCategory,
     required TResult Function(String subCategoryId) fetchDuaBySubcategoryEvent,
+    required TResult Function(BuildContext context, String duaId)
+        addBookmarkEvent,
     required TResult Function(BuildContext buildcontext) fetchDuaBookMarksEvent,
+    required TResult Function(BuildContext context, String duaId)
+        removeBookmark,
+    required TResult Function(double sliderVal) changeSliderEvent,
+    required TResult Function() fetchDuaById,
+    required TResult Function(String newName) changeSubcategoryNameEvent,
+    required TResult Function(int value) selectTranslationText,
+    required TResult Function(bool newValue) switchDisplayArabicTextEvent,
+    required TResult Function(bool newValue) switchDisplayTranslationTextEvent,
   }) {
     return fetchDuaCategoryEvent();
   }
@@ -145,7 +224,15 @@ class _$FetchDuaCategoryEvent implements FetchDuaCategoryEvent {
     TResult? Function()? fetchDuaCategoryEvent,
     TResult? Function(String categoryId)? fetchDuaSubCategorybyCategory,
     TResult? Function(String subCategoryId)? fetchDuaBySubcategoryEvent,
+    TResult? Function(BuildContext context, String duaId)? addBookmarkEvent,
     TResult? Function(BuildContext buildcontext)? fetchDuaBookMarksEvent,
+    TResult? Function(BuildContext context, String duaId)? removeBookmark,
+    TResult? Function(double sliderVal)? changeSliderEvent,
+    TResult? Function()? fetchDuaById,
+    TResult? Function(String newName)? changeSubcategoryNameEvent,
+    TResult? Function(int value)? selectTranslationText,
+    TResult? Function(bool newValue)? switchDisplayArabicTextEvent,
+    TResult? Function(bool newValue)? switchDisplayTranslationTextEvent,
   }) {
     return fetchDuaCategoryEvent?.call();
   }
@@ -156,7 +243,15 @@ class _$FetchDuaCategoryEvent implements FetchDuaCategoryEvent {
     TResult Function()? fetchDuaCategoryEvent,
     TResult Function(String categoryId)? fetchDuaSubCategorybyCategory,
     TResult Function(String subCategoryId)? fetchDuaBySubcategoryEvent,
+    TResult Function(BuildContext context, String duaId)? addBookmarkEvent,
     TResult Function(BuildContext buildcontext)? fetchDuaBookMarksEvent,
+    TResult Function(BuildContext context, String duaId)? removeBookmark,
+    TResult Function(double sliderVal)? changeSliderEvent,
+    TResult Function()? fetchDuaById,
+    TResult Function(String newName)? changeSubcategoryNameEvent,
+    TResult Function(int value)? selectTranslationText,
+    TResult Function(bool newValue)? switchDisplayArabicTextEvent,
+    TResult Function(bool newValue)? switchDisplayTranslationTextEvent,
     required TResult orElse(),
   }) {
     if (fetchDuaCategoryEvent != null) {
@@ -174,8 +269,20 @@ class _$FetchDuaCategoryEvent implements FetchDuaCategoryEvent {
         fetchDuaSubCategorybyCategory,
     required TResult Function(FetchDuaBySubcategoryEvent value)
         fetchDuaBySubcategoryEvent,
+    required TResult Function(AddBookmarkEvent value) addBookmarkEvent,
     required TResult Function(FetchDuaBookMarksEvent value)
         fetchDuaBookMarksEvent,
+    required TResult Function(RemoveBookmark value) removeBookmark,
+    required TResult Function(ChangeSliderEvent value) changeSliderEvent,
+    required TResult Function(FetchDuaById value) fetchDuaById,
+    required TResult Function(ChangeSubcategoryNameEvent value)
+        changeSubcategoryNameEvent,
+    required TResult Function(SelectTranslationText value)
+        selectTranslationText,
+    required TResult Function(SwitchDisplayArabicTextEvent value)
+        switchDisplayArabicTextEvent,
+    required TResult Function(SwitchDisplayTranslationTextEvent value)
+        switchDisplayTranslationTextEvent,
   }) {
     return fetchDuaCategoryEvent(this);
   }
@@ -188,7 +295,18 @@ class _$FetchDuaCategoryEvent implements FetchDuaCategoryEvent {
         fetchDuaSubCategorybyCategory,
     TResult? Function(FetchDuaBySubcategoryEvent value)?
         fetchDuaBySubcategoryEvent,
+    TResult? Function(AddBookmarkEvent value)? addBookmarkEvent,
     TResult? Function(FetchDuaBookMarksEvent value)? fetchDuaBookMarksEvent,
+    TResult? Function(RemoveBookmark value)? removeBookmark,
+    TResult? Function(ChangeSliderEvent value)? changeSliderEvent,
+    TResult? Function(FetchDuaById value)? fetchDuaById,
+    TResult? Function(ChangeSubcategoryNameEvent value)?
+        changeSubcategoryNameEvent,
+    TResult? Function(SelectTranslationText value)? selectTranslationText,
+    TResult? Function(SwitchDisplayArabicTextEvent value)?
+        switchDisplayArabicTextEvent,
+    TResult? Function(SwitchDisplayTranslationTextEvent value)?
+        switchDisplayTranslationTextEvent,
   }) {
     return fetchDuaCategoryEvent?.call(this);
   }
@@ -201,7 +319,18 @@ class _$FetchDuaCategoryEvent implements FetchDuaCategoryEvent {
         fetchDuaSubCategorybyCategory,
     TResult Function(FetchDuaBySubcategoryEvent value)?
         fetchDuaBySubcategoryEvent,
+    TResult Function(AddBookmarkEvent value)? addBookmarkEvent,
     TResult Function(FetchDuaBookMarksEvent value)? fetchDuaBookMarksEvent,
+    TResult Function(RemoveBookmark value)? removeBookmark,
+    TResult Function(ChangeSliderEvent value)? changeSliderEvent,
+    TResult Function(FetchDuaById value)? fetchDuaById,
+    TResult Function(ChangeSubcategoryNameEvent value)?
+        changeSubcategoryNameEvent,
+    TResult Function(SelectTranslationText value)? selectTranslationText,
+    TResult Function(SwitchDisplayArabicTextEvent value)?
+        switchDisplayArabicTextEvent,
+    TResult Function(SwitchDisplayTranslationTextEvent value)?
+        switchDisplayTranslationTextEvent,
     required TResult orElse(),
   }) {
     if (fetchDuaCategoryEvent != null) {
@@ -250,15 +379,26 @@ class __$$FetchDuaSubCategorybyCategoryCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FetchDuaSubCategorybyCategory implements FetchDuaSubCategorybyCategory {
+class _$FetchDuaSubCategorybyCategory
+    with DiagnosticableTreeMixin
+    implements FetchDuaSubCategorybyCategory {
   const _$FetchDuaSubCategorybyCategory({required this.categoryId});
 
   @override
   final String categoryId;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'DuaEvent.fetchDuaSubCategorybyCategory(categoryId: $categoryId)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(
+          DiagnosticsProperty('type', 'DuaEvent.fetchDuaSubCategorybyCategory'))
+      ..add(DiagnosticsProperty('categoryId', categoryId));
   }
 
   @override
@@ -286,7 +426,17 @@ class _$FetchDuaSubCategorybyCategory implements FetchDuaSubCategorybyCategory {
     required TResult Function() fetchDuaCategoryEvent,
     required TResult Function(String categoryId) fetchDuaSubCategorybyCategory,
     required TResult Function(String subCategoryId) fetchDuaBySubcategoryEvent,
+    required TResult Function(BuildContext context, String duaId)
+        addBookmarkEvent,
     required TResult Function(BuildContext buildcontext) fetchDuaBookMarksEvent,
+    required TResult Function(BuildContext context, String duaId)
+        removeBookmark,
+    required TResult Function(double sliderVal) changeSliderEvent,
+    required TResult Function() fetchDuaById,
+    required TResult Function(String newName) changeSubcategoryNameEvent,
+    required TResult Function(int value) selectTranslationText,
+    required TResult Function(bool newValue) switchDisplayArabicTextEvent,
+    required TResult Function(bool newValue) switchDisplayTranslationTextEvent,
   }) {
     return fetchDuaSubCategorybyCategory(categoryId);
   }
@@ -297,7 +447,15 @@ class _$FetchDuaSubCategorybyCategory implements FetchDuaSubCategorybyCategory {
     TResult? Function()? fetchDuaCategoryEvent,
     TResult? Function(String categoryId)? fetchDuaSubCategorybyCategory,
     TResult? Function(String subCategoryId)? fetchDuaBySubcategoryEvent,
+    TResult? Function(BuildContext context, String duaId)? addBookmarkEvent,
     TResult? Function(BuildContext buildcontext)? fetchDuaBookMarksEvent,
+    TResult? Function(BuildContext context, String duaId)? removeBookmark,
+    TResult? Function(double sliderVal)? changeSliderEvent,
+    TResult? Function()? fetchDuaById,
+    TResult? Function(String newName)? changeSubcategoryNameEvent,
+    TResult? Function(int value)? selectTranslationText,
+    TResult? Function(bool newValue)? switchDisplayArabicTextEvent,
+    TResult? Function(bool newValue)? switchDisplayTranslationTextEvent,
   }) {
     return fetchDuaSubCategorybyCategory?.call(categoryId);
   }
@@ -308,7 +466,15 @@ class _$FetchDuaSubCategorybyCategory implements FetchDuaSubCategorybyCategory {
     TResult Function()? fetchDuaCategoryEvent,
     TResult Function(String categoryId)? fetchDuaSubCategorybyCategory,
     TResult Function(String subCategoryId)? fetchDuaBySubcategoryEvent,
+    TResult Function(BuildContext context, String duaId)? addBookmarkEvent,
     TResult Function(BuildContext buildcontext)? fetchDuaBookMarksEvent,
+    TResult Function(BuildContext context, String duaId)? removeBookmark,
+    TResult Function(double sliderVal)? changeSliderEvent,
+    TResult Function()? fetchDuaById,
+    TResult Function(String newName)? changeSubcategoryNameEvent,
+    TResult Function(int value)? selectTranslationText,
+    TResult Function(bool newValue)? switchDisplayArabicTextEvent,
+    TResult Function(bool newValue)? switchDisplayTranslationTextEvent,
     required TResult orElse(),
   }) {
     if (fetchDuaSubCategorybyCategory != null) {
@@ -326,8 +492,20 @@ class _$FetchDuaSubCategorybyCategory implements FetchDuaSubCategorybyCategory {
         fetchDuaSubCategorybyCategory,
     required TResult Function(FetchDuaBySubcategoryEvent value)
         fetchDuaBySubcategoryEvent,
+    required TResult Function(AddBookmarkEvent value) addBookmarkEvent,
     required TResult Function(FetchDuaBookMarksEvent value)
         fetchDuaBookMarksEvent,
+    required TResult Function(RemoveBookmark value) removeBookmark,
+    required TResult Function(ChangeSliderEvent value) changeSliderEvent,
+    required TResult Function(FetchDuaById value) fetchDuaById,
+    required TResult Function(ChangeSubcategoryNameEvent value)
+        changeSubcategoryNameEvent,
+    required TResult Function(SelectTranslationText value)
+        selectTranslationText,
+    required TResult Function(SwitchDisplayArabicTextEvent value)
+        switchDisplayArabicTextEvent,
+    required TResult Function(SwitchDisplayTranslationTextEvent value)
+        switchDisplayTranslationTextEvent,
   }) {
     return fetchDuaSubCategorybyCategory(this);
   }
@@ -340,7 +518,18 @@ class _$FetchDuaSubCategorybyCategory implements FetchDuaSubCategorybyCategory {
         fetchDuaSubCategorybyCategory,
     TResult? Function(FetchDuaBySubcategoryEvent value)?
         fetchDuaBySubcategoryEvent,
+    TResult? Function(AddBookmarkEvent value)? addBookmarkEvent,
     TResult? Function(FetchDuaBookMarksEvent value)? fetchDuaBookMarksEvent,
+    TResult? Function(RemoveBookmark value)? removeBookmark,
+    TResult? Function(ChangeSliderEvent value)? changeSliderEvent,
+    TResult? Function(FetchDuaById value)? fetchDuaById,
+    TResult? Function(ChangeSubcategoryNameEvent value)?
+        changeSubcategoryNameEvent,
+    TResult? Function(SelectTranslationText value)? selectTranslationText,
+    TResult? Function(SwitchDisplayArabicTextEvent value)?
+        switchDisplayArabicTextEvent,
+    TResult? Function(SwitchDisplayTranslationTextEvent value)?
+        switchDisplayTranslationTextEvent,
   }) {
     return fetchDuaSubCategorybyCategory?.call(this);
   }
@@ -353,7 +542,18 @@ class _$FetchDuaSubCategorybyCategory implements FetchDuaSubCategorybyCategory {
         fetchDuaSubCategorybyCategory,
     TResult Function(FetchDuaBySubcategoryEvent value)?
         fetchDuaBySubcategoryEvent,
+    TResult Function(AddBookmarkEvent value)? addBookmarkEvent,
     TResult Function(FetchDuaBookMarksEvent value)? fetchDuaBookMarksEvent,
+    TResult Function(RemoveBookmark value)? removeBookmark,
+    TResult Function(ChangeSliderEvent value)? changeSliderEvent,
+    TResult Function(FetchDuaById value)? fetchDuaById,
+    TResult Function(ChangeSubcategoryNameEvent value)?
+        changeSubcategoryNameEvent,
+    TResult Function(SelectTranslationText value)? selectTranslationText,
+    TResult Function(SwitchDisplayArabicTextEvent value)?
+        switchDisplayArabicTextEvent,
+    TResult Function(SwitchDisplayTranslationTextEvent value)?
+        switchDisplayTranslationTextEvent,
     required TResult orElse(),
   }) {
     if (fetchDuaSubCategorybyCategory != null) {
@@ -408,15 +608,25 @@ class __$$FetchDuaBySubcategoryEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FetchDuaBySubcategoryEvent implements FetchDuaBySubcategoryEvent {
+class _$FetchDuaBySubcategoryEvent
+    with DiagnosticableTreeMixin
+    implements FetchDuaBySubcategoryEvent {
   const _$FetchDuaBySubcategoryEvent({required this.subCategoryId});
 
   @override
   final String subCategoryId;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'DuaEvent.fetchDuaBySubcategoryEvent(subCategoryId: $subCategoryId)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'DuaEvent.fetchDuaBySubcategoryEvent'))
+      ..add(DiagnosticsProperty('subCategoryId', subCategoryId));
   }
 
   @override
@@ -444,7 +654,17 @@ class _$FetchDuaBySubcategoryEvent implements FetchDuaBySubcategoryEvent {
     required TResult Function() fetchDuaCategoryEvent,
     required TResult Function(String categoryId) fetchDuaSubCategorybyCategory,
     required TResult Function(String subCategoryId) fetchDuaBySubcategoryEvent,
+    required TResult Function(BuildContext context, String duaId)
+        addBookmarkEvent,
     required TResult Function(BuildContext buildcontext) fetchDuaBookMarksEvent,
+    required TResult Function(BuildContext context, String duaId)
+        removeBookmark,
+    required TResult Function(double sliderVal) changeSliderEvent,
+    required TResult Function() fetchDuaById,
+    required TResult Function(String newName) changeSubcategoryNameEvent,
+    required TResult Function(int value) selectTranslationText,
+    required TResult Function(bool newValue) switchDisplayArabicTextEvent,
+    required TResult Function(bool newValue) switchDisplayTranslationTextEvent,
   }) {
     return fetchDuaBySubcategoryEvent(subCategoryId);
   }
@@ -455,7 +675,15 @@ class _$FetchDuaBySubcategoryEvent implements FetchDuaBySubcategoryEvent {
     TResult? Function()? fetchDuaCategoryEvent,
     TResult? Function(String categoryId)? fetchDuaSubCategorybyCategory,
     TResult? Function(String subCategoryId)? fetchDuaBySubcategoryEvent,
+    TResult? Function(BuildContext context, String duaId)? addBookmarkEvent,
     TResult? Function(BuildContext buildcontext)? fetchDuaBookMarksEvent,
+    TResult? Function(BuildContext context, String duaId)? removeBookmark,
+    TResult? Function(double sliderVal)? changeSliderEvent,
+    TResult? Function()? fetchDuaById,
+    TResult? Function(String newName)? changeSubcategoryNameEvent,
+    TResult? Function(int value)? selectTranslationText,
+    TResult? Function(bool newValue)? switchDisplayArabicTextEvent,
+    TResult? Function(bool newValue)? switchDisplayTranslationTextEvent,
   }) {
     return fetchDuaBySubcategoryEvent?.call(subCategoryId);
   }
@@ -466,7 +694,15 @@ class _$FetchDuaBySubcategoryEvent implements FetchDuaBySubcategoryEvent {
     TResult Function()? fetchDuaCategoryEvent,
     TResult Function(String categoryId)? fetchDuaSubCategorybyCategory,
     TResult Function(String subCategoryId)? fetchDuaBySubcategoryEvent,
+    TResult Function(BuildContext context, String duaId)? addBookmarkEvent,
     TResult Function(BuildContext buildcontext)? fetchDuaBookMarksEvent,
+    TResult Function(BuildContext context, String duaId)? removeBookmark,
+    TResult Function(double sliderVal)? changeSliderEvent,
+    TResult Function()? fetchDuaById,
+    TResult Function(String newName)? changeSubcategoryNameEvent,
+    TResult Function(int value)? selectTranslationText,
+    TResult Function(bool newValue)? switchDisplayArabicTextEvent,
+    TResult Function(bool newValue)? switchDisplayTranslationTextEvent,
     required TResult orElse(),
   }) {
     if (fetchDuaBySubcategoryEvent != null) {
@@ -484,8 +720,20 @@ class _$FetchDuaBySubcategoryEvent implements FetchDuaBySubcategoryEvent {
         fetchDuaSubCategorybyCategory,
     required TResult Function(FetchDuaBySubcategoryEvent value)
         fetchDuaBySubcategoryEvent,
+    required TResult Function(AddBookmarkEvent value) addBookmarkEvent,
     required TResult Function(FetchDuaBookMarksEvent value)
         fetchDuaBookMarksEvent,
+    required TResult Function(RemoveBookmark value) removeBookmark,
+    required TResult Function(ChangeSliderEvent value) changeSliderEvent,
+    required TResult Function(FetchDuaById value) fetchDuaById,
+    required TResult Function(ChangeSubcategoryNameEvent value)
+        changeSubcategoryNameEvent,
+    required TResult Function(SelectTranslationText value)
+        selectTranslationText,
+    required TResult Function(SwitchDisplayArabicTextEvent value)
+        switchDisplayArabicTextEvent,
+    required TResult Function(SwitchDisplayTranslationTextEvent value)
+        switchDisplayTranslationTextEvent,
   }) {
     return fetchDuaBySubcategoryEvent(this);
   }
@@ -498,7 +746,18 @@ class _$FetchDuaBySubcategoryEvent implements FetchDuaBySubcategoryEvent {
         fetchDuaSubCategorybyCategory,
     TResult? Function(FetchDuaBySubcategoryEvent value)?
         fetchDuaBySubcategoryEvent,
+    TResult? Function(AddBookmarkEvent value)? addBookmarkEvent,
     TResult? Function(FetchDuaBookMarksEvent value)? fetchDuaBookMarksEvent,
+    TResult? Function(RemoveBookmark value)? removeBookmark,
+    TResult? Function(ChangeSliderEvent value)? changeSliderEvent,
+    TResult? Function(FetchDuaById value)? fetchDuaById,
+    TResult? Function(ChangeSubcategoryNameEvent value)?
+        changeSubcategoryNameEvent,
+    TResult? Function(SelectTranslationText value)? selectTranslationText,
+    TResult? Function(SwitchDisplayArabicTextEvent value)?
+        switchDisplayArabicTextEvent,
+    TResult? Function(SwitchDisplayTranslationTextEvent value)?
+        switchDisplayTranslationTextEvent,
   }) {
     return fetchDuaBySubcategoryEvent?.call(this);
   }
@@ -511,7 +770,18 @@ class _$FetchDuaBySubcategoryEvent implements FetchDuaBySubcategoryEvent {
         fetchDuaSubCategorybyCategory,
     TResult Function(FetchDuaBySubcategoryEvent value)?
         fetchDuaBySubcategoryEvent,
+    TResult Function(AddBookmarkEvent value)? addBookmarkEvent,
     TResult Function(FetchDuaBookMarksEvent value)? fetchDuaBookMarksEvent,
+    TResult Function(RemoveBookmark value)? removeBookmark,
+    TResult Function(ChangeSliderEvent value)? changeSliderEvent,
+    TResult Function(FetchDuaById value)? fetchDuaById,
+    TResult Function(ChangeSubcategoryNameEvent value)?
+        changeSubcategoryNameEvent,
+    TResult Function(SelectTranslationText value)? selectTranslationText,
+    TResult Function(SwitchDisplayArabicTextEvent value)?
+        switchDisplayArabicTextEvent,
+    TResult Function(SwitchDisplayTranslationTextEvent value)?
+        switchDisplayTranslationTextEvent,
     required TResult orElse(),
   }) {
     if (fetchDuaBySubcategoryEvent != null) {
@@ -529,6 +799,241 @@ abstract class FetchDuaBySubcategoryEvent implements DuaEvent {
   @JsonKey(ignore: true)
   _$$FetchDuaBySubcategoryEventCopyWith<_$FetchDuaBySubcategoryEvent>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$AddBookmarkEventCopyWith<$Res> {
+  factory _$$AddBookmarkEventCopyWith(
+          _$AddBookmarkEvent value, $Res Function(_$AddBookmarkEvent) then) =
+      __$$AddBookmarkEventCopyWithImpl<$Res>;
+  @useResult
+  $Res call({BuildContext context, String duaId});
+}
+
+/// @nodoc
+class __$$AddBookmarkEventCopyWithImpl<$Res>
+    extends _$DuaEventCopyWithImpl<$Res, _$AddBookmarkEvent>
+    implements _$$AddBookmarkEventCopyWith<$Res> {
+  __$$AddBookmarkEventCopyWithImpl(
+      _$AddBookmarkEvent _value, $Res Function(_$AddBookmarkEvent) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? context = null,
+    Object? duaId = null,
+  }) {
+    return _then(_$AddBookmarkEvent(
+      context: null == context
+          ? _value.context
+          : context // ignore: cast_nullable_to_non_nullable
+              as BuildContext,
+      duaId: null == duaId
+          ? _value.duaId
+          : duaId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$AddBookmarkEvent
+    with DiagnosticableTreeMixin
+    implements AddBookmarkEvent {
+  const _$AddBookmarkEvent({required this.context, required this.duaId});
+
+  @override
+  final BuildContext context;
+  @override
+  final String duaId;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'DuaEvent.addBookmarkEvent(context: $context, duaId: $duaId)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'DuaEvent.addBookmarkEvent'))
+      ..add(DiagnosticsProperty('context', context))
+      ..add(DiagnosticsProperty('duaId', duaId));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AddBookmarkEvent &&
+            (identical(other.context, context) || other.context == context) &&
+            (identical(other.duaId, duaId) || other.duaId == duaId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, context, duaId);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AddBookmarkEventCopyWith<_$AddBookmarkEvent> get copyWith =>
+      __$$AddBookmarkEventCopyWithImpl<_$AddBookmarkEvent>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() fetchDuaCategoryEvent,
+    required TResult Function(String categoryId) fetchDuaSubCategorybyCategory,
+    required TResult Function(String subCategoryId) fetchDuaBySubcategoryEvent,
+    required TResult Function(BuildContext context, String duaId)
+        addBookmarkEvent,
+    required TResult Function(BuildContext buildcontext) fetchDuaBookMarksEvent,
+    required TResult Function(BuildContext context, String duaId)
+        removeBookmark,
+    required TResult Function(double sliderVal) changeSliderEvent,
+    required TResult Function() fetchDuaById,
+    required TResult Function(String newName) changeSubcategoryNameEvent,
+    required TResult Function(int value) selectTranslationText,
+    required TResult Function(bool newValue) switchDisplayArabicTextEvent,
+    required TResult Function(bool newValue) switchDisplayTranslationTextEvent,
+  }) {
+    return addBookmarkEvent(context, duaId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? fetchDuaCategoryEvent,
+    TResult? Function(String categoryId)? fetchDuaSubCategorybyCategory,
+    TResult? Function(String subCategoryId)? fetchDuaBySubcategoryEvent,
+    TResult? Function(BuildContext context, String duaId)? addBookmarkEvent,
+    TResult? Function(BuildContext buildcontext)? fetchDuaBookMarksEvent,
+    TResult? Function(BuildContext context, String duaId)? removeBookmark,
+    TResult? Function(double sliderVal)? changeSliderEvent,
+    TResult? Function()? fetchDuaById,
+    TResult? Function(String newName)? changeSubcategoryNameEvent,
+    TResult? Function(int value)? selectTranslationText,
+    TResult? Function(bool newValue)? switchDisplayArabicTextEvent,
+    TResult? Function(bool newValue)? switchDisplayTranslationTextEvent,
+  }) {
+    return addBookmarkEvent?.call(context, duaId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? fetchDuaCategoryEvent,
+    TResult Function(String categoryId)? fetchDuaSubCategorybyCategory,
+    TResult Function(String subCategoryId)? fetchDuaBySubcategoryEvent,
+    TResult Function(BuildContext context, String duaId)? addBookmarkEvent,
+    TResult Function(BuildContext buildcontext)? fetchDuaBookMarksEvent,
+    TResult Function(BuildContext context, String duaId)? removeBookmark,
+    TResult Function(double sliderVal)? changeSliderEvent,
+    TResult Function()? fetchDuaById,
+    TResult Function(String newName)? changeSubcategoryNameEvent,
+    TResult Function(int value)? selectTranslationText,
+    TResult Function(bool newValue)? switchDisplayArabicTextEvent,
+    TResult Function(bool newValue)? switchDisplayTranslationTextEvent,
+    required TResult orElse(),
+  }) {
+    if (addBookmarkEvent != null) {
+      return addBookmarkEvent(context, duaId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FetchDuaCategoryEvent value)
+        fetchDuaCategoryEvent,
+    required TResult Function(FetchDuaSubCategorybyCategory value)
+        fetchDuaSubCategorybyCategory,
+    required TResult Function(FetchDuaBySubcategoryEvent value)
+        fetchDuaBySubcategoryEvent,
+    required TResult Function(AddBookmarkEvent value) addBookmarkEvent,
+    required TResult Function(FetchDuaBookMarksEvent value)
+        fetchDuaBookMarksEvent,
+    required TResult Function(RemoveBookmark value) removeBookmark,
+    required TResult Function(ChangeSliderEvent value) changeSliderEvent,
+    required TResult Function(FetchDuaById value) fetchDuaById,
+    required TResult Function(ChangeSubcategoryNameEvent value)
+        changeSubcategoryNameEvent,
+    required TResult Function(SelectTranslationText value)
+        selectTranslationText,
+    required TResult Function(SwitchDisplayArabicTextEvent value)
+        switchDisplayArabicTextEvent,
+    required TResult Function(SwitchDisplayTranslationTextEvent value)
+        switchDisplayTranslationTextEvent,
+  }) {
+    return addBookmarkEvent(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(FetchDuaCategoryEvent value)? fetchDuaCategoryEvent,
+    TResult? Function(FetchDuaSubCategorybyCategory value)?
+        fetchDuaSubCategorybyCategory,
+    TResult? Function(FetchDuaBySubcategoryEvent value)?
+        fetchDuaBySubcategoryEvent,
+    TResult? Function(AddBookmarkEvent value)? addBookmarkEvent,
+    TResult? Function(FetchDuaBookMarksEvent value)? fetchDuaBookMarksEvent,
+    TResult? Function(RemoveBookmark value)? removeBookmark,
+    TResult? Function(ChangeSliderEvent value)? changeSliderEvent,
+    TResult? Function(FetchDuaById value)? fetchDuaById,
+    TResult? Function(ChangeSubcategoryNameEvent value)?
+        changeSubcategoryNameEvent,
+    TResult? Function(SelectTranslationText value)? selectTranslationText,
+    TResult? Function(SwitchDisplayArabicTextEvent value)?
+        switchDisplayArabicTextEvent,
+    TResult? Function(SwitchDisplayTranslationTextEvent value)?
+        switchDisplayTranslationTextEvent,
+  }) {
+    return addBookmarkEvent?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FetchDuaCategoryEvent value)? fetchDuaCategoryEvent,
+    TResult Function(FetchDuaSubCategorybyCategory value)?
+        fetchDuaSubCategorybyCategory,
+    TResult Function(FetchDuaBySubcategoryEvent value)?
+        fetchDuaBySubcategoryEvent,
+    TResult Function(AddBookmarkEvent value)? addBookmarkEvent,
+    TResult Function(FetchDuaBookMarksEvent value)? fetchDuaBookMarksEvent,
+    TResult Function(RemoveBookmark value)? removeBookmark,
+    TResult Function(ChangeSliderEvent value)? changeSliderEvent,
+    TResult Function(FetchDuaById value)? fetchDuaById,
+    TResult Function(ChangeSubcategoryNameEvent value)?
+        changeSubcategoryNameEvent,
+    TResult Function(SelectTranslationText value)? selectTranslationText,
+    TResult Function(SwitchDisplayArabicTextEvent value)?
+        switchDisplayArabicTextEvent,
+    TResult Function(SwitchDisplayTranslationTextEvent value)?
+        switchDisplayTranslationTextEvent,
+    required TResult orElse(),
+  }) {
+    if (addBookmarkEvent != null) {
+      return addBookmarkEvent(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class AddBookmarkEvent implements DuaEvent {
+  const factory AddBookmarkEvent(
+      {required final BuildContext context,
+      required final String duaId}) = _$AddBookmarkEvent;
+
+  BuildContext get context;
+  String get duaId;
+  @JsonKey(ignore: true)
+  _$$AddBookmarkEventCopyWith<_$AddBookmarkEvent> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -564,15 +1069,25 @@ class __$$FetchDuaBookMarksEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FetchDuaBookMarksEvent implements FetchDuaBookMarksEvent {
+class _$FetchDuaBookMarksEvent
+    with DiagnosticableTreeMixin
+    implements FetchDuaBookMarksEvent {
   const _$FetchDuaBookMarksEvent(this.buildcontext);
 
   @override
   final BuildContext buildcontext;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'DuaEvent.fetchDuaBookMarksEvent(buildcontext: $buildcontext)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'DuaEvent.fetchDuaBookMarksEvent'))
+      ..add(DiagnosticsProperty('buildcontext', buildcontext));
   }
 
   @override
@@ -600,7 +1115,17 @@ class _$FetchDuaBookMarksEvent implements FetchDuaBookMarksEvent {
     required TResult Function() fetchDuaCategoryEvent,
     required TResult Function(String categoryId) fetchDuaSubCategorybyCategory,
     required TResult Function(String subCategoryId) fetchDuaBySubcategoryEvent,
+    required TResult Function(BuildContext context, String duaId)
+        addBookmarkEvent,
     required TResult Function(BuildContext buildcontext) fetchDuaBookMarksEvent,
+    required TResult Function(BuildContext context, String duaId)
+        removeBookmark,
+    required TResult Function(double sliderVal) changeSliderEvent,
+    required TResult Function() fetchDuaById,
+    required TResult Function(String newName) changeSubcategoryNameEvent,
+    required TResult Function(int value) selectTranslationText,
+    required TResult Function(bool newValue) switchDisplayArabicTextEvent,
+    required TResult Function(bool newValue) switchDisplayTranslationTextEvent,
   }) {
     return fetchDuaBookMarksEvent(buildcontext);
   }
@@ -611,7 +1136,15 @@ class _$FetchDuaBookMarksEvent implements FetchDuaBookMarksEvent {
     TResult? Function()? fetchDuaCategoryEvent,
     TResult? Function(String categoryId)? fetchDuaSubCategorybyCategory,
     TResult? Function(String subCategoryId)? fetchDuaBySubcategoryEvent,
+    TResult? Function(BuildContext context, String duaId)? addBookmarkEvent,
     TResult? Function(BuildContext buildcontext)? fetchDuaBookMarksEvent,
+    TResult? Function(BuildContext context, String duaId)? removeBookmark,
+    TResult? Function(double sliderVal)? changeSliderEvent,
+    TResult? Function()? fetchDuaById,
+    TResult? Function(String newName)? changeSubcategoryNameEvent,
+    TResult? Function(int value)? selectTranslationText,
+    TResult? Function(bool newValue)? switchDisplayArabicTextEvent,
+    TResult? Function(bool newValue)? switchDisplayTranslationTextEvent,
   }) {
     return fetchDuaBookMarksEvent?.call(buildcontext);
   }
@@ -622,7 +1155,15 @@ class _$FetchDuaBookMarksEvent implements FetchDuaBookMarksEvent {
     TResult Function()? fetchDuaCategoryEvent,
     TResult Function(String categoryId)? fetchDuaSubCategorybyCategory,
     TResult Function(String subCategoryId)? fetchDuaBySubcategoryEvent,
+    TResult Function(BuildContext context, String duaId)? addBookmarkEvent,
     TResult Function(BuildContext buildcontext)? fetchDuaBookMarksEvent,
+    TResult Function(BuildContext context, String duaId)? removeBookmark,
+    TResult Function(double sliderVal)? changeSliderEvent,
+    TResult Function()? fetchDuaById,
+    TResult Function(String newName)? changeSubcategoryNameEvent,
+    TResult Function(int value)? selectTranslationText,
+    TResult Function(bool newValue)? switchDisplayArabicTextEvent,
+    TResult Function(bool newValue)? switchDisplayTranslationTextEvent,
     required TResult orElse(),
   }) {
     if (fetchDuaBookMarksEvent != null) {
@@ -640,8 +1181,20 @@ class _$FetchDuaBookMarksEvent implements FetchDuaBookMarksEvent {
         fetchDuaSubCategorybyCategory,
     required TResult Function(FetchDuaBySubcategoryEvent value)
         fetchDuaBySubcategoryEvent,
+    required TResult Function(AddBookmarkEvent value) addBookmarkEvent,
     required TResult Function(FetchDuaBookMarksEvent value)
         fetchDuaBookMarksEvent,
+    required TResult Function(RemoveBookmark value) removeBookmark,
+    required TResult Function(ChangeSliderEvent value) changeSliderEvent,
+    required TResult Function(FetchDuaById value) fetchDuaById,
+    required TResult Function(ChangeSubcategoryNameEvent value)
+        changeSubcategoryNameEvent,
+    required TResult Function(SelectTranslationText value)
+        selectTranslationText,
+    required TResult Function(SwitchDisplayArabicTextEvent value)
+        switchDisplayArabicTextEvent,
+    required TResult Function(SwitchDisplayTranslationTextEvent value)
+        switchDisplayTranslationTextEvent,
   }) {
     return fetchDuaBookMarksEvent(this);
   }
@@ -654,7 +1207,18 @@ class _$FetchDuaBookMarksEvent implements FetchDuaBookMarksEvent {
         fetchDuaSubCategorybyCategory,
     TResult? Function(FetchDuaBySubcategoryEvent value)?
         fetchDuaBySubcategoryEvent,
+    TResult? Function(AddBookmarkEvent value)? addBookmarkEvent,
     TResult? Function(FetchDuaBookMarksEvent value)? fetchDuaBookMarksEvent,
+    TResult? Function(RemoveBookmark value)? removeBookmark,
+    TResult? Function(ChangeSliderEvent value)? changeSliderEvent,
+    TResult? Function(FetchDuaById value)? fetchDuaById,
+    TResult? Function(ChangeSubcategoryNameEvent value)?
+        changeSubcategoryNameEvent,
+    TResult? Function(SelectTranslationText value)? selectTranslationText,
+    TResult? Function(SwitchDisplayArabicTextEvent value)?
+        switchDisplayArabicTextEvent,
+    TResult? Function(SwitchDisplayTranslationTextEvent value)?
+        switchDisplayTranslationTextEvent,
   }) {
     return fetchDuaBookMarksEvent?.call(this);
   }
@@ -667,7 +1231,18 @@ class _$FetchDuaBookMarksEvent implements FetchDuaBookMarksEvent {
         fetchDuaSubCategorybyCategory,
     TResult Function(FetchDuaBySubcategoryEvent value)?
         fetchDuaBySubcategoryEvent,
+    TResult Function(AddBookmarkEvent value)? addBookmarkEvent,
     TResult Function(FetchDuaBookMarksEvent value)? fetchDuaBookMarksEvent,
+    TResult Function(RemoveBookmark value)? removeBookmark,
+    TResult Function(ChangeSliderEvent value)? changeSliderEvent,
+    TResult Function(FetchDuaById value)? fetchDuaById,
+    TResult Function(ChangeSubcategoryNameEvent value)?
+        changeSubcategoryNameEvent,
+    TResult Function(SelectTranslationText value)? selectTranslationText,
+    TResult Function(SwitchDisplayArabicTextEvent value)?
+        switchDisplayArabicTextEvent,
+    TResult Function(SwitchDisplayTranslationTextEvent value)?
+        switchDisplayTranslationTextEvent,
     required TResult orElse(),
   }) {
     if (fetchDuaBookMarksEvent != null) {
@@ -688,6 +1263,1564 @@ abstract class FetchDuaBookMarksEvent implements DuaEvent {
 }
 
 /// @nodoc
+abstract class _$$RemoveBookmarkCopyWith<$Res> {
+  factory _$$RemoveBookmarkCopyWith(
+          _$RemoveBookmark value, $Res Function(_$RemoveBookmark) then) =
+      __$$RemoveBookmarkCopyWithImpl<$Res>;
+  @useResult
+  $Res call({BuildContext context, String duaId});
+}
+
+/// @nodoc
+class __$$RemoveBookmarkCopyWithImpl<$Res>
+    extends _$DuaEventCopyWithImpl<$Res, _$RemoveBookmark>
+    implements _$$RemoveBookmarkCopyWith<$Res> {
+  __$$RemoveBookmarkCopyWithImpl(
+      _$RemoveBookmark _value, $Res Function(_$RemoveBookmark) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? context = null,
+    Object? duaId = null,
+  }) {
+    return _then(_$RemoveBookmark(
+      context: null == context
+          ? _value.context
+          : context // ignore: cast_nullable_to_non_nullable
+              as BuildContext,
+      duaId: null == duaId
+          ? _value.duaId
+          : duaId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$RemoveBookmark with DiagnosticableTreeMixin implements RemoveBookmark {
+  const _$RemoveBookmark({required this.context, required this.duaId});
+
+  @override
+  final BuildContext context;
+  @override
+  final String duaId;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'DuaEvent.removeBookmark(context: $context, duaId: $duaId)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'DuaEvent.removeBookmark'))
+      ..add(DiagnosticsProperty('context', context))
+      ..add(DiagnosticsProperty('duaId', duaId));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$RemoveBookmark &&
+            (identical(other.context, context) || other.context == context) &&
+            (identical(other.duaId, duaId) || other.duaId == duaId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, context, duaId);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$RemoveBookmarkCopyWith<_$RemoveBookmark> get copyWith =>
+      __$$RemoveBookmarkCopyWithImpl<_$RemoveBookmark>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() fetchDuaCategoryEvent,
+    required TResult Function(String categoryId) fetchDuaSubCategorybyCategory,
+    required TResult Function(String subCategoryId) fetchDuaBySubcategoryEvent,
+    required TResult Function(BuildContext context, String duaId)
+        addBookmarkEvent,
+    required TResult Function(BuildContext buildcontext) fetchDuaBookMarksEvent,
+    required TResult Function(BuildContext context, String duaId)
+        removeBookmark,
+    required TResult Function(double sliderVal) changeSliderEvent,
+    required TResult Function() fetchDuaById,
+    required TResult Function(String newName) changeSubcategoryNameEvent,
+    required TResult Function(int value) selectTranslationText,
+    required TResult Function(bool newValue) switchDisplayArabicTextEvent,
+    required TResult Function(bool newValue) switchDisplayTranslationTextEvent,
+  }) {
+    return removeBookmark(context, duaId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? fetchDuaCategoryEvent,
+    TResult? Function(String categoryId)? fetchDuaSubCategorybyCategory,
+    TResult? Function(String subCategoryId)? fetchDuaBySubcategoryEvent,
+    TResult? Function(BuildContext context, String duaId)? addBookmarkEvent,
+    TResult? Function(BuildContext buildcontext)? fetchDuaBookMarksEvent,
+    TResult? Function(BuildContext context, String duaId)? removeBookmark,
+    TResult? Function(double sliderVal)? changeSliderEvent,
+    TResult? Function()? fetchDuaById,
+    TResult? Function(String newName)? changeSubcategoryNameEvent,
+    TResult? Function(int value)? selectTranslationText,
+    TResult? Function(bool newValue)? switchDisplayArabicTextEvent,
+    TResult? Function(bool newValue)? switchDisplayTranslationTextEvent,
+  }) {
+    return removeBookmark?.call(context, duaId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? fetchDuaCategoryEvent,
+    TResult Function(String categoryId)? fetchDuaSubCategorybyCategory,
+    TResult Function(String subCategoryId)? fetchDuaBySubcategoryEvent,
+    TResult Function(BuildContext context, String duaId)? addBookmarkEvent,
+    TResult Function(BuildContext buildcontext)? fetchDuaBookMarksEvent,
+    TResult Function(BuildContext context, String duaId)? removeBookmark,
+    TResult Function(double sliderVal)? changeSliderEvent,
+    TResult Function()? fetchDuaById,
+    TResult Function(String newName)? changeSubcategoryNameEvent,
+    TResult Function(int value)? selectTranslationText,
+    TResult Function(bool newValue)? switchDisplayArabicTextEvent,
+    TResult Function(bool newValue)? switchDisplayTranslationTextEvent,
+    required TResult orElse(),
+  }) {
+    if (removeBookmark != null) {
+      return removeBookmark(context, duaId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FetchDuaCategoryEvent value)
+        fetchDuaCategoryEvent,
+    required TResult Function(FetchDuaSubCategorybyCategory value)
+        fetchDuaSubCategorybyCategory,
+    required TResult Function(FetchDuaBySubcategoryEvent value)
+        fetchDuaBySubcategoryEvent,
+    required TResult Function(AddBookmarkEvent value) addBookmarkEvent,
+    required TResult Function(FetchDuaBookMarksEvent value)
+        fetchDuaBookMarksEvent,
+    required TResult Function(RemoveBookmark value) removeBookmark,
+    required TResult Function(ChangeSliderEvent value) changeSliderEvent,
+    required TResult Function(FetchDuaById value) fetchDuaById,
+    required TResult Function(ChangeSubcategoryNameEvent value)
+        changeSubcategoryNameEvent,
+    required TResult Function(SelectTranslationText value)
+        selectTranslationText,
+    required TResult Function(SwitchDisplayArabicTextEvent value)
+        switchDisplayArabicTextEvent,
+    required TResult Function(SwitchDisplayTranslationTextEvent value)
+        switchDisplayTranslationTextEvent,
+  }) {
+    return removeBookmark(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(FetchDuaCategoryEvent value)? fetchDuaCategoryEvent,
+    TResult? Function(FetchDuaSubCategorybyCategory value)?
+        fetchDuaSubCategorybyCategory,
+    TResult? Function(FetchDuaBySubcategoryEvent value)?
+        fetchDuaBySubcategoryEvent,
+    TResult? Function(AddBookmarkEvent value)? addBookmarkEvent,
+    TResult? Function(FetchDuaBookMarksEvent value)? fetchDuaBookMarksEvent,
+    TResult? Function(RemoveBookmark value)? removeBookmark,
+    TResult? Function(ChangeSliderEvent value)? changeSliderEvent,
+    TResult? Function(FetchDuaById value)? fetchDuaById,
+    TResult? Function(ChangeSubcategoryNameEvent value)?
+        changeSubcategoryNameEvent,
+    TResult? Function(SelectTranslationText value)? selectTranslationText,
+    TResult? Function(SwitchDisplayArabicTextEvent value)?
+        switchDisplayArabicTextEvent,
+    TResult? Function(SwitchDisplayTranslationTextEvent value)?
+        switchDisplayTranslationTextEvent,
+  }) {
+    return removeBookmark?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FetchDuaCategoryEvent value)? fetchDuaCategoryEvent,
+    TResult Function(FetchDuaSubCategorybyCategory value)?
+        fetchDuaSubCategorybyCategory,
+    TResult Function(FetchDuaBySubcategoryEvent value)?
+        fetchDuaBySubcategoryEvent,
+    TResult Function(AddBookmarkEvent value)? addBookmarkEvent,
+    TResult Function(FetchDuaBookMarksEvent value)? fetchDuaBookMarksEvent,
+    TResult Function(RemoveBookmark value)? removeBookmark,
+    TResult Function(ChangeSliderEvent value)? changeSliderEvent,
+    TResult Function(FetchDuaById value)? fetchDuaById,
+    TResult Function(ChangeSubcategoryNameEvent value)?
+        changeSubcategoryNameEvent,
+    TResult Function(SelectTranslationText value)? selectTranslationText,
+    TResult Function(SwitchDisplayArabicTextEvent value)?
+        switchDisplayArabicTextEvent,
+    TResult Function(SwitchDisplayTranslationTextEvent value)?
+        switchDisplayTranslationTextEvent,
+    required TResult orElse(),
+  }) {
+    if (removeBookmark != null) {
+      return removeBookmark(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class RemoveBookmark implements DuaEvent {
+  const factory RemoveBookmark(
+      {required final BuildContext context,
+      required final String duaId}) = _$RemoveBookmark;
+
+  BuildContext get context;
+  String get duaId;
+  @JsonKey(ignore: true)
+  _$$RemoveBookmarkCopyWith<_$RemoveBookmark> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ChangeSliderEventCopyWith<$Res> {
+  factory _$$ChangeSliderEventCopyWith(
+          _$ChangeSliderEvent value, $Res Function(_$ChangeSliderEvent) then) =
+      __$$ChangeSliderEventCopyWithImpl<$Res>;
+  @useResult
+  $Res call({double sliderVal});
+}
+
+/// @nodoc
+class __$$ChangeSliderEventCopyWithImpl<$Res>
+    extends _$DuaEventCopyWithImpl<$Res, _$ChangeSliderEvent>
+    implements _$$ChangeSliderEventCopyWith<$Res> {
+  __$$ChangeSliderEventCopyWithImpl(
+      _$ChangeSliderEvent _value, $Res Function(_$ChangeSliderEvent) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? sliderVal = null,
+  }) {
+    return _then(_$ChangeSliderEvent(
+      sliderVal: null == sliderVal
+          ? _value.sliderVal
+          : sliderVal // ignore: cast_nullable_to_non_nullable
+              as double,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ChangeSliderEvent
+    with DiagnosticableTreeMixin
+    implements ChangeSliderEvent {
+  const _$ChangeSliderEvent({required this.sliderVal});
+
+  @override
+  final double sliderVal;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'DuaEvent.changeSliderEvent(sliderVal: $sliderVal)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'DuaEvent.changeSliderEvent'))
+      ..add(DiagnosticsProperty('sliderVal', sliderVal));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ChangeSliderEvent &&
+            (identical(other.sliderVal, sliderVal) ||
+                other.sliderVal == sliderVal));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, sliderVal);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ChangeSliderEventCopyWith<_$ChangeSliderEvent> get copyWith =>
+      __$$ChangeSliderEventCopyWithImpl<_$ChangeSliderEvent>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() fetchDuaCategoryEvent,
+    required TResult Function(String categoryId) fetchDuaSubCategorybyCategory,
+    required TResult Function(String subCategoryId) fetchDuaBySubcategoryEvent,
+    required TResult Function(BuildContext context, String duaId)
+        addBookmarkEvent,
+    required TResult Function(BuildContext buildcontext) fetchDuaBookMarksEvent,
+    required TResult Function(BuildContext context, String duaId)
+        removeBookmark,
+    required TResult Function(double sliderVal) changeSliderEvent,
+    required TResult Function() fetchDuaById,
+    required TResult Function(String newName) changeSubcategoryNameEvent,
+    required TResult Function(int value) selectTranslationText,
+    required TResult Function(bool newValue) switchDisplayArabicTextEvent,
+    required TResult Function(bool newValue) switchDisplayTranslationTextEvent,
+  }) {
+    return changeSliderEvent(sliderVal);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? fetchDuaCategoryEvent,
+    TResult? Function(String categoryId)? fetchDuaSubCategorybyCategory,
+    TResult? Function(String subCategoryId)? fetchDuaBySubcategoryEvent,
+    TResult? Function(BuildContext context, String duaId)? addBookmarkEvent,
+    TResult? Function(BuildContext buildcontext)? fetchDuaBookMarksEvent,
+    TResult? Function(BuildContext context, String duaId)? removeBookmark,
+    TResult? Function(double sliderVal)? changeSliderEvent,
+    TResult? Function()? fetchDuaById,
+    TResult? Function(String newName)? changeSubcategoryNameEvent,
+    TResult? Function(int value)? selectTranslationText,
+    TResult? Function(bool newValue)? switchDisplayArabicTextEvent,
+    TResult? Function(bool newValue)? switchDisplayTranslationTextEvent,
+  }) {
+    return changeSliderEvent?.call(sliderVal);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? fetchDuaCategoryEvent,
+    TResult Function(String categoryId)? fetchDuaSubCategorybyCategory,
+    TResult Function(String subCategoryId)? fetchDuaBySubcategoryEvent,
+    TResult Function(BuildContext context, String duaId)? addBookmarkEvent,
+    TResult Function(BuildContext buildcontext)? fetchDuaBookMarksEvent,
+    TResult Function(BuildContext context, String duaId)? removeBookmark,
+    TResult Function(double sliderVal)? changeSliderEvent,
+    TResult Function()? fetchDuaById,
+    TResult Function(String newName)? changeSubcategoryNameEvent,
+    TResult Function(int value)? selectTranslationText,
+    TResult Function(bool newValue)? switchDisplayArabicTextEvent,
+    TResult Function(bool newValue)? switchDisplayTranslationTextEvent,
+    required TResult orElse(),
+  }) {
+    if (changeSliderEvent != null) {
+      return changeSliderEvent(sliderVal);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FetchDuaCategoryEvent value)
+        fetchDuaCategoryEvent,
+    required TResult Function(FetchDuaSubCategorybyCategory value)
+        fetchDuaSubCategorybyCategory,
+    required TResult Function(FetchDuaBySubcategoryEvent value)
+        fetchDuaBySubcategoryEvent,
+    required TResult Function(AddBookmarkEvent value) addBookmarkEvent,
+    required TResult Function(FetchDuaBookMarksEvent value)
+        fetchDuaBookMarksEvent,
+    required TResult Function(RemoveBookmark value) removeBookmark,
+    required TResult Function(ChangeSliderEvent value) changeSliderEvent,
+    required TResult Function(FetchDuaById value) fetchDuaById,
+    required TResult Function(ChangeSubcategoryNameEvent value)
+        changeSubcategoryNameEvent,
+    required TResult Function(SelectTranslationText value)
+        selectTranslationText,
+    required TResult Function(SwitchDisplayArabicTextEvent value)
+        switchDisplayArabicTextEvent,
+    required TResult Function(SwitchDisplayTranslationTextEvent value)
+        switchDisplayTranslationTextEvent,
+  }) {
+    return changeSliderEvent(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(FetchDuaCategoryEvent value)? fetchDuaCategoryEvent,
+    TResult? Function(FetchDuaSubCategorybyCategory value)?
+        fetchDuaSubCategorybyCategory,
+    TResult? Function(FetchDuaBySubcategoryEvent value)?
+        fetchDuaBySubcategoryEvent,
+    TResult? Function(AddBookmarkEvent value)? addBookmarkEvent,
+    TResult? Function(FetchDuaBookMarksEvent value)? fetchDuaBookMarksEvent,
+    TResult? Function(RemoveBookmark value)? removeBookmark,
+    TResult? Function(ChangeSliderEvent value)? changeSliderEvent,
+    TResult? Function(FetchDuaById value)? fetchDuaById,
+    TResult? Function(ChangeSubcategoryNameEvent value)?
+        changeSubcategoryNameEvent,
+    TResult? Function(SelectTranslationText value)? selectTranslationText,
+    TResult? Function(SwitchDisplayArabicTextEvent value)?
+        switchDisplayArabicTextEvent,
+    TResult? Function(SwitchDisplayTranslationTextEvent value)?
+        switchDisplayTranslationTextEvent,
+  }) {
+    return changeSliderEvent?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FetchDuaCategoryEvent value)? fetchDuaCategoryEvent,
+    TResult Function(FetchDuaSubCategorybyCategory value)?
+        fetchDuaSubCategorybyCategory,
+    TResult Function(FetchDuaBySubcategoryEvent value)?
+        fetchDuaBySubcategoryEvent,
+    TResult Function(AddBookmarkEvent value)? addBookmarkEvent,
+    TResult Function(FetchDuaBookMarksEvent value)? fetchDuaBookMarksEvent,
+    TResult Function(RemoveBookmark value)? removeBookmark,
+    TResult Function(ChangeSliderEvent value)? changeSliderEvent,
+    TResult Function(FetchDuaById value)? fetchDuaById,
+    TResult Function(ChangeSubcategoryNameEvent value)?
+        changeSubcategoryNameEvent,
+    TResult Function(SelectTranslationText value)? selectTranslationText,
+    TResult Function(SwitchDisplayArabicTextEvent value)?
+        switchDisplayArabicTextEvent,
+    TResult Function(SwitchDisplayTranslationTextEvent value)?
+        switchDisplayTranslationTextEvent,
+    required TResult orElse(),
+  }) {
+    if (changeSliderEvent != null) {
+      return changeSliderEvent(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ChangeSliderEvent implements DuaEvent {
+  const factory ChangeSliderEvent({required final double sliderVal}) =
+      _$ChangeSliderEvent;
+
+  double get sliderVal;
+  @JsonKey(ignore: true)
+  _$$ChangeSliderEventCopyWith<_$ChangeSliderEvent> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$FetchDuaByIdCopyWith<$Res> {
+  factory _$$FetchDuaByIdCopyWith(
+          _$FetchDuaById value, $Res Function(_$FetchDuaById) then) =
+      __$$FetchDuaByIdCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$FetchDuaByIdCopyWithImpl<$Res>
+    extends _$DuaEventCopyWithImpl<$Res, _$FetchDuaById>
+    implements _$$FetchDuaByIdCopyWith<$Res> {
+  __$$FetchDuaByIdCopyWithImpl(
+      _$FetchDuaById _value, $Res Function(_$FetchDuaById) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$FetchDuaById with DiagnosticableTreeMixin implements FetchDuaById {
+  const _$FetchDuaById();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'DuaEvent.fetchDuaById()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'DuaEvent.fetchDuaById'));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$FetchDuaById);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() fetchDuaCategoryEvent,
+    required TResult Function(String categoryId) fetchDuaSubCategorybyCategory,
+    required TResult Function(String subCategoryId) fetchDuaBySubcategoryEvent,
+    required TResult Function(BuildContext context, String duaId)
+        addBookmarkEvent,
+    required TResult Function(BuildContext buildcontext) fetchDuaBookMarksEvent,
+    required TResult Function(BuildContext context, String duaId)
+        removeBookmark,
+    required TResult Function(double sliderVal) changeSliderEvent,
+    required TResult Function() fetchDuaById,
+    required TResult Function(String newName) changeSubcategoryNameEvent,
+    required TResult Function(int value) selectTranslationText,
+    required TResult Function(bool newValue) switchDisplayArabicTextEvent,
+    required TResult Function(bool newValue) switchDisplayTranslationTextEvent,
+  }) {
+    return fetchDuaById();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? fetchDuaCategoryEvent,
+    TResult? Function(String categoryId)? fetchDuaSubCategorybyCategory,
+    TResult? Function(String subCategoryId)? fetchDuaBySubcategoryEvent,
+    TResult? Function(BuildContext context, String duaId)? addBookmarkEvent,
+    TResult? Function(BuildContext buildcontext)? fetchDuaBookMarksEvent,
+    TResult? Function(BuildContext context, String duaId)? removeBookmark,
+    TResult? Function(double sliderVal)? changeSliderEvent,
+    TResult? Function()? fetchDuaById,
+    TResult? Function(String newName)? changeSubcategoryNameEvent,
+    TResult? Function(int value)? selectTranslationText,
+    TResult? Function(bool newValue)? switchDisplayArabicTextEvent,
+    TResult? Function(bool newValue)? switchDisplayTranslationTextEvent,
+  }) {
+    return fetchDuaById?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? fetchDuaCategoryEvent,
+    TResult Function(String categoryId)? fetchDuaSubCategorybyCategory,
+    TResult Function(String subCategoryId)? fetchDuaBySubcategoryEvent,
+    TResult Function(BuildContext context, String duaId)? addBookmarkEvent,
+    TResult Function(BuildContext buildcontext)? fetchDuaBookMarksEvent,
+    TResult Function(BuildContext context, String duaId)? removeBookmark,
+    TResult Function(double sliderVal)? changeSliderEvent,
+    TResult Function()? fetchDuaById,
+    TResult Function(String newName)? changeSubcategoryNameEvent,
+    TResult Function(int value)? selectTranslationText,
+    TResult Function(bool newValue)? switchDisplayArabicTextEvent,
+    TResult Function(bool newValue)? switchDisplayTranslationTextEvent,
+    required TResult orElse(),
+  }) {
+    if (fetchDuaById != null) {
+      return fetchDuaById();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FetchDuaCategoryEvent value)
+        fetchDuaCategoryEvent,
+    required TResult Function(FetchDuaSubCategorybyCategory value)
+        fetchDuaSubCategorybyCategory,
+    required TResult Function(FetchDuaBySubcategoryEvent value)
+        fetchDuaBySubcategoryEvent,
+    required TResult Function(AddBookmarkEvent value) addBookmarkEvent,
+    required TResult Function(FetchDuaBookMarksEvent value)
+        fetchDuaBookMarksEvent,
+    required TResult Function(RemoveBookmark value) removeBookmark,
+    required TResult Function(ChangeSliderEvent value) changeSliderEvent,
+    required TResult Function(FetchDuaById value) fetchDuaById,
+    required TResult Function(ChangeSubcategoryNameEvent value)
+        changeSubcategoryNameEvent,
+    required TResult Function(SelectTranslationText value)
+        selectTranslationText,
+    required TResult Function(SwitchDisplayArabicTextEvent value)
+        switchDisplayArabicTextEvent,
+    required TResult Function(SwitchDisplayTranslationTextEvent value)
+        switchDisplayTranslationTextEvent,
+  }) {
+    return fetchDuaById(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(FetchDuaCategoryEvent value)? fetchDuaCategoryEvent,
+    TResult? Function(FetchDuaSubCategorybyCategory value)?
+        fetchDuaSubCategorybyCategory,
+    TResult? Function(FetchDuaBySubcategoryEvent value)?
+        fetchDuaBySubcategoryEvent,
+    TResult? Function(AddBookmarkEvent value)? addBookmarkEvent,
+    TResult? Function(FetchDuaBookMarksEvent value)? fetchDuaBookMarksEvent,
+    TResult? Function(RemoveBookmark value)? removeBookmark,
+    TResult? Function(ChangeSliderEvent value)? changeSliderEvent,
+    TResult? Function(FetchDuaById value)? fetchDuaById,
+    TResult? Function(ChangeSubcategoryNameEvent value)?
+        changeSubcategoryNameEvent,
+    TResult? Function(SelectTranslationText value)? selectTranslationText,
+    TResult? Function(SwitchDisplayArabicTextEvent value)?
+        switchDisplayArabicTextEvent,
+    TResult? Function(SwitchDisplayTranslationTextEvent value)?
+        switchDisplayTranslationTextEvent,
+  }) {
+    return fetchDuaById?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FetchDuaCategoryEvent value)? fetchDuaCategoryEvent,
+    TResult Function(FetchDuaSubCategorybyCategory value)?
+        fetchDuaSubCategorybyCategory,
+    TResult Function(FetchDuaBySubcategoryEvent value)?
+        fetchDuaBySubcategoryEvent,
+    TResult Function(AddBookmarkEvent value)? addBookmarkEvent,
+    TResult Function(FetchDuaBookMarksEvent value)? fetchDuaBookMarksEvent,
+    TResult Function(RemoveBookmark value)? removeBookmark,
+    TResult Function(ChangeSliderEvent value)? changeSliderEvent,
+    TResult Function(FetchDuaById value)? fetchDuaById,
+    TResult Function(ChangeSubcategoryNameEvent value)?
+        changeSubcategoryNameEvent,
+    TResult Function(SelectTranslationText value)? selectTranslationText,
+    TResult Function(SwitchDisplayArabicTextEvent value)?
+        switchDisplayArabicTextEvent,
+    TResult Function(SwitchDisplayTranslationTextEvent value)?
+        switchDisplayTranslationTextEvent,
+    required TResult orElse(),
+  }) {
+    if (fetchDuaById != null) {
+      return fetchDuaById(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class FetchDuaById implements DuaEvent {
+  const factory FetchDuaById() = _$FetchDuaById;
+}
+
+/// @nodoc
+abstract class _$$ChangeSubcategoryNameEventCopyWith<$Res> {
+  factory _$$ChangeSubcategoryNameEventCopyWith(
+          _$ChangeSubcategoryNameEvent value,
+          $Res Function(_$ChangeSubcategoryNameEvent) then) =
+      __$$ChangeSubcategoryNameEventCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String newName});
+}
+
+/// @nodoc
+class __$$ChangeSubcategoryNameEventCopyWithImpl<$Res>
+    extends _$DuaEventCopyWithImpl<$Res, _$ChangeSubcategoryNameEvent>
+    implements _$$ChangeSubcategoryNameEventCopyWith<$Res> {
+  __$$ChangeSubcategoryNameEventCopyWithImpl(
+      _$ChangeSubcategoryNameEvent _value,
+      $Res Function(_$ChangeSubcategoryNameEvent) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? newName = null,
+  }) {
+    return _then(_$ChangeSubcategoryNameEvent(
+      newName: null == newName
+          ? _value.newName
+          : newName // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ChangeSubcategoryNameEvent
+    with DiagnosticableTreeMixin
+    implements ChangeSubcategoryNameEvent {
+  const _$ChangeSubcategoryNameEvent({required this.newName});
+
+  @override
+  final String newName;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'DuaEvent.changeSubcategoryNameEvent(newName: $newName)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'DuaEvent.changeSubcategoryNameEvent'))
+      ..add(DiagnosticsProperty('newName', newName));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ChangeSubcategoryNameEvent &&
+            (identical(other.newName, newName) || other.newName == newName));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, newName);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ChangeSubcategoryNameEventCopyWith<_$ChangeSubcategoryNameEvent>
+      get copyWith => __$$ChangeSubcategoryNameEventCopyWithImpl<
+          _$ChangeSubcategoryNameEvent>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() fetchDuaCategoryEvent,
+    required TResult Function(String categoryId) fetchDuaSubCategorybyCategory,
+    required TResult Function(String subCategoryId) fetchDuaBySubcategoryEvent,
+    required TResult Function(BuildContext context, String duaId)
+        addBookmarkEvent,
+    required TResult Function(BuildContext buildcontext) fetchDuaBookMarksEvent,
+    required TResult Function(BuildContext context, String duaId)
+        removeBookmark,
+    required TResult Function(double sliderVal) changeSliderEvent,
+    required TResult Function() fetchDuaById,
+    required TResult Function(String newName) changeSubcategoryNameEvent,
+    required TResult Function(int value) selectTranslationText,
+    required TResult Function(bool newValue) switchDisplayArabicTextEvent,
+    required TResult Function(bool newValue) switchDisplayTranslationTextEvent,
+  }) {
+    return changeSubcategoryNameEvent(newName);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? fetchDuaCategoryEvent,
+    TResult? Function(String categoryId)? fetchDuaSubCategorybyCategory,
+    TResult? Function(String subCategoryId)? fetchDuaBySubcategoryEvent,
+    TResult? Function(BuildContext context, String duaId)? addBookmarkEvent,
+    TResult? Function(BuildContext buildcontext)? fetchDuaBookMarksEvent,
+    TResult? Function(BuildContext context, String duaId)? removeBookmark,
+    TResult? Function(double sliderVal)? changeSliderEvent,
+    TResult? Function()? fetchDuaById,
+    TResult? Function(String newName)? changeSubcategoryNameEvent,
+    TResult? Function(int value)? selectTranslationText,
+    TResult? Function(bool newValue)? switchDisplayArabicTextEvent,
+    TResult? Function(bool newValue)? switchDisplayTranslationTextEvent,
+  }) {
+    return changeSubcategoryNameEvent?.call(newName);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? fetchDuaCategoryEvent,
+    TResult Function(String categoryId)? fetchDuaSubCategorybyCategory,
+    TResult Function(String subCategoryId)? fetchDuaBySubcategoryEvent,
+    TResult Function(BuildContext context, String duaId)? addBookmarkEvent,
+    TResult Function(BuildContext buildcontext)? fetchDuaBookMarksEvent,
+    TResult Function(BuildContext context, String duaId)? removeBookmark,
+    TResult Function(double sliderVal)? changeSliderEvent,
+    TResult Function()? fetchDuaById,
+    TResult Function(String newName)? changeSubcategoryNameEvent,
+    TResult Function(int value)? selectTranslationText,
+    TResult Function(bool newValue)? switchDisplayArabicTextEvent,
+    TResult Function(bool newValue)? switchDisplayTranslationTextEvent,
+    required TResult orElse(),
+  }) {
+    if (changeSubcategoryNameEvent != null) {
+      return changeSubcategoryNameEvent(newName);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FetchDuaCategoryEvent value)
+        fetchDuaCategoryEvent,
+    required TResult Function(FetchDuaSubCategorybyCategory value)
+        fetchDuaSubCategorybyCategory,
+    required TResult Function(FetchDuaBySubcategoryEvent value)
+        fetchDuaBySubcategoryEvent,
+    required TResult Function(AddBookmarkEvent value) addBookmarkEvent,
+    required TResult Function(FetchDuaBookMarksEvent value)
+        fetchDuaBookMarksEvent,
+    required TResult Function(RemoveBookmark value) removeBookmark,
+    required TResult Function(ChangeSliderEvent value) changeSliderEvent,
+    required TResult Function(FetchDuaById value) fetchDuaById,
+    required TResult Function(ChangeSubcategoryNameEvent value)
+        changeSubcategoryNameEvent,
+    required TResult Function(SelectTranslationText value)
+        selectTranslationText,
+    required TResult Function(SwitchDisplayArabicTextEvent value)
+        switchDisplayArabicTextEvent,
+    required TResult Function(SwitchDisplayTranslationTextEvent value)
+        switchDisplayTranslationTextEvent,
+  }) {
+    return changeSubcategoryNameEvent(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(FetchDuaCategoryEvent value)? fetchDuaCategoryEvent,
+    TResult? Function(FetchDuaSubCategorybyCategory value)?
+        fetchDuaSubCategorybyCategory,
+    TResult? Function(FetchDuaBySubcategoryEvent value)?
+        fetchDuaBySubcategoryEvent,
+    TResult? Function(AddBookmarkEvent value)? addBookmarkEvent,
+    TResult? Function(FetchDuaBookMarksEvent value)? fetchDuaBookMarksEvent,
+    TResult? Function(RemoveBookmark value)? removeBookmark,
+    TResult? Function(ChangeSliderEvent value)? changeSliderEvent,
+    TResult? Function(FetchDuaById value)? fetchDuaById,
+    TResult? Function(ChangeSubcategoryNameEvent value)?
+        changeSubcategoryNameEvent,
+    TResult? Function(SelectTranslationText value)? selectTranslationText,
+    TResult? Function(SwitchDisplayArabicTextEvent value)?
+        switchDisplayArabicTextEvent,
+    TResult? Function(SwitchDisplayTranslationTextEvent value)?
+        switchDisplayTranslationTextEvent,
+  }) {
+    return changeSubcategoryNameEvent?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FetchDuaCategoryEvent value)? fetchDuaCategoryEvent,
+    TResult Function(FetchDuaSubCategorybyCategory value)?
+        fetchDuaSubCategorybyCategory,
+    TResult Function(FetchDuaBySubcategoryEvent value)?
+        fetchDuaBySubcategoryEvent,
+    TResult Function(AddBookmarkEvent value)? addBookmarkEvent,
+    TResult Function(FetchDuaBookMarksEvent value)? fetchDuaBookMarksEvent,
+    TResult Function(RemoveBookmark value)? removeBookmark,
+    TResult Function(ChangeSliderEvent value)? changeSliderEvent,
+    TResult Function(FetchDuaById value)? fetchDuaById,
+    TResult Function(ChangeSubcategoryNameEvent value)?
+        changeSubcategoryNameEvent,
+    TResult Function(SelectTranslationText value)? selectTranslationText,
+    TResult Function(SwitchDisplayArabicTextEvent value)?
+        switchDisplayArabicTextEvent,
+    TResult Function(SwitchDisplayTranslationTextEvent value)?
+        switchDisplayTranslationTextEvent,
+    required TResult orElse(),
+  }) {
+    if (changeSubcategoryNameEvent != null) {
+      return changeSubcategoryNameEvent(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ChangeSubcategoryNameEvent implements DuaEvent {
+  const factory ChangeSubcategoryNameEvent({required final String newName}) =
+      _$ChangeSubcategoryNameEvent;
+
+  String get newName;
+  @JsonKey(ignore: true)
+  _$$ChangeSubcategoryNameEventCopyWith<_$ChangeSubcategoryNameEvent>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SelectTranslationTextCopyWith<$Res> {
+  factory _$$SelectTranslationTextCopyWith(_$SelectTranslationText value,
+          $Res Function(_$SelectTranslationText) then) =
+      __$$SelectTranslationTextCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int value});
+}
+
+/// @nodoc
+class __$$SelectTranslationTextCopyWithImpl<$Res>
+    extends _$DuaEventCopyWithImpl<$Res, _$SelectTranslationText>
+    implements _$$SelectTranslationTextCopyWith<$Res> {
+  __$$SelectTranslationTextCopyWithImpl(_$SelectTranslationText _value,
+      $Res Function(_$SelectTranslationText) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? value = null,
+  }) {
+    return _then(_$SelectTranslationText(
+      value: null == value
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SelectTranslationText
+    with DiagnosticableTreeMixin
+    implements SelectTranslationText {
+  const _$SelectTranslationText({required this.value});
+
+  @override
+  final int value;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'DuaEvent.selectTranslationText(value: $value)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'DuaEvent.selectTranslationText'))
+      ..add(DiagnosticsProperty('value', value));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SelectTranslationText &&
+            (identical(other.value, value) || other.value == value));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, value);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SelectTranslationTextCopyWith<_$SelectTranslationText> get copyWith =>
+      __$$SelectTranslationTextCopyWithImpl<_$SelectTranslationText>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() fetchDuaCategoryEvent,
+    required TResult Function(String categoryId) fetchDuaSubCategorybyCategory,
+    required TResult Function(String subCategoryId) fetchDuaBySubcategoryEvent,
+    required TResult Function(BuildContext context, String duaId)
+        addBookmarkEvent,
+    required TResult Function(BuildContext buildcontext) fetchDuaBookMarksEvent,
+    required TResult Function(BuildContext context, String duaId)
+        removeBookmark,
+    required TResult Function(double sliderVal) changeSliderEvent,
+    required TResult Function() fetchDuaById,
+    required TResult Function(String newName) changeSubcategoryNameEvent,
+    required TResult Function(int value) selectTranslationText,
+    required TResult Function(bool newValue) switchDisplayArabicTextEvent,
+    required TResult Function(bool newValue) switchDisplayTranslationTextEvent,
+  }) {
+    return selectTranslationText(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? fetchDuaCategoryEvent,
+    TResult? Function(String categoryId)? fetchDuaSubCategorybyCategory,
+    TResult? Function(String subCategoryId)? fetchDuaBySubcategoryEvent,
+    TResult? Function(BuildContext context, String duaId)? addBookmarkEvent,
+    TResult? Function(BuildContext buildcontext)? fetchDuaBookMarksEvent,
+    TResult? Function(BuildContext context, String duaId)? removeBookmark,
+    TResult? Function(double sliderVal)? changeSliderEvent,
+    TResult? Function()? fetchDuaById,
+    TResult? Function(String newName)? changeSubcategoryNameEvent,
+    TResult? Function(int value)? selectTranslationText,
+    TResult? Function(bool newValue)? switchDisplayArabicTextEvent,
+    TResult? Function(bool newValue)? switchDisplayTranslationTextEvent,
+  }) {
+    return selectTranslationText?.call(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? fetchDuaCategoryEvent,
+    TResult Function(String categoryId)? fetchDuaSubCategorybyCategory,
+    TResult Function(String subCategoryId)? fetchDuaBySubcategoryEvent,
+    TResult Function(BuildContext context, String duaId)? addBookmarkEvent,
+    TResult Function(BuildContext buildcontext)? fetchDuaBookMarksEvent,
+    TResult Function(BuildContext context, String duaId)? removeBookmark,
+    TResult Function(double sliderVal)? changeSliderEvent,
+    TResult Function()? fetchDuaById,
+    TResult Function(String newName)? changeSubcategoryNameEvent,
+    TResult Function(int value)? selectTranslationText,
+    TResult Function(bool newValue)? switchDisplayArabicTextEvent,
+    TResult Function(bool newValue)? switchDisplayTranslationTextEvent,
+    required TResult orElse(),
+  }) {
+    if (selectTranslationText != null) {
+      return selectTranslationText(value);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FetchDuaCategoryEvent value)
+        fetchDuaCategoryEvent,
+    required TResult Function(FetchDuaSubCategorybyCategory value)
+        fetchDuaSubCategorybyCategory,
+    required TResult Function(FetchDuaBySubcategoryEvent value)
+        fetchDuaBySubcategoryEvent,
+    required TResult Function(AddBookmarkEvent value) addBookmarkEvent,
+    required TResult Function(FetchDuaBookMarksEvent value)
+        fetchDuaBookMarksEvent,
+    required TResult Function(RemoveBookmark value) removeBookmark,
+    required TResult Function(ChangeSliderEvent value) changeSliderEvent,
+    required TResult Function(FetchDuaById value) fetchDuaById,
+    required TResult Function(ChangeSubcategoryNameEvent value)
+        changeSubcategoryNameEvent,
+    required TResult Function(SelectTranslationText value)
+        selectTranslationText,
+    required TResult Function(SwitchDisplayArabicTextEvent value)
+        switchDisplayArabicTextEvent,
+    required TResult Function(SwitchDisplayTranslationTextEvent value)
+        switchDisplayTranslationTextEvent,
+  }) {
+    return selectTranslationText(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(FetchDuaCategoryEvent value)? fetchDuaCategoryEvent,
+    TResult? Function(FetchDuaSubCategorybyCategory value)?
+        fetchDuaSubCategorybyCategory,
+    TResult? Function(FetchDuaBySubcategoryEvent value)?
+        fetchDuaBySubcategoryEvent,
+    TResult? Function(AddBookmarkEvent value)? addBookmarkEvent,
+    TResult? Function(FetchDuaBookMarksEvent value)? fetchDuaBookMarksEvent,
+    TResult? Function(RemoveBookmark value)? removeBookmark,
+    TResult? Function(ChangeSliderEvent value)? changeSliderEvent,
+    TResult? Function(FetchDuaById value)? fetchDuaById,
+    TResult? Function(ChangeSubcategoryNameEvent value)?
+        changeSubcategoryNameEvent,
+    TResult? Function(SelectTranslationText value)? selectTranslationText,
+    TResult? Function(SwitchDisplayArabicTextEvent value)?
+        switchDisplayArabicTextEvent,
+    TResult? Function(SwitchDisplayTranslationTextEvent value)?
+        switchDisplayTranslationTextEvent,
+  }) {
+    return selectTranslationText?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FetchDuaCategoryEvent value)? fetchDuaCategoryEvent,
+    TResult Function(FetchDuaSubCategorybyCategory value)?
+        fetchDuaSubCategorybyCategory,
+    TResult Function(FetchDuaBySubcategoryEvent value)?
+        fetchDuaBySubcategoryEvent,
+    TResult Function(AddBookmarkEvent value)? addBookmarkEvent,
+    TResult Function(FetchDuaBookMarksEvent value)? fetchDuaBookMarksEvent,
+    TResult Function(RemoveBookmark value)? removeBookmark,
+    TResult Function(ChangeSliderEvent value)? changeSliderEvent,
+    TResult Function(FetchDuaById value)? fetchDuaById,
+    TResult Function(ChangeSubcategoryNameEvent value)?
+        changeSubcategoryNameEvent,
+    TResult Function(SelectTranslationText value)? selectTranslationText,
+    TResult Function(SwitchDisplayArabicTextEvent value)?
+        switchDisplayArabicTextEvent,
+    TResult Function(SwitchDisplayTranslationTextEvent value)?
+        switchDisplayTranslationTextEvent,
+    required TResult orElse(),
+  }) {
+    if (selectTranslationText != null) {
+      return selectTranslationText(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SelectTranslationText implements DuaEvent {
+  const factory SelectTranslationText({required final int value}) =
+      _$SelectTranslationText;
+
+  int get value;
+  @JsonKey(ignore: true)
+  _$$SelectTranslationTextCopyWith<_$SelectTranslationText> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SwitchDisplayArabicTextEventCopyWith<$Res> {
+  factory _$$SwitchDisplayArabicTextEventCopyWith(
+          _$SwitchDisplayArabicTextEvent value,
+          $Res Function(_$SwitchDisplayArabicTextEvent) then) =
+      __$$SwitchDisplayArabicTextEventCopyWithImpl<$Res>;
+  @useResult
+  $Res call({bool newValue});
+}
+
+/// @nodoc
+class __$$SwitchDisplayArabicTextEventCopyWithImpl<$Res>
+    extends _$DuaEventCopyWithImpl<$Res, _$SwitchDisplayArabicTextEvent>
+    implements _$$SwitchDisplayArabicTextEventCopyWith<$Res> {
+  __$$SwitchDisplayArabicTextEventCopyWithImpl(
+      _$SwitchDisplayArabicTextEvent _value,
+      $Res Function(_$SwitchDisplayArabicTextEvent) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? newValue = null,
+  }) {
+    return _then(_$SwitchDisplayArabicTextEvent(
+      newValue: null == newValue
+          ? _value.newValue
+          : newValue // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SwitchDisplayArabicTextEvent
+    with DiagnosticableTreeMixin
+    implements SwitchDisplayArabicTextEvent {
+  const _$SwitchDisplayArabicTextEvent({required this.newValue});
+
+  @override
+  final bool newValue;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'DuaEvent.switchDisplayArabicTextEvent(newValue: $newValue)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(
+          DiagnosticsProperty('type', 'DuaEvent.switchDisplayArabicTextEvent'))
+      ..add(DiagnosticsProperty('newValue', newValue));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SwitchDisplayArabicTextEvent &&
+            (identical(other.newValue, newValue) ||
+                other.newValue == newValue));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, newValue);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SwitchDisplayArabicTextEventCopyWith<_$SwitchDisplayArabicTextEvent>
+      get copyWith => __$$SwitchDisplayArabicTextEventCopyWithImpl<
+          _$SwitchDisplayArabicTextEvent>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() fetchDuaCategoryEvent,
+    required TResult Function(String categoryId) fetchDuaSubCategorybyCategory,
+    required TResult Function(String subCategoryId) fetchDuaBySubcategoryEvent,
+    required TResult Function(BuildContext context, String duaId)
+        addBookmarkEvent,
+    required TResult Function(BuildContext buildcontext) fetchDuaBookMarksEvent,
+    required TResult Function(BuildContext context, String duaId)
+        removeBookmark,
+    required TResult Function(double sliderVal) changeSliderEvent,
+    required TResult Function() fetchDuaById,
+    required TResult Function(String newName) changeSubcategoryNameEvent,
+    required TResult Function(int value) selectTranslationText,
+    required TResult Function(bool newValue) switchDisplayArabicTextEvent,
+    required TResult Function(bool newValue) switchDisplayTranslationTextEvent,
+  }) {
+    return switchDisplayArabicTextEvent(newValue);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? fetchDuaCategoryEvent,
+    TResult? Function(String categoryId)? fetchDuaSubCategorybyCategory,
+    TResult? Function(String subCategoryId)? fetchDuaBySubcategoryEvent,
+    TResult? Function(BuildContext context, String duaId)? addBookmarkEvent,
+    TResult? Function(BuildContext buildcontext)? fetchDuaBookMarksEvent,
+    TResult? Function(BuildContext context, String duaId)? removeBookmark,
+    TResult? Function(double sliderVal)? changeSliderEvent,
+    TResult? Function()? fetchDuaById,
+    TResult? Function(String newName)? changeSubcategoryNameEvent,
+    TResult? Function(int value)? selectTranslationText,
+    TResult? Function(bool newValue)? switchDisplayArabicTextEvent,
+    TResult? Function(bool newValue)? switchDisplayTranslationTextEvent,
+  }) {
+    return switchDisplayArabicTextEvent?.call(newValue);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? fetchDuaCategoryEvent,
+    TResult Function(String categoryId)? fetchDuaSubCategorybyCategory,
+    TResult Function(String subCategoryId)? fetchDuaBySubcategoryEvent,
+    TResult Function(BuildContext context, String duaId)? addBookmarkEvent,
+    TResult Function(BuildContext buildcontext)? fetchDuaBookMarksEvent,
+    TResult Function(BuildContext context, String duaId)? removeBookmark,
+    TResult Function(double sliderVal)? changeSliderEvent,
+    TResult Function()? fetchDuaById,
+    TResult Function(String newName)? changeSubcategoryNameEvent,
+    TResult Function(int value)? selectTranslationText,
+    TResult Function(bool newValue)? switchDisplayArabicTextEvent,
+    TResult Function(bool newValue)? switchDisplayTranslationTextEvent,
+    required TResult orElse(),
+  }) {
+    if (switchDisplayArabicTextEvent != null) {
+      return switchDisplayArabicTextEvent(newValue);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FetchDuaCategoryEvent value)
+        fetchDuaCategoryEvent,
+    required TResult Function(FetchDuaSubCategorybyCategory value)
+        fetchDuaSubCategorybyCategory,
+    required TResult Function(FetchDuaBySubcategoryEvent value)
+        fetchDuaBySubcategoryEvent,
+    required TResult Function(AddBookmarkEvent value) addBookmarkEvent,
+    required TResult Function(FetchDuaBookMarksEvent value)
+        fetchDuaBookMarksEvent,
+    required TResult Function(RemoveBookmark value) removeBookmark,
+    required TResult Function(ChangeSliderEvent value) changeSliderEvent,
+    required TResult Function(FetchDuaById value) fetchDuaById,
+    required TResult Function(ChangeSubcategoryNameEvent value)
+        changeSubcategoryNameEvent,
+    required TResult Function(SelectTranslationText value)
+        selectTranslationText,
+    required TResult Function(SwitchDisplayArabicTextEvent value)
+        switchDisplayArabicTextEvent,
+    required TResult Function(SwitchDisplayTranslationTextEvent value)
+        switchDisplayTranslationTextEvent,
+  }) {
+    return switchDisplayArabicTextEvent(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(FetchDuaCategoryEvent value)? fetchDuaCategoryEvent,
+    TResult? Function(FetchDuaSubCategorybyCategory value)?
+        fetchDuaSubCategorybyCategory,
+    TResult? Function(FetchDuaBySubcategoryEvent value)?
+        fetchDuaBySubcategoryEvent,
+    TResult? Function(AddBookmarkEvent value)? addBookmarkEvent,
+    TResult? Function(FetchDuaBookMarksEvent value)? fetchDuaBookMarksEvent,
+    TResult? Function(RemoveBookmark value)? removeBookmark,
+    TResult? Function(ChangeSliderEvent value)? changeSliderEvent,
+    TResult? Function(FetchDuaById value)? fetchDuaById,
+    TResult? Function(ChangeSubcategoryNameEvent value)?
+        changeSubcategoryNameEvent,
+    TResult? Function(SelectTranslationText value)? selectTranslationText,
+    TResult? Function(SwitchDisplayArabicTextEvent value)?
+        switchDisplayArabicTextEvent,
+    TResult? Function(SwitchDisplayTranslationTextEvent value)?
+        switchDisplayTranslationTextEvent,
+  }) {
+    return switchDisplayArabicTextEvent?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FetchDuaCategoryEvent value)? fetchDuaCategoryEvent,
+    TResult Function(FetchDuaSubCategorybyCategory value)?
+        fetchDuaSubCategorybyCategory,
+    TResult Function(FetchDuaBySubcategoryEvent value)?
+        fetchDuaBySubcategoryEvent,
+    TResult Function(AddBookmarkEvent value)? addBookmarkEvent,
+    TResult Function(FetchDuaBookMarksEvent value)? fetchDuaBookMarksEvent,
+    TResult Function(RemoveBookmark value)? removeBookmark,
+    TResult Function(ChangeSliderEvent value)? changeSliderEvent,
+    TResult Function(FetchDuaById value)? fetchDuaById,
+    TResult Function(ChangeSubcategoryNameEvent value)?
+        changeSubcategoryNameEvent,
+    TResult Function(SelectTranslationText value)? selectTranslationText,
+    TResult Function(SwitchDisplayArabicTextEvent value)?
+        switchDisplayArabicTextEvent,
+    TResult Function(SwitchDisplayTranslationTextEvent value)?
+        switchDisplayTranslationTextEvent,
+    required TResult orElse(),
+  }) {
+    if (switchDisplayArabicTextEvent != null) {
+      return switchDisplayArabicTextEvent(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SwitchDisplayArabicTextEvent implements DuaEvent {
+  const factory SwitchDisplayArabicTextEvent({required final bool newValue}) =
+      _$SwitchDisplayArabicTextEvent;
+
+  bool get newValue;
+  @JsonKey(ignore: true)
+  _$$SwitchDisplayArabicTextEventCopyWith<_$SwitchDisplayArabicTextEvent>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SwitchDisplayTranslationTextEventCopyWith<$Res> {
+  factory _$$SwitchDisplayTranslationTextEventCopyWith(
+          _$SwitchDisplayTranslationTextEvent value,
+          $Res Function(_$SwitchDisplayTranslationTextEvent) then) =
+      __$$SwitchDisplayTranslationTextEventCopyWithImpl<$Res>;
+  @useResult
+  $Res call({bool newValue});
+}
+
+/// @nodoc
+class __$$SwitchDisplayTranslationTextEventCopyWithImpl<$Res>
+    extends _$DuaEventCopyWithImpl<$Res, _$SwitchDisplayTranslationTextEvent>
+    implements _$$SwitchDisplayTranslationTextEventCopyWith<$Res> {
+  __$$SwitchDisplayTranslationTextEventCopyWithImpl(
+      _$SwitchDisplayTranslationTextEvent _value,
+      $Res Function(_$SwitchDisplayTranslationTextEvent) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? newValue = null,
+  }) {
+    return _then(_$SwitchDisplayTranslationTextEvent(
+      newValue: null == newValue
+          ? _value.newValue
+          : newValue // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SwitchDisplayTranslationTextEvent
+    with DiagnosticableTreeMixin
+    implements SwitchDisplayTranslationTextEvent {
+  const _$SwitchDisplayTranslationTextEvent({required this.newValue});
+
+  @override
+  final bool newValue;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'DuaEvent.switchDisplayTranslationTextEvent(newValue: $newValue)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty(
+          'type', 'DuaEvent.switchDisplayTranslationTextEvent'))
+      ..add(DiagnosticsProperty('newValue', newValue));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SwitchDisplayTranslationTextEvent &&
+            (identical(other.newValue, newValue) ||
+                other.newValue == newValue));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, newValue);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SwitchDisplayTranslationTextEventCopyWith<
+          _$SwitchDisplayTranslationTextEvent>
+      get copyWith => __$$SwitchDisplayTranslationTextEventCopyWithImpl<
+          _$SwitchDisplayTranslationTextEvent>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() fetchDuaCategoryEvent,
+    required TResult Function(String categoryId) fetchDuaSubCategorybyCategory,
+    required TResult Function(String subCategoryId) fetchDuaBySubcategoryEvent,
+    required TResult Function(BuildContext context, String duaId)
+        addBookmarkEvent,
+    required TResult Function(BuildContext buildcontext) fetchDuaBookMarksEvent,
+    required TResult Function(BuildContext context, String duaId)
+        removeBookmark,
+    required TResult Function(double sliderVal) changeSliderEvent,
+    required TResult Function() fetchDuaById,
+    required TResult Function(String newName) changeSubcategoryNameEvent,
+    required TResult Function(int value) selectTranslationText,
+    required TResult Function(bool newValue) switchDisplayArabicTextEvent,
+    required TResult Function(bool newValue) switchDisplayTranslationTextEvent,
+  }) {
+    return switchDisplayTranslationTextEvent(newValue);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? fetchDuaCategoryEvent,
+    TResult? Function(String categoryId)? fetchDuaSubCategorybyCategory,
+    TResult? Function(String subCategoryId)? fetchDuaBySubcategoryEvent,
+    TResult? Function(BuildContext context, String duaId)? addBookmarkEvent,
+    TResult? Function(BuildContext buildcontext)? fetchDuaBookMarksEvent,
+    TResult? Function(BuildContext context, String duaId)? removeBookmark,
+    TResult? Function(double sliderVal)? changeSliderEvent,
+    TResult? Function()? fetchDuaById,
+    TResult? Function(String newName)? changeSubcategoryNameEvent,
+    TResult? Function(int value)? selectTranslationText,
+    TResult? Function(bool newValue)? switchDisplayArabicTextEvent,
+    TResult? Function(bool newValue)? switchDisplayTranslationTextEvent,
+  }) {
+    return switchDisplayTranslationTextEvent?.call(newValue);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? fetchDuaCategoryEvent,
+    TResult Function(String categoryId)? fetchDuaSubCategorybyCategory,
+    TResult Function(String subCategoryId)? fetchDuaBySubcategoryEvent,
+    TResult Function(BuildContext context, String duaId)? addBookmarkEvent,
+    TResult Function(BuildContext buildcontext)? fetchDuaBookMarksEvent,
+    TResult Function(BuildContext context, String duaId)? removeBookmark,
+    TResult Function(double sliderVal)? changeSliderEvent,
+    TResult Function()? fetchDuaById,
+    TResult Function(String newName)? changeSubcategoryNameEvent,
+    TResult Function(int value)? selectTranslationText,
+    TResult Function(bool newValue)? switchDisplayArabicTextEvent,
+    TResult Function(bool newValue)? switchDisplayTranslationTextEvent,
+    required TResult orElse(),
+  }) {
+    if (switchDisplayTranslationTextEvent != null) {
+      return switchDisplayTranslationTextEvent(newValue);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FetchDuaCategoryEvent value)
+        fetchDuaCategoryEvent,
+    required TResult Function(FetchDuaSubCategorybyCategory value)
+        fetchDuaSubCategorybyCategory,
+    required TResult Function(FetchDuaBySubcategoryEvent value)
+        fetchDuaBySubcategoryEvent,
+    required TResult Function(AddBookmarkEvent value) addBookmarkEvent,
+    required TResult Function(FetchDuaBookMarksEvent value)
+        fetchDuaBookMarksEvent,
+    required TResult Function(RemoveBookmark value) removeBookmark,
+    required TResult Function(ChangeSliderEvent value) changeSliderEvent,
+    required TResult Function(FetchDuaById value) fetchDuaById,
+    required TResult Function(ChangeSubcategoryNameEvent value)
+        changeSubcategoryNameEvent,
+    required TResult Function(SelectTranslationText value)
+        selectTranslationText,
+    required TResult Function(SwitchDisplayArabicTextEvent value)
+        switchDisplayArabicTextEvent,
+    required TResult Function(SwitchDisplayTranslationTextEvent value)
+        switchDisplayTranslationTextEvent,
+  }) {
+    return switchDisplayTranslationTextEvent(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(FetchDuaCategoryEvent value)? fetchDuaCategoryEvent,
+    TResult? Function(FetchDuaSubCategorybyCategory value)?
+        fetchDuaSubCategorybyCategory,
+    TResult? Function(FetchDuaBySubcategoryEvent value)?
+        fetchDuaBySubcategoryEvent,
+    TResult? Function(AddBookmarkEvent value)? addBookmarkEvent,
+    TResult? Function(FetchDuaBookMarksEvent value)? fetchDuaBookMarksEvent,
+    TResult? Function(RemoveBookmark value)? removeBookmark,
+    TResult? Function(ChangeSliderEvent value)? changeSliderEvent,
+    TResult? Function(FetchDuaById value)? fetchDuaById,
+    TResult? Function(ChangeSubcategoryNameEvent value)?
+        changeSubcategoryNameEvent,
+    TResult? Function(SelectTranslationText value)? selectTranslationText,
+    TResult? Function(SwitchDisplayArabicTextEvent value)?
+        switchDisplayArabicTextEvent,
+    TResult? Function(SwitchDisplayTranslationTextEvent value)?
+        switchDisplayTranslationTextEvent,
+  }) {
+    return switchDisplayTranslationTextEvent?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FetchDuaCategoryEvent value)? fetchDuaCategoryEvent,
+    TResult Function(FetchDuaSubCategorybyCategory value)?
+        fetchDuaSubCategorybyCategory,
+    TResult Function(FetchDuaBySubcategoryEvent value)?
+        fetchDuaBySubcategoryEvent,
+    TResult Function(AddBookmarkEvent value)? addBookmarkEvent,
+    TResult Function(FetchDuaBookMarksEvent value)? fetchDuaBookMarksEvent,
+    TResult Function(RemoveBookmark value)? removeBookmark,
+    TResult Function(ChangeSliderEvent value)? changeSliderEvent,
+    TResult Function(FetchDuaById value)? fetchDuaById,
+    TResult Function(ChangeSubcategoryNameEvent value)?
+        changeSubcategoryNameEvent,
+    TResult Function(SelectTranslationText value)? selectTranslationText,
+    TResult Function(SwitchDisplayArabicTextEvent value)?
+        switchDisplayArabicTextEvent,
+    TResult Function(SwitchDisplayTranslationTextEvent value)?
+        switchDisplayTranslationTextEvent,
+    required TResult orElse(),
+  }) {
+    if (switchDisplayTranslationTextEvent != null) {
+      return switchDisplayTranslationTextEvent(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SwitchDisplayTranslationTextEvent implements DuaEvent {
+  const factory SwitchDisplayTranslationTextEvent(
+      {required final bool newValue}) = _$SwitchDisplayTranslationTextEvent;
+
+  bool get newValue;
+  @JsonKey(ignore: true)
+  _$$SwitchDisplayTranslationTextEventCopyWith<
+          _$SwitchDisplayTranslationTextEvent>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$DuaState {
   bool get isLoading => throw _privateConstructorUsedError;
   DuaCategoryModel? get duaCategoryModel => throw _privateConstructorUsedError;
@@ -695,6 +2828,16 @@ mixin _$DuaState {
   DuaSubcategoryModel? get duaSubcategoryModel =>
       throw _privateConstructorUsedError;
   DuaModel? get duaModel => throw _privateConstructorUsedError;
+  String get bookmarkSuccess => throw _privateConstructorUsedError;
+  String get bookmarkError => throw _privateConstructorUsedError;
+  double get sliderValue => throw _privateConstructorUsedError;
+  String get subCategoryName => throw _privateConstructorUsedError;
+  Set<String>? get bookmarkItems => throw _privateConstructorUsedError;
+  List<DuaModelById>? get duaModelbyId => throw _privateConstructorUsedError;
+  int get bookMarkLength => throw _privateConstructorUsedError;
+  int get translationText => throw _privateConstructorUsedError;
+  bool get displayArabicText => throw _privateConstructorUsedError;
+  bool get displayTranslationText => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $DuaStateCopyWith<DuaState> get copyWith =>
@@ -711,7 +2854,17 @@ abstract class $DuaStateCopyWith<$Res> {
       DuaCategoryModel? duaCategoryModel,
       DuaBookMarkModel? duaBookMarkModel,
       DuaSubcategoryModel? duaSubcategoryModel,
-      DuaModel? duaModel});
+      DuaModel? duaModel,
+      String bookmarkSuccess,
+      String bookmarkError,
+      double sliderValue,
+      String subCategoryName,
+      Set<String>? bookmarkItems,
+      List<DuaModelById>? duaModelbyId,
+      int bookMarkLength,
+      int translationText,
+      bool displayArabicText,
+      bool displayTranslationText});
 
   $DuaCategoryModelCopyWith<$Res>? get duaCategoryModel;
   $DuaBookMarkModelCopyWith<$Res>? get duaBookMarkModel;
@@ -737,6 +2890,16 @@ class _$DuaStateCopyWithImpl<$Res, $Val extends DuaState>
     Object? duaBookMarkModel = freezed,
     Object? duaSubcategoryModel = freezed,
     Object? duaModel = freezed,
+    Object? bookmarkSuccess = null,
+    Object? bookmarkError = null,
+    Object? sliderValue = null,
+    Object? subCategoryName = null,
+    Object? bookmarkItems = freezed,
+    Object? duaModelbyId = freezed,
+    Object? bookMarkLength = null,
+    Object? translationText = null,
+    Object? displayArabicText = null,
+    Object? displayTranslationText = null,
   }) {
     return _then(_value.copyWith(
       isLoading: null == isLoading
@@ -759,6 +2922,46 @@ class _$DuaStateCopyWithImpl<$Res, $Val extends DuaState>
           ? _value.duaModel
           : duaModel // ignore: cast_nullable_to_non_nullable
               as DuaModel?,
+      bookmarkSuccess: null == bookmarkSuccess
+          ? _value.bookmarkSuccess
+          : bookmarkSuccess // ignore: cast_nullable_to_non_nullable
+              as String,
+      bookmarkError: null == bookmarkError
+          ? _value.bookmarkError
+          : bookmarkError // ignore: cast_nullable_to_non_nullable
+              as String,
+      sliderValue: null == sliderValue
+          ? _value.sliderValue
+          : sliderValue // ignore: cast_nullable_to_non_nullable
+              as double,
+      subCategoryName: null == subCategoryName
+          ? _value.subCategoryName
+          : subCategoryName // ignore: cast_nullable_to_non_nullable
+              as String,
+      bookmarkItems: freezed == bookmarkItems
+          ? _value.bookmarkItems
+          : bookmarkItems // ignore: cast_nullable_to_non_nullable
+              as Set<String>?,
+      duaModelbyId: freezed == duaModelbyId
+          ? _value.duaModelbyId
+          : duaModelbyId // ignore: cast_nullable_to_non_nullable
+              as List<DuaModelById>?,
+      bookMarkLength: null == bookMarkLength
+          ? _value.bookMarkLength
+          : bookMarkLength // ignore: cast_nullable_to_non_nullable
+              as int,
+      translationText: null == translationText
+          ? _value.translationText
+          : translationText // ignore: cast_nullable_to_non_nullable
+              as int,
+      displayArabicText: null == displayArabicText
+          ? _value.displayArabicText
+          : displayArabicText // ignore: cast_nullable_to_non_nullable
+              as bool,
+      displayTranslationText: null == displayTranslationText
+          ? _value.displayTranslationText
+          : displayTranslationText // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 
@@ -824,7 +3027,17 @@ abstract class _$$_DuaStateCopyWith<$Res> implements $DuaStateCopyWith<$Res> {
       DuaCategoryModel? duaCategoryModel,
       DuaBookMarkModel? duaBookMarkModel,
       DuaSubcategoryModel? duaSubcategoryModel,
-      DuaModel? duaModel});
+      DuaModel? duaModel,
+      String bookmarkSuccess,
+      String bookmarkError,
+      double sliderValue,
+      String subCategoryName,
+      Set<String>? bookmarkItems,
+      List<DuaModelById>? duaModelbyId,
+      int bookMarkLength,
+      int translationText,
+      bool displayArabicText,
+      bool displayTranslationText});
 
   @override
   $DuaCategoryModelCopyWith<$Res>? get duaCategoryModel;
@@ -852,6 +3065,16 @@ class __$$_DuaStateCopyWithImpl<$Res>
     Object? duaBookMarkModel = freezed,
     Object? duaSubcategoryModel = freezed,
     Object? duaModel = freezed,
+    Object? bookmarkSuccess = null,
+    Object? bookmarkError = null,
+    Object? sliderValue = null,
+    Object? subCategoryName = null,
+    Object? bookmarkItems = freezed,
+    Object? duaModelbyId = freezed,
+    Object? bookMarkLength = null,
+    Object? translationText = null,
+    Object? displayArabicText = null,
+    Object? displayTranslationText = null,
   }) {
     return _then(_$_DuaState(
       isLoading: null == isLoading
@@ -874,19 +3097,71 @@ class __$$_DuaStateCopyWithImpl<$Res>
           ? _value.duaModel
           : duaModel // ignore: cast_nullable_to_non_nullable
               as DuaModel?,
+      bookmarkSuccess: null == bookmarkSuccess
+          ? _value.bookmarkSuccess
+          : bookmarkSuccess // ignore: cast_nullable_to_non_nullable
+              as String,
+      bookmarkError: null == bookmarkError
+          ? _value.bookmarkError
+          : bookmarkError // ignore: cast_nullable_to_non_nullable
+              as String,
+      sliderValue: null == sliderValue
+          ? _value.sliderValue
+          : sliderValue // ignore: cast_nullable_to_non_nullable
+              as double,
+      subCategoryName: null == subCategoryName
+          ? _value.subCategoryName
+          : subCategoryName // ignore: cast_nullable_to_non_nullable
+              as String,
+      bookmarkItems: freezed == bookmarkItems
+          ? _value._bookmarkItems
+          : bookmarkItems // ignore: cast_nullable_to_non_nullable
+              as Set<String>?,
+      duaModelbyId: freezed == duaModelbyId
+          ? _value._duaModelbyId
+          : duaModelbyId // ignore: cast_nullable_to_non_nullable
+              as List<DuaModelById>?,
+      bookMarkLength: null == bookMarkLength
+          ? _value.bookMarkLength
+          : bookMarkLength // ignore: cast_nullable_to_non_nullable
+              as int,
+      translationText: null == translationText
+          ? _value.translationText
+          : translationText // ignore: cast_nullable_to_non_nullable
+              as int,
+      displayArabicText: null == displayArabicText
+          ? _value.displayArabicText
+          : displayArabicText // ignore: cast_nullable_to_non_nullable
+              as bool,
+      displayTranslationText: null == displayTranslationText
+          ? _value.displayTranslationText
+          : displayTranslationText // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
 
 /// @nodoc
 
-class _$_DuaState implements _DuaState {
+class _$_DuaState with DiagnosticableTreeMixin implements _DuaState {
   const _$_DuaState(
       {required this.isLoading,
       required this.duaCategoryModel,
       required this.duaBookMarkModel,
       required this.duaSubcategoryModel,
-      required this.duaModel});
+      required this.duaModel,
+      required this.bookmarkSuccess,
+      required this.bookmarkError,
+      required this.sliderValue,
+      required this.subCategoryName,
+      required final Set<String>? bookmarkItems,
+      required final List<DuaModelById>? duaModelbyId,
+      required this.bookMarkLength,
+      required this.translationText,
+      required this.displayArabicText,
+      required this.displayTranslationText})
+      : _bookmarkItems = bookmarkItems,
+        _duaModelbyId = duaModelbyId;
 
   @override
   final bool isLoading;
@@ -898,10 +3173,69 @@ class _$_DuaState implements _DuaState {
   final DuaSubcategoryModel? duaSubcategoryModel;
   @override
   final DuaModel? duaModel;
+  @override
+  final String bookmarkSuccess;
+  @override
+  final String bookmarkError;
+  @override
+  final double sliderValue;
+  @override
+  final String subCategoryName;
+  final Set<String>? _bookmarkItems;
+  @override
+  Set<String>? get bookmarkItems {
+    final value = _bookmarkItems;
+    if (value == null) return null;
+    if (_bookmarkItems is EqualUnmodifiableSetView) return _bookmarkItems;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableSetView(value);
+  }
+
+  final List<DuaModelById>? _duaModelbyId;
+  @override
+  List<DuaModelById>? get duaModelbyId {
+    final value = _duaModelbyId;
+    if (value == null) return null;
+    if (_duaModelbyId is EqualUnmodifiableListView) return _duaModelbyId;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
 
   @override
-  String toString() {
-    return 'DuaState(isLoading: $isLoading, duaCategoryModel: $duaCategoryModel, duaBookMarkModel: $duaBookMarkModel, duaSubcategoryModel: $duaSubcategoryModel, duaModel: $duaModel)';
+  final int bookMarkLength;
+  @override
+  final int translationText;
+  @override
+  final bool displayArabicText;
+  @override
+  final bool displayTranslationText;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'DuaState(isLoading: $isLoading, duaCategoryModel: $duaCategoryModel, duaBookMarkModel: $duaBookMarkModel, duaSubcategoryModel: $duaSubcategoryModel, duaModel: $duaModel, bookmarkSuccess: $bookmarkSuccess, bookmarkError: $bookmarkError, sliderValue: $sliderValue, subCategoryName: $subCategoryName, bookmarkItems: $bookmarkItems, duaModelbyId: $duaModelbyId, bookMarkLength: $bookMarkLength, translationText: $translationText, displayArabicText: $displayArabicText, displayTranslationText: $displayTranslationText)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'DuaState'))
+      ..add(DiagnosticsProperty('isLoading', isLoading))
+      ..add(DiagnosticsProperty('duaCategoryModel', duaCategoryModel))
+      ..add(DiagnosticsProperty('duaBookMarkModel', duaBookMarkModel))
+      ..add(DiagnosticsProperty('duaSubcategoryModel', duaSubcategoryModel))
+      ..add(DiagnosticsProperty('duaModel', duaModel))
+      ..add(DiagnosticsProperty('bookmarkSuccess', bookmarkSuccess))
+      ..add(DiagnosticsProperty('bookmarkError', bookmarkError))
+      ..add(DiagnosticsProperty('sliderValue', sliderValue))
+      ..add(DiagnosticsProperty('subCategoryName', subCategoryName))
+      ..add(DiagnosticsProperty('bookmarkItems', bookmarkItems))
+      ..add(DiagnosticsProperty('duaModelbyId', duaModelbyId))
+      ..add(DiagnosticsProperty('bookMarkLength', bookMarkLength))
+      ..add(DiagnosticsProperty('translationText', translationText))
+      ..add(DiagnosticsProperty('displayArabicText', displayArabicText))
+      ..add(DiagnosticsProperty(
+          'displayTranslationText', displayTranslationText));
   }
 
   @override
@@ -918,12 +3252,47 @@ class _$_DuaState implements _DuaState {
             (identical(other.duaSubcategoryModel, duaSubcategoryModel) ||
                 other.duaSubcategoryModel == duaSubcategoryModel) &&
             (identical(other.duaModel, duaModel) ||
-                other.duaModel == duaModel));
+                other.duaModel == duaModel) &&
+            (identical(other.bookmarkSuccess, bookmarkSuccess) ||
+                other.bookmarkSuccess == bookmarkSuccess) &&
+            (identical(other.bookmarkError, bookmarkError) ||
+                other.bookmarkError == bookmarkError) &&
+            (identical(other.sliderValue, sliderValue) ||
+                other.sliderValue == sliderValue) &&
+            (identical(other.subCategoryName, subCategoryName) ||
+                other.subCategoryName == subCategoryName) &&
+            const DeepCollectionEquality()
+                .equals(other._bookmarkItems, _bookmarkItems) &&
+            const DeepCollectionEquality()
+                .equals(other._duaModelbyId, _duaModelbyId) &&
+            (identical(other.bookMarkLength, bookMarkLength) ||
+                other.bookMarkLength == bookMarkLength) &&
+            (identical(other.translationText, translationText) ||
+                other.translationText == translationText) &&
+            (identical(other.displayArabicText, displayArabicText) ||
+                other.displayArabicText == displayArabicText) &&
+            (identical(other.displayTranslationText, displayTranslationText) ||
+                other.displayTranslationText == displayTranslationText));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, isLoading, duaCategoryModel,
-      duaBookMarkModel, duaSubcategoryModel, duaModel);
+  int get hashCode => Object.hash(
+      runtimeType,
+      isLoading,
+      duaCategoryModel,
+      duaBookMarkModel,
+      duaSubcategoryModel,
+      duaModel,
+      bookmarkSuccess,
+      bookmarkError,
+      sliderValue,
+      subCategoryName,
+      const DeepCollectionEquality().hash(_bookmarkItems),
+      const DeepCollectionEquality().hash(_duaModelbyId),
+      bookMarkLength,
+      translationText,
+      displayArabicText,
+      displayTranslationText);
 
   @JsonKey(ignore: true)
   @override
@@ -938,7 +3307,17 @@ abstract class _DuaState implements DuaState {
       required final DuaCategoryModel? duaCategoryModel,
       required final DuaBookMarkModel? duaBookMarkModel,
       required final DuaSubcategoryModel? duaSubcategoryModel,
-      required final DuaModel? duaModel}) = _$_DuaState;
+      required final DuaModel? duaModel,
+      required final String bookmarkSuccess,
+      required final String bookmarkError,
+      required final double sliderValue,
+      required final String subCategoryName,
+      required final Set<String>? bookmarkItems,
+      required final List<DuaModelById>? duaModelbyId,
+      required final int bookMarkLength,
+      required final int translationText,
+      required final bool displayArabicText,
+      required final bool displayTranslationText}) = _$_DuaState;
 
   @override
   bool get isLoading;
@@ -950,6 +3329,26 @@ abstract class _DuaState implements DuaState {
   DuaSubcategoryModel? get duaSubcategoryModel;
   @override
   DuaModel? get duaModel;
+  @override
+  String get bookmarkSuccess;
+  @override
+  String get bookmarkError;
+  @override
+  double get sliderValue;
+  @override
+  String get subCategoryName;
+  @override
+  Set<String>? get bookmarkItems;
+  @override
+  List<DuaModelById>? get duaModelbyId;
+  @override
+  int get bookMarkLength;
+  @override
+  int get translationText;
+  @override
+  bool get displayArabicText;
+  @override
+  bool get displayTranslationText;
   @override
   @JsonKey(ignore: true)
   _$$_DuaStateCopyWith<_$_DuaState> get copyWith =>

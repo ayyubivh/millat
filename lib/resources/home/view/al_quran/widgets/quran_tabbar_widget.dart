@@ -116,15 +116,17 @@ class _QuranTabBarWidgetState extends State<QuranTabBarWidget> {
                                   color: ColorManager.primary,
                                   fontSize: 17,
                                   fontWeight: FontWeight.w600,
+                                  fontFamily: 'Hafs',
                                 ),
                               ),
                               subtitle: Text(
                                 data[index].verses[0].verseKey,
                                 style: TextStyle(
-                                    color: ColorManager.blackColor,
-                                    fontSize: 13,
-                                    fontWeight: FontWeight.bold,
-                                    height: 2),
+                                  color: ColorManager.blackColor,
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.bold,
+                                  height: 2,
+                                ),
                               ),
                               trailing: const Text(
                                 'Today',
@@ -214,6 +216,7 @@ class _QuranTabBarWidgetState extends State<QuranTabBarWidget> {
                     style: const TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.w800,
+                      fontFamily: 'Hafs',
                     ),
                   ),
                 ],
@@ -320,6 +323,7 @@ class _QuranTabBarWidgetState extends State<QuranTabBarWidget> {
         style: const TextStyle(
           fontSize: 21,
           fontWeight: FontWeight.w800,
+          fontFamily: 'Hafs',
         ),
       ),
     );

@@ -150,6 +150,7 @@ class BookmarkCollectionView extends StatelessWidget {
                 style: const TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
+                  fontFamily: 'Hafs',
                 ),
                 // maxLines: 2,
                 overflow: TextOverflow.ellipsis,

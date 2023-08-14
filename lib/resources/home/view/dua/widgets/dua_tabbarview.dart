@@ -63,10 +63,16 @@ class DuaTabbarview extends StatelessWidget {
                                           categoryId: state.duaCategoryModel!
                                               .result.duaCategory[index].id
                                               .toString()));
+                                  context.read<DuaBloc>().add(
+                                      ChangeSubcategoryNameEvent(
+                                          newName: state
+                                              .duaCategoryModel!
+                                              .result
+                                              .duaCategory[index]
+                                              .category!));
                                   Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (context) => DuaCategoryView(
-                                      category: data[index].category.toString(),
-                                    ),
+                                    builder: (context) =>
+                                        const DuaCategoryView(),
                                   ));
                                 },
                                 child: Container(

@@ -4,7 +4,8 @@ import 'package:millat/utils/constants.dart';
 
 class ShareBgSingleView extends StatelessWidget {
   final String image;
-  const ShareBgSingleView({super.key, required this.image});
+  final String text;
+  const ShareBgSingleView({super.key, required this.image, required this.text});
 
   @override
   Widget build(BuildContext context) {
@@ -17,24 +18,22 @@ class ShareBgSingleView extends StatelessWidget {
           backgroundColor: Colors.white,
           centerTitle: true,
           elevation: 0,
-          title: Expanded(
-            // Wrap Row with Expanded
-            child: Container(
-              height: 32,
-              width: 162,
-              child: Row(
-                children: [
-                  Container(
+          title: SizedBox(
+            height: 32,
+            width: 170,
+            child: Row(
+              children: [
+                Expanded(
+                  child: Container(
                     height: 32,
                     width: 80,
                     decoration: BoxDecoration(
                       color: Colors.white,
                       border: Border.all(
-                        color: ColorManager
-                            .primary, // Replace with your desired color
+                        color: ColorManager.primary,
                       ),
                     ),
-                    child: Center(
+                    child: const Center(
                       child: Text(
                         "Arabic",
                         style: TextStyle(
@@ -44,13 +43,14 @@ class ShareBgSingleView extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(width: 10),
-                  Container(
+                ),
+                const SizedBox(width: 10),
+                Expanded(
+                  child: Container(
                     height: 32,
                     width: 80,
                     decoration: BoxDecoration(
-                      color: ColorManager
-                          .primary, // Replace with your desired color
+                      color: ColorManager.primary,
                     ),
                     child: Center(
                       child: Text(
@@ -62,19 +62,22 @@ class ShareBgSingleView extends StatelessWidget {
                         ),
                       ),
                     ),
-                  )
-                ],
-              ),
+                  ),
+                )
+              ],
             ),
           ),
           actions: [
             Center(
-              child: Text(
-                'Share',
-                style: TextStyle(
-                  fontSize: 17,
-                  fontWeight: FontWeight.w600,
-                  color: ColorManager.primary,
+              child: GestureDetector(
+                onTap: () {},
+                child: Text(
+                  'Share',
+                  style: TextStyle(
+                    fontSize: 17,
+                    fontWeight: FontWeight.w600,
+                    color: ColorManager.primary,
+                  ),
                 ),
               ),
             ),
@@ -84,8 +87,24 @@ class ShareBgSingleView extends StatelessWidget {
       ),
       body: Column(
         children: [
-          Divider(thickness: 1),
-          Image.asset(image),
+          const Divider(thickness: 1),
+          Stack(
+            children: [
+              Image.asset(image),
+              Positioned(
+                top: 20,
+                left: 20,
+                child: Text(
+                  text,
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.w500,
+                    color: ColorManager.whiteColor,
+                  ),
+                ),
+              ),
+            ],
+          ),
         ],
       ),
     );

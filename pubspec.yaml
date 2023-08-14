@@ -107,10 +107,9 @@ flutter:
       fonts:
         - asset: fonts/sofia_pro/sofiapro-light.otf
           weight: 900
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
+    - family: Hafs
+      fonts:
+        - asset: fonts/sofia_pro/UthmanicHafs1-Ver18.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro

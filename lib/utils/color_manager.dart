@@ -26,6 +26,7 @@ class ColorManager {
   static Color black4A = HexColor.fromHex("#4A4A4A");
   static Color textGrey84 = HexColor.fromHex("#848484");
   static Color textGreyAd = HexColor.fromHex("#ADADAD");
+  static Color tasbihPinkClr = HexColor.fromHex("#FBE5E8");
 }
 
 extension HexColor on Color {

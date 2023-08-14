@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/resources/home/bloc/logic/bookmark_bloc/bookmark_bloc.dart';
+import 'package:millat/resources/home/bloc/logic/dua_bloc/dua_bloc.dart';
 import 'package:millat/resources/home/bloc/logic/namaz_timing_bloc/namaz_timing_bloc.dart';
 import 'package:millat/resources/home/view/dua/dua_view.dart';
 import 'package:millat/resources/home/view/qibla/qibla_view.dart';
@@ -178,15 +179,26 @@ class _HomeViewState extends State<HomeView> {
                                         text: 'Hadith',
                                         onTap: () {},
                                       ),
-                                      buildIconWidget(
-                                        image: 'assets/icons/qibla.png',
-                                        text: 'Qibla',
-                                        onTap: () => Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                              builder: (context) =>
-                                                  const QiblahScreen(),
-                                            )),
+                                      BlocBuilder<LocationBloc, LocationState>(
+                                        builder: (context, state) =>
+                                            buildIconWidget(
+                                          image: 'assets/icons/qibla.png',
+                                          text: 'Qibla',
+                                          onTap: () {
+                                            if (state
+                                                .currentLocaion.isNotEmpty) {
+                                              Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        const QiblahScreen(),
+                                                  ));
+                                            } else {
+                                              showSnackBar(context,
+                                                  "Please turn on location!");
+                                            }
+                                          },
+                                        ),
                                       ),
                                       buildIconWidget(
                                         image: 'assets/icons/tasbih.png',

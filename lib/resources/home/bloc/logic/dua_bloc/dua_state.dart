@@ -8,6 +8,16 @@ class DuaState with _$DuaState {
     required DuaBookMarkModel? duaBookMarkModel,
     required DuaSubcategoryModel? duaSubcategoryModel,
     required DuaModel? duaModel,
+    required String bookmarkSuccess,
+    required String bookmarkError,
+    required double sliderValue,
+    required String subCategoryName,
+    required Set<String>? bookmarkItems,
+    required List<DuaModelById>? duaModelbyId,
+    required int bookMarkLength,
+    required int translationText,
+    required bool displayArabicText,
+    required bool displayTranslationText,
   }) = _DuaState;
   factory DuaState.initial() => const DuaState(
         isLoading: false,
@@ -15,5 +25,15 @@ class DuaState with _$DuaState {
         duaBookMarkModel: null,
         duaSubcategoryModel: null,
         duaModel: null,
+        bookmarkSuccess: "",
+        bookmarkError: "",
+        sliderValue: 17.0,
+        duaModelbyId: [],
+        subCategoryName: "",
+        bookmarkItems: {},
+        bookMarkLength: 0,
+        translationText: 0,
+        displayArabicText: true,
+        displayTranslationText: true,
       );
 }

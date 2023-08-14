@@ -77,6 +77,7 @@ class BookMarkCollectionContainer extends StatelessWidget {
             style: const TextStyle(
               fontSize: 21,
               fontWeight: FontWeight.bold,
+              fontFamily: 'Hafs',
             ),
           ),
           kWidth5,

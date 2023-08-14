@@ -3,6 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/resources/home/bloc/logic/dua_bloc/dua_bloc.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
+import 'package:millat/utils/loader.dart';
+
+import '../../../../../utils/size_utility.dart';
 
 class DuaBookMarkView extends StatelessWidget {
   const DuaBookMarkView({super.key});
@@ -10,7 +13,7 @@ class DuaBookMarkView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      BlocProvider.of<DuaBloc>(context).add(FetchDuaBookMarksEvent(context));
+      context.read<DuaBloc>().add(const FetchDuaById());
     });
     return Scaffold(
       backgroundColor: ColorManager.whiteColor,
@@ -29,95 +32,146 @@ class DuaBookMarkView extends StatelessWidget {
       ),
       body: Column(
         children: [
-          BlocBuilder<DuaBloc, DuaState>(
-            builder: (context, state) => Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30),
-              child: Column(
-                children: [
-                  kHeight15,
-                  Container(
-                    decoration: BoxDecoration(
-                      color: ColorManager.veryLightGreen,
-                      border: Border.all(
-                        color: ColorManager.greyD1,
-                      ),
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    padding: const EdgeInsets.all(12),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
-                          children: [
-                            Text(
-                              state.duaBookMarkModel!.result!.bookmarks[0].id
-                                  .toString(),
-                              style: TextStyle(
-                                fontSize: 17,
-                                fontWeight: FontWeight.w600,
-                              ),
-                            ),
-                            const Spacer(),
-                            const ImageIcon(
-                              AssetImage("assets/icons/dua_tasbih.png"),
-                              size: 20,
-                            ),
-                            kWidth15,
-                            ImageIcon(
-                              AssetImage("assets/icons/bookmark_filled.png"),
-                              size: 20,
-                              color: ColorManager.black4F,
-                            ),
-                            kWidth15,
-                            Container(
-                              height: 30,
-                              width: 30,
-                              decoration: BoxDecoration(
-                                color: ColorManager.whiteColor,
-                                borderRadius: BorderRadius.circular(12),
-                              ),
-                              child: const Icon(
-                                Icons.close,
-                                size: 16,
-                              ),
-                            )
-                          ],
-                        ),
-                        kHeight10,
-                        Text(
-                          'Dua : Hisnual',
-                          style: TextStyle(
-                            fontSize: 13,
-                            fontWeight: FontWeight.w600,
-                            color: ColorManager.black4F,
-                          ),
-                        ),
-                        kHeight15,
-                        Text(
-                          'Praise is to Allah Who gives us life after He has caused us to die and to Him is the return',
-                          style: TextStyle(
-                            fontSize: 15,
-                            fontWeight: FontWeight.w500,
-                            color: ColorManager.black79,
-                          ),
-                        ),
-                        kHeight10,
-                        Text(
-                          'أَعُوذُ بِاللَّهِ مِنَ الشَّيْطَانِ الرَّجِيمِ. اللَّهُ لاَ إِلَهَ إِلاَّ هُوَ الْحَيُّ الْقَيُّومُ لاَ تَأْخُذُهُ سِنَةٌ وَلاَ نَوْمٌ لَّهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الأَرْضِ مَن ذَا الَّذِي يَشْفَعُ عِنْدَهُ إِلاَّ بِإِذْنِهِ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ وَلاَ يُحِيطُونَ بِشَىْءٍ مِّنْ عِلْمِهِ إِلاَّ بِمَا شَاءَ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالأَرْضَ وَلاَ يَؤُودُهُ حِفْظُهُمَا وَهُوَ الْعَلِيُّ الْعَظِيمُ...',
-                          style: TextStyle(
-                            fontSize: 13,
-                            fontWeight: FontWeight.w600,
-                            color: ColorManager.primary,
-                          ),
-                          textDirection: TextDirection.rtl,
-                        ),
-                      ],
-                    ),
+          BlocBuilder<DuaBloc, DuaState>(builder: (context, state) {
+            if (state.isLoading) {
+              return const Loader();
+            } else if (state.duaModelbyId == null) {
+              return const Loader();
+            } else if (state
+                .duaBookMarkModel!.result!.bookmarks[0].bookmarks.isEmpty) {
+              return Padding(
+                padding: EdgeInsets.only(top: SizeUtility(context).height / 3),
+                child: const Center(
+                    child: Text(
+                  "Book Mark is Empty",
+                  style: TextStyle(
+                    fontSize: 20,
                   ),
-                ],
-              ),
-            ),
-          )
+                )),
+              );
+            } else {
+              return Expanded(
+                child: ListView.builder(
+                  itemCount: state.duaModelbyId!.length,
+                  itemBuilder: (context, index) {
+                    final data = state.duaModelbyId![index].result!.dua;
+                    return !state.bookmarkItems!.contains(data?.id)
+                        ? const SizedBox()
+                        : Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 30),
+                            child: Column(
+                              children: [
+                                kHeight15,
+                                Container(
+                                  decoration: BoxDecoration(
+                                    color: ColorManager.veryLightGreen,
+                                    border: Border.all(
+                                      color: ColorManager.greyD1,
+                                    ),
+                                    borderRadius: BorderRadius.circular(12),
+                                  ),
+                                  padding: const EdgeInsets.all(12),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Row(
+                                        children: [
+                                          Text(
+                                            data!.subCategoryId.category
+                                                .category,
+                                            style: const TextStyle(
+                                              fontSize: 17,
+                                              fontWeight: FontWeight.w600,
+                                            ),
+                                          ),
+                                          const Spacer(),
+                                          const ImageIcon(
+                                            AssetImage(
+                                                "assets/icons/dua_tasbih.png"),
+                                            size: 20,
+                                          ),
+                                          kWidth15,
+                                          ImageIcon(
+                                            const AssetImage(
+                                                "assets/icons/bookmark_filled.png"),
+                                            size: 20,
+                                            color: ColorManager.black4F,
+                                          ),
+                                          kWidth15,
+                                          Container(
+                                              height: 30,
+                                              width: 30,
+                                              decoration: BoxDecoration(
+                                                color: ColorManager.whiteColor,
+                                                borderRadius:
+                                                    BorderRadius.circular(8),
+                                              ),
+                                              child: IconButton(
+                                                onPressed: () {
+                                                  context
+                                                      .read<DuaBloc>()
+                                                      .add(RemoveBookmark(
+                                                        context: context,
+                                                        duaId: state
+                                                            .duaBookMarkModel!
+                                                            .result!
+                                                            .bookmarks[0]
+                                                            .bookmarks[index]
+                                                            .duaId,
+                                                      ));
+                                                },
+                                                icon: const Icon(
+                                                  Icons.close,
+                                                  size: 16,
+                                                ),
+                                              ))
+                                        ],
+                                      ),
+                                      kHeight10,
+                                      Text(
+                                        'Dua : ${data.resource}',
+                                        style: TextStyle(
+                                          fontSize: 13,
+                                          fontWeight: FontWeight.w600,
+                                          color: ColorManager.black4F,
+                                        ),
+                                      ),
+                                      kHeight15,
+                                      Text(
+                                        data.translations.isNotEmpty
+                                            ? data
+                                                .translations[
+                                                    state.translationText]
+                                                .content
+                                            : 'Empty',
+                                        style: TextStyle(
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.w500,
+                                          color: ColorManager.black79,
+                                        ),
+                                      ),
+                                      kHeight10,
+                                      Text(
+                                        data.content,
+                                        style: TextStyle(
+                                          fontSize: 13,
+                                          fontWeight: FontWeight.w600,
+                                          color: ColorManager.primary,
+                                        ),
+                                        textDirection: TextDirection.rtl,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          );
+                  },
+                ),
+              );
+            }
+          })
         ],
       ),
     );

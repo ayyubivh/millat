@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/resources/home/bloc/logic/dua_bloc/dua_bloc.dart';
 import 'package:millat/resources/home/view/dua/widgets/dua_share_view.dart';
+import 'package:millat/resources/home/view/dua/widgets/settings_pop_up_widget.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/loader.dart';
+import 'package:millat/utils/utils.dart';
 
 import '../../../../../utils/constants.dart';
+import '../../../../../utils/string_constants.dart';
 
 class InsideDuaView extends StatelessWidget {
   const InsideDuaView({super.key});
@@ -17,7 +21,7 @@ class InsideDuaView extends StatelessWidget {
         appBar: AppBar(
           backgroundColor: ColorManager.whiteColor,
           foregroundColor: ColorManager.blackColor,
-          elevation: 0,
+          elevation: 0.1,
           centerTitle: true,
           title: Text(
             'Dua\'s',
@@ -48,16 +52,33 @@ class InsideDuaView extends StatelessWidget {
             return ListView.separated(
                 itemBuilder: (context, index) {
                   final data = state.duaModel!.result!.duas![index];
-                  String translationText = data.translate?.isNotEmpty == true
-                      ? data.translate![0].language ?? ""
-                      : '';
+                  String translationText =
+                      data.translate != null && data.translate!.isNotEmpty
+                          ? data.translate![state.translationText].content ?? ''
+                          : '';
 
                   return _builDuaContainer(
                     context: context,
                     index: index,
-                    arabicText: data.content!,
-                    translationText: translationText,
+                    arabicText: state.displayArabicText ? data.content! : "",
+                    translationText:
+                        state.displayTranslationText ? translationText : "",
                     resource: data.resource.toString(),
+                    duaId: data.id,
+                    textSize: state.sliderValue,
+                    onTapCopyText: () {
+                      if (state.displayArabicText) {
+                        String arabicTextToCopy = data.content ?? '';
+                        Clipboard.setData(
+                            ClipboardData(text: arabicTextToCopy));
+                        showSnackBar(context, "Text Copied!");
+                      }
+                    },
+                    onTapShare: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => DuaShareView(text: data.content!),
+                      ));
+                    },
                   );
                 },
                 separatorBuilder: (context, index) {
@@ -76,105 +97,165 @@ class InsideDuaView extends StatelessWidget {
       required int index,
       required String arabicText,
       required String? translationText,
-      required String? resource}) {
+      required String? resource,
+      required double textSize,
+      required VoidCallback onTapCopyText,
+      required VoidCallback onTapShare,
+      String? duaId}) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 25.0, vertical: 18),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Column(
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Container(
-                    color: ColorManager.appBarColor,
-                    height: 25,
-                    width: 25,
-                    child: Center(
-                      child: Text("${index + 1}"),
-                    ),
-                  ),
-                  Text(
-                    arabicText,
-                    style: TextStyle(
-                      fontSize: 17,
-                      fontWeight: FontWeight.w700,
-                      color: ColorManager.primary,
-                    ),
-                  ),
-                ],
-              ),
-              kHeight10,
-              Text(
-                translationText ?? '',
-                style: TextStyle(
-                    fontSize: 15,
-                    fontWeight: FontWeight.w500,
-                    height: 1.2,
-                    color: ColorManager.blackColor),
-              ),
-              kHeight10,
-              Text(
-                resource ?? '',
-                style: TextStyle(
-                  fontSize: 15,
-                  fontWeight: FontWeight.w500,
-                  height: 1.2,
-                  color: ColorManager.textGrey,
-                ),
-              ),
-              kHeight15,
               Container(
-                height: 45,
-                padding: const EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                  color: ColorManager.veryLightGreen,
-                  borderRadius: BorderRadius.circular(12),
+                color: ColorManager.appBarColor,
+                height: 25,
+                width: 25,
+                child: Center(
+                  child: Text("${index + 1}"),
                 ),
-                child: Row(
-                  children: [
-                    const Row(
-                      children: [
-                        ImageIcon(
-                          AssetImage("assets/icons/dua_play.png"),
-                        ),
-                        kWidht10,
-                        ImageIcon(
-                          AssetImage("assets/icons/dua_tasbih.png"),
-                        ),
-                        kWidht10,
-                        ImageIcon(
-                          AssetImage("assets/icons/dua_gpay.png"),
-                        ),
-                      ],
-                    ),
-                    const Spacer(),
-                    Row(
-                      children: [
-                        InkWell(
-                          onTap: () {
-                            Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => const DuaShareView(),
-                            ));
-                          },
-                          child: const ImageIcon(
-                            AssetImage("assets/icons/send.png"),
-                          ),
-                        ),
-                        kWidht10,
-                        const ImageIcon(
-                          AssetImage("assets/icons/dua_tasbih.png"),
-                        ),
-                        kWidht10,
-                        const ImageIcon(
-                          AssetImage("assets/icons/dua_gpay.png"),
-                        ),
-                      ],
-                    ),
-                  ],
+              ),
+              Text(
+                arabicText,
+                style: TextStyle(
+                  fontSize: textSize,
+                  fontWeight: FontWeight.w700,
+                  color: ColorManager.primary,
                 ),
               ),
             ],
+          ),
+          kHeight10,
+          Text(
+            translationText ?? '',
+            style: TextStyle(
+                fontSize: textSize - 2,
+                fontWeight: FontWeight.w600,
+                height: 1.2,
+                color: ColorManager.blackColor),
+          ),
+          kHeight10,
+          Text(
+            resource ?? '',
+            style: TextStyle(
+              fontSize: textSize - 2,
+              fontWeight: FontWeight.w500,
+              height: 1.2,
+              color: ColorManager.textGrey,
+            ),
+          ),
+          kHeight15,
+          Container(
+            height: 45,
+            padding: const EdgeInsets.all(10),
+            decoration: BoxDecoration(
+              color: ColorManager.veryLightGreen,
+              borderRadius: BorderRadius.circular(12),
+            ),
+            child: Row(
+              children: [
+                Row(
+                  children: [
+                    const ImageIcon(
+                      AssetImage("assets/icons/dua_play.png"),
+                    ),
+                    kWidht10,
+                    const ImageIcon(
+                      AssetImage("assets/icons/dua_tasbih.png"),
+                    ),
+                    kWidht10,
+                    GestureDetector(
+                      onTap: () {
+                        showModalBottomSheet(
+                          context: context,
+                          isScrollControlled: true,
+                          builder: (context) {
+                            return BlocBuilder<DuaBloc, DuaState>(
+                                builder: (context, state) => SizedBox(
+                                      height: 160,
+                                      child: ListView.separated(
+                                          separatorBuilder: (context, index) =>
+                                              const Divider(thickness: 1),
+                                          itemCount: translateTexts.length,
+                                          itemBuilder: (context, index) =>
+                                              Padding(
+                                                padding:
+                                                    const EdgeInsets.symmetric(
+                                                            horizontal: 20,
+                                                            vertical: 10)
+                                                        .copyWith(top: 20),
+                                                child: InkWell(
+                                                  onTap: () {
+                                                    context.read<DuaBloc>().add(
+                                                        SelectTranslationText(
+                                                            value: index));
+                                                    Navigator.of(context).pop();
+                                                  },
+                                                  child: Center(
+                                                      child: Text(
+                                                    translateTexts[index],
+                                                    style: const TextStyle(
+                                                      fontSize: 18,
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                    ),
+                                                  )),
+                                                ),
+                                              )),
+                                    ));
+                          },
+                        );
+                      },
+                      child: const ImageIcon(
+                        AssetImage("assets/icons/dua_gpay.png"),
+                      ),
+                    ),
+                  ],
+                ),
+                const Spacer(),
+                Row(
+                  children: [
+                    InkWell(
+                      onTap: onTapShare,
+                      child: const ImageIcon(
+                        AssetImage("assets/icons/send.png"),
+                      ),
+                    ),
+                    kWidht10,
+                    InkWell(
+                      onTap: onTapCopyText,
+                      child: const ImageIcon(
+                        AssetImage("assets/icons/copy.png"),
+                      ),
+                    ),
+                    kWidht10,
+                    BlocBuilder<DuaBloc, DuaState>(
+                      builder: (context, state) => state.bookmarkItems!
+                              .contains(duaId)
+                          ? const ImageIcon(
+                              AssetImage('assets/icons/bookmark_filled.png'),
+                              size: 20,
+                            )
+                          : GestureDetector(
+                              onTap: () {
+                                context.read<DuaBloc>().add(AddBookmarkEvent(
+                                    context: context, duaId: duaId!));
+                                context
+                                    .read<DuaBloc>()
+                                    .add(FetchDuaBookMarksEvent(context));
+                              },
+                              child: const ImageIcon(
+                                AssetImage("assets/icons/bookmark.png"),
+                              ),
+                            ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
         ],
       ),
@@ -189,265 +270,10 @@ class InsideDuaView extends StatelessWidget {
       builder: (context) {
         return StatefulBuilder(
           builder: (context, setState) {
-            return Container(
-              height: 575,
-              decoration: BoxDecoration(
-                color: ColorManager.whiteColor,
-                borderRadius: BorderRadius.circular(30),
-              ),
-              child: Column(
-                children: [
-                  kHeight15,
-                  Row(
-                    children: [
-                      const Expanded(
-                        child: Center(
-                          child: Text(
-                            'Select Category',
-                            style: TextStyle(
-                              fontSize: 17,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                        ),
-                      ),
-                      Align(
-                        alignment: Alignment.topRight,
-                        child: GestureDetector(
-                          onTap: () {
-                            Navigator.of(context).pop;
-                          },
-                          child: IconButton(
-                              onPressed: () {},
-                              icon: const Icon(
-                                Icons.close,
-                                size: 16,
-                              )),
-                        ),
-                      ),
-                      kWidth15
-                    ],
-                  ),
-                  kHeight15,
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 25),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        _aprnceText('Appearance'),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            const Text(
-                              'Display Arabic Text',
-                              style: TextStyle(
-                                fontWeight: FontWeight.w600,
-                                fontSize: 17,
-                              ),
-                            ),
-                            Switch(
-                              activeColor: ColorManager.primary,
-                              value: true,
-                              onChanged: (value) {
-                                // setState(() {
-                                //   isDetectLocation = value;
-                                // });
-                                // if (isDetectLocation ==
-                                //     true) {
-                                //   context
-                                //       .read<LocationBloc>()
-                                //       .add(
-                                //           const ChangeLocationOnToggle());
-                                // }
-                              },
-                            ),
-                          ],
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            const Text(
-                              'Display Translation Text',
-                              style: TextStyle(
-                                fontWeight: FontWeight.w600,
-                                fontSize: 17,
-                              ),
-                            ),
-                            Switch(
-                              activeColor: ColorManager.primary,
-                              value: true,
-                              onChanged: (value) {
-                                // setState(() {
-                                //   isDetectLocation = value;
-                                // });
-                                // if (isDetectLocation ==
-                                //     true) {
-                                //   context
-                                //       .read<LocationBloc>()
-                                //       .add(
-                                //           const ChangeLocationOnToggle());
-                                // }
-                              },
-                            ),
-                          ],
-                        ),
-                        kHeight10,
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            const Text(
-                              'Display Translation Text',
-                              style: TextStyle(
-                                fontWeight: FontWeight.w600,
-                                fontSize: 17,
-                              ),
-                            ),
-                            Text(
-                              'Reset to Default',
-                              style: TextStyle(
-                                fontWeight: FontWeight.w600,
-                                fontSize: 16,
-                                color: ColorManager.primary,
-                              ),
-                            ),
-                          ],
-                        ),
-                        kHeight10,
-                        Slider(
-                          thumbColor: ColorManager.whiteColor,
-                          inactiveColor: ColorManager.dotGrey,
-                          activeColor: ColorManager.primary,
-                          value: 12.0,
-                          max: 100,
-                          divisions: 5,
-                          // label: _currentSliderValue.round().toString(),
-                          onChanged: (double value) {
-                            // setState(() {
-                            //   _currentSliderValue = value;
-                            // });
-                          },
-                        ),
-                        kHeight15,
-                        Center(
-                          child: Text(
-                            'بسم الله',
-                            style: TextStyle(
-                              fontWeight: FontWeight.w600,
-                              fontSize: 20,
-                              color: ColorManager.primary,
-                            ),
-                            textAlign: TextAlign.center,
-                          ),
-                        ),
-                        kHeight10,
-                        const Divider(thickness: 1),
-                        _aprnceText('Translation'),
-                        kHeight15,
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            const Text(
-                              'Location',
-                              style: TextStyle(
-                                fontWeight: FontWeight.w600,
-                                fontSize: 16,
-                              ),
-                            ),
-                            Row(
-                              children: [
-                                Text('Hindi',
-                                    style: TextStyle(
-                                        color: ColorManager.textGrey)),
-                                IconButton(
-                                  onPressed: () {},
-                                  icon: const Icon(
-                                      Icons.arrow_forward_ios_rounded),
-                                  iconSize: 14,
-                                  color: black102,
-                                )
-                              ],
-                            ),
-                          ],
-                        ),
-                        kHeight15,
-                        _aprnceText("Appearance"),
-                        kHeight15,
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            const Text(
-                              'Recite Hadith Arabic',
-                              style: TextStyle(
-                                fontWeight: FontWeight.w600,
-                                fontSize: 17,
-                              ),
-                            ),
-                            Switch(
-                              activeColor: ColorManager.primary,
-                              value: true,
-                              onChanged: (value) {
-                                // setState(() {
-                                //   isDetectLocation = value;
-                                // });
-                                // if (isDetectLocation ==
-                                //     true) {
-                                //   context
-                                //       .read<LocationBloc>()
-                                //       .add(
-                                //           const ChangeLocationOnToggle());
-                                // }
-                              },
-                            ),
-                          ],
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            const Text(
-                              'Recent Hadith Translation',
-                              style: TextStyle(
-                                fontWeight: FontWeight.w600,
-                                fontSize: 17,
-                              ),
-                            ),
-                            Switch(
-                              activeColor: ColorManager.primary,
-                              value: true,
-                              onChanged: (value) {
-                                // setState(() {
-                                //   isDetectLocation = value;
-                                // });
-                                // if (isDetectLocation ==
-                                //     true) {
-                                //   context
-                                //       .read<LocationBloc>()
-                                //       .add(
-                                //           const ChangeLocationOnToggle());
-                                // }
-                              },
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  )
-                ],
-              ),
-            );
+            return const SettingsPopUpWidget();
           },
         );
       },
-    );
-  }
-
-  Text _aprnceText(String text) {
-    return Text(
-      text,
-      style: TextStyle(
-        fontSize: 13,
-        fontWeight: FontWeight.w600,
-        color: ColorManager.black4F,
-      ),
     );
   }
 }

@@ -7,6 +7,8 @@ import 'package:millat/resources/home/bloc/logic/dua_bloc/dua_bloc.dart';
 import 'package:millat/resources/home/bloc/logic/namaz_timing_bloc/namaz_timing_bloc.dart';
 import 'package:millat/resources/home/view/dua/dua_view.dart';
 import 'package:millat/resources/home/view/qibla/qibla_view.dart';
+import 'package:millat/resources/home/view/tasbih/tasbih_view.dart';
+import 'package:millat/resources/home/view/tasbih/widgets/tasbih_test.dart';
 import 'package:millat/utils/constants.dart';
 import '../../../utils/color_manager.dart';
 import '../../../utils/size_utility.dart';
@@ -203,7 +205,12 @@ class _HomeViewState extends State<HomeView> {
                                       buildIconWidget(
                                         image: 'assets/icons/tasbih.png',
                                         text: 'Tasbih',
-                                        onTap: () {},
+                                        onTap: () {
+                                          Navigator.of(context).push(
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      const TasbihView()));
+                                        },
                                       ),
                                       buildIconWidget(
                                         image: "assets/icons/dua.png",

@@ -124,6 +124,7 @@ class InsideDuaView extends StatelessWidget {
                   fontSize: textSize,
                   fontWeight: FontWeight.w700,
                   color: ColorManager.primary,
+                  fontFamily: "Hafs",
                 ),
               ),
             ],

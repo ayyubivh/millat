@@ -158,6 +158,7 @@ class DuaBookMarkView extends StatelessWidget {
                                           fontSize: 13,
                                           fontWeight: FontWeight.w600,
                                           color: ColorManager.primary,
+                                          fontFamily: "Hafs",
                                         ),
                                         textDirection: TextDirection.rtl,
                                       ),

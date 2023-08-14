@@ -91,7 +91,7 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
 
         if (permissionStatus.isGranted) {
           currentLocation = await Geolocator.getCurrentPosition();
-
+          print('${currentLocation.latitude} ${currentLocation.longitude}');
           String currentAddress = await getAddress(
             currentLocation.latitude,
             currentLocation.longitude,

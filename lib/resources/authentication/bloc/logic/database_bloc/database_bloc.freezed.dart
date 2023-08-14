@@ -22,6 +22,11 @@ mixin _$DatabaseEvent {
     required TResult Function() fetchToken,
     required TResult Function(String email, String name) storeUserDetails,
     required TResult Function() fetchUserDetails,
+    required TResult Function(BuildContext context) fetchAuthUser,
+    required TResult Function(
+            String name, String email, String userName, BuildContext context)
+        editAuthUser,
+    required TResult Function() removeTokenEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,6 +35,11 @@ mixin _$DatabaseEvent {
     TResult? Function()? fetchToken,
     TResult? Function(String email, String name)? storeUserDetails,
     TResult? Function()? fetchUserDetails,
+    TResult? Function(BuildContext context)? fetchAuthUser,
+    TResult? Function(
+            String name, String email, String userName, BuildContext context)?
+        editAuthUser,
+    TResult? Function()? removeTokenEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +48,11 @@ mixin _$DatabaseEvent {
     TResult Function()? fetchToken,
     TResult Function(String email, String name)? storeUserDetails,
     TResult Function()? fetchUserDetails,
+    TResult Function(BuildContext context)? fetchAuthUser,
+    TResult Function(
+            String name, String email, String userName, BuildContext context)?
+        editAuthUser,
+    TResult Function()? removeTokenEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -47,6 +62,9 @@ mixin _$DatabaseEvent {
     required TResult Function(FetchToken value) fetchToken,
     required TResult Function(StoreUserDetails value) storeUserDetails,
     required TResult Function(FetchUserDetails value) fetchUserDetails,
+    required TResult Function(FetchAuthUser value) fetchAuthUser,
+    required TResult Function(EditAuthUser value) editAuthUser,
+    required TResult Function(RemoveTokenEvent value) removeTokenEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +73,9 @@ mixin _$DatabaseEvent {
     TResult? Function(FetchToken value)? fetchToken,
     TResult? Function(StoreUserDetails value)? storeUserDetails,
     TResult? Function(FetchUserDetails value)? fetchUserDetails,
+    TResult? Function(FetchAuthUser value)? fetchAuthUser,
+    TResult? Function(EditAuthUser value)? editAuthUser,
+    TResult? Function(RemoveTokenEvent value)? removeTokenEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +84,9 @@ mixin _$DatabaseEvent {
     TResult Function(FetchToken value)? fetchToken,
     TResult Function(StoreUserDetails value)? storeUserDetails,
     TResult Function(FetchUserDetails value)? fetchUserDetails,
+    TResult Function(FetchAuthUser value)? fetchAuthUser,
+    TResult Function(EditAuthUser value)? editAuthUser,
+    TResult Function(RemoveTokenEvent value)? removeTokenEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -154,6 +178,11 @@ class _$StoreTokenEvent implements StoreTokenEvent {
     required TResult Function() fetchToken,
     required TResult Function(String email, String name) storeUserDetails,
     required TResult Function() fetchUserDetails,
+    required TResult Function(BuildContext context) fetchAuthUser,
+    required TResult Function(
+            String name, String email, String userName, BuildContext context)
+        editAuthUser,
+    required TResult Function() removeTokenEvent,
   }) {
     return storeTokenEvent(token);
   }
@@ -165,6 +194,11 @@ class _$StoreTokenEvent implements StoreTokenEvent {
     TResult? Function()? fetchToken,
     TResult? Function(String email, String name)? storeUserDetails,
     TResult? Function()? fetchUserDetails,
+    TResult? Function(BuildContext context)? fetchAuthUser,
+    TResult? Function(
+            String name, String email, String userName, BuildContext context)?
+        editAuthUser,
+    TResult? Function()? removeTokenEvent,
   }) {
     return storeTokenEvent?.call(token);
   }
@@ -176,6 +210,11 @@ class _$StoreTokenEvent implements StoreTokenEvent {
     TResult Function()? fetchToken,
     TResult Function(String email, String name)? storeUserDetails,
     TResult Function()? fetchUserDetails,
+    TResult Function(BuildContext context)? fetchAuthUser,
+    TResult Function(
+            String name, String email, String userName, BuildContext context)?
+        editAuthUser,
+    TResult Function()? removeTokenEvent,
     required TResult orElse(),
   }) {
     if (storeTokenEvent != null) {
@@ -191,6 +230,9 @@ class _$StoreTokenEvent implements StoreTokenEvent {
     required TResult Function(FetchToken value) fetchToken,
     required TResult Function(StoreUserDetails value) storeUserDetails,
     required TResult Function(FetchUserDetails value) fetchUserDetails,
+    required TResult Function(FetchAuthUser value) fetchAuthUser,
+    required TResult Function(EditAuthUser value) editAuthUser,
+    required TResult Function(RemoveTokenEvent value) removeTokenEvent,
   }) {
     return storeTokenEvent(this);
   }
@@ -202,6 +244,9 @@ class _$StoreTokenEvent implements StoreTokenEvent {
     TResult? Function(FetchToken value)? fetchToken,
     TResult? Function(StoreUserDetails value)? storeUserDetails,
     TResult? Function(FetchUserDetails value)? fetchUserDetails,
+    TResult? Function(FetchAuthUser value)? fetchAuthUser,
+    TResult? Function(EditAuthUser value)? editAuthUser,
+    TResult? Function(RemoveTokenEvent value)? removeTokenEvent,
   }) {
     return storeTokenEvent?.call(this);
   }
@@ -213,6 +258,9 @@ class _$StoreTokenEvent implements StoreTokenEvent {
     TResult Function(FetchToken value)? fetchToken,
     TResult Function(StoreUserDetails value)? storeUserDetails,
     TResult Function(FetchUserDetails value)? fetchUserDetails,
+    TResult Function(FetchAuthUser value)? fetchAuthUser,
+    TResult Function(EditAuthUser value)? editAuthUser,
+    TResult Function(RemoveTokenEvent value)? removeTokenEvent,
     required TResult orElse(),
   }) {
     if (storeTokenEvent != null) {
@@ -274,6 +322,11 @@ class _$FetchToken implements FetchToken {
     required TResult Function() fetchToken,
     required TResult Function(String email, String name) storeUserDetails,
     required TResult Function() fetchUserDetails,
+    required TResult Function(BuildContext context) fetchAuthUser,
+    required TResult Function(
+            String name, String email, String userName, BuildContext context)
+        editAuthUser,
+    required TResult Function() removeTokenEvent,
   }) {
     return fetchToken();
   }
@@ -285,6 +338,11 @@ class _$FetchToken implements FetchToken {
     TResult? Function()? fetchToken,
     TResult? Function(String email, String name)? storeUserDetails,
     TResult? Function()? fetchUserDetails,
+    TResult? Function(BuildContext context)? fetchAuthUser,
+    TResult? Function(
+            String name, String email, String userName, BuildContext context)?
+        editAuthUser,
+    TResult? Function()? removeTokenEvent,
   }) {
     return fetchToken?.call();
   }
@@ -296,6 +354,11 @@ class _$FetchToken implements FetchToken {
     TResult Function()? fetchToken,
     TResult Function(String email, String name)? storeUserDetails,
     TResult Function()? fetchUserDetails,
+    TResult Function(BuildContext context)? fetchAuthUser,
+    TResult Function(
+            String name, String email, String userName, BuildContext context)?
+        editAuthUser,
+    TResult Function()? removeTokenEvent,
     required TResult orElse(),
   }) {
     if (fetchToken != null) {
@@ -311,6 +374,9 @@ class _$FetchToken implements FetchToken {
     required TResult Function(FetchToken value) fetchToken,
     required TResult Function(StoreUserDetails value) storeUserDetails,
     required TResult Function(FetchUserDetails value) fetchUserDetails,
+    required TResult Function(FetchAuthUser value) fetchAuthUser,
+    required TResult Function(EditAuthUser value) editAuthUser,
+    required TResult Function(RemoveTokenEvent value) removeTokenEvent,
   }) {
     return fetchToken(this);
   }
@@ -322,6 +388,9 @@ class _$FetchToken implements FetchToken {
     TResult? Function(FetchToken value)? fetchToken,
     TResult? Function(StoreUserDetails value)? storeUserDetails,
     TResult? Function(FetchUserDetails value)? fetchUserDetails,
+    TResult? Function(FetchAuthUser value)? fetchAuthUser,
+    TResult? Function(EditAuthUser value)? editAuthUser,
+    TResult? Function(RemoveTokenEvent value)? removeTokenEvent,
   }) {
     return fetchToken?.call(this);
   }
@@ -333,6 +402,9 @@ class _$FetchToken implements FetchToken {
     TResult Function(FetchToken value)? fetchToken,
     TResult Function(StoreUserDetails value)? storeUserDetails,
     TResult Function(FetchUserDetails value)? fetchUserDetails,
+    TResult Function(FetchAuthUser value)? fetchAuthUser,
+    TResult Function(EditAuthUser value)? editAuthUser,
+    TResult Function(RemoveTokenEvent value)? removeTokenEvent,
     required TResult orElse(),
   }) {
     if (fetchToken != null) {
@@ -422,6 +494,11 @@ class _$StoreUserDetails implements StoreUserDetails {
     required TResult Function() fetchToken,
     required TResult Function(String email, String name) storeUserDetails,
     required TResult Function() fetchUserDetails,
+    required TResult Function(BuildContext context) fetchAuthUser,
+    required TResult Function(
+            String name, String email, String userName, BuildContext context)
+        editAuthUser,
+    required TResult Function() removeTokenEvent,
   }) {
     return storeUserDetails(email, name);
   }
@@ -433,6 +510,11 @@ class _$StoreUserDetails implements StoreUserDetails {
     TResult? Function()? fetchToken,
     TResult? Function(String email, String name)? storeUserDetails,
     TResult? Function()? fetchUserDetails,
+    TResult? Function(BuildContext context)? fetchAuthUser,
+    TResult? Function(
+            String name, String email, String userName, BuildContext context)?
+        editAuthUser,
+    TResult? Function()? removeTokenEvent,
   }) {
     return storeUserDetails?.call(email, name);
   }
@@ -444,6 +526,11 @@ class _$StoreUserDetails implements StoreUserDetails {
     TResult Function()? fetchToken,
     TResult Function(String email, String name)? storeUserDetails,
     TResult Function()? fetchUserDetails,
+    TResult Function(BuildContext context)? fetchAuthUser,
+    TResult Function(
+            String name, String email, String userName, BuildContext context)?
+        editAuthUser,
+    TResult Function()? removeTokenEvent,
     required TResult orElse(),
   }) {
     if (storeUserDetails != null) {
@@ -459,6 +546,9 @@ class _$StoreUserDetails implements StoreUserDetails {
     required TResult Function(FetchToken value) fetchToken,
     required TResult Function(StoreUserDetails value) storeUserDetails,
     required TResult Function(FetchUserDetails value) fetchUserDetails,
+    required TResult Function(FetchAuthUser value) fetchAuthUser,
+    required TResult Function(EditAuthUser value) editAuthUser,
+    required TResult Function(RemoveTokenEvent value) removeTokenEvent,
   }) {
     return storeUserDetails(this);
   }
@@ -470,6 +560,9 @@ class _$StoreUserDetails implements StoreUserDetails {
     TResult? Function(FetchToken value)? fetchToken,
     TResult? Function(StoreUserDetails value)? storeUserDetails,
     TResult? Function(FetchUserDetails value)? fetchUserDetails,
+    TResult? Function(FetchAuthUser value)? fetchAuthUser,
+    TResult? Function(EditAuthUser value)? editAuthUser,
+    TResult? Function(RemoveTokenEvent value)? removeTokenEvent,
   }) {
     return storeUserDetails?.call(this);
   }
@@ -481,6 +574,9 @@ class _$StoreUserDetails implements StoreUserDetails {
     TResult Function(FetchToken value)? fetchToken,
     TResult Function(StoreUserDetails value)? storeUserDetails,
     TResult Function(FetchUserDetails value)? fetchUserDetails,
+    TResult Function(FetchAuthUser value)? fetchAuthUser,
+    TResult Function(EditAuthUser value)? editAuthUser,
+    TResult Function(RemoveTokenEvent value)? removeTokenEvent,
     required TResult orElse(),
   }) {
     if (storeUserDetails != null) {
@@ -544,6 +640,11 @@ class _$FetchUserDetails implements FetchUserDetails {
     required TResult Function() fetchToken,
     required TResult Function(String email, String name) storeUserDetails,
     required TResult Function() fetchUserDetails,
+    required TResult Function(BuildContext context) fetchAuthUser,
+    required TResult Function(
+            String name, String email, String userName, BuildContext context)
+        editAuthUser,
+    required TResult Function() removeTokenEvent,
   }) {
     return fetchUserDetails();
   }
@@ -555,6 +656,11 @@ class _$FetchUserDetails implements FetchUserDetails {
     TResult? Function()? fetchToken,
     TResult? Function(String email, String name)? storeUserDetails,
     TResult? Function()? fetchUserDetails,
+    TResult? Function(BuildContext context)? fetchAuthUser,
+    TResult? Function(
+            String name, String email, String userName, BuildContext context)?
+        editAuthUser,
+    TResult? Function()? removeTokenEvent,
   }) {
     return fetchUserDetails?.call();
   }
@@ -566,6 +672,11 @@ class _$FetchUserDetails implements FetchUserDetails {
     TResult Function()? fetchToken,
     TResult Function(String email, String name)? storeUserDetails,
     TResult Function()? fetchUserDetails,
+    TResult Function(BuildContext context)? fetchAuthUser,
+    TResult Function(
+            String name, String email, String userName, BuildContext context)?
+        editAuthUser,
+    TResult Function()? removeTokenEvent,
     required TResult orElse(),
   }) {
     if (fetchUserDetails != null) {
@@ -581,6 +692,9 @@ class _$FetchUserDetails implements FetchUserDetails {
     required TResult Function(FetchToken value) fetchToken,
     required TResult Function(StoreUserDetails value) storeUserDetails,
     required TResult Function(FetchUserDetails value) fetchUserDetails,
+    required TResult Function(FetchAuthUser value) fetchAuthUser,
+    required TResult Function(EditAuthUser value) editAuthUser,
+    required TResult Function(RemoveTokenEvent value) removeTokenEvent,
   }) {
     return fetchUserDetails(this);
   }
@@ -592,6 +706,9 @@ class _$FetchUserDetails implements FetchUserDetails {
     TResult? Function(FetchToken value)? fetchToken,
     TResult? Function(StoreUserDetails value)? storeUserDetails,
     TResult? Function(FetchUserDetails value)? fetchUserDetails,
+    TResult? Function(FetchAuthUser value)? fetchAuthUser,
+    TResult? Function(EditAuthUser value)? editAuthUser,
+    TResult? Function(RemoveTokenEvent value)? removeTokenEvent,
   }) {
     return fetchUserDetails?.call(this);
   }
@@ -603,6 +720,9 @@ class _$FetchUserDetails implements FetchUserDetails {
     TResult Function(FetchToken value)? fetchToken,
     TResult Function(StoreUserDetails value)? storeUserDetails,
     TResult Function(FetchUserDetails value)? fetchUserDetails,
+    TResult Function(FetchAuthUser value)? fetchAuthUser,
+    TResult Function(EditAuthUser value)? editAuthUser,
+    TResult Function(RemoveTokenEvent value)? removeTokenEvent,
     required TResult orElse(),
   }) {
     if (fetchUserDetails != null) {
@@ -617,10 +737,527 @@ abstract class FetchUserDetails implements DatabaseEvent {
 }
 
 /// @nodoc
+abstract class _$$FetchAuthUserCopyWith<$Res> {
+  factory _$$FetchAuthUserCopyWith(
+          _$FetchAuthUser value, $Res Function(_$FetchAuthUser) then) =
+      __$$FetchAuthUserCopyWithImpl<$Res>;
+  @useResult
+  $Res call({BuildContext context});
+}
+
+/// @nodoc
+class __$$FetchAuthUserCopyWithImpl<$Res>
+    extends _$DatabaseEventCopyWithImpl<$Res, _$FetchAuthUser>
+    implements _$$FetchAuthUserCopyWith<$Res> {
+  __$$FetchAuthUserCopyWithImpl(
+      _$FetchAuthUser _value, $Res Function(_$FetchAuthUser) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? context = null,
+  }) {
+    return _then(_$FetchAuthUser(
+      context: null == context
+          ? _value.context
+          : context // ignore: cast_nullable_to_non_nullable
+              as BuildContext,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$FetchAuthUser implements FetchAuthUser {
+  const _$FetchAuthUser({required this.context});
+
+  @override
+  final BuildContext context;
+
+  @override
+  String toString() {
+    return 'DatabaseEvent.fetchAuthUser(context: $context)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$FetchAuthUser &&
+            (identical(other.context, context) || other.context == context));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, context);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$FetchAuthUserCopyWith<_$FetchAuthUser> get copyWith =>
+      __$$FetchAuthUserCopyWithImpl<_$FetchAuthUser>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String token) storeTokenEvent,
+    required TResult Function() fetchToken,
+    required TResult Function(String email, String name) storeUserDetails,
+    required TResult Function() fetchUserDetails,
+    required TResult Function(BuildContext context) fetchAuthUser,
+    required TResult Function(
+            String name, String email, String userName, BuildContext context)
+        editAuthUser,
+    required TResult Function() removeTokenEvent,
+  }) {
+    return fetchAuthUser(context);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String token)? storeTokenEvent,
+    TResult? Function()? fetchToken,
+    TResult? Function(String email, String name)? storeUserDetails,
+    TResult? Function()? fetchUserDetails,
+    TResult? Function(BuildContext context)? fetchAuthUser,
+    TResult? Function(
+            String name, String email, String userName, BuildContext context)?
+        editAuthUser,
+    TResult? Function()? removeTokenEvent,
+  }) {
+    return fetchAuthUser?.call(context);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String token)? storeTokenEvent,
+    TResult Function()? fetchToken,
+    TResult Function(String email, String name)? storeUserDetails,
+    TResult Function()? fetchUserDetails,
+    TResult Function(BuildContext context)? fetchAuthUser,
+    TResult Function(
+            String name, String email, String userName, BuildContext context)?
+        editAuthUser,
+    TResult Function()? removeTokenEvent,
+    required TResult orElse(),
+  }) {
+    if (fetchAuthUser != null) {
+      return fetchAuthUser(context);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(StoreTokenEvent value) storeTokenEvent,
+    required TResult Function(FetchToken value) fetchToken,
+    required TResult Function(StoreUserDetails value) storeUserDetails,
+    required TResult Function(FetchUserDetails value) fetchUserDetails,
+    required TResult Function(FetchAuthUser value) fetchAuthUser,
+    required TResult Function(EditAuthUser value) editAuthUser,
+    required TResult Function(RemoveTokenEvent value) removeTokenEvent,
+  }) {
+    return fetchAuthUser(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(StoreTokenEvent value)? storeTokenEvent,
+    TResult? Function(FetchToken value)? fetchToken,
+    TResult? Function(StoreUserDetails value)? storeUserDetails,
+    TResult? Function(FetchUserDetails value)? fetchUserDetails,
+    TResult? Function(FetchAuthUser value)? fetchAuthUser,
+    TResult? Function(EditAuthUser value)? editAuthUser,
+    TResult? Function(RemoveTokenEvent value)? removeTokenEvent,
+  }) {
+    return fetchAuthUser?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(StoreTokenEvent value)? storeTokenEvent,
+    TResult Function(FetchToken value)? fetchToken,
+    TResult Function(StoreUserDetails value)? storeUserDetails,
+    TResult Function(FetchUserDetails value)? fetchUserDetails,
+    TResult Function(FetchAuthUser value)? fetchAuthUser,
+    TResult Function(EditAuthUser value)? editAuthUser,
+    TResult Function(RemoveTokenEvent value)? removeTokenEvent,
+    required TResult orElse(),
+  }) {
+    if (fetchAuthUser != null) {
+      return fetchAuthUser(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class FetchAuthUser implements DatabaseEvent {
+  const factory FetchAuthUser({required final BuildContext context}) =
+      _$FetchAuthUser;
+
+  BuildContext get context;
+  @JsonKey(ignore: true)
+  _$$FetchAuthUserCopyWith<_$FetchAuthUser> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$EditAuthUserCopyWith<$Res> {
+  factory _$$EditAuthUserCopyWith(
+          _$EditAuthUser value, $Res Function(_$EditAuthUser) then) =
+      __$$EditAuthUserCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String name, String email, String userName, BuildContext context});
+}
+
+/// @nodoc
+class __$$EditAuthUserCopyWithImpl<$Res>
+    extends _$DatabaseEventCopyWithImpl<$Res, _$EditAuthUser>
+    implements _$$EditAuthUserCopyWith<$Res> {
+  __$$EditAuthUserCopyWithImpl(
+      _$EditAuthUser _value, $Res Function(_$EditAuthUser) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? name = null,
+    Object? email = null,
+    Object? userName = null,
+    Object? context = null,
+  }) {
+    return _then(_$EditAuthUser(
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
+      userName: null == userName
+          ? _value.userName
+          : userName // ignore: cast_nullable_to_non_nullable
+              as String,
+      context: null == context
+          ? _value.context
+          : context // ignore: cast_nullable_to_non_nullable
+              as BuildContext,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$EditAuthUser implements EditAuthUser {
+  const _$EditAuthUser(
+      {required this.name,
+      required this.email,
+      required this.userName,
+      required this.context});
+
+  @override
+  final String name;
+  @override
+  final String email;
+  @override
+  final String userName;
+  @override
+  final BuildContext context;
+
+  @override
+  String toString() {
+    return 'DatabaseEvent.editAuthUser(name: $name, email: $email, userName: $userName, context: $context)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$EditAuthUser &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.email, email) || other.email == email) &&
+            (identical(other.userName, userName) ||
+                other.userName == userName) &&
+            (identical(other.context, context) || other.context == context));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, name, email, userName, context);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$EditAuthUserCopyWith<_$EditAuthUser> get copyWith =>
+      __$$EditAuthUserCopyWithImpl<_$EditAuthUser>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String token) storeTokenEvent,
+    required TResult Function() fetchToken,
+    required TResult Function(String email, String name) storeUserDetails,
+    required TResult Function() fetchUserDetails,
+    required TResult Function(BuildContext context) fetchAuthUser,
+    required TResult Function(
+            String name, String email, String userName, BuildContext context)
+        editAuthUser,
+    required TResult Function() removeTokenEvent,
+  }) {
+    return editAuthUser(name, email, userName, context);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String token)? storeTokenEvent,
+    TResult? Function()? fetchToken,
+    TResult? Function(String email, String name)? storeUserDetails,
+    TResult? Function()? fetchUserDetails,
+    TResult? Function(BuildContext context)? fetchAuthUser,
+    TResult? Function(
+            String name, String email, String userName, BuildContext context)?
+        editAuthUser,
+    TResult? Function()? removeTokenEvent,
+  }) {
+    return editAuthUser?.call(name, email, userName, context);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String token)? storeTokenEvent,
+    TResult Function()? fetchToken,
+    TResult Function(String email, String name)? storeUserDetails,
+    TResult Function()? fetchUserDetails,
+    TResult Function(BuildContext context)? fetchAuthUser,
+    TResult Function(
+            String name, String email, String userName, BuildContext context)?
+        editAuthUser,
+    TResult Function()? removeTokenEvent,
+    required TResult orElse(),
+  }) {
+    if (editAuthUser != null) {
+      return editAuthUser(name, email, userName, context);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(StoreTokenEvent value) storeTokenEvent,
+    required TResult Function(FetchToken value) fetchToken,
+    required TResult Function(StoreUserDetails value) storeUserDetails,
+    required TResult Function(FetchUserDetails value) fetchUserDetails,
+    required TResult Function(FetchAuthUser value) fetchAuthUser,
+    required TResult Function(EditAuthUser value) editAuthUser,
+    required TResult Function(RemoveTokenEvent value) removeTokenEvent,
+  }) {
+    return editAuthUser(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(StoreTokenEvent value)? storeTokenEvent,
+    TResult? Function(FetchToken value)? fetchToken,
+    TResult? Function(StoreUserDetails value)? storeUserDetails,
+    TResult? Function(FetchUserDetails value)? fetchUserDetails,
+    TResult? Function(FetchAuthUser value)? fetchAuthUser,
+    TResult? Function(EditAuthUser value)? editAuthUser,
+    TResult? Function(RemoveTokenEvent value)? removeTokenEvent,
+  }) {
+    return editAuthUser?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(StoreTokenEvent value)? storeTokenEvent,
+    TResult Function(FetchToken value)? fetchToken,
+    TResult Function(StoreUserDetails value)? storeUserDetails,
+    TResult Function(FetchUserDetails value)? fetchUserDetails,
+    TResult Function(FetchAuthUser value)? fetchAuthUser,
+    TResult Function(EditAuthUser value)? editAuthUser,
+    TResult Function(RemoveTokenEvent value)? removeTokenEvent,
+    required TResult orElse(),
+  }) {
+    if (editAuthUser != null) {
+      return editAuthUser(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class EditAuthUser implements DatabaseEvent {
+  const factory EditAuthUser(
+      {required final String name,
+      required final String email,
+      required final String userName,
+      required final BuildContext context}) = _$EditAuthUser;
+
+  String get name;
+  String get email;
+  String get userName;
+  BuildContext get context;
+  @JsonKey(ignore: true)
+  _$$EditAuthUserCopyWith<_$EditAuthUser> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$RemoveTokenEventCopyWith<$Res> {
+  factory _$$RemoveTokenEventCopyWith(
+          _$RemoveTokenEvent value, $Res Function(_$RemoveTokenEvent) then) =
+      __$$RemoveTokenEventCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$RemoveTokenEventCopyWithImpl<$Res>
+    extends _$DatabaseEventCopyWithImpl<$Res, _$RemoveTokenEvent>
+    implements _$$RemoveTokenEventCopyWith<$Res> {
+  __$$RemoveTokenEventCopyWithImpl(
+      _$RemoveTokenEvent _value, $Res Function(_$RemoveTokenEvent) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$RemoveTokenEvent implements RemoveTokenEvent {
+  const _$RemoveTokenEvent();
+
+  @override
+  String toString() {
+    return 'DatabaseEvent.removeTokenEvent()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$RemoveTokenEvent);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String token) storeTokenEvent,
+    required TResult Function() fetchToken,
+    required TResult Function(String email, String name) storeUserDetails,
+    required TResult Function() fetchUserDetails,
+    required TResult Function(BuildContext context) fetchAuthUser,
+    required TResult Function(
+            String name, String email, String userName, BuildContext context)
+        editAuthUser,
+    required TResult Function() removeTokenEvent,
+  }) {
+    return removeTokenEvent();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String token)? storeTokenEvent,
+    TResult? Function()? fetchToken,
+    TResult? Function(String email, String name)? storeUserDetails,
+    TResult? Function()? fetchUserDetails,
+    TResult? Function(BuildContext context)? fetchAuthUser,
+    TResult? Function(
+            String name, String email, String userName, BuildContext context)?
+        editAuthUser,
+    TResult? Function()? removeTokenEvent,
+  }) {
+    return removeTokenEvent?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String token)? storeTokenEvent,
+    TResult Function()? fetchToken,
+    TResult Function(String email, String name)? storeUserDetails,
+    TResult Function()? fetchUserDetails,
+    TResult Function(BuildContext context)? fetchAuthUser,
+    TResult Function(
+            String name, String email, String userName, BuildContext context)?
+        editAuthUser,
+    TResult Function()? removeTokenEvent,
+    required TResult orElse(),
+  }) {
+    if (removeTokenEvent != null) {
+      return removeTokenEvent();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(StoreTokenEvent value) storeTokenEvent,
+    required TResult Function(FetchToken value) fetchToken,
+    required TResult Function(StoreUserDetails value) storeUserDetails,
+    required TResult Function(FetchUserDetails value) fetchUserDetails,
+    required TResult Function(FetchAuthUser value) fetchAuthUser,
+    required TResult Function(EditAuthUser value) editAuthUser,
+    required TResult Function(RemoveTokenEvent value) removeTokenEvent,
+  }) {
+    return removeTokenEvent(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(StoreTokenEvent value)? storeTokenEvent,
+    TResult? Function(FetchToken value)? fetchToken,
+    TResult? Function(StoreUserDetails value)? storeUserDetails,
+    TResult? Function(FetchUserDetails value)? fetchUserDetails,
+    TResult? Function(FetchAuthUser value)? fetchAuthUser,
+    TResult? Function(EditAuthUser value)? editAuthUser,
+    TResult? Function(RemoveTokenEvent value)? removeTokenEvent,
+  }) {
+    return removeTokenEvent?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(StoreTokenEvent value)? storeTokenEvent,
+    TResult Function(FetchToken value)? fetchToken,
+    TResult Function(StoreUserDetails value)? storeUserDetails,
+    TResult Function(FetchUserDetails value)? fetchUserDetails,
+    TResult Function(FetchAuthUser value)? fetchAuthUser,
+    TResult Function(EditAuthUser value)? editAuthUser,
+    TResult Function(RemoveTokenEvent value)? removeTokenEvent,
+    required TResult orElse(),
+  }) {
+    if (removeTokenEvent != null) {
+      return removeTokenEvent(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class RemoveTokenEvent implements DatabaseEvent {
+  const factory RemoveTokenEvent() = _$RemoveTokenEvent;
+}
+
+/// @nodoc
 mixin _$DatabaseState {
   String get token => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
+  AuthUserModel? get authUserModel => throw _privateConstructorUsedError;
+  bool get isLoading => throw _privateConstructorUsedError;
+  String get succesMessage => throw _privateConstructorUsedError;
+  String get failedMessage => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $DatabaseStateCopyWith<DatabaseState> get copyWith =>
@@ -633,7 +1270,16 @@ abstract class $DatabaseStateCopyWith<$Res> {
           DatabaseState value, $Res Function(DatabaseState) then) =
       _$DatabaseStateCopyWithImpl<$Res, DatabaseState>;
   @useResult
-  $Res call({String token, String name, String email});
+  $Res call(
+      {String token,
+      String name,
+      String email,
+      AuthUserModel? authUserModel,
+      bool isLoading,
+      String succesMessage,
+      String failedMessage});
+
+  $AuthUserModelCopyWith<$Res>? get authUserModel;
 }
 
 /// @nodoc
@@ -652,6 +1298,10 @@ class _$DatabaseStateCopyWithImpl<$Res, $Val extends DatabaseState>
     Object? token = null,
     Object? name = null,
     Object? email = null,
+    Object? authUserModel = freezed,
+    Object? isLoading = null,
+    Object? succesMessage = null,
+    Object? failedMessage = null,
   }) {
     return _then(_value.copyWith(
       token: null == token
@@ -666,7 +1316,35 @@ class _$DatabaseStateCopyWithImpl<$Res, $Val extends DatabaseState>
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
+      authUserModel: freezed == authUserModel
+          ? _value.authUserModel
+          : authUserModel // ignore: cast_nullable_to_non_nullable
+              as AuthUserModel?,
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      succesMessage: null == succesMessage
+          ? _value.succesMessage
+          : succesMessage // ignore: cast_nullable_to_non_nullable
+              as String,
+      failedMessage: null == failedMessage
+          ? _value.failedMessage
+          : failedMessage // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $AuthUserModelCopyWith<$Res>? get authUserModel {
+    if (_value.authUserModel == null) {
+      return null;
+    }
+
+    return $AuthUserModelCopyWith<$Res>(_value.authUserModel!, (value) {
+      return _then(_value.copyWith(authUserModel: value) as $Val);
+    });
   }
 }
 
@@ -678,7 +1356,17 @@ abstract class _$$_InitialCopyWith<$Res>
       __$$_InitialCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String token, String name, String email});
+  $Res call(
+      {String token,
+      String name,
+      String email,
+      AuthUserModel? authUserModel,
+      bool isLoading,
+      String succesMessage,
+      String failedMessage});
+
+  @override
+  $AuthUserModelCopyWith<$Res>? get authUserModel;
 }
 
 /// @nodoc
@@ -694,6 +1382,10 @@ class __$$_InitialCopyWithImpl<$Res>
     Object? token = null,
     Object? name = null,
     Object? email = null,
+    Object? authUserModel = freezed,
+    Object? isLoading = null,
+    Object? succesMessage = null,
+    Object? failedMessage = null,
   }) {
     return _then(_$_Initial(
       token: null == token
@@ -708,6 +1400,22 @@ class __$$_InitialCopyWithImpl<$Res>
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
+      authUserModel: freezed == authUserModel
+          ? _value.authUserModel
+          : authUserModel // ignore: cast_nullable_to_non_nullable
+              as AuthUserModel?,
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      succesMessage: null == succesMessage
+          ? _value.succesMessage
+          : succesMessage // ignore: cast_nullable_to_non_nullable
+              as String,
+      failedMessage: null == failedMessage
+          ? _value.failedMessage
+          : failedMessage // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -716,7 +1424,13 @@ class __$$_InitialCopyWithImpl<$Res>
 
 class _$_Initial implements _Initial {
   const _$_Initial(
-      {required this.token, required this.name, required this.email});
+      {required this.token,
+      required this.name,
+      required this.email,
+      required this.authUserModel,
+      required this.isLoading,
+      required this.succesMessage,
+      required this.failedMessage});
 
   @override
   final String token;
@@ -724,10 +1438,18 @@ class _$_Initial implements _Initial {
   final String name;
   @override
   final String email;
+  @override
+  final AuthUserModel? authUserModel;
+  @override
+  final bool isLoading;
+  @override
+  final String succesMessage;
+  @override
+  final String failedMessage;
 
   @override
   String toString() {
-    return 'DatabaseState(token: $token, name: $name, email: $email)';
+    return 'DatabaseState(token: $token, name: $name, email: $email, authUserModel: $authUserModel, isLoading: $isLoading, succesMessage: $succesMessage, failedMessage: $failedMessage)';
   }
 
   @override
@@ -737,11 +1459,20 @@ class _$_Initial implements _Initial {
             other is _$_Initial &&
             (identical(other.token, token) || other.token == token) &&
             (identical(other.name, name) || other.name == name) &&
-            (identical(other.email, email) || other.email == email));
+            (identical(other.email, email) || other.email == email) &&
+            (identical(other.authUserModel, authUserModel) ||
+                other.authUserModel == authUserModel) &&
+            (identical(other.isLoading, isLoading) ||
+                other.isLoading == isLoading) &&
+            (identical(other.succesMessage, succesMessage) ||
+                other.succesMessage == succesMessage) &&
+            (identical(other.failedMessage, failedMessage) ||
+                other.failedMessage == failedMessage));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, token, name, email);
+  int get hashCode => Object.hash(runtimeType, token, name, email,
+      authUserModel, isLoading, succesMessage, failedMessage);
 
   @JsonKey(ignore: true)
   @override
@@ -754,7 +1485,11 @@ abstract class _Initial implements DatabaseState {
   const factory _Initial(
       {required final String token,
       required final String name,
-      required final String email}) = _$_Initial;
+      required final String email,
+      required final AuthUserModel? authUserModel,
+      required final bool isLoading,
+      required final String succesMessage,
+      required final String failedMessage}) = _$_Initial;
 
   @override
   String get token;
@@ -762,6 +1497,14 @@ abstract class _Initial implements DatabaseState {
   String get name;
   @override
   String get email;
+  @override
+  AuthUserModel? get authUserModel;
+  @override
+  bool get isLoading;
+  @override
+  String get succesMessage;
+  @override
+  String get failedMessage;
   @override
   @JsonKey(ignore: true)
   _$$_InitialCopyWith<_$_Initial> get copyWith =>

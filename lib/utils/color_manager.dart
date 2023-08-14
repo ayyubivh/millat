@@ -26,17 +26,33 @@ class ColorManager {
   static Color black4A = HexColor.fromHex("#4A4A4A");
   static Color textGrey84 = HexColor.fromHex("#848484");
   static Color textGreyAd = HexColor.fromHex("#ADADAD");
-
+  static Color lightPrimaryGreenDE = HexColor.fromHex("#DEEBE5");
+  static Color grey70 = HexColor.fromHex("#707070");
+  static Color lightOrange = HexColor.fromHex("#C69338");
+  static Color lightGreenDC = HexColor.fromHex("#DCFFF0");
+  static Color textGrey88 = HexColor.fromHex("#888787");
+  static Color blue7A = HexColor.fromHex("#007AFF");
+//shop
+  static Color reviewStar = HexColor.fromHex("#FFE174");
+  static Color categorySelectedGreen = HexColor.fromHex("#597766");
   // Tasbih Colors
   static Color tasbihPinkBgClr = HexColor.fromHex("#FBE5E8");
   static Color tasbihPurpleBgClr = HexColor.fromHex("#9D9BEA");
   static Color tasbihGreenBgClr = HexColor.fromHex("#328247");
   static Color tasbihLightPurplClr = HexColor.fromHex("#BDBBF4");
   static Color tasbihPinkClr = HexColor.fromHex("#E74BA5");
- 
+
   static Color tasbihGradientClr1 = HexColor.fromHex("#FF7DC8");
   static Color tasbihGradientClr2 = HexColor.fromHex("#C11E7C");
   static Color textPink89 = HexColor.fromHex("#895674");
+
+  //Dua view
+  static Color haditTextfieldGreyClr = HexColor.fromHex("#B3B3B3");
+  //Hadith view
+  static Color lightPrimaryGreenClr = HexColor.fromHex("#D9EEE5");
+  static Color hadithBorderClr = HexColor.fromHex("#CCCCCC");
+  static Color hadithGradientBlue1 = HexColor.fromHex("#24FFF6");
+  static Color hadithGradientBlue2 = HexColor.fromHex("#6F7BF7");
 }
 
 extension HexColor on Color {

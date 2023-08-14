@@ -1,11 +1,11 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:millat/resources/home/bloc/db/prayer_tracker_db_functions.dart';
 import 'package:millat/resources/home/bloc/models/home_models/event_of_the_month_model/event_of_the_month_model.dart';
 import 'package:millat/resources/home/bloc/models/home_models/top_offers_model/top_offers_model.dart';
 import 'package:millat/resources/home/bloc/service/home_services.dart';
 import 'package:millat/utils/string_constants.dart';
 
+import '../../db/prayer_tracker_db_functions.dart';
 import '../../models/home_models/brand_of_the_day_model/brandofthe_day_model.dart';
 import '../../models/home_models/hadit_of_the_day_model/hadit_oftheday_mode.dart';
 import '../../models/home_models/large_discount_model/home_large_discounts_model.dart';

@@ -3,16 +3,18 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-
 import 'package:millat/resources/authentication/bloc/logic/auth_bloc.dart';
 import 'package:millat/resources/authentication/bloc/logic/database_bloc/database_bloc.dart';
 import 'package:millat/resources/home/bloc/logic/bookmark_bloc/bookmark_bloc.dart';
 import 'package:millat/resources/home/bloc/logic/dua_bloc/dua_bloc.dart';
+import 'package:millat/resources/home/bloc/logic/hadith_bloc/bloc/hadith_bloc.dart';
+import 'package:millat/resources/home/bloc/logic/home_bloc/home_bloc.dart';
 import 'package:millat/resources/home/bloc/logic/location_bloc/location_bloc.dart';
 import 'package:millat/resources/home/bloc/logic/namaz_timing_bloc/namaz_timing_bloc.dart';
 import 'package:millat/resources/home/bloc/logic/quran_bloc/quran_bloc.dart';
 import 'package:millat/resources/home/bloc/logic/tasbih_bloc/tasbih_bloc.dart';
 import 'package:millat/resources/home/bloc/models/book_mark_hive_model/book_mark_hive_model.dart';
+import 'package:millat/resources/home/bloc/models/home_models/prayer_tracker_model.dart';
 import 'package:millat/resources/home/bloc/service/notification_service.dart';
 import 'package:millat/resources/home/view/namaz_timing/namaz_timing_view.dart';
 import 'package:millat/resources/on_boarding/view/on_boarding_view.dart';
@@ -29,6 +31,8 @@ import 'package:millat/utils/string_constants.dart';
 import 'package:responsive_framework/responsive_wrapper.dart';
 import 'package:responsive_framework/utils/scroll_behavior.dart';
 import 'package:timezone/data/latest.dart' as tz;
+
+import 'resources/shop/view/categories/categories_view.dart';
 
 void main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
@@ -48,8 +52,10 @@ void main() async {
     statusBarIconBrightness: Brightness.dark,
   ));
 
-  if (!Hive.isAdapterRegistered(BookMarktCollectionModelAdapter().typeId)) {
+  if (!Hive.isAdapterRegistered(BookMarktCollectionModelAdapter().typeId) ||
+      !Hive.isAdapterRegistered(PrayerTrackerModelAdapter().typeId)) {
     Hive.registerAdapter(BookMarktCollectionModelAdapter());
+    Hive.registerAdapter(PrayerTrackerModelAdapter());
   }
   await Hive.initFlutter();
   await Hive.openBox('userDetailsBox');
@@ -68,6 +74,8 @@ void main() async {
       BlocProvider(create: (context) => BookmarkBloc()),
       BlocProvider(create: (context) => DuaBloc()),
       BlocProvider(create: (context) => TasbihBloc()),
+      BlocProvider(create: (context) => HadithBloc()),
+      BlocProvider(create: (context) => HomeBloc())
     ],
     child: MyApp(),
   ));
@@ -103,6 +111,15 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       routes: {
+        CategoriesView.routeName: (context) {
+          final args = ModalRoute.of(context)!.settings.arguments
+              as Map<String, dynamic>;
+          final category = args["category"];
+          final subCategory = args["subCategory"];
+          final type = args["type"];
+          return CategoriesView(
+              category: category, subCategory: subCategory, type: type);
+        },
         NamazTimingView.routeName: (context) => const NamazTimingView(),
         ManageAddress.routeName: (context) => const ManageAddress(),
         SearchView.routeName: (context) => const SearchView(),

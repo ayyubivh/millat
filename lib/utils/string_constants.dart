@@ -1,5 +1,3 @@
-<<<<<<< Updated upstream
-=======
 class Appstrings {
   //hive db
   static const String prayerTrackerDb = "PrayerTracker-Db";
@@ -79,7 +77,7 @@ class Appstrings {
   static const String onLargeDiscount = "On large orders";
   static const String hadithOfTheDay = "Hadith of the day";
   static const String share = "Share";
-  static const String shareProfile = "Invite Friend";
+  static const String shareProfile = "Share Profile";
   static const String readMore = "Read More....";
   static const String allaySays = "Allah Says";
   static const String tempAyaMeaning1 =
@@ -92,7 +90,6 @@ class Appstrings {
       "Do not entrust the incapable ˹among your dependants˺ with your wealth which Allah has made a means of support for you—but feed and clothe them from it, and speak to them kindly.";
 }
 
->>>>>>> Stashed changes
 String authToken = 'authToken';
 String emailKey = 'email';
 String nameKey = 'name';

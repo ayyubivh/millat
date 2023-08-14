@@ -14,6 +14,7 @@ import '../../bloc/logic/shop_bloc/shop_products_bloc.dart';
 import '../filters/filters.dart';
 
 class CategoriesView extends StatefulWidget {
+  static const String routeName = "category-view";
   final String? category;
   final String? subCategory;
   const CategoriesView(

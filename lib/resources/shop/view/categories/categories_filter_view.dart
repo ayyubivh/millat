@@ -40,26 +40,35 @@ class _CategoriesFilterState extends State<CategoriesFilter> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          elevation: 0,
-          leading: IconButton(
-            onPressed: () {
-              context
-                  .read<ShopProductsBloc>()
-                  .add(const TabIndexChangeEvent(index: 0));
-            },
-            icon: const Icon(Icons.arrow_back),
-          ),
-          flexibleSpace: Container(
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                colors: [ColorManager.greenColor1, ColorManager.primary],
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
+        appBar: PreferredSize(
+          preferredSize: const Size.fromHeight(95),
+          child: AppBar(
+            elevation: 0,
+            leading: IconButton(
+              onPressed: () {
+                context
+                    .read<ShopProductsBloc>()
+                    .add(const TabIndexChangeEvent(index: 0));
+              },
+              icon: const Icon(Icons.arrow_back),
+            ),
+            flexibleSpace: Container(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [ColorManager.greenColor1, ColorManager.primary],
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                ),
+              ),
+            ),
+            title: const Text(
+              "Category",
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
               ),
             ),
           ),
-          title: Image.asset('assets/logos/millat_white_logo.png', width: 100),
         ),
         body: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -107,8 +116,10 @@ class _CategoriesFilterState extends State<CategoriesFilter> {
                                             );
                                       },
                                       child: Container(
+                                        // height: 98,
+                                        width: 130,
                                         color: isSelected
-                                            ? lightGreen1
+                                            ? ColorManager.categorySelectedGreen
                                             : ColorManager.whiteColor,
                                         child: CategoryFullView(
                                           iconImage: category.image.toString(),

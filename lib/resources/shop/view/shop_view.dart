@@ -1,22 +1,25 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:millat/components/buttons/green_gradient_button.dart';
 import 'package:millat/components/common_widgets/build_categories_widget.dart';
 import 'package:millat/resources/shop/view/article/articles_view.dart';
 import 'package:millat/resources/shop/bloc/logic/category_bloc/category_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
+import 'package:millat/resources/shop/view/brand/shop_brand_view.dart';
 import 'package:millat/resources/shop/view/products/products_view.dart';
 import 'package:millat/resources/shop/view/products/single_product_view.dart';
 import 'package:millat/resources/shop/view/search/search_view.dart';
 import 'package:millat/resources/shop/view/shop_by_brand/shop_by_brand_view.dart';
 import 'package:millat/utils/assets_paths.dart';
+import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/size_utility.dart';
+import 'package:millat/utils/string_constants.dart';
 import 'package:millat/utils/utils.dart';
 import '../../../components/common_widgets/cart_icon_widget.dart';
 import '../../../components/common_widgets/shop_products_widget.dart';
 import '../../../utils/color_manager.dart';
 import '../bloc/logic/cart_bloc/cart_bloc.dart';
- 
 
 class ShopView extends StatefulWidget {
   const ShopView({Key? key}) : super(key: key);
@@ -28,27 +31,19 @@ class ShopView extends StatefulWidget {
 class _ShopViewState extends State<ShopView> {
   @override
   void initState() {
-    BlocProvider.of<CategoryBloc>(context)
-        .add(const CategoryEvent.fetchCategories());
-    BlocProvider.of<ShopProductsBloc>(context).add(FetchWishList(context));
+    final shopProductsBloc = BlocProvider.of<ShopProductsBloc>(context);
+    final cartBloc = BlocProvider.of<CartBloc>(context);
+    final categoryBloc = BlocProvider.of<CategoryBloc>(context);
 
-    BlocProvider.of<ShopProductsBloc>(context)
-        .add(const ShopProductsEvent.fetchFlashSaleProducts());
-
-    BlocProvider.of<ShopProductsBloc>(context)
-        .add(const ShopProductsEvent.fetchPopularProducts());
-
-    BlocProvider.of<ShopProductsBloc>(context)
-        .add(const ShopProductsEvent.fetchRecentProductProducts());
-    BlocProvider.of<ShopProductsBloc>(context)
-        .add(const ShopProductsEvent.fetchShopByBrand());
-    BlocProvider.of<ShopProductsBloc>(context)
-        .add(const ShopProductsEvent.fetchShopBanners());
-
-    BlocProvider.of<ShopProductsBloc>(context)
-        .add(const ShopProductsEvent.fetchArticles());
-    BlocProvider.of<CartBloc>(context).add(FetchCartEvent(context));
-
+    categoryBloc.add(const CategoryEvent.fetchCategories());
+    shopProductsBloc.add(FetchWishList(context));
+    shopProductsBloc.add(const ShopProductsEvent.fetchFlashSaleProducts());
+    shopProductsBloc.add(const ShopProductsEvent.fetchPopularProducts());
+    shopProductsBloc.add(const ShopProductsEvent.fetchRecentProductProducts());
+    shopProductsBloc.add(const ShopProductsEvent.fetchShopByBrand());
+    shopProductsBloc.add(const ShopProductsEvent.fetchShopBanners());
+    shopProductsBloc.add(const ShopProductsEvent.fetchArticles());
+    cartBloc.add(FetchCartEvent(context));
     super.initState();
   }
 
@@ -56,23 +51,22 @@ class _ShopViewState extends State<ShopView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: ColorManager.whiteColor,
       body: SingleChildScrollView(
         child: Column(
           children: [
             Container(
-              padding: const EdgeInsets.only(top: 70, left: 20, right: 20),
+              padding: const EdgeInsets.only(top: 50, left: 20, right: 20),
               width: SizeUtility(context).width,
-              height: 350,
+              height: 300,
               decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                      colors: [ColorManager.greenColor1, ColorManager.primary],
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter)),
+                  gradient: LinearGradient(colors: [
+                ColorManager.greenColor1,
+                ColorManager.primary,
+              ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
               child: Column(
                 children: [
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.end,
@@ -84,29 +78,28 @@ class _ShopViewState extends State<ShopView> {
                           const SizedBox(
                             width: 5,
                           ),
-                          Text(shopText1,
-                              style: TextStyle(
-                                  color: ColorManager.whiteColor, height: 1.8)),
                         ],
+                      ),
+                      const Spacer(),
+                      Image.asset(
+                        AppAssetsStrings.shopMenuIcons,
                       ),
                       BlocBuilder<CartBloc, CartState>(
                         builder: (context, state) {
                           return CartIconWidget(
                             color: ColorManager.whiteColor,
-                            cartLength: state.cartLength ?? 0,
+                            cartLength: state.cartLength,
                           );
                         },
                       )
                     ],
                   ),
-                  const SizedBox(
-                    height: 20,
-                  ),
+                  kHeight15,
                   Container(
                     width: double.infinity,
                     height: 48,
                     decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: ColorManager.whiteColor,
                       borderRadius: BorderRadius.circular(30.0),
                     ),
                     child: Align(
@@ -133,34 +126,6 @@ class _ShopViewState extends State<ShopView> {
                         ],
                       ),
                     ),
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      const Text(
-                        'Categories',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold),
-                      ),
-                      GestureDetector(
-                          onTap: () {
-                            context
-                                .read<ShopProductsBloc>()
-                                .add(const TabIndexChangeEvent(index: 2));
-                          },
-                          child: const Text(
-                            'View All',
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold),
-                          )),
-                    ],
                   ),
                   const SizedBox(
                     height: 20,
@@ -259,10 +224,50 @@ class _ShopViewState extends State<ShopView> {
                       );
                     },
                   ),
-                  const SizedBox(height: 10),
-                  const SizedBox(
-                    height: 30,
+                  SizedBox(height: SizeUtility(context).height / 25),
+                  _titleWidget(text: Appstrings.brand),
+                  kHeight20,
+                  BlocBuilder<ShopProductsBloc, ShopProductsState>(
+                    builder: (context, state) {
+                      return state.shopBrandModel?.users == null
+                          ? const SizedBox()
+                          : SizedBox(
+                              height: 100,
+                              child: ListView.builder(
+                                scrollDirection: Axis.horizontal,
+                                itemCount: state.shopBrandModel?.users!.length,
+                                itemBuilder: (BuildContext context, int index) {
+                                  final data =
+                                      state.shopBrandModel?.users![index];
+                                  return GestureDetector(
+                                    onTap: () {
+                                      Navigator.of(context).push(
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  ShopByBrandView(
+                                                    brandName:
+                                                        data!.name.toString(),
+                                                  )));
+                                    },
+                                    child: buildShopbyBrand(
+                                        data?.image, data?.name),
+                                  );
+                                },
+                              ),
+                            );
+                    },
                   ),
+                  kHeight30,
+                  LighGreenGradienButton(
+                    text: 'View Brands',
+                    onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const ShopBrandView(),
+                      ));
+                    },
+                  ),
+                  SizedBox(height: SizeUtility(context).height / 25),
+                  _titleWidget(text: 'Womens\' Care'),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -427,64 +432,6 @@ class _ShopViewState extends State<ShopView> {
                   ),
                   const SizedBox(
                     height: 50,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'Shop By Brands',
-                        style: TextStyle(
-                            color: ColorManager.blackColor,
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold),
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          // Navigator.of(context).push(MaterialPageRoute(
-                          //     builder: (context) => ShopByBrandView()));
-                        },
-                        child: Text(
-                          'View All',
-                          style: TextStyle(
-                              color: ColorManager.greenColor1,
-                              fontSize: 15,
-                              fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  BlocBuilder<ShopProductsBloc, ShopProductsState>(
-                    builder: (context, state) {
-                      return state.shopBrandModel?.users == null
-                          ? const SizedBox()
-                          : SizedBox(
-                              height: 100,
-                              child: ListView.builder(
-                                scrollDirection: Axis.horizontal,
-                                itemCount: state.shopBrandModel?.users!.length,
-                                itemBuilder: (BuildContext context, int index) {
-                                  final data =
-                                      state.shopBrandModel?.users![index];
-                                  return GestureDetector(
-                                    onTap: () {
-                                      Navigator.of(context).push(
-                                          MaterialPageRoute(
-                                              builder: (context) =>
-                                                  ShopByBrandView(
-                                                    brandName:
-                                                        data!.name.toString(),
-                                                  )));
-                                    },
-                                    child: buildShopbyBrand(
-                                        data?.image, data?.name),
-                                  );
-                                },
-                              ),
-                            );
-                    },
                   ),
                   const SizedBox(
                     height: 50,
@@ -775,6 +722,35 @@ class _ShopViewState extends State<ShopView> {
     );
   }
 
+  Row _titleWidget({required String text}) {
+    return Row(
+      children: [
+        Expanded(
+          child: Container(
+            color: ColorManager.textGrey84,
+            height: 1,
+            margin: const EdgeInsets.only(right: 20),
+          ),
+        ),
+        Text(
+          text,
+          style: const TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
+        Expanded(
+          child: Container(
+              color: ColorManager.textGrey84,
+              height: 1,
+              margin: const EdgeInsets.only(left: 20)),
+        ),
+      ],
+    );
+  }
+
+
+}
   Widget buildShopbyBrand(String? image, String? name) {
     return Container(
       margin: const EdgeInsets.only(right: 10),
@@ -817,4 +793,3 @@ class _ShopViewState extends State<ShopView> {
       ),
     );
   }
-}

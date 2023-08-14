@@ -2,12 +2,13 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:millat/resources/home/bloc/logic/home_bloc/home_bloc.dart';
 import 'package:millat/resources/home/view/home_view.dart';
 import 'package:millat/resources/shop/view/tabs/shop_tabs_vilew.dart';
+import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/color_manager.dart';
 import '../../authentication/bloc/logic/database_bloc/database_bloc.dart';
-import '../../home/bloc/logic/location_bloc/location_bloc.dart';
-import '../../home/bloc/logic/namaz_timing_bloc/namaz_timing_bloc.dart';
+import '../../profile/views/user_profile_view.dart';
 
 class TabsView extends StatefulWidget {
   const TabsView({Key? key}) : super(key: key);
@@ -22,7 +23,7 @@ class _TabsViewState extends State<TabsView> {
     const HomeView(),
     const ShopTabsView(),
     Container(),
-    Container(),
+    const UserProfileView(),
   ];
 
   void onTap(int _index) {
@@ -43,7 +44,6 @@ class _TabsViewState extends State<TabsView> {
     //     .add(FetchPrayerTiming(context: context));
 
     context.read<DatabaseBloc>().add(const FetchToken());
-
     super.initState();
   }
 
@@ -67,24 +67,24 @@ class _TabsViewState extends State<TabsView> {
             type: BottomNavigationBarType.fixed,
             items: const [
               BottomNavigationBarItem(
-                  label: 'Home',
+                  label: '',
                   icon: ImageIcon(
                     AssetImage('assets/icons/home.png'),
                   )),
               BottomNavigationBarItem(
-                  label: 'Shop',
+                  label: '',
                   icon: ImageIcon(
                     AssetImage('assets/icons/store.png'),
                   )),
               BottomNavigationBarItem(
-                  label: 'Sukoon',
+                  label: '',
                   icon: ImageIcon(
-                    AssetImage('assets/icons/sukoon.png'),
+                    AssetImage(AppAssetsStrings.starHome),
                   )),
               BottomNavigationBarItem(
-                  label: 'Community',
+                  label: '',
                   icon: ImageIcon(
-                    AssetImage('assets/icons/community.png'),
+                    AssetImage(AppAssetsStrings.profile),
                   )),
             ],
           ),

@@ -171,13 +171,13 @@ class _CheckoutViewState extends State<CheckoutView> {
             onPressed: () {
               String? id = context.read<AddressBloc>().state.addressId;
               if (id == null) {
-                print('$id is null ');
+              
                 showSnackBar(context, 'select the address');
                 return;
               }
               Navigator.of(context).push(MaterialPageRoute(
                 builder: (context) {
-                  print('$id is null ');
+                
 
                   return const CheckoutPayment();
                 },

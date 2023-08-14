@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -195,8 +193,9 @@ class QuranBloc extends Bloc<QuranEvent, QuranState> {
     emit(state.copyWith(isLoading: true));
     try {
       final data = await quranServices.fetchVersesbyKey(event.verseKey);
-      emit(state.copyWith(versesByKeyModel: data, isLoading: false));
       print('here the list verses by key $data');
+
+      emit(state.copyWith(versesByKeyModel: data, isLoading: false));
     } catch (e) {
       emit(state.copyWith(isLoading: false));
       debugPrint("error fetch quran bloc $e");

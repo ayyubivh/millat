@@ -8801,6 +8801,7 @@ mixin _$QuranState {
       throw _privateConstructorUsedError;
   String get chapterName => throw _privateConstructorUsedError;
   int get nxtAndprevValue => throw _privateConstructorUsedError;
+  List<String> get tempListAya => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $QuranStateCopyWith<QuranState> get copyWith =>
@@ -8848,7 +8849,8 @@ abstract class $QuranStateCopyWith<$Res> {
       ParaVersesModelofUthmani? paraVersesModelofUthmani,
       ParaVersesModelofNoSymbol? paraVersesModelofNoSymbol,
       String chapterName,
-      int nxtAndprevValue});
+      int nxtAndprevValue,
+      List<String> tempListAya});
 
   $QuranChaptersCopyWith<$Res>? get quranChaptersModel;
   $ChapterVersesModelCopyWith<$Res>? get chapterVersesModel;
@@ -8911,6 +8913,7 @@ class _$QuranStateCopyWithImpl<$Res, $Val extends QuranState>
     Object? paraVersesModelofNoSymbol = freezed,
     Object? chapterName = null,
     Object? nxtAndprevValue = null,
+    Object? tempListAya = null,
   }) {
     return _then(_value.copyWith(
       isLoading: null == isLoading
@@ -9053,6 +9056,10 @@ class _$QuranStateCopyWithImpl<$Res, $Val extends QuranState>
           ? _value.nxtAndprevValue
           : nxtAndprevValue // ignore: cast_nullable_to_non_nullable
               as int,
+      tempListAya: null == tempListAya
+          ? _value.tempListAya
+          : tempListAya // ignore: cast_nullable_to_non_nullable
+              as List<String>,
     ) as $Val);
   }
 
@@ -9238,7 +9245,8 @@ abstract class _$$_QuranStateCopyWith<$Res>
       ParaVersesModelofUthmani? paraVersesModelofUthmani,
       ParaVersesModelofNoSymbol? paraVersesModelofNoSymbol,
       String chapterName,
-      int nxtAndprevValue});
+      int nxtAndprevValue,
+      List<String> tempListAya});
 
   @override
   $QuranChaptersCopyWith<$Res>? get quranChaptersModel;
@@ -9310,6 +9318,7 @@ class __$$_QuranStateCopyWithImpl<$Res>
     Object? paraVersesModelofNoSymbol = freezed,
     Object? chapterName = null,
     Object? nxtAndprevValue = null,
+    Object? tempListAya = null,
   }) {
     return _then(_$_QuranState(
       isLoading: null == isLoading
@@ -9452,6 +9461,10 @@ class __$$_QuranStateCopyWithImpl<$Res>
           ? _value.nxtAndprevValue
           : nxtAndprevValue // ignore: cast_nullable_to_non_nullable
               as int,
+      tempListAya: null == tempListAya
+          ? _value._tempListAya
+          : tempListAya // ignore: cast_nullable_to_non_nullable
+              as List<String>,
     ));
   }
 }
@@ -9494,14 +9507,16 @@ class _$_QuranState implements _QuranState {
       required this.paraVersesModelofUthmani,
       required this.paraVersesModelofNoSymbol,
       required this.chapterName,
-      required this.nxtAndprevValue})
+      required this.nxtAndprevValue,
+      required final List<String> tempListAya})
       : _chapterByIdModel = chapterByIdModel,
         _searchChapters = searchChapters,
         _versesByKeyModel = versesByKeyModel,
         _paraAudios = paraAudios,
         _chapterAudios = chapterAudios,
         _chapterTranslationText = chapterTranslationText,
-        _paraTranslationText = paraTranslationText;
+        _paraTranslationText = paraTranslationText,
+        _tempListAya = tempListAya;
 
   @override
   final bool isLoading;
@@ -9629,10 +9644,17 @@ class _$_QuranState implements _QuranState {
   final String chapterName;
   @override
   final int nxtAndprevValue;
+  final List<String> _tempListAya;
+  @override
+  List<String> get tempListAya {
+    if (_tempListAya is EqualUnmodifiableListView) return _tempListAya;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_tempListAya);
+  }
 
   @override
   String toString() {
-    return 'QuranState(isLoading: $isLoading, quranChaptersModel: $quranChaptersModel, chapterVersesModel: $chapterVersesModel, paraVersesModel: $paraVersesModel, quranParaModel: $quranParaModel, chapterByIdModel: $chapterByIdModel, searchChapters: $searchChapters, isExpand2: $isExpand2, versesByKeyModel: $versesByKeyModel, audioPlaying: $audioPlaying, audioPaused: $audioPaused, audioStopped: $audioStopped, paraAudios: $paraAudios, chapterAudios: $chapterAudios, translationsModel: $translationsModel, currentSettingBgIndex: $currentSettingBgIndex, fontsize: $fontsize, chapterTranslationText: $chapterTranslationText, paraTranslationText: $paraTranslationText, isShowMusicbar: $isShowMusicbar, audioIndex: $audioIndex, isExpand: $isExpand, globalTransilationId: $globalTransilationId, transilationName: $transilationName, recitationsModel: $recitationsModel, recitorName: $recitorName, recitorId: $recitorId, quranTextTypeName: $quranTextTypeName, chapterVersesIndoPakModel: $chapterVersesIndoPakModel, chapterVersesOfUthmani: $chapterVersesOfUthmani, chapterVersesOfNosymbol: $chapterVersesOfNosymbol, paraVersesModelofUthmani: $paraVersesModelofUthmani, paraVersesModelofNoSymbol: $paraVersesModelofNoSymbol, chapterName: $chapterName, nxtAndprevValue: $nxtAndprevValue)';
+    return 'QuranState(isLoading: $isLoading, quranChaptersModel: $quranChaptersModel, chapterVersesModel: $chapterVersesModel, paraVersesModel: $paraVersesModel, quranParaModel: $quranParaModel, chapterByIdModel: $chapterByIdModel, searchChapters: $searchChapters, isExpand2: $isExpand2, versesByKeyModel: $versesByKeyModel, audioPlaying: $audioPlaying, audioPaused: $audioPaused, audioStopped: $audioStopped, paraAudios: $paraAudios, chapterAudios: $chapterAudios, translationsModel: $translationsModel, currentSettingBgIndex: $currentSettingBgIndex, fontsize: $fontsize, chapterTranslationText: $chapterTranslationText, paraTranslationText: $paraTranslationText, isShowMusicbar: $isShowMusicbar, audioIndex: $audioIndex, isExpand: $isExpand, globalTransilationId: $globalTransilationId, transilationName: $transilationName, recitationsModel: $recitationsModel, recitorName: $recitorName, recitorId: $recitorId, quranTextTypeName: $quranTextTypeName, chapterVersesIndoPakModel: $chapterVersesIndoPakModel, chapterVersesOfUthmani: $chapterVersesOfUthmani, chapterVersesOfNosymbol: $chapterVersesOfNosymbol, paraVersesModelofUthmani: $paraVersesModelofUthmani, paraVersesModelofNoSymbol: $paraVersesModelofNoSymbol, chapterName: $chapterName, nxtAndprevValue: $nxtAndprevValue, tempListAya: $tempListAya)';
   }
 
   @override
@@ -9696,14 +9718,14 @@ class _$_QuranState implements _QuranState {
                 other.recitorId == recitorId) &&
             (identical(other.quranTextTypeName, quranTextTypeName) ||
                 other.quranTextTypeName == quranTextTypeName) &&
-            (identical(other.chapterVersesIndoPakModel,
-                    chapterVersesIndoPakModel) ||
+            (identical(other.chapterVersesIndoPakModel, chapterVersesIndoPakModel) ||
                 other.chapterVersesIndoPakModel == chapterVersesIndoPakModel) &&
             (identical(other.chapterVersesOfUthmani, chapterVersesOfUthmani) ||
                 other.chapterVersesOfUthmani == chapterVersesOfUthmani) &&
             (identical(other.chapterVersesOfNosymbol, chapterVersesOfNosymbol) ||
                 other.chapterVersesOfNosymbol == chapterVersesOfNosymbol) &&
-            (identical(other.paraVersesModelofUthmani, paraVersesModelofUthmani) ||
+            (identical(
+                    other.paraVersesModelofUthmani, paraVersesModelofUthmani) ||
                 other.paraVersesModelofUthmani == paraVersesModelofUthmani) &&
             (identical(other.paraVersesModelofNoSymbol,
                     paraVersesModelofNoSymbol) ||
@@ -9711,7 +9733,9 @@ class _$_QuranState implements _QuranState {
             (identical(other.chapterName, chapterName) ||
                 other.chapterName == chapterName) &&
             (identical(other.nxtAndprevValue, nxtAndprevValue) ||
-                other.nxtAndprevValue == nxtAndprevValue));
+                other.nxtAndprevValue == nxtAndprevValue) &&
+            const DeepCollectionEquality()
+                .equals(other._tempListAya, _tempListAya));
   }
 
   @override
@@ -9751,7 +9775,8 @@ class _$_QuranState implements _QuranState {
         paraVersesModelofUthmani,
         paraVersesModelofNoSymbol,
         chapterName,
-        nxtAndprevValue
+        nxtAndprevValue,
+        const DeepCollectionEquality().hash(_tempListAya)
       ]);
 
   @JsonKey(ignore: true)
@@ -9797,7 +9822,8 @@ abstract class _QuranState implements QuranState {
       required final ParaVersesModelofUthmani? paraVersesModelofUthmani,
       required final ParaVersesModelofNoSymbol? paraVersesModelofNoSymbol,
       required final String chapterName,
-      required final int nxtAndprevValue}) = _$_QuranState;
+      required final int nxtAndprevValue,
+      required final List<String> tempListAya}) = _$_QuranState;
 
   @override
   bool get isLoading;
@@ -9869,6 +9895,8 @@ abstract class _QuranState implements QuranState {
   String get chapterName;
   @override
   int get nxtAndprevValue;
+  @override
+  List<String> get tempListAya;
   @override
   @JsonKey(ignore: true)
   _$$_QuranStateCopyWith<_$_QuranState> get copyWith =>

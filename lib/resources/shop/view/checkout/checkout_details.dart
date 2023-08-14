@@ -6,8 +6,6 @@ import 'package:millat/resources/shop/bloc/logic/address_bloc/address_bloc.dart'
 import 'package:millat/resources/shop/view/checkout/checkout_view.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/size_utility.dart';
-import 'package:millat/utils/utils.dart';
-import 'package:pinput/pinput.dart';
 
 class CheckoutDetails extends StatefulWidget {
   const CheckoutDetails({Key? key, required this.type}) : super(key: key);

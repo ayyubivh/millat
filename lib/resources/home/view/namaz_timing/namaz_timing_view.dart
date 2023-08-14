@@ -949,40 +949,6 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                   final List prayerTimes = times.values.toList();
                   return ListView(
                     shrinkWrap: true,
-<<<<<<< Updated upstream
-                    itemCount: state.showImsak == true ? 7 : 6,
-                    itemBuilder: (context, index) {
-                      final images = [
-                        "assets/icons/fajr.png",
-                        "assets/icons/sunrise.png",
-                        "assets/icons/duhar.png",
-                        "assets/icons/asar.png",
-                        "assets/icons/magrib.png",
-                        "assets/icons/isha.png",
-                        "assets/icons/isha.png",
-                        "assets/icons/qiyam.png"
-                      ];
-
-                      final data = state.prayerModel!.data.timings;
-                      final Map<String, dynamic> times = {
-                        'Fajr': data.fajr,
-                        'Sunrise': data.sunrise,
-                        'Dhuhr': data.dhuhr,
-                        'Asr': data.asr,
-                        'Maghrib': data.maghrib,
-                        'Isha': data.isha,
-                        "Qiyam": data.imsak
-                      };
-                      final List<String> prayerNames = times.keys.toList();
-                      final List prayerTimes = times.values.toList();
-
-                      return buildNamazTile(
-                          isNotiy: state.isNotify,
-                          title: prayerNames[index],
-                          time: prayerTimes[index],
-                          image: images[index]);
-                    },
-=======
                     children: [
                       buildNamazTile(
                           onTap: () {
@@ -1083,7 +1049,6 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                           time: prayerTimes[6],
                           image: images[6]),
                     ],
->>>>>>> Stashed changes
                   );
                 },
               )
@@ -1099,11 +1064,8 @@ class _NamazTimingViewState extends State<NamazTimingView> {
     required String time,
     required String image,
     required bool isNotiy,
-<<<<<<< Updated upstream
-=======
     required int index,
     required VoidCallback onTap,
->>>>>>> Stashed changes
   }) {
     return Column(
       children: [
@@ -1137,22 +1099,7 @@ class _NamazTimingViewState extends State<NamazTimingView> {
               ),
               const SizedBox(width: 12),
               IconButton(
-<<<<<<< Updated upstream
-                  onPressed: () {
-                    setState(() {
-                      isNotiy = !isNotiy;
-                    });
-                    print("here on the notify $isNotiy");
-                    context
-                        .read<NamazTimingBloc>()
-                        .add(OnNotiyOnOffEvent(value: isNotiy));
-                    context
-                        .read<NamazTimingBloc>()
-                        .add(const PrayerTimingEvent());
-                  },
-=======
                   onPressed: onTap,
->>>>>>> Stashed changes
                   icon: isNotiy == true
                       ? Icon(Icons.notifications_none_rounded,
                           color: ColorManager.textGrey84)

@@ -1,23 +1,36 @@
+// ignore_for_file: deprecated_member_use
+
+import 'dart:io';
+
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:http/http.dart' as http;
+import 'package:path_provider/path_provider.dart';
+import 'package:share_plus/share_plus.dart';
+
 import 'package:millat/resources/home/bloc/logic/bookmark_bloc/bookmark_bloc.dart';
-import 'package:millat/resources/home/bloc/logic/dua_bloc/dua_bloc.dart';
+import 'package:millat/resources/home/bloc/logic/home_bloc/home_bloc.dart';
 import 'package:millat/resources/home/bloc/logic/namaz_timing_bloc/namaz_timing_bloc.dart';
-import 'package:millat/resources/home/view/dua/dua_view.dart';
+import 'package:millat/resources/home/bloc/logic/quran_bloc/quran_bloc.dart';
 import 'package:millat/resources/home/view/qibla/qibla_view.dart';
 import 'package:millat/resources/home/view/tasbih/tasbih_view.dart';
-import 'package:millat/resources/home/view/tasbih/widgets/tasbih_test.dart';
+import 'package:millat/resources/home/view/widgets/hadit_tinder_cards.dart';
+import 'package:millat/resources/home/view/widgets/home_drawyer_widget.dart';
 import 'package:millat/utils/constants.dart';
+import 'package:millat/utils/loader.dart';
+
+import '../../../utils/assets_paths.dart';
 import '../../../utils/color_manager.dart';
 import '../../../utils/size_utility.dart';
+import '../../../utils/string_constants.dart';
 import '../../../utils/utils.dart';
 import '../../authentication/bloc/logic/database_bloc/database_bloc.dart';
-import '../../profile/views/profile_view.dart';
 import '../../shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
 import '../bloc/logic/location_bloc/location_bloc.dart';
 import 'al_quran/al_quran_view.dart';
+import 'dua/dua_view.dart';
 import 'namaz_timing/namaz_timing_view.dart';
 
 ValueNotifier<bool> scrollNotifier = ValueNotifier(true);
@@ -31,21 +44,44 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> {
   int _currentIndex = 0;
-
+  String verskey = "";
   @override
   void initState() {
+    BlocProvider.of<QuranBloc>(context)
+        .add(FetchVersesByKey(verseKey: getShuffledList()));
+
     BlocProvider.of<BookmarkBloc>(context).add(const FetchCollectionItem());
     BlocProvider.of<LocationBloc>(context).add(const FetchCurrentLocation());
     BlocProvider.of<DatabaseBloc>(context).add(const FetchUserDetails());
     BlocProvider.of<LocationBloc>(context).add(const FetchCities());
     BlocProvider.of<ShopProductsBloc>(context).add(const FetchHomeBanners());
     BlocProvider.of<ShopProductsBloc>(context).add(FetchOrders(context));
+    BlocProvider.of<HomeBloc>(context).add(const FetchPrayerTrackerEvent());
+    BlocProvider.of<HomeBloc>(context)
+      ..add(const FetchLargeDisountsBanner())
+      ..add(const FetchTopOffersBanner())
+      ..add(const FetchBrandofTheDay())
+      ..add(const FetchHadithOfTheDay())
+      ..add(const FetchEventOfTheMonth());
+
     super.initState();
+  }
+
+  List<String> getShuffledList() {
+    final shuffledList = List.from(context.read<QuranBloc>().state.tempListAya)
+      ..shuffle();
+    final selectedAya = shuffledList.first;
+    setState(() {
+      verskey = selectedAya;
+    });
+    return [selectedAya];
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBody: true,
+      endDrawer: const HomeDrawyerWidget(),
       backgroundColor: ColorManager.whiteColor,
       body: BlocListener<LocationBloc, LocationState>(
         listener: (context, state) {
@@ -67,9 +103,13 @@ class _HomeViewState extends State<HomeView> {
               return NotificationListener<UserScrollNotification>(
                 onNotification: (notification) {
                   final ScrollDirection direction = notification.direction;
+                  final double scrollPosition = notification.metrics.pixels;
+                  const double epsilon = 1.0;
+
                   if (direction == ScrollDirection.reverse) {
                     scrollNotifier.value = false;
-                  } else if (direction == ScrollDirection.forward) {
+                  } else if (direction == ScrollDirection.forward &&
+                      scrollPosition <= epsilon) {
                     scrollNotifier.value = true;
                   }
                   return true;
@@ -84,42 +124,25 @@ class _HomeViewState extends State<HomeView> {
                         image: DecorationImage(
                           image: AssetImage(
                             scrollNotifier.value
-                                ? 'assets/images/home_app_bar.png'
-                                : 'assets/images/namaz_timing_appBar.png',
+                                ? AppAssetsStrings.homeAppbar
+                                : AppAssetsStrings.namazTimingAppbar,
                           ),
                           fit: BoxFit.fill,
                         ),
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 40),
-                      child: Column(
-                        children: [
-                          const SizedBox(
-                            height: 50,
-                          ),
-                          Row(
+                    Column(
+                      children: [
+                        kHeight50,
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 40),
+                          child: Row(
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              GestureDetector(
-                                onTap: () {
-                                  Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (context) => const ProfileView(),
-                                  ));
-                                },
-                                child: const CircleAvatar(
-                                  backgroundColor: Colors.white,
-                                  backgroundImage:
-                                      AssetImage('assets/icons/user.png'),
-                                ),
-                              ),
-                              const SizedBox(
-                                width: 10,
-                              ),
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  const Text('Asslamualaikum,',
+                                  const Text(Appstrings.assalamuAlaikum,
                                       style: TextStyle(
                                           color: Colors.white, fontSize: 18)),
                                   const SizedBox(
@@ -135,535 +158,140 @@ class _HomeViewState extends State<HomeView> {
                               ),
                               const Spacer(),
                               const ImageIcon(
-                                  AssetImage('assets/icons/bell.png'),
+                                  AssetImage(AppAssetsStrings.bellIcon),
                                   color: Colors.white,
                                   size: 25),
                               const SizedBox(
                                 width: 20,
                               ),
-                              const ImageIcon(
-                                  AssetImage('assets/icons/menu.png'),
-                                  color: Colors.white,
-                                  size: 25),
+                              GestureDetector(
+                                onTap: () {
+                                  Scaffold.of(context).openEndDrawer();
+                                },
+                                child: const ImageIcon(
+                                    AssetImage(AppAssetsStrings.menuIcon),
+                                    color: Colors.white,
+                                    size: 25),
+                              ),
                             ],
                           ),
-                          const SizedBox(
-                            height: 25,
-                          ),
-                          scrollNotifier.value == true
-                              ? animatedContainerWidget1(context)
-                              : animatedContainerWidget2(context),
-                          Expanded(
-                            child: SingleChildScrollView(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  const SizedBox(
-                                    height: 20,
-                                  ),
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
+                        ),
+                        const SizedBox(
+                          height: 25,
+                        ),
+                        scrollNotifier.value == true
+                            ? animatedContainerWidget1(context)
+                            : animatedContainerWidget2(context),
+                        Expanded(
+                          child: SingleChildScrollView(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                kHeight16,
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 40),
+                                  child: Column(
                                     children: [
-                                      buildIconWidget(
-                                        image: 'assets/icons/quran.png',
-                                        text: "Qur'an",
-                                        onTap: () {
-                                          Navigator.of(context)
-                                              .push(MaterialPageRoute(
-                                            builder: (context) =>
-                                                const AlQuranView(),
-                                          ));
-                                        },
-                                      ),
-                                      buildIconWidget(
-                                        image: 'assets/icons/adzan.png',
-                                        text: 'Hadith',
-                                        onTap: () {},
-                                      ),
-                                      BlocBuilder<LocationBloc, LocationState>(
-                                        builder: (context, state) =>
-                                            buildIconWidget(
-                                          image: 'assets/icons/qibla.png',
-                                          text: 'Qibla',
-                                          onTap: () {
-                                            if (state
-                                                .currentLocaion.isNotEmpty) {
-                                              Navigator.push(
-                                                  context,
-                                                  MaterialPageRoute(
-                                                    builder: (context) =>
-                                                        const QiblahScreen(),
-                                                  ));
-                                            } else {
-                                              showSnackBar(context,
-                                                  "Please turn on location!");
-                                            }
-                                          },
-                                        ),
-                                      ),
-                                      buildIconWidget(
-                                        image: 'assets/icons/tasbih.png',
-                                        text: 'Tasbih',
-                                        onTap: () {
-                                          Navigator.of(context).push(
-                                              MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      const TasbihView()));
-                                        },
-                                      ),
-                                      buildIconWidget(
-                                        image: "assets/icons/dua.png",
-                                        text: "Dua",
-                                        onTap: () {
-                                          Navigator.of(context)
-                                              .push(MaterialPageRoute(
-                                            builder: (context) =>
-                                                const DuaView(),
-                                          ));
-                                        },
-                                      )
-                                    ],
-                                  ),
-                                  const SizedBox(height: 30),
-                                  BlocBuilder<ShopProductsBloc,
-                                      ShopProductsState>(
-                                    builder: (context, state) {
-                                      if (state.homeBanner == null) {
-                                        return const SizedBox();
-                                      }
-
-                                      final banners =
-                                          state.homeBanner?.result!.banners;
-                                      return Column(
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
                                         children: [
-                                          CarouselSlider(
-                                            items: banners?.map((banner) {
-                                              return ClipRRect(
-                                                borderRadius:
-                                                    BorderRadius.circular(20),
-                                                child: Image.network(
-                                                  banner.image,
-                                                  fit: BoxFit.contain,
-                                                ),
-                                              );
-                                            }).toList(),
-                                            options: CarouselOptions(
-                                              height: 150,
-                                              viewportFraction: 1,
-                                              enlargeCenterPage: true,
-                                              autoPlay: true,
-                                              autoPlayCurve:
-                                                  Curves.fastOutSlowIn,
-                                              enableInfiniteScroll: true,
-                                              enlargeFactor: 0.3,
-                                              scrollDirection: Axis.horizontal,
-                                              autoPlayAnimationDuration:
-                                                  const Duration(
-                                                      milliseconds: 800),
-                                              onPageChanged: (index, reason) {
-                                                setState(() {
-                                                  _currentIndex = index;
-                                                });
+                                          buildIconWidget(
+                                            image:
+                                                AppAssetsStrings.homeQuranIcon,
+                                            text: Appstrings.quran,
+                                            onTap: () {
+                                              Navigator.of(context)
+                                                  .push(MaterialPageRoute(
+                                                builder: (context) =>
+                                                    const AlQuranView(),
+                                              ));
+                                            },
+                                          ),
+                                          BlocBuilder<LocationBloc,
+                                              LocationState>(
+                                            builder: (context, state) =>
+                                                buildIconWidget(
+                                              image: AppAssetsStrings
+                                                  .homeCompassIcon,
+                                              text: Appstrings.compass,
+                                              onTap: () {
+                                                if (state.currentLocaion
+                                                    .isNotEmpty) {
+                                                  Navigator.push(
+                                                      context,
+                                                      MaterialPageRoute(
+                                                        builder: (context) =>
+                                                            const QiblahScreen(),
+                                                      ));
+                                                } else {
+                                                  showSnackBar(
+                                                    context,
+                                                    Appstrings.turnOnLocation,
+                                                  );
+                                                }
                                               },
                                             ),
                                           ),
-                                          const SizedBox(height: 10),
-                                          Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            children: banners!.map((banner) {
-                                              int index =
-                                                  banners.indexOf(banner);
-                                              return Container(
-                                                width: _currentIndex == index
-                                                    ? 24
-                                                    : 6,
-                                                height: 6,
-                                                margin:
-                                                    const EdgeInsets.symmetric(
-                                                        horizontal: 4),
-                                                decoration: BoxDecoration(
-                                                  borderRadius:
-                                                      BorderRadius.circular(30),
-                                                  color: _currentIndex == index
-                                                      ? ColorManager.primary
-                                                      : Colors.grey,
-                                                ),
-                                              );
-                                            }).toList(),
+                                          buildIconWidget(
+                                            image:
+                                                AppAssetsStrings.homeTasbihIcon,
+                                            text: Appstrings.tasbih,
+                                            onTap: () {
+                                              Navigator.of(context).push(
+                                                  MaterialPageRoute(
+                                                      builder: (context) =>
+                                                          const TasbihView()));
+                                            },
                                           ),
+                                          buildIconWidget(
+                                              image:
+                                                  AppAssetsStrings.homeDuaIcon,
+                                              text: Appstrings.dua,
+                                              onTap: () {
+                                                Navigator.of(context)
+                                                    .push(MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      const DuaView(),
+                                                ));
+                                              })
                                         ],
-                                      );
-                                    },
+                                      ),
+                                      kHeight20,
+                                      _bannerWidget(),
+                                      kHeight15,
+                                      _quranAyaWidget(context),
+                                      _dailyPrayerTracker(context),
+                                      const SizedBox(
+                                        height: 340,
+                                        child: HaditTinkerCards(),
+                                      )
+                                    ],
                                   ),
-                                  const SizedBox(height: 30),
-                                  Container(
-                                    padding: const EdgeInsets.symmetric(
-                                        vertical: 20, horizontal: 20),
-                                    decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(10),
-                                        border: Border.all(
-                                            color: const Color.fromRGBO(
-                                                230, 230, 230, 1))),
-                                    child: Column(
-                                      children: [
-                                        Row(
-                                          children: [
-                                            Image.asset(
-                                                'assets/icons/quran_circle.png',
-                                                height: 50,
-                                                width: 50,
-                                                fit: BoxFit.cover),
-                                            const SizedBox(
-                                              width: 15,
-                                            ),
-                                            const Column(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                Text(
-                                                  'Ramadan Special',
-                                                  style: TextStyle(
-                                                      fontWeight:
-                                                          FontWeight.w600,
-                                                      fontSize: 17),
-                                                ),
-                                                SizedBox(
-                                                  height: 10,
-                                                ),
-                                                Text(
-                                                  'Mosque',
-                                                  style: TextStyle(
-                                                      color: black166,
-                                                      fontSize: 15),
-                                                )
-                                              ],
-                                            ),
-                                          ],
-                                        ),
-                                        const SizedBox(
-                                          height: 20,
-                                        ),
-                                        ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(20),
-                                          child: Image.asset(
-                                              'assets/images/masjed.png',
-                                              fit: BoxFit.cover),
-                                        ),
-                                        const SizedBox(
-                                          height: 20,
-                                        ),
-                                        const Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Row(
-                                              children: [
-                                                ImageIcon(
-                                                  AssetImage(
-                                                      'assets/icons/heart.png'),
-                                                  color: black165,
-                                                  size: 20,
-                                                ),
-                                                SizedBox(
-                                                  width: 10,
-                                                ),
-                                                Text('Like',
-                                                    style: TextStyle(
-                                                        color: black165))
-                                              ],
-                                            ),
-                                            Row(
-                                              children: [
-                                                ImageIcon(
-                                                  AssetImage(
-                                                      'assets/icons/share.png'),
-                                                  color: black165,
-                                                  size: 20,
-                                                ),
-                                                SizedBox(
-                                                  width: 10,
-                                                ),
-                                                Text(
-                                                  'Share',
-                                                  style: TextStyle(
-                                                      color: black165),
-                                                )
-                                              ],
-                                            )
-                                          ],
-                                        ),
-                                      ],
-                                    ),
+                                ),
+                                kHeight25,
+                                _largeDiscountWidget(context),
+                                _eventOfTheMonthWidget(context),
+                                kHeight20,
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 40),
+                                  child: Column(
+                                    children: [
+                                      _topOffersWidget(),
+                                      kHeight25,
+                                      _brandOftheDayWidget(),
+                                    ],
                                   ),
-                                  const SizedBox(
-                                    height: 40,
-                                  ),
-                                  const Text(
-                                    'Play Games',
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.w600,
-                                        fontSize: 20),
-                                  ),
-                                  const SizedBox(
-                                    height: 30,
-                                  ),
-                                  Container(
-                                    height: 480,
-                                    width: SizeUtility(context).width,
-                                    padding: const EdgeInsets.all(30),
-                                    decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(20),
-                                        gradient: const LinearGradient(
-                                            begin: Alignment.centerLeft,
-                                            end: Alignment.centerRight,
-                                            colors: [
-                                              lightGreenColor,
-                                              darkGreenColor
-                                            ])),
-                                    child: Column(
-                                      children: [
-                                        const Text(
-                                          'What is the name of the night during which Muslims believe the first verses of the Quran were revealed to Prophet Muhammad?',
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 20),
-                                        ),
-                                        const SizedBox(
-                                          height: 30,
-                                        ),
-                                        Container(
-                                          alignment: Alignment.centerLeft,
-                                          height: 50,
-                                          width: SizeUtility(context).width,
-                                          padding: const EdgeInsets.symmetric(
-                                              horizontal: 20),
-                                          decoration: BoxDecoration(
-                                              borderRadius:
-                                                  BorderRadius.circular(10),
-                                              border: Border.all(
-                                                  color: Colors.white)),
-                                          child: const Text('1. Laitaltul Qadr',
-                                              style: TextStyle(
-                                                  color: Colors.white)),
-                                        ),
-                                        const SizedBox(
-                                          height: 10,
-                                        ),
-                                        Container(
-                                          alignment: Alignment.centerLeft,
-                                          height: 50,
-                                          width: SizeUtility(context).width,
-                                          padding: const EdgeInsets.symmetric(
-                                              horizontal: 20),
-                                          decoration: BoxDecoration(
-                                              borderRadius:
-                                                  BorderRadius.circular(10),
-                                              border: Border.all(
-                                                  color: Colors.white)),
-                                          child: const Text("Laylatul Bara'ah",
-                                              style: TextStyle(
-                                                  color: Colors.white)),
-                                        ),
-                                        const SizedBox(
-                                          height: 10,
-                                        ),
-                                        Container(
-                                          alignment: Alignment.centerLeft,
-                                          height: 50,
-                                          width: SizeUtility(context).width,
-                                          padding: const EdgeInsets.symmetric(
-                                              horizontal: 20),
-                                          decoration: BoxDecoration(
-                                              borderRadius:
-                                                  BorderRadius.circular(10),
-                                              border: Border.all(
-                                                  color: Colors.white)),
-                                          child: const Text("Laylatul Eid",
-                                              style: TextStyle(
-                                                  color: Colors.white)),
-                                        ),
-                                        const SizedBox(
-                                          height: 10,
-                                        ),
-                                        Container(
-                                          alignment: Alignment.centerLeft,
-                                          height: 50,
-                                          width: SizeUtility(context).width,
-                                          padding: const EdgeInsets.symmetric(
-                                              horizontal: 20),
-                                          decoration: BoxDecoration(
-                                              borderRadius:
-                                                  BorderRadius.circular(10),
-                                              border: Border.all(
-                                                  color: Colors.white)),
-                                          child: const Text("Lailatul Mi'raj",
-                                              style: TextStyle(
-                                                  color: Colors.white)),
-                                        ),
-                                        const SizedBox(
-                                          height: 30,
-                                        ),
-                                        ElevatedButton(
-                                          onPressed: () {},
-                                          style: ButtonStyle(
-                                              backgroundColor:
-                                                  MaterialStateProperty.all(
-                                                      Colors.white),
-                                              fixedSize:
-                                                  MaterialStateProperty.all(
-                                                      Size(
-                                                          SizeUtility(context)
-                                                              .width,
-                                                          50))),
-                                          child: const Text(
-                                            'Play Games',
-                                            style: TextStyle(
-                                                color: dark2GreenColor,
-                                                fontWeight: FontWeight.w700,
-                                                fontSize: 17),
-                                          ),
-                                        )
-                                      ],
-                                    ),
-                                  ),
-                                  const SizedBox(
-                                    height: 30,
-                                  ),
-                                  const Text(
-                                    'Items of the day',
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.w600,
-                                        fontSize: 20),
-                                  ),
-                                  const SizedBox(
-                                    height: 30,
-                                  ),
-                                  SingleChildScrollView(
-                                    scrollDirection: Axis.horizontal,
-                                    child: Row(
-                                      children: [
-                                        buildShopItem(
-                                            image: 'assets/dummy/sijadah.png',
-                                            title:
-                                                "Hijaz Turkish Gold Border Lantern..."),
-                                        buildShopItem(
-                                            image: 'assets/dummy/green_hat.png',
-                                            title:
-                                                "Green Wool Winter Large Skull Ca..."),
-                                        buildShopItem(
-                                            image: 'assets/dummy/sijadah.png',
-                                            title:
-                                                "Hijaz Turkish Gold Border Lantern..."),
-                                        buildShopItem(
-                                            image: 'assets/dummy/sijadah.png',
-                                            title:
-                                                "Hijaz Turkish Gold Border Lantern..."),
-                                      ],
-                                    ),
-                                  ),
-                                  const SizedBox(
-                                    height: 30,
-                                  ),
-                                  const Text(
-                                    'Try Sukoon',
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.w600,
-                                        fontSize: 20),
-                                  ),
-                                  const SizedBox(
-                                    height: 30,
-                                  ),
-                                  Container(
-                                    padding: const EdgeInsets.all(15),
-                                    decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(10),
-                                        border: Border.all(color: borderColor)),
-                                    child: Row(
-                                      children: [
-                                        ClipRRect(
-                                          child: Image.asset(
-                                              'assets/dummy/try_sukoon.png',
-                                              height: 100,
-                                              width: 100),
-                                        ),
-                                        Expanded(
-                                          child: Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
-                                            children: [
-                                              Slider(
-                                                activeColor:
-                                                    ColorManager.mainColor,
-                                                inactiveColor: black153,
-                                                value: 0.5,
-                                                onChanged: (value) {},
-                                              ),
-                                              const Padding(
-                                                padding: EdgeInsets.symmetric(
-                                                    horizontal: 25),
-                                                child: Row(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceBetween,
-                                                  children: [
-                                                    Text(
-                                                      '2:44',
-                                                      style: TextStyle(
-                                                          color: black196),
-                                                    ),
-                                                    Text(
-                                                      '4:13',
-                                                      style: TextStyle(
-                                                          color: black196),
-                                                    )
-                                                  ],
-                                                ),
-                                              ),
-                                              Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.center,
-                                                children: [
-                                                  IconButton(
-                                                      onPressed: () {},
-                                                      icon: const ImageIcon(
-                                                        AssetImage(
-                                                            'assets/icons/previous_sound.png'),
-                                                        color: black217,
-                                                      )),
-                                                  CircleAvatar(
-                                                    backgroundColor:
-                                                        ColorManager.mainColor,
-                                                    child: const Icon(
-                                                        Icons.play_arrow,
-                                                        color: Colors.white),
-                                                  ),
-                                                  IconButton(
-                                                      onPressed: () {},
-                                                      icon: const ImageIcon(
-                                                        AssetImage(
-                                                            'assets/icons/next_sound.png'),
-                                                        color: black217,
-                                                      ))
-                                                ],
-                                              )
-                                            ],
-                                          ),
-                                        )
-                                      ],
-                                    ),
-                                  ),
-                                  const SizedBox(
-                                    height: 120,
-                                  ),
-                                ],
-                              ),
+                                ),
+                                kHeight50,
+                                kHeight50,
+                              ],
                             ),
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ],
                 ),
@@ -675,8 +303,6 @@ class _HomeViewState extends State<HomeView> {
     );
   }
 
-<<<<<<< Updated upstream
-=======
   Widget _brandOftheDayWidget() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -1104,7 +730,7 @@ class _HomeViewState extends State<HomeView> {
 
   Widget _quranAyaWidget(BuildContext context) {
     return Container(
-      height: 282,
+      height: 260,
       width: SizeUtility(context).width,
       color: ColorManager.lightGreenDC,
       child: Stack(
@@ -1184,19 +810,12 @@ class _HomeViewState extends State<HomeView> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        GestureDetector(
-                          onTap: () {
-                            Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => const AlQuranView(),
-                            ));
-                          },
-                          child: Text(
-                            Appstrings.learnMore,
-                            style: TextStyle(
-                              fontSize: 15,
-                              fontWeight: FontWeight.w600,
-                              color: ColorManager.primary,
-                            ),
+                        Text(
+                          Appstrings.learnMore,
+                          style: TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.w600,
+                            color: ColorManager.primary,
                           ),
                         ),
                         Image.asset(AppAssetsStrings.quranHomebackgroundImg)
@@ -1289,7 +908,6 @@ class _HomeViewState extends State<HomeView> {
     );
   }
 
->>>>>>> Stashed changes
   Widget buildIconWidget(
       {required String image,
       required String text,
@@ -1299,12 +917,12 @@ class _HomeViewState extends State<HomeView> {
       child: Column(
         children: [
           Container(
-            height: 54,
-            width: 54,
+            height: 70,
+            width: 70,
             padding: const EdgeInsets.all(10),
             decoration: BoxDecoration(
               color: black247,
-              borderRadius: BorderRadius.circular(5),
+              borderRadius: BorderRadius.circular(6),
             ),
             child: Image.asset(
               image,
@@ -1327,6 +945,7 @@ class _HomeViewState extends State<HomeView> {
         curve: Curves.decelerate,
         duration: const Duration(milliseconds: 1000),
         height: 90,
+        margin: const EdgeInsets.symmetric(horizontal: 40),
         padding: const EdgeInsets.symmetric(
           horizontal: 15,
         ),
@@ -1466,6 +1085,7 @@ class _HomeViewState extends State<HomeView> {
       duration: const Duration(milliseconds: 1000),
       height: scrollNotifier.value == false ? 180 : 190,
       padding: const EdgeInsets.all(20),
+      margin: const EdgeInsets.symmetric(horizontal: 40),
       decoration: BoxDecoration(
         color: ColorManager.whiteColor,
         borderRadius: BorderRadius.circular(20),

@@ -5,6 +5,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/resources/authentication/bloc/logic/database_bloc/database_bloc.dart';
 import 'package:millat/resources/authentication/bloc/model/user_model.dart';
 import 'package:millat/services/http_services.dart';
+import 'package:http/http.dart' as http;
+import 'package:millat/utils/string_constants.dart';
+
+import '../model/auth_user_model/auth_user_model.dart';
 
 class AuthService extends HttpServices {
   final String loginAPI = 'auth/signin_with_email';
@@ -13,6 +17,7 @@ class AuthService extends HttpServices {
   final String verifyOTPAPI = 'auth/verify';
   final String resendOTPAPI = 'auth/resend_otp';
   final String forgotPasswordAPI = 'auth/forgot_password';
+  final String authUserModel = "auth/user";
   login(
       {required String email,
       required String password,
@@ -152,5 +157,73 @@ class AuthService extends HttpServices {
         'status': false,
       };
     });
+  }
+
+  //Get auth User Model
+  Future<AuthUserModel> fetchAuthUser({required BuildContext context}) async {
+    final databaseState = context.read<DatabaseBloc>().state;
+    final token = databaseState.token;
+    final headers = {
+      'Content-Type': 'application/json; charset=utf-8',
+      'Authorization': 'Bearer $token',
+    };
+    final response = await get(endPoint: authUserModel, headers: headers);
+
+    if (response.statusCode == 200) {
+      try {
+        final Map<String, dynamic> data = json.decode(
+          response.body,
+        );
+        final result = AuthUserModel.fromJson(data);
+        return result;
+      } catch (e) {
+        throw Exception('Failed to parse response');
+      }
+    } else {
+      throw Exception(
+          'API request failed with status code: ${response.statusCode}');
+    }
+  }
+
+  // edit Auth user
+  Future<Map<String, dynamic>> editAuthUser({
+    required String name,
+    required String userName,
+    required String email,
+    required BuildContext context,
+  }) async {
+    final databaseState = context.read<DatabaseBloc>().state;
+    final token = databaseState.token;
+    final headers = {
+      'Authorization': 'Bearer $token',
+    };
+
+    final uri = Uri.parse("${kBaseUrl}auth/update");
+
+    final request = http.MultipartRequest('PATCH', uri)
+      ..headers.addAll(headers)
+      ..fields['name'] = name
+      ..fields['username'] = userName;
+
+    try {
+      final response = await request.send();
+
+      if (response.statusCode == 200) {
+        return {
+          'status': true,
+          'message': 'Profile updated successfully',
+        };
+      } else {
+        return {
+          'status': false,
+          'message': 'Failed to update profile',
+        };
+      }
+    } catch (error) {
+      return {
+        'status': false,
+        'message': 'An error occurred',
+      };
+    }
   }
 }

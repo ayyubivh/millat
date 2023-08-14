@@ -306,9 +306,6 @@ class NamazTimingBloc extends Bloc<NamazTimingEvent, NamazTimingState> {
 
   FutureOr<void> _onNotiyOnOffEvent(
       OnNotiyOnOffEvent event, Emitter<NamazTimingState> emit) {
-<<<<<<< Updated upstream
-    emit(state.copyWith(isNotify: event.value));
-=======
     switch (event.index) {
       case 0:
         emit(state.copyWith(
@@ -344,6 +341,5 @@ class NamazTimingBloc extends Bloc<NamazTimingEvent, NamazTimingState> {
 
   _changeIndex(ChangeIndex event, Emitter<NamazTimingState> emit) {
     emit(state.copyWith(index: event.index));
->>>>>>> Stashed changes
   }
 }

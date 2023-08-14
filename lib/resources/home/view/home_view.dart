@@ -675,6 +675,621 @@ class _HomeViewState extends State<HomeView> {
     );
   }
 
+<<<<<<< Updated upstream
+=======
+  Widget _brandOftheDayWidget() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Text(
+          Appstrings.homeHeading3,
+          style: TextStyle(
+            fontSize: 17,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
+        kHeight15,
+        BlocBuilder<HomeBloc, HomeState>(
+          builder: (context, state) {
+            if (state.isLoading ||
+                state.brandOftheDayModel?.result?.banners == null) {
+              return const Loader();
+            }
+            return SizedBox(
+              height: 230,
+              width: 330,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: state.brandOftheDayModel!.result!.banners!.length,
+                itemBuilder: (context, index) {
+                  final data =
+                      state.brandOftheDayModel!.result!.banners![index];
+                  return Padding(
+                    padding: const EdgeInsets.only(right: 15),
+                    child: Image.network(
+                      data.image!,
+                      // height: 230,
+                      // width: 330,
+                    ),
+                  );
+                },
+              ),
+            );
+          },
+        ),
+      ],
+    );
+  }
+
+  Widget _topOffersWidget() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Text(
+          Appstrings.homeHeading2,
+          style: TextStyle(
+            fontSize: 17,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
+        kHeight10,
+        BlocBuilder<HomeBloc, HomeState>(
+          builder: (context, state) {
+            if (state.isLoading ||
+                state.topOffersModel?.result?.banners == null) {
+              return const Loader();
+            }
+            return SizedBox(
+              height: 100,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: state.topOffersModel!.result!.banners!.length,
+                itemExtent: 95,
+                itemBuilder: (context, index) {
+                  final data = state.topOffersModel!.result!.banners![index];
+                  return Column(
+                    children: [
+                      Image.network(
+                        data.image!,
+                        height: 75,
+                        width: 75,
+                      ),
+                      kHeight5,
+                      Text(
+                        data.subCategoryName!,
+                        style: const TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      )
+                    ],
+                  );
+                },
+              ),
+            );
+          },
+        ),
+      ],
+    );
+  }
+
+  Widget _eventOfTheMonthWidget(BuildContext context) {
+    return Container(
+      height: 440,
+      width: SizeUtility(context).width,
+      color: ColorManager.lightPrimaryGreenDE,
+      padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Text(
+            Appstrings.eventOftheMonth,
+            style: TextStyle(
+              fontWeight: FontWeight.w600,
+              fontSize: 17,
+            ),
+          ),
+          kHeight20,
+          BlocBuilder<HomeBloc, HomeState>(
+            builder: (context, state) {
+              if (state.isLoading ||
+                  state.eventOfTheMonthModel?.result?.event == null) {
+                return const Loader();
+              }
+              final banners =
+                  state.eventOfTheMonthModel?.result!.event![0].images;
+
+              return Column(
+                children: [
+                  CarouselSlider(
+                    items: banners?.map((banner) {
+                      return ClipRRect(
+                        // borderRadius: BorderRadius.circular(20),
+                        child: Image.network(
+                          banner,
+                          height: 327,
+                          fit: BoxFit.contain,
+                        ),
+                      );
+                    }).toList(),
+                    options: CarouselOptions(
+                      height: 300,
+                      viewportFraction: 1,
+                      enlargeCenterPage: true,
+                      autoPlay: true,
+                      autoPlayCurve: Curves.fastOutSlowIn,
+                      enableInfiniteScroll: true,
+                      enlargeFactor: 0.3,
+                      scrollDirection: Axis.horizontal,
+                      autoPlayAnimationDuration:
+                          const Duration(milliseconds: 800),
+                      onPageChanged: (index, reason) {
+                        setState(() {
+                          _currentIndex = index;
+                        });
+                      },
+                    ),
+                  ),
+                  kHeight10,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: banners!.map((banner) {
+                      int index = banners.indexOf(banner);
+                      return Container(
+                        width: 8,
+                        height: 8,
+                        margin: const EdgeInsets.symmetric(horizontal: 4),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(30),
+                          color: _currentIndex == index
+                              ? ColorManager.primary
+                              : ColorManager.greyD1,
+                        ),
+                      );
+                    }).toList(),
+                  ),
+                  kHeight10,
+                  GestureDetector(
+                    onTap: () async {
+                      _downloadAndShareImage(state
+                          .eventOfTheMonthModel!.result!.event![0].images![0]);
+                    },
+                    child: Row(
+                      children: [
+                        Icon(
+                          Icons.share_outlined,
+                          color: ColorManager.grey70,
+                          size: 20,
+                        ),
+                        kWidht10,
+                        Text(
+                          Appstrings.share,
+                          style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w500,
+                            color: ColorManager.grey70,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              );
+            },
+          )
+        ],
+      ),
+    );
+  }
+
+  Container _largeDiscountWidget(BuildContext context) {
+    return Container(
+      height: 212,
+      width: SizeUtility(context).width,
+      color: ColorManager.scaffolBgColor,
+      padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 40),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                Appstrings.largeDiscount,
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+              ImageIcon(
+                AssetImage(AppAssetsStrings.discountIcon),
+              )
+            ],
+          ),
+          Text(
+            Appstrings.onLargeDiscount,
+            style: TextStyle(
+                fontSize: 15,
+                fontWeight: FontWeight.w500,
+                color: ColorManager.blackColor),
+          ),
+          kHeight15,
+          BlocBuilder<HomeBloc, HomeState>(
+            builder: (context, state) {
+              if (state.isLoading ||
+                  state.largeDiscountModel?.result?.banners == null) {
+                return const Loader();
+              }
+              return SizedBox(
+                height: 90,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: state.largeDiscountModel!.result!.banners!.length,
+                  itemBuilder: (context, index) => GestureDetector(
+                    onTap: () {
+                      // Navigator.of(context)
+                      //     .pushNamed(CategoriesView.routeName, arguments: {});
+                    },
+                    child: Image.network(
+                      state.largeDiscountModel!.result!.banners![index].image!,
+                      height: 70,
+                      width: 90,
+                    ),
+                  ),
+                ),
+              );
+            },
+          )
+        ],
+      ),
+    );
+  }
+
+  Widget _dailyPrayerTracker(BuildContext context) {
+    return Column(
+      children: [
+        kHeight20,
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            const Text(
+              Appstrings.homeHeading1,
+              style: TextStyle(
+                fontSize: 15,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+            Text(
+              Appstrings.viewAll,
+              style: TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w600,
+                  color: ColorManager.primary),
+            ),
+          ],
+        ),
+        kHeight16,
+        Container(
+          height: 95,
+          width: MediaQuery.of(context).size.width,
+          decoration: BoxDecoration(
+            color: ColorManager.lightPrimaryGreenDE,
+            borderRadius: BorderRadius.circular(8),
+          ),
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: BlocBuilder<HomeBloc, HomeState>(
+            builder: (context, state) {
+              final data = state;
+
+              return BlocBuilder<NamazTimingBloc, NamazTimingState>(
+                builder: (context, state) {
+                  final currentNamaz = state.currentNamaz;
+                  final currentNamazName = currentNamaz?['name'] ?? '';
+                  // final isActiveNamaz = currentNamazName == namazName;
+                  return Row(
+                    children: [
+                      dailyTrackerWidget(
+                        namazName: Appstrings.fajr,
+                        isCompleted: data.prayerTrackerFajr,
+                        onTap: () {
+                          currentNamazName == Appstrings.fajr
+                              ? context.read<HomeBloc>().add(
+                                  const AddPrayerToPrayerTracker(
+                                      namazName: Appstrings.fajr))
+                              : null;
+                        },
+                      ),
+                      dailyTrackerWidget(
+                        namazName: Appstrings.dhuhr,
+                        isCompleted: data.prayerTrackerDhuhr,
+                        onTap: () {
+                          currentNamazName == Appstrings.dhuhr
+                              ? context.read<HomeBloc>().add(
+                                  const AddPrayerToPrayerTracker(
+                                      namazName: Appstrings.dhuhr))
+                              : null;
+                        },
+                      ),
+                      dailyTrackerWidget(
+                        namazName: Appstrings.asr,
+                        isCompleted: data.prayerTrackerAsr,
+                        onTap: () {
+                          currentNamazName == Appstrings.asr
+                              ? context.read<HomeBloc>().add(
+                                  const AddPrayerToPrayerTracker(
+                                      namazName: Appstrings.asr))
+                              : null;
+                        },
+                      ),
+                      dailyTrackerWidget(
+                        namazName: Appstrings.magrib,
+                        isCompleted: data.prayerTrackerMagrib,
+                        onTap: () {
+                          currentNamazName == Appstrings.magrib
+                              ? context.read<HomeBloc>().add(
+                                  const AddPrayerToPrayerTracker(
+                                      namazName: Appstrings.magrib))
+                              : null;
+                        },
+                      ),
+                      dailyTrackerWidget(
+                        namazName: Appstrings.isha,
+                        isShow: false,
+                        isCompleted: data.prayerTrackerIsha,
+                        onTap: () {
+                          currentNamazName == Appstrings.isha
+                              ? context.read<HomeBloc>().add(
+                                  const AddPrayerToPrayerTracker(
+                                      namazName: Appstrings.isha))
+                              : null;
+                        },
+                      )
+                    ],
+                  );
+                },
+              );
+            },
+          ),
+        ),
+        kHeight20,
+      ],
+    );
+  }
+
+  Widget dailyTrackerWidget({
+    required String namazName,
+    bool isShow = true,
+    required bool isCompleted,
+    required VoidCallback onTap,
+  }) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        GestureDetector(
+          onTap: onTap,
+          child: Row(
+            children: [
+              CircleAvatar(
+                backgroundColor: ColorManager.whiteColor,
+                radius: 16,
+                child: CircleAvatar(
+                  backgroundColor: isCompleted == false
+                      ? ColorManager.whiteColor
+                      : ColorManager.primary,
+                  radius: 8,
+                ),
+              ),
+              isShow == true
+                  ? Container(
+                      width: 40,
+                      height: 2,
+                      color: ColorManager.primary,
+                    )
+                  : const SizedBox()
+            ],
+          ),
+        ),
+        kHeight8,
+        Text(
+          namazName,
+          style: const TextStyle(
+            fontSize: 13,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _quranAyaWidget(BuildContext context) {
+    return Container(
+      height: 282,
+      width: SizeUtility(context).width,
+      color: ColorManager.lightGreenDC,
+      child: Stack(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Image.asset(AppAssetsStrings.homeBanner1),
+              Image.asset(AppAssetsStrings.homeBanner2),
+            ],
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            child: BlocBuilder<QuranBloc, QuranState>(
+              builder: (context, state) {
+                if (state.versesByKeyModel!.isEmpty) {
+                  return const Loader();
+                }
+                final data = state.versesByKeyModel?[0];
+
+                return Column(
+                  children: [
+                    kHeight15,
+                    Text(
+                      Appstrings.allaySays,
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                        color: ColorManager.primary,
+                      ),
+                    ),
+                    kHeight10,
+                    // Text(
+                    //   "Al-Faitha : 2,3",
+                    //   style: TextStyle(
+                    //     fontSize: 15,
+                    //     fontWeight: FontWeight.w500,
+                    //     color: ColorManager.textGrey88,
+                    //   ),
+                    // ),
+                    kHeight10,
+                    Text(
+                      data!.verses[0].textIndopak,
+                      style: TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.w600,
+                        color: ColorManager.blackColor,
+                        fontFamily: "Hafs",
+                      ),
+                      textDirection: TextDirection.rtl,
+                    ),
+                    kHeight5,
+                    Divider(
+                      thickness: 1,
+                      color: ColorManager.blackColor,
+                    ),
+                    kHeight8,
+                    Text(
+                      verskey == "1:2"
+                          ? Appstrings.tempAyaMeaning1
+                          : verskey == "2:2"
+                              ? Appstrings.tempAyaMeaning2
+                              : verskey == "3:4"
+                                  ? Appstrings.tempAyaMeaning3
+                                  : Appstrings.tempAyaMeaning4,
+                      style: TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.w600,
+                        color: ColorManager.blackColor,
+                        letterSpacing: 0.5,
+                        height: 1.2,
+                      ),
+                      textDirection: TextDirection.rtl,
+                    ),
+                    kHeight5,
+                    const Spacer(),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => const AlQuranView(),
+                            ));
+                          },
+                          child: Text(
+                            Appstrings.learnMore,
+                            style: TextStyle(
+                              fontSize: 15,
+                              fontWeight: FontWeight.w600,
+                              color: ColorManager.primary,
+                            ),
+                          ),
+                        ),
+                        Image.asset(AppAssetsStrings.quranHomebackgroundImg)
+                      ],
+                    )
+                  ],
+                );
+              },
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
+  Future<void> _downloadAndShareImage(String imageUrl) async {
+    try {
+      final response = await http.get(Uri.parse(imageUrl));
+      if (response.statusCode == 200) {
+        final directory = await getTemporaryDirectory();
+        final imagePath = '${directory.path}/my_image.png';
+        final File imageFile = File(imagePath);
+        await imageFile.writeAsBytes(response.bodyBytes);
+
+        Share.shareFiles([imagePath]);
+      }
+    } catch (e) {
+      print('Error downloading or sharing image: $e');
+    }
+  }
+
+  BlocBuilder<ShopProductsBloc, ShopProductsState> _bannerWidget() {
+    return BlocBuilder<ShopProductsBloc, ShopProductsState>(
+      builder: (context, state) {
+        if (state.homeBanner == null) {
+          return const SizedBox();
+        }
+
+        final banners = state.homeBanner?.result!.banners;
+        return Column(
+          children: [
+            CarouselSlider(
+              items: banners?.map((banner) {
+                return ClipRRect(
+                  borderRadius: BorderRadius.circular(20),
+                  child: Image.network(
+                    banner.image,
+                    fit: BoxFit.contain,
+                  ),
+                );
+              }).toList(),
+              options: CarouselOptions(
+                height: 150,
+                viewportFraction: 1,
+                enlargeCenterPage: true,
+                autoPlay: true,
+                autoPlayCurve: Curves.fastOutSlowIn,
+                enableInfiniteScroll: true,
+                enlargeFactor: 0.3,
+                scrollDirection: Axis.horizontal,
+                autoPlayAnimationDuration: const Duration(milliseconds: 800),
+                onPageChanged: (index, reason) {
+                  setState(() {
+                    _currentIndex = index;
+                  });
+                },
+              ),
+            ),
+            kHeight10,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: banners!.map((banner) {
+                int index = banners.indexOf(banner);
+                return Container(
+                  width: 8,
+                  height: 8,
+                  margin: const EdgeInsets.symmetric(horizontal: 4),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(30),
+                    color: _currentIndex == index
+                        ? ColorManager.primary
+                        : ColorManager.greyD1,
+                  ),
+                );
+              }).toList(),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+>>>>>>> Stashed changes
   Widget buildIconWidget(
       {required String image,
       required String text,

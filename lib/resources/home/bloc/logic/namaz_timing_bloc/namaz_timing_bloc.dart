@@ -28,6 +28,7 @@ class NamazTimingBloc extends Bloc<NamazTimingEvent, NamazTimingState> {
     on<ChangeSchoolEvent>(_changeSchoolEvent);
     on<ChangeHighLatitudeMethod>(_changeHighLatitudeMethod);
     on<OnNotiyOnOffEvent>(_onNotiyOnOffEvent);
+    on<ChangeIndex>(_changeIndex);
   }
 
   _fetchPrayerTiming(
@@ -182,7 +183,7 @@ class NamazTimingBloc extends Bloc<NamazTimingEvent, NamazTimingState> {
       scheduledNotificationDateTime: upcomingNamazTime,
       title: 'Namaz Reminder',
       body: namazTimeName,
-      isNotificationOn: state.isNotify,
+      isNotificationOn: true,
     );
   }
 
@@ -222,31 +223,31 @@ class NamazTimingBloc extends Bloc<NamazTimingEvent, NamazTimingState> {
   }
 
   setNamazTimeNotification(PrayerTimings prayerTimings) {
-    if (prayerTimings.asr != null) {
+    if (prayerTimings.asr != null && state.notifyAsr == true) {
       scheduleInitialNamazTimingNotification(
           formatTime(prayerTimings.asr!), 'Asr');
     }
-    if (prayerTimings.dhuhr != null) {
+    if (prayerTimings.dhuhr != null && state.notifyDhuhr == true) {
       scheduleInitialNamazTimingNotification(
           formatTime(prayerTimings.dhuhr!), 'Dhuhr');
     }
-    if (prayerTimings.fajr != null) {
+    if (prayerTimings.fajr != null && state.notifyFajr == true) {
       scheduleInitialNamazTimingNotification(
           formatTime(prayerTimings.fajr!), 'Fajr');
     }
-    if (prayerTimings.isha != null) {
+    if (prayerTimings.isha != null && state.notifyIsha == true) {
       scheduleInitialNamazTimingNotification(
           formatTime(prayerTimings.isha!), 'Isha');
     }
-    if (prayerTimings.maghrib != null) {
+    if (prayerTimings.maghrib != null && state.notifyMagrib == true) {
       scheduleInitialNamazTimingNotification(
           formatTime(prayerTimings.maghrib!), 'Maghrib');
     }
-    if (prayerTimings.sunrise != null) {
+    if (prayerTimings.sunrise != null && state.notifySunrise == true) {
       scheduleInitialNamazTimingNotification(
           formatTime(prayerTimings.sunrise!), 'Sunrise');
     }
-    if (prayerTimings.imsak != null) {
+    if (prayerTimings.imsak != null && state.notifyQiyam == true) {
       scheduleInitialNamazTimingNotification(
           formatTime(prayerTimings.imsak!), 'Qiyam');
     }
@@ -305,6 +306,44 @@ class NamazTimingBloc extends Bloc<NamazTimingEvent, NamazTimingState> {
 
   FutureOr<void> _onNotiyOnOffEvent(
       OnNotiyOnOffEvent event, Emitter<NamazTimingState> emit) {
+<<<<<<< Updated upstream
     emit(state.copyWith(isNotify: event.value));
+=======
+    switch (event.index) {
+      case 0:
+        emit(state.copyWith(
+            notifyFajr: state.notifyFajr == false ? true : false));
+        break;
+      case 1:
+        emit(state.copyWith(
+            notifySunrise: state.notifySunrise == false ? true : false));
+        break;
+      case 2:
+        emit(state.copyWith(
+            notifyDhuhr: state.notifyDhuhr == false ? true : false));
+        break;
+      case 3:
+        emit(
+            state.copyWith(notifyAsr: state.notifyAsr == false ? true : false));
+        break;
+      case 4:
+        emit(state.copyWith(
+            notifyMagrib: state.notifyMagrib == false ? true : false));
+        break;
+      case 5:
+        emit(state.copyWith(
+            notifyIsha: state.notifyIsha == false ? true : false));
+        break;
+      case 6:
+        emit(state.copyWith(
+            notifyQiyam: state.notifyQiyam == false ? true : false));
+        break;
+      default:
+    }
+  }
+
+  _changeIndex(ChangeIndex event, Emitter<NamazTimingState> emit) {
+    emit(state.copyWith(index: event.index));
+>>>>>>> Stashed changes
   }
 }

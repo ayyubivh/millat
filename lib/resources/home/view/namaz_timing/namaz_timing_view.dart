@@ -64,10 +64,10 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                               builder: (context) => const ProfileView(),
                             ));
                           },
-                          child: const CircleAvatar(
-                            backgroundColor: Colors.white,
+                          child: CircleAvatar(
+                            backgroundColor: ColorManager.whiteColor,
                             backgroundImage:
-                                AssetImage('assets/icons/user.png'),
+                                const AssetImage('assets/icons/user.png'),
                           ),
                         ),
                         const SizedBox(
@@ -277,6 +277,7 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                                                       isAutomaticSetting =
                                                           value;
                                                     });
+                                                    
                                                   },
                                                 ),
                                               ],

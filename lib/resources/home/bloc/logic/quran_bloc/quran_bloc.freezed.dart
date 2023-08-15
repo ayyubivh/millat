@@ -49,6 +49,7 @@ mixin _$QuranEvent {
     required TResult Function(String textName) saveQuranTexttypeName,
     required TResult Function() onTapofNextEvent,
     required TResult Function() onTapofPrevEvent,
+    required TResult Function(int index) onChangeQuranTabbar,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -83,6 +84,7 @@ mixin _$QuranEvent {
     TResult? Function(String textName)? saveQuranTexttypeName,
     TResult? Function()? onTapofNextEvent,
     TResult? Function()? onTapofPrevEvent,
+    TResult? Function(int index)? onChangeQuranTabbar,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -117,6 +119,7 @@ mixin _$QuranEvent {
     TResult Function(String textName)? saveQuranTexttypeName,
     TResult Function()? onTapofNextEvent,
     TResult Function()? onTapofPrevEvent,
+    TResult Function(int index)? onChangeQuranTabbar,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -163,6 +166,7 @@ mixin _$QuranEvent {
         saveQuranTexttypeName,
     required TResult Function(OnTapofNextEvent value) onTapofNextEvent,
     required TResult Function(OnTapofPrevEvent value) onTapofPrevEvent,
+    required TResult Function(OnChangeQuranTabbar value) onChangeQuranTabbar,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -201,6 +205,7 @@ mixin _$QuranEvent {
     TResult? Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult? Function(OnTapofNextEvent value)? onTapofNextEvent,
     TResult? Function(OnTapofPrevEvent value)? onTapofPrevEvent,
+    TResult? Function(OnChangeQuranTabbar value)? onChangeQuranTabbar,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -239,6 +244,7 @@ mixin _$QuranEvent {
     TResult Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult Function(OnTapofNextEvent value)? onTapofNextEvent,
     TResult Function(OnTapofPrevEvent value)? onTapofPrevEvent,
+    TResult Function(OnChangeQuranTabbar value)? onChangeQuranTabbar,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -332,6 +338,7 @@ class _$FetchQuaranChaptersEvent implements FetchQuaranChaptersEvent {
     required TResult Function(String textName) saveQuranTexttypeName,
     required TResult Function() onTapofNextEvent,
     required TResult Function() onTapofPrevEvent,
+    required TResult Function(int index) onChangeQuranTabbar,
   }) {
     return fetchQuaranChaptersEvent();
   }
@@ -369,6 +376,7 @@ class _$FetchQuaranChaptersEvent implements FetchQuaranChaptersEvent {
     TResult? Function(String textName)? saveQuranTexttypeName,
     TResult? Function()? onTapofNextEvent,
     TResult? Function()? onTapofPrevEvent,
+    TResult? Function(int index)? onChangeQuranTabbar,
   }) {
     return fetchQuaranChaptersEvent?.call();
   }
@@ -406,6 +414,7 @@ class _$FetchQuaranChaptersEvent implements FetchQuaranChaptersEvent {
     TResult Function(String textName)? saveQuranTexttypeName,
     TResult Function()? onTapofNextEvent,
     TResult Function()? onTapofPrevEvent,
+    TResult Function(int index)? onChangeQuranTabbar,
     required TResult orElse(),
   }) {
     if (fetchQuaranChaptersEvent != null) {
@@ -458,6 +467,7 @@ class _$FetchQuaranChaptersEvent implements FetchQuaranChaptersEvent {
         saveQuranTexttypeName,
     required TResult Function(OnTapofNextEvent value) onTapofNextEvent,
     required TResult Function(OnTapofPrevEvent value) onTapofPrevEvent,
+    required TResult Function(OnChangeQuranTabbar value) onChangeQuranTabbar,
   }) {
     return fetchQuaranChaptersEvent(this);
   }
@@ -499,6 +509,7 @@ class _$FetchQuaranChaptersEvent implements FetchQuaranChaptersEvent {
     TResult? Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult? Function(OnTapofNextEvent value)? onTapofNextEvent,
     TResult? Function(OnTapofPrevEvent value)? onTapofPrevEvent,
+    TResult? Function(OnChangeQuranTabbar value)? onChangeQuranTabbar,
   }) {
     return fetchQuaranChaptersEvent?.call(this);
   }
@@ -540,6 +551,7 @@ class _$FetchQuaranChaptersEvent implements FetchQuaranChaptersEvent {
     TResult Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult Function(OnTapofNextEvent value)? onTapofNextEvent,
     TResult Function(OnTapofPrevEvent value)? onTapofPrevEvent,
+    TResult Function(OnChangeQuranTabbar value)? onChangeQuranTabbar,
     required TResult orElse(),
   }) {
     if (fetchQuaranChaptersEvent != null) {
@@ -649,6 +661,7 @@ class _$FetchChaperVersesEvent implements FetchChaperVersesEvent {
     required TResult Function(String textName) saveQuranTexttypeName,
     required TResult Function() onTapofNextEvent,
     required TResult Function() onTapofPrevEvent,
+    required TResult Function(int index) onChangeQuranTabbar,
   }) {
     return fetchChaperVersesEvent(id);
   }
@@ -686,6 +699,7 @@ class _$FetchChaperVersesEvent implements FetchChaperVersesEvent {
     TResult? Function(String textName)? saveQuranTexttypeName,
     TResult? Function()? onTapofNextEvent,
     TResult? Function()? onTapofPrevEvent,
+    TResult? Function(int index)? onChangeQuranTabbar,
   }) {
     return fetchChaperVersesEvent?.call(id);
   }
@@ -723,6 +737,7 @@ class _$FetchChaperVersesEvent implements FetchChaperVersesEvent {
     TResult Function(String textName)? saveQuranTexttypeName,
     TResult Function()? onTapofNextEvent,
     TResult Function()? onTapofPrevEvent,
+    TResult Function(int index)? onChangeQuranTabbar,
     required TResult orElse(),
   }) {
     if (fetchChaperVersesEvent != null) {
@@ -775,6 +790,7 @@ class _$FetchChaperVersesEvent implements FetchChaperVersesEvent {
         saveQuranTexttypeName,
     required TResult Function(OnTapofNextEvent value) onTapofNextEvent,
     required TResult Function(OnTapofPrevEvent value) onTapofPrevEvent,
+    required TResult Function(OnChangeQuranTabbar value) onChangeQuranTabbar,
   }) {
     return fetchChaperVersesEvent(this);
   }
@@ -816,6 +832,7 @@ class _$FetchChaperVersesEvent implements FetchChaperVersesEvent {
     TResult? Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult? Function(OnTapofNextEvent value)? onTapofNextEvent,
     TResult? Function(OnTapofPrevEvent value)? onTapofPrevEvent,
+    TResult? Function(OnChangeQuranTabbar value)? onChangeQuranTabbar,
   }) {
     return fetchChaperVersesEvent?.call(this);
   }
@@ -857,6 +874,7 @@ class _$FetchChaperVersesEvent implements FetchChaperVersesEvent {
     TResult Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult Function(OnTapofNextEvent value)? onTapofNextEvent,
     TResult Function(OnTapofPrevEvent value)? onTapofPrevEvent,
+    TResult Function(OnChangeQuranTabbar value)? onChangeQuranTabbar,
     required TResult orElse(),
   }) {
     if (fetchChaperVersesEvent != null) {
@@ -974,6 +992,7 @@ class _$FetchChapterVersesbyTextName implements FetchChapterVersesbyTextName {
     required TResult Function(String textName) saveQuranTexttypeName,
     required TResult Function() onTapofNextEvent,
     required TResult Function() onTapofPrevEvent,
+    required TResult Function(int index) onChangeQuranTabbar,
   }) {
     return fetchChapterVersesbyTextName(id);
   }
@@ -1011,6 +1030,7 @@ class _$FetchChapterVersesbyTextName implements FetchChapterVersesbyTextName {
     TResult? Function(String textName)? saveQuranTexttypeName,
     TResult? Function()? onTapofNextEvent,
     TResult? Function()? onTapofPrevEvent,
+    TResult? Function(int index)? onChangeQuranTabbar,
   }) {
     return fetchChapterVersesbyTextName?.call(id);
   }
@@ -1048,6 +1068,7 @@ class _$FetchChapterVersesbyTextName implements FetchChapterVersesbyTextName {
     TResult Function(String textName)? saveQuranTexttypeName,
     TResult Function()? onTapofNextEvent,
     TResult Function()? onTapofPrevEvent,
+    TResult Function(int index)? onChangeQuranTabbar,
     required TResult orElse(),
   }) {
     if (fetchChapterVersesbyTextName != null) {
@@ -1100,6 +1121,7 @@ class _$FetchChapterVersesbyTextName implements FetchChapterVersesbyTextName {
         saveQuranTexttypeName,
     required TResult Function(OnTapofNextEvent value) onTapofNextEvent,
     required TResult Function(OnTapofPrevEvent value) onTapofPrevEvent,
+    required TResult Function(OnChangeQuranTabbar value) onChangeQuranTabbar,
   }) {
     return fetchChapterVersesbyTextName(this);
   }
@@ -1141,6 +1163,7 @@ class _$FetchChapterVersesbyTextName implements FetchChapterVersesbyTextName {
     TResult? Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult? Function(OnTapofNextEvent value)? onTapofNextEvent,
     TResult? Function(OnTapofPrevEvent value)? onTapofPrevEvent,
+    TResult? Function(OnChangeQuranTabbar value)? onChangeQuranTabbar,
   }) {
     return fetchChapterVersesbyTextName?.call(this);
   }
@@ -1182,6 +1205,7 @@ class _$FetchChapterVersesbyTextName implements FetchChapterVersesbyTextName {
     TResult Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult Function(OnTapofNextEvent value)? onTapofNextEvent,
     TResult Function(OnTapofPrevEvent value)? onTapofPrevEvent,
+    TResult Function(OnChangeQuranTabbar value)? onChangeQuranTabbar,
     required TResult orElse(),
   }) {
     if (fetchChapterVersesbyTextName != null) {
@@ -1296,6 +1320,7 @@ class _$FetchParaVerses implements FetchParaVerses {
     required TResult Function(String textName) saveQuranTexttypeName,
     required TResult Function() onTapofNextEvent,
     required TResult Function() onTapofPrevEvent,
+    required TResult Function(int index) onChangeQuranTabbar,
   }) {
     return fetchParaVerses(id);
   }
@@ -1333,6 +1358,7 @@ class _$FetchParaVerses implements FetchParaVerses {
     TResult? Function(String textName)? saveQuranTexttypeName,
     TResult? Function()? onTapofNextEvent,
     TResult? Function()? onTapofPrevEvent,
+    TResult? Function(int index)? onChangeQuranTabbar,
   }) {
     return fetchParaVerses?.call(id);
   }
@@ -1370,6 +1396,7 @@ class _$FetchParaVerses implements FetchParaVerses {
     TResult Function(String textName)? saveQuranTexttypeName,
     TResult Function()? onTapofNextEvent,
     TResult Function()? onTapofPrevEvent,
+    TResult Function(int index)? onChangeQuranTabbar,
     required TResult orElse(),
   }) {
     if (fetchParaVerses != null) {
@@ -1422,6 +1449,7 @@ class _$FetchParaVerses implements FetchParaVerses {
         saveQuranTexttypeName,
     required TResult Function(OnTapofNextEvent value) onTapofNextEvent,
     required TResult Function(OnTapofPrevEvent value) onTapofPrevEvent,
+    required TResult Function(OnChangeQuranTabbar value) onChangeQuranTabbar,
   }) {
     return fetchParaVerses(this);
   }
@@ -1463,6 +1491,7 @@ class _$FetchParaVerses implements FetchParaVerses {
     TResult? Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult? Function(OnTapofNextEvent value)? onTapofNextEvent,
     TResult? Function(OnTapofPrevEvent value)? onTapofPrevEvent,
+    TResult? Function(OnChangeQuranTabbar value)? onChangeQuranTabbar,
   }) {
     return fetchParaVerses?.call(this);
   }
@@ -1504,6 +1533,7 @@ class _$FetchParaVerses implements FetchParaVerses {
     TResult Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult Function(OnTapofNextEvent value)? onTapofNextEvent,
     TResult Function(OnTapofPrevEvent value)? onTapofPrevEvent,
+    TResult Function(OnChangeQuranTabbar value)? onChangeQuranTabbar,
     required TResult orElse(),
   }) {
     if (fetchParaVerses != null) {
@@ -1591,6 +1621,7 @@ class _$FetchQuranPara implements FetchQuranPara {
     required TResult Function(String textName) saveQuranTexttypeName,
     required TResult Function() onTapofNextEvent,
     required TResult Function() onTapofPrevEvent,
+    required TResult Function(int index) onChangeQuranTabbar,
   }) {
     return fetchQuranPara();
   }
@@ -1628,6 +1659,7 @@ class _$FetchQuranPara implements FetchQuranPara {
     TResult? Function(String textName)? saveQuranTexttypeName,
     TResult? Function()? onTapofNextEvent,
     TResult? Function()? onTapofPrevEvent,
+    TResult? Function(int index)? onChangeQuranTabbar,
   }) {
     return fetchQuranPara?.call();
   }
@@ -1665,6 +1697,7 @@ class _$FetchQuranPara implements FetchQuranPara {
     TResult Function(String textName)? saveQuranTexttypeName,
     TResult Function()? onTapofNextEvent,
     TResult Function()? onTapofPrevEvent,
+    TResult Function(int index)? onChangeQuranTabbar,
     required TResult orElse(),
   }) {
     if (fetchQuranPara != null) {
@@ -1717,6 +1750,7 @@ class _$FetchQuranPara implements FetchQuranPara {
         saveQuranTexttypeName,
     required TResult Function(OnTapofNextEvent value) onTapofNextEvent,
     required TResult Function(OnTapofPrevEvent value) onTapofPrevEvent,
+    required TResult Function(OnChangeQuranTabbar value) onChangeQuranTabbar,
   }) {
     return fetchQuranPara(this);
   }
@@ -1758,6 +1792,7 @@ class _$FetchQuranPara implements FetchQuranPara {
     TResult? Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult? Function(OnTapofNextEvent value)? onTapofNextEvent,
     TResult? Function(OnTapofPrevEvent value)? onTapofPrevEvent,
+    TResult? Function(OnChangeQuranTabbar value)? onChangeQuranTabbar,
   }) {
     return fetchQuranPara?.call(this);
   }
@@ -1799,6 +1834,7 @@ class _$FetchQuranPara implements FetchQuranPara {
     TResult Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult Function(OnTapofNextEvent value)? onTapofNextEvent,
     TResult Function(OnTapofPrevEvent value)? onTapofPrevEvent,
+    TResult Function(OnChangeQuranTabbar value)? onChangeQuranTabbar,
     required TResult orElse(),
   }) {
     if (fetchQuranPara != null) {
@@ -1883,6 +1919,7 @@ class _$ChangeExpandOnSearchEvent implements ChangeExpandOnSearchEvent {
     required TResult Function(String textName) saveQuranTexttypeName,
     required TResult Function() onTapofNextEvent,
     required TResult Function() onTapofPrevEvent,
+    required TResult Function(int index) onChangeQuranTabbar,
   }) {
     return changeExpandOnSearchEvent();
   }
@@ -1920,6 +1957,7 @@ class _$ChangeExpandOnSearchEvent implements ChangeExpandOnSearchEvent {
     TResult? Function(String textName)? saveQuranTexttypeName,
     TResult? Function()? onTapofNextEvent,
     TResult? Function()? onTapofPrevEvent,
+    TResult? Function(int index)? onChangeQuranTabbar,
   }) {
     return changeExpandOnSearchEvent?.call();
   }
@@ -1957,6 +1995,7 @@ class _$ChangeExpandOnSearchEvent implements ChangeExpandOnSearchEvent {
     TResult Function(String textName)? saveQuranTexttypeName,
     TResult Function()? onTapofNextEvent,
     TResult Function()? onTapofPrevEvent,
+    TResult Function(int index)? onChangeQuranTabbar,
     required TResult orElse(),
   }) {
     if (changeExpandOnSearchEvent != null) {
@@ -2009,6 +2048,7 @@ class _$ChangeExpandOnSearchEvent implements ChangeExpandOnSearchEvent {
         saveQuranTexttypeName,
     required TResult Function(OnTapofNextEvent value) onTapofNextEvent,
     required TResult Function(OnTapofPrevEvent value) onTapofPrevEvent,
+    required TResult Function(OnChangeQuranTabbar value) onChangeQuranTabbar,
   }) {
     return changeExpandOnSearchEvent(this);
   }
@@ -2050,6 +2090,7 @@ class _$ChangeExpandOnSearchEvent implements ChangeExpandOnSearchEvent {
     TResult? Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult? Function(OnTapofNextEvent value)? onTapofNextEvent,
     TResult? Function(OnTapofPrevEvent value)? onTapofPrevEvent,
+    TResult? Function(OnChangeQuranTabbar value)? onChangeQuranTabbar,
   }) {
     return changeExpandOnSearchEvent?.call(this);
   }
@@ -2091,6 +2132,7 @@ class _$ChangeExpandOnSearchEvent implements ChangeExpandOnSearchEvent {
     TResult Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult Function(OnTapofNextEvent value)? onTapofNextEvent,
     TResult Function(OnTapofPrevEvent value)? onTapofPrevEvent,
+    TResult Function(OnChangeQuranTabbar value)? onChangeQuranTabbar,
     required TResult orElse(),
   }) {
     if (changeExpandOnSearchEvent != null) {
@@ -2205,6 +2247,7 @@ class _$FechtChapterbyId implements FechtChapterbyId {
     required TResult Function(String textName) saveQuranTexttypeName,
     required TResult Function() onTapofNextEvent,
     required TResult Function() onTapofPrevEvent,
+    required TResult Function(int index) onChangeQuranTabbar,
   }) {
     return fechtChapterbyId(id);
   }
@@ -2242,6 +2285,7 @@ class _$FechtChapterbyId implements FechtChapterbyId {
     TResult? Function(String textName)? saveQuranTexttypeName,
     TResult? Function()? onTapofNextEvent,
     TResult? Function()? onTapofPrevEvent,
+    TResult? Function(int index)? onChangeQuranTabbar,
   }) {
     return fechtChapterbyId?.call(id);
   }
@@ -2279,6 +2323,7 @@ class _$FechtChapterbyId implements FechtChapterbyId {
     TResult Function(String textName)? saveQuranTexttypeName,
     TResult Function()? onTapofNextEvent,
     TResult Function()? onTapofPrevEvent,
+    TResult Function(int index)? onChangeQuranTabbar,
     required TResult orElse(),
   }) {
     if (fechtChapterbyId != null) {
@@ -2331,6 +2376,7 @@ class _$FechtChapterbyId implements FechtChapterbyId {
         saveQuranTexttypeName,
     required TResult Function(OnTapofNextEvent value) onTapofNextEvent,
     required TResult Function(OnTapofPrevEvent value) onTapofPrevEvent,
+    required TResult Function(OnChangeQuranTabbar value) onChangeQuranTabbar,
   }) {
     return fechtChapterbyId(this);
   }
@@ -2372,6 +2418,7 @@ class _$FechtChapterbyId implements FechtChapterbyId {
     TResult? Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult? Function(OnTapofNextEvent value)? onTapofNextEvent,
     TResult? Function(OnTapofPrevEvent value)? onTapofPrevEvent,
+    TResult? Function(OnChangeQuranTabbar value)? onChangeQuranTabbar,
   }) {
     return fechtChapterbyId?.call(this);
   }
@@ -2413,6 +2460,7 @@ class _$FechtChapterbyId implements FechtChapterbyId {
     TResult Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult Function(OnTapofNextEvent value)? onTapofNextEvent,
     TResult Function(OnTapofPrevEvent value)? onTapofPrevEvent,
+    TResult Function(OnChangeQuranTabbar value)? onChangeQuranTabbar,
     required TResult orElse(),
   }) {
     if (fechtChapterbyId != null) {
@@ -2528,6 +2576,7 @@ class _$SearchChapterEvent implements SearchChapterEvent {
     required TResult Function(String textName) saveQuranTexttypeName,
     required TResult Function() onTapofNextEvent,
     required TResult Function() onTapofPrevEvent,
+    required TResult Function(int index) onChangeQuranTabbar,
   }) {
     return searchChapterEvent(query);
   }
@@ -2565,6 +2614,7 @@ class _$SearchChapterEvent implements SearchChapterEvent {
     TResult? Function(String textName)? saveQuranTexttypeName,
     TResult? Function()? onTapofNextEvent,
     TResult? Function()? onTapofPrevEvent,
+    TResult? Function(int index)? onChangeQuranTabbar,
   }) {
     return searchChapterEvent?.call(query);
   }
@@ -2602,6 +2652,7 @@ class _$SearchChapterEvent implements SearchChapterEvent {
     TResult Function(String textName)? saveQuranTexttypeName,
     TResult Function()? onTapofNextEvent,
     TResult Function()? onTapofPrevEvent,
+    TResult Function(int index)? onChangeQuranTabbar,
     required TResult orElse(),
   }) {
     if (searchChapterEvent != null) {
@@ -2654,6 +2705,7 @@ class _$SearchChapterEvent implements SearchChapterEvent {
         saveQuranTexttypeName,
     required TResult Function(OnTapofNextEvent value) onTapofNextEvent,
     required TResult Function(OnTapofPrevEvent value) onTapofPrevEvent,
+    required TResult Function(OnChangeQuranTabbar value) onChangeQuranTabbar,
   }) {
     return searchChapterEvent(this);
   }
@@ -2695,6 +2747,7 @@ class _$SearchChapterEvent implements SearchChapterEvent {
     TResult? Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult? Function(OnTapofNextEvent value)? onTapofNextEvent,
     TResult? Function(OnTapofPrevEvent value)? onTapofPrevEvent,
+    TResult? Function(OnChangeQuranTabbar value)? onChangeQuranTabbar,
   }) {
     return searchChapterEvent?.call(this);
   }
@@ -2736,6 +2789,7 @@ class _$SearchChapterEvent implements SearchChapterEvent {
     TResult Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult Function(OnTapofNextEvent value)? onTapofNextEvent,
     TResult Function(OnTapofPrevEvent value)? onTapofPrevEvent,
+    TResult Function(OnChangeQuranTabbar value)? onChangeQuranTabbar,
     required TResult orElse(),
   }) {
     if (searchChapterEvent != null) {
@@ -2857,6 +2911,7 @@ class _$FetchVersesByKey implements FetchVersesByKey {
     required TResult Function(String textName) saveQuranTexttypeName,
     required TResult Function() onTapofNextEvent,
     required TResult Function() onTapofPrevEvent,
+    required TResult Function(int index) onChangeQuranTabbar,
   }) {
     return fetchVersesByKey(verseKey);
   }
@@ -2894,6 +2949,7 @@ class _$FetchVersesByKey implements FetchVersesByKey {
     TResult? Function(String textName)? saveQuranTexttypeName,
     TResult? Function()? onTapofNextEvent,
     TResult? Function()? onTapofPrevEvent,
+    TResult? Function(int index)? onChangeQuranTabbar,
   }) {
     return fetchVersesByKey?.call(verseKey);
   }
@@ -2931,6 +2987,7 @@ class _$FetchVersesByKey implements FetchVersesByKey {
     TResult Function(String textName)? saveQuranTexttypeName,
     TResult Function()? onTapofNextEvent,
     TResult Function()? onTapofPrevEvent,
+    TResult Function(int index)? onChangeQuranTabbar,
     required TResult orElse(),
   }) {
     if (fetchVersesByKey != null) {
@@ -2983,6 +3040,7 @@ class _$FetchVersesByKey implements FetchVersesByKey {
         saveQuranTexttypeName,
     required TResult Function(OnTapofNextEvent value) onTapofNextEvent,
     required TResult Function(OnTapofPrevEvent value) onTapofPrevEvent,
+    required TResult Function(OnChangeQuranTabbar value) onChangeQuranTabbar,
   }) {
     return fetchVersesByKey(this);
   }
@@ -3024,6 +3082,7 @@ class _$FetchVersesByKey implements FetchVersesByKey {
     TResult? Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult? Function(OnTapofNextEvent value)? onTapofNextEvent,
     TResult? Function(OnTapofPrevEvent value)? onTapofPrevEvent,
+    TResult? Function(OnChangeQuranTabbar value)? onChangeQuranTabbar,
   }) {
     return fetchVersesByKey?.call(this);
   }
@@ -3065,6 +3124,7 @@ class _$FetchVersesByKey implements FetchVersesByKey {
     TResult Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult Function(OnTapofNextEvent value)? onTapofNextEvent,
     TResult Function(OnTapofPrevEvent value)? onTapofPrevEvent,
+    TResult Function(OnChangeQuranTabbar value)? onChangeQuranTabbar,
     required TResult orElse(),
   }) {
     if (fetchVersesByKey != null) {
@@ -3188,6 +3248,7 @@ class _$FetchParaAudios implements FetchParaAudios {
     required TResult Function(String textName) saveQuranTexttypeName,
     required TResult Function() onTapofNextEvent,
     required TResult Function() onTapofPrevEvent,
+    required TResult Function(int index) onChangeQuranTabbar,
   }) {
     return fetchParaAudios(id, recitorId);
   }
@@ -3225,6 +3286,7 @@ class _$FetchParaAudios implements FetchParaAudios {
     TResult? Function(String textName)? saveQuranTexttypeName,
     TResult? Function()? onTapofNextEvent,
     TResult? Function()? onTapofPrevEvent,
+    TResult? Function(int index)? onChangeQuranTabbar,
   }) {
     return fetchParaAudios?.call(id, recitorId);
   }
@@ -3262,6 +3324,7 @@ class _$FetchParaAudios implements FetchParaAudios {
     TResult Function(String textName)? saveQuranTexttypeName,
     TResult Function()? onTapofNextEvent,
     TResult Function()? onTapofPrevEvent,
+    TResult Function(int index)? onChangeQuranTabbar,
     required TResult orElse(),
   }) {
     if (fetchParaAudios != null) {
@@ -3314,6 +3377,7 @@ class _$FetchParaAudios implements FetchParaAudios {
         saveQuranTexttypeName,
     required TResult Function(OnTapofNextEvent value) onTapofNextEvent,
     required TResult Function(OnTapofPrevEvent value) onTapofPrevEvent,
+    required TResult Function(OnChangeQuranTabbar value) onChangeQuranTabbar,
   }) {
     return fetchParaAudios(this);
   }
@@ -3355,6 +3419,7 @@ class _$FetchParaAudios implements FetchParaAudios {
     TResult? Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult? Function(OnTapofNextEvent value)? onTapofNextEvent,
     TResult? Function(OnTapofPrevEvent value)? onTapofPrevEvent,
+    TResult? Function(OnChangeQuranTabbar value)? onChangeQuranTabbar,
   }) {
     return fetchParaAudios?.call(this);
   }
@@ -3396,6 +3461,7 @@ class _$FetchParaAudios implements FetchParaAudios {
     TResult Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult Function(OnTapofNextEvent value)? onTapofNextEvent,
     TResult Function(OnTapofPrevEvent value)? onTapofPrevEvent,
+    TResult Function(OnChangeQuranTabbar value)? onChangeQuranTabbar,
     required TResult orElse(),
   }) {
     if (fetchParaAudios != null) {
@@ -3522,6 +3588,7 @@ class _$FetchChapterAudioFiles implements FetchChapterAudioFiles {
     required TResult Function(String textName) saveQuranTexttypeName,
     required TResult Function() onTapofNextEvent,
     required TResult Function() onTapofPrevEvent,
+    required TResult Function(int index) onChangeQuranTabbar,
   }) {
     return fetchChapterAudioFiles(id, recitorId);
   }
@@ -3559,6 +3626,7 @@ class _$FetchChapterAudioFiles implements FetchChapterAudioFiles {
     TResult? Function(String textName)? saveQuranTexttypeName,
     TResult? Function()? onTapofNextEvent,
     TResult? Function()? onTapofPrevEvent,
+    TResult? Function(int index)? onChangeQuranTabbar,
   }) {
     return fetchChapterAudioFiles?.call(id, recitorId);
   }
@@ -3596,6 +3664,7 @@ class _$FetchChapterAudioFiles implements FetchChapterAudioFiles {
     TResult Function(String textName)? saveQuranTexttypeName,
     TResult Function()? onTapofNextEvent,
     TResult Function()? onTapofPrevEvent,
+    TResult Function(int index)? onChangeQuranTabbar,
     required TResult orElse(),
   }) {
     if (fetchChapterAudioFiles != null) {
@@ -3648,6 +3717,7 @@ class _$FetchChapterAudioFiles implements FetchChapterAudioFiles {
         saveQuranTexttypeName,
     required TResult Function(OnTapofNextEvent value) onTapofNextEvent,
     required TResult Function(OnTapofPrevEvent value) onTapofPrevEvent,
+    required TResult Function(OnChangeQuranTabbar value) onChangeQuranTabbar,
   }) {
     return fetchChapterAudioFiles(this);
   }
@@ -3689,6 +3759,7 @@ class _$FetchChapterAudioFiles implements FetchChapterAudioFiles {
     TResult? Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult? Function(OnTapofNextEvent value)? onTapofNextEvent,
     TResult? Function(OnTapofPrevEvent value)? onTapofPrevEvent,
+    TResult? Function(OnChangeQuranTabbar value)? onChangeQuranTabbar,
   }) {
     return fetchChapterAudioFiles?.call(this);
   }
@@ -3730,6 +3801,7 @@ class _$FetchChapterAudioFiles implements FetchChapterAudioFiles {
     TResult Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult Function(OnTapofNextEvent value)? onTapofNextEvent,
     TResult Function(OnTapofPrevEvent value)? onTapofPrevEvent,
+    TResult Function(OnChangeQuranTabbar value)? onChangeQuranTabbar,
     required TResult orElse(),
   }) {
     if (fetchChapterAudioFiles != null) {
@@ -3849,6 +3921,7 @@ class _$ChangeIndexBackGroundSetting implements ChangeIndexBackGroundSetting {
     required TResult Function(String textName) saveQuranTexttypeName,
     required TResult Function() onTapofNextEvent,
     required TResult Function() onTapofPrevEvent,
+    required TResult Function(int index) onChangeQuranTabbar,
   }) {
     return changeIndexBackGroundSetting(index);
   }
@@ -3886,6 +3959,7 @@ class _$ChangeIndexBackGroundSetting implements ChangeIndexBackGroundSetting {
     TResult? Function(String textName)? saveQuranTexttypeName,
     TResult? Function()? onTapofNextEvent,
     TResult? Function()? onTapofPrevEvent,
+    TResult? Function(int index)? onChangeQuranTabbar,
   }) {
     return changeIndexBackGroundSetting?.call(index);
   }
@@ -3923,6 +3997,7 @@ class _$ChangeIndexBackGroundSetting implements ChangeIndexBackGroundSetting {
     TResult Function(String textName)? saveQuranTexttypeName,
     TResult Function()? onTapofNextEvent,
     TResult Function()? onTapofPrevEvent,
+    TResult Function(int index)? onChangeQuranTabbar,
     required TResult orElse(),
   }) {
     if (changeIndexBackGroundSetting != null) {
@@ -3975,6 +4050,7 @@ class _$ChangeIndexBackGroundSetting implements ChangeIndexBackGroundSetting {
         saveQuranTexttypeName,
     required TResult Function(OnTapofNextEvent value) onTapofNextEvent,
     required TResult Function(OnTapofPrevEvent value) onTapofPrevEvent,
+    required TResult Function(OnChangeQuranTabbar value) onChangeQuranTabbar,
   }) {
     return changeIndexBackGroundSetting(this);
   }
@@ -4016,6 +4092,7 @@ class _$ChangeIndexBackGroundSetting implements ChangeIndexBackGroundSetting {
     TResult? Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult? Function(OnTapofNextEvent value)? onTapofNextEvent,
     TResult? Function(OnTapofPrevEvent value)? onTapofPrevEvent,
+    TResult? Function(OnChangeQuranTabbar value)? onChangeQuranTabbar,
   }) {
     return changeIndexBackGroundSetting?.call(this);
   }
@@ -4057,6 +4134,7 @@ class _$ChangeIndexBackGroundSetting implements ChangeIndexBackGroundSetting {
     TResult Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult Function(OnTapofNextEvent value)? onTapofNextEvent,
     TResult Function(OnTapofPrevEvent value)? onTapofPrevEvent,
+    TResult Function(OnChangeQuranTabbar value)? onChangeQuranTabbar,
     required TResult orElse(),
   }) {
     if (changeIndexBackGroundSetting != null) {
@@ -4145,6 +4223,7 @@ class _$IncreaseFontsize implements IncreaseFontsize {
     required TResult Function(String textName) saveQuranTexttypeName,
     required TResult Function() onTapofNextEvent,
     required TResult Function() onTapofPrevEvent,
+    required TResult Function(int index) onChangeQuranTabbar,
   }) {
     return increaseFontsize();
   }
@@ -4182,6 +4261,7 @@ class _$IncreaseFontsize implements IncreaseFontsize {
     TResult? Function(String textName)? saveQuranTexttypeName,
     TResult? Function()? onTapofNextEvent,
     TResult? Function()? onTapofPrevEvent,
+    TResult? Function(int index)? onChangeQuranTabbar,
   }) {
     return increaseFontsize?.call();
   }
@@ -4219,6 +4299,7 @@ class _$IncreaseFontsize implements IncreaseFontsize {
     TResult Function(String textName)? saveQuranTexttypeName,
     TResult Function()? onTapofNextEvent,
     TResult Function()? onTapofPrevEvent,
+    TResult Function(int index)? onChangeQuranTabbar,
     required TResult orElse(),
   }) {
     if (increaseFontsize != null) {
@@ -4271,6 +4352,7 @@ class _$IncreaseFontsize implements IncreaseFontsize {
         saveQuranTexttypeName,
     required TResult Function(OnTapofNextEvent value) onTapofNextEvent,
     required TResult Function(OnTapofPrevEvent value) onTapofPrevEvent,
+    required TResult Function(OnChangeQuranTabbar value) onChangeQuranTabbar,
   }) {
     return increaseFontsize(this);
   }
@@ -4312,6 +4394,7 @@ class _$IncreaseFontsize implements IncreaseFontsize {
     TResult? Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult? Function(OnTapofNextEvent value)? onTapofNextEvent,
     TResult? Function(OnTapofPrevEvent value)? onTapofPrevEvent,
+    TResult? Function(OnChangeQuranTabbar value)? onChangeQuranTabbar,
   }) {
     return increaseFontsize?.call(this);
   }
@@ -4353,6 +4436,7 @@ class _$IncreaseFontsize implements IncreaseFontsize {
     TResult Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult Function(OnTapofNextEvent value)? onTapofNextEvent,
     TResult Function(OnTapofPrevEvent value)? onTapofPrevEvent,
+    TResult Function(OnChangeQuranTabbar value)? onChangeQuranTabbar,
     required TResult orElse(),
   }) {
     if (increaseFontsize != null) {
@@ -4435,6 +4519,7 @@ class _$DecreaseFontsize implements DecreaseFontsize {
     required TResult Function(String textName) saveQuranTexttypeName,
     required TResult Function() onTapofNextEvent,
     required TResult Function() onTapofPrevEvent,
+    required TResult Function(int index) onChangeQuranTabbar,
   }) {
     return decreaseFontsize();
   }
@@ -4472,6 +4557,7 @@ class _$DecreaseFontsize implements DecreaseFontsize {
     TResult? Function(String textName)? saveQuranTexttypeName,
     TResult? Function()? onTapofNextEvent,
     TResult? Function()? onTapofPrevEvent,
+    TResult? Function(int index)? onChangeQuranTabbar,
   }) {
     return decreaseFontsize?.call();
   }
@@ -4509,6 +4595,7 @@ class _$DecreaseFontsize implements DecreaseFontsize {
     TResult Function(String textName)? saveQuranTexttypeName,
     TResult Function()? onTapofNextEvent,
     TResult Function()? onTapofPrevEvent,
+    TResult Function(int index)? onChangeQuranTabbar,
     required TResult orElse(),
   }) {
     if (decreaseFontsize != null) {
@@ -4561,6 +4648,7 @@ class _$DecreaseFontsize implements DecreaseFontsize {
         saveQuranTexttypeName,
     required TResult Function(OnTapofNextEvent value) onTapofNextEvent,
     required TResult Function(OnTapofPrevEvent value) onTapofPrevEvent,
+    required TResult Function(OnChangeQuranTabbar value) onChangeQuranTabbar,
   }) {
     return decreaseFontsize(this);
   }
@@ -4602,6 +4690,7 @@ class _$DecreaseFontsize implements DecreaseFontsize {
     TResult? Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult? Function(OnTapofNextEvent value)? onTapofNextEvent,
     TResult? Function(OnTapofPrevEvent value)? onTapofPrevEvent,
+    TResult? Function(OnChangeQuranTabbar value)? onChangeQuranTabbar,
   }) {
     return decreaseFontsize?.call(this);
   }
@@ -4643,6 +4732,7 @@ class _$DecreaseFontsize implements DecreaseFontsize {
     TResult Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult Function(OnTapofNextEvent value)? onTapofNextEvent,
     TResult Function(OnTapofPrevEvent value)? onTapofPrevEvent,
+    TResult Function(OnChangeQuranTabbar value)? onChangeQuranTabbar,
     required TResult orElse(),
   }) {
     if (decreaseFontsize != null) {
@@ -4727,6 +4817,7 @@ class _$FetchAllTranslationsEvent implements FetchAllTranslationsEvent {
     required TResult Function(String textName) saveQuranTexttypeName,
     required TResult Function() onTapofNextEvent,
     required TResult Function() onTapofPrevEvent,
+    required TResult Function(int index) onChangeQuranTabbar,
   }) {
     return fetchAllTranslationsEvent();
   }
@@ -4764,6 +4855,7 @@ class _$FetchAllTranslationsEvent implements FetchAllTranslationsEvent {
     TResult? Function(String textName)? saveQuranTexttypeName,
     TResult? Function()? onTapofNextEvent,
     TResult? Function()? onTapofPrevEvent,
+    TResult? Function(int index)? onChangeQuranTabbar,
   }) {
     return fetchAllTranslationsEvent?.call();
   }
@@ -4801,6 +4893,7 @@ class _$FetchAllTranslationsEvent implements FetchAllTranslationsEvent {
     TResult Function(String textName)? saveQuranTexttypeName,
     TResult Function()? onTapofNextEvent,
     TResult Function()? onTapofPrevEvent,
+    TResult Function(int index)? onChangeQuranTabbar,
     required TResult orElse(),
   }) {
     if (fetchAllTranslationsEvent != null) {
@@ -4853,6 +4946,7 @@ class _$FetchAllTranslationsEvent implements FetchAllTranslationsEvent {
         saveQuranTexttypeName,
     required TResult Function(OnTapofNextEvent value) onTapofNextEvent,
     required TResult Function(OnTapofPrevEvent value) onTapofPrevEvent,
+    required TResult Function(OnChangeQuranTabbar value) onChangeQuranTabbar,
   }) {
     return fetchAllTranslationsEvent(this);
   }
@@ -4894,6 +4988,7 @@ class _$FetchAllTranslationsEvent implements FetchAllTranslationsEvent {
     TResult? Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult? Function(OnTapofNextEvent value)? onTapofNextEvent,
     TResult? Function(OnTapofPrevEvent value)? onTapofPrevEvent,
+    TResult? Function(OnChangeQuranTabbar value)? onChangeQuranTabbar,
   }) {
     return fetchAllTranslationsEvent?.call(this);
   }
@@ -4935,6 +5030,7 @@ class _$FetchAllTranslationsEvent implements FetchAllTranslationsEvent {
     TResult Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult Function(OnTapofNextEvent value)? onTapofNextEvent,
     TResult Function(OnTapofPrevEvent value)? onTapofPrevEvent,
+    TResult Function(OnChangeQuranTabbar value)? onChangeQuranTabbar,
     required TResult orElse(),
   }) {
     if (fetchAllTranslationsEvent != null) {
@@ -5057,6 +5153,7 @@ class _$FetchTranslationChapterTexts implements FetchTranslationChapterTexts {
     required TResult Function(String textName) saveQuranTexttypeName,
     required TResult Function() onTapofNextEvent,
     required TResult Function() onTapofPrevEvent,
+    required TResult Function(int index) onChangeQuranTabbar,
   }) {
     return fetchAllChapterTranslationTexts(chapterId, translationId);
   }
@@ -5094,6 +5191,7 @@ class _$FetchTranslationChapterTexts implements FetchTranslationChapterTexts {
     TResult? Function(String textName)? saveQuranTexttypeName,
     TResult? Function()? onTapofNextEvent,
     TResult? Function()? onTapofPrevEvent,
+    TResult? Function(int index)? onChangeQuranTabbar,
   }) {
     return fetchAllChapterTranslationTexts?.call(chapterId, translationId);
   }
@@ -5131,6 +5229,7 @@ class _$FetchTranslationChapterTexts implements FetchTranslationChapterTexts {
     TResult Function(String textName)? saveQuranTexttypeName,
     TResult Function()? onTapofNextEvent,
     TResult Function()? onTapofPrevEvent,
+    TResult Function(int index)? onChangeQuranTabbar,
     required TResult orElse(),
   }) {
     if (fetchAllChapterTranslationTexts != null) {
@@ -5183,6 +5282,7 @@ class _$FetchTranslationChapterTexts implements FetchTranslationChapterTexts {
         saveQuranTexttypeName,
     required TResult Function(OnTapofNextEvent value) onTapofNextEvent,
     required TResult Function(OnTapofPrevEvent value) onTapofPrevEvent,
+    required TResult Function(OnChangeQuranTabbar value) onChangeQuranTabbar,
   }) {
     return fetchAllChapterTranslationTexts(this);
   }
@@ -5224,6 +5324,7 @@ class _$FetchTranslationChapterTexts implements FetchTranslationChapterTexts {
     TResult? Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult? Function(OnTapofNextEvent value)? onTapofNextEvent,
     TResult? Function(OnTapofPrevEvent value)? onTapofPrevEvent,
+    TResult? Function(OnChangeQuranTabbar value)? onChangeQuranTabbar,
   }) {
     return fetchAllChapterTranslationTexts?.call(this);
   }
@@ -5265,6 +5366,7 @@ class _$FetchTranslationChapterTexts implements FetchTranslationChapterTexts {
     TResult Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult Function(OnTapofNextEvent value)? onTapofNextEvent,
     TResult Function(OnTapofPrevEvent value)? onTapofPrevEvent,
+    TResult Function(OnChangeQuranTabbar value)? onChangeQuranTabbar,
     required TResult orElse(),
   }) {
     if (fetchAllChapterTranslationTexts != null) {
@@ -5393,6 +5495,7 @@ class _$FetchTranslationParaTexts implements FetchTranslationParaTexts {
     required TResult Function(String textName) saveQuranTexttypeName,
     required TResult Function() onTapofNextEvent,
     required TResult Function() onTapofPrevEvent,
+    required TResult Function(int index) onChangeQuranTabbar,
   }) {
     return fetchAllParaTranslationTexts(paraId, translationId);
   }
@@ -5430,6 +5533,7 @@ class _$FetchTranslationParaTexts implements FetchTranslationParaTexts {
     TResult? Function(String textName)? saveQuranTexttypeName,
     TResult? Function()? onTapofNextEvent,
     TResult? Function()? onTapofPrevEvent,
+    TResult? Function(int index)? onChangeQuranTabbar,
   }) {
     return fetchAllParaTranslationTexts?.call(paraId, translationId);
   }
@@ -5467,6 +5571,7 @@ class _$FetchTranslationParaTexts implements FetchTranslationParaTexts {
     TResult Function(String textName)? saveQuranTexttypeName,
     TResult Function()? onTapofNextEvent,
     TResult Function()? onTapofPrevEvent,
+    TResult Function(int index)? onChangeQuranTabbar,
     required TResult orElse(),
   }) {
     if (fetchAllParaTranslationTexts != null) {
@@ -5519,6 +5624,7 @@ class _$FetchTranslationParaTexts implements FetchTranslationParaTexts {
         saveQuranTexttypeName,
     required TResult Function(OnTapofNextEvent value) onTapofNextEvent,
     required TResult Function(OnTapofPrevEvent value) onTapofPrevEvent,
+    required TResult Function(OnChangeQuranTabbar value) onChangeQuranTabbar,
   }) {
     return fetchAllParaTranslationTexts(this);
   }
@@ -5560,6 +5666,7 @@ class _$FetchTranslationParaTexts implements FetchTranslationParaTexts {
     TResult? Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult? Function(OnTapofNextEvent value)? onTapofNextEvent,
     TResult? Function(OnTapofPrevEvent value)? onTapofPrevEvent,
+    TResult? Function(OnChangeQuranTabbar value)? onChangeQuranTabbar,
   }) {
     return fetchAllParaTranslationTexts?.call(this);
   }
@@ -5601,6 +5708,7 @@ class _$FetchTranslationParaTexts implements FetchTranslationParaTexts {
     TResult Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult Function(OnTapofNextEvent value)? onTapofNextEvent,
     TResult Function(OnTapofPrevEvent value)? onTapofPrevEvent,
+    TResult Function(OnChangeQuranTabbar value)? onChangeQuranTabbar,
     required TResult orElse(),
   }) {
     if (fetchAllParaTranslationTexts != null) {
@@ -5718,6 +5826,7 @@ class _$PlayAllParaAudiosAuto implements PlayAllParaAudiosAuto {
     required TResult Function(String textName) saveQuranTexttypeName,
     required TResult Function() onTapofNextEvent,
     required TResult Function() onTapofPrevEvent,
+    required TResult Function(int index) onChangeQuranTabbar,
   }) {
     return playAllParaAudiosAuto(index);
   }
@@ -5755,6 +5864,7 @@ class _$PlayAllParaAudiosAuto implements PlayAllParaAudiosAuto {
     TResult? Function(String textName)? saveQuranTexttypeName,
     TResult? Function()? onTapofNextEvent,
     TResult? Function()? onTapofPrevEvent,
+    TResult? Function(int index)? onChangeQuranTabbar,
   }) {
     return playAllParaAudiosAuto?.call(index);
   }
@@ -5792,6 +5902,7 @@ class _$PlayAllParaAudiosAuto implements PlayAllParaAudiosAuto {
     TResult Function(String textName)? saveQuranTexttypeName,
     TResult Function()? onTapofNextEvent,
     TResult Function()? onTapofPrevEvent,
+    TResult Function(int index)? onChangeQuranTabbar,
     required TResult orElse(),
   }) {
     if (playAllParaAudiosAuto != null) {
@@ -5844,6 +5955,7 @@ class _$PlayAllParaAudiosAuto implements PlayAllParaAudiosAuto {
         saveQuranTexttypeName,
     required TResult Function(OnTapofNextEvent value) onTapofNextEvent,
     required TResult Function(OnTapofPrevEvent value) onTapofPrevEvent,
+    required TResult Function(OnChangeQuranTabbar value) onChangeQuranTabbar,
   }) {
     return playAllParaAudiosAuto(this);
   }
@@ -5885,6 +5997,7 @@ class _$PlayAllParaAudiosAuto implements PlayAllParaAudiosAuto {
     TResult? Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult? Function(OnTapofNextEvent value)? onTapofNextEvent,
     TResult? Function(OnTapofPrevEvent value)? onTapofPrevEvent,
+    TResult? Function(OnChangeQuranTabbar value)? onChangeQuranTabbar,
   }) {
     return playAllParaAudiosAuto?.call(this);
   }
@@ -5926,6 +6039,7 @@ class _$PlayAllParaAudiosAuto implements PlayAllParaAudiosAuto {
     TResult Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult Function(OnTapofNextEvent value)? onTapofNextEvent,
     TResult Function(OnTapofPrevEvent value)? onTapofPrevEvent,
+    TResult Function(OnChangeQuranTabbar value)? onChangeQuranTabbar,
     required TResult orElse(),
   }) {
     if (playAllParaAudiosAuto != null) {
@@ -6042,6 +6156,7 @@ class _$PlayAllChapterAudiosAuto implements PlayAllChapterAudiosAuto {
     required TResult Function(String textName) saveQuranTexttypeName,
     required TResult Function() onTapofNextEvent,
     required TResult Function() onTapofPrevEvent,
+    required TResult Function(int index) onChangeQuranTabbar,
   }) {
     return playAllChapterAudiosAuto(index);
   }
@@ -6079,6 +6194,7 @@ class _$PlayAllChapterAudiosAuto implements PlayAllChapterAudiosAuto {
     TResult? Function(String textName)? saveQuranTexttypeName,
     TResult? Function()? onTapofNextEvent,
     TResult? Function()? onTapofPrevEvent,
+    TResult? Function(int index)? onChangeQuranTabbar,
   }) {
     return playAllChapterAudiosAuto?.call(index);
   }
@@ -6116,6 +6232,7 @@ class _$PlayAllChapterAudiosAuto implements PlayAllChapterAudiosAuto {
     TResult Function(String textName)? saveQuranTexttypeName,
     TResult Function()? onTapofNextEvent,
     TResult Function()? onTapofPrevEvent,
+    TResult Function(int index)? onChangeQuranTabbar,
     required TResult orElse(),
   }) {
     if (playAllChapterAudiosAuto != null) {
@@ -6168,6 +6285,7 @@ class _$PlayAllChapterAudiosAuto implements PlayAllChapterAudiosAuto {
         saveQuranTexttypeName,
     required TResult Function(OnTapofNextEvent value) onTapofNextEvent,
     required TResult Function(OnTapofPrevEvent value) onTapofPrevEvent,
+    required TResult Function(OnChangeQuranTabbar value) onChangeQuranTabbar,
   }) {
     return playAllChapterAudiosAuto(this);
   }
@@ -6209,6 +6327,7 @@ class _$PlayAllChapterAudiosAuto implements PlayAllChapterAudiosAuto {
     TResult? Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult? Function(OnTapofNextEvent value)? onTapofNextEvent,
     TResult? Function(OnTapofPrevEvent value)? onTapofPrevEvent,
+    TResult? Function(OnChangeQuranTabbar value)? onChangeQuranTabbar,
   }) {
     return playAllChapterAudiosAuto?.call(this);
   }
@@ -6250,6 +6369,7 @@ class _$PlayAllChapterAudiosAuto implements PlayAllChapterAudiosAuto {
     TResult Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult Function(OnTapofNextEvent value)? onTapofNextEvent,
     TResult Function(OnTapofPrevEvent value)? onTapofPrevEvent,
+    TResult Function(OnChangeQuranTabbar value)? onChangeQuranTabbar,
     required TResult orElse(),
   }) {
     if (playAllChapterAudiosAuto != null) {
@@ -6338,6 +6458,7 @@ class _$ShowMusicbar implements ShowMusicbar {
     required TResult Function(String textName) saveQuranTexttypeName,
     required TResult Function() onTapofNextEvent,
     required TResult Function() onTapofPrevEvent,
+    required TResult Function(int index) onChangeQuranTabbar,
   }) {
     return showMusicbar();
   }
@@ -6375,6 +6496,7 @@ class _$ShowMusicbar implements ShowMusicbar {
     TResult? Function(String textName)? saveQuranTexttypeName,
     TResult? Function()? onTapofNextEvent,
     TResult? Function()? onTapofPrevEvent,
+    TResult? Function(int index)? onChangeQuranTabbar,
   }) {
     return showMusicbar?.call();
   }
@@ -6412,6 +6534,7 @@ class _$ShowMusicbar implements ShowMusicbar {
     TResult Function(String textName)? saveQuranTexttypeName,
     TResult Function()? onTapofNextEvent,
     TResult Function()? onTapofPrevEvent,
+    TResult Function(int index)? onChangeQuranTabbar,
     required TResult orElse(),
   }) {
     if (showMusicbar != null) {
@@ -6464,6 +6587,7 @@ class _$ShowMusicbar implements ShowMusicbar {
         saveQuranTexttypeName,
     required TResult Function(OnTapofNextEvent value) onTapofNextEvent,
     required TResult Function(OnTapofPrevEvent value) onTapofPrevEvent,
+    required TResult Function(OnChangeQuranTabbar value) onChangeQuranTabbar,
   }) {
     return showMusicbar(this);
   }
@@ -6505,6 +6629,7 @@ class _$ShowMusicbar implements ShowMusicbar {
     TResult? Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult? Function(OnTapofNextEvent value)? onTapofNextEvent,
     TResult? Function(OnTapofPrevEvent value)? onTapofPrevEvent,
+    TResult? Function(OnChangeQuranTabbar value)? onChangeQuranTabbar,
   }) {
     return showMusicbar?.call(this);
   }
@@ -6546,6 +6671,7 @@ class _$ShowMusicbar implements ShowMusicbar {
     TResult Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult Function(OnTapofNextEvent value)? onTapofNextEvent,
     TResult Function(OnTapofPrevEvent value)? onTapofPrevEvent,
+    TResult Function(OnChangeQuranTabbar value)? onChangeQuranTabbar,
     required TResult orElse(),
   }) {
     if (showMusicbar != null) {
@@ -6656,6 +6782,7 @@ class _$IsExpandonSearchEvent implements IsExpandonSearchEvent {
     required TResult Function(String textName) saveQuranTexttypeName,
     required TResult Function() onTapofNextEvent,
     required TResult Function() onTapofPrevEvent,
+    required TResult Function(int index) onChangeQuranTabbar,
   }) {
     return isExpandonSearchEvent(isExpand);
   }
@@ -6693,6 +6820,7 @@ class _$IsExpandonSearchEvent implements IsExpandonSearchEvent {
     TResult? Function(String textName)? saveQuranTexttypeName,
     TResult? Function()? onTapofNextEvent,
     TResult? Function()? onTapofPrevEvent,
+    TResult? Function(int index)? onChangeQuranTabbar,
   }) {
     return isExpandonSearchEvent?.call(isExpand);
   }
@@ -6730,6 +6858,7 @@ class _$IsExpandonSearchEvent implements IsExpandonSearchEvent {
     TResult Function(String textName)? saveQuranTexttypeName,
     TResult Function()? onTapofNextEvent,
     TResult Function()? onTapofPrevEvent,
+    TResult Function(int index)? onChangeQuranTabbar,
     required TResult orElse(),
   }) {
     if (isExpandonSearchEvent != null) {
@@ -6782,6 +6911,7 @@ class _$IsExpandonSearchEvent implements IsExpandonSearchEvent {
         saveQuranTexttypeName,
     required TResult Function(OnTapofNextEvent value) onTapofNextEvent,
     required TResult Function(OnTapofPrevEvent value) onTapofPrevEvent,
+    required TResult Function(OnChangeQuranTabbar value) onChangeQuranTabbar,
   }) {
     return isExpandonSearchEvent(this);
   }
@@ -6823,6 +6953,7 @@ class _$IsExpandonSearchEvent implements IsExpandonSearchEvent {
     TResult? Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult? Function(OnTapofNextEvent value)? onTapofNextEvent,
     TResult? Function(OnTapofPrevEvent value)? onTapofPrevEvent,
+    TResult? Function(OnChangeQuranTabbar value)? onChangeQuranTabbar,
   }) {
     return isExpandonSearchEvent?.call(this);
   }
@@ -6864,6 +6995,7 @@ class _$IsExpandonSearchEvent implements IsExpandonSearchEvent {
     TResult Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult Function(OnTapofNextEvent value)? onTapofNextEvent,
     TResult Function(OnTapofPrevEvent value)? onTapofPrevEvent,
+    TResult Function(OnChangeQuranTabbar value)? onChangeQuranTabbar,
     required TResult orElse(),
   }) {
     if (isExpandonSearchEvent != null) {
@@ -6993,6 +7125,7 @@ class _$SaveGlobalTransilationIdAndName
     required TResult Function(String textName) saveQuranTexttypeName,
     required TResult Function() onTapofNextEvent,
     required TResult Function() onTapofPrevEvent,
+    required TResult Function(int index) onChangeQuranTabbar,
   }) {
     return saveGlobalTransilationIdAndName(transilationId, translationName);
   }
@@ -7030,6 +7163,7 @@ class _$SaveGlobalTransilationIdAndName
     TResult? Function(String textName)? saveQuranTexttypeName,
     TResult? Function()? onTapofNextEvent,
     TResult? Function()? onTapofPrevEvent,
+    TResult? Function(int index)? onChangeQuranTabbar,
   }) {
     return saveGlobalTransilationIdAndName?.call(
         transilationId, translationName);
@@ -7068,6 +7202,7 @@ class _$SaveGlobalTransilationIdAndName
     TResult Function(String textName)? saveQuranTexttypeName,
     TResult Function()? onTapofNextEvent,
     TResult Function()? onTapofPrevEvent,
+    TResult Function(int index)? onChangeQuranTabbar,
     required TResult orElse(),
   }) {
     if (saveGlobalTransilationIdAndName != null) {
@@ -7120,6 +7255,7 @@ class _$SaveGlobalTransilationIdAndName
         saveQuranTexttypeName,
     required TResult Function(OnTapofNextEvent value) onTapofNextEvent,
     required TResult Function(OnTapofPrevEvent value) onTapofPrevEvent,
+    required TResult Function(OnChangeQuranTabbar value) onChangeQuranTabbar,
   }) {
     return saveGlobalTransilationIdAndName(this);
   }
@@ -7161,6 +7297,7 @@ class _$SaveGlobalTransilationIdAndName
     TResult? Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult? Function(OnTapofNextEvent value)? onTapofNextEvent,
     TResult? Function(OnTapofPrevEvent value)? onTapofPrevEvent,
+    TResult? Function(OnChangeQuranTabbar value)? onChangeQuranTabbar,
   }) {
     return saveGlobalTransilationIdAndName?.call(this);
   }
@@ -7202,6 +7339,7 @@ class _$SaveGlobalTransilationIdAndName
     TResult Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult Function(OnTapofNextEvent value)? onTapofNextEvent,
     TResult Function(OnTapofPrevEvent value)? onTapofPrevEvent,
+    TResult Function(OnChangeQuranTabbar value)? onChangeQuranTabbar,
     required TResult orElse(),
   }) {
     if (saveGlobalTransilationIdAndName != null) {
@@ -7293,6 +7431,7 @@ class _$FetchAllRecitors implements FetchAllRecitors {
     required TResult Function(String textName) saveQuranTexttypeName,
     required TResult Function() onTapofNextEvent,
     required TResult Function() onTapofPrevEvent,
+    required TResult Function(int index) onChangeQuranTabbar,
   }) {
     return fetchAllRecitors();
   }
@@ -7330,6 +7469,7 @@ class _$FetchAllRecitors implements FetchAllRecitors {
     TResult? Function(String textName)? saveQuranTexttypeName,
     TResult? Function()? onTapofNextEvent,
     TResult? Function()? onTapofPrevEvent,
+    TResult? Function(int index)? onChangeQuranTabbar,
   }) {
     return fetchAllRecitors?.call();
   }
@@ -7367,6 +7507,7 @@ class _$FetchAllRecitors implements FetchAllRecitors {
     TResult Function(String textName)? saveQuranTexttypeName,
     TResult Function()? onTapofNextEvent,
     TResult Function()? onTapofPrevEvent,
+    TResult Function(int index)? onChangeQuranTabbar,
     required TResult orElse(),
   }) {
     if (fetchAllRecitors != null) {
@@ -7419,6 +7560,7 @@ class _$FetchAllRecitors implements FetchAllRecitors {
         saveQuranTexttypeName,
     required TResult Function(OnTapofNextEvent value) onTapofNextEvent,
     required TResult Function(OnTapofPrevEvent value) onTapofPrevEvent,
+    required TResult Function(OnChangeQuranTabbar value) onChangeQuranTabbar,
   }) {
     return fetchAllRecitors(this);
   }
@@ -7460,6 +7602,7 @@ class _$FetchAllRecitors implements FetchAllRecitors {
     TResult? Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult? Function(OnTapofNextEvent value)? onTapofNextEvent,
     TResult? Function(OnTapofPrevEvent value)? onTapofPrevEvent,
+    TResult? Function(OnChangeQuranTabbar value)? onChangeQuranTabbar,
   }) {
     return fetchAllRecitors?.call(this);
   }
@@ -7501,6 +7644,7 @@ class _$FetchAllRecitors implements FetchAllRecitors {
     TResult Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult Function(OnTapofNextEvent value)? onTapofNextEvent,
     TResult Function(OnTapofPrevEvent value)? onTapofPrevEvent,
+    TResult Function(OnChangeQuranTabbar value)? onChangeQuranTabbar,
     required TResult orElse(),
   }) {
     if (fetchAllRecitors != null) {
@@ -7621,6 +7765,7 @@ class _$SaveRecitorNameAndId implements SaveRecitorNameAndId {
     required TResult Function(String textName) saveQuranTexttypeName,
     required TResult Function() onTapofNextEvent,
     required TResult Function() onTapofPrevEvent,
+    required TResult Function(int index) onChangeQuranTabbar,
   }) {
     return saveRecitorNameAndId(recitorId, recitorName);
   }
@@ -7658,6 +7803,7 @@ class _$SaveRecitorNameAndId implements SaveRecitorNameAndId {
     TResult? Function(String textName)? saveQuranTexttypeName,
     TResult? Function()? onTapofNextEvent,
     TResult? Function()? onTapofPrevEvent,
+    TResult? Function(int index)? onChangeQuranTabbar,
   }) {
     return saveRecitorNameAndId?.call(recitorId, recitorName);
   }
@@ -7695,6 +7841,7 @@ class _$SaveRecitorNameAndId implements SaveRecitorNameAndId {
     TResult Function(String textName)? saveQuranTexttypeName,
     TResult Function()? onTapofNextEvent,
     TResult Function()? onTapofPrevEvent,
+    TResult Function(int index)? onChangeQuranTabbar,
     required TResult orElse(),
   }) {
     if (saveRecitorNameAndId != null) {
@@ -7747,6 +7894,7 @@ class _$SaveRecitorNameAndId implements SaveRecitorNameAndId {
         saveQuranTexttypeName,
     required TResult Function(OnTapofNextEvent value) onTapofNextEvent,
     required TResult Function(OnTapofPrevEvent value) onTapofPrevEvent,
+    required TResult Function(OnChangeQuranTabbar value) onChangeQuranTabbar,
   }) {
     return saveRecitorNameAndId(this);
   }
@@ -7788,6 +7936,7 @@ class _$SaveRecitorNameAndId implements SaveRecitorNameAndId {
     TResult? Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult? Function(OnTapofNextEvent value)? onTapofNextEvent,
     TResult? Function(OnTapofPrevEvent value)? onTapofPrevEvent,
+    TResult? Function(OnChangeQuranTabbar value)? onChangeQuranTabbar,
   }) {
     return saveRecitorNameAndId?.call(this);
   }
@@ -7829,6 +7978,7 @@ class _$SaveRecitorNameAndId implements SaveRecitorNameAndId {
     TResult Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult Function(OnTapofNextEvent value)? onTapofNextEvent,
     TResult Function(OnTapofPrevEvent value)? onTapofPrevEvent,
+    TResult Function(OnChangeQuranTabbar value)? onChangeQuranTabbar,
     required TResult orElse(),
   }) {
     if (saveRecitorNameAndId != null) {
@@ -7947,6 +8097,7 @@ class _$SaveQuranTexttypeName implements SaveQuranTexttypeName {
     required TResult Function(String textName) saveQuranTexttypeName,
     required TResult Function() onTapofNextEvent,
     required TResult Function() onTapofPrevEvent,
+    required TResult Function(int index) onChangeQuranTabbar,
   }) {
     return saveQuranTexttypeName(textName);
   }
@@ -7984,6 +8135,7 @@ class _$SaveQuranTexttypeName implements SaveQuranTexttypeName {
     TResult? Function(String textName)? saveQuranTexttypeName,
     TResult? Function()? onTapofNextEvent,
     TResult? Function()? onTapofPrevEvent,
+    TResult? Function(int index)? onChangeQuranTabbar,
   }) {
     return saveQuranTexttypeName?.call(textName);
   }
@@ -8021,6 +8173,7 @@ class _$SaveQuranTexttypeName implements SaveQuranTexttypeName {
     TResult Function(String textName)? saveQuranTexttypeName,
     TResult Function()? onTapofNextEvent,
     TResult Function()? onTapofPrevEvent,
+    TResult Function(int index)? onChangeQuranTabbar,
     required TResult orElse(),
   }) {
     if (saveQuranTexttypeName != null) {
@@ -8073,6 +8226,7 @@ class _$SaveQuranTexttypeName implements SaveQuranTexttypeName {
         saveQuranTexttypeName,
     required TResult Function(OnTapofNextEvent value) onTapofNextEvent,
     required TResult Function(OnTapofPrevEvent value) onTapofPrevEvent,
+    required TResult Function(OnChangeQuranTabbar value) onChangeQuranTabbar,
   }) {
     return saveQuranTexttypeName(this);
   }
@@ -8114,6 +8268,7 @@ class _$SaveQuranTexttypeName implements SaveQuranTexttypeName {
     TResult? Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult? Function(OnTapofNextEvent value)? onTapofNextEvent,
     TResult? Function(OnTapofPrevEvent value)? onTapofPrevEvent,
+    TResult? Function(OnChangeQuranTabbar value)? onChangeQuranTabbar,
   }) {
     return saveQuranTexttypeName?.call(this);
   }
@@ -8155,6 +8310,7 @@ class _$SaveQuranTexttypeName implements SaveQuranTexttypeName {
     TResult Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult Function(OnTapofNextEvent value)? onTapofNextEvent,
     TResult Function(OnTapofPrevEvent value)? onTapofPrevEvent,
+    TResult Function(OnChangeQuranTabbar value)? onChangeQuranTabbar,
     required TResult orElse(),
   }) {
     if (saveQuranTexttypeName != null) {
@@ -8243,6 +8399,7 @@ class _$OnTapofNextEvent implements OnTapofNextEvent {
     required TResult Function(String textName) saveQuranTexttypeName,
     required TResult Function() onTapofNextEvent,
     required TResult Function() onTapofPrevEvent,
+    required TResult Function(int index) onChangeQuranTabbar,
   }) {
     return onTapofNextEvent();
   }
@@ -8280,6 +8437,7 @@ class _$OnTapofNextEvent implements OnTapofNextEvent {
     TResult? Function(String textName)? saveQuranTexttypeName,
     TResult? Function()? onTapofNextEvent,
     TResult? Function()? onTapofPrevEvent,
+    TResult? Function(int index)? onChangeQuranTabbar,
   }) {
     return onTapofNextEvent?.call();
   }
@@ -8317,6 +8475,7 @@ class _$OnTapofNextEvent implements OnTapofNextEvent {
     TResult Function(String textName)? saveQuranTexttypeName,
     TResult Function()? onTapofNextEvent,
     TResult Function()? onTapofPrevEvent,
+    TResult Function(int index)? onChangeQuranTabbar,
     required TResult orElse(),
   }) {
     if (onTapofNextEvent != null) {
@@ -8369,6 +8528,7 @@ class _$OnTapofNextEvent implements OnTapofNextEvent {
         saveQuranTexttypeName,
     required TResult Function(OnTapofNextEvent value) onTapofNextEvent,
     required TResult Function(OnTapofPrevEvent value) onTapofPrevEvent,
+    required TResult Function(OnChangeQuranTabbar value) onChangeQuranTabbar,
   }) {
     return onTapofNextEvent(this);
   }
@@ -8410,6 +8570,7 @@ class _$OnTapofNextEvent implements OnTapofNextEvent {
     TResult? Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult? Function(OnTapofNextEvent value)? onTapofNextEvent,
     TResult? Function(OnTapofPrevEvent value)? onTapofPrevEvent,
+    TResult? Function(OnChangeQuranTabbar value)? onChangeQuranTabbar,
   }) {
     return onTapofNextEvent?.call(this);
   }
@@ -8451,6 +8612,7 @@ class _$OnTapofNextEvent implements OnTapofNextEvent {
     TResult Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult Function(OnTapofNextEvent value)? onTapofNextEvent,
     TResult Function(OnTapofPrevEvent value)? onTapofPrevEvent,
+    TResult Function(OnChangeQuranTabbar value)? onChangeQuranTabbar,
     required TResult orElse(),
   }) {
     if (onTapofNextEvent != null) {
@@ -8533,6 +8695,7 @@ class _$OnTapofPrevEvent implements OnTapofPrevEvent {
     required TResult Function(String textName) saveQuranTexttypeName,
     required TResult Function() onTapofNextEvent,
     required TResult Function() onTapofPrevEvent,
+    required TResult Function(int index) onChangeQuranTabbar,
   }) {
     return onTapofPrevEvent();
   }
@@ -8570,6 +8733,7 @@ class _$OnTapofPrevEvent implements OnTapofPrevEvent {
     TResult? Function(String textName)? saveQuranTexttypeName,
     TResult? Function()? onTapofNextEvent,
     TResult? Function()? onTapofPrevEvent,
+    TResult? Function(int index)? onChangeQuranTabbar,
   }) {
     return onTapofPrevEvent?.call();
   }
@@ -8607,6 +8771,7 @@ class _$OnTapofPrevEvent implements OnTapofPrevEvent {
     TResult Function(String textName)? saveQuranTexttypeName,
     TResult Function()? onTapofNextEvent,
     TResult Function()? onTapofPrevEvent,
+    TResult Function(int index)? onChangeQuranTabbar,
     required TResult orElse(),
   }) {
     if (onTapofPrevEvent != null) {
@@ -8659,6 +8824,7 @@ class _$OnTapofPrevEvent implements OnTapofPrevEvent {
         saveQuranTexttypeName,
     required TResult Function(OnTapofNextEvent value) onTapofNextEvent,
     required TResult Function(OnTapofPrevEvent value) onTapofPrevEvent,
+    required TResult Function(OnChangeQuranTabbar value) onChangeQuranTabbar,
   }) {
     return onTapofPrevEvent(this);
   }
@@ -8700,6 +8866,7 @@ class _$OnTapofPrevEvent implements OnTapofPrevEvent {
     TResult? Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult? Function(OnTapofNextEvent value)? onTapofNextEvent,
     TResult? Function(OnTapofPrevEvent value)? onTapofPrevEvent,
+    TResult? Function(OnChangeQuranTabbar value)? onChangeQuranTabbar,
   }) {
     return onTapofPrevEvent?.call(this);
   }
@@ -8741,6 +8908,7 @@ class _$OnTapofPrevEvent implements OnTapofPrevEvent {
     TResult Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
     TResult Function(OnTapofNextEvent value)? onTapofNextEvent,
     TResult Function(OnTapofPrevEvent value)? onTapofPrevEvent,
+    TResult Function(OnChangeQuranTabbar value)? onChangeQuranTabbar,
     required TResult orElse(),
   }) {
     if (onTapofPrevEvent != null) {
@@ -8752,6 +8920,335 @@ class _$OnTapofPrevEvent implements OnTapofPrevEvent {
 
 abstract class OnTapofPrevEvent implements QuranEvent {
   const factory OnTapofPrevEvent() = _$OnTapofPrevEvent;
+}
+
+/// @nodoc
+abstract class _$$OnChangeQuranTabbarCopyWith<$Res> {
+  factory _$$OnChangeQuranTabbarCopyWith(_$OnChangeQuranTabbar value,
+          $Res Function(_$OnChangeQuranTabbar) then) =
+      __$$OnChangeQuranTabbarCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int index});
+}
+
+/// @nodoc
+class __$$OnChangeQuranTabbarCopyWithImpl<$Res>
+    extends _$QuranEventCopyWithImpl<$Res, _$OnChangeQuranTabbar>
+    implements _$$OnChangeQuranTabbarCopyWith<$Res> {
+  __$$OnChangeQuranTabbarCopyWithImpl(
+      _$OnChangeQuranTabbar _value, $Res Function(_$OnChangeQuranTabbar) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? index = null,
+  }) {
+    return _then(_$OnChangeQuranTabbar(
+      index: null == index
+          ? _value.index
+          : index // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$OnChangeQuranTabbar implements OnChangeQuranTabbar {
+  const _$OnChangeQuranTabbar({required this.index});
+
+  @override
+  final int index;
+
+  @override
+  String toString() {
+    return 'QuranEvent.onChangeQuranTabbar(index: $index)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$OnChangeQuranTabbar &&
+            (identical(other.index, index) || other.index == index));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, index);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$OnChangeQuranTabbarCopyWith<_$OnChangeQuranTabbar> get copyWith =>
+      __$$OnChangeQuranTabbarCopyWithImpl<_$OnChangeQuranTabbar>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() fetchQuaranChaptersEvent,
+    required TResult Function(int id) fetchChaperVersesEvent,
+    required TResult Function(int id) fetchChapterVersesbyTextName,
+    required TResult Function(int id) fetchParaVerses,
+    required TResult Function() fetchQuranPara,
+    required TResult Function() changeExpandOnSearchEvent,
+    required TResult Function(List<int> id) fechtChapterbyId,
+    required TResult Function(String query) searchChapterEvent,
+    required TResult Function(List<String> verseKey) fetchVersesByKey,
+    required TResult Function(int id, int recitorId) fetchParaAudios,
+    required TResult Function(int id, int recitorId) fetchChapterAudioFiles,
+    required TResult Function(int index) changeIndexBackGroundSetting,
+    required TResult Function() increaseFontsize,
+    required TResult Function() decreaseFontsize,
+    required TResult Function() fetchAllTranslationsEvent,
+    required TResult Function(int chapterId, int translationId)
+        fetchAllChapterTranslationTexts,
+    required TResult Function(int paraId, int translationId)
+        fetchAllParaTranslationTexts,
+    required TResult Function(int index) playAllParaAudiosAuto,
+    required TResult Function(int? index) playAllChapterAudiosAuto,
+    required TResult Function() showMusicbar,
+    required TResult Function(bool isExpand) isExpandonSearchEvent,
+    required TResult Function(int transilationId, String translationName)
+        saveGlobalTransilationIdAndName,
+    required TResult Function() fetchAllRecitors,
+    required TResult Function(int recitorId, String recitorName)
+        saveRecitorNameAndId,
+    required TResult Function(String textName) saveQuranTexttypeName,
+    required TResult Function() onTapofNextEvent,
+    required TResult Function() onTapofPrevEvent,
+    required TResult Function(int index) onChangeQuranTabbar,
+  }) {
+    return onChangeQuranTabbar(index);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? fetchQuaranChaptersEvent,
+    TResult? Function(int id)? fetchChaperVersesEvent,
+    TResult? Function(int id)? fetchChapterVersesbyTextName,
+    TResult? Function(int id)? fetchParaVerses,
+    TResult? Function()? fetchQuranPara,
+    TResult? Function()? changeExpandOnSearchEvent,
+    TResult? Function(List<int> id)? fechtChapterbyId,
+    TResult? Function(String query)? searchChapterEvent,
+    TResult? Function(List<String> verseKey)? fetchVersesByKey,
+    TResult? Function(int id, int recitorId)? fetchParaAudios,
+    TResult? Function(int id, int recitorId)? fetchChapterAudioFiles,
+    TResult? Function(int index)? changeIndexBackGroundSetting,
+    TResult? Function()? increaseFontsize,
+    TResult? Function()? decreaseFontsize,
+    TResult? Function()? fetchAllTranslationsEvent,
+    TResult? Function(int chapterId, int translationId)?
+        fetchAllChapterTranslationTexts,
+    TResult? Function(int paraId, int translationId)?
+        fetchAllParaTranslationTexts,
+    TResult? Function(int index)? playAllParaAudiosAuto,
+    TResult? Function(int? index)? playAllChapterAudiosAuto,
+    TResult? Function()? showMusicbar,
+    TResult? Function(bool isExpand)? isExpandonSearchEvent,
+    TResult? Function(int transilationId, String translationName)?
+        saveGlobalTransilationIdAndName,
+    TResult? Function()? fetchAllRecitors,
+    TResult? Function(int recitorId, String recitorName)? saveRecitorNameAndId,
+    TResult? Function(String textName)? saveQuranTexttypeName,
+    TResult? Function()? onTapofNextEvent,
+    TResult? Function()? onTapofPrevEvent,
+    TResult? Function(int index)? onChangeQuranTabbar,
+  }) {
+    return onChangeQuranTabbar?.call(index);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? fetchQuaranChaptersEvent,
+    TResult Function(int id)? fetchChaperVersesEvent,
+    TResult Function(int id)? fetchChapterVersesbyTextName,
+    TResult Function(int id)? fetchParaVerses,
+    TResult Function()? fetchQuranPara,
+    TResult Function()? changeExpandOnSearchEvent,
+    TResult Function(List<int> id)? fechtChapterbyId,
+    TResult Function(String query)? searchChapterEvent,
+    TResult Function(List<String> verseKey)? fetchVersesByKey,
+    TResult Function(int id, int recitorId)? fetchParaAudios,
+    TResult Function(int id, int recitorId)? fetchChapterAudioFiles,
+    TResult Function(int index)? changeIndexBackGroundSetting,
+    TResult Function()? increaseFontsize,
+    TResult Function()? decreaseFontsize,
+    TResult Function()? fetchAllTranslationsEvent,
+    TResult Function(int chapterId, int translationId)?
+        fetchAllChapterTranslationTexts,
+    TResult Function(int paraId, int translationId)?
+        fetchAllParaTranslationTexts,
+    TResult Function(int index)? playAllParaAudiosAuto,
+    TResult Function(int? index)? playAllChapterAudiosAuto,
+    TResult Function()? showMusicbar,
+    TResult Function(bool isExpand)? isExpandonSearchEvent,
+    TResult Function(int transilationId, String translationName)?
+        saveGlobalTransilationIdAndName,
+    TResult Function()? fetchAllRecitors,
+    TResult Function(int recitorId, String recitorName)? saveRecitorNameAndId,
+    TResult Function(String textName)? saveQuranTexttypeName,
+    TResult Function()? onTapofNextEvent,
+    TResult Function()? onTapofPrevEvent,
+    TResult Function(int index)? onChangeQuranTabbar,
+    required TResult orElse(),
+  }) {
+    if (onChangeQuranTabbar != null) {
+      return onChangeQuranTabbar(index);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FetchQuaranChaptersEvent value)
+        fetchQuaranChaptersEvent,
+    required TResult Function(FetchChaperVersesEvent value)
+        fetchChaperVersesEvent,
+    required TResult Function(FetchChapterVersesbyTextName value)
+        fetchChapterVersesbyTextName,
+    required TResult Function(FetchParaVerses value) fetchParaVerses,
+    required TResult Function(FetchQuranPara value) fetchQuranPara,
+    required TResult Function(ChangeExpandOnSearchEvent value)
+        changeExpandOnSearchEvent,
+    required TResult Function(FechtChapterbyId value) fechtChapterbyId,
+    required TResult Function(SearchChapterEvent value) searchChapterEvent,
+    required TResult Function(FetchVersesByKey value) fetchVersesByKey,
+    required TResult Function(FetchParaAudios value) fetchParaAudios,
+    required TResult Function(FetchChapterAudioFiles value)
+        fetchChapterAudioFiles,
+    required TResult Function(ChangeIndexBackGroundSetting value)
+        changeIndexBackGroundSetting,
+    required TResult Function(IncreaseFontsize value) increaseFontsize,
+    required TResult Function(DecreaseFontsize value) decreaseFontsize,
+    required TResult Function(FetchAllTranslationsEvent value)
+        fetchAllTranslationsEvent,
+    required TResult Function(FetchTranslationChapterTexts value)
+        fetchAllChapterTranslationTexts,
+    required TResult Function(FetchTranslationParaTexts value)
+        fetchAllParaTranslationTexts,
+    required TResult Function(PlayAllParaAudiosAuto value)
+        playAllParaAudiosAuto,
+    required TResult Function(PlayAllChapterAudiosAuto value)
+        playAllChapterAudiosAuto,
+    required TResult Function(ShowMusicbar value) showMusicbar,
+    required TResult Function(IsExpandonSearchEvent value)
+        isExpandonSearchEvent,
+    required TResult Function(SaveGlobalTransilationIdAndName value)
+        saveGlobalTransilationIdAndName,
+    required TResult Function(FetchAllRecitors value) fetchAllRecitors,
+    required TResult Function(SaveRecitorNameAndId value) saveRecitorNameAndId,
+    required TResult Function(SaveQuranTexttypeName value)
+        saveQuranTexttypeName,
+    required TResult Function(OnTapofNextEvent value) onTapofNextEvent,
+    required TResult Function(OnTapofPrevEvent value) onTapofPrevEvent,
+    required TResult Function(OnChangeQuranTabbar value) onChangeQuranTabbar,
+  }) {
+    return onChangeQuranTabbar(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(FetchQuaranChaptersEvent value)? fetchQuaranChaptersEvent,
+    TResult? Function(FetchChaperVersesEvent value)? fetchChaperVersesEvent,
+    TResult? Function(FetchChapterVersesbyTextName value)?
+        fetchChapterVersesbyTextName,
+    TResult? Function(FetchParaVerses value)? fetchParaVerses,
+    TResult? Function(FetchQuranPara value)? fetchQuranPara,
+    TResult? Function(ChangeExpandOnSearchEvent value)?
+        changeExpandOnSearchEvent,
+    TResult? Function(FechtChapterbyId value)? fechtChapterbyId,
+    TResult? Function(SearchChapterEvent value)? searchChapterEvent,
+    TResult? Function(FetchVersesByKey value)? fetchVersesByKey,
+    TResult? Function(FetchParaAudios value)? fetchParaAudios,
+    TResult? Function(FetchChapterAudioFiles value)? fetchChapterAudioFiles,
+    TResult? Function(ChangeIndexBackGroundSetting value)?
+        changeIndexBackGroundSetting,
+    TResult? Function(IncreaseFontsize value)? increaseFontsize,
+    TResult? Function(DecreaseFontsize value)? decreaseFontsize,
+    TResult? Function(FetchAllTranslationsEvent value)?
+        fetchAllTranslationsEvent,
+    TResult? Function(FetchTranslationChapterTexts value)?
+        fetchAllChapterTranslationTexts,
+    TResult? Function(FetchTranslationParaTexts value)?
+        fetchAllParaTranslationTexts,
+    TResult? Function(PlayAllParaAudiosAuto value)? playAllParaAudiosAuto,
+    TResult? Function(PlayAllChapterAudiosAuto value)? playAllChapterAudiosAuto,
+    TResult? Function(ShowMusicbar value)? showMusicbar,
+    TResult? Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
+    TResult? Function(SaveGlobalTransilationIdAndName value)?
+        saveGlobalTransilationIdAndName,
+    TResult? Function(FetchAllRecitors value)? fetchAllRecitors,
+    TResult? Function(SaveRecitorNameAndId value)? saveRecitorNameAndId,
+    TResult? Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
+    TResult? Function(OnTapofNextEvent value)? onTapofNextEvent,
+    TResult? Function(OnTapofPrevEvent value)? onTapofPrevEvent,
+    TResult? Function(OnChangeQuranTabbar value)? onChangeQuranTabbar,
+  }) {
+    return onChangeQuranTabbar?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FetchQuaranChaptersEvent value)? fetchQuaranChaptersEvent,
+    TResult Function(FetchChaperVersesEvent value)? fetchChaperVersesEvent,
+    TResult Function(FetchChapterVersesbyTextName value)?
+        fetchChapterVersesbyTextName,
+    TResult Function(FetchParaVerses value)? fetchParaVerses,
+    TResult Function(FetchQuranPara value)? fetchQuranPara,
+    TResult Function(ChangeExpandOnSearchEvent value)?
+        changeExpandOnSearchEvent,
+    TResult Function(FechtChapterbyId value)? fechtChapterbyId,
+    TResult Function(SearchChapterEvent value)? searchChapterEvent,
+    TResult Function(FetchVersesByKey value)? fetchVersesByKey,
+    TResult Function(FetchParaAudios value)? fetchParaAudios,
+    TResult Function(FetchChapterAudioFiles value)? fetchChapterAudioFiles,
+    TResult Function(ChangeIndexBackGroundSetting value)?
+        changeIndexBackGroundSetting,
+    TResult Function(IncreaseFontsize value)? increaseFontsize,
+    TResult Function(DecreaseFontsize value)? decreaseFontsize,
+    TResult Function(FetchAllTranslationsEvent value)?
+        fetchAllTranslationsEvent,
+    TResult Function(FetchTranslationChapterTexts value)?
+        fetchAllChapterTranslationTexts,
+    TResult Function(FetchTranslationParaTexts value)?
+        fetchAllParaTranslationTexts,
+    TResult Function(PlayAllParaAudiosAuto value)? playAllParaAudiosAuto,
+    TResult Function(PlayAllChapterAudiosAuto value)? playAllChapterAudiosAuto,
+    TResult Function(ShowMusicbar value)? showMusicbar,
+    TResult Function(IsExpandonSearchEvent value)? isExpandonSearchEvent,
+    TResult Function(SaveGlobalTransilationIdAndName value)?
+        saveGlobalTransilationIdAndName,
+    TResult Function(FetchAllRecitors value)? fetchAllRecitors,
+    TResult Function(SaveRecitorNameAndId value)? saveRecitorNameAndId,
+    TResult Function(SaveQuranTexttypeName value)? saveQuranTexttypeName,
+    TResult Function(OnTapofNextEvent value)? onTapofNextEvent,
+    TResult Function(OnTapofPrevEvent value)? onTapofPrevEvent,
+    TResult Function(OnChangeQuranTabbar value)? onChangeQuranTabbar,
+    required TResult orElse(),
+  }) {
+    if (onChangeQuranTabbar != null) {
+      return onChangeQuranTabbar(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class OnChangeQuranTabbar implements QuranEvent {
+  const factory OnChangeQuranTabbar({required final int index}) =
+      _$OnChangeQuranTabbar;
+
+  int get index;
+  @JsonKey(ignore: true)
+  _$$OnChangeQuranTabbarCopyWith<_$OnChangeQuranTabbar> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -8802,6 +9299,7 @@ mixin _$QuranState {
   String get chapterName => throw _privateConstructorUsedError;
   int get nxtAndprevValue => throw _privateConstructorUsedError;
   List<String> get tempListAya => throw _privateConstructorUsedError;
+  int get tabBarIndex => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $QuranStateCopyWith<QuranState> get copyWith =>
@@ -8850,7 +9348,8 @@ abstract class $QuranStateCopyWith<$Res> {
       ParaVersesModelofNoSymbol? paraVersesModelofNoSymbol,
       String chapterName,
       int nxtAndprevValue,
-      List<String> tempListAya});
+      List<String> tempListAya,
+      int tabBarIndex});
 
   $QuranChaptersCopyWith<$Res>? get quranChaptersModel;
   $ChapterVersesModelCopyWith<$Res>? get chapterVersesModel;
@@ -8914,6 +9413,7 @@ class _$QuranStateCopyWithImpl<$Res, $Val extends QuranState>
     Object? chapterName = null,
     Object? nxtAndprevValue = null,
     Object? tempListAya = null,
+    Object? tabBarIndex = null,
   }) {
     return _then(_value.copyWith(
       isLoading: null == isLoading
@@ -9060,6 +9560,10 @@ class _$QuranStateCopyWithImpl<$Res, $Val extends QuranState>
           ? _value.tempListAya
           : tempListAya // ignore: cast_nullable_to_non_nullable
               as List<String>,
+      tabBarIndex: null == tabBarIndex
+          ? _value.tabBarIndex
+          : tabBarIndex // ignore: cast_nullable_to_non_nullable
+              as int,
     ) as $Val);
   }
 
@@ -9246,7 +9750,8 @@ abstract class _$$_QuranStateCopyWith<$Res>
       ParaVersesModelofNoSymbol? paraVersesModelofNoSymbol,
       String chapterName,
       int nxtAndprevValue,
-      List<String> tempListAya});
+      List<String> tempListAya,
+      int tabBarIndex});
 
   @override
   $QuranChaptersCopyWith<$Res>? get quranChaptersModel;
@@ -9319,6 +9824,7 @@ class __$$_QuranStateCopyWithImpl<$Res>
     Object? chapterName = null,
     Object? nxtAndprevValue = null,
     Object? tempListAya = null,
+    Object? tabBarIndex = null,
   }) {
     return _then(_$_QuranState(
       isLoading: null == isLoading
@@ -9465,6 +9971,10 @@ class __$$_QuranStateCopyWithImpl<$Res>
           ? _value._tempListAya
           : tempListAya // ignore: cast_nullable_to_non_nullable
               as List<String>,
+      tabBarIndex: null == tabBarIndex
+          ? _value.tabBarIndex
+          : tabBarIndex // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -9508,7 +10018,8 @@ class _$_QuranState implements _QuranState {
       required this.paraVersesModelofNoSymbol,
       required this.chapterName,
       required this.nxtAndprevValue,
-      required final List<String> tempListAya})
+      required final List<String> tempListAya,
+      required this.tabBarIndex})
       : _chapterByIdModel = chapterByIdModel,
         _searchChapters = searchChapters,
         _versesByKeyModel = versesByKeyModel,
@@ -9653,8 +10164,11 @@ class _$_QuranState implements _QuranState {
   }
 
   @override
+  final int tabBarIndex;
+
+  @override
   String toString() {
-    return 'QuranState(isLoading: $isLoading, quranChaptersModel: $quranChaptersModel, chapterVersesModel: $chapterVersesModel, paraVersesModel: $paraVersesModel, quranParaModel: $quranParaModel, chapterByIdModel: $chapterByIdModel, searchChapters: $searchChapters, isExpand2: $isExpand2, versesByKeyModel: $versesByKeyModel, audioPlaying: $audioPlaying, audioPaused: $audioPaused, audioStopped: $audioStopped, paraAudios: $paraAudios, chapterAudios: $chapterAudios, translationsModel: $translationsModel, currentSettingBgIndex: $currentSettingBgIndex, fontsize: $fontsize, chapterTranslationText: $chapterTranslationText, paraTranslationText: $paraTranslationText, isShowMusicbar: $isShowMusicbar, audioIndex: $audioIndex, isExpand: $isExpand, globalTransilationId: $globalTransilationId, transilationName: $transilationName, recitationsModel: $recitationsModel, recitorName: $recitorName, recitorId: $recitorId, quranTextTypeName: $quranTextTypeName, chapterVersesIndoPakModel: $chapterVersesIndoPakModel, chapterVersesOfUthmani: $chapterVersesOfUthmani, chapterVersesOfNosymbol: $chapterVersesOfNosymbol, paraVersesModelofUthmani: $paraVersesModelofUthmani, paraVersesModelofNoSymbol: $paraVersesModelofNoSymbol, chapterName: $chapterName, nxtAndprevValue: $nxtAndprevValue, tempListAya: $tempListAya)';
+    return 'QuranState(isLoading: $isLoading, quranChaptersModel: $quranChaptersModel, chapterVersesModel: $chapterVersesModel, paraVersesModel: $paraVersesModel, quranParaModel: $quranParaModel, chapterByIdModel: $chapterByIdModel, searchChapters: $searchChapters, isExpand2: $isExpand2, versesByKeyModel: $versesByKeyModel, audioPlaying: $audioPlaying, audioPaused: $audioPaused, audioStopped: $audioStopped, paraAudios: $paraAudios, chapterAudios: $chapterAudios, translationsModel: $translationsModel, currentSettingBgIndex: $currentSettingBgIndex, fontsize: $fontsize, chapterTranslationText: $chapterTranslationText, paraTranslationText: $paraTranslationText, isShowMusicbar: $isShowMusicbar, audioIndex: $audioIndex, isExpand: $isExpand, globalTransilationId: $globalTransilationId, transilationName: $transilationName, recitationsModel: $recitationsModel, recitorName: $recitorName, recitorId: $recitorId, quranTextTypeName: $quranTextTypeName, chapterVersesIndoPakModel: $chapterVersesIndoPakModel, chapterVersesOfUthmani: $chapterVersesOfUthmani, chapterVersesOfNosymbol: $chapterVersesOfNosymbol, paraVersesModelofUthmani: $paraVersesModelofUthmani, paraVersesModelofNoSymbol: $paraVersesModelofNoSymbol, chapterName: $chapterName, nxtAndprevValue: $nxtAndprevValue, tempListAya: $tempListAya, tabBarIndex: $tabBarIndex)';
   }
 
   @override
@@ -9724,8 +10238,7 @@ class _$_QuranState implements _QuranState {
                 other.chapterVersesOfUthmani == chapterVersesOfUthmani) &&
             (identical(other.chapterVersesOfNosymbol, chapterVersesOfNosymbol) ||
                 other.chapterVersesOfNosymbol == chapterVersesOfNosymbol) &&
-            (identical(
-                    other.paraVersesModelofUthmani, paraVersesModelofUthmani) ||
+            (identical(other.paraVersesModelofUthmani, paraVersesModelofUthmani) ||
                 other.paraVersesModelofUthmani == paraVersesModelofUthmani) &&
             (identical(other.paraVersesModelofNoSymbol,
                     paraVersesModelofNoSymbol) ||
@@ -9735,7 +10248,9 @@ class _$_QuranState implements _QuranState {
             (identical(other.nxtAndprevValue, nxtAndprevValue) ||
                 other.nxtAndprevValue == nxtAndprevValue) &&
             const DeepCollectionEquality()
-                .equals(other._tempListAya, _tempListAya));
+                .equals(other._tempListAya, _tempListAya) &&
+            (identical(other.tabBarIndex, tabBarIndex) ||
+                other.tabBarIndex == tabBarIndex));
   }
 
   @override
@@ -9776,7 +10291,8 @@ class _$_QuranState implements _QuranState {
         paraVersesModelofNoSymbol,
         chapterName,
         nxtAndprevValue,
-        const DeepCollectionEquality().hash(_tempListAya)
+        const DeepCollectionEquality().hash(_tempListAya),
+        tabBarIndex
       ]);
 
   @JsonKey(ignore: true)
@@ -9823,7 +10339,8 @@ abstract class _QuranState implements QuranState {
       required final ParaVersesModelofNoSymbol? paraVersesModelofNoSymbol,
       required final String chapterName,
       required final int nxtAndprevValue,
-      required final List<String> tempListAya}) = _$_QuranState;
+      required final List<String> tempListAya,
+      required final int tabBarIndex}) = _$_QuranState;
 
   @override
   bool get isLoading;
@@ -9897,6 +10414,8 @@ abstract class _QuranState implements QuranState {
   int get nxtAndprevValue;
   @override
   List<String> get tempListAya;
+  @override
+  int get tabBarIndex;
   @override
   @JsonKey(ignore: true)
   _$$_QuranStateCopyWith<_$_QuranState> get copyWith =>

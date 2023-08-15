@@ -18,13 +18,13 @@ class NamazMethodDbModelAdapter extends TypeAdapter<NamazMethodDbModel> {
     };
     return NamazMethodDbModel(
       autoDetectLocation: fields[0] as bool,
-      automaticLocation: fields[1] as bool,
+      automaticSetting: fields[1] as bool,
       showImsak: fields[2] as bool,
       location: fields[3] as String,
-      calculationMethodName: fields[4] as String,
-      asrCalculationMethod: fields[5] as String,
-      highLatitudeMethods: fields[6] as String,
-      manualCorrections: fields[7] as String,
+      calculationMethod: fields[4] as int,
+      asrCalculationMethod: fields[5] as int,
+      highLatitudeMethods: fields[6] as int,
+      manualCorrections: fields[7] as int,
     );
   }
 
@@ -35,13 +35,13 @@ class NamazMethodDbModelAdapter extends TypeAdapter<NamazMethodDbModel> {
       ..writeByte(0)
       ..write(obj.autoDetectLocation)
       ..writeByte(1)
-      ..write(obj.automaticLocation)
+      ..write(obj.automaticSetting)
       ..writeByte(2)
       ..write(obj.showImsak)
       ..writeByte(3)
       ..write(obj.location)
       ..writeByte(4)
-      ..write(obj.calculationMethodName)
+      ..write(obj.calculationMethod)
       ..writeByte(5)
       ..write(obj.asrCalculationMethod)
       ..writeByte(6)

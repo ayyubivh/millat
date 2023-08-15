@@ -6,6 +6,7 @@ import 'package:millat/resources/authentication/bloc/logic/database_bloc/databas
 import 'package:millat/resources/home/bloc/logic/bookmark_bloc/bookmark_bloc.dart';
 import 'package:millat/resources/home/view/al_quran/bookmark_view.dart';
 import 'package:millat/resources/home/view/al_quran/widgets/al_quran_appbar.dart';
+import 'package:millat/resources/home/view/al_quran/widgets/creat_new_bookmark_widget.dart';
 import 'package:millat/resources/home/view/al_quran/widgets/quran_tabbar_widget.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/color_manager.dart';
@@ -32,7 +33,7 @@ class AlQuranView extends StatelessWidget {
                   builder: (context) {
                     return StatefulBuilder(
                       builder: (context, setState) {
-                        return _buildBookmarkPopUp(context);
+                        return const CreateNewBookmarkWidget();
                       },
                     );
                   },
@@ -44,8 +45,7 @@ class AlQuranView extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            _section1(context),
-            const SizedBox(height: 25),
+            kHeight20,
             _section2(),
             const SizedBox(height: 20),
             _section3(context),
@@ -53,67 +53,6 @@ class AlQuranView extends StatelessWidget {
             const QuranTabBarWidget()
           ],
         ),
-      ),
-    );
-  }
-
-  Widget _buildBookmarkPopUp(BuildContext context) {
-    return Container(
-      height: SizeUtility(context).height / 2.6,
-      decoration: BoxDecoration(
-        color: ColorManager.whiteColor,
-        borderRadius: const BorderRadius.only(
-          topLeft: Radius.circular(30.0),
-          topRight: Radius.circular(30.0),
-        ),
-      ),
-      padding: const EdgeInsets.symmetric(horizontal: 30),
-      child: Column(
-        children: [
-          Align(
-            alignment: Alignment.topRight,
-            child: IconButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-              icon: const Icon(
-                Icons.close,
-                size: 14,
-                color: black122,
-              ),
-            ),
-          ),
-          Image.asset("assets/images/notepad.png"),
-          kHeight25,
-          Text(
-            'Create a Collection of your own',
-            style: TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.bold,
-              color: ColorManager.blackColor,
-            ),
-          ),
-          kHeight20,
-          Text(
-            'Listen to your favourite collection of Suras/\nAyas and Share them with your loved ones',
-            style: TextStyle(
-              fontSize: 14,
-              fontWeight: FontWeight.w500,
-              color: ColorManager.blackColor,
-              height: 1.3,
-            ),
-          ),
-          kHeight25,
-          MainButton(
-            title: "Create Now",
-            onPressed: () {
-              Navigator.of(context).pop();
-              Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => const BookmarkView(),
-              ));
-            },
-          ),
-        ],
       ),
     );
   }
@@ -126,7 +65,6 @@ class AlQuranView extends StatelessWidget {
             "Explore Quran by\n50+ topics", ""),
         _gradienContainer(context, "assets/images/hafiz.png", "Haiz-e-Quran",
             "Read by pages", "15 Lines"),
-        // _gradienContainer(context, ""),
       ],
     );
   }
@@ -153,12 +91,15 @@ class AlQuranView extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 15),
-                  Text(
-                    "1:3",
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w600,
-                      color: ColorManager.whiteColor,
+                  Align(
+                    alignment: Alignment.topLeft,
+                    child: Text(
+                      "1:3",
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w600,
+                        color: ColorManager.whiteColor,
+                      ),
                     ),
                   ),
                   kHeight10,
@@ -185,30 +126,30 @@ class AlQuranView extends StatelessWidget {
     );
   }
 
-  Widget _section1(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          "Assalamualaikum",
-          style: TextStyle(
-            fontSize: 18,
-            fontWeight: FontWeight.bold,
-            color: ColorManager.lightBlackColor,
-          ),
-        ),
-        const SizedBox(height: 15),
-        Text(
-          context.read<DatabaseBloc>().state.name,
-          style: TextStyle(
-            fontSize: 24,
-            fontWeight: FontWeight.bold,
-            color: ColorManager.blackColor,
-          ),
-        ),
-      ],
-    );
-  }
+  // Widget _section1(BuildContext context) {
+  //   return Column(
+  //     crossAxisAlignment: CrossAxisAlignment.start,
+  //     children: [
+  //       Text(
+  //         "Assalamualaikum",
+  //         style: TextStyle(
+  //           fontSize: 18,
+  //           fontWeight: FontWeight.bold,
+  //           color: ColorManager.lightBlackColor,
+  //         ),
+  //       ),
+  //       const SizedBox(height: 15),
+  //       Text(
+  //         context.read<DatabaseBloc>().state.name,
+  //         style: TextStyle(
+  //           fontSize: 24,
+  //           fontWeight: FontWeight.bold,
+  //           color: ColorManager.blackColor,
+  //         ),
+  //       ),
+  //     ],
+  //   );
+  // }
 
   Widget _gradienContainer(BuildContext context, String image, String mainText,
       String subText, String? lineText) {
@@ -258,7 +199,7 @@ class AlQuranView extends StatelessWidget {
         ],
       ),
       width: SizeUtility(context).width / 2.38,
-      height: 90,
+      height: 95,
       padding: const EdgeInsets.all(15),
     );
   }

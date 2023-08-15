@@ -1,6 +1,7 @@
 class Appstrings {
   //hive db
   static const String prayerTrackerDb = "PrayerTracker-Db";
+  static const String namazMethodDb = "NamazMethode-Db";
 
   //Home
   static const String quran = "Quran";

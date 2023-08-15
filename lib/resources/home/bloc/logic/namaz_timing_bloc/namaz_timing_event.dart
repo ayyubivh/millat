@@ -24,4 +24,6 @@ class NamazTimingEvent with _$NamazTimingEvent {
   const factory NamazTimingEvent.changeIndex({
     required int index,
   }) = ChangeIndex;
+  const factory NamazTimingEvent.fetchNamazMethodDb() = FetchNamazMethodDb;
+  const factory NamazTimingEvent.addNamazMethodDb() = AddNamazMethodDb;
 }

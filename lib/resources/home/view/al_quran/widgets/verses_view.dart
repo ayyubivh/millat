@@ -13,6 +13,10 @@ import '../../../../../utils/constants.dart';
 import '../../../bloc/models/book_mark_hive_model/book_mark_hive_model.dart';
 import 'package:html/parser.dart';
 
+import '../bookmark_view.dart';
+import 'bookmark_collection_view.dart';
+import 'new_collection_widget.dart';
+
 class VersesView extends StatelessWidget {
   final Qurantype type;
   final int? chapterid;
@@ -107,8 +111,72 @@ class VersesView extends StatelessWidget {
                                   return VersesCardWidget(
                                     isValue: '$chapterid:${index + 1}',
                                     bookMarkOntap: () {
-                                      addToBookmarkCollection(
-                                          context, chapterid!, index);
+                                      showModalBottomSheet(
+                                        context: context,
+                                        builder: (context) {
+                                          return StatefulBuilder(
+                                              builder:
+                                                  (context, setState) =>
+                                                      Container(
+                                                          width: SizeUtility(
+                                                                  context)
+                                                              .width,
+                                                          padding:
+                                                              const EdgeInsets
+                                                                  .all(20),
+                                                          child: Column(
+                                                            children: [
+                                                              const BookmarkNewCollectionWidget(),
+                                                              kHeight20,
+                                                              Expanded(
+                                                                child: BlocBuilder<
+                                                                    BookmarkBloc,
+                                                                    BookmarkState>(
+                                                                  builder:
+                                                                      (context,
+                                                                          state) {
+                                                                    if (state
+                                                                        .dbCollectionItems
+                                                                        .isEmpty) {
+                                                                      return const SizedBox();
+                                                                    }
+                                                                    final value =
+                                                                        state
+                                                                            .dbCollectionItems;
+                                                                    return ListView
+                                                                        .builder(
+                                                                      itemCount:
+                                                                          value
+                                                                              .length,
+                                                                      itemBuilder:
+                                                                          (context,
+                                                                              index) {
+                                                                        final data =
+                                                                            value[index];
+
+                                                                        return InkWell(
+                                                                          onTap:
+                                                                              () {
+                                                                            Navigator.of(context).push(MaterialPageRoute(builder: (context) => BookmarkCollectionView(passvalue: data)));
+                                                                          },
+                                                                          child: buildCollectionContainer(
+                                                                              passvalue: data,
+                                                                              context: context,
+                                                                              img: data.image,
+                                                                              collectionName: data.name,
+                                                                              userName: data.discription),
+                                                                        );
+                                                                      },
+                                                                    );
+                                                                  },
+                                                                ),
+                                                              ),
+                                                            ],
+                                                          )));
+                                        },
+                                      );
+                                      // addToBookmarkCollection(
+                                      //     context, chapterid!, index);
                                     },
                                     playOntap: () {
                                       context.read<QuranBloc>().add(
@@ -127,9 +195,9 @@ class VersesView extends StatelessWidget {
                                     surah: indoPakData[index]
                                         .textIndopak
                                         .toString(),
-                                    surahMeaning:
+                                    surahMeaning: removeFootnotesFromMeaning(
                                         state.chapterTranslationText?[index] ??
-                                            '',
+                                            ''),
                                   );
                                 },
                               )
@@ -167,9 +235,10 @@ class VersesView extends StatelessWidget {
                                             .textIndopak
                                             .toString(),
                                         surahMeaning:
-                                            state.chapterTranslationText?[
-                                                    index] ??
-                                                '',
+                                            removeFootnotesFromMeaning(
+                                                state.chapterTranslationText?[
+                                                        index] ??
+                                                    ''),
                                       );
                                     },
                                   )
@@ -206,9 +275,10 @@ class VersesView extends StatelessWidget {
                                             .textIndopak
                                             .toString(),
                                         surahMeaning:
-                                            state.chapterTranslationText?[
-                                                    index] ??
-                                                '',
+                                            removeFootnotesFromMeaning(
+                                                state.chapterTranslationText?[
+                                                        index] ??
+                                                    ''),
                                       );
                                     },
                                   );
@@ -539,20 +609,16 @@ class VersesView extends StatelessWidget {
     final collectionList = context.read<BookmarkBloc>().state.dbCollectionItems;
 
     if (collectionList.isEmpty) {
-      // If the collection list is empty, create a new collection with the specified verse key
       context.read<BookmarkBloc>().add(
             AddFavCollection(verskey: ['$chapterId:${index + 1}']),
           );
 
-      // Fetch the collection items to update the state
       context.read<BookmarkBloc>().add(const FetchCollectionItem());
     } else {
-      // Filter the collection list to find a collection with id == '1'
       List<BookMarktCollectionModel> filteredList =
           collectionList.where((element) => element.id == '1').toList();
 
       if (filteredList.isNotEmpty) {
-        // If a collection with id == '1' is found, update its verse keys
         List<String> updatedVerskey = List.from(filteredList[0].verseKey);
         updatedVerskey.add('$chapterId:${index + 1}');
 

@@ -4,6 +4,8 @@ import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:millat/resources/home/bloc/db/namaz_method_functions.dart';
+import 'package:millat/resources/home/bloc/models/namaz_methods/namaz_method_hive_models.dart';
 
 import 'package:permission_handler/permission_handler.dart' as perm;
 import 'package:permission_handler/permission_handler.dart';
@@ -101,6 +103,8 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
             currentLocaion: currentAddress,
             location: currentAddress,
           ));
+          // NamazMethodDbModel
+          // NamazMethodDB.instance.addNamazMethode(obj)
           debugPrint('Current address: $currentAddress');
         }
       } else {

@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:intl/intl.dart';
+import 'package:millat/resources/home/bloc/db/namaz_method_functions.dart';
 import 'package:millat/resources/home/bloc/service/namaz_timing_service.dart';
 import 'package:millat/resources/home/bloc/service/notification_service.dart';
 
@@ -29,6 +30,8 @@ class NamazTimingBloc extends Bloc<NamazTimingEvent, NamazTimingState> {
     on<ChangeHighLatitudeMethod>(_changeHighLatitudeMethod);
     on<OnNotiyOnOffEvent>(_onNotiyOnOffEvent);
     on<ChangeIndex>(_changeIndex);
+    on<FetchNamazMethodDb>(_fetchNamazMethodDb);
+    on<AddNamazMethodDb>(_addNamazMethodDb);
   }
 
   _fetchPrayerTiming(
@@ -125,7 +128,7 @@ class NamazTimingBloc extends Bloc<NamazTimingEvent, NamazTimingState> {
       final data = await namazTimingService.fetchPrayerMethods();
       final sortedMethods = data.data!.values.toList()
         ..sort((a, b) => a.id!.compareTo(b.id!));
-      print('here is the sorted methods $sortedMethods');
+
       emit(state.copyWith(
           namazMethodsModel: sortedMethods,
           namazMethodName: data.data!.values.first.name!));
@@ -342,4 +345,26 @@ class NamazTimingBloc extends Bloc<NamazTimingEvent, NamazTimingState> {
   _changeIndex(ChangeIndex event, Emitter<NamazTimingState> emit) {
     emit(state.copyWith(index: event.index));
   }
+
+  _fetchNamazMethodDb(
+      FetchNamazMethodDb event, Emitter<NamazTimingState> emit) async {
+    try {
+      final data = await NamazMethodDB.instance.getAllNamazMehods();
+      if (data.isNotEmpty) {
+        emit(state.copyWith(
+          autoDetectLocationDb: data[0].autoDetectLocation,
+          automaticSettingsDb: data[0].automaticSetting,
+          calculationMethod: data[0].calculationMethod,
+          asrCalculationMehod: data[0].asrCalculationMethod,
+          highLatMethodVal: data[0].highLatitudeMethods,
+          manualCorrections: data[0].manualCorrections,
+          showImsak: data[0].showImsak,
+        ));
+      }
+    } catch (e) {
+      throw Exception(e);
+    }
+  }
+
+  _addNamazMethodDb(event, Emitter<NamazTimingState> emit) {}
 }

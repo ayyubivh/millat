@@ -85,19 +85,16 @@ class QuranBloc extends Bloc<QuranEvent, QuranState> {
               isLoading: false,
               chapterName: "Juz ${event.id}"),
         );
-        print('indopak aya $data');
       } else if (state.quranTextTypeName == uthmani) {
         emit(state.copyWith(
             chapterVersesOfUthmani: data,
             isLoading: false,
             chapterName: "Juz ${event.id}"));
-        print('uthmani aya $data');
       } else if (state.quranTextTypeName == nosymbol) {
         emit(state.copyWith(
             chapterVersesOfNosymbol: data,
             isLoading: false,
             chapterName: "Juz ${event.id}"));
-        print('nosymbol aya $data');
       }
     } catch (e) {
       emit(state.copyWith(isLoading: false));

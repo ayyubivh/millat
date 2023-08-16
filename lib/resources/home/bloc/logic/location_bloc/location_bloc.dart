@@ -131,7 +131,7 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
         // String country = placemark.country ?? '';
         // print(
         //     "=======$placemark address :::: $address===========\nlocality ::::: $locality=============\n subadminstrative area:::::$subAdministrativeArea========\n");
-        String currentAddress = '$administrativeArea, $locality';
+        String currentAddress = ' $locality, $administrativeArea';
         return currentAddress;
       }
     } catch (e) {

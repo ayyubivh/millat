@@ -27,7 +27,7 @@ class _QuranTabBarWidgetState extends State<QuranTabBarWidget>
     BlocProvider.of<QuranBloc>(context).add(const FetchQuranPara());
     _tabController = TabController(length: 3, vsync: this);
     _tabController.addListener(_handleTabChange);
-
+    _tabController.index = 0;
     super.initState();
   }
 
@@ -155,14 +155,6 @@ class _QuranTabBarWidgetState extends State<QuranTabBarWidget>
                                           fontSize: 13,
                                           fontWeight: FontWeight.bold,
                                           height: 2,
-                                        ),
-                                      ),
-                                      trailing: const Text(
-                                        'Today',
-                                        style: TextStyle(
-                                          fontWeight: FontWeight.w600,
-                                          fontSize: 16,
-                                          color: black132,
                                         ),
                                       ),
                                     );

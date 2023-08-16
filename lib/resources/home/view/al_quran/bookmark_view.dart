@@ -5,6 +5,7 @@ import 'package:millat/resources/home/bloc/logic/bookmark_bloc/bookmark_bloc.dar
 import 'package:millat/resources/home/view/al_quran/widgets/addnew_collection_view.dart';
 import 'package:millat/resources/home/view/al_quran/widgets/bookmark_collection_view.dart';
 import 'package:millat/resources/home/view/al_quran/widgets/new_collection_widget.dart';
+import 'package:millat/resources/home/view/al_quran/widgets/quran_fav_bookmark_collection_widget.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
 import '../../bloc/models/book_mark_hive_model/book_mark_hive_model.dart';
@@ -57,6 +58,14 @@ class BookmarkView extends StatelessWidget {
             kHeight20,
             const BookmarkNewCollectionWidget(),
             kHeight20,
+            BlocBuilder<BookmarkBloc, BookmarkState>(
+              builder: (context, state) =>
+                  state.dbCollectionItems.map((e) => e.id == "1").isNotEmpty
+                      ? const SizedBox.shrink()
+                      : const QuranFavBookmarkCollectionWidget(
+                          type: QuranFavbookMarkType.view,
+                        ),
+            ),
             kHeight20,
             Expanded(
               child: BlocBuilder<BookmarkBloc, BookmarkState>(
@@ -102,67 +111,69 @@ Widget buildCollectionContainer({
   required String userName,
   required BookMarktCollectionModel passvalue,
 }) {
-  return Padding(
-    padding: const EdgeInsets.only(bottom: 15),
-    child: SizedBox(
-      height: 88,
-      width: double.infinity,
-      child: Row(
-        children: [
-          ClipRRect(
-            borderRadius: BorderRadius.circular(12),
-            child: Image.asset(img),
-          ),
-          kWidht10,
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Row(
-                  children: [
-                    Text(
-                      collectionName,
-                      style: const TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    const Spacer(),
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => AddNewBookMarkCollection(
-                              passvalue: passvalue,
-                              type: BookMarkCollectionType.edit),
-                        ));
-                      },
-                      child: ImageIcon(
-                        const AssetImage("assets/icons/edit.png"),
-                        size: 20,
-                        color: ColorManager.primary,
-                      ),
-                    )
-                  ],
-                ),
-                Text(
-                  userName,
-                  style: const TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-                const Text(
-                  '1 Sura',
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-              ],
+  return GestureDetector(
+    child: Padding(
+      padding: const EdgeInsets.only(bottom: 15),
+      child: SizedBox(
+        height: 88,
+        width: double.infinity,
+        child: Row(
+          children: [
+            ClipRRect(
+              borderRadius: BorderRadius.circular(12),
+              child: Image.asset(img),
             ),
-          ),
-        ],
+            kWidht10,
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(
+                    children: [
+                      Text(
+                        collectionName,
+                        style: const TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      const Spacer(),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => AddNewBookMarkCollection(
+                                passvalue: passvalue,
+                                type: BookMarkCollectionType.edit),
+                          ));
+                        },
+                        child: ImageIcon(
+                          const AssetImage("assets/icons/edit.png"),
+                          size: 20,
+                          color: ColorManager.primary,
+                        ),
+                      )
+                    ],
+                  ),
+                  Text(
+                    userName,
+                    style: const TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                  const Text(
+                    '1 Sura',
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     ),
   );

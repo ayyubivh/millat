@@ -31,26 +31,4 @@ class NamazMethodDbModel {
     required this.highLatitudeMethods,
     required this.manualCorrections,
   });
-
-  NamazMethodDbModel copyWith({
-    bool? autoDetectLocation,
-    bool? automaticSetting,
-    bool? showImsak,
-    String? location,
-    int? calculationMethod,
-    int? asrCalculationMethod,
-    int? highLatitudeMethods,
-    int? manualCorrections,
-  }) {
-    return NamazMethodDbModel(
-      autoDetectLocation: autoDetectLocation ?? this.autoDetectLocation,
-      automaticSetting: automaticSetting ?? this.automaticSetting,
-      showImsak: showImsak ?? this.showImsak,
-      location: location ?? this.location,
-      calculationMethod: calculationMethod ?? this.calculationMethod,
-      asrCalculationMethod: asrCalculationMethod ?? this.asrCalculationMethod,
-      highLatitudeMethods: highLatitudeMethods ?? this.highLatitudeMethods,
-      manualCorrections: manualCorrections ?? this.manualCorrections,
-    );
-  }
 }

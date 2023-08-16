@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_launcher_icons/xml_templates.dart';
 import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/home/bloc/logic/bookmark_bloc/bookmark_bloc.dart';
 import 'package:millat/resources/home/bloc/logic/quran_bloc/quran_bloc.dart';
+import 'package:millat/resources/home/view/al_quran/widgets/quran_fav_bookmark_collection_widget.dart';
 import 'package:millat/resources/home/view/al_quran/widgets/verses_card.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/loader.dart';
@@ -10,6 +12,7 @@ import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/string_constants.dart';
 import 'package:share_plus/share_plus.dart';
 import '../../../../../utils/constants.dart';
+import '../../../bloc/db/db_functions.dart';
 import '../../../bloc/models/book_mark_hive_model/book_mark_hive_model.dart';
 import 'package:html/parser.dart';
 
@@ -111,72 +114,33 @@ class VersesView extends StatelessWidget {
                                   return VersesCardWidget(
                                     isValue: '$chapterid:${index + 1}',
                                     bookMarkOntap: () {
-                                      showModalBottomSheet(
-                                        context: context,
-                                        builder: (context) {
-                                          return StatefulBuilder(
-                                              builder:
-                                                  (context, setState) =>
-                                                      Container(
-                                                          width: SizeUtility(
-                                                                  context)
-                                                              .width,
-                                                          padding:
-                                                              const EdgeInsets
-                                                                  .all(20),
-                                                          child: Column(
-                                                            children: [
-                                                              const BookmarkNewCollectionWidget(),
-                                                              kHeight20,
-                                                              Expanded(
-                                                                child: BlocBuilder<
-                                                                    BookmarkBloc,
-                                                                    BookmarkState>(
-                                                                  builder:
-                                                                      (context,
-                                                                          state) {
-                                                                    if (state
-                                                                        .dbCollectionItems
-                                                                        .isEmpty) {
-                                                                      return const SizedBox();
-                                                                    }
-                                                                    final value =
-                                                                        state
-                                                                            .dbCollectionItems;
-                                                                    return ListView
-                                                                        .builder(
-                                                                      itemCount:
-                                                                          value
-                                                                              .length,
-                                                                      itemBuilder:
-                                                                          (context,
-                                                                              index) {
-                                                                        final data =
-                                                                            value[index];
-
-                                                                        return InkWell(
-                                                                          onTap:
-                                                                              () {
-                                                                            Navigator.of(context).push(MaterialPageRoute(builder: (context) => BookmarkCollectionView(passvalue: data)));
-                                                                          },
-                                                                          child: buildCollectionContainer(
-                                                                              passvalue: data,
-                                                                              context: context,
-                                                                              img: data.image,
-                                                                              collectionName: data.name,
-                                                                              userName: data.discription),
-                                                                        );
-                                                                      },
-                                                                    );
-                                                                  },
-                                                                ),
-                                                              ),
-                                                            ],
-                                                          )));
-                                        },
-                                      );
-                                      // addToBookmarkCollection(
-                                      //     context, chapterid!, index);
+                                      if (context
+                                          .read<BookmarkBloc>()
+                                          .state
+                                          .dbCollectionItems
+                                          .any((element) => element.verseKey
+                                              .contains(
+                                                  '$chapterid:${index + 1}'))) {
+                                        context.read<BookmarkBloc>().add(
+                                            RemoveBookmark(
+                                                verseKey:
+                                                    "$chapterid:${index + 1}"));
+                                      } else {
+                                        showModalBottomSheet(
+                                          context: context,
+                                          backgroundColor: Colors.transparent,
+                                          builder: (context) {
+                                            return StatefulBuilder(
+                                              builder: (context, setState) =>
+                                                  _addBookMarkPopUp(
+                                                      context,
+                                                      chapterid!,
+                                                      index,
+                                                      "$chapterid:${index + 1}"),
+                                            );
+                                          },
+                                        );
+                                      }
                                     },
                                     playOntap: () {
                                       context.read<QuranBloc>().add(
@@ -603,6 +567,77 @@ class VersesView extends StatelessWidget {
               ),
       ),
     );
+  }
+
+  Widget _addBookMarkPopUp(
+      BuildContext context, int chapterId, int index, String verskey) {
+    return Container(
+        width: SizeUtility(context).width,
+        height: 400,
+        padding: const EdgeInsets.all(20),
+        decoration: BoxDecoration(
+            color: ColorManager.whiteColor,
+            borderRadius:
+                const BorderRadius.vertical(top: Radius.circular(20))),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              const BookmarkNewCollectionWidget(),
+              kHeight16,
+              BlocBuilder<BookmarkBloc, BookmarkState>(
+                builder: (context, state) =>
+                    state.dbCollectionItems.map((e) => e.id == "1").isNotEmpty
+                        ? const SizedBox.shrink()
+                        : QuranFavBookmarkCollectionWidget(
+                            type: QuranFavbookMarkType.add,
+                            chapterId: chapterId,
+                            index: index,
+                          ),
+              ),
+              kHeight20,
+              BlocBuilder<BookmarkBloc, BookmarkState>(
+                builder: (context, state) {
+                  if (state.dbCollectionItems.isEmpty) {
+                    return const SizedBox();
+                  }
+                  final value = state.dbCollectionItems;
+                  return ListView.builder(
+                    shrinkWrap: true,
+                    itemCount: value.length,
+                    itemBuilder: (context, index) {
+                      final data = value[index];
+                      final modifiedVerseKeys = [...data.verseKey, verskey];
+
+                      return InkWell(
+                        onTap: () {
+                          final model = BookMarktCollectionModel(
+                            id: data.id!,
+                            verseKey: modifiedVerseKeys,
+                            name: data.name,
+                            discription: data.discription,
+                            image: data.image,
+                          );
+                          BookMarkDB.instance.editCollection(model, model.id);
+                          context
+                              .read<BookmarkBloc>()
+                              .add(const FetchCollectionItem());
+                          Navigator.of(context).pop();
+                        },
+                        child: buildCollectionContainer(
+                          passvalue: data,
+                          context: context,
+                          img: data.image,
+                          collectionName: data.name,
+                          userName: data.discription,
+                        ),
+                      );
+                    },
+                  );
+                },
+              ),
+            ],
+          ),
+        ));
   }
 
   void addToBookmarkCollection(BuildContext context, int chapterId, int index) {

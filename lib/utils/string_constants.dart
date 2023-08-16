@@ -48,7 +48,8 @@ class Appstrings {
   static const String mobileNumber = "Mobile Number";
   static const String profession = "Profession";
   static const String companyOrStudy = "Company/School/College";
-
+//Quran
+  static const String myFavorite = "My Favourites";
   //shop
   static const String shop = "Shop";
   static const String brand = "Brands";
@@ -124,8 +125,6 @@ final duaTexts = [
   "Sickness & Death",
   "Food & Drink"
 ];
-//image strings
-String favoriteImg = "assets/images/favorite_collection.png";
 
 // List of Translate Texts
 final translateTexts = ['English', 'Hindi'];

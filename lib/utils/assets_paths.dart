@@ -13,6 +13,8 @@ class AppAssetsStrings {
   static const String homeCompassIcon = "$iconsPath/qibla.png";
   static const String eventBanner = "$imagesPath/event_banner.png";
 
+  static const String favoriteImg = "$imagesPath/quran_bookmark_2.png";
+
   //icons
   static const String searchIcon = "$iconsPath/search.png";
   static const String hadithChapterIcon = "$iconsPath/hadit_chapter.png";

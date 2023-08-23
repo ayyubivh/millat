@@ -49,7 +49,7 @@ class _HomeViewState extends State<HomeView> {
   void initState() {
     BlocProvider.of<QuranBloc>(context)
         .add(FetchVersesByKey(verseKey: getShuffledList()));
-
+    BlocProvider.of<NamazTimingBloc>(context).add(const FetchNamazMethodDb());
     BlocProvider.of<BookmarkBloc>(context).add(const FetchCollectionItem());
     BlocProvider.of<LocationBloc>(context).add(const FetchCurrentLocation());
     BlocProvider.of<DatabaseBloc>(context).add(const FetchUserDetails());

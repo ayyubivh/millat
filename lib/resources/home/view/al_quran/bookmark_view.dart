@@ -4,6 +4,8 @@ import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/home/bloc/logic/bookmark_bloc/bookmark_bloc.dart';
 import 'package:millat/resources/home/view/al_quran/widgets/addnew_collection_view.dart';
 import 'package:millat/resources/home/view/al_quran/widgets/bookmark_collection_view.dart';
+import 'package:millat/resources/home/view/al_quran/widgets/new_collection_widget.dart';
+import 'package:millat/resources/home/view/al_quran/widgets/quran_fav_bookmark_collection_widget.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
 import '../../bloc/models/book_mark_hive_model/book_mark_hive_model.dart';
@@ -54,19 +56,22 @@ class BookmarkView extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             kHeight20,
-            _newCollectionWidget(context),
+            const BookmarkNewCollectionWidget(),
             kHeight20,
+            BlocBuilder<BookmarkBloc, BookmarkState>(
+              builder: (context, state) =>
+                  state.dbCollectionItems.map((e) => e.id == "1").isNotEmpty
+                      ? const SizedBox.shrink()
+                      : const QuranFavBookmarkCollectionWidget(
+                          type: QuranFavbookMarkType.view,
+                        ),
+            ),
             kHeight20,
             Expanded(
               child: BlocBuilder<BookmarkBloc, BookmarkState>(
                 builder: (context, state) {
                   if (state.dbCollectionItems.isEmpty) {
-                    return Text(
-                      "No Collections",
-                      style: TextStyle(
-                        color: ColorManager.blackColor,
-                      ),
-                    );
+                    return const SizedBox();
                   }
                   final value = state.dbCollectionItems;
                   return ListView.builder(
@@ -80,7 +85,7 @@ class BookmarkView extends StatelessWidget {
                               builder: (context) =>
                                   BookmarkCollectionView(passvalue: data)));
                         },
-                        child: _buildCollectionContainer(
+                        child: buildCollectionContainer(
                             passvalue: data,
                             context: context,
                             img: data.image,
@@ -97,45 +102,17 @@ class BookmarkView extends StatelessWidget {
       ),
     );
   }
+}
 
-  Row _newCollectionWidget(BuildContext context) {
-    return Row(
-      children: [
-        Image.asset("assets/images/quran_bookmark.png"),
-        kWidht10,
-        InkWell(
-          onTap: () {
-            Navigator.of(context).push(MaterialPageRoute(
-              builder: (context) => const AddNewBookMarkCollection(
-                  type: BookMarkCollectionType.add),
-            ));
-          },
-          child: Icon(
-            Icons.add_circle_outline,
-            color: ColorManager.primary,
-            size: 25,
-          ),
-        ),
-        kWidth5,
-        const Text(
-          'Create Collection',
-          style: TextStyle(
-            fontSize: 18,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-      ],
-    );
-  }
-
-  Widget _buildCollectionContainer({
-    required BuildContext context,
-    required String img,
-    required String collectionName,
-    required String userName,
-    required BookMarktCollectionModel passvalue,
-  }) {
-    return Padding(
+Widget buildCollectionContainer({
+  required BuildContext context,
+  required String img,
+  required String collectionName,
+  required String userName,
+  required BookMarktCollectionModel passvalue,
+}) {
+  return GestureDetector(
+    child: Padding(
       padding: const EdgeInsets.only(bottom: 15),
       child: SizedBox(
         height: 88,
@@ -198,6 +175,6 @@ class BookmarkView extends StatelessWidget {
           ],
         ),
       ),
-    );
-  }
+    ),
+  );
 }

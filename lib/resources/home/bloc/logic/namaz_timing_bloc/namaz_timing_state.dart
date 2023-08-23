@@ -26,6 +26,13 @@ class NamazTimingState with _$NamazTimingState {
     required bool notifyIsha,
     required bool notifySunrise,
     required bool notifyQiyam,
+    required bool autoDetectLocationDb,
+    required bool automaticSettingsDb,
+    required bool showImsakDb,
+    required String location,
+    required int calculationMethod,
+    required int asrCalculationMehod,
+    required int manualCorrections,
   }) = _Initial;
   factory NamazTimingState.initial() => NamazTimingState(
         success: "",
@@ -51,5 +58,12 @@ class NamazTimingState with _$NamazTimingState {
         notifyQiyam: true,
         notifySunrise: true,
         urlDate: DateFormat('dd-MM-yyyy').format(DateTime.now()).toString(),
+        autoDetectLocationDb: true,
+        automaticSettingsDb: true,
+        showImsakDb: false,
+        location: "",
+        calculationMethod: 0,
+        asrCalculationMehod: 0,
+        manualCorrections: 0,
       );
 }

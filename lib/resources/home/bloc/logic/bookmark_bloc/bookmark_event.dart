@@ -45,4 +45,7 @@ class BookmarkEvent with _$BookmarkEvent {
       SaveVerseKeyEvent;
   const factory BookmarkEvent.emptyVerseKeyEvent() = EmptyVerseKeyEvent;
   const factory BookmarkEvent.fetchCollectionItem() = FetchCollectionItem;
+  const factory BookmarkEvent.removeBookmark({
+    required String verseKey,
+  }) = RemoveBookmark;
 }

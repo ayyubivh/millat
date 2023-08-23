@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:millat/resources/home/bloc/models/book_mark_hive_model/book_mark_hive_model.dart';
+import 'package:millat/utils/assets_paths.dart';
 import '../../../../../utils/string_constants.dart';
 import '../../db/db_functions.dart';
 
@@ -29,6 +30,7 @@ class BookmarkBloc extends Bloc<BookmarkEvent, BookmarkState> {
     on<EmptyVerseKeyEvent>(_emptyVerseKeyEvent);
     on<FetchCollectionItem>(_fetchCollectionItem);
     on<AddFavCollection>(_addFavCollection);
+    on<RemoveBookmark>(_removeBookmark);
   }
 
   _addCollection(AddCollection event, Emitter<BookmarkState> emit) {
@@ -67,9 +69,9 @@ class BookmarkBloc extends Bloc<BookmarkEvent, BookmarkState> {
     final model = BookMarktCollectionModel(
         id: '1',
         verseKey: event.verskey,
-        name: "Favorite",
+        name: Appstrings.myFavorite,
         discription: "Favorite Item Collections",
-        image: favoriteImg);
+        image: AppAssetsStrings.favoriteImg);
 
     BookMarkDB.instance.addCollection(model);
   }
@@ -79,7 +81,21 @@ class BookmarkBloc extends Bloc<BookmarkEvent, BookmarkState> {
     try {
       final data = await BookMarkDB.instance.getAllBookmarkCollection();
       emit(state.copyWith(dbCollectionItems: data));
-      print('hive datas ${data.map((e) => e.verseKey)}');
+    } catch (e) {
+      throw Exception(e);
+    }
+  }
+
+  _removeBookmark(RemoveBookmark event, Emitter<BookmarkState> emit) {
+    try {
+      final updatedCollectionItems = state.dbCollectionItems
+          .where((item) => !item.verseKey.contains(event.verseKey))
+          .toList();
+
+      final newState =
+          state.copyWith(dbCollectionItems: updatedCollectionItems);
+      emit(newState);
+      print('here then new state $newState');
     } catch (e) {
       throw Exception(e);
     }

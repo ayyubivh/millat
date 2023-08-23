@@ -323,9 +323,9 @@ class _AddNewBookMarkCollectionState extends State<AddNewBookMarkCollection> {
                                         image: img == "" ? state.image : img,
                                         dbId: passValue!.id!),
                                   );
-                          context
-                              .read<BookmarkBloc>()
-                              .add(const SaveQuranChapterId(id: []));
+                          context.read<BookmarkBloc>()
+                            ..add(const SaveQuranChapterId(id: []))
+                            ..add(const FetchCollectionItem());
 
                           Navigator.of(context).pop();
                         },

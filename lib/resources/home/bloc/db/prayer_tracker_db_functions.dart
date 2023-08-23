@@ -16,9 +16,10 @@ class PrayerTrackerDB extends PrayerTrackerFunctions {
   }
   @override
   Future<List<PrayerTrackerModel>> getAllPrayerTracker() async {
-    final _db =
+    final db =
         await Hive.openBox<PrayerTrackerModel>(Appstrings.prayerTrackerDb);
-    return _db.values.toList();
+
+    return db.values.toList();
   }
 
   @override

@@ -67,4 +67,7 @@ class QuranEvent with _$QuranEvent {
   }) = SaveQuranTexttypeName;
   const factory QuranEvent.onTapofNextEvent() = OnTapofNextEvent;
   const factory QuranEvent.onTapofPrevEvent() = OnTapofPrevEvent;
+  const factory QuranEvent.onChangeQuranTabbar({
+    required int index,
+  }) = OnChangeQuranTabbar;
 }

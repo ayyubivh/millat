@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_launcher_icons/xml_templates.dart';
 import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/home/bloc/logic/bookmark_bloc/bookmark_bloc.dart';
 import 'package:millat/resources/home/bloc/logic/quran_bloc/quran_bloc.dart';
+import 'package:millat/resources/home/view/al_quran/widgets/quran_fav_bookmark_collection_widget.dart';
 import 'package:millat/resources/home/view/al_quran/widgets/verses_card.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/loader.dart';
@@ -10,8 +12,13 @@ import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/string_constants.dart';
 import 'package:share_plus/share_plus.dart';
 import '../../../../../utils/constants.dart';
+import '../../../bloc/db/db_functions.dart';
 import '../../../bloc/models/book_mark_hive_model/book_mark_hive_model.dart';
 import 'package:html/parser.dart';
+
+import '../bookmark_view.dart';
+import 'bookmark_collection_view.dart';
+import 'new_collection_widget.dart';
 
 class VersesView extends StatelessWidget {
   final Qurantype type;
@@ -107,8 +114,33 @@ class VersesView extends StatelessWidget {
                                   return VersesCardWidget(
                                     isValue: '$chapterid:${index + 1}',
                                     bookMarkOntap: () {
-                                      addToBookmarkCollection(
-                                          context, chapterid!, index);
+                                      if (context
+                                          .read<BookmarkBloc>()
+                                          .state
+                                          .dbCollectionItems
+                                          .any((element) => element.verseKey
+                                              .contains(
+                                                  '$chapterid:${index + 1}'))) {
+                                        context.read<BookmarkBloc>().add(
+                                            RemoveBookmark(
+                                                verseKey:
+                                                    "$chapterid:${index + 1}"));
+                                      } else {
+                                        showModalBottomSheet(
+                                          context: context,
+                                          backgroundColor: Colors.transparent,
+                                          builder: (context) {
+                                            return StatefulBuilder(
+                                              builder: (context, setState) =>
+                                                  _addBookMarkPopUp(
+                                                      context,
+                                                      chapterid!,
+                                                      index,
+                                                      "$chapterid:${index + 1}"),
+                                            );
+                                          },
+                                        );
+                                      }
                                     },
                                     playOntap: () {
                                       context.read<QuranBloc>().add(
@@ -127,9 +159,9 @@ class VersesView extends StatelessWidget {
                                     surah: indoPakData[index]
                                         .textIndopak
                                         .toString(),
-                                    surahMeaning:
+                                    surahMeaning: removeFootnotesFromMeaning(
                                         state.chapterTranslationText?[index] ??
-                                            '',
+                                            ''),
                                   );
                                 },
                               )
@@ -167,9 +199,10 @@ class VersesView extends StatelessWidget {
                                             .textIndopak
                                             .toString(),
                                         surahMeaning:
-                                            state.chapterTranslationText?[
-                                                    index] ??
-                                                '',
+                                            removeFootnotesFromMeaning(
+                                                state.chapterTranslationText?[
+                                                        index] ??
+                                                    ''),
                                       );
                                     },
                                   )
@@ -206,9 +239,10 @@ class VersesView extends StatelessWidget {
                                             .textIndopak
                                             .toString(),
                                         surahMeaning:
-                                            state.chapterTranslationText?[
-                                                    index] ??
-                                                '',
+                                            removeFootnotesFromMeaning(
+                                                state.chapterTranslationText?[
+                                                        index] ??
+                                                    ''),
                                       );
                                     },
                                   );
@@ -535,24 +569,91 @@ class VersesView extends StatelessWidget {
     );
   }
 
+  Widget _addBookMarkPopUp(
+      BuildContext context, int chapterId, int index, String verskey) {
+    return Container(
+        width: SizeUtility(context).width,
+        height: 400,
+        padding: const EdgeInsets.all(20),
+        decoration: BoxDecoration(
+            color: ColorManager.whiteColor,
+            borderRadius:
+                const BorderRadius.vertical(top: Radius.circular(20))),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              const BookmarkNewCollectionWidget(),
+              kHeight16,
+              BlocBuilder<BookmarkBloc, BookmarkState>(
+                builder: (context, state) =>
+                    state.dbCollectionItems.map((e) => e.id == "1").isNotEmpty
+                        ? const SizedBox.shrink()
+                        : QuranFavBookmarkCollectionWidget(
+                            type: QuranFavbookMarkType.add,
+                            chapterId: chapterId,
+                            index: index,
+                          ),
+              ),
+              kHeight20,
+              BlocBuilder<BookmarkBloc, BookmarkState>(
+                builder: (context, state) {
+                  if (state.dbCollectionItems.isEmpty) {
+                    return const SizedBox();
+                  }
+                  final value = state.dbCollectionItems;
+                  return ListView.builder(
+                    shrinkWrap: true,
+                    itemCount: value.length,
+                    itemBuilder: (context, index) {
+                      final data = value[index];
+                      final modifiedVerseKeys = [...data.verseKey, verskey];
+
+                      return InkWell(
+                        onTap: () {
+                          final model = BookMarktCollectionModel(
+                            id: data.id!,
+                            verseKey: modifiedVerseKeys,
+                            name: data.name,
+                            discription: data.discription,
+                            image: data.image,
+                          );
+                          BookMarkDB.instance.editCollection(model, model.id);
+                          context
+                              .read<BookmarkBloc>()
+                              .add(const FetchCollectionItem());
+                          Navigator.of(context).pop();
+                        },
+                        child: buildCollectionContainer(
+                          passvalue: data,
+                          context: context,
+                          img: data.image,
+                          collectionName: data.name,
+                          userName: data.discription,
+                        ),
+                      );
+                    },
+                  );
+                },
+              ),
+            ],
+          ),
+        ));
+  }
+
   void addToBookmarkCollection(BuildContext context, int chapterId, int index) {
     final collectionList = context.read<BookmarkBloc>().state.dbCollectionItems;
 
     if (collectionList.isEmpty) {
-      // If the collection list is empty, create a new collection with the specified verse key
       context.read<BookmarkBloc>().add(
             AddFavCollection(verskey: ['$chapterId:${index + 1}']),
           );
 
-      // Fetch the collection items to update the state
       context.read<BookmarkBloc>().add(const FetchCollectionItem());
     } else {
-      // Filter the collection list to find a collection with id == '1'
       List<BookMarktCollectionModel> filteredList =
           collectionList.where((element) => element.id == '1').toList();
 
       if (filteredList.isNotEmpty) {
-        // If a collection with id == '1' is found, update its verse keys
         List<String> updatedVerskey = List.from(filteredList[0].verseKey);
         updatedVerskey.add('$chapterId:${index + 1}');
 

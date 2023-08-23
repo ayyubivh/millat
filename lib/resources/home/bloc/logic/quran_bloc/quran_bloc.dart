@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -55,6 +57,7 @@ class QuranBloc extends Bloc<QuranEvent, QuranState> {
     on<SaveQuranTexttypeName>(_saveQuranTexttypeName);
     on<OnTapofNextEvent>(_onTapofNextEvent);
     on<OnTapofPrevEvent>(_onTapofPrevEvent);
+    on<OnChangeQuranTabbar>(_onChangeQuranTabbar);
   }
 
   _fetchQuranChapters(
@@ -82,19 +85,16 @@ class QuranBloc extends Bloc<QuranEvent, QuranState> {
               isLoading: false,
               chapterName: "Juz ${event.id}"),
         );
-        print('indopak aya $data');
       } else if (state.quranTextTypeName == uthmani) {
         emit(state.copyWith(
             chapterVersesOfUthmani: data,
             isLoading: false,
             chapterName: "Juz ${event.id}"));
-        print('uthmani aya $data');
       } else if (state.quranTextTypeName == nosymbol) {
         emit(state.copyWith(
             chapterVersesOfNosymbol: data,
             isLoading: false,
             chapterName: "Juz ${event.id}"));
-        print('nosymbol aya $data');
       }
     } catch (e) {
       emit(state.copyWith(isLoading: false));
@@ -403,5 +403,9 @@ class QuranBloc extends Bloc<QuranEvent, QuranState> {
     if (state.nxtAndprevValue >= 1 && state.nxtAndprevValue <= 30) {
       emit(state.copyWith(nxtAndprevValue: state.nxtAndprevValue - 1));
     }
+  }
+
+  _onChangeQuranTabbar(event, Emitter<QuranState> emit) {
+    emit(state.copyWith(tabBarIndex: event.index));
   }
 }

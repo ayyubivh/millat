@@ -47,6 +47,7 @@ mixin _$BookmarkEvent {
     required TResult Function(String versekey) saveVerseKeyEvent,
     required TResult Function() emptyVerseKeyEvent,
     required TResult Function() fetchCollectionItem,
+    required TResult Function(String verseKey) removeBookmark,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -70,6 +71,7 @@ mixin _$BookmarkEvent {
     TResult? Function(String versekey)? saveVerseKeyEvent,
     TResult? Function()? emptyVerseKeyEvent,
     TResult? Function()? fetchCollectionItem,
+    TResult? Function(String verseKey)? removeBookmark,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -93,6 +95,7 @@ mixin _$BookmarkEvent {
     TResult Function(String versekey)? saveVerseKeyEvent,
     TResult Function()? emptyVerseKeyEvent,
     TResult Function()? fetchCollectionItem,
+    TResult Function(String verseKey)? removeBookmark,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -113,6 +116,7 @@ mixin _$BookmarkEvent {
     required TResult Function(SaveVerseKeyEvent value) saveVerseKeyEvent,
     required TResult Function(EmptyVerseKeyEvent value) emptyVerseKeyEvent,
     required TResult Function(FetchCollectionItem value) fetchCollectionItem,
+    required TResult Function(RemoveBookmark value) removeBookmark,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -132,6 +136,7 @@ mixin _$BookmarkEvent {
     TResult? Function(SaveVerseKeyEvent value)? saveVerseKeyEvent,
     TResult? Function(EmptyVerseKeyEvent value)? emptyVerseKeyEvent,
     TResult? Function(FetchCollectionItem value)? fetchCollectionItem,
+    TResult? Function(RemoveBookmark value)? removeBookmark,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -151,6 +156,7 @@ mixin _$BookmarkEvent {
     TResult Function(SaveVerseKeyEvent value)? saveVerseKeyEvent,
     TResult Function(EmptyVerseKeyEvent value)? emptyVerseKeyEvent,
     TResult Function(FetchCollectionItem value)? fetchCollectionItem,
+    TResult Function(RemoveBookmark value)? removeBookmark,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -328,6 +334,7 @@ class _$AddCollection implements AddCollection {
     required TResult Function(String versekey) saveVerseKeyEvent,
     required TResult Function() emptyVerseKeyEvent,
     required TResult Function() fetchCollectionItem,
+    required TResult Function(String verseKey) removeBookmark,
   }) {
     return addCollection(name, description, verskey, image, context, dbId);
   }
@@ -354,6 +361,7 @@ class _$AddCollection implements AddCollection {
     TResult? Function(String versekey)? saveVerseKeyEvent,
     TResult? Function()? emptyVerseKeyEvent,
     TResult? Function()? fetchCollectionItem,
+    TResult? Function(String verseKey)? removeBookmark,
   }) {
     return addCollection?.call(
         name, description, verskey, image, context, dbId);
@@ -381,6 +389,7 @@ class _$AddCollection implements AddCollection {
     TResult Function(String versekey)? saveVerseKeyEvent,
     TResult Function()? emptyVerseKeyEvent,
     TResult Function()? fetchCollectionItem,
+    TResult Function(String verseKey)? removeBookmark,
     required TResult orElse(),
   }) {
     if (addCollection != null) {
@@ -407,6 +416,7 @@ class _$AddCollection implements AddCollection {
     required TResult Function(SaveVerseKeyEvent value) saveVerseKeyEvent,
     required TResult Function(EmptyVerseKeyEvent value) emptyVerseKeyEvent,
     required TResult Function(FetchCollectionItem value) fetchCollectionItem,
+    required TResult Function(RemoveBookmark value) removeBookmark,
   }) {
     return addCollection(this);
   }
@@ -429,6 +439,7 @@ class _$AddCollection implements AddCollection {
     TResult? Function(SaveVerseKeyEvent value)? saveVerseKeyEvent,
     TResult? Function(EmptyVerseKeyEvent value)? emptyVerseKeyEvent,
     TResult? Function(FetchCollectionItem value)? fetchCollectionItem,
+    TResult? Function(RemoveBookmark value)? removeBookmark,
   }) {
     return addCollection?.call(this);
   }
@@ -451,6 +462,7 @@ class _$AddCollection implements AddCollection {
     TResult Function(SaveVerseKeyEvent value)? saveVerseKeyEvent,
     TResult Function(EmptyVerseKeyEvent value)? emptyVerseKeyEvent,
     TResult Function(FetchCollectionItem value)? fetchCollectionItem,
+    TResult Function(RemoveBookmark value)? removeBookmark,
     required TResult orElse(),
   }) {
     if (addCollection != null) {
@@ -573,6 +585,7 @@ class _$SaveImageEvent implements SaveImageEvent {
     required TResult Function(String versekey) saveVerseKeyEvent,
     required TResult Function() emptyVerseKeyEvent,
     required TResult Function() fetchCollectionItem,
+    required TResult Function(String verseKey) removeBookmark,
   }) {
     return saveImageEvent(img);
   }
@@ -599,6 +612,7 @@ class _$SaveImageEvent implements SaveImageEvent {
     TResult? Function(String versekey)? saveVerseKeyEvent,
     TResult? Function()? emptyVerseKeyEvent,
     TResult? Function()? fetchCollectionItem,
+    TResult? Function(String verseKey)? removeBookmark,
   }) {
     return saveImageEvent?.call(img);
   }
@@ -625,6 +639,7 @@ class _$SaveImageEvent implements SaveImageEvent {
     TResult Function(String versekey)? saveVerseKeyEvent,
     TResult Function()? emptyVerseKeyEvent,
     TResult Function()? fetchCollectionItem,
+    TResult Function(String verseKey)? removeBookmark,
     required TResult orElse(),
   }) {
     if (saveImageEvent != null) {
@@ -651,6 +666,7 @@ class _$SaveImageEvent implements SaveImageEvent {
     required TResult Function(SaveVerseKeyEvent value) saveVerseKeyEvent,
     required TResult Function(EmptyVerseKeyEvent value) emptyVerseKeyEvent,
     required TResult Function(FetchCollectionItem value) fetchCollectionItem,
+    required TResult Function(RemoveBookmark value) removeBookmark,
   }) {
     return saveImageEvent(this);
   }
@@ -673,6 +689,7 @@ class _$SaveImageEvent implements SaveImageEvent {
     TResult? Function(SaveVerseKeyEvent value)? saveVerseKeyEvent,
     TResult? Function(EmptyVerseKeyEvent value)? emptyVerseKeyEvent,
     TResult? Function(FetchCollectionItem value)? fetchCollectionItem,
+    TResult? Function(RemoveBookmark value)? removeBookmark,
   }) {
     return saveImageEvent?.call(this);
   }
@@ -695,6 +712,7 @@ class _$SaveImageEvent implements SaveImageEvent {
     TResult Function(SaveVerseKeyEvent value)? saveVerseKeyEvent,
     TResult Function(EmptyVerseKeyEvent value)? emptyVerseKeyEvent,
     TResult Function(FetchCollectionItem value)? fetchCollectionItem,
+    TResult Function(RemoveBookmark value)? removeBookmark,
     required TResult orElse(),
   }) {
     if (saveImageEvent != null) {
@@ -813,6 +831,7 @@ class _$SaveQuranChapterId implements SaveQuranChapterId {
     required TResult Function(String versekey) saveVerseKeyEvent,
     required TResult Function() emptyVerseKeyEvent,
     required TResult Function() fetchCollectionItem,
+    required TResult Function(String verseKey) removeBookmark,
   }) {
     return saveQuranChapterId(id);
   }
@@ -839,6 +858,7 @@ class _$SaveQuranChapterId implements SaveQuranChapterId {
     TResult? Function(String versekey)? saveVerseKeyEvent,
     TResult? Function()? emptyVerseKeyEvent,
     TResult? Function()? fetchCollectionItem,
+    TResult? Function(String verseKey)? removeBookmark,
   }) {
     return saveQuranChapterId?.call(id);
   }
@@ -865,6 +885,7 @@ class _$SaveQuranChapterId implements SaveQuranChapterId {
     TResult Function(String versekey)? saveVerseKeyEvent,
     TResult Function()? emptyVerseKeyEvent,
     TResult Function()? fetchCollectionItem,
+    TResult Function(String verseKey)? removeBookmark,
     required TResult orElse(),
   }) {
     if (saveQuranChapterId != null) {
@@ -891,6 +912,7 @@ class _$SaveQuranChapterId implements SaveQuranChapterId {
     required TResult Function(SaveVerseKeyEvent value) saveVerseKeyEvent,
     required TResult Function(EmptyVerseKeyEvent value) emptyVerseKeyEvent,
     required TResult Function(FetchCollectionItem value) fetchCollectionItem,
+    required TResult Function(RemoveBookmark value) removeBookmark,
   }) {
     return saveQuranChapterId(this);
   }
@@ -913,6 +935,7 @@ class _$SaveQuranChapterId implements SaveQuranChapterId {
     TResult? Function(SaveVerseKeyEvent value)? saveVerseKeyEvent,
     TResult? Function(EmptyVerseKeyEvent value)? emptyVerseKeyEvent,
     TResult? Function(FetchCollectionItem value)? fetchCollectionItem,
+    TResult? Function(RemoveBookmark value)? removeBookmark,
   }) {
     return saveQuranChapterId?.call(this);
   }
@@ -935,6 +958,7 @@ class _$SaveQuranChapterId implements SaveQuranChapterId {
     TResult Function(SaveVerseKeyEvent value)? saveVerseKeyEvent,
     TResult Function(EmptyVerseKeyEvent value)? emptyVerseKeyEvent,
     TResult Function(FetchCollectionItem value)? fetchCollectionItem,
+    TResult Function(RemoveBookmark value)? removeBookmark,
     required TResult orElse(),
   }) {
     if (saveQuranChapterId != null) {
@@ -1048,6 +1072,7 @@ class _$NameChanged implements NameChanged {
     required TResult Function(String versekey) saveVerseKeyEvent,
     required TResult Function() emptyVerseKeyEvent,
     required TResult Function() fetchCollectionItem,
+    required TResult Function(String verseKey) removeBookmark,
   }) {
     return nameChanged(nameValue);
   }
@@ -1074,6 +1099,7 @@ class _$NameChanged implements NameChanged {
     TResult? Function(String versekey)? saveVerseKeyEvent,
     TResult? Function()? emptyVerseKeyEvent,
     TResult? Function()? fetchCollectionItem,
+    TResult? Function(String verseKey)? removeBookmark,
   }) {
     return nameChanged?.call(nameValue);
   }
@@ -1100,6 +1126,7 @@ class _$NameChanged implements NameChanged {
     TResult Function(String versekey)? saveVerseKeyEvent,
     TResult Function()? emptyVerseKeyEvent,
     TResult Function()? fetchCollectionItem,
+    TResult Function(String verseKey)? removeBookmark,
     required TResult orElse(),
   }) {
     if (nameChanged != null) {
@@ -1126,6 +1153,7 @@ class _$NameChanged implements NameChanged {
     required TResult Function(SaveVerseKeyEvent value) saveVerseKeyEvent,
     required TResult Function(EmptyVerseKeyEvent value) emptyVerseKeyEvent,
     required TResult Function(FetchCollectionItem value) fetchCollectionItem,
+    required TResult Function(RemoveBookmark value) removeBookmark,
   }) {
     return nameChanged(this);
   }
@@ -1148,6 +1176,7 @@ class _$NameChanged implements NameChanged {
     TResult? Function(SaveVerseKeyEvent value)? saveVerseKeyEvent,
     TResult? Function(EmptyVerseKeyEvent value)? emptyVerseKeyEvent,
     TResult? Function(FetchCollectionItem value)? fetchCollectionItem,
+    TResult? Function(RemoveBookmark value)? removeBookmark,
   }) {
     return nameChanged?.call(this);
   }
@@ -1170,6 +1199,7 @@ class _$NameChanged implements NameChanged {
     TResult Function(SaveVerseKeyEvent value)? saveVerseKeyEvent,
     TResult Function(EmptyVerseKeyEvent value)? emptyVerseKeyEvent,
     TResult Function(FetchCollectionItem value)? fetchCollectionItem,
+    TResult Function(RemoveBookmark value)? removeBookmark,
     required TResult orElse(),
   }) {
     if (nameChanged != null) {
@@ -1283,6 +1313,7 @@ class _$DescriptionChanged implements DescriptionChanged {
     required TResult Function(String versekey) saveVerseKeyEvent,
     required TResult Function() emptyVerseKeyEvent,
     required TResult Function() fetchCollectionItem,
+    required TResult Function(String verseKey) removeBookmark,
   }) {
     return descriptionChanged(descriptionValue);
   }
@@ -1309,6 +1340,7 @@ class _$DescriptionChanged implements DescriptionChanged {
     TResult? Function(String versekey)? saveVerseKeyEvent,
     TResult? Function()? emptyVerseKeyEvent,
     TResult? Function()? fetchCollectionItem,
+    TResult? Function(String verseKey)? removeBookmark,
   }) {
     return descriptionChanged?.call(descriptionValue);
   }
@@ -1335,6 +1367,7 @@ class _$DescriptionChanged implements DescriptionChanged {
     TResult Function(String versekey)? saveVerseKeyEvent,
     TResult Function()? emptyVerseKeyEvent,
     TResult Function()? fetchCollectionItem,
+    TResult Function(String verseKey)? removeBookmark,
     required TResult orElse(),
   }) {
     if (descriptionChanged != null) {
@@ -1361,6 +1394,7 @@ class _$DescriptionChanged implements DescriptionChanged {
     required TResult Function(SaveVerseKeyEvent value) saveVerseKeyEvent,
     required TResult Function(EmptyVerseKeyEvent value) emptyVerseKeyEvent,
     required TResult Function(FetchCollectionItem value) fetchCollectionItem,
+    required TResult Function(RemoveBookmark value) removeBookmark,
   }) {
     return descriptionChanged(this);
   }
@@ -1383,6 +1417,7 @@ class _$DescriptionChanged implements DescriptionChanged {
     TResult? Function(SaveVerseKeyEvent value)? saveVerseKeyEvent,
     TResult? Function(EmptyVerseKeyEvent value)? emptyVerseKeyEvent,
     TResult? Function(FetchCollectionItem value)? fetchCollectionItem,
+    TResult? Function(RemoveBookmark value)? removeBookmark,
   }) {
     return descriptionChanged?.call(this);
   }
@@ -1405,6 +1440,7 @@ class _$DescriptionChanged implements DescriptionChanged {
     TResult Function(SaveVerseKeyEvent value)? saveVerseKeyEvent,
     TResult Function(EmptyVerseKeyEvent value)? emptyVerseKeyEvent,
     TResult Function(FetchCollectionItem value)? fetchCollectionItem,
+    TResult Function(RemoveBookmark value)? removeBookmark,
     required TResult orElse(),
   }) {
     if (descriptionChanged != null) {
@@ -1578,6 +1614,7 @@ class _$EditCollection implements EditCollection {
     required TResult Function(String versekey) saveVerseKeyEvent,
     required TResult Function() emptyVerseKeyEvent,
     required TResult Function() fetchCollectionItem,
+    required TResult Function(String verseKey) removeBookmark,
   }) {
     return editCollection(name, description, verskey, image, dbId, context);
   }
@@ -1604,6 +1641,7 @@ class _$EditCollection implements EditCollection {
     TResult? Function(String versekey)? saveVerseKeyEvent,
     TResult? Function()? emptyVerseKeyEvent,
     TResult? Function()? fetchCollectionItem,
+    TResult? Function(String verseKey)? removeBookmark,
   }) {
     return editCollection?.call(
         name, description, verskey, image, dbId, context);
@@ -1631,6 +1669,7 @@ class _$EditCollection implements EditCollection {
     TResult Function(String versekey)? saveVerseKeyEvent,
     TResult Function()? emptyVerseKeyEvent,
     TResult Function()? fetchCollectionItem,
+    TResult Function(String verseKey)? removeBookmark,
     required TResult orElse(),
   }) {
     if (editCollection != null) {
@@ -1657,6 +1696,7 @@ class _$EditCollection implements EditCollection {
     required TResult Function(SaveVerseKeyEvent value) saveVerseKeyEvent,
     required TResult Function(EmptyVerseKeyEvent value) emptyVerseKeyEvent,
     required TResult Function(FetchCollectionItem value) fetchCollectionItem,
+    required TResult Function(RemoveBookmark value) removeBookmark,
   }) {
     return editCollection(this);
   }
@@ -1679,6 +1719,7 @@ class _$EditCollection implements EditCollection {
     TResult? Function(SaveVerseKeyEvent value)? saveVerseKeyEvent,
     TResult? Function(EmptyVerseKeyEvent value)? emptyVerseKeyEvent,
     TResult? Function(FetchCollectionItem value)? fetchCollectionItem,
+    TResult? Function(RemoveBookmark value)? removeBookmark,
   }) {
     return editCollection?.call(this);
   }
@@ -1701,6 +1742,7 @@ class _$EditCollection implements EditCollection {
     TResult Function(SaveVerseKeyEvent value)? saveVerseKeyEvent,
     TResult Function(EmptyVerseKeyEvent value)? emptyVerseKeyEvent,
     TResult Function(FetchCollectionItem value)? fetchCollectionItem,
+    TResult Function(RemoveBookmark value)? removeBookmark,
     required TResult orElse(),
   }) {
     if (editCollection != null) {
@@ -1830,6 +1872,7 @@ class _$AddFavCollection implements AddFavCollection {
     required TResult Function(String versekey) saveVerseKeyEvent,
     required TResult Function() emptyVerseKeyEvent,
     required TResult Function() fetchCollectionItem,
+    required TResult Function(String verseKey) removeBookmark,
   }) {
     return addFavCollection(verskey);
   }
@@ -1856,6 +1899,7 @@ class _$AddFavCollection implements AddFavCollection {
     TResult? Function(String versekey)? saveVerseKeyEvent,
     TResult? Function()? emptyVerseKeyEvent,
     TResult? Function()? fetchCollectionItem,
+    TResult? Function(String verseKey)? removeBookmark,
   }) {
     return addFavCollection?.call(verskey);
   }
@@ -1882,6 +1926,7 @@ class _$AddFavCollection implements AddFavCollection {
     TResult Function(String versekey)? saveVerseKeyEvent,
     TResult Function()? emptyVerseKeyEvent,
     TResult Function()? fetchCollectionItem,
+    TResult Function(String verseKey)? removeBookmark,
     required TResult orElse(),
   }) {
     if (addFavCollection != null) {
@@ -1908,6 +1953,7 @@ class _$AddFavCollection implements AddFavCollection {
     required TResult Function(SaveVerseKeyEvent value) saveVerseKeyEvent,
     required TResult Function(EmptyVerseKeyEvent value) emptyVerseKeyEvent,
     required TResult Function(FetchCollectionItem value) fetchCollectionItem,
+    required TResult Function(RemoveBookmark value) removeBookmark,
   }) {
     return addFavCollection(this);
   }
@@ -1930,6 +1976,7 @@ class _$AddFavCollection implements AddFavCollection {
     TResult? Function(SaveVerseKeyEvent value)? saveVerseKeyEvent,
     TResult? Function(EmptyVerseKeyEvent value)? emptyVerseKeyEvent,
     TResult? Function(FetchCollectionItem value)? fetchCollectionItem,
+    TResult? Function(RemoveBookmark value)? removeBookmark,
   }) {
     return addFavCollection?.call(this);
   }
@@ -1952,6 +1999,7 @@ class _$AddFavCollection implements AddFavCollection {
     TResult Function(SaveVerseKeyEvent value)? saveVerseKeyEvent,
     TResult Function(EmptyVerseKeyEvent value)? emptyVerseKeyEvent,
     TResult Function(FetchCollectionItem value)? fetchCollectionItem,
+    TResult Function(RemoveBookmark value)? removeBookmark,
     required TResult orElse(),
   }) {
     if (addFavCollection != null) {
@@ -2065,6 +2113,7 @@ class _$SaveIndexEvent implements SaveIndexEvent {
     required TResult Function(String versekey) saveVerseKeyEvent,
     required TResult Function() emptyVerseKeyEvent,
     required TResult Function() fetchCollectionItem,
+    required TResult Function(String verseKey) removeBookmark,
   }) {
     return saveIndexEvent(indexList);
   }
@@ -2091,6 +2140,7 @@ class _$SaveIndexEvent implements SaveIndexEvent {
     TResult? Function(String versekey)? saveVerseKeyEvent,
     TResult? Function()? emptyVerseKeyEvent,
     TResult? Function()? fetchCollectionItem,
+    TResult? Function(String verseKey)? removeBookmark,
   }) {
     return saveIndexEvent?.call(indexList);
   }
@@ -2117,6 +2167,7 @@ class _$SaveIndexEvent implements SaveIndexEvent {
     TResult Function(String versekey)? saveVerseKeyEvent,
     TResult Function()? emptyVerseKeyEvent,
     TResult Function()? fetchCollectionItem,
+    TResult Function(String verseKey)? removeBookmark,
     required TResult orElse(),
   }) {
     if (saveIndexEvent != null) {
@@ -2143,6 +2194,7 @@ class _$SaveIndexEvent implements SaveIndexEvent {
     required TResult Function(SaveVerseKeyEvent value) saveVerseKeyEvent,
     required TResult Function(EmptyVerseKeyEvent value) emptyVerseKeyEvent,
     required TResult Function(FetchCollectionItem value) fetchCollectionItem,
+    required TResult Function(RemoveBookmark value) removeBookmark,
   }) {
     return saveIndexEvent(this);
   }
@@ -2165,6 +2217,7 @@ class _$SaveIndexEvent implements SaveIndexEvent {
     TResult? Function(SaveVerseKeyEvent value)? saveVerseKeyEvent,
     TResult? Function(EmptyVerseKeyEvent value)? emptyVerseKeyEvent,
     TResult? Function(FetchCollectionItem value)? fetchCollectionItem,
+    TResult? Function(RemoveBookmark value)? removeBookmark,
   }) {
     return saveIndexEvent?.call(this);
   }
@@ -2187,6 +2240,7 @@ class _$SaveIndexEvent implements SaveIndexEvent {
     TResult Function(SaveVerseKeyEvent value)? saveVerseKeyEvent,
     TResult Function(EmptyVerseKeyEvent value)? emptyVerseKeyEvent,
     TResult Function(FetchCollectionItem value)? fetchCollectionItem,
+    TResult Function(RemoveBookmark value)? removeBookmark,
     required TResult orElse(),
   }) {
     if (saveIndexEvent != null) {
@@ -2301,6 +2355,7 @@ class _$SaveVersesIndexEvent implements SaveVersesIndexEvent {
     required TResult Function(String versekey) saveVerseKeyEvent,
     required TResult Function() emptyVerseKeyEvent,
     required TResult Function() fetchCollectionItem,
+    required TResult Function(String verseKey) removeBookmark,
   }) {
     return saveVersesIndexEvent(versesIndexList);
   }
@@ -2327,6 +2382,7 @@ class _$SaveVersesIndexEvent implements SaveVersesIndexEvent {
     TResult? Function(String versekey)? saveVerseKeyEvent,
     TResult? Function()? emptyVerseKeyEvent,
     TResult? Function()? fetchCollectionItem,
+    TResult? Function(String verseKey)? removeBookmark,
   }) {
     return saveVersesIndexEvent?.call(versesIndexList);
   }
@@ -2353,6 +2409,7 @@ class _$SaveVersesIndexEvent implements SaveVersesIndexEvent {
     TResult Function(String versekey)? saveVerseKeyEvent,
     TResult Function()? emptyVerseKeyEvent,
     TResult Function()? fetchCollectionItem,
+    TResult Function(String verseKey)? removeBookmark,
     required TResult orElse(),
   }) {
     if (saveVersesIndexEvent != null) {
@@ -2379,6 +2436,7 @@ class _$SaveVersesIndexEvent implements SaveVersesIndexEvent {
     required TResult Function(SaveVerseKeyEvent value) saveVerseKeyEvent,
     required TResult Function(EmptyVerseKeyEvent value) emptyVerseKeyEvent,
     required TResult Function(FetchCollectionItem value) fetchCollectionItem,
+    required TResult Function(RemoveBookmark value) removeBookmark,
   }) {
     return saveVersesIndexEvent(this);
   }
@@ -2401,6 +2459,7 @@ class _$SaveVersesIndexEvent implements SaveVersesIndexEvent {
     TResult? Function(SaveVerseKeyEvent value)? saveVerseKeyEvent,
     TResult? Function(EmptyVerseKeyEvent value)? emptyVerseKeyEvent,
     TResult? Function(FetchCollectionItem value)? fetchCollectionItem,
+    TResult? Function(RemoveBookmark value)? removeBookmark,
   }) {
     return saveVersesIndexEvent?.call(this);
   }
@@ -2423,6 +2482,7 @@ class _$SaveVersesIndexEvent implements SaveVersesIndexEvent {
     TResult Function(SaveVerseKeyEvent value)? saveVerseKeyEvent,
     TResult Function(EmptyVerseKeyEvent value)? emptyVerseKeyEvent,
     TResult Function(FetchCollectionItem value)? fetchCollectionItem,
+    TResult Function(RemoveBookmark value)? removeBookmark,
     required TResult orElse(),
   }) {
     if (saveVersesIndexEvent != null) {
@@ -2509,6 +2569,7 @@ class _$ClearIndexEvent implements ClearIndexEvent {
     required TResult Function(String versekey) saveVerseKeyEvent,
     required TResult Function() emptyVerseKeyEvent,
     required TResult Function() fetchCollectionItem,
+    required TResult Function(String verseKey) removeBookmark,
   }) {
     return clearIndexEvent();
   }
@@ -2535,6 +2596,7 @@ class _$ClearIndexEvent implements ClearIndexEvent {
     TResult? Function(String versekey)? saveVerseKeyEvent,
     TResult? Function()? emptyVerseKeyEvent,
     TResult? Function()? fetchCollectionItem,
+    TResult? Function(String verseKey)? removeBookmark,
   }) {
     return clearIndexEvent?.call();
   }
@@ -2561,6 +2623,7 @@ class _$ClearIndexEvent implements ClearIndexEvent {
     TResult Function(String versekey)? saveVerseKeyEvent,
     TResult Function()? emptyVerseKeyEvent,
     TResult Function()? fetchCollectionItem,
+    TResult Function(String verseKey)? removeBookmark,
     required TResult orElse(),
   }) {
     if (clearIndexEvent != null) {
@@ -2587,6 +2650,7 @@ class _$ClearIndexEvent implements ClearIndexEvent {
     required TResult Function(SaveVerseKeyEvent value) saveVerseKeyEvent,
     required TResult Function(EmptyVerseKeyEvent value) emptyVerseKeyEvent,
     required TResult Function(FetchCollectionItem value) fetchCollectionItem,
+    required TResult Function(RemoveBookmark value) removeBookmark,
   }) {
     return clearIndexEvent(this);
   }
@@ -2609,6 +2673,7 @@ class _$ClearIndexEvent implements ClearIndexEvent {
     TResult? Function(SaveVerseKeyEvent value)? saveVerseKeyEvent,
     TResult? Function(EmptyVerseKeyEvent value)? emptyVerseKeyEvent,
     TResult? Function(FetchCollectionItem value)? fetchCollectionItem,
+    TResult? Function(RemoveBookmark value)? removeBookmark,
   }) {
     return clearIndexEvent?.call(this);
   }
@@ -2631,6 +2696,7 @@ class _$ClearIndexEvent implements ClearIndexEvent {
     TResult Function(SaveVerseKeyEvent value)? saveVerseKeyEvent,
     TResult Function(EmptyVerseKeyEvent value)? emptyVerseKeyEvent,
     TResult Function(FetchCollectionItem value)? fetchCollectionItem,
+    TResult Function(RemoveBookmark value)? removeBookmark,
     required TResult orElse(),
   }) {
     if (clearIndexEvent != null) {
@@ -2737,6 +2803,7 @@ class _$ChangeIndexEvent implements ChangeIndexEvent {
     required TResult Function(String versekey) saveVerseKeyEvent,
     required TResult Function() emptyVerseKeyEvent,
     required TResult Function() fetchCollectionItem,
+    required TResult Function(String verseKey) removeBookmark,
   }) {
     return changeIndexEvent(index);
   }
@@ -2763,6 +2830,7 @@ class _$ChangeIndexEvent implements ChangeIndexEvent {
     TResult? Function(String versekey)? saveVerseKeyEvent,
     TResult? Function()? emptyVerseKeyEvent,
     TResult? Function()? fetchCollectionItem,
+    TResult? Function(String verseKey)? removeBookmark,
   }) {
     return changeIndexEvent?.call(index);
   }
@@ -2789,6 +2857,7 @@ class _$ChangeIndexEvent implements ChangeIndexEvent {
     TResult Function(String versekey)? saveVerseKeyEvent,
     TResult Function()? emptyVerseKeyEvent,
     TResult Function()? fetchCollectionItem,
+    TResult Function(String verseKey)? removeBookmark,
     required TResult orElse(),
   }) {
     if (changeIndexEvent != null) {
@@ -2815,6 +2884,7 @@ class _$ChangeIndexEvent implements ChangeIndexEvent {
     required TResult Function(SaveVerseKeyEvent value) saveVerseKeyEvent,
     required TResult Function(EmptyVerseKeyEvent value) emptyVerseKeyEvent,
     required TResult Function(FetchCollectionItem value) fetchCollectionItem,
+    required TResult Function(RemoveBookmark value) removeBookmark,
   }) {
     return changeIndexEvent(this);
   }
@@ -2837,6 +2907,7 @@ class _$ChangeIndexEvent implements ChangeIndexEvent {
     TResult? Function(SaveVerseKeyEvent value)? saveVerseKeyEvent,
     TResult? Function(EmptyVerseKeyEvent value)? emptyVerseKeyEvent,
     TResult? Function(FetchCollectionItem value)? fetchCollectionItem,
+    TResult? Function(RemoveBookmark value)? removeBookmark,
   }) {
     return changeIndexEvent?.call(this);
   }
@@ -2859,6 +2930,7 @@ class _$ChangeIndexEvent implements ChangeIndexEvent {
     TResult Function(SaveVerseKeyEvent value)? saveVerseKeyEvent,
     TResult Function(EmptyVerseKeyEvent value)? emptyVerseKeyEvent,
     TResult Function(FetchCollectionItem value)? fetchCollectionItem,
+    TResult Function(RemoveBookmark value)? removeBookmark,
     required TResult orElse(),
   }) {
     if (changeIndexEvent != null) {
@@ -2944,6 +3016,7 @@ class _$EmptyIndexEvent implements EmptyIndexEvent {
     required TResult Function(String versekey) saveVerseKeyEvent,
     required TResult Function() emptyVerseKeyEvent,
     required TResult Function() fetchCollectionItem,
+    required TResult Function(String verseKey) removeBookmark,
   }) {
     return emptyIndexEvent();
   }
@@ -2970,6 +3043,7 @@ class _$EmptyIndexEvent implements EmptyIndexEvent {
     TResult? Function(String versekey)? saveVerseKeyEvent,
     TResult? Function()? emptyVerseKeyEvent,
     TResult? Function()? fetchCollectionItem,
+    TResult? Function(String verseKey)? removeBookmark,
   }) {
     return emptyIndexEvent?.call();
   }
@@ -2996,6 +3070,7 @@ class _$EmptyIndexEvent implements EmptyIndexEvent {
     TResult Function(String versekey)? saveVerseKeyEvent,
     TResult Function()? emptyVerseKeyEvent,
     TResult Function()? fetchCollectionItem,
+    TResult Function(String verseKey)? removeBookmark,
     required TResult orElse(),
   }) {
     if (emptyIndexEvent != null) {
@@ -3022,6 +3097,7 @@ class _$EmptyIndexEvent implements EmptyIndexEvent {
     required TResult Function(SaveVerseKeyEvent value) saveVerseKeyEvent,
     required TResult Function(EmptyVerseKeyEvent value) emptyVerseKeyEvent,
     required TResult Function(FetchCollectionItem value) fetchCollectionItem,
+    required TResult Function(RemoveBookmark value) removeBookmark,
   }) {
     return emptyIndexEvent(this);
   }
@@ -3044,6 +3120,7 @@ class _$EmptyIndexEvent implements EmptyIndexEvent {
     TResult? Function(SaveVerseKeyEvent value)? saveVerseKeyEvent,
     TResult? Function(EmptyVerseKeyEvent value)? emptyVerseKeyEvent,
     TResult? Function(FetchCollectionItem value)? fetchCollectionItem,
+    TResult? Function(RemoveBookmark value)? removeBookmark,
   }) {
     return emptyIndexEvent?.call(this);
   }
@@ -3066,6 +3143,7 @@ class _$EmptyIndexEvent implements EmptyIndexEvent {
     TResult Function(SaveVerseKeyEvent value)? saveVerseKeyEvent,
     TResult Function(EmptyVerseKeyEvent value)? emptyVerseKeyEvent,
     TResult Function(FetchCollectionItem value)? fetchCollectionItem,
+    TResult Function(RemoveBookmark value)? removeBookmark,
     required TResult orElse(),
   }) {
     if (emptyIndexEvent != null) {
@@ -3173,6 +3251,7 @@ class _$SaveVerseKeyEvent implements SaveVerseKeyEvent {
     required TResult Function(String versekey) saveVerseKeyEvent,
     required TResult Function() emptyVerseKeyEvent,
     required TResult Function() fetchCollectionItem,
+    required TResult Function(String verseKey) removeBookmark,
   }) {
     return saveVerseKeyEvent(versekey);
   }
@@ -3199,6 +3278,7 @@ class _$SaveVerseKeyEvent implements SaveVerseKeyEvent {
     TResult? Function(String versekey)? saveVerseKeyEvent,
     TResult? Function()? emptyVerseKeyEvent,
     TResult? Function()? fetchCollectionItem,
+    TResult? Function(String verseKey)? removeBookmark,
   }) {
     return saveVerseKeyEvent?.call(versekey);
   }
@@ -3225,6 +3305,7 @@ class _$SaveVerseKeyEvent implements SaveVerseKeyEvent {
     TResult Function(String versekey)? saveVerseKeyEvent,
     TResult Function()? emptyVerseKeyEvent,
     TResult Function()? fetchCollectionItem,
+    TResult Function(String verseKey)? removeBookmark,
     required TResult orElse(),
   }) {
     if (saveVerseKeyEvent != null) {
@@ -3251,6 +3332,7 @@ class _$SaveVerseKeyEvent implements SaveVerseKeyEvent {
     required TResult Function(SaveVerseKeyEvent value) saveVerseKeyEvent,
     required TResult Function(EmptyVerseKeyEvent value) emptyVerseKeyEvent,
     required TResult Function(FetchCollectionItem value) fetchCollectionItem,
+    required TResult Function(RemoveBookmark value) removeBookmark,
   }) {
     return saveVerseKeyEvent(this);
   }
@@ -3273,6 +3355,7 @@ class _$SaveVerseKeyEvent implements SaveVerseKeyEvent {
     TResult? Function(SaveVerseKeyEvent value)? saveVerseKeyEvent,
     TResult? Function(EmptyVerseKeyEvent value)? emptyVerseKeyEvent,
     TResult? Function(FetchCollectionItem value)? fetchCollectionItem,
+    TResult? Function(RemoveBookmark value)? removeBookmark,
   }) {
     return saveVerseKeyEvent?.call(this);
   }
@@ -3295,6 +3378,7 @@ class _$SaveVerseKeyEvent implements SaveVerseKeyEvent {
     TResult Function(SaveVerseKeyEvent value)? saveVerseKeyEvent,
     TResult Function(EmptyVerseKeyEvent value)? emptyVerseKeyEvent,
     TResult Function(FetchCollectionItem value)? fetchCollectionItem,
+    TResult Function(RemoveBookmark value)? removeBookmark,
     required TResult orElse(),
   }) {
     if (saveVerseKeyEvent != null) {
@@ -3380,6 +3464,7 @@ class _$EmptyVerseKeyEvent implements EmptyVerseKeyEvent {
     required TResult Function(String versekey) saveVerseKeyEvent,
     required TResult Function() emptyVerseKeyEvent,
     required TResult Function() fetchCollectionItem,
+    required TResult Function(String verseKey) removeBookmark,
   }) {
     return emptyVerseKeyEvent();
   }
@@ -3406,6 +3491,7 @@ class _$EmptyVerseKeyEvent implements EmptyVerseKeyEvent {
     TResult? Function(String versekey)? saveVerseKeyEvent,
     TResult? Function()? emptyVerseKeyEvent,
     TResult? Function()? fetchCollectionItem,
+    TResult? Function(String verseKey)? removeBookmark,
   }) {
     return emptyVerseKeyEvent?.call();
   }
@@ -3432,6 +3518,7 @@ class _$EmptyVerseKeyEvent implements EmptyVerseKeyEvent {
     TResult Function(String versekey)? saveVerseKeyEvent,
     TResult Function()? emptyVerseKeyEvent,
     TResult Function()? fetchCollectionItem,
+    TResult Function(String verseKey)? removeBookmark,
     required TResult orElse(),
   }) {
     if (emptyVerseKeyEvent != null) {
@@ -3458,6 +3545,7 @@ class _$EmptyVerseKeyEvent implements EmptyVerseKeyEvent {
     required TResult Function(SaveVerseKeyEvent value) saveVerseKeyEvent,
     required TResult Function(EmptyVerseKeyEvent value) emptyVerseKeyEvent,
     required TResult Function(FetchCollectionItem value) fetchCollectionItem,
+    required TResult Function(RemoveBookmark value) removeBookmark,
   }) {
     return emptyVerseKeyEvent(this);
   }
@@ -3480,6 +3568,7 @@ class _$EmptyVerseKeyEvent implements EmptyVerseKeyEvent {
     TResult? Function(SaveVerseKeyEvent value)? saveVerseKeyEvent,
     TResult? Function(EmptyVerseKeyEvent value)? emptyVerseKeyEvent,
     TResult? Function(FetchCollectionItem value)? fetchCollectionItem,
+    TResult? Function(RemoveBookmark value)? removeBookmark,
   }) {
     return emptyVerseKeyEvent?.call(this);
   }
@@ -3502,6 +3591,7 @@ class _$EmptyVerseKeyEvent implements EmptyVerseKeyEvent {
     TResult Function(SaveVerseKeyEvent value)? saveVerseKeyEvent,
     TResult Function(EmptyVerseKeyEvent value)? emptyVerseKeyEvent,
     TResult Function(FetchCollectionItem value)? fetchCollectionItem,
+    TResult Function(RemoveBookmark value)? removeBookmark,
     required TResult orElse(),
   }) {
     if (emptyVerseKeyEvent != null) {
@@ -3582,6 +3672,7 @@ class _$FetchCollectionItem implements FetchCollectionItem {
     required TResult Function(String versekey) saveVerseKeyEvent,
     required TResult Function() emptyVerseKeyEvent,
     required TResult Function() fetchCollectionItem,
+    required TResult Function(String verseKey) removeBookmark,
   }) {
     return fetchCollectionItem();
   }
@@ -3608,6 +3699,7 @@ class _$FetchCollectionItem implements FetchCollectionItem {
     TResult? Function(String versekey)? saveVerseKeyEvent,
     TResult? Function()? emptyVerseKeyEvent,
     TResult? Function()? fetchCollectionItem,
+    TResult? Function(String verseKey)? removeBookmark,
   }) {
     return fetchCollectionItem?.call();
   }
@@ -3634,6 +3726,7 @@ class _$FetchCollectionItem implements FetchCollectionItem {
     TResult Function(String versekey)? saveVerseKeyEvent,
     TResult Function()? emptyVerseKeyEvent,
     TResult Function()? fetchCollectionItem,
+    TResult Function(String verseKey)? removeBookmark,
     required TResult orElse(),
   }) {
     if (fetchCollectionItem != null) {
@@ -3660,6 +3753,7 @@ class _$FetchCollectionItem implements FetchCollectionItem {
     required TResult Function(SaveVerseKeyEvent value) saveVerseKeyEvent,
     required TResult Function(EmptyVerseKeyEvent value) emptyVerseKeyEvent,
     required TResult Function(FetchCollectionItem value) fetchCollectionItem,
+    required TResult Function(RemoveBookmark value) removeBookmark,
   }) {
     return fetchCollectionItem(this);
   }
@@ -3682,6 +3776,7 @@ class _$FetchCollectionItem implements FetchCollectionItem {
     TResult? Function(SaveVerseKeyEvent value)? saveVerseKeyEvent,
     TResult? Function(EmptyVerseKeyEvent value)? emptyVerseKeyEvent,
     TResult? Function(FetchCollectionItem value)? fetchCollectionItem,
+    TResult? Function(RemoveBookmark value)? removeBookmark,
   }) {
     return fetchCollectionItem?.call(this);
   }
@@ -3704,6 +3799,7 @@ class _$FetchCollectionItem implements FetchCollectionItem {
     TResult Function(SaveVerseKeyEvent value)? saveVerseKeyEvent,
     TResult Function(EmptyVerseKeyEvent value)? emptyVerseKeyEvent,
     TResult Function(FetchCollectionItem value)? fetchCollectionItem,
+    TResult Function(RemoveBookmark value)? removeBookmark,
     required TResult orElse(),
   }) {
     if (fetchCollectionItem != null) {
@@ -3715,6 +3811,247 @@ class _$FetchCollectionItem implements FetchCollectionItem {
 
 abstract class FetchCollectionItem implements BookmarkEvent {
   const factory FetchCollectionItem() = _$FetchCollectionItem;
+}
+
+/// @nodoc
+abstract class _$$RemoveBookmarkCopyWith<$Res> {
+  factory _$$RemoveBookmarkCopyWith(
+          _$RemoveBookmark value, $Res Function(_$RemoveBookmark) then) =
+      __$$RemoveBookmarkCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String verseKey});
+}
+
+/// @nodoc
+class __$$RemoveBookmarkCopyWithImpl<$Res>
+    extends _$BookmarkEventCopyWithImpl<$Res, _$RemoveBookmark>
+    implements _$$RemoveBookmarkCopyWith<$Res> {
+  __$$RemoveBookmarkCopyWithImpl(
+      _$RemoveBookmark _value, $Res Function(_$RemoveBookmark) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? verseKey = null,
+  }) {
+    return _then(_$RemoveBookmark(
+      verseKey: null == verseKey
+          ? _value.verseKey
+          : verseKey // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$RemoveBookmark implements RemoveBookmark {
+  const _$RemoveBookmark({required this.verseKey});
+
+  @override
+  final String verseKey;
+
+  @override
+  String toString() {
+    return 'BookmarkEvent.removeBookmark(verseKey: $verseKey)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$RemoveBookmark &&
+            (identical(other.verseKey, verseKey) ||
+                other.verseKey == verseKey));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, verseKey);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$RemoveBookmarkCopyWith<_$RemoveBookmark> get copyWith =>
+      __$$RemoveBookmarkCopyWithImpl<_$RemoveBookmark>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            String name,
+            String description,
+            List<String> verskey,
+            String image,
+            BuildContext context,
+            String? dbId)
+        addCollection,
+    required TResult Function(String img) saveImageEvent,
+    required TResult Function(List<int> id) saveQuranChapterId,
+    required TResult Function(String nameValue) nameChanged,
+    required TResult Function(String descriptionValue) descriptionChanged,
+    required TResult Function(
+            String name,
+            String description,
+            List<String> verskey,
+            String image,
+            String dbId,
+            BuildContext context)
+        editCollection,
+    required TResult Function(List<String> verskey) addFavCollection,
+    required TResult Function(int indexList) saveIndexEvent,
+    required TResult Function(int versesIndexList) saveVersesIndexEvent,
+    required TResult Function() clearIndexEvent,
+    required TResult Function(int index) changeIndexEvent,
+    required TResult Function() emptyIndexEvent,
+    required TResult Function(String versekey) saveVerseKeyEvent,
+    required TResult Function() emptyVerseKeyEvent,
+    required TResult Function() fetchCollectionItem,
+    required TResult Function(String verseKey) removeBookmark,
+  }) {
+    return removeBookmark(verseKey);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name, String description, List<String> verskey,
+            String image, BuildContext context, String? dbId)?
+        addCollection,
+    TResult? Function(String img)? saveImageEvent,
+    TResult? Function(List<int> id)? saveQuranChapterId,
+    TResult? Function(String nameValue)? nameChanged,
+    TResult? Function(String descriptionValue)? descriptionChanged,
+    TResult? Function(String name, String description, List<String> verskey,
+            String image, String dbId, BuildContext context)?
+        editCollection,
+    TResult? Function(List<String> verskey)? addFavCollection,
+    TResult? Function(int indexList)? saveIndexEvent,
+    TResult? Function(int versesIndexList)? saveVersesIndexEvent,
+    TResult? Function()? clearIndexEvent,
+    TResult? Function(int index)? changeIndexEvent,
+    TResult? Function()? emptyIndexEvent,
+    TResult? Function(String versekey)? saveVerseKeyEvent,
+    TResult? Function()? emptyVerseKeyEvent,
+    TResult? Function()? fetchCollectionItem,
+    TResult? Function(String verseKey)? removeBookmark,
+  }) {
+    return removeBookmark?.call(verseKey);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String name, String description, List<String> verskey,
+            String image, BuildContext context, String? dbId)?
+        addCollection,
+    TResult Function(String img)? saveImageEvent,
+    TResult Function(List<int> id)? saveQuranChapterId,
+    TResult Function(String nameValue)? nameChanged,
+    TResult Function(String descriptionValue)? descriptionChanged,
+    TResult Function(String name, String description, List<String> verskey,
+            String image, String dbId, BuildContext context)?
+        editCollection,
+    TResult Function(List<String> verskey)? addFavCollection,
+    TResult Function(int indexList)? saveIndexEvent,
+    TResult Function(int versesIndexList)? saveVersesIndexEvent,
+    TResult Function()? clearIndexEvent,
+    TResult Function(int index)? changeIndexEvent,
+    TResult Function()? emptyIndexEvent,
+    TResult Function(String versekey)? saveVerseKeyEvent,
+    TResult Function()? emptyVerseKeyEvent,
+    TResult Function()? fetchCollectionItem,
+    TResult Function(String verseKey)? removeBookmark,
+    required TResult orElse(),
+  }) {
+    if (removeBookmark != null) {
+      return removeBookmark(verseKey);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(AddCollection value) addCollection,
+    required TResult Function(SaveImageEvent value) saveImageEvent,
+    required TResult Function(SaveQuranChapterId value) saveQuranChapterId,
+    required TResult Function(NameChanged value) nameChanged,
+    required TResult Function(DescriptionChanged value) descriptionChanged,
+    required TResult Function(EditCollection value) editCollection,
+    required TResult Function(AddFavCollection value) addFavCollection,
+    required TResult Function(SaveIndexEvent value) saveIndexEvent,
+    required TResult Function(SaveVersesIndexEvent value) saveVersesIndexEvent,
+    required TResult Function(ClearIndexEvent value) clearIndexEvent,
+    required TResult Function(ChangeIndexEvent value) changeIndexEvent,
+    required TResult Function(EmptyIndexEvent value) emptyIndexEvent,
+    required TResult Function(SaveVerseKeyEvent value) saveVerseKeyEvent,
+    required TResult Function(EmptyVerseKeyEvent value) emptyVerseKeyEvent,
+    required TResult Function(FetchCollectionItem value) fetchCollectionItem,
+    required TResult Function(RemoveBookmark value) removeBookmark,
+  }) {
+    return removeBookmark(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(AddCollection value)? addCollection,
+    TResult? Function(SaveImageEvent value)? saveImageEvent,
+    TResult? Function(SaveQuranChapterId value)? saveQuranChapterId,
+    TResult? Function(NameChanged value)? nameChanged,
+    TResult? Function(DescriptionChanged value)? descriptionChanged,
+    TResult? Function(EditCollection value)? editCollection,
+    TResult? Function(AddFavCollection value)? addFavCollection,
+    TResult? Function(SaveIndexEvent value)? saveIndexEvent,
+    TResult? Function(SaveVersesIndexEvent value)? saveVersesIndexEvent,
+    TResult? Function(ClearIndexEvent value)? clearIndexEvent,
+    TResult? Function(ChangeIndexEvent value)? changeIndexEvent,
+    TResult? Function(EmptyIndexEvent value)? emptyIndexEvent,
+    TResult? Function(SaveVerseKeyEvent value)? saveVerseKeyEvent,
+    TResult? Function(EmptyVerseKeyEvent value)? emptyVerseKeyEvent,
+    TResult? Function(FetchCollectionItem value)? fetchCollectionItem,
+    TResult? Function(RemoveBookmark value)? removeBookmark,
+  }) {
+    return removeBookmark?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AddCollection value)? addCollection,
+    TResult Function(SaveImageEvent value)? saveImageEvent,
+    TResult Function(SaveQuranChapterId value)? saveQuranChapterId,
+    TResult Function(NameChanged value)? nameChanged,
+    TResult Function(DescriptionChanged value)? descriptionChanged,
+    TResult Function(EditCollection value)? editCollection,
+    TResult Function(AddFavCollection value)? addFavCollection,
+    TResult Function(SaveIndexEvent value)? saveIndexEvent,
+    TResult Function(SaveVersesIndexEvent value)? saveVersesIndexEvent,
+    TResult Function(ClearIndexEvent value)? clearIndexEvent,
+    TResult Function(ChangeIndexEvent value)? changeIndexEvent,
+    TResult Function(EmptyIndexEvent value)? emptyIndexEvent,
+    TResult Function(SaveVerseKeyEvent value)? saveVerseKeyEvent,
+    TResult Function(EmptyVerseKeyEvent value)? emptyVerseKeyEvent,
+    TResult Function(FetchCollectionItem value)? fetchCollectionItem,
+    TResult Function(RemoveBookmark value)? removeBookmark,
+    required TResult orElse(),
+  }) {
+    if (removeBookmark != null) {
+      return removeBookmark(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class RemoveBookmark implements BookmarkEvent {
+  const factory RemoveBookmark({required final String verseKey}) =
+      _$RemoveBookmark;
+
+  String get verseKey;
+  @JsonKey(ignore: true)
+  _$$RemoveBookmarkCopyWith<_$RemoveBookmark> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc

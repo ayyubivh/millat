@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:millat/resources/home/bloc/logic/quran_bloc/quran_bloc.dart';
 import '../../../../../utils/color_manager.dart';
 import '../../../../../utils/constants.dart';
 import 'al_quran_settings.dart';
@@ -9,7 +11,6 @@ AppBar alQuranAppbar({
   required String text,
   required Color color,
   Color? iconColor,
-  bool isShowbookMark = false,
 }) {
   return AppBar(
     backgroundColor: color,
@@ -25,15 +26,17 @@ AppBar alQuranAppbar({
       ),
     ),
     actions: [
-      isShowbookMark == false
-          ? InkWell(
-              onTap: onTap,
-              child: ImageIcon(
-                const AssetImage("assets/icons/bookmark.png"),
-                color: ColorManager.blackColor,
+      BlocBuilder<QuranBloc, QuranState>(
+        builder: (context, state) => state.tabBarIndex == 2
+            ? const SizedBox()
+            : InkWell(
+                onTap: onTap,
+                child: ImageIcon(
+                  const AssetImage("assets/icons/bookmark.png"),
+                  color: ColorManager.blackColor,
+                ),
               ),
-            )
-          : const SizedBox(),
+      ),
       kWidth15,
       InkWell(
         onTap: () {
@@ -45,11 +48,6 @@ AppBar alQuranAppbar({
           const AssetImage("assets/icons/settings.png"),
           color: iconColor,
         ),
-      ),
-      kWidth15,
-      ImageIcon(
-        const AssetImage("assets/icons/search.png"),
-        color: ColorManager.blackColor,
       ),
       kWidth15,
       kWidth15,

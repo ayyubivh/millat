@@ -24,3 +24,8 @@ enum BookMarkCollectionType {
   add,
   edit,
 }
+
+enum QuranFavbookMarkType {
+  view,
+  add,
+}

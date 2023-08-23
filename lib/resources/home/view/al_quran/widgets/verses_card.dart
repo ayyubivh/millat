@@ -122,14 +122,6 @@ class VersesCardWidget extends StatelessWidget {
             ),
             child: Row(
               children: [
-                // Text(
-                //   "Tafseer",
-                //   style: TextStyle(
-                //     fontSize: 15,
-                //     fontWeight: FontWeight.bold,
-                //     color: ColorManager.primary,
-                //   ),
-                // ),
                 const Spacer(),
                 GestureDetector(
                   onTap: shareOnTap,

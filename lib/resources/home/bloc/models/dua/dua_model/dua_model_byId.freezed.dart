@@ -679,22 +679,15 @@ class _$_Dua implements _Dua {
 
 abstract class _Dua implements Dua {
   factory _Dua(
-      {@JsonKey(name: '_id')
-          required final String id,
-      @JsonKey(name: 'categoryId')
-          required final String categoryId,
+      {@JsonKey(name: '_id') required final String id,
+      @JsonKey(name: 'categoryId') required final String categoryId,
       @JsonKey(name: 'subCategoryId')
-          required final SubCategoryId subCategoryId,
-      @JsonKey(name: 'content')
-          required final String content,
-      @JsonKey(name: 'resource')
-          required final String resource,
-      @JsonKey(name: 'translate')
-          required final List<Translation> translations,
-      @JsonKey(name: 'createdAt')
-          required final String createdAt,
-      @JsonKey(name: 'updatedAt')
-          required final String updatedAt}) = _$_Dua;
+      required final SubCategoryId subCategoryId,
+      @JsonKey(name: 'content') required final String content,
+      @JsonKey(name: 'resource') required final String resource,
+      @JsonKey(name: 'translate') required final List<Translation> translations,
+      @JsonKey(name: 'createdAt') required final String createdAt,
+      @JsonKey(name: 'updatedAt') required final String updatedAt}) = _$_Dua;
 
   factory _Dua.fromJson(Map<String, dynamic> json) = _$_Dua.fromJson;
 

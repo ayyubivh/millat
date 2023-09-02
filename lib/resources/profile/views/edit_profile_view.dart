@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:millat/components/buttons/main_button.dart';
 import 'package:millat/resources/authentication/bloc/logic/database_bloc/database_bloc.dart';
 import 'package:millat/resources/profile/views/user_profile_view.dart';
 import 'package:millat/resources/profile/widgets/profile_textformfield_widget.dart';
 import 'package:millat/utils/color_manager.dart';
+import 'package:millat/utils/loader.dart';
 import 'package:millat/utils/string_constants.dart';
 import '../../../utils/assets_paths.dart';
 import '../../../utils/constants.dart';
+import '../../../utils/utils.dart';
 
 class EditProfileView extends StatefulWidget {
   const EditProfileView({Key? key}) : super(key: key);
@@ -22,15 +25,21 @@ class _EditProfileViewState extends State<EditProfileView> {
   final TextEditingController _dateofBirthcontroller = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _phoneController = TextEditingController();
+  final TextEditingController _professionController = TextEditingController();
+  final TextEditingController _companyController = TextEditingController();
   addField() {
     final data = context.read<DatabaseBloc>().state.authUserModel?.result?.user;
     _userNameController.text = data?.username ?? "";
     _nameController.text = data?.name ?? "";
     _emailController.text = data?.email ?? "";
+    _dateofBirthcontroller.text = data?.dob ?? "";
+    _companyController.text = data?.institution ?? "";
+    _professionController.text = data?.profession ?? "";
   }
 
   @override
   void initState() {
+    context.read<DatabaseBloc>().add(FetchAuthUser(context: context));
     addField();
     super.initState();
   }
@@ -184,25 +193,86 @@ class _EditProfileViewState extends State<EditProfileView> {
                           children: [
                             Align(
                               alignment: Alignment.center,
-                              child: CircleAvatar(
-                                radius: 45,
-                                backgroundColor: ColorManager.whiteColor,
-                                child: CircleAvatar(
-                                  radius: 40,
-                                  backgroundColor: ColorManager.dotGrey,
-                                  child: Icon(
-                                    Icons.person_2_outlined,
-                                    size: 60,
-                                    color: ColorManager.black4A,
-                                  ),
-                                ),
+                              child: BlocBuilder<DatabaseBloc, DatabaseState>(
+                                builder: (context, state) {
+                                  return CircleAvatar(
+                                    radius: 45,
+                                    backgroundColor: ColorManager.whiteColor,
+                                    child: CircleAvatar(
+                                      radius: 40,
+                                      backgroundColor: ColorManager.dotGrey,
+                                      child: (state.imagebytes == null &&
+                                              (state.authUserModel?.result?.user
+                                                          ?.picture ==
+                                                      null ||
+                                                  state.authUserModel?.result
+                                                          ?.user?.picture ==
+                                                      ""))
+                                          ? Icon(
+                                              Icons.person_2_outlined,
+                                              size: 60,
+                                              color: ColorManager.black4A,
+                                            )
+                                          : (state.authUserModel?.result?.user
+                                                          ?.picture !=
+                                                      null &&
+                                                  state.authUserModel?.result
+                                                          ?.user?.picture !=
+                                                      "")
+                                              ? ClipOval(
+                                                  child: Container(
+                                                    decoration: BoxDecoration(
+                                                      image: DecorationImage(
+                                                        fit: BoxFit.cover,
+                                                        image: state.imagebytes !=
+                                                                null
+                                                            ? FileImage(state
+                                                                    .imagebytes!)
+                                                                as ImageProvider<
+                                                                    Object>
+                                                            : NetworkImage(state
+                                                                .authUserModel!
+                                                                .result!
+                                                                .user!
+                                                                .picture!),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                )
+                                              : (state.imagebytes != null)
+                                                  ? ClipOval(
+                                                      child: Container(
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          image:
+                                                              DecorationImage(
+                                                            fit: BoxFit.cover,
+                                                            image: FileImage(state
+                                                                .imagebytes!),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    )
+                                                  : Icon(
+                                                      Icons.person_2_outlined,
+                                                      size: 60,
+                                                      color:
+                                                          ColorManager.black4A,
+                                                    ),
+                                    ),
+                                  );
+                                },
                               ),
                             ),
                             Positioned(
                               bottom: 8,
                               right: 0,
                               left: 50,
-                              child: _editCircleAvatar(() {}),
+                              child: _editCircleAvatar(() {
+                                context.read<DatabaseBloc>().add(
+                                    const UploadImageEvent(
+                                        source: ImageSource.gallery));
+                              }),
                             ),
                           ],
                         ),
@@ -230,45 +300,85 @@ class _EditProfileViewState extends State<EditProfileView> {
                     icon: ImageIcon(
                       const AssetImage(AppAssetsStrings.dateIcon),
                       color: ColorManager.blackColor,
+                      size: 10,
                     )),
                 _textFieldWidget(
                     controller: _emailController,
                     textFieldName: Appstrings.email,
                     hintName: Appstrings.email,
                     textInputType: TextInputType.emailAddress,
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Email is required';
+                      }
+                      final emailRegExp = RegExp(
+                          r'^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$');
+                      if (!emailRegExp.hasMatch(value)) {
+                        return 'Enter a valid email address';
+                      }
+                      return null;
+                    },
                     icon: ImageIcon(
                       const AssetImage(AppAssetsStrings.mailIcon),
                       color: ColorManager.blackColor,
+                      size: 10,
                     )),
                 _textFieldWidget(
-                  controller: _phoneController,
-                  textFieldName: Appstrings.mobileNumber,
-                  hintName: Appstrings.mobileNumber,
-                  textInputType: TextInputType.number,
+                    controller: _phoneController,
+                    textFieldName: Appstrings.mobileNumber,
+                    hintName: Appstrings.mobileNumber,
+                    textInputType: TextInputType.name,
+                    maxLength: 10),
+                _textFieldWidget(
+                  controller: _professionController,
+                  textFieldName: Appstrings.profession,
+                  hintName: Appstrings.profession,
+                  textInputType: TextInputType.name,
                 ),
-                // _textFieldWidget(
-                //   textFieldName: Appstrings.profession,
-                //   hintName: Appstrings.profession,
-                // ),
-                // _textFieldWidget(
-                //   textFieldName: Appstrings.companyOrStudy,
-                //   hintName: Appstrings.companyOrStudy,
-                // )
+                _textFieldWidget(
+                  controller: _companyController,
+                  textFieldName: Appstrings.companyOrStudy,
+                  hintName: Appstrings.companyOrStudy,
+                  textInputType: TextInputType.name,
+                ),
                 kHeight15,
                 MainButton(
                   title: "Save",
                   onPressed: () {
+                    final img = context
+                        .read<DatabaseBloc>()
+                        .state
+                        .authUserModel
+                        ?.result
+                        ?.user
+                        ?.picture;
+
+                    final email = context
+                        .read<DatabaseBloc>()
+                        .state
+                        .authUserModel
+                        ?.result
+                        ?.user
+                        ?.email;
+                    if (img == null) {
+                      return showSnackBar(context, "Please Select Image");
+                    }
+
                     context.read<DatabaseBloc>().add(EditAuthUser(
                         context: context,
                         name: _nameController.text,
-                        email: _emailController.text,
-                        userName: _userNameController.text));
+                        email: email == _emailController.text
+                            ? null
+                            : _emailController.text,
+                        userName: _userNameController.text,
+                        dob: _dateofBirthcontroller.text,
+                        institution: _companyController.text,
+                        profession: _professionController.text,
+                        image: img));
 
-                    context.read<DatabaseBloc>()
-                      ..add(FetchAuthUser(context: context))
-                      ..add(StoreUserDetails(
-                          email: _emailController.text,
-                          name: _nameController.text));
+                    context
+                        .read<DatabaseBloc>()
+                        .add(FetchAuthUser(context: context));
                     Navigator.of(context).pop();
                   },
                 )
@@ -292,8 +402,10 @@ class _EditProfileViewState extends State<EditProfileView> {
   Widget _textFieldWidget(
       {required String hintName,
       required String textFieldName,
+      int? maxLength,
       TextInputType? textInputType,
       required TextEditingController controller,
+      String? Function(String? val)? validator,
       ImageIcon? icon}) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -307,10 +419,12 @@ class _EditProfileViewState extends State<EditProfileView> {
         ),
         kHeight10,
         ProfieEditTextFormField(
+          maxLength: maxLength,
           controller: controller,
           icon: icon ?? const Icon(null),
           hint: hintName,
           textInputType: textInputType ?? TextInputType.none,
+          validator: validator,
         ),
         kHeight15,
       ],

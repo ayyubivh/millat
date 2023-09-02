@@ -8,6 +8,9 @@ import '../../../../../utils/constants.dart';
 import '../../../../../utils/color_manager.dart';
 import '../../../bloc/logic/quran_bloc/quran_bloc.dart';
 import '../../../bloc/models/al-quran/quran_chapter_models/quran_chapter_models.dart';
+import '../bookmark_view.dart';
+import 'bookmark_collection_view.dart';
+import 'new_collection_widget.dart';
 import 'verses_view.dart';
 
 class QuranTabBarWidget extends StatefulWidget {
@@ -26,15 +29,8 @@ class _QuranTabBarWidgetState extends State<QuranTabBarWidget>
     BlocProvider.of<QuranBloc>(context).add(const FetchQuaranChaptersEvent());
     BlocProvider.of<QuranBloc>(context).add(const FetchQuranPara());
     _tabController = TabController(length: 3, vsync: this);
-    _tabController.addListener(_handleTabChange);
-    _tabController.index = 0;
-    super.initState();
-  }
 
-  void _handleTabChange() {
-    context
-        .read<QuranBloc>()
-        .add(OnChangeQuranTabbar(index: _tabController.index));
+    super.initState();
   }
 
   @override
@@ -99,76 +95,125 @@ class _QuranTabBarWidgetState extends State<QuranTabBarWidget>
         builder: (context, state) {
           return state.dbCollectionItems.isEmpty
               ? const CreateNewBookmarkWidget()
-              : ListView(
-                  shrinkWrap: true,
+              : Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    ExpansionPanelList(
-                      elevation: 0,
-                      expandedHeaderPadding: EdgeInsets.zero,
-                      expansionCallback: (panelIndex, isExpanded) {
-                        setState(() {
-                          context.read<QuranBloc>().add(FetchVersesByKey(
-                              verseKey: state
-                                  .dbCollectionItems[panelIndex].verseKey));
-                          _expandedIndex = isExpanded ? -1 : panelIndex;
-                        });
-                      },
-                      children: List.generate(state.dbCollectionItems.length,
-                          (index) {
-                        bool isExpanded = index == _expandedIndex;
+                    // kHeight20,
+                    const BookmarkNewCollectionWidget(),
+                    // kHeight20,
+                    // BlocBuilder<BookmarkBloc, BookmarkState>(
+                    //   builder: (context, state) => state.dbCollectionItems
+                    //           .map((e) => e.id == "1")
+                    //           .isEmpty
+                    //       ? const SizedBox.shrink()
+                    //       : const QuranFavBookmarkCollectionWidget(
+                    //           type: QuranFavbookMarkType.view,
+                    //         ),
+                    // ),
+                    kHeight20,
+                    Expanded(
+                      child: BlocBuilder<BookmarkBloc, BookmarkState>(
+                        builder: (context, state) {
+                          if (state.dbCollectionItems.isEmpty) {
+                            return const SizedBox();
+                          }
+                          final value = state.dbCollectionItems;
+                          return ListView.builder(
+                            itemCount: value.length,
+                            itemBuilder: (context, index) {
+                              final data = value[index];
 
-                        return ExpansionPanel(
-                          headerBuilder: (context, isExpanded) {
-                            return ListTile(
-                              title: Text(
-                                state.dbCollectionItems[index].name,
-                                style: TextStyle(
-                                  fontSize: 17,
-                                  color: ColorManager.blackColor,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            );
-                          },
-                          body: SizedBox(
-                            height: 400,
-                            child: BlocBuilder<QuranBloc, QuranState>(
-                              builder: (context, state) {
-                                final data = state.versesByKeyModel;
-                                return ListView.builder(
-                                  itemCount: data!.length,
-                                  itemBuilder: (context, index) {
-                                    return ListTile(
-                                      title: Text(
-                                        data[index].verses[0].textIndopak,
-                                        style: TextStyle(
-                                          color: ColorManager.primary,
-                                          fontSize: 17,
-                                          fontWeight: FontWeight.w600,
-                                          fontFamily: 'Hafs',
-                                        ),
-                                      ),
-                                      subtitle: Text(
-                                        data[index].verses[0].verseKey,
-                                        style: TextStyle(
-                                          color: ColorManager.blackColor,
-                                          fontSize: 13,
-                                          fontWeight: FontWeight.bold,
-                                          height: 2,
-                                        ),
-                                      ),
-                                    );
-                                  },
-                                );
-                              },
-                            ),
-                          ),
-                          isExpanded: isExpanded,
-                        );
-                      }),
+                              return InkWell(
+                                onTap: () {
+                                  Navigator.of(context).push(MaterialPageRoute(
+                                      builder: (context) =>
+                                          BookmarkCollectionView(
+                                              passvalue: data)));
+                                },
+                                child: buildCollectionContainer(
+                                    passvalue: data,
+                                    context: context,
+                                    img: data.image,
+                                    collectionName: data.name,
+                                    userName: data.discription),
+                              );
+                            },
+                          );
+                        },
+                      ),
                     ),
                   ],
                 );
+          // : ListView(
+          //     shrinkWrap: true,
+          //     children: [
+          //       ExpansionPanelList(
+          //         elevation: 0,
+          //         expandedHeaderPadding: EdgeInsets.zero,
+          //         expansionCallback: (panelIndex, isExpanded) {
+          //           setState(() {
+          //             context.read<QuranBloc>().add(FetchVersesByKey(
+          //                 verseKey: state
+          //                     .dbCollectionItems[panelIndex].verseKey));
+          //             _expandedIndex = isExpanded ? -1 : panelIndex;
+          //           });
+          //         },
+          //         children: List.generate(state.dbCollectionItems.length,
+          //             (index) {
+          //           bool isExpanded = index == _expandedIndex;
+
+          //           return ExpansionPanel(
+          //             headerBuilder: (context, isExpanded) {
+          //               return ListTile(
+          //                 title: Text(
+          //                   state.dbCollectionItems[index].name,
+          //                   style: TextStyle(
+          //                     fontSize: 17,
+          //                     color: ColorManager.blackColor,
+          //                     fontWeight: FontWeight.bold,
+          //                   ),
+          //                 ),
+          //               );
+          //             },
+          //             body: SizedBox(
+          //               height: 400,
+          //               child: BlocBuilder<QuranBloc, QuranState>(
+          //                 builder: (context, state) {
+          //                   final data = state.versesByKeyModel;
+          //                   return ListView.builder(
+          //                     itemCount: data!.length,
+          //                     itemBuilder: (context, index) {
+          //                       return ListTile(
+          //                         title: Text(
+          //                           data[index].verses[0].textIndopak,
+          //                           style: TextStyle(
+          //                             color: ColorManager.primary,
+          //                             fontSize: 17,
+          //                             fontWeight: FontWeight.w600,
+          //                             fontFamily: 'Hafs',
+          //                           ),
+          //                         ),
+          //                         subtitle: Text(
+          //                           data[index].verses[0].verseKey,
+          //                           style: TextStyle(
+          //                             color: ColorManager.blackColor,
+          //                             fontSize: 13,
+          //                             fontWeight: FontWeight.bold,
+          //                             height: 2,
+          //                           ),
+          //                         ),
+          //                       );
+          //                     },
+          //                   );
+          //                 },
+          //               ),
+          //             ),
+          //             isExpanded: isExpanded,
+          //           );
+          //         }),
+          //       ),
+          //     ],
+          //   );
         },
       ),
     );
@@ -366,7 +411,7 @@ List<Map<String, String>> verses = [
     'arabic': 'تِلۡكَ الرُّسُلُ ',
   },
   {
-    'english': 'Kullu Thaamu',
+    'english': 'Lann tanaloo',
     'arabic': 'كُلُّ الطَّعَامِ كَانَ ',
   },
   {

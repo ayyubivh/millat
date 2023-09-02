@@ -1,117 +1,148 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:millat/resources/shop/bloc/models/articles/articles_model.dart';
+import 'package:millat/resources/shop/view/cart/cart.dart';
+import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/color_manager.dart';
-
+import 'package:millat/utils/constants.dart';
+import 'package:millat/utils/size_utility.dart';
+import 'package:millat/utils/string_constants.dart';
 import '../../../../utils/utils.dart';
+import '../../bloc/logic/cart_bloc/cart_bloc.dart';
 
 class SingleArticleView extends StatelessWidget {
-  final passValue;
-  final int index;
-  const SingleArticleView({Key? key, this.passValue, required this.index})
-      : super(key: key);
+  final Article? passValue;
+
+  const SingleArticleView({
+    Key? key,
+    this.passValue,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: ColorManager.whiteColor,
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+        backgroundColor: ColorManager.whiteColor,
         elevation: 0,
         centerTitle: false,
-        title: const Text('Single Articles',
-            style: TextStyle(color: Colors.black, fontWeight: FontWeight.w700)),
-        actions: const [
+        title: Text(
+          Appstrings.articles,
+          style: TextStyle(
+              color: ColorManager.blackColor, fontWeight: FontWeight.w700),
+        ),
+        actions: [
           Padding(
-            padding: EdgeInsets.only(left: 10),
+            padding: const EdgeInsets.only(right: 40),
             child: ImageIcon(
-              AssetImage(
-                'assets/icons/search.png',
+              const AssetImage(
+                AppAssetsStrings.searchIcon,
               ),
-              color: Colors.black,
-            ),
-          ),
-          Padding(
-            padding: EdgeInsets.only(left: 20, right: 20),
-            child: ImageIcon(
-              AssetImage(
-                'assets/icons/cart.png',
-              ),
-              color: Colors.black,
+              color: ColorManager.blackColor,
             ),
           ),
         ],
-        leading: const BackButton(
-          color: Colors.black,
+        leading: BackButton(
+          color: ColorManager.blackColor,
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 30),
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(20),
-                child: Image.network(
-                  passValue[index].image,
-                  height: 200,
-                  width: double.infinity,
-                  fit: BoxFit.cover,
-                ),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(
+              height: 350,
+              width: SizeUtility(context).width,
+              child: Stack(
                 children: [
-                  Text(
-                    '${passValue[index].brand} • ${Utilities.formatDate(passValue[index].date)}',
-                    style: TextStyle(
-                        color: ColorManager.greenColor1,
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold),
-                  ),
                   Container(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 10, vertical: 10),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      color: ColorManager.veryLightGreen,
+                    height: 240,
+                    color: ColorManager.darkGreenClr4f.withOpacity(0.3),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 30)
+                        .copyWith(top: 30),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          passValue?.title ?? "",
+                          style: const TextStyle(
+                              color: black16,
+                              fontSize: 20,
+                              fontWeight: FontWeight.w600),
+                        ),
+                        const SizedBox(height: 35),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: [
+                            Text(
+                              '${passValue?.brand} • ${Utilities.formatDate(passValue!.date ?? "")}',
+                              style: TextStyle(
+                                  color: ColorManager.textGrey84,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                            Container(
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 10, vertical: 10),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20),
+                                color: ColorManager.darkGreenClr4f,
+                              ),
+                              child: Text(
+                                Appstrings.popular,
+                                style: TextStyle(
+                                    color: ColorManager.whiteColor,
+                                    fontWeight: FontWeight.w700),
+                              ),
+                            )
+                          ],
+                        ),
+                      ],
                     ),
-                    child: Text('Popular',
-                        style: TextStyle(
-                            color: ColorManager.greenColor1,
-                            fontWeight: FontWeight.w700)),
-                  )
+                  ),
+                  Positioned(
+                    top: 140,
+                    left: 0,
+                    right: 0,
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 30),
+                      width: SizeUtility(context).width / 4,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(20),
+                        child: Image.network(
+                          passValue!.image!,
+                          height: 202,
+                          width: double.infinity,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                  ),
                 ],
               ),
-              const SizedBox(
-                height: 20,
+            ),
+            kHeight15,
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 30),
+              child: Text(
+                passValue?.content ?? "",
+                style: TextStyle(
+                    color: ColorManager.textGrey99, fontSize: 17, height: 1.3),
               ),
-              Text(
-                passValue[index].title,
-                style: const TextStyle(
-                    color: black16, fontSize: 20, fontWeight: FontWeight.w600),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              Text(
-                passValue[index].content,
-                style:
-                    const TextStyle(color: black122, fontSize: 17, height: 1.3),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              const SizedBox(
-                height: 50,
-              ),
-            ],
-          ),
+            ),
+            kHeight100,
+            kHeight50,
+          ],
         ),
       ),
       bottomSheet: Container(
         height: 70,
         margin: const EdgeInsets.symmetric(horizontal: 30, vertical: 30),
         decoration: BoxDecoration(
-            color: ColorManager.greenColor1,
+            color: ColorManager.darkGreenClr4f,
             borderRadius: BorderRadius.circular(20)),
         child: Row(
           children: [
@@ -120,7 +151,7 @@ class SingleArticleView extends StatelessWidget {
               child: ClipRRect(
                   borderRadius: BorderRadius.circular(10),
                   child: Image.network(
-                    passValue[index].image,
+                    passValue!.image!,
                     fit: BoxFit.cover,
                     height: 56,
                     width: 56,
@@ -134,40 +165,53 @@ class SingleArticleView extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  passValue[index].title,
-                  style: const TextStyle(
-                      color: Colors.white,
+                  passValue!.title ?? "",
+                  style: TextStyle(
+                      color: ColorManager.whiteColor,
                       fontSize: 15,
                       fontWeight: FontWeight.w600),
                 ),
                 const SizedBox(
                   height: 5,
                 ),
-                const Text(
-                  '₹ 1,523.68',
+                Text(
+                  passValue!.product?.actualPrice.toString() ?? '0',
                   style: TextStyle(
-                      color: Colors.white,
+                      color: ColorManager.whiteColor,
                       fontSize: 15,
                       fontWeight: FontWeight.w600),
                 ),
               ],
             ),
             const Spacer(),
-            const Text(
+            Text(
               'Buy Now',
               style: TextStyle(
-                  color: Colors.white,
+                  color: ColorManager.whiteColor,
                   fontSize: 15,
                   fontWeight: FontWeight.w600),
             ),
             IconButton(
               onPressed: () {
-                // context.read<CartBloc>().add(CartEvent.addCart(productId: passValue[index].id, basePrice: 1523, size: size, context: context, color: color, quantity: quantity))
-                print('object');
+                print(
+                  "${passValue!.product!.id}\n\n ${passValue!.product!.actualPrice!}\n${passValue!.product!.size![0].value!}\n${passValue!.product!.colors![0].text!}\n ${passValue!.product!.brand!}",
+                );
+                context.read<CartBloc>().add(CartEvent.addCart(
+                      productId: passValue!.product!.id,
+                      basePrice: passValue!.product!.actualPrice!,
+                      size: passValue!.product!.size![0].value!,
+                      context: context,
+                      color: passValue!.product!.colors![0].text!,
+                      quantity: 1,
+                      brandId: passValue!.product!.brand!,
+                    ));
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => const CartView(),
+                ));
               },
-              icon: const Icon(
+              icon: Icon(
                 Icons.arrow_forward_ios,
-                color: Colors.white,
+                color: ColorManager.whiteColor,
               ),
             ),
             const SizedBox(

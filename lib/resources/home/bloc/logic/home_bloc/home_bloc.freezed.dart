@@ -23,8 +23,10 @@ mixin _$HomeEvent {
     required TResult Function() fetchBrandofTheDay,
     required TResult Function() fetchHadithOfTheDay,
     required TResult Function() fetchEventOfTheMonth,
-    required TResult Function() fetchPrayerTrackerEvent,
-    required TResult Function(String namazName) addPrayerToPrayerTracker,
+    required TResult Function(DateTime date, BuildContext context)
+        fetchPrayerTrackerEvent,
+    required TResult Function(String namazName, BuildContext context)
+        addPrayerToPrayerTracker,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -34,8 +36,10 @@ mixin _$HomeEvent {
     TResult? Function()? fetchBrandofTheDay,
     TResult? Function()? fetchHadithOfTheDay,
     TResult? Function()? fetchEventOfTheMonth,
-    TResult? Function()? fetchPrayerTrackerEvent,
-    TResult? Function(String namazName)? addPrayerToPrayerTracker,
+    TResult? Function(DateTime date, BuildContext context)?
+        fetchPrayerTrackerEvent,
+    TResult? Function(String namazName, BuildContext context)?
+        addPrayerToPrayerTracker,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -45,8 +49,10 @@ mixin _$HomeEvent {
     TResult Function()? fetchBrandofTheDay,
     TResult Function()? fetchHadithOfTheDay,
     TResult Function()? fetchEventOfTheMonth,
-    TResult Function()? fetchPrayerTrackerEvent,
-    TResult Function(String namazName)? addPrayerToPrayerTracker,
+    TResult Function(DateTime date, BuildContext context)?
+        fetchPrayerTrackerEvent,
+    TResult Function(String namazName, BuildContext context)?
+        addPrayerToPrayerTracker,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -150,8 +156,10 @@ class _$FetchLargeDisountsBanner implements FetchLargeDisountsBanner {
     required TResult Function() fetchBrandofTheDay,
     required TResult Function() fetchHadithOfTheDay,
     required TResult Function() fetchEventOfTheMonth,
-    required TResult Function() fetchPrayerTrackerEvent,
-    required TResult Function(String namazName) addPrayerToPrayerTracker,
+    required TResult Function(DateTime date, BuildContext context)
+        fetchPrayerTrackerEvent,
+    required TResult Function(String namazName, BuildContext context)
+        addPrayerToPrayerTracker,
   }) {
     return fetchLargeDisountsBanner();
   }
@@ -164,8 +172,10 @@ class _$FetchLargeDisountsBanner implements FetchLargeDisountsBanner {
     TResult? Function()? fetchBrandofTheDay,
     TResult? Function()? fetchHadithOfTheDay,
     TResult? Function()? fetchEventOfTheMonth,
-    TResult? Function()? fetchPrayerTrackerEvent,
-    TResult? Function(String namazName)? addPrayerToPrayerTracker,
+    TResult? Function(DateTime date, BuildContext context)?
+        fetchPrayerTrackerEvent,
+    TResult? Function(String namazName, BuildContext context)?
+        addPrayerToPrayerTracker,
   }) {
     return fetchLargeDisountsBanner?.call();
   }
@@ -178,8 +188,10 @@ class _$FetchLargeDisountsBanner implements FetchLargeDisountsBanner {
     TResult Function()? fetchBrandofTheDay,
     TResult Function()? fetchHadithOfTheDay,
     TResult Function()? fetchEventOfTheMonth,
-    TResult Function()? fetchPrayerTrackerEvent,
-    TResult Function(String namazName)? addPrayerToPrayerTracker,
+    TResult Function(DateTime date, BuildContext context)?
+        fetchPrayerTrackerEvent,
+    TResult Function(String namazName, BuildContext context)?
+        addPrayerToPrayerTracker,
     required TResult orElse(),
   }) {
     if (fetchLargeDisountsBanner != null) {
@@ -285,8 +297,10 @@ class _$FetchTopOffersBanner implements FetchTopOffersBanner {
     required TResult Function() fetchBrandofTheDay,
     required TResult Function() fetchHadithOfTheDay,
     required TResult Function() fetchEventOfTheMonth,
-    required TResult Function() fetchPrayerTrackerEvent,
-    required TResult Function(String namazName) addPrayerToPrayerTracker,
+    required TResult Function(DateTime date, BuildContext context)
+        fetchPrayerTrackerEvent,
+    required TResult Function(String namazName, BuildContext context)
+        addPrayerToPrayerTracker,
   }) {
     return fetchTopOffersBanner();
   }
@@ -299,8 +313,10 @@ class _$FetchTopOffersBanner implements FetchTopOffersBanner {
     TResult? Function()? fetchBrandofTheDay,
     TResult? Function()? fetchHadithOfTheDay,
     TResult? Function()? fetchEventOfTheMonth,
-    TResult? Function()? fetchPrayerTrackerEvent,
-    TResult? Function(String namazName)? addPrayerToPrayerTracker,
+    TResult? Function(DateTime date, BuildContext context)?
+        fetchPrayerTrackerEvent,
+    TResult? Function(String namazName, BuildContext context)?
+        addPrayerToPrayerTracker,
   }) {
     return fetchTopOffersBanner?.call();
   }
@@ -313,8 +329,10 @@ class _$FetchTopOffersBanner implements FetchTopOffersBanner {
     TResult Function()? fetchBrandofTheDay,
     TResult Function()? fetchHadithOfTheDay,
     TResult Function()? fetchEventOfTheMonth,
-    TResult Function()? fetchPrayerTrackerEvent,
-    TResult Function(String namazName)? addPrayerToPrayerTracker,
+    TResult Function(DateTime date, BuildContext context)?
+        fetchPrayerTrackerEvent,
+    TResult Function(String namazName, BuildContext context)?
+        addPrayerToPrayerTracker,
     required TResult orElse(),
   }) {
     if (fetchTopOffersBanner != null) {
@@ -420,8 +438,10 @@ class _$FetchBrandofTheDay implements FetchBrandofTheDay {
     required TResult Function() fetchBrandofTheDay,
     required TResult Function() fetchHadithOfTheDay,
     required TResult Function() fetchEventOfTheMonth,
-    required TResult Function() fetchPrayerTrackerEvent,
-    required TResult Function(String namazName) addPrayerToPrayerTracker,
+    required TResult Function(DateTime date, BuildContext context)
+        fetchPrayerTrackerEvent,
+    required TResult Function(String namazName, BuildContext context)
+        addPrayerToPrayerTracker,
   }) {
     return fetchBrandofTheDay();
   }
@@ -434,8 +454,10 @@ class _$FetchBrandofTheDay implements FetchBrandofTheDay {
     TResult? Function()? fetchBrandofTheDay,
     TResult? Function()? fetchHadithOfTheDay,
     TResult? Function()? fetchEventOfTheMonth,
-    TResult? Function()? fetchPrayerTrackerEvent,
-    TResult? Function(String namazName)? addPrayerToPrayerTracker,
+    TResult? Function(DateTime date, BuildContext context)?
+        fetchPrayerTrackerEvent,
+    TResult? Function(String namazName, BuildContext context)?
+        addPrayerToPrayerTracker,
   }) {
     return fetchBrandofTheDay?.call();
   }
@@ -448,8 +470,10 @@ class _$FetchBrandofTheDay implements FetchBrandofTheDay {
     TResult Function()? fetchBrandofTheDay,
     TResult Function()? fetchHadithOfTheDay,
     TResult Function()? fetchEventOfTheMonth,
-    TResult Function()? fetchPrayerTrackerEvent,
-    TResult Function(String namazName)? addPrayerToPrayerTracker,
+    TResult Function(DateTime date, BuildContext context)?
+        fetchPrayerTrackerEvent,
+    TResult Function(String namazName, BuildContext context)?
+        addPrayerToPrayerTracker,
     required TResult orElse(),
   }) {
     if (fetchBrandofTheDay != null) {
@@ -555,8 +579,10 @@ class _$FetchHadithOfTheDay implements FetchHadithOfTheDay {
     required TResult Function() fetchBrandofTheDay,
     required TResult Function() fetchHadithOfTheDay,
     required TResult Function() fetchEventOfTheMonth,
-    required TResult Function() fetchPrayerTrackerEvent,
-    required TResult Function(String namazName) addPrayerToPrayerTracker,
+    required TResult Function(DateTime date, BuildContext context)
+        fetchPrayerTrackerEvent,
+    required TResult Function(String namazName, BuildContext context)
+        addPrayerToPrayerTracker,
   }) {
     return fetchHadithOfTheDay();
   }
@@ -569,8 +595,10 @@ class _$FetchHadithOfTheDay implements FetchHadithOfTheDay {
     TResult? Function()? fetchBrandofTheDay,
     TResult? Function()? fetchHadithOfTheDay,
     TResult? Function()? fetchEventOfTheMonth,
-    TResult? Function()? fetchPrayerTrackerEvent,
-    TResult? Function(String namazName)? addPrayerToPrayerTracker,
+    TResult? Function(DateTime date, BuildContext context)?
+        fetchPrayerTrackerEvent,
+    TResult? Function(String namazName, BuildContext context)?
+        addPrayerToPrayerTracker,
   }) {
     return fetchHadithOfTheDay?.call();
   }
@@ -583,8 +611,10 @@ class _$FetchHadithOfTheDay implements FetchHadithOfTheDay {
     TResult Function()? fetchBrandofTheDay,
     TResult Function()? fetchHadithOfTheDay,
     TResult Function()? fetchEventOfTheMonth,
-    TResult Function()? fetchPrayerTrackerEvent,
-    TResult Function(String namazName)? addPrayerToPrayerTracker,
+    TResult Function(DateTime date, BuildContext context)?
+        fetchPrayerTrackerEvent,
+    TResult Function(String namazName, BuildContext context)?
+        addPrayerToPrayerTracker,
     required TResult orElse(),
   }) {
     if (fetchHadithOfTheDay != null) {
@@ -690,8 +720,10 @@ class _$FetchEventOfTheMonth implements FetchEventOfTheMonth {
     required TResult Function() fetchBrandofTheDay,
     required TResult Function() fetchHadithOfTheDay,
     required TResult Function() fetchEventOfTheMonth,
-    required TResult Function() fetchPrayerTrackerEvent,
-    required TResult Function(String namazName) addPrayerToPrayerTracker,
+    required TResult Function(DateTime date, BuildContext context)
+        fetchPrayerTrackerEvent,
+    required TResult Function(String namazName, BuildContext context)
+        addPrayerToPrayerTracker,
   }) {
     return fetchEventOfTheMonth();
   }
@@ -704,8 +736,10 @@ class _$FetchEventOfTheMonth implements FetchEventOfTheMonth {
     TResult? Function()? fetchBrandofTheDay,
     TResult? Function()? fetchHadithOfTheDay,
     TResult? Function()? fetchEventOfTheMonth,
-    TResult? Function()? fetchPrayerTrackerEvent,
-    TResult? Function(String namazName)? addPrayerToPrayerTracker,
+    TResult? Function(DateTime date, BuildContext context)?
+        fetchPrayerTrackerEvent,
+    TResult? Function(String namazName, BuildContext context)?
+        addPrayerToPrayerTracker,
   }) {
     return fetchEventOfTheMonth?.call();
   }
@@ -718,8 +752,10 @@ class _$FetchEventOfTheMonth implements FetchEventOfTheMonth {
     TResult Function()? fetchBrandofTheDay,
     TResult Function()? fetchHadithOfTheDay,
     TResult Function()? fetchEventOfTheMonth,
-    TResult Function()? fetchPrayerTrackerEvent,
-    TResult Function(String namazName)? addPrayerToPrayerTracker,
+    TResult Function(DateTime date, BuildContext context)?
+        fetchPrayerTrackerEvent,
+    TResult Function(String namazName, BuildContext context)?
+        addPrayerToPrayerTracker,
     required TResult orElse(),
   }) {
     if (fetchEventOfTheMonth != null) {
@@ -787,6 +823,8 @@ abstract class _$$FetchPrayerTrackerEventCopyWith<$Res> {
   factory _$$FetchPrayerTrackerEventCopyWith(_$FetchPrayerTrackerEvent value,
           $Res Function(_$FetchPrayerTrackerEvent) then) =
       __$$FetchPrayerTrackerEventCopyWithImpl<$Res>;
+  @useResult
+  $Res call({DateTime date, BuildContext context});
 }
 
 /// @nodoc
@@ -796,27 +834,59 @@ class __$$FetchPrayerTrackerEventCopyWithImpl<$Res>
   __$$FetchPrayerTrackerEventCopyWithImpl(_$FetchPrayerTrackerEvent _value,
       $Res Function(_$FetchPrayerTrackerEvent) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? date = null,
+    Object? context = null,
+  }) {
+    return _then(_$FetchPrayerTrackerEvent(
+      date: null == date
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      context: null == context
+          ? _value.context
+          : context // ignore: cast_nullable_to_non_nullable
+              as BuildContext,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$FetchPrayerTrackerEvent implements FetchPrayerTrackerEvent {
-  const _$FetchPrayerTrackerEvent();
+  const _$FetchPrayerTrackerEvent({required this.date, required this.context});
+
+  @override
+  final DateTime date;
+  @override
+  final BuildContext context;
 
   @override
   String toString() {
-    return 'HomeEvent.fetchPrayerTrackerEvent()';
+    return 'HomeEvent.fetchPrayerTrackerEvent(date: $date, context: $context)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FetchPrayerTrackerEvent);
+            other is _$FetchPrayerTrackerEvent &&
+            (identical(other.date, date) || other.date == date) &&
+            (identical(other.context, context) || other.context == context));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, date, context);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$FetchPrayerTrackerEventCopyWith<_$FetchPrayerTrackerEvent> get copyWith =>
+      __$$FetchPrayerTrackerEventCopyWithImpl<_$FetchPrayerTrackerEvent>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -826,10 +896,12 @@ class _$FetchPrayerTrackerEvent implements FetchPrayerTrackerEvent {
     required TResult Function() fetchBrandofTheDay,
     required TResult Function() fetchHadithOfTheDay,
     required TResult Function() fetchEventOfTheMonth,
-    required TResult Function() fetchPrayerTrackerEvent,
-    required TResult Function(String namazName) addPrayerToPrayerTracker,
+    required TResult Function(DateTime date, BuildContext context)
+        fetchPrayerTrackerEvent,
+    required TResult Function(String namazName, BuildContext context)
+        addPrayerToPrayerTracker,
   }) {
-    return fetchPrayerTrackerEvent();
+    return fetchPrayerTrackerEvent(date, context);
   }
 
   @override
@@ -840,10 +912,12 @@ class _$FetchPrayerTrackerEvent implements FetchPrayerTrackerEvent {
     TResult? Function()? fetchBrandofTheDay,
     TResult? Function()? fetchHadithOfTheDay,
     TResult? Function()? fetchEventOfTheMonth,
-    TResult? Function()? fetchPrayerTrackerEvent,
-    TResult? Function(String namazName)? addPrayerToPrayerTracker,
+    TResult? Function(DateTime date, BuildContext context)?
+        fetchPrayerTrackerEvent,
+    TResult? Function(String namazName, BuildContext context)?
+        addPrayerToPrayerTracker,
   }) {
-    return fetchPrayerTrackerEvent?.call();
+    return fetchPrayerTrackerEvent?.call(date, context);
   }
 
   @override
@@ -854,12 +928,14 @@ class _$FetchPrayerTrackerEvent implements FetchPrayerTrackerEvent {
     TResult Function()? fetchBrandofTheDay,
     TResult Function()? fetchHadithOfTheDay,
     TResult Function()? fetchEventOfTheMonth,
-    TResult Function()? fetchPrayerTrackerEvent,
-    TResult Function(String namazName)? addPrayerToPrayerTracker,
+    TResult Function(DateTime date, BuildContext context)?
+        fetchPrayerTrackerEvent,
+    TResult Function(String namazName, BuildContext context)?
+        addPrayerToPrayerTracker,
     required TResult orElse(),
   }) {
     if (fetchPrayerTrackerEvent != null) {
-      return fetchPrayerTrackerEvent();
+      return fetchPrayerTrackerEvent(date, context);
     }
     return orElse();
   }
@@ -915,7 +991,15 @@ class _$FetchPrayerTrackerEvent implements FetchPrayerTrackerEvent {
 }
 
 abstract class FetchPrayerTrackerEvent implements HomeEvent {
-  const factory FetchPrayerTrackerEvent() = _$FetchPrayerTrackerEvent;
+  const factory FetchPrayerTrackerEvent(
+      {required final DateTime date,
+      required final BuildContext context}) = _$FetchPrayerTrackerEvent;
+
+  DateTime get date;
+  BuildContext get context;
+  @JsonKey(ignore: true)
+  _$$FetchPrayerTrackerEventCopyWith<_$FetchPrayerTrackerEvent> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -924,7 +1008,7 @@ abstract class _$$AddPrayerToPrayerTrackerCopyWith<$Res> {
           $Res Function(_$AddPrayerToPrayerTracker) then) =
       __$$AddPrayerToPrayerTrackerCopyWithImpl<$Res>;
   @useResult
-  $Res call({String namazName});
+  $Res call({String namazName, BuildContext context});
 }
 
 /// @nodoc
@@ -939,12 +1023,17 @@ class __$$AddPrayerToPrayerTrackerCopyWithImpl<$Res>
   @override
   $Res call({
     Object? namazName = null,
+    Object? context = null,
   }) {
     return _then(_$AddPrayerToPrayerTracker(
       namazName: null == namazName
           ? _value.namazName
           : namazName // ignore: cast_nullable_to_non_nullable
               as String,
+      context: null == context
+          ? _value.context
+          : context // ignore: cast_nullable_to_non_nullable
+              as BuildContext,
     ));
   }
 }
@@ -952,14 +1041,17 @@ class __$$AddPrayerToPrayerTrackerCopyWithImpl<$Res>
 /// @nodoc
 
 class _$AddPrayerToPrayerTracker implements AddPrayerToPrayerTracker {
-  const _$AddPrayerToPrayerTracker({required this.namazName});
+  const _$AddPrayerToPrayerTracker(
+      {required this.namazName, required this.context});
 
   @override
   final String namazName;
+  @override
+  final BuildContext context;
 
   @override
   String toString() {
-    return 'HomeEvent.addPrayerToPrayerTracker(namazName: $namazName)';
+    return 'HomeEvent.addPrayerToPrayerTracker(namazName: $namazName, context: $context)';
   }
 
   @override
@@ -968,11 +1060,12 @@ class _$AddPrayerToPrayerTracker implements AddPrayerToPrayerTracker {
         (other.runtimeType == runtimeType &&
             other is _$AddPrayerToPrayerTracker &&
             (identical(other.namazName, namazName) ||
-                other.namazName == namazName));
+                other.namazName == namazName) &&
+            (identical(other.context, context) || other.context == context));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, namazName);
+  int get hashCode => Object.hash(runtimeType, namazName, context);
 
   @JsonKey(ignore: true)
   @override
@@ -990,10 +1083,12 @@ class _$AddPrayerToPrayerTracker implements AddPrayerToPrayerTracker {
     required TResult Function() fetchBrandofTheDay,
     required TResult Function() fetchHadithOfTheDay,
     required TResult Function() fetchEventOfTheMonth,
-    required TResult Function() fetchPrayerTrackerEvent,
-    required TResult Function(String namazName) addPrayerToPrayerTracker,
+    required TResult Function(DateTime date, BuildContext context)
+        fetchPrayerTrackerEvent,
+    required TResult Function(String namazName, BuildContext context)
+        addPrayerToPrayerTracker,
   }) {
-    return addPrayerToPrayerTracker(namazName);
+    return addPrayerToPrayerTracker(namazName, context);
   }
 
   @override
@@ -1004,10 +1099,12 @@ class _$AddPrayerToPrayerTracker implements AddPrayerToPrayerTracker {
     TResult? Function()? fetchBrandofTheDay,
     TResult? Function()? fetchHadithOfTheDay,
     TResult? Function()? fetchEventOfTheMonth,
-    TResult? Function()? fetchPrayerTrackerEvent,
-    TResult? Function(String namazName)? addPrayerToPrayerTracker,
+    TResult? Function(DateTime date, BuildContext context)?
+        fetchPrayerTrackerEvent,
+    TResult? Function(String namazName, BuildContext context)?
+        addPrayerToPrayerTracker,
   }) {
-    return addPrayerToPrayerTracker?.call(namazName);
+    return addPrayerToPrayerTracker?.call(namazName, context);
   }
 
   @override
@@ -1018,12 +1115,14 @@ class _$AddPrayerToPrayerTracker implements AddPrayerToPrayerTracker {
     TResult Function()? fetchBrandofTheDay,
     TResult Function()? fetchHadithOfTheDay,
     TResult Function()? fetchEventOfTheMonth,
-    TResult Function()? fetchPrayerTrackerEvent,
-    TResult Function(String namazName)? addPrayerToPrayerTracker,
+    TResult Function(DateTime date, BuildContext context)?
+        fetchPrayerTrackerEvent,
+    TResult Function(String namazName, BuildContext context)?
+        addPrayerToPrayerTracker,
     required TResult orElse(),
   }) {
     if (addPrayerToPrayerTracker != null) {
-      return addPrayerToPrayerTracker(namazName);
+      return addPrayerToPrayerTracker(namazName, context);
     }
     return orElse();
   }
@@ -1079,10 +1178,12 @@ class _$AddPrayerToPrayerTracker implements AddPrayerToPrayerTracker {
 }
 
 abstract class AddPrayerToPrayerTracker implements HomeEvent {
-  const factory AddPrayerToPrayerTracker({required final String namazName}) =
-      _$AddPrayerToPrayerTracker;
+  const factory AddPrayerToPrayerTracker(
+      {required final String namazName,
+      required final BuildContext context}) = _$AddPrayerToPrayerTracker;
 
   String get namazName;
+  BuildContext get context;
   @JsonKey(ignore: true)
   _$$AddPrayerToPrayerTrackerCopyWith<_$AddPrayerToPrayerTracker>
       get copyWith => throw _privateConstructorUsedError;
@@ -1105,8 +1206,9 @@ mixin _$HomeState {
   bool get prayerTrackerAsr => throw _privateConstructorUsedError;
   bool get prayerTrackerMagrib => throw _privateConstructorUsedError;
   bool get prayerTrackerIsha => throw _privateConstructorUsedError;
-  List<PrayerTrackerModel>? get prayerTracker =>
-      throw _privateConstructorUsedError;
+  PrayerTrackerModel? get prayerTracker => throw _privateConstructorUsedError;
+  double get namazCompletedCount => throw _privateConstructorUsedError;
+  String get dailyPrayerTrackerDate => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $HomeStateCopyWith<HomeState> get copyWith =>
@@ -1130,13 +1232,16 @@ abstract class $HomeStateCopyWith<$Res> {
       bool prayerTrackerAsr,
       bool prayerTrackerMagrib,
       bool prayerTrackerIsha,
-      List<PrayerTrackerModel>? prayerTracker});
+      PrayerTrackerModel? prayerTracker,
+      double namazCompletedCount,
+      String dailyPrayerTrackerDate});
 
   $LargeDiscountModelCopyWith<$Res>? get largeDiscountModel;
   $TopOffersModelCopyWith<$Res>? get topOffersModel;
   $BrandOftheDayModelCopyWith<$Res>? get brandOftheDayModel;
   $HaditOfTheDayModelCopyWith<$Res>? get haditOfTheDayModel;
   $EventOfTheMonthModelCopyWith<$Res>? get eventOfTheMonthModel;
+  $PrayerTrackerModelCopyWith<$Res>? get prayerTracker;
 }
 
 /// @nodoc
@@ -1164,6 +1269,8 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
     Object? prayerTrackerMagrib = null,
     Object? prayerTrackerIsha = null,
     Object? prayerTracker = freezed,
+    Object? namazCompletedCount = null,
+    Object? dailyPrayerTrackerDate = null,
   }) {
     return _then(_value.copyWith(
       isLoading: null == isLoading
@@ -1213,7 +1320,15 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
       prayerTracker: freezed == prayerTracker
           ? _value.prayerTracker
           : prayerTracker // ignore: cast_nullable_to_non_nullable
-              as List<PrayerTrackerModel>?,
+              as PrayerTrackerModel?,
+      namazCompletedCount: null == namazCompletedCount
+          ? _value.namazCompletedCount
+          : namazCompletedCount // ignore: cast_nullable_to_non_nullable
+              as double,
+      dailyPrayerTrackerDate: null == dailyPrayerTrackerDate
+          ? _value.dailyPrayerTrackerDate
+          : dailyPrayerTrackerDate // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 
@@ -1280,6 +1395,18 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
       return _then(_value.copyWith(eventOfTheMonthModel: value) as $Val);
     });
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $PrayerTrackerModelCopyWith<$Res>? get prayerTracker {
+    if (_value.prayerTracker == null) {
+      return null;
+    }
+
+    return $PrayerTrackerModelCopyWith<$Res>(_value.prayerTracker!, (value) {
+      return _then(_value.copyWith(prayerTracker: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -1301,7 +1428,9 @@ abstract class _$$_HomeStateCopyWith<$Res> implements $HomeStateCopyWith<$Res> {
       bool prayerTrackerAsr,
       bool prayerTrackerMagrib,
       bool prayerTrackerIsha,
-      List<PrayerTrackerModel>? prayerTracker});
+      PrayerTrackerModel? prayerTracker,
+      double namazCompletedCount,
+      String dailyPrayerTrackerDate});
 
   @override
   $LargeDiscountModelCopyWith<$Res>? get largeDiscountModel;
@@ -1313,6 +1442,8 @@ abstract class _$$_HomeStateCopyWith<$Res> implements $HomeStateCopyWith<$Res> {
   $HaditOfTheDayModelCopyWith<$Res>? get haditOfTheDayModel;
   @override
   $EventOfTheMonthModelCopyWith<$Res>? get eventOfTheMonthModel;
+  @override
+  $PrayerTrackerModelCopyWith<$Res>? get prayerTracker;
 }
 
 /// @nodoc
@@ -1338,6 +1469,8 @@ class __$$_HomeStateCopyWithImpl<$Res>
     Object? prayerTrackerMagrib = null,
     Object? prayerTrackerIsha = null,
     Object? prayerTracker = freezed,
+    Object? namazCompletedCount = null,
+    Object? dailyPrayerTrackerDate = null,
   }) {
     return _then(_$_HomeState(
       isLoading: null == isLoading
@@ -1385,9 +1518,17 @@ class __$$_HomeStateCopyWithImpl<$Res>
           : prayerTrackerIsha // ignore: cast_nullable_to_non_nullable
               as bool,
       prayerTracker: freezed == prayerTracker
-          ? _value._prayerTracker
+          ? _value.prayerTracker
           : prayerTracker // ignore: cast_nullable_to_non_nullable
-              as List<PrayerTrackerModel>?,
+              as PrayerTrackerModel?,
+      namazCompletedCount: null == namazCompletedCount
+          ? _value.namazCompletedCount
+          : namazCompletedCount // ignore: cast_nullable_to_non_nullable
+              as double,
+      dailyPrayerTrackerDate: null == dailyPrayerTrackerDate
+          ? _value.dailyPrayerTrackerDate
+          : dailyPrayerTrackerDate // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -1407,8 +1548,9 @@ class _$_HomeState implements _HomeState {
       required this.prayerTrackerAsr,
       required this.prayerTrackerMagrib,
       required this.prayerTrackerIsha,
-      required final List<PrayerTrackerModel>? prayerTracker})
-      : _prayerTracker = prayerTracker;
+      required this.prayerTracker,
+      required this.namazCompletedCount,
+      required this.dailyPrayerTrackerDate});
 
   @override
   final bool isLoading;
@@ -1432,19 +1574,16 @@ class _$_HomeState implements _HomeState {
   final bool prayerTrackerMagrib;
   @override
   final bool prayerTrackerIsha;
-  final List<PrayerTrackerModel>? _prayerTracker;
   @override
-  List<PrayerTrackerModel>? get prayerTracker {
-    final value = _prayerTracker;
-    if (value == null) return null;
-    if (_prayerTracker is EqualUnmodifiableListView) return _prayerTracker;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
+  final PrayerTrackerModel? prayerTracker;
+  @override
+  final double namazCompletedCount;
+  @override
+  final String dailyPrayerTrackerDate;
 
   @override
   String toString() {
-    return 'HomeState(isLoading: $isLoading, largeDiscountModel: $largeDiscountModel, topOffersModel: $topOffersModel, brandOftheDayModel: $brandOftheDayModel, haditOfTheDayModel: $haditOfTheDayModel, eventOfTheMonthModel: $eventOfTheMonthModel, prayerTrackerFajr: $prayerTrackerFajr, prayerTrackerDhuhr: $prayerTrackerDhuhr, prayerTrackerAsr: $prayerTrackerAsr, prayerTrackerMagrib: $prayerTrackerMagrib, prayerTrackerIsha: $prayerTrackerIsha, prayerTracker: $prayerTracker)';
+    return 'HomeState(isLoading: $isLoading, largeDiscountModel: $largeDiscountModel, topOffersModel: $topOffersModel, brandOftheDayModel: $brandOftheDayModel, haditOfTheDayModel: $haditOfTheDayModel, eventOfTheMonthModel: $eventOfTheMonthModel, prayerTrackerFajr: $prayerTrackerFajr, prayerTrackerDhuhr: $prayerTrackerDhuhr, prayerTrackerAsr: $prayerTrackerAsr, prayerTrackerMagrib: $prayerTrackerMagrib, prayerTrackerIsha: $prayerTrackerIsha, prayerTracker: $prayerTracker, namazCompletedCount: $namazCompletedCount, dailyPrayerTrackerDate: $dailyPrayerTrackerDate)';
   }
 
   @override
@@ -1474,8 +1613,12 @@ class _$_HomeState implements _HomeState {
                 other.prayerTrackerMagrib == prayerTrackerMagrib) &&
             (identical(other.prayerTrackerIsha, prayerTrackerIsha) ||
                 other.prayerTrackerIsha == prayerTrackerIsha) &&
-            const DeepCollectionEquality()
-                .equals(other._prayerTracker, _prayerTracker));
+            (identical(other.prayerTracker, prayerTracker) ||
+                other.prayerTracker == prayerTracker) &&
+            (identical(other.namazCompletedCount, namazCompletedCount) ||
+                other.namazCompletedCount == namazCompletedCount) &&
+            (identical(other.dailyPrayerTrackerDate, dailyPrayerTrackerDate) ||
+                other.dailyPrayerTrackerDate == dailyPrayerTrackerDate));
   }
 
   @override
@@ -1492,7 +1635,9 @@ class _$_HomeState implements _HomeState {
       prayerTrackerAsr,
       prayerTrackerMagrib,
       prayerTrackerIsha,
-      const DeepCollectionEquality().hash(_prayerTracker));
+      prayerTracker,
+      namazCompletedCount,
+      dailyPrayerTrackerDate);
 
   @JsonKey(ignore: true)
   @override
@@ -1514,7 +1659,9 @@ abstract class _HomeState implements HomeState {
       required final bool prayerTrackerAsr,
       required final bool prayerTrackerMagrib,
       required final bool prayerTrackerIsha,
-      required final List<PrayerTrackerModel>? prayerTracker}) = _$_HomeState;
+      required final PrayerTrackerModel? prayerTracker,
+      required final double namazCompletedCount,
+      required final String dailyPrayerTrackerDate}) = _$_HomeState;
 
   @override
   bool get isLoading;
@@ -1539,7 +1686,11 @@ abstract class _HomeState implements HomeState {
   @override
   bool get prayerTrackerIsha;
   @override
-  List<PrayerTrackerModel>? get prayerTracker;
+  PrayerTrackerModel? get prayerTracker;
+  @override
+  double get namazCompletedCount;
+  @override
+  String get dailyPrayerTrackerDate;
   @override
   @JsonKey(ignore: true)
   _$$_HomeStateCopyWith<_$_HomeState> get copyWith =>

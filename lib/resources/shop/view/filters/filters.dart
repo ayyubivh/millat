@@ -89,7 +89,7 @@ class _FiltersViewState extends State<FiltersView> {
                                   style: TextStyle(
                                       color: isSelected
                                           ? ColorManager.primary
-                                          : black122),
+                                          : ColorManager.textGrey99),
                                 ),
                                 trailing: Icon(
                                   isSelected ? Icons.arrow_forward_ios : null,

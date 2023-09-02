@@ -187,7 +187,8 @@ class _SingleProductViewBrandState extends State<SingleProductViewBrand> {
                 ),
                 Text(
                   widget.passValue.description,
-                  style: const TextStyle(fontSize: 16, color: black122),
+                  style:
+                      TextStyle(fontSize: 16, color: ColorManager.textGrey99),
                 ),
                 const SizedBox(
                   height: 20,
@@ -214,7 +215,8 @@ class _SingleProductViewBrandState extends State<SingleProductViewBrand> {
                 ),
                 Text(
                   widget.passValue.otherInfo,
-                  style: const TextStyle(fontSize: 16, color: black122),
+                  style:
+                      TextStyle(fontSize: 16, color: ColorManager.textGrey99),
                 ),
                 Container(
                   padding: const EdgeInsets.symmetric(vertical: 40),
@@ -235,7 +237,7 @@ class _SingleProductViewBrandState extends State<SingleProductViewBrand> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          const Row(
+                          Row(
                             children: [
                               Icon(Icons.star, color: orange255, size: 20),
                               Icon(Icons.star, color: orange255, size: 20),
@@ -258,7 +260,7 @@ class _SingleProductViewBrandState extends State<SingleProductViewBrand> {
                               Text(
                                 '(120 reviews)',
                                 style: TextStyle(
-                                    color: black122,
+                                    color: ColorManager.textGrey99,
                                     fontWeight: FontWeight.w700,
                                     fontSize: 15),
                               ),
@@ -438,9 +440,9 @@ class _SingleProductViewBrandState extends State<SingleProductViewBrand> {
                   onPressed: () {
                     Navigator.of(context).pop();
                   },
-                  icon: const Icon(
+                  icon: Icon(
                     Icons.close,
-                    color: black122,
+                    color: ColorManager.textGrey99,
                   ))
             ],
           ),
@@ -713,7 +715,7 @@ class _SingleProductViewBrandState extends State<SingleProductViewBrand> {
             children: [
               SizedBox(
                 width: SizeUtility(context).width * 70 / 100,
-                child: const Row(
+                child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
@@ -726,7 +728,7 @@ class _SingleProductViewBrandState extends State<SingleProductViewBrand> {
                       style: TextStyle(
                           fontWeight: FontWeight.w700,
                           fontSize: 17,
-                          color: black122),
+                          color: ColorManager.textGrey99),
                     )
                   ],
                 ),
@@ -756,10 +758,12 @@ class _SingleProductViewBrandState extends State<SingleProductViewBrand> {
               const SizedBox(
                 height: 15,
               ),
-              const Text(
+              Text(
                 'Apr 18',
                 style: TextStyle(
-                    fontWeight: FontWeight.w700, fontSize: 17, color: black122),
+                    fontWeight: FontWeight.w700,
+                    fontSize: 17,
+                    color: ColorManager.textGrey99),
               ),
             ],
           )
@@ -798,8 +802,8 @@ class _SingleProductViewBrandState extends State<SingleProductViewBrand> {
                 height: 15,
               ),
               Text(title,
-                  style: const TextStyle(
-                      color: black83,
+                  style: TextStyle(
+                      color: ColorManager.grey83,
                       fontSize: 18,
                       fontWeight: FontWeight.w600,
                       height: 1.3),
@@ -844,10 +848,12 @@ class _SingleProductViewBrandState extends State<SingleProductViewBrand> {
               const SizedBox(
                 height: 15,
               ),
-              const Text(
+              Text(
                 'Salman Fragrances',
                 style: TextStyle(
-                    color: black131, fontSize: 14, fontWeight: FontWeight.w600),
+                    color: ColorManager.blackColor,
+                    fontSize: 14,
+                    fontWeight: FontWeight.w600),
               ),
               const SizedBox(
                 height: 15,

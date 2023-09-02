@@ -5,6 +5,7 @@ import 'package:http/http.dart' as http;
 import 'package:millat/resources/shop/bloc/models/articles/articles_model.dart'
     as Articles;
 import 'package:millat/resources/shop/bloc/models/banners/banners_model.dart';
+import 'package:millat/resources/shop/bloc/models/products/product_item_women/products_item_women_model.dart';
 import 'package:millat/resources/shop/bloc/models/recent_products/recent_products_model.dart';
 import 'package:millat/resources/shop/bloc/models/shop_by_brand/shop_by_brand_models.dart';
 import 'package:millat/resources/shop/bloc/models/wishlist/wishllist_models.dart';
@@ -12,13 +13,21 @@ import 'package:millat/services/http_services.dart';
 import 'package:millat/utils/string_constants.dart';
 import '../../../authentication/bloc/logic/database_bloc/database_bloc.dart';
 
+import '../models/home_sub_category_card/home_sub_category_card_model.dart';
+import '../models/home_sub_category_card/home_sub_category_healthy_diet.dart';
+import '../models/home_sub_category_card/home_sub_category_sunnah_model.dart';
+import '../models/products/product_item_health/product_item_health_model.dart';
+import '../models/products/product_item_sunnah/products_items_sunnah_model.dart';
 import '../models/products/products_model.dart';
+import '../models/shop_by_brand/shop_ad_brand_by_id.dart';
+import '../models/shop_by_brand/shop_ad_brand_model.dart';
 import '../models/shop_by_brand/shop_by_brand_products.dart';
+import '../models/shop_by_brand/top_brands/top_brands_model.dart';
 import '../models/shop_products/shop_products_model.dart';
 
 class ShopService extends HttpServices {
-  final flashSale = 'shop_product_category?slug=flash_sales';
-  final popularProduct = 'shop_product_category?slug=popular_products';
+  final flashSale = 'shop_product_category?slug=women_flash_sales';
+  final popularProduct = 'shop_product_category?slug=women_popular_products';
   final recentProduct = 'product?slug=recent_products';
   final banner = 'banner?slug=home_banner';
   final shopBanner = 'banner?slug=shop_banner';
@@ -156,7 +165,7 @@ class ShopService extends HttpServices {
 
         return result;
       } catch (e) {
-        print('error on shop by brand API fetch: ${e.toString()}');
+        print('error on fetchin all brands: ${e.toString()}');
         throw Exception('Failed to parse response');
       }
     } else {
@@ -282,7 +291,7 @@ class ShopService extends HttpServices {
 
         return result;
       } catch (e) {
-        print('error on shop by brand API fetch: ${e.toString()}');
+        print('error on search product: ${e.toString()}');
         throw Exception('Failed to parse response');
       }
     } else {
@@ -328,6 +337,192 @@ class ShopService extends HttpServices {
     } else {
       print('HTTP request failed with status code: ${response.statusCode}');
       throw Exception('Failed to fetch products');
+    }
+  }
+
+  //fetching shop home background card
+  Future<ShopHomeBackgroundCardModel> fetchShopHomeBackgroundCard(
+      {required String slug}) async {
+    final endPoint = "specific_category?slug=$slug";
+    final response = await get(endPoint: endPoint);
+
+    if (response.statusCode == 200) {
+      try {
+        final Map<String, dynamic> data = json.decode(response.body);
+        final result = ShopHomeBackgroundCardModel.fromJson(data);
+
+        return result;
+      } catch (e) {
+        throw Exception('Failed to parse response');
+      }
+    } else {
+      throw Exception(
+          'API request failed with status code: ${response.statusCode}');
+    }
+  }
+
+  Future<ShopHomeBackgroundCardHealthyDietModel>
+      fetchShopHomeBackgroundCardHelthyDiet({required String slug}) async {
+    final endPoint = "specific_category?slug=$slug";
+    final response = await get(endPoint: endPoint);
+
+    if (response.statusCode == 200) {
+      try {
+        final Map<String, dynamic> data = json.decode(response.body);
+        final result = ShopHomeBackgroundCardHealthyDietModel.fromJson(data);
+
+        return result;
+      } catch (e) {
+        print('error on fetch home background: ${e.toString()}');
+        throw Exception('Failed to parse response');
+      }
+    } else {
+      throw Exception(
+          'API request failed with status code: ${response.statusCode}');
+    }
+  }
+
+  Future<SunnahProductHomeCardModel> fetchShopHomeBackgroundSunnah(
+      {required String slug}) async {
+    final endPoint = "specific_category?slug=$slug";
+    final response = await get(endPoint: endPoint);
+
+    if (response.statusCode == 200) {
+      try {
+        final Map<String, dynamic> data = json.decode(response.body);
+        final result = SunnahProductHomeCardModel.fromJson(data);
+
+        return result;
+      } catch (e) {
+        print('error on shop home background: ${e.toString()}');
+        throw Exception('Failed to parse response');
+      }
+    } else {
+      throw Exception(
+          'API request failed with status code: ${response.statusCode}');
+    }
+  }
+
+  Future<ShopAdBrands> fetchShopBrands() async {
+    const endPoint = "ad_brand";
+    final response = await get(endPoint: endPoint);
+
+    if (response.statusCode == 200) {
+      try {
+        final Map<String, dynamic> data = json.decode(response.body);
+        final result = ShopAdBrands.fromJson(data);
+
+        return result;
+      } catch (e) {
+        print('error on shop by brand API fetch: ${e.toString()}');
+        throw Exception('Failed to parse response');
+      }
+    } else {
+      throw Exception(
+          'API request failed with status code: ${response.statusCode}');
+    }
+  }
+
+  Future<ShopAdBrandsById> fetchAdShopBrandsbyId({required String id}) async {
+    final endPoint = "ad_brand/$id";
+    final response = await get(endPoint: endPoint);
+
+    if (response.statusCode == 200) {
+      try {
+        final Map<String, dynamic> data = json.decode(response.body);
+        final result = ShopAdBrandsById.fromJson(data);
+        print('here shop by id $result');
+        return result;
+      } catch (e) {
+        print('error on shop by brand API fetch: ${e.toString()}');
+        throw Exception('Failed to parse response');
+      }
+    } else {
+      throw Exception(
+          'API request failed with status code: ${response.statusCode}');
+    }
+  }
+
+  Future<TopBrandsModel> fetchTopBrands() async {
+    const endPoint = "top_brand";
+    final response = await get(endPoint: endPoint);
+
+    if (response.statusCode == 200) {
+      try {
+        final Map<String, dynamic> data = json.decode(response.body);
+        final result = TopBrandsModel.fromJson(data);
+
+        return result;
+      } catch (e) {
+        print('error on shop Top brands api: ${e.toString()}');
+        throw Exception('Failed to parse response');
+      }
+    } else {
+      throw Exception(
+          'API request failed with status code: ${response.statusCode}');
+    }
+  }
+
+  Future<ProductItemsSubCategoryWomenModel>
+      fetchProductItemsSubcategoryWomen() async {
+    const endPoint = "item?subcategory=Women";
+    final response = await get(endPoint: endPoint);
+
+    if (response.statusCode == 200) {
+      try {
+        final Map<String, dynamic> data = json.decode(response.body);
+        final result = ProductItemsSubCategoryWomenModel.fromJson(data);
+
+        return result;
+      } catch (e) {
+        print('item subcategory women: ${e.toString()}');
+        throw Exception('Failed to parse response');
+      }
+    } else {
+      throw Exception(
+          'API request failed with status code: ${response.statusCode}');
+    }
+  }
+
+  Future<ProductItemsSubCategorySunnahModel>
+      fetchProductItemsSubcategorySunnah() async {
+    const endPoint = "item?subcategory=sunnah";
+    final response = await get(endPoint: endPoint);
+
+    if (response.statusCode == 200) {
+      try {
+        final Map<String, dynamic> data = json.decode(response.body);
+        final result = ProductItemsSubCategorySunnahModel.fromJson(data);
+
+        return result;
+      } catch (e) {
+        print('error on item subcategory sunnah: ${e.toString()}');
+        throw Exception('Failed to parse response');
+      }
+    } else {
+      throw Exception(
+          'API request failed with status code: ${response.statusCode}');
+    }
+  }
+
+  Future<ProductItemsSubCategoryHealthModel>
+      fetchProductItemsSubcategoryHealth() async {
+    const endPoint = "item?subcategory=health";
+    final response = await get(endPoint: endPoint);
+
+    if (response.statusCode == 200) {
+      try {
+        final Map<String, dynamic> data = json.decode(response.body);
+        final result = ProductItemsSubCategoryHealthModel.fromJson(data);
+
+        return result;
+      } catch (e) {
+        print('error on item subcategory health: ${e.toString()}');
+        throw Exception('Failed to parse response');
+      }
+    } else {
+      throw Exception(
+          'API request failed with status code: ${response.statusCode}');
     }
   }
 }

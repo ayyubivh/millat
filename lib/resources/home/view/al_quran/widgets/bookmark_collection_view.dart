@@ -190,10 +190,10 @@ class BookmarkCollectionView extends StatelessWidget {
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              icon: const Icon(
+              icon: Icon(
                 Icons.close,
                 size: 14,
-                color: black122,
+                color: ColorManager.textGrey99,
               ),
             ),
           ),

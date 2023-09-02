@@ -296,6 +296,30 @@ class QuranServices {
     }
   }
 
+//fetch single translation api
+  Future<String?> fetchSingleVerseTranslationTexts({
+    required int translationId,
+    required String verseKey,
+  }) async {
+    final apiUrl =
+        'https://api.quran.com/api/v4/quran/translations/$translationId?verse_key=$verseKey';
+
+    try {
+      final response = await http.get(Uri.parse(apiUrl));
+
+      if (response.statusCode == 200) {
+        final jsonResponse = json.decode(response.body);
+        final translations = jsonResponse['translations'][0]['text'];
+
+        return translations;
+      } else {
+        throw Exception('Failed to fetch translation');
+      }
+    } catch (e) {
+      throw Exception(e);
+    }
+  }
+
   //fetch all para translations
   Future<List<String?>> fetchAllParaTranslationTexts({
     required int translationId,

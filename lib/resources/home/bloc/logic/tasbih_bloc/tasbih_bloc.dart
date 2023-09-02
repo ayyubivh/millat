@@ -3,9 +3,9 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:millat/resources/home/bloc/logic/dua_bloc/dua_bloc.dart';
 import 'package:millat/resources/home/bloc/service/tasbih_services.dart';
 
+import '../../../../../enums/enumertations.dart';
 import '../../models/tasbih/tasbih_dikr_model.dart';
 
 part 'tasbih_event.dart';
@@ -22,6 +22,9 @@ class TasbihBloc extends Bloc<TasbihEvent, TasbihState> {
     on<ResetTashbihCounterEvent>(_resetTashbihCounterEvent);
     on<AddTasbihEvent>(_addTasbihEvent);
     on<CheckLoopEvent>(_checkLoopEvent);
+    on<DecreaseTasbhiCountEvent>(_decreaseTasbhiCountEvent);
+    on<ChangeThemeEvent>(_changeThemeEvent);
+    on<ChangeThemeIndex>(_changeThemeIndex);
   }
 
   _selectDikrEvent(SelectDhikerEvent event, Emitter<TasbihState> emit) {
@@ -57,8 +60,7 @@ class TasbihBloc extends Bloc<TasbihEvent, TasbihState> {
 
   _addTasbihEvent(AddTasbihEvent event, Emitter<TasbihState> emit) async {
     try {
-      final data = await tasbihService.addTasbih(
-          context: event.buildContext, id: event.id);
+      await tasbihService.addTasbih(context: event.buildContext, id: event.id);
       // print('data on the add tasbih ${data['message']}');
     } catch (e) {
       throw Exception();
@@ -67,5 +69,20 @@ class TasbihBloc extends Bloc<TasbihEvent, TasbihState> {
 
   _checkLoopEvent(CheckLoopEvent event, Emitter<TasbihState> emit) {
     emit(state.copyWith(isBoolGreaterThanOne: true));
+  }
+
+  _decreaseTasbhiCountEvent(
+      DecreaseTasbhiCountEvent event, Emitter<TasbihState> emit) {
+    if (state.dhikrCount > 0) {
+      emit(state.copyWith(dhikrCount: state.dhikrCount - 1));
+    }
+  }
+
+  _changeThemeEvent(ChangeThemeEvent event, Emitter<TasbihState> emit) {
+    emit(state.copyWith(tasbihThemes: event.tasbihTheme));
+  }
+
+  _changeThemeIndex(ChangeThemeIndex event, Emitter<TasbihState> emit) {
+    emit(state.copyWith(themeIndex: event.themeIndex));
   }
 }

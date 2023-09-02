@@ -1,5 +1,3 @@
-// ignore_for_file: invalid_annotation_target
-
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'home_large_discounts_model.g.dart';
@@ -11,7 +9,7 @@ class LargeDiscountModel with _$LargeDiscountModel {
     int? status,
     String? message,
     String? error,
-    BannersResult? result,
+    required BannersResult result,
   }) = _LargeDiscountModel;
 
   factory LargeDiscountModel.fromJson(Map<String, dynamic> json) =>
@@ -21,7 +19,7 @@ class LargeDiscountModel with _$LargeDiscountModel {
 @freezed
 class BannersResult with _$BannersResult {
   const factory BannersResult({
-    List<BannerItem>? banners,
+    required List<BannerItem> banners,
   }) = _BannersResult;
 
   factory BannersResult.fromJson(Map<String, dynamic> json) =>
@@ -31,15 +29,44 @@ class BannersResult with _$BannersResult {
 @freezed
 class BannerItem with _$BannerItem {
   const factory BannerItem({
-    @JsonKey(name: "_id") String? id,
-    String? subCategoryId,
-    String? subCategoryName,
-    String? url,
-    String? image,
-    String? createdAt,
-    String? updatedAt,
+    @JsonKey(name: '_id') required String id,
+    required SubCategory subCategoryId,
+    required String subCategoryName,
+    required String image,
+    required String url,
+    required String createdAt,
+    required String updatedAt,
   }) = _BannerItem;
 
   factory BannerItem.fromJson(Map<String, dynamic> json) =>
       _$BannerItemFromJson(json);
+}
+
+@freezed
+class SubCategory with _$SubCategory {
+  const factory SubCategory({
+    @JsonKey(name: '_id') required String id,
+    required Category categoryId,
+    required String title,
+    required String image,
+    required String createdAt,
+    required String updatedAt,
+  }) = _SubCategory;
+
+  factory SubCategory.fromJson(Map<String, dynamic> json) =>
+      _$SubCategoryFromJson(json);
+}
+
+@freezed
+class Category with _$Category {
+  const factory Category({
+    @JsonKey(name: '_id') required String id,
+    required String title,
+    required String image,
+    required String createdAt,
+    required String updatedAt,
+  }) = _Category;
+
+  factory Category.fromJson(Map<String, dynamic> json) =>
+      _$CategoryFromJson(json);
 }

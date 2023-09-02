@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:millat/components/buttons/main_button.dart';
 import 'package:millat/resources/shop/bloc/logic/address_bloc/address_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
-import 'package:millat/resources/shop/view/checkout/checkout_view.dart';
-import 'package:millat/resources/shop/view/checkout/widgets/order_product_card.dart';
+import 'package:millat/resources/shop/view/cart/widgets/cart_product_widget.dart';
 import 'package:millat/resources/shop/view/order_status/payment_successful.dart';
+import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/color_manager.dart';
+import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/size_utility.dart';
+import 'package:millat/utils/string_constants.dart';
 import '../../bloc/logic/cart_bloc/cart_bloc.dart';
 import 'checkout_payment.dart';
 
@@ -32,135 +35,65 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: ColorManager.whiteColor,
       appBar: AppBar(
-        title: const Text('Confirmation',
-            style: TextStyle(color: Colors.black, fontWeight: FontWeight.w700)),
-        centerTitle: false,
+        title: Text(
+          Appstrings.confirmation,
+          style: TextStyle(
+              color: ColorManager.blackColor, fontWeight: FontWeight.w800),
+        ),
+        centerTitle: true,
         leading: const BackButton(color: Colors.black),
         elevation: 0,
-        backgroundColor: Colors.transparent,
+        backgroundColor: ColorManager.whiteColor,
       ),
       body: Padding(
-        padding: const EdgeInsets.all(20),
+        padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Slider(
-                activeColor: ColorManager.greenColor1,
-                inactiveColor: black195,
-                max: 10,
-                min: 0,
-                divisions: 2,
-                value: 10,
-                onChanged: (value) {},
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Personal Info',
-                    style: TextStyle(
-                        fontWeight: FontWeight.w700,
-                        color: ColorManager.greenColor1),
-                  ),
-                  Text(
-                    'Payment',
-                    style: TextStyle(
-                        fontWeight: FontWeight.w600,
-                        color: ColorManager.greenColor1),
-                  ),
-                  Text(
-                    'Confirmation',
-                    style: TextStyle(
-                        fontWeight: FontWeight.w600,
-                        color: ColorManager.greenColor1),
-                  ),
-                ],
-              ),
-              const SizedBox(
-                height: 60,
-              ),
-              Card(
-                elevation: 0,
-                child: Padding(
-                  padding:
-                      const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
-                  child: BlocBuilder<AddressBloc, AddressState>(
-                    builder: (context, state) {
-                      final data = state.addressIdModel?.result.address;
-                      if (data == null) {
-                        return Center(
-                          child: CircularProgressIndicator(
-                            color: ColorManager.greenColor1,
-                          ),
-                        );
-                      }
-                      final formatedMobile = data.mobile
-                          .toString()
-                          .substring(data.mobile.toString().length - 4);
-                      final String address =
-                          '$formatedMobile ${data.addressLine} ${data.landmark} ${data.city}\n${data.state} ${data.pincode}';
-
-                      return Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          const Icon(Icons.location_on_outlined),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                data.name,
-                                style: TextStyle(
-                                    fontWeight: FontWeight.w700,
-                                    fontSize: 18,
-                                    color: ColorManager.blackColor),
-                              ),
-                              const SizedBox(
-                                height: 10,
-                              ),
-                              SizedBox(
-                                  width: SizeUtility(context).width * 60 / 100,
-                                  child: Text(
-                                    address.toString(),
-                                    style: const TextStyle(
-                                        height: 1.7,
-                                        fontWeight: FontWeight.w700,
-                                        color: black122),
-                                  )),
-                            ],
-                          ),
-                          IconButton(
-                              onPressed: () {
-                                Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (context) => const CheckoutView(),
-                                ));
-                              },
-                              icon: Icon(
-                                Icons.edit,
-                                size: 20,
-                                color: ColorManager.greenColor1,
-                              )),
-                        ],
-                      );
-                    },
-                  ),
-                ),
-              ),
-              const SizedBox(
-                height: 30,
-              ),
+              // Slider(
+              //   activeColor: ColorManager.greenColor1,
+              //   inactiveColor: black195,
+              //   max: 10,
+              //   min: 0,
+              //   divisions: 2,
+              //   value: 10,
+              //   onChanged: (value) {},
+              // ),
+              // Row(
+              //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //   children: [
+              //     Text(
+              //       Appstrings.personalInfo,
+              //       style: TextStyle(
+              //           fontWeight: FontWeight.w700,
+              //           color: ColorManager.greenColor1),
+              //     ),
+              //     Text(
+              //       Appstrings.payment,
+              //       style: TextStyle(
+              //           fontWeight: FontWeight.w600,
+              //           color: ColorManager.greenColor1),
+              //     ),
+              //     Text(
+              //       Appstrings.confirmation,
+              //       style: TextStyle(
+              //           fontWeight: FontWeight.w600,
+              //           color: ColorManager.greenColor1),
+              //     ),
+              //   ],
+              // ),
+              kHeight30,
               Text(
-                'Products',
+                Appstrings.reviewOrder,
                 style: TextStyle(
                     color: ColorManager.blackColor,
                     fontSize: 17,
                     fontWeight: FontWeight.w700),
               ),
-              const SizedBox(
-                height: 20,
-              ),
+              kHeight20,
               BlocBuilder<CartBloc, CartState>(
                 builder: (context, state) {
                   if (state.cartLoading) {
@@ -180,7 +113,6 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
                   final itemCount = cartItems?.length ?? 0;
                   final itemsToShow =
                       state.showMore ? itemCount : maxItemsToShow;
-                  final showMoreButton = itemCount > maxItemsToShow;
 
                   return Column(
                     children: [
@@ -191,12 +123,15 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
                           shrinkWrap: true,
                           itemBuilder: (context, index) {
                             final data = cartItems![index];
-                            return OrderProductCard(
+                            return CartProductWidget(
                               id: data.productId!.id,
-                              title: data.productId?.title,
+                              title: data.productId!.title,
+                              subTitle: data.productId!.description,
                               size: data.size,
                               image: data.productId?.colors![0].images![0],
-                              price: data.sellingPrice,
+                              price: data.productId?.discountPrice ?? 0,
+                              actualPrice:
+                                  data.productId?.actualPrice.toString(),
                               jsonColor: data.color,
                               colorName: data.color,
                               quantity: data.quantity!.toInt(),
@@ -204,74 +139,91 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
                             );
                           },
                         ),
-                      if (showMoreButton && itemCount > 1)
-                        TextButton(
-                          onPressed: () {
-                            context
-                                .read<CartBloc>()
-                                .add(const ToggleShowMoreEvent());
-                          },
-                          child: Text(
-                            state.showMore ? 'Show Less' : 'Show More',
-                            style: const TextStyle(
-                              color: Colors.blue,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                      if (showMoreButton && itemCount <= 1)
-                        const Text(
-                          'No more items to show',
-                          style: TextStyle(
-                            color: Colors.grey,
-                            fontStyle: FontStyle.italic,
-                          ),
-                        ),
                     ],
                   );
                 },
               ),
-              Text(
-                'Standard Shipping',
-                style: TextStyle(
-                    color: ColorManager.blackColor,
-                    fontSize: 17,
-                    fontWeight: FontWeight.w700),
+              kHeight10,
+              Container(
+                height: 80,
+                width: SizeUtility(context).width,
+                padding: const EdgeInsets.all(8).copyWith(left: 12),
+                decoration: BoxDecoration(
+                  color: ColorManager.whiteColor,
+                  border: Border.all(
+                    color: ColorManager.greyD1,
+                  ),
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: Row(
+                  children: [
+                    Container(
+                      height: 48,
+                      width: 48,
+                      padding: const EdgeInsets.all(10),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(12),
+                        color: ColorManager.primary,
+                      ),
+                      child: Image.asset(
+                        AppAssetsStrings.gift,
+                      ),
+                    ),
+                    kWidth15,
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(
+                          Appstrings.makeGift,
+                          style: TextStyle(
+                            fontSize: 13,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        kHeight5,
+                        Text(
+                          Appstrings.giftSubTitle,
+                          style: TextStyle(
+                              fontSize: 12,
+                              fontWeight: FontWeight.w500,
+                              color: ColorManager.lightBlackColor),
+                        ),
+                      ],
+                    ),
+                    const Spacer(),
+                    Switch(
+                      activeColor: ColorManager.primary,
+                      value: false,
+                      onChanged: (value) {},
+                    )
+                  ],
+                ),
               ),
-              const SizedBox(
-                height: 10,
-              ),
-              const Text(
-                'Est. delivery by Apr 22 - Apr 27',
-                style: TextStyle(
-                    color: black122, fontSize: 16, fontWeight: FontWeight.w500),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              Text(
-                'Message',
-                style: TextStyle(
-                    color: ColorManager.blackColor,
-                    fontSize: 17,
-                    fontWeight: FontWeight.w700),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              Card(
-                elevation: 0,
+              kHeight25,
+              Container(
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: ColorManager.whiteColor,
+                    boxShadow: [
+                      BoxShadow(
+                        spreadRadius: 4,
+                        blurRadius: 2,
+                        color: ColorManager.grey08,
+                      ),
+                    ]),
                 child: Padding(
                   padding: const EdgeInsets.all(15.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Promo Code',
+                        Appstrings.promoCode,
                         style: TextStyle(
-                            color: ColorManager.blackColor,
-                            fontSize: 17,
-                            fontWeight: FontWeight.w700),
+                          color: ColorManager.blackColor,
+                          fontSize: 17,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                       Row(
                         children: [
@@ -279,113 +231,176 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
                             width: SizeUtility(context).width * 50 / 100,
                             child: const TextField(),
                           ),
-                          const SizedBox(
-                            width: 10,
-                          ),
-                          ElevatedButton(
-                            style: ButtonStyle(
-                              backgroundColor: MaterialStateProperty.all(
-                                  ColorManager.greenColor1),
-                              shape: MaterialStateProperty.all(
-                                RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10.0),
-                                  side: BorderSide(
-                                      color: ColorManager.greenColor1,
-                                      width: 2.0),
-                                ),
+                          const Spacer(),
+                          Container(
+                              height: 45,
+                              width: 85,
+                              decoration: BoxDecoration(
+                                color: ColorManager.primary,
+                                borderRadius: BorderRadius.circular(10),
                               ),
-                              elevation: MaterialStateProperty.all(0),
-                              fixedSize: MaterialStateProperty.all(Size(
-                                  SizeUtility(context).width * 30 / 100, 50)),
-                            ),
-                            onPressed: () {
-                              Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) =>
-                                    const CheckoutConfirmation(),
-                              ));
-                            },
-                            child: const Text(
-                              'Apply',
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.w700),
-                            ),
-                          ),
+                              child: Center(
+                                child: Text(
+                                  Appstrings.apply,
+                                  style: TextStyle(
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold,
+                                    color: ColorManager.whiteColor,
+                                  ),
+                                ),
+                              ))
                         ],
                       )
                     ],
                   ),
                 ),
               ),
-              const SizedBox(
-                height: 30,
+              kHeight20,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    Appstrings.paymentMethod,
+                    style: TextStyle(
+                        color: ColorManager.blackColor,
+                        fontSize: 17,
+                        fontWeight: FontWeight.w700),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).pop();
+                    },
+                    child: const Icon(
+                      Icons.arrow_forward_ios,
+                      size: 18,
+                    ),
+                  )
+                ],
               ),
-              Text(
-                'Payment Method',
-                style: TextStyle(
-                    color: ColorManager.blackColor,
-                    fontSize: 17,
-                    fontWeight: FontWeight.w700),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              Card(
-                elevation: 0,
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Row(
-                        children: [
-                          Image.asset('assets/icons/cash.png',
-                              width: 35, height: 35),
-                          const SizedBox(
-                            width: 15,
-                          ),
-                          const Text(
-                            'Cash on Delivery',
-                            style: TextStyle(
-                                fontWeight: FontWeight.w600, fontSize: 17),
-                          )
-                        ],
+              kHeight20,
+              Container(
+                height: 96,
+                width: SizeUtility(context).width,
+                decoration: BoxDecoration(
+                    color: ColorManager.whiteColor,
+                    borderRadius: BorderRadius.circular(6),
+                    boxShadow: [
+                      BoxShadow(
+                        spreadRadius: 2,
+                        blurRadius: 2,
+                        color: ColorManager.grey08,
                       ),
-                      IconButton(
-                        onPressed: () {
-                          Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => const CheckoutPayment(),
-                          ));
-                        },
-                        icon: Icon(
-                          Icons.edit,
-                          color: ColorManager.primary,
+                    ]),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Row(
+                      children: [
+                        Text(
+                          Appstrings.cashOnDeliver,
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
-                      )
-                    ],
-                  ),
+                        kWidth8,
+                        ImageIcon(
+                          AssetImage(AppAssetsStrings.lock),
+                          size: 15,
+                        )
+                      ],
+                    ),
+                    kHeight8,
+                    Container(
+                      height: 32,
+                      width: 50,
+                      padding: const EdgeInsets.all(3),
+                      decoration: BoxDecoration(
+                          border: Border.all(
+                        color: ColorManager.grey08,
+                      )),
+                      child: Image.asset(
+                        AppAssetsStrings.cashOnDelivery,
+                        height: 20,
+                        width: 20,
+                      ),
+                    ),
+                    kHeight10,
+                  ],
                 ),
               ),
-              const SizedBox(
-                height: 20,
-              ),
-              SizedBox(
-                  width: SizeUtility(context).width * 90 / 100,
-                  child: const Text(
-                    'By placing an order, you acknowledge that you have read the Terms of Service and Privacy Policy of Linger Shop. Payment will be processed separately by PIPO according to PIPO Privacy Policy.',
-                    style:
-                        TextStyle(color: black122, fontSize: 15, height: 1.3),
-                  )),
-              const SizedBox(
-                height: 100,
+              kHeight20,
+              RichText(
+                text: TextSpan(
+                  children: [
+                    TextSpan(
+                      text:
+                          'By placing an order, you acknowledge that you have read the ',
+                      style: TextStyle(
+                        color:
+                            ColorManager.textGrey, // Color for the regular text
+                        fontSize: 14, fontWeight: FontWeight.w400, height: 1.3,
+                      ),
+                    ),
+                    TextSpan(
+                      text: 'Terms of Service',
+                      style: TextStyle(
+                        color: ColorManager
+                            .primary, // Color for "Terms of Service"
+                        fontSize: 14, fontWeight: FontWeight.w400, height: 1.3,
+                      ),
+                    ),
+                    TextSpan(
+                      text: ' and ',
+                      style: TextStyle(
+                        color:
+                            ColorManager.textGrey, // Color for the regular text
+                        fontSize: 14, fontWeight: FontWeight.w400, height: 1.3,
+                      ),
+                    ),
+                    TextSpan(
+                      text: 'Privacy Policy',
+                      style: TextStyle(
+                        color:
+                            ColorManager.primary, // Color for "Privacy Policy"
+                        fontSize: 14, fontWeight: FontWeight.w400, height: 1.3,
+                      ),
+                    ),
+                    TextSpan(
+                      text:
+                          ' of Linger Shop. Payment will be processed separately by PIPO ',
+                      style: TextStyle(
+                        color:
+                            ColorManager.textGrey, // Color for the regular text
+                        fontSize: 14, fontWeight: FontWeight.w400, height: 1.3,
+                      ),
+                    ),
+                    TextSpan(
+                      text: ' according to ',
+                      style: TextStyle(
+                        color:
+                            ColorManager.textGrey, // Color for the regular text
+                        fontSize: 14, fontWeight: FontWeight.w400, height: 1.3,
+                      ),
+                    ),
+                    TextSpan(
+                      text: 'PIPO Privacy Policy.',
+                      style: TextStyle(
+                        color: ColorManager
+                            .primary, // Color for "PIPO Privacy Policy"
+                        fontSize: 14, fontWeight: FontWeight.w400, height: 1.3,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ],
           ),
         ),
       ),
       bottomNavigationBar: Container(
-        height: 350,
+        height: 100,
         padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 30),
         child: BlocBuilder<CartBloc, CartState>(
           builder: (context, state) {
@@ -398,136 +413,37 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
             const shippingFee = 27;
             const estimatingTax = 2036;
             final total = subTotal + shippingFee + estimatingTax;
-            return Column(
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text('Sub Total',
-                        style: TextStyle(
-                            color: ColorManager.blackColor,
-                            fontSize: 17,
-                            fontWeight: FontWeight.w600)),
-                    Text('₹$subTotal',
-                        style: TextStyle(
-                            color: ColorManager.blackColor,
-                            fontSize: 17,
-                            fontWeight: FontWeight.w600)),
-                  ],
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text('Shipping Fee',
-                        style: TextStyle(
-                            color: ColorManager.blackColor,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w600)),
-                    Text('₹$shippingFee',
-                        style: TextStyle(
-                            color: ColorManager.blackColor,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w600)),
-                  ],
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text('Estimating Tax',
-                        style: TextStyle(
-                            color: ColorManager.blackColor,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w600)),
-                    Text('₹$estimatingTax',
-                        style: TextStyle(
-                            color: ColorManager.blackColor,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w600)),
-                  ],
-                ),
-                const SizedBox(
-                  height: 25,
-                ),
-                const Divider(),
-                const SizedBox(
-                  height: 20,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text('Total',
-                        style: TextStyle(
-                            color: ColorManager.blackColor,
-                            fontSize: 19,
-                            fontWeight: FontWeight.w700)),
-                    const Text(
-                      ':',
-                      style: TextStyle(
-                        fontWeight: FontWeight.w900,
-                        fontSize: 16,
-                      ),
-                    ),
-                    Text('₹$total',
-                        style: TextStyle(
-                            color: ColorManager.primary,
-                            fontSize: 19,
-                            fontWeight: FontWeight.w700)),
-                  ],
-                ),
-                const SizedBox(
-                  height: 30,
-                ),
-                InkWell(
-                  onTap: () {
-                    final pickUpaddress = context
-                        .read<AddressBloc>()
-                        .state
-                        .addressIdModel!
-                        .result
-                        .address;
+            return MainButton(
+              title: Appstrings.pay,
+              onPressed: () {
+                final pickUpaddress = context
+                    .read<AddressBloc>()
+                    .state
+                    .addressIdModel!
+                    .result
+                    .address;
 
-                    print(
-                        "here is the address ${context.read<AddressBloc>().state.addressIdModel!.result.address.addressLine}");
+                print(
+                    "here is the address ${context.read<AddressBloc>().state.addressIdModel!.result.address.addressLine}");
 
-                    print('here is the address id ${pickUpaddress.id}');
+                print('here is the address id ${pickUpaddress.id}');
 
-                    context.read<ShopProductsBloc>().add(PostOrders(
-                          id: pickUpaddress.id,
-                          shippingCharges: shippingFee,
-                          totalDiscount: 0,
-                          weight: 4,
-                          pickupLocation: pickUpaddress.addressLine,
-                          quantity: 2,
-                          totalPrice: total,
-                          context: context,
-                        ));
-
-                    Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const PaymentSuccessful(),
+                context.read<ShopProductsBloc>().add(PostOrders(
+                      id: pickUpaddress.id,
+                      shippingCharges: shippingFee,
+                      totalDiscount: 0,
+                      weight: 4,
+                      pickupLocation: pickUpaddress.addressLine,
+                      quantity: 2,
+                      totalPrice: total,
+                      context: context,
                     ));
-                  },
-                  child: Container(
-                      alignment: Alignment.center,
-                      width: SizeUtility(context).width,
-                      padding: const EdgeInsets.all(15),
-                      decoration: BoxDecoration(
-                          color: ColorManager.primary,
-                          borderRadius: BorderRadius.circular(30)),
-                      child: Text(
-                        'Continue',
-                        style: TextStyle(
-                            color: ColorManager.whiteColor,
-                            fontSize: 20,
-                            fontWeight: FontWeight.w700),
-                      )),
-                ),
-              ],
+
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) =>
+                      PaymentSuccessful(subTotal: total, delivery: shippingFee),
+                ));
+              },
             );
           },
         ),

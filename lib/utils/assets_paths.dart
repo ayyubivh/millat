@@ -3,6 +3,7 @@ const String backgroundsPath = 'assets/backgrounds';
 const String imagesPath = 'assets/images';
 const String logosPath = 'assets/logos';
 const String iconsPath = "assets/icons";
+const String dummyPath = "assets/dummy";
 
 class AppAssetsStrings {
   //Home
@@ -12,10 +13,55 @@ class AppAssetsStrings {
   static const String homeDuaIcon = "$iconsPath/dua.png";
   static const String homeCompassIcon = "$iconsPath/qibla.png";
   static const String eventBanner = "$imagesPath/event_banner.png";
-
   static const String favoriteImg = "$imagesPath/quran_bookmark_2.png";
+  static const String supportAndHelp = "$imagesPath/support_help.png";
+  static const String millatlogoTitle = "$logosPath/millat_logo.png";
+  static const String haditOfTheDayBg =
+      "$backgroundsPath/hadit_of_the_day_bg.png";
+  //tasbih
+
+  static const String tasbihBallPink = "$imagesPath/tasbih_balls_pink.png";
+  static const String tasbihSingleballPink =
+      "$imagesPath/tasbih_single_ball_pink.png";
+  static const String tasbihBallOrange = "$imagesPath/tasbih_ball_orange.png";
+  static const String tasbihBallPurple = "$imagesPath/tasbih_ball_purple.png";
+  static const String tasbihBallGreen = "$imagesPath/tasbih_ball_green.png";
+//shop
+  static const String adilQadri = "$imagesPath/adil_qadri.png";
+  static const String adilQadriLogo = "$imagesPath/adil_qadiri_log.png";
+  static const String attar1 = "$dummyPath/attar_1.png";
+  static const String attar2 = "$dummyPath/attar_2.png";
+  static const String brandBackgroundImg =
+      "$imagesPath/brand_card_background.png";
+  static const String discountStar = "$imagesPath/discount_star.png";
+  static const String topBrand = "$backgroundsPath/top_brands.png";
+  static const String brands = "assets/backgrounds/brands.png";
+  static const String emptyCart = "$imagesPath/cart_empty.png";
+  static const String delete = "$iconsPath/delete.png";
+  static const String paymentSuccess = "$imagesPath/payment_succesfull.png";
+  static const String articleTabIcon = "$iconsPath/article_tab.png";
+  static const String addressBookIcon = "$iconsPath/address_book.png";
+  static const String orderHistory = "$iconsPath/order_history.png";
+  static const String wishList = "$iconsPath/home_wishlist.png";
+  static const String noAddress = "$imagesPath/no_address.png";
+  static const String delivered = "$iconsPath/order_status_delivered.png";
+  static const String processing = "$iconsPath/delivery_status_processing.png";
+  static const String orderStatusCancel = "$iconsPath/order_status_cancel.png";
+  static const String processingLoading = "$iconsPath/processing.png";
+  static const String orderIdIcon = "$iconsPath/text.png";
+  static const String filterSearch = "$iconsPath/filter_search.png";
+  static const String orderSuccessImg = "$imagesPath/order_success.png";
+  static const String masterCard = "$imagesPath/master_card.png";
+  static const String phonePay = "$imagesPath/phone_pay.png";
+  static const String visa = "$imagesPath/visa.png";
+  static const String discover = "$imagesPath/discover.png";
+  static const String googlePay = "$imagesPath/google_pay.png";
+  static const String lock = "$iconsPath/lock.png";
+  static const String cashOnDelivery = "$imagesPath/cash_on_delivery.png";
+  static const String gift = "$iconsPath/gift.png";
 
   //icons
+  static const String brandItems = "$iconsPath/brand_items.png";
   static const String searchIcon = "$iconsPath/search.png";
   static const String hadithChapterIcon = "$iconsPath/hadit_chapter.png";
   static const String settingsIcon = "$iconsPath/settings.png";
@@ -32,6 +78,7 @@ class AppAssetsStrings {
   static const String aboutUs = "$iconsPath/about_us.png";
   static const String starHome = "$iconsPath/star_home.png";
   static const String profile = "$iconsPath/profile.png";
+  static const String peronalInfo = "$iconsPath/personal_info.png";
   static const String editIcon = "$iconsPath/edit.png";
   static const String sendIcon = "$iconsPath/send.png";
   static const String dateIcon = "$iconsPath/date.png";
@@ -40,6 +87,7 @@ class AppAssetsStrings {
   static const String filterIcon = "$iconsPath/filter_search.png";
   static const String starIcon = "$iconsPath/star.png";
   static const String reviewStar = "$iconsPath/review_star.png";
+  static const String womensCareTabs = "$iconsPath/women_care_tabs.png";
   //images
   static const String hadikBookimg1 = "$imagesPath/hadith_book_1.png";
   static const String largeDiscountImg1 =

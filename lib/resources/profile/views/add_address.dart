@@ -256,9 +256,9 @@ class _AddAddressState extends State<AddAddress> {
                 const SizedBox(
                   height: 10,
                 ),
-                const Text(
+                Text(
                   'For all delivery related communication',
-                  style: TextStyle(color: black130),
+                  style: TextStyle(color: ColorManager.textGrey7A),
                 ),
                 const SizedBox(
                   height: 30,

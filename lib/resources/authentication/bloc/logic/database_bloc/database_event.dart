@@ -16,9 +16,15 @@ class DatabaseEvent with _$DatabaseEvent {
   }) = FetchAuthUser;
   const factory DatabaseEvent.editAuthUser({
     required String name,
-    required String email,
+    String? email,
     required String userName,
+    required String institution,
+    required String dob,
+    required String profession,
+    required String image,
     required BuildContext context,
   }) = EditAuthUser;
   const factory DatabaseEvent.removeTokenEvent() = RemoveTokenEvent;
+  const factory DatabaseEvent.uploadImageEvent({required ImageSource source}) =
+      UploadImageEvent;
 }

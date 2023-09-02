@@ -19,4 +19,11 @@ class TasbihEvent with _$TasbihEvent {
     required String id,
   }) = AddTasbihEvent;
   const factory TasbihEvent.checkLoopEvent() = CheckLoopEvent;
+  const factory TasbihEvent.decreaseTasbhiCountEvent() =
+      DecreaseTasbhiCountEvent;
+  const factory TasbihEvent.changeThemeEvent({
+    required TasbihThemes tasbihTheme,
+  }) = ChangeThemeEvent;
+  const factory TasbihEvent.changeThemeIndex({required int themeIndex}) =
+      ChangeThemeIndex;
 }

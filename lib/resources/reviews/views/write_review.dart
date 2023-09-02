@@ -84,10 +84,10 @@ class _WriteReviewState extends State<WriteReview> {
               const SizedBox(
                 height: 20,
               ),
-              Text(
+              const Text(
                 'Minimum Characters : 260',
                 style: TextStyle(
-                  color: ColorManager.textGrey99,
+                  color: black122,
                   fontWeight: FontWeight.w600,
                 ),
               )

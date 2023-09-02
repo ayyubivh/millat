@@ -24,7 +24,6 @@ mixin _$LocationEvent {
     required TResult Function() loadMoreCities,
     required TResult Function(String query) searchCities,
     required TResult Function() changeLocationOnToggle,
-    required TResult Function() fetchWeatherEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,7 +34,6 @@ mixin _$LocationEvent {
     TResult? Function()? loadMoreCities,
     TResult? Function(String query)? searchCities,
     TResult? Function()? changeLocationOnToggle,
-    TResult? Function()? fetchWeatherEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -46,7 +44,6 @@ mixin _$LocationEvent {
     TResult Function()? loadMoreCities,
     TResult Function(String query)? searchCities,
     TResult Function()? changeLocationOnToggle,
-    TResult Function()? fetchWeatherEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -59,7 +56,6 @@ mixin _$LocationEvent {
     required TResult Function(SearchCities value) searchCities,
     required TResult Function(ChangeLocationOnToggle value)
         changeLocationOnToggle,
-    required TResult Function(FetchWeatherEvent value) fetchWeatherEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -70,7 +66,6 @@ mixin _$LocationEvent {
     TResult? Function(LoadMoreCities value)? loadMoreCities,
     TResult? Function(SearchCities value)? searchCities,
     TResult? Function(ChangeLocationOnToggle value)? changeLocationOnToggle,
-    TResult? Function(FetchWeatherEvent value)? fetchWeatherEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -81,7 +76,6 @@ mixin _$LocationEvent {
     TResult Function(LoadMoreCities value)? loadMoreCities,
     TResult Function(SearchCities value)? searchCities,
     TResult Function(ChangeLocationOnToggle value)? changeLocationOnToggle,
-    TResult Function(FetchWeatherEvent value)? fetchWeatherEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -158,7 +152,6 @@ class _$FetchCurrentLocation
     required TResult Function() loadMoreCities,
     required TResult Function(String query) searchCities,
     required TResult Function() changeLocationOnToggle,
-    required TResult Function() fetchWeatherEvent,
   }) {
     return fetchCurrentLocation();
   }
@@ -172,7 +165,6 @@ class _$FetchCurrentLocation
     TResult? Function()? loadMoreCities,
     TResult? Function(String query)? searchCities,
     TResult? Function()? changeLocationOnToggle,
-    TResult? Function()? fetchWeatherEvent,
   }) {
     return fetchCurrentLocation?.call();
   }
@@ -186,7 +178,6 @@ class _$FetchCurrentLocation
     TResult Function()? loadMoreCities,
     TResult Function(String query)? searchCities,
     TResult Function()? changeLocationOnToggle,
-    TResult Function()? fetchWeatherEvent,
     required TResult orElse(),
   }) {
     if (fetchCurrentLocation != null) {
@@ -205,7 +196,6 @@ class _$FetchCurrentLocation
     required TResult Function(SearchCities value) searchCities,
     required TResult Function(ChangeLocationOnToggle value)
         changeLocationOnToggle,
-    required TResult Function(FetchWeatherEvent value) fetchWeatherEvent,
   }) {
     return fetchCurrentLocation(this);
   }
@@ -219,7 +209,6 @@ class _$FetchCurrentLocation
     TResult? Function(LoadMoreCities value)? loadMoreCities,
     TResult? Function(SearchCities value)? searchCities,
     TResult? Function(ChangeLocationOnToggle value)? changeLocationOnToggle,
-    TResult? Function(FetchWeatherEvent value)? fetchWeatherEvent,
   }) {
     return fetchCurrentLocation?.call(this);
   }
@@ -233,7 +222,6 @@ class _$FetchCurrentLocation
     TResult Function(LoadMoreCities value)? loadMoreCities,
     TResult Function(SearchCities value)? searchCities,
     TResult Function(ChangeLocationOnToggle value)? changeLocationOnToggle,
-    TResult Function(FetchWeatherEvent value)? fetchWeatherEvent,
     required TResult orElse(),
   }) {
     if (fetchCurrentLocation != null) {
@@ -326,7 +314,6 @@ class _$ChangeLocation with DiagnosticableTreeMixin implements ChangeLocation {
     required TResult Function() loadMoreCities,
     required TResult Function(String query) searchCities,
     required TResult Function() changeLocationOnToggle,
-    required TResult Function() fetchWeatherEvent,
   }) {
     return changeLocation(location);
   }
@@ -340,7 +327,6 @@ class _$ChangeLocation with DiagnosticableTreeMixin implements ChangeLocation {
     TResult? Function()? loadMoreCities,
     TResult? Function(String query)? searchCities,
     TResult? Function()? changeLocationOnToggle,
-    TResult? Function()? fetchWeatherEvent,
   }) {
     return changeLocation?.call(location);
   }
@@ -354,7 +340,6 @@ class _$ChangeLocation with DiagnosticableTreeMixin implements ChangeLocation {
     TResult Function()? loadMoreCities,
     TResult Function(String query)? searchCities,
     TResult Function()? changeLocationOnToggle,
-    TResult Function()? fetchWeatherEvent,
     required TResult orElse(),
   }) {
     if (changeLocation != null) {
@@ -373,7 +358,6 @@ class _$ChangeLocation with DiagnosticableTreeMixin implements ChangeLocation {
     required TResult Function(SearchCities value) searchCities,
     required TResult Function(ChangeLocationOnToggle value)
         changeLocationOnToggle,
-    required TResult Function(FetchWeatherEvent value) fetchWeatherEvent,
   }) {
     return changeLocation(this);
   }
@@ -387,7 +371,6 @@ class _$ChangeLocation with DiagnosticableTreeMixin implements ChangeLocation {
     TResult? Function(LoadMoreCities value)? loadMoreCities,
     TResult? Function(SearchCities value)? searchCities,
     TResult? Function(ChangeLocationOnToggle value)? changeLocationOnToggle,
-    TResult? Function(FetchWeatherEvent value)? fetchWeatherEvent,
   }) {
     return changeLocation?.call(this);
   }
@@ -401,7 +384,6 @@ class _$ChangeLocation with DiagnosticableTreeMixin implements ChangeLocation {
     TResult Function(LoadMoreCities value)? loadMoreCities,
     TResult Function(SearchCities value)? searchCities,
     TResult Function(ChangeLocationOnToggle value)? changeLocationOnToggle,
-    TResult Function(FetchWeatherEvent value)? fetchWeatherEvent,
     required TResult orElse(),
   }) {
     if (changeLocation != null) {
@@ -471,7 +453,6 @@ class _$FetchCities with DiagnosticableTreeMixin implements FetchCities {
     required TResult Function() loadMoreCities,
     required TResult Function(String query) searchCities,
     required TResult Function() changeLocationOnToggle,
-    required TResult Function() fetchWeatherEvent,
   }) {
     return fetchCities();
   }
@@ -485,7 +466,6 @@ class _$FetchCities with DiagnosticableTreeMixin implements FetchCities {
     TResult? Function()? loadMoreCities,
     TResult? Function(String query)? searchCities,
     TResult? Function()? changeLocationOnToggle,
-    TResult? Function()? fetchWeatherEvent,
   }) {
     return fetchCities?.call();
   }
@@ -499,7 +479,6 @@ class _$FetchCities with DiagnosticableTreeMixin implements FetchCities {
     TResult Function()? loadMoreCities,
     TResult Function(String query)? searchCities,
     TResult Function()? changeLocationOnToggle,
-    TResult Function()? fetchWeatherEvent,
     required TResult orElse(),
   }) {
     if (fetchCities != null) {
@@ -518,7 +497,6 @@ class _$FetchCities with DiagnosticableTreeMixin implements FetchCities {
     required TResult Function(SearchCities value) searchCities,
     required TResult Function(ChangeLocationOnToggle value)
         changeLocationOnToggle,
-    required TResult Function(FetchWeatherEvent value) fetchWeatherEvent,
   }) {
     return fetchCities(this);
   }
@@ -532,7 +510,6 @@ class _$FetchCities with DiagnosticableTreeMixin implements FetchCities {
     TResult? Function(LoadMoreCities value)? loadMoreCities,
     TResult? Function(SearchCities value)? searchCities,
     TResult? Function(ChangeLocationOnToggle value)? changeLocationOnToggle,
-    TResult? Function(FetchWeatherEvent value)? fetchWeatherEvent,
   }) {
     return fetchCities?.call(this);
   }
@@ -546,7 +523,6 @@ class _$FetchCities with DiagnosticableTreeMixin implements FetchCities {
     TResult Function(LoadMoreCities value)? loadMoreCities,
     TResult Function(SearchCities value)? searchCities,
     TResult Function(ChangeLocationOnToggle value)? changeLocationOnToggle,
-    TResult Function(FetchWeatherEvent value)? fetchWeatherEvent,
     required TResult orElse(),
   }) {
     if (fetchCities != null) {
@@ -610,7 +586,6 @@ class _$LoadMoreCities with DiagnosticableTreeMixin implements LoadMoreCities {
     required TResult Function() loadMoreCities,
     required TResult Function(String query) searchCities,
     required TResult Function() changeLocationOnToggle,
-    required TResult Function() fetchWeatherEvent,
   }) {
     return loadMoreCities();
   }
@@ -624,7 +599,6 @@ class _$LoadMoreCities with DiagnosticableTreeMixin implements LoadMoreCities {
     TResult? Function()? loadMoreCities,
     TResult? Function(String query)? searchCities,
     TResult? Function()? changeLocationOnToggle,
-    TResult? Function()? fetchWeatherEvent,
   }) {
     return loadMoreCities?.call();
   }
@@ -638,7 +612,6 @@ class _$LoadMoreCities with DiagnosticableTreeMixin implements LoadMoreCities {
     TResult Function()? loadMoreCities,
     TResult Function(String query)? searchCities,
     TResult Function()? changeLocationOnToggle,
-    TResult Function()? fetchWeatherEvent,
     required TResult orElse(),
   }) {
     if (loadMoreCities != null) {
@@ -657,7 +630,6 @@ class _$LoadMoreCities with DiagnosticableTreeMixin implements LoadMoreCities {
     required TResult Function(SearchCities value) searchCities,
     required TResult Function(ChangeLocationOnToggle value)
         changeLocationOnToggle,
-    required TResult Function(FetchWeatherEvent value) fetchWeatherEvent,
   }) {
     return loadMoreCities(this);
   }
@@ -671,7 +643,6 @@ class _$LoadMoreCities with DiagnosticableTreeMixin implements LoadMoreCities {
     TResult? Function(LoadMoreCities value)? loadMoreCities,
     TResult? Function(SearchCities value)? searchCities,
     TResult? Function(ChangeLocationOnToggle value)? changeLocationOnToggle,
-    TResult? Function(FetchWeatherEvent value)? fetchWeatherEvent,
   }) {
     return loadMoreCities?.call(this);
   }
@@ -685,7 +656,6 @@ class _$LoadMoreCities with DiagnosticableTreeMixin implements LoadMoreCities {
     TResult Function(LoadMoreCities value)? loadMoreCities,
     TResult Function(SearchCities value)? searchCities,
     TResult Function(ChangeLocationOnToggle value)? changeLocationOnToggle,
-    TResult Function(FetchWeatherEvent value)? fetchWeatherEvent,
     required TResult orElse(),
   }) {
     if (loadMoreCities != null) {
@@ -777,7 +747,6 @@ class _$SearchCities with DiagnosticableTreeMixin implements SearchCities {
     required TResult Function() loadMoreCities,
     required TResult Function(String query) searchCities,
     required TResult Function() changeLocationOnToggle,
-    required TResult Function() fetchWeatherEvent,
   }) {
     return searchCities(query);
   }
@@ -791,7 +760,6 @@ class _$SearchCities with DiagnosticableTreeMixin implements SearchCities {
     TResult? Function()? loadMoreCities,
     TResult? Function(String query)? searchCities,
     TResult? Function()? changeLocationOnToggle,
-    TResult? Function()? fetchWeatherEvent,
   }) {
     return searchCities?.call(query);
   }
@@ -805,7 +773,6 @@ class _$SearchCities with DiagnosticableTreeMixin implements SearchCities {
     TResult Function()? loadMoreCities,
     TResult Function(String query)? searchCities,
     TResult Function()? changeLocationOnToggle,
-    TResult Function()? fetchWeatherEvent,
     required TResult orElse(),
   }) {
     if (searchCities != null) {
@@ -824,7 +791,6 @@ class _$SearchCities with DiagnosticableTreeMixin implements SearchCities {
     required TResult Function(SearchCities value) searchCities,
     required TResult Function(ChangeLocationOnToggle value)
         changeLocationOnToggle,
-    required TResult Function(FetchWeatherEvent value) fetchWeatherEvent,
   }) {
     return searchCities(this);
   }
@@ -838,7 +804,6 @@ class _$SearchCities with DiagnosticableTreeMixin implements SearchCities {
     TResult? Function(LoadMoreCities value)? loadMoreCities,
     TResult? Function(SearchCities value)? searchCities,
     TResult? Function(ChangeLocationOnToggle value)? changeLocationOnToggle,
-    TResult? Function(FetchWeatherEvent value)? fetchWeatherEvent,
   }) {
     return searchCities?.call(this);
   }
@@ -852,7 +817,6 @@ class _$SearchCities with DiagnosticableTreeMixin implements SearchCities {
     TResult Function(LoadMoreCities value)? loadMoreCities,
     TResult Function(SearchCities value)? searchCities,
     TResult Function(ChangeLocationOnToggle value)? changeLocationOnToggle,
-    TResult Function(FetchWeatherEvent value)? fetchWeatherEvent,
     required TResult orElse(),
   }) {
     if (searchCities != null) {
@@ -924,7 +888,6 @@ class _$ChangeLocationOnToggle
     required TResult Function() loadMoreCities,
     required TResult Function(String query) searchCities,
     required TResult Function() changeLocationOnToggle,
-    required TResult Function() fetchWeatherEvent,
   }) {
     return changeLocationOnToggle();
   }
@@ -938,7 +901,6 @@ class _$ChangeLocationOnToggle
     TResult? Function()? loadMoreCities,
     TResult? Function(String query)? searchCities,
     TResult? Function()? changeLocationOnToggle,
-    TResult? Function()? fetchWeatherEvent,
   }) {
     return changeLocationOnToggle?.call();
   }
@@ -952,7 +914,6 @@ class _$ChangeLocationOnToggle
     TResult Function()? loadMoreCities,
     TResult Function(String query)? searchCities,
     TResult Function()? changeLocationOnToggle,
-    TResult Function()? fetchWeatherEvent,
     required TResult orElse(),
   }) {
     if (changeLocationOnToggle != null) {
@@ -971,7 +932,6 @@ class _$ChangeLocationOnToggle
     required TResult Function(SearchCities value) searchCities,
     required TResult Function(ChangeLocationOnToggle value)
         changeLocationOnToggle,
-    required TResult Function(FetchWeatherEvent value) fetchWeatherEvent,
   }) {
     return changeLocationOnToggle(this);
   }
@@ -985,7 +945,6 @@ class _$ChangeLocationOnToggle
     TResult? Function(LoadMoreCities value)? loadMoreCities,
     TResult? Function(SearchCities value)? searchCities,
     TResult? Function(ChangeLocationOnToggle value)? changeLocationOnToggle,
-    TResult? Function(FetchWeatherEvent value)? fetchWeatherEvent,
   }) {
     return changeLocationOnToggle?.call(this);
   }
@@ -999,7 +958,6 @@ class _$ChangeLocationOnToggle
     TResult Function(LoadMoreCities value)? loadMoreCities,
     TResult Function(SearchCities value)? searchCities,
     TResult Function(ChangeLocationOnToggle value)? changeLocationOnToggle,
-    TResult Function(FetchWeatherEvent value)? fetchWeatherEvent,
     required TResult orElse(),
   }) {
     if (changeLocationOnToggle != null) {
@@ -1011,148 +969,6 @@ class _$ChangeLocationOnToggle
 
 abstract class ChangeLocationOnToggle implements LocationEvent {
   const factory ChangeLocationOnToggle() = _$ChangeLocationOnToggle;
-}
-
-/// @nodoc
-abstract class _$$FetchWeatherEventCopyWith<$Res> {
-  factory _$$FetchWeatherEventCopyWith(
-          _$FetchWeatherEvent value, $Res Function(_$FetchWeatherEvent) then) =
-      __$$FetchWeatherEventCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$FetchWeatherEventCopyWithImpl<$Res>
-    extends _$LocationEventCopyWithImpl<$Res, _$FetchWeatherEvent>
-    implements _$$FetchWeatherEventCopyWith<$Res> {
-  __$$FetchWeatherEventCopyWithImpl(
-      _$FetchWeatherEvent _value, $Res Function(_$FetchWeatherEvent) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$FetchWeatherEvent
-    with DiagnosticableTreeMixin
-    implements FetchWeatherEvent {
-  const _$FetchWeatherEvent();
-
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'LocationEvent.fetchWeatherEvent()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-        .add(DiagnosticsProperty('type', 'LocationEvent.fetchWeatherEvent'));
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$FetchWeatherEvent);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() fetchCurrentLocation,
-    required TResult Function(String location) changeLocation,
-    required TResult Function() fetchCities,
-    required TResult Function() loadMoreCities,
-    required TResult Function(String query) searchCities,
-    required TResult Function() changeLocationOnToggle,
-    required TResult Function() fetchWeatherEvent,
-  }) {
-    return fetchWeatherEvent();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? fetchCurrentLocation,
-    TResult? Function(String location)? changeLocation,
-    TResult? Function()? fetchCities,
-    TResult? Function()? loadMoreCities,
-    TResult? Function(String query)? searchCities,
-    TResult? Function()? changeLocationOnToggle,
-    TResult? Function()? fetchWeatherEvent,
-  }) {
-    return fetchWeatherEvent?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? fetchCurrentLocation,
-    TResult Function(String location)? changeLocation,
-    TResult Function()? fetchCities,
-    TResult Function()? loadMoreCities,
-    TResult Function(String query)? searchCities,
-    TResult Function()? changeLocationOnToggle,
-    TResult Function()? fetchWeatherEvent,
-    required TResult orElse(),
-  }) {
-    if (fetchWeatherEvent != null) {
-      return fetchWeatherEvent();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(FetchCurrentLocation value) fetchCurrentLocation,
-    required TResult Function(ChangeLocation value) changeLocation,
-    required TResult Function(FetchCities value) fetchCities,
-    required TResult Function(LoadMoreCities value) loadMoreCities,
-    required TResult Function(SearchCities value) searchCities,
-    required TResult Function(ChangeLocationOnToggle value)
-        changeLocationOnToggle,
-    required TResult Function(FetchWeatherEvent value) fetchWeatherEvent,
-  }) {
-    return fetchWeatherEvent(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(FetchCurrentLocation value)? fetchCurrentLocation,
-    TResult? Function(ChangeLocation value)? changeLocation,
-    TResult? Function(FetchCities value)? fetchCities,
-    TResult? Function(LoadMoreCities value)? loadMoreCities,
-    TResult? Function(SearchCities value)? searchCities,
-    TResult? Function(ChangeLocationOnToggle value)? changeLocationOnToggle,
-    TResult? Function(FetchWeatherEvent value)? fetchWeatherEvent,
-  }) {
-    return fetchWeatherEvent?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(FetchCurrentLocation value)? fetchCurrentLocation,
-    TResult Function(ChangeLocation value)? changeLocation,
-    TResult Function(FetchCities value)? fetchCities,
-    TResult Function(LoadMoreCities value)? loadMoreCities,
-    TResult Function(SearchCities value)? searchCities,
-    TResult Function(ChangeLocationOnToggle value)? changeLocationOnToggle,
-    TResult Function(FetchWeatherEvent value)? fetchWeatherEvent,
-    required TResult orElse(),
-  }) {
-    if (fetchWeatherEvent != null) {
-      return fetchWeatherEvent(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class FetchWeatherEvent implements LocationEvent {
-  const factory FetchWeatherEvent() = _$FetchWeatherEvent;
 }
 
 /// @nodoc
@@ -1170,9 +986,6 @@ mixin _$LocationState {
   List<List<String>> get loadedCities => throw _privateConstructorUsedError;
   bool get hasReachedEnd => throw _privateConstructorUsedError;
   bool get isPermissionDenied => throw _privateConstructorUsedError;
-  Position? get lanAndLong => throw _privateConstructorUsedError;
-  dynamic get weatherTemperature => throw _privateConstructorUsedError;
-  String get weatherConditionName => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $LocationStateCopyWith<LocationState> get copyWith =>
@@ -1198,10 +1011,7 @@ abstract class $LocationStateCopyWith<$Res> {
       bool isLoadingMore,
       List<List<String>> loadedCities,
       bool hasReachedEnd,
-      bool isPermissionDenied,
-      Position? lanAndLong,
-      dynamic weatherTemperature,
-      String weatherConditionName});
+      bool isPermissionDenied});
 
   $CitiesModelCopyWith<$Res>? get citiesModel;
 }
@@ -1232,9 +1042,6 @@ class _$LocationStateCopyWithImpl<$Res, $Val extends LocationState>
     Object? loadedCities = null,
     Object? hasReachedEnd = null,
     Object? isPermissionDenied = null,
-    Object? lanAndLong = freezed,
-    Object? weatherTemperature = freezed,
-    Object? weatherConditionName = null,
   }) {
     return _then(_value.copyWith(
       currentLocaion: null == currentLocaion
@@ -1289,18 +1096,6 @@ class _$LocationStateCopyWithImpl<$Res, $Val extends LocationState>
           ? _value.isPermissionDenied
           : isPermissionDenied // ignore: cast_nullable_to_non_nullable
               as bool,
-      lanAndLong: freezed == lanAndLong
-          ? _value.lanAndLong
-          : lanAndLong // ignore: cast_nullable_to_non_nullable
-              as Position?,
-      weatherTemperature: freezed == weatherTemperature
-          ? _value.weatherTemperature
-          : weatherTemperature // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-      weatherConditionName: null == weatherConditionName
-          ? _value.weatherConditionName
-          : weatherConditionName // ignore: cast_nullable_to_non_nullable
-              as String,
     ) as $Val);
   }
 
@@ -1338,10 +1133,7 @@ abstract class _$$_LocationStateCopyWith<$Res>
       bool isLoadingMore,
       List<List<String>> loadedCities,
       bool hasReachedEnd,
-      bool isPermissionDenied,
-      Position? lanAndLong,
-      dynamic weatherTemperature,
-      String weatherConditionName});
+      bool isPermissionDenied});
 
   @override
   $CitiesModelCopyWith<$Res>? get citiesModel;
@@ -1371,9 +1163,6 @@ class __$$_LocationStateCopyWithImpl<$Res>
     Object? loadedCities = null,
     Object? hasReachedEnd = null,
     Object? isPermissionDenied = null,
-    Object? lanAndLong = freezed,
-    Object? weatherTemperature = freezed,
-    Object? weatherConditionName = null,
   }) {
     return _then(_$_LocationState(
       currentLocaion: null == currentLocaion
@@ -1428,18 +1217,6 @@ class __$$_LocationStateCopyWithImpl<$Res>
           ? _value.isPermissionDenied
           : isPermissionDenied // ignore: cast_nullable_to_non_nullable
               as bool,
-      lanAndLong: freezed == lanAndLong
-          ? _value.lanAndLong
-          : lanAndLong // ignore: cast_nullable_to_non_nullable
-              as Position?,
-      weatherTemperature: freezed == weatherTemperature
-          ? _value.weatherTemperature
-          : weatherTemperature // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-      weatherConditionName: null == weatherConditionName
-          ? _value.weatherConditionName
-          : weatherConditionName // ignore: cast_nullable_to_non_nullable
-              as String,
     ));
   }
 }
@@ -1460,10 +1237,7 @@ class _$_LocationState with DiagnosticableTreeMixin implements _LocationState {
       required this.isLoadingMore,
       required final List<List<String>> loadedCities,
       required this.hasReachedEnd,
-      required this.isPermissionDenied,
-      required this.lanAndLong,
-      required this.weatherTemperature,
-      required this.weatherConditionName})
+      required this.isPermissionDenied})
       : _cities = cities,
         _searchCities = searchCities,
         _loadedCities = loadedCities;
@@ -1512,16 +1286,10 @@ class _$_LocationState with DiagnosticableTreeMixin implements _LocationState {
   final bool hasReachedEnd;
   @override
   final bool isPermissionDenied;
-  @override
-  final Position? lanAndLong;
-  @override
-  final dynamic weatherTemperature;
-  @override
-  final String weatherConditionName;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'LocationState(currentLocaion: $currentLocaion, errorMessage: $errorMessage, shortAddress: $shortAddress, citiesModel: $citiesModel, cities: $cities, searchCities: $searchCities, currentPage: $currentPage, itemsPerPage: $itemsPerPage, location: $location, isLoadingMore: $isLoadingMore, loadedCities: $loadedCities, hasReachedEnd: $hasReachedEnd, isPermissionDenied: $isPermissionDenied, lanAndLong: $lanAndLong, weatherTemperature: $weatherTemperature, weatherConditionName: $weatherConditionName)';
+    return 'LocationState(currentLocaion: $currentLocaion, errorMessage: $errorMessage, shortAddress: $shortAddress, citiesModel: $citiesModel, cities: $cities, searchCities: $searchCities, currentPage: $currentPage, itemsPerPage: $itemsPerPage, location: $location, isLoadingMore: $isLoadingMore, loadedCities: $loadedCities, hasReachedEnd: $hasReachedEnd, isPermissionDenied: $isPermissionDenied)';
   }
 
   @override
@@ -1541,10 +1309,7 @@ class _$_LocationState with DiagnosticableTreeMixin implements _LocationState {
       ..add(DiagnosticsProperty('isLoadingMore', isLoadingMore))
       ..add(DiagnosticsProperty('loadedCities', loadedCities))
       ..add(DiagnosticsProperty('hasReachedEnd', hasReachedEnd))
-      ..add(DiagnosticsProperty('isPermissionDenied', isPermissionDenied))
-      ..add(DiagnosticsProperty('lanAndLong', lanAndLong))
-      ..add(DiagnosticsProperty('weatherTemperature', weatherTemperature))
-      ..add(DiagnosticsProperty('weatherConditionName', weatherConditionName));
+      ..add(DiagnosticsProperty('isPermissionDenied', isPermissionDenied));
   }
 
   @override
@@ -1576,13 +1341,7 @@ class _$_LocationState with DiagnosticableTreeMixin implements _LocationState {
             (identical(other.hasReachedEnd, hasReachedEnd) ||
                 other.hasReachedEnd == hasReachedEnd) &&
             (identical(other.isPermissionDenied, isPermissionDenied) ||
-                other.isPermissionDenied == isPermissionDenied) &&
-            (identical(other.lanAndLong, lanAndLong) ||
-                other.lanAndLong == lanAndLong) &&
-            const DeepCollectionEquality()
-                .equals(other.weatherTemperature, weatherTemperature) &&
-            (identical(other.weatherConditionName, weatherConditionName) ||
-                other.weatherConditionName == weatherConditionName));
+                other.isPermissionDenied == isPermissionDenied));
   }
 
   @override
@@ -1600,10 +1359,7 @@ class _$_LocationState with DiagnosticableTreeMixin implements _LocationState {
       isLoadingMore,
       const DeepCollectionEquality().hash(_loadedCities),
       hasReachedEnd,
-      isPermissionDenied,
-      lanAndLong,
-      const DeepCollectionEquality().hash(weatherTemperature),
-      weatherConditionName);
+      isPermissionDenied);
 
   @JsonKey(ignore: true)
   @override
@@ -1626,10 +1382,7 @@ abstract class _LocationState implements LocationState {
       required final bool isLoadingMore,
       required final List<List<String>> loadedCities,
       required final bool hasReachedEnd,
-      required final bool isPermissionDenied,
-      required final Position? lanAndLong,
-      required final dynamic weatherTemperature,
-      required final String weatherConditionName}) = _$_LocationState;
+      required final bool isPermissionDenied}) = _$_LocationState;
 
   @override
   String get currentLocaion;
@@ -1657,12 +1410,6 @@ abstract class _LocationState implements LocationState {
   bool get hasReachedEnd;
   @override
   bool get isPermissionDenied;
-  @override
-  Position? get lanAndLong;
-  @override
-  dynamic get weatherTemperature;
-  @override
-  String get weatherConditionName;
   @override
   @JsonKey(ignore: true)
   _$$_LocationStateCopyWith<_$_LocationState> get copyWith =>

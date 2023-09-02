@@ -6,16 +6,23 @@ import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.da
 import 'package:millat/resources/shop/view/products/single_product_view_brand.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
-import 'package:millat/utils/loader.dart';
 
-class WishListView extends StatelessWidget {
+class WishListView extends StatefulWidget {
   const WishListView({super.key});
 
   @override
+  State<WishListView> createState() => _WishListViewState();
+}
+
+class _WishListViewState extends State<WishListView> {
+  @override
+  void initState() {
+    BlocProvider.of<ShopProductsBloc>(context).add(FetchWishList(context));
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      BlocProvider.of<ShopProductsBloc>(context).add(FetchWishList(context));
-    });
     return Scaffold(
       appBar: AppBar(
         backgroundColor: ColorManager.appBarColor,
@@ -25,9 +32,11 @@ class WishListView extends StatelessWidget {
             style: TextStyle(color: Colors.black, fontWeight: FontWeight.w700)),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
-          color: ColorManager.blackColor,
+          color: Colors.black,
           onPressed: () {
-            Navigator.of(context).pop();
+            context
+                .read<ShopProductsBloc>()
+                .add(const TabIndexChangeEvent(index: 0));
           },
         ),
       ),
@@ -115,38 +124,34 @@ class WishListView extends StatelessWidget {
         },
       ),
       bottomSheet: BlocBuilder<ShopProductsBloc, ShopProductsState>(
-        builder: (context, state) {
-          if (state.wishList?.result == null) {
-            return const Loader();
-          }
-          return state.wishList!.result!.wishlist.products!.isNotEmpty
-              ? const SizedBox()
-              : Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 25),
-                  height: 240,
-                  child: Column(
-                    children: [
-                      const Text(
-                        'Start adding items to your wishlist and save your favorite products for later.',
-                        style: TextStyle(
-                          fontSize: 17,
-                          fontWeight: FontWeight.w600,
-                          height: 1.2,
+        builder: (context, state) =>
+            state.wishList!.result!.wishlist.products!.isNotEmpty
+                ? const SizedBox()
+                : Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 25),
+                    height: 240,
+                    child: Column(
+                      children: [
+                        const Text(
+                          'Start adding items to your wishlist and save your favorite products for later.',
+                          style: TextStyle(
+                            fontSize: 17,
+                            fontWeight: FontWeight.w600,
+                            height: 1.2,
+                          ),
                         ),
-                      ),
-                      kHeight20,
-                      MainButton(
-                        title: 'Start Exploring',
-                        onPressed: () {
-                          context
-                              .read<ShopProductsBloc>()
-                              .add(const TabIndexChangeEvent(index: 0));
-                        },
-                      )
-                    ],
+                        kHeight20,
+                        MainButton(
+                          title: 'Start Exploring',
+                          onPressed: () {
+                            context
+                                .read<ShopProductsBloc>()
+                                .add(const TabIndexChangeEvent(index: 0));
+                          },
+                        )
+                      ],
+                    ),
                   ),
-                );
-        },
       ),
     );
   }

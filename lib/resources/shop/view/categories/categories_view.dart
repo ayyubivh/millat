@@ -65,7 +65,7 @@ class _CategoriesViewState extends State<CategoriesView> {
               builder: (context, state) {
                 return CartIconWidget(
                   color: ColorManager.blackColor,
-                  cartLength: state.cartLength,
+                  cartLength: state.cartLength ?? 0,
                 );
               },
             )
@@ -115,7 +115,7 @@ class _CategoriesViewState extends State<CategoriesView> {
                                 color: ColorManager.veryLightGreen,
                               ),
                               child: ImageIcon(
-                                const AssetImage('assets/icons/filter.png'),
+                                AssetImage('assets/icons/filter.png'),
                                 color: ColorManager.greenColor1,
                               ),
                             ),

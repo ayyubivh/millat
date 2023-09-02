@@ -1,182 +1,234 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:millat/resources/authentication/bloc/logic/database_bloc/database_bloc.dart';
-import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
 import 'package:millat/resources/shop/view/article/single_article_view.dart';
-import 'package:millat/resources/shop/view/article/widgets/artilce_build_widget.dart';
 import 'package:millat/utils/color_manager.dart';
-import 'package:millat/utils/constants.dart';
-import 'package:millat/utils/loader.dart';
-import 'package:millat/utils/string_constants.dart';
 import 'package:millat/utils/utils.dart';
+
 import '../../../../utils/size_utility.dart';
 
 class ArticlesView extends StatelessWidget {
   static const String routeName = '/articles-view';
-  const ArticlesView({
-    Key? key,
-  }) : super(key: key);
-
+  const ArticlesView({Key? key, this.passValue}) : super(key: key);
+  final passValue;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorManager.whiteColor,
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Container(
-              height: 192,
-              width: double.infinity,
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 30).copyWith(top: 50),
-              decoration: BoxDecoration(
-                  gradient: LinearGradient(colors: [
-                ColorManager.greenColor1,
-                ColorManager.primary,
-              ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                    width: double.infinity,
-                    height: 48,
-                    decoration: BoxDecoration(
-                      color: ColorManager.whiteColor,
-                      borderRadius: BorderRadius.circular(30.0),
-                    ),
-                    child: Align(
-                      alignment: Alignment.topLeft,
-                      child: Row(
-                        children: [
-                          IconButton(
-                            onPressed: () {
-                              // Navigator.of(context).pushNamed(SearchView.routeName);
-                            },
-                            icon: const Icon(
-                              Icons.search,
-                              color: black102,
-                            ),
-                          ),
-                          const Text(
-                            Appstrings.search,
-                            style: TextStyle(
-                              color: black102,
-                              fontSize: 17,
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                  ),
-                  kHeight20,
-                  Text(
-                    context.read<DatabaseBloc>().state.name,
-                    style: TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.w800,
-                      color: ColorManager.whiteColor,
-                    ),
-                  ),
-                  kHeight10,
-                  Text(
-                    Appstrings.articleText1,
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w500,
-                      color: ColorManager.whiteColor,
-                      letterSpacing: 0.5,
-                    ),
-                  ),
-                ],
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        centerTitle: false,
+        title: const Text('All Articles',
+            style: TextStyle(color: Colors.black, fontWeight: FontWeight.w700)),
+        actions: const [
+          Padding(
+            padding: EdgeInsets.only(left: 10),
+            child: ImageIcon(
+              AssetImage(
+                'assets/icons/search.png',
               ),
+              color: Colors.black,
             ),
-            kHeight15,
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 30),
+          ),
+          Padding(
+            padding: EdgeInsets.only(left: 20, right: 20),
+            child: ImageIcon(
+              AssetImage(
+                'assets/icons/cart.png',
+              ),
+              color: Colors.black,
+            ),
+          ),
+        ],
+        leading: const BackButton(
+          color: Colors.black,
+        ),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 30),
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
                 child: Row(
                   children: [
-                    articleFilterWidget("🔥 ${Appstrings.all}"),
-                    articleFilterWidget(Appstrings.popular),
-                    articleFilterWidget(Appstrings.newest),
-                    articleFilterWidget(Appstrings.sunnah),
-                    articleFilterWidget(Appstrings.hadith),
+                    Container(
+                      width: 51,
+                      height: 34,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: ColorManager.greenColor1),
+                      child: const Center(
+                        child: Text('All',
+                            style: TextStyle(
+                                fontSize: 17,
+                                color: Colors.white,
+                                fontWeight: FontWeight.w700)),
+                      ),
+                    ),
+                    Container(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 10, vertical: 10),
+                      margin: const EdgeInsets.symmetric(
+                        horizontal: 10,
+                      ),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          border: Border.all(color: black60.withOpacity(0.5))),
+                      child: const Text('Recent',
+                          style: TextStyle(
+                              fontSize: 18,
+                              color: Colors.black,
+                              fontWeight: FontWeight.w700)),
+                    ),
+                    Container(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 10, vertical: 10),
+                      margin: const EdgeInsets.symmetric(
+                        horizontal: 10,
+                      ),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          border: Border.all(color: black60.withOpacity(0.5))),
+                      child: const Text('Popular',
+                          style: TextStyle(
+                              fontSize: 18,
+                              color: Colors.black,
+                              fontWeight: FontWeight.w700)),
+                    ),
+                    Container(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 10, vertical: 10),
+                      margin: const EdgeInsets.symmetric(
+                        horizontal: 10,
+                      ),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          border: Border.all(color: black60.withOpacity(0.5))),
+                      child: const Text('Evergreen',
+                          style: TextStyle(
+                              fontSize: 18,
+                              color: Colors.black,
+                              fontWeight: FontWeight.w700)),
+                    ),
+                    Container(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 10, vertical: 10),
+                      margin: const EdgeInsets.symmetric(
+                        horizontal: 10,
+                      ),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          border: Border.all(color: black60.withOpacity(0.5))),
+                      child: const Text('Darvel',
+                          style: TextStyle(
+                              fontSize: 18,
+                              color: Colors.black,
+                              fontWeight: FontWeight.w700)),
+                    ),
                   ],
                 ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  // Text(
-                  //   'All',
-                  //   style: TextStyle(
-                  //       color: ColorManager.blackColor,
-                  //       fontSize: 18,
-                  //       fontWeight: FontWeight.bold),
-                  // ),
-
-                  SizedBox(
-                    height: SizeUtility(context).height,
-                    child: BlocBuilder<ShopProductsBloc, ShopProductsState>(
-                      builder: (context, state) {
-                        if (state.articles?.result?.articles == null) {
-                          return const Loader();
-                        }
-                        return ListView.builder(
-                          itemCount: state.articles?.result?.articles?.length,
-                          itemBuilder: (context, index) {
-                            final data =
-                                state.articles!.result!.articles![index];
-                            return GestureDetector(
-                                onTap: () {
-                                  Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (context) => SingleArticleView(
-                                      passValue: data,
-                                    ),
-                                  ));
-                                },
-                                child: ArticleBuilWidget(
-                                  image: data.image!,
-                                  brand: data.brand!,
-                                  date: Utilities.getTimeAgo(data.date!),
-                                  title: data.title!,
-                                  content: data.content ?? 'Content is Empty',
-                                ));
-                          },
-                        );
-                      },
-                    ),
-                  ),
-                ],
+              const SizedBox(height: 10),
+              Text(
+                'All',
+                style: TextStyle(
+                    color: ColorManager.blackColor,
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold),
               ),
-            ),
-          ],
+              const SizedBox(height: 10),
+              SizedBox(
+                height: SizeUtility(context).height,
+                child: ListView.builder(
+                  itemCount: passValue.length,
+                  itemBuilder: (context, index) {
+                    return GestureDetector(
+                        onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => SingleArticleView(
+                                passValue: passValue, index: index),
+                          ));
+                        },
+                        child: buildArticle(
+                            image: passValue[index].image,
+                            brand: passValue[index].brand,
+                            date: Utilities.formatDate(passValue[index].date),
+                            title: passValue[index].title,
+                            content:
+                                passValue[index].content ?? 'Content is Empty',
+                            context: context));
+                  },
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
   }
 
-  Widget articleFilterWidget(String text) {
-    return Container(
-      height: 40,
-      width: 84,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20),
-        color: ColorManager.lightGreen,
-      ),
-      padding: const EdgeInsets.all(8),
-      margin: const EdgeInsets.only(right: 10),
-      child: Text(text,
+  buildArticle(
+      {required String image,
+      required String brand,
+      required String date,
+      required String title,
+      required String content,
+      required BuildContext context}) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        ClipRRect(
+          borderRadius: BorderRadius.circular(20),
+          child: Image.network(
+            image,
+            height: 200,
+            width: double.infinity,
+            fit: BoxFit.cover,
+          ),
+        ),
+        const SizedBox(
+          height: 20,
+        ),
+        Text(
+          '${brand} • ${date}',
           style: TextStyle(
-            fontSize: 16,
-            color: ColorManager.greenGreyTextClr,
-            fontWeight: FontWeight.w700,
-          )),
+              color: ColorManager.mainColor,
+              fontSize: 16,
+              fontWeight: FontWeight.w600),
+        ),
+        const SizedBox(
+          height: 20,
+        ),
+        Text(
+          title,
+          style: const TextStyle(
+              color: black16, fontSize: 15, fontWeight: FontWeight.w600),
+        ),
+        const SizedBox(
+          height: 20,
+        ),
+        Text(
+          content,
+          style: const TextStyle(
+            color: black102,
+            fontSize: 15,
+          ),
+        ),
+        const SizedBox(
+          height: 20,
+        ),
+        Container(
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+              color: ColorManager.veryLightGreen),
+          child: Text('Popular',
+              style: TextStyle(
+                  color: ColorManager.greenColor1,
+                  fontWeight: FontWeight.w700)),
+        ),
+      ],
     );
   }
 }

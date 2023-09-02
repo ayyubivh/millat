@@ -5,7 +5,6 @@ import '../../../utils/color_manager.dart';
 class ProfieEditTextFormField extends StatelessWidget {
   final String hint;
   final Widget icon;
-  final int? maxLength;
   final TextEditingController? controller;
   final TextInputType textInputType;
   final String? Function(String? val)? validator;
@@ -18,13 +17,11 @@ class ProfieEditTextFormField extends StatelessWidget {
       this.controller,
       this.validator,
       this.onChanged,
-      this.textInputType = TextInputType.none,
-      this.maxLength});
+      this.textInputType = TextInputType.none});
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      maxLength: maxLength,
       validator: validator,
       controller: controller,
       keyboardType: textInputType,
@@ -38,12 +35,7 @@ class ProfieEditTextFormField extends StatelessWidget {
             color: ColorManager.greyD1,
           ),
         ),
-        errorBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide(
-            color: ColorManager.redColor,
-          ),
-        ),
+        errorBorder: InputBorder.none,
         disabledBorder: InputBorder.none,
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
@@ -54,15 +46,8 @@ class ProfieEditTextFormField extends StatelessWidget {
         focusedErrorBorder: InputBorder.none,
         filled: true,
         fillColor: textFieldColor,
-        suffixIcon: IconTheme(
-          data: const IconThemeData(size: 10),
-          child: Padding(
-            padding: const EdgeInsets.all(14.0),
-            child: icon,
-          ),
-        ),
+        suffixIcon: icon,
         hintText: hint,
-        errorText: validator != null ? validator!(controller?.text) : null,
       ),
       onChanged: onChanged,
       textAlignVertical: const TextAlignVertical(y: .5),

@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/resources/home/bloc/logic/home_bloc/home_bloc.dart';
 import 'package:millat/resources/home/view/home_view.dart';
-import 'package:millat/resources/home/view/namaz_timing/namaz_timing_view.dart';
 import 'package:millat/resources/shop/view/tabs/shop_tabs_vilew.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/color_manager.dart';
@@ -23,7 +22,7 @@ class _TabsViewState extends State<TabsView> {
   List screens = [
     const HomeView(),
     const ShopTabsView(),
-    const NamazTimingView(),
+    Container(),
     const UserProfileView(),
   ];
 
@@ -55,7 +54,7 @@ class _TabsViewState extends State<TabsView> {
       child: Scaffold(
         extendBody: true,
         bottomNavigationBar: SizedBox(
-          height: 60,
+          height: 80,
           child: BottomNavigationBar(
             onTap: onTap,
             currentIndex: index,
@@ -71,25 +70,21 @@ class _TabsViewState extends State<TabsView> {
                   label: '',
                   icon: ImageIcon(
                     AssetImage('assets/icons/home.png'),
-                    size: 22,
                   )),
               BottomNavigationBarItem(
                   label: '',
                   icon: ImageIcon(
                     AssetImage('assets/icons/store.png'),
-                    size: 22,
                   )),
               BottomNavigationBarItem(
                   label: '',
                   icon: ImageIcon(
                     AssetImage(AppAssetsStrings.starHome),
-                    size: 22,
                   )),
               BottomNavigationBarItem(
                   label: '',
                   icon: ImageIcon(
                     AssetImage(AppAssetsStrings.profile),
-                    size: 22,
                   )),
             ],
           ),

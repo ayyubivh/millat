@@ -9,9 +9,7 @@ class TasbihState with _$TasbihState {
       required DhikrModel? dhikrModel,
       required int dhikrCount,
       required int dhikrhGoal,
-      required bool isBoolGreaterThanOne,
-      required TasbihThemes tasbihThemes,
-      required int? themeIndex}) = _TasbihState;
+      required bool isBoolGreaterThanOne}) = _TasbihState;
   factory TasbihState.initial() => const TasbihState(
         tasbihDhikr: "",
         dhikrModel: null,
@@ -20,7 +18,5 @@ class TasbihState with _$TasbihState {
         dhikrhGoal: 33,
         tasbihDikrTranslate: "",
         isBoolGreaterThanOne: false,
-        tasbihThemes: TasbihThemes.pink,
-        themeIndex: 0,
       );
 }

@@ -5,7 +5,7 @@ import 'package:millat/resources/home/bloc/logic/location_bloc/location_bloc.dar
 import 'dart:convert';
 import '../models/namaz_methods/namaz_mthods_model.dart';
 import '../models/prayer_timing_models/prayer_timing_model.dart';
-
+ 
 class NamazTimingService {
   Future<PrayerModel> fetchPrayerTime(
       {required String date,
@@ -14,7 +14,7 @@ class NamazTimingService {
       required int highLatMethodVal,
       required BuildContext context}) async {
     final address = context.read<LocationBloc>().state.currentLocaion;
-
+    print('current location on the fetch prayer time $address');
     final response = await http.get(Uri.parse(
         'http://api.aladhan.com/v1/timingsByAddress/$date?address=$address&school=$school&method=$method&latitudeAdjustmentMethod=$highLatMethodVal'));
 

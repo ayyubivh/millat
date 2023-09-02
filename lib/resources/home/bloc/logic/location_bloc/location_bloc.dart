@@ -4,9 +4,12 @@ import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:weather/weather.dart';
+import 'package:millat/resources/home/bloc/db/namaz_method_functions.dart';
+import 'package:millat/resources/home/bloc/models/namaz_methods/namaz_method_hive_models.dart';
+
 import 'package:permission_handler/permission_handler.dart' as perm;
 import 'package:permission_handler/permission_handler.dart';
+
 import '../../models/cities_models/cities_model.dart';
 import '../../service/location_service.dart';
 
@@ -22,7 +25,6 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
     on<SearchCities>(_searchCities);
     on<ChangeLocation>(_changeLocation);
     on<ChangeLocationOnToggle>(_changeLocationOnToggle);
-    on<FetchWeatherEvent>(_fetchWeatherEvent);
   }
   Future<void> _fetchCities(
       FetchCities event, Emitter<LocationState> emit) async {
@@ -91,7 +93,7 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
 
         if (permissionStatus.isGranted) {
           currentLocation = await Geolocator.getCurrentPosition();
-          emit(state.copyWith(lanAndLong: currentLocation));
+          print('${currentLocation.latitude} ${currentLocation.longitude}');
           String currentAddress = await getAddress(
             currentLocation.latitude,
             currentLocation.longitude,
@@ -103,7 +105,7 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
           ));
           // NamazMethodDbModel
           // NamazMethodDB.instance.addNamazMethode(obj)
-          // debugPrint('Current address: $currentAddress');
+          debugPrint('Current address: $currentAddress');
         }
       } else {
         emit(state.copyWith(errorMessage: 'Location permission denied'));
@@ -151,17 +153,5 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
   FutureOr<void> _changeLocationOnToggle(
       ChangeLocationOnToggle event, Emitter<LocationState> emit) {
     emit(state.copyWith(currentLocaion: state.location));
-  }
-
-  _fetchWeatherEvent(
-      FetchWeatherEvent event, Emitter<LocationState> emit) async {
-    WeatherFactory wf = WeatherFactory("b3d5766982a6bc07ad257a10d0939899",
-        language: Language.ENGLISH);
-    final pos = state.lanAndLong;
-    Weather w = await wf.currentWeatherByLocation(
-        pos?.latitude ?? 0, pos?.longitude ?? 0);
-    emit(state.copyWith(
-        weatherConditionName: w.weatherDescription.toString(),
-        weatherTemperature: w.temperature));
   }
 }

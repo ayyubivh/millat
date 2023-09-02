@@ -5,10 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:intl/intl.dart';
+import 'package:millat/resources/home/bloc/db/namaz_method_functions.dart';
 import 'package:millat/resources/home/bloc/service/namaz_timing_service.dart';
 import 'package:millat/resources/home/bloc/service/notification_service.dart';
-import 'package:millat/utils/string_constants.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../models/namaz_methods/namaz_mthods_model.dart';
 import '../../models/prayer_timing_models/prayer_timing_model.dart';
@@ -20,11 +19,10 @@ part 'namaz_timing_bloc.freezed.dart';
 class NamazTimingBloc extends Bloc<NamazTimingEvent, NamazTimingState> {
   final NamazTimingService namazTimingService = NamazTimingService();
   final NotificationService notificationService = NotificationService();
-
   NamazTimingBloc() : super(NamazTimingState.initial()) {
     on<FetchPrayerTiming>(_fetchPrayerTiming);
     on<PrayerTimingEvent>(_prayerTimingEvent);
-
+    on<ShowImsakEvent>(_showImsakEvent);
     on<ChangeArtCalcMethod>(_changeArtCalcMethod);
     on<FetchNamazMethods>(_fetchNamazMethods);
     on<ChangeNamazMethods>(_changeNamaMethods);
@@ -32,38 +30,19 @@ class NamazTimingBloc extends Bloc<NamazTimingEvent, NamazTimingState> {
     on<ChangeHighLatitudeMethod>(_changeHighLatitudeMethod);
     on<OnNotiyOnOffEvent>(_onNotiyOnOffEvent);
     on<ChangeIndex>(_changeIndex);
-
-    on<AddAutoDetectValToLocalStorage>(_addAutoDetectValToLocalStorage);
-    on<GetAutoDetetectLocationFromLocalStorage>(
-        _getAutoDetetectLocationFromLocalStorage);
-    on<AddAutomaticSettingToLocalStorage>(_addAutomaticSettingToLocalStorage);
-    on<GetAutomaticSettingsFromLocalStorage>(
-        _getAutomaticSettingsFromLocalStorage);
-    on<AddShowimsakValToLocalStorage>(_addShowimsakValToLocalStorage);
-    on<GetShowimskValFromLocalStorage>(_getShowimskValFromLocalStorage);
-    on<AddCalculationMethodToLocalStorage>(_addCalculationMethodToLocalStorage);
-    on<GetCalculationMethodFromStorage>(_getCalculationMethodFromStorage);
-    on<AddAsrCalculationMethodToLocalStorage>(
-        _addAsrCalculationMethodToLocalStorage);
-    on<GetAsrCalculationMethodFromStorage>(_getAsrCalculationMethodFromStorage);
-    on<AddHighLatitudeMethodsToLocalStorage>(
-        _addHighLatitudeMethodsToLocalStorage);
-    on<GetHighLatitudeMethodsToLocalStorage>(
-        _getHighLatitudeMethodsToLocalStorage);
-    on<FetchNamazTimingNotificationsFromLocalStorage>(
-        _fetchNamazTimingNotificationsFromLocalStorage);
+    on<FetchNamazMethodDb>(_fetchNamazMethodDb);
+    on<AddNamazMethodDb>(_addNamazMethodDb);
   }
 
   _fetchPrayerTiming(
       FetchPrayerTiming event, Emitter<NamazTimingState> emit) async {
     try {
       final data = await namazTimingService.fetchPrayerTime(
-        context: event.context,
-        date: state.urlDate,
-        school: state.school,
-        method: state.method,
-        highLatMethodVal: state.highLatMethodVal,
-      );
+          context: event.context,
+          date: state.urlDate,
+          school: state.school,
+          method: state.method,
+          highLatMethodVal: state.highLatMethodVal);
       final address = state.prayerModel?.data.meta.method.location;
       final currentAddress = await _getAddress(
         address?.latitude ?? 0,
@@ -132,7 +111,15 @@ class NamazTimingBloc extends Bloc<NamazTimingEvent, NamazTimingState> {
 
   FutureOr<void> _changeArtCalcMethod(
       ChangeArtCalcMethod event, Emitter<NamazTimingState> emit) {
-    emit(state.copyWith(isArtCalcMehod: state.school == 1 ? true : false));
+    emit(state.copyWith(
+        isArtCalcMehod: state.isArtCalcMehod == false ? true : false));
+  }
+
+  FutureOr<void> _showImsakEvent(
+      ShowImsakEvent event, Emitter<NamazTimingState> emit) {
+    emit(
+      state.copyWith(showImsak: state.showImsak == false ? true : false),
+    );
   }
 
   FutureOr<void> _fetchNamazMethods(
@@ -320,73 +307,36 @@ class NamazTimingBloc extends Bloc<NamazTimingEvent, NamazTimingState> {
         DateTime.now().day, hour, minute);
   }
 
-  _fetchNamazTimingNotificationsFromLocalStorage(
-      FetchNamazTimingNotificationsFromLocalStorage event,
-      Emitter<NamazTimingState> emit) async {
-    final notifyFajr =
-        await _getBoolFromSharedPreferences(Appstrings.fajr, nullVal: true);
-    final notifySunrise =
-        await _getBoolFromSharedPreferences(Appstrings.sunrise, nullVal: true);
-    final notifyDhuhr =
-        await _getBoolFromSharedPreferences(Appstrings.dhuhr, nullVal: true);
-    final notifyAsr =
-        await _getBoolFromSharedPreferences(Appstrings.asr, nullVal: true);
-    final notifyMagrib =
-        await _getBoolFromSharedPreferences(Appstrings.magrib, nullVal: true);
-    final notifyIsha =
-        await _getBoolFromSharedPreferences(Appstrings.isha, nullVal: true);
-    final notifyQiyam =
-        await _getBoolFromSharedPreferences(Appstrings.qiyam, nullVal: true);
-
-    emit(state.copyWith(
-      notifyFajr: notifyFajr,
-      notifySunrise: notifySunrise,
-      notifyDhuhr: notifyDhuhr,
-      notifyAsr: notifyAsr,
-      notifyMagrib: notifyMagrib,
-      notifyIsha: notifyIsha,
-      notifyQiyam: notifyQiyam,
-    ));
-  }
-
   FutureOr<void> _onNotiyOnOffEvent(
-      OnNotiyOnOffEvent event, Emitter<NamazTimingState> emit) async {
+      OnNotiyOnOffEvent event, Emitter<NamazTimingState> emit) {
     switch (event.index) {
       case 0:
-        final updatedFajrNotify = !state.notifyFajr;
-        // print(updatedFajrNotify);
-        emit(state.copyWith(notifyFajr: updatedFajrNotify));
-        _saveBoolToSharedPreferences(Appstrings.fajr, updatedFajrNotify);
+        emit(state.copyWith(
+            notifyFajr: state.notifyFajr == false ? true : false));
         break;
       case 1:
-        final updatedSunriseNotify = !state.notifySunrise;
-        emit(state.copyWith(notifySunrise: updatedSunriseNotify));
-        _saveBoolToSharedPreferences(Appstrings.sunrise, updatedSunriseNotify);
+        emit(state.copyWith(
+            notifySunrise: state.notifySunrise == false ? true : false));
         break;
       case 2:
-        final updatedDhuhrNotify = !state.notifyDhuhr;
-        emit(state.copyWith(notifyDhuhr: updatedDhuhrNotify));
-        _saveBoolToSharedPreferences(Appstrings.dhuhr, updatedDhuhrNotify);
+        emit(state.copyWith(
+            notifyDhuhr: state.notifyDhuhr == false ? true : false));
         break;
       case 3:
-        final updatedAsrNotify = !state.notifyAsr;
-        emit(state.copyWith(notifyAsr: updatedAsrNotify));
-        _saveBoolToSharedPreferences(Appstrings.asr, updatedAsrNotify);
+        emit(
+            state.copyWith(notifyAsr: state.notifyAsr == false ? true : false));
         break;
       case 4:
-        final updatedMagribNotify = !state.notifyMagrib;
-        emit(state.copyWith(notifyMagrib: updatedMagribNotify));
-        _saveBoolToSharedPreferences(Appstrings.magrib, updatedMagribNotify);
+        emit(state.copyWith(
+            notifyMagrib: state.notifyMagrib == false ? true : false));
         break;
       case 5:
-        final updatedIshaNotify = !state.notifyIsha;
-        emit(state.copyWith(notifyIsha: updatedIshaNotify));
-        _saveBoolToSharedPreferences(Appstrings.isha, updatedIshaNotify);
+        emit(state.copyWith(
+            notifyIsha: state.notifyIsha == false ? true : false));
         break;
       case 6:
-        final updatedQiyamNotify = !state.notifyQiyam;
-        emit(state.copyWith(notifyQiyam: updatedQiyamNotify));
-        _saveBoolToSharedPreferences(Appstrings.qiyam, updatedQiyamNotify);
+        emit(state.copyWith(
+            notifyQiyam: state.notifyQiyam == false ? true : false));
         break;
       default:
     }
@@ -396,140 +346,25 @@ class NamazTimingBloc extends Bloc<NamazTimingEvent, NamazTimingState> {
     emit(state.copyWith(index: event.index));
   }
 
-  _addAutoDetectValToLocalStorage(event, Emitter<NamazTimingState> emit) {
-    emit(state.copyWith(autoDetectLocationDb: event.value));
-
-    _saveBoolToSharedPreferences(Appstrings.autoDetectLocationKey, event.value);
-  }
-
-  _getAutoDetetectLocationFromLocalStorage(
-      GetAutoDetetectLocationFromLocalStorage event,
-      Emitter<NamazTimingState> emit) async {
+  _fetchNamazMethodDb(
+      FetchNamazMethodDb event, Emitter<NamazTimingState> emit) async {
     try {
-      final val = await _getBoolFromSharedPreferences(
-          Appstrings.autoDetectLocationKey,
-          nullVal: true);
-      emit(state.copyWith(autoDetectLocationDb: val));
+      final data = await NamazMethodDB.instance.getAllNamazMehods();
+      if (data.isNotEmpty) {
+        emit(state.copyWith(
+          autoDetectLocationDb: data[0].autoDetectLocation,
+          automaticSettingsDb: data[0].automaticSetting,
+          calculationMethod: data[0].calculationMethod,
+          asrCalculationMehod: data[0].asrCalculationMethod,
+          highLatMethodVal: data[0].highLatitudeMethods,
+          manualCorrections: data[0].manualCorrections,
+          showImsak: data[0].showImsak,
+        ));
+      }
     } catch (e) {
       throw Exception(e);
     }
   }
 
-  _addAutomaticSettingToLocalStorage(
-      AddAutomaticSettingToLocalStorage event, Emitter<NamazTimingState> emit) {
-    emit(state.copyWith(automaticSettingsDb: event.value));
-
-    _saveBoolToSharedPreferences(Appstrings.autoMaticSettingsKey, event.value);
-  }
-
-  _getAutomaticSettingsFromLocalStorage(
-      GetAutomaticSettingsFromLocalStorage event,
-      Emitter<NamazTimingState> emit) async {
-    try {
-      final val = await _getBoolFromSharedPreferences(
-          Appstrings.autoMaticSettingsKey,
-          nullVal: true);
-      emit(state.copyWith(automaticSettingsDb: val));
-    } catch (e) {
-      throw Exception(e);
-    }
-  }
-
-  _addShowimsakValToLocalStorage(
-      AddShowimsakValToLocalStorage event, Emitter<NamazTimingState> emit) {
-    emit(state.copyWith(showImsak: event.value));
-
-    _saveBoolToSharedPreferences(Appstrings.showImsakKey, event.value);
-  }
-
-  _getShowimskValFromLocalStorage(GetShowimskValFromLocalStorage event,
-      Emitter<NamazTimingState> emit) async {
-    try {
-      final val = await _getBoolFromSharedPreferences(Appstrings.showImsakKey,
-          nullVal: false);
-      emit(state.copyWith(
-        showImsak: val,
-      ));
-    } catch (e) {
-      throw Exception(e);
-    }
-  }
-
-  _addCalculationMethodToLocalStorage(AddCalculationMethodToLocalStorage event,
-      Emitter<NamazTimingState> emit) {
-    _saveIntToSharedPreferences(Appstrings.calculationMethodKey, event.value);
-  }
-
-  _getCalculationMethodFromStorage(GetCalculationMethodFromStorage event,
-      Emitter<NamazTimingState> emit) async {
-    try {
-      final val = await _getIntFromSharedPreferences(
-          Appstrings.calculationMethodKey, 1);
-      emit(state.copyWith(method: val));
-    } catch (e) {
-      throw Exception(e);
-    }
-  }
-
-  _addAsrCalculationMethodToLocalStorage(
-      AddAsrCalculationMethodToLocalStorage event,
-      Emitter<NamazTimingState> emit) {
-    emit(state.copyWith(school: event.value));
-    _saveIntToSharedPreferences(
-        Appstrings.asrCalculationMethodKey, event.value);
-  }
-
-  _getAsrCalculationMethodFromStorage(GetAsrCalculationMethodFromStorage event,
-      Emitter<NamazTimingState> emit) async {
-    try {
-      final val = await _getIntFromSharedPreferences(
-          Appstrings.asrCalculationMethodKey, 0);
-      emit(state.copyWith(school: val));
-    } catch (e) {
-      throw Exception(e);
-    }
-  }
-
-  _addHighLatitudeMethodsToLocalStorage(
-      AddHighLatitudeMethodsToLocalStorage event,
-      Emitter<NamazTimingState> emit) {
-    emit(state.copyWith(highLatMethodVal: event.value));
-    _saveIntToSharedPreferences(Appstrings.highLatitudeMethodsKey, event.value);
-  }
-
-  _getHighLatitudeMethodsToLocalStorage(
-      GetHighLatitudeMethodsToLocalStorage event,
-      Emitter<NamazTimingState> emit) async {
-    try {
-      final val = await _getIntFromSharedPreferences(
-          Appstrings.highLatitudeMethodsKey, 0);
-      emit(state.copyWith(highLatMethodVal: val));
-    } catch (e) {
-      throw Exception(e);
-    }
-  }
-
-  // reusable method for adding and gettin from localstorage
-  Future<void> _saveIntToSharedPreferences(String key, int value) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    await prefs.setInt(key, value);
-  }
-
-  Future<int> _getIntFromSharedPreferences(String key, int nullVal) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    final value = prefs.getInt(key);
-    return value ?? nullVal;
-  }
-
-  Future<void> _saveBoolToSharedPreferences(String key, bool value) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    await prefs.setBool(key, value);
-  }
-
-  Future<bool> _getBoolFromSharedPreferences(String key,
-      {bool nullVal = false}) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    final value = prefs.getBool(key);
-    return value ?? nullVal;
-  }
+  _addNamazMethodDb(event, Emitter<NamazTimingState> emit) {}
 }

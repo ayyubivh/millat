@@ -24,17 +24,9 @@ mixin _$DatabaseEvent {
     required TResult Function() fetchUserDetails,
     required TResult Function(BuildContext context) fetchAuthUser,
     required TResult Function(
-            String name,
-            String? email,
-            String userName,
-            String institution,
-            String dob,
-            String profession,
-            String image,
-            BuildContext context)
+            String name, String email, String userName, BuildContext context)
         editAuthUser,
     required TResult Function() removeTokenEvent,
-    required TResult Function(ImageSource source) uploadImageEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -45,17 +37,9 @@ mixin _$DatabaseEvent {
     TResult? Function()? fetchUserDetails,
     TResult? Function(BuildContext context)? fetchAuthUser,
     TResult? Function(
-            String name,
-            String? email,
-            String userName,
-            String institution,
-            String dob,
-            String profession,
-            String image,
-            BuildContext context)?
+            String name, String email, String userName, BuildContext context)?
         editAuthUser,
     TResult? Function()? removeTokenEvent,
-    TResult? Function(ImageSource source)? uploadImageEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -66,17 +50,9 @@ mixin _$DatabaseEvent {
     TResult Function()? fetchUserDetails,
     TResult Function(BuildContext context)? fetchAuthUser,
     TResult Function(
-            String name,
-            String? email,
-            String userName,
-            String institution,
-            String dob,
-            String profession,
-            String image,
-            BuildContext context)?
+            String name, String email, String userName, BuildContext context)?
         editAuthUser,
     TResult Function()? removeTokenEvent,
-    TResult Function(ImageSource source)? uploadImageEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -89,7 +65,6 @@ mixin _$DatabaseEvent {
     required TResult Function(FetchAuthUser value) fetchAuthUser,
     required TResult Function(EditAuthUser value) editAuthUser,
     required TResult Function(RemoveTokenEvent value) removeTokenEvent,
-    required TResult Function(UploadImageEvent value) uploadImageEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -101,7 +76,6 @@ mixin _$DatabaseEvent {
     TResult? Function(FetchAuthUser value)? fetchAuthUser,
     TResult? Function(EditAuthUser value)? editAuthUser,
     TResult? Function(RemoveTokenEvent value)? removeTokenEvent,
-    TResult? Function(UploadImageEvent value)? uploadImageEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -113,7 +87,6 @@ mixin _$DatabaseEvent {
     TResult Function(FetchAuthUser value)? fetchAuthUser,
     TResult Function(EditAuthUser value)? editAuthUser,
     TResult Function(RemoveTokenEvent value)? removeTokenEvent,
-    TResult Function(UploadImageEvent value)? uploadImageEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -207,17 +180,9 @@ class _$StoreTokenEvent implements StoreTokenEvent {
     required TResult Function() fetchUserDetails,
     required TResult Function(BuildContext context) fetchAuthUser,
     required TResult Function(
-            String name,
-            String? email,
-            String userName,
-            String institution,
-            String dob,
-            String profession,
-            String image,
-            BuildContext context)
+            String name, String email, String userName, BuildContext context)
         editAuthUser,
     required TResult Function() removeTokenEvent,
-    required TResult Function(ImageSource source) uploadImageEvent,
   }) {
     return storeTokenEvent(token);
   }
@@ -231,17 +196,9 @@ class _$StoreTokenEvent implements StoreTokenEvent {
     TResult? Function()? fetchUserDetails,
     TResult? Function(BuildContext context)? fetchAuthUser,
     TResult? Function(
-            String name,
-            String? email,
-            String userName,
-            String institution,
-            String dob,
-            String profession,
-            String image,
-            BuildContext context)?
+            String name, String email, String userName, BuildContext context)?
         editAuthUser,
     TResult? Function()? removeTokenEvent,
-    TResult? Function(ImageSource source)? uploadImageEvent,
   }) {
     return storeTokenEvent?.call(token);
   }
@@ -255,17 +212,9 @@ class _$StoreTokenEvent implements StoreTokenEvent {
     TResult Function()? fetchUserDetails,
     TResult Function(BuildContext context)? fetchAuthUser,
     TResult Function(
-            String name,
-            String? email,
-            String userName,
-            String institution,
-            String dob,
-            String profession,
-            String image,
-            BuildContext context)?
+            String name, String email, String userName, BuildContext context)?
         editAuthUser,
     TResult Function()? removeTokenEvent,
-    TResult Function(ImageSource source)? uploadImageEvent,
     required TResult orElse(),
   }) {
     if (storeTokenEvent != null) {
@@ -284,7 +233,6 @@ class _$StoreTokenEvent implements StoreTokenEvent {
     required TResult Function(FetchAuthUser value) fetchAuthUser,
     required TResult Function(EditAuthUser value) editAuthUser,
     required TResult Function(RemoveTokenEvent value) removeTokenEvent,
-    required TResult Function(UploadImageEvent value) uploadImageEvent,
   }) {
     return storeTokenEvent(this);
   }
@@ -299,7 +247,6 @@ class _$StoreTokenEvent implements StoreTokenEvent {
     TResult? Function(FetchAuthUser value)? fetchAuthUser,
     TResult? Function(EditAuthUser value)? editAuthUser,
     TResult? Function(RemoveTokenEvent value)? removeTokenEvent,
-    TResult? Function(UploadImageEvent value)? uploadImageEvent,
   }) {
     return storeTokenEvent?.call(this);
   }
@@ -314,7 +261,6 @@ class _$StoreTokenEvent implements StoreTokenEvent {
     TResult Function(FetchAuthUser value)? fetchAuthUser,
     TResult Function(EditAuthUser value)? editAuthUser,
     TResult Function(RemoveTokenEvent value)? removeTokenEvent,
-    TResult Function(UploadImageEvent value)? uploadImageEvent,
     required TResult orElse(),
   }) {
     if (storeTokenEvent != null) {
@@ -378,17 +324,9 @@ class _$FetchToken implements FetchToken {
     required TResult Function() fetchUserDetails,
     required TResult Function(BuildContext context) fetchAuthUser,
     required TResult Function(
-            String name,
-            String? email,
-            String userName,
-            String institution,
-            String dob,
-            String profession,
-            String image,
-            BuildContext context)
+            String name, String email, String userName, BuildContext context)
         editAuthUser,
     required TResult Function() removeTokenEvent,
-    required TResult Function(ImageSource source) uploadImageEvent,
   }) {
     return fetchToken();
   }
@@ -402,17 +340,9 @@ class _$FetchToken implements FetchToken {
     TResult? Function()? fetchUserDetails,
     TResult? Function(BuildContext context)? fetchAuthUser,
     TResult? Function(
-            String name,
-            String? email,
-            String userName,
-            String institution,
-            String dob,
-            String profession,
-            String image,
-            BuildContext context)?
+            String name, String email, String userName, BuildContext context)?
         editAuthUser,
     TResult? Function()? removeTokenEvent,
-    TResult? Function(ImageSource source)? uploadImageEvent,
   }) {
     return fetchToken?.call();
   }
@@ -426,17 +356,9 @@ class _$FetchToken implements FetchToken {
     TResult Function()? fetchUserDetails,
     TResult Function(BuildContext context)? fetchAuthUser,
     TResult Function(
-            String name,
-            String? email,
-            String userName,
-            String institution,
-            String dob,
-            String profession,
-            String image,
-            BuildContext context)?
+            String name, String email, String userName, BuildContext context)?
         editAuthUser,
     TResult Function()? removeTokenEvent,
-    TResult Function(ImageSource source)? uploadImageEvent,
     required TResult orElse(),
   }) {
     if (fetchToken != null) {
@@ -455,7 +377,6 @@ class _$FetchToken implements FetchToken {
     required TResult Function(FetchAuthUser value) fetchAuthUser,
     required TResult Function(EditAuthUser value) editAuthUser,
     required TResult Function(RemoveTokenEvent value) removeTokenEvent,
-    required TResult Function(UploadImageEvent value) uploadImageEvent,
   }) {
     return fetchToken(this);
   }
@@ -470,7 +391,6 @@ class _$FetchToken implements FetchToken {
     TResult? Function(FetchAuthUser value)? fetchAuthUser,
     TResult? Function(EditAuthUser value)? editAuthUser,
     TResult? Function(RemoveTokenEvent value)? removeTokenEvent,
-    TResult? Function(UploadImageEvent value)? uploadImageEvent,
   }) {
     return fetchToken?.call(this);
   }
@@ -485,7 +405,6 @@ class _$FetchToken implements FetchToken {
     TResult Function(FetchAuthUser value)? fetchAuthUser,
     TResult Function(EditAuthUser value)? editAuthUser,
     TResult Function(RemoveTokenEvent value)? removeTokenEvent,
-    TResult Function(UploadImageEvent value)? uploadImageEvent,
     required TResult orElse(),
   }) {
     if (fetchToken != null) {
@@ -577,17 +496,9 @@ class _$StoreUserDetails implements StoreUserDetails {
     required TResult Function() fetchUserDetails,
     required TResult Function(BuildContext context) fetchAuthUser,
     required TResult Function(
-            String name,
-            String? email,
-            String userName,
-            String institution,
-            String dob,
-            String profession,
-            String image,
-            BuildContext context)
+            String name, String email, String userName, BuildContext context)
         editAuthUser,
     required TResult Function() removeTokenEvent,
-    required TResult Function(ImageSource source) uploadImageEvent,
   }) {
     return storeUserDetails(email, name);
   }
@@ -601,17 +512,9 @@ class _$StoreUserDetails implements StoreUserDetails {
     TResult? Function()? fetchUserDetails,
     TResult? Function(BuildContext context)? fetchAuthUser,
     TResult? Function(
-            String name,
-            String? email,
-            String userName,
-            String institution,
-            String dob,
-            String profession,
-            String image,
-            BuildContext context)?
+            String name, String email, String userName, BuildContext context)?
         editAuthUser,
     TResult? Function()? removeTokenEvent,
-    TResult? Function(ImageSource source)? uploadImageEvent,
   }) {
     return storeUserDetails?.call(email, name);
   }
@@ -625,17 +528,9 @@ class _$StoreUserDetails implements StoreUserDetails {
     TResult Function()? fetchUserDetails,
     TResult Function(BuildContext context)? fetchAuthUser,
     TResult Function(
-            String name,
-            String? email,
-            String userName,
-            String institution,
-            String dob,
-            String profession,
-            String image,
-            BuildContext context)?
+            String name, String email, String userName, BuildContext context)?
         editAuthUser,
     TResult Function()? removeTokenEvent,
-    TResult Function(ImageSource source)? uploadImageEvent,
     required TResult orElse(),
   }) {
     if (storeUserDetails != null) {
@@ -654,7 +549,6 @@ class _$StoreUserDetails implements StoreUserDetails {
     required TResult Function(FetchAuthUser value) fetchAuthUser,
     required TResult Function(EditAuthUser value) editAuthUser,
     required TResult Function(RemoveTokenEvent value) removeTokenEvent,
-    required TResult Function(UploadImageEvent value) uploadImageEvent,
   }) {
     return storeUserDetails(this);
   }
@@ -669,7 +563,6 @@ class _$StoreUserDetails implements StoreUserDetails {
     TResult? Function(FetchAuthUser value)? fetchAuthUser,
     TResult? Function(EditAuthUser value)? editAuthUser,
     TResult? Function(RemoveTokenEvent value)? removeTokenEvent,
-    TResult? Function(UploadImageEvent value)? uploadImageEvent,
   }) {
     return storeUserDetails?.call(this);
   }
@@ -684,7 +577,6 @@ class _$StoreUserDetails implements StoreUserDetails {
     TResult Function(FetchAuthUser value)? fetchAuthUser,
     TResult Function(EditAuthUser value)? editAuthUser,
     TResult Function(RemoveTokenEvent value)? removeTokenEvent,
-    TResult Function(UploadImageEvent value)? uploadImageEvent,
     required TResult orElse(),
   }) {
     if (storeUserDetails != null) {
@@ -750,17 +642,9 @@ class _$FetchUserDetails implements FetchUserDetails {
     required TResult Function() fetchUserDetails,
     required TResult Function(BuildContext context) fetchAuthUser,
     required TResult Function(
-            String name,
-            String? email,
-            String userName,
-            String institution,
-            String dob,
-            String profession,
-            String image,
-            BuildContext context)
+            String name, String email, String userName, BuildContext context)
         editAuthUser,
     required TResult Function() removeTokenEvent,
-    required TResult Function(ImageSource source) uploadImageEvent,
   }) {
     return fetchUserDetails();
   }
@@ -774,17 +658,9 @@ class _$FetchUserDetails implements FetchUserDetails {
     TResult? Function()? fetchUserDetails,
     TResult? Function(BuildContext context)? fetchAuthUser,
     TResult? Function(
-            String name,
-            String? email,
-            String userName,
-            String institution,
-            String dob,
-            String profession,
-            String image,
-            BuildContext context)?
+            String name, String email, String userName, BuildContext context)?
         editAuthUser,
     TResult? Function()? removeTokenEvent,
-    TResult? Function(ImageSource source)? uploadImageEvent,
   }) {
     return fetchUserDetails?.call();
   }
@@ -798,17 +674,9 @@ class _$FetchUserDetails implements FetchUserDetails {
     TResult Function()? fetchUserDetails,
     TResult Function(BuildContext context)? fetchAuthUser,
     TResult Function(
-            String name,
-            String? email,
-            String userName,
-            String institution,
-            String dob,
-            String profession,
-            String image,
-            BuildContext context)?
+            String name, String email, String userName, BuildContext context)?
         editAuthUser,
     TResult Function()? removeTokenEvent,
-    TResult Function(ImageSource source)? uploadImageEvent,
     required TResult orElse(),
   }) {
     if (fetchUserDetails != null) {
@@ -827,7 +695,6 @@ class _$FetchUserDetails implements FetchUserDetails {
     required TResult Function(FetchAuthUser value) fetchAuthUser,
     required TResult Function(EditAuthUser value) editAuthUser,
     required TResult Function(RemoveTokenEvent value) removeTokenEvent,
-    required TResult Function(UploadImageEvent value) uploadImageEvent,
   }) {
     return fetchUserDetails(this);
   }
@@ -842,7 +709,6 @@ class _$FetchUserDetails implements FetchUserDetails {
     TResult? Function(FetchAuthUser value)? fetchAuthUser,
     TResult? Function(EditAuthUser value)? editAuthUser,
     TResult? Function(RemoveTokenEvent value)? removeTokenEvent,
-    TResult? Function(UploadImageEvent value)? uploadImageEvent,
   }) {
     return fetchUserDetails?.call(this);
   }
@@ -857,7 +723,6 @@ class _$FetchUserDetails implements FetchUserDetails {
     TResult Function(FetchAuthUser value)? fetchAuthUser,
     TResult Function(EditAuthUser value)? editAuthUser,
     TResult Function(RemoveTokenEvent value)? removeTokenEvent,
-    TResult Function(UploadImageEvent value)? uploadImageEvent,
     required TResult orElse(),
   }) {
     if (fetchUserDetails != null) {
@@ -941,17 +806,9 @@ class _$FetchAuthUser implements FetchAuthUser {
     required TResult Function() fetchUserDetails,
     required TResult Function(BuildContext context) fetchAuthUser,
     required TResult Function(
-            String name,
-            String? email,
-            String userName,
-            String institution,
-            String dob,
-            String profession,
-            String image,
-            BuildContext context)
+            String name, String email, String userName, BuildContext context)
         editAuthUser,
     required TResult Function() removeTokenEvent,
-    required TResult Function(ImageSource source) uploadImageEvent,
   }) {
     return fetchAuthUser(context);
   }
@@ -965,17 +822,9 @@ class _$FetchAuthUser implements FetchAuthUser {
     TResult? Function()? fetchUserDetails,
     TResult? Function(BuildContext context)? fetchAuthUser,
     TResult? Function(
-            String name,
-            String? email,
-            String userName,
-            String institution,
-            String dob,
-            String profession,
-            String image,
-            BuildContext context)?
+            String name, String email, String userName, BuildContext context)?
         editAuthUser,
     TResult? Function()? removeTokenEvent,
-    TResult? Function(ImageSource source)? uploadImageEvent,
   }) {
     return fetchAuthUser?.call(context);
   }
@@ -989,17 +838,9 @@ class _$FetchAuthUser implements FetchAuthUser {
     TResult Function()? fetchUserDetails,
     TResult Function(BuildContext context)? fetchAuthUser,
     TResult Function(
-            String name,
-            String? email,
-            String userName,
-            String institution,
-            String dob,
-            String profession,
-            String image,
-            BuildContext context)?
+            String name, String email, String userName, BuildContext context)?
         editAuthUser,
     TResult Function()? removeTokenEvent,
-    TResult Function(ImageSource source)? uploadImageEvent,
     required TResult orElse(),
   }) {
     if (fetchAuthUser != null) {
@@ -1018,7 +859,6 @@ class _$FetchAuthUser implements FetchAuthUser {
     required TResult Function(FetchAuthUser value) fetchAuthUser,
     required TResult Function(EditAuthUser value) editAuthUser,
     required TResult Function(RemoveTokenEvent value) removeTokenEvent,
-    required TResult Function(UploadImageEvent value) uploadImageEvent,
   }) {
     return fetchAuthUser(this);
   }
@@ -1033,7 +873,6 @@ class _$FetchAuthUser implements FetchAuthUser {
     TResult? Function(FetchAuthUser value)? fetchAuthUser,
     TResult? Function(EditAuthUser value)? editAuthUser,
     TResult? Function(RemoveTokenEvent value)? removeTokenEvent,
-    TResult? Function(UploadImageEvent value)? uploadImageEvent,
   }) {
     return fetchAuthUser?.call(this);
   }
@@ -1048,7 +887,6 @@ class _$FetchAuthUser implements FetchAuthUser {
     TResult Function(FetchAuthUser value)? fetchAuthUser,
     TResult Function(EditAuthUser value)? editAuthUser,
     TResult Function(RemoveTokenEvent value)? removeTokenEvent,
-    TResult Function(UploadImageEvent value)? uploadImageEvent,
     required TResult orElse(),
   }) {
     if (fetchAuthUser != null) {
@@ -1074,15 +912,7 @@ abstract class _$$EditAuthUserCopyWith<$Res> {
           _$EditAuthUser value, $Res Function(_$EditAuthUser) then) =
       __$$EditAuthUserCopyWithImpl<$Res>;
   @useResult
-  $Res call(
-      {String name,
-      String? email,
-      String userName,
-      String institution,
-      String dob,
-      String profession,
-      String image,
-      BuildContext context});
+  $Res call({String name, String email, String userName, BuildContext context});
 }
 
 /// @nodoc
@@ -1097,12 +927,8 @@ class __$$EditAuthUserCopyWithImpl<$Res>
   @override
   $Res call({
     Object? name = null,
-    Object? email = freezed,
+    Object? email = null,
     Object? userName = null,
-    Object? institution = null,
-    Object? dob = null,
-    Object? profession = null,
-    Object? image = null,
     Object? context = null,
   }) {
     return _then(_$EditAuthUser(
@@ -1110,29 +936,13 @@ class __$$EditAuthUserCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      email: freezed == email
+      email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       userName: null == userName
           ? _value.userName
           : userName // ignore: cast_nullable_to_non_nullable
-              as String,
-      institution: null == institution
-          ? _value.institution
-          : institution // ignore: cast_nullable_to_non_nullable
-              as String,
-      dob: null == dob
-          ? _value.dob
-          : dob // ignore: cast_nullable_to_non_nullable
-              as String,
-      profession: null == profession
-          ? _value.profession
-          : profession // ignore: cast_nullable_to_non_nullable
-              as String,
-      image: null == image
-          ? _value.image
-          : image // ignore: cast_nullable_to_non_nullable
               as String,
       context: null == context
           ? _value.context
@@ -1147,34 +957,22 @@ class __$$EditAuthUserCopyWithImpl<$Res>
 class _$EditAuthUser implements EditAuthUser {
   const _$EditAuthUser(
       {required this.name,
-      this.email,
+      required this.email,
       required this.userName,
-      required this.institution,
-      required this.dob,
-      required this.profession,
-      required this.image,
       required this.context});
 
   @override
   final String name;
   @override
-  final String? email;
+  final String email;
   @override
   final String userName;
-  @override
-  final String institution;
-  @override
-  final String dob;
-  @override
-  final String profession;
-  @override
-  final String image;
   @override
   final BuildContext context;
 
   @override
   String toString() {
-    return 'DatabaseEvent.editAuthUser(name: $name, email: $email, userName: $userName, institution: $institution, dob: $dob, profession: $profession, image: $image, context: $context)';
+    return 'DatabaseEvent.editAuthUser(name: $name, email: $email, userName: $userName, context: $context)';
   }
 
   @override
@@ -1186,18 +984,11 @@ class _$EditAuthUser implements EditAuthUser {
             (identical(other.email, email) || other.email == email) &&
             (identical(other.userName, userName) ||
                 other.userName == userName) &&
-            (identical(other.institution, institution) ||
-                other.institution == institution) &&
-            (identical(other.dob, dob) || other.dob == dob) &&
-            (identical(other.profession, profession) ||
-                other.profession == profession) &&
-            (identical(other.image, image) || other.image == image) &&
             (identical(other.context, context) || other.context == context));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, name, email, userName,
-      institution, dob, profession, image, context);
+  int get hashCode => Object.hash(runtimeType, name, email, userName, context);
 
   @JsonKey(ignore: true)
   @override
@@ -1214,20 +1005,11 @@ class _$EditAuthUser implements EditAuthUser {
     required TResult Function() fetchUserDetails,
     required TResult Function(BuildContext context) fetchAuthUser,
     required TResult Function(
-            String name,
-            String? email,
-            String userName,
-            String institution,
-            String dob,
-            String profession,
-            String image,
-            BuildContext context)
+            String name, String email, String userName, BuildContext context)
         editAuthUser,
     required TResult Function() removeTokenEvent,
-    required TResult Function(ImageSource source) uploadImageEvent,
   }) {
-    return editAuthUser(
-        name, email, userName, institution, dob, profession, image, context);
+    return editAuthUser(name, email, userName, context);
   }
 
   @override
@@ -1239,20 +1021,11 @@ class _$EditAuthUser implements EditAuthUser {
     TResult? Function()? fetchUserDetails,
     TResult? Function(BuildContext context)? fetchAuthUser,
     TResult? Function(
-            String name,
-            String? email,
-            String userName,
-            String institution,
-            String dob,
-            String profession,
-            String image,
-            BuildContext context)?
+            String name, String email, String userName, BuildContext context)?
         editAuthUser,
     TResult? Function()? removeTokenEvent,
-    TResult? Function(ImageSource source)? uploadImageEvent,
   }) {
-    return editAuthUser?.call(
-        name, email, userName, institution, dob, profession, image, context);
+    return editAuthUser?.call(name, email, userName, context);
   }
 
   @override
@@ -1264,22 +1037,13 @@ class _$EditAuthUser implements EditAuthUser {
     TResult Function()? fetchUserDetails,
     TResult Function(BuildContext context)? fetchAuthUser,
     TResult Function(
-            String name,
-            String? email,
-            String userName,
-            String institution,
-            String dob,
-            String profession,
-            String image,
-            BuildContext context)?
+            String name, String email, String userName, BuildContext context)?
         editAuthUser,
     TResult Function()? removeTokenEvent,
-    TResult Function(ImageSource source)? uploadImageEvent,
     required TResult orElse(),
   }) {
     if (editAuthUser != null) {
-      return editAuthUser(
-          name, email, userName, institution, dob, profession, image, context);
+      return editAuthUser(name, email, userName, context);
     }
     return orElse();
   }
@@ -1294,7 +1058,6 @@ class _$EditAuthUser implements EditAuthUser {
     required TResult Function(FetchAuthUser value) fetchAuthUser,
     required TResult Function(EditAuthUser value) editAuthUser,
     required TResult Function(RemoveTokenEvent value) removeTokenEvent,
-    required TResult Function(UploadImageEvent value) uploadImageEvent,
   }) {
     return editAuthUser(this);
   }
@@ -1309,7 +1072,6 @@ class _$EditAuthUser implements EditAuthUser {
     TResult? Function(FetchAuthUser value)? fetchAuthUser,
     TResult? Function(EditAuthUser value)? editAuthUser,
     TResult? Function(RemoveTokenEvent value)? removeTokenEvent,
-    TResult? Function(UploadImageEvent value)? uploadImageEvent,
   }) {
     return editAuthUser?.call(this);
   }
@@ -1324,7 +1086,6 @@ class _$EditAuthUser implements EditAuthUser {
     TResult Function(FetchAuthUser value)? fetchAuthUser,
     TResult Function(EditAuthUser value)? editAuthUser,
     TResult Function(RemoveTokenEvent value)? removeTokenEvent,
-    TResult Function(UploadImageEvent value)? uploadImageEvent,
     required TResult orElse(),
   }) {
     if (editAuthUser != null) {
@@ -1337,21 +1098,13 @@ class _$EditAuthUser implements EditAuthUser {
 abstract class EditAuthUser implements DatabaseEvent {
   const factory EditAuthUser(
       {required final String name,
-      final String? email,
+      required final String email,
       required final String userName,
-      required final String institution,
-      required final String dob,
-      required final String profession,
-      required final String image,
       required final BuildContext context}) = _$EditAuthUser;
 
   String get name;
-  String? get email;
+  String get email;
   String get userName;
-  String get institution;
-  String get dob;
-  String get profession;
-  String get image;
   BuildContext get context;
   @JsonKey(ignore: true)
   _$$EditAuthUserCopyWith<_$EditAuthUser> get copyWith =>
@@ -1402,17 +1155,9 @@ class _$RemoveTokenEvent implements RemoveTokenEvent {
     required TResult Function() fetchUserDetails,
     required TResult Function(BuildContext context) fetchAuthUser,
     required TResult Function(
-            String name,
-            String? email,
-            String userName,
-            String institution,
-            String dob,
-            String profession,
-            String image,
-            BuildContext context)
+            String name, String email, String userName, BuildContext context)
         editAuthUser,
     required TResult Function() removeTokenEvent,
-    required TResult Function(ImageSource source) uploadImageEvent,
   }) {
     return removeTokenEvent();
   }
@@ -1426,17 +1171,9 @@ class _$RemoveTokenEvent implements RemoveTokenEvent {
     TResult? Function()? fetchUserDetails,
     TResult? Function(BuildContext context)? fetchAuthUser,
     TResult? Function(
-            String name,
-            String? email,
-            String userName,
-            String institution,
-            String dob,
-            String profession,
-            String image,
-            BuildContext context)?
+            String name, String email, String userName, BuildContext context)?
         editAuthUser,
     TResult? Function()? removeTokenEvent,
-    TResult? Function(ImageSource source)? uploadImageEvent,
   }) {
     return removeTokenEvent?.call();
   }
@@ -1450,17 +1187,9 @@ class _$RemoveTokenEvent implements RemoveTokenEvent {
     TResult Function()? fetchUserDetails,
     TResult Function(BuildContext context)? fetchAuthUser,
     TResult Function(
-            String name,
-            String? email,
-            String userName,
-            String institution,
-            String dob,
-            String profession,
-            String image,
-            BuildContext context)?
+            String name, String email, String userName, BuildContext context)?
         editAuthUser,
     TResult Function()? removeTokenEvent,
-    TResult Function(ImageSource source)? uploadImageEvent,
     required TResult orElse(),
   }) {
     if (removeTokenEvent != null) {
@@ -1479,7 +1208,6 @@ class _$RemoveTokenEvent implements RemoveTokenEvent {
     required TResult Function(FetchAuthUser value) fetchAuthUser,
     required TResult Function(EditAuthUser value) editAuthUser,
     required TResult Function(RemoveTokenEvent value) removeTokenEvent,
-    required TResult Function(UploadImageEvent value) uploadImageEvent,
   }) {
     return removeTokenEvent(this);
   }
@@ -1494,7 +1222,6 @@ class _$RemoveTokenEvent implements RemoveTokenEvent {
     TResult? Function(FetchAuthUser value)? fetchAuthUser,
     TResult? Function(EditAuthUser value)? editAuthUser,
     TResult? Function(RemoveTokenEvent value)? removeTokenEvent,
-    TResult? Function(UploadImageEvent value)? uploadImageEvent,
   }) {
     return removeTokenEvent?.call(this);
   }
@@ -1509,7 +1236,6 @@ class _$RemoveTokenEvent implements RemoveTokenEvent {
     TResult Function(FetchAuthUser value)? fetchAuthUser,
     TResult Function(EditAuthUser value)? editAuthUser,
     TResult Function(RemoveTokenEvent value)? removeTokenEvent,
-    TResult Function(UploadImageEvent value)? uploadImageEvent,
     required TResult orElse(),
   }) {
     if (removeTokenEvent != null) {
@@ -1524,212 +1250,13 @@ abstract class RemoveTokenEvent implements DatabaseEvent {
 }
 
 /// @nodoc
-abstract class _$$UploadImageEventCopyWith<$Res> {
-  factory _$$UploadImageEventCopyWith(
-          _$UploadImageEvent value, $Res Function(_$UploadImageEvent) then) =
-      __$$UploadImageEventCopyWithImpl<$Res>;
-  @useResult
-  $Res call({ImageSource source});
-}
-
-/// @nodoc
-class __$$UploadImageEventCopyWithImpl<$Res>
-    extends _$DatabaseEventCopyWithImpl<$Res, _$UploadImageEvent>
-    implements _$$UploadImageEventCopyWith<$Res> {
-  __$$UploadImageEventCopyWithImpl(
-      _$UploadImageEvent _value, $Res Function(_$UploadImageEvent) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? source = null,
-  }) {
-    return _then(_$UploadImageEvent(
-      source: null == source
-          ? _value.source
-          : source // ignore: cast_nullable_to_non_nullable
-              as ImageSource,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$UploadImageEvent implements UploadImageEvent {
-  const _$UploadImageEvent({required this.source});
-
-  @override
-  final ImageSource source;
-
-  @override
-  String toString() {
-    return 'DatabaseEvent.uploadImageEvent(source: $source)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UploadImageEvent &&
-            (identical(other.source, source) || other.source == source));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, source);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UploadImageEventCopyWith<_$UploadImageEvent> get copyWith =>
-      __$$UploadImageEventCopyWithImpl<_$UploadImageEvent>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String token) storeTokenEvent,
-    required TResult Function() fetchToken,
-    required TResult Function(String email, String name) storeUserDetails,
-    required TResult Function() fetchUserDetails,
-    required TResult Function(BuildContext context) fetchAuthUser,
-    required TResult Function(
-            String name,
-            String? email,
-            String userName,
-            String institution,
-            String dob,
-            String profession,
-            String image,
-            BuildContext context)
-        editAuthUser,
-    required TResult Function() removeTokenEvent,
-    required TResult Function(ImageSource source) uploadImageEvent,
-  }) {
-    return uploadImageEvent(source);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String token)? storeTokenEvent,
-    TResult? Function()? fetchToken,
-    TResult? Function(String email, String name)? storeUserDetails,
-    TResult? Function()? fetchUserDetails,
-    TResult? Function(BuildContext context)? fetchAuthUser,
-    TResult? Function(
-            String name,
-            String? email,
-            String userName,
-            String institution,
-            String dob,
-            String profession,
-            String image,
-            BuildContext context)?
-        editAuthUser,
-    TResult? Function()? removeTokenEvent,
-    TResult? Function(ImageSource source)? uploadImageEvent,
-  }) {
-    return uploadImageEvent?.call(source);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String token)? storeTokenEvent,
-    TResult Function()? fetchToken,
-    TResult Function(String email, String name)? storeUserDetails,
-    TResult Function()? fetchUserDetails,
-    TResult Function(BuildContext context)? fetchAuthUser,
-    TResult Function(
-            String name,
-            String? email,
-            String userName,
-            String institution,
-            String dob,
-            String profession,
-            String image,
-            BuildContext context)?
-        editAuthUser,
-    TResult Function()? removeTokenEvent,
-    TResult Function(ImageSource source)? uploadImageEvent,
-    required TResult orElse(),
-  }) {
-    if (uploadImageEvent != null) {
-      return uploadImageEvent(source);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(StoreTokenEvent value) storeTokenEvent,
-    required TResult Function(FetchToken value) fetchToken,
-    required TResult Function(StoreUserDetails value) storeUserDetails,
-    required TResult Function(FetchUserDetails value) fetchUserDetails,
-    required TResult Function(FetchAuthUser value) fetchAuthUser,
-    required TResult Function(EditAuthUser value) editAuthUser,
-    required TResult Function(RemoveTokenEvent value) removeTokenEvent,
-    required TResult Function(UploadImageEvent value) uploadImageEvent,
-  }) {
-    return uploadImageEvent(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(StoreTokenEvent value)? storeTokenEvent,
-    TResult? Function(FetchToken value)? fetchToken,
-    TResult? Function(StoreUserDetails value)? storeUserDetails,
-    TResult? Function(FetchUserDetails value)? fetchUserDetails,
-    TResult? Function(FetchAuthUser value)? fetchAuthUser,
-    TResult? Function(EditAuthUser value)? editAuthUser,
-    TResult? Function(RemoveTokenEvent value)? removeTokenEvent,
-    TResult? Function(UploadImageEvent value)? uploadImageEvent,
-  }) {
-    return uploadImageEvent?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(StoreTokenEvent value)? storeTokenEvent,
-    TResult Function(FetchToken value)? fetchToken,
-    TResult Function(StoreUserDetails value)? storeUserDetails,
-    TResult Function(FetchUserDetails value)? fetchUserDetails,
-    TResult Function(FetchAuthUser value)? fetchAuthUser,
-    TResult Function(EditAuthUser value)? editAuthUser,
-    TResult Function(RemoveTokenEvent value)? removeTokenEvent,
-    TResult Function(UploadImageEvent value)? uploadImageEvent,
-    required TResult orElse(),
-  }) {
-    if (uploadImageEvent != null) {
-      return uploadImageEvent(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class UploadImageEvent implements DatabaseEvent {
-  const factory UploadImageEvent({required final ImageSource source}) =
-      _$UploadImageEvent;
-
-  ImageSource get source;
-  @JsonKey(ignore: true)
-  _$$UploadImageEventCopyWith<_$UploadImageEvent> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
 mixin _$DatabaseState {
   String get token => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
   AuthUserModel? get authUserModel => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
-  bool get editIsloading => throw _privateConstructorUsedError;
   String get succesMessage => throw _privateConstructorUsedError;
-  File? get imagebytes => throw _privateConstructorUsedError;
   String get failedMessage => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -1749,9 +1276,7 @@ abstract class $DatabaseStateCopyWith<$Res> {
       String email,
       AuthUserModel? authUserModel,
       bool isLoading,
-      bool editIsloading,
       String succesMessage,
-      File? imagebytes,
       String failedMessage});
 
   $AuthUserModelCopyWith<$Res>? get authUserModel;
@@ -1775,9 +1300,7 @@ class _$DatabaseStateCopyWithImpl<$Res, $Val extends DatabaseState>
     Object? email = null,
     Object? authUserModel = freezed,
     Object? isLoading = null,
-    Object? editIsloading = null,
     Object? succesMessage = null,
-    Object? imagebytes = freezed,
     Object? failedMessage = null,
   }) {
     return _then(_value.copyWith(
@@ -1801,18 +1324,10 @@ class _$DatabaseStateCopyWithImpl<$Res, $Val extends DatabaseState>
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      editIsloading: null == editIsloading
-          ? _value.editIsloading
-          : editIsloading // ignore: cast_nullable_to_non_nullable
-              as bool,
       succesMessage: null == succesMessage
           ? _value.succesMessage
           : succesMessage // ignore: cast_nullable_to_non_nullable
               as String,
-      imagebytes: freezed == imagebytes
-          ? _value.imagebytes
-          : imagebytes // ignore: cast_nullable_to_non_nullable
-              as File?,
       failedMessage: null == failedMessage
           ? _value.failedMessage
           : failedMessage // ignore: cast_nullable_to_non_nullable
@@ -1847,9 +1362,7 @@ abstract class _$$_InitialCopyWith<$Res>
       String email,
       AuthUserModel? authUserModel,
       bool isLoading,
-      bool editIsloading,
       String succesMessage,
-      File? imagebytes,
       String failedMessage});
 
   @override
@@ -1871,9 +1384,7 @@ class __$$_InitialCopyWithImpl<$Res>
     Object? email = null,
     Object? authUserModel = freezed,
     Object? isLoading = null,
-    Object? editIsloading = null,
     Object? succesMessage = null,
-    Object? imagebytes = freezed,
     Object? failedMessage = null,
   }) {
     return _then(_$_Initial(
@@ -1897,18 +1408,10 @@ class __$$_InitialCopyWithImpl<$Res>
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      editIsloading: null == editIsloading
-          ? _value.editIsloading
-          : editIsloading // ignore: cast_nullable_to_non_nullable
-              as bool,
       succesMessage: null == succesMessage
           ? _value.succesMessage
           : succesMessage // ignore: cast_nullable_to_non_nullable
               as String,
-      imagebytes: freezed == imagebytes
-          ? _value.imagebytes
-          : imagebytes // ignore: cast_nullable_to_non_nullable
-              as File?,
       failedMessage: null == failedMessage
           ? _value.failedMessage
           : failedMessage // ignore: cast_nullable_to_non_nullable
@@ -1926,9 +1429,7 @@ class _$_Initial implements _Initial {
       required this.email,
       required this.authUserModel,
       required this.isLoading,
-      required this.editIsloading,
       required this.succesMessage,
-      required this.imagebytes,
       required this.failedMessage});
 
   @override
@@ -1942,17 +1443,13 @@ class _$_Initial implements _Initial {
   @override
   final bool isLoading;
   @override
-  final bool editIsloading;
-  @override
   final String succesMessage;
-  @override
-  final File? imagebytes;
   @override
   final String failedMessage;
 
   @override
   String toString() {
-    return 'DatabaseState(token: $token, name: $name, email: $email, authUserModel: $authUserModel, isLoading: $isLoading, editIsloading: $editIsloading, succesMessage: $succesMessage, imagebytes: $imagebytes, failedMessage: $failedMessage)';
+    return 'DatabaseState(token: $token, name: $name, email: $email, authUserModel: $authUserModel, isLoading: $isLoading, succesMessage: $succesMessage, failedMessage: $failedMessage)';
   }
 
   @override
@@ -1967,28 +1464,15 @@ class _$_Initial implements _Initial {
                 other.authUserModel == authUserModel) &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
-            (identical(other.editIsloading, editIsloading) ||
-                other.editIsloading == editIsloading) &&
             (identical(other.succesMessage, succesMessage) ||
                 other.succesMessage == succesMessage) &&
-            (identical(other.imagebytes, imagebytes) ||
-                other.imagebytes == imagebytes) &&
             (identical(other.failedMessage, failedMessage) ||
                 other.failedMessage == failedMessage));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      token,
-      name,
-      email,
-      authUserModel,
-      isLoading,
-      editIsloading,
-      succesMessage,
-      imagebytes,
-      failedMessage);
+  int get hashCode => Object.hash(runtimeType, token, name, email,
+      authUserModel, isLoading, succesMessage, failedMessage);
 
   @JsonKey(ignore: true)
   @override
@@ -2004,9 +1488,7 @@ abstract class _Initial implements DatabaseState {
       required final String email,
       required final AuthUserModel? authUserModel,
       required final bool isLoading,
-      required final bool editIsloading,
       required final String succesMessage,
-      required final File? imagebytes,
       required final String failedMessage}) = _$_Initial;
 
   @override
@@ -2020,11 +1502,7 @@ abstract class _Initial implements DatabaseState {
   @override
   bool get isLoading;
   @override
-  bool get editIsloading;
-  @override
   String get succesMessage;
-  @override
-  File? get imagebytes;
   @override
   String get failedMessage;
   @override

@@ -331,7 +331,7 @@ class __$$_OrderResultCopyWithImpl<$Res>
 class _$_OrderResult implements _OrderResult {
   const _$_OrderResult(
       {@JsonKey(name: 'orderProducts')
-      required final List<OrderProduct>? orderProducts})
+          required final List<OrderProduct>? orderProducts})
       : _orderProducts = orderProducts;
 
   factory _$_OrderResult.fromJson(Map<String, dynamic> json) =>
@@ -384,7 +384,7 @@ class _$_OrderResult implements _OrderResult {
 abstract class _OrderResult implements OrderResult {
   const factory _OrderResult(
       {@JsonKey(name: 'orderProducts')
-      required final List<OrderProduct>? orderProducts}) = _$_OrderResult;
+          required final List<OrderProduct>? orderProducts}) = _$_OrderResult;
 
   factory _OrderResult.fromJson(Map<String, dynamic> json) =
       _$_OrderResult.fromJson;
@@ -1007,30 +1007,48 @@ class _$_OrderProduct implements _OrderProduct {
 
 abstract class _OrderProduct implements OrderProduct {
   const factory _OrderProduct(
-      {@JsonKey(name: '_id') required final String? id,
-      @JsonKey(name: 'userId') required final String? userId,
-      @JsonKey(name: 'brandId') required final Brand? brand,
-      @JsonKey(name: 'order_id') required final String? orderId,
+      {@JsonKey(name: '_id')
+          required final String? id,
+      @JsonKey(name: 'userId')
+          required final String? userId,
+      @JsonKey(name: 'brandId')
+          required final Brand? brand,
+      @JsonKey(name: 'order_id')
+          required final String? orderId,
       @JsonKey(name: 'shiprocket_order_id')
-      required final String? shiprocketOrderId,
-      @JsonKey(name: 'shipment_id') required final String? shipmentId,
-      @JsonKey(name: 'productId') required final Product? productId,
-      @JsonKey(name: 'quantity') required final int? quantity,
-      @JsonKey(name: 'selling_price') required final double? sellingPrice,
-      @JsonKey(name: 'discount') required final double? discount,
-      @JsonKey(name: 'tax') required final double? tax,
+          required final String? shiprocketOrderId,
+      @JsonKey(name: 'shipment_id')
+          required final String? shipmentId,
+      @JsonKey(name: 'productId')
+          required final Product? productId,
+      @JsonKey(name: 'quantity')
+          required final int? quantity,
+      @JsonKey(name: 'selling_price')
+          required final double? sellingPrice,
+      @JsonKey(name: 'discount')
+          required final double? discount,
+      @JsonKey(name: 'tax')
+          required final double? tax,
       final String? size,
       final String? color,
-      @JsonKey(name: 'sub_total') required final double? subTotal,
-      @JsonKey(name: 'order_date') required final String? orderDate,
-      @JsonKey(name: 'shipping_status') required final String? shippingStatus,
-      @JsonKey(name: 'payment_method') required final String? paymentMethod,
-      @JsonKey(name: 'shipping_charges') required final double? shippingCharges,
-      @JsonKey(name: 'payment_status') required final String? paymentStatus,
-      @JsonKey(name: 'address') required final Address? address,
-      @JsonKey(name: 'createdAt') required final String? createdAt,
+      @JsonKey(name: 'sub_total')
+          required final double? subTotal,
+      @JsonKey(name: 'order_date')
+          required final String? orderDate,
+      @JsonKey(name: 'shipping_status')
+          required final String? shippingStatus,
+      @JsonKey(name: 'payment_method')
+          required final String? paymentMethod,
+      @JsonKey(name: 'shipping_charges')
+          required final double? shippingCharges,
+      @JsonKey(name: 'payment_status')
+          required final String? paymentStatus,
+      @JsonKey(name: 'address')
+          required final Address? address,
+      @JsonKey(name: 'createdAt')
+          required final String? createdAt,
       @JsonKey(name: 'updatedAt')
-      required final String? updatedAt}) = _$_OrderProduct;
+          required final String? updatedAt}) = _$_OrderProduct;
 
   factory _OrderProduct.fromJson(Map<String, dynamic> json) =
       _$_OrderProduct.fromJson;

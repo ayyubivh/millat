@@ -20,6 +20,7 @@ mixin _$NamazTimingEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(BuildContext context) fetchPrayerTiming,
     required TResult Function() prayerTimingEvent,
+    required TResult Function() showImsakEvent,
     required TResult Function() changeArtCalcMethod,
     required TResult Function() fetchNamazMethods,
     required TResult Function(int method, BuildContext context)
@@ -31,25 +32,15 @@ mixin _$NamazTimingEvent {
     required TResult Function() changeLangLongtoAddress,
     required TResult Function(int index) onNotiyOnOffEvent,
     required TResult Function(int index) changeIndex,
-    required TResult Function(bool value) addAutoDetectValToLocalStorage,
-    required TResult Function() getAutoDetetectLocationFromLocalStorage,
-    required TResult Function(bool value) addAutomaticSettingToLocalStorage,
-    required TResult Function() getAutomaticSettingsFromLocalStorage,
-    required TResult Function(bool value) addShowimsakValToLocalStorage,
-    required TResult Function() getShowimskValFromLocalStorage,
-    required TResult Function(int value) addCalculationMethodToLocalStorage,
-    required TResult Function() getCalculationMethodFromStorage,
-    required TResult Function(int value) addAsrCalculationMethodToLocalStorage,
-    required TResult Function() getAsrCalculationMethodFromStorage,
-    required TResult Function(int value) addHighLatitudeMethodsToLocalStorage,
-    required TResult Function() getHighLatitudeMethodsToLocalStorage,
-    required TResult Function() fetchNamazTimingNotificationsFromLocalStorage,
+    required TResult Function() fetchNamazMethodDb,
+    required TResult Function() addNamazMethodDb,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(BuildContext context)? fetchPrayerTiming,
     TResult? Function()? prayerTimingEvent,
+    TResult? Function()? showImsakEvent,
     TResult? Function()? changeArtCalcMethod,
     TResult? Function()? fetchNamazMethods,
     TResult? Function(int method, BuildContext context)? changeNamazMehods,
@@ -59,25 +50,15 @@ mixin _$NamazTimingEvent {
     TResult? Function()? changeLangLongtoAddress,
     TResult? Function(int index)? onNotiyOnOffEvent,
     TResult? Function(int index)? changeIndex,
-    TResult? Function(bool value)? addAutoDetectValToLocalStorage,
-    TResult? Function()? getAutoDetetectLocationFromLocalStorage,
-    TResult? Function(bool value)? addAutomaticSettingToLocalStorage,
-    TResult? Function()? getAutomaticSettingsFromLocalStorage,
-    TResult? Function(bool value)? addShowimsakValToLocalStorage,
-    TResult? Function()? getShowimskValFromLocalStorage,
-    TResult? Function(int value)? addCalculationMethodToLocalStorage,
-    TResult? Function()? getCalculationMethodFromStorage,
-    TResult? Function(int value)? addAsrCalculationMethodToLocalStorage,
-    TResult? Function()? getAsrCalculationMethodFromStorage,
-    TResult? Function(int value)? addHighLatitudeMethodsToLocalStorage,
-    TResult? Function()? getHighLatitudeMethodsToLocalStorage,
-    TResult? Function()? fetchNamazTimingNotificationsFromLocalStorage,
+    TResult? Function()? fetchNamazMethodDb,
+    TResult? Function()? addNamazMethodDb,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(BuildContext context)? fetchPrayerTiming,
     TResult Function()? prayerTimingEvent,
+    TResult Function()? showImsakEvent,
     TResult Function()? changeArtCalcMethod,
     TResult Function()? fetchNamazMethods,
     TResult Function(int method, BuildContext context)? changeNamazMehods,
@@ -87,19 +68,8 @@ mixin _$NamazTimingEvent {
     TResult Function()? changeLangLongtoAddress,
     TResult Function(int index)? onNotiyOnOffEvent,
     TResult Function(int index)? changeIndex,
-    TResult Function(bool value)? addAutoDetectValToLocalStorage,
-    TResult Function()? getAutoDetetectLocationFromLocalStorage,
-    TResult Function(bool value)? addAutomaticSettingToLocalStorage,
-    TResult Function()? getAutomaticSettingsFromLocalStorage,
-    TResult Function(bool value)? addShowimsakValToLocalStorage,
-    TResult Function()? getShowimskValFromLocalStorage,
-    TResult Function(int value)? addCalculationMethodToLocalStorage,
-    TResult Function()? getCalculationMethodFromStorage,
-    TResult Function(int value)? addAsrCalculationMethodToLocalStorage,
-    TResult Function()? getAsrCalculationMethodFromStorage,
-    TResult Function(int value)? addHighLatitudeMethodsToLocalStorage,
-    TResult Function()? getHighLatitudeMethodsToLocalStorage,
-    TResult Function()? fetchNamazTimingNotificationsFromLocalStorage,
+    TResult Function()? fetchNamazMethodDb,
+    TResult Function()? addNamazMethodDb,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -107,6 +77,7 @@ mixin _$NamazTimingEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(FetchPrayerTiming value) fetchPrayerTiming,
     required TResult Function(PrayerTimingEvent value) prayerTimingEvent,
+    required TResult Function(ShowImsakEvent value) showImsakEvent,
     required TResult Function(ChangeArtCalcMethod value) changeArtCalcMethod,
     required TResult Function(FetchNamazMethods value) fetchNamazMethods,
     required TResult Function(ChangeNamazMethods value) changeNamazMehods,
@@ -117,39 +88,15 @@ mixin _$NamazTimingEvent {
         changeLangLongtoAddress,
     required TResult Function(OnNotiyOnOffEvent value) onNotiyOnOffEvent,
     required TResult Function(ChangeIndex value) changeIndex,
-    required TResult Function(AddAutoDetectValToLocalStorage value)
-        addAutoDetectValToLocalStorage,
-    required TResult Function(GetAutoDetetectLocationFromLocalStorage value)
-        getAutoDetetectLocationFromLocalStorage,
-    required TResult Function(AddAutomaticSettingToLocalStorage value)
-        addAutomaticSettingToLocalStorage,
-    required TResult Function(GetAutomaticSettingsFromLocalStorage value)
-        getAutomaticSettingsFromLocalStorage,
-    required TResult Function(AddShowimsakValToLocalStorage value)
-        addShowimsakValToLocalStorage,
-    required TResult Function(GetShowimskValFromLocalStorage value)
-        getShowimskValFromLocalStorage,
-    required TResult Function(AddCalculationMethodToLocalStorage value)
-        addCalculationMethodToLocalStorage,
-    required TResult Function(GetCalculationMethodFromStorage value)
-        getCalculationMethodFromStorage,
-    required TResult Function(AddAsrCalculationMethodToLocalStorage value)
-        addAsrCalculationMethodToLocalStorage,
-    required TResult Function(GetAsrCalculationMethodFromStorage value)
-        getAsrCalculationMethodFromStorage,
-    required TResult Function(AddHighLatitudeMethodsToLocalStorage value)
-        addHighLatitudeMethodsToLocalStorage,
-    required TResult Function(GetHighLatitudeMethodsToLocalStorage value)
-        getHighLatitudeMethodsToLocalStorage,
-    required TResult Function(
-            FetchNamazTimingNotificationsFromLocalStorage value)
-        fetchNamazTimingNotificationsFromLocalStorage,
+    required TResult Function(FetchNamazMethodDb value) fetchNamazMethodDb,
+    required TResult Function(AddNamazMethodDb value) addNamazMethodDb,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(FetchPrayerTiming value)? fetchPrayerTiming,
     TResult? Function(PrayerTimingEvent value)? prayerTimingEvent,
+    TResult? Function(ShowImsakEvent value)? showImsakEvent,
     TResult? Function(ChangeArtCalcMethod value)? changeArtCalcMethod,
     TResult? Function(FetchNamazMethods value)? fetchNamazMethods,
     TResult? Function(ChangeNamazMethods value)? changeNamazMehods,
@@ -158,38 +105,15 @@ mixin _$NamazTimingEvent {
     TResult? Function(ChangeLangLongtoAddress value)? changeLangLongtoAddress,
     TResult? Function(OnNotiyOnOffEvent value)? onNotiyOnOffEvent,
     TResult? Function(ChangeIndex value)? changeIndex,
-    TResult? Function(AddAutoDetectValToLocalStorage value)?
-        addAutoDetectValToLocalStorage,
-    TResult? Function(GetAutoDetetectLocationFromLocalStorage value)?
-        getAutoDetetectLocationFromLocalStorage,
-    TResult? Function(AddAutomaticSettingToLocalStorage value)?
-        addAutomaticSettingToLocalStorage,
-    TResult? Function(GetAutomaticSettingsFromLocalStorage value)?
-        getAutomaticSettingsFromLocalStorage,
-    TResult? Function(AddShowimsakValToLocalStorage value)?
-        addShowimsakValToLocalStorage,
-    TResult? Function(GetShowimskValFromLocalStorage value)?
-        getShowimskValFromLocalStorage,
-    TResult? Function(AddCalculationMethodToLocalStorage value)?
-        addCalculationMethodToLocalStorage,
-    TResult? Function(GetCalculationMethodFromStorage value)?
-        getCalculationMethodFromStorage,
-    TResult? Function(AddAsrCalculationMethodToLocalStorage value)?
-        addAsrCalculationMethodToLocalStorage,
-    TResult? Function(GetAsrCalculationMethodFromStorage value)?
-        getAsrCalculationMethodFromStorage,
-    TResult? Function(AddHighLatitudeMethodsToLocalStorage value)?
-        addHighLatitudeMethodsToLocalStorage,
-    TResult? Function(GetHighLatitudeMethodsToLocalStorage value)?
-        getHighLatitudeMethodsToLocalStorage,
-    TResult? Function(FetchNamazTimingNotificationsFromLocalStorage value)?
-        fetchNamazTimingNotificationsFromLocalStorage,
+    TResult? Function(FetchNamazMethodDb value)? fetchNamazMethodDb,
+    TResult? Function(AddNamazMethodDb value)? addNamazMethodDb,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(FetchPrayerTiming value)? fetchPrayerTiming,
     TResult Function(PrayerTimingEvent value)? prayerTimingEvent,
+    TResult Function(ShowImsakEvent value)? showImsakEvent,
     TResult Function(ChangeArtCalcMethod value)? changeArtCalcMethod,
     TResult Function(FetchNamazMethods value)? fetchNamazMethods,
     TResult Function(ChangeNamazMethods value)? changeNamazMehods,
@@ -198,32 +122,8 @@ mixin _$NamazTimingEvent {
     TResult Function(ChangeLangLongtoAddress value)? changeLangLongtoAddress,
     TResult Function(OnNotiyOnOffEvent value)? onNotiyOnOffEvent,
     TResult Function(ChangeIndex value)? changeIndex,
-    TResult Function(AddAutoDetectValToLocalStorage value)?
-        addAutoDetectValToLocalStorage,
-    TResult Function(GetAutoDetetectLocationFromLocalStorage value)?
-        getAutoDetetectLocationFromLocalStorage,
-    TResult Function(AddAutomaticSettingToLocalStorage value)?
-        addAutomaticSettingToLocalStorage,
-    TResult Function(GetAutomaticSettingsFromLocalStorage value)?
-        getAutomaticSettingsFromLocalStorage,
-    TResult Function(AddShowimsakValToLocalStorage value)?
-        addShowimsakValToLocalStorage,
-    TResult Function(GetShowimskValFromLocalStorage value)?
-        getShowimskValFromLocalStorage,
-    TResult Function(AddCalculationMethodToLocalStorage value)?
-        addCalculationMethodToLocalStorage,
-    TResult Function(GetCalculationMethodFromStorage value)?
-        getCalculationMethodFromStorage,
-    TResult Function(AddAsrCalculationMethodToLocalStorage value)?
-        addAsrCalculationMethodToLocalStorage,
-    TResult Function(GetAsrCalculationMethodFromStorage value)?
-        getAsrCalculationMethodFromStorage,
-    TResult Function(AddHighLatitudeMethodsToLocalStorage value)?
-        addHighLatitudeMethodsToLocalStorage,
-    TResult Function(GetHighLatitudeMethodsToLocalStorage value)?
-        getHighLatitudeMethodsToLocalStorage,
-    TResult Function(FetchNamazTimingNotificationsFromLocalStorage value)?
-        fetchNamazTimingNotificationsFromLocalStorage,
+    TResult Function(FetchNamazMethodDb value)? fetchNamazMethodDb,
+    TResult Function(AddNamazMethodDb value)? addNamazMethodDb,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -313,6 +213,7 @@ class _$FetchPrayerTiming implements FetchPrayerTiming {
   TResult when<TResult extends Object?>({
     required TResult Function(BuildContext context) fetchPrayerTiming,
     required TResult Function() prayerTimingEvent,
+    required TResult Function() showImsakEvent,
     required TResult Function() changeArtCalcMethod,
     required TResult Function() fetchNamazMethods,
     required TResult Function(int method, BuildContext context)
@@ -324,19 +225,8 @@ class _$FetchPrayerTiming implements FetchPrayerTiming {
     required TResult Function() changeLangLongtoAddress,
     required TResult Function(int index) onNotiyOnOffEvent,
     required TResult Function(int index) changeIndex,
-    required TResult Function(bool value) addAutoDetectValToLocalStorage,
-    required TResult Function() getAutoDetetectLocationFromLocalStorage,
-    required TResult Function(bool value) addAutomaticSettingToLocalStorage,
-    required TResult Function() getAutomaticSettingsFromLocalStorage,
-    required TResult Function(bool value) addShowimsakValToLocalStorage,
-    required TResult Function() getShowimskValFromLocalStorage,
-    required TResult Function(int value) addCalculationMethodToLocalStorage,
-    required TResult Function() getCalculationMethodFromStorage,
-    required TResult Function(int value) addAsrCalculationMethodToLocalStorage,
-    required TResult Function() getAsrCalculationMethodFromStorage,
-    required TResult Function(int value) addHighLatitudeMethodsToLocalStorage,
-    required TResult Function() getHighLatitudeMethodsToLocalStorage,
-    required TResult Function() fetchNamazTimingNotificationsFromLocalStorage,
+    required TResult Function() fetchNamazMethodDb,
+    required TResult Function() addNamazMethodDb,
   }) {
     return fetchPrayerTiming(context);
   }
@@ -346,6 +236,7 @@ class _$FetchPrayerTiming implements FetchPrayerTiming {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(BuildContext context)? fetchPrayerTiming,
     TResult? Function()? prayerTimingEvent,
+    TResult? Function()? showImsakEvent,
     TResult? Function()? changeArtCalcMethod,
     TResult? Function()? fetchNamazMethods,
     TResult? Function(int method, BuildContext context)? changeNamazMehods,
@@ -355,19 +246,8 @@ class _$FetchPrayerTiming implements FetchPrayerTiming {
     TResult? Function()? changeLangLongtoAddress,
     TResult? Function(int index)? onNotiyOnOffEvent,
     TResult? Function(int index)? changeIndex,
-    TResult? Function(bool value)? addAutoDetectValToLocalStorage,
-    TResult? Function()? getAutoDetetectLocationFromLocalStorage,
-    TResult? Function(bool value)? addAutomaticSettingToLocalStorage,
-    TResult? Function()? getAutomaticSettingsFromLocalStorage,
-    TResult? Function(bool value)? addShowimsakValToLocalStorage,
-    TResult? Function()? getShowimskValFromLocalStorage,
-    TResult? Function(int value)? addCalculationMethodToLocalStorage,
-    TResult? Function()? getCalculationMethodFromStorage,
-    TResult? Function(int value)? addAsrCalculationMethodToLocalStorage,
-    TResult? Function()? getAsrCalculationMethodFromStorage,
-    TResult? Function(int value)? addHighLatitudeMethodsToLocalStorage,
-    TResult? Function()? getHighLatitudeMethodsToLocalStorage,
-    TResult? Function()? fetchNamazTimingNotificationsFromLocalStorage,
+    TResult? Function()? fetchNamazMethodDb,
+    TResult? Function()? addNamazMethodDb,
   }) {
     return fetchPrayerTiming?.call(context);
   }
@@ -377,6 +257,7 @@ class _$FetchPrayerTiming implements FetchPrayerTiming {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(BuildContext context)? fetchPrayerTiming,
     TResult Function()? prayerTimingEvent,
+    TResult Function()? showImsakEvent,
     TResult Function()? changeArtCalcMethod,
     TResult Function()? fetchNamazMethods,
     TResult Function(int method, BuildContext context)? changeNamazMehods,
@@ -386,19 +267,8 @@ class _$FetchPrayerTiming implements FetchPrayerTiming {
     TResult Function()? changeLangLongtoAddress,
     TResult Function(int index)? onNotiyOnOffEvent,
     TResult Function(int index)? changeIndex,
-    TResult Function(bool value)? addAutoDetectValToLocalStorage,
-    TResult Function()? getAutoDetetectLocationFromLocalStorage,
-    TResult Function(bool value)? addAutomaticSettingToLocalStorage,
-    TResult Function()? getAutomaticSettingsFromLocalStorage,
-    TResult Function(bool value)? addShowimsakValToLocalStorage,
-    TResult Function()? getShowimskValFromLocalStorage,
-    TResult Function(int value)? addCalculationMethodToLocalStorage,
-    TResult Function()? getCalculationMethodFromStorage,
-    TResult Function(int value)? addAsrCalculationMethodToLocalStorage,
-    TResult Function()? getAsrCalculationMethodFromStorage,
-    TResult Function(int value)? addHighLatitudeMethodsToLocalStorage,
-    TResult Function()? getHighLatitudeMethodsToLocalStorage,
-    TResult Function()? fetchNamazTimingNotificationsFromLocalStorage,
+    TResult Function()? fetchNamazMethodDb,
+    TResult Function()? addNamazMethodDb,
     required TResult orElse(),
   }) {
     if (fetchPrayerTiming != null) {
@@ -412,6 +282,7 @@ class _$FetchPrayerTiming implements FetchPrayerTiming {
   TResult map<TResult extends Object?>({
     required TResult Function(FetchPrayerTiming value) fetchPrayerTiming,
     required TResult Function(PrayerTimingEvent value) prayerTimingEvent,
+    required TResult Function(ShowImsakEvent value) showImsakEvent,
     required TResult Function(ChangeArtCalcMethod value) changeArtCalcMethod,
     required TResult Function(FetchNamazMethods value) fetchNamazMethods,
     required TResult Function(ChangeNamazMethods value) changeNamazMehods,
@@ -422,33 +293,8 @@ class _$FetchPrayerTiming implements FetchPrayerTiming {
         changeLangLongtoAddress,
     required TResult Function(OnNotiyOnOffEvent value) onNotiyOnOffEvent,
     required TResult Function(ChangeIndex value) changeIndex,
-    required TResult Function(AddAutoDetectValToLocalStorage value)
-        addAutoDetectValToLocalStorage,
-    required TResult Function(GetAutoDetetectLocationFromLocalStorage value)
-        getAutoDetetectLocationFromLocalStorage,
-    required TResult Function(AddAutomaticSettingToLocalStorage value)
-        addAutomaticSettingToLocalStorage,
-    required TResult Function(GetAutomaticSettingsFromLocalStorage value)
-        getAutomaticSettingsFromLocalStorage,
-    required TResult Function(AddShowimsakValToLocalStorage value)
-        addShowimsakValToLocalStorage,
-    required TResult Function(GetShowimskValFromLocalStorage value)
-        getShowimskValFromLocalStorage,
-    required TResult Function(AddCalculationMethodToLocalStorage value)
-        addCalculationMethodToLocalStorage,
-    required TResult Function(GetCalculationMethodFromStorage value)
-        getCalculationMethodFromStorage,
-    required TResult Function(AddAsrCalculationMethodToLocalStorage value)
-        addAsrCalculationMethodToLocalStorage,
-    required TResult Function(GetAsrCalculationMethodFromStorage value)
-        getAsrCalculationMethodFromStorage,
-    required TResult Function(AddHighLatitudeMethodsToLocalStorage value)
-        addHighLatitudeMethodsToLocalStorage,
-    required TResult Function(GetHighLatitudeMethodsToLocalStorage value)
-        getHighLatitudeMethodsToLocalStorage,
-    required TResult Function(
-            FetchNamazTimingNotificationsFromLocalStorage value)
-        fetchNamazTimingNotificationsFromLocalStorage,
+    required TResult Function(FetchNamazMethodDb value) fetchNamazMethodDb,
+    required TResult Function(AddNamazMethodDb value) addNamazMethodDb,
   }) {
     return fetchPrayerTiming(this);
   }
@@ -458,6 +304,7 @@ class _$FetchPrayerTiming implements FetchPrayerTiming {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(FetchPrayerTiming value)? fetchPrayerTiming,
     TResult? Function(PrayerTimingEvent value)? prayerTimingEvent,
+    TResult? Function(ShowImsakEvent value)? showImsakEvent,
     TResult? Function(ChangeArtCalcMethod value)? changeArtCalcMethod,
     TResult? Function(FetchNamazMethods value)? fetchNamazMethods,
     TResult? Function(ChangeNamazMethods value)? changeNamazMehods,
@@ -466,32 +313,8 @@ class _$FetchPrayerTiming implements FetchPrayerTiming {
     TResult? Function(ChangeLangLongtoAddress value)? changeLangLongtoAddress,
     TResult? Function(OnNotiyOnOffEvent value)? onNotiyOnOffEvent,
     TResult? Function(ChangeIndex value)? changeIndex,
-    TResult? Function(AddAutoDetectValToLocalStorage value)?
-        addAutoDetectValToLocalStorage,
-    TResult? Function(GetAutoDetetectLocationFromLocalStorage value)?
-        getAutoDetetectLocationFromLocalStorage,
-    TResult? Function(AddAutomaticSettingToLocalStorage value)?
-        addAutomaticSettingToLocalStorage,
-    TResult? Function(GetAutomaticSettingsFromLocalStorage value)?
-        getAutomaticSettingsFromLocalStorage,
-    TResult? Function(AddShowimsakValToLocalStorage value)?
-        addShowimsakValToLocalStorage,
-    TResult? Function(GetShowimskValFromLocalStorage value)?
-        getShowimskValFromLocalStorage,
-    TResult? Function(AddCalculationMethodToLocalStorage value)?
-        addCalculationMethodToLocalStorage,
-    TResult? Function(GetCalculationMethodFromStorage value)?
-        getCalculationMethodFromStorage,
-    TResult? Function(AddAsrCalculationMethodToLocalStorage value)?
-        addAsrCalculationMethodToLocalStorage,
-    TResult? Function(GetAsrCalculationMethodFromStorage value)?
-        getAsrCalculationMethodFromStorage,
-    TResult? Function(AddHighLatitudeMethodsToLocalStorage value)?
-        addHighLatitudeMethodsToLocalStorage,
-    TResult? Function(GetHighLatitudeMethodsToLocalStorage value)?
-        getHighLatitudeMethodsToLocalStorage,
-    TResult? Function(FetchNamazTimingNotificationsFromLocalStorage value)?
-        fetchNamazTimingNotificationsFromLocalStorage,
+    TResult? Function(FetchNamazMethodDb value)? fetchNamazMethodDb,
+    TResult? Function(AddNamazMethodDb value)? addNamazMethodDb,
   }) {
     return fetchPrayerTiming?.call(this);
   }
@@ -501,6 +324,7 @@ class _$FetchPrayerTiming implements FetchPrayerTiming {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(FetchPrayerTiming value)? fetchPrayerTiming,
     TResult Function(PrayerTimingEvent value)? prayerTimingEvent,
+    TResult Function(ShowImsakEvent value)? showImsakEvent,
     TResult Function(ChangeArtCalcMethod value)? changeArtCalcMethod,
     TResult Function(FetchNamazMethods value)? fetchNamazMethods,
     TResult Function(ChangeNamazMethods value)? changeNamazMehods,
@@ -509,32 +333,8 @@ class _$FetchPrayerTiming implements FetchPrayerTiming {
     TResult Function(ChangeLangLongtoAddress value)? changeLangLongtoAddress,
     TResult Function(OnNotiyOnOffEvent value)? onNotiyOnOffEvent,
     TResult Function(ChangeIndex value)? changeIndex,
-    TResult Function(AddAutoDetectValToLocalStorage value)?
-        addAutoDetectValToLocalStorage,
-    TResult Function(GetAutoDetetectLocationFromLocalStorage value)?
-        getAutoDetetectLocationFromLocalStorage,
-    TResult Function(AddAutomaticSettingToLocalStorage value)?
-        addAutomaticSettingToLocalStorage,
-    TResult Function(GetAutomaticSettingsFromLocalStorage value)?
-        getAutomaticSettingsFromLocalStorage,
-    TResult Function(AddShowimsakValToLocalStorage value)?
-        addShowimsakValToLocalStorage,
-    TResult Function(GetShowimskValFromLocalStorage value)?
-        getShowimskValFromLocalStorage,
-    TResult Function(AddCalculationMethodToLocalStorage value)?
-        addCalculationMethodToLocalStorage,
-    TResult Function(GetCalculationMethodFromStorage value)?
-        getCalculationMethodFromStorage,
-    TResult Function(AddAsrCalculationMethodToLocalStorage value)?
-        addAsrCalculationMethodToLocalStorage,
-    TResult Function(GetAsrCalculationMethodFromStorage value)?
-        getAsrCalculationMethodFromStorage,
-    TResult Function(AddHighLatitudeMethodsToLocalStorage value)?
-        addHighLatitudeMethodsToLocalStorage,
-    TResult Function(GetHighLatitudeMethodsToLocalStorage value)?
-        getHighLatitudeMethodsToLocalStorage,
-    TResult Function(FetchNamazTimingNotificationsFromLocalStorage value)?
-        fetchNamazTimingNotificationsFromLocalStorage,
+    TResult Function(FetchNamazMethodDb value)? fetchNamazMethodDb,
+    TResult Function(AddNamazMethodDb value)? addNamazMethodDb,
     required TResult orElse(),
   }) {
     if (fetchPrayerTiming != null) {
@@ -594,6 +394,7 @@ class _$PrayerTimingEvent implements PrayerTimingEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(BuildContext context) fetchPrayerTiming,
     required TResult Function() prayerTimingEvent,
+    required TResult Function() showImsakEvent,
     required TResult Function() changeArtCalcMethod,
     required TResult Function() fetchNamazMethods,
     required TResult Function(int method, BuildContext context)
@@ -605,19 +406,8 @@ class _$PrayerTimingEvent implements PrayerTimingEvent {
     required TResult Function() changeLangLongtoAddress,
     required TResult Function(int index) onNotiyOnOffEvent,
     required TResult Function(int index) changeIndex,
-    required TResult Function(bool value) addAutoDetectValToLocalStorage,
-    required TResult Function() getAutoDetetectLocationFromLocalStorage,
-    required TResult Function(bool value) addAutomaticSettingToLocalStorage,
-    required TResult Function() getAutomaticSettingsFromLocalStorage,
-    required TResult Function(bool value) addShowimsakValToLocalStorage,
-    required TResult Function() getShowimskValFromLocalStorage,
-    required TResult Function(int value) addCalculationMethodToLocalStorage,
-    required TResult Function() getCalculationMethodFromStorage,
-    required TResult Function(int value) addAsrCalculationMethodToLocalStorage,
-    required TResult Function() getAsrCalculationMethodFromStorage,
-    required TResult Function(int value) addHighLatitudeMethodsToLocalStorage,
-    required TResult Function() getHighLatitudeMethodsToLocalStorage,
-    required TResult Function() fetchNamazTimingNotificationsFromLocalStorage,
+    required TResult Function() fetchNamazMethodDb,
+    required TResult Function() addNamazMethodDb,
   }) {
     return prayerTimingEvent();
   }
@@ -627,6 +417,7 @@ class _$PrayerTimingEvent implements PrayerTimingEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(BuildContext context)? fetchPrayerTiming,
     TResult? Function()? prayerTimingEvent,
+    TResult? Function()? showImsakEvent,
     TResult? Function()? changeArtCalcMethod,
     TResult? Function()? fetchNamazMethods,
     TResult? Function(int method, BuildContext context)? changeNamazMehods,
@@ -636,19 +427,8 @@ class _$PrayerTimingEvent implements PrayerTimingEvent {
     TResult? Function()? changeLangLongtoAddress,
     TResult? Function(int index)? onNotiyOnOffEvent,
     TResult? Function(int index)? changeIndex,
-    TResult? Function(bool value)? addAutoDetectValToLocalStorage,
-    TResult? Function()? getAutoDetetectLocationFromLocalStorage,
-    TResult? Function(bool value)? addAutomaticSettingToLocalStorage,
-    TResult? Function()? getAutomaticSettingsFromLocalStorage,
-    TResult? Function(bool value)? addShowimsakValToLocalStorage,
-    TResult? Function()? getShowimskValFromLocalStorage,
-    TResult? Function(int value)? addCalculationMethodToLocalStorage,
-    TResult? Function()? getCalculationMethodFromStorage,
-    TResult? Function(int value)? addAsrCalculationMethodToLocalStorage,
-    TResult? Function()? getAsrCalculationMethodFromStorage,
-    TResult? Function(int value)? addHighLatitudeMethodsToLocalStorage,
-    TResult? Function()? getHighLatitudeMethodsToLocalStorage,
-    TResult? Function()? fetchNamazTimingNotificationsFromLocalStorage,
+    TResult? Function()? fetchNamazMethodDb,
+    TResult? Function()? addNamazMethodDb,
   }) {
     return prayerTimingEvent?.call();
   }
@@ -658,6 +438,7 @@ class _$PrayerTimingEvent implements PrayerTimingEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(BuildContext context)? fetchPrayerTiming,
     TResult Function()? prayerTimingEvent,
+    TResult Function()? showImsakEvent,
     TResult Function()? changeArtCalcMethod,
     TResult Function()? fetchNamazMethods,
     TResult Function(int method, BuildContext context)? changeNamazMehods,
@@ -667,19 +448,8 @@ class _$PrayerTimingEvent implements PrayerTimingEvent {
     TResult Function()? changeLangLongtoAddress,
     TResult Function(int index)? onNotiyOnOffEvent,
     TResult Function(int index)? changeIndex,
-    TResult Function(bool value)? addAutoDetectValToLocalStorage,
-    TResult Function()? getAutoDetetectLocationFromLocalStorage,
-    TResult Function(bool value)? addAutomaticSettingToLocalStorage,
-    TResult Function()? getAutomaticSettingsFromLocalStorage,
-    TResult Function(bool value)? addShowimsakValToLocalStorage,
-    TResult Function()? getShowimskValFromLocalStorage,
-    TResult Function(int value)? addCalculationMethodToLocalStorage,
-    TResult Function()? getCalculationMethodFromStorage,
-    TResult Function(int value)? addAsrCalculationMethodToLocalStorage,
-    TResult Function()? getAsrCalculationMethodFromStorage,
-    TResult Function(int value)? addHighLatitudeMethodsToLocalStorage,
-    TResult Function()? getHighLatitudeMethodsToLocalStorage,
-    TResult Function()? fetchNamazTimingNotificationsFromLocalStorage,
+    TResult Function()? fetchNamazMethodDb,
+    TResult Function()? addNamazMethodDb,
     required TResult orElse(),
   }) {
     if (prayerTimingEvent != null) {
@@ -693,6 +463,7 @@ class _$PrayerTimingEvent implements PrayerTimingEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(FetchPrayerTiming value) fetchPrayerTiming,
     required TResult Function(PrayerTimingEvent value) prayerTimingEvent,
+    required TResult Function(ShowImsakEvent value) showImsakEvent,
     required TResult Function(ChangeArtCalcMethod value) changeArtCalcMethod,
     required TResult Function(FetchNamazMethods value) fetchNamazMethods,
     required TResult Function(ChangeNamazMethods value) changeNamazMehods,
@@ -703,33 +474,8 @@ class _$PrayerTimingEvent implements PrayerTimingEvent {
         changeLangLongtoAddress,
     required TResult Function(OnNotiyOnOffEvent value) onNotiyOnOffEvent,
     required TResult Function(ChangeIndex value) changeIndex,
-    required TResult Function(AddAutoDetectValToLocalStorage value)
-        addAutoDetectValToLocalStorage,
-    required TResult Function(GetAutoDetetectLocationFromLocalStorage value)
-        getAutoDetetectLocationFromLocalStorage,
-    required TResult Function(AddAutomaticSettingToLocalStorage value)
-        addAutomaticSettingToLocalStorage,
-    required TResult Function(GetAutomaticSettingsFromLocalStorage value)
-        getAutomaticSettingsFromLocalStorage,
-    required TResult Function(AddShowimsakValToLocalStorage value)
-        addShowimsakValToLocalStorage,
-    required TResult Function(GetShowimskValFromLocalStorage value)
-        getShowimskValFromLocalStorage,
-    required TResult Function(AddCalculationMethodToLocalStorage value)
-        addCalculationMethodToLocalStorage,
-    required TResult Function(GetCalculationMethodFromStorage value)
-        getCalculationMethodFromStorage,
-    required TResult Function(AddAsrCalculationMethodToLocalStorage value)
-        addAsrCalculationMethodToLocalStorage,
-    required TResult Function(GetAsrCalculationMethodFromStorage value)
-        getAsrCalculationMethodFromStorage,
-    required TResult Function(AddHighLatitudeMethodsToLocalStorage value)
-        addHighLatitudeMethodsToLocalStorage,
-    required TResult Function(GetHighLatitudeMethodsToLocalStorage value)
-        getHighLatitudeMethodsToLocalStorage,
-    required TResult Function(
-            FetchNamazTimingNotificationsFromLocalStorage value)
-        fetchNamazTimingNotificationsFromLocalStorage,
+    required TResult Function(FetchNamazMethodDb value) fetchNamazMethodDb,
+    required TResult Function(AddNamazMethodDb value) addNamazMethodDb,
   }) {
     return prayerTimingEvent(this);
   }
@@ -739,6 +485,7 @@ class _$PrayerTimingEvent implements PrayerTimingEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(FetchPrayerTiming value)? fetchPrayerTiming,
     TResult? Function(PrayerTimingEvent value)? prayerTimingEvent,
+    TResult? Function(ShowImsakEvent value)? showImsakEvent,
     TResult? Function(ChangeArtCalcMethod value)? changeArtCalcMethod,
     TResult? Function(FetchNamazMethods value)? fetchNamazMethods,
     TResult? Function(ChangeNamazMethods value)? changeNamazMehods,
@@ -747,32 +494,8 @@ class _$PrayerTimingEvent implements PrayerTimingEvent {
     TResult? Function(ChangeLangLongtoAddress value)? changeLangLongtoAddress,
     TResult? Function(OnNotiyOnOffEvent value)? onNotiyOnOffEvent,
     TResult? Function(ChangeIndex value)? changeIndex,
-    TResult? Function(AddAutoDetectValToLocalStorage value)?
-        addAutoDetectValToLocalStorage,
-    TResult? Function(GetAutoDetetectLocationFromLocalStorage value)?
-        getAutoDetetectLocationFromLocalStorage,
-    TResult? Function(AddAutomaticSettingToLocalStorage value)?
-        addAutomaticSettingToLocalStorage,
-    TResult? Function(GetAutomaticSettingsFromLocalStorage value)?
-        getAutomaticSettingsFromLocalStorage,
-    TResult? Function(AddShowimsakValToLocalStorage value)?
-        addShowimsakValToLocalStorage,
-    TResult? Function(GetShowimskValFromLocalStorage value)?
-        getShowimskValFromLocalStorage,
-    TResult? Function(AddCalculationMethodToLocalStorage value)?
-        addCalculationMethodToLocalStorage,
-    TResult? Function(GetCalculationMethodFromStorage value)?
-        getCalculationMethodFromStorage,
-    TResult? Function(AddAsrCalculationMethodToLocalStorage value)?
-        addAsrCalculationMethodToLocalStorage,
-    TResult? Function(GetAsrCalculationMethodFromStorage value)?
-        getAsrCalculationMethodFromStorage,
-    TResult? Function(AddHighLatitudeMethodsToLocalStorage value)?
-        addHighLatitudeMethodsToLocalStorage,
-    TResult? Function(GetHighLatitudeMethodsToLocalStorage value)?
-        getHighLatitudeMethodsToLocalStorage,
-    TResult? Function(FetchNamazTimingNotificationsFromLocalStorage value)?
-        fetchNamazTimingNotificationsFromLocalStorage,
+    TResult? Function(FetchNamazMethodDb value)? fetchNamazMethodDb,
+    TResult? Function(AddNamazMethodDb value)? addNamazMethodDb,
   }) {
     return prayerTimingEvent?.call(this);
   }
@@ -782,6 +505,7 @@ class _$PrayerTimingEvent implements PrayerTimingEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(FetchPrayerTiming value)? fetchPrayerTiming,
     TResult Function(PrayerTimingEvent value)? prayerTimingEvent,
+    TResult Function(ShowImsakEvent value)? showImsakEvent,
     TResult Function(ChangeArtCalcMethod value)? changeArtCalcMethod,
     TResult Function(FetchNamazMethods value)? fetchNamazMethods,
     TResult Function(ChangeNamazMethods value)? changeNamazMehods,
@@ -790,32 +514,8 @@ class _$PrayerTimingEvent implements PrayerTimingEvent {
     TResult Function(ChangeLangLongtoAddress value)? changeLangLongtoAddress,
     TResult Function(OnNotiyOnOffEvent value)? onNotiyOnOffEvent,
     TResult Function(ChangeIndex value)? changeIndex,
-    TResult Function(AddAutoDetectValToLocalStorage value)?
-        addAutoDetectValToLocalStorage,
-    TResult Function(GetAutoDetetectLocationFromLocalStorage value)?
-        getAutoDetetectLocationFromLocalStorage,
-    TResult Function(AddAutomaticSettingToLocalStorage value)?
-        addAutomaticSettingToLocalStorage,
-    TResult Function(GetAutomaticSettingsFromLocalStorage value)?
-        getAutomaticSettingsFromLocalStorage,
-    TResult Function(AddShowimsakValToLocalStorage value)?
-        addShowimsakValToLocalStorage,
-    TResult Function(GetShowimskValFromLocalStorage value)?
-        getShowimskValFromLocalStorage,
-    TResult Function(AddCalculationMethodToLocalStorage value)?
-        addCalculationMethodToLocalStorage,
-    TResult Function(GetCalculationMethodFromStorage value)?
-        getCalculationMethodFromStorage,
-    TResult Function(AddAsrCalculationMethodToLocalStorage value)?
-        addAsrCalculationMethodToLocalStorage,
-    TResult Function(GetAsrCalculationMethodFromStorage value)?
-        getAsrCalculationMethodFromStorage,
-    TResult Function(AddHighLatitudeMethodsToLocalStorage value)?
-        addHighLatitudeMethodsToLocalStorage,
-    TResult Function(GetHighLatitudeMethodsToLocalStorage value)?
-        getHighLatitudeMethodsToLocalStorage,
-    TResult Function(FetchNamazTimingNotificationsFromLocalStorage value)?
-        fetchNamazTimingNotificationsFromLocalStorage,
+    TResult Function(FetchNamazMethodDb value)? fetchNamazMethodDb,
+    TResult Function(AddNamazMethodDb value)? addNamazMethodDb,
     required TResult orElse(),
   }) {
     if (prayerTimingEvent != null) {
@@ -827,6 +527,181 @@ class _$PrayerTimingEvent implements PrayerTimingEvent {
 
 abstract class PrayerTimingEvent implements NamazTimingEvent {
   const factory PrayerTimingEvent() = _$PrayerTimingEvent;
+}
+
+/// @nodoc
+abstract class _$$ShowImsakEventCopyWith<$Res> {
+  factory _$$ShowImsakEventCopyWith(
+          _$ShowImsakEvent value, $Res Function(_$ShowImsakEvent) then) =
+      __$$ShowImsakEventCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ShowImsakEventCopyWithImpl<$Res>
+    extends _$NamazTimingEventCopyWithImpl<$Res, _$ShowImsakEvent>
+    implements _$$ShowImsakEventCopyWith<$Res> {
+  __$$ShowImsakEventCopyWithImpl(
+      _$ShowImsakEvent _value, $Res Function(_$ShowImsakEvent) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$ShowImsakEvent implements ShowImsakEvent {
+  const _$ShowImsakEvent();
+
+  @override
+  String toString() {
+    return 'NamazTimingEvent.showImsakEvent()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$ShowImsakEvent);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(BuildContext context) fetchPrayerTiming,
+    required TResult Function() prayerTimingEvent,
+    required TResult Function() showImsakEvent,
+    required TResult Function() changeArtCalcMethod,
+    required TResult Function() fetchNamazMethods,
+    required TResult Function(int method, BuildContext context)
+        changeNamazMehods,
+    required TResult Function(int school, BuildContext context)
+        changeSchoolEvent,
+    required TResult Function(int numValue, BuildContext context)
+        changeHighLatitudeMethod,
+    required TResult Function() changeLangLongtoAddress,
+    required TResult Function(int index) onNotiyOnOffEvent,
+    required TResult Function(int index) changeIndex,
+    required TResult Function() fetchNamazMethodDb,
+    required TResult Function() addNamazMethodDb,
+  }) {
+    return showImsakEvent();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(BuildContext context)? fetchPrayerTiming,
+    TResult? Function()? prayerTimingEvent,
+    TResult? Function()? showImsakEvent,
+    TResult? Function()? changeArtCalcMethod,
+    TResult? Function()? fetchNamazMethods,
+    TResult? Function(int method, BuildContext context)? changeNamazMehods,
+    TResult? Function(int school, BuildContext context)? changeSchoolEvent,
+    TResult? Function(int numValue, BuildContext context)?
+        changeHighLatitudeMethod,
+    TResult? Function()? changeLangLongtoAddress,
+    TResult? Function(int index)? onNotiyOnOffEvent,
+    TResult? Function(int index)? changeIndex,
+    TResult? Function()? fetchNamazMethodDb,
+    TResult? Function()? addNamazMethodDb,
+  }) {
+    return showImsakEvent?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(BuildContext context)? fetchPrayerTiming,
+    TResult Function()? prayerTimingEvent,
+    TResult Function()? showImsakEvent,
+    TResult Function()? changeArtCalcMethod,
+    TResult Function()? fetchNamazMethods,
+    TResult Function(int method, BuildContext context)? changeNamazMehods,
+    TResult Function(int school, BuildContext context)? changeSchoolEvent,
+    TResult Function(int numValue, BuildContext context)?
+        changeHighLatitudeMethod,
+    TResult Function()? changeLangLongtoAddress,
+    TResult Function(int index)? onNotiyOnOffEvent,
+    TResult Function(int index)? changeIndex,
+    TResult Function()? fetchNamazMethodDb,
+    TResult Function()? addNamazMethodDb,
+    required TResult orElse(),
+  }) {
+    if (showImsakEvent != null) {
+      return showImsakEvent();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FetchPrayerTiming value) fetchPrayerTiming,
+    required TResult Function(PrayerTimingEvent value) prayerTimingEvent,
+    required TResult Function(ShowImsakEvent value) showImsakEvent,
+    required TResult Function(ChangeArtCalcMethod value) changeArtCalcMethod,
+    required TResult Function(FetchNamazMethods value) fetchNamazMethods,
+    required TResult Function(ChangeNamazMethods value) changeNamazMehods,
+    required TResult Function(ChangeSchoolEvent value) changeSchoolEvent,
+    required TResult Function(ChangeHighLatitudeMethod value)
+        changeHighLatitudeMethod,
+    required TResult Function(ChangeLangLongtoAddress value)
+        changeLangLongtoAddress,
+    required TResult Function(OnNotiyOnOffEvent value) onNotiyOnOffEvent,
+    required TResult Function(ChangeIndex value) changeIndex,
+    required TResult Function(FetchNamazMethodDb value) fetchNamazMethodDb,
+    required TResult Function(AddNamazMethodDb value) addNamazMethodDb,
+  }) {
+    return showImsakEvent(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(FetchPrayerTiming value)? fetchPrayerTiming,
+    TResult? Function(PrayerTimingEvent value)? prayerTimingEvent,
+    TResult? Function(ShowImsakEvent value)? showImsakEvent,
+    TResult? Function(ChangeArtCalcMethod value)? changeArtCalcMethod,
+    TResult? Function(FetchNamazMethods value)? fetchNamazMethods,
+    TResult? Function(ChangeNamazMethods value)? changeNamazMehods,
+    TResult? Function(ChangeSchoolEvent value)? changeSchoolEvent,
+    TResult? Function(ChangeHighLatitudeMethod value)? changeHighLatitudeMethod,
+    TResult? Function(ChangeLangLongtoAddress value)? changeLangLongtoAddress,
+    TResult? Function(OnNotiyOnOffEvent value)? onNotiyOnOffEvent,
+    TResult? Function(ChangeIndex value)? changeIndex,
+    TResult? Function(FetchNamazMethodDb value)? fetchNamazMethodDb,
+    TResult? Function(AddNamazMethodDb value)? addNamazMethodDb,
+  }) {
+    return showImsakEvent?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FetchPrayerTiming value)? fetchPrayerTiming,
+    TResult Function(PrayerTimingEvent value)? prayerTimingEvent,
+    TResult Function(ShowImsakEvent value)? showImsakEvent,
+    TResult Function(ChangeArtCalcMethod value)? changeArtCalcMethod,
+    TResult Function(FetchNamazMethods value)? fetchNamazMethods,
+    TResult Function(ChangeNamazMethods value)? changeNamazMehods,
+    TResult Function(ChangeSchoolEvent value)? changeSchoolEvent,
+    TResult Function(ChangeHighLatitudeMethod value)? changeHighLatitudeMethod,
+    TResult Function(ChangeLangLongtoAddress value)? changeLangLongtoAddress,
+    TResult Function(OnNotiyOnOffEvent value)? onNotiyOnOffEvent,
+    TResult Function(ChangeIndex value)? changeIndex,
+    TResult Function(FetchNamazMethodDb value)? fetchNamazMethodDb,
+    TResult Function(AddNamazMethodDb value)? addNamazMethodDb,
+    required TResult orElse(),
+  }) {
+    if (showImsakEvent != null) {
+      return showImsakEvent(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ShowImsakEvent implements NamazTimingEvent {
+  const factory ShowImsakEvent() = _$ShowImsakEvent;
 }
 
 /// @nodoc
@@ -869,6 +744,7 @@ class _$ChangeArtCalcMethod implements ChangeArtCalcMethod {
   TResult when<TResult extends Object?>({
     required TResult Function(BuildContext context) fetchPrayerTiming,
     required TResult Function() prayerTimingEvent,
+    required TResult Function() showImsakEvent,
     required TResult Function() changeArtCalcMethod,
     required TResult Function() fetchNamazMethods,
     required TResult Function(int method, BuildContext context)
@@ -880,19 +756,8 @@ class _$ChangeArtCalcMethod implements ChangeArtCalcMethod {
     required TResult Function() changeLangLongtoAddress,
     required TResult Function(int index) onNotiyOnOffEvent,
     required TResult Function(int index) changeIndex,
-    required TResult Function(bool value) addAutoDetectValToLocalStorage,
-    required TResult Function() getAutoDetetectLocationFromLocalStorage,
-    required TResult Function(bool value) addAutomaticSettingToLocalStorage,
-    required TResult Function() getAutomaticSettingsFromLocalStorage,
-    required TResult Function(bool value) addShowimsakValToLocalStorage,
-    required TResult Function() getShowimskValFromLocalStorage,
-    required TResult Function(int value) addCalculationMethodToLocalStorage,
-    required TResult Function() getCalculationMethodFromStorage,
-    required TResult Function(int value) addAsrCalculationMethodToLocalStorage,
-    required TResult Function() getAsrCalculationMethodFromStorage,
-    required TResult Function(int value) addHighLatitudeMethodsToLocalStorage,
-    required TResult Function() getHighLatitudeMethodsToLocalStorage,
-    required TResult Function() fetchNamazTimingNotificationsFromLocalStorage,
+    required TResult Function() fetchNamazMethodDb,
+    required TResult Function() addNamazMethodDb,
   }) {
     return changeArtCalcMethod();
   }
@@ -902,6 +767,7 @@ class _$ChangeArtCalcMethod implements ChangeArtCalcMethod {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(BuildContext context)? fetchPrayerTiming,
     TResult? Function()? prayerTimingEvent,
+    TResult? Function()? showImsakEvent,
     TResult? Function()? changeArtCalcMethod,
     TResult? Function()? fetchNamazMethods,
     TResult? Function(int method, BuildContext context)? changeNamazMehods,
@@ -911,19 +777,8 @@ class _$ChangeArtCalcMethod implements ChangeArtCalcMethod {
     TResult? Function()? changeLangLongtoAddress,
     TResult? Function(int index)? onNotiyOnOffEvent,
     TResult? Function(int index)? changeIndex,
-    TResult? Function(bool value)? addAutoDetectValToLocalStorage,
-    TResult? Function()? getAutoDetetectLocationFromLocalStorage,
-    TResult? Function(bool value)? addAutomaticSettingToLocalStorage,
-    TResult? Function()? getAutomaticSettingsFromLocalStorage,
-    TResult? Function(bool value)? addShowimsakValToLocalStorage,
-    TResult? Function()? getShowimskValFromLocalStorage,
-    TResult? Function(int value)? addCalculationMethodToLocalStorage,
-    TResult? Function()? getCalculationMethodFromStorage,
-    TResult? Function(int value)? addAsrCalculationMethodToLocalStorage,
-    TResult? Function()? getAsrCalculationMethodFromStorage,
-    TResult? Function(int value)? addHighLatitudeMethodsToLocalStorage,
-    TResult? Function()? getHighLatitudeMethodsToLocalStorage,
-    TResult? Function()? fetchNamazTimingNotificationsFromLocalStorage,
+    TResult? Function()? fetchNamazMethodDb,
+    TResult? Function()? addNamazMethodDb,
   }) {
     return changeArtCalcMethod?.call();
   }
@@ -933,6 +788,7 @@ class _$ChangeArtCalcMethod implements ChangeArtCalcMethod {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(BuildContext context)? fetchPrayerTiming,
     TResult Function()? prayerTimingEvent,
+    TResult Function()? showImsakEvent,
     TResult Function()? changeArtCalcMethod,
     TResult Function()? fetchNamazMethods,
     TResult Function(int method, BuildContext context)? changeNamazMehods,
@@ -942,19 +798,8 @@ class _$ChangeArtCalcMethod implements ChangeArtCalcMethod {
     TResult Function()? changeLangLongtoAddress,
     TResult Function(int index)? onNotiyOnOffEvent,
     TResult Function(int index)? changeIndex,
-    TResult Function(bool value)? addAutoDetectValToLocalStorage,
-    TResult Function()? getAutoDetetectLocationFromLocalStorage,
-    TResult Function(bool value)? addAutomaticSettingToLocalStorage,
-    TResult Function()? getAutomaticSettingsFromLocalStorage,
-    TResult Function(bool value)? addShowimsakValToLocalStorage,
-    TResult Function()? getShowimskValFromLocalStorage,
-    TResult Function(int value)? addCalculationMethodToLocalStorage,
-    TResult Function()? getCalculationMethodFromStorage,
-    TResult Function(int value)? addAsrCalculationMethodToLocalStorage,
-    TResult Function()? getAsrCalculationMethodFromStorage,
-    TResult Function(int value)? addHighLatitudeMethodsToLocalStorage,
-    TResult Function()? getHighLatitudeMethodsToLocalStorage,
-    TResult Function()? fetchNamazTimingNotificationsFromLocalStorage,
+    TResult Function()? fetchNamazMethodDb,
+    TResult Function()? addNamazMethodDb,
     required TResult orElse(),
   }) {
     if (changeArtCalcMethod != null) {
@@ -968,6 +813,7 @@ class _$ChangeArtCalcMethod implements ChangeArtCalcMethod {
   TResult map<TResult extends Object?>({
     required TResult Function(FetchPrayerTiming value) fetchPrayerTiming,
     required TResult Function(PrayerTimingEvent value) prayerTimingEvent,
+    required TResult Function(ShowImsakEvent value) showImsakEvent,
     required TResult Function(ChangeArtCalcMethod value) changeArtCalcMethod,
     required TResult Function(FetchNamazMethods value) fetchNamazMethods,
     required TResult Function(ChangeNamazMethods value) changeNamazMehods,
@@ -978,33 +824,8 @@ class _$ChangeArtCalcMethod implements ChangeArtCalcMethod {
         changeLangLongtoAddress,
     required TResult Function(OnNotiyOnOffEvent value) onNotiyOnOffEvent,
     required TResult Function(ChangeIndex value) changeIndex,
-    required TResult Function(AddAutoDetectValToLocalStorage value)
-        addAutoDetectValToLocalStorage,
-    required TResult Function(GetAutoDetetectLocationFromLocalStorage value)
-        getAutoDetetectLocationFromLocalStorage,
-    required TResult Function(AddAutomaticSettingToLocalStorage value)
-        addAutomaticSettingToLocalStorage,
-    required TResult Function(GetAutomaticSettingsFromLocalStorage value)
-        getAutomaticSettingsFromLocalStorage,
-    required TResult Function(AddShowimsakValToLocalStorage value)
-        addShowimsakValToLocalStorage,
-    required TResult Function(GetShowimskValFromLocalStorage value)
-        getShowimskValFromLocalStorage,
-    required TResult Function(AddCalculationMethodToLocalStorage value)
-        addCalculationMethodToLocalStorage,
-    required TResult Function(GetCalculationMethodFromStorage value)
-        getCalculationMethodFromStorage,
-    required TResult Function(AddAsrCalculationMethodToLocalStorage value)
-        addAsrCalculationMethodToLocalStorage,
-    required TResult Function(GetAsrCalculationMethodFromStorage value)
-        getAsrCalculationMethodFromStorage,
-    required TResult Function(AddHighLatitudeMethodsToLocalStorage value)
-        addHighLatitudeMethodsToLocalStorage,
-    required TResult Function(GetHighLatitudeMethodsToLocalStorage value)
-        getHighLatitudeMethodsToLocalStorage,
-    required TResult Function(
-            FetchNamazTimingNotificationsFromLocalStorage value)
-        fetchNamazTimingNotificationsFromLocalStorage,
+    required TResult Function(FetchNamazMethodDb value) fetchNamazMethodDb,
+    required TResult Function(AddNamazMethodDb value) addNamazMethodDb,
   }) {
     return changeArtCalcMethod(this);
   }
@@ -1014,6 +835,7 @@ class _$ChangeArtCalcMethod implements ChangeArtCalcMethod {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(FetchPrayerTiming value)? fetchPrayerTiming,
     TResult? Function(PrayerTimingEvent value)? prayerTimingEvent,
+    TResult? Function(ShowImsakEvent value)? showImsakEvent,
     TResult? Function(ChangeArtCalcMethod value)? changeArtCalcMethod,
     TResult? Function(FetchNamazMethods value)? fetchNamazMethods,
     TResult? Function(ChangeNamazMethods value)? changeNamazMehods,
@@ -1022,32 +844,8 @@ class _$ChangeArtCalcMethod implements ChangeArtCalcMethod {
     TResult? Function(ChangeLangLongtoAddress value)? changeLangLongtoAddress,
     TResult? Function(OnNotiyOnOffEvent value)? onNotiyOnOffEvent,
     TResult? Function(ChangeIndex value)? changeIndex,
-    TResult? Function(AddAutoDetectValToLocalStorage value)?
-        addAutoDetectValToLocalStorage,
-    TResult? Function(GetAutoDetetectLocationFromLocalStorage value)?
-        getAutoDetetectLocationFromLocalStorage,
-    TResult? Function(AddAutomaticSettingToLocalStorage value)?
-        addAutomaticSettingToLocalStorage,
-    TResult? Function(GetAutomaticSettingsFromLocalStorage value)?
-        getAutomaticSettingsFromLocalStorage,
-    TResult? Function(AddShowimsakValToLocalStorage value)?
-        addShowimsakValToLocalStorage,
-    TResult? Function(GetShowimskValFromLocalStorage value)?
-        getShowimskValFromLocalStorage,
-    TResult? Function(AddCalculationMethodToLocalStorage value)?
-        addCalculationMethodToLocalStorage,
-    TResult? Function(GetCalculationMethodFromStorage value)?
-        getCalculationMethodFromStorage,
-    TResult? Function(AddAsrCalculationMethodToLocalStorage value)?
-        addAsrCalculationMethodToLocalStorage,
-    TResult? Function(GetAsrCalculationMethodFromStorage value)?
-        getAsrCalculationMethodFromStorage,
-    TResult? Function(AddHighLatitudeMethodsToLocalStorage value)?
-        addHighLatitudeMethodsToLocalStorage,
-    TResult? Function(GetHighLatitudeMethodsToLocalStorage value)?
-        getHighLatitudeMethodsToLocalStorage,
-    TResult? Function(FetchNamazTimingNotificationsFromLocalStorage value)?
-        fetchNamazTimingNotificationsFromLocalStorage,
+    TResult? Function(FetchNamazMethodDb value)? fetchNamazMethodDb,
+    TResult? Function(AddNamazMethodDb value)? addNamazMethodDb,
   }) {
     return changeArtCalcMethod?.call(this);
   }
@@ -1057,6 +855,7 @@ class _$ChangeArtCalcMethod implements ChangeArtCalcMethod {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(FetchPrayerTiming value)? fetchPrayerTiming,
     TResult Function(PrayerTimingEvent value)? prayerTimingEvent,
+    TResult Function(ShowImsakEvent value)? showImsakEvent,
     TResult Function(ChangeArtCalcMethod value)? changeArtCalcMethod,
     TResult Function(FetchNamazMethods value)? fetchNamazMethods,
     TResult Function(ChangeNamazMethods value)? changeNamazMehods,
@@ -1065,32 +864,8 @@ class _$ChangeArtCalcMethod implements ChangeArtCalcMethod {
     TResult Function(ChangeLangLongtoAddress value)? changeLangLongtoAddress,
     TResult Function(OnNotiyOnOffEvent value)? onNotiyOnOffEvent,
     TResult Function(ChangeIndex value)? changeIndex,
-    TResult Function(AddAutoDetectValToLocalStorage value)?
-        addAutoDetectValToLocalStorage,
-    TResult Function(GetAutoDetetectLocationFromLocalStorage value)?
-        getAutoDetetectLocationFromLocalStorage,
-    TResult Function(AddAutomaticSettingToLocalStorage value)?
-        addAutomaticSettingToLocalStorage,
-    TResult Function(GetAutomaticSettingsFromLocalStorage value)?
-        getAutomaticSettingsFromLocalStorage,
-    TResult Function(AddShowimsakValToLocalStorage value)?
-        addShowimsakValToLocalStorage,
-    TResult Function(GetShowimskValFromLocalStorage value)?
-        getShowimskValFromLocalStorage,
-    TResult Function(AddCalculationMethodToLocalStorage value)?
-        addCalculationMethodToLocalStorage,
-    TResult Function(GetCalculationMethodFromStorage value)?
-        getCalculationMethodFromStorage,
-    TResult Function(AddAsrCalculationMethodToLocalStorage value)?
-        addAsrCalculationMethodToLocalStorage,
-    TResult Function(GetAsrCalculationMethodFromStorage value)?
-        getAsrCalculationMethodFromStorage,
-    TResult Function(AddHighLatitudeMethodsToLocalStorage value)?
-        addHighLatitudeMethodsToLocalStorage,
-    TResult Function(GetHighLatitudeMethodsToLocalStorage value)?
-        getHighLatitudeMethodsToLocalStorage,
-    TResult Function(FetchNamazTimingNotificationsFromLocalStorage value)?
-        fetchNamazTimingNotificationsFromLocalStorage,
+    TResult Function(FetchNamazMethodDb value)? fetchNamazMethodDb,
+    TResult Function(AddNamazMethodDb value)? addNamazMethodDb,
     required TResult orElse(),
   }) {
     if (changeArtCalcMethod != null) {
@@ -1144,6 +919,7 @@ class _$FetchNamazMethods implements FetchNamazMethods {
   TResult when<TResult extends Object?>({
     required TResult Function(BuildContext context) fetchPrayerTiming,
     required TResult Function() prayerTimingEvent,
+    required TResult Function() showImsakEvent,
     required TResult Function() changeArtCalcMethod,
     required TResult Function() fetchNamazMethods,
     required TResult Function(int method, BuildContext context)
@@ -1155,19 +931,8 @@ class _$FetchNamazMethods implements FetchNamazMethods {
     required TResult Function() changeLangLongtoAddress,
     required TResult Function(int index) onNotiyOnOffEvent,
     required TResult Function(int index) changeIndex,
-    required TResult Function(bool value) addAutoDetectValToLocalStorage,
-    required TResult Function() getAutoDetetectLocationFromLocalStorage,
-    required TResult Function(bool value) addAutomaticSettingToLocalStorage,
-    required TResult Function() getAutomaticSettingsFromLocalStorage,
-    required TResult Function(bool value) addShowimsakValToLocalStorage,
-    required TResult Function() getShowimskValFromLocalStorage,
-    required TResult Function(int value) addCalculationMethodToLocalStorage,
-    required TResult Function() getCalculationMethodFromStorage,
-    required TResult Function(int value) addAsrCalculationMethodToLocalStorage,
-    required TResult Function() getAsrCalculationMethodFromStorage,
-    required TResult Function(int value) addHighLatitudeMethodsToLocalStorage,
-    required TResult Function() getHighLatitudeMethodsToLocalStorage,
-    required TResult Function() fetchNamazTimingNotificationsFromLocalStorage,
+    required TResult Function() fetchNamazMethodDb,
+    required TResult Function() addNamazMethodDb,
   }) {
     return fetchNamazMethods();
   }
@@ -1177,6 +942,7 @@ class _$FetchNamazMethods implements FetchNamazMethods {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(BuildContext context)? fetchPrayerTiming,
     TResult? Function()? prayerTimingEvent,
+    TResult? Function()? showImsakEvent,
     TResult? Function()? changeArtCalcMethod,
     TResult? Function()? fetchNamazMethods,
     TResult? Function(int method, BuildContext context)? changeNamazMehods,
@@ -1186,19 +952,8 @@ class _$FetchNamazMethods implements FetchNamazMethods {
     TResult? Function()? changeLangLongtoAddress,
     TResult? Function(int index)? onNotiyOnOffEvent,
     TResult? Function(int index)? changeIndex,
-    TResult? Function(bool value)? addAutoDetectValToLocalStorage,
-    TResult? Function()? getAutoDetetectLocationFromLocalStorage,
-    TResult? Function(bool value)? addAutomaticSettingToLocalStorage,
-    TResult? Function()? getAutomaticSettingsFromLocalStorage,
-    TResult? Function(bool value)? addShowimsakValToLocalStorage,
-    TResult? Function()? getShowimskValFromLocalStorage,
-    TResult? Function(int value)? addCalculationMethodToLocalStorage,
-    TResult? Function()? getCalculationMethodFromStorage,
-    TResult? Function(int value)? addAsrCalculationMethodToLocalStorage,
-    TResult? Function()? getAsrCalculationMethodFromStorage,
-    TResult? Function(int value)? addHighLatitudeMethodsToLocalStorage,
-    TResult? Function()? getHighLatitudeMethodsToLocalStorage,
-    TResult? Function()? fetchNamazTimingNotificationsFromLocalStorage,
+    TResult? Function()? fetchNamazMethodDb,
+    TResult? Function()? addNamazMethodDb,
   }) {
     return fetchNamazMethods?.call();
   }
@@ -1208,6 +963,7 @@ class _$FetchNamazMethods implements FetchNamazMethods {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(BuildContext context)? fetchPrayerTiming,
     TResult Function()? prayerTimingEvent,
+    TResult Function()? showImsakEvent,
     TResult Function()? changeArtCalcMethod,
     TResult Function()? fetchNamazMethods,
     TResult Function(int method, BuildContext context)? changeNamazMehods,
@@ -1217,19 +973,8 @@ class _$FetchNamazMethods implements FetchNamazMethods {
     TResult Function()? changeLangLongtoAddress,
     TResult Function(int index)? onNotiyOnOffEvent,
     TResult Function(int index)? changeIndex,
-    TResult Function(bool value)? addAutoDetectValToLocalStorage,
-    TResult Function()? getAutoDetetectLocationFromLocalStorage,
-    TResult Function(bool value)? addAutomaticSettingToLocalStorage,
-    TResult Function()? getAutomaticSettingsFromLocalStorage,
-    TResult Function(bool value)? addShowimsakValToLocalStorage,
-    TResult Function()? getShowimskValFromLocalStorage,
-    TResult Function(int value)? addCalculationMethodToLocalStorage,
-    TResult Function()? getCalculationMethodFromStorage,
-    TResult Function(int value)? addAsrCalculationMethodToLocalStorage,
-    TResult Function()? getAsrCalculationMethodFromStorage,
-    TResult Function(int value)? addHighLatitudeMethodsToLocalStorage,
-    TResult Function()? getHighLatitudeMethodsToLocalStorage,
-    TResult Function()? fetchNamazTimingNotificationsFromLocalStorage,
+    TResult Function()? fetchNamazMethodDb,
+    TResult Function()? addNamazMethodDb,
     required TResult orElse(),
   }) {
     if (fetchNamazMethods != null) {
@@ -1243,6 +988,7 @@ class _$FetchNamazMethods implements FetchNamazMethods {
   TResult map<TResult extends Object?>({
     required TResult Function(FetchPrayerTiming value) fetchPrayerTiming,
     required TResult Function(PrayerTimingEvent value) prayerTimingEvent,
+    required TResult Function(ShowImsakEvent value) showImsakEvent,
     required TResult Function(ChangeArtCalcMethod value) changeArtCalcMethod,
     required TResult Function(FetchNamazMethods value) fetchNamazMethods,
     required TResult Function(ChangeNamazMethods value) changeNamazMehods,
@@ -1253,33 +999,8 @@ class _$FetchNamazMethods implements FetchNamazMethods {
         changeLangLongtoAddress,
     required TResult Function(OnNotiyOnOffEvent value) onNotiyOnOffEvent,
     required TResult Function(ChangeIndex value) changeIndex,
-    required TResult Function(AddAutoDetectValToLocalStorage value)
-        addAutoDetectValToLocalStorage,
-    required TResult Function(GetAutoDetetectLocationFromLocalStorage value)
-        getAutoDetetectLocationFromLocalStorage,
-    required TResult Function(AddAutomaticSettingToLocalStorage value)
-        addAutomaticSettingToLocalStorage,
-    required TResult Function(GetAutomaticSettingsFromLocalStorage value)
-        getAutomaticSettingsFromLocalStorage,
-    required TResult Function(AddShowimsakValToLocalStorage value)
-        addShowimsakValToLocalStorage,
-    required TResult Function(GetShowimskValFromLocalStorage value)
-        getShowimskValFromLocalStorage,
-    required TResult Function(AddCalculationMethodToLocalStorage value)
-        addCalculationMethodToLocalStorage,
-    required TResult Function(GetCalculationMethodFromStorage value)
-        getCalculationMethodFromStorage,
-    required TResult Function(AddAsrCalculationMethodToLocalStorage value)
-        addAsrCalculationMethodToLocalStorage,
-    required TResult Function(GetAsrCalculationMethodFromStorage value)
-        getAsrCalculationMethodFromStorage,
-    required TResult Function(AddHighLatitudeMethodsToLocalStorage value)
-        addHighLatitudeMethodsToLocalStorage,
-    required TResult Function(GetHighLatitudeMethodsToLocalStorage value)
-        getHighLatitudeMethodsToLocalStorage,
-    required TResult Function(
-            FetchNamazTimingNotificationsFromLocalStorage value)
-        fetchNamazTimingNotificationsFromLocalStorage,
+    required TResult Function(FetchNamazMethodDb value) fetchNamazMethodDb,
+    required TResult Function(AddNamazMethodDb value) addNamazMethodDb,
   }) {
     return fetchNamazMethods(this);
   }
@@ -1289,6 +1010,7 @@ class _$FetchNamazMethods implements FetchNamazMethods {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(FetchPrayerTiming value)? fetchPrayerTiming,
     TResult? Function(PrayerTimingEvent value)? prayerTimingEvent,
+    TResult? Function(ShowImsakEvent value)? showImsakEvent,
     TResult? Function(ChangeArtCalcMethod value)? changeArtCalcMethod,
     TResult? Function(FetchNamazMethods value)? fetchNamazMethods,
     TResult? Function(ChangeNamazMethods value)? changeNamazMehods,
@@ -1297,32 +1019,8 @@ class _$FetchNamazMethods implements FetchNamazMethods {
     TResult? Function(ChangeLangLongtoAddress value)? changeLangLongtoAddress,
     TResult? Function(OnNotiyOnOffEvent value)? onNotiyOnOffEvent,
     TResult? Function(ChangeIndex value)? changeIndex,
-    TResult? Function(AddAutoDetectValToLocalStorage value)?
-        addAutoDetectValToLocalStorage,
-    TResult? Function(GetAutoDetetectLocationFromLocalStorage value)?
-        getAutoDetetectLocationFromLocalStorage,
-    TResult? Function(AddAutomaticSettingToLocalStorage value)?
-        addAutomaticSettingToLocalStorage,
-    TResult? Function(GetAutomaticSettingsFromLocalStorage value)?
-        getAutomaticSettingsFromLocalStorage,
-    TResult? Function(AddShowimsakValToLocalStorage value)?
-        addShowimsakValToLocalStorage,
-    TResult? Function(GetShowimskValFromLocalStorage value)?
-        getShowimskValFromLocalStorage,
-    TResult? Function(AddCalculationMethodToLocalStorage value)?
-        addCalculationMethodToLocalStorage,
-    TResult? Function(GetCalculationMethodFromStorage value)?
-        getCalculationMethodFromStorage,
-    TResult? Function(AddAsrCalculationMethodToLocalStorage value)?
-        addAsrCalculationMethodToLocalStorage,
-    TResult? Function(GetAsrCalculationMethodFromStorage value)?
-        getAsrCalculationMethodFromStorage,
-    TResult? Function(AddHighLatitudeMethodsToLocalStorage value)?
-        addHighLatitudeMethodsToLocalStorage,
-    TResult? Function(GetHighLatitudeMethodsToLocalStorage value)?
-        getHighLatitudeMethodsToLocalStorage,
-    TResult? Function(FetchNamazTimingNotificationsFromLocalStorage value)?
-        fetchNamazTimingNotificationsFromLocalStorage,
+    TResult? Function(FetchNamazMethodDb value)? fetchNamazMethodDb,
+    TResult? Function(AddNamazMethodDb value)? addNamazMethodDb,
   }) {
     return fetchNamazMethods?.call(this);
   }
@@ -1332,6 +1030,7 @@ class _$FetchNamazMethods implements FetchNamazMethods {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(FetchPrayerTiming value)? fetchPrayerTiming,
     TResult Function(PrayerTimingEvent value)? prayerTimingEvent,
+    TResult Function(ShowImsakEvent value)? showImsakEvent,
     TResult Function(ChangeArtCalcMethod value)? changeArtCalcMethod,
     TResult Function(FetchNamazMethods value)? fetchNamazMethods,
     TResult Function(ChangeNamazMethods value)? changeNamazMehods,
@@ -1340,32 +1039,8 @@ class _$FetchNamazMethods implements FetchNamazMethods {
     TResult Function(ChangeLangLongtoAddress value)? changeLangLongtoAddress,
     TResult Function(OnNotiyOnOffEvent value)? onNotiyOnOffEvent,
     TResult Function(ChangeIndex value)? changeIndex,
-    TResult Function(AddAutoDetectValToLocalStorage value)?
-        addAutoDetectValToLocalStorage,
-    TResult Function(GetAutoDetetectLocationFromLocalStorage value)?
-        getAutoDetetectLocationFromLocalStorage,
-    TResult Function(AddAutomaticSettingToLocalStorage value)?
-        addAutomaticSettingToLocalStorage,
-    TResult Function(GetAutomaticSettingsFromLocalStorage value)?
-        getAutomaticSettingsFromLocalStorage,
-    TResult Function(AddShowimsakValToLocalStorage value)?
-        addShowimsakValToLocalStorage,
-    TResult Function(GetShowimskValFromLocalStorage value)?
-        getShowimskValFromLocalStorage,
-    TResult Function(AddCalculationMethodToLocalStorage value)?
-        addCalculationMethodToLocalStorage,
-    TResult Function(GetCalculationMethodFromStorage value)?
-        getCalculationMethodFromStorage,
-    TResult Function(AddAsrCalculationMethodToLocalStorage value)?
-        addAsrCalculationMethodToLocalStorage,
-    TResult Function(GetAsrCalculationMethodFromStorage value)?
-        getAsrCalculationMethodFromStorage,
-    TResult Function(AddHighLatitudeMethodsToLocalStorage value)?
-        addHighLatitudeMethodsToLocalStorage,
-    TResult Function(GetHighLatitudeMethodsToLocalStorage value)?
-        getHighLatitudeMethodsToLocalStorage,
-    TResult Function(FetchNamazTimingNotificationsFromLocalStorage value)?
-        fetchNamazTimingNotificationsFromLocalStorage,
+    TResult Function(FetchNamazMethodDb value)? fetchNamazMethodDb,
+    TResult Function(AddNamazMethodDb value)? addNamazMethodDb,
     required TResult orElse(),
   }) {
     if (fetchNamazMethods != null) {
@@ -1454,6 +1129,7 @@ class _$ChangeNamazMethods implements ChangeNamazMethods {
   TResult when<TResult extends Object?>({
     required TResult Function(BuildContext context) fetchPrayerTiming,
     required TResult Function() prayerTimingEvent,
+    required TResult Function() showImsakEvent,
     required TResult Function() changeArtCalcMethod,
     required TResult Function() fetchNamazMethods,
     required TResult Function(int method, BuildContext context)
@@ -1465,19 +1141,8 @@ class _$ChangeNamazMethods implements ChangeNamazMethods {
     required TResult Function() changeLangLongtoAddress,
     required TResult Function(int index) onNotiyOnOffEvent,
     required TResult Function(int index) changeIndex,
-    required TResult Function(bool value) addAutoDetectValToLocalStorage,
-    required TResult Function() getAutoDetetectLocationFromLocalStorage,
-    required TResult Function(bool value) addAutomaticSettingToLocalStorage,
-    required TResult Function() getAutomaticSettingsFromLocalStorage,
-    required TResult Function(bool value) addShowimsakValToLocalStorage,
-    required TResult Function() getShowimskValFromLocalStorage,
-    required TResult Function(int value) addCalculationMethodToLocalStorage,
-    required TResult Function() getCalculationMethodFromStorage,
-    required TResult Function(int value) addAsrCalculationMethodToLocalStorage,
-    required TResult Function() getAsrCalculationMethodFromStorage,
-    required TResult Function(int value) addHighLatitudeMethodsToLocalStorage,
-    required TResult Function() getHighLatitudeMethodsToLocalStorage,
-    required TResult Function() fetchNamazTimingNotificationsFromLocalStorage,
+    required TResult Function() fetchNamazMethodDb,
+    required TResult Function() addNamazMethodDb,
   }) {
     return changeNamazMehods(method, context);
   }
@@ -1487,6 +1152,7 @@ class _$ChangeNamazMethods implements ChangeNamazMethods {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(BuildContext context)? fetchPrayerTiming,
     TResult? Function()? prayerTimingEvent,
+    TResult? Function()? showImsakEvent,
     TResult? Function()? changeArtCalcMethod,
     TResult? Function()? fetchNamazMethods,
     TResult? Function(int method, BuildContext context)? changeNamazMehods,
@@ -1496,19 +1162,8 @@ class _$ChangeNamazMethods implements ChangeNamazMethods {
     TResult? Function()? changeLangLongtoAddress,
     TResult? Function(int index)? onNotiyOnOffEvent,
     TResult? Function(int index)? changeIndex,
-    TResult? Function(bool value)? addAutoDetectValToLocalStorage,
-    TResult? Function()? getAutoDetetectLocationFromLocalStorage,
-    TResult? Function(bool value)? addAutomaticSettingToLocalStorage,
-    TResult? Function()? getAutomaticSettingsFromLocalStorage,
-    TResult? Function(bool value)? addShowimsakValToLocalStorage,
-    TResult? Function()? getShowimskValFromLocalStorage,
-    TResult? Function(int value)? addCalculationMethodToLocalStorage,
-    TResult? Function()? getCalculationMethodFromStorage,
-    TResult? Function(int value)? addAsrCalculationMethodToLocalStorage,
-    TResult? Function()? getAsrCalculationMethodFromStorage,
-    TResult? Function(int value)? addHighLatitudeMethodsToLocalStorage,
-    TResult? Function()? getHighLatitudeMethodsToLocalStorage,
-    TResult? Function()? fetchNamazTimingNotificationsFromLocalStorage,
+    TResult? Function()? fetchNamazMethodDb,
+    TResult? Function()? addNamazMethodDb,
   }) {
     return changeNamazMehods?.call(method, context);
   }
@@ -1518,6 +1173,7 @@ class _$ChangeNamazMethods implements ChangeNamazMethods {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(BuildContext context)? fetchPrayerTiming,
     TResult Function()? prayerTimingEvent,
+    TResult Function()? showImsakEvent,
     TResult Function()? changeArtCalcMethod,
     TResult Function()? fetchNamazMethods,
     TResult Function(int method, BuildContext context)? changeNamazMehods,
@@ -1527,19 +1183,8 @@ class _$ChangeNamazMethods implements ChangeNamazMethods {
     TResult Function()? changeLangLongtoAddress,
     TResult Function(int index)? onNotiyOnOffEvent,
     TResult Function(int index)? changeIndex,
-    TResult Function(bool value)? addAutoDetectValToLocalStorage,
-    TResult Function()? getAutoDetetectLocationFromLocalStorage,
-    TResult Function(bool value)? addAutomaticSettingToLocalStorage,
-    TResult Function()? getAutomaticSettingsFromLocalStorage,
-    TResult Function(bool value)? addShowimsakValToLocalStorage,
-    TResult Function()? getShowimskValFromLocalStorage,
-    TResult Function(int value)? addCalculationMethodToLocalStorage,
-    TResult Function()? getCalculationMethodFromStorage,
-    TResult Function(int value)? addAsrCalculationMethodToLocalStorage,
-    TResult Function()? getAsrCalculationMethodFromStorage,
-    TResult Function(int value)? addHighLatitudeMethodsToLocalStorage,
-    TResult Function()? getHighLatitudeMethodsToLocalStorage,
-    TResult Function()? fetchNamazTimingNotificationsFromLocalStorage,
+    TResult Function()? fetchNamazMethodDb,
+    TResult Function()? addNamazMethodDb,
     required TResult orElse(),
   }) {
     if (changeNamazMehods != null) {
@@ -1553,6 +1198,7 @@ class _$ChangeNamazMethods implements ChangeNamazMethods {
   TResult map<TResult extends Object?>({
     required TResult Function(FetchPrayerTiming value) fetchPrayerTiming,
     required TResult Function(PrayerTimingEvent value) prayerTimingEvent,
+    required TResult Function(ShowImsakEvent value) showImsakEvent,
     required TResult Function(ChangeArtCalcMethod value) changeArtCalcMethod,
     required TResult Function(FetchNamazMethods value) fetchNamazMethods,
     required TResult Function(ChangeNamazMethods value) changeNamazMehods,
@@ -1563,33 +1209,8 @@ class _$ChangeNamazMethods implements ChangeNamazMethods {
         changeLangLongtoAddress,
     required TResult Function(OnNotiyOnOffEvent value) onNotiyOnOffEvent,
     required TResult Function(ChangeIndex value) changeIndex,
-    required TResult Function(AddAutoDetectValToLocalStorage value)
-        addAutoDetectValToLocalStorage,
-    required TResult Function(GetAutoDetetectLocationFromLocalStorage value)
-        getAutoDetetectLocationFromLocalStorage,
-    required TResult Function(AddAutomaticSettingToLocalStorage value)
-        addAutomaticSettingToLocalStorage,
-    required TResult Function(GetAutomaticSettingsFromLocalStorage value)
-        getAutomaticSettingsFromLocalStorage,
-    required TResult Function(AddShowimsakValToLocalStorage value)
-        addShowimsakValToLocalStorage,
-    required TResult Function(GetShowimskValFromLocalStorage value)
-        getShowimskValFromLocalStorage,
-    required TResult Function(AddCalculationMethodToLocalStorage value)
-        addCalculationMethodToLocalStorage,
-    required TResult Function(GetCalculationMethodFromStorage value)
-        getCalculationMethodFromStorage,
-    required TResult Function(AddAsrCalculationMethodToLocalStorage value)
-        addAsrCalculationMethodToLocalStorage,
-    required TResult Function(GetAsrCalculationMethodFromStorage value)
-        getAsrCalculationMethodFromStorage,
-    required TResult Function(AddHighLatitudeMethodsToLocalStorage value)
-        addHighLatitudeMethodsToLocalStorage,
-    required TResult Function(GetHighLatitudeMethodsToLocalStorage value)
-        getHighLatitudeMethodsToLocalStorage,
-    required TResult Function(
-            FetchNamazTimingNotificationsFromLocalStorage value)
-        fetchNamazTimingNotificationsFromLocalStorage,
+    required TResult Function(FetchNamazMethodDb value) fetchNamazMethodDb,
+    required TResult Function(AddNamazMethodDb value) addNamazMethodDb,
   }) {
     return changeNamazMehods(this);
   }
@@ -1599,6 +1220,7 @@ class _$ChangeNamazMethods implements ChangeNamazMethods {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(FetchPrayerTiming value)? fetchPrayerTiming,
     TResult? Function(PrayerTimingEvent value)? prayerTimingEvent,
+    TResult? Function(ShowImsakEvent value)? showImsakEvent,
     TResult? Function(ChangeArtCalcMethod value)? changeArtCalcMethod,
     TResult? Function(FetchNamazMethods value)? fetchNamazMethods,
     TResult? Function(ChangeNamazMethods value)? changeNamazMehods,
@@ -1607,32 +1229,8 @@ class _$ChangeNamazMethods implements ChangeNamazMethods {
     TResult? Function(ChangeLangLongtoAddress value)? changeLangLongtoAddress,
     TResult? Function(OnNotiyOnOffEvent value)? onNotiyOnOffEvent,
     TResult? Function(ChangeIndex value)? changeIndex,
-    TResult? Function(AddAutoDetectValToLocalStorage value)?
-        addAutoDetectValToLocalStorage,
-    TResult? Function(GetAutoDetetectLocationFromLocalStorage value)?
-        getAutoDetetectLocationFromLocalStorage,
-    TResult? Function(AddAutomaticSettingToLocalStorage value)?
-        addAutomaticSettingToLocalStorage,
-    TResult? Function(GetAutomaticSettingsFromLocalStorage value)?
-        getAutomaticSettingsFromLocalStorage,
-    TResult? Function(AddShowimsakValToLocalStorage value)?
-        addShowimsakValToLocalStorage,
-    TResult? Function(GetShowimskValFromLocalStorage value)?
-        getShowimskValFromLocalStorage,
-    TResult? Function(AddCalculationMethodToLocalStorage value)?
-        addCalculationMethodToLocalStorage,
-    TResult? Function(GetCalculationMethodFromStorage value)?
-        getCalculationMethodFromStorage,
-    TResult? Function(AddAsrCalculationMethodToLocalStorage value)?
-        addAsrCalculationMethodToLocalStorage,
-    TResult? Function(GetAsrCalculationMethodFromStorage value)?
-        getAsrCalculationMethodFromStorage,
-    TResult? Function(AddHighLatitudeMethodsToLocalStorage value)?
-        addHighLatitudeMethodsToLocalStorage,
-    TResult? Function(GetHighLatitudeMethodsToLocalStorage value)?
-        getHighLatitudeMethodsToLocalStorage,
-    TResult? Function(FetchNamazTimingNotificationsFromLocalStorage value)?
-        fetchNamazTimingNotificationsFromLocalStorage,
+    TResult? Function(FetchNamazMethodDb value)? fetchNamazMethodDb,
+    TResult? Function(AddNamazMethodDb value)? addNamazMethodDb,
   }) {
     return changeNamazMehods?.call(this);
   }
@@ -1642,6 +1240,7 @@ class _$ChangeNamazMethods implements ChangeNamazMethods {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(FetchPrayerTiming value)? fetchPrayerTiming,
     TResult Function(PrayerTimingEvent value)? prayerTimingEvent,
+    TResult Function(ShowImsakEvent value)? showImsakEvent,
     TResult Function(ChangeArtCalcMethod value)? changeArtCalcMethod,
     TResult Function(FetchNamazMethods value)? fetchNamazMethods,
     TResult Function(ChangeNamazMethods value)? changeNamazMehods,
@@ -1650,32 +1249,8 @@ class _$ChangeNamazMethods implements ChangeNamazMethods {
     TResult Function(ChangeLangLongtoAddress value)? changeLangLongtoAddress,
     TResult Function(OnNotiyOnOffEvent value)? onNotiyOnOffEvent,
     TResult Function(ChangeIndex value)? changeIndex,
-    TResult Function(AddAutoDetectValToLocalStorage value)?
-        addAutoDetectValToLocalStorage,
-    TResult Function(GetAutoDetetectLocationFromLocalStorage value)?
-        getAutoDetetectLocationFromLocalStorage,
-    TResult Function(AddAutomaticSettingToLocalStorage value)?
-        addAutomaticSettingToLocalStorage,
-    TResult Function(GetAutomaticSettingsFromLocalStorage value)?
-        getAutomaticSettingsFromLocalStorage,
-    TResult Function(AddShowimsakValToLocalStorage value)?
-        addShowimsakValToLocalStorage,
-    TResult Function(GetShowimskValFromLocalStorage value)?
-        getShowimskValFromLocalStorage,
-    TResult Function(AddCalculationMethodToLocalStorage value)?
-        addCalculationMethodToLocalStorage,
-    TResult Function(GetCalculationMethodFromStorage value)?
-        getCalculationMethodFromStorage,
-    TResult Function(AddAsrCalculationMethodToLocalStorage value)?
-        addAsrCalculationMethodToLocalStorage,
-    TResult Function(GetAsrCalculationMethodFromStorage value)?
-        getAsrCalculationMethodFromStorage,
-    TResult Function(AddHighLatitudeMethodsToLocalStorage value)?
-        addHighLatitudeMethodsToLocalStorage,
-    TResult Function(GetHighLatitudeMethodsToLocalStorage value)?
-        getHighLatitudeMethodsToLocalStorage,
-    TResult Function(FetchNamazTimingNotificationsFromLocalStorage value)?
-        fetchNamazTimingNotificationsFromLocalStorage,
+    TResult Function(FetchNamazMethodDb value)? fetchNamazMethodDb,
+    TResult Function(AddNamazMethodDb value)? addNamazMethodDb,
     required TResult orElse(),
   }) {
     if (changeNamazMehods != null) {
@@ -1771,6 +1346,7 @@ class _$ChangeSchoolEvent implements ChangeSchoolEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(BuildContext context) fetchPrayerTiming,
     required TResult Function() prayerTimingEvent,
+    required TResult Function() showImsakEvent,
     required TResult Function() changeArtCalcMethod,
     required TResult Function() fetchNamazMethods,
     required TResult Function(int method, BuildContext context)
@@ -1782,19 +1358,8 @@ class _$ChangeSchoolEvent implements ChangeSchoolEvent {
     required TResult Function() changeLangLongtoAddress,
     required TResult Function(int index) onNotiyOnOffEvent,
     required TResult Function(int index) changeIndex,
-    required TResult Function(bool value) addAutoDetectValToLocalStorage,
-    required TResult Function() getAutoDetetectLocationFromLocalStorage,
-    required TResult Function(bool value) addAutomaticSettingToLocalStorage,
-    required TResult Function() getAutomaticSettingsFromLocalStorage,
-    required TResult Function(bool value) addShowimsakValToLocalStorage,
-    required TResult Function() getShowimskValFromLocalStorage,
-    required TResult Function(int value) addCalculationMethodToLocalStorage,
-    required TResult Function() getCalculationMethodFromStorage,
-    required TResult Function(int value) addAsrCalculationMethodToLocalStorage,
-    required TResult Function() getAsrCalculationMethodFromStorage,
-    required TResult Function(int value) addHighLatitudeMethodsToLocalStorage,
-    required TResult Function() getHighLatitudeMethodsToLocalStorage,
-    required TResult Function() fetchNamazTimingNotificationsFromLocalStorage,
+    required TResult Function() fetchNamazMethodDb,
+    required TResult Function() addNamazMethodDb,
   }) {
     return changeSchoolEvent(school, context);
   }
@@ -1804,6 +1369,7 @@ class _$ChangeSchoolEvent implements ChangeSchoolEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(BuildContext context)? fetchPrayerTiming,
     TResult? Function()? prayerTimingEvent,
+    TResult? Function()? showImsakEvent,
     TResult? Function()? changeArtCalcMethod,
     TResult? Function()? fetchNamazMethods,
     TResult? Function(int method, BuildContext context)? changeNamazMehods,
@@ -1813,19 +1379,8 @@ class _$ChangeSchoolEvent implements ChangeSchoolEvent {
     TResult? Function()? changeLangLongtoAddress,
     TResult? Function(int index)? onNotiyOnOffEvent,
     TResult? Function(int index)? changeIndex,
-    TResult? Function(bool value)? addAutoDetectValToLocalStorage,
-    TResult? Function()? getAutoDetetectLocationFromLocalStorage,
-    TResult? Function(bool value)? addAutomaticSettingToLocalStorage,
-    TResult? Function()? getAutomaticSettingsFromLocalStorage,
-    TResult? Function(bool value)? addShowimsakValToLocalStorage,
-    TResult? Function()? getShowimskValFromLocalStorage,
-    TResult? Function(int value)? addCalculationMethodToLocalStorage,
-    TResult? Function()? getCalculationMethodFromStorage,
-    TResult? Function(int value)? addAsrCalculationMethodToLocalStorage,
-    TResult? Function()? getAsrCalculationMethodFromStorage,
-    TResult? Function(int value)? addHighLatitudeMethodsToLocalStorage,
-    TResult? Function()? getHighLatitudeMethodsToLocalStorage,
-    TResult? Function()? fetchNamazTimingNotificationsFromLocalStorage,
+    TResult? Function()? fetchNamazMethodDb,
+    TResult? Function()? addNamazMethodDb,
   }) {
     return changeSchoolEvent?.call(school, context);
   }
@@ -1835,6 +1390,7 @@ class _$ChangeSchoolEvent implements ChangeSchoolEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(BuildContext context)? fetchPrayerTiming,
     TResult Function()? prayerTimingEvent,
+    TResult Function()? showImsakEvent,
     TResult Function()? changeArtCalcMethod,
     TResult Function()? fetchNamazMethods,
     TResult Function(int method, BuildContext context)? changeNamazMehods,
@@ -1844,19 +1400,8 @@ class _$ChangeSchoolEvent implements ChangeSchoolEvent {
     TResult Function()? changeLangLongtoAddress,
     TResult Function(int index)? onNotiyOnOffEvent,
     TResult Function(int index)? changeIndex,
-    TResult Function(bool value)? addAutoDetectValToLocalStorage,
-    TResult Function()? getAutoDetetectLocationFromLocalStorage,
-    TResult Function(bool value)? addAutomaticSettingToLocalStorage,
-    TResult Function()? getAutomaticSettingsFromLocalStorage,
-    TResult Function(bool value)? addShowimsakValToLocalStorage,
-    TResult Function()? getShowimskValFromLocalStorage,
-    TResult Function(int value)? addCalculationMethodToLocalStorage,
-    TResult Function()? getCalculationMethodFromStorage,
-    TResult Function(int value)? addAsrCalculationMethodToLocalStorage,
-    TResult Function()? getAsrCalculationMethodFromStorage,
-    TResult Function(int value)? addHighLatitudeMethodsToLocalStorage,
-    TResult Function()? getHighLatitudeMethodsToLocalStorage,
-    TResult Function()? fetchNamazTimingNotificationsFromLocalStorage,
+    TResult Function()? fetchNamazMethodDb,
+    TResult Function()? addNamazMethodDb,
     required TResult orElse(),
   }) {
     if (changeSchoolEvent != null) {
@@ -1870,6 +1415,7 @@ class _$ChangeSchoolEvent implements ChangeSchoolEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(FetchPrayerTiming value) fetchPrayerTiming,
     required TResult Function(PrayerTimingEvent value) prayerTimingEvent,
+    required TResult Function(ShowImsakEvent value) showImsakEvent,
     required TResult Function(ChangeArtCalcMethod value) changeArtCalcMethod,
     required TResult Function(FetchNamazMethods value) fetchNamazMethods,
     required TResult Function(ChangeNamazMethods value) changeNamazMehods,
@@ -1880,33 +1426,8 @@ class _$ChangeSchoolEvent implements ChangeSchoolEvent {
         changeLangLongtoAddress,
     required TResult Function(OnNotiyOnOffEvent value) onNotiyOnOffEvent,
     required TResult Function(ChangeIndex value) changeIndex,
-    required TResult Function(AddAutoDetectValToLocalStorage value)
-        addAutoDetectValToLocalStorage,
-    required TResult Function(GetAutoDetetectLocationFromLocalStorage value)
-        getAutoDetetectLocationFromLocalStorage,
-    required TResult Function(AddAutomaticSettingToLocalStorage value)
-        addAutomaticSettingToLocalStorage,
-    required TResult Function(GetAutomaticSettingsFromLocalStorage value)
-        getAutomaticSettingsFromLocalStorage,
-    required TResult Function(AddShowimsakValToLocalStorage value)
-        addShowimsakValToLocalStorage,
-    required TResult Function(GetShowimskValFromLocalStorage value)
-        getShowimskValFromLocalStorage,
-    required TResult Function(AddCalculationMethodToLocalStorage value)
-        addCalculationMethodToLocalStorage,
-    required TResult Function(GetCalculationMethodFromStorage value)
-        getCalculationMethodFromStorage,
-    required TResult Function(AddAsrCalculationMethodToLocalStorage value)
-        addAsrCalculationMethodToLocalStorage,
-    required TResult Function(GetAsrCalculationMethodFromStorage value)
-        getAsrCalculationMethodFromStorage,
-    required TResult Function(AddHighLatitudeMethodsToLocalStorage value)
-        addHighLatitudeMethodsToLocalStorage,
-    required TResult Function(GetHighLatitudeMethodsToLocalStorage value)
-        getHighLatitudeMethodsToLocalStorage,
-    required TResult Function(
-            FetchNamazTimingNotificationsFromLocalStorage value)
-        fetchNamazTimingNotificationsFromLocalStorage,
+    required TResult Function(FetchNamazMethodDb value) fetchNamazMethodDb,
+    required TResult Function(AddNamazMethodDb value) addNamazMethodDb,
   }) {
     return changeSchoolEvent(this);
   }
@@ -1916,6 +1437,7 @@ class _$ChangeSchoolEvent implements ChangeSchoolEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(FetchPrayerTiming value)? fetchPrayerTiming,
     TResult? Function(PrayerTimingEvent value)? prayerTimingEvent,
+    TResult? Function(ShowImsakEvent value)? showImsakEvent,
     TResult? Function(ChangeArtCalcMethod value)? changeArtCalcMethod,
     TResult? Function(FetchNamazMethods value)? fetchNamazMethods,
     TResult? Function(ChangeNamazMethods value)? changeNamazMehods,
@@ -1924,32 +1446,8 @@ class _$ChangeSchoolEvent implements ChangeSchoolEvent {
     TResult? Function(ChangeLangLongtoAddress value)? changeLangLongtoAddress,
     TResult? Function(OnNotiyOnOffEvent value)? onNotiyOnOffEvent,
     TResult? Function(ChangeIndex value)? changeIndex,
-    TResult? Function(AddAutoDetectValToLocalStorage value)?
-        addAutoDetectValToLocalStorage,
-    TResult? Function(GetAutoDetetectLocationFromLocalStorage value)?
-        getAutoDetetectLocationFromLocalStorage,
-    TResult? Function(AddAutomaticSettingToLocalStorage value)?
-        addAutomaticSettingToLocalStorage,
-    TResult? Function(GetAutomaticSettingsFromLocalStorage value)?
-        getAutomaticSettingsFromLocalStorage,
-    TResult? Function(AddShowimsakValToLocalStorage value)?
-        addShowimsakValToLocalStorage,
-    TResult? Function(GetShowimskValFromLocalStorage value)?
-        getShowimskValFromLocalStorage,
-    TResult? Function(AddCalculationMethodToLocalStorage value)?
-        addCalculationMethodToLocalStorage,
-    TResult? Function(GetCalculationMethodFromStorage value)?
-        getCalculationMethodFromStorage,
-    TResult? Function(AddAsrCalculationMethodToLocalStorage value)?
-        addAsrCalculationMethodToLocalStorage,
-    TResult? Function(GetAsrCalculationMethodFromStorage value)?
-        getAsrCalculationMethodFromStorage,
-    TResult? Function(AddHighLatitudeMethodsToLocalStorage value)?
-        addHighLatitudeMethodsToLocalStorage,
-    TResult? Function(GetHighLatitudeMethodsToLocalStorage value)?
-        getHighLatitudeMethodsToLocalStorage,
-    TResult? Function(FetchNamazTimingNotificationsFromLocalStorage value)?
-        fetchNamazTimingNotificationsFromLocalStorage,
+    TResult? Function(FetchNamazMethodDb value)? fetchNamazMethodDb,
+    TResult? Function(AddNamazMethodDb value)? addNamazMethodDb,
   }) {
     return changeSchoolEvent?.call(this);
   }
@@ -1959,6 +1457,7 @@ class _$ChangeSchoolEvent implements ChangeSchoolEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(FetchPrayerTiming value)? fetchPrayerTiming,
     TResult Function(PrayerTimingEvent value)? prayerTimingEvent,
+    TResult Function(ShowImsakEvent value)? showImsakEvent,
     TResult Function(ChangeArtCalcMethod value)? changeArtCalcMethod,
     TResult Function(FetchNamazMethods value)? fetchNamazMethods,
     TResult Function(ChangeNamazMethods value)? changeNamazMehods,
@@ -1967,32 +1466,8 @@ class _$ChangeSchoolEvent implements ChangeSchoolEvent {
     TResult Function(ChangeLangLongtoAddress value)? changeLangLongtoAddress,
     TResult Function(OnNotiyOnOffEvent value)? onNotiyOnOffEvent,
     TResult Function(ChangeIndex value)? changeIndex,
-    TResult Function(AddAutoDetectValToLocalStorage value)?
-        addAutoDetectValToLocalStorage,
-    TResult Function(GetAutoDetetectLocationFromLocalStorage value)?
-        getAutoDetetectLocationFromLocalStorage,
-    TResult Function(AddAutomaticSettingToLocalStorage value)?
-        addAutomaticSettingToLocalStorage,
-    TResult Function(GetAutomaticSettingsFromLocalStorage value)?
-        getAutomaticSettingsFromLocalStorage,
-    TResult Function(AddShowimsakValToLocalStorage value)?
-        addShowimsakValToLocalStorage,
-    TResult Function(GetShowimskValFromLocalStorage value)?
-        getShowimskValFromLocalStorage,
-    TResult Function(AddCalculationMethodToLocalStorage value)?
-        addCalculationMethodToLocalStorage,
-    TResult Function(GetCalculationMethodFromStorage value)?
-        getCalculationMethodFromStorage,
-    TResult Function(AddAsrCalculationMethodToLocalStorage value)?
-        addAsrCalculationMethodToLocalStorage,
-    TResult Function(GetAsrCalculationMethodFromStorage value)?
-        getAsrCalculationMethodFromStorage,
-    TResult Function(AddHighLatitudeMethodsToLocalStorage value)?
-        addHighLatitudeMethodsToLocalStorage,
-    TResult Function(GetHighLatitudeMethodsToLocalStorage value)?
-        getHighLatitudeMethodsToLocalStorage,
-    TResult Function(FetchNamazTimingNotificationsFromLocalStorage value)?
-        fetchNamazTimingNotificationsFromLocalStorage,
+    TResult Function(FetchNamazMethodDb value)? fetchNamazMethodDb,
+    TResult Function(AddNamazMethodDb value)? addNamazMethodDb,
     required TResult orElse(),
   }) {
     if (changeSchoolEvent != null) {
@@ -2092,6 +1567,7 @@ class _$ChangeHighLatitudeMethod implements ChangeHighLatitudeMethod {
   TResult when<TResult extends Object?>({
     required TResult Function(BuildContext context) fetchPrayerTiming,
     required TResult Function() prayerTimingEvent,
+    required TResult Function() showImsakEvent,
     required TResult Function() changeArtCalcMethod,
     required TResult Function() fetchNamazMethods,
     required TResult Function(int method, BuildContext context)
@@ -2103,19 +1579,8 @@ class _$ChangeHighLatitudeMethod implements ChangeHighLatitudeMethod {
     required TResult Function() changeLangLongtoAddress,
     required TResult Function(int index) onNotiyOnOffEvent,
     required TResult Function(int index) changeIndex,
-    required TResult Function(bool value) addAutoDetectValToLocalStorage,
-    required TResult Function() getAutoDetetectLocationFromLocalStorage,
-    required TResult Function(bool value) addAutomaticSettingToLocalStorage,
-    required TResult Function() getAutomaticSettingsFromLocalStorage,
-    required TResult Function(bool value) addShowimsakValToLocalStorage,
-    required TResult Function() getShowimskValFromLocalStorage,
-    required TResult Function(int value) addCalculationMethodToLocalStorage,
-    required TResult Function() getCalculationMethodFromStorage,
-    required TResult Function(int value) addAsrCalculationMethodToLocalStorage,
-    required TResult Function() getAsrCalculationMethodFromStorage,
-    required TResult Function(int value) addHighLatitudeMethodsToLocalStorage,
-    required TResult Function() getHighLatitudeMethodsToLocalStorage,
-    required TResult Function() fetchNamazTimingNotificationsFromLocalStorage,
+    required TResult Function() fetchNamazMethodDb,
+    required TResult Function() addNamazMethodDb,
   }) {
     return changeHighLatitudeMethod(numValue, context);
   }
@@ -2125,6 +1590,7 @@ class _$ChangeHighLatitudeMethod implements ChangeHighLatitudeMethod {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(BuildContext context)? fetchPrayerTiming,
     TResult? Function()? prayerTimingEvent,
+    TResult? Function()? showImsakEvent,
     TResult? Function()? changeArtCalcMethod,
     TResult? Function()? fetchNamazMethods,
     TResult? Function(int method, BuildContext context)? changeNamazMehods,
@@ -2134,19 +1600,8 @@ class _$ChangeHighLatitudeMethod implements ChangeHighLatitudeMethod {
     TResult? Function()? changeLangLongtoAddress,
     TResult? Function(int index)? onNotiyOnOffEvent,
     TResult? Function(int index)? changeIndex,
-    TResult? Function(bool value)? addAutoDetectValToLocalStorage,
-    TResult? Function()? getAutoDetetectLocationFromLocalStorage,
-    TResult? Function(bool value)? addAutomaticSettingToLocalStorage,
-    TResult? Function()? getAutomaticSettingsFromLocalStorage,
-    TResult? Function(bool value)? addShowimsakValToLocalStorage,
-    TResult? Function()? getShowimskValFromLocalStorage,
-    TResult? Function(int value)? addCalculationMethodToLocalStorage,
-    TResult? Function()? getCalculationMethodFromStorage,
-    TResult? Function(int value)? addAsrCalculationMethodToLocalStorage,
-    TResult? Function()? getAsrCalculationMethodFromStorage,
-    TResult? Function(int value)? addHighLatitudeMethodsToLocalStorage,
-    TResult? Function()? getHighLatitudeMethodsToLocalStorage,
-    TResult? Function()? fetchNamazTimingNotificationsFromLocalStorage,
+    TResult? Function()? fetchNamazMethodDb,
+    TResult? Function()? addNamazMethodDb,
   }) {
     return changeHighLatitudeMethod?.call(numValue, context);
   }
@@ -2156,6 +1611,7 @@ class _$ChangeHighLatitudeMethod implements ChangeHighLatitudeMethod {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(BuildContext context)? fetchPrayerTiming,
     TResult Function()? prayerTimingEvent,
+    TResult Function()? showImsakEvent,
     TResult Function()? changeArtCalcMethod,
     TResult Function()? fetchNamazMethods,
     TResult Function(int method, BuildContext context)? changeNamazMehods,
@@ -2165,19 +1621,8 @@ class _$ChangeHighLatitudeMethod implements ChangeHighLatitudeMethod {
     TResult Function()? changeLangLongtoAddress,
     TResult Function(int index)? onNotiyOnOffEvent,
     TResult Function(int index)? changeIndex,
-    TResult Function(bool value)? addAutoDetectValToLocalStorage,
-    TResult Function()? getAutoDetetectLocationFromLocalStorage,
-    TResult Function(bool value)? addAutomaticSettingToLocalStorage,
-    TResult Function()? getAutomaticSettingsFromLocalStorage,
-    TResult Function(bool value)? addShowimsakValToLocalStorage,
-    TResult Function()? getShowimskValFromLocalStorage,
-    TResult Function(int value)? addCalculationMethodToLocalStorage,
-    TResult Function()? getCalculationMethodFromStorage,
-    TResult Function(int value)? addAsrCalculationMethodToLocalStorage,
-    TResult Function()? getAsrCalculationMethodFromStorage,
-    TResult Function(int value)? addHighLatitudeMethodsToLocalStorage,
-    TResult Function()? getHighLatitudeMethodsToLocalStorage,
-    TResult Function()? fetchNamazTimingNotificationsFromLocalStorage,
+    TResult Function()? fetchNamazMethodDb,
+    TResult Function()? addNamazMethodDb,
     required TResult orElse(),
   }) {
     if (changeHighLatitudeMethod != null) {
@@ -2191,6 +1636,7 @@ class _$ChangeHighLatitudeMethod implements ChangeHighLatitudeMethod {
   TResult map<TResult extends Object?>({
     required TResult Function(FetchPrayerTiming value) fetchPrayerTiming,
     required TResult Function(PrayerTimingEvent value) prayerTimingEvent,
+    required TResult Function(ShowImsakEvent value) showImsakEvent,
     required TResult Function(ChangeArtCalcMethod value) changeArtCalcMethod,
     required TResult Function(FetchNamazMethods value) fetchNamazMethods,
     required TResult Function(ChangeNamazMethods value) changeNamazMehods,
@@ -2201,33 +1647,8 @@ class _$ChangeHighLatitudeMethod implements ChangeHighLatitudeMethod {
         changeLangLongtoAddress,
     required TResult Function(OnNotiyOnOffEvent value) onNotiyOnOffEvent,
     required TResult Function(ChangeIndex value) changeIndex,
-    required TResult Function(AddAutoDetectValToLocalStorage value)
-        addAutoDetectValToLocalStorage,
-    required TResult Function(GetAutoDetetectLocationFromLocalStorage value)
-        getAutoDetetectLocationFromLocalStorage,
-    required TResult Function(AddAutomaticSettingToLocalStorage value)
-        addAutomaticSettingToLocalStorage,
-    required TResult Function(GetAutomaticSettingsFromLocalStorage value)
-        getAutomaticSettingsFromLocalStorage,
-    required TResult Function(AddShowimsakValToLocalStorage value)
-        addShowimsakValToLocalStorage,
-    required TResult Function(GetShowimskValFromLocalStorage value)
-        getShowimskValFromLocalStorage,
-    required TResult Function(AddCalculationMethodToLocalStorage value)
-        addCalculationMethodToLocalStorage,
-    required TResult Function(GetCalculationMethodFromStorage value)
-        getCalculationMethodFromStorage,
-    required TResult Function(AddAsrCalculationMethodToLocalStorage value)
-        addAsrCalculationMethodToLocalStorage,
-    required TResult Function(GetAsrCalculationMethodFromStorage value)
-        getAsrCalculationMethodFromStorage,
-    required TResult Function(AddHighLatitudeMethodsToLocalStorage value)
-        addHighLatitudeMethodsToLocalStorage,
-    required TResult Function(GetHighLatitudeMethodsToLocalStorage value)
-        getHighLatitudeMethodsToLocalStorage,
-    required TResult Function(
-            FetchNamazTimingNotificationsFromLocalStorage value)
-        fetchNamazTimingNotificationsFromLocalStorage,
+    required TResult Function(FetchNamazMethodDb value) fetchNamazMethodDb,
+    required TResult Function(AddNamazMethodDb value) addNamazMethodDb,
   }) {
     return changeHighLatitudeMethod(this);
   }
@@ -2237,6 +1658,7 @@ class _$ChangeHighLatitudeMethod implements ChangeHighLatitudeMethod {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(FetchPrayerTiming value)? fetchPrayerTiming,
     TResult? Function(PrayerTimingEvent value)? prayerTimingEvent,
+    TResult? Function(ShowImsakEvent value)? showImsakEvent,
     TResult? Function(ChangeArtCalcMethod value)? changeArtCalcMethod,
     TResult? Function(FetchNamazMethods value)? fetchNamazMethods,
     TResult? Function(ChangeNamazMethods value)? changeNamazMehods,
@@ -2245,32 +1667,8 @@ class _$ChangeHighLatitudeMethod implements ChangeHighLatitudeMethod {
     TResult? Function(ChangeLangLongtoAddress value)? changeLangLongtoAddress,
     TResult? Function(OnNotiyOnOffEvent value)? onNotiyOnOffEvent,
     TResult? Function(ChangeIndex value)? changeIndex,
-    TResult? Function(AddAutoDetectValToLocalStorage value)?
-        addAutoDetectValToLocalStorage,
-    TResult? Function(GetAutoDetetectLocationFromLocalStorage value)?
-        getAutoDetetectLocationFromLocalStorage,
-    TResult? Function(AddAutomaticSettingToLocalStorage value)?
-        addAutomaticSettingToLocalStorage,
-    TResult? Function(GetAutomaticSettingsFromLocalStorage value)?
-        getAutomaticSettingsFromLocalStorage,
-    TResult? Function(AddShowimsakValToLocalStorage value)?
-        addShowimsakValToLocalStorage,
-    TResult? Function(GetShowimskValFromLocalStorage value)?
-        getShowimskValFromLocalStorage,
-    TResult? Function(AddCalculationMethodToLocalStorage value)?
-        addCalculationMethodToLocalStorage,
-    TResult? Function(GetCalculationMethodFromStorage value)?
-        getCalculationMethodFromStorage,
-    TResult? Function(AddAsrCalculationMethodToLocalStorage value)?
-        addAsrCalculationMethodToLocalStorage,
-    TResult? Function(GetAsrCalculationMethodFromStorage value)?
-        getAsrCalculationMethodFromStorage,
-    TResult? Function(AddHighLatitudeMethodsToLocalStorage value)?
-        addHighLatitudeMethodsToLocalStorage,
-    TResult? Function(GetHighLatitudeMethodsToLocalStorage value)?
-        getHighLatitudeMethodsToLocalStorage,
-    TResult? Function(FetchNamazTimingNotificationsFromLocalStorage value)?
-        fetchNamazTimingNotificationsFromLocalStorage,
+    TResult? Function(FetchNamazMethodDb value)? fetchNamazMethodDb,
+    TResult? Function(AddNamazMethodDb value)? addNamazMethodDb,
   }) {
     return changeHighLatitudeMethod?.call(this);
   }
@@ -2280,6 +1678,7 @@ class _$ChangeHighLatitudeMethod implements ChangeHighLatitudeMethod {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(FetchPrayerTiming value)? fetchPrayerTiming,
     TResult Function(PrayerTimingEvent value)? prayerTimingEvent,
+    TResult Function(ShowImsakEvent value)? showImsakEvent,
     TResult Function(ChangeArtCalcMethod value)? changeArtCalcMethod,
     TResult Function(FetchNamazMethods value)? fetchNamazMethods,
     TResult Function(ChangeNamazMethods value)? changeNamazMehods,
@@ -2288,32 +1687,8 @@ class _$ChangeHighLatitudeMethod implements ChangeHighLatitudeMethod {
     TResult Function(ChangeLangLongtoAddress value)? changeLangLongtoAddress,
     TResult Function(OnNotiyOnOffEvent value)? onNotiyOnOffEvent,
     TResult Function(ChangeIndex value)? changeIndex,
-    TResult Function(AddAutoDetectValToLocalStorage value)?
-        addAutoDetectValToLocalStorage,
-    TResult Function(GetAutoDetetectLocationFromLocalStorage value)?
-        getAutoDetetectLocationFromLocalStorage,
-    TResult Function(AddAutomaticSettingToLocalStorage value)?
-        addAutomaticSettingToLocalStorage,
-    TResult Function(GetAutomaticSettingsFromLocalStorage value)?
-        getAutomaticSettingsFromLocalStorage,
-    TResult Function(AddShowimsakValToLocalStorage value)?
-        addShowimsakValToLocalStorage,
-    TResult Function(GetShowimskValFromLocalStorage value)?
-        getShowimskValFromLocalStorage,
-    TResult Function(AddCalculationMethodToLocalStorage value)?
-        addCalculationMethodToLocalStorage,
-    TResult Function(GetCalculationMethodFromStorage value)?
-        getCalculationMethodFromStorage,
-    TResult Function(AddAsrCalculationMethodToLocalStorage value)?
-        addAsrCalculationMethodToLocalStorage,
-    TResult Function(GetAsrCalculationMethodFromStorage value)?
-        getAsrCalculationMethodFromStorage,
-    TResult Function(AddHighLatitudeMethodsToLocalStorage value)?
-        addHighLatitudeMethodsToLocalStorage,
-    TResult Function(GetHighLatitudeMethodsToLocalStorage value)?
-        getHighLatitudeMethodsToLocalStorage,
-    TResult Function(FetchNamazTimingNotificationsFromLocalStorage value)?
-        fetchNamazTimingNotificationsFromLocalStorage,
+    TResult Function(FetchNamazMethodDb value)? fetchNamazMethodDb,
+    TResult Function(AddNamazMethodDb value)? addNamazMethodDb,
     required TResult orElse(),
   }) {
     if (changeHighLatitudeMethod != null) {
@@ -2376,6 +1751,7 @@ class _$ChangeLangLongtoAddress implements ChangeLangLongtoAddress {
   TResult when<TResult extends Object?>({
     required TResult Function(BuildContext context) fetchPrayerTiming,
     required TResult Function() prayerTimingEvent,
+    required TResult Function() showImsakEvent,
     required TResult Function() changeArtCalcMethod,
     required TResult Function() fetchNamazMethods,
     required TResult Function(int method, BuildContext context)
@@ -2387,19 +1763,8 @@ class _$ChangeLangLongtoAddress implements ChangeLangLongtoAddress {
     required TResult Function() changeLangLongtoAddress,
     required TResult Function(int index) onNotiyOnOffEvent,
     required TResult Function(int index) changeIndex,
-    required TResult Function(bool value) addAutoDetectValToLocalStorage,
-    required TResult Function() getAutoDetetectLocationFromLocalStorage,
-    required TResult Function(bool value) addAutomaticSettingToLocalStorage,
-    required TResult Function() getAutomaticSettingsFromLocalStorage,
-    required TResult Function(bool value) addShowimsakValToLocalStorage,
-    required TResult Function() getShowimskValFromLocalStorage,
-    required TResult Function(int value) addCalculationMethodToLocalStorage,
-    required TResult Function() getCalculationMethodFromStorage,
-    required TResult Function(int value) addAsrCalculationMethodToLocalStorage,
-    required TResult Function() getAsrCalculationMethodFromStorage,
-    required TResult Function(int value) addHighLatitudeMethodsToLocalStorage,
-    required TResult Function() getHighLatitudeMethodsToLocalStorage,
-    required TResult Function() fetchNamazTimingNotificationsFromLocalStorage,
+    required TResult Function() fetchNamazMethodDb,
+    required TResult Function() addNamazMethodDb,
   }) {
     return changeLangLongtoAddress();
   }
@@ -2409,6 +1774,7 @@ class _$ChangeLangLongtoAddress implements ChangeLangLongtoAddress {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(BuildContext context)? fetchPrayerTiming,
     TResult? Function()? prayerTimingEvent,
+    TResult? Function()? showImsakEvent,
     TResult? Function()? changeArtCalcMethod,
     TResult? Function()? fetchNamazMethods,
     TResult? Function(int method, BuildContext context)? changeNamazMehods,
@@ -2418,19 +1784,8 @@ class _$ChangeLangLongtoAddress implements ChangeLangLongtoAddress {
     TResult? Function()? changeLangLongtoAddress,
     TResult? Function(int index)? onNotiyOnOffEvent,
     TResult? Function(int index)? changeIndex,
-    TResult? Function(bool value)? addAutoDetectValToLocalStorage,
-    TResult? Function()? getAutoDetetectLocationFromLocalStorage,
-    TResult? Function(bool value)? addAutomaticSettingToLocalStorage,
-    TResult? Function()? getAutomaticSettingsFromLocalStorage,
-    TResult? Function(bool value)? addShowimsakValToLocalStorage,
-    TResult? Function()? getShowimskValFromLocalStorage,
-    TResult? Function(int value)? addCalculationMethodToLocalStorage,
-    TResult? Function()? getCalculationMethodFromStorage,
-    TResult? Function(int value)? addAsrCalculationMethodToLocalStorage,
-    TResult? Function()? getAsrCalculationMethodFromStorage,
-    TResult? Function(int value)? addHighLatitudeMethodsToLocalStorage,
-    TResult? Function()? getHighLatitudeMethodsToLocalStorage,
-    TResult? Function()? fetchNamazTimingNotificationsFromLocalStorage,
+    TResult? Function()? fetchNamazMethodDb,
+    TResult? Function()? addNamazMethodDb,
   }) {
     return changeLangLongtoAddress?.call();
   }
@@ -2440,6 +1795,7 @@ class _$ChangeLangLongtoAddress implements ChangeLangLongtoAddress {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(BuildContext context)? fetchPrayerTiming,
     TResult Function()? prayerTimingEvent,
+    TResult Function()? showImsakEvent,
     TResult Function()? changeArtCalcMethod,
     TResult Function()? fetchNamazMethods,
     TResult Function(int method, BuildContext context)? changeNamazMehods,
@@ -2449,19 +1805,8 @@ class _$ChangeLangLongtoAddress implements ChangeLangLongtoAddress {
     TResult Function()? changeLangLongtoAddress,
     TResult Function(int index)? onNotiyOnOffEvent,
     TResult Function(int index)? changeIndex,
-    TResult Function(bool value)? addAutoDetectValToLocalStorage,
-    TResult Function()? getAutoDetetectLocationFromLocalStorage,
-    TResult Function(bool value)? addAutomaticSettingToLocalStorage,
-    TResult Function()? getAutomaticSettingsFromLocalStorage,
-    TResult Function(bool value)? addShowimsakValToLocalStorage,
-    TResult Function()? getShowimskValFromLocalStorage,
-    TResult Function(int value)? addCalculationMethodToLocalStorage,
-    TResult Function()? getCalculationMethodFromStorage,
-    TResult Function(int value)? addAsrCalculationMethodToLocalStorage,
-    TResult Function()? getAsrCalculationMethodFromStorage,
-    TResult Function(int value)? addHighLatitudeMethodsToLocalStorage,
-    TResult Function()? getHighLatitudeMethodsToLocalStorage,
-    TResult Function()? fetchNamazTimingNotificationsFromLocalStorage,
+    TResult Function()? fetchNamazMethodDb,
+    TResult Function()? addNamazMethodDb,
     required TResult orElse(),
   }) {
     if (changeLangLongtoAddress != null) {
@@ -2475,6 +1820,7 @@ class _$ChangeLangLongtoAddress implements ChangeLangLongtoAddress {
   TResult map<TResult extends Object?>({
     required TResult Function(FetchPrayerTiming value) fetchPrayerTiming,
     required TResult Function(PrayerTimingEvent value) prayerTimingEvent,
+    required TResult Function(ShowImsakEvent value) showImsakEvent,
     required TResult Function(ChangeArtCalcMethod value) changeArtCalcMethod,
     required TResult Function(FetchNamazMethods value) fetchNamazMethods,
     required TResult Function(ChangeNamazMethods value) changeNamazMehods,
@@ -2485,33 +1831,8 @@ class _$ChangeLangLongtoAddress implements ChangeLangLongtoAddress {
         changeLangLongtoAddress,
     required TResult Function(OnNotiyOnOffEvent value) onNotiyOnOffEvent,
     required TResult Function(ChangeIndex value) changeIndex,
-    required TResult Function(AddAutoDetectValToLocalStorage value)
-        addAutoDetectValToLocalStorage,
-    required TResult Function(GetAutoDetetectLocationFromLocalStorage value)
-        getAutoDetetectLocationFromLocalStorage,
-    required TResult Function(AddAutomaticSettingToLocalStorage value)
-        addAutomaticSettingToLocalStorage,
-    required TResult Function(GetAutomaticSettingsFromLocalStorage value)
-        getAutomaticSettingsFromLocalStorage,
-    required TResult Function(AddShowimsakValToLocalStorage value)
-        addShowimsakValToLocalStorage,
-    required TResult Function(GetShowimskValFromLocalStorage value)
-        getShowimskValFromLocalStorage,
-    required TResult Function(AddCalculationMethodToLocalStorage value)
-        addCalculationMethodToLocalStorage,
-    required TResult Function(GetCalculationMethodFromStorage value)
-        getCalculationMethodFromStorage,
-    required TResult Function(AddAsrCalculationMethodToLocalStorage value)
-        addAsrCalculationMethodToLocalStorage,
-    required TResult Function(GetAsrCalculationMethodFromStorage value)
-        getAsrCalculationMethodFromStorage,
-    required TResult Function(AddHighLatitudeMethodsToLocalStorage value)
-        addHighLatitudeMethodsToLocalStorage,
-    required TResult Function(GetHighLatitudeMethodsToLocalStorage value)
-        getHighLatitudeMethodsToLocalStorage,
-    required TResult Function(
-            FetchNamazTimingNotificationsFromLocalStorage value)
-        fetchNamazTimingNotificationsFromLocalStorage,
+    required TResult Function(FetchNamazMethodDb value) fetchNamazMethodDb,
+    required TResult Function(AddNamazMethodDb value) addNamazMethodDb,
   }) {
     return changeLangLongtoAddress(this);
   }
@@ -2521,6 +1842,7 @@ class _$ChangeLangLongtoAddress implements ChangeLangLongtoAddress {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(FetchPrayerTiming value)? fetchPrayerTiming,
     TResult? Function(PrayerTimingEvent value)? prayerTimingEvent,
+    TResult? Function(ShowImsakEvent value)? showImsakEvent,
     TResult? Function(ChangeArtCalcMethod value)? changeArtCalcMethod,
     TResult? Function(FetchNamazMethods value)? fetchNamazMethods,
     TResult? Function(ChangeNamazMethods value)? changeNamazMehods,
@@ -2529,32 +1851,8 @@ class _$ChangeLangLongtoAddress implements ChangeLangLongtoAddress {
     TResult? Function(ChangeLangLongtoAddress value)? changeLangLongtoAddress,
     TResult? Function(OnNotiyOnOffEvent value)? onNotiyOnOffEvent,
     TResult? Function(ChangeIndex value)? changeIndex,
-    TResult? Function(AddAutoDetectValToLocalStorage value)?
-        addAutoDetectValToLocalStorage,
-    TResult? Function(GetAutoDetetectLocationFromLocalStorage value)?
-        getAutoDetetectLocationFromLocalStorage,
-    TResult? Function(AddAutomaticSettingToLocalStorage value)?
-        addAutomaticSettingToLocalStorage,
-    TResult? Function(GetAutomaticSettingsFromLocalStorage value)?
-        getAutomaticSettingsFromLocalStorage,
-    TResult? Function(AddShowimsakValToLocalStorage value)?
-        addShowimsakValToLocalStorage,
-    TResult? Function(GetShowimskValFromLocalStorage value)?
-        getShowimskValFromLocalStorage,
-    TResult? Function(AddCalculationMethodToLocalStorage value)?
-        addCalculationMethodToLocalStorage,
-    TResult? Function(GetCalculationMethodFromStorage value)?
-        getCalculationMethodFromStorage,
-    TResult? Function(AddAsrCalculationMethodToLocalStorage value)?
-        addAsrCalculationMethodToLocalStorage,
-    TResult? Function(GetAsrCalculationMethodFromStorage value)?
-        getAsrCalculationMethodFromStorage,
-    TResult? Function(AddHighLatitudeMethodsToLocalStorage value)?
-        addHighLatitudeMethodsToLocalStorage,
-    TResult? Function(GetHighLatitudeMethodsToLocalStorage value)?
-        getHighLatitudeMethodsToLocalStorage,
-    TResult? Function(FetchNamazTimingNotificationsFromLocalStorage value)?
-        fetchNamazTimingNotificationsFromLocalStorage,
+    TResult? Function(FetchNamazMethodDb value)? fetchNamazMethodDb,
+    TResult? Function(AddNamazMethodDb value)? addNamazMethodDb,
   }) {
     return changeLangLongtoAddress?.call(this);
   }
@@ -2564,6 +1862,7 @@ class _$ChangeLangLongtoAddress implements ChangeLangLongtoAddress {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(FetchPrayerTiming value)? fetchPrayerTiming,
     TResult Function(PrayerTimingEvent value)? prayerTimingEvent,
+    TResult Function(ShowImsakEvent value)? showImsakEvent,
     TResult Function(ChangeArtCalcMethod value)? changeArtCalcMethod,
     TResult Function(FetchNamazMethods value)? fetchNamazMethods,
     TResult Function(ChangeNamazMethods value)? changeNamazMehods,
@@ -2572,32 +1871,8 @@ class _$ChangeLangLongtoAddress implements ChangeLangLongtoAddress {
     TResult Function(ChangeLangLongtoAddress value)? changeLangLongtoAddress,
     TResult Function(OnNotiyOnOffEvent value)? onNotiyOnOffEvent,
     TResult Function(ChangeIndex value)? changeIndex,
-    TResult Function(AddAutoDetectValToLocalStorage value)?
-        addAutoDetectValToLocalStorage,
-    TResult Function(GetAutoDetetectLocationFromLocalStorage value)?
-        getAutoDetetectLocationFromLocalStorage,
-    TResult Function(AddAutomaticSettingToLocalStorage value)?
-        addAutomaticSettingToLocalStorage,
-    TResult Function(GetAutomaticSettingsFromLocalStorage value)?
-        getAutomaticSettingsFromLocalStorage,
-    TResult Function(AddShowimsakValToLocalStorage value)?
-        addShowimsakValToLocalStorage,
-    TResult Function(GetShowimskValFromLocalStorage value)?
-        getShowimskValFromLocalStorage,
-    TResult Function(AddCalculationMethodToLocalStorage value)?
-        addCalculationMethodToLocalStorage,
-    TResult Function(GetCalculationMethodFromStorage value)?
-        getCalculationMethodFromStorage,
-    TResult Function(AddAsrCalculationMethodToLocalStorage value)?
-        addAsrCalculationMethodToLocalStorage,
-    TResult Function(GetAsrCalculationMethodFromStorage value)?
-        getAsrCalculationMethodFromStorage,
-    TResult Function(AddHighLatitudeMethodsToLocalStorage value)?
-        addHighLatitudeMethodsToLocalStorage,
-    TResult Function(GetHighLatitudeMethodsToLocalStorage value)?
-        getHighLatitudeMethodsToLocalStorage,
-    TResult Function(FetchNamazTimingNotificationsFromLocalStorage value)?
-        fetchNamazTimingNotificationsFromLocalStorage,
+    TResult Function(FetchNamazMethodDb value)? fetchNamazMethodDb,
+    TResult Function(AddNamazMethodDb value)? addNamazMethodDb,
     required TResult orElse(),
   }) {
     if (changeLangLongtoAddress != null) {
@@ -2677,6 +1952,7 @@ class _$OnNotiyOnOffEvent implements OnNotiyOnOffEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(BuildContext context) fetchPrayerTiming,
     required TResult Function() prayerTimingEvent,
+    required TResult Function() showImsakEvent,
     required TResult Function() changeArtCalcMethod,
     required TResult Function() fetchNamazMethods,
     required TResult Function(int method, BuildContext context)
@@ -2688,19 +1964,8 @@ class _$OnNotiyOnOffEvent implements OnNotiyOnOffEvent {
     required TResult Function() changeLangLongtoAddress,
     required TResult Function(int index) onNotiyOnOffEvent,
     required TResult Function(int index) changeIndex,
-    required TResult Function(bool value) addAutoDetectValToLocalStorage,
-    required TResult Function() getAutoDetetectLocationFromLocalStorage,
-    required TResult Function(bool value) addAutomaticSettingToLocalStorage,
-    required TResult Function() getAutomaticSettingsFromLocalStorage,
-    required TResult Function(bool value) addShowimsakValToLocalStorage,
-    required TResult Function() getShowimskValFromLocalStorage,
-    required TResult Function(int value) addCalculationMethodToLocalStorage,
-    required TResult Function() getCalculationMethodFromStorage,
-    required TResult Function(int value) addAsrCalculationMethodToLocalStorage,
-    required TResult Function() getAsrCalculationMethodFromStorage,
-    required TResult Function(int value) addHighLatitudeMethodsToLocalStorage,
-    required TResult Function() getHighLatitudeMethodsToLocalStorage,
-    required TResult Function() fetchNamazTimingNotificationsFromLocalStorage,
+    required TResult Function() fetchNamazMethodDb,
+    required TResult Function() addNamazMethodDb,
   }) {
     return onNotiyOnOffEvent(index);
   }
@@ -2710,6 +1975,7 @@ class _$OnNotiyOnOffEvent implements OnNotiyOnOffEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(BuildContext context)? fetchPrayerTiming,
     TResult? Function()? prayerTimingEvent,
+    TResult? Function()? showImsakEvent,
     TResult? Function()? changeArtCalcMethod,
     TResult? Function()? fetchNamazMethods,
     TResult? Function(int method, BuildContext context)? changeNamazMehods,
@@ -2719,19 +1985,8 @@ class _$OnNotiyOnOffEvent implements OnNotiyOnOffEvent {
     TResult? Function()? changeLangLongtoAddress,
     TResult? Function(int index)? onNotiyOnOffEvent,
     TResult? Function(int index)? changeIndex,
-    TResult? Function(bool value)? addAutoDetectValToLocalStorage,
-    TResult? Function()? getAutoDetetectLocationFromLocalStorage,
-    TResult? Function(bool value)? addAutomaticSettingToLocalStorage,
-    TResult? Function()? getAutomaticSettingsFromLocalStorage,
-    TResult? Function(bool value)? addShowimsakValToLocalStorage,
-    TResult? Function()? getShowimskValFromLocalStorage,
-    TResult? Function(int value)? addCalculationMethodToLocalStorage,
-    TResult? Function()? getCalculationMethodFromStorage,
-    TResult? Function(int value)? addAsrCalculationMethodToLocalStorage,
-    TResult? Function()? getAsrCalculationMethodFromStorage,
-    TResult? Function(int value)? addHighLatitudeMethodsToLocalStorage,
-    TResult? Function()? getHighLatitudeMethodsToLocalStorage,
-    TResult? Function()? fetchNamazTimingNotificationsFromLocalStorage,
+    TResult? Function()? fetchNamazMethodDb,
+    TResult? Function()? addNamazMethodDb,
   }) {
     return onNotiyOnOffEvent?.call(index);
   }
@@ -2741,6 +1996,7 @@ class _$OnNotiyOnOffEvent implements OnNotiyOnOffEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(BuildContext context)? fetchPrayerTiming,
     TResult Function()? prayerTimingEvent,
+    TResult Function()? showImsakEvent,
     TResult Function()? changeArtCalcMethod,
     TResult Function()? fetchNamazMethods,
     TResult Function(int method, BuildContext context)? changeNamazMehods,
@@ -2750,19 +2006,8 @@ class _$OnNotiyOnOffEvent implements OnNotiyOnOffEvent {
     TResult Function()? changeLangLongtoAddress,
     TResult Function(int index)? onNotiyOnOffEvent,
     TResult Function(int index)? changeIndex,
-    TResult Function(bool value)? addAutoDetectValToLocalStorage,
-    TResult Function()? getAutoDetetectLocationFromLocalStorage,
-    TResult Function(bool value)? addAutomaticSettingToLocalStorage,
-    TResult Function()? getAutomaticSettingsFromLocalStorage,
-    TResult Function(bool value)? addShowimsakValToLocalStorage,
-    TResult Function()? getShowimskValFromLocalStorage,
-    TResult Function(int value)? addCalculationMethodToLocalStorage,
-    TResult Function()? getCalculationMethodFromStorage,
-    TResult Function(int value)? addAsrCalculationMethodToLocalStorage,
-    TResult Function()? getAsrCalculationMethodFromStorage,
-    TResult Function(int value)? addHighLatitudeMethodsToLocalStorage,
-    TResult Function()? getHighLatitudeMethodsToLocalStorage,
-    TResult Function()? fetchNamazTimingNotificationsFromLocalStorage,
+    TResult Function()? fetchNamazMethodDb,
+    TResult Function()? addNamazMethodDb,
     required TResult orElse(),
   }) {
     if (onNotiyOnOffEvent != null) {
@@ -2776,6 +2021,7 @@ class _$OnNotiyOnOffEvent implements OnNotiyOnOffEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(FetchPrayerTiming value) fetchPrayerTiming,
     required TResult Function(PrayerTimingEvent value) prayerTimingEvent,
+    required TResult Function(ShowImsakEvent value) showImsakEvent,
     required TResult Function(ChangeArtCalcMethod value) changeArtCalcMethod,
     required TResult Function(FetchNamazMethods value) fetchNamazMethods,
     required TResult Function(ChangeNamazMethods value) changeNamazMehods,
@@ -2786,33 +2032,8 @@ class _$OnNotiyOnOffEvent implements OnNotiyOnOffEvent {
         changeLangLongtoAddress,
     required TResult Function(OnNotiyOnOffEvent value) onNotiyOnOffEvent,
     required TResult Function(ChangeIndex value) changeIndex,
-    required TResult Function(AddAutoDetectValToLocalStorage value)
-        addAutoDetectValToLocalStorage,
-    required TResult Function(GetAutoDetetectLocationFromLocalStorage value)
-        getAutoDetetectLocationFromLocalStorage,
-    required TResult Function(AddAutomaticSettingToLocalStorage value)
-        addAutomaticSettingToLocalStorage,
-    required TResult Function(GetAutomaticSettingsFromLocalStorage value)
-        getAutomaticSettingsFromLocalStorage,
-    required TResult Function(AddShowimsakValToLocalStorage value)
-        addShowimsakValToLocalStorage,
-    required TResult Function(GetShowimskValFromLocalStorage value)
-        getShowimskValFromLocalStorage,
-    required TResult Function(AddCalculationMethodToLocalStorage value)
-        addCalculationMethodToLocalStorage,
-    required TResult Function(GetCalculationMethodFromStorage value)
-        getCalculationMethodFromStorage,
-    required TResult Function(AddAsrCalculationMethodToLocalStorage value)
-        addAsrCalculationMethodToLocalStorage,
-    required TResult Function(GetAsrCalculationMethodFromStorage value)
-        getAsrCalculationMethodFromStorage,
-    required TResult Function(AddHighLatitudeMethodsToLocalStorage value)
-        addHighLatitudeMethodsToLocalStorage,
-    required TResult Function(GetHighLatitudeMethodsToLocalStorage value)
-        getHighLatitudeMethodsToLocalStorage,
-    required TResult Function(
-            FetchNamazTimingNotificationsFromLocalStorage value)
-        fetchNamazTimingNotificationsFromLocalStorage,
+    required TResult Function(FetchNamazMethodDb value) fetchNamazMethodDb,
+    required TResult Function(AddNamazMethodDb value) addNamazMethodDb,
   }) {
     return onNotiyOnOffEvent(this);
   }
@@ -2822,6 +2043,7 @@ class _$OnNotiyOnOffEvent implements OnNotiyOnOffEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(FetchPrayerTiming value)? fetchPrayerTiming,
     TResult? Function(PrayerTimingEvent value)? prayerTimingEvent,
+    TResult? Function(ShowImsakEvent value)? showImsakEvent,
     TResult? Function(ChangeArtCalcMethod value)? changeArtCalcMethod,
     TResult? Function(FetchNamazMethods value)? fetchNamazMethods,
     TResult? Function(ChangeNamazMethods value)? changeNamazMehods,
@@ -2830,32 +2052,8 @@ class _$OnNotiyOnOffEvent implements OnNotiyOnOffEvent {
     TResult? Function(ChangeLangLongtoAddress value)? changeLangLongtoAddress,
     TResult? Function(OnNotiyOnOffEvent value)? onNotiyOnOffEvent,
     TResult? Function(ChangeIndex value)? changeIndex,
-    TResult? Function(AddAutoDetectValToLocalStorage value)?
-        addAutoDetectValToLocalStorage,
-    TResult? Function(GetAutoDetetectLocationFromLocalStorage value)?
-        getAutoDetetectLocationFromLocalStorage,
-    TResult? Function(AddAutomaticSettingToLocalStorage value)?
-        addAutomaticSettingToLocalStorage,
-    TResult? Function(GetAutomaticSettingsFromLocalStorage value)?
-        getAutomaticSettingsFromLocalStorage,
-    TResult? Function(AddShowimsakValToLocalStorage value)?
-        addShowimsakValToLocalStorage,
-    TResult? Function(GetShowimskValFromLocalStorage value)?
-        getShowimskValFromLocalStorage,
-    TResult? Function(AddCalculationMethodToLocalStorage value)?
-        addCalculationMethodToLocalStorage,
-    TResult? Function(GetCalculationMethodFromStorage value)?
-        getCalculationMethodFromStorage,
-    TResult? Function(AddAsrCalculationMethodToLocalStorage value)?
-        addAsrCalculationMethodToLocalStorage,
-    TResult? Function(GetAsrCalculationMethodFromStorage value)?
-        getAsrCalculationMethodFromStorage,
-    TResult? Function(AddHighLatitudeMethodsToLocalStorage value)?
-        addHighLatitudeMethodsToLocalStorage,
-    TResult? Function(GetHighLatitudeMethodsToLocalStorage value)?
-        getHighLatitudeMethodsToLocalStorage,
-    TResult? Function(FetchNamazTimingNotificationsFromLocalStorage value)?
-        fetchNamazTimingNotificationsFromLocalStorage,
+    TResult? Function(FetchNamazMethodDb value)? fetchNamazMethodDb,
+    TResult? Function(AddNamazMethodDb value)? addNamazMethodDb,
   }) {
     return onNotiyOnOffEvent?.call(this);
   }
@@ -2865,6 +2063,7 @@ class _$OnNotiyOnOffEvent implements OnNotiyOnOffEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(FetchPrayerTiming value)? fetchPrayerTiming,
     TResult Function(PrayerTimingEvent value)? prayerTimingEvent,
+    TResult Function(ShowImsakEvent value)? showImsakEvent,
     TResult Function(ChangeArtCalcMethod value)? changeArtCalcMethod,
     TResult Function(FetchNamazMethods value)? fetchNamazMethods,
     TResult Function(ChangeNamazMethods value)? changeNamazMehods,
@@ -2873,32 +2072,8 @@ class _$OnNotiyOnOffEvent implements OnNotiyOnOffEvent {
     TResult Function(ChangeLangLongtoAddress value)? changeLangLongtoAddress,
     TResult Function(OnNotiyOnOffEvent value)? onNotiyOnOffEvent,
     TResult Function(ChangeIndex value)? changeIndex,
-    TResult Function(AddAutoDetectValToLocalStorage value)?
-        addAutoDetectValToLocalStorage,
-    TResult Function(GetAutoDetetectLocationFromLocalStorage value)?
-        getAutoDetetectLocationFromLocalStorage,
-    TResult Function(AddAutomaticSettingToLocalStorage value)?
-        addAutomaticSettingToLocalStorage,
-    TResult Function(GetAutomaticSettingsFromLocalStorage value)?
-        getAutomaticSettingsFromLocalStorage,
-    TResult Function(AddShowimsakValToLocalStorage value)?
-        addShowimsakValToLocalStorage,
-    TResult Function(GetShowimskValFromLocalStorage value)?
-        getShowimskValFromLocalStorage,
-    TResult Function(AddCalculationMethodToLocalStorage value)?
-        addCalculationMethodToLocalStorage,
-    TResult Function(GetCalculationMethodFromStorage value)?
-        getCalculationMethodFromStorage,
-    TResult Function(AddAsrCalculationMethodToLocalStorage value)?
-        addAsrCalculationMethodToLocalStorage,
-    TResult Function(GetAsrCalculationMethodFromStorage value)?
-        getAsrCalculationMethodFromStorage,
-    TResult Function(AddHighLatitudeMethodsToLocalStorage value)?
-        addHighLatitudeMethodsToLocalStorage,
-    TResult Function(GetHighLatitudeMethodsToLocalStorage value)?
-        getHighLatitudeMethodsToLocalStorage,
-    TResult Function(FetchNamazTimingNotificationsFromLocalStorage value)?
-        fetchNamazTimingNotificationsFromLocalStorage,
+    TResult Function(FetchNamazMethodDb value)? fetchNamazMethodDb,
+    TResult Function(AddNamazMethodDb value)? addNamazMethodDb,
     required TResult orElse(),
   }) {
     if (onNotiyOnOffEvent != null) {
@@ -2984,6 +2159,7 @@ class _$ChangeIndex implements ChangeIndex {
   TResult when<TResult extends Object?>({
     required TResult Function(BuildContext context) fetchPrayerTiming,
     required TResult Function() prayerTimingEvent,
+    required TResult Function() showImsakEvent,
     required TResult Function() changeArtCalcMethod,
     required TResult Function() fetchNamazMethods,
     required TResult Function(int method, BuildContext context)
@@ -2995,19 +2171,8 @@ class _$ChangeIndex implements ChangeIndex {
     required TResult Function() changeLangLongtoAddress,
     required TResult Function(int index) onNotiyOnOffEvent,
     required TResult Function(int index) changeIndex,
-    required TResult Function(bool value) addAutoDetectValToLocalStorage,
-    required TResult Function() getAutoDetetectLocationFromLocalStorage,
-    required TResult Function(bool value) addAutomaticSettingToLocalStorage,
-    required TResult Function() getAutomaticSettingsFromLocalStorage,
-    required TResult Function(bool value) addShowimsakValToLocalStorage,
-    required TResult Function() getShowimskValFromLocalStorage,
-    required TResult Function(int value) addCalculationMethodToLocalStorage,
-    required TResult Function() getCalculationMethodFromStorage,
-    required TResult Function(int value) addAsrCalculationMethodToLocalStorage,
-    required TResult Function() getAsrCalculationMethodFromStorage,
-    required TResult Function(int value) addHighLatitudeMethodsToLocalStorage,
-    required TResult Function() getHighLatitudeMethodsToLocalStorage,
-    required TResult Function() fetchNamazTimingNotificationsFromLocalStorage,
+    required TResult Function() fetchNamazMethodDb,
+    required TResult Function() addNamazMethodDb,
   }) {
     return changeIndex(index);
   }
@@ -3017,6 +2182,7 @@ class _$ChangeIndex implements ChangeIndex {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(BuildContext context)? fetchPrayerTiming,
     TResult? Function()? prayerTimingEvent,
+    TResult? Function()? showImsakEvent,
     TResult? Function()? changeArtCalcMethod,
     TResult? Function()? fetchNamazMethods,
     TResult? Function(int method, BuildContext context)? changeNamazMehods,
@@ -3026,19 +2192,8 @@ class _$ChangeIndex implements ChangeIndex {
     TResult? Function()? changeLangLongtoAddress,
     TResult? Function(int index)? onNotiyOnOffEvent,
     TResult? Function(int index)? changeIndex,
-    TResult? Function(bool value)? addAutoDetectValToLocalStorage,
-    TResult? Function()? getAutoDetetectLocationFromLocalStorage,
-    TResult? Function(bool value)? addAutomaticSettingToLocalStorage,
-    TResult? Function()? getAutomaticSettingsFromLocalStorage,
-    TResult? Function(bool value)? addShowimsakValToLocalStorage,
-    TResult? Function()? getShowimskValFromLocalStorage,
-    TResult? Function(int value)? addCalculationMethodToLocalStorage,
-    TResult? Function()? getCalculationMethodFromStorage,
-    TResult? Function(int value)? addAsrCalculationMethodToLocalStorage,
-    TResult? Function()? getAsrCalculationMethodFromStorage,
-    TResult? Function(int value)? addHighLatitudeMethodsToLocalStorage,
-    TResult? Function()? getHighLatitudeMethodsToLocalStorage,
-    TResult? Function()? fetchNamazTimingNotificationsFromLocalStorage,
+    TResult? Function()? fetchNamazMethodDb,
+    TResult? Function()? addNamazMethodDb,
   }) {
     return changeIndex?.call(index);
   }
@@ -3048,6 +2203,7 @@ class _$ChangeIndex implements ChangeIndex {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(BuildContext context)? fetchPrayerTiming,
     TResult Function()? prayerTimingEvent,
+    TResult Function()? showImsakEvent,
     TResult Function()? changeArtCalcMethod,
     TResult Function()? fetchNamazMethods,
     TResult Function(int method, BuildContext context)? changeNamazMehods,
@@ -3057,19 +2213,8 @@ class _$ChangeIndex implements ChangeIndex {
     TResult Function()? changeLangLongtoAddress,
     TResult Function(int index)? onNotiyOnOffEvent,
     TResult Function(int index)? changeIndex,
-    TResult Function(bool value)? addAutoDetectValToLocalStorage,
-    TResult Function()? getAutoDetetectLocationFromLocalStorage,
-    TResult Function(bool value)? addAutomaticSettingToLocalStorage,
-    TResult Function()? getAutomaticSettingsFromLocalStorage,
-    TResult Function(bool value)? addShowimsakValToLocalStorage,
-    TResult Function()? getShowimskValFromLocalStorage,
-    TResult Function(int value)? addCalculationMethodToLocalStorage,
-    TResult Function()? getCalculationMethodFromStorage,
-    TResult Function(int value)? addAsrCalculationMethodToLocalStorage,
-    TResult Function()? getAsrCalculationMethodFromStorage,
-    TResult Function(int value)? addHighLatitudeMethodsToLocalStorage,
-    TResult Function()? getHighLatitudeMethodsToLocalStorage,
-    TResult Function()? fetchNamazTimingNotificationsFromLocalStorage,
+    TResult Function()? fetchNamazMethodDb,
+    TResult Function()? addNamazMethodDb,
     required TResult orElse(),
   }) {
     if (changeIndex != null) {
@@ -3083,6 +2228,7 @@ class _$ChangeIndex implements ChangeIndex {
   TResult map<TResult extends Object?>({
     required TResult Function(FetchPrayerTiming value) fetchPrayerTiming,
     required TResult Function(PrayerTimingEvent value) prayerTimingEvent,
+    required TResult Function(ShowImsakEvent value) showImsakEvent,
     required TResult Function(ChangeArtCalcMethod value) changeArtCalcMethod,
     required TResult Function(FetchNamazMethods value) fetchNamazMethods,
     required TResult Function(ChangeNamazMethods value) changeNamazMehods,
@@ -3093,33 +2239,8 @@ class _$ChangeIndex implements ChangeIndex {
         changeLangLongtoAddress,
     required TResult Function(OnNotiyOnOffEvent value) onNotiyOnOffEvent,
     required TResult Function(ChangeIndex value) changeIndex,
-    required TResult Function(AddAutoDetectValToLocalStorage value)
-        addAutoDetectValToLocalStorage,
-    required TResult Function(GetAutoDetetectLocationFromLocalStorage value)
-        getAutoDetetectLocationFromLocalStorage,
-    required TResult Function(AddAutomaticSettingToLocalStorage value)
-        addAutomaticSettingToLocalStorage,
-    required TResult Function(GetAutomaticSettingsFromLocalStorage value)
-        getAutomaticSettingsFromLocalStorage,
-    required TResult Function(AddShowimsakValToLocalStorage value)
-        addShowimsakValToLocalStorage,
-    required TResult Function(GetShowimskValFromLocalStorage value)
-        getShowimskValFromLocalStorage,
-    required TResult Function(AddCalculationMethodToLocalStorage value)
-        addCalculationMethodToLocalStorage,
-    required TResult Function(GetCalculationMethodFromStorage value)
-        getCalculationMethodFromStorage,
-    required TResult Function(AddAsrCalculationMethodToLocalStorage value)
-        addAsrCalculationMethodToLocalStorage,
-    required TResult Function(GetAsrCalculationMethodFromStorage value)
-        getAsrCalculationMethodFromStorage,
-    required TResult Function(AddHighLatitudeMethodsToLocalStorage value)
-        addHighLatitudeMethodsToLocalStorage,
-    required TResult Function(GetHighLatitudeMethodsToLocalStorage value)
-        getHighLatitudeMethodsToLocalStorage,
-    required TResult Function(
-            FetchNamazTimingNotificationsFromLocalStorage value)
-        fetchNamazTimingNotificationsFromLocalStorage,
+    required TResult Function(FetchNamazMethodDb value) fetchNamazMethodDb,
+    required TResult Function(AddNamazMethodDb value) addNamazMethodDb,
   }) {
     return changeIndex(this);
   }
@@ -3129,6 +2250,7 @@ class _$ChangeIndex implements ChangeIndex {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(FetchPrayerTiming value)? fetchPrayerTiming,
     TResult? Function(PrayerTimingEvent value)? prayerTimingEvent,
+    TResult? Function(ShowImsakEvent value)? showImsakEvent,
     TResult? Function(ChangeArtCalcMethod value)? changeArtCalcMethod,
     TResult? Function(FetchNamazMethods value)? fetchNamazMethods,
     TResult? Function(ChangeNamazMethods value)? changeNamazMehods,
@@ -3137,32 +2259,8 @@ class _$ChangeIndex implements ChangeIndex {
     TResult? Function(ChangeLangLongtoAddress value)? changeLangLongtoAddress,
     TResult? Function(OnNotiyOnOffEvent value)? onNotiyOnOffEvent,
     TResult? Function(ChangeIndex value)? changeIndex,
-    TResult? Function(AddAutoDetectValToLocalStorage value)?
-        addAutoDetectValToLocalStorage,
-    TResult? Function(GetAutoDetetectLocationFromLocalStorage value)?
-        getAutoDetetectLocationFromLocalStorage,
-    TResult? Function(AddAutomaticSettingToLocalStorage value)?
-        addAutomaticSettingToLocalStorage,
-    TResult? Function(GetAutomaticSettingsFromLocalStorage value)?
-        getAutomaticSettingsFromLocalStorage,
-    TResult? Function(AddShowimsakValToLocalStorage value)?
-        addShowimsakValToLocalStorage,
-    TResult? Function(GetShowimskValFromLocalStorage value)?
-        getShowimskValFromLocalStorage,
-    TResult? Function(AddCalculationMethodToLocalStorage value)?
-        addCalculationMethodToLocalStorage,
-    TResult? Function(GetCalculationMethodFromStorage value)?
-        getCalculationMethodFromStorage,
-    TResult? Function(AddAsrCalculationMethodToLocalStorage value)?
-        addAsrCalculationMethodToLocalStorage,
-    TResult? Function(GetAsrCalculationMethodFromStorage value)?
-        getAsrCalculationMethodFromStorage,
-    TResult? Function(AddHighLatitudeMethodsToLocalStorage value)?
-        addHighLatitudeMethodsToLocalStorage,
-    TResult? Function(GetHighLatitudeMethodsToLocalStorage value)?
-        getHighLatitudeMethodsToLocalStorage,
-    TResult? Function(FetchNamazTimingNotificationsFromLocalStorage value)?
-        fetchNamazTimingNotificationsFromLocalStorage,
+    TResult? Function(FetchNamazMethodDb value)? fetchNamazMethodDb,
+    TResult? Function(AddNamazMethodDb value)? addNamazMethodDb,
   }) {
     return changeIndex?.call(this);
   }
@@ -3172,6 +2270,7 @@ class _$ChangeIndex implements ChangeIndex {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(FetchPrayerTiming value)? fetchPrayerTiming,
     TResult Function(PrayerTimingEvent value)? prayerTimingEvent,
+    TResult Function(ShowImsakEvent value)? showImsakEvent,
     TResult Function(ChangeArtCalcMethod value)? changeArtCalcMethod,
     TResult Function(FetchNamazMethods value)? fetchNamazMethods,
     TResult Function(ChangeNamazMethods value)? changeNamazMehods,
@@ -3180,32 +2279,8 @@ class _$ChangeIndex implements ChangeIndex {
     TResult Function(ChangeLangLongtoAddress value)? changeLangLongtoAddress,
     TResult Function(OnNotiyOnOffEvent value)? onNotiyOnOffEvent,
     TResult Function(ChangeIndex value)? changeIndex,
-    TResult Function(AddAutoDetectValToLocalStorage value)?
-        addAutoDetectValToLocalStorage,
-    TResult Function(GetAutoDetetectLocationFromLocalStorage value)?
-        getAutoDetetectLocationFromLocalStorage,
-    TResult Function(AddAutomaticSettingToLocalStorage value)?
-        addAutomaticSettingToLocalStorage,
-    TResult Function(GetAutomaticSettingsFromLocalStorage value)?
-        getAutomaticSettingsFromLocalStorage,
-    TResult Function(AddShowimsakValToLocalStorage value)?
-        addShowimsakValToLocalStorage,
-    TResult Function(GetShowimskValFromLocalStorage value)?
-        getShowimskValFromLocalStorage,
-    TResult Function(AddCalculationMethodToLocalStorage value)?
-        addCalculationMethodToLocalStorage,
-    TResult Function(GetCalculationMethodFromStorage value)?
-        getCalculationMethodFromStorage,
-    TResult Function(AddAsrCalculationMethodToLocalStorage value)?
-        addAsrCalculationMethodToLocalStorage,
-    TResult Function(GetAsrCalculationMethodFromStorage value)?
-        getAsrCalculationMethodFromStorage,
-    TResult Function(AddHighLatitudeMethodsToLocalStorage value)?
-        addHighLatitudeMethodsToLocalStorage,
-    TResult Function(GetHighLatitudeMethodsToLocalStorage value)?
-        getHighLatitudeMethodsToLocalStorage,
-    TResult Function(FetchNamazTimingNotificationsFromLocalStorage value)?
-        fetchNamazTimingNotificationsFromLocalStorage,
+    TResult Function(FetchNamazMethodDb value)? fetchNamazMethodDb,
+    TResult Function(AddNamazMethodDb value)? addNamazMethodDb,
     required TResult orElse(),
   }) {
     if (changeIndex != null) {
@@ -3225,352 +2300,35 @@ abstract class ChangeIndex implements NamazTimingEvent {
 }
 
 /// @nodoc
-abstract class _$$AddAutoDetectValToLocalStorageCopyWith<$Res> {
-  factory _$$AddAutoDetectValToLocalStorageCopyWith(
-          _$AddAutoDetectValToLocalStorage value,
-          $Res Function(_$AddAutoDetectValToLocalStorage) then) =
-      __$$AddAutoDetectValToLocalStorageCopyWithImpl<$Res>;
-  @useResult
-  $Res call({bool value});
+abstract class _$$FetchNamazMethodDbCopyWith<$Res> {
+  factory _$$FetchNamazMethodDbCopyWith(_$FetchNamazMethodDb value,
+          $Res Function(_$FetchNamazMethodDb) then) =
+      __$$FetchNamazMethodDbCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$AddAutoDetectValToLocalStorageCopyWithImpl<$Res>
-    extends _$NamazTimingEventCopyWithImpl<$Res,
-        _$AddAutoDetectValToLocalStorage>
-    implements _$$AddAutoDetectValToLocalStorageCopyWith<$Res> {
-  __$$AddAutoDetectValToLocalStorageCopyWithImpl(
-      _$AddAutoDetectValToLocalStorage _value,
-      $Res Function(_$AddAutoDetectValToLocalStorage) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? value = null,
-  }) {
-    return _then(_$AddAutoDetectValToLocalStorage(
-      value: null == value
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$AddAutoDetectValToLocalStorage
-    implements AddAutoDetectValToLocalStorage {
-  const _$AddAutoDetectValToLocalStorage({required this.value});
-
-  @override
-  final bool value;
-
-  @override
-  String toString() {
-    return 'NamazTimingEvent.addAutoDetectValToLocalStorage(value: $value)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$AddAutoDetectValToLocalStorage &&
-            (identical(other.value, value) || other.value == value));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, value);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$AddAutoDetectValToLocalStorageCopyWith<_$AddAutoDetectValToLocalStorage>
-      get copyWith => __$$AddAutoDetectValToLocalStorageCopyWithImpl<
-          _$AddAutoDetectValToLocalStorage>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(BuildContext context) fetchPrayerTiming,
-    required TResult Function() prayerTimingEvent,
-    required TResult Function() changeArtCalcMethod,
-    required TResult Function() fetchNamazMethods,
-    required TResult Function(int method, BuildContext context)
-        changeNamazMehods,
-    required TResult Function(int school, BuildContext context)
-        changeSchoolEvent,
-    required TResult Function(int numValue, BuildContext context)
-        changeHighLatitudeMethod,
-    required TResult Function() changeLangLongtoAddress,
-    required TResult Function(int index) onNotiyOnOffEvent,
-    required TResult Function(int index) changeIndex,
-    required TResult Function(bool value) addAutoDetectValToLocalStorage,
-    required TResult Function() getAutoDetetectLocationFromLocalStorage,
-    required TResult Function(bool value) addAutomaticSettingToLocalStorage,
-    required TResult Function() getAutomaticSettingsFromLocalStorage,
-    required TResult Function(bool value) addShowimsakValToLocalStorage,
-    required TResult Function() getShowimskValFromLocalStorage,
-    required TResult Function(int value) addCalculationMethodToLocalStorage,
-    required TResult Function() getCalculationMethodFromStorage,
-    required TResult Function(int value) addAsrCalculationMethodToLocalStorage,
-    required TResult Function() getAsrCalculationMethodFromStorage,
-    required TResult Function(int value) addHighLatitudeMethodsToLocalStorage,
-    required TResult Function() getHighLatitudeMethodsToLocalStorage,
-    required TResult Function() fetchNamazTimingNotificationsFromLocalStorage,
-  }) {
-    return addAutoDetectValToLocalStorage(value);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(BuildContext context)? fetchPrayerTiming,
-    TResult? Function()? prayerTimingEvent,
-    TResult? Function()? changeArtCalcMethod,
-    TResult? Function()? fetchNamazMethods,
-    TResult? Function(int method, BuildContext context)? changeNamazMehods,
-    TResult? Function(int school, BuildContext context)? changeSchoolEvent,
-    TResult? Function(int numValue, BuildContext context)?
-        changeHighLatitudeMethod,
-    TResult? Function()? changeLangLongtoAddress,
-    TResult? Function(int index)? onNotiyOnOffEvent,
-    TResult? Function(int index)? changeIndex,
-    TResult? Function(bool value)? addAutoDetectValToLocalStorage,
-    TResult? Function()? getAutoDetetectLocationFromLocalStorage,
-    TResult? Function(bool value)? addAutomaticSettingToLocalStorage,
-    TResult? Function()? getAutomaticSettingsFromLocalStorage,
-    TResult? Function(bool value)? addShowimsakValToLocalStorage,
-    TResult? Function()? getShowimskValFromLocalStorage,
-    TResult? Function(int value)? addCalculationMethodToLocalStorage,
-    TResult? Function()? getCalculationMethodFromStorage,
-    TResult? Function(int value)? addAsrCalculationMethodToLocalStorage,
-    TResult? Function()? getAsrCalculationMethodFromStorage,
-    TResult? Function(int value)? addHighLatitudeMethodsToLocalStorage,
-    TResult? Function()? getHighLatitudeMethodsToLocalStorage,
-    TResult? Function()? fetchNamazTimingNotificationsFromLocalStorage,
-  }) {
-    return addAutoDetectValToLocalStorage?.call(value);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(BuildContext context)? fetchPrayerTiming,
-    TResult Function()? prayerTimingEvent,
-    TResult Function()? changeArtCalcMethod,
-    TResult Function()? fetchNamazMethods,
-    TResult Function(int method, BuildContext context)? changeNamazMehods,
-    TResult Function(int school, BuildContext context)? changeSchoolEvent,
-    TResult Function(int numValue, BuildContext context)?
-        changeHighLatitudeMethod,
-    TResult Function()? changeLangLongtoAddress,
-    TResult Function(int index)? onNotiyOnOffEvent,
-    TResult Function(int index)? changeIndex,
-    TResult Function(bool value)? addAutoDetectValToLocalStorage,
-    TResult Function()? getAutoDetetectLocationFromLocalStorage,
-    TResult Function(bool value)? addAutomaticSettingToLocalStorage,
-    TResult Function()? getAutomaticSettingsFromLocalStorage,
-    TResult Function(bool value)? addShowimsakValToLocalStorage,
-    TResult Function()? getShowimskValFromLocalStorage,
-    TResult Function(int value)? addCalculationMethodToLocalStorage,
-    TResult Function()? getCalculationMethodFromStorage,
-    TResult Function(int value)? addAsrCalculationMethodToLocalStorage,
-    TResult Function()? getAsrCalculationMethodFromStorage,
-    TResult Function(int value)? addHighLatitudeMethodsToLocalStorage,
-    TResult Function()? getHighLatitudeMethodsToLocalStorage,
-    TResult Function()? fetchNamazTimingNotificationsFromLocalStorage,
-    required TResult orElse(),
-  }) {
-    if (addAutoDetectValToLocalStorage != null) {
-      return addAutoDetectValToLocalStorage(value);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(FetchPrayerTiming value) fetchPrayerTiming,
-    required TResult Function(PrayerTimingEvent value) prayerTimingEvent,
-    required TResult Function(ChangeArtCalcMethod value) changeArtCalcMethod,
-    required TResult Function(FetchNamazMethods value) fetchNamazMethods,
-    required TResult Function(ChangeNamazMethods value) changeNamazMehods,
-    required TResult Function(ChangeSchoolEvent value) changeSchoolEvent,
-    required TResult Function(ChangeHighLatitudeMethod value)
-        changeHighLatitudeMethod,
-    required TResult Function(ChangeLangLongtoAddress value)
-        changeLangLongtoAddress,
-    required TResult Function(OnNotiyOnOffEvent value) onNotiyOnOffEvent,
-    required TResult Function(ChangeIndex value) changeIndex,
-    required TResult Function(AddAutoDetectValToLocalStorage value)
-        addAutoDetectValToLocalStorage,
-    required TResult Function(GetAutoDetetectLocationFromLocalStorage value)
-        getAutoDetetectLocationFromLocalStorage,
-    required TResult Function(AddAutomaticSettingToLocalStorage value)
-        addAutomaticSettingToLocalStorage,
-    required TResult Function(GetAutomaticSettingsFromLocalStorage value)
-        getAutomaticSettingsFromLocalStorage,
-    required TResult Function(AddShowimsakValToLocalStorage value)
-        addShowimsakValToLocalStorage,
-    required TResult Function(GetShowimskValFromLocalStorage value)
-        getShowimskValFromLocalStorage,
-    required TResult Function(AddCalculationMethodToLocalStorage value)
-        addCalculationMethodToLocalStorage,
-    required TResult Function(GetCalculationMethodFromStorage value)
-        getCalculationMethodFromStorage,
-    required TResult Function(AddAsrCalculationMethodToLocalStorage value)
-        addAsrCalculationMethodToLocalStorage,
-    required TResult Function(GetAsrCalculationMethodFromStorage value)
-        getAsrCalculationMethodFromStorage,
-    required TResult Function(AddHighLatitudeMethodsToLocalStorage value)
-        addHighLatitudeMethodsToLocalStorage,
-    required TResult Function(GetHighLatitudeMethodsToLocalStorage value)
-        getHighLatitudeMethodsToLocalStorage,
-    required TResult Function(
-            FetchNamazTimingNotificationsFromLocalStorage value)
-        fetchNamazTimingNotificationsFromLocalStorage,
-  }) {
-    return addAutoDetectValToLocalStorage(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(FetchPrayerTiming value)? fetchPrayerTiming,
-    TResult? Function(PrayerTimingEvent value)? prayerTimingEvent,
-    TResult? Function(ChangeArtCalcMethod value)? changeArtCalcMethod,
-    TResult? Function(FetchNamazMethods value)? fetchNamazMethods,
-    TResult? Function(ChangeNamazMethods value)? changeNamazMehods,
-    TResult? Function(ChangeSchoolEvent value)? changeSchoolEvent,
-    TResult? Function(ChangeHighLatitudeMethod value)? changeHighLatitudeMethod,
-    TResult? Function(ChangeLangLongtoAddress value)? changeLangLongtoAddress,
-    TResult? Function(OnNotiyOnOffEvent value)? onNotiyOnOffEvent,
-    TResult? Function(ChangeIndex value)? changeIndex,
-    TResult? Function(AddAutoDetectValToLocalStorage value)?
-        addAutoDetectValToLocalStorage,
-    TResult? Function(GetAutoDetetectLocationFromLocalStorage value)?
-        getAutoDetetectLocationFromLocalStorage,
-    TResult? Function(AddAutomaticSettingToLocalStorage value)?
-        addAutomaticSettingToLocalStorage,
-    TResult? Function(GetAutomaticSettingsFromLocalStorage value)?
-        getAutomaticSettingsFromLocalStorage,
-    TResult? Function(AddShowimsakValToLocalStorage value)?
-        addShowimsakValToLocalStorage,
-    TResult? Function(GetShowimskValFromLocalStorage value)?
-        getShowimskValFromLocalStorage,
-    TResult? Function(AddCalculationMethodToLocalStorage value)?
-        addCalculationMethodToLocalStorage,
-    TResult? Function(GetCalculationMethodFromStorage value)?
-        getCalculationMethodFromStorage,
-    TResult? Function(AddAsrCalculationMethodToLocalStorage value)?
-        addAsrCalculationMethodToLocalStorage,
-    TResult? Function(GetAsrCalculationMethodFromStorage value)?
-        getAsrCalculationMethodFromStorage,
-    TResult? Function(AddHighLatitudeMethodsToLocalStorage value)?
-        addHighLatitudeMethodsToLocalStorage,
-    TResult? Function(GetHighLatitudeMethodsToLocalStorage value)?
-        getHighLatitudeMethodsToLocalStorage,
-    TResult? Function(FetchNamazTimingNotificationsFromLocalStorage value)?
-        fetchNamazTimingNotificationsFromLocalStorage,
-  }) {
-    return addAutoDetectValToLocalStorage?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(FetchPrayerTiming value)? fetchPrayerTiming,
-    TResult Function(PrayerTimingEvent value)? prayerTimingEvent,
-    TResult Function(ChangeArtCalcMethod value)? changeArtCalcMethod,
-    TResult Function(FetchNamazMethods value)? fetchNamazMethods,
-    TResult Function(ChangeNamazMethods value)? changeNamazMehods,
-    TResult Function(ChangeSchoolEvent value)? changeSchoolEvent,
-    TResult Function(ChangeHighLatitudeMethod value)? changeHighLatitudeMethod,
-    TResult Function(ChangeLangLongtoAddress value)? changeLangLongtoAddress,
-    TResult Function(OnNotiyOnOffEvent value)? onNotiyOnOffEvent,
-    TResult Function(ChangeIndex value)? changeIndex,
-    TResult Function(AddAutoDetectValToLocalStorage value)?
-        addAutoDetectValToLocalStorage,
-    TResult Function(GetAutoDetetectLocationFromLocalStorage value)?
-        getAutoDetetectLocationFromLocalStorage,
-    TResult Function(AddAutomaticSettingToLocalStorage value)?
-        addAutomaticSettingToLocalStorage,
-    TResult Function(GetAutomaticSettingsFromLocalStorage value)?
-        getAutomaticSettingsFromLocalStorage,
-    TResult Function(AddShowimsakValToLocalStorage value)?
-        addShowimsakValToLocalStorage,
-    TResult Function(GetShowimskValFromLocalStorage value)?
-        getShowimskValFromLocalStorage,
-    TResult Function(AddCalculationMethodToLocalStorage value)?
-        addCalculationMethodToLocalStorage,
-    TResult Function(GetCalculationMethodFromStorage value)?
-        getCalculationMethodFromStorage,
-    TResult Function(AddAsrCalculationMethodToLocalStorage value)?
-        addAsrCalculationMethodToLocalStorage,
-    TResult Function(GetAsrCalculationMethodFromStorage value)?
-        getAsrCalculationMethodFromStorage,
-    TResult Function(AddHighLatitudeMethodsToLocalStorage value)?
-        addHighLatitudeMethodsToLocalStorage,
-    TResult Function(GetHighLatitudeMethodsToLocalStorage value)?
-        getHighLatitudeMethodsToLocalStorage,
-    TResult Function(FetchNamazTimingNotificationsFromLocalStorage value)?
-        fetchNamazTimingNotificationsFromLocalStorage,
-    required TResult orElse(),
-  }) {
-    if (addAutoDetectValToLocalStorage != null) {
-      return addAutoDetectValToLocalStorage(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class AddAutoDetectValToLocalStorage implements NamazTimingEvent {
-  const factory AddAutoDetectValToLocalStorage({required final bool value}) =
-      _$AddAutoDetectValToLocalStorage;
-
-  bool get value;
-  @JsonKey(ignore: true)
-  _$$AddAutoDetectValToLocalStorageCopyWith<_$AddAutoDetectValToLocalStorage>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$GetAutoDetetectLocationFromLocalStorageCopyWith<$Res> {
-  factory _$$GetAutoDetetectLocationFromLocalStorageCopyWith(
-          _$GetAutoDetetectLocationFromLocalStorage value,
-          $Res Function(_$GetAutoDetetectLocationFromLocalStorage) then) =
-      __$$GetAutoDetetectLocationFromLocalStorageCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$GetAutoDetetectLocationFromLocalStorageCopyWithImpl<$Res>
-    extends _$NamazTimingEventCopyWithImpl<$Res,
-        _$GetAutoDetetectLocationFromLocalStorage>
-    implements _$$GetAutoDetetectLocationFromLocalStorageCopyWith<$Res> {
-  __$$GetAutoDetetectLocationFromLocalStorageCopyWithImpl(
-      _$GetAutoDetetectLocationFromLocalStorage _value,
-      $Res Function(_$GetAutoDetetectLocationFromLocalStorage) _then)
+class __$$FetchNamazMethodDbCopyWithImpl<$Res>
+    extends _$NamazTimingEventCopyWithImpl<$Res, _$FetchNamazMethodDb>
+    implements _$$FetchNamazMethodDbCopyWith<$Res> {
+  __$$FetchNamazMethodDbCopyWithImpl(
+      _$FetchNamazMethodDb _value, $Res Function(_$FetchNamazMethodDb) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$GetAutoDetetectLocationFromLocalStorage
-    implements GetAutoDetetectLocationFromLocalStorage {
-  const _$GetAutoDetetectLocationFromLocalStorage();
+class _$FetchNamazMethodDb implements FetchNamazMethodDb {
+  const _$FetchNamazMethodDb();
 
   @override
   String toString() {
-    return 'NamazTimingEvent.getAutoDetetectLocationFromLocalStorage()';
+    return 'NamazTimingEvent.fetchNamazMethodDb()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$GetAutoDetetectLocationFromLocalStorage);
+        (other.runtimeType == runtimeType && other is _$FetchNamazMethodDb);
   }
 
   @override
@@ -3581,6 +2339,7 @@ class _$GetAutoDetetectLocationFromLocalStorage
   TResult when<TResult extends Object?>({
     required TResult Function(BuildContext context) fetchPrayerTiming,
     required TResult Function() prayerTimingEvent,
+    required TResult Function() showImsakEvent,
     required TResult Function() changeArtCalcMethod,
     required TResult Function() fetchNamazMethods,
     required TResult Function(int method, BuildContext context)
@@ -3592,21 +2351,10 @@ class _$GetAutoDetetectLocationFromLocalStorage
     required TResult Function() changeLangLongtoAddress,
     required TResult Function(int index) onNotiyOnOffEvent,
     required TResult Function(int index) changeIndex,
-    required TResult Function(bool value) addAutoDetectValToLocalStorage,
-    required TResult Function() getAutoDetetectLocationFromLocalStorage,
-    required TResult Function(bool value) addAutomaticSettingToLocalStorage,
-    required TResult Function() getAutomaticSettingsFromLocalStorage,
-    required TResult Function(bool value) addShowimsakValToLocalStorage,
-    required TResult Function() getShowimskValFromLocalStorage,
-    required TResult Function(int value) addCalculationMethodToLocalStorage,
-    required TResult Function() getCalculationMethodFromStorage,
-    required TResult Function(int value) addAsrCalculationMethodToLocalStorage,
-    required TResult Function() getAsrCalculationMethodFromStorage,
-    required TResult Function(int value) addHighLatitudeMethodsToLocalStorage,
-    required TResult Function() getHighLatitudeMethodsToLocalStorage,
-    required TResult Function() fetchNamazTimingNotificationsFromLocalStorage,
+    required TResult Function() fetchNamazMethodDb,
+    required TResult Function() addNamazMethodDb,
   }) {
-    return getAutoDetetectLocationFromLocalStorage();
+    return fetchNamazMethodDb();
   }
 
   @override
@@ -3614,6 +2362,7 @@ class _$GetAutoDetetectLocationFromLocalStorage
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(BuildContext context)? fetchPrayerTiming,
     TResult? Function()? prayerTimingEvent,
+    TResult? Function()? showImsakEvent,
     TResult? Function()? changeArtCalcMethod,
     TResult? Function()? fetchNamazMethods,
     TResult? Function(int method, BuildContext context)? changeNamazMehods,
@@ -3623,21 +2372,10 @@ class _$GetAutoDetetectLocationFromLocalStorage
     TResult? Function()? changeLangLongtoAddress,
     TResult? Function(int index)? onNotiyOnOffEvent,
     TResult? Function(int index)? changeIndex,
-    TResult? Function(bool value)? addAutoDetectValToLocalStorage,
-    TResult? Function()? getAutoDetetectLocationFromLocalStorage,
-    TResult? Function(bool value)? addAutomaticSettingToLocalStorage,
-    TResult? Function()? getAutomaticSettingsFromLocalStorage,
-    TResult? Function(bool value)? addShowimsakValToLocalStorage,
-    TResult? Function()? getShowimskValFromLocalStorage,
-    TResult? Function(int value)? addCalculationMethodToLocalStorage,
-    TResult? Function()? getCalculationMethodFromStorage,
-    TResult? Function(int value)? addAsrCalculationMethodToLocalStorage,
-    TResult? Function()? getAsrCalculationMethodFromStorage,
-    TResult? Function(int value)? addHighLatitudeMethodsToLocalStorage,
-    TResult? Function()? getHighLatitudeMethodsToLocalStorage,
-    TResult? Function()? fetchNamazTimingNotificationsFromLocalStorage,
+    TResult? Function()? fetchNamazMethodDb,
+    TResult? Function()? addNamazMethodDb,
   }) {
-    return getAutoDetetectLocationFromLocalStorage?.call();
+    return fetchNamazMethodDb?.call();
   }
 
   @override
@@ -3645,6 +2383,7 @@ class _$GetAutoDetetectLocationFromLocalStorage
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(BuildContext context)? fetchPrayerTiming,
     TResult Function()? prayerTimingEvent,
+    TResult Function()? showImsakEvent,
     TResult Function()? changeArtCalcMethod,
     TResult Function()? fetchNamazMethods,
     TResult Function(int method, BuildContext context)? changeNamazMehods,
@@ -3654,23 +2393,12 @@ class _$GetAutoDetetectLocationFromLocalStorage
     TResult Function()? changeLangLongtoAddress,
     TResult Function(int index)? onNotiyOnOffEvent,
     TResult Function(int index)? changeIndex,
-    TResult Function(bool value)? addAutoDetectValToLocalStorage,
-    TResult Function()? getAutoDetetectLocationFromLocalStorage,
-    TResult Function(bool value)? addAutomaticSettingToLocalStorage,
-    TResult Function()? getAutomaticSettingsFromLocalStorage,
-    TResult Function(bool value)? addShowimsakValToLocalStorage,
-    TResult Function()? getShowimskValFromLocalStorage,
-    TResult Function(int value)? addCalculationMethodToLocalStorage,
-    TResult Function()? getCalculationMethodFromStorage,
-    TResult Function(int value)? addAsrCalculationMethodToLocalStorage,
-    TResult Function()? getAsrCalculationMethodFromStorage,
-    TResult Function(int value)? addHighLatitudeMethodsToLocalStorage,
-    TResult Function()? getHighLatitudeMethodsToLocalStorage,
-    TResult Function()? fetchNamazTimingNotificationsFromLocalStorage,
+    TResult Function()? fetchNamazMethodDb,
+    TResult Function()? addNamazMethodDb,
     required TResult orElse(),
   }) {
-    if (getAutoDetetectLocationFromLocalStorage != null) {
-      return getAutoDetetectLocationFromLocalStorage();
+    if (fetchNamazMethodDb != null) {
+      return fetchNamazMethodDb();
     }
     return orElse();
   }
@@ -3680,6 +2408,7 @@ class _$GetAutoDetetectLocationFromLocalStorage
   TResult map<TResult extends Object?>({
     required TResult Function(FetchPrayerTiming value) fetchPrayerTiming,
     required TResult Function(PrayerTimingEvent value) prayerTimingEvent,
+    required TResult Function(ShowImsakEvent value) showImsakEvent,
     required TResult Function(ChangeArtCalcMethod value) changeArtCalcMethod,
     required TResult Function(FetchNamazMethods value) fetchNamazMethods,
     required TResult Function(ChangeNamazMethods value) changeNamazMehods,
@@ -3690,35 +2419,10 @@ class _$GetAutoDetetectLocationFromLocalStorage
         changeLangLongtoAddress,
     required TResult Function(OnNotiyOnOffEvent value) onNotiyOnOffEvent,
     required TResult Function(ChangeIndex value) changeIndex,
-    required TResult Function(AddAutoDetectValToLocalStorage value)
-        addAutoDetectValToLocalStorage,
-    required TResult Function(GetAutoDetetectLocationFromLocalStorage value)
-        getAutoDetetectLocationFromLocalStorage,
-    required TResult Function(AddAutomaticSettingToLocalStorage value)
-        addAutomaticSettingToLocalStorage,
-    required TResult Function(GetAutomaticSettingsFromLocalStorage value)
-        getAutomaticSettingsFromLocalStorage,
-    required TResult Function(AddShowimsakValToLocalStorage value)
-        addShowimsakValToLocalStorage,
-    required TResult Function(GetShowimskValFromLocalStorage value)
-        getShowimskValFromLocalStorage,
-    required TResult Function(AddCalculationMethodToLocalStorage value)
-        addCalculationMethodToLocalStorage,
-    required TResult Function(GetCalculationMethodFromStorage value)
-        getCalculationMethodFromStorage,
-    required TResult Function(AddAsrCalculationMethodToLocalStorage value)
-        addAsrCalculationMethodToLocalStorage,
-    required TResult Function(GetAsrCalculationMethodFromStorage value)
-        getAsrCalculationMethodFromStorage,
-    required TResult Function(AddHighLatitudeMethodsToLocalStorage value)
-        addHighLatitudeMethodsToLocalStorage,
-    required TResult Function(GetHighLatitudeMethodsToLocalStorage value)
-        getHighLatitudeMethodsToLocalStorage,
-    required TResult Function(
-            FetchNamazTimingNotificationsFromLocalStorage value)
-        fetchNamazTimingNotificationsFromLocalStorage,
+    required TResult Function(FetchNamazMethodDb value) fetchNamazMethodDb,
+    required TResult Function(AddNamazMethodDb value) addNamazMethodDb,
   }) {
-    return getAutoDetetectLocationFromLocalStorage(this);
+    return fetchNamazMethodDb(this);
   }
 
   @override
@@ -3726,6 +2430,7 @@ class _$GetAutoDetetectLocationFromLocalStorage
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(FetchPrayerTiming value)? fetchPrayerTiming,
     TResult? Function(PrayerTimingEvent value)? prayerTimingEvent,
+    TResult? Function(ShowImsakEvent value)? showImsakEvent,
     TResult? Function(ChangeArtCalcMethod value)? changeArtCalcMethod,
     TResult? Function(FetchNamazMethods value)? fetchNamazMethods,
     TResult? Function(ChangeNamazMethods value)? changeNamazMehods,
@@ -3734,34 +2439,10 @@ class _$GetAutoDetetectLocationFromLocalStorage
     TResult? Function(ChangeLangLongtoAddress value)? changeLangLongtoAddress,
     TResult? Function(OnNotiyOnOffEvent value)? onNotiyOnOffEvent,
     TResult? Function(ChangeIndex value)? changeIndex,
-    TResult? Function(AddAutoDetectValToLocalStorage value)?
-        addAutoDetectValToLocalStorage,
-    TResult? Function(GetAutoDetetectLocationFromLocalStorage value)?
-        getAutoDetetectLocationFromLocalStorage,
-    TResult? Function(AddAutomaticSettingToLocalStorage value)?
-        addAutomaticSettingToLocalStorage,
-    TResult? Function(GetAutomaticSettingsFromLocalStorage value)?
-        getAutomaticSettingsFromLocalStorage,
-    TResult? Function(AddShowimsakValToLocalStorage value)?
-        addShowimsakValToLocalStorage,
-    TResult? Function(GetShowimskValFromLocalStorage value)?
-        getShowimskValFromLocalStorage,
-    TResult? Function(AddCalculationMethodToLocalStorage value)?
-        addCalculationMethodToLocalStorage,
-    TResult? Function(GetCalculationMethodFromStorage value)?
-        getCalculationMethodFromStorage,
-    TResult? Function(AddAsrCalculationMethodToLocalStorage value)?
-        addAsrCalculationMethodToLocalStorage,
-    TResult? Function(GetAsrCalculationMethodFromStorage value)?
-        getAsrCalculationMethodFromStorage,
-    TResult? Function(AddHighLatitudeMethodsToLocalStorage value)?
-        addHighLatitudeMethodsToLocalStorage,
-    TResult? Function(GetHighLatitudeMethodsToLocalStorage value)?
-        getHighLatitudeMethodsToLocalStorage,
-    TResult? Function(FetchNamazTimingNotificationsFromLocalStorage value)?
-        fetchNamazTimingNotificationsFromLocalStorage,
+    TResult? Function(FetchNamazMethodDb value)? fetchNamazMethodDb,
+    TResult? Function(AddNamazMethodDb value)? addNamazMethodDb,
   }) {
-    return getAutoDetetectLocationFromLocalStorage?.call(this);
+    return fetchNamazMethodDb?.call(this);
   }
 
   @override
@@ -3769,6 +2450,7 @@ class _$GetAutoDetetectLocationFromLocalStorage
   TResult maybeMap<TResult extends Object?>({
     TResult Function(FetchPrayerTiming value)? fetchPrayerTiming,
     TResult Function(PrayerTimingEvent value)? prayerTimingEvent,
+    TResult Function(ShowImsakEvent value)? showImsakEvent,
     TResult Function(ChangeArtCalcMethod value)? changeArtCalcMethod,
     TResult Function(FetchNamazMethods value)? fetchNamazMethods,
     TResult Function(ChangeNamazMethods value)? changeNamazMehods,
@@ -3777,396 +2459,51 @@ class _$GetAutoDetetectLocationFromLocalStorage
     TResult Function(ChangeLangLongtoAddress value)? changeLangLongtoAddress,
     TResult Function(OnNotiyOnOffEvent value)? onNotiyOnOffEvent,
     TResult Function(ChangeIndex value)? changeIndex,
-    TResult Function(AddAutoDetectValToLocalStorage value)?
-        addAutoDetectValToLocalStorage,
-    TResult Function(GetAutoDetetectLocationFromLocalStorage value)?
-        getAutoDetetectLocationFromLocalStorage,
-    TResult Function(AddAutomaticSettingToLocalStorage value)?
-        addAutomaticSettingToLocalStorage,
-    TResult Function(GetAutomaticSettingsFromLocalStorage value)?
-        getAutomaticSettingsFromLocalStorage,
-    TResult Function(AddShowimsakValToLocalStorage value)?
-        addShowimsakValToLocalStorage,
-    TResult Function(GetShowimskValFromLocalStorage value)?
-        getShowimskValFromLocalStorage,
-    TResult Function(AddCalculationMethodToLocalStorage value)?
-        addCalculationMethodToLocalStorage,
-    TResult Function(GetCalculationMethodFromStorage value)?
-        getCalculationMethodFromStorage,
-    TResult Function(AddAsrCalculationMethodToLocalStorage value)?
-        addAsrCalculationMethodToLocalStorage,
-    TResult Function(GetAsrCalculationMethodFromStorage value)?
-        getAsrCalculationMethodFromStorage,
-    TResult Function(AddHighLatitudeMethodsToLocalStorage value)?
-        addHighLatitudeMethodsToLocalStorage,
-    TResult Function(GetHighLatitudeMethodsToLocalStorage value)?
-        getHighLatitudeMethodsToLocalStorage,
-    TResult Function(FetchNamazTimingNotificationsFromLocalStorage value)?
-        fetchNamazTimingNotificationsFromLocalStorage,
+    TResult Function(FetchNamazMethodDb value)? fetchNamazMethodDb,
+    TResult Function(AddNamazMethodDb value)? addNamazMethodDb,
     required TResult orElse(),
   }) {
-    if (getAutoDetetectLocationFromLocalStorage != null) {
-      return getAutoDetetectLocationFromLocalStorage(this);
+    if (fetchNamazMethodDb != null) {
+      return fetchNamazMethodDb(this);
     }
     return orElse();
   }
 }
 
-abstract class GetAutoDetetectLocationFromLocalStorage
-    implements NamazTimingEvent {
-  const factory GetAutoDetetectLocationFromLocalStorage() =
-      _$GetAutoDetetectLocationFromLocalStorage;
+abstract class FetchNamazMethodDb implements NamazTimingEvent {
+  const factory FetchNamazMethodDb() = _$FetchNamazMethodDb;
 }
 
 /// @nodoc
-abstract class _$$AddAutomaticSettingToLocalStorageCopyWith<$Res> {
-  factory _$$AddAutomaticSettingToLocalStorageCopyWith(
-          _$AddAutomaticSettingToLocalStorage value,
-          $Res Function(_$AddAutomaticSettingToLocalStorage) then) =
-      __$$AddAutomaticSettingToLocalStorageCopyWithImpl<$Res>;
-  @useResult
-  $Res call({bool value});
+abstract class _$$AddNamazMethodDbCopyWith<$Res> {
+  factory _$$AddNamazMethodDbCopyWith(
+          _$AddNamazMethodDb value, $Res Function(_$AddNamazMethodDb) then) =
+      __$$AddNamazMethodDbCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$AddAutomaticSettingToLocalStorageCopyWithImpl<$Res>
-    extends _$NamazTimingEventCopyWithImpl<$Res,
-        _$AddAutomaticSettingToLocalStorage>
-    implements _$$AddAutomaticSettingToLocalStorageCopyWith<$Res> {
-  __$$AddAutomaticSettingToLocalStorageCopyWithImpl(
-      _$AddAutomaticSettingToLocalStorage _value,
-      $Res Function(_$AddAutomaticSettingToLocalStorage) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? value = null,
-  }) {
-    return _then(_$AddAutomaticSettingToLocalStorage(
-      value: null == value
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$AddAutomaticSettingToLocalStorage
-    implements AddAutomaticSettingToLocalStorage {
-  const _$AddAutomaticSettingToLocalStorage({required this.value});
-
-  @override
-  final bool value;
-
-  @override
-  String toString() {
-    return 'NamazTimingEvent.addAutomaticSettingToLocalStorage(value: $value)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$AddAutomaticSettingToLocalStorage &&
-            (identical(other.value, value) || other.value == value));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, value);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$AddAutomaticSettingToLocalStorageCopyWith<
-          _$AddAutomaticSettingToLocalStorage>
-      get copyWith => __$$AddAutomaticSettingToLocalStorageCopyWithImpl<
-          _$AddAutomaticSettingToLocalStorage>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(BuildContext context) fetchPrayerTiming,
-    required TResult Function() prayerTimingEvent,
-    required TResult Function() changeArtCalcMethod,
-    required TResult Function() fetchNamazMethods,
-    required TResult Function(int method, BuildContext context)
-        changeNamazMehods,
-    required TResult Function(int school, BuildContext context)
-        changeSchoolEvent,
-    required TResult Function(int numValue, BuildContext context)
-        changeHighLatitudeMethod,
-    required TResult Function() changeLangLongtoAddress,
-    required TResult Function(int index) onNotiyOnOffEvent,
-    required TResult Function(int index) changeIndex,
-    required TResult Function(bool value) addAutoDetectValToLocalStorage,
-    required TResult Function() getAutoDetetectLocationFromLocalStorage,
-    required TResult Function(bool value) addAutomaticSettingToLocalStorage,
-    required TResult Function() getAutomaticSettingsFromLocalStorage,
-    required TResult Function(bool value) addShowimsakValToLocalStorage,
-    required TResult Function() getShowimskValFromLocalStorage,
-    required TResult Function(int value) addCalculationMethodToLocalStorage,
-    required TResult Function() getCalculationMethodFromStorage,
-    required TResult Function(int value) addAsrCalculationMethodToLocalStorage,
-    required TResult Function() getAsrCalculationMethodFromStorage,
-    required TResult Function(int value) addHighLatitudeMethodsToLocalStorage,
-    required TResult Function() getHighLatitudeMethodsToLocalStorage,
-    required TResult Function() fetchNamazTimingNotificationsFromLocalStorage,
-  }) {
-    return addAutomaticSettingToLocalStorage(value);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(BuildContext context)? fetchPrayerTiming,
-    TResult? Function()? prayerTimingEvent,
-    TResult? Function()? changeArtCalcMethod,
-    TResult? Function()? fetchNamazMethods,
-    TResult? Function(int method, BuildContext context)? changeNamazMehods,
-    TResult? Function(int school, BuildContext context)? changeSchoolEvent,
-    TResult? Function(int numValue, BuildContext context)?
-        changeHighLatitudeMethod,
-    TResult? Function()? changeLangLongtoAddress,
-    TResult? Function(int index)? onNotiyOnOffEvent,
-    TResult? Function(int index)? changeIndex,
-    TResult? Function(bool value)? addAutoDetectValToLocalStorage,
-    TResult? Function()? getAutoDetetectLocationFromLocalStorage,
-    TResult? Function(bool value)? addAutomaticSettingToLocalStorage,
-    TResult? Function()? getAutomaticSettingsFromLocalStorage,
-    TResult? Function(bool value)? addShowimsakValToLocalStorage,
-    TResult? Function()? getShowimskValFromLocalStorage,
-    TResult? Function(int value)? addCalculationMethodToLocalStorage,
-    TResult? Function()? getCalculationMethodFromStorage,
-    TResult? Function(int value)? addAsrCalculationMethodToLocalStorage,
-    TResult? Function()? getAsrCalculationMethodFromStorage,
-    TResult? Function(int value)? addHighLatitudeMethodsToLocalStorage,
-    TResult? Function()? getHighLatitudeMethodsToLocalStorage,
-    TResult? Function()? fetchNamazTimingNotificationsFromLocalStorage,
-  }) {
-    return addAutomaticSettingToLocalStorage?.call(value);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(BuildContext context)? fetchPrayerTiming,
-    TResult Function()? prayerTimingEvent,
-    TResult Function()? changeArtCalcMethod,
-    TResult Function()? fetchNamazMethods,
-    TResult Function(int method, BuildContext context)? changeNamazMehods,
-    TResult Function(int school, BuildContext context)? changeSchoolEvent,
-    TResult Function(int numValue, BuildContext context)?
-        changeHighLatitudeMethod,
-    TResult Function()? changeLangLongtoAddress,
-    TResult Function(int index)? onNotiyOnOffEvent,
-    TResult Function(int index)? changeIndex,
-    TResult Function(bool value)? addAutoDetectValToLocalStorage,
-    TResult Function()? getAutoDetetectLocationFromLocalStorage,
-    TResult Function(bool value)? addAutomaticSettingToLocalStorage,
-    TResult Function()? getAutomaticSettingsFromLocalStorage,
-    TResult Function(bool value)? addShowimsakValToLocalStorage,
-    TResult Function()? getShowimskValFromLocalStorage,
-    TResult Function(int value)? addCalculationMethodToLocalStorage,
-    TResult Function()? getCalculationMethodFromStorage,
-    TResult Function(int value)? addAsrCalculationMethodToLocalStorage,
-    TResult Function()? getAsrCalculationMethodFromStorage,
-    TResult Function(int value)? addHighLatitudeMethodsToLocalStorage,
-    TResult Function()? getHighLatitudeMethodsToLocalStorage,
-    TResult Function()? fetchNamazTimingNotificationsFromLocalStorage,
-    required TResult orElse(),
-  }) {
-    if (addAutomaticSettingToLocalStorage != null) {
-      return addAutomaticSettingToLocalStorage(value);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(FetchPrayerTiming value) fetchPrayerTiming,
-    required TResult Function(PrayerTimingEvent value) prayerTimingEvent,
-    required TResult Function(ChangeArtCalcMethod value) changeArtCalcMethod,
-    required TResult Function(FetchNamazMethods value) fetchNamazMethods,
-    required TResult Function(ChangeNamazMethods value) changeNamazMehods,
-    required TResult Function(ChangeSchoolEvent value) changeSchoolEvent,
-    required TResult Function(ChangeHighLatitudeMethod value)
-        changeHighLatitudeMethod,
-    required TResult Function(ChangeLangLongtoAddress value)
-        changeLangLongtoAddress,
-    required TResult Function(OnNotiyOnOffEvent value) onNotiyOnOffEvent,
-    required TResult Function(ChangeIndex value) changeIndex,
-    required TResult Function(AddAutoDetectValToLocalStorage value)
-        addAutoDetectValToLocalStorage,
-    required TResult Function(GetAutoDetetectLocationFromLocalStorage value)
-        getAutoDetetectLocationFromLocalStorage,
-    required TResult Function(AddAutomaticSettingToLocalStorage value)
-        addAutomaticSettingToLocalStorage,
-    required TResult Function(GetAutomaticSettingsFromLocalStorage value)
-        getAutomaticSettingsFromLocalStorage,
-    required TResult Function(AddShowimsakValToLocalStorage value)
-        addShowimsakValToLocalStorage,
-    required TResult Function(GetShowimskValFromLocalStorage value)
-        getShowimskValFromLocalStorage,
-    required TResult Function(AddCalculationMethodToLocalStorage value)
-        addCalculationMethodToLocalStorage,
-    required TResult Function(GetCalculationMethodFromStorage value)
-        getCalculationMethodFromStorage,
-    required TResult Function(AddAsrCalculationMethodToLocalStorage value)
-        addAsrCalculationMethodToLocalStorage,
-    required TResult Function(GetAsrCalculationMethodFromStorage value)
-        getAsrCalculationMethodFromStorage,
-    required TResult Function(AddHighLatitudeMethodsToLocalStorage value)
-        addHighLatitudeMethodsToLocalStorage,
-    required TResult Function(GetHighLatitudeMethodsToLocalStorage value)
-        getHighLatitudeMethodsToLocalStorage,
-    required TResult Function(
-            FetchNamazTimingNotificationsFromLocalStorage value)
-        fetchNamazTimingNotificationsFromLocalStorage,
-  }) {
-    return addAutomaticSettingToLocalStorage(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(FetchPrayerTiming value)? fetchPrayerTiming,
-    TResult? Function(PrayerTimingEvent value)? prayerTimingEvent,
-    TResult? Function(ChangeArtCalcMethod value)? changeArtCalcMethod,
-    TResult? Function(FetchNamazMethods value)? fetchNamazMethods,
-    TResult? Function(ChangeNamazMethods value)? changeNamazMehods,
-    TResult? Function(ChangeSchoolEvent value)? changeSchoolEvent,
-    TResult? Function(ChangeHighLatitudeMethod value)? changeHighLatitudeMethod,
-    TResult? Function(ChangeLangLongtoAddress value)? changeLangLongtoAddress,
-    TResult? Function(OnNotiyOnOffEvent value)? onNotiyOnOffEvent,
-    TResult? Function(ChangeIndex value)? changeIndex,
-    TResult? Function(AddAutoDetectValToLocalStorage value)?
-        addAutoDetectValToLocalStorage,
-    TResult? Function(GetAutoDetetectLocationFromLocalStorage value)?
-        getAutoDetetectLocationFromLocalStorage,
-    TResult? Function(AddAutomaticSettingToLocalStorage value)?
-        addAutomaticSettingToLocalStorage,
-    TResult? Function(GetAutomaticSettingsFromLocalStorage value)?
-        getAutomaticSettingsFromLocalStorage,
-    TResult? Function(AddShowimsakValToLocalStorage value)?
-        addShowimsakValToLocalStorage,
-    TResult? Function(GetShowimskValFromLocalStorage value)?
-        getShowimskValFromLocalStorage,
-    TResult? Function(AddCalculationMethodToLocalStorage value)?
-        addCalculationMethodToLocalStorage,
-    TResult? Function(GetCalculationMethodFromStorage value)?
-        getCalculationMethodFromStorage,
-    TResult? Function(AddAsrCalculationMethodToLocalStorage value)?
-        addAsrCalculationMethodToLocalStorage,
-    TResult? Function(GetAsrCalculationMethodFromStorage value)?
-        getAsrCalculationMethodFromStorage,
-    TResult? Function(AddHighLatitudeMethodsToLocalStorage value)?
-        addHighLatitudeMethodsToLocalStorage,
-    TResult? Function(GetHighLatitudeMethodsToLocalStorage value)?
-        getHighLatitudeMethodsToLocalStorage,
-    TResult? Function(FetchNamazTimingNotificationsFromLocalStorage value)?
-        fetchNamazTimingNotificationsFromLocalStorage,
-  }) {
-    return addAutomaticSettingToLocalStorage?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(FetchPrayerTiming value)? fetchPrayerTiming,
-    TResult Function(PrayerTimingEvent value)? prayerTimingEvent,
-    TResult Function(ChangeArtCalcMethod value)? changeArtCalcMethod,
-    TResult Function(FetchNamazMethods value)? fetchNamazMethods,
-    TResult Function(ChangeNamazMethods value)? changeNamazMehods,
-    TResult Function(ChangeSchoolEvent value)? changeSchoolEvent,
-    TResult Function(ChangeHighLatitudeMethod value)? changeHighLatitudeMethod,
-    TResult Function(ChangeLangLongtoAddress value)? changeLangLongtoAddress,
-    TResult Function(OnNotiyOnOffEvent value)? onNotiyOnOffEvent,
-    TResult Function(ChangeIndex value)? changeIndex,
-    TResult Function(AddAutoDetectValToLocalStorage value)?
-        addAutoDetectValToLocalStorage,
-    TResult Function(GetAutoDetetectLocationFromLocalStorage value)?
-        getAutoDetetectLocationFromLocalStorage,
-    TResult Function(AddAutomaticSettingToLocalStorage value)?
-        addAutomaticSettingToLocalStorage,
-    TResult Function(GetAutomaticSettingsFromLocalStorage value)?
-        getAutomaticSettingsFromLocalStorage,
-    TResult Function(AddShowimsakValToLocalStorage value)?
-        addShowimsakValToLocalStorage,
-    TResult Function(GetShowimskValFromLocalStorage value)?
-        getShowimskValFromLocalStorage,
-    TResult Function(AddCalculationMethodToLocalStorage value)?
-        addCalculationMethodToLocalStorage,
-    TResult Function(GetCalculationMethodFromStorage value)?
-        getCalculationMethodFromStorage,
-    TResult Function(AddAsrCalculationMethodToLocalStorage value)?
-        addAsrCalculationMethodToLocalStorage,
-    TResult Function(GetAsrCalculationMethodFromStorage value)?
-        getAsrCalculationMethodFromStorage,
-    TResult Function(AddHighLatitudeMethodsToLocalStorage value)?
-        addHighLatitudeMethodsToLocalStorage,
-    TResult Function(GetHighLatitudeMethodsToLocalStorage value)?
-        getHighLatitudeMethodsToLocalStorage,
-    TResult Function(FetchNamazTimingNotificationsFromLocalStorage value)?
-        fetchNamazTimingNotificationsFromLocalStorage,
-    required TResult orElse(),
-  }) {
-    if (addAutomaticSettingToLocalStorage != null) {
-      return addAutomaticSettingToLocalStorage(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class AddAutomaticSettingToLocalStorage implements NamazTimingEvent {
-  const factory AddAutomaticSettingToLocalStorage({required final bool value}) =
-      _$AddAutomaticSettingToLocalStorage;
-
-  bool get value;
-  @JsonKey(ignore: true)
-  _$$AddAutomaticSettingToLocalStorageCopyWith<
-          _$AddAutomaticSettingToLocalStorage>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$GetAutomaticSettingsFromLocalStorageCopyWith<$Res> {
-  factory _$$GetAutomaticSettingsFromLocalStorageCopyWith(
-          _$GetAutomaticSettingsFromLocalStorage value,
-          $Res Function(_$GetAutomaticSettingsFromLocalStorage) then) =
-      __$$GetAutomaticSettingsFromLocalStorageCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$GetAutomaticSettingsFromLocalStorageCopyWithImpl<$Res>
-    extends _$NamazTimingEventCopyWithImpl<$Res,
-        _$GetAutomaticSettingsFromLocalStorage>
-    implements _$$GetAutomaticSettingsFromLocalStorageCopyWith<$Res> {
-  __$$GetAutomaticSettingsFromLocalStorageCopyWithImpl(
-      _$GetAutomaticSettingsFromLocalStorage _value,
-      $Res Function(_$GetAutomaticSettingsFromLocalStorage) _then)
+class __$$AddNamazMethodDbCopyWithImpl<$Res>
+    extends _$NamazTimingEventCopyWithImpl<$Res, _$AddNamazMethodDb>
+    implements _$$AddNamazMethodDbCopyWith<$Res> {
+  __$$AddNamazMethodDbCopyWithImpl(
+      _$AddNamazMethodDb _value, $Res Function(_$AddNamazMethodDb) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$GetAutomaticSettingsFromLocalStorage
-    implements GetAutomaticSettingsFromLocalStorage {
-  const _$GetAutomaticSettingsFromLocalStorage();
+class _$AddNamazMethodDb implements AddNamazMethodDb {
+  const _$AddNamazMethodDb();
 
   @override
   String toString() {
-    return 'NamazTimingEvent.getAutomaticSettingsFromLocalStorage()';
+    return 'NamazTimingEvent.addNamazMethodDb()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$GetAutomaticSettingsFromLocalStorage);
+        (other.runtimeType == runtimeType && other is _$AddNamazMethodDb);
   }
 
   @override
@@ -4177,6 +2514,7 @@ class _$GetAutomaticSettingsFromLocalStorage
   TResult when<TResult extends Object?>({
     required TResult Function(BuildContext context) fetchPrayerTiming,
     required TResult Function() prayerTimingEvent,
+    required TResult Function() showImsakEvent,
     required TResult Function() changeArtCalcMethod,
     required TResult Function() fetchNamazMethods,
     required TResult Function(int method, BuildContext context)
@@ -4188,21 +2526,10 @@ class _$GetAutomaticSettingsFromLocalStorage
     required TResult Function() changeLangLongtoAddress,
     required TResult Function(int index) onNotiyOnOffEvent,
     required TResult Function(int index) changeIndex,
-    required TResult Function(bool value) addAutoDetectValToLocalStorage,
-    required TResult Function() getAutoDetetectLocationFromLocalStorage,
-    required TResult Function(bool value) addAutomaticSettingToLocalStorage,
-    required TResult Function() getAutomaticSettingsFromLocalStorage,
-    required TResult Function(bool value) addShowimsakValToLocalStorage,
-    required TResult Function() getShowimskValFromLocalStorage,
-    required TResult Function(int value) addCalculationMethodToLocalStorage,
-    required TResult Function() getCalculationMethodFromStorage,
-    required TResult Function(int value) addAsrCalculationMethodToLocalStorage,
-    required TResult Function() getAsrCalculationMethodFromStorage,
-    required TResult Function(int value) addHighLatitudeMethodsToLocalStorage,
-    required TResult Function() getHighLatitudeMethodsToLocalStorage,
-    required TResult Function() fetchNamazTimingNotificationsFromLocalStorage,
+    required TResult Function() fetchNamazMethodDb,
+    required TResult Function() addNamazMethodDb,
   }) {
-    return getAutomaticSettingsFromLocalStorage();
+    return addNamazMethodDb();
   }
 
   @override
@@ -4210,6 +2537,7 @@ class _$GetAutomaticSettingsFromLocalStorage
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(BuildContext context)? fetchPrayerTiming,
     TResult? Function()? prayerTimingEvent,
+    TResult? Function()? showImsakEvent,
     TResult? Function()? changeArtCalcMethod,
     TResult? Function()? fetchNamazMethods,
     TResult? Function(int method, BuildContext context)? changeNamazMehods,
@@ -4219,21 +2547,10 @@ class _$GetAutomaticSettingsFromLocalStorage
     TResult? Function()? changeLangLongtoAddress,
     TResult? Function(int index)? onNotiyOnOffEvent,
     TResult? Function(int index)? changeIndex,
-    TResult? Function(bool value)? addAutoDetectValToLocalStorage,
-    TResult? Function()? getAutoDetetectLocationFromLocalStorage,
-    TResult? Function(bool value)? addAutomaticSettingToLocalStorage,
-    TResult? Function()? getAutomaticSettingsFromLocalStorage,
-    TResult? Function(bool value)? addShowimsakValToLocalStorage,
-    TResult? Function()? getShowimskValFromLocalStorage,
-    TResult? Function(int value)? addCalculationMethodToLocalStorage,
-    TResult? Function()? getCalculationMethodFromStorage,
-    TResult? Function(int value)? addAsrCalculationMethodToLocalStorage,
-    TResult? Function()? getAsrCalculationMethodFromStorage,
-    TResult? Function(int value)? addHighLatitudeMethodsToLocalStorage,
-    TResult? Function()? getHighLatitudeMethodsToLocalStorage,
-    TResult? Function()? fetchNamazTimingNotificationsFromLocalStorage,
+    TResult? Function()? fetchNamazMethodDb,
+    TResult? Function()? addNamazMethodDb,
   }) {
-    return getAutomaticSettingsFromLocalStorage?.call();
+    return addNamazMethodDb?.call();
   }
 
   @override
@@ -4241,6 +2558,7 @@ class _$GetAutomaticSettingsFromLocalStorage
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(BuildContext context)? fetchPrayerTiming,
     TResult Function()? prayerTimingEvent,
+    TResult Function()? showImsakEvent,
     TResult Function()? changeArtCalcMethod,
     TResult Function()? fetchNamazMethods,
     TResult Function(int method, BuildContext context)? changeNamazMehods,
@@ -4250,23 +2568,12 @@ class _$GetAutomaticSettingsFromLocalStorage
     TResult Function()? changeLangLongtoAddress,
     TResult Function(int index)? onNotiyOnOffEvent,
     TResult Function(int index)? changeIndex,
-    TResult Function(bool value)? addAutoDetectValToLocalStorage,
-    TResult Function()? getAutoDetetectLocationFromLocalStorage,
-    TResult Function(bool value)? addAutomaticSettingToLocalStorage,
-    TResult Function()? getAutomaticSettingsFromLocalStorage,
-    TResult Function(bool value)? addShowimsakValToLocalStorage,
-    TResult Function()? getShowimskValFromLocalStorage,
-    TResult Function(int value)? addCalculationMethodToLocalStorage,
-    TResult Function()? getCalculationMethodFromStorage,
-    TResult Function(int value)? addAsrCalculationMethodToLocalStorage,
-    TResult Function()? getAsrCalculationMethodFromStorage,
-    TResult Function(int value)? addHighLatitudeMethodsToLocalStorage,
-    TResult Function()? getHighLatitudeMethodsToLocalStorage,
-    TResult Function()? fetchNamazTimingNotificationsFromLocalStorage,
+    TResult Function()? fetchNamazMethodDb,
+    TResult Function()? addNamazMethodDb,
     required TResult orElse(),
   }) {
-    if (getAutomaticSettingsFromLocalStorage != null) {
-      return getAutomaticSettingsFromLocalStorage();
+    if (addNamazMethodDb != null) {
+      return addNamazMethodDb();
     }
     return orElse();
   }
@@ -4276,6 +2583,7 @@ class _$GetAutomaticSettingsFromLocalStorage
   TResult map<TResult extends Object?>({
     required TResult Function(FetchPrayerTiming value) fetchPrayerTiming,
     required TResult Function(PrayerTimingEvent value) prayerTimingEvent,
+    required TResult Function(ShowImsakEvent value) showImsakEvent,
     required TResult Function(ChangeArtCalcMethod value) changeArtCalcMethod,
     required TResult Function(FetchNamazMethods value) fetchNamazMethods,
     required TResult Function(ChangeNamazMethods value) changeNamazMehods,
@@ -4286,35 +2594,10 @@ class _$GetAutomaticSettingsFromLocalStorage
         changeLangLongtoAddress,
     required TResult Function(OnNotiyOnOffEvent value) onNotiyOnOffEvent,
     required TResult Function(ChangeIndex value) changeIndex,
-    required TResult Function(AddAutoDetectValToLocalStorage value)
-        addAutoDetectValToLocalStorage,
-    required TResult Function(GetAutoDetetectLocationFromLocalStorage value)
-        getAutoDetetectLocationFromLocalStorage,
-    required TResult Function(AddAutomaticSettingToLocalStorage value)
-        addAutomaticSettingToLocalStorage,
-    required TResult Function(GetAutomaticSettingsFromLocalStorage value)
-        getAutomaticSettingsFromLocalStorage,
-    required TResult Function(AddShowimsakValToLocalStorage value)
-        addShowimsakValToLocalStorage,
-    required TResult Function(GetShowimskValFromLocalStorage value)
-        getShowimskValFromLocalStorage,
-    required TResult Function(AddCalculationMethodToLocalStorage value)
-        addCalculationMethodToLocalStorage,
-    required TResult Function(GetCalculationMethodFromStorage value)
-        getCalculationMethodFromStorage,
-    required TResult Function(AddAsrCalculationMethodToLocalStorage value)
-        addAsrCalculationMethodToLocalStorage,
-    required TResult Function(GetAsrCalculationMethodFromStorage value)
-        getAsrCalculationMethodFromStorage,
-    required TResult Function(AddHighLatitudeMethodsToLocalStorage value)
-        addHighLatitudeMethodsToLocalStorage,
-    required TResult Function(GetHighLatitudeMethodsToLocalStorage value)
-        getHighLatitudeMethodsToLocalStorage,
-    required TResult Function(
-            FetchNamazTimingNotificationsFromLocalStorage value)
-        fetchNamazTimingNotificationsFromLocalStorage,
+    required TResult Function(FetchNamazMethodDb value) fetchNamazMethodDb,
+    required TResult Function(AddNamazMethodDb value) addNamazMethodDb,
   }) {
-    return getAutomaticSettingsFromLocalStorage(this);
+    return addNamazMethodDb(this);
   }
 
   @override
@@ -4322,6 +2605,7 @@ class _$GetAutomaticSettingsFromLocalStorage
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(FetchPrayerTiming value)? fetchPrayerTiming,
     TResult? Function(PrayerTimingEvent value)? prayerTimingEvent,
+    TResult? Function(ShowImsakEvent value)? showImsakEvent,
     TResult? Function(ChangeArtCalcMethod value)? changeArtCalcMethod,
     TResult? Function(FetchNamazMethods value)? fetchNamazMethods,
     TResult? Function(ChangeNamazMethods value)? changeNamazMehods,
@@ -4330,34 +2614,10 @@ class _$GetAutomaticSettingsFromLocalStorage
     TResult? Function(ChangeLangLongtoAddress value)? changeLangLongtoAddress,
     TResult? Function(OnNotiyOnOffEvent value)? onNotiyOnOffEvent,
     TResult? Function(ChangeIndex value)? changeIndex,
-    TResult? Function(AddAutoDetectValToLocalStorage value)?
-        addAutoDetectValToLocalStorage,
-    TResult? Function(GetAutoDetetectLocationFromLocalStorage value)?
-        getAutoDetetectLocationFromLocalStorage,
-    TResult? Function(AddAutomaticSettingToLocalStorage value)?
-        addAutomaticSettingToLocalStorage,
-    TResult? Function(GetAutomaticSettingsFromLocalStorage value)?
-        getAutomaticSettingsFromLocalStorage,
-    TResult? Function(AddShowimsakValToLocalStorage value)?
-        addShowimsakValToLocalStorage,
-    TResult? Function(GetShowimskValFromLocalStorage value)?
-        getShowimskValFromLocalStorage,
-    TResult? Function(AddCalculationMethodToLocalStorage value)?
-        addCalculationMethodToLocalStorage,
-    TResult? Function(GetCalculationMethodFromStorage value)?
-        getCalculationMethodFromStorage,
-    TResult? Function(AddAsrCalculationMethodToLocalStorage value)?
-        addAsrCalculationMethodToLocalStorage,
-    TResult? Function(GetAsrCalculationMethodFromStorage value)?
-        getAsrCalculationMethodFromStorage,
-    TResult? Function(AddHighLatitudeMethodsToLocalStorage value)?
-        addHighLatitudeMethodsToLocalStorage,
-    TResult? Function(GetHighLatitudeMethodsToLocalStorage value)?
-        getHighLatitudeMethodsToLocalStorage,
-    TResult? Function(FetchNamazTimingNotificationsFromLocalStorage value)?
-        fetchNamazTimingNotificationsFromLocalStorage,
+    TResult? Function(FetchNamazMethodDb value)? fetchNamazMethodDb,
+    TResult? Function(AddNamazMethodDb value)? addNamazMethodDb,
   }) {
-    return getAutomaticSettingsFromLocalStorage?.call(this);
+    return addNamazMethodDb?.call(this);
   }
 
   @override
@@ -4365,6 +2625,7 @@ class _$GetAutomaticSettingsFromLocalStorage
   TResult maybeMap<TResult extends Object?>({
     TResult Function(FetchPrayerTiming value)? fetchPrayerTiming,
     TResult Function(PrayerTimingEvent value)? prayerTimingEvent,
+    TResult Function(ShowImsakEvent value)? showImsakEvent,
     TResult Function(ChangeArtCalcMethod value)? changeArtCalcMethod,
     TResult Function(FetchNamazMethods value)? fetchNamazMethods,
     TResult Function(ChangeNamazMethods value)? changeNamazMehods,
@@ -4373,2707 +2634,19 @@ class _$GetAutomaticSettingsFromLocalStorage
     TResult Function(ChangeLangLongtoAddress value)? changeLangLongtoAddress,
     TResult Function(OnNotiyOnOffEvent value)? onNotiyOnOffEvent,
     TResult Function(ChangeIndex value)? changeIndex,
-    TResult Function(AddAutoDetectValToLocalStorage value)?
-        addAutoDetectValToLocalStorage,
-    TResult Function(GetAutoDetetectLocationFromLocalStorage value)?
-        getAutoDetetectLocationFromLocalStorage,
-    TResult Function(AddAutomaticSettingToLocalStorage value)?
-        addAutomaticSettingToLocalStorage,
-    TResult Function(GetAutomaticSettingsFromLocalStorage value)?
-        getAutomaticSettingsFromLocalStorage,
-    TResult Function(AddShowimsakValToLocalStorage value)?
-        addShowimsakValToLocalStorage,
-    TResult Function(GetShowimskValFromLocalStorage value)?
-        getShowimskValFromLocalStorage,
-    TResult Function(AddCalculationMethodToLocalStorage value)?
-        addCalculationMethodToLocalStorage,
-    TResult Function(GetCalculationMethodFromStorage value)?
-        getCalculationMethodFromStorage,
-    TResult Function(AddAsrCalculationMethodToLocalStorage value)?
-        addAsrCalculationMethodToLocalStorage,
-    TResult Function(GetAsrCalculationMethodFromStorage value)?
-        getAsrCalculationMethodFromStorage,
-    TResult Function(AddHighLatitudeMethodsToLocalStorage value)?
-        addHighLatitudeMethodsToLocalStorage,
-    TResult Function(GetHighLatitudeMethodsToLocalStorage value)?
-        getHighLatitudeMethodsToLocalStorage,
-    TResult Function(FetchNamazTimingNotificationsFromLocalStorage value)?
-        fetchNamazTimingNotificationsFromLocalStorage,
+    TResult Function(FetchNamazMethodDb value)? fetchNamazMethodDb,
+    TResult Function(AddNamazMethodDb value)? addNamazMethodDb,
     required TResult orElse(),
   }) {
-    if (getAutomaticSettingsFromLocalStorage != null) {
-      return getAutomaticSettingsFromLocalStorage(this);
+    if (addNamazMethodDb != null) {
+      return addNamazMethodDb(this);
     }
     return orElse();
   }
 }
 
-abstract class GetAutomaticSettingsFromLocalStorage
-    implements NamazTimingEvent {
-  const factory GetAutomaticSettingsFromLocalStorage() =
-      _$GetAutomaticSettingsFromLocalStorage;
-}
-
-/// @nodoc
-abstract class _$$AddShowimsakValToLocalStorageCopyWith<$Res> {
-  factory _$$AddShowimsakValToLocalStorageCopyWith(
-          _$AddShowimsakValToLocalStorage value,
-          $Res Function(_$AddShowimsakValToLocalStorage) then) =
-      __$$AddShowimsakValToLocalStorageCopyWithImpl<$Res>;
-  @useResult
-  $Res call({bool value});
-}
-
-/// @nodoc
-class __$$AddShowimsakValToLocalStorageCopyWithImpl<$Res>
-    extends _$NamazTimingEventCopyWithImpl<$Res,
-        _$AddShowimsakValToLocalStorage>
-    implements _$$AddShowimsakValToLocalStorageCopyWith<$Res> {
-  __$$AddShowimsakValToLocalStorageCopyWithImpl(
-      _$AddShowimsakValToLocalStorage _value,
-      $Res Function(_$AddShowimsakValToLocalStorage) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? value = null,
-  }) {
-    return _then(_$AddShowimsakValToLocalStorage(
-      value: null == value
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$AddShowimsakValToLocalStorage implements AddShowimsakValToLocalStorage {
-  const _$AddShowimsakValToLocalStorage({required this.value});
-
-  @override
-  final bool value;
-
-  @override
-  String toString() {
-    return 'NamazTimingEvent.addShowimsakValToLocalStorage(value: $value)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$AddShowimsakValToLocalStorage &&
-            (identical(other.value, value) || other.value == value));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, value);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$AddShowimsakValToLocalStorageCopyWith<_$AddShowimsakValToLocalStorage>
-      get copyWith => __$$AddShowimsakValToLocalStorageCopyWithImpl<
-          _$AddShowimsakValToLocalStorage>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(BuildContext context) fetchPrayerTiming,
-    required TResult Function() prayerTimingEvent,
-    required TResult Function() changeArtCalcMethod,
-    required TResult Function() fetchNamazMethods,
-    required TResult Function(int method, BuildContext context)
-        changeNamazMehods,
-    required TResult Function(int school, BuildContext context)
-        changeSchoolEvent,
-    required TResult Function(int numValue, BuildContext context)
-        changeHighLatitudeMethod,
-    required TResult Function() changeLangLongtoAddress,
-    required TResult Function(int index) onNotiyOnOffEvent,
-    required TResult Function(int index) changeIndex,
-    required TResult Function(bool value) addAutoDetectValToLocalStorage,
-    required TResult Function() getAutoDetetectLocationFromLocalStorage,
-    required TResult Function(bool value) addAutomaticSettingToLocalStorage,
-    required TResult Function() getAutomaticSettingsFromLocalStorage,
-    required TResult Function(bool value) addShowimsakValToLocalStorage,
-    required TResult Function() getShowimskValFromLocalStorage,
-    required TResult Function(int value) addCalculationMethodToLocalStorage,
-    required TResult Function() getCalculationMethodFromStorage,
-    required TResult Function(int value) addAsrCalculationMethodToLocalStorage,
-    required TResult Function() getAsrCalculationMethodFromStorage,
-    required TResult Function(int value) addHighLatitudeMethodsToLocalStorage,
-    required TResult Function() getHighLatitudeMethodsToLocalStorage,
-    required TResult Function() fetchNamazTimingNotificationsFromLocalStorage,
-  }) {
-    return addShowimsakValToLocalStorage(value);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(BuildContext context)? fetchPrayerTiming,
-    TResult? Function()? prayerTimingEvent,
-    TResult? Function()? changeArtCalcMethod,
-    TResult? Function()? fetchNamazMethods,
-    TResult? Function(int method, BuildContext context)? changeNamazMehods,
-    TResult? Function(int school, BuildContext context)? changeSchoolEvent,
-    TResult? Function(int numValue, BuildContext context)?
-        changeHighLatitudeMethod,
-    TResult? Function()? changeLangLongtoAddress,
-    TResult? Function(int index)? onNotiyOnOffEvent,
-    TResult? Function(int index)? changeIndex,
-    TResult? Function(bool value)? addAutoDetectValToLocalStorage,
-    TResult? Function()? getAutoDetetectLocationFromLocalStorage,
-    TResult? Function(bool value)? addAutomaticSettingToLocalStorage,
-    TResult? Function()? getAutomaticSettingsFromLocalStorage,
-    TResult? Function(bool value)? addShowimsakValToLocalStorage,
-    TResult? Function()? getShowimskValFromLocalStorage,
-    TResult? Function(int value)? addCalculationMethodToLocalStorage,
-    TResult? Function()? getCalculationMethodFromStorage,
-    TResult? Function(int value)? addAsrCalculationMethodToLocalStorage,
-    TResult? Function()? getAsrCalculationMethodFromStorage,
-    TResult? Function(int value)? addHighLatitudeMethodsToLocalStorage,
-    TResult? Function()? getHighLatitudeMethodsToLocalStorage,
-    TResult? Function()? fetchNamazTimingNotificationsFromLocalStorage,
-  }) {
-    return addShowimsakValToLocalStorage?.call(value);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(BuildContext context)? fetchPrayerTiming,
-    TResult Function()? prayerTimingEvent,
-    TResult Function()? changeArtCalcMethod,
-    TResult Function()? fetchNamazMethods,
-    TResult Function(int method, BuildContext context)? changeNamazMehods,
-    TResult Function(int school, BuildContext context)? changeSchoolEvent,
-    TResult Function(int numValue, BuildContext context)?
-        changeHighLatitudeMethod,
-    TResult Function()? changeLangLongtoAddress,
-    TResult Function(int index)? onNotiyOnOffEvent,
-    TResult Function(int index)? changeIndex,
-    TResult Function(bool value)? addAutoDetectValToLocalStorage,
-    TResult Function()? getAutoDetetectLocationFromLocalStorage,
-    TResult Function(bool value)? addAutomaticSettingToLocalStorage,
-    TResult Function()? getAutomaticSettingsFromLocalStorage,
-    TResult Function(bool value)? addShowimsakValToLocalStorage,
-    TResult Function()? getShowimskValFromLocalStorage,
-    TResult Function(int value)? addCalculationMethodToLocalStorage,
-    TResult Function()? getCalculationMethodFromStorage,
-    TResult Function(int value)? addAsrCalculationMethodToLocalStorage,
-    TResult Function()? getAsrCalculationMethodFromStorage,
-    TResult Function(int value)? addHighLatitudeMethodsToLocalStorage,
-    TResult Function()? getHighLatitudeMethodsToLocalStorage,
-    TResult Function()? fetchNamazTimingNotificationsFromLocalStorage,
-    required TResult orElse(),
-  }) {
-    if (addShowimsakValToLocalStorage != null) {
-      return addShowimsakValToLocalStorage(value);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(FetchPrayerTiming value) fetchPrayerTiming,
-    required TResult Function(PrayerTimingEvent value) prayerTimingEvent,
-    required TResult Function(ChangeArtCalcMethod value) changeArtCalcMethod,
-    required TResult Function(FetchNamazMethods value) fetchNamazMethods,
-    required TResult Function(ChangeNamazMethods value) changeNamazMehods,
-    required TResult Function(ChangeSchoolEvent value) changeSchoolEvent,
-    required TResult Function(ChangeHighLatitudeMethod value)
-        changeHighLatitudeMethod,
-    required TResult Function(ChangeLangLongtoAddress value)
-        changeLangLongtoAddress,
-    required TResult Function(OnNotiyOnOffEvent value) onNotiyOnOffEvent,
-    required TResult Function(ChangeIndex value) changeIndex,
-    required TResult Function(AddAutoDetectValToLocalStorage value)
-        addAutoDetectValToLocalStorage,
-    required TResult Function(GetAutoDetetectLocationFromLocalStorage value)
-        getAutoDetetectLocationFromLocalStorage,
-    required TResult Function(AddAutomaticSettingToLocalStorage value)
-        addAutomaticSettingToLocalStorage,
-    required TResult Function(GetAutomaticSettingsFromLocalStorage value)
-        getAutomaticSettingsFromLocalStorage,
-    required TResult Function(AddShowimsakValToLocalStorage value)
-        addShowimsakValToLocalStorage,
-    required TResult Function(GetShowimskValFromLocalStorage value)
-        getShowimskValFromLocalStorage,
-    required TResult Function(AddCalculationMethodToLocalStorage value)
-        addCalculationMethodToLocalStorage,
-    required TResult Function(GetCalculationMethodFromStorage value)
-        getCalculationMethodFromStorage,
-    required TResult Function(AddAsrCalculationMethodToLocalStorage value)
-        addAsrCalculationMethodToLocalStorage,
-    required TResult Function(GetAsrCalculationMethodFromStorage value)
-        getAsrCalculationMethodFromStorage,
-    required TResult Function(AddHighLatitudeMethodsToLocalStorage value)
-        addHighLatitudeMethodsToLocalStorage,
-    required TResult Function(GetHighLatitudeMethodsToLocalStorage value)
-        getHighLatitudeMethodsToLocalStorage,
-    required TResult Function(
-            FetchNamazTimingNotificationsFromLocalStorage value)
-        fetchNamazTimingNotificationsFromLocalStorage,
-  }) {
-    return addShowimsakValToLocalStorage(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(FetchPrayerTiming value)? fetchPrayerTiming,
-    TResult? Function(PrayerTimingEvent value)? prayerTimingEvent,
-    TResult? Function(ChangeArtCalcMethod value)? changeArtCalcMethod,
-    TResult? Function(FetchNamazMethods value)? fetchNamazMethods,
-    TResult? Function(ChangeNamazMethods value)? changeNamazMehods,
-    TResult? Function(ChangeSchoolEvent value)? changeSchoolEvent,
-    TResult? Function(ChangeHighLatitudeMethod value)? changeHighLatitudeMethod,
-    TResult? Function(ChangeLangLongtoAddress value)? changeLangLongtoAddress,
-    TResult? Function(OnNotiyOnOffEvent value)? onNotiyOnOffEvent,
-    TResult? Function(ChangeIndex value)? changeIndex,
-    TResult? Function(AddAutoDetectValToLocalStorage value)?
-        addAutoDetectValToLocalStorage,
-    TResult? Function(GetAutoDetetectLocationFromLocalStorage value)?
-        getAutoDetetectLocationFromLocalStorage,
-    TResult? Function(AddAutomaticSettingToLocalStorage value)?
-        addAutomaticSettingToLocalStorage,
-    TResult? Function(GetAutomaticSettingsFromLocalStorage value)?
-        getAutomaticSettingsFromLocalStorage,
-    TResult? Function(AddShowimsakValToLocalStorage value)?
-        addShowimsakValToLocalStorage,
-    TResult? Function(GetShowimskValFromLocalStorage value)?
-        getShowimskValFromLocalStorage,
-    TResult? Function(AddCalculationMethodToLocalStorage value)?
-        addCalculationMethodToLocalStorage,
-    TResult? Function(GetCalculationMethodFromStorage value)?
-        getCalculationMethodFromStorage,
-    TResult? Function(AddAsrCalculationMethodToLocalStorage value)?
-        addAsrCalculationMethodToLocalStorage,
-    TResult? Function(GetAsrCalculationMethodFromStorage value)?
-        getAsrCalculationMethodFromStorage,
-    TResult? Function(AddHighLatitudeMethodsToLocalStorage value)?
-        addHighLatitudeMethodsToLocalStorage,
-    TResult? Function(GetHighLatitudeMethodsToLocalStorage value)?
-        getHighLatitudeMethodsToLocalStorage,
-    TResult? Function(FetchNamazTimingNotificationsFromLocalStorage value)?
-        fetchNamazTimingNotificationsFromLocalStorage,
-  }) {
-    return addShowimsakValToLocalStorage?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(FetchPrayerTiming value)? fetchPrayerTiming,
-    TResult Function(PrayerTimingEvent value)? prayerTimingEvent,
-    TResult Function(ChangeArtCalcMethod value)? changeArtCalcMethod,
-    TResult Function(FetchNamazMethods value)? fetchNamazMethods,
-    TResult Function(ChangeNamazMethods value)? changeNamazMehods,
-    TResult Function(ChangeSchoolEvent value)? changeSchoolEvent,
-    TResult Function(ChangeHighLatitudeMethod value)? changeHighLatitudeMethod,
-    TResult Function(ChangeLangLongtoAddress value)? changeLangLongtoAddress,
-    TResult Function(OnNotiyOnOffEvent value)? onNotiyOnOffEvent,
-    TResult Function(ChangeIndex value)? changeIndex,
-    TResult Function(AddAutoDetectValToLocalStorage value)?
-        addAutoDetectValToLocalStorage,
-    TResult Function(GetAutoDetetectLocationFromLocalStorage value)?
-        getAutoDetetectLocationFromLocalStorage,
-    TResult Function(AddAutomaticSettingToLocalStorage value)?
-        addAutomaticSettingToLocalStorage,
-    TResult Function(GetAutomaticSettingsFromLocalStorage value)?
-        getAutomaticSettingsFromLocalStorage,
-    TResult Function(AddShowimsakValToLocalStorage value)?
-        addShowimsakValToLocalStorage,
-    TResult Function(GetShowimskValFromLocalStorage value)?
-        getShowimskValFromLocalStorage,
-    TResult Function(AddCalculationMethodToLocalStorage value)?
-        addCalculationMethodToLocalStorage,
-    TResult Function(GetCalculationMethodFromStorage value)?
-        getCalculationMethodFromStorage,
-    TResult Function(AddAsrCalculationMethodToLocalStorage value)?
-        addAsrCalculationMethodToLocalStorage,
-    TResult Function(GetAsrCalculationMethodFromStorage value)?
-        getAsrCalculationMethodFromStorage,
-    TResult Function(AddHighLatitudeMethodsToLocalStorage value)?
-        addHighLatitudeMethodsToLocalStorage,
-    TResult Function(GetHighLatitudeMethodsToLocalStorage value)?
-        getHighLatitudeMethodsToLocalStorage,
-    TResult Function(FetchNamazTimingNotificationsFromLocalStorage value)?
-        fetchNamazTimingNotificationsFromLocalStorage,
-    required TResult orElse(),
-  }) {
-    if (addShowimsakValToLocalStorage != null) {
-      return addShowimsakValToLocalStorage(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class AddShowimsakValToLocalStorage implements NamazTimingEvent {
-  const factory AddShowimsakValToLocalStorage({required final bool value}) =
-      _$AddShowimsakValToLocalStorage;
-
-  bool get value;
-  @JsonKey(ignore: true)
-  _$$AddShowimsakValToLocalStorageCopyWith<_$AddShowimsakValToLocalStorage>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$GetShowimskValFromLocalStorageCopyWith<$Res> {
-  factory _$$GetShowimskValFromLocalStorageCopyWith(
-          _$GetShowimskValFromLocalStorage value,
-          $Res Function(_$GetShowimskValFromLocalStorage) then) =
-      __$$GetShowimskValFromLocalStorageCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$GetShowimskValFromLocalStorageCopyWithImpl<$Res>
-    extends _$NamazTimingEventCopyWithImpl<$Res,
-        _$GetShowimskValFromLocalStorage>
-    implements _$$GetShowimskValFromLocalStorageCopyWith<$Res> {
-  __$$GetShowimskValFromLocalStorageCopyWithImpl(
-      _$GetShowimskValFromLocalStorage _value,
-      $Res Function(_$GetShowimskValFromLocalStorage) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$GetShowimskValFromLocalStorage
-    implements GetShowimskValFromLocalStorage {
-  const _$GetShowimskValFromLocalStorage();
-
-  @override
-  String toString() {
-    return 'NamazTimingEvent.getShowimskValFromLocalStorage()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$GetShowimskValFromLocalStorage);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(BuildContext context) fetchPrayerTiming,
-    required TResult Function() prayerTimingEvent,
-    required TResult Function() changeArtCalcMethod,
-    required TResult Function() fetchNamazMethods,
-    required TResult Function(int method, BuildContext context)
-        changeNamazMehods,
-    required TResult Function(int school, BuildContext context)
-        changeSchoolEvent,
-    required TResult Function(int numValue, BuildContext context)
-        changeHighLatitudeMethod,
-    required TResult Function() changeLangLongtoAddress,
-    required TResult Function(int index) onNotiyOnOffEvent,
-    required TResult Function(int index) changeIndex,
-    required TResult Function(bool value) addAutoDetectValToLocalStorage,
-    required TResult Function() getAutoDetetectLocationFromLocalStorage,
-    required TResult Function(bool value) addAutomaticSettingToLocalStorage,
-    required TResult Function() getAutomaticSettingsFromLocalStorage,
-    required TResult Function(bool value) addShowimsakValToLocalStorage,
-    required TResult Function() getShowimskValFromLocalStorage,
-    required TResult Function(int value) addCalculationMethodToLocalStorage,
-    required TResult Function() getCalculationMethodFromStorage,
-    required TResult Function(int value) addAsrCalculationMethodToLocalStorage,
-    required TResult Function() getAsrCalculationMethodFromStorage,
-    required TResult Function(int value) addHighLatitudeMethodsToLocalStorage,
-    required TResult Function() getHighLatitudeMethodsToLocalStorage,
-    required TResult Function() fetchNamazTimingNotificationsFromLocalStorage,
-  }) {
-    return getShowimskValFromLocalStorage();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(BuildContext context)? fetchPrayerTiming,
-    TResult? Function()? prayerTimingEvent,
-    TResult? Function()? changeArtCalcMethod,
-    TResult? Function()? fetchNamazMethods,
-    TResult? Function(int method, BuildContext context)? changeNamazMehods,
-    TResult? Function(int school, BuildContext context)? changeSchoolEvent,
-    TResult? Function(int numValue, BuildContext context)?
-        changeHighLatitudeMethod,
-    TResult? Function()? changeLangLongtoAddress,
-    TResult? Function(int index)? onNotiyOnOffEvent,
-    TResult? Function(int index)? changeIndex,
-    TResult? Function(bool value)? addAutoDetectValToLocalStorage,
-    TResult? Function()? getAutoDetetectLocationFromLocalStorage,
-    TResult? Function(bool value)? addAutomaticSettingToLocalStorage,
-    TResult? Function()? getAutomaticSettingsFromLocalStorage,
-    TResult? Function(bool value)? addShowimsakValToLocalStorage,
-    TResult? Function()? getShowimskValFromLocalStorage,
-    TResult? Function(int value)? addCalculationMethodToLocalStorage,
-    TResult? Function()? getCalculationMethodFromStorage,
-    TResult? Function(int value)? addAsrCalculationMethodToLocalStorage,
-    TResult? Function()? getAsrCalculationMethodFromStorage,
-    TResult? Function(int value)? addHighLatitudeMethodsToLocalStorage,
-    TResult? Function()? getHighLatitudeMethodsToLocalStorage,
-    TResult? Function()? fetchNamazTimingNotificationsFromLocalStorage,
-  }) {
-    return getShowimskValFromLocalStorage?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(BuildContext context)? fetchPrayerTiming,
-    TResult Function()? prayerTimingEvent,
-    TResult Function()? changeArtCalcMethod,
-    TResult Function()? fetchNamazMethods,
-    TResult Function(int method, BuildContext context)? changeNamazMehods,
-    TResult Function(int school, BuildContext context)? changeSchoolEvent,
-    TResult Function(int numValue, BuildContext context)?
-        changeHighLatitudeMethod,
-    TResult Function()? changeLangLongtoAddress,
-    TResult Function(int index)? onNotiyOnOffEvent,
-    TResult Function(int index)? changeIndex,
-    TResult Function(bool value)? addAutoDetectValToLocalStorage,
-    TResult Function()? getAutoDetetectLocationFromLocalStorage,
-    TResult Function(bool value)? addAutomaticSettingToLocalStorage,
-    TResult Function()? getAutomaticSettingsFromLocalStorage,
-    TResult Function(bool value)? addShowimsakValToLocalStorage,
-    TResult Function()? getShowimskValFromLocalStorage,
-    TResult Function(int value)? addCalculationMethodToLocalStorage,
-    TResult Function()? getCalculationMethodFromStorage,
-    TResult Function(int value)? addAsrCalculationMethodToLocalStorage,
-    TResult Function()? getAsrCalculationMethodFromStorage,
-    TResult Function(int value)? addHighLatitudeMethodsToLocalStorage,
-    TResult Function()? getHighLatitudeMethodsToLocalStorage,
-    TResult Function()? fetchNamazTimingNotificationsFromLocalStorage,
-    required TResult orElse(),
-  }) {
-    if (getShowimskValFromLocalStorage != null) {
-      return getShowimskValFromLocalStorage();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(FetchPrayerTiming value) fetchPrayerTiming,
-    required TResult Function(PrayerTimingEvent value) prayerTimingEvent,
-    required TResult Function(ChangeArtCalcMethod value) changeArtCalcMethod,
-    required TResult Function(FetchNamazMethods value) fetchNamazMethods,
-    required TResult Function(ChangeNamazMethods value) changeNamazMehods,
-    required TResult Function(ChangeSchoolEvent value) changeSchoolEvent,
-    required TResult Function(ChangeHighLatitudeMethod value)
-        changeHighLatitudeMethod,
-    required TResult Function(ChangeLangLongtoAddress value)
-        changeLangLongtoAddress,
-    required TResult Function(OnNotiyOnOffEvent value) onNotiyOnOffEvent,
-    required TResult Function(ChangeIndex value) changeIndex,
-    required TResult Function(AddAutoDetectValToLocalStorage value)
-        addAutoDetectValToLocalStorage,
-    required TResult Function(GetAutoDetetectLocationFromLocalStorage value)
-        getAutoDetetectLocationFromLocalStorage,
-    required TResult Function(AddAutomaticSettingToLocalStorage value)
-        addAutomaticSettingToLocalStorage,
-    required TResult Function(GetAutomaticSettingsFromLocalStorage value)
-        getAutomaticSettingsFromLocalStorage,
-    required TResult Function(AddShowimsakValToLocalStorage value)
-        addShowimsakValToLocalStorage,
-    required TResult Function(GetShowimskValFromLocalStorage value)
-        getShowimskValFromLocalStorage,
-    required TResult Function(AddCalculationMethodToLocalStorage value)
-        addCalculationMethodToLocalStorage,
-    required TResult Function(GetCalculationMethodFromStorage value)
-        getCalculationMethodFromStorage,
-    required TResult Function(AddAsrCalculationMethodToLocalStorage value)
-        addAsrCalculationMethodToLocalStorage,
-    required TResult Function(GetAsrCalculationMethodFromStorage value)
-        getAsrCalculationMethodFromStorage,
-    required TResult Function(AddHighLatitudeMethodsToLocalStorage value)
-        addHighLatitudeMethodsToLocalStorage,
-    required TResult Function(GetHighLatitudeMethodsToLocalStorage value)
-        getHighLatitudeMethodsToLocalStorage,
-    required TResult Function(
-            FetchNamazTimingNotificationsFromLocalStorage value)
-        fetchNamazTimingNotificationsFromLocalStorage,
-  }) {
-    return getShowimskValFromLocalStorage(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(FetchPrayerTiming value)? fetchPrayerTiming,
-    TResult? Function(PrayerTimingEvent value)? prayerTimingEvent,
-    TResult? Function(ChangeArtCalcMethod value)? changeArtCalcMethod,
-    TResult? Function(FetchNamazMethods value)? fetchNamazMethods,
-    TResult? Function(ChangeNamazMethods value)? changeNamazMehods,
-    TResult? Function(ChangeSchoolEvent value)? changeSchoolEvent,
-    TResult? Function(ChangeHighLatitudeMethod value)? changeHighLatitudeMethod,
-    TResult? Function(ChangeLangLongtoAddress value)? changeLangLongtoAddress,
-    TResult? Function(OnNotiyOnOffEvent value)? onNotiyOnOffEvent,
-    TResult? Function(ChangeIndex value)? changeIndex,
-    TResult? Function(AddAutoDetectValToLocalStorage value)?
-        addAutoDetectValToLocalStorage,
-    TResult? Function(GetAutoDetetectLocationFromLocalStorage value)?
-        getAutoDetetectLocationFromLocalStorage,
-    TResult? Function(AddAutomaticSettingToLocalStorage value)?
-        addAutomaticSettingToLocalStorage,
-    TResult? Function(GetAutomaticSettingsFromLocalStorage value)?
-        getAutomaticSettingsFromLocalStorage,
-    TResult? Function(AddShowimsakValToLocalStorage value)?
-        addShowimsakValToLocalStorage,
-    TResult? Function(GetShowimskValFromLocalStorage value)?
-        getShowimskValFromLocalStorage,
-    TResult? Function(AddCalculationMethodToLocalStorage value)?
-        addCalculationMethodToLocalStorage,
-    TResult? Function(GetCalculationMethodFromStorage value)?
-        getCalculationMethodFromStorage,
-    TResult? Function(AddAsrCalculationMethodToLocalStorage value)?
-        addAsrCalculationMethodToLocalStorage,
-    TResult? Function(GetAsrCalculationMethodFromStorage value)?
-        getAsrCalculationMethodFromStorage,
-    TResult? Function(AddHighLatitudeMethodsToLocalStorage value)?
-        addHighLatitudeMethodsToLocalStorage,
-    TResult? Function(GetHighLatitudeMethodsToLocalStorage value)?
-        getHighLatitudeMethodsToLocalStorage,
-    TResult? Function(FetchNamazTimingNotificationsFromLocalStorage value)?
-        fetchNamazTimingNotificationsFromLocalStorage,
-  }) {
-    return getShowimskValFromLocalStorage?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(FetchPrayerTiming value)? fetchPrayerTiming,
-    TResult Function(PrayerTimingEvent value)? prayerTimingEvent,
-    TResult Function(ChangeArtCalcMethod value)? changeArtCalcMethod,
-    TResult Function(FetchNamazMethods value)? fetchNamazMethods,
-    TResult Function(ChangeNamazMethods value)? changeNamazMehods,
-    TResult Function(ChangeSchoolEvent value)? changeSchoolEvent,
-    TResult Function(ChangeHighLatitudeMethod value)? changeHighLatitudeMethod,
-    TResult Function(ChangeLangLongtoAddress value)? changeLangLongtoAddress,
-    TResult Function(OnNotiyOnOffEvent value)? onNotiyOnOffEvent,
-    TResult Function(ChangeIndex value)? changeIndex,
-    TResult Function(AddAutoDetectValToLocalStorage value)?
-        addAutoDetectValToLocalStorage,
-    TResult Function(GetAutoDetetectLocationFromLocalStorage value)?
-        getAutoDetetectLocationFromLocalStorage,
-    TResult Function(AddAutomaticSettingToLocalStorage value)?
-        addAutomaticSettingToLocalStorage,
-    TResult Function(GetAutomaticSettingsFromLocalStorage value)?
-        getAutomaticSettingsFromLocalStorage,
-    TResult Function(AddShowimsakValToLocalStorage value)?
-        addShowimsakValToLocalStorage,
-    TResult Function(GetShowimskValFromLocalStorage value)?
-        getShowimskValFromLocalStorage,
-    TResult Function(AddCalculationMethodToLocalStorage value)?
-        addCalculationMethodToLocalStorage,
-    TResult Function(GetCalculationMethodFromStorage value)?
-        getCalculationMethodFromStorage,
-    TResult Function(AddAsrCalculationMethodToLocalStorage value)?
-        addAsrCalculationMethodToLocalStorage,
-    TResult Function(GetAsrCalculationMethodFromStorage value)?
-        getAsrCalculationMethodFromStorage,
-    TResult Function(AddHighLatitudeMethodsToLocalStorage value)?
-        addHighLatitudeMethodsToLocalStorage,
-    TResult Function(GetHighLatitudeMethodsToLocalStorage value)?
-        getHighLatitudeMethodsToLocalStorage,
-    TResult Function(FetchNamazTimingNotificationsFromLocalStorage value)?
-        fetchNamazTimingNotificationsFromLocalStorage,
-    required TResult orElse(),
-  }) {
-    if (getShowimskValFromLocalStorage != null) {
-      return getShowimskValFromLocalStorage(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class GetShowimskValFromLocalStorage implements NamazTimingEvent {
-  const factory GetShowimskValFromLocalStorage() =
-      _$GetShowimskValFromLocalStorage;
-}
-
-/// @nodoc
-abstract class _$$AddCalculationMethodToLocalStorageCopyWith<$Res> {
-  factory _$$AddCalculationMethodToLocalStorageCopyWith(
-          _$AddCalculationMethodToLocalStorage value,
-          $Res Function(_$AddCalculationMethodToLocalStorage) then) =
-      __$$AddCalculationMethodToLocalStorageCopyWithImpl<$Res>;
-  @useResult
-  $Res call({int value});
-}
-
-/// @nodoc
-class __$$AddCalculationMethodToLocalStorageCopyWithImpl<$Res>
-    extends _$NamazTimingEventCopyWithImpl<$Res,
-        _$AddCalculationMethodToLocalStorage>
-    implements _$$AddCalculationMethodToLocalStorageCopyWith<$Res> {
-  __$$AddCalculationMethodToLocalStorageCopyWithImpl(
-      _$AddCalculationMethodToLocalStorage _value,
-      $Res Function(_$AddCalculationMethodToLocalStorage) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? value = null,
-  }) {
-    return _then(_$AddCalculationMethodToLocalStorage(
-      value: null == value
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
-              as int,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$AddCalculationMethodToLocalStorage
-    implements AddCalculationMethodToLocalStorage {
-  const _$AddCalculationMethodToLocalStorage({required this.value});
-
-  @override
-  final int value;
-
-  @override
-  String toString() {
-    return 'NamazTimingEvent.addCalculationMethodToLocalStorage(value: $value)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$AddCalculationMethodToLocalStorage &&
-            (identical(other.value, value) || other.value == value));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, value);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$AddCalculationMethodToLocalStorageCopyWith<
-          _$AddCalculationMethodToLocalStorage>
-      get copyWith => __$$AddCalculationMethodToLocalStorageCopyWithImpl<
-          _$AddCalculationMethodToLocalStorage>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(BuildContext context) fetchPrayerTiming,
-    required TResult Function() prayerTimingEvent,
-    required TResult Function() changeArtCalcMethod,
-    required TResult Function() fetchNamazMethods,
-    required TResult Function(int method, BuildContext context)
-        changeNamazMehods,
-    required TResult Function(int school, BuildContext context)
-        changeSchoolEvent,
-    required TResult Function(int numValue, BuildContext context)
-        changeHighLatitudeMethod,
-    required TResult Function() changeLangLongtoAddress,
-    required TResult Function(int index) onNotiyOnOffEvent,
-    required TResult Function(int index) changeIndex,
-    required TResult Function(bool value) addAutoDetectValToLocalStorage,
-    required TResult Function() getAutoDetetectLocationFromLocalStorage,
-    required TResult Function(bool value) addAutomaticSettingToLocalStorage,
-    required TResult Function() getAutomaticSettingsFromLocalStorage,
-    required TResult Function(bool value) addShowimsakValToLocalStorage,
-    required TResult Function() getShowimskValFromLocalStorage,
-    required TResult Function(int value) addCalculationMethodToLocalStorage,
-    required TResult Function() getCalculationMethodFromStorage,
-    required TResult Function(int value) addAsrCalculationMethodToLocalStorage,
-    required TResult Function() getAsrCalculationMethodFromStorage,
-    required TResult Function(int value) addHighLatitudeMethodsToLocalStorage,
-    required TResult Function() getHighLatitudeMethodsToLocalStorage,
-    required TResult Function() fetchNamazTimingNotificationsFromLocalStorage,
-  }) {
-    return addCalculationMethodToLocalStorage(value);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(BuildContext context)? fetchPrayerTiming,
-    TResult? Function()? prayerTimingEvent,
-    TResult? Function()? changeArtCalcMethod,
-    TResult? Function()? fetchNamazMethods,
-    TResult? Function(int method, BuildContext context)? changeNamazMehods,
-    TResult? Function(int school, BuildContext context)? changeSchoolEvent,
-    TResult? Function(int numValue, BuildContext context)?
-        changeHighLatitudeMethod,
-    TResult? Function()? changeLangLongtoAddress,
-    TResult? Function(int index)? onNotiyOnOffEvent,
-    TResult? Function(int index)? changeIndex,
-    TResult? Function(bool value)? addAutoDetectValToLocalStorage,
-    TResult? Function()? getAutoDetetectLocationFromLocalStorage,
-    TResult? Function(bool value)? addAutomaticSettingToLocalStorage,
-    TResult? Function()? getAutomaticSettingsFromLocalStorage,
-    TResult? Function(bool value)? addShowimsakValToLocalStorage,
-    TResult? Function()? getShowimskValFromLocalStorage,
-    TResult? Function(int value)? addCalculationMethodToLocalStorage,
-    TResult? Function()? getCalculationMethodFromStorage,
-    TResult? Function(int value)? addAsrCalculationMethodToLocalStorage,
-    TResult? Function()? getAsrCalculationMethodFromStorage,
-    TResult? Function(int value)? addHighLatitudeMethodsToLocalStorage,
-    TResult? Function()? getHighLatitudeMethodsToLocalStorage,
-    TResult? Function()? fetchNamazTimingNotificationsFromLocalStorage,
-  }) {
-    return addCalculationMethodToLocalStorage?.call(value);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(BuildContext context)? fetchPrayerTiming,
-    TResult Function()? prayerTimingEvent,
-    TResult Function()? changeArtCalcMethod,
-    TResult Function()? fetchNamazMethods,
-    TResult Function(int method, BuildContext context)? changeNamazMehods,
-    TResult Function(int school, BuildContext context)? changeSchoolEvent,
-    TResult Function(int numValue, BuildContext context)?
-        changeHighLatitudeMethod,
-    TResult Function()? changeLangLongtoAddress,
-    TResult Function(int index)? onNotiyOnOffEvent,
-    TResult Function(int index)? changeIndex,
-    TResult Function(bool value)? addAutoDetectValToLocalStorage,
-    TResult Function()? getAutoDetetectLocationFromLocalStorage,
-    TResult Function(bool value)? addAutomaticSettingToLocalStorage,
-    TResult Function()? getAutomaticSettingsFromLocalStorage,
-    TResult Function(bool value)? addShowimsakValToLocalStorage,
-    TResult Function()? getShowimskValFromLocalStorage,
-    TResult Function(int value)? addCalculationMethodToLocalStorage,
-    TResult Function()? getCalculationMethodFromStorage,
-    TResult Function(int value)? addAsrCalculationMethodToLocalStorage,
-    TResult Function()? getAsrCalculationMethodFromStorage,
-    TResult Function(int value)? addHighLatitudeMethodsToLocalStorage,
-    TResult Function()? getHighLatitudeMethodsToLocalStorage,
-    TResult Function()? fetchNamazTimingNotificationsFromLocalStorage,
-    required TResult orElse(),
-  }) {
-    if (addCalculationMethodToLocalStorage != null) {
-      return addCalculationMethodToLocalStorage(value);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(FetchPrayerTiming value) fetchPrayerTiming,
-    required TResult Function(PrayerTimingEvent value) prayerTimingEvent,
-    required TResult Function(ChangeArtCalcMethod value) changeArtCalcMethod,
-    required TResult Function(FetchNamazMethods value) fetchNamazMethods,
-    required TResult Function(ChangeNamazMethods value) changeNamazMehods,
-    required TResult Function(ChangeSchoolEvent value) changeSchoolEvent,
-    required TResult Function(ChangeHighLatitudeMethod value)
-        changeHighLatitudeMethod,
-    required TResult Function(ChangeLangLongtoAddress value)
-        changeLangLongtoAddress,
-    required TResult Function(OnNotiyOnOffEvent value) onNotiyOnOffEvent,
-    required TResult Function(ChangeIndex value) changeIndex,
-    required TResult Function(AddAutoDetectValToLocalStorage value)
-        addAutoDetectValToLocalStorage,
-    required TResult Function(GetAutoDetetectLocationFromLocalStorage value)
-        getAutoDetetectLocationFromLocalStorage,
-    required TResult Function(AddAutomaticSettingToLocalStorage value)
-        addAutomaticSettingToLocalStorage,
-    required TResult Function(GetAutomaticSettingsFromLocalStorage value)
-        getAutomaticSettingsFromLocalStorage,
-    required TResult Function(AddShowimsakValToLocalStorage value)
-        addShowimsakValToLocalStorage,
-    required TResult Function(GetShowimskValFromLocalStorage value)
-        getShowimskValFromLocalStorage,
-    required TResult Function(AddCalculationMethodToLocalStorage value)
-        addCalculationMethodToLocalStorage,
-    required TResult Function(GetCalculationMethodFromStorage value)
-        getCalculationMethodFromStorage,
-    required TResult Function(AddAsrCalculationMethodToLocalStorage value)
-        addAsrCalculationMethodToLocalStorage,
-    required TResult Function(GetAsrCalculationMethodFromStorage value)
-        getAsrCalculationMethodFromStorage,
-    required TResult Function(AddHighLatitudeMethodsToLocalStorage value)
-        addHighLatitudeMethodsToLocalStorage,
-    required TResult Function(GetHighLatitudeMethodsToLocalStorage value)
-        getHighLatitudeMethodsToLocalStorage,
-    required TResult Function(
-            FetchNamazTimingNotificationsFromLocalStorage value)
-        fetchNamazTimingNotificationsFromLocalStorage,
-  }) {
-    return addCalculationMethodToLocalStorage(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(FetchPrayerTiming value)? fetchPrayerTiming,
-    TResult? Function(PrayerTimingEvent value)? prayerTimingEvent,
-    TResult? Function(ChangeArtCalcMethod value)? changeArtCalcMethod,
-    TResult? Function(FetchNamazMethods value)? fetchNamazMethods,
-    TResult? Function(ChangeNamazMethods value)? changeNamazMehods,
-    TResult? Function(ChangeSchoolEvent value)? changeSchoolEvent,
-    TResult? Function(ChangeHighLatitudeMethod value)? changeHighLatitudeMethod,
-    TResult? Function(ChangeLangLongtoAddress value)? changeLangLongtoAddress,
-    TResult? Function(OnNotiyOnOffEvent value)? onNotiyOnOffEvent,
-    TResult? Function(ChangeIndex value)? changeIndex,
-    TResult? Function(AddAutoDetectValToLocalStorage value)?
-        addAutoDetectValToLocalStorage,
-    TResult? Function(GetAutoDetetectLocationFromLocalStorage value)?
-        getAutoDetetectLocationFromLocalStorage,
-    TResult? Function(AddAutomaticSettingToLocalStorage value)?
-        addAutomaticSettingToLocalStorage,
-    TResult? Function(GetAutomaticSettingsFromLocalStorage value)?
-        getAutomaticSettingsFromLocalStorage,
-    TResult? Function(AddShowimsakValToLocalStorage value)?
-        addShowimsakValToLocalStorage,
-    TResult? Function(GetShowimskValFromLocalStorage value)?
-        getShowimskValFromLocalStorage,
-    TResult? Function(AddCalculationMethodToLocalStorage value)?
-        addCalculationMethodToLocalStorage,
-    TResult? Function(GetCalculationMethodFromStorage value)?
-        getCalculationMethodFromStorage,
-    TResult? Function(AddAsrCalculationMethodToLocalStorage value)?
-        addAsrCalculationMethodToLocalStorage,
-    TResult? Function(GetAsrCalculationMethodFromStorage value)?
-        getAsrCalculationMethodFromStorage,
-    TResult? Function(AddHighLatitudeMethodsToLocalStorage value)?
-        addHighLatitudeMethodsToLocalStorage,
-    TResult? Function(GetHighLatitudeMethodsToLocalStorage value)?
-        getHighLatitudeMethodsToLocalStorage,
-    TResult? Function(FetchNamazTimingNotificationsFromLocalStorage value)?
-        fetchNamazTimingNotificationsFromLocalStorage,
-  }) {
-    return addCalculationMethodToLocalStorage?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(FetchPrayerTiming value)? fetchPrayerTiming,
-    TResult Function(PrayerTimingEvent value)? prayerTimingEvent,
-    TResult Function(ChangeArtCalcMethod value)? changeArtCalcMethod,
-    TResult Function(FetchNamazMethods value)? fetchNamazMethods,
-    TResult Function(ChangeNamazMethods value)? changeNamazMehods,
-    TResult Function(ChangeSchoolEvent value)? changeSchoolEvent,
-    TResult Function(ChangeHighLatitudeMethod value)? changeHighLatitudeMethod,
-    TResult Function(ChangeLangLongtoAddress value)? changeLangLongtoAddress,
-    TResult Function(OnNotiyOnOffEvent value)? onNotiyOnOffEvent,
-    TResult Function(ChangeIndex value)? changeIndex,
-    TResult Function(AddAutoDetectValToLocalStorage value)?
-        addAutoDetectValToLocalStorage,
-    TResult Function(GetAutoDetetectLocationFromLocalStorage value)?
-        getAutoDetetectLocationFromLocalStorage,
-    TResult Function(AddAutomaticSettingToLocalStorage value)?
-        addAutomaticSettingToLocalStorage,
-    TResult Function(GetAutomaticSettingsFromLocalStorage value)?
-        getAutomaticSettingsFromLocalStorage,
-    TResult Function(AddShowimsakValToLocalStorage value)?
-        addShowimsakValToLocalStorage,
-    TResult Function(GetShowimskValFromLocalStorage value)?
-        getShowimskValFromLocalStorage,
-    TResult Function(AddCalculationMethodToLocalStorage value)?
-        addCalculationMethodToLocalStorage,
-    TResult Function(GetCalculationMethodFromStorage value)?
-        getCalculationMethodFromStorage,
-    TResult Function(AddAsrCalculationMethodToLocalStorage value)?
-        addAsrCalculationMethodToLocalStorage,
-    TResult Function(GetAsrCalculationMethodFromStorage value)?
-        getAsrCalculationMethodFromStorage,
-    TResult Function(AddHighLatitudeMethodsToLocalStorage value)?
-        addHighLatitudeMethodsToLocalStorage,
-    TResult Function(GetHighLatitudeMethodsToLocalStorage value)?
-        getHighLatitudeMethodsToLocalStorage,
-    TResult Function(FetchNamazTimingNotificationsFromLocalStorage value)?
-        fetchNamazTimingNotificationsFromLocalStorage,
-    required TResult orElse(),
-  }) {
-    if (addCalculationMethodToLocalStorage != null) {
-      return addCalculationMethodToLocalStorage(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class AddCalculationMethodToLocalStorage implements NamazTimingEvent {
-  const factory AddCalculationMethodToLocalStorage({required final int value}) =
-      _$AddCalculationMethodToLocalStorage;
-
-  int get value;
-  @JsonKey(ignore: true)
-  _$$AddCalculationMethodToLocalStorageCopyWith<
-          _$AddCalculationMethodToLocalStorage>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$GetCalculationMethodFromStorageCopyWith<$Res> {
-  factory _$$GetCalculationMethodFromStorageCopyWith(
-          _$GetCalculationMethodFromStorage value,
-          $Res Function(_$GetCalculationMethodFromStorage) then) =
-      __$$GetCalculationMethodFromStorageCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$GetCalculationMethodFromStorageCopyWithImpl<$Res>
-    extends _$NamazTimingEventCopyWithImpl<$Res,
-        _$GetCalculationMethodFromStorage>
-    implements _$$GetCalculationMethodFromStorageCopyWith<$Res> {
-  __$$GetCalculationMethodFromStorageCopyWithImpl(
-      _$GetCalculationMethodFromStorage _value,
-      $Res Function(_$GetCalculationMethodFromStorage) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$GetCalculationMethodFromStorage
-    implements GetCalculationMethodFromStorage {
-  const _$GetCalculationMethodFromStorage();
-
-  @override
-  String toString() {
-    return 'NamazTimingEvent.getCalculationMethodFromStorage()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$GetCalculationMethodFromStorage);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(BuildContext context) fetchPrayerTiming,
-    required TResult Function() prayerTimingEvent,
-    required TResult Function() changeArtCalcMethod,
-    required TResult Function() fetchNamazMethods,
-    required TResult Function(int method, BuildContext context)
-        changeNamazMehods,
-    required TResult Function(int school, BuildContext context)
-        changeSchoolEvent,
-    required TResult Function(int numValue, BuildContext context)
-        changeHighLatitudeMethod,
-    required TResult Function() changeLangLongtoAddress,
-    required TResult Function(int index) onNotiyOnOffEvent,
-    required TResult Function(int index) changeIndex,
-    required TResult Function(bool value) addAutoDetectValToLocalStorage,
-    required TResult Function() getAutoDetetectLocationFromLocalStorage,
-    required TResult Function(bool value) addAutomaticSettingToLocalStorage,
-    required TResult Function() getAutomaticSettingsFromLocalStorage,
-    required TResult Function(bool value) addShowimsakValToLocalStorage,
-    required TResult Function() getShowimskValFromLocalStorage,
-    required TResult Function(int value) addCalculationMethodToLocalStorage,
-    required TResult Function() getCalculationMethodFromStorage,
-    required TResult Function(int value) addAsrCalculationMethodToLocalStorage,
-    required TResult Function() getAsrCalculationMethodFromStorage,
-    required TResult Function(int value) addHighLatitudeMethodsToLocalStorage,
-    required TResult Function() getHighLatitudeMethodsToLocalStorage,
-    required TResult Function() fetchNamazTimingNotificationsFromLocalStorage,
-  }) {
-    return getCalculationMethodFromStorage();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(BuildContext context)? fetchPrayerTiming,
-    TResult? Function()? prayerTimingEvent,
-    TResult? Function()? changeArtCalcMethod,
-    TResult? Function()? fetchNamazMethods,
-    TResult? Function(int method, BuildContext context)? changeNamazMehods,
-    TResult? Function(int school, BuildContext context)? changeSchoolEvent,
-    TResult? Function(int numValue, BuildContext context)?
-        changeHighLatitudeMethod,
-    TResult? Function()? changeLangLongtoAddress,
-    TResult? Function(int index)? onNotiyOnOffEvent,
-    TResult? Function(int index)? changeIndex,
-    TResult? Function(bool value)? addAutoDetectValToLocalStorage,
-    TResult? Function()? getAutoDetetectLocationFromLocalStorage,
-    TResult? Function(bool value)? addAutomaticSettingToLocalStorage,
-    TResult? Function()? getAutomaticSettingsFromLocalStorage,
-    TResult? Function(bool value)? addShowimsakValToLocalStorage,
-    TResult? Function()? getShowimskValFromLocalStorage,
-    TResult? Function(int value)? addCalculationMethodToLocalStorage,
-    TResult? Function()? getCalculationMethodFromStorage,
-    TResult? Function(int value)? addAsrCalculationMethodToLocalStorage,
-    TResult? Function()? getAsrCalculationMethodFromStorage,
-    TResult? Function(int value)? addHighLatitudeMethodsToLocalStorage,
-    TResult? Function()? getHighLatitudeMethodsToLocalStorage,
-    TResult? Function()? fetchNamazTimingNotificationsFromLocalStorage,
-  }) {
-    return getCalculationMethodFromStorage?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(BuildContext context)? fetchPrayerTiming,
-    TResult Function()? prayerTimingEvent,
-    TResult Function()? changeArtCalcMethod,
-    TResult Function()? fetchNamazMethods,
-    TResult Function(int method, BuildContext context)? changeNamazMehods,
-    TResult Function(int school, BuildContext context)? changeSchoolEvent,
-    TResult Function(int numValue, BuildContext context)?
-        changeHighLatitudeMethod,
-    TResult Function()? changeLangLongtoAddress,
-    TResult Function(int index)? onNotiyOnOffEvent,
-    TResult Function(int index)? changeIndex,
-    TResult Function(bool value)? addAutoDetectValToLocalStorage,
-    TResult Function()? getAutoDetetectLocationFromLocalStorage,
-    TResult Function(bool value)? addAutomaticSettingToLocalStorage,
-    TResult Function()? getAutomaticSettingsFromLocalStorage,
-    TResult Function(bool value)? addShowimsakValToLocalStorage,
-    TResult Function()? getShowimskValFromLocalStorage,
-    TResult Function(int value)? addCalculationMethodToLocalStorage,
-    TResult Function()? getCalculationMethodFromStorage,
-    TResult Function(int value)? addAsrCalculationMethodToLocalStorage,
-    TResult Function()? getAsrCalculationMethodFromStorage,
-    TResult Function(int value)? addHighLatitudeMethodsToLocalStorage,
-    TResult Function()? getHighLatitudeMethodsToLocalStorage,
-    TResult Function()? fetchNamazTimingNotificationsFromLocalStorage,
-    required TResult orElse(),
-  }) {
-    if (getCalculationMethodFromStorage != null) {
-      return getCalculationMethodFromStorage();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(FetchPrayerTiming value) fetchPrayerTiming,
-    required TResult Function(PrayerTimingEvent value) prayerTimingEvent,
-    required TResult Function(ChangeArtCalcMethod value) changeArtCalcMethod,
-    required TResult Function(FetchNamazMethods value) fetchNamazMethods,
-    required TResult Function(ChangeNamazMethods value) changeNamazMehods,
-    required TResult Function(ChangeSchoolEvent value) changeSchoolEvent,
-    required TResult Function(ChangeHighLatitudeMethod value)
-        changeHighLatitudeMethod,
-    required TResult Function(ChangeLangLongtoAddress value)
-        changeLangLongtoAddress,
-    required TResult Function(OnNotiyOnOffEvent value) onNotiyOnOffEvent,
-    required TResult Function(ChangeIndex value) changeIndex,
-    required TResult Function(AddAutoDetectValToLocalStorage value)
-        addAutoDetectValToLocalStorage,
-    required TResult Function(GetAutoDetetectLocationFromLocalStorage value)
-        getAutoDetetectLocationFromLocalStorage,
-    required TResult Function(AddAutomaticSettingToLocalStorage value)
-        addAutomaticSettingToLocalStorage,
-    required TResult Function(GetAutomaticSettingsFromLocalStorage value)
-        getAutomaticSettingsFromLocalStorage,
-    required TResult Function(AddShowimsakValToLocalStorage value)
-        addShowimsakValToLocalStorage,
-    required TResult Function(GetShowimskValFromLocalStorage value)
-        getShowimskValFromLocalStorage,
-    required TResult Function(AddCalculationMethodToLocalStorage value)
-        addCalculationMethodToLocalStorage,
-    required TResult Function(GetCalculationMethodFromStorage value)
-        getCalculationMethodFromStorage,
-    required TResult Function(AddAsrCalculationMethodToLocalStorage value)
-        addAsrCalculationMethodToLocalStorage,
-    required TResult Function(GetAsrCalculationMethodFromStorage value)
-        getAsrCalculationMethodFromStorage,
-    required TResult Function(AddHighLatitudeMethodsToLocalStorage value)
-        addHighLatitudeMethodsToLocalStorage,
-    required TResult Function(GetHighLatitudeMethodsToLocalStorage value)
-        getHighLatitudeMethodsToLocalStorage,
-    required TResult Function(
-            FetchNamazTimingNotificationsFromLocalStorage value)
-        fetchNamazTimingNotificationsFromLocalStorage,
-  }) {
-    return getCalculationMethodFromStorage(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(FetchPrayerTiming value)? fetchPrayerTiming,
-    TResult? Function(PrayerTimingEvent value)? prayerTimingEvent,
-    TResult? Function(ChangeArtCalcMethod value)? changeArtCalcMethod,
-    TResult? Function(FetchNamazMethods value)? fetchNamazMethods,
-    TResult? Function(ChangeNamazMethods value)? changeNamazMehods,
-    TResult? Function(ChangeSchoolEvent value)? changeSchoolEvent,
-    TResult? Function(ChangeHighLatitudeMethod value)? changeHighLatitudeMethod,
-    TResult? Function(ChangeLangLongtoAddress value)? changeLangLongtoAddress,
-    TResult? Function(OnNotiyOnOffEvent value)? onNotiyOnOffEvent,
-    TResult? Function(ChangeIndex value)? changeIndex,
-    TResult? Function(AddAutoDetectValToLocalStorage value)?
-        addAutoDetectValToLocalStorage,
-    TResult? Function(GetAutoDetetectLocationFromLocalStorage value)?
-        getAutoDetetectLocationFromLocalStorage,
-    TResult? Function(AddAutomaticSettingToLocalStorage value)?
-        addAutomaticSettingToLocalStorage,
-    TResult? Function(GetAutomaticSettingsFromLocalStorage value)?
-        getAutomaticSettingsFromLocalStorage,
-    TResult? Function(AddShowimsakValToLocalStorage value)?
-        addShowimsakValToLocalStorage,
-    TResult? Function(GetShowimskValFromLocalStorage value)?
-        getShowimskValFromLocalStorage,
-    TResult? Function(AddCalculationMethodToLocalStorage value)?
-        addCalculationMethodToLocalStorage,
-    TResult? Function(GetCalculationMethodFromStorage value)?
-        getCalculationMethodFromStorage,
-    TResult? Function(AddAsrCalculationMethodToLocalStorage value)?
-        addAsrCalculationMethodToLocalStorage,
-    TResult? Function(GetAsrCalculationMethodFromStorage value)?
-        getAsrCalculationMethodFromStorage,
-    TResult? Function(AddHighLatitudeMethodsToLocalStorage value)?
-        addHighLatitudeMethodsToLocalStorage,
-    TResult? Function(GetHighLatitudeMethodsToLocalStorage value)?
-        getHighLatitudeMethodsToLocalStorage,
-    TResult? Function(FetchNamazTimingNotificationsFromLocalStorage value)?
-        fetchNamazTimingNotificationsFromLocalStorage,
-  }) {
-    return getCalculationMethodFromStorage?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(FetchPrayerTiming value)? fetchPrayerTiming,
-    TResult Function(PrayerTimingEvent value)? prayerTimingEvent,
-    TResult Function(ChangeArtCalcMethod value)? changeArtCalcMethod,
-    TResult Function(FetchNamazMethods value)? fetchNamazMethods,
-    TResult Function(ChangeNamazMethods value)? changeNamazMehods,
-    TResult Function(ChangeSchoolEvent value)? changeSchoolEvent,
-    TResult Function(ChangeHighLatitudeMethod value)? changeHighLatitudeMethod,
-    TResult Function(ChangeLangLongtoAddress value)? changeLangLongtoAddress,
-    TResult Function(OnNotiyOnOffEvent value)? onNotiyOnOffEvent,
-    TResult Function(ChangeIndex value)? changeIndex,
-    TResult Function(AddAutoDetectValToLocalStorage value)?
-        addAutoDetectValToLocalStorage,
-    TResult Function(GetAutoDetetectLocationFromLocalStorage value)?
-        getAutoDetetectLocationFromLocalStorage,
-    TResult Function(AddAutomaticSettingToLocalStorage value)?
-        addAutomaticSettingToLocalStorage,
-    TResult Function(GetAutomaticSettingsFromLocalStorage value)?
-        getAutomaticSettingsFromLocalStorage,
-    TResult Function(AddShowimsakValToLocalStorage value)?
-        addShowimsakValToLocalStorage,
-    TResult Function(GetShowimskValFromLocalStorage value)?
-        getShowimskValFromLocalStorage,
-    TResult Function(AddCalculationMethodToLocalStorage value)?
-        addCalculationMethodToLocalStorage,
-    TResult Function(GetCalculationMethodFromStorage value)?
-        getCalculationMethodFromStorage,
-    TResult Function(AddAsrCalculationMethodToLocalStorage value)?
-        addAsrCalculationMethodToLocalStorage,
-    TResult Function(GetAsrCalculationMethodFromStorage value)?
-        getAsrCalculationMethodFromStorage,
-    TResult Function(AddHighLatitudeMethodsToLocalStorage value)?
-        addHighLatitudeMethodsToLocalStorage,
-    TResult Function(GetHighLatitudeMethodsToLocalStorage value)?
-        getHighLatitudeMethodsToLocalStorage,
-    TResult Function(FetchNamazTimingNotificationsFromLocalStorage value)?
-        fetchNamazTimingNotificationsFromLocalStorage,
-    required TResult orElse(),
-  }) {
-    if (getCalculationMethodFromStorage != null) {
-      return getCalculationMethodFromStorage(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class GetCalculationMethodFromStorage implements NamazTimingEvent {
-  const factory GetCalculationMethodFromStorage() =
-      _$GetCalculationMethodFromStorage;
-}
-
-/// @nodoc
-abstract class _$$AddAsrCalculationMethodToLocalStorageCopyWith<$Res> {
-  factory _$$AddAsrCalculationMethodToLocalStorageCopyWith(
-          _$AddAsrCalculationMethodToLocalStorage value,
-          $Res Function(_$AddAsrCalculationMethodToLocalStorage) then) =
-      __$$AddAsrCalculationMethodToLocalStorageCopyWithImpl<$Res>;
-  @useResult
-  $Res call({int value});
-}
-
-/// @nodoc
-class __$$AddAsrCalculationMethodToLocalStorageCopyWithImpl<$Res>
-    extends _$NamazTimingEventCopyWithImpl<$Res,
-        _$AddAsrCalculationMethodToLocalStorage>
-    implements _$$AddAsrCalculationMethodToLocalStorageCopyWith<$Res> {
-  __$$AddAsrCalculationMethodToLocalStorageCopyWithImpl(
-      _$AddAsrCalculationMethodToLocalStorage _value,
-      $Res Function(_$AddAsrCalculationMethodToLocalStorage) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? value = null,
-  }) {
-    return _then(_$AddAsrCalculationMethodToLocalStorage(
-      value: null == value
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
-              as int,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$AddAsrCalculationMethodToLocalStorage
-    implements AddAsrCalculationMethodToLocalStorage {
-  const _$AddAsrCalculationMethodToLocalStorage({required this.value});
-
-  @override
-  final int value;
-
-  @override
-  String toString() {
-    return 'NamazTimingEvent.addAsrCalculationMethodToLocalStorage(value: $value)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$AddAsrCalculationMethodToLocalStorage &&
-            (identical(other.value, value) || other.value == value));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, value);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$AddAsrCalculationMethodToLocalStorageCopyWith<
-          _$AddAsrCalculationMethodToLocalStorage>
-      get copyWith => __$$AddAsrCalculationMethodToLocalStorageCopyWithImpl<
-          _$AddAsrCalculationMethodToLocalStorage>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(BuildContext context) fetchPrayerTiming,
-    required TResult Function() prayerTimingEvent,
-    required TResult Function() changeArtCalcMethod,
-    required TResult Function() fetchNamazMethods,
-    required TResult Function(int method, BuildContext context)
-        changeNamazMehods,
-    required TResult Function(int school, BuildContext context)
-        changeSchoolEvent,
-    required TResult Function(int numValue, BuildContext context)
-        changeHighLatitudeMethod,
-    required TResult Function() changeLangLongtoAddress,
-    required TResult Function(int index) onNotiyOnOffEvent,
-    required TResult Function(int index) changeIndex,
-    required TResult Function(bool value) addAutoDetectValToLocalStorage,
-    required TResult Function() getAutoDetetectLocationFromLocalStorage,
-    required TResult Function(bool value) addAutomaticSettingToLocalStorage,
-    required TResult Function() getAutomaticSettingsFromLocalStorage,
-    required TResult Function(bool value) addShowimsakValToLocalStorage,
-    required TResult Function() getShowimskValFromLocalStorage,
-    required TResult Function(int value) addCalculationMethodToLocalStorage,
-    required TResult Function() getCalculationMethodFromStorage,
-    required TResult Function(int value) addAsrCalculationMethodToLocalStorage,
-    required TResult Function() getAsrCalculationMethodFromStorage,
-    required TResult Function(int value) addHighLatitudeMethodsToLocalStorage,
-    required TResult Function() getHighLatitudeMethodsToLocalStorage,
-    required TResult Function() fetchNamazTimingNotificationsFromLocalStorage,
-  }) {
-    return addAsrCalculationMethodToLocalStorage(value);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(BuildContext context)? fetchPrayerTiming,
-    TResult? Function()? prayerTimingEvent,
-    TResult? Function()? changeArtCalcMethod,
-    TResult? Function()? fetchNamazMethods,
-    TResult? Function(int method, BuildContext context)? changeNamazMehods,
-    TResult? Function(int school, BuildContext context)? changeSchoolEvent,
-    TResult? Function(int numValue, BuildContext context)?
-        changeHighLatitudeMethod,
-    TResult? Function()? changeLangLongtoAddress,
-    TResult? Function(int index)? onNotiyOnOffEvent,
-    TResult? Function(int index)? changeIndex,
-    TResult? Function(bool value)? addAutoDetectValToLocalStorage,
-    TResult? Function()? getAutoDetetectLocationFromLocalStorage,
-    TResult? Function(bool value)? addAutomaticSettingToLocalStorage,
-    TResult? Function()? getAutomaticSettingsFromLocalStorage,
-    TResult? Function(bool value)? addShowimsakValToLocalStorage,
-    TResult? Function()? getShowimskValFromLocalStorage,
-    TResult? Function(int value)? addCalculationMethodToLocalStorage,
-    TResult? Function()? getCalculationMethodFromStorage,
-    TResult? Function(int value)? addAsrCalculationMethodToLocalStorage,
-    TResult? Function()? getAsrCalculationMethodFromStorage,
-    TResult? Function(int value)? addHighLatitudeMethodsToLocalStorage,
-    TResult? Function()? getHighLatitudeMethodsToLocalStorage,
-    TResult? Function()? fetchNamazTimingNotificationsFromLocalStorage,
-  }) {
-    return addAsrCalculationMethodToLocalStorage?.call(value);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(BuildContext context)? fetchPrayerTiming,
-    TResult Function()? prayerTimingEvent,
-    TResult Function()? changeArtCalcMethod,
-    TResult Function()? fetchNamazMethods,
-    TResult Function(int method, BuildContext context)? changeNamazMehods,
-    TResult Function(int school, BuildContext context)? changeSchoolEvent,
-    TResult Function(int numValue, BuildContext context)?
-        changeHighLatitudeMethod,
-    TResult Function()? changeLangLongtoAddress,
-    TResult Function(int index)? onNotiyOnOffEvent,
-    TResult Function(int index)? changeIndex,
-    TResult Function(bool value)? addAutoDetectValToLocalStorage,
-    TResult Function()? getAutoDetetectLocationFromLocalStorage,
-    TResult Function(bool value)? addAutomaticSettingToLocalStorage,
-    TResult Function()? getAutomaticSettingsFromLocalStorage,
-    TResult Function(bool value)? addShowimsakValToLocalStorage,
-    TResult Function()? getShowimskValFromLocalStorage,
-    TResult Function(int value)? addCalculationMethodToLocalStorage,
-    TResult Function()? getCalculationMethodFromStorage,
-    TResult Function(int value)? addAsrCalculationMethodToLocalStorage,
-    TResult Function()? getAsrCalculationMethodFromStorage,
-    TResult Function(int value)? addHighLatitudeMethodsToLocalStorage,
-    TResult Function()? getHighLatitudeMethodsToLocalStorage,
-    TResult Function()? fetchNamazTimingNotificationsFromLocalStorage,
-    required TResult orElse(),
-  }) {
-    if (addAsrCalculationMethodToLocalStorage != null) {
-      return addAsrCalculationMethodToLocalStorage(value);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(FetchPrayerTiming value) fetchPrayerTiming,
-    required TResult Function(PrayerTimingEvent value) prayerTimingEvent,
-    required TResult Function(ChangeArtCalcMethod value) changeArtCalcMethod,
-    required TResult Function(FetchNamazMethods value) fetchNamazMethods,
-    required TResult Function(ChangeNamazMethods value) changeNamazMehods,
-    required TResult Function(ChangeSchoolEvent value) changeSchoolEvent,
-    required TResult Function(ChangeHighLatitudeMethod value)
-        changeHighLatitudeMethod,
-    required TResult Function(ChangeLangLongtoAddress value)
-        changeLangLongtoAddress,
-    required TResult Function(OnNotiyOnOffEvent value) onNotiyOnOffEvent,
-    required TResult Function(ChangeIndex value) changeIndex,
-    required TResult Function(AddAutoDetectValToLocalStorage value)
-        addAutoDetectValToLocalStorage,
-    required TResult Function(GetAutoDetetectLocationFromLocalStorage value)
-        getAutoDetetectLocationFromLocalStorage,
-    required TResult Function(AddAutomaticSettingToLocalStorage value)
-        addAutomaticSettingToLocalStorage,
-    required TResult Function(GetAutomaticSettingsFromLocalStorage value)
-        getAutomaticSettingsFromLocalStorage,
-    required TResult Function(AddShowimsakValToLocalStorage value)
-        addShowimsakValToLocalStorage,
-    required TResult Function(GetShowimskValFromLocalStorage value)
-        getShowimskValFromLocalStorage,
-    required TResult Function(AddCalculationMethodToLocalStorage value)
-        addCalculationMethodToLocalStorage,
-    required TResult Function(GetCalculationMethodFromStorage value)
-        getCalculationMethodFromStorage,
-    required TResult Function(AddAsrCalculationMethodToLocalStorage value)
-        addAsrCalculationMethodToLocalStorage,
-    required TResult Function(GetAsrCalculationMethodFromStorage value)
-        getAsrCalculationMethodFromStorage,
-    required TResult Function(AddHighLatitudeMethodsToLocalStorage value)
-        addHighLatitudeMethodsToLocalStorage,
-    required TResult Function(GetHighLatitudeMethodsToLocalStorage value)
-        getHighLatitudeMethodsToLocalStorage,
-    required TResult Function(
-            FetchNamazTimingNotificationsFromLocalStorage value)
-        fetchNamazTimingNotificationsFromLocalStorage,
-  }) {
-    return addAsrCalculationMethodToLocalStorage(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(FetchPrayerTiming value)? fetchPrayerTiming,
-    TResult? Function(PrayerTimingEvent value)? prayerTimingEvent,
-    TResult? Function(ChangeArtCalcMethod value)? changeArtCalcMethod,
-    TResult? Function(FetchNamazMethods value)? fetchNamazMethods,
-    TResult? Function(ChangeNamazMethods value)? changeNamazMehods,
-    TResult? Function(ChangeSchoolEvent value)? changeSchoolEvent,
-    TResult? Function(ChangeHighLatitudeMethod value)? changeHighLatitudeMethod,
-    TResult? Function(ChangeLangLongtoAddress value)? changeLangLongtoAddress,
-    TResult? Function(OnNotiyOnOffEvent value)? onNotiyOnOffEvent,
-    TResult? Function(ChangeIndex value)? changeIndex,
-    TResult? Function(AddAutoDetectValToLocalStorage value)?
-        addAutoDetectValToLocalStorage,
-    TResult? Function(GetAutoDetetectLocationFromLocalStorage value)?
-        getAutoDetetectLocationFromLocalStorage,
-    TResult? Function(AddAutomaticSettingToLocalStorage value)?
-        addAutomaticSettingToLocalStorage,
-    TResult? Function(GetAutomaticSettingsFromLocalStorage value)?
-        getAutomaticSettingsFromLocalStorage,
-    TResult? Function(AddShowimsakValToLocalStorage value)?
-        addShowimsakValToLocalStorage,
-    TResult? Function(GetShowimskValFromLocalStorage value)?
-        getShowimskValFromLocalStorage,
-    TResult? Function(AddCalculationMethodToLocalStorage value)?
-        addCalculationMethodToLocalStorage,
-    TResult? Function(GetCalculationMethodFromStorage value)?
-        getCalculationMethodFromStorage,
-    TResult? Function(AddAsrCalculationMethodToLocalStorage value)?
-        addAsrCalculationMethodToLocalStorage,
-    TResult? Function(GetAsrCalculationMethodFromStorage value)?
-        getAsrCalculationMethodFromStorage,
-    TResult? Function(AddHighLatitudeMethodsToLocalStorage value)?
-        addHighLatitudeMethodsToLocalStorage,
-    TResult? Function(GetHighLatitudeMethodsToLocalStorage value)?
-        getHighLatitudeMethodsToLocalStorage,
-    TResult? Function(FetchNamazTimingNotificationsFromLocalStorage value)?
-        fetchNamazTimingNotificationsFromLocalStorage,
-  }) {
-    return addAsrCalculationMethodToLocalStorage?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(FetchPrayerTiming value)? fetchPrayerTiming,
-    TResult Function(PrayerTimingEvent value)? prayerTimingEvent,
-    TResult Function(ChangeArtCalcMethod value)? changeArtCalcMethod,
-    TResult Function(FetchNamazMethods value)? fetchNamazMethods,
-    TResult Function(ChangeNamazMethods value)? changeNamazMehods,
-    TResult Function(ChangeSchoolEvent value)? changeSchoolEvent,
-    TResult Function(ChangeHighLatitudeMethod value)? changeHighLatitudeMethod,
-    TResult Function(ChangeLangLongtoAddress value)? changeLangLongtoAddress,
-    TResult Function(OnNotiyOnOffEvent value)? onNotiyOnOffEvent,
-    TResult Function(ChangeIndex value)? changeIndex,
-    TResult Function(AddAutoDetectValToLocalStorage value)?
-        addAutoDetectValToLocalStorage,
-    TResult Function(GetAutoDetetectLocationFromLocalStorage value)?
-        getAutoDetetectLocationFromLocalStorage,
-    TResult Function(AddAutomaticSettingToLocalStorage value)?
-        addAutomaticSettingToLocalStorage,
-    TResult Function(GetAutomaticSettingsFromLocalStorage value)?
-        getAutomaticSettingsFromLocalStorage,
-    TResult Function(AddShowimsakValToLocalStorage value)?
-        addShowimsakValToLocalStorage,
-    TResult Function(GetShowimskValFromLocalStorage value)?
-        getShowimskValFromLocalStorage,
-    TResult Function(AddCalculationMethodToLocalStorage value)?
-        addCalculationMethodToLocalStorage,
-    TResult Function(GetCalculationMethodFromStorage value)?
-        getCalculationMethodFromStorage,
-    TResult Function(AddAsrCalculationMethodToLocalStorage value)?
-        addAsrCalculationMethodToLocalStorage,
-    TResult Function(GetAsrCalculationMethodFromStorage value)?
-        getAsrCalculationMethodFromStorage,
-    TResult Function(AddHighLatitudeMethodsToLocalStorage value)?
-        addHighLatitudeMethodsToLocalStorage,
-    TResult Function(GetHighLatitudeMethodsToLocalStorage value)?
-        getHighLatitudeMethodsToLocalStorage,
-    TResult Function(FetchNamazTimingNotificationsFromLocalStorage value)?
-        fetchNamazTimingNotificationsFromLocalStorage,
-    required TResult orElse(),
-  }) {
-    if (addAsrCalculationMethodToLocalStorage != null) {
-      return addAsrCalculationMethodToLocalStorage(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class AddAsrCalculationMethodToLocalStorage
-    implements NamazTimingEvent {
-  const factory AddAsrCalculationMethodToLocalStorage(
-      {required final int value}) = _$AddAsrCalculationMethodToLocalStorage;
-
-  int get value;
-  @JsonKey(ignore: true)
-  _$$AddAsrCalculationMethodToLocalStorageCopyWith<
-          _$AddAsrCalculationMethodToLocalStorage>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$GetAsrCalculationMethodFromStorageCopyWith<$Res> {
-  factory _$$GetAsrCalculationMethodFromStorageCopyWith(
-          _$GetAsrCalculationMethodFromStorage value,
-          $Res Function(_$GetAsrCalculationMethodFromStorage) then) =
-      __$$GetAsrCalculationMethodFromStorageCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$GetAsrCalculationMethodFromStorageCopyWithImpl<$Res>
-    extends _$NamazTimingEventCopyWithImpl<$Res,
-        _$GetAsrCalculationMethodFromStorage>
-    implements _$$GetAsrCalculationMethodFromStorageCopyWith<$Res> {
-  __$$GetAsrCalculationMethodFromStorageCopyWithImpl(
-      _$GetAsrCalculationMethodFromStorage _value,
-      $Res Function(_$GetAsrCalculationMethodFromStorage) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$GetAsrCalculationMethodFromStorage
-    implements GetAsrCalculationMethodFromStorage {
-  const _$GetAsrCalculationMethodFromStorage();
-
-  @override
-  String toString() {
-    return 'NamazTimingEvent.getAsrCalculationMethodFromStorage()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$GetAsrCalculationMethodFromStorage);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(BuildContext context) fetchPrayerTiming,
-    required TResult Function() prayerTimingEvent,
-    required TResult Function() changeArtCalcMethod,
-    required TResult Function() fetchNamazMethods,
-    required TResult Function(int method, BuildContext context)
-        changeNamazMehods,
-    required TResult Function(int school, BuildContext context)
-        changeSchoolEvent,
-    required TResult Function(int numValue, BuildContext context)
-        changeHighLatitudeMethod,
-    required TResult Function() changeLangLongtoAddress,
-    required TResult Function(int index) onNotiyOnOffEvent,
-    required TResult Function(int index) changeIndex,
-    required TResult Function(bool value) addAutoDetectValToLocalStorage,
-    required TResult Function() getAutoDetetectLocationFromLocalStorage,
-    required TResult Function(bool value) addAutomaticSettingToLocalStorage,
-    required TResult Function() getAutomaticSettingsFromLocalStorage,
-    required TResult Function(bool value) addShowimsakValToLocalStorage,
-    required TResult Function() getShowimskValFromLocalStorage,
-    required TResult Function(int value) addCalculationMethodToLocalStorage,
-    required TResult Function() getCalculationMethodFromStorage,
-    required TResult Function(int value) addAsrCalculationMethodToLocalStorage,
-    required TResult Function() getAsrCalculationMethodFromStorage,
-    required TResult Function(int value) addHighLatitudeMethodsToLocalStorage,
-    required TResult Function() getHighLatitudeMethodsToLocalStorage,
-    required TResult Function() fetchNamazTimingNotificationsFromLocalStorage,
-  }) {
-    return getAsrCalculationMethodFromStorage();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(BuildContext context)? fetchPrayerTiming,
-    TResult? Function()? prayerTimingEvent,
-    TResult? Function()? changeArtCalcMethod,
-    TResult? Function()? fetchNamazMethods,
-    TResult? Function(int method, BuildContext context)? changeNamazMehods,
-    TResult? Function(int school, BuildContext context)? changeSchoolEvent,
-    TResult? Function(int numValue, BuildContext context)?
-        changeHighLatitudeMethod,
-    TResult? Function()? changeLangLongtoAddress,
-    TResult? Function(int index)? onNotiyOnOffEvent,
-    TResult? Function(int index)? changeIndex,
-    TResult? Function(bool value)? addAutoDetectValToLocalStorage,
-    TResult? Function()? getAutoDetetectLocationFromLocalStorage,
-    TResult? Function(bool value)? addAutomaticSettingToLocalStorage,
-    TResult? Function()? getAutomaticSettingsFromLocalStorage,
-    TResult? Function(bool value)? addShowimsakValToLocalStorage,
-    TResult? Function()? getShowimskValFromLocalStorage,
-    TResult? Function(int value)? addCalculationMethodToLocalStorage,
-    TResult? Function()? getCalculationMethodFromStorage,
-    TResult? Function(int value)? addAsrCalculationMethodToLocalStorage,
-    TResult? Function()? getAsrCalculationMethodFromStorage,
-    TResult? Function(int value)? addHighLatitudeMethodsToLocalStorage,
-    TResult? Function()? getHighLatitudeMethodsToLocalStorage,
-    TResult? Function()? fetchNamazTimingNotificationsFromLocalStorage,
-  }) {
-    return getAsrCalculationMethodFromStorage?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(BuildContext context)? fetchPrayerTiming,
-    TResult Function()? prayerTimingEvent,
-    TResult Function()? changeArtCalcMethod,
-    TResult Function()? fetchNamazMethods,
-    TResult Function(int method, BuildContext context)? changeNamazMehods,
-    TResult Function(int school, BuildContext context)? changeSchoolEvent,
-    TResult Function(int numValue, BuildContext context)?
-        changeHighLatitudeMethod,
-    TResult Function()? changeLangLongtoAddress,
-    TResult Function(int index)? onNotiyOnOffEvent,
-    TResult Function(int index)? changeIndex,
-    TResult Function(bool value)? addAutoDetectValToLocalStorage,
-    TResult Function()? getAutoDetetectLocationFromLocalStorage,
-    TResult Function(bool value)? addAutomaticSettingToLocalStorage,
-    TResult Function()? getAutomaticSettingsFromLocalStorage,
-    TResult Function(bool value)? addShowimsakValToLocalStorage,
-    TResult Function()? getShowimskValFromLocalStorage,
-    TResult Function(int value)? addCalculationMethodToLocalStorage,
-    TResult Function()? getCalculationMethodFromStorage,
-    TResult Function(int value)? addAsrCalculationMethodToLocalStorage,
-    TResult Function()? getAsrCalculationMethodFromStorage,
-    TResult Function(int value)? addHighLatitudeMethodsToLocalStorage,
-    TResult Function()? getHighLatitudeMethodsToLocalStorage,
-    TResult Function()? fetchNamazTimingNotificationsFromLocalStorage,
-    required TResult orElse(),
-  }) {
-    if (getAsrCalculationMethodFromStorage != null) {
-      return getAsrCalculationMethodFromStorage();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(FetchPrayerTiming value) fetchPrayerTiming,
-    required TResult Function(PrayerTimingEvent value) prayerTimingEvent,
-    required TResult Function(ChangeArtCalcMethod value) changeArtCalcMethod,
-    required TResult Function(FetchNamazMethods value) fetchNamazMethods,
-    required TResult Function(ChangeNamazMethods value) changeNamazMehods,
-    required TResult Function(ChangeSchoolEvent value) changeSchoolEvent,
-    required TResult Function(ChangeHighLatitudeMethod value)
-        changeHighLatitudeMethod,
-    required TResult Function(ChangeLangLongtoAddress value)
-        changeLangLongtoAddress,
-    required TResult Function(OnNotiyOnOffEvent value) onNotiyOnOffEvent,
-    required TResult Function(ChangeIndex value) changeIndex,
-    required TResult Function(AddAutoDetectValToLocalStorage value)
-        addAutoDetectValToLocalStorage,
-    required TResult Function(GetAutoDetetectLocationFromLocalStorage value)
-        getAutoDetetectLocationFromLocalStorage,
-    required TResult Function(AddAutomaticSettingToLocalStorage value)
-        addAutomaticSettingToLocalStorage,
-    required TResult Function(GetAutomaticSettingsFromLocalStorage value)
-        getAutomaticSettingsFromLocalStorage,
-    required TResult Function(AddShowimsakValToLocalStorage value)
-        addShowimsakValToLocalStorage,
-    required TResult Function(GetShowimskValFromLocalStorage value)
-        getShowimskValFromLocalStorage,
-    required TResult Function(AddCalculationMethodToLocalStorage value)
-        addCalculationMethodToLocalStorage,
-    required TResult Function(GetCalculationMethodFromStorage value)
-        getCalculationMethodFromStorage,
-    required TResult Function(AddAsrCalculationMethodToLocalStorage value)
-        addAsrCalculationMethodToLocalStorage,
-    required TResult Function(GetAsrCalculationMethodFromStorage value)
-        getAsrCalculationMethodFromStorage,
-    required TResult Function(AddHighLatitudeMethodsToLocalStorage value)
-        addHighLatitudeMethodsToLocalStorage,
-    required TResult Function(GetHighLatitudeMethodsToLocalStorage value)
-        getHighLatitudeMethodsToLocalStorage,
-    required TResult Function(
-            FetchNamazTimingNotificationsFromLocalStorage value)
-        fetchNamazTimingNotificationsFromLocalStorage,
-  }) {
-    return getAsrCalculationMethodFromStorage(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(FetchPrayerTiming value)? fetchPrayerTiming,
-    TResult? Function(PrayerTimingEvent value)? prayerTimingEvent,
-    TResult? Function(ChangeArtCalcMethod value)? changeArtCalcMethod,
-    TResult? Function(FetchNamazMethods value)? fetchNamazMethods,
-    TResult? Function(ChangeNamazMethods value)? changeNamazMehods,
-    TResult? Function(ChangeSchoolEvent value)? changeSchoolEvent,
-    TResult? Function(ChangeHighLatitudeMethod value)? changeHighLatitudeMethod,
-    TResult? Function(ChangeLangLongtoAddress value)? changeLangLongtoAddress,
-    TResult? Function(OnNotiyOnOffEvent value)? onNotiyOnOffEvent,
-    TResult? Function(ChangeIndex value)? changeIndex,
-    TResult? Function(AddAutoDetectValToLocalStorage value)?
-        addAutoDetectValToLocalStorage,
-    TResult? Function(GetAutoDetetectLocationFromLocalStorage value)?
-        getAutoDetetectLocationFromLocalStorage,
-    TResult? Function(AddAutomaticSettingToLocalStorage value)?
-        addAutomaticSettingToLocalStorage,
-    TResult? Function(GetAutomaticSettingsFromLocalStorage value)?
-        getAutomaticSettingsFromLocalStorage,
-    TResult? Function(AddShowimsakValToLocalStorage value)?
-        addShowimsakValToLocalStorage,
-    TResult? Function(GetShowimskValFromLocalStorage value)?
-        getShowimskValFromLocalStorage,
-    TResult? Function(AddCalculationMethodToLocalStorage value)?
-        addCalculationMethodToLocalStorage,
-    TResult? Function(GetCalculationMethodFromStorage value)?
-        getCalculationMethodFromStorage,
-    TResult? Function(AddAsrCalculationMethodToLocalStorage value)?
-        addAsrCalculationMethodToLocalStorage,
-    TResult? Function(GetAsrCalculationMethodFromStorage value)?
-        getAsrCalculationMethodFromStorage,
-    TResult? Function(AddHighLatitudeMethodsToLocalStorage value)?
-        addHighLatitudeMethodsToLocalStorage,
-    TResult? Function(GetHighLatitudeMethodsToLocalStorage value)?
-        getHighLatitudeMethodsToLocalStorage,
-    TResult? Function(FetchNamazTimingNotificationsFromLocalStorage value)?
-        fetchNamazTimingNotificationsFromLocalStorage,
-  }) {
-    return getAsrCalculationMethodFromStorage?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(FetchPrayerTiming value)? fetchPrayerTiming,
-    TResult Function(PrayerTimingEvent value)? prayerTimingEvent,
-    TResult Function(ChangeArtCalcMethod value)? changeArtCalcMethod,
-    TResult Function(FetchNamazMethods value)? fetchNamazMethods,
-    TResult Function(ChangeNamazMethods value)? changeNamazMehods,
-    TResult Function(ChangeSchoolEvent value)? changeSchoolEvent,
-    TResult Function(ChangeHighLatitudeMethod value)? changeHighLatitudeMethod,
-    TResult Function(ChangeLangLongtoAddress value)? changeLangLongtoAddress,
-    TResult Function(OnNotiyOnOffEvent value)? onNotiyOnOffEvent,
-    TResult Function(ChangeIndex value)? changeIndex,
-    TResult Function(AddAutoDetectValToLocalStorage value)?
-        addAutoDetectValToLocalStorage,
-    TResult Function(GetAutoDetetectLocationFromLocalStorage value)?
-        getAutoDetetectLocationFromLocalStorage,
-    TResult Function(AddAutomaticSettingToLocalStorage value)?
-        addAutomaticSettingToLocalStorage,
-    TResult Function(GetAutomaticSettingsFromLocalStorage value)?
-        getAutomaticSettingsFromLocalStorage,
-    TResult Function(AddShowimsakValToLocalStorage value)?
-        addShowimsakValToLocalStorage,
-    TResult Function(GetShowimskValFromLocalStorage value)?
-        getShowimskValFromLocalStorage,
-    TResult Function(AddCalculationMethodToLocalStorage value)?
-        addCalculationMethodToLocalStorage,
-    TResult Function(GetCalculationMethodFromStorage value)?
-        getCalculationMethodFromStorage,
-    TResult Function(AddAsrCalculationMethodToLocalStorage value)?
-        addAsrCalculationMethodToLocalStorage,
-    TResult Function(GetAsrCalculationMethodFromStorage value)?
-        getAsrCalculationMethodFromStorage,
-    TResult Function(AddHighLatitudeMethodsToLocalStorage value)?
-        addHighLatitudeMethodsToLocalStorage,
-    TResult Function(GetHighLatitudeMethodsToLocalStorage value)?
-        getHighLatitudeMethodsToLocalStorage,
-    TResult Function(FetchNamazTimingNotificationsFromLocalStorage value)?
-        fetchNamazTimingNotificationsFromLocalStorage,
-    required TResult orElse(),
-  }) {
-    if (getAsrCalculationMethodFromStorage != null) {
-      return getAsrCalculationMethodFromStorage(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class GetAsrCalculationMethodFromStorage implements NamazTimingEvent {
-  const factory GetAsrCalculationMethodFromStorage() =
-      _$GetAsrCalculationMethodFromStorage;
-}
-
-/// @nodoc
-abstract class _$$AddHighLatitudeMethodsToLocalStorageCopyWith<$Res> {
-  factory _$$AddHighLatitudeMethodsToLocalStorageCopyWith(
-          _$AddHighLatitudeMethodsToLocalStorage value,
-          $Res Function(_$AddHighLatitudeMethodsToLocalStorage) then) =
-      __$$AddHighLatitudeMethodsToLocalStorageCopyWithImpl<$Res>;
-  @useResult
-  $Res call({int value});
-}
-
-/// @nodoc
-class __$$AddHighLatitudeMethodsToLocalStorageCopyWithImpl<$Res>
-    extends _$NamazTimingEventCopyWithImpl<$Res,
-        _$AddHighLatitudeMethodsToLocalStorage>
-    implements _$$AddHighLatitudeMethodsToLocalStorageCopyWith<$Res> {
-  __$$AddHighLatitudeMethodsToLocalStorageCopyWithImpl(
-      _$AddHighLatitudeMethodsToLocalStorage _value,
-      $Res Function(_$AddHighLatitudeMethodsToLocalStorage) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? value = null,
-  }) {
-    return _then(_$AddHighLatitudeMethodsToLocalStorage(
-      value: null == value
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
-              as int,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$AddHighLatitudeMethodsToLocalStorage
-    implements AddHighLatitudeMethodsToLocalStorage {
-  const _$AddHighLatitudeMethodsToLocalStorage({required this.value});
-
-  @override
-  final int value;
-
-  @override
-  String toString() {
-    return 'NamazTimingEvent.addHighLatitudeMethodsToLocalStorage(value: $value)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$AddHighLatitudeMethodsToLocalStorage &&
-            (identical(other.value, value) || other.value == value));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, value);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$AddHighLatitudeMethodsToLocalStorageCopyWith<
-          _$AddHighLatitudeMethodsToLocalStorage>
-      get copyWith => __$$AddHighLatitudeMethodsToLocalStorageCopyWithImpl<
-          _$AddHighLatitudeMethodsToLocalStorage>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(BuildContext context) fetchPrayerTiming,
-    required TResult Function() prayerTimingEvent,
-    required TResult Function() changeArtCalcMethod,
-    required TResult Function() fetchNamazMethods,
-    required TResult Function(int method, BuildContext context)
-        changeNamazMehods,
-    required TResult Function(int school, BuildContext context)
-        changeSchoolEvent,
-    required TResult Function(int numValue, BuildContext context)
-        changeHighLatitudeMethod,
-    required TResult Function() changeLangLongtoAddress,
-    required TResult Function(int index) onNotiyOnOffEvent,
-    required TResult Function(int index) changeIndex,
-    required TResult Function(bool value) addAutoDetectValToLocalStorage,
-    required TResult Function() getAutoDetetectLocationFromLocalStorage,
-    required TResult Function(bool value) addAutomaticSettingToLocalStorage,
-    required TResult Function() getAutomaticSettingsFromLocalStorage,
-    required TResult Function(bool value) addShowimsakValToLocalStorage,
-    required TResult Function() getShowimskValFromLocalStorage,
-    required TResult Function(int value) addCalculationMethodToLocalStorage,
-    required TResult Function() getCalculationMethodFromStorage,
-    required TResult Function(int value) addAsrCalculationMethodToLocalStorage,
-    required TResult Function() getAsrCalculationMethodFromStorage,
-    required TResult Function(int value) addHighLatitudeMethodsToLocalStorage,
-    required TResult Function() getHighLatitudeMethodsToLocalStorage,
-    required TResult Function() fetchNamazTimingNotificationsFromLocalStorage,
-  }) {
-    return addHighLatitudeMethodsToLocalStorage(value);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(BuildContext context)? fetchPrayerTiming,
-    TResult? Function()? prayerTimingEvent,
-    TResult? Function()? changeArtCalcMethod,
-    TResult? Function()? fetchNamazMethods,
-    TResult? Function(int method, BuildContext context)? changeNamazMehods,
-    TResult? Function(int school, BuildContext context)? changeSchoolEvent,
-    TResult? Function(int numValue, BuildContext context)?
-        changeHighLatitudeMethod,
-    TResult? Function()? changeLangLongtoAddress,
-    TResult? Function(int index)? onNotiyOnOffEvent,
-    TResult? Function(int index)? changeIndex,
-    TResult? Function(bool value)? addAutoDetectValToLocalStorage,
-    TResult? Function()? getAutoDetetectLocationFromLocalStorage,
-    TResult? Function(bool value)? addAutomaticSettingToLocalStorage,
-    TResult? Function()? getAutomaticSettingsFromLocalStorage,
-    TResult? Function(bool value)? addShowimsakValToLocalStorage,
-    TResult? Function()? getShowimskValFromLocalStorage,
-    TResult? Function(int value)? addCalculationMethodToLocalStorage,
-    TResult? Function()? getCalculationMethodFromStorage,
-    TResult? Function(int value)? addAsrCalculationMethodToLocalStorage,
-    TResult? Function()? getAsrCalculationMethodFromStorage,
-    TResult? Function(int value)? addHighLatitudeMethodsToLocalStorage,
-    TResult? Function()? getHighLatitudeMethodsToLocalStorage,
-    TResult? Function()? fetchNamazTimingNotificationsFromLocalStorage,
-  }) {
-    return addHighLatitudeMethodsToLocalStorage?.call(value);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(BuildContext context)? fetchPrayerTiming,
-    TResult Function()? prayerTimingEvent,
-    TResult Function()? changeArtCalcMethod,
-    TResult Function()? fetchNamazMethods,
-    TResult Function(int method, BuildContext context)? changeNamazMehods,
-    TResult Function(int school, BuildContext context)? changeSchoolEvent,
-    TResult Function(int numValue, BuildContext context)?
-        changeHighLatitudeMethod,
-    TResult Function()? changeLangLongtoAddress,
-    TResult Function(int index)? onNotiyOnOffEvent,
-    TResult Function(int index)? changeIndex,
-    TResult Function(bool value)? addAutoDetectValToLocalStorage,
-    TResult Function()? getAutoDetetectLocationFromLocalStorage,
-    TResult Function(bool value)? addAutomaticSettingToLocalStorage,
-    TResult Function()? getAutomaticSettingsFromLocalStorage,
-    TResult Function(bool value)? addShowimsakValToLocalStorage,
-    TResult Function()? getShowimskValFromLocalStorage,
-    TResult Function(int value)? addCalculationMethodToLocalStorage,
-    TResult Function()? getCalculationMethodFromStorage,
-    TResult Function(int value)? addAsrCalculationMethodToLocalStorage,
-    TResult Function()? getAsrCalculationMethodFromStorage,
-    TResult Function(int value)? addHighLatitudeMethodsToLocalStorage,
-    TResult Function()? getHighLatitudeMethodsToLocalStorage,
-    TResult Function()? fetchNamazTimingNotificationsFromLocalStorage,
-    required TResult orElse(),
-  }) {
-    if (addHighLatitudeMethodsToLocalStorage != null) {
-      return addHighLatitudeMethodsToLocalStorage(value);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(FetchPrayerTiming value) fetchPrayerTiming,
-    required TResult Function(PrayerTimingEvent value) prayerTimingEvent,
-    required TResult Function(ChangeArtCalcMethod value) changeArtCalcMethod,
-    required TResult Function(FetchNamazMethods value) fetchNamazMethods,
-    required TResult Function(ChangeNamazMethods value) changeNamazMehods,
-    required TResult Function(ChangeSchoolEvent value) changeSchoolEvent,
-    required TResult Function(ChangeHighLatitudeMethod value)
-        changeHighLatitudeMethod,
-    required TResult Function(ChangeLangLongtoAddress value)
-        changeLangLongtoAddress,
-    required TResult Function(OnNotiyOnOffEvent value) onNotiyOnOffEvent,
-    required TResult Function(ChangeIndex value) changeIndex,
-    required TResult Function(AddAutoDetectValToLocalStorage value)
-        addAutoDetectValToLocalStorage,
-    required TResult Function(GetAutoDetetectLocationFromLocalStorage value)
-        getAutoDetetectLocationFromLocalStorage,
-    required TResult Function(AddAutomaticSettingToLocalStorage value)
-        addAutomaticSettingToLocalStorage,
-    required TResult Function(GetAutomaticSettingsFromLocalStorage value)
-        getAutomaticSettingsFromLocalStorage,
-    required TResult Function(AddShowimsakValToLocalStorage value)
-        addShowimsakValToLocalStorage,
-    required TResult Function(GetShowimskValFromLocalStorage value)
-        getShowimskValFromLocalStorage,
-    required TResult Function(AddCalculationMethodToLocalStorage value)
-        addCalculationMethodToLocalStorage,
-    required TResult Function(GetCalculationMethodFromStorage value)
-        getCalculationMethodFromStorage,
-    required TResult Function(AddAsrCalculationMethodToLocalStorage value)
-        addAsrCalculationMethodToLocalStorage,
-    required TResult Function(GetAsrCalculationMethodFromStorage value)
-        getAsrCalculationMethodFromStorage,
-    required TResult Function(AddHighLatitudeMethodsToLocalStorage value)
-        addHighLatitudeMethodsToLocalStorage,
-    required TResult Function(GetHighLatitudeMethodsToLocalStorage value)
-        getHighLatitudeMethodsToLocalStorage,
-    required TResult Function(
-            FetchNamazTimingNotificationsFromLocalStorage value)
-        fetchNamazTimingNotificationsFromLocalStorage,
-  }) {
-    return addHighLatitudeMethodsToLocalStorage(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(FetchPrayerTiming value)? fetchPrayerTiming,
-    TResult? Function(PrayerTimingEvent value)? prayerTimingEvent,
-    TResult? Function(ChangeArtCalcMethod value)? changeArtCalcMethod,
-    TResult? Function(FetchNamazMethods value)? fetchNamazMethods,
-    TResult? Function(ChangeNamazMethods value)? changeNamazMehods,
-    TResult? Function(ChangeSchoolEvent value)? changeSchoolEvent,
-    TResult? Function(ChangeHighLatitudeMethod value)? changeHighLatitudeMethod,
-    TResult? Function(ChangeLangLongtoAddress value)? changeLangLongtoAddress,
-    TResult? Function(OnNotiyOnOffEvent value)? onNotiyOnOffEvent,
-    TResult? Function(ChangeIndex value)? changeIndex,
-    TResult? Function(AddAutoDetectValToLocalStorage value)?
-        addAutoDetectValToLocalStorage,
-    TResult? Function(GetAutoDetetectLocationFromLocalStorage value)?
-        getAutoDetetectLocationFromLocalStorage,
-    TResult? Function(AddAutomaticSettingToLocalStorage value)?
-        addAutomaticSettingToLocalStorage,
-    TResult? Function(GetAutomaticSettingsFromLocalStorage value)?
-        getAutomaticSettingsFromLocalStorage,
-    TResult? Function(AddShowimsakValToLocalStorage value)?
-        addShowimsakValToLocalStorage,
-    TResult? Function(GetShowimskValFromLocalStorage value)?
-        getShowimskValFromLocalStorage,
-    TResult? Function(AddCalculationMethodToLocalStorage value)?
-        addCalculationMethodToLocalStorage,
-    TResult? Function(GetCalculationMethodFromStorage value)?
-        getCalculationMethodFromStorage,
-    TResult? Function(AddAsrCalculationMethodToLocalStorage value)?
-        addAsrCalculationMethodToLocalStorage,
-    TResult? Function(GetAsrCalculationMethodFromStorage value)?
-        getAsrCalculationMethodFromStorage,
-    TResult? Function(AddHighLatitudeMethodsToLocalStorage value)?
-        addHighLatitudeMethodsToLocalStorage,
-    TResult? Function(GetHighLatitudeMethodsToLocalStorage value)?
-        getHighLatitudeMethodsToLocalStorage,
-    TResult? Function(FetchNamazTimingNotificationsFromLocalStorage value)?
-        fetchNamazTimingNotificationsFromLocalStorage,
-  }) {
-    return addHighLatitudeMethodsToLocalStorage?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(FetchPrayerTiming value)? fetchPrayerTiming,
-    TResult Function(PrayerTimingEvent value)? prayerTimingEvent,
-    TResult Function(ChangeArtCalcMethod value)? changeArtCalcMethod,
-    TResult Function(FetchNamazMethods value)? fetchNamazMethods,
-    TResult Function(ChangeNamazMethods value)? changeNamazMehods,
-    TResult Function(ChangeSchoolEvent value)? changeSchoolEvent,
-    TResult Function(ChangeHighLatitudeMethod value)? changeHighLatitudeMethod,
-    TResult Function(ChangeLangLongtoAddress value)? changeLangLongtoAddress,
-    TResult Function(OnNotiyOnOffEvent value)? onNotiyOnOffEvent,
-    TResult Function(ChangeIndex value)? changeIndex,
-    TResult Function(AddAutoDetectValToLocalStorage value)?
-        addAutoDetectValToLocalStorage,
-    TResult Function(GetAutoDetetectLocationFromLocalStorage value)?
-        getAutoDetetectLocationFromLocalStorage,
-    TResult Function(AddAutomaticSettingToLocalStorage value)?
-        addAutomaticSettingToLocalStorage,
-    TResult Function(GetAutomaticSettingsFromLocalStorage value)?
-        getAutomaticSettingsFromLocalStorage,
-    TResult Function(AddShowimsakValToLocalStorage value)?
-        addShowimsakValToLocalStorage,
-    TResult Function(GetShowimskValFromLocalStorage value)?
-        getShowimskValFromLocalStorage,
-    TResult Function(AddCalculationMethodToLocalStorage value)?
-        addCalculationMethodToLocalStorage,
-    TResult Function(GetCalculationMethodFromStorage value)?
-        getCalculationMethodFromStorage,
-    TResult Function(AddAsrCalculationMethodToLocalStorage value)?
-        addAsrCalculationMethodToLocalStorage,
-    TResult Function(GetAsrCalculationMethodFromStorage value)?
-        getAsrCalculationMethodFromStorage,
-    TResult Function(AddHighLatitudeMethodsToLocalStorage value)?
-        addHighLatitudeMethodsToLocalStorage,
-    TResult Function(GetHighLatitudeMethodsToLocalStorage value)?
-        getHighLatitudeMethodsToLocalStorage,
-    TResult Function(FetchNamazTimingNotificationsFromLocalStorage value)?
-        fetchNamazTimingNotificationsFromLocalStorage,
-    required TResult orElse(),
-  }) {
-    if (addHighLatitudeMethodsToLocalStorage != null) {
-      return addHighLatitudeMethodsToLocalStorage(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class AddHighLatitudeMethodsToLocalStorage
-    implements NamazTimingEvent {
-  const factory AddHighLatitudeMethodsToLocalStorage(
-      {required final int value}) = _$AddHighLatitudeMethodsToLocalStorage;
-
-  int get value;
-  @JsonKey(ignore: true)
-  _$$AddHighLatitudeMethodsToLocalStorageCopyWith<
-          _$AddHighLatitudeMethodsToLocalStorage>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$GetHighLatitudeMethodsToLocalStorageCopyWith<$Res> {
-  factory _$$GetHighLatitudeMethodsToLocalStorageCopyWith(
-          _$GetHighLatitudeMethodsToLocalStorage value,
-          $Res Function(_$GetHighLatitudeMethodsToLocalStorage) then) =
-      __$$GetHighLatitudeMethodsToLocalStorageCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$GetHighLatitudeMethodsToLocalStorageCopyWithImpl<$Res>
-    extends _$NamazTimingEventCopyWithImpl<$Res,
-        _$GetHighLatitudeMethodsToLocalStorage>
-    implements _$$GetHighLatitudeMethodsToLocalStorageCopyWith<$Res> {
-  __$$GetHighLatitudeMethodsToLocalStorageCopyWithImpl(
-      _$GetHighLatitudeMethodsToLocalStorage _value,
-      $Res Function(_$GetHighLatitudeMethodsToLocalStorage) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$GetHighLatitudeMethodsToLocalStorage
-    implements GetHighLatitudeMethodsToLocalStorage {
-  const _$GetHighLatitudeMethodsToLocalStorage();
-
-  @override
-  String toString() {
-    return 'NamazTimingEvent.getHighLatitudeMethodsToLocalStorage()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$GetHighLatitudeMethodsToLocalStorage);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(BuildContext context) fetchPrayerTiming,
-    required TResult Function() prayerTimingEvent,
-    required TResult Function() changeArtCalcMethod,
-    required TResult Function() fetchNamazMethods,
-    required TResult Function(int method, BuildContext context)
-        changeNamazMehods,
-    required TResult Function(int school, BuildContext context)
-        changeSchoolEvent,
-    required TResult Function(int numValue, BuildContext context)
-        changeHighLatitudeMethod,
-    required TResult Function() changeLangLongtoAddress,
-    required TResult Function(int index) onNotiyOnOffEvent,
-    required TResult Function(int index) changeIndex,
-    required TResult Function(bool value) addAutoDetectValToLocalStorage,
-    required TResult Function() getAutoDetetectLocationFromLocalStorage,
-    required TResult Function(bool value) addAutomaticSettingToLocalStorage,
-    required TResult Function() getAutomaticSettingsFromLocalStorage,
-    required TResult Function(bool value) addShowimsakValToLocalStorage,
-    required TResult Function() getShowimskValFromLocalStorage,
-    required TResult Function(int value) addCalculationMethodToLocalStorage,
-    required TResult Function() getCalculationMethodFromStorage,
-    required TResult Function(int value) addAsrCalculationMethodToLocalStorage,
-    required TResult Function() getAsrCalculationMethodFromStorage,
-    required TResult Function(int value) addHighLatitudeMethodsToLocalStorage,
-    required TResult Function() getHighLatitudeMethodsToLocalStorage,
-    required TResult Function() fetchNamazTimingNotificationsFromLocalStorage,
-  }) {
-    return getHighLatitudeMethodsToLocalStorage();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(BuildContext context)? fetchPrayerTiming,
-    TResult? Function()? prayerTimingEvent,
-    TResult? Function()? changeArtCalcMethod,
-    TResult? Function()? fetchNamazMethods,
-    TResult? Function(int method, BuildContext context)? changeNamazMehods,
-    TResult? Function(int school, BuildContext context)? changeSchoolEvent,
-    TResult? Function(int numValue, BuildContext context)?
-        changeHighLatitudeMethod,
-    TResult? Function()? changeLangLongtoAddress,
-    TResult? Function(int index)? onNotiyOnOffEvent,
-    TResult? Function(int index)? changeIndex,
-    TResult? Function(bool value)? addAutoDetectValToLocalStorage,
-    TResult? Function()? getAutoDetetectLocationFromLocalStorage,
-    TResult? Function(bool value)? addAutomaticSettingToLocalStorage,
-    TResult? Function()? getAutomaticSettingsFromLocalStorage,
-    TResult? Function(bool value)? addShowimsakValToLocalStorage,
-    TResult? Function()? getShowimskValFromLocalStorage,
-    TResult? Function(int value)? addCalculationMethodToLocalStorage,
-    TResult? Function()? getCalculationMethodFromStorage,
-    TResult? Function(int value)? addAsrCalculationMethodToLocalStorage,
-    TResult? Function()? getAsrCalculationMethodFromStorage,
-    TResult? Function(int value)? addHighLatitudeMethodsToLocalStorage,
-    TResult? Function()? getHighLatitudeMethodsToLocalStorage,
-    TResult? Function()? fetchNamazTimingNotificationsFromLocalStorage,
-  }) {
-    return getHighLatitudeMethodsToLocalStorage?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(BuildContext context)? fetchPrayerTiming,
-    TResult Function()? prayerTimingEvent,
-    TResult Function()? changeArtCalcMethod,
-    TResult Function()? fetchNamazMethods,
-    TResult Function(int method, BuildContext context)? changeNamazMehods,
-    TResult Function(int school, BuildContext context)? changeSchoolEvent,
-    TResult Function(int numValue, BuildContext context)?
-        changeHighLatitudeMethod,
-    TResult Function()? changeLangLongtoAddress,
-    TResult Function(int index)? onNotiyOnOffEvent,
-    TResult Function(int index)? changeIndex,
-    TResult Function(bool value)? addAutoDetectValToLocalStorage,
-    TResult Function()? getAutoDetetectLocationFromLocalStorage,
-    TResult Function(bool value)? addAutomaticSettingToLocalStorage,
-    TResult Function()? getAutomaticSettingsFromLocalStorage,
-    TResult Function(bool value)? addShowimsakValToLocalStorage,
-    TResult Function()? getShowimskValFromLocalStorage,
-    TResult Function(int value)? addCalculationMethodToLocalStorage,
-    TResult Function()? getCalculationMethodFromStorage,
-    TResult Function(int value)? addAsrCalculationMethodToLocalStorage,
-    TResult Function()? getAsrCalculationMethodFromStorage,
-    TResult Function(int value)? addHighLatitudeMethodsToLocalStorage,
-    TResult Function()? getHighLatitudeMethodsToLocalStorage,
-    TResult Function()? fetchNamazTimingNotificationsFromLocalStorage,
-    required TResult orElse(),
-  }) {
-    if (getHighLatitudeMethodsToLocalStorage != null) {
-      return getHighLatitudeMethodsToLocalStorage();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(FetchPrayerTiming value) fetchPrayerTiming,
-    required TResult Function(PrayerTimingEvent value) prayerTimingEvent,
-    required TResult Function(ChangeArtCalcMethod value) changeArtCalcMethod,
-    required TResult Function(FetchNamazMethods value) fetchNamazMethods,
-    required TResult Function(ChangeNamazMethods value) changeNamazMehods,
-    required TResult Function(ChangeSchoolEvent value) changeSchoolEvent,
-    required TResult Function(ChangeHighLatitudeMethod value)
-        changeHighLatitudeMethod,
-    required TResult Function(ChangeLangLongtoAddress value)
-        changeLangLongtoAddress,
-    required TResult Function(OnNotiyOnOffEvent value) onNotiyOnOffEvent,
-    required TResult Function(ChangeIndex value) changeIndex,
-    required TResult Function(AddAutoDetectValToLocalStorage value)
-        addAutoDetectValToLocalStorage,
-    required TResult Function(GetAutoDetetectLocationFromLocalStorage value)
-        getAutoDetetectLocationFromLocalStorage,
-    required TResult Function(AddAutomaticSettingToLocalStorage value)
-        addAutomaticSettingToLocalStorage,
-    required TResult Function(GetAutomaticSettingsFromLocalStorage value)
-        getAutomaticSettingsFromLocalStorage,
-    required TResult Function(AddShowimsakValToLocalStorage value)
-        addShowimsakValToLocalStorage,
-    required TResult Function(GetShowimskValFromLocalStorage value)
-        getShowimskValFromLocalStorage,
-    required TResult Function(AddCalculationMethodToLocalStorage value)
-        addCalculationMethodToLocalStorage,
-    required TResult Function(GetCalculationMethodFromStorage value)
-        getCalculationMethodFromStorage,
-    required TResult Function(AddAsrCalculationMethodToLocalStorage value)
-        addAsrCalculationMethodToLocalStorage,
-    required TResult Function(GetAsrCalculationMethodFromStorage value)
-        getAsrCalculationMethodFromStorage,
-    required TResult Function(AddHighLatitudeMethodsToLocalStorage value)
-        addHighLatitudeMethodsToLocalStorage,
-    required TResult Function(GetHighLatitudeMethodsToLocalStorage value)
-        getHighLatitudeMethodsToLocalStorage,
-    required TResult Function(
-            FetchNamazTimingNotificationsFromLocalStorage value)
-        fetchNamazTimingNotificationsFromLocalStorage,
-  }) {
-    return getHighLatitudeMethodsToLocalStorage(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(FetchPrayerTiming value)? fetchPrayerTiming,
-    TResult? Function(PrayerTimingEvent value)? prayerTimingEvent,
-    TResult? Function(ChangeArtCalcMethod value)? changeArtCalcMethod,
-    TResult? Function(FetchNamazMethods value)? fetchNamazMethods,
-    TResult? Function(ChangeNamazMethods value)? changeNamazMehods,
-    TResult? Function(ChangeSchoolEvent value)? changeSchoolEvent,
-    TResult? Function(ChangeHighLatitudeMethod value)? changeHighLatitudeMethod,
-    TResult? Function(ChangeLangLongtoAddress value)? changeLangLongtoAddress,
-    TResult? Function(OnNotiyOnOffEvent value)? onNotiyOnOffEvent,
-    TResult? Function(ChangeIndex value)? changeIndex,
-    TResult? Function(AddAutoDetectValToLocalStorage value)?
-        addAutoDetectValToLocalStorage,
-    TResult? Function(GetAutoDetetectLocationFromLocalStorage value)?
-        getAutoDetetectLocationFromLocalStorage,
-    TResult? Function(AddAutomaticSettingToLocalStorage value)?
-        addAutomaticSettingToLocalStorage,
-    TResult? Function(GetAutomaticSettingsFromLocalStorage value)?
-        getAutomaticSettingsFromLocalStorage,
-    TResult? Function(AddShowimsakValToLocalStorage value)?
-        addShowimsakValToLocalStorage,
-    TResult? Function(GetShowimskValFromLocalStorage value)?
-        getShowimskValFromLocalStorage,
-    TResult? Function(AddCalculationMethodToLocalStorage value)?
-        addCalculationMethodToLocalStorage,
-    TResult? Function(GetCalculationMethodFromStorage value)?
-        getCalculationMethodFromStorage,
-    TResult? Function(AddAsrCalculationMethodToLocalStorage value)?
-        addAsrCalculationMethodToLocalStorage,
-    TResult? Function(GetAsrCalculationMethodFromStorage value)?
-        getAsrCalculationMethodFromStorage,
-    TResult? Function(AddHighLatitudeMethodsToLocalStorage value)?
-        addHighLatitudeMethodsToLocalStorage,
-    TResult? Function(GetHighLatitudeMethodsToLocalStorage value)?
-        getHighLatitudeMethodsToLocalStorage,
-    TResult? Function(FetchNamazTimingNotificationsFromLocalStorage value)?
-        fetchNamazTimingNotificationsFromLocalStorage,
-  }) {
-    return getHighLatitudeMethodsToLocalStorage?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(FetchPrayerTiming value)? fetchPrayerTiming,
-    TResult Function(PrayerTimingEvent value)? prayerTimingEvent,
-    TResult Function(ChangeArtCalcMethod value)? changeArtCalcMethod,
-    TResult Function(FetchNamazMethods value)? fetchNamazMethods,
-    TResult Function(ChangeNamazMethods value)? changeNamazMehods,
-    TResult Function(ChangeSchoolEvent value)? changeSchoolEvent,
-    TResult Function(ChangeHighLatitudeMethod value)? changeHighLatitudeMethod,
-    TResult Function(ChangeLangLongtoAddress value)? changeLangLongtoAddress,
-    TResult Function(OnNotiyOnOffEvent value)? onNotiyOnOffEvent,
-    TResult Function(ChangeIndex value)? changeIndex,
-    TResult Function(AddAutoDetectValToLocalStorage value)?
-        addAutoDetectValToLocalStorage,
-    TResult Function(GetAutoDetetectLocationFromLocalStorage value)?
-        getAutoDetetectLocationFromLocalStorage,
-    TResult Function(AddAutomaticSettingToLocalStorage value)?
-        addAutomaticSettingToLocalStorage,
-    TResult Function(GetAutomaticSettingsFromLocalStorage value)?
-        getAutomaticSettingsFromLocalStorage,
-    TResult Function(AddShowimsakValToLocalStorage value)?
-        addShowimsakValToLocalStorage,
-    TResult Function(GetShowimskValFromLocalStorage value)?
-        getShowimskValFromLocalStorage,
-    TResult Function(AddCalculationMethodToLocalStorage value)?
-        addCalculationMethodToLocalStorage,
-    TResult Function(GetCalculationMethodFromStorage value)?
-        getCalculationMethodFromStorage,
-    TResult Function(AddAsrCalculationMethodToLocalStorage value)?
-        addAsrCalculationMethodToLocalStorage,
-    TResult Function(GetAsrCalculationMethodFromStorage value)?
-        getAsrCalculationMethodFromStorage,
-    TResult Function(AddHighLatitudeMethodsToLocalStorage value)?
-        addHighLatitudeMethodsToLocalStorage,
-    TResult Function(GetHighLatitudeMethodsToLocalStorage value)?
-        getHighLatitudeMethodsToLocalStorage,
-    TResult Function(FetchNamazTimingNotificationsFromLocalStorage value)?
-        fetchNamazTimingNotificationsFromLocalStorage,
-    required TResult orElse(),
-  }) {
-    if (getHighLatitudeMethodsToLocalStorage != null) {
-      return getHighLatitudeMethodsToLocalStorage(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class GetHighLatitudeMethodsToLocalStorage
-    implements NamazTimingEvent {
-  const factory GetHighLatitudeMethodsToLocalStorage() =
-      _$GetHighLatitudeMethodsToLocalStorage;
-}
-
-/// @nodoc
-abstract class _$$FetchNamazTimingNotificationsFromLocalStorageCopyWith<$Res> {
-  factory _$$FetchNamazTimingNotificationsFromLocalStorageCopyWith(
-          _$FetchNamazTimingNotificationsFromLocalStorage value,
-          $Res Function(_$FetchNamazTimingNotificationsFromLocalStorage) then) =
-      __$$FetchNamazTimingNotificationsFromLocalStorageCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$FetchNamazTimingNotificationsFromLocalStorageCopyWithImpl<$Res>
-    extends _$NamazTimingEventCopyWithImpl<$Res,
-        _$FetchNamazTimingNotificationsFromLocalStorage>
-    implements _$$FetchNamazTimingNotificationsFromLocalStorageCopyWith<$Res> {
-  __$$FetchNamazTimingNotificationsFromLocalStorageCopyWithImpl(
-      _$FetchNamazTimingNotificationsFromLocalStorage _value,
-      $Res Function(_$FetchNamazTimingNotificationsFromLocalStorage) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$FetchNamazTimingNotificationsFromLocalStorage
-    implements FetchNamazTimingNotificationsFromLocalStorage {
-  const _$FetchNamazTimingNotificationsFromLocalStorage();
-
-  @override
-  String toString() {
-    return 'NamazTimingEvent.fetchNamazTimingNotificationsFromLocalStorage()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$FetchNamazTimingNotificationsFromLocalStorage);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(BuildContext context) fetchPrayerTiming,
-    required TResult Function() prayerTimingEvent,
-    required TResult Function() changeArtCalcMethod,
-    required TResult Function() fetchNamazMethods,
-    required TResult Function(int method, BuildContext context)
-        changeNamazMehods,
-    required TResult Function(int school, BuildContext context)
-        changeSchoolEvent,
-    required TResult Function(int numValue, BuildContext context)
-        changeHighLatitudeMethod,
-    required TResult Function() changeLangLongtoAddress,
-    required TResult Function(int index) onNotiyOnOffEvent,
-    required TResult Function(int index) changeIndex,
-    required TResult Function(bool value) addAutoDetectValToLocalStorage,
-    required TResult Function() getAutoDetetectLocationFromLocalStorage,
-    required TResult Function(bool value) addAutomaticSettingToLocalStorage,
-    required TResult Function() getAutomaticSettingsFromLocalStorage,
-    required TResult Function(bool value) addShowimsakValToLocalStorage,
-    required TResult Function() getShowimskValFromLocalStorage,
-    required TResult Function(int value) addCalculationMethodToLocalStorage,
-    required TResult Function() getCalculationMethodFromStorage,
-    required TResult Function(int value) addAsrCalculationMethodToLocalStorage,
-    required TResult Function() getAsrCalculationMethodFromStorage,
-    required TResult Function(int value) addHighLatitudeMethodsToLocalStorage,
-    required TResult Function() getHighLatitudeMethodsToLocalStorage,
-    required TResult Function() fetchNamazTimingNotificationsFromLocalStorage,
-  }) {
-    return fetchNamazTimingNotificationsFromLocalStorage();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(BuildContext context)? fetchPrayerTiming,
-    TResult? Function()? prayerTimingEvent,
-    TResult? Function()? changeArtCalcMethod,
-    TResult? Function()? fetchNamazMethods,
-    TResult? Function(int method, BuildContext context)? changeNamazMehods,
-    TResult? Function(int school, BuildContext context)? changeSchoolEvent,
-    TResult? Function(int numValue, BuildContext context)?
-        changeHighLatitudeMethod,
-    TResult? Function()? changeLangLongtoAddress,
-    TResult? Function(int index)? onNotiyOnOffEvent,
-    TResult? Function(int index)? changeIndex,
-    TResult? Function(bool value)? addAutoDetectValToLocalStorage,
-    TResult? Function()? getAutoDetetectLocationFromLocalStorage,
-    TResult? Function(bool value)? addAutomaticSettingToLocalStorage,
-    TResult? Function()? getAutomaticSettingsFromLocalStorage,
-    TResult? Function(bool value)? addShowimsakValToLocalStorage,
-    TResult? Function()? getShowimskValFromLocalStorage,
-    TResult? Function(int value)? addCalculationMethodToLocalStorage,
-    TResult? Function()? getCalculationMethodFromStorage,
-    TResult? Function(int value)? addAsrCalculationMethodToLocalStorage,
-    TResult? Function()? getAsrCalculationMethodFromStorage,
-    TResult? Function(int value)? addHighLatitudeMethodsToLocalStorage,
-    TResult? Function()? getHighLatitudeMethodsToLocalStorage,
-    TResult? Function()? fetchNamazTimingNotificationsFromLocalStorage,
-  }) {
-    return fetchNamazTimingNotificationsFromLocalStorage?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(BuildContext context)? fetchPrayerTiming,
-    TResult Function()? prayerTimingEvent,
-    TResult Function()? changeArtCalcMethod,
-    TResult Function()? fetchNamazMethods,
-    TResult Function(int method, BuildContext context)? changeNamazMehods,
-    TResult Function(int school, BuildContext context)? changeSchoolEvent,
-    TResult Function(int numValue, BuildContext context)?
-        changeHighLatitudeMethod,
-    TResult Function()? changeLangLongtoAddress,
-    TResult Function(int index)? onNotiyOnOffEvent,
-    TResult Function(int index)? changeIndex,
-    TResult Function(bool value)? addAutoDetectValToLocalStorage,
-    TResult Function()? getAutoDetetectLocationFromLocalStorage,
-    TResult Function(bool value)? addAutomaticSettingToLocalStorage,
-    TResult Function()? getAutomaticSettingsFromLocalStorage,
-    TResult Function(bool value)? addShowimsakValToLocalStorage,
-    TResult Function()? getShowimskValFromLocalStorage,
-    TResult Function(int value)? addCalculationMethodToLocalStorage,
-    TResult Function()? getCalculationMethodFromStorage,
-    TResult Function(int value)? addAsrCalculationMethodToLocalStorage,
-    TResult Function()? getAsrCalculationMethodFromStorage,
-    TResult Function(int value)? addHighLatitudeMethodsToLocalStorage,
-    TResult Function()? getHighLatitudeMethodsToLocalStorage,
-    TResult Function()? fetchNamazTimingNotificationsFromLocalStorage,
-    required TResult orElse(),
-  }) {
-    if (fetchNamazTimingNotificationsFromLocalStorage != null) {
-      return fetchNamazTimingNotificationsFromLocalStorage();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(FetchPrayerTiming value) fetchPrayerTiming,
-    required TResult Function(PrayerTimingEvent value) prayerTimingEvent,
-    required TResult Function(ChangeArtCalcMethod value) changeArtCalcMethod,
-    required TResult Function(FetchNamazMethods value) fetchNamazMethods,
-    required TResult Function(ChangeNamazMethods value) changeNamazMehods,
-    required TResult Function(ChangeSchoolEvent value) changeSchoolEvent,
-    required TResult Function(ChangeHighLatitudeMethod value)
-        changeHighLatitudeMethod,
-    required TResult Function(ChangeLangLongtoAddress value)
-        changeLangLongtoAddress,
-    required TResult Function(OnNotiyOnOffEvent value) onNotiyOnOffEvent,
-    required TResult Function(ChangeIndex value) changeIndex,
-    required TResult Function(AddAutoDetectValToLocalStorage value)
-        addAutoDetectValToLocalStorage,
-    required TResult Function(GetAutoDetetectLocationFromLocalStorage value)
-        getAutoDetetectLocationFromLocalStorage,
-    required TResult Function(AddAutomaticSettingToLocalStorage value)
-        addAutomaticSettingToLocalStorage,
-    required TResult Function(GetAutomaticSettingsFromLocalStorage value)
-        getAutomaticSettingsFromLocalStorage,
-    required TResult Function(AddShowimsakValToLocalStorage value)
-        addShowimsakValToLocalStorage,
-    required TResult Function(GetShowimskValFromLocalStorage value)
-        getShowimskValFromLocalStorage,
-    required TResult Function(AddCalculationMethodToLocalStorage value)
-        addCalculationMethodToLocalStorage,
-    required TResult Function(GetCalculationMethodFromStorage value)
-        getCalculationMethodFromStorage,
-    required TResult Function(AddAsrCalculationMethodToLocalStorage value)
-        addAsrCalculationMethodToLocalStorage,
-    required TResult Function(GetAsrCalculationMethodFromStorage value)
-        getAsrCalculationMethodFromStorage,
-    required TResult Function(AddHighLatitudeMethodsToLocalStorage value)
-        addHighLatitudeMethodsToLocalStorage,
-    required TResult Function(GetHighLatitudeMethodsToLocalStorage value)
-        getHighLatitudeMethodsToLocalStorage,
-    required TResult Function(
-            FetchNamazTimingNotificationsFromLocalStorage value)
-        fetchNamazTimingNotificationsFromLocalStorage,
-  }) {
-    return fetchNamazTimingNotificationsFromLocalStorage(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(FetchPrayerTiming value)? fetchPrayerTiming,
-    TResult? Function(PrayerTimingEvent value)? prayerTimingEvent,
-    TResult? Function(ChangeArtCalcMethod value)? changeArtCalcMethod,
-    TResult? Function(FetchNamazMethods value)? fetchNamazMethods,
-    TResult? Function(ChangeNamazMethods value)? changeNamazMehods,
-    TResult? Function(ChangeSchoolEvent value)? changeSchoolEvent,
-    TResult? Function(ChangeHighLatitudeMethod value)? changeHighLatitudeMethod,
-    TResult? Function(ChangeLangLongtoAddress value)? changeLangLongtoAddress,
-    TResult? Function(OnNotiyOnOffEvent value)? onNotiyOnOffEvent,
-    TResult? Function(ChangeIndex value)? changeIndex,
-    TResult? Function(AddAutoDetectValToLocalStorage value)?
-        addAutoDetectValToLocalStorage,
-    TResult? Function(GetAutoDetetectLocationFromLocalStorage value)?
-        getAutoDetetectLocationFromLocalStorage,
-    TResult? Function(AddAutomaticSettingToLocalStorage value)?
-        addAutomaticSettingToLocalStorage,
-    TResult? Function(GetAutomaticSettingsFromLocalStorage value)?
-        getAutomaticSettingsFromLocalStorage,
-    TResult? Function(AddShowimsakValToLocalStorage value)?
-        addShowimsakValToLocalStorage,
-    TResult? Function(GetShowimskValFromLocalStorage value)?
-        getShowimskValFromLocalStorage,
-    TResult? Function(AddCalculationMethodToLocalStorage value)?
-        addCalculationMethodToLocalStorage,
-    TResult? Function(GetCalculationMethodFromStorage value)?
-        getCalculationMethodFromStorage,
-    TResult? Function(AddAsrCalculationMethodToLocalStorage value)?
-        addAsrCalculationMethodToLocalStorage,
-    TResult? Function(GetAsrCalculationMethodFromStorage value)?
-        getAsrCalculationMethodFromStorage,
-    TResult? Function(AddHighLatitudeMethodsToLocalStorage value)?
-        addHighLatitudeMethodsToLocalStorage,
-    TResult? Function(GetHighLatitudeMethodsToLocalStorage value)?
-        getHighLatitudeMethodsToLocalStorage,
-    TResult? Function(FetchNamazTimingNotificationsFromLocalStorage value)?
-        fetchNamazTimingNotificationsFromLocalStorage,
-  }) {
-    return fetchNamazTimingNotificationsFromLocalStorage?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(FetchPrayerTiming value)? fetchPrayerTiming,
-    TResult Function(PrayerTimingEvent value)? prayerTimingEvent,
-    TResult Function(ChangeArtCalcMethod value)? changeArtCalcMethod,
-    TResult Function(FetchNamazMethods value)? fetchNamazMethods,
-    TResult Function(ChangeNamazMethods value)? changeNamazMehods,
-    TResult Function(ChangeSchoolEvent value)? changeSchoolEvent,
-    TResult Function(ChangeHighLatitudeMethod value)? changeHighLatitudeMethod,
-    TResult Function(ChangeLangLongtoAddress value)? changeLangLongtoAddress,
-    TResult Function(OnNotiyOnOffEvent value)? onNotiyOnOffEvent,
-    TResult Function(ChangeIndex value)? changeIndex,
-    TResult Function(AddAutoDetectValToLocalStorage value)?
-        addAutoDetectValToLocalStorage,
-    TResult Function(GetAutoDetetectLocationFromLocalStorage value)?
-        getAutoDetetectLocationFromLocalStorage,
-    TResult Function(AddAutomaticSettingToLocalStorage value)?
-        addAutomaticSettingToLocalStorage,
-    TResult Function(GetAutomaticSettingsFromLocalStorage value)?
-        getAutomaticSettingsFromLocalStorage,
-    TResult Function(AddShowimsakValToLocalStorage value)?
-        addShowimsakValToLocalStorage,
-    TResult Function(GetShowimskValFromLocalStorage value)?
-        getShowimskValFromLocalStorage,
-    TResult Function(AddCalculationMethodToLocalStorage value)?
-        addCalculationMethodToLocalStorage,
-    TResult Function(GetCalculationMethodFromStorage value)?
-        getCalculationMethodFromStorage,
-    TResult Function(AddAsrCalculationMethodToLocalStorage value)?
-        addAsrCalculationMethodToLocalStorage,
-    TResult Function(GetAsrCalculationMethodFromStorage value)?
-        getAsrCalculationMethodFromStorage,
-    TResult Function(AddHighLatitudeMethodsToLocalStorage value)?
-        addHighLatitudeMethodsToLocalStorage,
-    TResult Function(GetHighLatitudeMethodsToLocalStorage value)?
-        getHighLatitudeMethodsToLocalStorage,
-    TResult Function(FetchNamazTimingNotificationsFromLocalStorage value)?
-        fetchNamazTimingNotificationsFromLocalStorage,
-    required TResult orElse(),
-  }) {
-    if (fetchNamazTimingNotificationsFromLocalStorage != null) {
-      return fetchNamazTimingNotificationsFromLocalStorage(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class FetchNamazTimingNotificationsFromLocalStorage
-    implements NamazTimingEvent {
-  const factory FetchNamazTimingNotificationsFromLocalStorage() =
-      _$FetchNamazTimingNotificationsFromLocalStorage;
+abstract class AddNamazMethodDb implements NamazTimingEvent {
+  const factory AddNamazMethodDb() = _$AddNamazMethodDb;
 }
 
 /// @nodoc

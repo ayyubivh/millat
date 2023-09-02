@@ -14,10 +14,12 @@ import 'package:millat/resources/home/bloc/logic/namaz_timing_bloc/namaz_timing_
 import 'package:millat/resources/home/bloc/logic/quran_bloc/quran_bloc.dart';
 import 'package:millat/resources/home/bloc/logic/tasbih_bloc/tasbih_bloc.dart';
 import 'package:millat/resources/home/bloc/models/book_mark_hive_model/book_mark_hive_model.dart';
+import 'package:millat/resources/home/bloc/models/home_models/prayer_tracker_model.dart';
 import 'package:millat/resources/home/bloc/service/notification_service.dart';
 import 'package:millat/resources/home/view/namaz_timing/namaz_timing_view.dart';
 import 'package:millat/resources/on_boarding/view/on_boarding_view.dart';
 import 'package:millat/resources/profile/views/manage_address.dart';
+import 'package:millat/resources/shop/view/article/articles_view.dart';
 import 'package:millat/resources/shop/bloc/logic/address_bloc/address_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/cart_bloc/cart_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/category_bloc/category_bloc.dart';
@@ -29,6 +31,7 @@ import 'package:millat/utils/string_constants.dart';
 import 'package:responsive_framework/responsive_wrapper.dart';
 import 'package:responsive_framework/utils/scroll_behavior.dart';
 import 'package:timezone/data/latest.dart' as tz;
+
 import 'resources/shop/view/categories/categories_view.dart';
 
 void main() async {
@@ -49,8 +52,10 @@ void main() async {
     statusBarIconBrightness: Brightness.dark,
   ));
 
-  if (!Hive.isAdapterRegistered(BookMarktCollectionModelAdapter().typeId)) {
+  if (!Hive.isAdapterRegistered(BookMarktCollectionModelAdapter().typeId) ||
+      !Hive.isAdapterRegistered(PrayerTrackerModelAdapter().typeId)) {
     Hive.registerAdapter(BookMarktCollectionModelAdapter());
+    Hive.registerAdapter(PrayerTrackerModelAdapter());
   }
   await Hive.initFlutter();
   await Hive.openBox('userDetailsBox');
@@ -118,6 +123,13 @@ class MyApp extends StatelessWidget {
         NamazTimingView.routeName: (context) => const NamazTimingView(),
         ManageAddress.routeName: (context) => const ManageAddress(),
         SearchView.routeName: (context) => const SearchView(),
+        ArticlesView.routeName: (context) {
+          final args = ModalRoute.of(context)!.settings.arguments
+              as Map<String, dynamic>;
+          return ArticlesView(
+            passValue: args['passValue'],
+          );
+        },
         ProductsView.routeName: (context) {
           final args = ModalRoute.of(context)!.settings.arguments
               as Map<String, dynamic>;

@@ -34,6 +34,11 @@ class BookmarkView extends StatelessWidget {
         ),
         actions: [
           ImageIcon(
+            const AssetImage("assets/icons/bookmark.png"),
+            color: ColorManager.primary,
+          ),
+          kWidht10,
+          ImageIcon(
             const AssetImage("assets/icons/settings.png"),
             color: ColorManager.blackColor,
           ),
@@ -53,15 +58,15 @@ class BookmarkView extends StatelessWidget {
             kHeight20,
             const BookmarkNewCollectionWidget(),
             kHeight20,
-            // BlocBuilder<BookmarkBloc, BookmarkState>(
-            //   builder: (context, state) =>
-            //       state.dbCollectionItems.map((e) => e.id == "1").isNotEmpty
-            //           ? const SizedBox.shrink()
-            //           : const QuranFavBookmarkCollectionWidget(
-            //               type: QuranFavbookMarkType.view,
-            //             ),
-            // ),
-            // kHeight20,
+            BlocBuilder<BookmarkBloc, BookmarkState>(
+              builder: (context, state) =>
+                  state.dbCollectionItems.map((e) => e.id == "1").isNotEmpty
+                      ? const SizedBox.shrink()
+                      : const QuranFavBookmarkCollectionWidget(
+                          type: QuranFavbookMarkType.view,
+                        ),
+            ),
+            kHeight20,
             Expanded(
               child: BlocBuilder<BookmarkBloc, BookmarkState>(
                 builder: (context, state) {

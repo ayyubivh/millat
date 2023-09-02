@@ -28,7 +28,6 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
-  auto_route: ^7.8.3
   carousel_slider: ^4.2.1
   cupertino_icons: ^1.0.2
   dotted_border: ^2.0.0+3
@@ -47,7 +46,6 @@ dependencies:
   hive_flutter: ^1.1.0
   html: ^0.15.4
   http: ^0.13.6
-  image_picker: ^1.0.2
   intl: ^0.18.1
   intl_phone_number_input: ^0.7.3+1
   json_annotation: ^4.8.1
@@ -56,16 +54,11 @@ dependencies:
   permission_handler: ^10.4.1
   pinput: ^2.2.31
   responsive_framework: ^0.2.0
-  scrollable_positioned_list: ^0.3.8
   share_plus: ^7.0.2
-  shared_preferences: ^2.2.0
   smooth_page_indicator: ^1.1.0
   swipe_cards: ^2.0.0+1
-  table_calendar: ^3.0.9
-  weather: null
 
 dev_dependencies:
-  auto_route_generator: ^7.3.1
   build_runner: ^2.3.3
   flutter_lints: ^2.0.0
   flutter_test:
@@ -101,7 +94,6 @@ flutter:
     - assets/images/
     - assets/icons/
     - assets/dummy/
-    - assets/audio/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
@@ -120,11 +112,11 @@ flutter:
     - family: Hafs
       fonts:
         - asset: fonts/sofia_pro/UthmanicHafs1-Ver18.ttf
-    #       - asset: fonts/Schyler-Italic.ttf
-    #         style: italic
-    - family: Uthmani Regular
-      fonts:
-        - asset: fonts/sofia_pro/UthmanicHafs1-Ver18.ttf
+  #       - asset: fonts/Schyler-Italic.ttf
+  #         style: italic
+  #   - family: Trajan Pro
+  #     fonts:
+  #       - asset: fonts/TrajanPro.ttf
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
   #

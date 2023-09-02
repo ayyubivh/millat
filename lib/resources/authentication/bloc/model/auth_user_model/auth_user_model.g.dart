@@ -37,27 +37,19 @@ Map<String, dynamic> _$$_ResultToJson(_$_Result instance) => <String, dynamic>{
 _$_UserProfile _$$_UserProfileFromJson(Map<String, dynamic> json) =>
     _$_UserProfile(
       id: json['_id'] as String?,
-      institution: json['institution'] as String?,
       username: json['username'] as String?,
       email: json['email'] as String?,
       name: json['name'] as String?,
       createdAt: json['createdAt'] as String?,
       updatedAt: json['updatedAt'] as String?,
-      picture: json['picture'] as String?,
-      profession: json['profession'] as String?,
-      dob: json['DOB'] as String?,
     );
 
 Map<String, dynamic> _$$_UserProfileToJson(_$_UserProfile instance) =>
     <String, dynamic>{
       '_id': instance.id,
-      'institution': instance.institution,
       'username': instance.username,
       'email': instance.email,
       'name': instance.name,
       'createdAt': instance.createdAt,
       'updatedAt': instance.updatedAt,
-      'picture': instance.picture,
-      'profession': instance.profession,
-      'DOB': instance.dob,
     };

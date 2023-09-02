@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
-import 'package:millat/utils/constants.dart';
-import 'package:millat/utils/size_utility.dart';
-import '../../resources/shop/bloc/logic/cart_bloc/cart_bloc.dart';
 import '../../utils/color_manager.dart';
 
 class ShopProductWidget extends StatelessWidget {
@@ -15,7 +12,6 @@ class ShopProductWidget extends StatelessWidget {
   final String? brand;
   final String? productId;
   final bool? isWishlisted;
-  final String? brandId;
   const ShopProductWidget({
     Key? key,
     required this.image,
@@ -26,53 +22,41 @@ class ShopProductWidget extends StatelessWidget {
     required this.productId,
     required this.brand,
     required this.isWishlisted,
-    this.brandId,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      // color: Colors.amber,
-      height: 231,
-      width: SizeUtility(context).width / 2.6,
+    return SizedBox(
+      width: 160,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Column(
+          Stack(
+            alignment: Alignment.topLeft,
             children: [
-              // Container(
-              //   decoration: BoxDecoration(
-              //     image: DecorationImage(
-              //       image: NetworkImage(image.toString()),
-              //       fit: BoxFit.cover,
-              //     ),
-              //     borderRadius: BorderRadius.circular(6),
-              //   ),
-              // ),
-              Align(
-                alignment: Alignment.center,
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(12),
-                  child: Image.network(
-                    image.toString(),
-                    height: 136,
-                    width: double.infinity,
+              Container(
+                width: 160,
+                height: 160,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: NetworkImage(image.toString()),
                     fit: BoxFit.cover,
                   ),
+                  borderRadius: BorderRadius.circular(10),
                 ),
-              )
+              ),
             ],
           ),
-          kHeight5,
+          const SizedBox(height: 15),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
                 title.toString(),
-                style: TextStyle(
-                  color: ColorManager.blackColor,
+                style: const TextStyle(
+                  color: black83,
                   fontSize: 16,
-                  fontWeight: FontWeight.bold,
+                  fontWeight: FontWeight.w600,
                   height: 1.3,
                 ),
                 maxLines: 2,
@@ -104,9 +88,7 @@ class ShopProductWidget extends StatelessWidget {
                     },
                     child: Icon(
                       isWishlisted ? Icons.favorite : Icons.favorite_border,
-                      color: isWishlisted
-                          ? ColorManager.redColor
-                          : ColorManager.textGrey99,
+                      color: isWishlisted ? ColorManager.redColor : black122,
                       size: 19.94,
                     ),
                   );
@@ -114,66 +96,60 @@ class ShopProductWidget extends StatelessWidget {
               )
             ],
           ),
-          kHeight10,
+          const SizedBox(height: 15),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Row(
+                children: [
+                  Text(
+                    'MRP',
+                    style: TextStyle(
+                      color: ColorManager.mainColor,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  const SizedBox(width: 10),
+                  Text(
+                    actualPrice.toString(),
+                    style: const TextStyle(
+                      color: blue126,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
+                      decoration: TextDecoration.lineThrough,
+                    ),
+                  ),
+                ],
+              ),
+              Text(
+                '${discount}%off',
+                style: const TextStyle(
+                  color: orange255,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 15),
           Text(
             brand.toString(),
-            style: TextStyle(
-              color: ColorManager.grey83,
-              fontSize: 13,
+            style: const TextStyle(
+              color: black131,
+              fontSize: 14,
               fontWeight: FontWeight.w600,
             ),
             maxLines: 1,
           ),
           const SizedBox(height: 15),
-          Row(
-            children: [
-              Text(
-                '₹$discountPrice',
-                style: TextStyle(
-                  color: ColorManager.midGreenColor,
-                  fontSize: 16,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-              kWidth8,
-              Text(
-                "₹$actualPrice",
-                style: TextStyle(
-                  color: ColorManager.blackColor,
-                  fontSize: 12,
-                  fontWeight: FontWeight.w600,
-                  decoration: TextDecoration.lineThrough,
-                ),
-              ),
-              const Spacer(),
-              GestureDetector(
-                onTap: () {
-                  // context.read<CartBloc>().add(AddCartEvent(
-                  //       productId: productId ?? "",
-                  //       basePrice: discountPrice,
-                  //       size: "M",
-                  //       color: "yellow",
-                  //       context: context,
-                  //       quantity: 1,
-                  //       brandId: brandId ?? "",
-                  //     ));
-                },
-                child: Container(
-                  height: 20,
-                  width: 20,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: ColorManager.primary,
-                  ),
-                  child: Center(
-                      child: Icon(
-                    Icons.add,
-                    size: 17,
-                    color: ColorManager.whiteColor,
-                  )),
-                ),
-              )
-            ],
+          Text(
+            '₹$discountPrice',
+            style: TextStyle(
+              color: ColorManager.midGreenColor,
+              fontSize: 19,
+              fontWeight: FontWeight.w600,
+            ),
           ),
         ],
       ),

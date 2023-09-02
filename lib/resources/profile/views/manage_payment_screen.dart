@@ -54,7 +54,7 @@ class _ManagePaymentMethodsState extends State<ManagePaymentMethods> {
                           ),
                           Text('claudia.reyes21@gmail.com',
                               style: TextStyle(
-                                  color: ColorManager.textGrey99,
+                                  color: black122,
                                   fontWeight: FontWeight.w700,
                                   fontSize: 13)),
                         ],
@@ -100,7 +100,7 @@ class _ManagePaymentMethodsState extends State<ManagePaymentMethods> {
                 children: [
                   Row(
                     children: [
-                      Icon(Icons.star, color: ColorManager.textGrey99),
+                      Icon(Icons.star, color: black122),
                       SizedBox(
                         width: 10,
                       ),
@@ -133,7 +133,7 @@ class _ManagePaymentMethodsState extends State<ManagePaymentMethods> {
                 children: [
                   Row(
                     children: [
-                      Icon(Icons.handshake, color: ColorManager.textGrey99),
+                      Icon(Icons.handshake, color: black122),
                       SizedBox(
                         width: 10,
                       ),

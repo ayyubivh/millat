@@ -500,16 +500,23 @@ class _$_Chapter implements _Chapter {
 abstract class _Chapter implements Chapter {
   const factory _Chapter(
       {required final int id,
-      @JsonKey(name: "revelation_place") required final String revelationPlace,
-      @JsonKey(name: "revelation_order") required final int revelationOrder,
-      @JsonKey(name: "bismillah_pre") required final bool bismillahPre,
-      @JsonKey(name: "name_simple") required final String nameSimple,
-      @JsonKey(name: "name_complex") required final String nameComplex,
-      @JsonKey(name: "name_arabic") required final String nameArabic,
-      @JsonKey(name: "verses_count") required final int versesCount,
+      @JsonKey(name: "revelation_place")
+          required final String revelationPlace,
+      @JsonKey(name: "revelation_order")
+          required final int revelationOrder,
+      @JsonKey(name: "bismillah_pre")
+          required final bool bismillahPre,
+      @JsonKey(name: "name_simple")
+          required final String nameSimple,
+      @JsonKey(name: "name_complex")
+          required final String nameComplex,
+      @JsonKey(name: "name_arabic")
+          required final String nameArabic,
+      @JsonKey(name: "verses_count")
+          required final int versesCount,
       required final List<int> pages,
       @JsonKey(name: "translated_name")
-      final TranslatedName? translatedName}) = _$_Chapter;
+          final TranslatedName? translatedName}) = _$_Chapter;
 
   factory _Chapter.fromJson(Map<String, dynamic> json) = _$_Chapter.fromJson;
 

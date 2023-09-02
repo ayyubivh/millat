@@ -39,8 +39,7 @@ class QuranState with _$QuranState {
     required String chapterName,
     required int nxtAndprevValue,
     required List<String> tempListAya,
-    required String lastRead,
-    required String singleTranslation,
+    required int tabBarIndex,
   }) = _QuranState;
   factory QuranState.initial() => const QuranState(
       isLoading: false,
@@ -69,6 +68,7 @@ class QuranState with _$QuranState {
       chapterName: "",
       quranTextTypeName: 'indopak',
       recitorId: 7,
+      tabBarIndex: 0,
       recitorName: 'Mishari Rashid al-`Afasy',
       globalTransilationId: 131,
       paraVersesModelofUthmani: null,
@@ -78,7 +78,5 @@ class QuranState with _$QuranState {
       chapterVersesOfUthmani: null,
       nxtAndprevValue: 1,
       tempListAya: ["1:2", "2:2", "3:4", "4:5"],
-      transilationName: "English (Dr. Mustafa Khattab, the Clear Quran)",
-      lastRead: "1:1",
-      singleTranslation: "");
+      transilationName: "English (Dr. Mustafa Khattab, the Clear Quran)");
 }

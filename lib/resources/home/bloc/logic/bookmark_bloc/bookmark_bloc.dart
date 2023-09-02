@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -84,46 +86,16 @@ class BookmarkBloc extends Bloc<BookmarkEvent, BookmarkState> {
     }
   }
 
-  // _removeBookmark(RemoveBookmark event, Emitter<BookmarkState> emit) {
-  //   try {
-  //     final updatedCollectionItems = state.dbCollectionItems.where((item) {
-  //       return !item.verseKey.contains(event.verseKey);
-  //     }).toList();
-
-  //     final newState =
-  //         state.copyWith(dbCollectionItems: updatedCollectionItems);
-  //     emit(newState);
-  //   } catch (e) {
-  //     throw Exception(e);
-  //   }
-  // }
   _removeBookmark(RemoveBookmark event, Emitter<BookmarkState> emit) {
     try {
-      final updatedCollectionItems =
-          List<BookMarktCollectionModel>.from(state.dbCollectionItems);
-
-      final int itemIndex = updatedCollectionItems
-          .indexWhere((item) => item.verseKey.contains(event.verseKey));
-
-      if (itemIndex != -1) {
-        final List<String> updatedVerseKeys =
-            List<String>.from(updatedCollectionItems[itemIndex].verseKey);
-        updatedVerseKeys.remove(event.verseKey);
-
-        final updatedItem = BookMarktCollectionModel(
-          id: updatedCollectionItems[itemIndex].id,
-          name: updatedCollectionItems[itemIndex].name,
-          discription: updatedCollectionItems[itemIndex].discription,
-          image: updatedCollectionItems[itemIndex].image,
-          verseKey: updatedVerseKeys,
-        );
-        BookMarkDB.instance.editCollection(updatedItem, updatedItem.id);
-        updatedCollectionItems[itemIndex] = updatedItem;
-      }
+      final updatedCollectionItems = state.dbCollectionItems
+          .where((item) => !item.verseKey.contains(event.verseKey))
+          .toList();
 
       final newState =
           state.copyWith(dbCollectionItems: updatedCollectionItems);
       emit(newState);
+      print('here then new state $newState');
     } catch (e) {
       throw Exception(e);
     }

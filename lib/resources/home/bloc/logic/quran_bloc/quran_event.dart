@@ -67,13 +67,7 @@ class QuranEvent with _$QuranEvent {
   }) = SaveQuranTexttypeName;
   const factory QuranEvent.onTapofNextEvent() = OnTapofNextEvent;
   const factory QuranEvent.onTapofPrevEvent() = OnTapofPrevEvent;
-  const factory QuranEvent.saveLastReadEvent({required String value}) =
-      SaveLastReadEvent;
-  const factory QuranEvent.fetchSingleVerseTranslation({
-    required String verseKey,
-  }) = FetchSingleVerseTranslation;
-  const factory QuranEvent.playSingleAudio({
-    required String aya,
-    required String chapterId,
-  }) = PlaySingleAudio;
+  const factory QuranEvent.onChangeQuranTabbar({
+    required int index,
+  }) = OnChangeQuranTabbar;
 }

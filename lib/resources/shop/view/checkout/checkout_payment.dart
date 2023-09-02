@@ -1,13 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:millat/components/buttons/main_button.dart';
 import 'package:millat/resources/shop/view/checkout/checkout_confirmation.dart';
-import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/color_manager.dart';
-import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/utils.dart';
-
-import '../../../../utils/string_constants.dart';
 
 class CheckoutPayment extends StatefulWidget {
   const CheckoutPayment({Key? key}) : super(key: key);
@@ -18,281 +13,217 @@ class CheckoutPayment extends StatefulWidget {
 
 class _CheckoutPaymentState extends State<CheckoutPayment> {
   int currentIndex = -1;
-  bool isAgrementChecked = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: ColorManager.whiteColor,
         appBar: AppBar(
-          title: Text(
-            Appstrings.checkout,
-            style: TextStyle(
-                color: ColorManager.blackColor, fontWeight: FontWeight.w800),
-          ),
-          centerTitle: true,
+          title: const Text('Checkout',
+              style:
+                  TextStyle(color: Colors.black, fontWeight: FontWeight.w700)),
+          centerTitle: false,
           leading: const BackButton(color: Colors.black),
           elevation: 0,
           backgroundColor: Colors.transparent,
         ),
         body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+          padding: const EdgeInsets.all(20),
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Slider(
-                //   activeColor: ColorManager.greenColor1,
-                //   inactiveColor: black195,
-                //   max: 10,
-                //   min: 0,
-                //   divisions: 2,
-                //   value: 3,
-                //   onChanged: (value) {},
-                // ),
-                // Row(
-                //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                //   children: [
-                //     Text(
-                //       Appstrings.personalInfo,
-                //       style: TextStyle(
-                //           fontWeight: FontWeight.w700,
-                //           color: ColorManager.greenColor1),
-                //     ),
-                //     Text(
-                //       Appstrings.payment,
-                //       style: TextStyle(
-                //           fontWeight: FontWeight.w600,
-                //           color: ColorManager.greenColor1),
-                //     ),
-                //     Text(
-                //       Appstrings.confirmation,
-                //       style: TextStyle(
-                //           fontWeight: FontWeight.w600,
-                //           color: ColorManager.blackColor),
-                //     ),
-                //   ],
-                // ),
-                // const SizedBox(
-                //   height: 60,
-                // ),
+                Slider(
+                  activeColor: ColorManager.greenColor1,
+                  inactiveColor: black195,
+                  max: 10,
+                  min: 0,
+                  divisions: 2,
+                  value: 3,
+                  onChanged: (value) {},
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Personal Info',
+                      style: TextStyle(
+                          fontWeight: FontWeight.w700,
+                          color: ColorManager.greenColor1),
+                    ),
+                    Text(
+                      'Payment',
+                      style: TextStyle(
+                          fontWeight: FontWeight.w600,
+                          color: ColorManager.greenColor1),
+                    ),
+                    Text(
+                      'Confirmation',
+                      style: TextStyle(
+                          fontWeight: FontWeight.w600, color: black131),
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  height: 60,
+                ),
                 Text(
-                  Appstrings.paymentMethods,
+                  'Payment Methods',
                   style: TextStyle(
                       color: ColorManager.blackColor,
                       fontSize: 17,
                       fontWeight: FontWeight.w700),
                 ),
-                kHeight20,
-
-                Container(
-                  height: 96,
-                  width: SizeUtility(context).width,
-                  decoration: BoxDecoration(
-                    color: ColorManager.veryLightGreen,
-                    borderRadius: BorderRadius.circular(6),
-                  ),
-                  child: paymentOnlineWidget(),
+                const SizedBox(
+                  height: 20,
                 ),
-                kHeight10,
-                Container(
-                  height: 96,
-                  width: SizeUtility(context).width,
-                  decoration: BoxDecoration(
-                    color: ColorManager.veryLightGreen,
-                    borderRadius: BorderRadius.circular(6),
-                  ),
-                  child: Row(
-                    children: [
-                      Radio(
-                          value: true,
-                          groupValue: currentIndex == 1,
-                          onChanged: (value) {
-                            setState(() {
-                              currentIndex = 1;
-                            });
-                          },
-                          fillColor: MaterialStateProperty.all(
-                              ColorManager.greenColor1)),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                Row(
+                  children: [
+                    Container(
+                      height: 80,
+                      width: 100,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          border: Border.all(color: black169)),
+                      child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          const Row(
-                            children: [
-                              Text(
-                                Appstrings.cashOnDeliver,
-                                style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                              kWidth8,
-                              ImageIcon(
-                                AssetImage(AppAssetsStrings.lock),
-                                size: 15,
-                              )
-                            ],
-                          ),
-                          kHeight8,
-                          Container(
-                            height: 32,
-                            width: 50,
-                            padding: const EdgeInsets.all(3),
-                            decoration: BoxDecoration(
-                                border: Border.all(
-                              color: ColorManager.grey08,
-                            )),
-                            child: Image.asset(
-                              AppAssetsStrings.cashOnDelivery,
-                              height: 20,
-                              width: 20,
-                            ),
-                          ),
-                          kHeight10,
+                          Image.asset('assets/icons/cash.png',
+                              width: 50, height: 50),
+                          const Text(
+                            'CASH',
+                            style: TextStyle(
+                                color: black122, fontWeight: FontWeight.w700),
+                          )
                         ],
-                      )
-                    ],
-                  ),
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 20,
+                    ),
+                    Container(
+                      height: 80,
+                      width: 100,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          border: Border.all(color: black169)),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Image.asset('assets/icons/credit.png',
+                              width: 50, height: 50),
+                          const Text(
+                            'CREDIT CARD',
+                            style: TextStyle(
+                                color: black122, fontWeight: FontWeight.w700),
+                          )
+                        ],
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 20,
+                    ),
+                    Container(
+                      alignment: Alignment.center,
+                      height: 80,
+                      width: 100,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          border: Border.all(color: black169)),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Image.asset('assets/icons/net_banking.png',
+                              height: 35),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          const Text(
+                            'NET BANKING',
+                            style: TextStyle(
+                                color: black122, fontWeight: FontWeight.w700),
+                          )
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+                const SizedBox(
+                  height: 40,
+                ),
+                Text(
+                  'Other Payment Methods',
+                  style: TextStyle(
+                      color: ColorManager.blackColor,
+                      fontSize: 17,
+                      fontWeight: FontWeight.w700),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                ListView.builder(
+                  itemCount: 2,
+                  shrinkWrap: true,
+                  itemBuilder: (context, index) {
+                    final images = [
+                      "assets/icons/paytm.png",
+                      'assets/icons/cod.png'
+                    ];
+                    final text = [
+                      "Online Payment",
+                      "Cash on Delivery",
+                    ];
+                    return buildPaymentCard(
+                      isSelected: currentIndex == index,
+                      image: images[index],
+                      text: text[index],
+                      onTap: () {
+                        setState(() {
+                          currentIndex = index;
+                        });
+                      },
+                    );
+                  },
+                ),
+                const SizedBox(
+                  height: 100,
                 )
               ],
             ),
           ),
         ),
-        bottomSheet: Container(
-          color: ColorManager.whiteColor,
-          padding: const EdgeInsets.symmetric(horizontal: 10),
-          height: 140,
-          child: Column(
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Checkbox(
-                    value: isAgrementChecked,
-                    onChanged: (newValue) {
-                      setState(() {
-                        isAgrementChecked = !isAgrementChecked;
-                      });
-                    },
-                    activeColor: ColorManager.primary,
-                  ),
-                  Flexible(
-                    child: RichText(
-                      text: TextSpan(
-                        text: 'Please indicate your agreement to our ',
-                        style: TextStyle(
-                          fontSize: 14,
-                          color: ColorManager.textGreyA6,
-                        ),
-                        children: [
-                          TextSpan(
-                            text: 'terms & conditions ',
-                            style: TextStyle(
-                              color: ColorManager.primary,
-                              fontSize: 14,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          TextSpan(
-                            text: 'by checking this checkbox.',
-                            style: TextStyle(
-                              color: ColorManager.textGreyA6,
-                              fontSize: 14,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: MainButton(
-                  title: Appstrings.continueText,
-                  onPressed: () {
-                    if (currentIndex == -1) {
-                      showSnackBar(context, 'Select the Payment method!');
-                      return;
-                    }
-                    if (isAgrementChecked == false) {
-                      return;
-                    }
-                    Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const CheckoutConfirmation(),
-                    ));
-                  },
+        bottomSheet: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
+          child: ElevatedButton(
+            style: ButtonStyle(
+              backgroundColor:
+                  MaterialStateProperty.all(ColorManager.greenColor1),
+              shape: MaterialStateProperty.all(
+                RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30.0),
+                  side: BorderSide(color: ColorManager.greenColor1, width: 2.0),
                 ),
               ),
-            ],
+              elevation: MaterialStateProperty.all(0),
+              fixedSize: MaterialStateProperty.all(
+                  Size(SizeUtility(context).width, 50)),
+            ),
+            onPressed: () {
+              if (currentIndex == -1) {
+                showSnackBar(context, 'Select the Payment method!');
+                return;
+              }
+              Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => const CheckoutConfirmation(),
+              ));
+            },
+            child: const Text(
+              'Continue',
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
+                  fontWeight: FontWeight.w700),
+            ),
           ),
         ));
-  }
-
-  Widget paymentOnlineWidget() {
-    return Row(
-      children: [
-        Radio(
-            value: true,
-            groupValue: currentIndex == 0,
-            onChanged: (value) {
-              setState(() {
-                currentIndex = 0;
-              });
-            },
-            fillColor: MaterialStateProperty.all(ColorManager.greenColor1)),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Row(
-              children: [
-                Text(
-                  Appstrings.payOnline,
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                kWidth8,
-                ImageIcon(
-                  AssetImage(AppAssetsStrings.lock),
-                  size: 15,
-                )
-              ],
-            ),
-            kHeight10,
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                paymentRowWidget(AppAssetsStrings.masterCard),
-                paymentRowWidget(AppAssetsStrings.phonePay),
-                paymentRowWidget(AppAssetsStrings.visa),
-                paymentRowWidget(AppAssetsStrings.discover),
-                paymentRowWidget(AppAssetsStrings.googlePay),
-              ],
-            )
-          ],
-        )
-      ],
-    );
-  }
-
-  Widget paymentRowWidget(String image) {
-    return Container(
-      height: 34,
-      width: 52,
-      decoration: BoxDecoration(
-          color: ColorManager.whiteColor,
-          border: Border.all(
-            color: ColorManager.greyD9,
-          )),
-      margin: const EdgeInsets.only(right: 12),
-      padding: const EdgeInsets.all(6),
-      child: Image.asset(
-        image,
-      ),
-    );
   }
 
   Widget buildPaymentCard({

@@ -401,11 +401,13 @@ abstract class _Translations implements Translations {
   const factory _Translations(
       {required final int? id,
       required final String? name,
-      @JsonKey(name: "author_name") required final String? authorName,
+      @JsonKey(name: "author_name")
+          required final String? authorName,
       required final String? slug,
-      @JsonKey(name: "language_name") required final String? languageName,
+      @JsonKey(name: "language_name")
+          required final String? languageName,
       @JsonKey(name: "translated_name")
-      required final TranslatedName? translatedName}) = _$_Translations;
+          required final TranslatedName? translatedName}) = _$_Translations;
 
   factory _Translations.fromJson(Map<String, dynamic> json) =
       _$_Translations.fromJson;
@@ -578,7 +580,7 @@ abstract class _TranslatedName implements TranslatedName {
   const factory _TranslatedName(
       {required final String? name,
       @JsonKey(name: "language_name")
-      required final String? languageName}) = _$_TranslatedName;
+          required final String? languageName}) = _$_TranslatedName;
 
   factory _TranslatedName.fromJson(Map<String, dynamic> json) =
       _$_TranslatedName.fromJson;

@@ -19,7 +19,6 @@ class CartBloc extends Bloc<CartEvent, CartState> {
     on<UpdateCartEventWithSub>(_updateCartEventWithSub);
     on<ToggleShowMoreEvent>(_toggleShowMoreEvent);
     // on<PaymentSuccessEvent>(_paymentSuccessEvent);
-    on<ShowExpandEvent>(_showExpandEvent);
   }
 
   FutureOr<void> _fetchcCartEvent(
@@ -198,9 +197,4 @@ class CartBloc extends Bloc<CartEvent, CartState> {
   //     ),
   //   );
   // }
-
-  _showExpandEvent(ShowExpandEvent event, Emitter<CartState> emit) {
-    emit(state.copyWith(showExapnd: !state.showExapnd));
-    print("here is the show expand state ${state.showExapnd}");
-  }
 }

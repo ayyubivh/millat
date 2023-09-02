@@ -87,19 +87,16 @@ class DuaCategoryView extends StatelessWidget {
                             itemBuilder: (context, index) {
                               final data = state.duaSubcategoryModel!.result
                                   .duaSubCategory![index];
-                              return ListTile(
+                              return GestureDetector(
                                 onTap: () {
                                   context.read<DuaBloc>().add(
-                                        FetchDuaBySubcategoryEvent(
-                                            subCategoryId: data.id!),
-                                      );
-                                  Navigator.of(context).push(
-                                    MaterialPageRoute(
-                                        builder: (context) =>
-                                            const InsideDuaView()),
-                                  );
+                                      FetchDuaBySubcategoryEvent(
+                                          subCategoryId: data.id!));
+                                  Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (context) => const InsideDuaView(),
+                                  ));
                                 },
-                                title: Column(
+                                child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Container(
@@ -122,8 +119,7 @@ class DuaCategoryView extends StatelessWidget {
                                             fontWeight: FontWeight.w600,
                                           ),
                                         ),
-                                        const Icon(
-                                            Icons.navigate_next_outlined),
+                                        const Icon(Icons.navigate_next_outlined)
                                       ],
                                     ),
                                     kHeight10,

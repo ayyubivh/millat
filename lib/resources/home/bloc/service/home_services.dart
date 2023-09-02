@@ -1,17 +1,10 @@
 import 'dart:convert';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/resources/home/bloc/models/home_models/top_offers_model/top_offers_model.dart';
 import 'package:millat/services/http_services.dart';
-import '../../../../utils/string_constants.dart';
-import '../../../authentication/bloc/logic/database_bloc/database_bloc.dart';
 import '../models/home_models/brand_of_the_day_model/brandofthe_day_model.dart';
 import '../models/home_models/event_of_the_month_model/event_of_the_month_model.dart';
 import '../models/home_models/hadit_of_the_day_model/hadit_oftheday_mode.dart';
 import '../models/home_models/large_discount_model/home_large_discounts_model.dart';
-import 'package:http/http.dart' as http;
-
-import '../models/home_models/prayer_tracker_model.dart';
 
 class HomeServices extends HttpServices {
   final String largeDiscountUrl = "large_discount_card";
@@ -19,7 +12,6 @@ class HomeServices extends HttpServices {
   final String brandOftheDayUrl = "brand_of_the_day";
   final String haditOfThedayUrl = "hadith_of_the_day";
   final String eventOftheMonthUrl = "event";
-  final String prayerTracker = "namaz_track?";
 
   //Here fetching all the large discount banners
 
@@ -32,8 +24,7 @@ class HomeServices extends HttpServices {
         final result = LargeDiscountModel.fromJson(data);
         return result;
       } catch (e) {
-        debugPrint("error while fetching on home large discouts $e");
-        throw Exception('Failed to parse response ');
+        throw Exception('Failed to parse response');
       }
     } else {
       throw Exception(
@@ -51,8 +42,6 @@ class HomeServices extends HttpServices {
         final result = TopOffersModel.fromJson(data);
         return result;
       } catch (e) {
-        debugPrint("error while fetching on home top Offers discouts $e");
-
         throw Exception('Failed to parse response');
       }
     } else {
@@ -112,73 +101,6 @@ class HomeServices extends HttpServices {
     } else {
       throw Exception(
           'API request failed with status code: ${response.statusCode}');
-    }
-  }
-
-  // add prayer tracker
-  addDailyPrayerTracker({
-    required BuildContext context,
-    required String date,
-    required String namazName,
-  }) async {
-    const endPoint = 'namaz_track/tick';
-    final databaseState = context.read<DatabaseBloc>().state;
-    final token = databaseState.token;
-    final headers = {
-      'Content-Type': 'application/json; charset=utf-8',
-      'Authorization': 'Bearer $token',
-    };
-    final body = {
-      "date": date,
-      "namaz": namazName,
-    };
-
-    final response = await http.patch(Uri.parse(kBaseUrl + endPoint),
-        headers: headers, body: jsonEncode(body));
-
-    try {
-      if (response.statusCode == 200) {
-        final Map<String, dynamic> data = json.decode(response.body);
-
-        return data;
-      } else {
-        print('API request failed with status code: ${response.statusCode}');
-        throw Exception(
-            'API request failed with status code: ${response.statusCode}');
-      }
-    } catch (e) {
-      print('error on API fetch: ${e.toString()}');
-      throw Exception('Failed to parse response');
-    }
-  }
-
-  //fetch daily prayer trackers
-  Future<PrayerTrackerModel> fetchDailyPrayerTracker(
-      BuildContext context, String date) async {
-    final databaseState = context.read<DatabaseBloc>().state;
-    final token = databaseState.token;
-
-    final headers = {
-      'Content-Type': 'application/json; charset=utf-8',
-      'Authorization': 'Bearer $token',
-    };
-
-    try {
-      final response = await http.get(
-          Uri.parse("$kBaseUrl${prayerTracker}date=$date"),
-          headers: headers);
-
-      if (response.statusCode == 200) {
-        final Map<String, dynamic> data = json.decode(response.body);
-        final result = PrayerTrackerModel.fromJson(data);
-        print('daily prayer tracker $result');
-        return result;
-      } else {
-        throw Exception(
-            'API request failed with status code: ${response.statusCode}');
-      }
-    } catch (e) {
-      throw Exception('Failed to fetch data: $e');
     }
   }
 }

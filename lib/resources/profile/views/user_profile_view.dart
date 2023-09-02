@@ -21,8 +21,7 @@ class UserProfileView extends StatelessWidget {
     });
     return BlocBuilder<DatabaseBloc, DatabaseState>(
       builder: (context, state) {
-        if (state.isLoading || state.editIsloading) {
-          context.read<DatabaseBloc>().add(FetchAuthUser(context: context));
+        if (state.isLoading) {
           return const Loader();
         }
         return Scaffold(
@@ -32,7 +31,7 @@ class UserProfileView extends StatelessWidget {
             elevation: 0,
             centerTitle: true,
             title: Text(
-              Appstrings.profile,
+              "Profile",
               style: TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.w600,
@@ -80,25 +79,10 @@ class UserProfileView extends StatelessWidget {
                           child: CircleAvatar(
                             radius: 40,
                             backgroundColor: ColorManager.dotGrey,
-                            child: BlocBuilder<DatabaseBloc, DatabaseState>(
-                              builder: (context, state) {
-                                final userPictureUrl =
-                                    state.authUserModel?.result?.user?.picture;
-                                return userPictureUrl == null
-                                    ? Icon(
-                                        Icons.person_2_outlined,
-                                        size: 60,
-                                        color: ColorManager.black4A,
-                                      )
-                                    : ClipOval(
-                                        child: Image.network(
-                                          userPictureUrl,
-                                          width: 80,
-                                          height: 80,
-                                          fit: BoxFit.cover,
-                                        ),
-                                      );
-                              },
+                            child: Icon(
+                              Icons.person_2_outlined,
+                              size: 60,
+                              color: ColorManager.black4A,
                             ),
                           ),
                         ),
@@ -110,12 +94,11 @@ class UserProfileView extends StatelessWidget {
                 Align(
                   alignment: Alignment.center,
                   child: BlocBuilder<DatabaseBloc, DatabaseState>(
-                    builder: (context, state) =>
-                        Text(state.authUserModel?.result?.user?.name ?? "",
-                            style: const TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                            )),
+                    builder: (context, state) => Text(state.name,
+                        style: const TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        )),
                   ),
                 ),
                 kHeight15,
@@ -156,16 +139,14 @@ class UserProfileView extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
                 kHeight10,
-                BlocBuilder<DatabaseBloc, DatabaseState>(
-                  builder: (context, state) => Text(
-                    "Works at ${state.authUserModel?.result?.user?.institution ?? "Empty"}",
-                    style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w500,
-                        height: 1.3,
-                        color: ColorManager.blue7A),
-                    textAlign: TextAlign.center,
-                  ),
+                Text(
+                  "Works at Google",
+                  style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                      height: 1.3,
+                      color: ColorManager.blue7A),
+                  textAlign: TextAlign.center,
                 ),
                 kHeight10,
                 Row(

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_launcher_icons/xml_templates.dart';
 import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/home/bloc/logic/bookmark_bloc/bookmark_bloc.dart';
 import 'package:millat/resources/home/bloc/logic/quran_bloc/quran_bloc.dart';
@@ -15,13 +15,13 @@ import '../../../../../utils/constants.dart';
 import '../../../bloc/db/db_functions.dart';
 import '../../../bloc/models/book_mark_hive_model/book_mark_hive_model.dart';
 import 'package:html/parser.dart';
-import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
+
 import '../bookmark_view.dart';
+import 'bookmark_collection_view.dart';
 import 'new_collection_widget.dart';
 
-class VersesView extends StatefulWidget {
+class VersesView extends StatelessWidget {
   final Qurantype type;
-  final VersesScroll? scrollType;
   final int? chapterid;
   final int? ayah;
 
@@ -30,56 +30,22 @@ class VersesView extends StatefulWidget {
     required this.type,
     this.chapterid,
     this.ayah,
-    this.scrollType,
   });
 
   @override
-  State<VersesView> createState() => _VersesViewState();
-}
-
-class _VersesViewState extends State<VersesView> {
-  int currentIndex = -1;
-  final ItemScrollController itemScrollController = ItemScrollController();
-  final ItemPositionsListener itemPositionsListener =
-      ItemPositionsListener.create();
-  @override
-  void initState() {
-    BlocProvider.of<QuranBloc>(context).add(const FetchAllTranslationsEvent());
-    BlocProvider.of<QuranBloc>(context).add(const FetchAllRecitors());
-    widget.scrollType == VersesScroll.scroll
-        ? WidgetsBinding.instance.addPostFrameCallback((_) {
-            final lastRead = context.read<QuranBloc>().state.lastRead;
-            final parts = lastRead.split(":");
-            String secondPart = parts[1];
-            itemScrollController.jumpTo(index: int.parse(secondPart));
-          })
-        : null;
-
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      BlocProvider.of<QuranBloc>(context)
+          .add(const FetchAllTranslationsEvent());
+      BlocProvider.of<QuranBloc>(context).add(const FetchAllRecitors());
+    });
+    int currentIndex = -1;
+
     return Scaffold(
       backgroundColor: scaffoldBgColor,
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(70),
         child: AppBar(
-          leading: GestureDetector(
-            onTap: () {
-              final visibleItems = itemPositionsListener.itemPositions.value;
-              if (visibleItems.isNotEmpty) {
-                final firstVisibleItemIndex = visibleItems.last.index + 1;
-                context.read<QuranBloc>().add(SaveLastReadEvent(
-                    value: "${widget.chapterid}:$firstVisibleItemIndex"));
-              }
-
-              Navigator.pop(context);
-            },
-            child: const Icon(
-              Icons.arrow_back,
-            ),
-          ),
           backgroundColor: ColorManager.whiteColor,
           elevation: 0,
           foregroundColor: ColorManager.blackColor,
@@ -121,28 +87,32 @@ class _VersesViewState extends State<VersesView> {
               ),
             ],
           ),
+          actions: [
+            ImageIcon(
+              const AssetImage("assets/icons/search.png"),
+              color: ColorManager.blackColor,
+            ),
+            const SizedBox(width: 18),
+          ],
         ),
       ),
       body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 20)
-              .copyWith(bottom: 70),
-          child: widget.type == Qurantype.sura
+          padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 20),
+          child: type == Qurantype.sura
               ? BlocBuilder<QuranBloc, QuranState>(
                   builder: (context, state) {
                     return state.quranTextTypeName == indopak
                         ? state.chapterVersesIndoPakModel?.verses == null ||
                                 state.chapterTranslationText!.isEmpty
                             ? const Loader()
-                            : ScrollablePositionedList.builder(
-                                itemScrollController: itemScrollController,
-                                itemPositionsListener: itemPositionsListener,
+                            : ListView.builder(
                                 itemCount: state
                                     .chapterVersesIndoPakModel!.verses.length,
                                 itemBuilder: (context, index) {
                                   final indoPakData =
                                       state.chapterVersesIndoPakModel!.verses;
                                   return VersesCardWidget(
-                                    isValue: '${widget.chapterid}:${index + 1}',
+                                    isValue: '$chapterid:${index + 1}',
                                     bookMarkOntap: () {
                                       if (context
                                           .read<BookmarkBloc>()
@@ -150,11 +120,11 @@ class _VersesViewState extends State<VersesView> {
                                           .dbCollectionItems
                                           .any((element) => element.verseKey
                                               .contains(
-                                                  '${widget.chapterid}:${index + 1}'))) {
+                                                  '$chapterid:${index + 1}'))) {
                                         context.read<BookmarkBloc>().add(
                                             RemoveBookmark(
                                                 verseKey:
-                                                    "${widget.chapterid}:${index + 1}"));
+                                                    "$chapterid:${index + 1}"));
                                       } else {
                                         showModalBottomSheet(
                                           context: context,
@@ -164,9 +134,9 @@ class _VersesViewState extends State<VersesView> {
                                               builder: (context, setState) =>
                                                   _addBookMarkPopUp(
                                                       context,
-                                                      widget.chapterid!,
+                                                      chapterid!,
                                                       index,
-                                                      "${widget.chapterid}:${index + 1}"),
+                                                      "$chapterid:${index + 1}"),
                                             );
                                           },
                                         );
@@ -198,48 +168,17 @@ class _VersesViewState extends State<VersesView> {
                         : state.quranTextTypeName == uthmani
                             ? state.chapterVersesOfUthmani?.verses == null
                                 ? const Loader()
-                                : ScrollablePositionedList.builder(
-                                    itemScrollController: itemScrollController,
-                                    itemPositionsListener:
-                                        itemPositionsListener,
+                                : ListView.builder(
                                     itemCount: state
                                         .chapterVersesOfUthmani!.verses.length,
                                     itemBuilder: (context, index) {
                                       final uthmaniData =
                                           state.chapterVersesOfUthmani!.verses;
                                       return VersesCardWidget(
-                                        isValue:
-                                            '${widget.chapterid}:${index + 1}',
+                                        isValue: '$chapterid:${index + 1}',
                                         bookMarkOntap: () {
-                                          if (context
-                                              .read<BookmarkBloc>()
-                                              .state
-                                              .dbCollectionItems
-                                              .any((element) => element.verseKey
-                                                  .contains(
-                                                      '${widget.chapterid}:${index + 1}'))) {
-                                            context.read<BookmarkBloc>().add(
-                                                RemoveBookmark(
-                                                    verseKey:
-                                                        "${widget.chapterid}:${index + 1}"));
-                                          } else {
-                                            showModalBottomSheet(
-                                              context: context,
-                                              backgroundColor:
-                                                  Colors.transparent,
-                                              builder: (context) {
-                                                return StatefulBuilder(
-                                                  builder: (context,
-                                                          setState) =>
-                                                      _addBookMarkPopUp(
-                                                          context,
-                                                          widget.chapterid!,
-                                                          index,
-                                                          "${widget.chapterid}:${index + 1}"),
-                                                );
-                                              },
-                                            );
-                                          }
+                                          addToBookmarkCollection(
+                                              context, chapterid!, index);
                                         },
                                         playOntap: () {
                                           context.read<QuranBloc>().add(
@@ -269,48 +208,17 @@ class _VersesViewState extends State<VersesView> {
                                   )
                             : state.chapterVersesOfNosymbol?.verses == null
                                 ? const Loader()
-                                : ScrollablePositionedList.builder(
-                                    itemScrollController: itemScrollController,
-                                    itemPositionsListener:
-                                        itemPositionsListener,
+                                : ListView.builder(
                                     itemCount: state
                                         .chapterVersesOfNosymbol!.verses.length,
                                     itemBuilder: (context, index) {
                                       final noSymbolDataPakData =
                                           state.chapterVersesOfNosymbol!.verses;
                                       return VersesCardWidget(
-                                        isValue:
-                                            '${widget.chapterid}:${index + 1}',
+                                        isValue: '$chapterid:${index + 1}',
                                         bookMarkOntap: () {
-                                          if (context
-                                              .read<BookmarkBloc>()
-                                              .state
-                                              .dbCollectionItems
-                                              .any((element) => element.verseKey
-                                                  .contains(
-                                                      '${widget.chapterid}:${index + 1}'))) {
-                                            context.read<BookmarkBloc>().add(
-                                                RemoveBookmark(
-                                                    verseKey:
-                                                        "${widget.chapterid}:${index + 1}"));
-                                          } else {
-                                            showModalBottomSheet(
-                                              context: context,
-                                              backgroundColor:
-                                                  Colors.transparent,
-                                              builder: (context) {
-                                                return StatefulBuilder(
-                                                  builder: (context,
-                                                          setState) =>
-                                                      _addBookMarkPopUp(
-                                                          context,
-                                                          widget.chapterid!,
-                                                          index,
-                                                          "${widget.chapterid}:${index + 1}"),
-                                                );
-                                              },
-                                            );
-                                          }
+                                          addToBookmarkCollection(
+                                              context, chapterid!, index);
                                         },
                                         playOntap: () {
                                           context.read<QuranBloc>().add(
@@ -340,18 +248,15 @@ class _VersesViewState extends State<VersesView> {
                                   );
                   },
                 )
-              : widget.type == Qurantype.para
+              : type == Qurantype.para
                   ? BlocBuilder<QuranBloc, QuranState>(
                       builder: (context, state) {
                         return state.quranTextTypeName == indopak
                             ? state.paraVersesModel == null
                                 ? const Loader()
-                                : ScrollablePositionedList.builder(
-                                    itemScrollController: itemScrollController,
-                                    itemPositionsListener:
-                                        itemPositionsListener,
+                                : ListView.builder(
                                     itemCount:
-                                        state.paraVersesModel!.verses.length,
+                                        state.paraVersesModel?.verses.length,
                                     itemBuilder: (context, index) {
                                       final indoPakdata =
                                           state.paraVersesModel!.verses;
@@ -360,40 +265,10 @@ class _VersesViewState extends State<VersesView> {
                                           ? const Loader()
                                           : VersesCardWidget(
                                               isValue:
-                                                  '${widget.chapterid}:${index + 1}',
+                                                  '$chapterid:${index + 1}',
                                               bookMarkOntap: () {
-                                                if (context
-                                                    .read<BookmarkBloc>()
-                                                    .state
-                                                    .dbCollectionItems
-                                                    .any((element) => element
-                                                        .verseKey
-                                                        .contains(
-                                                            '${widget.chapterid}:${index + 1}'))) {
-                                                  context
-                                                      .read<BookmarkBloc>()
-                                                      .add(RemoveBookmark(
-                                                          verseKey:
-                                                              "${widget.chapterid}:${index + 1}"));
-                                                } else {
-                                                  showModalBottomSheet(
-                                                    context: context,
-                                                    backgroundColor:
-                                                        Colors.transparent,
-                                                    builder: (context) {
-                                                      return StatefulBuilder(
-                                                        builder: (context,
-                                                                setState) =>
-                                                            _addBookMarkPopUp(
-                                                                context,
-                                                                widget
-                                                                    .chapterid!,
-                                                                index,
-                                                                "${widget.chapterid}:${index + 1}"),
-                                                      );
-                                                    },
-                                                  );
-                                                }
+                                                addToBookmarkCollection(
+                                                    context, chapterid!, index);
                                               },
                                               isSelected:
                                                   state.audioIndex == index,
@@ -427,16 +302,11 @@ class _VersesViewState extends State<VersesView> {
                             : state.quranTextTypeName == uthmani
                                 ? state.paraVersesModelofUthmani == null
                                     ? const Loader()
-                                    : ScrollablePositionedList.builder(
-                                        itemScrollController:
-                                            itemScrollController,
-                                        itemPositionsListener:
-                                            itemPositionsListener,
+                                    : ListView.builder(
                                         itemCount: state
-                                                .paraVersesModelofUthmani
-                                                ?.verses
-                                                .length ??
-                                            0,
+                                            .paraVersesModelofUthmani
+                                            ?.verses
+                                            .length,
                                         itemBuilder: (context, index) {
                                           final uthmanidata = state
                                               .paraVersesModelofUthmani!.verses;
@@ -445,40 +315,12 @@ class _VersesViewState extends State<VersesView> {
                                               ? const Loader()
                                               : VersesCardWidget(
                                                   isValue:
-                                                      '${widget.chapterid}:${index + 1}',
+                                                      '$chapterid:${index + 1}',
                                                   bookMarkOntap: () {
-                                                    if (context
-                                                        .read<BookmarkBloc>()
-                                                        .state
-                                                        .dbCollectionItems
-                                                        .any((element) => element
-                                                            .verseKey
-                                                            .contains(
-                                                                '${widget.chapterid}:${index + 1}'))) {
-                                                      context
-                                                          .read<BookmarkBloc>()
-                                                          .add(RemoveBookmark(
-                                                              verseKey:
-                                                                  "${widget.chapterid}:${index + 1}"));
-                                                    } else {
-                                                      showModalBottomSheet(
-                                                        context: context,
-                                                        backgroundColor:
-                                                            Colors.transparent,
-                                                        builder: (context) {
-                                                          return StatefulBuilder(
-                                                            builder: (context,
-                                                                    setState) =>
-                                                                _addBookMarkPopUp(
-                                                                    context,
-                                                                    widget
-                                                                        .chapterid!,
-                                                                    index,
-                                                                    "${widget.chapterid}:${index + 1}"),
-                                                          );
-                                                        },
-                                                      );
-                                                    }
+                                                    addToBookmarkCollection(
+                                                        context,
+                                                        chapterid!,
+                                                        index);
                                                   },
                                                   isSelected:
                                                       state.audioIndex == index,
@@ -514,54 +356,20 @@ class _VersesViewState extends State<VersesView> {
                                 : state.paraVersesModelofNoSymbol == null ||
                                         state.paraTranslationText!.isEmpty
                                     ? const Loader()
-                                    : ScrollablePositionedList.builder(
-                                        itemScrollController:
-                                            itemScrollController,
-                                        itemPositionsListener:
-                                            itemPositionsListener,
+                                    : ListView.builder(
                                         itemCount: state
-                                                .paraVersesModelofNoSymbol
-                                                ?.verses
-                                                .length ??
-                                            0,
+                                            .paraVersesModelofNoSymbol
+                                            ?.verses
+                                            .length,
                                         itemBuilder: (context, index) {
                                           final uthmanidata = state
                                               .paraVersesModelofNoSymbol!
                                               .verses;
                                           return VersesCardWidget(
-                                            isValue:
-                                                '${widget.chapterid}:${index + 1}',
+                                            isValue: '$chapterid:${index + 1}',
                                             bookMarkOntap: () {
-                                              if (context
-                                                  .read<BookmarkBloc>()
-                                                  .state
-                                                  .dbCollectionItems
-                                                  .any((element) =>
-                                                      element.verseKey.contains(
-                                                          '${widget.chapterid}:${index + 1}'))) {
-                                                context
-                                                    .read<BookmarkBloc>()
-                                                    .add(RemoveBookmark(
-                                                        verseKey:
-                                                            "${widget.chapterid}:${index + 1}"));
-                                              } else {
-                                                showModalBottomSheet(
-                                                  context: context,
-                                                  backgroundColor:
-                                                      Colors.transparent,
-                                                  builder: (context) {
-                                                    return StatefulBuilder(
-                                                      builder: (context,
-                                                              setState) =>
-                                                          _addBookMarkPopUp(
-                                                              context,
-                                                              widget.chapterid!,
-                                                              index,
-                                                              "${widget.chapterid}:${index + 1}"),
-                                                    );
-                                                  },
-                                                );
-                                              }
+                                              addToBookmarkCollection(
+                                                  context, chapterid!, index);
                                             },
                                             isSelected:
                                                 state.audioIndex == index,
@@ -601,39 +409,14 @@ class _VersesViewState extends State<VersesView> {
                         }
                         final data = state.versesByKeyModel![0].verses;
 
-                        return ScrollablePositionedList.builder(
-                          itemScrollController: itemScrollController,
-                          itemPositionsListener: itemPositionsListener,
+                        return ListView.builder(
                           itemCount: data.length,
                           itemBuilder: (context, index) {
                             return VersesCardWidget(
-                              isValue: '${widget.chapterid}:${index + 1}',
+                              isValue: '$chapterid:${index + 1}',
                               bookMarkOntap: () {
-                                if (context
-                                    .read<BookmarkBloc>()
-                                    .state
-                                    .dbCollectionItems
-                                    .any((element) => element.verseKey.contains(
-                                        '${widget.chapterid}:${index + 1}'))) {
-                                  context.read<BookmarkBloc>().add(RemoveBookmark(
-                                      verseKey:
-                                          "${widget.chapterid}:${index + 1}"));
-                                } else {
-                                  showModalBottomSheet(
-                                    context: context,
-                                    backgroundColor: Colors.transparent,
-                                    builder: (context) {
-                                      return StatefulBuilder(
-                                        builder: (context, setState) =>
-                                            _addBookMarkPopUp(
-                                                context,
-                                                widget.chapterid!,
-                                                index,
-                                                "${widget.chapterid}:${index + 1}"),
-                                      );
-                                    },
-                                  );
-                                }
+                                addToBookmarkCollection(
+                                    context, chapterid!, index);
                               },
                               isSelected: true,
                               shareOnTap: () {
@@ -799,9 +582,7 @@ class _VersesViewState extends State<VersesView> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              BookmarkNewCollectionWidget(
-                  verseKeys: ["${widget.chapterid}:${index + 1}"],
-                  type: BookMarkCollectionType.addSpecificOne),
+              const BookmarkNewCollectionWidget(),
               kHeight16,
               BlocBuilder<BookmarkBloc, BookmarkState>(
                 builder: (context, state) =>
@@ -859,7 +640,31 @@ class _VersesViewState extends State<VersesView> {
         ));
   }
 
-  // void addToBookmarkCollection(BuildContext context, int chapterId, int index) {
+  void addToBookmarkCollection(BuildContext context, int chapterId, int index) {
+    final collectionList = context.read<BookmarkBloc>().state.dbCollectionItems;
+
+    if (collectionList.isEmpty) {
+      context.read<BookmarkBloc>().add(
+            AddFavCollection(verskey: ['$chapterId:${index + 1}']),
+          );
+
+      context.read<BookmarkBloc>().add(const FetchCollectionItem());
+    } else {
+      List<BookMarktCollectionModel> filteredList =
+          collectionList.where((element) => element.id == '1').toList();
+
+      if (filteredList.isNotEmpty) {
+        List<String> updatedVerskey = List.from(filteredList[0].verseKey);
+        updatedVerskey.add('$chapterId:${index + 1}');
+
+        context.read<BookmarkBloc>().add(
+              AddFavCollection(verskey: updatedVerskey),
+            );
+        context.read<BookmarkBloc>().add(const FetchCollectionItem());
+      }
+    }
+  }
+
   Future<dynamic> _audioPopup(BuildContext context) {
     return showModalBottomSheet(
       context: context,
@@ -913,16 +718,16 @@ class _VersesViewState extends State<VersesView> {
                             itemBuilder: (context, index) {
                               return GestureDetector(
                                 onTap: () {
-                                  widget.type == Qurantype.sura
+                                  type == Qurantype.sura
                                       ? context.read<QuranBloc>().add(
                                           FetchChapterAudioFiles(
-                                              id: widget.chapterid!,
+                                              id: chapterid!,
                                               recitorId: state.recitationsModel!
                                                   .recitations[index].id))
-                                      : widget.type == Qurantype.para
+                                      : type == Qurantype.para
                                           ? context.read<QuranBloc>().add(
                                               FetchParaAudios(
-                                                  id: widget.chapterid!,
+                                                  id: chapterid!,
                                                   recitorId: state
                                                       .recitationsModel!
                                                       .recitations[index]
@@ -1018,60 +823,60 @@ class _VersesViewState extends State<VersesView> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   kHeight10,
-                  // Text(
-                  //   'Quran Themes',
-                  //   style: TextStyle(
-                  //     fontSize: 16,
-                  //     fontWeight: FontWeight.w600,
-                  //     color: ColorManager.blackColor,
-                  //   ),
-                  // ),
-                  // kHeight15,
-                  // Row(
-                  //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  //   children: [
-                  //     Expanded(
-                  //       child: SizedBox(
-                  //         height: 70,
-                  //         width: 70,
-                  //         child: ListView.builder(
-                  //           scrollDirection: Axis.horizontal,
-                  //           itemCount: 4,
-                  //           // itemExtent: 100,
-                  //           itemBuilder: (context, index) => GestureDetector(
-                  //             onTap: () {
-                  //               context.read<QuranBloc>().add(
-                  //                   ChangeIndexBackGroundSetting(index: index));
-                  //             },
-                  //             child: BlocBuilder<QuranBloc, QuranState>(
-                  //               builder: (context, state) => Padding(
-                  //                 padding: const EdgeInsets.symmetric(
-                  //                     horizontal: 13),
-                  //                 child: Stack(
-                  //                   children: [
-                  //                     Image.asset(
-                  //                         "assets/images/quran_theme_${index + 1}.png"),
-                  //                     state.currentSettingBgIndex == index
-                  //                         ? Positioned(
-                  //                             bottom: 10,
-                  //                             right: 0,
-                  //                             left: 0,
-                  //                             child: Icon(
-                  //                               Icons.check_circle,
-                  //                               color: ColorManager.primary,
-                  //                             ),
-                  //                           )
-                  //                         : const SizedBox(),
-                  //                   ],
-                  //                 ),
-                  //               ),
-                  //             ),
-                  //           ),
-                  //         ),
-                  //       ),
-                  //     )
-                  //   ],
-                  // ),
+                  Text(
+                    'Quran Themes',
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
+                      color: ColorManager.blackColor,
+                    ),
+                  ),
+                  kHeight15,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Expanded(
+                        child: SizedBox(
+                          height: 70,
+                          width: 70,
+                          child: ListView.builder(
+                            scrollDirection: Axis.horizontal,
+                            itemCount: 4,
+                            // itemExtent: 100,
+                            itemBuilder: (context, index) => GestureDetector(
+                              onTap: () {
+                                context.read<QuranBloc>().add(
+                                    ChangeIndexBackGroundSetting(index: index));
+                              },
+                              child: BlocBuilder<QuranBloc, QuranState>(
+                                builder: (context, state) => Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 13),
+                                  child: Stack(
+                                    children: [
+                                      Image.asset(
+                                          "assets/images/quran_theme_${index + 1}.png"),
+                                      state.currentSettingBgIndex == index
+                                          ? Positioned(
+                                              bottom: 10,
+                                              right: 0,
+                                              left: 0,
+                                              child: Icon(
+                                                Icons.check_circle,
+                                                color: ColorManager.primary,
+                                              ),
+                                            )
+                                          : const SizedBox(),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
                   kHeight25,
                   Text(
                     'Text Settings',
@@ -1259,15 +1064,15 @@ class _VersesViewState extends State<VersesView> {
                                 onTap: () {
                                   Navigator.pop(context);
                                   Navigator.pop(context);
-                                  widget.type == Qurantype.sura
+                                  type == Qurantype.sura
                                       ? context.read<QuranBloc>().add(
                                           FetchTranslationChapterTexts(
-                                              chapterId: widget.chapterid!,
+                                              chapterId: chapterid!,
                                               translationId: data.id!))
-                                      : widget.type == Qurantype.para
+                                      : type == Qurantype.para
                                           ? context.read<QuranBloc>().add(
                                               FetchTranslationParaTexts(
-                                                  paraId: widget.chapterid!,
+                                                  paraId: chapterid!,
                                                   translationId: data.id!))
                                           : null;
                                 },
@@ -1369,17 +1174,13 @@ class _VersesViewState extends State<VersesView> {
                           final isIndex = currentIndex == index;
                           return InkWell(
                             onTap: () {
-                              context.read<QuranBloc>().add(
-                                  FetchChapterVersesbyTextName(id: index + 1));
                               context
                                   .read<QuranBloc>()
                                   .add(FetchChaperVersesEvent(id: index + 1));
                               context.read<QuranBloc>().add(
-                                    FetchTranslationChapterTexts(
+                                  FetchTranslationChapterTexts(
                                       translationId: state.globalTransilationId,
-                                      chapterId: index + 1,
-                                    ),
-                                  );
+                                      chapterId: index + 1));
 
                               setState(
                                 () {
@@ -1441,6 +1242,12 @@ class _VersesViewState extends State<VersesView> {
     );
   }
 
+  String removeFootnotesFromMeaning(String meaning) {
+    final text = parse(meaning);
+    final String plainText = text.body!.text;
+    return plainText;
+  }
+
   Widget _buildPlayIcons(String imageUrl, String name, VoidCallback onTap) {
     return GestureDetector(
       onTap: onTap,
@@ -1464,10 +1271,4 @@ class _VersesViewState extends State<VersesView> {
       ),
     );
   }
-}
-
-String removeFootnotesFromMeaning(String meaning) {
-  final text = parse(meaning);
-  final String plainText = parse(text.body!.text).documentElement!.text;
-  return plainText;
 }

@@ -2,190 +2,221 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/resources/profile/views/edit_profile_view.dart';
 import 'package:millat/resources/profile/views/manage_address.dart';
-import 'package:millat/resources/profile/views/order_history_view.dart';
-import 'package:millat/resources/shop/view/wishlist/wishlist_view.dart';
-import 'package:millat/utils/assets_paths.dart';
+import 'package:millat/resources/profile/views/payments_methods.dart';
+import 'package:millat/resources/shop/view/orders/orders_view.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
-import 'package:millat/utils/size_utility.dart';
-import 'package:millat/utils/string_constants.dart';
-import '../../../utils/loader.dart';
-import '../../authentication/bloc/logic/database_bloc/database_bloc.dart';
 
-class ProfileView extends StatelessWidget {
+import '../../authentication/bloc/logic/database_bloc/database_bloc.dart';
+import '../../shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
+
+class ProfileView extends StatefulWidget {
   const ProfileView({Key? key}) : super(key: key);
 
   @override
+  State<ProfileView> createState() => _ProfileViewState();
+}
+
+class _ProfileViewState extends State<ProfileView> {
+  @override
   Widget build(BuildContext context) {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      BlocProvider.of<DatabaseBloc>(context)
-          .add(FetchAuthUser(context: context));
-    });
-    return BlocBuilder<DatabaseBloc, DatabaseState>(builder: (context, state) {
-      if (state.isLoading || state.editIsloading) {
-        context.read<DatabaseBloc>().add(FetchAuthUser(context: context));
-        return const Loader();
-      }
-      return Scaffold(
-        body: Column(
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Profile',
+            style: TextStyle(
+                color: ColorManager.blackColor, fontWeight: FontWeight.w700)),
+        centerTitle: false,
+        leading: IconButton(
+          onPressed: () {
+            context
+                .read<ShopProductsBloc>()
+                .add(const TabIndexChangeEvent(index: 0));
+          },
+          icon: Icon(
+            Icons.arrow_back,
+            color: ColorManager.blackColor,
+          ),
+        ),
+        elevation: 0,
+        backgroundColor: Colors.transparent,
+      ),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 30),
+        child: Column(
           children: [
-            Stack(
-              children: [
-                ClipRRect(
-                  borderRadius:
-                      const BorderRadius.vertical(bottom: Radius.circular(30)),
-                  child: SizedBox(
-                    height: 280,
-                    width: SizeUtility(context).width,
-                    child: Image.asset(
-                      AppAssetsStrings.profileCoverImg,
-                      fit: BoxFit.fill,
-                    ),
-                  ),
-                ),
-                Align(
-                  alignment: Alignment.center,
-                  child: Column(
+            Container(
+              padding: const EdgeInsets.all(20),
+              child: Column(
+                children: [
+                  Row(
                     children: [
-                      kHeight20,
-                      Align(
-                          alignment: Alignment.topLeft,
-                          child: BackButton(color: ColorManager.whiteColor)),
-                      CircleAvatar(
-                        radius: 45,
-                        backgroundColor: ColorManager.whiteColor,
-                        child: CircleAvatar(
-                          radius: 40,
-                          backgroundColor: ColorManager.dotGrey,
-                          child: BlocBuilder<DatabaseBloc, DatabaseState>(
-                            builder: (context, state) {
-                              final userPictureUrl =
-                                  state.authUserModel?.result?.user?.picture;
-                              return userPictureUrl == null
-                                  ? Icon(
-                                      Icons.person_2_outlined,
-                                      size: 60,
-                                      color: ColorManager.black4A,
-                                    )
-                                  : ClipOval(
-                                      child: Image.network(
-                                        userPictureUrl,
-                                        width: 80,
-                                        height: 80,
-                                        fit: BoxFit.cover,
-                                      ),
-                                    );
-                            },
-                          ),
-                        ),
-                      ),
-                      kHeight16,
                       BlocBuilder<DatabaseBloc, DatabaseState>(
-                        builder: (context, state) {
-                          final data = state.authUserModel?.result?.user;
-                          return Column(
-                            children: [
-                              Text(
-                                data?.name ?? "",
-                                style: TextStyle(
-                                  color: ColorManager.whiteColor,
-                                  fontSize: 22,
-                                  fontWeight: FontWeight.w600,
-                                ),
-                              ),
-                              const SizedBox(
-                                height: 10,
-                              ),
-                              Text(
-                                data?.email ?? "",
-                                style: TextStyle(
-                                    color: ColorManager.textGrey99,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w600),
-                              )
-                            ],
-                          );
-                        },
-                      ),
+                          builder: (context, state) => Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(state.name,
+                                      style: TextStyle(
+                                          color: ColorManager.blackColor,
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.w600)),
+                                  const SizedBox(
+                                    height: 10,
+                                  ),
+                                  Text(
+                                    state.email,
+                                    style: const TextStyle(
+                                        color: black122,
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w600),
+                                  )
+                                ],
+                              ))
                     ],
                   ),
-                )
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      ElevatedButton.icon(
+                        icon: const Icon(Icons.edit_note, color: Colors.white),
+                        onPressed: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const EditProfileView(),
+                          ));
+                        },
+                        label: const Text('Edit',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 17,
+                                fontWeight: FontWeight.w700)),
+                        style: ButtonStyle(
+                            backgroundColor: MaterialStateProperty.all(
+                                ColorManager.greenColor1)),
+                      )
+                    ],
+                  )
+                ],
+              ),
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+            InkWell(
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => const Orders(),
+                ));
+              },
+              child: const Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text('My Orders',
+                      style:
+                          TextStyle(fontSize: 17, fontWeight: FontWeight.w700)),
+                  Icon(Icons.arrow_forward_ios)
+                ],
+              ),
+            ),
+            const Column(
+              children: [
+                kHeight20,
+                Divider(
+                  color: black198,
+                ),
+                kHeight20,
               ],
             ),
-            Column(
+            // InkWell(
+            //   onTap: () {
+            //     Navigator.of(context).push(MaterialPageRoute(
+            //       builder: (context) => const WriteReview(),
+            //     ));
+            //   },
+            //   child: const Row(
+            //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            //     children: [
+            //       Text('Wishlist',
+            //           style:
+            //               TextStyle(fontSize: 17, fontWeight: FontWeight.w700)),
+            //       Icon(Icons.arrow_forward_ios)
+            //     ],
+            //   ),
+            // ),
+            // const Column(
+            //   children: [
+            //     SizedBox(
+            //       height: 20,
+            //     ),
+            //     Divider(
+            //       color: black198,
+            //     ),
+            //     SizedBox(
+            //       height: 20,
+            //     ),
+            //   ],
+            // ),
+            InkWell(
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => const ManageAddress(),
+                ));
+              },
+              child: const Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text('Manage Address',
+                      style:
+                          TextStyle(fontSize: 17, fontWeight: FontWeight.w700)),
+                  Icon(Icons.arrow_forward_ios)
+                ],
+              ),
+            ),
+            const Column(
               children: [
-                kHeight30,
-                _buildTile(
-                  text: Appstrings.personalInfo,
-                  icon: AppAssetsStrings.peronalInfo,
-                  onTap: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const EditProfileView(),
-                    ));
-                  },
+                kHeight20,
+                Divider(
+                  color: black198,
                 ),
                 kHeight20,
-                _buildTile(
-                  text: Appstrings.addressBook,
-                  icon: AppAssetsStrings.addressBookIcon,
-                  onTap: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const ManageAddress(),
-                    ));
-                  },
+              ],
+            ),
+            InkWell(
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => const PaymentMethods(),
+                ));
+              },
+              child: const Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text('Payment Info',
+                      style:
+                          TextStyle(fontSize: 17, fontWeight: FontWeight.w700)),
+                  Icon(Icons.arrow_forward_ios)
+                ],
+              ),
+            ),
+            const Column(
+              children: [
+                kHeight20,
+                Divider(
+                  color: black198,
                 ),
                 kHeight20,
-                _buildTile(
-                  text: Appstrings.orderHistory,
-                  icon: AppAssetsStrings.orderHistory,
-                  onTap: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const OrderHistoryView(),
-                    ));
-                  },
-                ),
-                kHeight20,
-                _buildTile(
-                  text: Appstrings.wishList,
-                  icon: AppAssetsStrings.wishList,
-                  onTap: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const WishListView(),
-                    ));
-                  },
-                )
+              ],
+            ),
+            const Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text('Logout',
+                    style:
+                        TextStyle(fontSize: 17, fontWeight: FontWeight.w700)),
+                Icon(Icons.arrow_forward_ios)
               ],
             ),
           ],
-        ),
-      );
-    });
-  }
-
-  Widget _buildTile(
-      {required VoidCallback onTap,
-      required String text,
-      required String icon}) {
-    return ListTile(
-      leading: CircleAvatar(
-        backgroundColor: ColorManager.appBarColor,
-        child: ImageIcon(
-          AssetImage(icon),
-          color: ColorManager.blackColor,
-        ),
-      ),
-      trailing: InkWell(
-        onTap: onTap,
-        child: const Icon(
-          Icons.arrow_forward_ios,
-          size: 20,
-        ),
-      ),
-      title: Text(
-        text,
-        style: const TextStyle(
-          fontSize: 16,
-          fontWeight: FontWeight.bold,
         ),
       ),
     );

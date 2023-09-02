@@ -305,8 +305,8 @@ class OrderStatus extends StatelessWidget {
   }
 
   TextStyle _priceStyle() {
-    return TextStyle(
-      color: ColorManager.black4F,
+    return const TextStyle(
+      color: black122,
       fontSize: 17,
       fontWeight: FontWeight.w500,
     );
@@ -403,10 +403,10 @@ class OrderStatus extends StatelessWidget {
                         width: SizeUtility(context).width * 60 / 100,
                         child: Text(
                           address.toString(),
-                          style: TextStyle(
+                          style: const TextStyle(
                               height: 1.7,
                               fontWeight: FontWeight.w700,
-                              color: ColorManager.black4F),
+                              color: black122),
                         )),
                   ],
                 ),

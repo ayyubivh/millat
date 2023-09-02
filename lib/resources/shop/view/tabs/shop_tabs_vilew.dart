@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
-import 'package:millat/resources/shop/view/article/articles_view.dart';
 import 'package:millat/resources/shop/view/shop_view.dart';
 import 'package:millat/resources/shop/view/wishlist/wishlist_view.dart';
-import 'package:millat/resources/shop/view/womens_care/womens_care_view.dart';
 import 'package:millat/resources/tabs/view/tabs_view.dart';
-import 'package:millat/utils/assets_paths.dart';
-import 'package:millat/utils/color_manager.dart';
 import '../../../profile/views/profile_view.dart';
+import '../categories/categories_filter_view.dart';
 
 class ShopTabsView extends StatelessWidget {
   const ShopTabsView({Key? key}) : super(key: key);
@@ -19,9 +16,8 @@ class ShopTabsView extends StatelessWidget {
 
     List screens = [
       const ShopView(),
-      const ArticlesView(),
-      // const CategoriesFilter(),
-      const WomensCareView(),
+      const WishListView(),
+      const CategoriesFilter(),
       const ProfileView(),
     ];
 
@@ -49,7 +45,7 @@ class ShopTabsView extends StatelessWidget {
           extendBody: true,
           body: screens[state.index],
           bottomNavigationBar: SizedBox(
-            height: 60,
+            height: 110,
             child: BottomNavigationBar(
               onTap: (newIndex) {
                 if (newIndex == 0 && state.index == newIndex) {
@@ -61,44 +57,44 @@ class ShopTabsView extends StatelessWidget {
                   context
                       .read<ShopProductsBloc>()
                       .add(TabIndexChangeEvent(index: newIndex));
+                  print(
+                      'index ${state.index} and the newindex here ${newIndex}');
                 }
               },
               currentIndex: state.index,
-              unselectedItemColor: black137,
-              selectedItemColor: ColorManager.primary,
+              unselectedItemColor: Colors.black87,
+              selectedItemColor: Colors.green,
               showUnselectedLabels: true,
               selectedIconTheme:
-                  IconThemeData(color: ColorManager.primary, size: 25),
+                  const IconThemeData(color: Colors.green, size: 25),
               unselectedIconTheme:
-                  const IconThemeData(color: black137, size: 25),
+                  const IconThemeData(color: Colors.black87, size: 25),
               type: BottomNavigationBarType.fixed,
               items: const [
                 BottomNavigationBarItem(
-                  label: '',
+                  label: 'Home',
                   icon: ImageIcon(
                     AssetImage('assets/icons/home.png'),
-                    size: 22,
                   ),
                 ),
                 BottomNavigationBarItem(
-                  label: '',
+                  label: 'Wishlist',
                   icon: ImageIcon(
-                    size: 22,
-                    AssetImage(AppAssetsStrings.articleTabIcon),
+                    size: 16,
+                    AssetImage('assets/icons/home_wishlist.png'),
                   ),
                 ),
                 BottomNavigationBarItem(
-                  label: '',
+                  label: 'Categories',
                   icon: ImageIcon(
-                    size: 22,
-                    AssetImage(AppAssetsStrings.womensCareTabs),
+                    size: 16,
+                    AssetImage('assets/icons/category.png'),
                   ),
                 ),
                 BottomNavigationBarItem(
-                  label: '',
+                  label: 'Profile',
                   icon: ImageIcon(
-                    AssetImage(AppAssetsStrings.profile),
-                    size: 22,
+                    AssetImage('assets/icons/community.png'),
                   ),
                 ),
               ],

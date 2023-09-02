@@ -1,13 +1,8 @@
 class Appstrings {
-  //Shared prefereces
+  //hive db
   static const String prayerTrackerDb = "PrayerTracker-Db";
   static const String namazMethodDb = "NamazMethode-Db";
-  static const String autoDetectLocationKey = "Autodetect-Location";
-  static const String autoMaticSettingsKey = "Automatic-settings";
-  static const String showImsakKey = "Show-imsak";
-  static const String calculationMethodKey = "Calculation-Method";
-  static const String asrCalculationMethodKey = "Asr-calculation-Method";
-  static const String highLatitudeMethodsKey = "HighLatitude-Methods";
+
   //Home
   static const String quran = "Quran";
   static const String tasbih = "Tasbih";
@@ -22,10 +17,8 @@ class Appstrings {
   static const String fajr = "Fajr";
   static const String dhuhr = "Dhuhr";
   static const String asr = "Asr";
-  static const String magrib = "Maghrib";
+  static const String magrib = "Magrib";
   static const String isha = "Isha";
-  static const String qiyam = "qiyam";
-  static const String sunrise = "sunrise";
   static const String hijabs = "Hijab's";
   static const String dates = "Dates";
   static const String attars = "Attars";
@@ -39,7 +32,6 @@ class Appstrings {
   static const String privacyPolicy = "Privacy Policy";
   static const String aboutUs = "About Us";
   static const String verifiedAccount = "Verified Account";
-  static const String profile = "Profile";
   static const String editProfile = "Edit Profile";
   static const String activity = "Activity";
   static const String quranLastRead = "Quran last read";
@@ -53,21 +45,9 @@ class Appstrings {
   static const String userName = "Username";
   static const String dateOfBirth = "Date of Birth";
   static const String email = "Email";
-  static const String mobileNumber = "Phone Number";
+  static const String mobileNumber = "Mobile Number";
   static const String profession = "Profession";
   static const String companyOrStudy = "Company/School/College";
-  static const String yourMessage = "Your Message";
-  static const String cancelOrder = "Cancel Order";
-  static const String returnOrder = "Return Order";
-  static const String trackShipment = "Track Shipment";
-  static const String myPerfomance = "My Perfomance";
-  static const String supportAndHelp = "Support & Help";
-  static const String notifications = "Notifications";
-  static const String millatCo = "Millat.co";
-  static const String aboutUsDescription =
-      "Your privacy is important to us. It is Brainstorming's policy to respect your privacy regarding any information we may collect from you across our website, and other sites we own and operate.\n\nWe only ask for personal information when we truly need it to provide a service to you. We collect it by fair and lawful means, with your knowledge and consent. We also let you know why we’re collecting it and how it will be used.\n\nWe only retain collected information for as long as necessary to provide you with your requested service. What data we store, we’ll protect within commercially acceptable means to prevent loss and theft, as well as unauthorized access, disclosure, copying, use or modification.We don’t share any personally identifying information publicly or with third-parties, except when required to by law.";
-  static const String privacyPolicyDescription =
-      "Your privacy is important to us. It is Brainstorming's policy to respect your privacy regarding any information we may collect from you across our website, and other sites we own and operate.\n\nWe only ask for personal information when we truly need it to provide a service to you. We collect it by fair and lawful means, with your knowledge and consent. We also let you know why we’re collecting it and how it will be used.\n\nWe only retain collected information for as long as necessary to provide you with your requested service. What data we store, we’ll protect within commercially acceptable means to prevent loss and theft, as well as unauthorized access, disclosure, copying, use or modification.\n\nWe don’t share any personally identifying information publicly or with third-parties, except when required to by law.";
 //Quran
   static const String myFavorite = "My Favourites";
   //shop
@@ -80,105 +60,7 @@ class Appstrings {
   static const String filters = "Filters";
   static const String byReview = "By Review";
   static const String sortBy = "Sort By";
-  static const String womensCare = "Womens's Care";
-  static const String healthyDiet = "Healthy Diet";
-  static const String followSunnah = "Follow Sunnah";
-  static const String follow = "Follow";
-  static const String viewBrands = "View Brands";
-  static const String yourCart = "Your Cart";
-  static const String yourCartIsEmpty = "Your cart is empty";
-  static const String cartTextBody =
-      "Customer network effects freemium. Advisor android paradigm shift product management. ";
-  static const String subTotal = "Sub Total";
-  static const String deliveryCharge = "Delivery Charge";
-  static const String proceed = "Proceed to Checkout";
-  static const String continueText = "Continue";
-  static const String addaddress = "Add Address";
-  static const String checkout = "Checkout";
-  static const String personalInfo = "Personal Info";
-  static const String payment = "Payment";
-  static const String confirmation = "Confirmation";
-  static const String reviewOrder = "Review Your Order";
-  static const String pay = "Pay";
-  static const String promoCode = "Promo Code";
-  static const String apply = "Apply";
-  static const String thanksForOrder = "Thank for your order";
-  static const String orderDetails = "Order Details";
-  static const String articleText1 = "Let’s see recomendation stories for you";
-  static const String articles = "Articles";
-  static const String popular = "Popular";
-  static const String addressBook = "Address Book";
-  static const String orderHistory = "Order History";
-  static const String wishList = "Wishlist";
-  static const String noAddressText = "You have no address yet";
-  static const String noAddresSubText =
-      "Please add an address for shipping and billing";
-  static const String addNewAddress = "Add New Address";
-  static const String toShip = "To Ship";
-  static const String cancelled = "Cancelled";
-  static const String orderCancelled = "Order Cancelled";
-  static const String delivered = "Delivered";
-  static const String keepShopping = "Keep Shopping";
-  static const String viewOrderDetails = "View Order Details";
-  static const String orderDate = "Order date";
-  static const String order = "Order";
-  static const String orderTotal = "Order Total";
-  static const String downloadInvoice = "Download Invoice";
-  static const String deliveryEstimate = "Delivery Estimate";
-  static const String processing = "Processing";
-  static const String paymentInformation = "Payment information";
-  static const String paymentMethod = "Payment Method";
-  static const String billingAddress = "Billing Address";
-  static const String orderSummary = "Order Summary";
-  static const String itemCost = "Item Cost";
-  static const String postPacking = "Postage & Packing";
-  static const String totalbfTax = "Total before Tax";
-  static const String total = "Total";
-  static const String tax = "Tax";
-  static const String youMaylike = "You May Also Like";
-  static const String noResultFound = "no result found";
-  static const String newest = "Newest";
-  static const String customerReview = "Customer Review";
-  static const String priceLowtoHigh = "Price:lowest to high";
-  static const String priceHighToLow = "Price:highest to low";
-  static const String priceRange = "Price Range";
-  static const String sizes = "Sizes";
-  static const String xs = "XS";
-  static const String s = "S";
-  static const String xl = "XL";
-  static const String l = "L";
-  static const String xxl = "XXL";
-  static const String category = "Category";
-  static const String all = "All";
-  static const String women = "Women";
-  static const String men = "Men";
-  static const String boys = "Boys";
-  static const String girls = "Girls";
-  static const String returnDetails = "Return Details";
-  static const String returnReasonTitle =
-      "What is the biggest reason for your wish to cancel?";
-  static const String returnReason1 = "It's too constly";
-  static const String returnReason2 =
-      "I found another product that fulfills my need.";
-  static const String returnReason3 = "I don't use it enough";
-  static const String returnReason4 = "other";
-  static const String returnDescription = "What should shoppers know befor?";
-  static const String returnCharText = "3000 Character left";
-  static const String next = "Next";
-  static const String pickUpAddress = "Pickup Address";
-  static const String returnProduct = "Return Product";
-  static const String submit = "Submit";
-  static const String flashSale = "Flash Sale";
-  static const String mostPopular = "Most Popular";
-  static const String products = "Products";
-  static const String agree = "I've agree with this";
-  static const String paymentMethods = "Payment Methods";
-  static const String payOnline = "Pay Online";
-  static const String cashOnDeliver = "Cash on Delivery";
-  static const String makeGift = "Make a Gift";
-  static const String giftSubTitle = "Customized gift wrapping for \$20";
-  static const String sunnah = "Sunnah";
-  static const String hadith = "Hadith";
+
   //hadith
   static const String bookmarks = "Bookmarks";
   static const String books = "books";

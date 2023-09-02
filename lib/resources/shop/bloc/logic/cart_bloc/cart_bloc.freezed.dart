@@ -32,7 +32,6 @@ mixin _$CartEvent {
         removeCartItemEvent,
     required TResult Function() toggleShowMoreEvent,
     required TResult Function() paymentSuccessEvent,
-    required TResult Function() showExpandEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -49,7 +48,6 @@ mixin _$CartEvent {
         removeCartItemEvent,
     TResult? Function()? toggleShowMoreEvent,
     TResult? Function()? paymentSuccessEvent,
-    TResult? Function()? showExpandEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -66,7 +64,6 @@ mixin _$CartEvent {
         removeCartItemEvent,
     TResult Function()? toggleShowMoreEvent,
     TResult Function()? paymentSuccessEvent,
-    TResult Function()? showExpandEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -81,7 +78,6 @@ mixin _$CartEvent {
     required TResult Function(RemoveCartItemEvent value) removeCartItemEvent,
     required TResult Function(ToggleShowMoreEvent value) toggleShowMoreEvent,
     required TResult Function(PaymentSuccessEvent value) paymentSuccessEvent,
-    required TResult Function(ShowExpandEvent value) showExpandEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -93,7 +89,6 @@ mixin _$CartEvent {
     TResult? Function(RemoveCartItemEvent value)? removeCartItemEvent,
     TResult? Function(ToggleShowMoreEvent value)? toggleShowMoreEvent,
     TResult? Function(PaymentSuccessEvent value)? paymentSuccessEvent,
-    TResult? Function(ShowExpandEvent value)? showExpandEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -105,7 +100,6 @@ mixin _$CartEvent {
     TResult Function(RemoveCartItemEvent value)? removeCartItemEvent,
     TResult Function(ToggleShowMoreEvent value)? toggleShowMoreEvent,
     TResult Function(PaymentSuccessEvent value)? paymentSuccessEvent,
-    TResult Function(ShowExpandEvent value)? showExpandEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -206,7 +200,6 @@ class _$FetchCartEvent implements FetchCartEvent {
         removeCartItemEvent,
     required TResult Function() toggleShowMoreEvent,
     required TResult Function() paymentSuccessEvent,
-    required TResult Function() showExpandEvent,
   }) {
     return fetchCartEvent(context);
   }
@@ -226,7 +219,6 @@ class _$FetchCartEvent implements FetchCartEvent {
         removeCartItemEvent,
     TResult? Function()? toggleShowMoreEvent,
     TResult? Function()? paymentSuccessEvent,
-    TResult? Function()? showExpandEvent,
   }) {
     return fetchCartEvent?.call(context);
   }
@@ -246,7 +238,6 @@ class _$FetchCartEvent implements FetchCartEvent {
         removeCartItemEvent,
     TResult Function()? toggleShowMoreEvent,
     TResult Function()? paymentSuccessEvent,
-    TResult Function()? showExpandEvent,
     required TResult orElse(),
   }) {
     if (fetchCartEvent != null) {
@@ -267,7 +258,6 @@ class _$FetchCartEvent implements FetchCartEvent {
     required TResult Function(RemoveCartItemEvent value) removeCartItemEvent,
     required TResult Function(ToggleShowMoreEvent value) toggleShowMoreEvent,
     required TResult Function(PaymentSuccessEvent value) paymentSuccessEvent,
-    required TResult Function(ShowExpandEvent value) showExpandEvent,
   }) {
     return fetchCartEvent(this);
   }
@@ -282,7 +272,6 @@ class _$FetchCartEvent implements FetchCartEvent {
     TResult? Function(RemoveCartItemEvent value)? removeCartItemEvent,
     TResult? Function(ToggleShowMoreEvent value)? toggleShowMoreEvent,
     TResult? Function(PaymentSuccessEvent value)? paymentSuccessEvent,
-    TResult? Function(ShowExpandEvent value)? showExpandEvent,
   }) {
     return fetchCartEvent?.call(this);
   }
@@ -297,7 +286,6 @@ class _$FetchCartEvent implements FetchCartEvent {
     TResult Function(RemoveCartItemEvent value)? removeCartItemEvent,
     TResult Function(ToggleShowMoreEvent value)? toggleShowMoreEvent,
     TResult Function(PaymentSuccessEvent value)? paymentSuccessEvent,
-    TResult Function(ShowExpandEvent value)? showExpandEvent,
     required TResult orElse(),
   }) {
     if (fetchCartEvent != null) {
@@ -414,7 +402,6 @@ class _$UpdateCartEventWithAdd implements UpdateCartEventWithAdd {
         removeCartItemEvent,
     required TResult Function() toggleShowMoreEvent,
     required TResult Function() paymentSuccessEvent,
-    required TResult Function() showExpandEvent,
   }) {
     return updateCartEventWithAdd(context, productId, quantity);
   }
@@ -434,7 +421,6 @@ class _$UpdateCartEventWithAdd implements UpdateCartEventWithAdd {
         removeCartItemEvent,
     TResult? Function()? toggleShowMoreEvent,
     TResult? Function()? paymentSuccessEvent,
-    TResult? Function()? showExpandEvent,
   }) {
     return updateCartEventWithAdd?.call(context, productId, quantity);
   }
@@ -454,7 +440,6 @@ class _$UpdateCartEventWithAdd implements UpdateCartEventWithAdd {
         removeCartItemEvent,
     TResult Function()? toggleShowMoreEvent,
     TResult Function()? paymentSuccessEvent,
-    TResult Function()? showExpandEvent,
     required TResult orElse(),
   }) {
     if (updateCartEventWithAdd != null) {
@@ -475,7 +460,6 @@ class _$UpdateCartEventWithAdd implements UpdateCartEventWithAdd {
     required TResult Function(RemoveCartItemEvent value) removeCartItemEvent,
     required TResult Function(ToggleShowMoreEvent value) toggleShowMoreEvent,
     required TResult Function(PaymentSuccessEvent value) paymentSuccessEvent,
-    required TResult Function(ShowExpandEvent value) showExpandEvent,
   }) {
     return updateCartEventWithAdd(this);
   }
@@ -490,7 +474,6 @@ class _$UpdateCartEventWithAdd implements UpdateCartEventWithAdd {
     TResult? Function(RemoveCartItemEvent value)? removeCartItemEvent,
     TResult? Function(ToggleShowMoreEvent value)? toggleShowMoreEvent,
     TResult? Function(PaymentSuccessEvent value)? paymentSuccessEvent,
-    TResult? Function(ShowExpandEvent value)? showExpandEvent,
   }) {
     return updateCartEventWithAdd?.call(this);
   }
@@ -505,7 +488,6 @@ class _$UpdateCartEventWithAdd implements UpdateCartEventWithAdd {
     TResult Function(RemoveCartItemEvent value)? removeCartItemEvent,
     TResult Function(ToggleShowMoreEvent value)? toggleShowMoreEvent,
     TResult Function(PaymentSuccessEvent value)? paymentSuccessEvent,
-    TResult Function(ShowExpandEvent value)? showExpandEvent,
     required TResult orElse(),
   }) {
     if (updateCartEventWithAdd != null) {
@@ -627,7 +609,6 @@ class _$UpdateCartEventWithSub implements UpdateCartEventWithSub {
         removeCartItemEvent,
     required TResult Function() toggleShowMoreEvent,
     required TResult Function() paymentSuccessEvent,
-    required TResult Function() showExpandEvent,
   }) {
     return updateCartEventWithSub(context, productId, quantity);
   }
@@ -647,7 +628,6 @@ class _$UpdateCartEventWithSub implements UpdateCartEventWithSub {
         removeCartItemEvent,
     TResult? Function()? toggleShowMoreEvent,
     TResult? Function()? paymentSuccessEvent,
-    TResult? Function()? showExpandEvent,
   }) {
     return updateCartEventWithSub?.call(context, productId, quantity);
   }
@@ -667,7 +647,6 @@ class _$UpdateCartEventWithSub implements UpdateCartEventWithSub {
         removeCartItemEvent,
     TResult Function()? toggleShowMoreEvent,
     TResult Function()? paymentSuccessEvent,
-    TResult Function()? showExpandEvent,
     required TResult orElse(),
   }) {
     if (updateCartEventWithSub != null) {
@@ -688,7 +667,6 @@ class _$UpdateCartEventWithSub implements UpdateCartEventWithSub {
     required TResult Function(RemoveCartItemEvent value) removeCartItemEvent,
     required TResult Function(ToggleShowMoreEvent value) toggleShowMoreEvent,
     required TResult Function(PaymentSuccessEvent value) paymentSuccessEvent,
-    required TResult Function(ShowExpandEvent value) showExpandEvent,
   }) {
     return updateCartEventWithSub(this);
   }
@@ -703,7 +681,6 @@ class _$UpdateCartEventWithSub implements UpdateCartEventWithSub {
     TResult? Function(RemoveCartItemEvent value)? removeCartItemEvent,
     TResult? Function(ToggleShowMoreEvent value)? toggleShowMoreEvent,
     TResult? Function(PaymentSuccessEvent value)? paymentSuccessEvent,
-    TResult? Function(ShowExpandEvent value)? showExpandEvent,
   }) {
     return updateCartEventWithSub?.call(this);
   }
@@ -718,7 +695,6 @@ class _$UpdateCartEventWithSub implements UpdateCartEventWithSub {
     TResult Function(RemoveCartItemEvent value)? removeCartItemEvent,
     TResult Function(ToggleShowMoreEvent value)? toggleShowMoreEvent,
     TResult Function(PaymentSuccessEvent value)? paymentSuccessEvent,
-    TResult Function(ShowExpandEvent value)? showExpandEvent,
     required TResult orElse(),
   }) {
     if (updateCartEventWithSub != null) {
@@ -886,7 +862,6 @@ class _$AddCartEvent implements AddCartEvent {
         removeCartItemEvent,
     required TResult Function() toggleShowMoreEvent,
     required TResult Function() paymentSuccessEvent,
-    required TResult Function() showExpandEvent,
   }) {
     return addCart(
         productId, basePrice, size, context, color, quantity, brandId);
@@ -907,7 +882,6 @@ class _$AddCartEvent implements AddCartEvent {
         removeCartItemEvent,
     TResult? Function()? toggleShowMoreEvent,
     TResult? Function()? paymentSuccessEvent,
-    TResult? Function()? showExpandEvent,
   }) {
     return addCart?.call(
         productId, basePrice, size, context, color, quantity, brandId);
@@ -928,7 +902,6 @@ class _$AddCartEvent implements AddCartEvent {
         removeCartItemEvent,
     TResult Function()? toggleShowMoreEvent,
     TResult Function()? paymentSuccessEvent,
-    TResult Function()? showExpandEvent,
     required TResult orElse(),
   }) {
     if (addCart != null) {
@@ -950,7 +923,6 @@ class _$AddCartEvent implements AddCartEvent {
     required TResult Function(RemoveCartItemEvent value) removeCartItemEvent,
     required TResult Function(ToggleShowMoreEvent value) toggleShowMoreEvent,
     required TResult Function(PaymentSuccessEvent value) paymentSuccessEvent,
-    required TResult Function(ShowExpandEvent value) showExpandEvent,
   }) {
     return addCart(this);
   }
@@ -965,7 +937,6 @@ class _$AddCartEvent implements AddCartEvent {
     TResult? Function(RemoveCartItemEvent value)? removeCartItemEvent,
     TResult? Function(ToggleShowMoreEvent value)? toggleShowMoreEvent,
     TResult? Function(PaymentSuccessEvent value)? paymentSuccessEvent,
-    TResult? Function(ShowExpandEvent value)? showExpandEvent,
   }) {
     return addCart?.call(this);
   }
@@ -980,7 +951,6 @@ class _$AddCartEvent implements AddCartEvent {
     TResult Function(RemoveCartItemEvent value)? removeCartItemEvent,
     TResult Function(ToggleShowMoreEvent value)? toggleShowMoreEvent,
     TResult Function(PaymentSuccessEvent value)? paymentSuccessEvent,
-    TResult Function(ShowExpandEvent value)? showExpandEvent,
     required TResult orElse(),
   }) {
     if (addCart != null) {
@@ -1100,7 +1070,6 @@ class _$RemoveCartItemEvent implements RemoveCartItemEvent {
         removeCartItemEvent,
     required TResult Function() toggleShowMoreEvent,
     required TResult Function() paymentSuccessEvent,
-    required TResult Function() showExpandEvent,
   }) {
     return removeCartItemEvent(context, productId);
   }
@@ -1120,7 +1089,6 @@ class _$RemoveCartItemEvent implements RemoveCartItemEvent {
         removeCartItemEvent,
     TResult? Function()? toggleShowMoreEvent,
     TResult? Function()? paymentSuccessEvent,
-    TResult? Function()? showExpandEvent,
   }) {
     return removeCartItemEvent?.call(context, productId);
   }
@@ -1140,7 +1108,6 @@ class _$RemoveCartItemEvent implements RemoveCartItemEvent {
         removeCartItemEvent,
     TResult Function()? toggleShowMoreEvent,
     TResult Function()? paymentSuccessEvent,
-    TResult Function()? showExpandEvent,
     required TResult orElse(),
   }) {
     if (removeCartItemEvent != null) {
@@ -1161,7 +1128,6 @@ class _$RemoveCartItemEvent implements RemoveCartItemEvent {
     required TResult Function(RemoveCartItemEvent value) removeCartItemEvent,
     required TResult Function(ToggleShowMoreEvent value) toggleShowMoreEvent,
     required TResult Function(PaymentSuccessEvent value) paymentSuccessEvent,
-    required TResult Function(ShowExpandEvent value) showExpandEvent,
   }) {
     return removeCartItemEvent(this);
   }
@@ -1176,7 +1142,6 @@ class _$RemoveCartItemEvent implements RemoveCartItemEvent {
     TResult? Function(RemoveCartItemEvent value)? removeCartItemEvent,
     TResult? Function(ToggleShowMoreEvent value)? toggleShowMoreEvent,
     TResult? Function(PaymentSuccessEvent value)? paymentSuccessEvent,
-    TResult? Function(ShowExpandEvent value)? showExpandEvent,
   }) {
     return removeCartItemEvent?.call(this);
   }
@@ -1191,7 +1156,6 @@ class _$RemoveCartItemEvent implements RemoveCartItemEvent {
     TResult Function(RemoveCartItemEvent value)? removeCartItemEvent,
     TResult Function(ToggleShowMoreEvent value)? toggleShowMoreEvent,
     TResult Function(PaymentSuccessEvent value)? paymentSuccessEvent,
-    TResult Function(ShowExpandEvent value)? showExpandEvent,
     required TResult orElse(),
   }) {
     if (removeCartItemEvent != null) {
@@ -1265,7 +1229,6 @@ class _$ToggleShowMoreEvent implements ToggleShowMoreEvent {
         removeCartItemEvent,
     required TResult Function() toggleShowMoreEvent,
     required TResult Function() paymentSuccessEvent,
-    required TResult Function() showExpandEvent,
   }) {
     return toggleShowMoreEvent();
   }
@@ -1285,7 +1248,6 @@ class _$ToggleShowMoreEvent implements ToggleShowMoreEvent {
         removeCartItemEvent,
     TResult? Function()? toggleShowMoreEvent,
     TResult? Function()? paymentSuccessEvent,
-    TResult? Function()? showExpandEvent,
   }) {
     return toggleShowMoreEvent?.call();
   }
@@ -1305,7 +1267,6 @@ class _$ToggleShowMoreEvent implements ToggleShowMoreEvent {
         removeCartItemEvent,
     TResult Function()? toggleShowMoreEvent,
     TResult Function()? paymentSuccessEvent,
-    TResult Function()? showExpandEvent,
     required TResult orElse(),
   }) {
     if (toggleShowMoreEvent != null) {
@@ -1326,7 +1287,6 @@ class _$ToggleShowMoreEvent implements ToggleShowMoreEvent {
     required TResult Function(RemoveCartItemEvent value) removeCartItemEvent,
     required TResult Function(ToggleShowMoreEvent value) toggleShowMoreEvent,
     required TResult Function(PaymentSuccessEvent value) paymentSuccessEvent,
-    required TResult Function(ShowExpandEvent value) showExpandEvent,
   }) {
     return toggleShowMoreEvent(this);
   }
@@ -1341,7 +1301,6 @@ class _$ToggleShowMoreEvent implements ToggleShowMoreEvent {
     TResult? Function(RemoveCartItemEvent value)? removeCartItemEvent,
     TResult? Function(ToggleShowMoreEvent value)? toggleShowMoreEvent,
     TResult? Function(PaymentSuccessEvent value)? paymentSuccessEvent,
-    TResult? Function(ShowExpandEvent value)? showExpandEvent,
   }) {
     return toggleShowMoreEvent?.call(this);
   }
@@ -1356,7 +1315,6 @@ class _$ToggleShowMoreEvent implements ToggleShowMoreEvent {
     TResult Function(RemoveCartItemEvent value)? removeCartItemEvent,
     TResult Function(ToggleShowMoreEvent value)? toggleShowMoreEvent,
     TResult Function(PaymentSuccessEvent value)? paymentSuccessEvent,
-    TResult Function(ShowExpandEvent value)? showExpandEvent,
     required TResult orElse(),
   }) {
     if (toggleShowMoreEvent != null) {
@@ -1422,7 +1380,6 @@ class _$PaymentSuccessEvent implements PaymentSuccessEvent {
         removeCartItemEvent,
     required TResult Function() toggleShowMoreEvent,
     required TResult Function() paymentSuccessEvent,
-    required TResult Function() showExpandEvent,
   }) {
     return paymentSuccessEvent();
   }
@@ -1442,7 +1399,6 @@ class _$PaymentSuccessEvent implements PaymentSuccessEvent {
         removeCartItemEvent,
     TResult? Function()? toggleShowMoreEvent,
     TResult? Function()? paymentSuccessEvent,
-    TResult? Function()? showExpandEvent,
   }) {
     return paymentSuccessEvent?.call();
   }
@@ -1462,7 +1418,6 @@ class _$PaymentSuccessEvent implements PaymentSuccessEvent {
         removeCartItemEvent,
     TResult Function()? toggleShowMoreEvent,
     TResult Function()? paymentSuccessEvent,
-    TResult Function()? showExpandEvent,
     required TResult orElse(),
   }) {
     if (paymentSuccessEvent != null) {
@@ -1483,7 +1438,6 @@ class _$PaymentSuccessEvent implements PaymentSuccessEvent {
     required TResult Function(RemoveCartItemEvent value) removeCartItemEvent,
     required TResult Function(ToggleShowMoreEvent value) toggleShowMoreEvent,
     required TResult Function(PaymentSuccessEvent value) paymentSuccessEvent,
-    required TResult Function(ShowExpandEvent value) showExpandEvent,
   }) {
     return paymentSuccessEvent(this);
   }
@@ -1498,7 +1452,6 @@ class _$PaymentSuccessEvent implements PaymentSuccessEvent {
     TResult? Function(RemoveCartItemEvent value)? removeCartItemEvent,
     TResult? Function(ToggleShowMoreEvent value)? toggleShowMoreEvent,
     TResult? Function(PaymentSuccessEvent value)? paymentSuccessEvent,
-    TResult? Function(ShowExpandEvent value)? showExpandEvent,
   }) {
     return paymentSuccessEvent?.call(this);
   }
@@ -1513,7 +1466,6 @@ class _$PaymentSuccessEvent implements PaymentSuccessEvent {
     TResult Function(RemoveCartItemEvent value)? removeCartItemEvent,
     TResult Function(ToggleShowMoreEvent value)? toggleShowMoreEvent,
     TResult Function(PaymentSuccessEvent value)? paymentSuccessEvent,
-    TResult Function(ShowExpandEvent value)? showExpandEvent,
     required TResult orElse(),
   }) {
     if (paymentSuccessEvent != null) {
@@ -1528,163 +1480,6 @@ abstract class PaymentSuccessEvent implements CartEvent {
 }
 
 /// @nodoc
-abstract class _$$ShowExpandEventCopyWith<$Res> {
-  factory _$$ShowExpandEventCopyWith(
-          _$ShowExpandEvent value, $Res Function(_$ShowExpandEvent) then) =
-      __$$ShowExpandEventCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$ShowExpandEventCopyWithImpl<$Res>
-    extends _$CartEventCopyWithImpl<$Res, _$ShowExpandEvent>
-    implements _$$ShowExpandEventCopyWith<$Res> {
-  __$$ShowExpandEventCopyWithImpl(
-      _$ShowExpandEvent _value, $Res Function(_$ShowExpandEvent) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$ShowExpandEvent implements ShowExpandEvent {
-  const _$ShowExpandEvent();
-
-  @override
-  String toString() {
-    return 'CartEvent.showExpandEvent()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ShowExpandEvent);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(BuildContext context) fetchCartEvent,
-    required TResult Function(
-            BuildContext context, String productId, int quantity)
-        updateCartEventWithAdd,
-    required TResult Function(
-            BuildContext context, String productId, int quantity)
-        updateCartEventWithSub,
-    required TResult Function(String productId, int basePrice, String size,
-            BuildContext context, String color, int quantity, String brandId)
-        addCart,
-    required TResult Function(BuildContext context, String productId)
-        removeCartItemEvent,
-    required TResult Function() toggleShowMoreEvent,
-    required TResult Function() paymentSuccessEvent,
-    required TResult Function() showExpandEvent,
-  }) {
-    return showExpandEvent();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(BuildContext context)? fetchCartEvent,
-    TResult? Function(BuildContext context, String productId, int quantity)?
-        updateCartEventWithAdd,
-    TResult? Function(BuildContext context, String productId, int quantity)?
-        updateCartEventWithSub,
-    TResult? Function(String productId, int basePrice, String size,
-            BuildContext context, String color, int quantity, String brandId)?
-        addCart,
-    TResult? Function(BuildContext context, String productId)?
-        removeCartItemEvent,
-    TResult? Function()? toggleShowMoreEvent,
-    TResult? Function()? paymentSuccessEvent,
-    TResult? Function()? showExpandEvent,
-  }) {
-    return showExpandEvent?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(BuildContext context)? fetchCartEvent,
-    TResult Function(BuildContext context, String productId, int quantity)?
-        updateCartEventWithAdd,
-    TResult Function(BuildContext context, String productId, int quantity)?
-        updateCartEventWithSub,
-    TResult Function(String productId, int basePrice, String size,
-            BuildContext context, String color, int quantity, String brandId)?
-        addCart,
-    TResult Function(BuildContext context, String productId)?
-        removeCartItemEvent,
-    TResult Function()? toggleShowMoreEvent,
-    TResult Function()? paymentSuccessEvent,
-    TResult Function()? showExpandEvent,
-    required TResult orElse(),
-  }) {
-    if (showExpandEvent != null) {
-      return showExpandEvent();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(FetchCartEvent value) fetchCartEvent,
-    required TResult Function(UpdateCartEventWithAdd value)
-        updateCartEventWithAdd,
-    required TResult Function(UpdateCartEventWithSub value)
-        updateCartEventWithSub,
-    required TResult Function(AddCartEvent value) addCart,
-    required TResult Function(RemoveCartItemEvent value) removeCartItemEvent,
-    required TResult Function(ToggleShowMoreEvent value) toggleShowMoreEvent,
-    required TResult Function(PaymentSuccessEvent value) paymentSuccessEvent,
-    required TResult Function(ShowExpandEvent value) showExpandEvent,
-  }) {
-    return showExpandEvent(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(FetchCartEvent value)? fetchCartEvent,
-    TResult? Function(UpdateCartEventWithAdd value)? updateCartEventWithAdd,
-    TResult? Function(UpdateCartEventWithSub value)? updateCartEventWithSub,
-    TResult? Function(AddCartEvent value)? addCart,
-    TResult? Function(RemoveCartItemEvent value)? removeCartItemEvent,
-    TResult? Function(ToggleShowMoreEvent value)? toggleShowMoreEvent,
-    TResult? Function(PaymentSuccessEvent value)? paymentSuccessEvent,
-    TResult? Function(ShowExpandEvent value)? showExpandEvent,
-  }) {
-    return showExpandEvent?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(FetchCartEvent value)? fetchCartEvent,
-    TResult Function(UpdateCartEventWithAdd value)? updateCartEventWithAdd,
-    TResult Function(UpdateCartEventWithSub value)? updateCartEventWithSub,
-    TResult Function(AddCartEvent value)? addCart,
-    TResult Function(RemoveCartItemEvent value)? removeCartItemEvent,
-    TResult Function(ToggleShowMoreEvent value)? toggleShowMoreEvent,
-    TResult Function(PaymentSuccessEvent value)? paymentSuccessEvent,
-    TResult Function(ShowExpandEvent value)? showExpandEvent,
-    required TResult orElse(),
-  }) {
-    if (showExpandEvent != null) {
-      return showExpandEvent(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class ShowExpandEvent implements CartEvent {
-  const factory ShowExpandEvent() = _$ShowExpandEvent;
-}
-
-/// @nodoc
 mixin _$CartState {
   CartModel? get cartModel => throw _privateConstructorUsedError;
   bool get cartLoading => throw _privateConstructorUsedError;
@@ -1693,7 +1488,6 @@ mixin _$CartState {
   int? get statusCode => throw _privateConstructorUsedError;
   bool get showMore => throw _privateConstructorUsedError;
   int get cartLength => throw _privateConstructorUsedError;
-  bool get showExapnd => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $CartStateCopyWith<CartState> get copyWith =>
@@ -1712,8 +1506,7 @@ abstract class $CartStateCopyWith<$Res> {
       String cartSuccesmessage,
       int? statusCode,
       bool showMore,
-      int cartLength,
-      bool showExapnd});
+      int cartLength});
 
   $CartModelCopyWith<$Res>? get cartModel;
 }
@@ -1738,7 +1531,6 @@ class _$CartStateCopyWithImpl<$Res, $Val extends CartState>
     Object? statusCode = freezed,
     Object? showMore = null,
     Object? cartLength = null,
-    Object? showExapnd = null,
   }) {
     return _then(_value.copyWith(
       cartModel: freezed == cartModel
@@ -1769,10 +1561,6 @@ class _$CartStateCopyWithImpl<$Res, $Val extends CartState>
           ? _value.cartLength
           : cartLength // ignore: cast_nullable_to_non_nullable
               as int,
-      showExapnd: null == showExapnd
-          ? _value.showExapnd
-          : showExapnd // ignore: cast_nullable_to_non_nullable
-              as bool,
     ) as $Val);
   }
 
@@ -1803,8 +1591,7 @@ abstract class _$$_CartStateCopyWith<$Res> implements $CartStateCopyWith<$Res> {
       String cartSuccesmessage,
       int? statusCode,
       bool showMore,
-      int cartLength,
-      bool showExapnd});
+      int cartLength});
 
   @override
   $CartModelCopyWith<$Res>? get cartModel;
@@ -1828,7 +1615,6 @@ class __$$_CartStateCopyWithImpl<$Res>
     Object? statusCode = freezed,
     Object? showMore = null,
     Object? cartLength = null,
-    Object? showExapnd = null,
   }) {
     return _then(_$_CartState(
       cartModel: freezed == cartModel
@@ -1859,10 +1645,6 @@ class __$$_CartStateCopyWithImpl<$Res>
           ? _value.cartLength
           : cartLength // ignore: cast_nullable_to_non_nullable
               as int,
-      showExapnd: null == showExapnd
-          ? _value.showExapnd
-          : showExapnd // ignore: cast_nullable_to_non_nullable
-              as bool,
     ));
   }
 }
@@ -1877,8 +1659,7 @@ class _$_CartState implements _CartState {
       required this.cartSuccesmessage,
       required this.statusCode,
       required this.showMore,
-      required this.cartLength,
-      required this.showExapnd});
+      required this.cartLength});
 
   @override
   final CartModel? cartModel;
@@ -1894,12 +1675,10 @@ class _$_CartState implements _CartState {
   final bool showMore;
   @override
   final int cartLength;
-  @override
-  final bool showExapnd;
 
   @override
   String toString() {
-    return 'CartState(cartModel: $cartModel, cartLoading: $cartLoading, errorMessage: $errorMessage, cartSuccesmessage: $cartSuccesmessage, statusCode: $statusCode, showMore: $showMore, cartLength: $cartLength, showExapnd: $showExapnd)';
+    return 'CartState(cartModel: $cartModel, cartLoading: $cartLoading, errorMessage: $errorMessage, cartSuccesmessage: $cartSuccesmessage, statusCode: $statusCode, showMore: $showMore, cartLength: $cartLength)';
   }
 
   @override
@@ -1920,22 +1699,12 @@ class _$_CartState implements _CartState {
             (identical(other.showMore, showMore) ||
                 other.showMore == showMore) &&
             (identical(other.cartLength, cartLength) ||
-                other.cartLength == cartLength) &&
-            (identical(other.showExapnd, showExapnd) ||
-                other.showExapnd == showExapnd));
+                other.cartLength == cartLength));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      cartModel,
-      cartLoading,
-      errorMessage,
-      cartSuccesmessage,
-      statusCode,
-      showMore,
-      cartLength,
-      showExapnd);
+  int get hashCode => Object.hash(runtimeType, cartModel, cartLoading,
+      errorMessage, cartSuccesmessage, statusCode, showMore, cartLength);
 
   @JsonKey(ignore: true)
   @override
@@ -1952,8 +1721,7 @@ abstract class _CartState implements CartState {
       required final String cartSuccesmessage,
       required final int? statusCode,
       required final bool showMore,
-      required final int cartLength,
-      required final bool showExapnd}) = _$_CartState;
+      required final int cartLength}) = _$_CartState;
 
   @override
   CartModel? get cartModel;
@@ -1969,8 +1737,6 @@ abstract class _CartState implements CartState {
   bool get showMore;
   @override
   int get cartLength;
-  @override
-  bool get showExapnd;
   @override
   @JsonKey(ignore: true)
   _$$_CartStateCopyWith<_$_CartState> get copyWith =>

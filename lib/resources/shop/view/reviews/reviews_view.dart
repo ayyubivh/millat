@@ -16,10 +16,10 @@ class _ReviewsViewState extends State<ReviewsView> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        title: const Text('Reviews',
+        title: Text('Reviews',
             style: TextStyle(color: Colors.black, fontWeight: FontWeight.w600)),
         centerTitle: false,
-        leading: const BackButton(color: Colors.black),
+        leading: BackButton(color: Colors.black),
         actions: [
           Padding(
             padding: const EdgeInsets.only(left: 10),
@@ -59,15 +59,15 @@ class _ReviewsViewState extends State<ReviewsView> {
 
   buildReviewItem({required String comment}) {
     return Container(
-      margin: const EdgeInsets.symmetric(vertical: 20),
+      margin: EdgeInsets.symmetric(vertical: 20),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const CircleAvatar(
+          CircleAvatar(
             backgroundImage: AssetImage('assets/dummy/dummy_user.png'),
             radius: 30,
           ),
-          const SizedBox(
+          SizedBox(
             width: 15,
           ),
           Column(
@@ -78,7 +78,7 @@ class _ReviewsViewState extends State<ReviewsView> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Text(
+                    Text(
                       'Sujankha',
                       style:
                           TextStyle(fontWeight: FontWeight.w700, fontSize: 17),
@@ -88,15 +88,15 @@ class _ReviewsViewState extends State<ReviewsView> {
                       style: TextStyle(
                           fontWeight: FontWeight.w700,
                           fontSize: 17,
-                          color: ColorManager.textGrey99),
+                          color: black122),
                     )
                   ],
                 ),
               ),
-              const SizedBox(
+              SizedBox(
                 height: 15,
               ),
-              const Row(
+              Row(
                 children: [
                   Icon(Icons.star, color: orange255, size: 20),
                   Icon(Icons.star, color: orange255, size: 20),
@@ -105,25 +105,22 @@ class _ReviewsViewState extends State<ReviewsView> {
                   Icon(Icons.star, color: orange255, size: 20),
                 ],
               ),
-              const SizedBox(
+              SizedBox(
                 height: 15,
               ),
               SizedBox(
                   width: SizeUtility(context).width * 70 / 100,
                   child: Text(
                     comment,
-                    style: const TextStyle(
-                        fontWeight: FontWeight.w700, fontSize: 17),
+                    style: TextStyle(fontWeight: FontWeight.w700, fontSize: 17),
                   )),
-              const SizedBox(
+              SizedBox(
                 height: 15,
               ),
               Text(
                 'Apr 18',
                 style: TextStyle(
-                    fontWeight: FontWeight.w700,
-                    fontSize: 17,
-                    color: ColorManager.textGrey99),
+                    fontWeight: FontWeight.w700, fontSize: 17, color: black122),
               ),
             ],
           )

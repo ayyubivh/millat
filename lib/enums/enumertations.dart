@@ -23,28 +23,9 @@ enum ExpandTypeonBookmark {
 enum BookMarkCollectionType {
   add,
   edit,
-  addSpecificOne,
 }
 
 enum QuranFavbookMarkType {
   view,
   add,
-}
-
-enum ShopHomeCardtype {
-  sunnah,
-  women,
-}
-
-enum TasbihThemes {
-  pink,
-  // blue,
-  orange,
-  purple,
-  green,
-}
-
-enum VersesScroll {
-  scroll,
-  notScroll,
 }

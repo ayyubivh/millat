@@ -26,6 +26,18 @@ AppBar alQuranAppbar({
       ),
     ),
     actions: [
+      BlocBuilder<QuranBloc, QuranState>(
+        builder: (context, state) => state.tabBarIndex == 2
+            ? const SizedBox()
+            : InkWell(
+                onTap: onTap,
+                child: ImageIcon(
+                  const AssetImage("assets/icons/bookmark.png"),
+                  color: ColorManager.blackColor,
+                ),
+              ),
+      ),
+      kWidth15,
       InkWell(
         onTap: () {
           Navigator.of(context).push(MaterialPageRoute(

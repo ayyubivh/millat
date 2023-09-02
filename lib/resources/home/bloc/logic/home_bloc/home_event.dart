@@ -7,12 +7,8 @@ class HomeEvent with _$HomeEvent {
   const factory HomeEvent.fetchBrandofTheDay() = FetchBrandofTheDay;
   const factory HomeEvent.fetchHadithOfTheDay() = FetchHadithOfTheDay;
   const factory HomeEvent.fetchEventOfTheMonth() = FetchEventOfTheMonth;
-  const factory HomeEvent.fetchPrayerTrackerEvent({
-    required DateTime date,
-    required BuildContext context,
-  }) = FetchPrayerTrackerEvent;
+  const factory HomeEvent.fetchPrayerTrackerEvent() = FetchPrayerTrackerEvent;
   const factory HomeEvent.addPrayerToPrayerTracker({
     required String namazName,
-    required BuildContext context,
   }) = AddPrayerToPrayerTracker;
 }

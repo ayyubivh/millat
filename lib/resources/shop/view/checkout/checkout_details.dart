@@ -5,10 +5,7 @@ import 'package:millat/resources/profile/views/manage_address.dart';
 import 'package:millat/resources/shop/bloc/logic/address_bloc/address_bloc.dart';
 import 'package:millat/resources/shop/view/checkout/checkout_view.dart';
 import 'package:millat/utils/color_manager.dart';
-import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/size_utility.dart';
-
-import '../../../../utils/string_constants.dart';
 
 class CheckoutDetails extends StatefulWidget {
   const CheckoutDetails({Key? key, required this.type}) : super(key: key);
@@ -59,81 +56,78 @@ class _CheckoutDetailsState extends State<CheckoutDetails> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text(
-            widget.type == AddressNavType.profile
-                ? Appstrings.addNewAddress
-                : 'Checkout',
-            style: TextStyle(
-              color: ColorManager.blackColor,
-              fontWeight: FontWeight.w700,
-            ),
-          ),
-          centerTitle: true,
+          title: const Text('Checkout',
+              style:
+                  TextStyle(color: Colors.black, fontWeight: FontWeight.w700)),
+          centerTitle: false,
           leading: const BackButton(color: Colors.black),
           elevation: 0,
           backgroundColor: Colors.transparent,
         ),
         body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 30),
+          padding: const EdgeInsets.all(20),
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // widget.type == AddressNavType.profile
-                //     ? const SizedBox()
-                //     : Slider(
-                //         activeColor: ColorManager.greenColor1,
-                //         inactiveColor: black195,
-                //         max: 10,
-                //         min: 0,
-                //         divisions: 2,
-                //         value: 0,
-                //         onChanged: (value) {},
-                //       ),
-                // widget.type == AddressNavType.profile
-                //     ? const SizedBox()
-                //     :
-                // Row(
-                //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                //   children: [
-                //     Text(
-                //       Appstrings.personalInfo,
-                //       style: TextStyle(
-                //           fontWeight: FontWeight.w700,
-                //           color: ColorManager.greenColor1),
-                //     ),
-                //     Text(
-                //       Appstrings.payment,
-                //       style: TextStyle(
-                //           fontWeight: FontWeight.w600,
-                //           color: ColorManager.blackColor),
-                //     ),
-                //     Text(
-                //       Appstrings.confirmation,
-                //       style: TextStyle(
-                //           fontWeight: FontWeight.w600,
-                //           color: ColorManager.blackColor),
-                //     ),
-                //   ],
-                // ),
-
-                kHeight30,
+                widget.type == AddressNavType.profile
+                    ? const SizedBox()
+                    : Slider(
+                        activeColor: ColorManager.greenColor1,
+                        inactiveColor: black195,
+                        max: 10,
+                        min: 0,
+                        divisions: 2,
+                        value: 0,
+                        onChanged: (value) {},
+                      ),
+                widget.type == AddressNavType.profile
+                    ? const SizedBox()
+                    : Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            'Personal Info',
+                            style: TextStyle(
+                                fontWeight: FontWeight.w700,
+                                color: ColorManager.greenColor1),
+                          ),
+                          const Text(
+                            'Payment',
+                            style: TextStyle(
+                                fontWeight: FontWeight.w600, color: black131),
+                          ),
+                          const Text(
+                            'Confirmation',
+                            style: TextStyle(
+                                fontWeight: FontWeight.w600, color: black131),
+                          ),
+                        ],
+                      ),
+                const SizedBox(
+                  height: 30,
+                ),
                 Form(
                   key: formkey,
                   child: Column(
                     children: [
                       _addressTextfeld(
                           controller: deliveryToController,
-                          labelText: 'Deliver to'),
-                      kHeight30,
+                          hintText: 'Deliver to'),
+                      const SizedBox(
+                        height: 30,
+                      ),
                       _addressTextfeld(
                           controller: addressLineController,
-                          labelText: 'Address Line'),
-                      kHeight30,
+                          hintText: 'Address Line'),
+                      const SizedBox(
+                        height: 30,
+                      ),
                       _addressTextfeld(
-                          controller: landMarkController,
-                          labelText: 'Landmark'),
-                      kHeight30,
+                          controller: landMarkController, hintText: 'Landmark'),
+                      const SizedBox(
+                        height: 30,
+                      ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -141,44 +135,53 @@ class _CheckoutDetailsState extends State<CheckoutDetails> {
                               width: SizeUtility(context).width * 50 / 100,
                               child: _addressTextfeld(
                                   controller: cityController,
-                                  labelText: 'City')),
-                          kHeight10,
-                          SizedBox(
-                            width: SizeUtility(context).width * 30 / 100,
-                            child: _addressTextfeld(
-                              controller: pinCodecontroller,
-                              labelText: "Pincode",
-                              textInputType: TextInputType.number,
-                            ),
+                                  hintText: 'City')),
+                          const SizedBox(
+                            width: 10,
                           ),
+                          SizedBox(
+                              width: SizeUtility(context).width * 37 / 100,
+                              child: _addressTextfeld(
+                                  controller: pinCodecontroller,
+                                  hintText: "Pincode")),
                         ],
                       ),
-                      kHeight30,
+                      const SizedBox(
+                        height: 30,
+                      ),
                       _addressTextfeld(
                           controller: stateController,
-                          labelText: 'Select State'),
-                      kHeight30,
+                          hintText: 'Select State'),
+                      const SizedBox(
+                        height: 30,
+                      ),
                       _addressTextfeld(
-                          controller: contryController, labelText: 'Country'),
-                      kHeight30,
+                          controller: contryController, hintText: 'Country'),
+                      const SizedBox(
+                        height: 30,
+                      ),
                       _addressTextfeld(
                         controller: mobileNumberController,
-                        labelText: 'Mobile Number',
+                        hintText: 'Mobile Number',
                         maxLength: 10,
-                        textInputType: TextInputType.phone,
                       ),
-                      kHeight30,
+                      const SizedBox(
+                        height: 30,
+                      ),
                     ],
                   ),
                 ),
                 // _addressTextfeld(),
-                kHeight10,
-                Text(
-                  'For all delivery related communication',
-                  style: TextStyle(color: ColorManager.textGrey7A),
+                const SizedBox(
+                  height: 10,
                 ),
-
-                kHeight30,
+                const Text(
+                  'For all delivery related communication',
+                  style: TextStyle(color: black130),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
                 Text(
                   'Address Type',
                   style: TextStyle(
@@ -186,7 +189,9 @@ class _CheckoutDetailsState extends State<CheckoutDetails> {
                       fontSize: 17,
                       fontWeight: FontWeight.w700),
                 ),
-                kHeight20,
+                const SizedBox(
+                  height: 20,
+                ),
                 Row(
                   children: [
                     FilterChip(
@@ -199,7 +204,7 @@ class _CheckoutDetailsState extends State<CheckoutDetails> {
                         });
                       },
                     ),
-                    kWidht10,
+                    const SizedBox(width: 10),
                     FilterChip(
                       label: const Text('Work'),
                       selected: selectedFilter == 'Work',
@@ -210,7 +215,7 @@ class _CheckoutDetailsState extends State<CheckoutDetails> {
                         });
                       },
                     ),
-                    kWidht10,
+                    const SizedBox(width: 10),
                     FilterChip(
                       label: const Text('Other'),
                       selected: selectedFilter == 'Other',
@@ -314,43 +319,37 @@ class _CheckoutDetailsState extends State<CheckoutDetails> {
         ));
   }
 
-  Widget _addressTextfeld(
-      {required TextEditingController controller,
-      required String labelText,
-      int? maxLength,
-      TextInputType? textInputType}) {
+  Widget _addressTextfeld({
+    required TextEditingController controller,
+    required String hintText,
+    int? maxLength, // Add an optional parameter for maxLength
+  }) {
     return TextFormField(
       controller: controller,
-      maxLength: maxLength,
-      keyboardType: textInputType,
+      maxLength: maxLength, // Set the maxLength property if provided
       decoration: InputDecoration(
-        floatingLabelBehavior: FloatingLabelBehavior.always,
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10),
-          borderSide:
-              BorderSide(color: ColorManager.blackColor.withOpacity(0.4)),
+          borderRadius: BorderRadius.circular(5),
+          borderSide: const BorderSide(color: black198),
         ),
         focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10),
-          borderSide:
-              BorderSide(color: ColorManager.blackColor.withOpacity(0.4)),
+          borderRadius: BorderRadius.circular(5),
+          borderSide: const BorderSide(color: black198),
         ),
         enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10),
-          borderSide:
-              BorderSide(color: ColorManager.blackColor.withOpacity(0.4)),
+          borderRadius: BorderRadius.circular(5),
+          borderSide: const BorderSide(color: black198),
         ),
         filled: true,
         fillColor: black247,
-        labelText: labelText,
-        labelStyle: TextStyle(
-          color: ColorManager.blackColor,
-          fontWeight: FontWeight.bold,
+        label: Text(
+          hintText,
+          style: TextStyle(color: ColorManager.blackColor),
         ),
       ),
       validator: (value) {
         if (value == null || value.isEmpty) {
-          return 'Please enter the $labelText';
+          return 'please enter the $hintText';
         }
 
         if (maxLength != null && value.length != maxLength) {

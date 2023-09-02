@@ -49,20 +49,6 @@ mixin _$ShopProductsEvent {
         fetchOrdersbyFilterEvent,
     required TResult Function(BuildContext context, int shiprockeId)
         cancelOrder,
-    required TResult Function() fetchShopHomeBackgroundCard,
-    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
-    required TResult Function() fetchShopHomeBackgroundCardSunnah,
-    required TResult Function() fetchShopAdBrands,
-    required TResult Function() fetchTopBrands,
-    required TResult Function() fetchProductItemsSubcategorySunnah,
-    required TResult Function() fetchProductItemsSubcategoryHealth,
-    required TResult Function() fetchProductItemsSubcategoryWomen,
-    required TResult Function(int index) changeShopBannerIndex,
-    required TResult Function(int index) changeBrandBannerIndex,
-    required TResult Function() showOrderProgressEvent,
-    required TResult Function(int index) indexChangeOnOrderProgress,
-    required TResult Function(int index) indexChangeOnWomensCareBanner,
-    required TResult Function(String id) fetchShopAdBrandsById,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -96,20 +82,6 @@ mixin _$ShopProductsEvent {
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
-    TResult? Function()? fetchShopHomeBackgroundCard,
-    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
-    TResult? Function()? fetchShopHomeBackgroundCardSunnah,
-    TResult? Function()? fetchShopAdBrands,
-    TResult? Function()? fetchTopBrands,
-    TResult? Function()? fetchProductItemsSubcategorySunnah,
-    TResult? Function()? fetchProductItemsSubcategoryHealth,
-    TResult? Function()? fetchProductItemsSubcategoryWomen,
-    TResult? Function(int index)? changeShopBannerIndex,
-    TResult? Function(int index)? changeBrandBannerIndex,
-    TResult? Function()? showOrderProgressEvent,
-    TResult? Function(int index)? indexChangeOnOrderProgress,
-    TResult? Function(int index)? indexChangeOnWomensCareBanner,
-    TResult? Function(String id)? fetchShopAdBrandsById,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -143,20 +115,6 @@ mixin _$ShopProductsEvent {
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
-    TResult Function()? fetchShopHomeBackgroundCard,
-    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
-    TResult Function()? fetchShopHomeBackgroundCardSunnah,
-    TResult Function()? fetchShopAdBrands,
-    TResult Function()? fetchTopBrands,
-    TResult Function()? fetchProductItemsSubcategorySunnah,
-    TResult Function()? fetchProductItemsSubcategoryHealth,
-    TResult Function()? fetchProductItemsSubcategoryWomen,
-    TResult Function(int index)? changeShopBannerIndex,
-    TResult Function(int index)? changeBrandBannerIndex,
-    TResult Function()? showOrderProgressEvent,
-    TResult Function(int index)? indexChangeOnOrderProgress,
-    TResult Function(int index)? indexChangeOnWomensCareBanner,
-    TResult Function(String id)? fetchShopAdBrandsById,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -184,32 +142,6 @@ mixin _$ShopProductsEvent {
     required TResult Function(FetchOrdersbyFilterEvent value)
         fetchOrdersbyFilterEvent,
     required TResult Function(CancelOrder value) cancelOrder,
-    required TResult Function(FetchShopHomeBackgroundCard value)
-        fetchShopHomeBackgroundCard,
-    required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
-        fetchShopHomeBackgroundCardHelthyDiet,
-    required TResult Function(FetchShopHomeBackgroundCardSunnah value)
-        fetchShopHomeBackgroundCardSunnah,
-    required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
-    required TResult Function(FetchTopBrands value) fetchTopBrands,
-    required TResult Function(FetchProductItemsSubcategorySunnah value)
-        fetchProductItemsSubcategorySunnah,
-    required TResult Function(FetchProductItemsSubcategoryHealth value)
-        fetchProductItemsSubcategoryHealth,
-    required TResult Function(FetchProductItemsSubcategoryWomen value)
-        fetchProductItemsSubcategoryWomen,
-    required TResult Function(ChangeShopBannerIndex value)
-        changeShopBannerIndex,
-    required TResult Function(ChangeBrandBannerIndex value)
-        changeBrandBannerIndex,
-    required TResult Function(ShowOrderProgressEvent value)
-        showOrderProgressEvent,
-    required TResult Function(IndexChangeOnOrderProgress value)
-        indexChangeOnOrderProgress,
-    required TResult Function(IndexChangeOnWomensCareBanner value)
-        indexChangeOnWomensCareBanner,
-    required TResult Function(FetchShopAdBrandsById value)
-        fetchShopAdBrandsById,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -233,28 +165,6 @@ mixin _$ShopProductsEvent {
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult? Function(CancelOrder value)? cancelOrder,
-    TResult? Function(FetchShopHomeBackgroundCard value)?
-        fetchShopHomeBackgroundCard,
-    TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHelthyDiet,
-    TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
-        fetchShopHomeBackgroundCardSunnah,
-    TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
-    TResult? Function(FetchTopBrands value)? fetchTopBrands,
-    TResult? Function(FetchProductItemsSubcategorySunnah value)?
-        fetchProductItemsSubcategorySunnah,
-    TResult? Function(FetchProductItemsSubcategoryHealth value)?
-        fetchProductItemsSubcategoryHealth,
-    TResult? Function(FetchProductItemsSubcategoryWomen value)?
-        fetchProductItemsSubcategoryWomen,
-    TResult? Function(ChangeShopBannerIndex value)? changeShopBannerIndex,
-    TResult? Function(ChangeBrandBannerIndex value)? changeBrandBannerIndex,
-    TResult? Function(ShowOrderProgressEvent value)? showOrderProgressEvent,
-    TResult? Function(IndexChangeOnOrderProgress value)?
-        indexChangeOnOrderProgress,
-    TResult? Function(IndexChangeOnWomensCareBanner value)?
-        indexChangeOnWomensCareBanner,
-    TResult? Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -278,28 +188,6 @@ mixin _$ShopProductsEvent {
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult Function(CancelOrder value)? cancelOrder,
-    TResult Function(FetchShopHomeBackgroundCard value)?
-        fetchShopHomeBackgroundCard,
-    TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHelthyDiet,
-    TResult Function(FetchShopHomeBackgroundCardSunnah value)?
-        fetchShopHomeBackgroundCardSunnah,
-    TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
-    TResult Function(FetchTopBrands value)? fetchTopBrands,
-    TResult Function(FetchProductItemsSubcategorySunnah value)?
-        fetchProductItemsSubcategorySunnah,
-    TResult Function(FetchProductItemsSubcategoryHealth value)?
-        fetchProductItemsSubcategoryHealth,
-    TResult Function(FetchProductItemsSubcategoryWomen value)?
-        fetchProductItemsSubcategoryWomen,
-    TResult Function(ChangeShopBannerIndex value)? changeShopBannerIndex,
-    TResult Function(ChangeBrandBannerIndex value)? changeBrandBannerIndex,
-    TResult Function(ShowOrderProgressEvent value)? showOrderProgressEvent,
-    TResult Function(IndexChangeOnOrderProgress value)?
-        indexChangeOnOrderProgress,
-    TResult Function(IndexChangeOnWomensCareBanner value)?
-        indexChangeOnWomensCareBanner,
-    TResult Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -392,20 +280,6 @@ class _$FetchFlashSaleProducts implements FetchFlashSaleProducts {
         fetchOrdersbyFilterEvent,
     required TResult Function(BuildContext context, int shiprockeId)
         cancelOrder,
-    required TResult Function() fetchShopHomeBackgroundCard,
-    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
-    required TResult Function() fetchShopHomeBackgroundCardSunnah,
-    required TResult Function() fetchShopAdBrands,
-    required TResult Function() fetchTopBrands,
-    required TResult Function() fetchProductItemsSubcategorySunnah,
-    required TResult Function() fetchProductItemsSubcategoryHealth,
-    required TResult Function() fetchProductItemsSubcategoryWomen,
-    required TResult Function(int index) changeShopBannerIndex,
-    required TResult Function(int index) changeBrandBannerIndex,
-    required TResult Function() showOrderProgressEvent,
-    required TResult Function(int index) indexChangeOnOrderProgress,
-    required TResult Function(int index) indexChangeOnWomensCareBanner,
-    required TResult Function(String id) fetchShopAdBrandsById,
   }) {
     return fetchFlashSaleProducts();
   }
@@ -442,20 +316,6 @@ class _$FetchFlashSaleProducts implements FetchFlashSaleProducts {
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
-    TResult? Function()? fetchShopHomeBackgroundCard,
-    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
-    TResult? Function()? fetchShopHomeBackgroundCardSunnah,
-    TResult? Function()? fetchShopAdBrands,
-    TResult? Function()? fetchTopBrands,
-    TResult? Function()? fetchProductItemsSubcategorySunnah,
-    TResult? Function()? fetchProductItemsSubcategoryHealth,
-    TResult? Function()? fetchProductItemsSubcategoryWomen,
-    TResult? Function(int index)? changeShopBannerIndex,
-    TResult? Function(int index)? changeBrandBannerIndex,
-    TResult? Function()? showOrderProgressEvent,
-    TResult? Function(int index)? indexChangeOnOrderProgress,
-    TResult? Function(int index)? indexChangeOnWomensCareBanner,
-    TResult? Function(String id)? fetchShopAdBrandsById,
   }) {
     return fetchFlashSaleProducts?.call();
   }
@@ -492,20 +352,6 @@ class _$FetchFlashSaleProducts implements FetchFlashSaleProducts {
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
-    TResult Function()? fetchShopHomeBackgroundCard,
-    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
-    TResult Function()? fetchShopHomeBackgroundCardSunnah,
-    TResult Function()? fetchShopAdBrands,
-    TResult Function()? fetchTopBrands,
-    TResult Function()? fetchProductItemsSubcategorySunnah,
-    TResult Function()? fetchProductItemsSubcategoryHealth,
-    TResult Function()? fetchProductItemsSubcategoryWomen,
-    TResult Function(int index)? changeShopBannerIndex,
-    TResult Function(int index)? changeBrandBannerIndex,
-    TResult Function()? showOrderProgressEvent,
-    TResult Function(int index)? indexChangeOnOrderProgress,
-    TResult Function(int index)? indexChangeOnWomensCareBanner,
-    TResult Function(String id)? fetchShopAdBrandsById,
     required TResult orElse(),
   }) {
     if (fetchFlashSaleProducts != null) {
@@ -539,32 +385,6 @@ class _$FetchFlashSaleProducts implements FetchFlashSaleProducts {
     required TResult Function(FetchOrdersbyFilterEvent value)
         fetchOrdersbyFilterEvent,
     required TResult Function(CancelOrder value) cancelOrder,
-    required TResult Function(FetchShopHomeBackgroundCard value)
-        fetchShopHomeBackgroundCard,
-    required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
-        fetchShopHomeBackgroundCardHelthyDiet,
-    required TResult Function(FetchShopHomeBackgroundCardSunnah value)
-        fetchShopHomeBackgroundCardSunnah,
-    required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
-    required TResult Function(FetchTopBrands value) fetchTopBrands,
-    required TResult Function(FetchProductItemsSubcategorySunnah value)
-        fetchProductItemsSubcategorySunnah,
-    required TResult Function(FetchProductItemsSubcategoryHealth value)
-        fetchProductItemsSubcategoryHealth,
-    required TResult Function(FetchProductItemsSubcategoryWomen value)
-        fetchProductItemsSubcategoryWomen,
-    required TResult Function(ChangeShopBannerIndex value)
-        changeShopBannerIndex,
-    required TResult Function(ChangeBrandBannerIndex value)
-        changeBrandBannerIndex,
-    required TResult Function(ShowOrderProgressEvent value)
-        showOrderProgressEvent,
-    required TResult Function(IndexChangeOnOrderProgress value)
-        indexChangeOnOrderProgress,
-    required TResult Function(IndexChangeOnWomensCareBanner value)
-        indexChangeOnWomensCareBanner,
-    required TResult Function(FetchShopAdBrandsById value)
-        fetchShopAdBrandsById,
   }) {
     return fetchFlashSaleProducts(this);
   }
@@ -591,28 +411,6 @@ class _$FetchFlashSaleProducts implements FetchFlashSaleProducts {
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult? Function(CancelOrder value)? cancelOrder,
-    TResult? Function(FetchShopHomeBackgroundCard value)?
-        fetchShopHomeBackgroundCard,
-    TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHelthyDiet,
-    TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
-        fetchShopHomeBackgroundCardSunnah,
-    TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
-    TResult? Function(FetchTopBrands value)? fetchTopBrands,
-    TResult? Function(FetchProductItemsSubcategorySunnah value)?
-        fetchProductItemsSubcategorySunnah,
-    TResult? Function(FetchProductItemsSubcategoryHealth value)?
-        fetchProductItemsSubcategoryHealth,
-    TResult? Function(FetchProductItemsSubcategoryWomen value)?
-        fetchProductItemsSubcategoryWomen,
-    TResult? Function(ChangeShopBannerIndex value)? changeShopBannerIndex,
-    TResult? Function(ChangeBrandBannerIndex value)? changeBrandBannerIndex,
-    TResult? Function(ShowOrderProgressEvent value)? showOrderProgressEvent,
-    TResult? Function(IndexChangeOnOrderProgress value)?
-        indexChangeOnOrderProgress,
-    TResult? Function(IndexChangeOnWomensCareBanner value)?
-        indexChangeOnWomensCareBanner,
-    TResult? Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
   }) {
     return fetchFlashSaleProducts?.call(this);
   }
@@ -639,28 +437,6 @@ class _$FetchFlashSaleProducts implements FetchFlashSaleProducts {
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult Function(CancelOrder value)? cancelOrder,
-    TResult Function(FetchShopHomeBackgroundCard value)?
-        fetchShopHomeBackgroundCard,
-    TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHelthyDiet,
-    TResult Function(FetchShopHomeBackgroundCardSunnah value)?
-        fetchShopHomeBackgroundCardSunnah,
-    TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
-    TResult Function(FetchTopBrands value)? fetchTopBrands,
-    TResult Function(FetchProductItemsSubcategorySunnah value)?
-        fetchProductItemsSubcategorySunnah,
-    TResult Function(FetchProductItemsSubcategoryHealth value)?
-        fetchProductItemsSubcategoryHealth,
-    TResult Function(FetchProductItemsSubcategoryWomen value)?
-        fetchProductItemsSubcategoryWomen,
-    TResult Function(ChangeShopBannerIndex value)? changeShopBannerIndex,
-    TResult Function(ChangeBrandBannerIndex value)? changeBrandBannerIndex,
-    TResult Function(ShowOrderProgressEvent value)? showOrderProgressEvent,
-    TResult Function(IndexChangeOnOrderProgress value)?
-        indexChangeOnOrderProgress,
-    TResult Function(IndexChangeOnWomensCareBanner value)?
-        indexChangeOnWomensCareBanner,
-    TResult Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
     required TResult orElse(),
   }) {
     if (fetchFlashSaleProducts != null) {
@@ -743,20 +519,6 @@ class _$FetchPopularProducts implements FetchPopularProducts {
         fetchOrdersbyFilterEvent,
     required TResult Function(BuildContext context, int shiprockeId)
         cancelOrder,
-    required TResult Function() fetchShopHomeBackgroundCard,
-    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
-    required TResult Function() fetchShopHomeBackgroundCardSunnah,
-    required TResult Function() fetchShopAdBrands,
-    required TResult Function() fetchTopBrands,
-    required TResult Function() fetchProductItemsSubcategorySunnah,
-    required TResult Function() fetchProductItemsSubcategoryHealth,
-    required TResult Function() fetchProductItemsSubcategoryWomen,
-    required TResult Function(int index) changeShopBannerIndex,
-    required TResult Function(int index) changeBrandBannerIndex,
-    required TResult Function() showOrderProgressEvent,
-    required TResult Function(int index) indexChangeOnOrderProgress,
-    required TResult Function(int index) indexChangeOnWomensCareBanner,
-    required TResult Function(String id) fetchShopAdBrandsById,
   }) {
     return fetchPopularProducts();
   }
@@ -793,20 +555,6 @@ class _$FetchPopularProducts implements FetchPopularProducts {
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
-    TResult? Function()? fetchShopHomeBackgroundCard,
-    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
-    TResult? Function()? fetchShopHomeBackgroundCardSunnah,
-    TResult? Function()? fetchShopAdBrands,
-    TResult? Function()? fetchTopBrands,
-    TResult? Function()? fetchProductItemsSubcategorySunnah,
-    TResult? Function()? fetchProductItemsSubcategoryHealth,
-    TResult? Function()? fetchProductItemsSubcategoryWomen,
-    TResult? Function(int index)? changeShopBannerIndex,
-    TResult? Function(int index)? changeBrandBannerIndex,
-    TResult? Function()? showOrderProgressEvent,
-    TResult? Function(int index)? indexChangeOnOrderProgress,
-    TResult? Function(int index)? indexChangeOnWomensCareBanner,
-    TResult? Function(String id)? fetchShopAdBrandsById,
   }) {
     return fetchPopularProducts?.call();
   }
@@ -843,20 +591,6 @@ class _$FetchPopularProducts implements FetchPopularProducts {
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
-    TResult Function()? fetchShopHomeBackgroundCard,
-    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
-    TResult Function()? fetchShopHomeBackgroundCardSunnah,
-    TResult Function()? fetchShopAdBrands,
-    TResult Function()? fetchTopBrands,
-    TResult Function()? fetchProductItemsSubcategorySunnah,
-    TResult Function()? fetchProductItemsSubcategoryHealth,
-    TResult Function()? fetchProductItemsSubcategoryWomen,
-    TResult Function(int index)? changeShopBannerIndex,
-    TResult Function(int index)? changeBrandBannerIndex,
-    TResult Function()? showOrderProgressEvent,
-    TResult Function(int index)? indexChangeOnOrderProgress,
-    TResult Function(int index)? indexChangeOnWomensCareBanner,
-    TResult Function(String id)? fetchShopAdBrandsById,
     required TResult orElse(),
   }) {
     if (fetchPopularProducts != null) {
@@ -890,32 +624,6 @@ class _$FetchPopularProducts implements FetchPopularProducts {
     required TResult Function(FetchOrdersbyFilterEvent value)
         fetchOrdersbyFilterEvent,
     required TResult Function(CancelOrder value) cancelOrder,
-    required TResult Function(FetchShopHomeBackgroundCard value)
-        fetchShopHomeBackgroundCard,
-    required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
-        fetchShopHomeBackgroundCardHelthyDiet,
-    required TResult Function(FetchShopHomeBackgroundCardSunnah value)
-        fetchShopHomeBackgroundCardSunnah,
-    required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
-    required TResult Function(FetchTopBrands value) fetchTopBrands,
-    required TResult Function(FetchProductItemsSubcategorySunnah value)
-        fetchProductItemsSubcategorySunnah,
-    required TResult Function(FetchProductItemsSubcategoryHealth value)
-        fetchProductItemsSubcategoryHealth,
-    required TResult Function(FetchProductItemsSubcategoryWomen value)
-        fetchProductItemsSubcategoryWomen,
-    required TResult Function(ChangeShopBannerIndex value)
-        changeShopBannerIndex,
-    required TResult Function(ChangeBrandBannerIndex value)
-        changeBrandBannerIndex,
-    required TResult Function(ShowOrderProgressEvent value)
-        showOrderProgressEvent,
-    required TResult Function(IndexChangeOnOrderProgress value)
-        indexChangeOnOrderProgress,
-    required TResult Function(IndexChangeOnWomensCareBanner value)
-        indexChangeOnWomensCareBanner,
-    required TResult Function(FetchShopAdBrandsById value)
-        fetchShopAdBrandsById,
   }) {
     return fetchPopularProducts(this);
   }
@@ -942,28 +650,6 @@ class _$FetchPopularProducts implements FetchPopularProducts {
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult? Function(CancelOrder value)? cancelOrder,
-    TResult? Function(FetchShopHomeBackgroundCard value)?
-        fetchShopHomeBackgroundCard,
-    TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHelthyDiet,
-    TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
-        fetchShopHomeBackgroundCardSunnah,
-    TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
-    TResult? Function(FetchTopBrands value)? fetchTopBrands,
-    TResult? Function(FetchProductItemsSubcategorySunnah value)?
-        fetchProductItemsSubcategorySunnah,
-    TResult? Function(FetchProductItemsSubcategoryHealth value)?
-        fetchProductItemsSubcategoryHealth,
-    TResult? Function(FetchProductItemsSubcategoryWomen value)?
-        fetchProductItemsSubcategoryWomen,
-    TResult? Function(ChangeShopBannerIndex value)? changeShopBannerIndex,
-    TResult? Function(ChangeBrandBannerIndex value)? changeBrandBannerIndex,
-    TResult? Function(ShowOrderProgressEvent value)? showOrderProgressEvent,
-    TResult? Function(IndexChangeOnOrderProgress value)?
-        indexChangeOnOrderProgress,
-    TResult? Function(IndexChangeOnWomensCareBanner value)?
-        indexChangeOnWomensCareBanner,
-    TResult? Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
   }) {
     return fetchPopularProducts?.call(this);
   }
@@ -990,28 +676,6 @@ class _$FetchPopularProducts implements FetchPopularProducts {
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult Function(CancelOrder value)? cancelOrder,
-    TResult Function(FetchShopHomeBackgroundCard value)?
-        fetchShopHomeBackgroundCard,
-    TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHelthyDiet,
-    TResult Function(FetchShopHomeBackgroundCardSunnah value)?
-        fetchShopHomeBackgroundCardSunnah,
-    TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
-    TResult Function(FetchTopBrands value)? fetchTopBrands,
-    TResult Function(FetchProductItemsSubcategorySunnah value)?
-        fetchProductItemsSubcategorySunnah,
-    TResult Function(FetchProductItemsSubcategoryHealth value)?
-        fetchProductItemsSubcategoryHealth,
-    TResult Function(FetchProductItemsSubcategoryWomen value)?
-        fetchProductItemsSubcategoryWomen,
-    TResult Function(ChangeShopBannerIndex value)? changeShopBannerIndex,
-    TResult Function(ChangeBrandBannerIndex value)? changeBrandBannerIndex,
-    TResult Function(ShowOrderProgressEvent value)? showOrderProgressEvent,
-    TResult Function(IndexChangeOnOrderProgress value)?
-        indexChangeOnOrderProgress,
-    TResult Function(IndexChangeOnWomensCareBanner value)?
-        indexChangeOnWomensCareBanner,
-    TResult Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
     required TResult orElse(),
   }) {
     if (fetchPopularProducts != null) {
@@ -1097,20 +761,6 @@ class _$FetchRecentProductProducts implements FetchRecentProductProducts {
         fetchOrdersbyFilterEvent,
     required TResult Function(BuildContext context, int shiprockeId)
         cancelOrder,
-    required TResult Function() fetchShopHomeBackgroundCard,
-    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
-    required TResult Function() fetchShopHomeBackgroundCardSunnah,
-    required TResult Function() fetchShopAdBrands,
-    required TResult Function() fetchTopBrands,
-    required TResult Function() fetchProductItemsSubcategorySunnah,
-    required TResult Function() fetchProductItemsSubcategoryHealth,
-    required TResult Function() fetchProductItemsSubcategoryWomen,
-    required TResult Function(int index) changeShopBannerIndex,
-    required TResult Function(int index) changeBrandBannerIndex,
-    required TResult Function() showOrderProgressEvent,
-    required TResult Function(int index) indexChangeOnOrderProgress,
-    required TResult Function(int index) indexChangeOnWomensCareBanner,
-    required TResult Function(String id) fetchShopAdBrandsById,
   }) {
     return fetchRecentProductProducts();
   }
@@ -1147,20 +797,6 @@ class _$FetchRecentProductProducts implements FetchRecentProductProducts {
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
-    TResult? Function()? fetchShopHomeBackgroundCard,
-    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
-    TResult? Function()? fetchShopHomeBackgroundCardSunnah,
-    TResult? Function()? fetchShopAdBrands,
-    TResult? Function()? fetchTopBrands,
-    TResult? Function()? fetchProductItemsSubcategorySunnah,
-    TResult? Function()? fetchProductItemsSubcategoryHealth,
-    TResult? Function()? fetchProductItemsSubcategoryWomen,
-    TResult? Function(int index)? changeShopBannerIndex,
-    TResult? Function(int index)? changeBrandBannerIndex,
-    TResult? Function()? showOrderProgressEvent,
-    TResult? Function(int index)? indexChangeOnOrderProgress,
-    TResult? Function(int index)? indexChangeOnWomensCareBanner,
-    TResult? Function(String id)? fetchShopAdBrandsById,
   }) {
     return fetchRecentProductProducts?.call();
   }
@@ -1197,20 +833,6 @@ class _$FetchRecentProductProducts implements FetchRecentProductProducts {
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
-    TResult Function()? fetchShopHomeBackgroundCard,
-    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
-    TResult Function()? fetchShopHomeBackgroundCardSunnah,
-    TResult Function()? fetchShopAdBrands,
-    TResult Function()? fetchTopBrands,
-    TResult Function()? fetchProductItemsSubcategorySunnah,
-    TResult Function()? fetchProductItemsSubcategoryHealth,
-    TResult Function()? fetchProductItemsSubcategoryWomen,
-    TResult Function(int index)? changeShopBannerIndex,
-    TResult Function(int index)? changeBrandBannerIndex,
-    TResult Function()? showOrderProgressEvent,
-    TResult Function(int index)? indexChangeOnOrderProgress,
-    TResult Function(int index)? indexChangeOnWomensCareBanner,
-    TResult Function(String id)? fetchShopAdBrandsById,
     required TResult orElse(),
   }) {
     if (fetchRecentProductProducts != null) {
@@ -1244,32 +866,6 @@ class _$FetchRecentProductProducts implements FetchRecentProductProducts {
     required TResult Function(FetchOrdersbyFilterEvent value)
         fetchOrdersbyFilterEvent,
     required TResult Function(CancelOrder value) cancelOrder,
-    required TResult Function(FetchShopHomeBackgroundCard value)
-        fetchShopHomeBackgroundCard,
-    required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
-        fetchShopHomeBackgroundCardHelthyDiet,
-    required TResult Function(FetchShopHomeBackgroundCardSunnah value)
-        fetchShopHomeBackgroundCardSunnah,
-    required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
-    required TResult Function(FetchTopBrands value) fetchTopBrands,
-    required TResult Function(FetchProductItemsSubcategorySunnah value)
-        fetchProductItemsSubcategorySunnah,
-    required TResult Function(FetchProductItemsSubcategoryHealth value)
-        fetchProductItemsSubcategoryHealth,
-    required TResult Function(FetchProductItemsSubcategoryWomen value)
-        fetchProductItemsSubcategoryWomen,
-    required TResult Function(ChangeShopBannerIndex value)
-        changeShopBannerIndex,
-    required TResult Function(ChangeBrandBannerIndex value)
-        changeBrandBannerIndex,
-    required TResult Function(ShowOrderProgressEvent value)
-        showOrderProgressEvent,
-    required TResult Function(IndexChangeOnOrderProgress value)
-        indexChangeOnOrderProgress,
-    required TResult Function(IndexChangeOnWomensCareBanner value)
-        indexChangeOnWomensCareBanner,
-    required TResult Function(FetchShopAdBrandsById value)
-        fetchShopAdBrandsById,
   }) {
     return fetchRecentProductProducts(this);
   }
@@ -1296,28 +892,6 @@ class _$FetchRecentProductProducts implements FetchRecentProductProducts {
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult? Function(CancelOrder value)? cancelOrder,
-    TResult? Function(FetchShopHomeBackgroundCard value)?
-        fetchShopHomeBackgroundCard,
-    TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHelthyDiet,
-    TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
-        fetchShopHomeBackgroundCardSunnah,
-    TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
-    TResult? Function(FetchTopBrands value)? fetchTopBrands,
-    TResult? Function(FetchProductItemsSubcategorySunnah value)?
-        fetchProductItemsSubcategorySunnah,
-    TResult? Function(FetchProductItemsSubcategoryHealth value)?
-        fetchProductItemsSubcategoryHealth,
-    TResult? Function(FetchProductItemsSubcategoryWomen value)?
-        fetchProductItemsSubcategoryWomen,
-    TResult? Function(ChangeShopBannerIndex value)? changeShopBannerIndex,
-    TResult? Function(ChangeBrandBannerIndex value)? changeBrandBannerIndex,
-    TResult? Function(ShowOrderProgressEvent value)? showOrderProgressEvent,
-    TResult? Function(IndexChangeOnOrderProgress value)?
-        indexChangeOnOrderProgress,
-    TResult? Function(IndexChangeOnWomensCareBanner value)?
-        indexChangeOnWomensCareBanner,
-    TResult? Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
   }) {
     return fetchRecentProductProducts?.call(this);
   }
@@ -1344,28 +918,6 @@ class _$FetchRecentProductProducts implements FetchRecentProductProducts {
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult Function(CancelOrder value)? cancelOrder,
-    TResult Function(FetchShopHomeBackgroundCard value)?
-        fetchShopHomeBackgroundCard,
-    TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHelthyDiet,
-    TResult Function(FetchShopHomeBackgroundCardSunnah value)?
-        fetchShopHomeBackgroundCardSunnah,
-    TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
-    TResult Function(FetchTopBrands value)? fetchTopBrands,
-    TResult Function(FetchProductItemsSubcategorySunnah value)?
-        fetchProductItemsSubcategorySunnah,
-    TResult Function(FetchProductItemsSubcategoryHealth value)?
-        fetchProductItemsSubcategoryHealth,
-    TResult Function(FetchProductItemsSubcategoryWomen value)?
-        fetchProductItemsSubcategoryWomen,
-    TResult Function(ChangeShopBannerIndex value)? changeShopBannerIndex,
-    TResult Function(ChangeBrandBannerIndex value)? changeBrandBannerIndex,
-    TResult Function(ShowOrderProgressEvent value)? showOrderProgressEvent,
-    TResult Function(IndexChangeOnOrderProgress value)?
-        indexChangeOnOrderProgress,
-    TResult Function(IndexChangeOnWomensCareBanner value)?
-        indexChangeOnWomensCareBanner,
-    TResult Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
     required TResult orElse(),
   }) {
     if (fetchRecentProductProducts != null) {
@@ -1448,20 +1000,6 @@ class _$FetchHomeBanners implements FetchHomeBanners {
         fetchOrdersbyFilterEvent,
     required TResult Function(BuildContext context, int shiprockeId)
         cancelOrder,
-    required TResult Function() fetchShopHomeBackgroundCard,
-    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
-    required TResult Function() fetchShopHomeBackgroundCardSunnah,
-    required TResult Function() fetchShopAdBrands,
-    required TResult Function() fetchTopBrands,
-    required TResult Function() fetchProductItemsSubcategorySunnah,
-    required TResult Function() fetchProductItemsSubcategoryHealth,
-    required TResult Function() fetchProductItemsSubcategoryWomen,
-    required TResult Function(int index) changeShopBannerIndex,
-    required TResult Function(int index) changeBrandBannerIndex,
-    required TResult Function() showOrderProgressEvent,
-    required TResult Function(int index) indexChangeOnOrderProgress,
-    required TResult Function(int index) indexChangeOnWomensCareBanner,
-    required TResult Function(String id) fetchShopAdBrandsById,
   }) {
     return fetchHomeBanners();
   }
@@ -1498,20 +1036,6 @@ class _$FetchHomeBanners implements FetchHomeBanners {
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
-    TResult? Function()? fetchShopHomeBackgroundCard,
-    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
-    TResult? Function()? fetchShopHomeBackgroundCardSunnah,
-    TResult? Function()? fetchShopAdBrands,
-    TResult? Function()? fetchTopBrands,
-    TResult? Function()? fetchProductItemsSubcategorySunnah,
-    TResult? Function()? fetchProductItemsSubcategoryHealth,
-    TResult? Function()? fetchProductItemsSubcategoryWomen,
-    TResult? Function(int index)? changeShopBannerIndex,
-    TResult? Function(int index)? changeBrandBannerIndex,
-    TResult? Function()? showOrderProgressEvent,
-    TResult? Function(int index)? indexChangeOnOrderProgress,
-    TResult? Function(int index)? indexChangeOnWomensCareBanner,
-    TResult? Function(String id)? fetchShopAdBrandsById,
   }) {
     return fetchHomeBanners?.call();
   }
@@ -1548,20 +1072,6 @@ class _$FetchHomeBanners implements FetchHomeBanners {
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
-    TResult Function()? fetchShopHomeBackgroundCard,
-    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
-    TResult Function()? fetchShopHomeBackgroundCardSunnah,
-    TResult Function()? fetchShopAdBrands,
-    TResult Function()? fetchTopBrands,
-    TResult Function()? fetchProductItemsSubcategorySunnah,
-    TResult Function()? fetchProductItemsSubcategoryHealth,
-    TResult Function()? fetchProductItemsSubcategoryWomen,
-    TResult Function(int index)? changeShopBannerIndex,
-    TResult Function(int index)? changeBrandBannerIndex,
-    TResult Function()? showOrderProgressEvent,
-    TResult Function(int index)? indexChangeOnOrderProgress,
-    TResult Function(int index)? indexChangeOnWomensCareBanner,
-    TResult Function(String id)? fetchShopAdBrandsById,
     required TResult orElse(),
   }) {
     if (fetchHomeBanners != null) {
@@ -1595,32 +1105,6 @@ class _$FetchHomeBanners implements FetchHomeBanners {
     required TResult Function(FetchOrdersbyFilterEvent value)
         fetchOrdersbyFilterEvent,
     required TResult Function(CancelOrder value) cancelOrder,
-    required TResult Function(FetchShopHomeBackgroundCard value)
-        fetchShopHomeBackgroundCard,
-    required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
-        fetchShopHomeBackgroundCardHelthyDiet,
-    required TResult Function(FetchShopHomeBackgroundCardSunnah value)
-        fetchShopHomeBackgroundCardSunnah,
-    required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
-    required TResult Function(FetchTopBrands value) fetchTopBrands,
-    required TResult Function(FetchProductItemsSubcategorySunnah value)
-        fetchProductItemsSubcategorySunnah,
-    required TResult Function(FetchProductItemsSubcategoryHealth value)
-        fetchProductItemsSubcategoryHealth,
-    required TResult Function(FetchProductItemsSubcategoryWomen value)
-        fetchProductItemsSubcategoryWomen,
-    required TResult Function(ChangeShopBannerIndex value)
-        changeShopBannerIndex,
-    required TResult Function(ChangeBrandBannerIndex value)
-        changeBrandBannerIndex,
-    required TResult Function(ShowOrderProgressEvent value)
-        showOrderProgressEvent,
-    required TResult Function(IndexChangeOnOrderProgress value)
-        indexChangeOnOrderProgress,
-    required TResult Function(IndexChangeOnWomensCareBanner value)
-        indexChangeOnWomensCareBanner,
-    required TResult Function(FetchShopAdBrandsById value)
-        fetchShopAdBrandsById,
   }) {
     return fetchHomeBanners(this);
   }
@@ -1647,28 +1131,6 @@ class _$FetchHomeBanners implements FetchHomeBanners {
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult? Function(CancelOrder value)? cancelOrder,
-    TResult? Function(FetchShopHomeBackgroundCard value)?
-        fetchShopHomeBackgroundCard,
-    TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHelthyDiet,
-    TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
-        fetchShopHomeBackgroundCardSunnah,
-    TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
-    TResult? Function(FetchTopBrands value)? fetchTopBrands,
-    TResult? Function(FetchProductItemsSubcategorySunnah value)?
-        fetchProductItemsSubcategorySunnah,
-    TResult? Function(FetchProductItemsSubcategoryHealth value)?
-        fetchProductItemsSubcategoryHealth,
-    TResult? Function(FetchProductItemsSubcategoryWomen value)?
-        fetchProductItemsSubcategoryWomen,
-    TResult? Function(ChangeShopBannerIndex value)? changeShopBannerIndex,
-    TResult? Function(ChangeBrandBannerIndex value)? changeBrandBannerIndex,
-    TResult? Function(ShowOrderProgressEvent value)? showOrderProgressEvent,
-    TResult? Function(IndexChangeOnOrderProgress value)?
-        indexChangeOnOrderProgress,
-    TResult? Function(IndexChangeOnWomensCareBanner value)?
-        indexChangeOnWomensCareBanner,
-    TResult? Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
   }) {
     return fetchHomeBanners?.call(this);
   }
@@ -1695,28 +1157,6 @@ class _$FetchHomeBanners implements FetchHomeBanners {
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult Function(CancelOrder value)? cancelOrder,
-    TResult Function(FetchShopHomeBackgroundCard value)?
-        fetchShopHomeBackgroundCard,
-    TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHelthyDiet,
-    TResult Function(FetchShopHomeBackgroundCardSunnah value)?
-        fetchShopHomeBackgroundCardSunnah,
-    TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
-    TResult Function(FetchTopBrands value)? fetchTopBrands,
-    TResult Function(FetchProductItemsSubcategorySunnah value)?
-        fetchProductItemsSubcategorySunnah,
-    TResult Function(FetchProductItemsSubcategoryHealth value)?
-        fetchProductItemsSubcategoryHealth,
-    TResult Function(FetchProductItemsSubcategoryWomen value)?
-        fetchProductItemsSubcategoryWomen,
-    TResult Function(ChangeShopBannerIndex value)? changeShopBannerIndex,
-    TResult Function(ChangeBrandBannerIndex value)? changeBrandBannerIndex,
-    TResult Function(ShowOrderProgressEvent value)? showOrderProgressEvent,
-    TResult Function(IndexChangeOnOrderProgress value)?
-        indexChangeOnOrderProgress,
-    TResult Function(IndexChangeOnWomensCareBanner value)?
-        indexChangeOnWomensCareBanner,
-    TResult Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
     required TResult orElse(),
   }) {
     if (fetchHomeBanners != null) {
@@ -1799,20 +1239,6 @@ class _$FetchShopBanners implements FetchShopBanners {
         fetchOrdersbyFilterEvent,
     required TResult Function(BuildContext context, int shiprockeId)
         cancelOrder,
-    required TResult Function() fetchShopHomeBackgroundCard,
-    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
-    required TResult Function() fetchShopHomeBackgroundCardSunnah,
-    required TResult Function() fetchShopAdBrands,
-    required TResult Function() fetchTopBrands,
-    required TResult Function() fetchProductItemsSubcategorySunnah,
-    required TResult Function() fetchProductItemsSubcategoryHealth,
-    required TResult Function() fetchProductItemsSubcategoryWomen,
-    required TResult Function(int index) changeShopBannerIndex,
-    required TResult Function(int index) changeBrandBannerIndex,
-    required TResult Function() showOrderProgressEvent,
-    required TResult Function(int index) indexChangeOnOrderProgress,
-    required TResult Function(int index) indexChangeOnWomensCareBanner,
-    required TResult Function(String id) fetchShopAdBrandsById,
   }) {
     return fetchShopBanners();
   }
@@ -1849,20 +1275,6 @@ class _$FetchShopBanners implements FetchShopBanners {
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
-    TResult? Function()? fetchShopHomeBackgroundCard,
-    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
-    TResult? Function()? fetchShopHomeBackgroundCardSunnah,
-    TResult? Function()? fetchShopAdBrands,
-    TResult? Function()? fetchTopBrands,
-    TResult? Function()? fetchProductItemsSubcategorySunnah,
-    TResult? Function()? fetchProductItemsSubcategoryHealth,
-    TResult? Function()? fetchProductItemsSubcategoryWomen,
-    TResult? Function(int index)? changeShopBannerIndex,
-    TResult? Function(int index)? changeBrandBannerIndex,
-    TResult? Function()? showOrderProgressEvent,
-    TResult? Function(int index)? indexChangeOnOrderProgress,
-    TResult? Function(int index)? indexChangeOnWomensCareBanner,
-    TResult? Function(String id)? fetchShopAdBrandsById,
   }) {
     return fetchShopBanners?.call();
   }
@@ -1899,20 +1311,6 @@ class _$FetchShopBanners implements FetchShopBanners {
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
-    TResult Function()? fetchShopHomeBackgroundCard,
-    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
-    TResult Function()? fetchShopHomeBackgroundCardSunnah,
-    TResult Function()? fetchShopAdBrands,
-    TResult Function()? fetchTopBrands,
-    TResult Function()? fetchProductItemsSubcategorySunnah,
-    TResult Function()? fetchProductItemsSubcategoryHealth,
-    TResult Function()? fetchProductItemsSubcategoryWomen,
-    TResult Function(int index)? changeShopBannerIndex,
-    TResult Function(int index)? changeBrandBannerIndex,
-    TResult Function()? showOrderProgressEvent,
-    TResult Function(int index)? indexChangeOnOrderProgress,
-    TResult Function(int index)? indexChangeOnWomensCareBanner,
-    TResult Function(String id)? fetchShopAdBrandsById,
     required TResult orElse(),
   }) {
     if (fetchShopBanners != null) {
@@ -1946,32 +1344,6 @@ class _$FetchShopBanners implements FetchShopBanners {
     required TResult Function(FetchOrdersbyFilterEvent value)
         fetchOrdersbyFilterEvent,
     required TResult Function(CancelOrder value) cancelOrder,
-    required TResult Function(FetchShopHomeBackgroundCard value)
-        fetchShopHomeBackgroundCard,
-    required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
-        fetchShopHomeBackgroundCardHelthyDiet,
-    required TResult Function(FetchShopHomeBackgroundCardSunnah value)
-        fetchShopHomeBackgroundCardSunnah,
-    required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
-    required TResult Function(FetchTopBrands value) fetchTopBrands,
-    required TResult Function(FetchProductItemsSubcategorySunnah value)
-        fetchProductItemsSubcategorySunnah,
-    required TResult Function(FetchProductItemsSubcategoryHealth value)
-        fetchProductItemsSubcategoryHealth,
-    required TResult Function(FetchProductItemsSubcategoryWomen value)
-        fetchProductItemsSubcategoryWomen,
-    required TResult Function(ChangeShopBannerIndex value)
-        changeShopBannerIndex,
-    required TResult Function(ChangeBrandBannerIndex value)
-        changeBrandBannerIndex,
-    required TResult Function(ShowOrderProgressEvent value)
-        showOrderProgressEvent,
-    required TResult Function(IndexChangeOnOrderProgress value)
-        indexChangeOnOrderProgress,
-    required TResult Function(IndexChangeOnWomensCareBanner value)
-        indexChangeOnWomensCareBanner,
-    required TResult Function(FetchShopAdBrandsById value)
-        fetchShopAdBrandsById,
   }) {
     return fetchShopBanners(this);
   }
@@ -1998,28 +1370,6 @@ class _$FetchShopBanners implements FetchShopBanners {
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult? Function(CancelOrder value)? cancelOrder,
-    TResult? Function(FetchShopHomeBackgroundCard value)?
-        fetchShopHomeBackgroundCard,
-    TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHelthyDiet,
-    TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
-        fetchShopHomeBackgroundCardSunnah,
-    TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
-    TResult? Function(FetchTopBrands value)? fetchTopBrands,
-    TResult? Function(FetchProductItemsSubcategorySunnah value)?
-        fetchProductItemsSubcategorySunnah,
-    TResult? Function(FetchProductItemsSubcategoryHealth value)?
-        fetchProductItemsSubcategoryHealth,
-    TResult? Function(FetchProductItemsSubcategoryWomen value)?
-        fetchProductItemsSubcategoryWomen,
-    TResult? Function(ChangeShopBannerIndex value)? changeShopBannerIndex,
-    TResult? Function(ChangeBrandBannerIndex value)? changeBrandBannerIndex,
-    TResult? Function(ShowOrderProgressEvent value)? showOrderProgressEvent,
-    TResult? Function(IndexChangeOnOrderProgress value)?
-        indexChangeOnOrderProgress,
-    TResult? Function(IndexChangeOnWomensCareBanner value)?
-        indexChangeOnWomensCareBanner,
-    TResult? Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
   }) {
     return fetchShopBanners?.call(this);
   }
@@ -2046,28 +1396,6 @@ class _$FetchShopBanners implements FetchShopBanners {
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult Function(CancelOrder value)? cancelOrder,
-    TResult Function(FetchShopHomeBackgroundCard value)?
-        fetchShopHomeBackgroundCard,
-    TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHelthyDiet,
-    TResult Function(FetchShopHomeBackgroundCardSunnah value)?
-        fetchShopHomeBackgroundCardSunnah,
-    TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
-    TResult Function(FetchTopBrands value)? fetchTopBrands,
-    TResult Function(FetchProductItemsSubcategorySunnah value)?
-        fetchProductItemsSubcategorySunnah,
-    TResult Function(FetchProductItemsSubcategoryHealth value)?
-        fetchProductItemsSubcategoryHealth,
-    TResult Function(FetchProductItemsSubcategoryWomen value)?
-        fetchProductItemsSubcategoryWomen,
-    TResult Function(ChangeShopBannerIndex value)? changeShopBannerIndex,
-    TResult Function(ChangeBrandBannerIndex value)? changeBrandBannerIndex,
-    TResult Function(ShowOrderProgressEvent value)? showOrderProgressEvent,
-    TResult Function(IndexChangeOnOrderProgress value)?
-        indexChangeOnOrderProgress,
-    TResult Function(IndexChangeOnWomensCareBanner value)?
-        indexChangeOnWomensCareBanner,
-    TResult Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
     required TResult orElse(),
   }) {
     if (fetchShopBanners != null) {
@@ -2150,20 +1478,6 @@ class _$FetchArticles implements FetchArticles {
         fetchOrdersbyFilterEvent,
     required TResult Function(BuildContext context, int shiprockeId)
         cancelOrder,
-    required TResult Function() fetchShopHomeBackgroundCard,
-    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
-    required TResult Function() fetchShopHomeBackgroundCardSunnah,
-    required TResult Function() fetchShopAdBrands,
-    required TResult Function() fetchTopBrands,
-    required TResult Function() fetchProductItemsSubcategorySunnah,
-    required TResult Function() fetchProductItemsSubcategoryHealth,
-    required TResult Function() fetchProductItemsSubcategoryWomen,
-    required TResult Function(int index) changeShopBannerIndex,
-    required TResult Function(int index) changeBrandBannerIndex,
-    required TResult Function() showOrderProgressEvent,
-    required TResult Function(int index) indexChangeOnOrderProgress,
-    required TResult Function(int index) indexChangeOnWomensCareBanner,
-    required TResult Function(String id) fetchShopAdBrandsById,
   }) {
     return fetchArticles();
   }
@@ -2200,20 +1514,6 @@ class _$FetchArticles implements FetchArticles {
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
-    TResult? Function()? fetchShopHomeBackgroundCard,
-    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
-    TResult? Function()? fetchShopHomeBackgroundCardSunnah,
-    TResult? Function()? fetchShopAdBrands,
-    TResult? Function()? fetchTopBrands,
-    TResult? Function()? fetchProductItemsSubcategorySunnah,
-    TResult? Function()? fetchProductItemsSubcategoryHealth,
-    TResult? Function()? fetchProductItemsSubcategoryWomen,
-    TResult? Function(int index)? changeShopBannerIndex,
-    TResult? Function(int index)? changeBrandBannerIndex,
-    TResult? Function()? showOrderProgressEvent,
-    TResult? Function(int index)? indexChangeOnOrderProgress,
-    TResult? Function(int index)? indexChangeOnWomensCareBanner,
-    TResult? Function(String id)? fetchShopAdBrandsById,
   }) {
     return fetchArticles?.call();
   }
@@ -2250,20 +1550,6 @@ class _$FetchArticles implements FetchArticles {
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
-    TResult Function()? fetchShopHomeBackgroundCard,
-    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
-    TResult Function()? fetchShopHomeBackgroundCardSunnah,
-    TResult Function()? fetchShopAdBrands,
-    TResult Function()? fetchTopBrands,
-    TResult Function()? fetchProductItemsSubcategorySunnah,
-    TResult Function()? fetchProductItemsSubcategoryHealth,
-    TResult Function()? fetchProductItemsSubcategoryWomen,
-    TResult Function(int index)? changeShopBannerIndex,
-    TResult Function(int index)? changeBrandBannerIndex,
-    TResult Function()? showOrderProgressEvent,
-    TResult Function(int index)? indexChangeOnOrderProgress,
-    TResult Function(int index)? indexChangeOnWomensCareBanner,
-    TResult Function(String id)? fetchShopAdBrandsById,
     required TResult orElse(),
   }) {
     if (fetchArticles != null) {
@@ -2297,32 +1583,6 @@ class _$FetchArticles implements FetchArticles {
     required TResult Function(FetchOrdersbyFilterEvent value)
         fetchOrdersbyFilterEvent,
     required TResult Function(CancelOrder value) cancelOrder,
-    required TResult Function(FetchShopHomeBackgroundCard value)
-        fetchShopHomeBackgroundCard,
-    required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
-        fetchShopHomeBackgroundCardHelthyDiet,
-    required TResult Function(FetchShopHomeBackgroundCardSunnah value)
-        fetchShopHomeBackgroundCardSunnah,
-    required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
-    required TResult Function(FetchTopBrands value) fetchTopBrands,
-    required TResult Function(FetchProductItemsSubcategorySunnah value)
-        fetchProductItemsSubcategorySunnah,
-    required TResult Function(FetchProductItemsSubcategoryHealth value)
-        fetchProductItemsSubcategoryHealth,
-    required TResult Function(FetchProductItemsSubcategoryWomen value)
-        fetchProductItemsSubcategoryWomen,
-    required TResult Function(ChangeShopBannerIndex value)
-        changeShopBannerIndex,
-    required TResult Function(ChangeBrandBannerIndex value)
-        changeBrandBannerIndex,
-    required TResult Function(ShowOrderProgressEvent value)
-        showOrderProgressEvent,
-    required TResult Function(IndexChangeOnOrderProgress value)
-        indexChangeOnOrderProgress,
-    required TResult Function(IndexChangeOnWomensCareBanner value)
-        indexChangeOnWomensCareBanner,
-    required TResult Function(FetchShopAdBrandsById value)
-        fetchShopAdBrandsById,
   }) {
     return fetchArticles(this);
   }
@@ -2349,28 +1609,6 @@ class _$FetchArticles implements FetchArticles {
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult? Function(CancelOrder value)? cancelOrder,
-    TResult? Function(FetchShopHomeBackgroundCard value)?
-        fetchShopHomeBackgroundCard,
-    TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHelthyDiet,
-    TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
-        fetchShopHomeBackgroundCardSunnah,
-    TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
-    TResult? Function(FetchTopBrands value)? fetchTopBrands,
-    TResult? Function(FetchProductItemsSubcategorySunnah value)?
-        fetchProductItemsSubcategorySunnah,
-    TResult? Function(FetchProductItemsSubcategoryHealth value)?
-        fetchProductItemsSubcategoryHealth,
-    TResult? Function(FetchProductItemsSubcategoryWomen value)?
-        fetchProductItemsSubcategoryWomen,
-    TResult? Function(ChangeShopBannerIndex value)? changeShopBannerIndex,
-    TResult? Function(ChangeBrandBannerIndex value)? changeBrandBannerIndex,
-    TResult? Function(ShowOrderProgressEvent value)? showOrderProgressEvent,
-    TResult? Function(IndexChangeOnOrderProgress value)?
-        indexChangeOnOrderProgress,
-    TResult? Function(IndexChangeOnWomensCareBanner value)?
-        indexChangeOnWomensCareBanner,
-    TResult? Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
   }) {
     return fetchArticles?.call(this);
   }
@@ -2397,28 +1635,6 @@ class _$FetchArticles implements FetchArticles {
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult Function(CancelOrder value)? cancelOrder,
-    TResult Function(FetchShopHomeBackgroundCard value)?
-        fetchShopHomeBackgroundCard,
-    TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHelthyDiet,
-    TResult Function(FetchShopHomeBackgroundCardSunnah value)?
-        fetchShopHomeBackgroundCardSunnah,
-    TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
-    TResult Function(FetchTopBrands value)? fetchTopBrands,
-    TResult Function(FetchProductItemsSubcategorySunnah value)?
-        fetchProductItemsSubcategorySunnah,
-    TResult Function(FetchProductItemsSubcategoryHealth value)?
-        fetchProductItemsSubcategoryHealth,
-    TResult Function(FetchProductItemsSubcategoryWomen value)?
-        fetchProductItemsSubcategoryWomen,
-    TResult Function(ChangeShopBannerIndex value)? changeShopBannerIndex,
-    TResult Function(ChangeBrandBannerIndex value)? changeBrandBannerIndex,
-    TResult Function(ShowOrderProgressEvent value)? showOrderProgressEvent,
-    TResult Function(IndexChangeOnOrderProgress value)?
-        indexChangeOnOrderProgress,
-    TResult Function(IndexChangeOnWomensCareBanner value)?
-        indexChangeOnWomensCareBanner,
-    TResult Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
     required TResult orElse(),
   }) {
     if (fetchArticles != null) {
@@ -2501,20 +1717,6 @@ class _$FetchShopByBrand implements FetchShopByBrand {
         fetchOrdersbyFilterEvent,
     required TResult Function(BuildContext context, int shiprockeId)
         cancelOrder,
-    required TResult Function() fetchShopHomeBackgroundCard,
-    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
-    required TResult Function() fetchShopHomeBackgroundCardSunnah,
-    required TResult Function() fetchShopAdBrands,
-    required TResult Function() fetchTopBrands,
-    required TResult Function() fetchProductItemsSubcategorySunnah,
-    required TResult Function() fetchProductItemsSubcategoryHealth,
-    required TResult Function() fetchProductItemsSubcategoryWomen,
-    required TResult Function(int index) changeShopBannerIndex,
-    required TResult Function(int index) changeBrandBannerIndex,
-    required TResult Function() showOrderProgressEvent,
-    required TResult Function(int index) indexChangeOnOrderProgress,
-    required TResult Function(int index) indexChangeOnWomensCareBanner,
-    required TResult Function(String id) fetchShopAdBrandsById,
   }) {
     return fetchShopByBrand();
   }
@@ -2551,20 +1753,6 @@ class _$FetchShopByBrand implements FetchShopByBrand {
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
-    TResult? Function()? fetchShopHomeBackgroundCard,
-    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
-    TResult? Function()? fetchShopHomeBackgroundCardSunnah,
-    TResult? Function()? fetchShopAdBrands,
-    TResult? Function()? fetchTopBrands,
-    TResult? Function()? fetchProductItemsSubcategorySunnah,
-    TResult? Function()? fetchProductItemsSubcategoryHealth,
-    TResult? Function()? fetchProductItemsSubcategoryWomen,
-    TResult? Function(int index)? changeShopBannerIndex,
-    TResult? Function(int index)? changeBrandBannerIndex,
-    TResult? Function()? showOrderProgressEvent,
-    TResult? Function(int index)? indexChangeOnOrderProgress,
-    TResult? Function(int index)? indexChangeOnWomensCareBanner,
-    TResult? Function(String id)? fetchShopAdBrandsById,
   }) {
     return fetchShopByBrand?.call();
   }
@@ -2601,20 +1789,6 @@ class _$FetchShopByBrand implements FetchShopByBrand {
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
-    TResult Function()? fetchShopHomeBackgroundCard,
-    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
-    TResult Function()? fetchShopHomeBackgroundCardSunnah,
-    TResult Function()? fetchShopAdBrands,
-    TResult Function()? fetchTopBrands,
-    TResult Function()? fetchProductItemsSubcategorySunnah,
-    TResult Function()? fetchProductItemsSubcategoryHealth,
-    TResult Function()? fetchProductItemsSubcategoryWomen,
-    TResult Function(int index)? changeShopBannerIndex,
-    TResult Function(int index)? changeBrandBannerIndex,
-    TResult Function()? showOrderProgressEvent,
-    TResult Function(int index)? indexChangeOnOrderProgress,
-    TResult Function(int index)? indexChangeOnWomensCareBanner,
-    TResult Function(String id)? fetchShopAdBrandsById,
     required TResult orElse(),
   }) {
     if (fetchShopByBrand != null) {
@@ -2648,32 +1822,6 @@ class _$FetchShopByBrand implements FetchShopByBrand {
     required TResult Function(FetchOrdersbyFilterEvent value)
         fetchOrdersbyFilterEvent,
     required TResult Function(CancelOrder value) cancelOrder,
-    required TResult Function(FetchShopHomeBackgroundCard value)
-        fetchShopHomeBackgroundCard,
-    required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
-        fetchShopHomeBackgroundCardHelthyDiet,
-    required TResult Function(FetchShopHomeBackgroundCardSunnah value)
-        fetchShopHomeBackgroundCardSunnah,
-    required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
-    required TResult Function(FetchTopBrands value) fetchTopBrands,
-    required TResult Function(FetchProductItemsSubcategorySunnah value)
-        fetchProductItemsSubcategorySunnah,
-    required TResult Function(FetchProductItemsSubcategoryHealth value)
-        fetchProductItemsSubcategoryHealth,
-    required TResult Function(FetchProductItemsSubcategoryWomen value)
-        fetchProductItemsSubcategoryWomen,
-    required TResult Function(ChangeShopBannerIndex value)
-        changeShopBannerIndex,
-    required TResult Function(ChangeBrandBannerIndex value)
-        changeBrandBannerIndex,
-    required TResult Function(ShowOrderProgressEvent value)
-        showOrderProgressEvent,
-    required TResult Function(IndexChangeOnOrderProgress value)
-        indexChangeOnOrderProgress,
-    required TResult Function(IndexChangeOnWomensCareBanner value)
-        indexChangeOnWomensCareBanner,
-    required TResult Function(FetchShopAdBrandsById value)
-        fetchShopAdBrandsById,
   }) {
     return fetchShopByBrand(this);
   }
@@ -2700,28 +1848,6 @@ class _$FetchShopByBrand implements FetchShopByBrand {
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult? Function(CancelOrder value)? cancelOrder,
-    TResult? Function(FetchShopHomeBackgroundCard value)?
-        fetchShopHomeBackgroundCard,
-    TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHelthyDiet,
-    TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
-        fetchShopHomeBackgroundCardSunnah,
-    TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
-    TResult? Function(FetchTopBrands value)? fetchTopBrands,
-    TResult? Function(FetchProductItemsSubcategorySunnah value)?
-        fetchProductItemsSubcategorySunnah,
-    TResult? Function(FetchProductItemsSubcategoryHealth value)?
-        fetchProductItemsSubcategoryHealth,
-    TResult? Function(FetchProductItemsSubcategoryWomen value)?
-        fetchProductItemsSubcategoryWomen,
-    TResult? Function(ChangeShopBannerIndex value)? changeShopBannerIndex,
-    TResult? Function(ChangeBrandBannerIndex value)? changeBrandBannerIndex,
-    TResult? Function(ShowOrderProgressEvent value)? showOrderProgressEvent,
-    TResult? Function(IndexChangeOnOrderProgress value)?
-        indexChangeOnOrderProgress,
-    TResult? Function(IndexChangeOnWomensCareBanner value)?
-        indexChangeOnWomensCareBanner,
-    TResult? Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
   }) {
     return fetchShopByBrand?.call(this);
   }
@@ -2748,28 +1874,6 @@ class _$FetchShopByBrand implements FetchShopByBrand {
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult Function(CancelOrder value)? cancelOrder,
-    TResult Function(FetchShopHomeBackgroundCard value)?
-        fetchShopHomeBackgroundCard,
-    TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHelthyDiet,
-    TResult Function(FetchShopHomeBackgroundCardSunnah value)?
-        fetchShopHomeBackgroundCardSunnah,
-    TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
-    TResult Function(FetchTopBrands value)? fetchTopBrands,
-    TResult Function(FetchProductItemsSubcategorySunnah value)?
-        fetchProductItemsSubcategorySunnah,
-    TResult Function(FetchProductItemsSubcategoryHealth value)?
-        fetchProductItemsSubcategoryHealth,
-    TResult Function(FetchProductItemsSubcategoryWomen value)?
-        fetchProductItemsSubcategoryWomen,
-    TResult Function(ChangeShopBannerIndex value)? changeShopBannerIndex,
-    TResult Function(ChangeBrandBannerIndex value)? changeBrandBannerIndex,
-    TResult Function(ShowOrderProgressEvent value)? showOrderProgressEvent,
-    TResult Function(IndexChangeOnOrderProgress value)?
-        indexChangeOnOrderProgress,
-    TResult Function(IndexChangeOnWomensCareBanner value)?
-        indexChangeOnWomensCareBanner,
-    TResult Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
     required TResult orElse(),
   }) {
     if (fetchShopByBrand != null) {
@@ -2878,20 +1982,6 @@ class _$FetchWishList implements FetchWishList {
         fetchOrdersbyFilterEvent,
     required TResult Function(BuildContext context, int shiprockeId)
         cancelOrder,
-    required TResult Function() fetchShopHomeBackgroundCard,
-    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
-    required TResult Function() fetchShopHomeBackgroundCardSunnah,
-    required TResult Function() fetchShopAdBrands,
-    required TResult Function() fetchTopBrands,
-    required TResult Function() fetchProductItemsSubcategorySunnah,
-    required TResult Function() fetchProductItemsSubcategoryHealth,
-    required TResult Function() fetchProductItemsSubcategoryWomen,
-    required TResult Function(int index) changeShopBannerIndex,
-    required TResult Function(int index) changeBrandBannerIndex,
-    required TResult Function() showOrderProgressEvent,
-    required TResult Function(int index) indexChangeOnOrderProgress,
-    required TResult Function(int index) indexChangeOnWomensCareBanner,
-    required TResult Function(String id) fetchShopAdBrandsById,
   }) {
     return fetchWishList(context);
   }
@@ -2928,20 +2018,6 @@ class _$FetchWishList implements FetchWishList {
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
-    TResult? Function()? fetchShopHomeBackgroundCard,
-    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
-    TResult? Function()? fetchShopHomeBackgroundCardSunnah,
-    TResult? Function()? fetchShopAdBrands,
-    TResult? Function()? fetchTopBrands,
-    TResult? Function()? fetchProductItemsSubcategorySunnah,
-    TResult? Function()? fetchProductItemsSubcategoryHealth,
-    TResult? Function()? fetchProductItemsSubcategoryWomen,
-    TResult? Function(int index)? changeShopBannerIndex,
-    TResult? Function(int index)? changeBrandBannerIndex,
-    TResult? Function()? showOrderProgressEvent,
-    TResult? Function(int index)? indexChangeOnOrderProgress,
-    TResult? Function(int index)? indexChangeOnWomensCareBanner,
-    TResult? Function(String id)? fetchShopAdBrandsById,
   }) {
     return fetchWishList?.call(context);
   }
@@ -2978,20 +2054,6 @@ class _$FetchWishList implements FetchWishList {
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
-    TResult Function()? fetchShopHomeBackgroundCard,
-    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
-    TResult Function()? fetchShopHomeBackgroundCardSunnah,
-    TResult Function()? fetchShopAdBrands,
-    TResult Function()? fetchTopBrands,
-    TResult Function()? fetchProductItemsSubcategorySunnah,
-    TResult Function()? fetchProductItemsSubcategoryHealth,
-    TResult Function()? fetchProductItemsSubcategoryWomen,
-    TResult Function(int index)? changeShopBannerIndex,
-    TResult Function(int index)? changeBrandBannerIndex,
-    TResult Function()? showOrderProgressEvent,
-    TResult Function(int index)? indexChangeOnOrderProgress,
-    TResult Function(int index)? indexChangeOnWomensCareBanner,
-    TResult Function(String id)? fetchShopAdBrandsById,
     required TResult orElse(),
   }) {
     if (fetchWishList != null) {
@@ -3025,32 +2087,6 @@ class _$FetchWishList implements FetchWishList {
     required TResult Function(FetchOrdersbyFilterEvent value)
         fetchOrdersbyFilterEvent,
     required TResult Function(CancelOrder value) cancelOrder,
-    required TResult Function(FetchShopHomeBackgroundCard value)
-        fetchShopHomeBackgroundCard,
-    required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
-        fetchShopHomeBackgroundCardHelthyDiet,
-    required TResult Function(FetchShopHomeBackgroundCardSunnah value)
-        fetchShopHomeBackgroundCardSunnah,
-    required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
-    required TResult Function(FetchTopBrands value) fetchTopBrands,
-    required TResult Function(FetchProductItemsSubcategorySunnah value)
-        fetchProductItemsSubcategorySunnah,
-    required TResult Function(FetchProductItemsSubcategoryHealth value)
-        fetchProductItemsSubcategoryHealth,
-    required TResult Function(FetchProductItemsSubcategoryWomen value)
-        fetchProductItemsSubcategoryWomen,
-    required TResult Function(ChangeShopBannerIndex value)
-        changeShopBannerIndex,
-    required TResult Function(ChangeBrandBannerIndex value)
-        changeBrandBannerIndex,
-    required TResult Function(ShowOrderProgressEvent value)
-        showOrderProgressEvent,
-    required TResult Function(IndexChangeOnOrderProgress value)
-        indexChangeOnOrderProgress,
-    required TResult Function(IndexChangeOnWomensCareBanner value)
-        indexChangeOnWomensCareBanner,
-    required TResult Function(FetchShopAdBrandsById value)
-        fetchShopAdBrandsById,
   }) {
     return fetchWishList(this);
   }
@@ -3077,28 +2113,6 @@ class _$FetchWishList implements FetchWishList {
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult? Function(CancelOrder value)? cancelOrder,
-    TResult? Function(FetchShopHomeBackgroundCard value)?
-        fetchShopHomeBackgroundCard,
-    TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHelthyDiet,
-    TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
-        fetchShopHomeBackgroundCardSunnah,
-    TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
-    TResult? Function(FetchTopBrands value)? fetchTopBrands,
-    TResult? Function(FetchProductItemsSubcategorySunnah value)?
-        fetchProductItemsSubcategorySunnah,
-    TResult? Function(FetchProductItemsSubcategoryHealth value)?
-        fetchProductItemsSubcategoryHealth,
-    TResult? Function(FetchProductItemsSubcategoryWomen value)?
-        fetchProductItemsSubcategoryWomen,
-    TResult? Function(ChangeShopBannerIndex value)? changeShopBannerIndex,
-    TResult? Function(ChangeBrandBannerIndex value)? changeBrandBannerIndex,
-    TResult? Function(ShowOrderProgressEvent value)? showOrderProgressEvent,
-    TResult? Function(IndexChangeOnOrderProgress value)?
-        indexChangeOnOrderProgress,
-    TResult? Function(IndexChangeOnWomensCareBanner value)?
-        indexChangeOnWomensCareBanner,
-    TResult? Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
   }) {
     return fetchWishList?.call(this);
   }
@@ -3125,28 +2139,6 @@ class _$FetchWishList implements FetchWishList {
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult Function(CancelOrder value)? cancelOrder,
-    TResult Function(FetchShopHomeBackgroundCard value)?
-        fetchShopHomeBackgroundCard,
-    TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHelthyDiet,
-    TResult Function(FetchShopHomeBackgroundCardSunnah value)?
-        fetchShopHomeBackgroundCardSunnah,
-    TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
-    TResult Function(FetchTopBrands value)? fetchTopBrands,
-    TResult Function(FetchProductItemsSubcategorySunnah value)?
-        fetchProductItemsSubcategorySunnah,
-    TResult Function(FetchProductItemsSubcategoryHealth value)?
-        fetchProductItemsSubcategoryHealth,
-    TResult Function(FetchProductItemsSubcategoryWomen value)?
-        fetchProductItemsSubcategoryWomen,
-    TResult Function(ChangeShopBannerIndex value)? changeShopBannerIndex,
-    TResult Function(ChangeBrandBannerIndex value)? changeBrandBannerIndex,
-    TResult Function(ShowOrderProgressEvent value)? showOrderProgressEvent,
-    TResult Function(IndexChangeOnOrderProgress value)?
-        indexChangeOnOrderProgress,
-    TResult Function(IndexChangeOnWomensCareBanner value)?
-        indexChangeOnWomensCareBanner,
-    TResult Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
     required TResult orElse(),
   }) {
     if (fetchWishList != null) {
@@ -3260,20 +2252,6 @@ class _$SearchProduct implements SearchProduct {
         fetchOrdersbyFilterEvent,
     required TResult Function(BuildContext context, int shiprockeId)
         cancelOrder,
-    required TResult Function() fetchShopHomeBackgroundCard,
-    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
-    required TResult Function() fetchShopHomeBackgroundCardSunnah,
-    required TResult Function() fetchShopAdBrands,
-    required TResult Function() fetchTopBrands,
-    required TResult Function() fetchProductItemsSubcategorySunnah,
-    required TResult Function() fetchProductItemsSubcategoryHealth,
-    required TResult Function() fetchProductItemsSubcategoryWomen,
-    required TResult Function(int index) changeShopBannerIndex,
-    required TResult Function(int index) changeBrandBannerIndex,
-    required TResult Function() showOrderProgressEvent,
-    required TResult Function(int index) indexChangeOnOrderProgress,
-    required TResult Function(int index) indexChangeOnWomensCareBanner,
-    required TResult Function(String id) fetchShopAdBrandsById,
   }) {
     return searchProduct(query);
   }
@@ -3310,20 +2288,6 @@ class _$SearchProduct implements SearchProduct {
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
-    TResult? Function()? fetchShopHomeBackgroundCard,
-    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
-    TResult? Function()? fetchShopHomeBackgroundCardSunnah,
-    TResult? Function()? fetchShopAdBrands,
-    TResult? Function()? fetchTopBrands,
-    TResult? Function()? fetchProductItemsSubcategorySunnah,
-    TResult? Function()? fetchProductItemsSubcategoryHealth,
-    TResult? Function()? fetchProductItemsSubcategoryWomen,
-    TResult? Function(int index)? changeShopBannerIndex,
-    TResult? Function(int index)? changeBrandBannerIndex,
-    TResult? Function()? showOrderProgressEvent,
-    TResult? Function(int index)? indexChangeOnOrderProgress,
-    TResult? Function(int index)? indexChangeOnWomensCareBanner,
-    TResult? Function(String id)? fetchShopAdBrandsById,
   }) {
     return searchProduct?.call(query);
   }
@@ -3360,20 +2324,6 @@ class _$SearchProduct implements SearchProduct {
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
-    TResult Function()? fetchShopHomeBackgroundCard,
-    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
-    TResult Function()? fetchShopHomeBackgroundCardSunnah,
-    TResult Function()? fetchShopAdBrands,
-    TResult Function()? fetchTopBrands,
-    TResult Function()? fetchProductItemsSubcategorySunnah,
-    TResult Function()? fetchProductItemsSubcategoryHealth,
-    TResult Function()? fetchProductItemsSubcategoryWomen,
-    TResult Function(int index)? changeShopBannerIndex,
-    TResult Function(int index)? changeBrandBannerIndex,
-    TResult Function()? showOrderProgressEvent,
-    TResult Function(int index)? indexChangeOnOrderProgress,
-    TResult Function(int index)? indexChangeOnWomensCareBanner,
-    TResult Function(String id)? fetchShopAdBrandsById,
     required TResult orElse(),
   }) {
     if (searchProduct != null) {
@@ -3407,32 +2357,6 @@ class _$SearchProduct implements SearchProduct {
     required TResult Function(FetchOrdersbyFilterEvent value)
         fetchOrdersbyFilterEvent,
     required TResult Function(CancelOrder value) cancelOrder,
-    required TResult Function(FetchShopHomeBackgroundCard value)
-        fetchShopHomeBackgroundCard,
-    required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
-        fetchShopHomeBackgroundCardHelthyDiet,
-    required TResult Function(FetchShopHomeBackgroundCardSunnah value)
-        fetchShopHomeBackgroundCardSunnah,
-    required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
-    required TResult Function(FetchTopBrands value) fetchTopBrands,
-    required TResult Function(FetchProductItemsSubcategorySunnah value)
-        fetchProductItemsSubcategorySunnah,
-    required TResult Function(FetchProductItemsSubcategoryHealth value)
-        fetchProductItemsSubcategoryHealth,
-    required TResult Function(FetchProductItemsSubcategoryWomen value)
-        fetchProductItemsSubcategoryWomen,
-    required TResult Function(ChangeShopBannerIndex value)
-        changeShopBannerIndex,
-    required TResult Function(ChangeBrandBannerIndex value)
-        changeBrandBannerIndex,
-    required TResult Function(ShowOrderProgressEvent value)
-        showOrderProgressEvent,
-    required TResult Function(IndexChangeOnOrderProgress value)
-        indexChangeOnOrderProgress,
-    required TResult Function(IndexChangeOnWomensCareBanner value)
-        indexChangeOnWomensCareBanner,
-    required TResult Function(FetchShopAdBrandsById value)
-        fetchShopAdBrandsById,
   }) {
     return searchProduct(this);
   }
@@ -3459,28 +2383,6 @@ class _$SearchProduct implements SearchProduct {
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult? Function(CancelOrder value)? cancelOrder,
-    TResult? Function(FetchShopHomeBackgroundCard value)?
-        fetchShopHomeBackgroundCard,
-    TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHelthyDiet,
-    TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
-        fetchShopHomeBackgroundCardSunnah,
-    TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
-    TResult? Function(FetchTopBrands value)? fetchTopBrands,
-    TResult? Function(FetchProductItemsSubcategorySunnah value)?
-        fetchProductItemsSubcategorySunnah,
-    TResult? Function(FetchProductItemsSubcategoryHealth value)?
-        fetchProductItemsSubcategoryHealth,
-    TResult? Function(FetchProductItemsSubcategoryWomen value)?
-        fetchProductItemsSubcategoryWomen,
-    TResult? Function(ChangeShopBannerIndex value)? changeShopBannerIndex,
-    TResult? Function(ChangeBrandBannerIndex value)? changeBrandBannerIndex,
-    TResult? Function(ShowOrderProgressEvent value)? showOrderProgressEvent,
-    TResult? Function(IndexChangeOnOrderProgress value)?
-        indexChangeOnOrderProgress,
-    TResult? Function(IndexChangeOnWomensCareBanner value)?
-        indexChangeOnWomensCareBanner,
-    TResult? Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
   }) {
     return searchProduct?.call(this);
   }
@@ -3507,28 +2409,6 @@ class _$SearchProduct implements SearchProduct {
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult Function(CancelOrder value)? cancelOrder,
-    TResult Function(FetchShopHomeBackgroundCard value)?
-        fetchShopHomeBackgroundCard,
-    TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHelthyDiet,
-    TResult Function(FetchShopHomeBackgroundCardSunnah value)?
-        fetchShopHomeBackgroundCardSunnah,
-    TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
-    TResult Function(FetchTopBrands value)? fetchTopBrands,
-    TResult Function(FetchProductItemsSubcategorySunnah value)?
-        fetchProductItemsSubcategorySunnah,
-    TResult Function(FetchProductItemsSubcategoryHealth value)?
-        fetchProductItemsSubcategoryHealth,
-    TResult Function(FetchProductItemsSubcategoryWomen value)?
-        fetchProductItemsSubcategoryWomen,
-    TResult Function(ChangeShopBannerIndex value)? changeShopBannerIndex,
-    TResult Function(ChangeBrandBannerIndex value)? changeBrandBannerIndex,
-    TResult Function(ShowOrderProgressEvent value)? showOrderProgressEvent,
-    TResult Function(IndexChangeOnOrderProgress value)?
-        indexChangeOnOrderProgress,
-    TResult Function(IndexChangeOnWomensCareBanner value)?
-        indexChangeOnWomensCareBanner,
-    TResult Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
     required TResult orElse(),
   }) {
     if (searchProduct != null) {
@@ -3651,20 +2531,6 @@ class _$AddWishListEvent implements AddWishListEvent {
         fetchOrdersbyFilterEvent,
     required TResult Function(BuildContext context, int shiprockeId)
         cancelOrder,
-    required TResult Function() fetchShopHomeBackgroundCard,
-    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
-    required TResult Function() fetchShopHomeBackgroundCardSunnah,
-    required TResult Function() fetchShopAdBrands,
-    required TResult Function() fetchTopBrands,
-    required TResult Function() fetchProductItemsSubcategorySunnah,
-    required TResult Function() fetchProductItemsSubcategoryHealth,
-    required TResult Function() fetchProductItemsSubcategoryWomen,
-    required TResult Function(int index) changeShopBannerIndex,
-    required TResult Function(int index) changeBrandBannerIndex,
-    required TResult Function() showOrderProgressEvent,
-    required TResult Function(int index) indexChangeOnOrderProgress,
-    required TResult Function(int index) indexChangeOnWomensCareBanner,
-    required TResult Function(String id) fetchShopAdBrandsById,
   }) {
     return addWishListEvent(productId, context);
   }
@@ -3701,20 +2567,6 @@ class _$AddWishListEvent implements AddWishListEvent {
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
-    TResult? Function()? fetchShopHomeBackgroundCard,
-    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
-    TResult? Function()? fetchShopHomeBackgroundCardSunnah,
-    TResult? Function()? fetchShopAdBrands,
-    TResult? Function()? fetchTopBrands,
-    TResult? Function()? fetchProductItemsSubcategorySunnah,
-    TResult? Function()? fetchProductItemsSubcategoryHealth,
-    TResult? Function()? fetchProductItemsSubcategoryWomen,
-    TResult? Function(int index)? changeShopBannerIndex,
-    TResult? Function(int index)? changeBrandBannerIndex,
-    TResult? Function()? showOrderProgressEvent,
-    TResult? Function(int index)? indexChangeOnOrderProgress,
-    TResult? Function(int index)? indexChangeOnWomensCareBanner,
-    TResult? Function(String id)? fetchShopAdBrandsById,
   }) {
     return addWishListEvent?.call(productId, context);
   }
@@ -3751,20 +2603,6 @@ class _$AddWishListEvent implements AddWishListEvent {
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
-    TResult Function()? fetchShopHomeBackgroundCard,
-    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
-    TResult Function()? fetchShopHomeBackgroundCardSunnah,
-    TResult Function()? fetchShopAdBrands,
-    TResult Function()? fetchTopBrands,
-    TResult Function()? fetchProductItemsSubcategorySunnah,
-    TResult Function()? fetchProductItemsSubcategoryHealth,
-    TResult Function()? fetchProductItemsSubcategoryWomen,
-    TResult Function(int index)? changeShopBannerIndex,
-    TResult Function(int index)? changeBrandBannerIndex,
-    TResult Function()? showOrderProgressEvent,
-    TResult Function(int index)? indexChangeOnOrderProgress,
-    TResult Function(int index)? indexChangeOnWomensCareBanner,
-    TResult Function(String id)? fetchShopAdBrandsById,
     required TResult orElse(),
   }) {
     if (addWishListEvent != null) {
@@ -3798,32 +2636,6 @@ class _$AddWishListEvent implements AddWishListEvent {
     required TResult Function(FetchOrdersbyFilterEvent value)
         fetchOrdersbyFilterEvent,
     required TResult Function(CancelOrder value) cancelOrder,
-    required TResult Function(FetchShopHomeBackgroundCard value)
-        fetchShopHomeBackgroundCard,
-    required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
-        fetchShopHomeBackgroundCardHelthyDiet,
-    required TResult Function(FetchShopHomeBackgroundCardSunnah value)
-        fetchShopHomeBackgroundCardSunnah,
-    required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
-    required TResult Function(FetchTopBrands value) fetchTopBrands,
-    required TResult Function(FetchProductItemsSubcategorySunnah value)
-        fetchProductItemsSubcategorySunnah,
-    required TResult Function(FetchProductItemsSubcategoryHealth value)
-        fetchProductItemsSubcategoryHealth,
-    required TResult Function(FetchProductItemsSubcategoryWomen value)
-        fetchProductItemsSubcategoryWomen,
-    required TResult Function(ChangeShopBannerIndex value)
-        changeShopBannerIndex,
-    required TResult Function(ChangeBrandBannerIndex value)
-        changeBrandBannerIndex,
-    required TResult Function(ShowOrderProgressEvent value)
-        showOrderProgressEvent,
-    required TResult Function(IndexChangeOnOrderProgress value)
-        indexChangeOnOrderProgress,
-    required TResult Function(IndexChangeOnWomensCareBanner value)
-        indexChangeOnWomensCareBanner,
-    required TResult Function(FetchShopAdBrandsById value)
-        fetchShopAdBrandsById,
   }) {
     return addWishListEvent(this);
   }
@@ -3850,28 +2662,6 @@ class _$AddWishListEvent implements AddWishListEvent {
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult? Function(CancelOrder value)? cancelOrder,
-    TResult? Function(FetchShopHomeBackgroundCard value)?
-        fetchShopHomeBackgroundCard,
-    TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHelthyDiet,
-    TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
-        fetchShopHomeBackgroundCardSunnah,
-    TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
-    TResult? Function(FetchTopBrands value)? fetchTopBrands,
-    TResult? Function(FetchProductItemsSubcategorySunnah value)?
-        fetchProductItemsSubcategorySunnah,
-    TResult? Function(FetchProductItemsSubcategoryHealth value)?
-        fetchProductItemsSubcategoryHealth,
-    TResult? Function(FetchProductItemsSubcategoryWomen value)?
-        fetchProductItemsSubcategoryWomen,
-    TResult? Function(ChangeShopBannerIndex value)? changeShopBannerIndex,
-    TResult? Function(ChangeBrandBannerIndex value)? changeBrandBannerIndex,
-    TResult? Function(ShowOrderProgressEvent value)? showOrderProgressEvent,
-    TResult? Function(IndexChangeOnOrderProgress value)?
-        indexChangeOnOrderProgress,
-    TResult? Function(IndexChangeOnWomensCareBanner value)?
-        indexChangeOnWomensCareBanner,
-    TResult? Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
   }) {
     return addWishListEvent?.call(this);
   }
@@ -3898,28 +2688,6 @@ class _$AddWishListEvent implements AddWishListEvent {
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult Function(CancelOrder value)? cancelOrder,
-    TResult Function(FetchShopHomeBackgroundCard value)?
-        fetchShopHomeBackgroundCard,
-    TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHelthyDiet,
-    TResult Function(FetchShopHomeBackgroundCardSunnah value)?
-        fetchShopHomeBackgroundCardSunnah,
-    TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
-    TResult Function(FetchTopBrands value)? fetchTopBrands,
-    TResult Function(FetchProductItemsSubcategorySunnah value)?
-        fetchProductItemsSubcategorySunnah,
-    TResult Function(FetchProductItemsSubcategoryHealth value)?
-        fetchProductItemsSubcategoryHealth,
-    TResult Function(FetchProductItemsSubcategoryWomen value)?
-        fetchProductItemsSubcategoryWomen,
-    TResult Function(ChangeShopBannerIndex value)? changeShopBannerIndex,
-    TResult Function(ChangeBrandBannerIndex value)? changeBrandBannerIndex,
-    TResult Function(ShowOrderProgressEvent value)? showOrderProgressEvent,
-    TResult Function(IndexChangeOnOrderProgress value)?
-        indexChangeOnOrderProgress,
-    TResult Function(IndexChangeOnWomensCareBanner value)?
-        indexChangeOnWomensCareBanner,
-    TResult Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
     required TResult orElse(),
   }) {
     if (addWishListEvent != null) {
@@ -4046,20 +2814,6 @@ class _$RemoveWishlistEvent implements RemoveWishlistEvent {
         fetchOrdersbyFilterEvent,
     required TResult Function(BuildContext context, int shiprockeId)
         cancelOrder,
-    required TResult Function() fetchShopHomeBackgroundCard,
-    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
-    required TResult Function() fetchShopHomeBackgroundCardSunnah,
-    required TResult Function() fetchShopAdBrands,
-    required TResult Function() fetchTopBrands,
-    required TResult Function() fetchProductItemsSubcategorySunnah,
-    required TResult Function() fetchProductItemsSubcategoryHealth,
-    required TResult Function() fetchProductItemsSubcategoryWomen,
-    required TResult Function(int index) changeShopBannerIndex,
-    required TResult Function(int index) changeBrandBannerIndex,
-    required TResult Function() showOrderProgressEvent,
-    required TResult Function(int index) indexChangeOnOrderProgress,
-    required TResult Function(int index) indexChangeOnWomensCareBanner,
-    required TResult Function(String id) fetchShopAdBrandsById,
   }) {
     return removeWishlistEvent(productId, context);
   }
@@ -4096,20 +2850,6 @@ class _$RemoveWishlistEvent implements RemoveWishlistEvent {
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
-    TResult? Function()? fetchShopHomeBackgroundCard,
-    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
-    TResult? Function()? fetchShopHomeBackgroundCardSunnah,
-    TResult? Function()? fetchShopAdBrands,
-    TResult? Function()? fetchTopBrands,
-    TResult? Function()? fetchProductItemsSubcategorySunnah,
-    TResult? Function()? fetchProductItemsSubcategoryHealth,
-    TResult? Function()? fetchProductItemsSubcategoryWomen,
-    TResult? Function(int index)? changeShopBannerIndex,
-    TResult? Function(int index)? changeBrandBannerIndex,
-    TResult? Function()? showOrderProgressEvent,
-    TResult? Function(int index)? indexChangeOnOrderProgress,
-    TResult? Function(int index)? indexChangeOnWomensCareBanner,
-    TResult? Function(String id)? fetchShopAdBrandsById,
   }) {
     return removeWishlistEvent?.call(productId, context);
   }
@@ -4146,20 +2886,6 @@ class _$RemoveWishlistEvent implements RemoveWishlistEvent {
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
-    TResult Function()? fetchShopHomeBackgroundCard,
-    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
-    TResult Function()? fetchShopHomeBackgroundCardSunnah,
-    TResult Function()? fetchShopAdBrands,
-    TResult Function()? fetchTopBrands,
-    TResult Function()? fetchProductItemsSubcategorySunnah,
-    TResult Function()? fetchProductItemsSubcategoryHealth,
-    TResult Function()? fetchProductItemsSubcategoryWomen,
-    TResult Function(int index)? changeShopBannerIndex,
-    TResult Function(int index)? changeBrandBannerIndex,
-    TResult Function()? showOrderProgressEvent,
-    TResult Function(int index)? indexChangeOnOrderProgress,
-    TResult Function(int index)? indexChangeOnWomensCareBanner,
-    TResult Function(String id)? fetchShopAdBrandsById,
     required TResult orElse(),
   }) {
     if (removeWishlistEvent != null) {
@@ -4193,32 +2919,6 @@ class _$RemoveWishlistEvent implements RemoveWishlistEvent {
     required TResult Function(FetchOrdersbyFilterEvent value)
         fetchOrdersbyFilterEvent,
     required TResult Function(CancelOrder value) cancelOrder,
-    required TResult Function(FetchShopHomeBackgroundCard value)
-        fetchShopHomeBackgroundCard,
-    required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
-        fetchShopHomeBackgroundCardHelthyDiet,
-    required TResult Function(FetchShopHomeBackgroundCardSunnah value)
-        fetchShopHomeBackgroundCardSunnah,
-    required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
-    required TResult Function(FetchTopBrands value) fetchTopBrands,
-    required TResult Function(FetchProductItemsSubcategorySunnah value)
-        fetchProductItemsSubcategorySunnah,
-    required TResult Function(FetchProductItemsSubcategoryHealth value)
-        fetchProductItemsSubcategoryHealth,
-    required TResult Function(FetchProductItemsSubcategoryWomen value)
-        fetchProductItemsSubcategoryWomen,
-    required TResult Function(ChangeShopBannerIndex value)
-        changeShopBannerIndex,
-    required TResult Function(ChangeBrandBannerIndex value)
-        changeBrandBannerIndex,
-    required TResult Function(ShowOrderProgressEvent value)
-        showOrderProgressEvent,
-    required TResult Function(IndexChangeOnOrderProgress value)
-        indexChangeOnOrderProgress,
-    required TResult Function(IndexChangeOnWomensCareBanner value)
-        indexChangeOnWomensCareBanner,
-    required TResult Function(FetchShopAdBrandsById value)
-        fetchShopAdBrandsById,
   }) {
     return removeWishlistEvent(this);
   }
@@ -4245,28 +2945,6 @@ class _$RemoveWishlistEvent implements RemoveWishlistEvent {
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult? Function(CancelOrder value)? cancelOrder,
-    TResult? Function(FetchShopHomeBackgroundCard value)?
-        fetchShopHomeBackgroundCard,
-    TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHelthyDiet,
-    TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
-        fetchShopHomeBackgroundCardSunnah,
-    TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
-    TResult? Function(FetchTopBrands value)? fetchTopBrands,
-    TResult? Function(FetchProductItemsSubcategorySunnah value)?
-        fetchProductItemsSubcategorySunnah,
-    TResult? Function(FetchProductItemsSubcategoryHealth value)?
-        fetchProductItemsSubcategoryHealth,
-    TResult? Function(FetchProductItemsSubcategoryWomen value)?
-        fetchProductItemsSubcategoryWomen,
-    TResult? Function(ChangeShopBannerIndex value)? changeShopBannerIndex,
-    TResult? Function(ChangeBrandBannerIndex value)? changeBrandBannerIndex,
-    TResult? Function(ShowOrderProgressEvent value)? showOrderProgressEvent,
-    TResult? Function(IndexChangeOnOrderProgress value)?
-        indexChangeOnOrderProgress,
-    TResult? Function(IndexChangeOnWomensCareBanner value)?
-        indexChangeOnWomensCareBanner,
-    TResult? Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
   }) {
     return removeWishlistEvent?.call(this);
   }
@@ -4293,28 +2971,6 @@ class _$RemoveWishlistEvent implements RemoveWishlistEvent {
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult Function(CancelOrder value)? cancelOrder,
-    TResult Function(FetchShopHomeBackgroundCard value)?
-        fetchShopHomeBackgroundCard,
-    TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHelthyDiet,
-    TResult Function(FetchShopHomeBackgroundCardSunnah value)?
-        fetchShopHomeBackgroundCardSunnah,
-    TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
-    TResult Function(FetchTopBrands value)? fetchTopBrands,
-    TResult Function(FetchProductItemsSubcategorySunnah value)?
-        fetchProductItemsSubcategorySunnah,
-    TResult Function(FetchProductItemsSubcategoryHealth value)?
-        fetchProductItemsSubcategoryHealth,
-    TResult Function(FetchProductItemsSubcategoryWomen value)?
-        fetchProductItemsSubcategoryWomen,
-    TResult Function(ChangeShopBannerIndex value)? changeShopBannerIndex,
-    TResult Function(ChangeBrandBannerIndex value)? changeBrandBannerIndex,
-    TResult Function(ShowOrderProgressEvent value)? showOrderProgressEvent,
-    TResult Function(IndexChangeOnOrderProgress value)?
-        indexChangeOnOrderProgress,
-    TResult Function(IndexChangeOnWomensCareBanner value)?
-        indexChangeOnWomensCareBanner,
-    TResult Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
     required TResult orElse(),
   }) {
     if (removeWishlistEvent != null) {
@@ -4434,20 +3090,6 @@ class _$FetchShopByBrandProducts implements FetchShopByBrandProducts {
         fetchOrdersbyFilterEvent,
     required TResult Function(BuildContext context, int shiprockeId)
         cancelOrder,
-    required TResult Function() fetchShopHomeBackgroundCard,
-    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
-    required TResult Function() fetchShopHomeBackgroundCardSunnah,
-    required TResult Function() fetchShopAdBrands,
-    required TResult Function() fetchTopBrands,
-    required TResult Function() fetchProductItemsSubcategorySunnah,
-    required TResult Function() fetchProductItemsSubcategoryHealth,
-    required TResult Function() fetchProductItemsSubcategoryWomen,
-    required TResult Function(int index) changeShopBannerIndex,
-    required TResult Function(int index) changeBrandBannerIndex,
-    required TResult Function() showOrderProgressEvent,
-    required TResult Function(int index) indexChangeOnOrderProgress,
-    required TResult Function(int index) indexChangeOnWomensCareBanner,
-    required TResult Function(String id) fetchShopAdBrandsById,
   }) {
     return fetchShopByBrandProducts(brandName);
   }
@@ -4484,20 +3126,6 @@ class _$FetchShopByBrandProducts implements FetchShopByBrandProducts {
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
-    TResult? Function()? fetchShopHomeBackgroundCard,
-    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
-    TResult? Function()? fetchShopHomeBackgroundCardSunnah,
-    TResult? Function()? fetchShopAdBrands,
-    TResult? Function()? fetchTopBrands,
-    TResult? Function()? fetchProductItemsSubcategorySunnah,
-    TResult? Function()? fetchProductItemsSubcategoryHealth,
-    TResult? Function()? fetchProductItemsSubcategoryWomen,
-    TResult? Function(int index)? changeShopBannerIndex,
-    TResult? Function(int index)? changeBrandBannerIndex,
-    TResult? Function()? showOrderProgressEvent,
-    TResult? Function(int index)? indexChangeOnOrderProgress,
-    TResult? Function(int index)? indexChangeOnWomensCareBanner,
-    TResult? Function(String id)? fetchShopAdBrandsById,
   }) {
     return fetchShopByBrandProducts?.call(brandName);
   }
@@ -4534,20 +3162,6 @@ class _$FetchShopByBrandProducts implements FetchShopByBrandProducts {
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
-    TResult Function()? fetchShopHomeBackgroundCard,
-    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
-    TResult Function()? fetchShopHomeBackgroundCardSunnah,
-    TResult Function()? fetchShopAdBrands,
-    TResult Function()? fetchTopBrands,
-    TResult Function()? fetchProductItemsSubcategorySunnah,
-    TResult Function()? fetchProductItemsSubcategoryHealth,
-    TResult Function()? fetchProductItemsSubcategoryWomen,
-    TResult Function(int index)? changeShopBannerIndex,
-    TResult Function(int index)? changeBrandBannerIndex,
-    TResult Function()? showOrderProgressEvent,
-    TResult Function(int index)? indexChangeOnOrderProgress,
-    TResult Function(int index)? indexChangeOnWomensCareBanner,
-    TResult Function(String id)? fetchShopAdBrandsById,
     required TResult orElse(),
   }) {
     if (fetchShopByBrandProducts != null) {
@@ -4581,32 +3195,6 @@ class _$FetchShopByBrandProducts implements FetchShopByBrandProducts {
     required TResult Function(FetchOrdersbyFilterEvent value)
         fetchOrdersbyFilterEvent,
     required TResult Function(CancelOrder value) cancelOrder,
-    required TResult Function(FetchShopHomeBackgroundCard value)
-        fetchShopHomeBackgroundCard,
-    required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
-        fetchShopHomeBackgroundCardHelthyDiet,
-    required TResult Function(FetchShopHomeBackgroundCardSunnah value)
-        fetchShopHomeBackgroundCardSunnah,
-    required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
-    required TResult Function(FetchTopBrands value) fetchTopBrands,
-    required TResult Function(FetchProductItemsSubcategorySunnah value)
-        fetchProductItemsSubcategorySunnah,
-    required TResult Function(FetchProductItemsSubcategoryHealth value)
-        fetchProductItemsSubcategoryHealth,
-    required TResult Function(FetchProductItemsSubcategoryWomen value)
-        fetchProductItemsSubcategoryWomen,
-    required TResult Function(ChangeShopBannerIndex value)
-        changeShopBannerIndex,
-    required TResult Function(ChangeBrandBannerIndex value)
-        changeBrandBannerIndex,
-    required TResult Function(ShowOrderProgressEvent value)
-        showOrderProgressEvent,
-    required TResult Function(IndexChangeOnOrderProgress value)
-        indexChangeOnOrderProgress,
-    required TResult Function(IndexChangeOnWomensCareBanner value)
-        indexChangeOnWomensCareBanner,
-    required TResult Function(FetchShopAdBrandsById value)
-        fetchShopAdBrandsById,
   }) {
     return fetchShopByBrandProducts(this);
   }
@@ -4633,28 +3221,6 @@ class _$FetchShopByBrandProducts implements FetchShopByBrandProducts {
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult? Function(CancelOrder value)? cancelOrder,
-    TResult? Function(FetchShopHomeBackgroundCard value)?
-        fetchShopHomeBackgroundCard,
-    TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHelthyDiet,
-    TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
-        fetchShopHomeBackgroundCardSunnah,
-    TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
-    TResult? Function(FetchTopBrands value)? fetchTopBrands,
-    TResult? Function(FetchProductItemsSubcategorySunnah value)?
-        fetchProductItemsSubcategorySunnah,
-    TResult? Function(FetchProductItemsSubcategoryHealth value)?
-        fetchProductItemsSubcategoryHealth,
-    TResult? Function(FetchProductItemsSubcategoryWomen value)?
-        fetchProductItemsSubcategoryWomen,
-    TResult? Function(ChangeShopBannerIndex value)? changeShopBannerIndex,
-    TResult? Function(ChangeBrandBannerIndex value)? changeBrandBannerIndex,
-    TResult? Function(ShowOrderProgressEvent value)? showOrderProgressEvent,
-    TResult? Function(IndexChangeOnOrderProgress value)?
-        indexChangeOnOrderProgress,
-    TResult? Function(IndexChangeOnWomensCareBanner value)?
-        indexChangeOnWomensCareBanner,
-    TResult? Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
   }) {
     return fetchShopByBrandProducts?.call(this);
   }
@@ -4681,28 +3247,6 @@ class _$FetchShopByBrandProducts implements FetchShopByBrandProducts {
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult Function(CancelOrder value)? cancelOrder,
-    TResult Function(FetchShopHomeBackgroundCard value)?
-        fetchShopHomeBackgroundCard,
-    TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHelthyDiet,
-    TResult Function(FetchShopHomeBackgroundCardSunnah value)?
-        fetchShopHomeBackgroundCardSunnah,
-    TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
-    TResult Function(FetchTopBrands value)? fetchTopBrands,
-    TResult Function(FetchProductItemsSubcategorySunnah value)?
-        fetchProductItemsSubcategorySunnah,
-    TResult Function(FetchProductItemsSubcategoryHealth value)?
-        fetchProductItemsSubcategoryHealth,
-    TResult Function(FetchProductItemsSubcategoryWomen value)?
-        fetchProductItemsSubcategoryWomen,
-    TResult Function(ChangeShopBannerIndex value)? changeShopBannerIndex,
-    TResult Function(ChangeBrandBannerIndex value)? changeBrandBannerIndex,
-    TResult Function(ShowOrderProgressEvent value)? showOrderProgressEvent,
-    TResult Function(IndexChangeOnOrderProgress value)?
-        indexChangeOnOrderProgress,
-    TResult Function(IndexChangeOnWomensCareBanner value)?
-        indexChangeOnWomensCareBanner,
-    TResult Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
     required TResult orElse(),
   }) {
     if (fetchShopByBrandProducts != null) {
@@ -4818,20 +3362,6 @@ class _$TabIndexChangeEvent implements TabIndexChangeEvent {
         fetchOrdersbyFilterEvent,
     required TResult Function(BuildContext context, int shiprockeId)
         cancelOrder,
-    required TResult Function() fetchShopHomeBackgroundCard,
-    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
-    required TResult Function() fetchShopHomeBackgroundCardSunnah,
-    required TResult Function() fetchShopAdBrands,
-    required TResult Function() fetchTopBrands,
-    required TResult Function() fetchProductItemsSubcategorySunnah,
-    required TResult Function() fetchProductItemsSubcategoryHealth,
-    required TResult Function() fetchProductItemsSubcategoryWomen,
-    required TResult Function(int index) changeShopBannerIndex,
-    required TResult Function(int index) changeBrandBannerIndex,
-    required TResult Function() showOrderProgressEvent,
-    required TResult Function(int index) indexChangeOnOrderProgress,
-    required TResult Function(int index) indexChangeOnWomensCareBanner,
-    required TResult Function(String id) fetchShopAdBrandsById,
   }) {
     return tabIndexChangeEvent(index);
   }
@@ -4868,20 +3398,6 @@ class _$TabIndexChangeEvent implements TabIndexChangeEvent {
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
-    TResult? Function()? fetchShopHomeBackgroundCard,
-    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
-    TResult? Function()? fetchShopHomeBackgroundCardSunnah,
-    TResult? Function()? fetchShopAdBrands,
-    TResult? Function()? fetchTopBrands,
-    TResult? Function()? fetchProductItemsSubcategorySunnah,
-    TResult? Function()? fetchProductItemsSubcategoryHealth,
-    TResult? Function()? fetchProductItemsSubcategoryWomen,
-    TResult? Function(int index)? changeShopBannerIndex,
-    TResult? Function(int index)? changeBrandBannerIndex,
-    TResult? Function()? showOrderProgressEvent,
-    TResult? Function(int index)? indexChangeOnOrderProgress,
-    TResult? Function(int index)? indexChangeOnWomensCareBanner,
-    TResult? Function(String id)? fetchShopAdBrandsById,
   }) {
     return tabIndexChangeEvent?.call(index);
   }
@@ -4918,20 +3434,6 @@ class _$TabIndexChangeEvent implements TabIndexChangeEvent {
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
-    TResult Function()? fetchShopHomeBackgroundCard,
-    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
-    TResult Function()? fetchShopHomeBackgroundCardSunnah,
-    TResult Function()? fetchShopAdBrands,
-    TResult Function()? fetchTopBrands,
-    TResult Function()? fetchProductItemsSubcategorySunnah,
-    TResult Function()? fetchProductItemsSubcategoryHealth,
-    TResult Function()? fetchProductItemsSubcategoryWomen,
-    TResult Function(int index)? changeShopBannerIndex,
-    TResult Function(int index)? changeBrandBannerIndex,
-    TResult Function()? showOrderProgressEvent,
-    TResult Function(int index)? indexChangeOnOrderProgress,
-    TResult Function(int index)? indexChangeOnWomensCareBanner,
-    TResult Function(String id)? fetchShopAdBrandsById,
     required TResult orElse(),
   }) {
     if (tabIndexChangeEvent != null) {
@@ -4965,32 +3467,6 @@ class _$TabIndexChangeEvent implements TabIndexChangeEvent {
     required TResult Function(FetchOrdersbyFilterEvent value)
         fetchOrdersbyFilterEvent,
     required TResult Function(CancelOrder value) cancelOrder,
-    required TResult Function(FetchShopHomeBackgroundCard value)
-        fetchShopHomeBackgroundCard,
-    required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
-        fetchShopHomeBackgroundCardHelthyDiet,
-    required TResult Function(FetchShopHomeBackgroundCardSunnah value)
-        fetchShopHomeBackgroundCardSunnah,
-    required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
-    required TResult Function(FetchTopBrands value) fetchTopBrands,
-    required TResult Function(FetchProductItemsSubcategorySunnah value)
-        fetchProductItemsSubcategorySunnah,
-    required TResult Function(FetchProductItemsSubcategoryHealth value)
-        fetchProductItemsSubcategoryHealth,
-    required TResult Function(FetchProductItemsSubcategoryWomen value)
-        fetchProductItemsSubcategoryWomen,
-    required TResult Function(ChangeShopBannerIndex value)
-        changeShopBannerIndex,
-    required TResult Function(ChangeBrandBannerIndex value)
-        changeBrandBannerIndex,
-    required TResult Function(ShowOrderProgressEvent value)
-        showOrderProgressEvent,
-    required TResult Function(IndexChangeOnOrderProgress value)
-        indexChangeOnOrderProgress,
-    required TResult Function(IndexChangeOnWomensCareBanner value)
-        indexChangeOnWomensCareBanner,
-    required TResult Function(FetchShopAdBrandsById value)
-        fetchShopAdBrandsById,
   }) {
     return tabIndexChangeEvent(this);
   }
@@ -5017,28 +3493,6 @@ class _$TabIndexChangeEvent implements TabIndexChangeEvent {
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult? Function(CancelOrder value)? cancelOrder,
-    TResult? Function(FetchShopHomeBackgroundCard value)?
-        fetchShopHomeBackgroundCard,
-    TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHelthyDiet,
-    TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
-        fetchShopHomeBackgroundCardSunnah,
-    TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
-    TResult? Function(FetchTopBrands value)? fetchTopBrands,
-    TResult? Function(FetchProductItemsSubcategorySunnah value)?
-        fetchProductItemsSubcategorySunnah,
-    TResult? Function(FetchProductItemsSubcategoryHealth value)?
-        fetchProductItemsSubcategoryHealth,
-    TResult? Function(FetchProductItemsSubcategoryWomen value)?
-        fetchProductItemsSubcategoryWomen,
-    TResult? Function(ChangeShopBannerIndex value)? changeShopBannerIndex,
-    TResult? Function(ChangeBrandBannerIndex value)? changeBrandBannerIndex,
-    TResult? Function(ShowOrderProgressEvent value)? showOrderProgressEvent,
-    TResult? Function(IndexChangeOnOrderProgress value)?
-        indexChangeOnOrderProgress,
-    TResult? Function(IndexChangeOnWomensCareBanner value)?
-        indexChangeOnWomensCareBanner,
-    TResult? Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
   }) {
     return tabIndexChangeEvent?.call(this);
   }
@@ -5065,28 +3519,6 @@ class _$TabIndexChangeEvent implements TabIndexChangeEvent {
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult Function(CancelOrder value)? cancelOrder,
-    TResult Function(FetchShopHomeBackgroundCard value)?
-        fetchShopHomeBackgroundCard,
-    TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHelthyDiet,
-    TResult Function(FetchShopHomeBackgroundCardSunnah value)?
-        fetchShopHomeBackgroundCardSunnah,
-    TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
-    TResult Function(FetchTopBrands value)? fetchTopBrands,
-    TResult Function(FetchProductItemsSubcategorySunnah value)?
-        fetchProductItemsSubcategorySunnah,
-    TResult Function(FetchProductItemsSubcategoryHealth value)?
-        fetchProductItemsSubcategoryHealth,
-    TResult Function(FetchProductItemsSubcategoryWomen value)?
-        fetchProductItemsSubcategoryWomen,
-    TResult Function(ChangeShopBannerIndex value)? changeShopBannerIndex,
-    TResult Function(ChangeBrandBannerIndex value)? changeBrandBannerIndex,
-    TResult Function(ShowOrderProgressEvent value)? showOrderProgressEvent,
-    TResult Function(IndexChangeOnOrderProgress value)?
-        indexChangeOnOrderProgress,
-    TResult Function(IndexChangeOnWomensCareBanner value)?
-        indexChangeOnWomensCareBanner,
-    TResult Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
     required TResult orElse(),
   }) {
     if (tabIndexChangeEvent != null) {
@@ -5279,20 +3711,6 @@ class _$PostOrders implements PostOrders {
         fetchOrdersbyFilterEvent,
     required TResult Function(BuildContext context, int shiprockeId)
         cancelOrder,
-    required TResult Function() fetchShopHomeBackgroundCard,
-    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
-    required TResult Function() fetchShopHomeBackgroundCardSunnah,
-    required TResult Function() fetchShopAdBrands,
-    required TResult Function() fetchTopBrands,
-    required TResult Function() fetchProductItemsSubcategorySunnah,
-    required TResult Function() fetchProductItemsSubcategoryHealth,
-    required TResult Function() fetchProductItemsSubcategoryWomen,
-    required TResult Function(int index) changeShopBannerIndex,
-    required TResult Function(int index) changeBrandBannerIndex,
-    required TResult Function() showOrderProgressEvent,
-    required TResult Function(int index) indexChangeOnOrderProgress,
-    required TResult Function(int index) indexChangeOnWomensCareBanner,
-    required TResult Function(String id) fetchShopAdBrandsById,
   }) {
     return postOrders(context, totalPrice, pickupLocation, quantity,
         totalDiscount, shippingCharges, weight, id);
@@ -5330,20 +3748,6 @@ class _$PostOrders implements PostOrders {
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
-    TResult? Function()? fetchShopHomeBackgroundCard,
-    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
-    TResult? Function()? fetchShopHomeBackgroundCardSunnah,
-    TResult? Function()? fetchShopAdBrands,
-    TResult? Function()? fetchTopBrands,
-    TResult? Function()? fetchProductItemsSubcategorySunnah,
-    TResult? Function()? fetchProductItemsSubcategoryHealth,
-    TResult? Function()? fetchProductItemsSubcategoryWomen,
-    TResult? Function(int index)? changeShopBannerIndex,
-    TResult? Function(int index)? changeBrandBannerIndex,
-    TResult? Function()? showOrderProgressEvent,
-    TResult? Function(int index)? indexChangeOnOrderProgress,
-    TResult? Function(int index)? indexChangeOnWomensCareBanner,
-    TResult? Function(String id)? fetchShopAdBrandsById,
   }) {
     return postOrders?.call(context, totalPrice, pickupLocation, quantity,
         totalDiscount, shippingCharges, weight, id);
@@ -5381,20 +3785,6 @@ class _$PostOrders implements PostOrders {
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
-    TResult Function()? fetchShopHomeBackgroundCard,
-    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
-    TResult Function()? fetchShopHomeBackgroundCardSunnah,
-    TResult Function()? fetchShopAdBrands,
-    TResult Function()? fetchTopBrands,
-    TResult Function()? fetchProductItemsSubcategorySunnah,
-    TResult Function()? fetchProductItemsSubcategoryHealth,
-    TResult Function()? fetchProductItemsSubcategoryWomen,
-    TResult Function(int index)? changeShopBannerIndex,
-    TResult Function(int index)? changeBrandBannerIndex,
-    TResult Function()? showOrderProgressEvent,
-    TResult Function(int index)? indexChangeOnOrderProgress,
-    TResult Function(int index)? indexChangeOnWomensCareBanner,
-    TResult Function(String id)? fetchShopAdBrandsById,
     required TResult orElse(),
   }) {
     if (postOrders != null) {
@@ -5429,32 +3819,6 @@ class _$PostOrders implements PostOrders {
     required TResult Function(FetchOrdersbyFilterEvent value)
         fetchOrdersbyFilterEvent,
     required TResult Function(CancelOrder value) cancelOrder,
-    required TResult Function(FetchShopHomeBackgroundCard value)
-        fetchShopHomeBackgroundCard,
-    required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
-        fetchShopHomeBackgroundCardHelthyDiet,
-    required TResult Function(FetchShopHomeBackgroundCardSunnah value)
-        fetchShopHomeBackgroundCardSunnah,
-    required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
-    required TResult Function(FetchTopBrands value) fetchTopBrands,
-    required TResult Function(FetchProductItemsSubcategorySunnah value)
-        fetchProductItemsSubcategorySunnah,
-    required TResult Function(FetchProductItemsSubcategoryHealth value)
-        fetchProductItemsSubcategoryHealth,
-    required TResult Function(FetchProductItemsSubcategoryWomen value)
-        fetchProductItemsSubcategoryWomen,
-    required TResult Function(ChangeShopBannerIndex value)
-        changeShopBannerIndex,
-    required TResult Function(ChangeBrandBannerIndex value)
-        changeBrandBannerIndex,
-    required TResult Function(ShowOrderProgressEvent value)
-        showOrderProgressEvent,
-    required TResult Function(IndexChangeOnOrderProgress value)
-        indexChangeOnOrderProgress,
-    required TResult Function(IndexChangeOnWomensCareBanner value)
-        indexChangeOnWomensCareBanner,
-    required TResult Function(FetchShopAdBrandsById value)
-        fetchShopAdBrandsById,
   }) {
     return postOrders(this);
   }
@@ -5481,28 +3845,6 @@ class _$PostOrders implements PostOrders {
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult? Function(CancelOrder value)? cancelOrder,
-    TResult? Function(FetchShopHomeBackgroundCard value)?
-        fetchShopHomeBackgroundCard,
-    TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHelthyDiet,
-    TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
-        fetchShopHomeBackgroundCardSunnah,
-    TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
-    TResult? Function(FetchTopBrands value)? fetchTopBrands,
-    TResult? Function(FetchProductItemsSubcategorySunnah value)?
-        fetchProductItemsSubcategorySunnah,
-    TResult? Function(FetchProductItemsSubcategoryHealth value)?
-        fetchProductItemsSubcategoryHealth,
-    TResult? Function(FetchProductItemsSubcategoryWomen value)?
-        fetchProductItemsSubcategoryWomen,
-    TResult? Function(ChangeShopBannerIndex value)? changeShopBannerIndex,
-    TResult? Function(ChangeBrandBannerIndex value)? changeBrandBannerIndex,
-    TResult? Function(ShowOrderProgressEvent value)? showOrderProgressEvent,
-    TResult? Function(IndexChangeOnOrderProgress value)?
-        indexChangeOnOrderProgress,
-    TResult? Function(IndexChangeOnWomensCareBanner value)?
-        indexChangeOnWomensCareBanner,
-    TResult? Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
   }) {
     return postOrders?.call(this);
   }
@@ -5529,28 +3871,6 @@ class _$PostOrders implements PostOrders {
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult Function(CancelOrder value)? cancelOrder,
-    TResult Function(FetchShopHomeBackgroundCard value)?
-        fetchShopHomeBackgroundCard,
-    TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHelthyDiet,
-    TResult Function(FetchShopHomeBackgroundCardSunnah value)?
-        fetchShopHomeBackgroundCardSunnah,
-    TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
-    TResult Function(FetchTopBrands value)? fetchTopBrands,
-    TResult Function(FetchProductItemsSubcategorySunnah value)?
-        fetchProductItemsSubcategorySunnah,
-    TResult Function(FetchProductItemsSubcategoryHealth value)?
-        fetchProductItemsSubcategoryHealth,
-    TResult Function(FetchProductItemsSubcategoryWomen value)?
-        fetchProductItemsSubcategoryWomen,
-    TResult Function(ChangeShopBannerIndex value)? changeShopBannerIndex,
-    TResult Function(ChangeBrandBannerIndex value)? changeBrandBannerIndex,
-    TResult Function(ShowOrderProgressEvent value)? showOrderProgressEvent,
-    TResult Function(IndexChangeOnOrderProgress value)?
-        indexChangeOnOrderProgress,
-    TResult Function(IndexChangeOnWomensCareBanner value)?
-        indexChangeOnWomensCareBanner,
-    TResult Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
     required TResult orElse(),
   }) {
     if (postOrders != null) {
@@ -5679,20 +3999,6 @@ class _$FetchOrders implements FetchOrders {
         fetchOrdersbyFilterEvent,
     required TResult Function(BuildContext context, int shiprockeId)
         cancelOrder,
-    required TResult Function() fetchShopHomeBackgroundCard,
-    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
-    required TResult Function() fetchShopHomeBackgroundCardSunnah,
-    required TResult Function() fetchShopAdBrands,
-    required TResult Function() fetchTopBrands,
-    required TResult Function() fetchProductItemsSubcategorySunnah,
-    required TResult Function() fetchProductItemsSubcategoryHealth,
-    required TResult Function() fetchProductItemsSubcategoryWomen,
-    required TResult Function(int index) changeShopBannerIndex,
-    required TResult Function(int index) changeBrandBannerIndex,
-    required TResult Function() showOrderProgressEvent,
-    required TResult Function(int index) indexChangeOnOrderProgress,
-    required TResult Function(int index) indexChangeOnWomensCareBanner,
-    required TResult Function(String id) fetchShopAdBrandsById,
   }) {
     return fetchOrders(context);
   }
@@ -5729,20 +4035,6 @@ class _$FetchOrders implements FetchOrders {
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
-    TResult? Function()? fetchShopHomeBackgroundCard,
-    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
-    TResult? Function()? fetchShopHomeBackgroundCardSunnah,
-    TResult? Function()? fetchShopAdBrands,
-    TResult? Function()? fetchTopBrands,
-    TResult? Function()? fetchProductItemsSubcategorySunnah,
-    TResult? Function()? fetchProductItemsSubcategoryHealth,
-    TResult? Function()? fetchProductItemsSubcategoryWomen,
-    TResult? Function(int index)? changeShopBannerIndex,
-    TResult? Function(int index)? changeBrandBannerIndex,
-    TResult? Function()? showOrderProgressEvent,
-    TResult? Function(int index)? indexChangeOnOrderProgress,
-    TResult? Function(int index)? indexChangeOnWomensCareBanner,
-    TResult? Function(String id)? fetchShopAdBrandsById,
   }) {
     return fetchOrders?.call(context);
   }
@@ -5779,20 +4071,6 @@ class _$FetchOrders implements FetchOrders {
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
-    TResult Function()? fetchShopHomeBackgroundCard,
-    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
-    TResult Function()? fetchShopHomeBackgroundCardSunnah,
-    TResult Function()? fetchShopAdBrands,
-    TResult Function()? fetchTopBrands,
-    TResult Function()? fetchProductItemsSubcategorySunnah,
-    TResult Function()? fetchProductItemsSubcategoryHealth,
-    TResult Function()? fetchProductItemsSubcategoryWomen,
-    TResult Function(int index)? changeShopBannerIndex,
-    TResult Function(int index)? changeBrandBannerIndex,
-    TResult Function()? showOrderProgressEvent,
-    TResult Function(int index)? indexChangeOnOrderProgress,
-    TResult Function(int index)? indexChangeOnWomensCareBanner,
-    TResult Function(String id)? fetchShopAdBrandsById,
     required TResult orElse(),
   }) {
     if (fetchOrders != null) {
@@ -5826,32 +4104,6 @@ class _$FetchOrders implements FetchOrders {
     required TResult Function(FetchOrdersbyFilterEvent value)
         fetchOrdersbyFilterEvent,
     required TResult Function(CancelOrder value) cancelOrder,
-    required TResult Function(FetchShopHomeBackgroundCard value)
-        fetchShopHomeBackgroundCard,
-    required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
-        fetchShopHomeBackgroundCardHelthyDiet,
-    required TResult Function(FetchShopHomeBackgroundCardSunnah value)
-        fetchShopHomeBackgroundCardSunnah,
-    required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
-    required TResult Function(FetchTopBrands value) fetchTopBrands,
-    required TResult Function(FetchProductItemsSubcategorySunnah value)
-        fetchProductItemsSubcategorySunnah,
-    required TResult Function(FetchProductItemsSubcategoryHealth value)
-        fetchProductItemsSubcategoryHealth,
-    required TResult Function(FetchProductItemsSubcategoryWomen value)
-        fetchProductItemsSubcategoryWomen,
-    required TResult Function(ChangeShopBannerIndex value)
-        changeShopBannerIndex,
-    required TResult Function(ChangeBrandBannerIndex value)
-        changeBrandBannerIndex,
-    required TResult Function(ShowOrderProgressEvent value)
-        showOrderProgressEvent,
-    required TResult Function(IndexChangeOnOrderProgress value)
-        indexChangeOnOrderProgress,
-    required TResult Function(IndexChangeOnWomensCareBanner value)
-        indexChangeOnWomensCareBanner,
-    required TResult Function(FetchShopAdBrandsById value)
-        fetchShopAdBrandsById,
   }) {
     return fetchOrders(this);
   }
@@ -5878,28 +4130,6 @@ class _$FetchOrders implements FetchOrders {
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult? Function(CancelOrder value)? cancelOrder,
-    TResult? Function(FetchShopHomeBackgroundCard value)?
-        fetchShopHomeBackgroundCard,
-    TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHelthyDiet,
-    TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
-        fetchShopHomeBackgroundCardSunnah,
-    TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
-    TResult? Function(FetchTopBrands value)? fetchTopBrands,
-    TResult? Function(FetchProductItemsSubcategorySunnah value)?
-        fetchProductItemsSubcategorySunnah,
-    TResult? Function(FetchProductItemsSubcategoryHealth value)?
-        fetchProductItemsSubcategoryHealth,
-    TResult? Function(FetchProductItemsSubcategoryWomen value)?
-        fetchProductItemsSubcategoryWomen,
-    TResult? Function(ChangeShopBannerIndex value)? changeShopBannerIndex,
-    TResult? Function(ChangeBrandBannerIndex value)? changeBrandBannerIndex,
-    TResult? Function(ShowOrderProgressEvent value)? showOrderProgressEvent,
-    TResult? Function(IndexChangeOnOrderProgress value)?
-        indexChangeOnOrderProgress,
-    TResult? Function(IndexChangeOnWomensCareBanner value)?
-        indexChangeOnWomensCareBanner,
-    TResult? Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
   }) {
     return fetchOrders?.call(this);
   }
@@ -5926,28 +4156,6 @@ class _$FetchOrders implements FetchOrders {
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult Function(CancelOrder value)? cancelOrder,
-    TResult Function(FetchShopHomeBackgroundCard value)?
-        fetchShopHomeBackgroundCard,
-    TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHelthyDiet,
-    TResult Function(FetchShopHomeBackgroundCardSunnah value)?
-        fetchShopHomeBackgroundCardSunnah,
-    TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
-    TResult Function(FetchTopBrands value)? fetchTopBrands,
-    TResult Function(FetchProductItemsSubcategorySunnah value)?
-        fetchProductItemsSubcategorySunnah,
-    TResult Function(FetchProductItemsSubcategoryHealth value)?
-        fetchProductItemsSubcategoryHealth,
-    TResult Function(FetchProductItemsSubcategoryWomen value)?
-        fetchProductItemsSubcategoryWomen,
-    TResult Function(ChangeShopBannerIndex value)? changeShopBannerIndex,
-    TResult Function(ChangeBrandBannerIndex value)? changeBrandBannerIndex,
-    TResult Function(ShowOrderProgressEvent value)? showOrderProgressEvent,
-    TResult Function(IndexChangeOnOrderProgress value)?
-        indexChangeOnOrderProgress,
-    TResult Function(IndexChangeOnWomensCareBanner value)?
-        indexChangeOnWomensCareBanner,
-    TResult Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
     required TResult orElse(),
   }) {
     if (fetchOrders != null) {
@@ -6069,20 +4277,6 @@ class _$FetchOrdersById implements FetchOrdersById {
         fetchOrdersbyFilterEvent,
     required TResult Function(BuildContext context, int shiprockeId)
         cancelOrder,
-    required TResult Function() fetchShopHomeBackgroundCard,
-    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
-    required TResult Function() fetchShopHomeBackgroundCardSunnah,
-    required TResult Function() fetchShopAdBrands,
-    required TResult Function() fetchTopBrands,
-    required TResult Function() fetchProductItemsSubcategorySunnah,
-    required TResult Function() fetchProductItemsSubcategoryHealth,
-    required TResult Function() fetchProductItemsSubcategoryWomen,
-    required TResult Function(int index) changeShopBannerIndex,
-    required TResult Function(int index) changeBrandBannerIndex,
-    required TResult Function() showOrderProgressEvent,
-    required TResult Function(int index) indexChangeOnOrderProgress,
-    required TResult Function(int index) indexChangeOnWomensCareBanner,
-    required TResult Function(String id) fetchShopAdBrandsById,
   }) {
     return fetchOrdersById(context, id);
   }
@@ -6119,20 +4313,6 @@ class _$FetchOrdersById implements FetchOrdersById {
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
-    TResult? Function()? fetchShopHomeBackgroundCard,
-    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
-    TResult? Function()? fetchShopHomeBackgroundCardSunnah,
-    TResult? Function()? fetchShopAdBrands,
-    TResult? Function()? fetchTopBrands,
-    TResult? Function()? fetchProductItemsSubcategorySunnah,
-    TResult? Function()? fetchProductItemsSubcategoryHealth,
-    TResult? Function()? fetchProductItemsSubcategoryWomen,
-    TResult? Function(int index)? changeShopBannerIndex,
-    TResult? Function(int index)? changeBrandBannerIndex,
-    TResult? Function()? showOrderProgressEvent,
-    TResult? Function(int index)? indexChangeOnOrderProgress,
-    TResult? Function(int index)? indexChangeOnWomensCareBanner,
-    TResult? Function(String id)? fetchShopAdBrandsById,
   }) {
     return fetchOrdersById?.call(context, id);
   }
@@ -6169,20 +4349,6 @@ class _$FetchOrdersById implements FetchOrdersById {
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
-    TResult Function()? fetchShopHomeBackgroundCard,
-    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
-    TResult Function()? fetchShopHomeBackgroundCardSunnah,
-    TResult Function()? fetchShopAdBrands,
-    TResult Function()? fetchTopBrands,
-    TResult Function()? fetchProductItemsSubcategorySunnah,
-    TResult Function()? fetchProductItemsSubcategoryHealth,
-    TResult Function()? fetchProductItemsSubcategoryWomen,
-    TResult Function(int index)? changeShopBannerIndex,
-    TResult Function(int index)? changeBrandBannerIndex,
-    TResult Function()? showOrderProgressEvent,
-    TResult Function(int index)? indexChangeOnOrderProgress,
-    TResult Function(int index)? indexChangeOnWomensCareBanner,
-    TResult Function(String id)? fetchShopAdBrandsById,
     required TResult orElse(),
   }) {
     if (fetchOrdersById != null) {
@@ -6216,32 +4382,6 @@ class _$FetchOrdersById implements FetchOrdersById {
     required TResult Function(FetchOrdersbyFilterEvent value)
         fetchOrdersbyFilterEvent,
     required TResult Function(CancelOrder value) cancelOrder,
-    required TResult Function(FetchShopHomeBackgroundCard value)
-        fetchShopHomeBackgroundCard,
-    required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
-        fetchShopHomeBackgroundCardHelthyDiet,
-    required TResult Function(FetchShopHomeBackgroundCardSunnah value)
-        fetchShopHomeBackgroundCardSunnah,
-    required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
-    required TResult Function(FetchTopBrands value) fetchTopBrands,
-    required TResult Function(FetchProductItemsSubcategorySunnah value)
-        fetchProductItemsSubcategorySunnah,
-    required TResult Function(FetchProductItemsSubcategoryHealth value)
-        fetchProductItemsSubcategoryHealth,
-    required TResult Function(FetchProductItemsSubcategoryWomen value)
-        fetchProductItemsSubcategoryWomen,
-    required TResult Function(ChangeShopBannerIndex value)
-        changeShopBannerIndex,
-    required TResult Function(ChangeBrandBannerIndex value)
-        changeBrandBannerIndex,
-    required TResult Function(ShowOrderProgressEvent value)
-        showOrderProgressEvent,
-    required TResult Function(IndexChangeOnOrderProgress value)
-        indexChangeOnOrderProgress,
-    required TResult Function(IndexChangeOnWomensCareBanner value)
-        indexChangeOnWomensCareBanner,
-    required TResult Function(FetchShopAdBrandsById value)
-        fetchShopAdBrandsById,
   }) {
     return fetchOrdersById(this);
   }
@@ -6268,28 +4408,6 @@ class _$FetchOrdersById implements FetchOrdersById {
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult? Function(CancelOrder value)? cancelOrder,
-    TResult? Function(FetchShopHomeBackgroundCard value)?
-        fetchShopHomeBackgroundCard,
-    TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHelthyDiet,
-    TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
-        fetchShopHomeBackgroundCardSunnah,
-    TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
-    TResult? Function(FetchTopBrands value)? fetchTopBrands,
-    TResult? Function(FetchProductItemsSubcategorySunnah value)?
-        fetchProductItemsSubcategorySunnah,
-    TResult? Function(FetchProductItemsSubcategoryHealth value)?
-        fetchProductItemsSubcategoryHealth,
-    TResult? Function(FetchProductItemsSubcategoryWomen value)?
-        fetchProductItemsSubcategoryWomen,
-    TResult? Function(ChangeShopBannerIndex value)? changeShopBannerIndex,
-    TResult? Function(ChangeBrandBannerIndex value)? changeBrandBannerIndex,
-    TResult? Function(ShowOrderProgressEvent value)? showOrderProgressEvent,
-    TResult? Function(IndexChangeOnOrderProgress value)?
-        indexChangeOnOrderProgress,
-    TResult? Function(IndexChangeOnWomensCareBanner value)?
-        indexChangeOnWomensCareBanner,
-    TResult? Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
   }) {
     return fetchOrdersById?.call(this);
   }
@@ -6316,28 +4434,6 @@ class _$FetchOrdersById implements FetchOrdersById {
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult Function(CancelOrder value)? cancelOrder,
-    TResult Function(FetchShopHomeBackgroundCard value)?
-        fetchShopHomeBackgroundCard,
-    TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHelthyDiet,
-    TResult Function(FetchShopHomeBackgroundCardSunnah value)?
-        fetchShopHomeBackgroundCardSunnah,
-    TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
-    TResult Function(FetchTopBrands value)? fetchTopBrands,
-    TResult Function(FetchProductItemsSubcategorySunnah value)?
-        fetchProductItemsSubcategorySunnah,
-    TResult Function(FetchProductItemsSubcategoryHealth value)?
-        fetchProductItemsSubcategoryHealth,
-    TResult Function(FetchProductItemsSubcategoryWomen value)?
-        fetchProductItemsSubcategoryWomen,
-    TResult Function(ChangeShopBannerIndex value)? changeShopBannerIndex,
-    TResult Function(ChangeBrandBannerIndex value)? changeBrandBannerIndex,
-    TResult Function(ShowOrderProgressEvent value)? showOrderProgressEvent,
-    TResult Function(IndexChangeOnOrderProgress value)?
-        indexChangeOnOrderProgress,
-    TResult Function(IndexChangeOnWomensCareBanner value)?
-        indexChangeOnWomensCareBanner,
-    TResult Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
     required TResult orElse(),
   }) {
     if (fetchOrdersById != null) {
@@ -6465,20 +4561,6 @@ class _$FetchOrdersbyFilterEvent implements FetchOrdersbyFilterEvent {
         fetchOrdersbyFilterEvent,
     required TResult Function(BuildContext context, int shiprockeId)
         cancelOrder,
-    required TResult Function() fetchShopHomeBackgroundCard,
-    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
-    required TResult Function() fetchShopHomeBackgroundCardSunnah,
-    required TResult Function() fetchShopAdBrands,
-    required TResult Function() fetchTopBrands,
-    required TResult Function() fetchProductItemsSubcategorySunnah,
-    required TResult Function() fetchProductItemsSubcategoryHealth,
-    required TResult Function() fetchProductItemsSubcategoryWomen,
-    required TResult Function(int index) changeShopBannerIndex,
-    required TResult Function(int index) changeBrandBannerIndex,
-    required TResult Function() showOrderProgressEvent,
-    required TResult Function(int index) indexChangeOnOrderProgress,
-    required TResult Function(int index) indexChangeOnWomensCareBanner,
-    required TResult Function(String id) fetchShopAdBrandsById,
   }) {
     return fetchOrdersbyFilterEvent(context, filterName);
   }
@@ -6515,20 +4597,6 @@ class _$FetchOrdersbyFilterEvent implements FetchOrdersbyFilterEvent {
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
-    TResult? Function()? fetchShopHomeBackgroundCard,
-    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
-    TResult? Function()? fetchShopHomeBackgroundCardSunnah,
-    TResult? Function()? fetchShopAdBrands,
-    TResult? Function()? fetchTopBrands,
-    TResult? Function()? fetchProductItemsSubcategorySunnah,
-    TResult? Function()? fetchProductItemsSubcategoryHealth,
-    TResult? Function()? fetchProductItemsSubcategoryWomen,
-    TResult? Function(int index)? changeShopBannerIndex,
-    TResult? Function(int index)? changeBrandBannerIndex,
-    TResult? Function()? showOrderProgressEvent,
-    TResult? Function(int index)? indexChangeOnOrderProgress,
-    TResult? Function(int index)? indexChangeOnWomensCareBanner,
-    TResult? Function(String id)? fetchShopAdBrandsById,
   }) {
     return fetchOrdersbyFilterEvent?.call(context, filterName);
   }
@@ -6565,20 +4633,6 @@ class _$FetchOrdersbyFilterEvent implements FetchOrdersbyFilterEvent {
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
-    TResult Function()? fetchShopHomeBackgroundCard,
-    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
-    TResult Function()? fetchShopHomeBackgroundCardSunnah,
-    TResult Function()? fetchShopAdBrands,
-    TResult Function()? fetchTopBrands,
-    TResult Function()? fetchProductItemsSubcategorySunnah,
-    TResult Function()? fetchProductItemsSubcategoryHealth,
-    TResult Function()? fetchProductItemsSubcategoryWomen,
-    TResult Function(int index)? changeShopBannerIndex,
-    TResult Function(int index)? changeBrandBannerIndex,
-    TResult Function()? showOrderProgressEvent,
-    TResult Function(int index)? indexChangeOnOrderProgress,
-    TResult Function(int index)? indexChangeOnWomensCareBanner,
-    TResult Function(String id)? fetchShopAdBrandsById,
     required TResult orElse(),
   }) {
     if (fetchOrdersbyFilterEvent != null) {
@@ -6612,32 +4666,6 @@ class _$FetchOrdersbyFilterEvent implements FetchOrdersbyFilterEvent {
     required TResult Function(FetchOrdersbyFilterEvent value)
         fetchOrdersbyFilterEvent,
     required TResult Function(CancelOrder value) cancelOrder,
-    required TResult Function(FetchShopHomeBackgroundCard value)
-        fetchShopHomeBackgroundCard,
-    required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
-        fetchShopHomeBackgroundCardHelthyDiet,
-    required TResult Function(FetchShopHomeBackgroundCardSunnah value)
-        fetchShopHomeBackgroundCardSunnah,
-    required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
-    required TResult Function(FetchTopBrands value) fetchTopBrands,
-    required TResult Function(FetchProductItemsSubcategorySunnah value)
-        fetchProductItemsSubcategorySunnah,
-    required TResult Function(FetchProductItemsSubcategoryHealth value)
-        fetchProductItemsSubcategoryHealth,
-    required TResult Function(FetchProductItemsSubcategoryWomen value)
-        fetchProductItemsSubcategoryWomen,
-    required TResult Function(ChangeShopBannerIndex value)
-        changeShopBannerIndex,
-    required TResult Function(ChangeBrandBannerIndex value)
-        changeBrandBannerIndex,
-    required TResult Function(ShowOrderProgressEvent value)
-        showOrderProgressEvent,
-    required TResult Function(IndexChangeOnOrderProgress value)
-        indexChangeOnOrderProgress,
-    required TResult Function(IndexChangeOnWomensCareBanner value)
-        indexChangeOnWomensCareBanner,
-    required TResult Function(FetchShopAdBrandsById value)
-        fetchShopAdBrandsById,
   }) {
     return fetchOrdersbyFilterEvent(this);
   }
@@ -6664,28 +4692,6 @@ class _$FetchOrdersbyFilterEvent implements FetchOrdersbyFilterEvent {
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult? Function(CancelOrder value)? cancelOrder,
-    TResult? Function(FetchShopHomeBackgroundCard value)?
-        fetchShopHomeBackgroundCard,
-    TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHelthyDiet,
-    TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
-        fetchShopHomeBackgroundCardSunnah,
-    TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
-    TResult? Function(FetchTopBrands value)? fetchTopBrands,
-    TResult? Function(FetchProductItemsSubcategorySunnah value)?
-        fetchProductItemsSubcategorySunnah,
-    TResult? Function(FetchProductItemsSubcategoryHealth value)?
-        fetchProductItemsSubcategoryHealth,
-    TResult? Function(FetchProductItemsSubcategoryWomen value)?
-        fetchProductItemsSubcategoryWomen,
-    TResult? Function(ChangeShopBannerIndex value)? changeShopBannerIndex,
-    TResult? Function(ChangeBrandBannerIndex value)? changeBrandBannerIndex,
-    TResult? Function(ShowOrderProgressEvent value)? showOrderProgressEvent,
-    TResult? Function(IndexChangeOnOrderProgress value)?
-        indexChangeOnOrderProgress,
-    TResult? Function(IndexChangeOnWomensCareBanner value)?
-        indexChangeOnWomensCareBanner,
-    TResult? Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
   }) {
     return fetchOrdersbyFilterEvent?.call(this);
   }
@@ -6712,28 +4718,6 @@ class _$FetchOrdersbyFilterEvent implements FetchOrdersbyFilterEvent {
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult Function(CancelOrder value)? cancelOrder,
-    TResult Function(FetchShopHomeBackgroundCard value)?
-        fetchShopHomeBackgroundCard,
-    TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHelthyDiet,
-    TResult Function(FetchShopHomeBackgroundCardSunnah value)?
-        fetchShopHomeBackgroundCardSunnah,
-    TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
-    TResult Function(FetchTopBrands value)? fetchTopBrands,
-    TResult Function(FetchProductItemsSubcategorySunnah value)?
-        fetchProductItemsSubcategorySunnah,
-    TResult Function(FetchProductItemsSubcategoryHealth value)?
-        fetchProductItemsSubcategoryHealth,
-    TResult Function(FetchProductItemsSubcategoryWomen value)?
-        fetchProductItemsSubcategoryWomen,
-    TResult Function(ChangeShopBannerIndex value)? changeShopBannerIndex,
-    TResult Function(ChangeBrandBannerIndex value)? changeBrandBannerIndex,
-    TResult Function(ShowOrderProgressEvent value)? showOrderProgressEvent,
-    TResult Function(IndexChangeOnOrderProgress value)?
-        indexChangeOnOrderProgress,
-    TResult Function(IndexChangeOnWomensCareBanner value)?
-        indexChangeOnWomensCareBanner,
-    TResult Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
     required TResult orElse(),
   }) {
     if (fetchOrdersbyFilterEvent != null) {
@@ -6859,20 +4843,6 @@ class _$CancelOrder implements CancelOrder {
         fetchOrdersbyFilterEvent,
     required TResult Function(BuildContext context, int shiprockeId)
         cancelOrder,
-    required TResult Function() fetchShopHomeBackgroundCard,
-    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
-    required TResult Function() fetchShopHomeBackgroundCardSunnah,
-    required TResult Function() fetchShopAdBrands,
-    required TResult Function() fetchTopBrands,
-    required TResult Function() fetchProductItemsSubcategorySunnah,
-    required TResult Function() fetchProductItemsSubcategoryHealth,
-    required TResult Function() fetchProductItemsSubcategoryWomen,
-    required TResult Function(int index) changeShopBannerIndex,
-    required TResult Function(int index) changeBrandBannerIndex,
-    required TResult Function() showOrderProgressEvent,
-    required TResult Function(int index) indexChangeOnOrderProgress,
-    required TResult Function(int index) indexChangeOnWomensCareBanner,
-    required TResult Function(String id) fetchShopAdBrandsById,
   }) {
     return cancelOrder(context, shiprockeId);
   }
@@ -6909,20 +4879,6 @@ class _$CancelOrder implements CancelOrder {
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
-    TResult? Function()? fetchShopHomeBackgroundCard,
-    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
-    TResult? Function()? fetchShopHomeBackgroundCardSunnah,
-    TResult? Function()? fetchShopAdBrands,
-    TResult? Function()? fetchTopBrands,
-    TResult? Function()? fetchProductItemsSubcategorySunnah,
-    TResult? Function()? fetchProductItemsSubcategoryHealth,
-    TResult? Function()? fetchProductItemsSubcategoryWomen,
-    TResult? Function(int index)? changeShopBannerIndex,
-    TResult? Function(int index)? changeBrandBannerIndex,
-    TResult? Function()? showOrderProgressEvent,
-    TResult? Function(int index)? indexChangeOnOrderProgress,
-    TResult? Function(int index)? indexChangeOnWomensCareBanner,
-    TResult? Function(String id)? fetchShopAdBrandsById,
   }) {
     return cancelOrder?.call(context, shiprockeId);
   }
@@ -6959,20 +4915,6 @@ class _$CancelOrder implements CancelOrder {
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
-    TResult Function()? fetchShopHomeBackgroundCard,
-    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
-    TResult Function()? fetchShopHomeBackgroundCardSunnah,
-    TResult Function()? fetchShopAdBrands,
-    TResult Function()? fetchTopBrands,
-    TResult Function()? fetchProductItemsSubcategorySunnah,
-    TResult Function()? fetchProductItemsSubcategoryHealth,
-    TResult Function()? fetchProductItemsSubcategoryWomen,
-    TResult Function(int index)? changeShopBannerIndex,
-    TResult Function(int index)? changeBrandBannerIndex,
-    TResult Function()? showOrderProgressEvent,
-    TResult Function(int index)? indexChangeOnOrderProgress,
-    TResult Function(int index)? indexChangeOnWomensCareBanner,
-    TResult Function(String id)? fetchShopAdBrandsById,
     required TResult orElse(),
   }) {
     if (cancelOrder != null) {
@@ -7006,32 +4948,6 @@ class _$CancelOrder implements CancelOrder {
     required TResult Function(FetchOrdersbyFilterEvent value)
         fetchOrdersbyFilterEvent,
     required TResult Function(CancelOrder value) cancelOrder,
-    required TResult Function(FetchShopHomeBackgroundCard value)
-        fetchShopHomeBackgroundCard,
-    required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
-        fetchShopHomeBackgroundCardHelthyDiet,
-    required TResult Function(FetchShopHomeBackgroundCardSunnah value)
-        fetchShopHomeBackgroundCardSunnah,
-    required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
-    required TResult Function(FetchTopBrands value) fetchTopBrands,
-    required TResult Function(FetchProductItemsSubcategorySunnah value)
-        fetchProductItemsSubcategorySunnah,
-    required TResult Function(FetchProductItemsSubcategoryHealth value)
-        fetchProductItemsSubcategoryHealth,
-    required TResult Function(FetchProductItemsSubcategoryWomen value)
-        fetchProductItemsSubcategoryWomen,
-    required TResult Function(ChangeShopBannerIndex value)
-        changeShopBannerIndex,
-    required TResult Function(ChangeBrandBannerIndex value)
-        changeBrandBannerIndex,
-    required TResult Function(ShowOrderProgressEvent value)
-        showOrderProgressEvent,
-    required TResult Function(IndexChangeOnOrderProgress value)
-        indexChangeOnOrderProgress,
-    required TResult Function(IndexChangeOnWomensCareBanner value)
-        indexChangeOnWomensCareBanner,
-    required TResult Function(FetchShopAdBrandsById value)
-        fetchShopAdBrandsById,
   }) {
     return cancelOrder(this);
   }
@@ -7058,28 +4974,6 @@ class _$CancelOrder implements CancelOrder {
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult? Function(CancelOrder value)? cancelOrder,
-    TResult? Function(FetchShopHomeBackgroundCard value)?
-        fetchShopHomeBackgroundCard,
-    TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHelthyDiet,
-    TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
-        fetchShopHomeBackgroundCardSunnah,
-    TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
-    TResult? Function(FetchTopBrands value)? fetchTopBrands,
-    TResult? Function(FetchProductItemsSubcategorySunnah value)?
-        fetchProductItemsSubcategorySunnah,
-    TResult? Function(FetchProductItemsSubcategoryHealth value)?
-        fetchProductItemsSubcategoryHealth,
-    TResult? Function(FetchProductItemsSubcategoryWomen value)?
-        fetchProductItemsSubcategoryWomen,
-    TResult? Function(ChangeShopBannerIndex value)? changeShopBannerIndex,
-    TResult? Function(ChangeBrandBannerIndex value)? changeBrandBannerIndex,
-    TResult? Function(ShowOrderProgressEvent value)? showOrderProgressEvent,
-    TResult? Function(IndexChangeOnOrderProgress value)?
-        indexChangeOnOrderProgress,
-    TResult? Function(IndexChangeOnWomensCareBanner value)?
-        indexChangeOnWomensCareBanner,
-    TResult? Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
   }) {
     return cancelOrder?.call(this);
   }
@@ -7106,28 +5000,6 @@ class _$CancelOrder implements CancelOrder {
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult Function(CancelOrder value)? cancelOrder,
-    TResult Function(FetchShopHomeBackgroundCard value)?
-        fetchShopHomeBackgroundCard,
-    TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHelthyDiet,
-    TResult Function(FetchShopHomeBackgroundCardSunnah value)?
-        fetchShopHomeBackgroundCardSunnah,
-    TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
-    TResult Function(FetchTopBrands value)? fetchTopBrands,
-    TResult Function(FetchProductItemsSubcategorySunnah value)?
-        fetchProductItemsSubcategorySunnah,
-    TResult Function(FetchProductItemsSubcategoryHealth value)?
-        fetchProductItemsSubcategoryHealth,
-    TResult Function(FetchProductItemsSubcategoryWomen value)?
-        fetchProductItemsSubcategoryWomen,
-    TResult Function(ChangeShopBannerIndex value)? changeShopBannerIndex,
-    TResult Function(ChangeBrandBannerIndex value)? changeBrandBannerIndex,
-    TResult Function(ShowOrderProgressEvent value)? showOrderProgressEvent,
-    TResult Function(IndexChangeOnOrderProgress value)?
-        indexChangeOnOrderProgress,
-    TResult Function(IndexChangeOnWomensCareBanner value)?
-        indexChangeOnWomensCareBanner,
-    TResult Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
     required TResult orElse(),
   }) {
     if (cancelOrder != null) {
@@ -7146,5124 +5018,6 @@ abstract class CancelOrder implements ShopProductsEvent {
   int get shiprockeId;
   @JsonKey(ignore: true)
   _$$CancelOrderCopyWith<_$CancelOrder> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$FetchShopHomeBackgroundCardCopyWith<$Res> {
-  factory _$$FetchShopHomeBackgroundCardCopyWith(
-          _$FetchShopHomeBackgroundCard value,
-          $Res Function(_$FetchShopHomeBackgroundCard) then) =
-      __$$FetchShopHomeBackgroundCardCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$FetchShopHomeBackgroundCardCopyWithImpl<$Res>
-    extends _$ShopProductsEventCopyWithImpl<$Res, _$FetchShopHomeBackgroundCard>
-    implements _$$FetchShopHomeBackgroundCardCopyWith<$Res> {
-  __$$FetchShopHomeBackgroundCardCopyWithImpl(
-      _$FetchShopHomeBackgroundCard _value,
-      $Res Function(_$FetchShopHomeBackgroundCard) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$FetchShopHomeBackgroundCard implements FetchShopHomeBackgroundCard {
-  const _$FetchShopHomeBackgroundCard();
-
-  @override
-  String toString() {
-    return 'ShopProductsEvent.fetchShopHomeBackgroundCard()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$FetchShopHomeBackgroundCard);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() fetchFlashSaleProducts,
-    required TResult Function() fetchPopularProducts,
-    required TResult Function() fetchRecentProductProducts,
-    required TResult Function() fetchHomeBanners,
-    required TResult Function() fetchShopBanners,
-    required TResult Function() fetchArticles,
-    required TResult Function() fetchShopByBrand,
-    required TResult Function(BuildContext context) fetchWishList,
-    required TResult Function(String query) searchProduct,
-    required TResult Function(String productId, BuildContext context)
-        addWishListEvent,
-    required TResult Function(String productId, BuildContext context)
-        removeWishlistEvent,
-    required TResult Function(String brandName) fetchShopByBrandProducts,
-    required TResult Function(int index) tabIndexChangeEvent,
-    required TResult Function(
-            BuildContext context,
-            int totalPrice,
-            String pickupLocation,
-            int quantity,
-            int totalDiscount,
-            int shippingCharges,
-            int weight,
-            String id)
-        postOrders,
-    required TResult Function(BuildContext context) fetchOrders,
-    required TResult Function(BuildContext context, int id) fetchOrdersById,
-    required TResult Function(BuildContext context, String filterName)
-        fetchOrdersbyFilterEvent,
-    required TResult Function(BuildContext context, int shiprockeId)
-        cancelOrder,
-    required TResult Function() fetchShopHomeBackgroundCard,
-    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
-    required TResult Function() fetchShopHomeBackgroundCardSunnah,
-    required TResult Function() fetchShopAdBrands,
-    required TResult Function() fetchTopBrands,
-    required TResult Function() fetchProductItemsSubcategorySunnah,
-    required TResult Function() fetchProductItemsSubcategoryHealth,
-    required TResult Function() fetchProductItemsSubcategoryWomen,
-    required TResult Function(int index) changeShopBannerIndex,
-    required TResult Function(int index) changeBrandBannerIndex,
-    required TResult Function() showOrderProgressEvent,
-    required TResult Function(int index) indexChangeOnOrderProgress,
-    required TResult Function(int index) indexChangeOnWomensCareBanner,
-    required TResult Function(String id) fetchShopAdBrandsById,
-  }) {
-    return fetchShopHomeBackgroundCard();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? fetchFlashSaleProducts,
-    TResult? Function()? fetchPopularProducts,
-    TResult? Function()? fetchRecentProductProducts,
-    TResult? Function()? fetchHomeBanners,
-    TResult? Function()? fetchShopBanners,
-    TResult? Function()? fetchArticles,
-    TResult? Function()? fetchShopByBrand,
-    TResult? Function(BuildContext context)? fetchWishList,
-    TResult? Function(String query)? searchProduct,
-    TResult? Function(String productId, BuildContext context)? addWishListEvent,
-    TResult? Function(String productId, BuildContext context)?
-        removeWishlistEvent,
-    TResult? Function(String brandName)? fetchShopByBrandProducts,
-    TResult? Function(int index)? tabIndexChangeEvent,
-    TResult? Function(
-            BuildContext context,
-            int totalPrice,
-            String pickupLocation,
-            int quantity,
-            int totalDiscount,
-            int shippingCharges,
-            int weight,
-            String id)?
-        postOrders,
-    TResult? Function(BuildContext context)? fetchOrders,
-    TResult? Function(BuildContext context, int id)? fetchOrdersById,
-    TResult? Function(BuildContext context, String filterName)?
-        fetchOrdersbyFilterEvent,
-    TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
-    TResult? Function()? fetchShopHomeBackgroundCard,
-    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
-    TResult? Function()? fetchShopHomeBackgroundCardSunnah,
-    TResult? Function()? fetchShopAdBrands,
-    TResult? Function()? fetchTopBrands,
-    TResult? Function()? fetchProductItemsSubcategorySunnah,
-    TResult? Function()? fetchProductItemsSubcategoryHealth,
-    TResult? Function()? fetchProductItemsSubcategoryWomen,
-    TResult? Function(int index)? changeShopBannerIndex,
-    TResult? Function(int index)? changeBrandBannerIndex,
-    TResult? Function()? showOrderProgressEvent,
-    TResult? Function(int index)? indexChangeOnOrderProgress,
-    TResult? Function(int index)? indexChangeOnWomensCareBanner,
-    TResult? Function(String id)? fetchShopAdBrandsById,
-  }) {
-    return fetchShopHomeBackgroundCard?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? fetchFlashSaleProducts,
-    TResult Function()? fetchPopularProducts,
-    TResult Function()? fetchRecentProductProducts,
-    TResult Function()? fetchHomeBanners,
-    TResult Function()? fetchShopBanners,
-    TResult Function()? fetchArticles,
-    TResult Function()? fetchShopByBrand,
-    TResult Function(BuildContext context)? fetchWishList,
-    TResult Function(String query)? searchProduct,
-    TResult Function(String productId, BuildContext context)? addWishListEvent,
-    TResult Function(String productId, BuildContext context)?
-        removeWishlistEvent,
-    TResult Function(String brandName)? fetchShopByBrandProducts,
-    TResult Function(int index)? tabIndexChangeEvent,
-    TResult Function(
-            BuildContext context,
-            int totalPrice,
-            String pickupLocation,
-            int quantity,
-            int totalDiscount,
-            int shippingCharges,
-            int weight,
-            String id)?
-        postOrders,
-    TResult Function(BuildContext context)? fetchOrders,
-    TResult Function(BuildContext context, int id)? fetchOrdersById,
-    TResult Function(BuildContext context, String filterName)?
-        fetchOrdersbyFilterEvent,
-    TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
-    TResult Function()? fetchShopHomeBackgroundCard,
-    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
-    TResult Function()? fetchShopHomeBackgroundCardSunnah,
-    TResult Function()? fetchShopAdBrands,
-    TResult Function()? fetchTopBrands,
-    TResult Function()? fetchProductItemsSubcategorySunnah,
-    TResult Function()? fetchProductItemsSubcategoryHealth,
-    TResult Function()? fetchProductItemsSubcategoryWomen,
-    TResult Function(int index)? changeShopBannerIndex,
-    TResult Function(int index)? changeBrandBannerIndex,
-    TResult Function()? showOrderProgressEvent,
-    TResult Function(int index)? indexChangeOnOrderProgress,
-    TResult Function(int index)? indexChangeOnWomensCareBanner,
-    TResult Function(String id)? fetchShopAdBrandsById,
-    required TResult orElse(),
-  }) {
-    if (fetchShopHomeBackgroundCard != null) {
-      return fetchShopHomeBackgroundCard();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(FetchFlashSaleProducts value)
-        fetchFlashSaleProducts,
-    required TResult Function(FetchPopularProducts value) fetchPopularProducts,
-    required TResult Function(FetchRecentProductProducts value)
-        fetchRecentProductProducts,
-    required TResult Function(FetchHomeBanners value) fetchHomeBanners,
-    required TResult Function(FetchShopBanners value) fetchShopBanners,
-    required TResult Function(FetchArticles value) fetchArticles,
-    required TResult Function(FetchShopByBrand value) fetchShopByBrand,
-    required TResult Function(FetchWishList value) fetchWishList,
-    required TResult Function(SearchProduct value) searchProduct,
-    required TResult Function(AddWishListEvent value) addWishListEvent,
-    required TResult Function(RemoveWishlistEvent value) removeWishlistEvent,
-    required TResult Function(FetchShopByBrandProducts value)
-        fetchShopByBrandProducts,
-    required TResult Function(TabIndexChangeEvent value) tabIndexChangeEvent,
-    required TResult Function(PostOrders value) postOrders,
-    required TResult Function(FetchOrders value) fetchOrders,
-    required TResult Function(FetchOrdersById value) fetchOrdersById,
-    required TResult Function(FetchOrdersbyFilterEvent value)
-        fetchOrdersbyFilterEvent,
-    required TResult Function(CancelOrder value) cancelOrder,
-    required TResult Function(FetchShopHomeBackgroundCard value)
-        fetchShopHomeBackgroundCard,
-    required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
-        fetchShopHomeBackgroundCardHelthyDiet,
-    required TResult Function(FetchShopHomeBackgroundCardSunnah value)
-        fetchShopHomeBackgroundCardSunnah,
-    required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
-    required TResult Function(FetchTopBrands value) fetchTopBrands,
-    required TResult Function(FetchProductItemsSubcategorySunnah value)
-        fetchProductItemsSubcategorySunnah,
-    required TResult Function(FetchProductItemsSubcategoryHealth value)
-        fetchProductItemsSubcategoryHealth,
-    required TResult Function(FetchProductItemsSubcategoryWomen value)
-        fetchProductItemsSubcategoryWomen,
-    required TResult Function(ChangeShopBannerIndex value)
-        changeShopBannerIndex,
-    required TResult Function(ChangeBrandBannerIndex value)
-        changeBrandBannerIndex,
-    required TResult Function(ShowOrderProgressEvent value)
-        showOrderProgressEvent,
-    required TResult Function(IndexChangeOnOrderProgress value)
-        indexChangeOnOrderProgress,
-    required TResult Function(IndexChangeOnWomensCareBanner value)
-        indexChangeOnWomensCareBanner,
-    required TResult Function(FetchShopAdBrandsById value)
-        fetchShopAdBrandsById,
-  }) {
-    return fetchShopHomeBackgroundCard(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(FetchFlashSaleProducts value)? fetchFlashSaleProducts,
-    TResult? Function(FetchPopularProducts value)? fetchPopularProducts,
-    TResult? Function(FetchRecentProductProducts value)?
-        fetchRecentProductProducts,
-    TResult? Function(FetchHomeBanners value)? fetchHomeBanners,
-    TResult? Function(FetchShopBanners value)? fetchShopBanners,
-    TResult? Function(FetchArticles value)? fetchArticles,
-    TResult? Function(FetchShopByBrand value)? fetchShopByBrand,
-    TResult? Function(FetchWishList value)? fetchWishList,
-    TResult? Function(SearchProduct value)? searchProduct,
-    TResult? Function(AddWishListEvent value)? addWishListEvent,
-    TResult? Function(RemoveWishlistEvent value)? removeWishlistEvent,
-    TResult? Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
-    TResult? Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
-    TResult? Function(PostOrders value)? postOrders,
-    TResult? Function(FetchOrders value)? fetchOrders,
-    TResult? Function(FetchOrdersById value)? fetchOrdersById,
-    TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
-    TResult? Function(CancelOrder value)? cancelOrder,
-    TResult? Function(FetchShopHomeBackgroundCard value)?
-        fetchShopHomeBackgroundCard,
-    TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHelthyDiet,
-    TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
-        fetchShopHomeBackgroundCardSunnah,
-    TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
-    TResult? Function(FetchTopBrands value)? fetchTopBrands,
-    TResult? Function(FetchProductItemsSubcategorySunnah value)?
-        fetchProductItemsSubcategorySunnah,
-    TResult? Function(FetchProductItemsSubcategoryHealth value)?
-        fetchProductItemsSubcategoryHealth,
-    TResult? Function(FetchProductItemsSubcategoryWomen value)?
-        fetchProductItemsSubcategoryWomen,
-    TResult? Function(ChangeShopBannerIndex value)? changeShopBannerIndex,
-    TResult? Function(ChangeBrandBannerIndex value)? changeBrandBannerIndex,
-    TResult? Function(ShowOrderProgressEvent value)? showOrderProgressEvent,
-    TResult? Function(IndexChangeOnOrderProgress value)?
-        indexChangeOnOrderProgress,
-    TResult? Function(IndexChangeOnWomensCareBanner value)?
-        indexChangeOnWomensCareBanner,
-    TResult? Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
-  }) {
-    return fetchShopHomeBackgroundCard?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(FetchFlashSaleProducts value)? fetchFlashSaleProducts,
-    TResult Function(FetchPopularProducts value)? fetchPopularProducts,
-    TResult Function(FetchRecentProductProducts value)?
-        fetchRecentProductProducts,
-    TResult Function(FetchHomeBanners value)? fetchHomeBanners,
-    TResult Function(FetchShopBanners value)? fetchShopBanners,
-    TResult Function(FetchArticles value)? fetchArticles,
-    TResult Function(FetchShopByBrand value)? fetchShopByBrand,
-    TResult Function(FetchWishList value)? fetchWishList,
-    TResult Function(SearchProduct value)? searchProduct,
-    TResult Function(AddWishListEvent value)? addWishListEvent,
-    TResult Function(RemoveWishlistEvent value)? removeWishlistEvent,
-    TResult Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
-    TResult Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
-    TResult Function(PostOrders value)? postOrders,
-    TResult Function(FetchOrders value)? fetchOrders,
-    TResult Function(FetchOrdersById value)? fetchOrdersById,
-    TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
-    TResult Function(CancelOrder value)? cancelOrder,
-    TResult Function(FetchShopHomeBackgroundCard value)?
-        fetchShopHomeBackgroundCard,
-    TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHelthyDiet,
-    TResult Function(FetchShopHomeBackgroundCardSunnah value)?
-        fetchShopHomeBackgroundCardSunnah,
-    TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
-    TResult Function(FetchTopBrands value)? fetchTopBrands,
-    TResult Function(FetchProductItemsSubcategorySunnah value)?
-        fetchProductItemsSubcategorySunnah,
-    TResult Function(FetchProductItemsSubcategoryHealth value)?
-        fetchProductItemsSubcategoryHealth,
-    TResult Function(FetchProductItemsSubcategoryWomen value)?
-        fetchProductItemsSubcategoryWomen,
-    TResult Function(ChangeShopBannerIndex value)? changeShopBannerIndex,
-    TResult Function(ChangeBrandBannerIndex value)? changeBrandBannerIndex,
-    TResult Function(ShowOrderProgressEvent value)? showOrderProgressEvent,
-    TResult Function(IndexChangeOnOrderProgress value)?
-        indexChangeOnOrderProgress,
-    TResult Function(IndexChangeOnWomensCareBanner value)?
-        indexChangeOnWomensCareBanner,
-    TResult Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
-    required TResult orElse(),
-  }) {
-    if (fetchShopHomeBackgroundCard != null) {
-      return fetchShopHomeBackgroundCard(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class FetchShopHomeBackgroundCard implements ShopProductsEvent {
-  const factory FetchShopHomeBackgroundCard() = _$FetchShopHomeBackgroundCard;
-}
-
-/// @nodoc
-abstract class _$$FetchShopHomeBackgroundCardHelthyDietCopyWith<$Res> {
-  factory _$$FetchShopHomeBackgroundCardHelthyDietCopyWith(
-          _$FetchShopHomeBackgroundCardHelthyDiet value,
-          $Res Function(_$FetchShopHomeBackgroundCardHelthyDiet) then) =
-      __$$FetchShopHomeBackgroundCardHelthyDietCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$FetchShopHomeBackgroundCardHelthyDietCopyWithImpl<$Res>
-    extends _$ShopProductsEventCopyWithImpl<$Res,
-        _$FetchShopHomeBackgroundCardHelthyDiet>
-    implements _$$FetchShopHomeBackgroundCardHelthyDietCopyWith<$Res> {
-  __$$FetchShopHomeBackgroundCardHelthyDietCopyWithImpl(
-      _$FetchShopHomeBackgroundCardHelthyDiet _value,
-      $Res Function(_$FetchShopHomeBackgroundCardHelthyDiet) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$FetchShopHomeBackgroundCardHelthyDiet
-    implements FetchShopHomeBackgroundCardHelthyDiet {
-  const _$FetchShopHomeBackgroundCardHelthyDiet();
-
-  @override
-  String toString() {
-    return 'ShopProductsEvent.fetchShopHomeBackgroundCardHelthyDiet()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$FetchShopHomeBackgroundCardHelthyDiet);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() fetchFlashSaleProducts,
-    required TResult Function() fetchPopularProducts,
-    required TResult Function() fetchRecentProductProducts,
-    required TResult Function() fetchHomeBanners,
-    required TResult Function() fetchShopBanners,
-    required TResult Function() fetchArticles,
-    required TResult Function() fetchShopByBrand,
-    required TResult Function(BuildContext context) fetchWishList,
-    required TResult Function(String query) searchProduct,
-    required TResult Function(String productId, BuildContext context)
-        addWishListEvent,
-    required TResult Function(String productId, BuildContext context)
-        removeWishlistEvent,
-    required TResult Function(String brandName) fetchShopByBrandProducts,
-    required TResult Function(int index) tabIndexChangeEvent,
-    required TResult Function(
-            BuildContext context,
-            int totalPrice,
-            String pickupLocation,
-            int quantity,
-            int totalDiscount,
-            int shippingCharges,
-            int weight,
-            String id)
-        postOrders,
-    required TResult Function(BuildContext context) fetchOrders,
-    required TResult Function(BuildContext context, int id) fetchOrdersById,
-    required TResult Function(BuildContext context, String filterName)
-        fetchOrdersbyFilterEvent,
-    required TResult Function(BuildContext context, int shiprockeId)
-        cancelOrder,
-    required TResult Function() fetchShopHomeBackgroundCard,
-    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
-    required TResult Function() fetchShopHomeBackgroundCardSunnah,
-    required TResult Function() fetchShopAdBrands,
-    required TResult Function() fetchTopBrands,
-    required TResult Function() fetchProductItemsSubcategorySunnah,
-    required TResult Function() fetchProductItemsSubcategoryHealth,
-    required TResult Function() fetchProductItemsSubcategoryWomen,
-    required TResult Function(int index) changeShopBannerIndex,
-    required TResult Function(int index) changeBrandBannerIndex,
-    required TResult Function() showOrderProgressEvent,
-    required TResult Function(int index) indexChangeOnOrderProgress,
-    required TResult Function(int index) indexChangeOnWomensCareBanner,
-    required TResult Function(String id) fetchShopAdBrandsById,
-  }) {
-    return fetchShopHomeBackgroundCardHelthyDiet();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? fetchFlashSaleProducts,
-    TResult? Function()? fetchPopularProducts,
-    TResult? Function()? fetchRecentProductProducts,
-    TResult? Function()? fetchHomeBanners,
-    TResult? Function()? fetchShopBanners,
-    TResult? Function()? fetchArticles,
-    TResult? Function()? fetchShopByBrand,
-    TResult? Function(BuildContext context)? fetchWishList,
-    TResult? Function(String query)? searchProduct,
-    TResult? Function(String productId, BuildContext context)? addWishListEvent,
-    TResult? Function(String productId, BuildContext context)?
-        removeWishlistEvent,
-    TResult? Function(String brandName)? fetchShopByBrandProducts,
-    TResult? Function(int index)? tabIndexChangeEvent,
-    TResult? Function(
-            BuildContext context,
-            int totalPrice,
-            String pickupLocation,
-            int quantity,
-            int totalDiscount,
-            int shippingCharges,
-            int weight,
-            String id)?
-        postOrders,
-    TResult? Function(BuildContext context)? fetchOrders,
-    TResult? Function(BuildContext context, int id)? fetchOrdersById,
-    TResult? Function(BuildContext context, String filterName)?
-        fetchOrdersbyFilterEvent,
-    TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
-    TResult? Function()? fetchShopHomeBackgroundCard,
-    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
-    TResult? Function()? fetchShopHomeBackgroundCardSunnah,
-    TResult? Function()? fetchShopAdBrands,
-    TResult? Function()? fetchTopBrands,
-    TResult? Function()? fetchProductItemsSubcategorySunnah,
-    TResult? Function()? fetchProductItemsSubcategoryHealth,
-    TResult? Function()? fetchProductItemsSubcategoryWomen,
-    TResult? Function(int index)? changeShopBannerIndex,
-    TResult? Function(int index)? changeBrandBannerIndex,
-    TResult? Function()? showOrderProgressEvent,
-    TResult? Function(int index)? indexChangeOnOrderProgress,
-    TResult? Function(int index)? indexChangeOnWomensCareBanner,
-    TResult? Function(String id)? fetchShopAdBrandsById,
-  }) {
-    return fetchShopHomeBackgroundCardHelthyDiet?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? fetchFlashSaleProducts,
-    TResult Function()? fetchPopularProducts,
-    TResult Function()? fetchRecentProductProducts,
-    TResult Function()? fetchHomeBanners,
-    TResult Function()? fetchShopBanners,
-    TResult Function()? fetchArticles,
-    TResult Function()? fetchShopByBrand,
-    TResult Function(BuildContext context)? fetchWishList,
-    TResult Function(String query)? searchProduct,
-    TResult Function(String productId, BuildContext context)? addWishListEvent,
-    TResult Function(String productId, BuildContext context)?
-        removeWishlistEvent,
-    TResult Function(String brandName)? fetchShopByBrandProducts,
-    TResult Function(int index)? tabIndexChangeEvent,
-    TResult Function(
-            BuildContext context,
-            int totalPrice,
-            String pickupLocation,
-            int quantity,
-            int totalDiscount,
-            int shippingCharges,
-            int weight,
-            String id)?
-        postOrders,
-    TResult Function(BuildContext context)? fetchOrders,
-    TResult Function(BuildContext context, int id)? fetchOrdersById,
-    TResult Function(BuildContext context, String filterName)?
-        fetchOrdersbyFilterEvent,
-    TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
-    TResult Function()? fetchShopHomeBackgroundCard,
-    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
-    TResult Function()? fetchShopHomeBackgroundCardSunnah,
-    TResult Function()? fetchShopAdBrands,
-    TResult Function()? fetchTopBrands,
-    TResult Function()? fetchProductItemsSubcategorySunnah,
-    TResult Function()? fetchProductItemsSubcategoryHealth,
-    TResult Function()? fetchProductItemsSubcategoryWomen,
-    TResult Function(int index)? changeShopBannerIndex,
-    TResult Function(int index)? changeBrandBannerIndex,
-    TResult Function()? showOrderProgressEvent,
-    TResult Function(int index)? indexChangeOnOrderProgress,
-    TResult Function(int index)? indexChangeOnWomensCareBanner,
-    TResult Function(String id)? fetchShopAdBrandsById,
-    required TResult orElse(),
-  }) {
-    if (fetchShopHomeBackgroundCardHelthyDiet != null) {
-      return fetchShopHomeBackgroundCardHelthyDiet();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(FetchFlashSaleProducts value)
-        fetchFlashSaleProducts,
-    required TResult Function(FetchPopularProducts value) fetchPopularProducts,
-    required TResult Function(FetchRecentProductProducts value)
-        fetchRecentProductProducts,
-    required TResult Function(FetchHomeBanners value) fetchHomeBanners,
-    required TResult Function(FetchShopBanners value) fetchShopBanners,
-    required TResult Function(FetchArticles value) fetchArticles,
-    required TResult Function(FetchShopByBrand value) fetchShopByBrand,
-    required TResult Function(FetchWishList value) fetchWishList,
-    required TResult Function(SearchProduct value) searchProduct,
-    required TResult Function(AddWishListEvent value) addWishListEvent,
-    required TResult Function(RemoveWishlistEvent value) removeWishlistEvent,
-    required TResult Function(FetchShopByBrandProducts value)
-        fetchShopByBrandProducts,
-    required TResult Function(TabIndexChangeEvent value) tabIndexChangeEvent,
-    required TResult Function(PostOrders value) postOrders,
-    required TResult Function(FetchOrders value) fetchOrders,
-    required TResult Function(FetchOrdersById value) fetchOrdersById,
-    required TResult Function(FetchOrdersbyFilterEvent value)
-        fetchOrdersbyFilterEvent,
-    required TResult Function(CancelOrder value) cancelOrder,
-    required TResult Function(FetchShopHomeBackgroundCard value)
-        fetchShopHomeBackgroundCard,
-    required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
-        fetchShopHomeBackgroundCardHelthyDiet,
-    required TResult Function(FetchShopHomeBackgroundCardSunnah value)
-        fetchShopHomeBackgroundCardSunnah,
-    required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
-    required TResult Function(FetchTopBrands value) fetchTopBrands,
-    required TResult Function(FetchProductItemsSubcategorySunnah value)
-        fetchProductItemsSubcategorySunnah,
-    required TResult Function(FetchProductItemsSubcategoryHealth value)
-        fetchProductItemsSubcategoryHealth,
-    required TResult Function(FetchProductItemsSubcategoryWomen value)
-        fetchProductItemsSubcategoryWomen,
-    required TResult Function(ChangeShopBannerIndex value)
-        changeShopBannerIndex,
-    required TResult Function(ChangeBrandBannerIndex value)
-        changeBrandBannerIndex,
-    required TResult Function(ShowOrderProgressEvent value)
-        showOrderProgressEvent,
-    required TResult Function(IndexChangeOnOrderProgress value)
-        indexChangeOnOrderProgress,
-    required TResult Function(IndexChangeOnWomensCareBanner value)
-        indexChangeOnWomensCareBanner,
-    required TResult Function(FetchShopAdBrandsById value)
-        fetchShopAdBrandsById,
-  }) {
-    return fetchShopHomeBackgroundCardHelthyDiet(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(FetchFlashSaleProducts value)? fetchFlashSaleProducts,
-    TResult? Function(FetchPopularProducts value)? fetchPopularProducts,
-    TResult? Function(FetchRecentProductProducts value)?
-        fetchRecentProductProducts,
-    TResult? Function(FetchHomeBanners value)? fetchHomeBanners,
-    TResult? Function(FetchShopBanners value)? fetchShopBanners,
-    TResult? Function(FetchArticles value)? fetchArticles,
-    TResult? Function(FetchShopByBrand value)? fetchShopByBrand,
-    TResult? Function(FetchWishList value)? fetchWishList,
-    TResult? Function(SearchProduct value)? searchProduct,
-    TResult? Function(AddWishListEvent value)? addWishListEvent,
-    TResult? Function(RemoveWishlistEvent value)? removeWishlistEvent,
-    TResult? Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
-    TResult? Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
-    TResult? Function(PostOrders value)? postOrders,
-    TResult? Function(FetchOrders value)? fetchOrders,
-    TResult? Function(FetchOrdersById value)? fetchOrdersById,
-    TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
-    TResult? Function(CancelOrder value)? cancelOrder,
-    TResult? Function(FetchShopHomeBackgroundCard value)?
-        fetchShopHomeBackgroundCard,
-    TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHelthyDiet,
-    TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
-        fetchShopHomeBackgroundCardSunnah,
-    TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
-    TResult? Function(FetchTopBrands value)? fetchTopBrands,
-    TResult? Function(FetchProductItemsSubcategorySunnah value)?
-        fetchProductItemsSubcategorySunnah,
-    TResult? Function(FetchProductItemsSubcategoryHealth value)?
-        fetchProductItemsSubcategoryHealth,
-    TResult? Function(FetchProductItemsSubcategoryWomen value)?
-        fetchProductItemsSubcategoryWomen,
-    TResult? Function(ChangeShopBannerIndex value)? changeShopBannerIndex,
-    TResult? Function(ChangeBrandBannerIndex value)? changeBrandBannerIndex,
-    TResult? Function(ShowOrderProgressEvent value)? showOrderProgressEvent,
-    TResult? Function(IndexChangeOnOrderProgress value)?
-        indexChangeOnOrderProgress,
-    TResult? Function(IndexChangeOnWomensCareBanner value)?
-        indexChangeOnWomensCareBanner,
-    TResult? Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
-  }) {
-    return fetchShopHomeBackgroundCardHelthyDiet?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(FetchFlashSaleProducts value)? fetchFlashSaleProducts,
-    TResult Function(FetchPopularProducts value)? fetchPopularProducts,
-    TResult Function(FetchRecentProductProducts value)?
-        fetchRecentProductProducts,
-    TResult Function(FetchHomeBanners value)? fetchHomeBanners,
-    TResult Function(FetchShopBanners value)? fetchShopBanners,
-    TResult Function(FetchArticles value)? fetchArticles,
-    TResult Function(FetchShopByBrand value)? fetchShopByBrand,
-    TResult Function(FetchWishList value)? fetchWishList,
-    TResult Function(SearchProduct value)? searchProduct,
-    TResult Function(AddWishListEvent value)? addWishListEvent,
-    TResult Function(RemoveWishlistEvent value)? removeWishlistEvent,
-    TResult Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
-    TResult Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
-    TResult Function(PostOrders value)? postOrders,
-    TResult Function(FetchOrders value)? fetchOrders,
-    TResult Function(FetchOrdersById value)? fetchOrdersById,
-    TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
-    TResult Function(CancelOrder value)? cancelOrder,
-    TResult Function(FetchShopHomeBackgroundCard value)?
-        fetchShopHomeBackgroundCard,
-    TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHelthyDiet,
-    TResult Function(FetchShopHomeBackgroundCardSunnah value)?
-        fetchShopHomeBackgroundCardSunnah,
-    TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
-    TResult Function(FetchTopBrands value)? fetchTopBrands,
-    TResult Function(FetchProductItemsSubcategorySunnah value)?
-        fetchProductItemsSubcategorySunnah,
-    TResult Function(FetchProductItemsSubcategoryHealth value)?
-        fetchProductItemsSubcategoryHealth,
-    TResult Function(FetchProductItemsSubcategoryWomen value)?
-        fetchProductItemsSubcategoryWomen,
-    TResult Function(ChangeShopBannerIndex value)? changeShopBannerIndex,
-    TResult Function(ChangeBrandBannerIndex value)? changeBrandBannerIndex,
-    TResult Function(ShowOrderProgressEvent value)? showOrderProgressEvent,
-    TResult Function(IndexChangeOnOrderProgress value)?
-        indexChangeOnOrderProgress,
-    TResult Function(IndexChangeOnWomensCareBanner value)?
-        indexChangeOnWomensCareBanner,
-    TResult Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
-    required TResult orElse(),
-  }) {
-    if (fetchShopHomeBackgroundCardHelthyDiet != null) {
-      return fetchShopHomeBackgroundCardHelthyDiet(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class FetchShopHomeBackgroundCardHelthyDiet
-    implements ShopProductsEvent {
-  const factory FetchShopHomeBackgroundCardHelthyDiet() =
-      _$FetchShopHomeBackgroundCardHelthyDiet;
-}
-
-/// @nodoc
-abstract class _$$FetchShopHomeBackgroundCardSunnahCopyWith<$Res> {
-  factory _$$FetchShopHomeBackgroundCardSunnahCopyWith(
-          _$FetchShopHomeBackgroundCardSunnah value,
-          $Res Function(_$FetchShopHomeBackgroundCardSunnah) then) =
-      __$$FetchShopHomeBackgroundCardSunnahCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$FetchShopHomeBackgroundCardSunnahCopyWithImpl<$Res>
-    extends _$ShopProductsEventCopyWithImpl<$Res,
-        _$FetchShopHomeBackgroundCardSunnah>
-    implements _$$FetchShopHomeBackgroundCardSunnahCopyWith<$Res> {
-  __$$FetchShopHomeBackgroundCardSunnahCopyWithImpl(
-      _$FetchShopHomeBackgroundCardSunnah _value,
-      $Res Function(_$FetchShopHomeBackgroundCardSunnah) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$FetchShopHomeBackgroundCardSunnah
-    implements FetchShopHomeBackgroundCardSunnah {
-  const _$FetchShopHomeBackgroundCardSunnah();
-
-  @override
-  String toString() {
-    return 'ShopProductsEvent.fetchShopHomeBackgroundCardSunnah()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$FetchShopHomeBackgroundCardSunnah);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() fetchFlashSaleProducts,
-    required TResult Function() fetchPopularProducts,
-    required TResult Function() fetchRecentProductProducts,
-    required TResult Function() fetchHomeBanners,
-    required TResult Function() fetchShopBanners,
-    required TResult Function() fetchArticles,
-    required TResult Function() fetchShopByBrand,
-    required TResult Function(BuildContext context) fetchWishList,
-    required TResult Function(String query) searchProduct,
-    required TResult Function(String productId, BuildContext context)
-        addWishListEvent,
-    required TResult Function(String productId, BuildContext context)
-        removeWishlistEvent,
-    required TResult Function(String brandName) fetchShopByBrandProducts,
-    required TResult Function(int index) tabIndexChangeEvent,
-    required TResult Function(
-            BuildContext context,
-            int totalPrice,
-            String pickupLocation,
-            int quantity,
-            int totalDiscount,
-            int shippingCharges,
-            int weight,
-            String id)
-        postOrders,
-    required TResult Function(BuildContext context) fetchOrders,
-    required TResult Function(BuildContext context, int id) fetchOrdersById,
-    required TResult Function(BuildContext context, String filterName)
-        fetchOrdersbyFilterEvent,
-    required TResult Function(BuildContext context, int shiprockeId)
-        cancelOrder,
-    required TResult Function() fetchShopHomeBackgroundCard,
-    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
-    required TResult Function() fetchShopHomeBackgroundCardSunnah,
-    required TResult Function() fetchShopAdBrands,
-    required TResult Function() fetchTopBrands,
-    required TResult Function() fetchProductItemsSubcategorySunnah,
-    required TResult Function() fetchProductItemsSubcategoryHealth,
-    required TResult Function() fetchProductItemsSubcategoryWomen,
-    required TResult Function(int index) changeShopBannerIndex,
-    required TResult Function(int index) changeBrandBannerIndex,
-    required TResult Function() showOrderProgressEvent,
-    required TResult Function(int index) indexChangeOnOrderProgress,
-    required TResult Function(int index) indexChangeOnWomensCareBanner,
-    required TResult Function(String id) fetchShopAdBrandsById,
-  }) {
-    return fetchShopHomeBackgroundCardSunnah();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? fetchFlashSaleProducts,
-    TResult? Function()? fetchPopularProducts,
-    TResult? Function()? fetchRecentProductProducts,
-    TResult? Function()? fetchHomeBanners,
-    TResult? Function()? fetchShopBanners,
-    TResult? Function()? fetchArticles,
-    TResult? Function()? fetchShopByBrand,
-    TResult? Function(BuildContext context)? fetchWishList,
-    TResult? Function(String query)? searchProduct,
-    TResult? Function(String productId, BuildContext context)? addWishListEvent,
-    TResult? Function(String productId, BuildContext context)?
-        removeWishlistEvent,
-    TResult? Function(String brandName)? fetchShopByBrandProducts,
-    TResult? Function(int index)? tabIndexChangeEvent,
-    TResult? Function(
-            BuildContext context,
-            int totalPrice,
-            String pickupLocation,
-            int quantity,
-            int totalDiscount,
-            int shippingCharges,
-            int weight,
-            String id)?
-        postOrders,
-    TResult? Function(BuildContext context)? fetchOrders,
-    TResult? Function(BuildContext context, int id)? fetchOrdersById,
-    TResult? Function(BuildContext context, String filterName)?
-        fetchOrdersbyFilterEvent,
-    TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
-    TResult? Function()? fetchShopHomeBackgroundCard,
-    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
-    TResult? Function()? fetchShopHomeBackgroundCardSunnah,
-    TResult? Function()? fetchShopAdBrands,
-    TResult? Function()? fetchTopBrands,
-    TResult? Function()? fetchProductItemsSubcategorySunnah,
-    TResult? Function()? fetchProductItemsSubcategoryHealth,
-    TResult? Function()? fetchProductItemsSubcategoryWomen,
-    TResult? Function(int index)? changeShopBannerIndex,
-    TResult? Function(int index)? changeBrandBannerIndex,
-    TResult? Function()? showOrderProgressEvent,
-    TResult? Function(int index)? indexChangeOnOrderProgress,
-    TResult? Function(int index)? indexChangeOnWomensCareBanner,
-    TResult? Function(String id)? fetchShopAdBrandsById,
-  }) {
-    return fetchShopHomeBackgroundCardSunnah?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? fetchFlashSaleProducts,
-    TResult Function()? fetchPopularProducts,
-    TResult Function()? fetchRecentProductProducts,
-    TResult Function()? fetchHomeBanners,
-    TResult Function()? fetchShopBanners,
-    TResult Function()? fetchArticles,
-    TResult Function()? fetchShopByBrand,
-    TResult Function(BuildContext context)? fetchWishList,
-    TResult Function(String query)? searchProduct,
-    TResult Function(String productId, BuildContext context)? addWishListEvent,
-    TResult Function(String productId, BuildContext context)?
-        removeWishlistEvent,
-    TResult Function(String brandName)? fetchShopByBrandProducts,
-    TResult Function(int index)? tabIndexChangeEvent,
-    TResult Function(
-            BuildContext context,
-            int totalPrice,
-            String pickupLocation,
-            int quantity,
-            int totalDiscount,
-            int shippingCharges,
-            int weight,
-            String id)?
-        postOrders,
-    TResult Function(BuildContext context)? fetchOrders,
-    TResult Function(BuildContext context, int id)? fetchOrdersById,
-    TResult Function(BuildContext context, String filterName)?
-        fetchOrdersbyFilterEvent,
-    TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
-    TResult Function()? fetchShopHomeBackgroundCard,
-    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
-    TResult Function()? fetchShopHomeBackgroundCardSunnah,
-    TResult Function()? fetchShopAdBrands,
-    TResult Function()? fetchTopBrands,
-    TResult Function()? fetchProductItemsSubcategorySunnah,
-    TResult Function()? fetchProductItemsSubcategoryHealth,
-    TResult Function()? fetchProductItemsSubcategoryWomen,
-    TResult Function(int index)? changeShopBannerIndex,
-    TResult Function(int index)? changeBrandBannerIndex,
-    TResult Function()? showOrderProgressEvent,
-    TResult Function(int index)? indexChangeOnOrderProgress,
-    TResult Function(int index)? indexChangeOnWomensCareBanner,
-    TResult Function(String id)? fetchShopAdBrandsById,
-    required TResult orElse(),
-  }) {
-    if (fetchShopHomeBackgroundCardSunnah != null) {
-      return fetchShopHomeBackgroundCardSunnah();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(FetchFlashSaleProducts value)
-        fetchFlashSaleProducts,
-    required TResult Function(FetchPopularProducts value) fetchPopularProducts,
-    required TResult Function(FetchRecentProductProducts value)
-        fetchRecentProductProducts,
-    required TResult Function(FetchHomeBanners value) fetchHomeBanners,
-    required TResult Function(FetchShopBanners value) fetchShopBanners,
-    required TResult Function(FetchArticles value) fetchArticles,
-    required TResult Function(FetchShopByBrand value) fetchShopByBrand,
-    required TResult Function(FetchWishList value) fetchWishList,
-    required TResult Function(SearchProduct value) searchProduct,
-    required TResult Function(AddWishListEvent value) addWishListEvent,
-    required TResult Function(RemoveWishlistEvent value) removeWishlistEvent,
-    required TResult Function(FetchShopByBrandProducts value)
-        fetchShopByBrandProducts,
-    required TResult Function(TabIndexChangeEvent value) tabIndexChangeEvent,
-    required TResult Function(PostOrders value) postOrders,
-    required TResult Function(FetchOrders value) fetchOrders,
-    required TResult Function(FetchOrdersById value) fetchOrdersById,
-    required TResult Function(FetchOrdersbyFilterEvent value)
-        fetchOrdersbyFilterEvent,
-    required TResult Function(CancelOrder value) cancelOrder,
-    required TResult Function(FetchShopHomeBackgroundCard value)
-        fetchShopHomeBackgroundCard,
-    required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
-        fetchShopHomeBackgroundCardHelthyDiet,
-    required TResult Function(FetchShopHomeBackgroundCardSunnah value)
-        fetchShopHomeBackgroundCardSunnah,
-    required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
-    required TResult Function(FetchTopBrands value) fetchTopBrands,
-    required TResult Function(FetchProductItemsSubcategorySunnah value)
-        fetchProductItemsSubcategorySunnah,
-    required TResult Function(FetchProductItemsSubcategoryHealth value)
-        fetchProductItemsSubcategoryHealth,
-    required TResult Function(FetchProductItemsSubcategoryWomen value)
-        fetchProductItemsSubcategoryWomen,
-    required TResult Function(ChangeShopBannerIndex value)
-        changeShopBannerIndex,
-    required TResult Function(ChangeBrandBannerIndex value)
-        changeBrandBannerIndex,
-    required TResult Function(ShowOrderProgressEvent value)
-        showOrderProgressEvent,
-    required TResult Function(IndexChangeOnOrderProgress value)
-        indexChangeOnOrderProgress,
-    required TResult Function(IndexChangeOnWomensCareBanner value)
-        indexChangeOnWomensCareBanner,
-    required TResult Function(FetchShopAdBrandsById value)
-        fetchShopAdBrandsById,
-  }) {
-    return fetchShopHomeBackgroundCardSunnah(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(FetchFlashSaleProducts value)? fetchFlashSaleProducts,
-    TResult? Function(FetchPopularProducts value)? fetchPopularProducts,
-    TResult? Function(FetchRecentProductProducts value)?
-        fetchRecentProductProducts,
-    TResult? Function(FetchHomeBanners value)? fetchHomeBanners,
-    TResult? Function(FetchShopBanners value)? fetchShopBanners,
-    TResult? Function(FetchArticles value)? fetchArticles,
-    TResult? Function(FetchShopByBrand value)? fetchShopByBrand,
-    TResult? Function(FetchWishList value)? fetchWishList,
-    TResult? Function(SearchProduct value)? searchProduct,
-    TResult? Function(AddWishListEvent value)? addWishListEvent,
-    TResult? Function(RemoveWishlistEvent value)? removeWishlistEvent,
-    TResult? Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
-    TResult? Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
-    TResult? Function(PostOrders value)? postOrders,
-    TResult? Function(FetchOrders value)? fetchOrders,
-    TResult? Function(FetchOrdersById value)? fetchOrdersById,
-    TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
-    TResult? Function(CancelOrder value)? cancelOrder,
-    TResult? Function(FetchShopHomeBackgroundCard value)?
-        fetchShopHomeBackgroundCard,
-    TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHelthyDiet,
-    TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
-        fetchShopHomeBackgroundCardSunnah,
-    TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
-    TResult? Function(FetchTopBrands value)? fetchTopBrands,
-    TResult? Function(FetchProductItemsSubcategorySunnah value)?
-        fetchProductItemsSubcategorySunnah,
-    TResult? Function(FetchProductItemsSubcategoryHealth value)?
-        fetchProductItemsSubcategoryHealth,
-    TResult? Function(FetchProductItemsSubcategoryWomen value)?
-        fetchProductItemsSubcategoryWomen,
-    TResult? Function(ChangeShopBannerIndex value)? changeShopBannerIndex,
-    TResult? Function(ChangeBrandBannerIndex value)? changeBrandBannerIndex,
-    TResult? Function(ShowOrderProgressEvent value)? showOrderProgressEvent,
-    TResult? Function(IndexChangeOnOrderProgress value)?
-        indexChangeOnOrderProgress,
-    TResult? Function(IndexChangeOnWomensCareBanner value)?
-        indexChangeOnWomensCareBanner,
-    TResult? Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
-  }) {
-    return fetchShopHomeBackgroundCardSunnah?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(FetchFlashSaleProducts value)? fetchFlashSaleProducts,
-    TResult Function(FetchPopularProducts value)? fetchPopularProducts,
-    TResult Function(FetchRecentProductProducts value)?
-        fetchRecentProductProducts,
-    TResult Function(FetchHomeBanners value)? fetchHomeBanners,
-    TResult Function(FetchShopBanners value)? fetchShopBanners,
-    TResult Function(FetchArticles value)? fetchArticles,
-    TResult Function(FetchShopByBrand value)? fetchShopByBrand,
-    TResult Function(FetchWishList value)? fetchWishList,
-    TResult Function(SearchProduct value)? searchProduct,
-    TResult Function(AddWishListEvent value)? addWishListEvent,
-    TResult Function(RemoveWishlistEvent value)? removeWishlistEvent,
-    TResult Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
-    TResult Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
-    TResult Function(PostOrders value)? postOrders,
-    TResult Function(FetchOrders value)? fetchOrders,
-    TResult Function(FetchOrdersById value)? fetchOrdersById,
-    TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
-    TResult Function(CancelOrder value)? cancelOrder,
-    TResult Function(FetchShopHomeBackgroundCard value)?
-        fetchShopHomeBackgroundCard,
-    TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHelthyDiet,
-    TResult Function(FetchShopHomeBackgroundCardSunnah value)?
-        fetchShopHomeBackgroundCardSunnah,
-    TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
-    TResult Function(FetchTopBrands value)? fetchTopBrands,
-    TResult Function(FetchProductItemsSubcategorySunnah value)?
-        fetchProductItemsSubcategorySunnah,
-    TResult Function(FetchProductItemsSubcategoryHealth value)?
-        fetchProductItemsSubcategoryHealth,
-    TResult Function(FetchProductItemsSubcategoryWomen value)?
-        fetchProductItemsSubcategoryWomen,
-    TResult Function(ChangeShopBannerIndex value)? changeShopBannerIndex,
-    TResult Function(ChangeBrandBannerIndex value)? changeBrandBannerIndex,
-    TResult Function(ShowOrderProgressEvent value)? showOrderProgressEvent,
-    TResult Function(IndexChangeOnOrderProgress value)?
-        indexChangeOnOrderProgress,
-    TResult Function(IndexChangeOnWomensCareBanner value)?
-        indexChangeOnWomensCareBanner,
-    TResult Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
-    required TResult orElse(),
-  }) {
-    if (fetchShopHomeBackgroundCardSunnah != null) {
-      return fetchShopHomeBackgroundCardSunnah(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class FetchShopHomeBackgroundCardSunnah implements ShopProductsEvent {
-  const factory FetchShopHomeBackgroundCardSunnah() =
-      _$FetchShopHomeBackgroundCardSunnah;
-}
-
-/// @nodoc
-abstract class _$$FetchShopAdBrandsCopyWith<$Res> {
-  factory _$$FetchShopAdBrandsCopyWith(
-          _$FetchShopAdBrands value, $Res Function(_$FetchShopAdBrands) then) =
-      __$$FetchShopAdBrandsCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$FetchShopAdBrandsCopyWithImpl<$Res>
-    extends _$ShopProductsEventCopyWithImpl<$Res, _$FetchShopAdBrands>
-    implements _$$FetchShopAdBrandsCopyWith<$Res> {
-  __$$FetchShopAdBrandsCopyWithImpl(
-      _$FetchShopAdBrands _value, $Res Function(_$FetchShopAdBrands) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$FetchShopAdBrands implements FetchShopAdBrands {
-  const _$FetchShopAdBrands();
-
-  @override
-  String toString() {
-    return 'ShopProductsEvent.fetchShopAdBrands()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$FetchShopAdBrands);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() fetchFlashSaleProducts,
-    required TResult Function() fetchPopularProducts,
-    required TResult Function() fetchRecentProductProducts,
-    required TResult Function() fetchHomeBanners,
-    required TResult Function() fetchShopBanners,
-    required TResult Function() fetchArticles,
-    required TResult Function() fetchShopByBrand,
-    required TResult Function(BuildContext context) fetchWishList,
-    required TResult Function(String query) searchProduct,
-    required TResult Function(String productId, BuildContext context)
-        addWishListEvent,
-    required TResult Function(String productId, BuildContext context)
-        removeWishlistEvent,
-    required TResult Function(String brandName) fetchShopByBrandProducts,
-    required TResult Function(int index) tabIndexChangeEvent,
-    required TResult Function(
-            BuildContext context,
-            int totalPrice,
-            String pickupLocation,
-            int quantity,
-            int totalDiscount,
-            int shippingCharges,
-            int weight,
-            String id)
-        postOrders,
-    required TResult Function(BuildContext context) fetchOrders,
-    required TResult Function(BuildContext context, int id) fetchOrdersById,
-    required TResult Function(BuildContext context, String filterName)
-        fetchOrdersbyFilterEvent,
-    required TResult Function(BuildContext context, int shiprockeId)
-        cancelOrder,
-    required TResult Function() fetchShopHomeBackgroundCard,
-    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
-    required TResult Function() fetchShopHomeBackgroundCardSunnah,
-    required TResult Function() fetchShopAdBrands,
-    required TResult Function() fetchTopBrands,
-    required TResult Function() fetchProductItemsSubcategorySunnah,
-    required TResult Function() fetchProductItemsSubcategoryHealth,
-    required TResult Function() fetchProductItemsSubcategoryWomen,
-    required TResult Function(int index) changeShopBannerIndex,
-    required TResult Function(int index) changeBrandBannerIndex,
-    required TResult Function() showOrderProgressEvent,
-    required TResult Function(int index) indexChangeOnOrderProgress,
-    required TResult Function(int index) indexChangeOnWomensCareBanner,
-    required TResult Function(String id) fetchShopAdBrandsById,
-  }) {
-    return fetchShopAdBrands();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? fetchFlashSaleProducts,
-    TResult? Function()? fetchPopularProducts,
-    TResult? Function()? fetchRecentProductProducts,
-    TResult? Function()? fetchHomeBanners,
-    TResult? Function()? fetchShopBanners,
-    TResult? Function()? fetchArticles,
-    TResult? Function()? fetchShopByBrand,
-    TResult? Function(BuildContext context)? fetchWishList,
-    TResult? Function(String query)? searchProduct,
-    TResult? Function(String productId, BuildContext context)? addWishListEvent,
-    TResult? Function(String productId, BuildContext context)?
-        removeWishlistEvent,
-    TResult? Function(String brandName)? fetchShopByBrandProducts,
-    TResult? Function(int index)? tabIndexChangeEvent,
-    TResult? Function(
-            BuildContext context,
-            int totalPrice,
-            String pickupLocation,
-            int quantity,
-            int totalDiscount,
-            int shippingCharges,
-            int weight,
-            String id)?
-        postOrders,
-    TResult? Function(BuildContext context)? fetchOrders,
-    TResult? Function(BuildContext context, int id)? fetchOrdersById,
-    TResult? Function(BuildContext context, String filterName)?
-        fetchOrdersbyFilterEvent,
-    TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
-    TResult? Function()? fetchShopHomeBackgroundCard,
-    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
-    TResult? Function()? fetchShopHomeBackgroundCardSunnah,
-    TResult? Function()? fetchShopAdBrands,
-    TResult? Function()? fetchTopBrands,
-    TResult? Function()? fetchProductItemsSubcategorySunnah,
-    TResult? Function()? fetchProductItemsSubcategoryHealth,
-    TResult? Function()? fetchProductItemsSubcategoryWomen,
-    TResult? Function(int index)? changeShopBannerIndex,
-    TResult? Function(int index)? changeBrandBannerIndex,
-    TResult? Function()? showOrderProgressEvent,
-    TResult? Function(int index)? indexChangeOnOrderProgress,
-    TResult? Function(int index)? indexChangeOnWomensCareBanner,
-    TResult? Function(String id)? fetchShopAdBrandsById,
-  }) {
-    return fetchShopAdBrands?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? fetchFlashSaleProducts,
-    TResult Function()? fetchPopularProducts,
-    TResult Function()? fetchRecentProductProducts,
-    TResult Function()? fetchHomeBanners,
-    TResult Function()? fetchShopBanners,
-    TResult Function()? fetchArticles,
-    TResult Function()? fetchShopByBrand,
-    TResult Function(BuildContext context)? fetchWishList,
-    TResult Function(String query)? searchProduct,
-    TResult Function(String productId, BuildContext context)? addWishListEvent,
-    TResult Function(String productId, BuildContext context)?
-        removeWishlistEvent,
-    TResult Function(String brandName)? fetchShopByBrandProducts,
-    TResult Function(int index)? tabIndexChangeEvent,
-    TResult Function(
-            BuildContext context,
-            int totalPrice,
-            String pickupLocation,
-            int quantity,
-            int totalDiscount,
-            int shippingCharges,
-            int weight,
-            String id)?
-        postOrders,
-    TResult Function(BuildContext context)? fetchOrders,
-    TResult Function(BuildContext context, int id)? fetchOrdersById,
-    TResult Function(BuildContext context, String filterName)?
-        fetchOrdersbyFilterEvent,
-    TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
-    TResult Function()? fetchShopHomeBackgroundCard,
-    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
-    TResult Function()? fetchShopHomeBackgroundCardSunnah,
-    TResult Function()? fetchShopAdBrands,
-    TResult Function()? fetchTopBrands,
-    TResult Function()? fetchProductItemsSubcategorySunnah,
-    TResult Function()? fetchProductItemsSubcategoryHealth,
-    TResult Function()? fetchProductItemsSubcategoryWomen,
-    TResult Function(int index)? changeShopBannerIndex,
-    TResult Function(int index)? changeBrandBannerIndex,
-    TResult Function()? showOrderProgressEvent,
-    TResult Function(int index)? indexChangeOnOrderProgress,
-    TResult Function(int index)? indexChangeOnWomensCareBanner,
-    TResult Function(String id)? fetchShopAdBrandsById,
-    required TResult orElse(),
-  }) {
-    if (fetchShopAdBrands != null) {
-      return fetchShopAdBrands();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(FetchFlashSaleProducts value)
-        fetchFlashSaleProducts,
-    required TResult Function(FetchPopularProducts value) fetchPopularProducts,
-    required TResult Function(FetchRecentProductProducts value)
-        fetchRecentProductProducts,
-    required TResult Function(FetchHomeBanners value) fetchHomeBanners,
-    required TResult Function(FetchShopBanners value) fetchShopBanners,
-    required TResult Function(FetchArticles value) fetchArticles,
-    required TResult Function(FetchShopByBrand value) fetchShopByBrand,
-    required TResult Function(FetchWishList value) fetchWishList,
-    required TResult Function(SearchProduct value) searchProduct,
-    required TResult Function(AddWishListEvent value) addWishListEvent,
-    required TResult Function(RemoveWishlistEvent value) removeWishlistEvent,
-    required TResult Function(FetchShopByBrandProducts value)
-        fetchShopByBrandProducts,
-    required TResult Function(TabIndexChangeEvent value) tabIndexChangeEvent,
-    required TResult Function(PostOrders value) postOrders,
-    required TResult Function(FetchOrders value) fetchOrders,
-    required TResult Function(FetchOrdersById value) fetchOrdersById,
-    required TResult Function(FetchOrdersbyFilterEvent value)
-        fetchOrdersbyFilterEvent,
-    required TResult Function(CancelOrder value) cancelOrder,
-    required TResult Function(FetchShopHomeBackgroundCard value)
-        fetchShopHomeBackgroundCard,
-    required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
-        fetchShopHomeBackgroundCardHelthyDiet,
-    required TResult Function(FetchShopHomeBackgroundCardSunnah value)
-        fetchShopHomeBackgroundCardSunnah,
-    required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
-    required TResult Function(FetchTopBrands value) fetchTopBrands,
-    required TResult Function(FetchProductItemsSubcategorySunnah value)
-        fetchProductItemsSubcategorySunnah,
-    required TResult Function(FetchProductItemsSubcategoryHealth value)
-        fetchProductItemsSubcategoryHealth,
-    required TResult Function(FetchProductItemsSubcategoryWomen value)
-        fetchProductItemsSubcategoryWomen,
-    required TResult Function(ChangeShopBannerIndex value)
-        changeShopBannerIndex,
-    required TResult Function(ChangeBrandBannerIndex value)
-        changeBrandBannerIndex,
-    required TResult Function(ShowOrderProgressEvent value)
-        showOrderProgressEvent,
-    required TResult Function(IndexChangeOnOrderProgress value)
-        indexChangeOnOrderProgress,
-    required TResult Function(IndexChangeOnWomensCareBanner value)
-        indexChangeOnWomensCareBanner,
-    required TResult Function(FetchShopAdBrandsById value)
-        fetchShopAdBrandsById,
-  }) {
-    return fetchShopAdBrands(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(FetchFlashSaleProducts value)? fetchFlashSaleProducts,
-    TResult? Function(FetchPopularProducts value)? fetchPopularProducts,
-    TResult? Function(FetchRecentProductProducts value)?
-        fetchRecentProductProducts,
-    TResult? Function(FetchHomeBanners value)? fetchHomeBanners,
-    TResult? Function(FetchShopBanners value)? fetchShopBanners,
-    TResult? Function(FetchArticles value)? fetchArticles,
-    TResult? Function(FetchShopByBrand value)? fetchShopByBrand,
-    TResult? Function(FetchWishList value)? fetchWishList,
-    TResult? Function(SearchProduct value)? searchProduct,
-    TResult? Function(AddWishListEvent value)? addWishListEvent,
-    TResult? Function(RemoveWishlistEvent value)? removeWishlistEvent,
-    TResult? Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
-    TResult? Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
-    TResult? Function(PostOrders value)? postOrders,
-    TResult? Function(FetchOrders value)? fetchOrders,
-    TResult? Function(FetchOrdersById value)? fetchOrdersById,
-    TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
-    TResult? Function(CancelOrder value)? cancelOrder,
-    TResult? Function(FetchShopHomeBackgroundCard value)?
-        fetchShopHomeBackgroundCard,
-    TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHelthyDiet,
-    TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
-        fetchShopHomeBackgroundCardSunnah,
-    TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
-    TResult? Function(FetchTopBrands value)? fetchTopBrands,
-    TResult? Function(FetchProductItemsSubcategorySunnah value)?
-        fetchProductItemsSubcategorySunnah,
-    TResult? Function(FetchProductItemsSubcategoryHealth value)?
-        fetchProductItemsSubcategoryHealth,
-    TResult? Function(FetchProductItemsSubcategoryWomen value)?
-        fetchProductItemsSubcategoryWomen,
-    TResult? Function(ChangeShopBannerIndex value)? changeShopBannerIndex,
-    TResult? Function(ChangeBrandBannerIndex value)? changeBrandBannerIndex,
-    TResult? Function(ShowOrderProgressEvent value)? showOrderProgressEvent,
-    TResult? Function(IndexChangeOnOrderProgress value)?
-        indexChangeOnOrderProgress,
-    TResult? Function(IndexChangeOnWomensCareBanner value)?
-        indexChangeOnWomensCareBanner,
-    TResult? Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
-  }) {
-    return fetchShopAdBrands?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(FetchFlashSaleProducts value)? fetchFlashSaleProducts,
-    TResult Function(FetchPopularProducts value)? fetchPopularProducts,
-    TResult Function(FetchRecentProductProducts value)?
-        fetchRecentProductProducts,
-    TResult Function(FetchHomeBanners value)? fetchHomeBanners,
-    TResult Function(FetchShopBanners value)? fetchShopBanners,
-    TResult Function(FetchArticles value)? fetchArticles,
-    TResult Function(FetchShopByBrand value)? fetchShopByBrand,
-    TResult Function(FetchWishList value)? fetchWishList,
-    TResult Function(SearchProduct value)? searchProduct,
-    TResult Function(AddWishListEvent value)? addWishListEvent,
-    TResult Function(RemoveWishlistEvent value)? removeWishlistEvent,
-    TResult Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
-    TResult Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
-    TResult Function(PostOrders value)? postOrders,
-    TResult Function(FetchOrders value)? fetchOrders,
-    TResult Function(FetchOrdersById value)? fetchOrdersById,
-    TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
-    TResult Function(CancelOrder value)? cancelOrder,
-    TResult Function(FetchShopHomeBackgroundCard value)?
-        fetchShopHomeBackgroundCard,
-    TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHelthyDiet,
-    TResult Function(FetchShopHomeBackgroundCardSunnah value)?
-        fetchShopHomeBackgroundCardSunnah,
-    TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
-    TResult Function(FetchTopBrands value)? fetchTopBrands,
-    TResult Function(FetchProductItemsSubcategorySunnah value)?
-        fetchProductItemsSubcategorySunnah,
-    TResult Function(FetchProductItemsSubcategoryHealth value)?
-        fetchProductItemsSubcategoryHealth,
-    TResult Function(FetchProductItemsSubcategoryWomen value)?
-        fetchProductItemsSubcategoryWomen,
-    TResult Function(ChangeShopBannerIndex value)? changeShopBannerIndex,
-    TResult Function(ChangeBrandBannerIndex value)? changeBrandBannerIndex,
-    TResult Function(ShowOrderProgressEvent value)? showOrderProgressEvent,
-    TResult Function(IndexChangeOnOrderProgress value)?
-        indexChangeOnOrderProgress,
-    TResult Function(IndexChangeOnWomensCareBanner value)?
-        indexChangeOnWomensCareBanner,
-    TResult Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
-    required TResult orElse(),
-  }) {
-    if (fetchShopAdBrands != null) {
-      return fetchShopAdBrands(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class FetchShopAdBrands implements ShopProductsEvent {
-  const factory FetchShopAdBrands() = _$FetchShopAdBrands;
-}
-
-/// @nodoc
-abstract class _$$FetchTopBrandsCopyWith<$Res> {
-  factory _$$FetchTopBrandsCopyWith(
-          _$FetchTopBrands value, $Res Function(_$FetchTopBrands) then) =
-      __$$FetchTopBrandsCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$FetchTopBrandsCopyWithImpl<$Res>
-    extends _$ShopProductsEventCopyWithImpl<$Res, _$FetchTopBrands>
-    implements _$$FetchTopBrandsCopyWith<$Res> {
-  __$$FetchTopBrandsCopyWithImpl(
-      _$FetchTopBrands _value, $Res Function(_$FetchTopBrands) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$FetchTopBrands implements FetchTopBrands {
-  const _$FetchTopBrands();
-
-  @override
-  String toString() {
-    return 'ShopProductsEvent.fetchTopBrands()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$FetchTopBrands);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() fetchFlashSaleProducts,
-    required TResult Function() fetchPopularProducts,
-    required TResult Function() fetchRecentProductProducts,
-    required TResult Function() fetchHomeBanners,
-    required TResult Function() fetchShopBanners,
-    required TResult Function() fetchArticles,
-    required TResult Function() fetchShopByBrand,
-    required TResult Function(BuildContext context) fetchWishList,
-    required TResult Function(String query) searchProduct,
-    required TResult Function(String productId, BuildContext context)
-        addWishListEvent,
-    required TResult Function(String productId, BuildContext context)
-        removeWishlistEvent,
-    required TResult Function(String brandName) fetchShopByBrandProducts,
-    required TResult Function(int index) tabIndexChangeEvent,
-    required TResult Function(
-            BuildContext context,
-            int totalPrice,
-            String pickupLocation,
-            int quantity,
-            int totalDiscount,
-            int shippingCharges,
-            int weight,
-            String id)
-        postOrders,
-    required TResult Function(BuildContext context) fetchOrders,
-    required TResult Function(BuildContext context, int id) fetchOrdersById,
-    required TResult Function(BuildContext context, String filterName)
-        fetchOrdersbyFilterEvent,
-    required TResult Function(BuildContext context, int shiprockeId)
-        cancelOrder,
-    required TResult Function() fetchShopHomeBackgroundCard,
-    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
-    required TResult Function() fetchShopHomeBackgroundCardSunnah,
-    required TResult Function() fetchShopAdBrands,
-    required TResult Function() fetchTopBrands,
-    required TResult Function() fetchProductItemsSubcategorySunnah,
-    required TResult Function() fetchProductItemsSubcategoryHealth,
-    required TResult Function() fetchProductItemsSubcategoryWomen,
-    required TResult Function(int index) changeShopBannerIndex,
-    required TResult Function(int index) changeBrandBannerIndex,
-    required TResult Function() showOrderProgressEvent,
-    required TResult Function(int index) indexChangeOnOrderProgress,
-    required TResult Function(int index) indexChangeOnWomensCareBanner,
-    required TResult Function(String id) fetchShopAdBrandsById,
-  }) {
-    return fetchTopBrands();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? fetchFlashSaleProducts,
-    TResult? Function()? fetchPopularProducts,
-    TResult? Function()? fetchRecentProductProducts,
-    TResult? Function()? fetchHomeBanners,
-    TResult? Function()? fetchShopBanners,
-    TResult? Function()? fetchArticles,
-    TResult? Function()? fetchShopByBrand,
-    TResult? Function(BuildContext context)? fetchWishList,
-    TResult? Function(String query)? searchProduct,
-    TResult? Function(String productId, BuildContext context)? addWishListEvent,
-    TResult? Function(String productId, BuildContext context)?
-        removeWishlistEvent,
-    TResult? Function(String brandName)? fetchShopByBrandProducts,
-    TResult? Function(int index)? tabIndexChangeEvent,
-    TResult? Function(
-            BuildContext context,
-            int totalPrice,
-            String pickupLocation,
-            int quantity,
-            int totalDiscount,
-            int shippingCharges,
-            int weight,
-            String id)?
-        postOrders,
-    TResult? Function(BuildContext context)? fetchOrders,
-    TResult? Function(BuildContext context, int id)? fetchOrdersById,
-    TResult? Function(BuildContext context, String filterName)?
-        fetchOrdersbyFilterEvent,
-    TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
-    TResult? Function()? fetchShopHomeBackgroundCard,
-    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
-    TResult? Function()? fetchShopHomeBackgroundCardSunnah,
-    TResult? Function()? fetchShopAdBrands,
-    TResult? Function()? fetchTopBrands,
-    TResult? Function()? fetchProductItemsSubcategorySunnah,
-    TResult? Function()? fetchProductItemsSubcategoryHealth,
-    TResult? Function()? fetchProductItemsSubcategoryWomen,
-    TResult? Function(int index)? changeShopBannerIndex,
-    TResult? Function(int index)? changeBrandBannerIndex,
-    TResult? Function()? showOrderProgressEvent,
-    TResult? Function(int index)? indexChangeOnOrderProgress,
-    TResult? Function(int index)? indexChangeOnWomensCareBanner,
-    TResult? Function(String id)? fetchShopAdBrandsById,
-  }) {
-    return fetchTopBrands?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? fetchFlashSaleProducts,
-    TResult Function()? fetchPopularProducts,
-    TResult Function()? fetchRecentProductProducts,
-    TResult Function()? fetchHomeBanners,
-    TResult Function()? fetchShopBanners,
-    TResult Function()? fetchArticles,
-    TResult Function()? fetchShopByBrand,
-    TResult Function(BuildContext context)? fetchWishList,
-    TResult Function(String query)? searchProduct,
-    TResult Function(String productId, BuildContext context)? addWishListEvent,
-    TResult Function(String productId, BuildContext context)?
-        removeWishlistEvent,
-    TResult Function(String brandName)? fetchShopByBrandProducts,
-    TResult Function(int index)? tabIndexChangeEvent,
-    TResult Function(
-            BuildContext context,
-            int totalPrice,
-            String pickupLocation,
-            int quantity,
-            int totalDiscount,
-            int shippingCharges,
-            int weight,
-            String id)?
-        postOrders,
-    TResult Function(BuildContext context)? fetchOrders,
-    TResult Function(BuildContext context, int id)? fetchOrdersById,
-    TResult Function(BuildContext context, String filterName)?
-        fetchOrdersbyFilterEvent,
-    TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
-    TResult Function()? fetchShopHomeBackgroundCard,
-    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
-    TResult Function()? fetchShopHomeBackgroundCardSunnah,
-    TResult Function()? fetchShopAdBrands,
-    TResult Function()? fetchTopBrands,
-    TResult Function()? fetchProductItemsSubcategorySunnah,
-    TResult Function()? fetchProductItemsSubcategoryHealth,
-    TResult Function()? fetchProductItemsSubcategoryWomen,
-    TResult Function(int index)? changeShopBannerIndex,
-    TResult Function(int index)? changeBrandBannerIndex,
-    TResult Function()? showOrderProgressEvent,
-    TResult Function(int index)? indexChangeOnOrderProgress,
-    TResult Function(int index)? indexChangeOnWomensCareBanner,
-    TResult Function(String id)? fetchShopAdBrandsById,
-    required TResult orElse(),
-  }) {
-    if (fetchTopBrands != null) {
-      return fetchTopBrands();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(FetchFlashSaleProducts value)
-        fetchFlashSaleProducts,
-    required TResult Function(FetchPopularProducts value) fetchPopularProducts,
-    required TResult Function(FetchRecentProductProducts value)
-        fetchRecentProductProducts,
-    required TResult Function(FetchHomeBanners value) fetchHomeBanners,
-    required TResult Function(FetchShopBanners value) fetchShopBanners,
-    required TResult Function(FetchArticles value) fetchArticles,
-    required TResult Function(FetchShopByBrand value) fetchShopByBrand,
-    required TResult Function(FetchWishList value) fetchWishList,
-    required TResult Function(SearchProduct value) searchProduct,
-    required TResult Function(AddWishListEvent value) addWishListEvent,
-    required TResult Function(RemoveWishlistEvent value) removeWishlistEvent,
-    required TResult Function(FetchShopByBrandProducts value)
-        fetchShopByBrandProducts,
-    required TResult Function(TabIndexChangeEvent value) tabIndexChangeEvent,
-    required TResult Function(PostOrders value) postOrders,
-    required TResult Function(FetchOrders value) fetchOrders,
-    required TResult Function(FetchOrdersById value) fetchOrdersById,
-    required TResult Function(FetchOrdersbyFilterEvent value)
-        fetchOrdersbyFilterEvent,
-    required TResult Function(CancelOrder value) cancelOrder,
-    required TResult Function(FetchShopHomeBackgroundCard value)
-        fetchShopHomeBackgroundCard,
-    required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
-        fetchShopHomeBackgroundCardHelthyDiet,
-    required TResult Function(FetchShopHomeBackgroundCardSunnah value)
-        fetchShopHomeBackgroundCardSunnah,
-    required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
-    required TResult Function(FetchTopBrands value) fetchTopBrands,
-    required TResult Function(FetchProductItemsSubcategorySunnah value)
-        fetchProductItemsSubcategorySunnah,
-    required TResult Function(FetchProductItemsSubcategoryHealth value)
-        fetchProductItemsSubcategoryHealth,
-    required TResult Function(FetchProductItemsSubcategoryWomen value)
-        fetchProductItemsSubcategoryWomen,
-    required TResult Function(ChangeShopBannerIndex value)
-        changeShopBannerIndex,
-    required TResult Function(ChangeBrandBannerIndex value)
-        changeBrandBannerIndex,
-    required TResult Function(ShowOrderProgressEvent value)
-        showOrderProgressEvent,
-    required TResult Function(IndexChangeOnOrderProgress value)
-        indexChangeOnOrderProgress,
-    required TResult Function(IndexChangeOnWomensCareBanner value)
-        indexChangeOnWomensCareBanner,
-    required TResult Function(FetchShopAdBrandsById value)
-        fetchShopAdBrandsById,
-  }) {
-    return fetchTopBrands(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(FetchFlashSaleProducts value)? fetchFlashSaleProducts,
-    TResult? Function(FetchPopularProducts value)? fetchPopularProducts,
-    TResult? Function(FetchRecentProductProducts value)?
-        fetchRecentProductProducts,
-    TResult? Function(FetchHomeBanners value)? fetchHomeBanners,
-    TResult? Function(FetchShopBanners value)? fetchShopBanners,
-    TResult? Function(FetchArticles value)? fetchArticles,
-    TResult? Function(FetchShopByBrand value)? fetchShopByBrand,
-    TResult? Function(FetchWishList value)? fetchWishList,
-    TResult? Function(SearchProduct value)? searchProduct,
-    TResult? Function(AddWishListEvent value)? addWishListEvent,
-    TResult? Function(RemoveWishlistEvent value)? removeWishlistEvent,
-    TResult? Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
-    TResult? Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
-    TResult? Function(PostOrders value)? postOrders,
-    TResult? Function(FetchOrders value)? fetchOrders,
-    TResult? Function(FetchOrdersById value)? fetchOrdersById,
-    TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
-    TResult? Function(CancelOrder value)? cancelOrder,
-    TResult? Function(FetchShopHomeBackgroundCard value)?
-        fetchShopHomeBackgroundCard,
-    TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHelthyDiet,
-    TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
-        fetchShopHomeBackgroundCardSunnah,
-    TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
-    TResult? Function(FetchTopBrands value)? fetchTopBrands,
-    TResult? Function(FetchProductItemsSubcategorySunnah value)?
-        fetchProductItemsSubcategorySunnah,
-    TResult? Function(FetchProductItemsSubcategoryHealth value)?
-        fetchProductItemsSubcategoryHealth,
-    TResult? Function(FetchProductItemsSubcategoryWomen value)?
-        fetchProductItemsSubcategoryWomen,
-    TResult? Function(ChangeShopBannerIndex value)? changeShopBannerIndex,
-    TResult? Function(ChangeBrandBannerIndex value)? changeBrandBannerIndex,
-    TResult? Function(ShowOrderProgressEvent value)? showOrderProgressEvent,
-    TResult? Function(IndexChangeOnOrderProgress value)?
-        indexChangeOnOrderProgress,
-    TResult? Function(IndexChangeOnWomensCareBanner value)?
-        indexChangeOnWomensCareBanner,
-    TResult? Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
-  }) {
-    return fetchTopBrands?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(FetchFlashSaleProducts value)? fetchFlashSaleProducts,
-    TResult Function(FetchPopularProducts value)? fetchPopularProducts,
-    TResult Function(FetchRecentProductProducts value)?
-        fetchRecentProductProducts,
-    TResult Function(FetchHomeBanners value)? fetchHomeBanners,
-    TResult Function(FetchShopBanners value)? fetchShopBanners,
-    TResult Function(FetchArticles value)? fetchArticles,
-    TResult Function(FetchShopByBrand value)? fetchShopByBrand,
-    TResult Function(FetchWishList value)? fetchWishList,
-    TResult Function(SearchProduct value)? searchProduct,
-    TResult Function(AddWishListEvent value)? addWishListEvent,
-    TResult Function(RemoveWishlistEvent value)? removeWishlistEvent,
-    TResult Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
-    TResult Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
-    TResult Function(PostOrders value)? postOrders,
-    TResult Function(FetchOrders value)? fetchOrders,
-    TResult Function(FetchOrdersById value)? fetchOrdersById,
-    TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
-    TResult Function(CancelOrder value)? cancelOrder,
-    TResult Function(FetchShopHomeBackgroundCard value)?
-        fetchShopHomeBackgroundCard,
-    TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHelthyDiet,
-    TResult Function(FetchShopHomeBackgroundCardSunnah value)?
-        fetchShopHomeBackgroundCardSunnah,
-    TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
-    TResult Function(FetchTopBrands value)? fetchTopBrands,
-    TResult Function(FetchProductItemsSubcategorySunnah value)?
-        fetchProductItemsSubcategorySunnah,
-    TResult Function(FetchProductItemsSubcategoryHealth value)?
-        fetchProductItemsSubcategoryHealth,
-    TResult Function(FetchProductItemsSubcategoryWomen value)?
-        fetchProductItemsSubcategoryWomen,
-    TResult Function(ChangeShopBannerIndex value)? changeShopBannerIndex,
-    TResult Function(ChangeBrandBannerIndex value)? changeBrandBannerIndex,
-    TResult Function(ShowOrderProgressEvent value)? showOrderProgressEvent,
-    TResult Function(IndexChangeOnOrderProgress value)?
-        indexChangeOnOrderProgress,
-    TResult Function(IndexChangeOnWomensCareBanner value)?
-        indexChangeOnWomensCareBanner,
-    TResult Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
-    required TResult orElse(),
-  }) {
-    if (fetchTopBrands != null) {
-      return fetchTopBrands(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class FetchTopBrands implements ShopProductsEvent {
-  const factory FetchTopBrands() = _$FetchTopBrands;
-}
-
-/// @nodoc
-abstract class _$$FetchProductItemsSubcategorySunnahCopyWith<$Res> {
-  factory _$$FetchProductItemsSubcategorySunnahCopyWith(
-          _$FetchProductItemsSubcategorySunnah value,
-          $Res Function(_$FetchProductItemsSubcategorySunnah) then) =
-      __$$FetchProductItemsSubcategorySunnahCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$FetchProductItemsSubcategorySunnahCopyWithImpl<$Res>
-    extends _$ShopProductsEventCopyWithImpl<$Res,
-        _$FetchProductItemsSubcategorySunnah>
-    implements _$$FetchProductItemsSubcategorySunnahCopyWith<$Res> {
-  __$$FetchProductItemsSubcategorySunnahCopyWithImpl(
-      _$FetchProductItemsSubcategorySunnah _value,
-      $Res Function(_$FetchProductItemsSubcategorySunnah) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$FetchProductItemsSubcategorySunnah
-    implements FetchProductItemsSubcategorySunnah {
-  const _$FetchProductItemsSubcategorySunnah();
-
-  @override
-  String toString() {
-    return 'ShopProductsEvent.fetchProductItemsSubcategorySunnah()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$FetchProductItemsSubcategorySunnah);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() fetchFlashSaleProducts,
-    required TResult Function() fetchPopularProducts,
-    required TResult Function() fetchRecentProductProducts,
-    required TResult Function() fetchHomeBanners,
-    required TResult Function() fetchShopBanners,
-    required TResult Function() fetchArticles,
-    required TResult Function() fetchShopByBrand,
-    required TResult Function(BuildContext context) fetchWishList,
-    required TResult Function(String query) searchProduct,
-    required TResult Function(String productId, BuildContext context)
-        addWishListEvent,
-    required TResult Function(String productId, BuildContext context)
-        removeWishlistEvent,
-    required TResult Function(String brandName) fetchShopByBrandProducts,
-    required TResult Function(int index) tabIndexChangeEvent,
-    required TResult Function(
-            BuildContext context,
-            int totalPrice,
-            String pickupLocation,
-            int quantity,
-            int totalDiscount,
-            int shippingCharges,
-            int weight,
-            String id)
-        postOrders,
-    required TResult Function(BuildContext context) fetchOrders,
-    required TResult Function(BuildContext context, int id) fetchOrdersById,
-    required TResult Function(BuildContext context, String filterName)
-        fetchOrdersbyFilterEvent,
-    required TResult Function(BuildContext context, int shiprockeId)
-        cancelOrder,
-    required TResult Function() fetchShopHomeBackgroundCard,
-    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
-    required TResult Function() fetchShopHomeBackgroundCardSunnah,
-    required TResult Function() fetchShopAdBrands,
-    required TResult Function() fetchTopBrands,
-    required TResult Function() fetchProductItemsSubcategorySunnah,
-    required TResult Function() fetchProductItemsSubcategoryHealth,
-    required TResult Function() fetchProductItemsSubcategoryWomen,
-    required TResult Function(int index) changeShopBannerIndex,
-    required TResult Function(int index) changeBrandBannerIndex,
-    required TResult Function() showOrderProgressEvent,
-    required TResult Function(int index) indexChangeOnOrderProgress,
-    required TResult Function(int index) indexChangeOnWomensCareBanner,
-    required TResult Function(String id) fetchShopAdBrandsById,
-  }) {
-    return fetchProductItemsSubcategorySunnah();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? fetchFlashSaleProducts,
-    TResult? Function()? fetchPopularProducts,
-    TResult? Function()? fetchRecentProductProducts,
-    TResult? Function()? fetchHomeBanners,
-    TResult? Function()? fetchShopBanners,
-    TResult? Function()? fetchArticles,
-    TResult? Function()? fetchShopByBrand,
-    TResult? Function(BuildContext context)? fetchWishList,
-    TResult? Function(String query)? searchProduct,
-    TResult? Function(String productId, BuildContext context)? addWishListEvent,
-    TResult? Function(String productId, BuildContext context)?
-        removeWishlistEvent,
-    TResult? Function(String brandName)? fetchShopByBrandProducts,
-    TResult? Function(int index)? tabIndexChangeEvent,
-    TResult? Function(
-            BuildContext context,
-            int totalPrice,
-            String pickupLocation,
-            int quantity,
-            int totalDiscount,
-            int shippingCharges,
-            int weight,
-            String id)?
-        postOrders,
-    TResult? Function(BuildContext context)? fetchOrders,
-    TResult? Function(BuildContext context, int id)? fetchOrdersById,
-    TResult? Function(BuildContext context, String filterName)?
-        fetchOrdersbyFilterEvent,
-    TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
-    TResult? Function()? fetchShopHomeBackgroundCard,
-    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
-    TResult? Function()? fetchShopHomeBackgroundCardSunnah,
-    TResult? Function()? fetchShopAdBrands,
-    TResult? Function()? fetchTopBrands,
-    TResult? Function()? fetchProductItemsSubcategorySunnah,
-    TResult? Function()? fetchProductItemsSubcategoryHealth,
-    TResult? Function()? fetchProductItemsSubcategoryWomen,
-    TResult? Function(int index)? changeShopBannerIndex,
-    TResult? Function(int index)? changeBrandBannerIndex,
-    TResult? Function()? showOrderProgressEvent,
-    TResult? Function(int index)? indexChangeOnOrderProgress,
-    TResult? Function(int index)? indexChangeOnWomensCareBanner,
-    TResult? Function(String id)? fetchShopAdBrandsById,
-  }) {
-    return fetchProductItemsSubcategorySunnah?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? fetchFlashSaleProducts,
-    TResult Function()? fetchPopularProducts,
-    TResult Function()? fetchRecentProductProducts,
-    TResult Function()? fetchHomeBanners,
-    TResult Function()? fetchShopBanners,
-    TResult Function()? fetchArticles,
-    TResult Function()? fetchShopByBrand,
-    TResult Function(BuildContext context)? fetchWishList,
-    TResult Function(String query)? searchProduct,
-    TResult Function(String productId, BuildContext context)? addWishListEvent,
-    TResult Function(String productId, BuildContext context)?
-        removeWishlistEvent,
-    TResult Function(String brandName)? fetchShopByBrandProducts,
-    TResult Function(int index)? tabIndexChangeEvent,
-    TResult Function(
-            BuildContext context,
-            int totalPrice,
-            String pickupLocation,
-            int quantity,
-            int totalDiscount,
-            int shippingCharges,
-            int weight,
-            String id)?
-        postOrders,
-    TResult Function(BuildContext context)? fetchOrders,
-    TResult Function(BuildContext context, int id)? fetchOrdersById,
-    TResult Function(BuildContext context, String filterName)?
-        fetchOrdersbyFilterEvent,
-    TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
-    TResult Function()? fetchShopHomeBackgroundCard,
-    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
-    TResult Function()? fetchShopHomeBackgroundCardSunnah,
-    TResult Function()? fetchShopAdBrands,
-    TResult Function()? fetchTopBrands,
-    TResult Function()? fetchProductItemsSubcategorySunnah,
-    TResult Function()? fetchProductItemsSubcategoryHealth,
-    TResult Function()? fetchProductItemsSubcategoryWomen,
-    TResult Function(int index)? changeShopBannerIndex,
-    TResult Function(int index)? changeBrandBannerIndex,
-    TResult Function()? showOrderProgressEvent,
-    TResult Function(int index)? indexChangeOnOrderProgress,
-    TResult Function(int index)? indexChangeOnWomensCareBanner,
-    TResult Function(String id)? fetchShopAdBrandsById,
-    required TResult orElse(),
-  }) {
-    if (fetchProductItemsSubcategorySunnah != null) {
-      return fetchProductItemsSubcategorySunnah();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(FetchFlashSaleProducts value)
-        fetchFlashSaleProducts,
-    required TResult Function(FetchPopularProducts value) fetchPopularProducts,
-    required TResult Function(FetchRecentProductProducts value)
-        fetchRecentProductProducts,
-    required TResult Function(FetchHomeBanners value) fetchHomeBanners,
-    required TResult Function(FetchShopBanners value) fetchShopBanners,
-    required TResult Function(FetchArticles value) fetchArticles,
-    required TResult Function(FetchShopByBrand value) fetchShopByBrand,
-    required TResult Function(FetchWishList value) fetchWishList,
-    required TResult Function(SearchProduct value) searchProduct,
-    required TResult Function(AddWishListEvent value) addWishListEvent,
-    required TResult Function(RemoveWishlistEvent value) removeWishlistEvent,
-    required TResult Function(FetchShopByBrandProducts value)
-        fetchShopByBrandProducts,
-    required TResult Function(TabIndexChangeEvent value) tabIndexChangeEvent,
-    required TResult Function(PostOrders value) postOrders,
-    required TResult Function(FetchOrders value) fetchOrders,
-    required TResult Function(FetchOrdersById value) fetchOrdersById,
-    required TResult Function(FetchOrdersbyFilterEvent value)
-        fetchOrdersbyFilterEvent,
-    required TResult Function(CancelOrder value) cancelOrder,
-    required TResult Function(FetchShopHomeBackgroundCard value)
-        fetchShopHomeBackgroundCard,
-    required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
-        fetchShopHomeBackgroundCardHelthyDiet,
-    required TResult Function(FetchShopHomeBackgroundCardSunnah value)
-        fetchShopHomeBackgroundCardSunnah,
-    required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
-    required TResult Function(FetchTopBrands value) fetchTopBrands,
-    required TResult Function(FetchProductItemsSubcategorySunnah value)
-        fetchProductItemsSubcategorySunnah,
-    required TResult Function(FetchProductItemsSubcategoryHealth value)
-        fetchProductItemsSubcategoryHealth,
-    required TResult Function(FetchProductItemsSubcategoryWomen value)
-        fetchProductItemsSubcategoryWomen,
-    required TResult Function(ChangeShopBannerIndex value)
-        changeShopBannerIndex,
-    required TResult Function(ChangeBrandBannerIndex value)
-        changeBrandBannerIndex,
-    required TResult Function(ShowOrderProgressEvent value)
-        showOrderProgressEvent,
-    required TResult Function(IndexChangeOnOrderProgress value)
-        indexChangeOnOrderProgress,
-    required TResult Function(IndexChangeOnWomensCareBanner value)
-        indexChangeOnWomensCareBanner,
-    required TResult Function(FetchShopAdBrandsById value)
-        fetchShopAdBrandsById,
-  }) {
-    return fetchProductItemsSubcategorySunnah(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(FetchFlashSaleProducts value)? fetchFlashSaleProducts,
-    TResult? Function(FetchPopularProducts value)? fetchPopularProducts,
-    TResult? Function(FetchRecentProductProducts value)?
-        fetchRecentProductProducts,
-    TResult? Function(FetchHomeBanners value)? fetchHomeBanners,
-    TResult? Function(FetchShopBanners value)? fetchShopBanners,
-    TResult? Function(FetchArticles value)? fetchArticles,
-    TResult? Function(FetchShopByBrand value)? fetchShopByBrand,
-    TResult? Function(FetchWishList value)? fetchWishList,
-    TResult? Function(SearchProduct value)? searchProduct,
-    TResult? Function(AddWishListEvent value)? addWishListEvent,
-    TResult? Function(RemoveWishlistEvent value)? removeWishlistEvent,
-    TResult? Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
-    TResult? Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
-    TResult? Function(PostOrders value)? postOrders,
-    TResult? Function(FetchOrders value)? fetchOrders,
-    TResult? Function(FetchOrdersById value)? fetchOrdersById,
-    TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
-    TResult? Function(CancelOrder value)? cancelOrder,
-    TResult? Function(FetchShopHomeBackgroundCard value)?
-        fetchShopHomeBackgroundCard,
-    TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHelthyDiet,
-    TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
-        fetchShopHomeBackgroundCardSunnah,
-    TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
-    TResult? Function(FetchTopBrands value)? fetchTopBrands,
-    TResult? Function(FetchProductItemsSubcategorySunnah value)?
-        fetchProductItemsSubcategorySunnah,
-    TResult? Function(FetchProductItemsSubcategoryHealth value)?
-        fetchProductItemsSubcategoryHealth,
-    TResult? Function(FetchProductItemsSubcategoryWomen value)?
-        fetchProductItemsSubcategoryWomen,
-    TResult? Function(ChangeShopBannerIndex value)? changeShopBannerIndex,
-    TResult? Function(ChangeBrandBannerIndex value)? changeBrandBannerIndex,
-    TResult? Function(ShowOrderProgressEvent value)? showOrderProgressEvent,
-    TResult? Function(IndexChangeOnOrderProgress value)?
-        indexChangeOnOrderProgress,
-    TResult? Function(IndexChangeOnWomensCareBanner value)?
-        indexChangeOnWomensCareBanner,
-    TResult? Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
-  }) {
-    return fetchProductItemsSubcategorySunnah?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(FetchFlashSaleProducts value)? fetchFlashSaleProducts,
-    TResult Function(FetchPopularProducts value)? fetchPopularProducts,
-    TResult Function(FetchRecentProductProducts value)?
-        fetchRecentProductProducts,
-    TResult Function(FetchHomeBanners value)? fetchHomeBanners,
-    TResult Function(FetchShopBanners value)? fetchShopBanners,
-    TResult Function(FetchArticles value)? fetchArticles,
-    TResult Function(FetchShopByBrand value)? fetchShopByBrand,
-    TResult Function(FetchWishList value)? fetchWishList,
-    TResult Function(SearchProduct value)? searchProduct,
-    TResult Function(AddWishListEvent value)? addWishListEvent,
-    TResult Function(RemoveWishlistEvent value)? removeWishlistEvent,
-    TResult Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
-    TResult Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
-    TResult Function(PostOrders value)? postOrders,
-    TResult Function(FetchOrders value)? fetchOrders,
-    TResult Function(FetchOrdersById value)? fetchOrdersById,
-    TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
-    TResult Function(CancelOrder value)? cancelOrder,
-    TResult Function(FetchShopHomeBackgroundCard value)?
-        fetchShopHomeBackgroundCard,
-    TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHelthyDiet,
-    TResult Function(FetchShopHomeBackgroundCardSunnah value)?
-        fetchShopHomeBackgroundCardSunnah,
-    TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
-    TResult Function(FetchTopBrands value)? fetchTopBrands,
-    TResult Function(FetchProductItemsSubcategorySunnah value)?
-        fetchProductItemsSubcategorySunnah,
-    TResult Function(FetchProductItemsSubcategoryHealth value)?
-        fetchProductItemsSubcategoryHealth,
-    TResult Function(FetchProductItemsSubcategoryWomen value)?
-        fetchProductItemsSubcategoryWomen,
-    TResult Function(ChangeShopBannerIndex value)? changeShopBannerIndex,
-    TResult Function(ChangeBrandBannerIndex value)? changeBrandBannerIndex,
-    TResult Function(ShowOrderProgressEvent value)? showOrderProgressEvent,
-    TResult Function(IndexChangeOnOrderProgress value)?
-        indexChangeOnOrderProgress,
-    TResult Function(IndexChangeOnWomensCareBanner value)?
-        indexChangeOnWomensCareBanner,
-    TResult Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
-    required TResult orElse(),
-  }) {
-    if (fetchProductItemsSubcategorySunnah != null) {
-      return fetchProductItemsSubcategorySunnah(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class FetchProductItemsSubcategorySunnah implements ShopProductsEvent {
-  const factory FetchProductItemsSubcategorySunnah() =
-      _$FetchProductItemsSubcategorySunnah;
-}
-
-/// @nodoc
-abstract class _$$FetchProductItemsSubcategoryHealthCopyWith<$Res> {
-  factory _$$FetchProductItemsSubcategoryHealthCopyWith(
-          _$FetchProductItemsSubcategoryHealth value,
-          $Res Function(_$FetchProductItemsSubcategoryHealth) then) =
-      __$$FetchProductItemsSubcategoryHealthCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$FetchProductItemsSubcategoryHealthCopyWithImpl<$Res>
-    extends _$ShopProductsEventCopyWithImpl<$Res,
-        _$FetchProductItemsSubcategoryHealth>
-    implements _$$FetchProductItemsSubcategoryHealthCopyWith<$Res> {
-  __$$FetchProductItemsSubcategoryHealthCopyWithImpl(
-      _$FetchProductItemsSubcategoryHealth _value,
-      $Res Function(_$FetchProductItemsSubcategoryHealth) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$FetchProductItemsSubcategoryHealth
-    implements FetchProductItemsSubcategoryHealth {
-  const _$FetchProductItemsSubcategoryHealth();
-
-  @override
-  String toString() {
-    return 'ShopProductsEvent.fetchProductItemsSubcategoryHealth()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$FetchProductItemsSubcategoryHealth);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() fetchFlashSaleProducts,
-    required TResult Function() fetchPopularProducts,
-    required TResult Function() fetchRecentProductProducts,
-    required TResult Function() fetchHomeBanners,
-    required TResult Function() fetchShopBanners,
-    required TResult Function() fetchArticles,
-    required TResult Function() fetchShopByBrand,
-    required TResult Function(BuildContext context) fetchWishList,
-    required TResult Function(String query) searchProduct,
-    required TResult Function(String productId, BuildContext context)
-        addWishListEvent,
-    required TResult Function(String productId, BuildContext context)
-        removeWishlistEvent,
-    required TResult Function(String brandName) fetchShopByBrandProducts,
-    required TResult Function(int index) tabIndexChangeEvent,
-    required TResult Function(
-            BuildContext context,
-            int totalPrice,
-            String pickupLocation,
-            int quantity,
-            int totalDiscount,
-            int shippingCharges,
-            int weight,
-            String id)
-        postOrders,
-    required TResult Function(BuildContext context) fetchOrders,
-    required TResult Function(BuildContext context, int id) fetchOrdersById,
-    required TResult Function(BuildContext context, String filterName)
-        fetchOrdersbyFilterEvent,
-    required TResult Function(BuildContext context, int shiprockeId)
-        cancelOrder,
-    required TResult Function() fetchShopHomeBackgroundCard,
-    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
-    required TResult Function() fetchShopHomeBackgroundCardSunnah,
-    required TResult Function() fetchShopAdBrands,
-    required TResult Function() fetchTopBrands,
-    required TResult Function() fetchProductItemsSubcategorySunnah,
-    required TResult Function() fetchProductItemsSubcategoryHealth,
-    required TResult Function() fetchProductItemsSubcategoryWomen,
-    required TResult Function(int index) changeShopBannerIndex,
-    required TResult Function(int index) changeBrandBannerIndex,
-    required TResult Function() showOrderProgressEvent,
-    required TResult Function(int index) indexChangeOnOrderProgress,
-    required TResult Function(int index) indexChangeOnWomensCareBanner,
-    required TResult Function(String id) fetchShopAdBrandsById,
-  }) {
-    return fetchProductItemsSubcategoryHealth();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? fetchFlashSaleProducts,
-    TResult? Function()? fetchPopularProducts,
-    TResult? Function()? fetchRecentProductProducts,
-    TResult? Function()? fetchHomeBanners,
-    TResult? Function()? fetchShopBanners,
-    TResult? Function()? fetchArticles,
-    TResult? Function()? fetchShopByBrand,
-    TResult? Function(BuildContext context)? fetchWishList,
-    TResult? Function(String query)? searchProduct,
-    TResult? Function(String productId, BuildContext context)? addWishListEvent,
-    TResult? Function(String productId, BuildContext context)?
-        removeWishlistEvent,
-    TResult? Function(String brandName)? fetchShopByBrandProducts,
-    TResult? Function(int index)? tabIndexChangeEvent,
-    TResult? Function(
-            BuildContext context,
-            int totalPrice,
-            String pickupLocation,
-            int quantity,
-            int totalDiscount,
-            int shippingCharges,
-            int weight,
-            String id)?
-        postOrders,
-    TResult? Function(BuildContext context)? fetchOrders,
-    TResult? Function(BuildContext context, int id)? fetchOrdersById,
-    TResult? Function(BuildContext context, String filterName)?
-        fetchOrdersbyFilterEvent,
-    TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
-    TResult? Function()? fetchShopHomeBackgroundCard,
-    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
-    TResult? Function()? fetchShopHomeBackgroundCardSunnah,
-    TResult? Function()? fetchShopAdBrands,
-    TResult? Function()? fetchTopBrands,
-    TResult? Function()? fetchProductItemsSubcategorySunnah,
-    TResult? Function()? fetchProductItemsSubcategoryHealth,
-    TResult? Function()? fetchProductItemsSubcategoryWomen,
-    TResult? Function(int index)? changeShopBannerIndex,
-    TResult? Function(int index)? changeBrandBannerIndex,
-    TResult? Function()? showOrderProgressEvent,
-    TResult? Function(int index)? indexChangeOnOrderProgress,
-    TResult? Function(int index)? indexChangeOnWomensCareBanner,
-    TResult? Function(String id)? fetchShopAdBrandsById,
-  }) {
-    return fetchProductItemsSubcategoryHealth?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? fetchFlashSaleProducts,
-    TResult Function()? fetchPopularProducts,
-    TResult Function()? fetchRecentProductProducts,
-    TResult Function()? fetchHomeBanners,
-    TResult Function()? fetchShopBanners,
-    TResult Function()? fetchArticles,
-    TResult Function()? fetchShopByBrand,
-    TResult Function(BuildContext context)? fetchWishList,
-    TResult Function(String query)? searchProduct,
-    TResult Function(String productId, BuildContext context)? addWishListEvent,
-    TResult Function(String productId, BuildContext context)?
-        removeWishlistEvent,
-    TResult Function(String brandName)? fetchShopByBrandProducts,
-    TResult Function(int index)? tabIndexChangeEvent,
-    TResult Function(
-            BuildContext context,
-            int totalPrice,
-            String pickupLocation,
-            int quantity,
-            int totalDiscount,
-            int shippingCharges,
-            int weight,
-            String id)?
-        postOrders,
-    TResult Function(BuildContext context)? fetchOrders,
-    TResult Function(BuildContext context, int id)? fetchOrdersById,
-    TResult Function(BuildContext context, String filterName)?
-        fetchOrdersbyFilterEvent,
-    TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
-    TResult Function()? fetchShopHomeBackgroundCard,
-    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
-    TResult Function()? fetchShopHomeBackgroundCardSunnah,
-    TResult Function()? fetchShopAdBrands,
-    TResult Function()? fetchTopBrands,
-    TResult Function()? fetchProductItemsSubcategorySunnah,
-    TResult Function()? fetchProductItemsSubcategoryHealth,
-    TResult Function()? fetchProductItemsSubcategoryWomen,
-    TResult Function(int index)? changeShopBannerIndex,
-    TResult Function(int index)? changeBrandBannerIndex,
-    TResult Function()? showOrderProgressEvent,
-    TResult Function(int index)? indexChangeOnOrderProgress,
-    TResult Function(int index)? indexChangeOnWomensCareBanner,
-    TResult Function(String id)? fetchShopAdBrandsById,
-    required TResult orElse(),
-  }) {
-    if (fetchProductItemsSubcategoryHealth != null) {
-      return fetchProductItemsSubcategoryHealth();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(FetchFlashSaleProducts value)
-        fetchFlashSaleProducts,
-    required TResult Function(FetchPopularProducts value) fetchPopularProducts,
-    required TResult Function(FetchRecentProductProducts value)
-        fetchRecentProductProducts,
-    required TResult Function(FetchHomeBanners value) fetchHomeBanners,
-    required TResult Function(FetchShopBanners value) fetchShopBanners,
-    required TResult Function(FetchArticles value) fetchArticles,
-    required TResult Function(FetchShopByBrand value) fetchShopByBrand,
-    required TResult Function(FetchWishList value) fetchWishList,
-    required TResult Function(SearchProduct value) searchProduct,
-    required TResult Function(AddWishListEvent value) addWishListEvent,
-    required TResult Function(RemoveWishlistEvent value) removeWishlistEvent,
-    required TResult Function(FetchShopByBrandProducts value)
-        fetchShopByBrandProducts,
-    required TResult Function(TabIndexChangeEvent value) tabIndexChangeEvent,
-    required TResult Function(PostOrders value) postOrders,
-    required TResult Function(FetchOrders value) fetchOrders,
-    required TResult Function(FetchOrdersById value) fetchOrdersById,
-    required TResult Function(FetchOrdersbyFilterEvent value)
-        fetchOrdersbyFilterEvent,
-    required TResult Function(CancelOrder value) cancelOrder,
-    required TResult Function(FetchShopHomeBackgroundCard value)
-        fetchShopHomeBackgroundCard,
-    required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
-        fetchShopHomeBackgroundCardHelthyDiet,
-    required TResult Function(FetchShopHomeBackgroundCardSunnah value)
-        fetchShopHomeBackgroundCardSunnah,
-    required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
-    required TResult Function(FetchTopBrands value) fetchTopBrands,
-    required TResult Function(FetchProductItemsSubcategorySunnah value)
-        fetchProductItemsSubcategorySunnah,
-    required TResult Function(FetchProductItemsSubcategoryHealth value)
-        fetchProductItemsSubcategoryHealth,
-    required TResult Function(FetchProductItemsSubcategoryWomen value)
-        fetchProductItemsSubcategoryWomen,
-    required TResult Function(ChangeShopBannerIndex value)
-        changeShopBannerIndex,
-    required TResult Function(ChangeBrandBannerIndex value)
-        changeBrandBannerIndex,
-    required TResult Function(ShowOrderProgressEvent value)
-        showOrderProgressEvent,
-    required TResult Function(IndexChangeOnOrderProgress value)
-        indexChangeOnOrderProgress,
-    required TResult Function(IndexChangeOnWomensCareBanner value)
-        indexChangeOnWomensCareBanner,
-    required TResult Function(FetchShopAdBrandsById value)
-        fetchShopAdBrandsById,
-  }) {
-    return fetchProductItemsSubcategoryHealth(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(FetchFlashSaleProducts value)? fetchFlashSaleProducts,
-    TResult? Function(FetchPopularProducts value)? fetchPopularProducts,
-    TResult? Function(FetchRecentProductProducts value)?
-        fetchRecentProductProducts,
-    TResult? Function(FetchHomeBanners value)? fetchHomeBanners,
-    TResult? Function(FetchShopBanners value)? fetchShopBanners,
-    TResult? Function(FetchArticles value)? fetchArticles,
-    TResult? Function(FetchShopByBrand value)? fetchShopByBrand,
-    TResult? Function(FetchWishList value)? fetchWishList,
-    TResult? Function(SearchProduct value)? searchProduct,
-    TResult? Function(AddWishListEvent value)? addWishListEvent,
-    TResult? Function(RemoveWishlistEvent value)? removeWishlistEvent,
-    TResult? Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
-    TResult? Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
-    TResult? Function(PostOrders value)? postOrders,
-    TResult? Function(FetchOrders value)? fetchOrders,
-    TResult? Function(FetchOrdersById value)? fetchOrdersById,
-    TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
-    TResult? Function(CancelOrder value)? cancelOrder,
-    TResult? Function(FetchShopHomeBackgroundCard value)?
-        fetchShopHomeBackgroundCard,
-    TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHelthyDiet,
-    TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
-        fetchShopHomeBackgroundCardSunnah,
-    TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
-    TResult? Function(FetchTopBrands value)? fetchTopBrands,
-    TResult? Function(FetchProductItemsSubcategorySunnah value)?
-        fetchProductItemsSubcategorySunnah,
-    TResult? Function(FetchProductItemsSubcategoryHealth value)?
-        fetchProductItemsSubcategoryHealth,
-    TResult? Function(FetchProductItemsSubcategoryWomen value)?
-        fetchProductItemsSubcategoryWomen,
-    TResult? Function(ChangeShopBannerIndex value)? changeShopBannerIndex,
-    TResult? Function(ChangeBrandBannerIndex value)? changeBrandBannerIndex,
-    TResult? Function(ShowOrderProgressEvent value)? showOrderProgressEvent,
-    TResult? Function(IndexChangeOnOrderProgress value)?
-        indexChangeOnOrderProgress,
-    TResult? Function(IndexChangeOnWomensCareBanner value)?
-        indexChangeOnWomensCareBanner,
-    TResult? Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
-  }) {
-    return fetchProductItemsSubcategoryHealth?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(FetchFlashSaleProducts value)? fetchFlashSaleProducts,
-    TResult Function(FetchPopularProducts value)? fetchPopularProducts,
-    TResult Function(FetchRecentProductProducts value)?
-        fetchRecentProductProducts,
-    TResult Function(FetchHomeBanners value)? fetchHomeBanners,
-    TResult Function(FetchShopBanners value)? fetchShopBanners,
-    TResult Function(FetchArticles value)? fetchArticles,
-    TResult Function(FetchShopByBrand value)? fetchShopByBrand,
-    TResult Function(FetchWishList value)? fetchWishList,
-    TResult Function(SearchProduct value)? searchProduct,
-    TResult Function(AddWishListEvent value)? addWishListEvent,
-    TResult Function(RemoveWishlistEvent value)? removeWishlistEvent,
-    TResult Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
-    TResult Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
-    TResult Function(PostOrders value)? postOrders,
-    TResult Function(FetchOrders value)? fetchOrders,
-    TResult Function(FetchOrdersById value)? fetchOrdersById,
-    TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
-    TResult Function(CancelOrder value)? cancelOrder,
-    TResult Function(FetchShopHomeBackgroundCard value)?
-        fetchShopHomeBackgroundCard,
-    TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHelthyDiet,
-    TResult Function(FetchShopHomeBackgroundCardSunnah value)?
-        fetchShopHomeBackgroundCardSunnah,
-    TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
-    TResult Function(FetchTopBrands value)? fetchTopBrands,
-    TResult Function(FetchProductItemsSubcategorySunnah value)?
-        fetchProductItemsSubcategorySunnah,
-    TResult Function(FetchProductItemsSubcategoryHealth value)?
-        fetchProductItemsSubcategoryHealth,
-    TResult Function(FetchProductItemsSubcategoryWomen value)?
-        fetchProductItemsSubcategoryWomen,
-    TResult Function(ChangeShopBannerIndex value)? changeShopBannerIndex,
-    TResult Function(ChangeBrandBannerIndex value)? changeBrandBannerIndex,
-    TResult Function(ShowOrderProgressEvent value)? showOrderProgressEvent,
-    TResult Function(IndexChangeOnOrderProgress value)?
-        indexChangeOnOrderProgress,
-    TResult Function(IndexChangeOnWomensCareBanner value)?
-        indexChangeOnWomensCareBanner,
-    TResult Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
-    required TResult orElse(),
-  }) {
-    if (fetchProductItemsSubcategoryHealth != null) {
-      return fetchProductItemsSubcategoryHealth(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class FetchProductItemsSubcategoryHealth implements ShopProductsEvent {
-  const factory FetchProductItemsSubcategoryHealth() =
-      _$FetchProductItemsSubcategoryHealth;
-}
-
-/// @nodoc
-abstract class _$$FetchProductItemsSubcategoryWomenCopyWith<$Res> {
-  factory _$$FetchProductItemsSubcategoryWomenCopyWith(
-          _$FetchProductItemsSubcategoryWomen value,
-          $Res Function(_$FetchProductItemsSubcategoryWomen) then) =
-      __$$FetchProductItemsSubcategoryWomenCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$FetchProductItemsSubcategoryWomenCopyWithImpl<$Res>
-    extends _$ShopProductsEventCopyWithImpl<$Res,
-        _$FetchProductItemsSubcategoryWomen>
-    implements _$$FetchProductItemsSubcategoryWomenCopyWith<$Res> {
-  __$$FetchProductItemsSubcategoryWomenCopyWithImpl(
-      _$FetchProductItemsSubcategoryWomen _value,
-      $Res Function(_$FetchProductItemsSubcategoryWomen) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$FetchProductItemsSubcategoryWomen
-    implements FetchProductItemsSubcategoryWomen {
-  const _$FetchProductItemsSubcategoryWomen();
-
-  @override
-  String toString() {
-    return 'ShopProductsEvent.fetchProductItemsSubcategoryWomen()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$FetchProductItemsSubcategoryWomen);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() fetchFlashSaleProducts,
-    required TResult Function() fetchPopularProducts,
-    required TResult Function() fetchRecentProductProducts,
-    required TResult Function() fetchHomeBanners,
-    required TResult Function() fetchShopBanners,
-    required TResult Function() fetchArticles,
-    required TResult Function() fetchShopByBrand,
-    required TResult Function(BuildContext context) fetchWishList,
-    required TResult Function(String query) searchProduct,
-    required TResult Function(String productId, BuildContext context)
-        addWishListEvent,
-    required TResult Function(String productId, BuildContext context)
-        removeWishlistEvent,
-    required TResult Function(String brandName) fetchShopByBrandProducts,
-    required TResult Function(int index) tabIndexChangeEvent,
-    required TResult Function(
-            BuildContext context,
-            int totalPrice,
-            String pickupLocation,
-            int quantity,
-            int totalDiscount,
-            int shippingCharges,
-            int weight,
-            String id)
-        postOrders,
-    required TResult Function(BuildContext context) fetchOrders,
-    required TResult Function(BuildContext context, int id) fetchOrdersById,
-    required TResult Function(BuildContext context, String filterName)
-        fetchOrdersbyFilterEvent,
-    required TResult Function(BuildContext context, int shiprockeId)
-        cancelOrder,
-    required TResult Function() fetchShopHomeBackgroundCard,
-    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
-    required TResult Function() fetchShopHomeBackgroundCardSunnah,
-    required TResult Function() fetchShopAdBrands,
-    required TResult Function() fetchTopBrands,
-    required TResult Function() fetchProductItemsSubcategorySunnah,
-    required TResult Function() fetchProductItemsSubcategoryHealth,
-    required TResult Function() fetchProductItemsSubcategoryWomen,
-    required TResult Function(int index) changeShopBannerIndex,
-    required TResult Function(int index) changeBrandBannerIndex,
-    required TResult Function() showOrderProgressEvent,
-    required TResult Function(int index) indexChangeOnOrderProgress,
-    required TResult Function(int index) indexChangeOnWomensCareBanner,
-    required TResult Function(String id) fetchShopAdBrandsById,
-  }) {
-    return fetchProductItemsSubcategoryWomen();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? fetchFlashSaleProducts,
-    TResult? Function()? fetchPopularProducts,
-    TResult? Function()? fetchRecentProductProducts,
-    TResult? Function()? fetchHomeBanners,
-    TResult? Function()? fetchShopBanners,
-    TResult? Function()? fetchArticles,
-    TResult? Function()? fetchShopByBrand,
-    TResult? Function(BuildContext context)? fetchWishList,
-    TResult? Function(String query)? searchProduct,
-    TResult? Function(String productId, BuildContext context)? addWishListEvent,
-    TResult? Function(String productId, BuildContext context)?
-        removeWishlistEvent,
-    TResult? Function(String brandName)? fetchShopByBrandProducts,
-    TResult? Function(int index)? tabIndexChangeEvent,
-    TResult? Function(
-            BuildContext context,
-            int totalPrice,
-            String pickupLocation,
-            int quantity,
-            int totalDiscount,
-            int shippingCharges,
-            int weight,
-            String id)?
-        postOrders,
-    TResult? Function(BuildContext context)? fetchOrders,
-    TResult? Function(BuildContext context, int id)? fetchOrdersById,
-    TResult? Function(BuildContext context, String filterName)?
-        fetchOrdersbyFilterEvent,
-    TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
-    TResult? Function()? fetchShopHomeBackgroundCard,
-    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
-    TResult? Function()? fetchShopHomeBackgroundCardSunnah,
-    TResult? Function()? fetchShopAdBrands,
-    TResult? Function()? fetchTopBrands,
-    TResult? Function()? fetchProductItemsSubcategorySunnah,
-    TResult? Function()? fetchProductItemsSubcategoryHealth,
-    TResult? Function()? fetchProductItemsSubcategoryWomen,
-    TResult? Function(int index)? changeShopBannerIndex,
-    TResult? Function(int index)? changeBrandBannerIndex,
-    TResult? Function()? showOrderProgressEvent,
-    TResult? Function(int index)? indexChangeOnOrderProgress,
-    TResult? Function(int index)? indexChangeOnWomensCareBanner,
-    TResult? Function(String id)? fetchShopAdBrandsById,
-  }) {
-    return fetchProductItemsSubcategoryWomen?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? fetchFlashSaleProducts,
-    TResult Function()? fetchPopularProducts,
-    TResult Function()? fetchRecentProductProducts,
-    TResult Function()? fetchHomeBanners,
-    TResult Function()? fetchShopBanners,
-    TResult Function()? fetchArticles,
-    TResult Function()? fetchShopByBrand,
-    TResult Function(BuildContext context)? fetchWishList,
-    TResult Function(String query)? searchProduct,
-    TResult Function(String productId, BuildContext context)? addWishListEvent,
-    TResult Function(String productId, BuildContext context)?
-        removeWishlistEvent,
-    TResult Function(String brandName)? fetchShopByBrandProducts,
-    TResult Function(int index)? tabIndexChangeEvent,
-    TResult Function(
-            BuildContext context,
-            int totalPrice,
-            String pickupLocation,
-            int quantity,
-            int totalDiscount,
-            int shippingCharges,
-            int weight,
-            String id)?
-        postOrders,
-    TResult Function(BuildContext context)? fetchOrders,
-    TResult Function(BuildContext context, int id)? fetchOrdersById,
-    TResult Function(BuildContext context, String filterName)?
-        fetchOrdersbyFilterEvent,
-    TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
-    TResult Function()? fetchShopHomeBackgroundCard,
-    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
-    TResult Function()? fetchShopHomeBackgroundCardSunnah,
-    TResult Function()? fetchShopAdBrands,
-    TResult Function()? fetchTopBrands,
-    TResult Function()? fetchProductItemsSubcategorySunnah,
-    TResult Function()? fetchProductItemsSubcategoryHealth,
-    TResult Function()? fetchProductItemsSubcategoryWomen,
-    TResult Function(int index)? changeShopBannerIndex,
-    TResult Function(int index)? changeBrandBannerIndex,
-    TResult Function()? showOrderProgressEvent,
-    TResult Function(int index)? indexChangeOnOrderProgress,
-    TResult Function(int index)? indexChangeOnWomensCareBanner,
-    TResult Function(String id)? fetchShopAdBrandsById,
-    required TResult orElse(),
-  }) {
-    if (fetchProductItemsSubcategoryWomen != null) {
-      return fetchProductItemsSubcategoryWomen();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(FetchFlashSaleProducts value)
-        fetchFlashSaleProducts,
-    required TResult Function(FetchPopularProducts value) fetchPopularProducts,
-    required TResult Function(FetchRecentProductProducts value)
-        fetchRecentProductProducts,
-    required TResult Function(FetchHomeBanners value) fetchHomeBanners,
-    required TResult Function(FetchShopBanners value) fetchShopBanners,
-    required TResult Function(FetchArticles value) fetchArticles,
-    required TResult Function(FetchShopByBrand value) fetchShopByBrand,
-    required TResult Function(FetchWishList value) fetchWishList,
-    required TResult Function(SearchProduct value) searchProduct,
-    required TResult Function(AddWishListEvent value) addWishListEvent,
-    required TResult Function(RemoveWishlistEvent value) removeWishlistEvent,
-    required TResult Function(FetchShopByBrandProducts value)
-        fetchShopByBrandProducts,
-    required TResult Function(TabIndexChangeEvent value) tabIndexChangeEvent,
-    required TResult Function(PostOrders value) postOrders,
-    required TResult Function(FetchOrders value) fetchOrders,
-    required TResult Function(FetchOrdersById value) fetchOrdersById,
-    required TResult Function(FetchOrdersbyFilterEvent value)
-        fetchOrdersbyFilterEvent,
-    required TResult Function(CancelOrder value) cancelOrder,
-    required TResult Function(FetchShopHomeBackgroundCard value)
-        fetchShopHomeBackgroundCard,
-    required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
-        fetchShopHomeBackgroundCardHelthyDiet,
-    required TResult Function(FetchShopHomeBackgroundCardSunnah value)
-        fetchShopHomeBackgroundCardSunnah,
-    required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
-    required TResult Function(FetchTopBrands value) fetchTopBrands,
-    required TResult Function(FetchProductItemsSubcategorySunnah value)
-        fetchProductItemsSubcategorySunnah,
-    required TResult Function(FetchProductItemsSubcategoryHealth value)
-        fetchProductItemsSubcategoryHealth,
-    required TResult Function(FetchProductItemsSubcategoryWomen value)
-        fetchProductItemsSubcategoryWomen,
-    required TResult Function(ChangeShopBannerIndex value)
-        changeShopBannerIndex,
-    required TResult Function(ChangeBrandBannerIndex value)
-        changeBrandBannerIndex,
-    required TResult Function(ShowOrderProgressEvent value)
-        showOrderProgressEvent,
-    required TResult Function(IndexChangeOnOrderProgress value)
-        indexChangeOnOrderProgress,
-    required TResult Function(IndexChangeOnWomensCareBanner value)
-        indexChangeOnWomensCareBanner,
-    required TResult Function(FetchShopAdBrandsById value)
-        fetchShopAdBrandsById,
-  }) {
-    return fetchProductItemsSubcategoryWomen(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(FetchFlashSaleProducts value)? fetchFlashSaleProducts,
-    TResult? Function(FetchPopularProducts value)? fetchPopularProducts,
-    TResult? Function(FetchRecentProductProducts value)?
-        fetchRecentProductProducts,
-    TResult? Function(FetchHomeBanners value)? fetchHomeBanners,
-    TResult? Function(FetchShopBanners value)? fetchShopBanners,
-    TResult? Function(FetchArticles value)? fetchArticles,
-    TResult? Function(FetchShopByBrand value)? fetchShopByBrand,
-    TResult? Function(FetchWishList value)? fetchWishList,
-    TResult? Function(SearchProduct value)? searchProduct,
-    TResult? Function(AddWishListEvent value)? addWishListEvent,
-    TResult? Function(RemoveWishlistEvent value)? removeWishlistEvent,
-    TResult? Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
-    TResult? Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
-    TResult? Function(PostOrders value)? postOrders,
-    TResult? Function(FetchOrders value)? fetchOrders,
-    TResult? Function(FetchOrdersById value)? fetchOrdersById,
-    TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
-    TResult? Function(CancelOrder value)? cancelOrder,
-    TResult? Function(FetchShopHomeBackgroundCard value)?
-        fetchShopHomeBackgroundCard,
-    TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHelthyDiet,
-    TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
-        fetchShopHomeBackgroundCardSunnah,
-    TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
-    TResult? Function(FetchTopBrands value)? fetchTopBrands,
-    TResult? Function(FetchProductItemsSubcategorySunnah value)?
-        fetchProductItemsSubcategorySunnah,
-    TResult? Function(FetchProductItemsSubcategoryHealth value)?
-        fetchProductItemsSubcategoryHealth,
-    TResult? Function(FetchProductItemsSubcategoryWomen value)?
-        fetchProductItemsSubcategoryWomen,
-    TResult? Function(ChangeShopBannerIndex value)? changeShopBannerIndex,
-    TResult? Function(ChangeBrandBannerIndex value)? changeBrandBannerIndex,
-    TResult? Function(ShowOrderProgressEvent value)? showOrderProgressEvent,
-    TResult? Function(IndexChangeOnOrderProgress value)?
-        indexChangeOnOrderProgress,
-    TResult? Function(IndexChangeOnWomensCareBanner value)?
-        indexChangeOnWomensCareBanner,
-    TResult? Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
-  }) {
-    return fetchProductItemsSubcategoryWomen?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(FetchFlashSaleProducts value)? fetchFlashSaleProducts,
-    TResult Function(FetchPopularProducts value)? fetchPopularProducts,
-    TResult Function(FetchRecentProductProducts value)?
-        fetchRecentProductProducts,
-    TResult Function(FetchHomeBanners value)? fetchHomeBanners,
-    TResult Function(FetchShopBanners value)? fetchShopBanners,
-    TResult Function(FetchArticles value)? fetchArticles,
-    TResult Function(FetchShopByBrand value)? fetchShopByBrand,
-    TResult Function(FetchWishList value)? fetchWishList,
-    TResult Function(SearchProduct value)? searchProduct,
-    TResult Function(AddWishListEvent value)? addWishListEvent,
-    TResult Function(RemoveWishlistEvent value)? removeWishlistEvent,
-    TResult Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
-    TResult Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
-    TResult Function(PostOrders value)? postOrders,
-    TResult Function(FetchOrders value)? fetchOrders,
-    TResult Function(FetchOrdersById value)? fetchOrdersById,
-    TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
-    TResult Function(CancelOrder value)? cancelOrder,
-    TResult Function(FetchShopHomeBackgroundCard value)?
-        fetchShopHomeBackgroundCard,
-    TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHelthyDiet,
-    TResult Function(FetchShopHomeBackgroundCardSunnah value)?
-        fetchShopHomeBackgroundCardSunnah,
-    TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
-    TResult Function(FetchTopBrands value)? fetchTopBrands,
-    TResult Function(FetchProductItemsSubcategorySunnah value)?
-        fetchProductItemsSubcategorySunnah,
-    TResult Function(FetchProductItemsSubcategoryHealth value)?
-        fetchProductItemsSubcategoryHealth,
-    TResult Function(FetchProductItemsSubcategoryWomen value)?
-        fetchProductItemsSubcategoryWomen,
-    TResult Function(ChangeShopBannerIndex value)? changeShopBannerIndex,
-    TResult Function(ChangeBrandBannerIndex value)? changeBrandBannerIndex,
-    TResult Function(ShowOrderProgressEvent value)? showOrderProgressEvent,
-    TResult Function(IndexChangeOnOrderProgress value)?
-        indexChangeOnOrderProgress,
-    TResult Function(IndexChangeOnWomensCareBanner value)?
-        indexChangeOnWomensCareBanner,
-    TResult Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
-    required TResult orElse(),
-  }) {
-    if (fetchProductItemsSubcategoryWomen != null) {
-      return fetchProductItemsSubcategoryWomen(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class FetchProductItemsSubcategoryWomen implements ShopProductsEvent {
-  const factory FetchProductItemsSubcategoryWomen() =
-      _$FetchProductItemsSubcategoryWomen;
-}
-
-/// @nodoc
-abstract class _$$ChangeShopBannerIndexCopyWith<$Res> {
-  factory _$$ChangeShopBannerIndexCopyWith(_$ChangeShopBannerIndex value,
-          $Res Function(_$ChangeShopBannerIndex) then) =
-      __$$ChangeShopBannerIndexCopyWithImpl<$Res>;
-  @useResult
-  $Res call({int index});
-}
-
-/// @nodoc
-class __$$ChangeShopBannerIndexCopyWithImpl<$Res>
-    extends _$ShopProductsEventCopyWithImpl<$Res, _$ChangeShopBannerIndex>
-    implements _$$ChangeShopBannerIndexCopyWith<$Res> {
-  __$$ChangeShopBannerIndexCopyWithImpl(_$ChangeShopBannerIndex _value,
-      $Res Function(_$ChangeShopBannerIndex) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? index = null,
-  }) {
-    return _then(_$ChangeShopBannerIndex(
-      null == index
-          ? _value.index
-          : index // ignore: cast_nullable_to_non_nullable
-              as int,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$ChangeShopBannerIndex implements ChangeShopBannerIndex {
-  const _$ChangeShopBannerIndex(this.index);
-
-  @override
-  final int index;
-
-  @override
-  String toString() {
-    return 'ShopProductsEvent.changeShopBannerIndex(index: $index)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ChangeShopBannerIndex &&
-            (identical(other.index, index) || other.index == index));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, index);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ChangeShopBannerIndexCopyWith<_$ChangeShopBannerIndex> get copyWith =>
-      __$$ChangeShopBannerIndexCopyWithImpl<_$ChangeShopBannerIndex>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() fetchFlashSaleProducts,
-    required TResult Function() fetchPopularProducts,
-    required TResult Function() fetchRecentProductProducts,
-    required TResult Function() fetchHomeBanners,
-    required TResult Function() fetchShopBanners,
-    required TResult Function() fetchArticles,
-    required TResult Function() fetchShopByBrand,
-    required TResult Function(BuildContext context) fetchWishList,
-    required TResult Function(String query) searchProduct,
-    required TResult Function(String productId, BuildContext context)
-        addWishListEvent,
-    required TResult Function(String productId, BuildContext context)
-        removeWishlistEvent,
-    required TResult Function(String brandName) fetchShopByBrandProducts,
-    required TResult Function(int index) tabIndexChangeEvent,
-    required TResult Function(
-            BuildContext context,
-            int totalPrice,
-            String pickupLocation,
-            int quantity,
-            int totalDiscount,
-            int shippingCharges,
-            int weight,
-            String id)
-        postOrders,
-    required TResult Function(BuildContext context) fetchOrders,
-    required TResult Function(BuildContext context, int id) fetchOrdersById,
-    required TResult Function(BuildContext context, String filterName)
-        fetchOrdersbyFilterEvent,
-    required TResult Function(BuildContext context, int shiprockeId)
-        cancelOrder,
-    required TResult Function() fetchShopHomeBackgroundCard,
-    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
-    required TResult Function() fetchShopHomeBackgroundCardSunnah,
-    required TResult Function() fetchShopAdBrands,
-    required TResult Function() fetchTopBrands,
-    required TResult Function() fetchProductItemsSubcategorySunnah,
-    required TResult Function() fetchProductItemsSubcategoryHealth,
-    required TResult Function() fetchProductItemsSubcategoryWomen,
-    required TResult Function(int index) changeShopBannerIndex,
-    required TResult Function(int index) changeBrandBannerIndex,
-    required TResult Function() showOrderProgressEvent,
-    required TResult Function(int index) indexChangeOnOrderProgress,
-    required TResult Function(int index) indexChangeOnWomensCareBanner,
-    required TResult Function(String id) fetchShopAdBrandsById,
-  }) {
-    return changeShopBannerIndex(index);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? fetchFlashSaleProducts,
-    TResult? Function()? fetchPopularProducts,
-    TResult? Function()? fetchRecentProductProducts,
-    TResult? Function()? fetchHomeBanners,
-    TResult? Function()? fetchShopBanners,
-    TResult? Function()? fetchArticles,
-    TResult? Function()? fetchShopByBrand,
-    TResult? Function(BuildContext context)? fetchWishList,
-    TResult? Function(String query)? searchProduct,
-    TResult? Function(String productId, BuildContext context)? addWishListEvent,
-    TResult? Function(String productId, BuildContext context)?
-        removeWishlistEvent,
-    TResult? Function(String brandName)? fetchShopByBrandProducts,
-    TResult? Function(int index)? tabIndexChangeEvent,
-    TResult? Function(
-            BuildContext context,
-            int totalPrice,
-            String pickupLocation,
-            int quantity,
-            int totalDiscount,
-            int shippingCharges,
-            int weight,
-            String id)?
-        postOrders,
-    TResult? Function(BuildContext context)? fetchOrders,
-    TResult? Function(BuildContext context, int id)? fetchOrdersById,
-    TResult? Function(BuildContext context, String filterName)?
-        fetchOrdersbyFilterEvent,
-    TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
-    TResult? Function()? fetchShopHomeBackgroundCard,
-    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
-    TResult? Function()? fetchShopHomeBackgroundCardSunnah,
-    TResult? Function()? fetchShopAdBrands,
-    TResult? Function()? fetchTopBrands,
-    TResult? Function()? fetchProductItemsSubcategorySunnah,
-    TResult? Function()? fetchProductItemsSubcategoryHealth,
-    TResult? Function()? fetchProductItemsSubcategoryWomen,
-    TResult? Function(int index)? changeShopBannerIndex,
-    TResult? Function(int index)? changeBrandBannerIndex,
-    TResult? Function()? showOrderProgressEvent,
-    TResult? Function(int index)? indexChangeOnOrderProgress,
-    TResult? Function(int index)? indexChangeOnWomensCareBanner,
-    TResult? Function(String id)? fetchShopAdBrandsById,
-  }) {
-    return changeShopBannerIndex?.call(index);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? fetchFlashSaleProducts,
-    TResult Function()? fetchPopularProducts,
-    TResult Function()? fetchRecentProductProducts,
-    TResult Function()? fetchHomeBanners,
-    TResult Function()? fetchShopBanners,
-    TResult Function()? fetchArticles,
-    TResult Function()? fetchShopByBrand,
-    TResult Function(BuildContext context)? fetchWishList,
-    TResult Function(String query)? searchProduct,
-    TResult Function(String productId, BuildContext context)? addWishListEvent,
-    TResult Function(String productId, BuildContext context)?
-        removeWishlistEvent,
-    TResult Function(String brandName)? fetchShopByBrandProducts,
-    TResult Function(int index)? tabIndexChangeEvent,
-    TResult Function(
-            BuildContext context,
-            int totalPrice,
-            String pickupLocation,
-            int quantity,
-            int totalDiscount,
-            int shippingCharges,
-            int weight,
-            String id)?
-        postOrders,
-    TResult Function(BuildContext context)? fetchOrders,
-    TResult Function(BuildContext context, int id)? fetchOrdersById,
-    TResult Function(BuildContext context, String filterName)?
-        fetchOrdersbyFilterEvent,
-    TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
-    TResult Function()? fetchShopHomeBackgroundCard,
-    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
-    TResult Function()? fetchShopHomeBackgroundCardSunnah,
-    TResult Function()? fetchShopAdBrands,
-    TResult Function()? fetchTopBrands,
-    TResult Function()? fetchProductItemsSubcategorySunnah,
-    TResult Function()? fetchProductItemsSubcategoryHealth,
-    TResult Function()? fetchProductItemsSubcategoryWomen,
-    TResult Function(int index)? changeShopBannerIndex,
-    TResult Function(int index)? changeBrandBannerIndex,
-    TResult Function()? showOrderProgressEvent,
-    TResult Function(int index)? indexChangeOnOrderProgress,
-    TResult Function(int index)? indexChangeOnWomensCareBanner,
-    TResult Function(String id)? fetchShopAdBrandsById,
-    required TResult orElse(),
-  }) {
-    if (changeShopBannerIndex != null) {
-      return changeShopBannerIndex(index);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(FetchFlashSaleProducts value)
-        fetchFlashSaleProducts,
-    required TResult Function(FetchPopularProducts value) fetchPopularProducts,
-    required TResult Function(FetchRecentProductProducts value)
-        fetchRecentProductProducts,
-    required TResult Function(FetchHomeBanners value) fetchHomeBanners,
-    required TResult Function(FetchShopBanners value) fetchShopBanners,
-    required TResult Function(FetchArticles value) fetchArticles,
-    required TResult Function(FetchShopByBrand value) fetchShopByBrand,
-    required TResult Function(FetchWishList value) fetchWishList,
-    required TResult Function(SearchProduct value) searchProduct,
-    required TResult Function(AddWishListEvent value) addWishListEvent,
-    required TResult Function(RemoveWishlistEvent value) removeWishlistEvent,
-    required TResult Function(FetchShopByBrandProducts value)
-        fetchShopByBrandProducts,
-    required TResult Function(TabIndexChangeEvent value) tabIndexChangeEvent,
-    required TResult Function(PostOrders value) postOrders,
-    required TResult Function(FetchOrders value) fetchOrders,
-    required TResult Function(FetchOrdersById value) fetchOrdersById,
-    required TResult Function(FetchOrdersbyFilterEvent value)
-        fetchOrdersbyFilterEvent,
-    required TResult Function(CancelOrder value) cancelOrder,
-    required TResult Function(FetchShopHomeBackgroundCard value)
-        fetchShopHomeBackgroundCard,
-    required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
-        fetchShopHomeBackgroundCardHelthyDiet,
-    required TResult Function(FetchShopHomeBackgroundCardSunnah value)
-        fetchShopHomeBackgroundCardSunnah,
-    required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
-    required TResult Function(FetchTopBrands value) fetchTopBrands,
-    required TResult Function(FetchProductItemsSubcategorySunnah value)
-        fetchProductItemsSubcategorySunnah,
-    required TResult Function(FetchProductItemsSubcategoryHealth value)
-        fetchProductItemsSubcategoryHealth,
-    required TResult Function(FetchProductItemsSubcategoryWomen value)
-        fetchProductItemsSubcategoryWomen,
-    required TResult Function(ChangeShopBannerIndex value)
-        changeShopBannerIndex,
-    required TResult Function(ChangeBrandBannerIndex value)
-        changeBrandBannerIndex,
-    required TResult Function(ShowOrderProgressEvent value)
-        showOrderProgressEvent,
-    required TResult Function(IndexChangeOnOrderProgress value)
-        indexChangeOnOrderProgress,
-    required TResult Function(IndexChangeOnWomensCareBanner value)
-        indexChangeOnWomensCareBanner,
-    required TResult Function(FetchShopAdBrandsById value)
-        fetchShopAdBrandsById,
-  }) {
-    return changeShopBannerIndex(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(FetchFlashSaleProducts value)? fetchFlashSaleProducts,
-    TResult? Function(FetchPopularProducts value)? fetchPopularProducts,
-    TResult? Function(FetchRecentProductProducts value)?
-        fetchRecentProductProducts,
-    TResult? Function(FetchHomeBanners value)? fetchHomeBanners,
-    TResult? Function(FetchShopBanners value)? fetchShopBanners,
-    TResult? Function(FetchArticles value)? fetchArticles,
-    TResult? Function(FetchShopByBrand value)? fetchShopByBrand,
-    TResult? Function(FetchWishList value)? fetchWishList,
-    TResult? Function(SearchProduct value)? searchProduct,
-    TResult? Function(AddWishListEvent value)? addWishListEvent,
-    TResult? Function(RemoveWishlistEvent value)? removeWishlistEvent,
-    TResult? Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
-    TResult? Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
-    TResult? Function(PostOrders value)? postOrders,
-    TResult? Function(FetchOrders value)? fetchOrders,
-    TResult? Function(FetchOrdersById value)? fetchOrdersById,
-    TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
-    TResult? Function(CancelOrder value)? cancelOrder,
-    TResult? Function(FetchShopHomeBackgroundCard value)?
-        fetchShopHomeBackgroundCard,
-    TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHelthyDiet,
-    TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
-        fetchShopHomeBackgroundCardSunnah,
-    TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
-    TResult? Function(FetchTopBrands value)? fetchTopBrands,
-    TResult? Function(FetchProductItemsSubcategorySunnah value)?
-        fetchProductItemsSubcategorySunnah,
-    TResult? Function(FetchProductItemsSubcategoryHealth value)?
-        fetchProductItemsSubcategoryHealth,
-    TResult? Function(FetchProductItemsSubcategoryWomen value)?
-        fetchProductItemsSubcategoryWomen,
-    TResult? Function(ChangeShopBannerIndex value)? changeShopBannerIndex,
-    TResult? Function(ChangeBrandBannerIndex value)? changeBrandBannerIndex,
-    TResult? Function(ShowOrderProgressEvent value)? showOrderProgressEvent,
-    TResult? Function(IndexChangeOnOrderProgress value)?
-        indexChangeOnOrderProgress,
-    TResult? Function(IndexChangeOnWomensCareBanner value)?
-        indexChangeOnWomensCareBanner,
-    TResult? Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
-  }) {
-    return changeShopBannerIndex?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(FetchFlashSaleProducts value)? fetchFlashSaleProducts,
-    TResult Function(FetchPopularProducts value)? fetchPopularProducts,
-    TResult Function(FetchRecentProductProducts value)?
-        fetchRecentProductProducts,
-    TResult Function(FetchHomeBanners value)? fetchHomeBanners,
-    TResult Function(FetchShopBanners value)? fetchShopBanners,
-    TResult Function(FetchArticles value)? fetchArticles,
-    TResult Function(FetchShopByBrand value)? fetchShopByBrand,
-    TResult Function(FetchWishList value)? fetchWishList,
-    TResult Function(SearchProduct value)? searchProduct,
-    TResult Function(AddWishListEvent value)? addWishListEvent,
-    TResult Function(RemoveWishlistEvent value)? removeWishlistEvent,
-    TResult Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
-    TResult Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
-    TResult Function(PostOrders value)? postOrders,
-    TResult Function(FetchOrders value)? fetchOrders,
-    TResult Function(FetchOrdersById value)? fetchOrdersById,
-    TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
-    TResult Function(CancelOrder value)? cancelOrder,
-    TResult Function(FetchShopHomeBackgroundCard value)?
-        fetchShopHomeBackgroundCard,
-    TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHelthyDiet,
-    TResult Function(FetchShopHomeBackgroundCardSunnah value)?
-        fetchShopHomeBackgroundCardSunnah,
-    TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
-    TResult Function(FetchTopBrands value)? fetchTopBrands,
-    TResult Function(FetchProductItemsSubcategorySunnah value)?
-        fetchProductItemsSubcategorySunnah,
-    TResult Function(FetchProductItemsSubcategoryHealth value)?
-        fetchProductItemsSubcategoryHealth,
-    TResult Function(FetchProductItemsSubcategoryWomen value)?
-        fetchProductItemsSubcategoryWomen,
-    TResult Function(ChangeShopBannerIndex value)? changeShopBannerIndex,
-    TResult Function(ChangeBrandBannerIndex value)? changeBrandBannerIndex,
-    TResult Function(ShowOrderProgressEvent value)? showOrderProgressEvent,
-    TResult Function(IndexChangeOnOrderProgress value)?
-        indexChangeOnOrderProgress,
-    TResult Function(IndexChangeOnWomensCareBanner value)?
-        indexChangeOnWomensCareBanner,
-    TResult Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
-    required TResult orElse(),
-  }) {
-    if (changeShopBannerIndex != null) {
-      return changeShopBannerIndex(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class ChangeShopBannerIndex implements ShopProductsEvent {
-  const factory ChangeShopBannerIndex(final int index) =
-      _$ChangeShopBannerIndex;
-
-  int get index;
-  @JsonKey(ignore: true)
-  _$$ChangeShopBannerIndexCopyWith<_$ChangeShopBannerIndex> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$ChangeBrandBannerIndexCopyWith<$Res> {
-  factory _$$ChangeBrandBannerIndexCopyWith(_$ChangeBrandBannerIndex value,
-          $Res Function(_$ChangeBrandBannerIndex) then) =
-      __$$ChangeBrandBannerIndexCopyWithImpl<$Res>;
-  @useResult
-  $Res call({int index});
-}
-
-/// @nodoc
-class __$$ChangeBrandBannerIndexCopyWithImpl<$Res>
-    extends _$ShopProductsEventCopyWithImpl<$Res, _$ChangeBrandBannerIndex>
-    implements _$$ChangeBrandBannerIndexCopyWith<$Res> {
-  __$$ChangeBrandBannerIndexCopyWithImpl(_$ChangeBrandBannerIndex _value,
-      $Res Function(_$ChangeBrandBannerIndex) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? index = null,
-  }) {
-    return _then(_$ChangeBrandBannerIndex(
-      null == index
-          ? _value.index
-          : index // ignore: cast_nullable_to_non_nullable
-              as int,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$ChangeBrandBannerIndex implements ChangeBrandBannerIndex {
-  const _$ChangeBrandBannerIndex(this.index);
-
-  @override
-  final int index;
-
-  @override
-  String toString() {
-    return 'ShopProductsEvent.changeBrandBannerIndex(index: $index)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ChangeBrandBannerIndex &&
-            (identical(other.index, index) || other.index == index));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, index);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ChangeBrandBannerIndexCopyWith<_$ChangeBrandBannerIndex> get copyWith =>
-      __$$ChangeBrandBannerIndexCopyWithImpl<_$ChangeBrandBannerIndex>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() fetchFlashSaleProducts,
-    required TResult Function() fetchPopularProducts,
-    required TResult Function() fetchRecentProductProducts,
-    required TResult Function() fetchHomeBanners,
-    required TResult Function() fetchShopBanners,
-    required TResult Function() fetchArticles,
-    required TResult Function() fetchShopByBrand,
-    required TResult Function(BuildContext context) fetchWishList,
-    required TResult Function(String query) searchProduct,
-    required TResult Function(String productId, BuildContext context)
-        addWishListEvent,
-    required TResult Function(String productId, BuildContext context)
-        removeWishlistEvent,
-    required TResult Function(String brandName) fetchShopByBrandProducts,
-    required TResult Function(int index) tabIndexChangeEvent,
-    required TResult Function(
-            BuildContext context,
-            int totalPrice,
-            String pickupLocation,
-            int quantity,
-            int totalDiscount,
-            int shippingCharges,
-            int weight,
-            String id)
-        postOrders,
-    required TResult Function(BuildContext context) fetchOrders,
-    required TResult Function(BuildContext context, int id) fetchOrdersById,
-    required TResult Function(BuildContext context, String filterName)
-        fetchOrdersbyFilterEvent,
-    required TResult Function(BuildContext context, int shiprockeId)
-        cancelOrder,
-    required TResult Function() fetchShopHomeBackgroundCard,
-    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
-    required TResult Function() fetchShopHomeBackgroundCardSunnah,
-    required TResult Function() fetchShopAdBrands,
-    required TResult Function() fetchTopBrands,
-    required TResult Function() fetchProductItemsSubcategorySunnah,
-    required TResult Function() fetchProductItemsSubcategoryHealth,
-    required TResult Function() fetchProductItemsSubcategoryWomen,
-    required TResult Function(int index) changeShopBannerIndex,
-    required TResult Function(int index) changeBrandBannerIndex,
-    required TResult Function() showOrderProgressEvent,
-    required TResult Function(int index) indexChangeOnOrderProgress,
-    required TResult Function(int index) indexChangeOnWomensCareBanner,
-    required TResult Function(String id) fetchShopAdBrandsById,
-  }) {
-    return changeBrandBannerIndex(index);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? fetchFlashSaleProducts,
-    TResult? Function()? fetchPopularProducts,
-    TResult? Function()? fetchRecentProductProducts,
-    TResult? Function()? fetchHomeBanners,
-    TResult? Function()? fetchShopBanners,
-    TResult? Function()? fetchArticles,
-    TResult? Function()? fetchShopByBrand,
-    TResult? Function(BuildContext context)? fetchWishList,
-    TResult? Function(String query)? searchProduct,
-    TResult? Function(String productId, BuildContext context)? addWishListEvent,
-    TResult? Function(String productId, BuildContext context)?
-        removeWishlistEvent,
-    TResult? Function(String brandName)? fetchShopByBrandProducts,
-    TResult? Function(int index)? tabIndexChangeEvent,
-    TResult? Function(
-            BuildContext context,
-            int totalPrice,
-            String pickupLocation,
-            int quantity,
-            int totalDiscount,
-            int shippingCharges,
-            int weight,
-            String id)?
-        postOrders,
-    TResult? Function(BuildContext context)? fetchOrders,
-    TResult? Function(BuildContext context, int id)? fetchOrdersById,
-    TResult? Function(BuildContext context, String filterName)?
-        fetchOrdersbyFilterEvent,
-    TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
-    TResult? Function()? fetchShopHomeBackgroundCard,
-    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
-    TResult? Function()? fetchShopHomeBackgroundCardSunnah,
-    TResult? Function()? fetchShopAdBrands,
-    TResult? Function()? fetchTopBrands,
-    TResult? Function()? fetchProductItemsSubcategorySunnah,
-    TResult? Function()? fetchProductItemsSubcategoryHealth,
-    TResult? Function()? fetchProductItemsSubcategoryWomen,
-    TResult? Function(int index)? changeShopBannerIndex,
-    TResult? Function(int index)? changeBrandBannerIndex,
-    TResult? Function()? showOrderProgressEvent,
-    TResult? Function(int index)? indexChangeOnOrderProgress,
-    TResult? Function(int index)? indexChangeOnWomensCareBanner,
-    TResult? Function(String id)? fetchShopAdBrandsById,
-  }) {
-    return changeBrandBannerIndex?.call(index);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? fetchFlashSaleProducts,
-    TResult Function()? fetchPopularProducts,
-    TResult Function()? fetchRecentProductProducts,
-    TResult Function()? fetchHomeBanners,
-    TResult Function()? fetchShopBanners,
-    TResult Function()? fetchArticles,
-    TResult Function()? fetchShopByBrand,
-    TResult Function(BuildContext context)? fetchWishList,
-    TResult Function(String query)? searchProduct,
-    TResult Function(String productId, BuildContext context)? addWishListEvent,
-    TResult Function(String productId, BuildContext context)?
-        removeWishlistEvent,
-    TResult Function(String brandName)? fetchShopByBrandProducts,
-    TResult Function(int index)? tabIndexChangeEvent,
-    TResult Function(
-            BuildContext context,
-            int totalPrice,
-            String pickupLocation,
-            int quantity,
-            int totalDiscount,
-            int shippingCharges,
-            int weight,
-            String id)?
-        postOrders,
-    TResult Function(BuildContext context)? fetchOrders,
-    TResult Function(BuildContext context, int id)? fetchOrdersById,
-    TResult Function(BuildContext context, String filterName)?
-        fetchOrdersbyFilterEvent,
-    TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
-    TResult Function()? fetchShopHomeBackgroundCard,
-    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
-    TResult Function()? fetchShopHomeBackgroundCardSunnah,
-    TResult Function()? fetchShopAdBrands,
-    TResult Function()? fetchTopBrands,
-    TResult Function()? fetchProductItemsSubcategorySunnah,
-    TResult Function()? fetchProductItemsSubcategoryHealth,
-    TResult Function()? fetchProductItemsSubcategoryWomen,
-    TResult Function(int index)? changeShopBannerIndex,
-    TResult Function(int index)? changeBrandBannerIndex,
-    TResult Function()? showOrderProgressEvent,
-    TResult Function(int index)? indexChangeOnOrderProgress,
-    TResult Function(int index)? indexChangeOnWomensCareBanner,
-    TResult Function(String id)? fetchShopAdBrandsById,
-    required TResult orElse(),
-  }) {
-    if (changeBrandBannerIndex != null) {
-      return changeBrandBannerIndex(index);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(FetchFlashSaleProducts value)
-        fetchFlashSaleProducts,
-    required TResult Function(FetchPopularProducts value) fetchPopularProducts,
-    required TResult Function(FetchRecentProductProducts value)
-        fetchRecentProductProducts,
-    required TResult Function(FetchHomeBanners value) fetchHomeBanners,
-    required TResult Function(FetchShopBanners value) fetchShopBanners,
-    required TResult Function(FetchArticles value) fetchArticles,
-    required TResult Function(FetchShopByBrand value) fetchShopByBrand,
-    required TResult Function(FetchWishList value) fetchWishList,
-    required TResult Function(SearchProduct value) searchProduct,
-    required TResult Function(AddWishListEvent value) addWishListEvent,
-    required TResult Function(RemoveWishlistEvent value) removeWishlistEvent,
-    required TResult Function(FetchShopByBrandProducts value)
-        fetchShopByBrandProducts,
-    required TResult Function(TabIndexChangeEvent value) tabIndexChangeEvent,
-    required TResult Function(PostOrders value) postOrders,
-    required TResult Function(FetchOrders value) fetchOrders,
-    required TResult Function(FetchOrdersById value) fetchOrdersById,
-    required TResult Function(FetchOrdersbyFilterEvent value)
-        fetchOrdersbyFilterEvent,
-    required TResult Function(CancelOrder value) cancelOrder,
-    required TResult Function(FetchShopHomeBackgroundCard value)
-        fetchShopHomeBackgroundCard,
-    required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
-        fetchShopHomeBackgroundCardHelthyDiet,
-    required TResult Function(FetchShopHomeBackgroundCardSunnah value)
-        fetchShopHomeBackgroundCardSunnah,
-    required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
-    required TResult Function(FetchTopBrands value) fetchTopBrands,
-    required TResult Function(FetchProductItemsSubcategorySunnah value)
-        fetchProductItemsSubcategorySunnah,
-    required TResult Function(FetchProductItemsSubcategoryHealth value)
-        fetchProductItemsSubcategoryHealth,
-    required TResult Function(FetchProductItemsSubcategoryWomen value)
-        fetchProductItemsSubcategoryWomen,
-    required TResult Function(ChangeShopBannerIndex value)
-        changeShopBannerIndex,
-    required TResult Function(ChangeBrandBannerIndex value)
-        changeBrandBannerIndex,
-    required TResult Function(ShowOrderProgressEvent value)
-        showOrderProgressEvent,
-    required TResult Function(IndexChangeOnOrderProgress value)
-        indexChangeOnOrderProgress,
-    required TResult Function(IndexChangeOnWomensCareBanner value)
-        indexChangeOnWomensCareBanner,
-    required TResult Function(FetchShopAdBrandsById value)
-        fetchShopAdBrandsById,
-  }) {
-    return changeBrandBannerIndex(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(FetchFlashSaleProducts value)? fetchFlashSaleProducts,
-    TResult? Function(FetchPopularProducts value)? fetchPopularProducts,
-    TResult? Function(FetchRecentProductProducts value)?
-        fetchRecentProductProducts,
-    TResult? Function(FetchHomeBanners value)? fetchHomeBanners,
-    TResult? Function(FetchShopBanners value)? fetchShopBanners,
-    TResult? Function(FetchArticles value)? fetchArticles,
-    TResult? Function(FetchShopByBrand value)? fetchShopByBrand,
-    TResult? Function(FetchWishList value)? fetchWishList,
-    TResult? Function(SearchProduct value)? searchProduct,
-    TResult? Function(AddWishListEvent value)? addWishListEvent,
-    TResult? Function(RemoveWishlistEvent value)? removeWishlistEvent,
-    TResult? Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
-    TResult? Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
-    TResult? Function(PostOrders value)? postOrders,
-    TResult? Function(FetchOrders value)? fetchOrders,
-    TResult? Function(FetchOrdersById value)? fetchOrdersById,
-    TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
-    TResult? Function(CancelOrder value)? cancelOrder,
-    TResult? Function(FetchShopHomeBackgroundCard value)?
-        fetchShopHomeBackgroundCard,
-    TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHelthyDiet,
-    TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
-        fetchShopHomeBackgroundCardSunnah,
-    TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
-    TResult? Function(FetchTopBrands value)? fetchTopBrands,
-    TResult? Function(FetchProductItemsSubcategorySunnah value)?
-        fetchProductItemsSubcategorySunnah,
-    TResult? Function(FetchProductItemsSubcategoryHealth value)?
-        fetchProductItemsSubcategoryHealth,
-    TResult? Function(FetchProductItemsSubcategoryWomen value)?
-        fetchProductItemsSubcategoryWomen,
-    TResult? Function(ChangeShopBannerIndex value)? changeShopBannerIndex,
-    TResult? Function(ChangeBrandBannerIndex value)? changeBrandBannerIndex,
-    TResult? Function(ShowOrderProgressEvent value)? showOrderProgressEvent,
-    TResult? Function(IndexChangeOnOrderProgress value)?
-        indexChangeOnOrderProgress,
-    TResult? Function(IndexChangeOnWomensCareBanner value)?
-        indexChangeOnWomensCareBanner,
-    TResult? Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
-  }) {
-    return changeBrandBannerIndex?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(FetchFlashSaleProducts value)? fetchFlashSaleProducts,
-    TResult Function(FetchPopularProducts value)? fetchPopularProducts,
-    TResult Function(FetchRecentProductProducts value)?
-        fetchRecentProductProducts,
-    TResult Function(FetchHomeBanners value)? fetchHomeBanners,
-    TResult Function(FetchShopBanners value)? fetchShopBanners,
-    TResult Function(FetchArticles value)? fetchArticles,
-    TResult Function(FetchShopByBrand value)? fetchShopByBrand,
-    TResult Function(FetchWishList value)? fetchWishList,
-    TResult Function(SearchProduct value)? searchProduct,
-    TResult Function(AddWishListEvent value)? addWishListEvent,
-    TResult Function(RemoveWishlistEvent value)? removeWishlistEvent,
-    TResult Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
-    TResult Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
-    TResult Function(PostOrders value)? postOrders,
-    TResult Function(FetchOrders value)? fetchOrders,
-    TResult Function(FetchOrdersById value)? fetchOrdersById,
-    TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
-    TResult Function(CancelOrder value)? cancelOrder,
-    TResult Function(FetchShopHomeBackgroundCard value)?
-        fetchShopHomeBackgroundCard,
-    TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHelthyDiet,
-    TResult Function(FetchShopHomeBackgroundCardSunnah value)?
-        fetchShopHomeBackgroundCardSunnah,
-    TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
-    TResult Function(FetchTopBrands value)? fetchTopBrands,
-    TResult Function(FetchProductItemsSubcategorySunnah value)?
-        fetchProductItemsSubcategorySunnah,
-    TResult Function(FetchProductItemsSubcategoryHealth value)?
-        fetchProductItemsSubcategoryHealth,
-    TResult Function(FetchProductItemsSubcategoryWomen value)?
-        fetchProductItemsSubcategoryWomen,
-    TResult Function(ChangeShopBannerIndex value)? changeShopBannerIndex,
-    TResult Function(ChangeBrandBannerIndex value)? changeBrandBannerIndex,
-    TResult Function(ShowOrderProgressEvent value)? showOrderProgressEvent,
-    TResult Function(IndexChangeOnOrderProgress value)?
-        indexChangeOnOrderProgress,
-    TResult Function(IndexChangeOnWomensCareBanner value)?
-        indexChangeOnWomensCareBanner,
-    TResult Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
-    required TResult orElse(),
-  }) {
-    if (changeBrandBannerIndex != null) {
-      return changeBrandBannerIndex(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class ChangeBrandBannerIndex implements ShopProductsEvent {
-  const factory ChangeBrandBannerIndex(final int index) =
-      _$ChangeBrandBannerIndex;
-
-  int get index;
-  @JsonKey(ignore: true)
-  _$$ChangeBrandBannerIndexCopyWith<_$ChangeBrandBannerIndex> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$ShowOrderProgressEventCopyWith<$Res> {
-  factory _$$ShowOrderProgressEventCopyWith(_$ShowOrderProgressEvent value,
-          $Res Function(_$ShowOrderProgressEvent) then) =
-      __$$ShowOrderProgressEventCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$ShowOrderProgressEventCopyWithImpl<$Res>
-    extends _$ShopProductsEventCopyWithImpl<$Res, _$ShowOrderProgressEvent>
-    implements _$$ShowOrderProgressEventCopyWith<$Res> {
-  __$$ShowOrderProgressEventCopyWithImpl(_$ShowOrderProgressEvent _value,
-      $Res Function(_$ShowOrderProgressEvent) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$ShowOrderProgressEvent implements ShowOrderProgressEvent {
-  const _$ShowOrderProgressEvent();
-
-  @override
-  String toString() {
-    return 'ShopProductsEvent.showOrderProgressEvent()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ShowOrderProgressEvent);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() fetchFlashSaleProducts,
-    required TResult Function() fetchPopularProducts,
-    required TResult Function() fetchRecentProductProducts,
-    required TResult Function() fetchHomeBanners,
-    required TResult Function() fetchShopBanners,
-    required TResult Function() fetchArticles,
-    required TResult Function() fetchShopByBrand,
-    required TResult Function(BuildContext context) fetchWishList,
-    required TResult Function(String query) searchProduct,
-    required TResult Function(String productId, BuildContext context)
-        addWishListEvent,
-    required TResult Function(String productId, BuildContext context)
-        removeWishlistEvent,
-    required TResult Function(String brandName) fetchShopByBrandProducts,
-    required TResult Function(int index) tabIndexChangeEvent,
-    required TResult Function(
-            BuildContext context,
-            int totalPrice,
-            String pickupLocation,
-            int quantity,
-            int totalDiscount,
-            int shippingCharges,
-            int weight,
-            String id)
-        postOrders,
-    required TResult Function(BuildContext context) fetchOrders,
-    required TResult Function(BuildContext context, int id) fetchOrdersById,
-    required TResult Function(BuildContext context, String filterName)
-        fetchOrdersbyFilterEvent,
-    required TResult Function(BuildContext context, int shiprockeId)
-        cancelOrder,
-    required TResult Function() fetchShopHomeBackgroundCard,
-    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
-    required TResult Function() fetchShopHomeBackgroundCardSunnah,
-    required TResult Function() fetchShopAdBrands,
-    required TResult Function() fetchTopBrands,
-    required TResult Function() fetchProductItemsSubcategorySunnah,
-    required TResult Function() fetchProductItemsSubcategoryHealth,
-    required TResult Function() fetchProductItemsSubcategoryWomen,
-    required TResult Function(int index) changeShopBannerIndex,
-    required TResult Function(int index) changeBrandBannerIndex,
-    required TResult Function() showOrderProgressEvent,
-    required TResult Function(int index) indexChangeOnOrderProgress,
-    required TResult Function(int index) indexChangeOnWomensCareBanner,
-    required TResult Function(String id) fetchShopAdBrandsById,
-  }) {
-    return showOrderProgressEvent();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? fetchFlashSaleProducts,
-    TResult? Function()? fetchPopularProducts,
-    TResult? Function()? fetchRecentProductProducts,
-    TResult? Function()? fetchHomeBanners,
-    TResult? Function()? fetchShopBanners,
-    TResult? Function()? fetchArticles,
-    TResult? Function()? fetchShopByBrand,
-    TResult? Function(BuildContext context)? fetchWishList,
-    TResult? Function(String query)? searchProduct,
-    TResult? Function(String productId, BuildContext context)? addWishListEvent,
-    TResult? Function(String productId, BuildContext context)?
-        removeWishlistEvent,
-    TResult? Function(String brandName)? fetchShopByBrandProducts,
-    TResult? Function(int index)? tabIndexChangeEvent,
-    TResult? Function(
-            BuildContext context,
-            int totalPrice,
-            String pickupLocation,
-            int quantity,
-            int totalDiscount,
-            int shippingCharges,
-            int weight,
-            String id)?
-        postOrders,
-    TResult? Function(BuildContext context)? fetchOrders,
-    TResult? Function(BuildContext context, int id)? fetchOrdersById,
-    TResult? Function(BuildContext context, String filterName)?
-        fetchOrdersbyFilterEvent,
-    TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
-    TResult? Function()? fetchShopHomeBackgroundCard,
-    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
-    TResult? Function()? fetchShopHomeBackgroundCardSunnah,
-    TResult? Function()? fetchShopAdBrands,
-    TResult? Function()? fetchTopBrands,
-    TResult? Function()? fetchProductItemsSubcategorySunnah,
-    TResult? Function()? fetchProductItemsSubcategoryHealth,
-    TResult? Function()? fetchProductItemsSubcategoryWomen,
-    TResult? Function(int index)? changeShopBannerIndex,
-    TResult? Function(int index)? changeBrandBannerIndex,
-    TResult? Function()? showOrderProgressEvent,
-    TResult? Function(int index)? indexChangeOnOrderProgress,
-    TResult? Function(int index)? indexChangeOnWomensCareBanner,
-    TResult? Function(String id)? fetchShopAdBrandsById,
-  }) {
-    return showOrderProgressEvent?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? fetchFlashSaleProducts,
-    TResult Function()? fetchPopularProducts,
-    TResult Function()? fetchRecentProductProducts,
-    TResult Function()? fetchHomeBanners,
-    TResult Function()? fetchShopBanners,
-    TResult Function()? fetchArticles,
-    TResult Function()? fetchShopByBrand,
-    TResult Function(BuildContext context)? fetchWishList,
-    TResult Function(String query)? searchProduct,
-    TResult Function(String productId, BuildContext context)? addWishListEvent,
-    TResult Function(String productId, BuildContext context)?
-        removeWishlistEvent,
-    TResult Function(String brandName)? fetchShopByBrandProducts,
-    TResult Function(int index)? tabIndexChangeEvent,
-    TResult Function(
-            BuildContext context,
-            int totalPrice,
-            String pickupLocation,
-            int quantity,
-            int totalDiscount,
-            int shippingCharges,
-            int weight,
-            String id)?
-        postOrders,
-    TResult Function(BuildContext context)? fetchOrders,
-    TResult Function(BuildContext context, int id)? fetchOrdersById,
-    TResult Function(BuildContext context, String filterName)?
-        fetchOrdersbyFilterEvent,
-    TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
-    TResult Function()? fetchShopHomeBackgroundCard,
-    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
-    TResult Function()? fetchShopHomeBackgroundCardSunnah,
-    TResult Function()? fetchShopAdBrands,
-    TResult Function()? fetchTopBrands,
-    TResult Function()? fetchProductItemsSubcategorySunnah,
-    TResult Function()? fetchProductItemsSubcategoryHealth,
-    TResult Function()? fetchProductItemsSubcategoryWomen,
-    TResult Function(int index)? changeShopBannerIndex,
-    TResult Function(int index)? changeBrandBannerIndex,
-    TResult Function()? showOrderProgressEvent,
-    TResult Function(int index)? indexChangeOnOrderProgress,
-    TResult Function(int index)? indexChangeOnWomensCareBanner,
-    TResult Function(String id)? fetchShopAdBrandsById,
-    required TResult orElse(),
-  }) {
-    if (showOrderProgressEvent != null) {
-      return showOrderProgressEvent();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(FetchFlashSaleProducts value)
-        fetchFlashSaleProducts,
-    required TResult Function(FetchPopularProducts value) fetchPopularProducts,
-    required TResult Function(FetchRecentProductProducts value)
-        fetchRecentProductProducts,
-    required TResult Function(FetchHomeBanners value) fetchHomeBanners,
-    required TResult Function(FetchShopBanners value) fetchShopBanners,
-    required TResult Function(FetchArticles value) fetchArticles,
-    required TResult Function(FetchShopByBrand value) fetchShopByBrand,
-    required TResult Function(FetchWishList value) fetchWishList,
-    required TResult Function(SearchProduct value) searchProduct,
-    required TResult Function(AddWishListEvent value) addWishListEvent,
-    required TResult Function(RemoveWishlistEvent value) removeWishlistEvent,
-    required TResult Function(FetchShopByBrandProducts value)
-        fetchShopByBrandProducts,
-    required TResult Function(TabIndexChangeEvent value) tabIndexChangeEvent,
-    required TResult Function(PostOrders value) postOrders,
-    required TResult Function(FetchOrders value) fetchOrders,
-    required TResult Function(FetchOrdersById value) fetchOrdersById,
-    required TResult Function(FetchOrdersbyFilterEvent value)
-        fetchOrdersbyFilterEvent,
-    required TResult Function(CancelOrder value) cancelOrder,
-    required TResult Function(FetchShopHomeBackgroundCard value)
-        fetchShopHomeBackgroundCard,
-    required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
-        fetchShopHomeBackgroundCardHelthyDiet,
-    required TResult Function(FetchShopHomeBackgroundCardSunnah value)
-        fetchShopHomeBackgroundCardSunnah,
-    required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
-    required TResult Function(FetchTopBrands value) fetchTopBrands,
-    required TResult Function(FetchProductItemsSubcategorySunnah value)
-        fetchProductItemsSubcategorySunnah,
-    required TResult Function(FetchProductItemsSubcategoryHealth value)
-        fetchProductItemsSubcategoryHealth,
-    required TResult Function(FetchProductItemsSubcategoryWomen value)
-        fetchProductItemsSubcategoryWomen,
-    required TResult Function(ChangeShopBannerIndex value)
-        changeShopBannerIndex,
-    required TResult Function(ChangeBrandBannerIndex value)
-        changeBrandBannerIndex,
-    required TResult Function(ShowOrderProgressEvent value)
-        showOrderProgressEvent,
-    required TResult Function(IndexChangeOnOrderProgress value)
-        indexChangeOnOrderProgress,
-    required TResult Function(IndexChangeOnWomensCareBanner value)
-        indexChangeOnWomensCareBanner,
-    required TResult Function(FetchShopAdBrandsById value)
-        fetchShopAdBrandsById,
-  }) {
-    return showOrderProgressEvent(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(FetchFlashSaleProducts value)? fetchFlashSaleProducts,
-    TResult? Function(FetchPopularProducts value)? fetchPopularProducts,
-    TResult? Function(FetchRecentProductProducts value)?
-        fetchRecentProductProducts,
-    TResult? Function(FetchHomeBanners value)? fetchHomeBanners,
-    TResult? Function(FetchShopBanners value)? fetchShopBanners,
-    TResult? Function(FetchArticles value)? fetchArticles,
-    TResult? Function(FetchShopByBrand value)? fetchShopByBrand,
-    TResult? Function(FetchWishList value)? fetchWishList,
-    TResult? Function(SearchProduct value)? searchProduct,
-    TResult? Function(AddWishListEvent value)? addWishListEvent,
-    TResult? Function(RemoveWishlistEvent value)? removeWishlistEvent,
-    TResult? Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
-    TResult? Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
-    TResult? Function(PostOrders value)? postOrders,
-    TResult? Function(FetchOrders value)? fetchOrders,
-    TResult? Function(FetchOrdersById value)? fetchOrdersById,
-    TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
-    TResult? Function(CancelOrder value)? cancelOrder,
-    TResult? Function(FetchShopHomeBackgroundCard value)?
-        fetchShopHomeBackgroundCard,
-    TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHelthyDiet,
-    TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
-        fetchShopHomeBackgroundCardSunnah,
-    TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
-    TResult? Function(FetchTopBrands value)? fetchTopBrands,
-    TResult? Function(FetchProductItemsSubcategorySunnah value)?
-        fetchProductItemsSubcategorySunnah,
-    TResult? Function(FetchProductItemsSubcategoryHealth value)?
-        fetchProductItemsSubcategoryHealth,
-    TResult? Function(FetchProductItemsSubcategoryWomen value)?
-        fetchProductItemsSubcategoryWomen,
-    TResult? Function(ChangeShopBannerIndex value)? changeShopBannerIndex,
-    TResult? Function(ChangeBrandBannerIndex value)? changeBrandBannerIndex,
-    TResult? Function(ShowOrderProgressEvent value)? showOrderProgressEvent,
-    TResult? Function(IndexChangeOnOrderProgress value)?
-        indexChangeOnOrderProgress,
-    TResult? Function(IndexChangeOnWomensCareBanner value)?
-        indexChangeOnWomensCareBanner,
-    TResult? Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
-  }) {
-    return showOrderProgressEvent?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(FetchFlashSaleProducts value)? fetchFlashSaleProducts,
-    TResult Function(FetchPopularProducts value)? fetchPopularProducts,
-    TResult Function(FetchRecentProductProducts value)?
-        fetchRecentProductProducts,
-    TResult Function(FetchHomeBanners value)? fetchHomeBanners,
-    TResult Function(FetchShopBanners value)? fetchShopBanners,
-    TResult Function(FetchArticles value)? fetchArticles,
-    TResult Function(FetchShopByBrand value)? fetchShopByBrand,
-    TResult Function(FetchWishList value)? fetchWishList,
-    TResult Function(SearchProduct value)? searchProduct,
-    TResult Function(AddWishListEvent value)? addWishListEvent,
-    TResult Function(RemoveWishlistEvent value)? removeWishlistEvent,
-    TResult Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
-    TResult Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
-    TResult Function(PostOrders value)? postOrders,
-    TResult Function(FetchOrders value)? fetchOrders,
-    TResult Function(FetchOrdersById value)? fetchOrdersById,
-    TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
-    TResult Function(CancelOrder value)? cancelOrder,
-    TResult Function(FetchShopHomeBackgroundCard value)?
-        fetchShopHomeBackgroundCard,
-    TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHelthyDiet,
-    TResult Function(FetchShopHomeBackgroundCardSunnah value)?
-        fetchShopHomeBackgroundCardSunnah,
-    TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
-    TResult Function(FetchTopBrands value)? fetchTopBrands,
-    TResult Function(FetchProductItemsSubcategorySunnah value)?
-        fetchProductItemsSubcategorySunnah,
-    TResult Function(FetchProductItemsSubcategoryHealth value)?
-        fetchProductItemsSubcategoryHealth,
-    TResult Function(FetchProductItemsSubcategoryWomen value)?
-        fetchProductItemsSubcategoryWomen,
-    TResult Function(ChangeShopBannerIndex value)? changeShopBannerIndex,
-    TResult Function(ChangeBrandBannerIndex value)? changeBrandBannerIndex,
-    TResult Function(ShowOrderProgressEvent value)? showOrderProgressEvent,
-    TResult Function(IndexChangeOnOrderProgress value)?
-        indexChangeOnOrderProgress,
-    TResult Function(IndexChangeOnWomensCareBanner value)?
-        indexChangeOnWomensCareBanner,
-    TResult Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
-    required TResult orElse(),
-  }) {
-    if (showOrderProgressEvent != null) {
-      return showOrderProgressEvent(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class ShowOrderProgressEvent implements ShopProductsEvent {
-  const factory ShowOrderProgressEvent() = _$ShowOrderProgressEvent;
-}
-
-/// @nodoc
-abstract class _$$IndexChangeOnOrderProgressCopyWith<$Res> {
-  factory _$$IndexChangeOnOrderProgressCopyWith(
-          _$IndexChangeOnOrderProgress value,
-          $Res Function(_$IndexChangeOnOrderProgress) then) =
-      __$$IndexChangeOnOrderProgressCopyWithImpl<$Res>;
-  @useResult
-  $Res call({int index});
-}
-
-/// @nodoc
-class __$$IndexChangeOnOrderProgressCopyWithImpl<$Res>
-    extends _$ShopProductsEventCopyWithImpl<$Res, _$IndexChangeOnOrderProgress>
-    implements _$$IndexChangeOnOrderProgressCopyWith<$Res> {
-  __$$IndexChangeOnOrderProgressCopyWithImpl(
-      _$IndexChangeOnOrderProgress _value,
-      $Res Function(_$IndexChangeOnOrderProgress) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? index = null,
-  }) {
-    return _then(_$IndexChangeOnOrderProgress(
-      index: null == index
-          ? _value.index
-          : index // ignore: cast_nullable_to_non_nullable
-              as int,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$IndexChangeOnOrderProgress implements IndexChangeOnOrderProgress {
-  const _$IndexChangeOnOrderProgress({required this.index});
-
-  @override
-  final int index;
-
-  @override
-  String toString() {
-    return 'ShopProductsEvent.indexChangeOnOrderProgress(index: $index)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$IndexChangeOnOrderProgress &&
-            (identical(other.index, index) || other.index == index));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, index);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$IndexChangeOnOrderProgressCopyWith<_$IndexChangeOnOrderProgress>
-      get copyWith => __$$IndexChangeOnOrderProgressCopyWithImpl<
-          _$IndexChangeOnOrderProgress>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() fetchFlashSaleProducts,
-    required TResult Function() fetchPopularProducts,
-    required TResult Function() fetchRecentProductProducts,
-    required TResult Function() fetchHomeBanners,
-    required TResult Function() fetchShopBanners,
-    required TResult Function() fetchArticles,
-    required TResult Function() fetchShopByBrand,
-    required TResult Function(BuildContext context) fetchWishList,
-    required TResult Function(String query) searchProduct,
-    required TResult Function(String productId, BuildContext context)
-        addWishListEvent,
-    required TResult Function(String productId, BuildContext context)
-        removeWishlistEvent,
-    required TResult Function(String brandName) fetchShopByBrandProducts,
-    required TResult Function(int index) tabIndexChangeEvent,
-    required TResult Function(
-            BuildContext context,
-            int totalPrice,
-            String pickupLocation,
-            int quantity,
-            int totalDiscount,
-            int shippingCharges,
-            int weight,
-            String id)
-        postOrders,
-    required TResult Function(BuildContext context) fetchOrders,
-    required TResult Function(BuildContext context, int id) fetchOrdersById,
-    required TResult Function(BuildContext context, String filterName)
-        fetchOrdersbyFilterEvent,
-    required TResult Function(BuildContext context, int shiprockeId)
-        cancelOrder,
-    required TResult Function() fetchShopHomeBackgroundCard,
-    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
-    required TResult Function() fetchShopHomeBackgroundCardSunnah,
-    required TResult Function() fetchShopAdBrands,
-    required TResult Function() fetchTopBrands,
-    required TResult Function() fetchProductItemsSubcategorySunnah,
-    required TResult Function() fetchProductItemsSubcategoryHealth,
-    required TResult Function() fetchProductItemsSubcategoryWomen,
-    required TResult Function(int index) changeShopBannerIndex,
-    required TResult Function(int index) changeBrandBannerIndex,
-    required TResult Function() showOrderProgressEvent,
-    required TResult Function(int index) indexChangeOnOrderProgress,
-    required TResult Function(int index) indexChangeOnWomensCareBanner,
-    required TResult Function(String id) fetchShopAdBrandsById,
-  }) {
-    return indexChangeOnOrderProgress(index);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? fetchFlashSaleProducts,
-    TResult? Function()? fetchPopularProducts,
-    TResult? Function()? fetchRecentProductProducts,
-    TResult? Function()? fetchHomeBanners,
-    TResult? Function()? fetchShopBanners,
-    TResult? Function()? fetchArticles,
-    TResult? Function()? fetchShopByBrand,
-    TResult? Function(BuildContext context)? fetchWishList,
-    TResult? Function(String query)? searchProduct,
-    TResult? Function(String productId, BuildContext context)? addWishListEvent,
-    TResult? Function(String productId, BuildContext context)?
-        removeWishlistEvent,
-    TResult? Function(String brandName)? fetchShopByBrandProducts,
-    TResult? Function(int index)? tabIndexChangeEvent,
-    TResult? Function(
-            BuildContext context,
-            int totalPrice,
-            String pickupLocation,
-            int quantity,
-            int totalDiscount,
-            int shippingCharges,
-            int weight,
-            String id)?
-        postOrders,
-    TResult? Function(BuildContext context)? fetchOrders,
-    TResult? Function(BuildContext context, int id)? fetchOrdersById,
-    TResult? Function(BuildContext context, String filterName)?
-        fetchOrdersbyFilterEvent,
-    TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
-    TResult? Function()? fetchShopHomeBackgroundCard,
-    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
-    TResult? Function()? fetchShopHomeBackgroundCardSunnah,
-    TResult? Function()? fetchShopAdBrands,
-    TResult? Function()? fetchTopBrands,
-    TResult? Function()? fetchProductItemsSubcategorySunnah,
-    TResult? Function()? fetchProductItemsSubcategoryHealth,
-    TResult? Function()? fetchProductItemsSubcategoryWomen,
-    TResult? Function(int index)? changeShopBannerIndex,
-    TResult? Function(int index)? changeBrandBannerIndex,
-    TResult? Function()? showOrderProgressEvent,
-    TResult? Function(int index)? indexChangeOnOrderProgress,
-    TResult? Function(int index)? indexChangeOnWomensCareBanner,
-    TResult? Function(String id)? fetchShopAdBrandsById,
-  }) {
-    return indexChangeOnOrderProgress?.call(index);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? fetchFlashSaleProducts,
-    TResult Function()? fetchPopularProducts,
-    TResult Function()? fetchRecentProductProducts,
-    TResult Function()? fetchHomeBanners,
-    TResult Function()? fetchShopBanners,
-    TResult Function()? fetchArticles,
-    TResult Function()? fetchShopByBrand,
-    TResult Function(BuildContext context)? fetchWishList,
-    TResult Function(String query)? searchProduct,
-    TResult Function(String productId, BuildContext context)? addWishListEvent,
-    TResult Function(String productId, BuildContext context)?
-        removeWishlistEvent,
-    TResult Function(String brandName)? fetchShopByBrandProducts,
-    TResult Function(int index)? tabIndexChangeEvent,
-    TResult Function(
-            BuildContext context,
-            int totalPrice,
-            String pickupLocation,
-            int quantity,
-            int totalDiscount,
-            int shippingCharges,
-            int weight,
-            String id)?
-        postOrders,
-    TResult Function(BuildContext context)? fetchOrders,
-    TResult Function(BuildContext context, int id)? fetchOrdersById,
-    TResult Function(BuildContext context, String filterName)?
-        fetchOrdersbyFilterEvent,
-    TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
-    TResult Function()? fetchShopHomeBackgroundCard,
-    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
-    TResult Function()? fetchShopHomeBackgroundCardSunnah,
-    TResult Function()? fetchShopAdBrands,
-    TResult Function()? fetchTopBrands,
-    TResult Function()? fetchProductItemsSubcategorySunnah,
-    TResult Function()? fetchProductItemsSubcategoryHealth,
-    TResult Function()? fetchProductItemsSubcategoryWomen,
-    TResult Function(int index)? changeShopBannerIndex,
-    TResult Function(int index)? changeBrandBannerIndex,
-    TResult Function()? showOrderProgressEvent,
-    TResult Function(int index)? indexChangeOnOrderProgress,
-    TResult Function(int index)? indexChangeOnWomensCareBanner,
-    TResult Function(String id)? fetchShopAdBrandsById,
-    required TResult orElse(),
-  }) {
-    if (indexChangeOnOrderProgress != null) {
-      return indexChangeOnOrderProgress(index);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(FetchFlashSaleProducts value)
-        fetchFlashSaleProducts,
-    required TResult Function(FetchPopularProducts value) fetchPopularProducts,
-    required TResult Function(FetchRecentProductProducts value)
-        fetchRecentProductProducts,
-    required TResult Function(FetchHomeBanners value) fetchHomeBanners,
-    required TResult Function(FetchShopBanners value) fetchShopBanners,
-    required TResult Function(FetchArticles value) fetchArticles,
-    required TResult Function(FetchShopByBrand value) fetchShopByBrand,
-    required TResult Function(FetchWishList value) fetchWishList,
-    required TResult Function(SearchProduct value) searchProduct,
-    required TResult Function(AddWishListEvent value) addWishListEvent,
-    required TResult Function(RemoveWishlistEvent value) removeWishlistEvent,
-    required TResult Function(FetchShopByBrandProducts value)
-        fetchShopByBrandProducts,
-    required TResult Function(TabIndexChangeEvent value) tabIndexChangeEvent,
-    required TResult Function(PostOrders value) postOrders,
-    required TResult Function(FetchOrders value) fetchOrders,
-    required TResult Function(FetchOrdersById value) fetchOrdersById,
-    required TResult Function(FetchOrdersbyFilterEvent value)
-        fetchOrdersbyFilterEvent,
-    required TResult Function(CancelOrder value) cancelOrder,
-    required TResult Function(FetchShopHomeBackgroundCard value)
-        fetchShopHomeBackgroundCard,
-    required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
-        fetchShopHomeBackgroundCardHelthyDiet,
-    required TResult Function(FetchShopHomeBackgroundCardSunnah value)
-        fetchShopHomeBackgroundCardSunnah,
-    required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
-    required TResult Function(FetchTopBrands value) fetchTopBrands,
-    required TResult Function(FetchProductItemsSubcategorySunnah value)
-        fetchProductItemsSubcategorySunnah,
-    required TResult Function(FetchProductItemsSubcategoryHealth value)
-        fetchProductItemsSubcategoryHealth,
-    required TResult Function(FetchProductItemsSubcategoryWomen value)
-        fetchProductItemsSubcategoryWomen,
-    required TResult Function(ChangeShopBannerIndex value)
-        changeShopBannerIndex,
-    required TResult Function(ChangeBrandBannerIndex value)
-        changeBrandBannerIndex,
-    required TResult Function(ShowOrderProgressEvent value)
-        showOrderProgressEvent,
-    required TResult Function(IndexChangeOnOrderProgress value)
-        indexChangeOnOrderProgress,
-    required TResult Function(IndexChangeOnWomensCareBanner value)
-        indexChangeOnWomensCareBanner,
-    required TResult Function(FetchShopAdBrandsById value)
-        fetchShopAdBrandsById,
-  }) {
-    return indexChangeOnOrderProgress(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(FetchFlashSaleProducts value)? fetchFlashSaleProducts,
-    TResult? Function(FetchPopularProducts value)? fetchPopularProducts,
-    TResult? Function(FetchRecentProductProducts value)?
-        fetchRecentProductProducts,
-    TResult? Function(FetchHomeBanners value)? fetchHomeBanners,
-    TResult? Function(FetchShopBanners value)? fetchShopBanners,
-    TResult? Function(FetchArticles value)? fetchArticles,
-    TResult? Function(FetchShopByBrand value)? fetchShopByBrand,
-    TResult? Function(FetchWishList value)? fetchWishList,
-    TResult? Function(SearchProduct value)? searchProduct,
-    TResult? Function(AddWishListEvent value)? addWishListEvent,
-    TResult? Function(RemoveWishlistEvent value)? removeWishlistEvent,
-    TResult? Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
-    TResult? Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
-    TResult? Function(PostOrders value)? postOrders,
-    TResult? Function(FetchOrders value)? fetchOrders,
-    TResult? Function(FetchOrdersById value)? fetchOrdersById,
-    TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
-    TResult? Function(CancelOrder value)? cancelOrder,
-    TResult? Function(FetchShopHomeBackgroundCard value)?
-        fetchShopHomeBackgroundCard,
-    TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHelthyDiet,
-    TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
-        fetchShopHomeBackgroundCardSunnah,
-    TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
-    TResult? Function(FetchTopBrands value)? fetchTopBrands,
-    TResult? Function(FetchProductItemsSubcategorySunnah value)?
-        fetchProductItemsSubcategorySunnah,
-    TResult? Function(FetchProductItemsSubcategoryHealth value)?
-        fetchProductItemsSubcategoryHealth,
-    TResult? Function(FetchProductItemsSubcategoryWomen value)?
-        fetchProductItemsSubcategoryWomen,
-    TResult? Function(ChangeShopBannerIndex value)? changeShopBannerIndex,
-    TResult? Function(ChangeBrandBannerIndex value)? changeBrandBannerIndex,
-    TResult? Function(ShowOrderProgressEvent value)? showOrderProgressEvent,
-    TResult? Function(IndexChangeOnOrderProgress value)?
-        indexChangeOnOrderProgress,
-    TResult? Function(IndexChangeOnWomensCareBanner value)?
-        indexChangeOnWomensCareBanner,
-    TResult? Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
-  }) {
-    return indexChangeOnOrderProgress?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(FetchFlashSaleProducts value)? fetchFlashSaleProducts,
-    TResult Function(FetchPopularProducts value)? fetchPopularProducts,
-    TResult Function(FetchRecentProductProducts value)?
-        fetchRecentProductProducts,
-    TResult Function(FetchHomeBanners value)? fetchHomeBanners,
-    TResult Function(FetchShopBanners value)? fetchShopBanners,
-    TResult Function(FetchArticles value)? fetchArticles,
-    TResult Function(FetchShopByBrand value)? fetchShopByBrand,
-    TResult Function(FetchWishList value)? fetchWishList,
-    TResult Function(SearchProduct value)? searchProduct,
-    TResult Function(AddWishListEvent value)? addWishListEvent,
-    TResult Function(RemoveWishlistEvent value)? removeWishlistEvent,
-    TResult Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
-    TResult Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
-    TResult Function(PostOrders value)? postOrders,
-    TResult Function(FetchOrders value)? fetchOrders,
-    TResult Function(FetchOrdersById value)? fetchOrdersById,
-    TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
-    TResult Function(CancelOrder value)? cancelOrder,
-    TResult Function(FetchShopHomeBackgroundCard value)?
-        fetchShopHomeBackgroundCard,
-    TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHelthyDiet,
-    TResult Function(FetchShopHomeBackgroundCardSunnah value)?
-        fetchShopHomeBackgroundCardSunnah,
-    TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
-    TResult Function(FetchTopBrands value)? fetchTopBrands,
-    TResult Function(FetchProductItemsSubcategorySunnah value)?
-        fetchProductItemsSubcategorySunnah,
-    TResult Function(FetchProductItemsSubcategoryHealth value)?
-        fetchProductItemsSubcategoryHealth,
-    TResult Function(FetchProductItemsSubcategoryWomen value)?
-        fetchProductItemsSubcategoryWomen,
-    TResult Function(ChangeShopBannerIndex value)? changeShopBannerIndex,
-    TResult Function(ChangeBrandBannerIndex value)? changeBrandBannerIndex,
-    TResult Function(ShowOrderProgressEvent value)? showOrderProgressEvent,
-    TResult Function(IndexChangeOnOrderProgress value)?
-        indexChangeOnOrderProgress,
-    TResult Function(IndexChangeOnWomensCareBanner value)?
-        indexChangeOnWomensCareBanner,
-    TResult Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
-    required TResult orElse(),
-  }) {
-    if (indexChangeOnOrderProgress != null) {
-      return indexChangeOnOrderProgress(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class IndexChangeOnOrderProgress implements ShopProductsEvent {
-  const factory IndexChangeOnOrderProgress({required final int index}) =
-      _$IndexChangeOnOrderProgress;
-
-  int get index;
-  @JsonKey(ignore: true)
-  _$$IndexChangeOnOrderProgressCopyWith<_$IndexChangeOnOrderProgress>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$IndexChangeOnWomensCareBannerCopyWith<$Res> {
-  factory _$$IndexChangeOnWomensCareBannerCopyWith(
-          _$IndexChangeOnWomensCareBanner value,
-          $Res Function(_$IndexChangeOnWomensCareBanner) then) =
-      __$$IndexChangeOnWomensCareBannerCopyWithImpl<$Res>;
-  @useResult
-  $Res call({int index});
-}
-
-/// @nodoc
-class __$$IndexChangeOnWomensCareBannerCopyWithImpl<$Res>
-    extends _$ShopProductsEventCopyWithImpl<$Res,
-        _$IndexChangeOnWomensCareBanner>
-    implements _$$IndexChangeOnWomensCareBannerCopyWith<$Res> {
-  __$$IndexChangeOnWomensCareBannerCopyWithImpl(
-      _$IndexChangeOnWomensCareBanner _value,
-      $Res Function(_$IndexChangeOnWomensCareBanner) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? index = null,
-  }) {
-    return _then(_$IndexChangeOnWomensCareBanner(
-      index: null == index
-          ? _value.index
-          : index // ignore: cast_nullable_to_non_nullable
-              as int,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$IndexChangeOnWomensCareBanner implements IndexChangeOnWomensCareBanner {
-  const _$IndexChangeOnWomensCareBanner({required this.index});
-
-  @override
-  final int index;
-
-  @override
-  String toString() {
-    return 'ShopProductsEvent.indexChangeOnWomensCareBanner(index: $index)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$IndexChangeOnWomensCareBanner &&
-            (identical(other.index, index) || other.index == index));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, index);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$IndexChangeOnWomensCareBannerCopyWith<_$IndexChangeOnWomensCareBanner>
-      get copyWith => __$$IndexChangeOnWomensCareBannerCopyWithImpl<
-          _$IndexChangeOnWomensCareBanner>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() fetchFlashSaleProducts,
-    required TResult Function() fetchPopularProducts,
-    required TResult Function() fetchRecentProductProducts,
-    required TResult Function() fetchHomeBanners,
-    required TResult Function() fetchShopBanners,
-    required TResult Function() fetchArticles,
-    required TResult Function() fetchShopByBrand,
-    required TResult Function(BuildContext context) fetchWishList,
-    required TResult Function(String query) searchProduct,
-    required TResult Function(String productId, BuildContext context)
-        addWishListEvent,
-    required TResult Function(String productId, BuildContext context)
-        removeWishlistEvent,
-    required TResult Function(String brandName) fetchShopByBrandProducts,
-    required TResult Function(int index) tabIndexChangeEvent,
-    required TResult Function(
-            BuildContext context,
-            int totalPrice,
-            String pickupLocation,
-            int quantity,
-            int totalDiscount,
-            int shippingCharges,
-            int weight,
-            String id)
-        postOrders,
-    required TResult Function(BuildContext context) fetchOrders,
-    required TResult Function(BuildContext context, int id) fetchOrdersById,
-    required TResult Function(BuildContext context, String filterName)
-        fetchOrdersbyFilterEvent,
-    required TResult Function(BuildContext context, int shiprockeId)
-        cancelOrder,
-    required TResult Function() fetchShopHomeBackgroundCard,
-    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
-    required TResult Function() fetchShopHomeBackgroundCardSunnah,
-    required TResult Function() fetchShopAdBrands,
-    required TResult Function() fetchTopBrands,
-    required TResult Function() fetchProductItemsSubcategorySunnah,
-    required TResult Function() fetchProductItemsSubcategoryHealth,
-    required TResult Function() fetchProductItemsSubcategoryWomen,
-    required TResult Function(int index) changeShopBannerIndex,
-    required TResult Function(int index) changeBrandBannerIndex,
-    required TResult Function() showOrderProgressEvent,
-    required TResult Function(int index) indexChangeOnOrderProgress,
-    required TResult Function(int index) indexChangeOnWomensCareBanner,
-    required TResult Function(String id) fetchShopAdBrandsById,
-  }) {
-    return indexChangeOnWomensCareBanner(index);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? fetchFlashSaleProducts,
-    TResult? Function()? fetchPopularProducts,
-    TResult? Function()? fetchRecentProductProducts,
-    TResult? Function()? fetchHomeBanners,
-    TResult? Function()? fetchShopBanners,
-    TResult? Function()? fetchArticles,
-    TResult? Function()? fetchShopByBrand,
-    TResult? Function(BuildContext context)? fetchWishList,
-    TResult? Function(String query)? searchProduct,
-    TResult? Function(String productId, BuildContext context)? addWishListEvent,
-    TResult? Function(String productId, BuildContext context)?
-        removeWishlistEvent,
-    TResult? Function(String brandName)? fetchShopByBrandProducts,
-    TResult? Function(int index)? tabIndexChangeEvent,
-    TResult? Function(
-            BuildContext context,
-            int totalPrice,
-            String pickupLocation,
-            int quantity,
-            int totalDiscount,
-            int shippingCharges,
-            int weight,
-            String id)?
-        postOrders,
-    TResult? Function(BuildContext context)? fetchOrders,
-    TResult? Function(BuildContext context, int id)? fetchOrdersById,
-    TResult? Function(BuildContext context, String filterName)?
-        fetchOrdersbyFilterEvent,
-    TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
-    TResult? Function()? fetchShopHomeBackgroundCard,
-    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
-    TResult? Function()? fetchShopHomeBackgroundCardSunnah,
-    TResult? Function()? fetchShopAdBrands,
-    TResult? Function()? fetchTopBrands,
-    TResult? Function()? fetchProductItemsSubcategorySunnah,
-    TResult? Function()? fetchProductItemsSubcategoryHealth,
-    TResult? Function()? fetchProductItemsSubcategoryWomen,
-    TResult? Function(int index)? changeShopBannerIndex,
-    TResult? Function(int index)? changeBrandBannerIndex,
-    TResult? Function()? showOrderProgressEvent,
-    TResult? Function(int index)? indexChangeOnOrderProgress,
-    TResult? Function(int index)? indexChangeOnWomensCareBanner,
-    TResult? Function(String id)? fetchShopAdBrandsById,
-  }) {
-    return indexChangeOnWomensCareBanner?.call(index);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? fetchFlashSaleProducts,
-    TResult Function()? fetchPopularProducts,
-    TResult Function()? fetchRecentProductProducts,
-    TResult Function()? fetchHomeBanners,
-    TResult Function()? fetchShopBanners,
-    TResult Function()? fetchArticles,
-    TResult Function()? fetchShopByBrand,
-    TResult Function(BuildContext context)? fetchWishList,
-    TResult Function(String query)? searchProduct,
-    TResult Function(String productId, BuildContext context)? addWishListEvent,
-    TResult Function(String productId, BuildContext context)?
-        removeWishlistEvent,
-    TResult Function(String brandName)? fetchShopByBrandProducts,
-    TResult Function(int index)? tabIndexChangeEvent,
-    TResult Function(
-            BuildContext context,
-            int totalPrice,
-            String pickupLocation,
-            int quantity,
-            int totalDiscount,
-            int shippingCharges,
-            int weight,
-            String id)?
-        postOrders,
-    TResult Function(BuildContext context)? fetchOrders,
-    TResult Function(BuildContext context, int id)? fetchOrdersById,
-    TResult Function(BuildContext context, String filterName)?
-        fetchOrdersbyFilterEvent,
-    TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
-    TResult Function()? fetchShopHomeBackgroundCard,
-    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
-    TResult Function()? fetchShopHomeBackgroundCardSunnah,
-    TResult Function()? fetchShopAdBrands,
-    TResult Function()? fetchTopBrands,
-    TResult Function()? fetchProductItemsSubcategorySunnah,
-    TResult Function()? fetchProductItemsSubcategoryHealth,
-    TResult Function()? fetchProductItemsSubcategoryWomen,
-    TResult Function(int index)? changeShopBannerIndex,
-    TResult Function(int index)? changeBrandBannerIndex,
-    TResult Function()? showOrderProgressEvent,
-    TResult Function(int index)? indexChangeOnOrderProgress,
-    TResult Function(int index)? indexChangeOnWomensCareBanner,
-    TResult Function(String id)? fetchShopAdBrandsById,
-    required TResult orElse(),
-  }) {
-    if (indexChangeOnWomensCareBanner != null) {
-      return indexChangeOnWomensCareBanner(index);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(FetchFlashSaleProducts value)
-        fetchFlashSaleProducts,
-    required TResult Function(FetchPopularProducts value) fetchPopularProducts,
-    required TResult Function(FetchRecentProductProducts value)
-        fetchRecentProductProducts,
-    required TResult Function(FetchHomeBanners value) fetchHomeBanners,
-    required TResult Function(FetchShopBanners value) fetchShopBanners,
-    required TResult Function(FetchArticles value) fetchArticles,
-    required TResult Function(FetchShopByBrand value) fetchShopByBrand,
-    required TResult Function(FetchWishList value) fetchWishList,
-    required TResult Function(SearchProduct value) searchProduct,
-    required TResult Function(AddWishListEvent value) addWishListEvent,
-    required TResult Function(RemoveWishlistEvent value) removeWishlistEvent,
-    required TResult Function(FetchShopByBrandProducts value)
-        fetchShopByBrandProducts,
-    required TResult Function(TabIndexChangeEvent value) tabIndexChangeEvent,
-    required TResult Function(PostOrders value) postOrders,
-    required TResult Function(FetchOrders value) fetchOrders,
-    required TResult Function(FetchOrdersById value) fetchOrdersById,
-    required TResult Function(FetchOrdersbyFilterEvent value)
-        fetchOrdersbyFilterEvent,
-    required TResult Function(CancelOrder value) cancelOrder,
-    required TResult Function(FetchShopHomeBackgroundCard value)
-        fetchShopHomeBackgroundCard,
-    required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
-        fetchShopHomeBackgroundCardHelthyDiet,
-    required TResult Function(FetchShopHomeBackgroundCardSunnah value)
-        fetchShopHomeBackgroundCardSunnah,
-    required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
-    required TResult Function(FetchTopBrands value) fetchTopBrands,
-    required TResult Function(FetchProductItemsSubcategorySunnah value)
-        fetchProductItemsSubcategorySunnah,
-    required TResult Function(FetchProductItemsSubcategoryHealth value)
-        fetchProductItemsSubcategoryHealth,
-    required TResult Function(FetchProductItemsSubcategoryWomen value)
-        fetchProductItemsSubcategoryWomen,
-    required TResult Function(ChangeShopBannerIndex value)
-        changeShopBannerIndex,
-    required TResult Function(ChangeBrandBannerIndex value)
-        changeBrandBannerIndex,
-    required TResult Function(ShowOrderProgressEvent value)
-        showOrderProgressEvent,
-    required TResult Function(IndexChangeOnOrderProgress value)
-        indexChangeOnOrderProgress,
-    required TResult Function(IndexChangeOnWomensCareBanner value)
-        indexChangeOnWomensCareBanner,
-    required TResult Function(FetchShopAdBrandsById value)
-        fetchShopAdBrandsById,
-  }) {
-    return indexChangeOnWomensCareBanner(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(FetchFlashSaleProducts value)? fetchFlashSaleProducts,
-    TResult? Function(FetchPopularProducts value)? fetchPopularProducts,
-    TResult? Function(FetchRecentProductProducts value)?
-        fetchRecentProductProducts,
-    TResult? Function(FetchHomeBanners value)? fetchHomeBanners,
-    TResult? Function(FetchShopBanners value)? fetchShopBanners,
-    TResult? Function(FetchArticles value)? fetchArticles,
-    TResult? Function(FetchShopByBrand value)? fetchShopByBrand,
-    TResult? Function(FetchWishList value)? fetchWishList,
-    TResult? Function(SearchProduct value)? searchProduct,
-    TResult? Function(AddWishListEvent value)? addWishListEvent,
-    TResult? Function(RemoveWishlistEvent value)? removeWishlistEvent,
-    TResult? Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
-    TResult? Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
-    TResult? Function(PostOrders value)? postOrders,
-    TResult? Function(FetchOrders value)? fetchOrders,
-    TResult? Function(FetchOrdersById value)? fetchOrdersById,
-    TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
-    TResult? Function(CancelOrder value)? cancelOrder,
-    TResult? Function(FetchShopHomeBackgroundCard value)?
-        fetchShopHomeBackgroundCard,
-    TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHelthyDiet,
-    TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
-        fetchShopHomeBackgroundCardSunnah,
-    TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
-    TResult? Function(FetchTopBrands value)? fetchTopBrands,
-    TResult? Function(FetchProductItemsSubcategorySunnah value)?
-        fetchProductItemsSubcategorySunnah,
-    TResult? Function(FetchProductItemsSubcategoryHealth value)?
-        fetchProductItemsSubcategoryHealth,
-    TResult? Function(FetchProductItemsSubcategoryWomen value)?
-        fetchProductItemsSubcategoryWomen,
-    TResult? Function(ChangeShopBannerIndex value)? changeShopBannerIndex,
-    TResult? Function(ChangeBrandBannerIndex value)? changeBrandBannerIndex,
-    TResult? Function(ShowOrderProgressEvent value)? showOrderProgressEvent,
-    TResult? Function(IndexChangeOnOrderProgress value)?
-        indexChangeOnOrderProgress,
-    TResult? Function(IndexChangeOnWomensCareBanner value)?
-        indexChangeOnWomensCareBanner,
-    TResult? Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
-  }) {
-    return indexChangeOnWomensCareBanner?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(FetchFlashSaleProducts value)? fetchFlashSaleProducts,
-    TResult Function(FetchPopularProducts value)? fetchPopularProducts,
-    TResult Function(FetchRecentProductProducts value)?
-        fetchRecentProductProducts,
-    TResult Function(FetchHomeBanners value)? fetchHomeBanners,
-    TResult Function(FetchShopBanners value)? fetchShopBanners,
-    TResult Function(FetchArticles value)? fetchArticles,
-    TResult Function(FetchShopByBrand value)? fetchShopByBrand,
-    TResult Function(FetchWishList value)? fetchWishList,
-    TResult Function(SearchProduct value)? searchProduct,
-    TResult Function(AddWishListEvent value)? addWishListEvent,
-    TResult Function(RemoveWishlistEvent value)? removeWishlistEvent,
-    TResult Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
-    TResult Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
-    TResult Function(PostOrders value)? postOrders,
-    TResult Function(FetchOrders value)? fetchOrders,
-    TResult Function(FetchOrdersById value)? fetchOrdersById,
-    TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
-    TResult Function(CancelOrder value)? cancelOrder,
-    TResult Function(FetchShopHomeBackgroundCard value)?
-        fetchShopHomeBackgroundCard,
-    TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHelthyDiet,
-    TResult Function(FetchShopHomeBackgroundCardSunnah value)?
-        fetchShopHomeBackgroundCardSunnah,
-    TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
-    TResult Function(FetchTopBrands value)? fetchTopBrands,
-    TResult Function(FetchProductItemsSubcategorySunnah value)?
-        fetchProductItemsSubcategorySunnah,
-    TResult Function(FetchProductItemsSubcategoryHealth value)?
-        fetchProductItemsSubcategoryHealth,
-    TResult Function(FetchProductItemsSubcategoryWomen value)?
-        fetchProductItemsSubcategoryWomen,
-    TResult Function(ChangeShopBannerIndex value)? changeShopBannerIndex,
-    TResult Function(ChangeBrandBannerIndex value)? changeBrandBannerIndex,
-    TResult Function(ShowOrderProgressEvent value)? showOrderProgressEvent,
-    TResult Function(IndexChangeOnOrderProgress value)?
-        indexChangeOnOrderProgress,
-    TResult Function(IndexChangeOnWomensCareBanner value)?
-        indexChangeOnWomensCareBanner,
-    TResult Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
-    required TResult orElse(),
-  }) {
-    if (indexChangeOnWomensCareBanner != null) {
-      return indexChangeOnWomensCareBanner(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class IndexChangeOnWomensCareBanner implements ShopProductsEvent {
-  const factory IndexChangeOnWomensCareBanner({required final int index}) =
-      _$IndexChangeOnWomensCareBanner;
-
-  int get index;
-  @JsonKey(ignore: true)
-  _$$IndexChangeOnWomensCareBannerCopyWith<_$IndexChangeOnWomensCareBanner>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$FetchShopAdBrandsByIdCopyWith<$Res> {
-  factory _$$FetchShopAdBrandsByIdCopyWith(_$FetchShopAdBrandsById value,
-          $Res Function(_$FetchShopAdBrandsById) then) =
-      __$$FetchShopAdBrandsByIdCopyWithImpl<$Res>;
-  @useResult
-  $Res call({String id});
-}
-
-/// @nodoc
-class __$$FetchShopAdBrandsByIdCopyWithImpl<$Res>
-    extends _$ShopProductsEventCopyWithImpl<$Res, _$FetchShopAdBrandsById>
-    implements _$$FetchShopAdBrandsByIdCopyWith<$Res> {
-  __$$FetchShopAdBrandsByIdCopyWithImpl(_$FetchShopAdBrandsById _value,
-      $Res Function(_$FetchShopAdBrandsById) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-  }) {
-    return _then(_$FetchShopAdBrandsById(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$FetchShopAdBrandsById implements FetchShopAdBrandsById {
-  const _$FetchShopAdBrandsById({required this.id});
-
-  @override
-  final String id;
-
-  @override
-  String toString() {
-    return 'ShopProductsEvent.fetchShopAdBrandsById(id: $id)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$FetchShopAdBrandsById &&
-            (identical(other.id, id) || other.id == id));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, id);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$FetchShopAdBrandsByIdCopyWith<_$FetchShopAdBrandsById> get copyWith =>
-      __$$FetchShopAdBrandsByIdCopyWithImpl<_$FetchShopAdBrandsById>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() fetchFlashSaleProducts,
-    required TResult Function() fetchPopularProducts,
-    required TResult Function() fetchRecentProductProducts,
-    required TResult Function() fetchHomeBanners,
-    required TResult Function() fetchShopBanners,
-    required TResult Function() fetchArticles,
-    required TResult Function() fetchShopByBrand,
-    required TResult Function(BuildContext context) fetchWishList,
-    required TResult Function(String query) searchProduct,
-    required TResult Function(String productId, BuildContext context)
-        addWishListEvent,
-    required TResult Function(String productId, BuildContext context)
-        removeWishlistEvent,
-    required TResult Function(String brandName) fetchShopByBrandProducts,
-    required TResult Function(int index) tabIndexChangeEvent,
-    required TResult Function(
-            BuildContext context,
-            int totalPrice,
-            String pickupLocation,
-            int quantity,
-            int totalDiscount,
-            int shippingCharges,
-            int weight,
-            String id)
-        postOrders,
-    required TResult Function(BuildContext context) fetchOrders,
-    required TResult Function(BuildContext context, int id) fetchOrdersById,
-    required TResult Function(BuildContext context, String filterName)
-        fetchOrdersbyFilterEvent,
-    required TResult Function(BuildContext context, int shiprockeId)
-        cancelOrder,
-    required TResult Function() fetchShopHomeBackgroundCard,
-    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
-    required TResult Function() fetchShopHomeBackgroundCardSunnah,
-    required TResult Function() fetchShopAdBrands,
-    required TResult Function() fetchTopBrands,
-    required TResult Function() fetchProductItemsSubcategorySunnah,
-    required TResult Function() fetchProductItemsSubcategoryHealth,
-    required TResult Function() fetchProductItemsSubcategoryWomen,
-    required TResult Function(int index) changeShopBannerIndex,
-    required TResult Function(int index) changeBrandBannerIndex,
-    required TResult Function() showOrderProgressEvent,
-    required TResult Function(int index) indexChangeOnOrderProgress,
-    required TResult Function(int index) indexChangeOnWomensCareBanner,
-    required TResult Function(String id) fetchShopAdBrandsById,
-  }) {
-    return fetchShopAdBrandsById(id);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? fetchFlashSaleProducts,
-    TResult? Function()? fetchPopularProducts,
-    TResult? Function()? fetchRecentProductProducts,
-    TResult? Function()? fetchHomeBanners,
-    TResult? Function()? fetchShopBanners,
-    TResult? Function()? fetchArticles,
-    TResult? Function()? fetchShopByBrand,
-    TResult? Function(BuildContext context)? fetchWishList,
-    TResult? Function(String query)? searchProduct,
-    TResult? Function(String productId, BuildContext context)? addWishListEvent,
-    TResult? Function(String productId, BuildContext context)?
-        removeWishlistEvent,
-    TResult? Function(String brandName)? fetchShopByBrandProducts,
-    TResult? Function(int index)? tabIndexChangeEvent,
-    TResult? Function(
-            BuildContext context,
-            int totalPrice,
-            String pickupLocation,
-            int quantity,
-            int totalDiscount,
-            int shippingCharges,
-            int weight,
-            String id)?
-        postOrders,
-    TResult? Function(BuildContext context)? fetchOrders,
-    TResult? Function(BuildContext context, int id)? fetchOrdersById,
-    TResult? Function(BuildContext context, String filterName)?
-        fetchOrdersbyFilterEvent,
-    TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
-    TResult? Function()? fetchShopHomeBackgroundCard,
-    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
-    TResult? Function()? fetchShopHomeBackgroundCardSunnah,
-    TResult? Function()? fetchShopAdBrands,
-    TResult? Function()? fetchTopBrands,
-    TResult? Function()? fetchProductItemsSubcategorySunnah,
-    TResult? Function()? fetchProductItemsSubcategoryHealth,
-    TResult? Function()? fetchProductItemsSubcategoryWomen,
-    TResult? Function(int index)? changeShopBannerIndex,
-    TResult? Function(int index)? changeBrandBannerIndex,
-    TResult? Function()? showOrderProgressEvent,
-    TResult? Function(int index)? indexChangeOnOrderProgress,
-    TResult? Function(int index)? indexChangeOnWomensCareBanner,
-    TResult? Function(String id)? fetchShopAdBrandsById,
-  }) {
-    return fetchShopAdBrandsById?.call(id);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? fetchFlashSaleProducts,
-    TResult Function()? fetchPopularProducts,
-    TResult Function()? fetchRecentProductProducts,
-    TResult Function()? fetchHomeBanners,
-    TResult Function()? fetchShopBanners,
-    TResult Function()? fetchArticles,
-    TResult Function()? fetchShopByBrand,
-    TResult Function(BuildContext context)? fetchWishList,
-    TResult Function(String query)? searchProduct,
-    TResult Function(String productId, BuildContext context)? addWishListEvent,
-    TResult Function(String productId, BuildContext context)?
-        removeWishlistEvent,
-    TResult Function(String brandName)? fetchShopByBrandProducts,
-    TResult Function(int index)? tabIndexChangeEvent,
-    TResult Function(
-            BuildContext context,
-            int totalPrice,
-            String pickupLocation,
-            int quantity,
-            int totalDiscount,
-            int shippingCharges,
-            int weight,
-            String id)?
-        postOrders,
-    TResult Function(BuildContext context)? fetchOrders,
-    TResult Function(BuildContext context, int id)? fetchOrdersById,
-    TResult Function(BuildContext context, String filterName)?
-        fetchOrdersbyFilterEvent,
-    TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
-    TResult Function()? fetchShopHomeBackgroundCard,
-    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
-    TResult Function()? fetchShopHomeBackgroundCardSunnah,
-    TResult Function()? fetchShopAdBrands,
-    TResult Function()? fetchTopBrands,
-    TResult Function()? fetchProductItemsSubcategorySunnah,
-    TResult Function()? fetchProductItemsSubcategoryHealth,
-    TResult Function()? fetchProductItemsSubcategoryWomen,
-    TResult Function(int index)? changeShopBannerIndex,
-    TResult Function(int index)? changeBrandBannerIndex,
-    TResult Function()? showOrderProgressEvent,
-    TResult Function(int index)? indexChangeOnOrderProgress,
-    TResult Function(int index)? indexChangeOnWomensCareBanner,
-    TResult Function(String id)? fetchShopAdBrandsById,
-    required TResult orElse(),
-  }) {
-    if (fetchShopAdBrandsById != null) {
-      return fetchShopAdBrandsById(id);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(FetchFlashSaleProducts value)
-        fetchFlashSaleProducts,
-    required TResult Function(FetchPopularProducts value) fetchPopularProducts,
-    required TResult Function(FetchRecentProductProducts value)
-        fetchRecentProductProducts,
-    required TResult Function(FetchHomeBanners value) fetchHomeBanners,
-    required TResult Function(FetchShopBanners value) fetchShopBanners,
-    required TResult Function(FetchArticles value) fetchArticles,
-    required TResult Function(FetchShopByBrand value) fetchShopByBrand,
-    required TResult Function(FetchWishList value) fetchWishList,
-    required TResult Function(SearchProduct value) searchProduct,
-    required TResult Function(AddWishListEvent value) addWishListEvent,
-    required TResult Function(RemoveWishlistEvent value) removeWishlistEvent,
-    required TResult Function(FetchShopByBrandProducts value)
-        fetchShopByBrandProducts,
-    required TResult Function(TabIndexChangeEvent value) tabIndexChangeEvent,
-    required TResult Function(PostOrders value) postOrders,
-    required TResult Function(FetchOrders value) fetchOrders,
-    required TResult Function(FetchOrdersById value) fetchOrdersById,
-    required TResult Function(FetchOrdersbyFilterEvent value)
-        fetchOrdersbyFilterEvent,
-    required TResult Function(CancelOrder value) cancelOrder,
-    required TResult Function(FetchShopHomeBackgroundCard value)
-        fetchShopHomeBackgroundCard,
-    required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
-        fetchShopHomeBackgroundCardHelthyDiet,
-    required TResult Function(FetchShopHomeBackgroundCardSunnah value)
-        fetchShopHomeBackgroundCardSunnah,
-    required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
-    required TResult Function(FetchTopBrands value) fetchTopBrands,
-    required TResult Function(FetchProductItemsSubcategorySunnah value)
-        fetchProductItemsSubcategorySunnah,
-    required TResult Function(FetchProductItemsSubcategoryHealth value)
-        fetchProductItemsSubcategoryHealth,
-    required TResult Function(FetchProductItemsSubcategoryWomen value)
-        fetchProductItemsSubcategoryWomen,
-    required TResult Function(ChangeShopBannerIndex value)
-        changeShopBannerIndex,
-    required TResult Function(ChangeBrandBannerIndex value)
-        changeBrandBannerIndex,
-    required TResult Function(ShowOrderProgressEvent value)
-        showOrderProgressEvent,
-    required TResult Function(IndexChangeOnOrderProgress value)
-        indexChangeOnOrderProgress,
-    required TResult Function(IndexChangeOnWomensCareBanner value)
-        indexChangeOnWomensCareBanner,
-    required TResult Function(FetchShopAdBrandsById value)
-        fetchShopAdBrandsById,
-  }) {
-    return fetchShopAdBrandsById(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(FetchFlashSaleProducts value)? fetchFlashSaleProducts,
-    TResult? Function(FetchPopularProducts value)? fetchPopularProducts,
-    TResult? Function(FetchRecentProductProducts value)?
-        fetchRecentProductProducts,
-    TResult? Function(FetchHomeBanners value)? fetchHomeBanners,
-    TResult? Function(FetchShopBanners value)? fetchShopBanners,
-    TResult? Function(FetchArticles value)? fetchArticles,
-    TResult? Function(FetchShopByBrand value)? fetchShopByBrand,
-    TResult? Function(FetchWishList value)? fetchWishList,
-    TResult? Function(SearchProduct value)? searchProduct,
-    TResult? Function(AddWishListEvent value)? addWishListEvent,
-    TResult? Function(RemoveWishlistEvent value)? removeWishlistEvent,
-    TResult? Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
-    TResult? Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
-    TResult? Function(PostOrders value)? postOrders,
-    TResult? Function(FetchOrders value)? fetchOrders,
-    TResult? Function(FetchOrdersById value)? fetchOrdersById,
-    TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
-    TResult? Function(CancelOrder value)? cancelOrder,
-    TResult? Function(FetchShopHomeBackgroundCard value)?
-        fetchShopHomeBackgroundCard,
-    TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHelthyDiet,
-    TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
-        fetchShopHomeBackgroundCardSunnah,
-    TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
-    TResult? Function(FetchTopBrands value)? fetchTopBrands,
-    TResult? Function(FetchProductItemsSubcategorySunnah value)?
-        fetchProductItemsSubcategorySunnah,
-    TResult? Function(FetchProductItemsSubcategoryHealth value)?
-        fetchProductItemsSubcategoryHealth,
-    TResult? Function(FetchProductItemsSubcategoryWomen value)?
-        fetchProductItemsSubcategoryWomen,
-    TResult? Function(ChangeShopBannerIndex value)? changeShopBannerIndex,
-    TResult? Function(ChangeBrandBannerIndex value)? changeBrandBannerIndex,
-    TResult? Function(ShowOrderProgressEvent value)? showOrderProgressEvent,
-    TResult? Function(IndexChangeOnOrderProgress value)?
-        indexChangeOnOrderProgress,
-    TResult? Function(IndexChangeOnWomensCareBanner value)?
-        indexChangeOnWomensCareBanner,
-    TResult? Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
-  }) {
-    return fetchShopAdBrandsById?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(FetchFlashSaleProducts value)? fetchFlashSaleProducts,
-    TResult Function(FetchPopularProducts value)? fetchPopularProducts,
-    TResult Function(FetchRecentProductProducts value)?
-        fetchRecentProductProducts,
-    TResult Function(FetchHomeBanners value)? fetchHomeBanners,
-    TResult Function(FetchShopBanners value)? fetchShopBanners,
-    TResult Function(FetchArticles value)? fetchArticles,
-    TResult Function(FetchShopByBrand value)? fetchShopByBrand,
-    TResult Function(FetchWishList value)? fetchWishList,
-    TResult Function(SearchProduct value)? searchProduct,
-    TResult Function(AddWishListEvent value)? addWishListEvent,
-    TResult Function(RemoveWishlistEvent value)? removeWishlistEvent,
-    TResult Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
-    TResult Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
-    TResult Function(PostOrders value)? postOrders,
-    TResult Function(FetchOrders value)? fetchOrders,
-    TResult Function(FetchOrdersById value)? fetchOrdersById,
-    TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
-    TResult Function(CancelOrder value)? cancelOrder,
-    TResult Function(FetchShopHomeBackgroundCard value)?
-        fetchShopHomeBackgroundCard,
-    TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
-        fetchShopHomeBackgroundCardHelthyDiet,
-    TResult Function(FetchShopHomeBackgroundCardSunnah value)?
-        fetchShopHomeBackgroundCardSunnah,
-    TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
-    TResult Function(FetchTopBrands value)? fetchTopBrands,
-    TResult Function(FetchProductItemsSubcategorySunnah value)?
-        fetchProductItemsSubcategorySunnah,
-    TResult Function(FetchProductItemsSubcategoryHealth value)?
-        fetchProductItemsSubcategoryHealth,
-    TResult Function(FetchProductItemsSubcategoryWomen value)?
-        fetchProductItemsSubcategoryWomen,
-    TResult Function(ChangeShopBannerIndex value)? changeShopBannerIndex,
-    TResult Function(ChangeBrandBannerIndex value)? changeBrandBannerIndex,
-    TResult Function(ShowOrderProgressEvent value)? showOrderProgressEvent,
-    TResult Function(IndexChangeOnOrderProgress value)?
-        indexChangeOnOrderProgress,
-    TResult Function(IndexChangeOnWomensCareBanner value)?
-        indexChangeOnWomensCareBanner,
-    TResult Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
-    required TResult orElse(),
-  }) {
-    if (fetchShopAdBrandsById != null) {
-      return fetchShopAdBrandsById(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class FetchShopAdBrandsById implements ShopProductsEvent {
-  const factory FetchShopAdBrandsById({required final String id}) =
-      _$FetchShopAdBrandsById;
-
-  String get id;
-  @JsonKey(ignore: true)
-  _$$FetchShopAdBrandsByIdCopyWith<_$FetchShopAdBrandsById> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -12295,27 +5049,6 @@ mixin _$ShopProductsState {
       throw _privateConstructorUsedError;
   int? get orderId => throw _privateConstructorUsedError;
   String get errorMessage => throw _privateConstructorUsedError;
-  ShopHomeBackgroundCardModel? get shopHomeBackgroundCardModelWomens =>
-      throw _privateConstructorUsedError;
-  ShopHomeBackgroundCardHealthyDietModel?
-      get shopHomeBackgroundCardModelHealthyDiet =>
-          throw _privateConstructorUsedError;
-  SunnahProductHomeCardModel? get shopHomeBackgroundCardModelSunnah =>
-      throw _privateConstructorUsedError;
-  ShopAdBrands? get shopAdBrands => throw _privateConstructorUsedError;
-  ShopAdBrandsById? get shopAdBrandsById => throw _privateConstructorUsedError;
-  TopBrandsModel? get topBrandsModel => throw _privateConstructorUsedError;
-  ProductItemsSubCategorySunnahModel? get productItemsSubCategorySunnahModel =>
-      throw _privateConstructorUsedError;
-  ProductItemsSubCategoryHealthModel? get productItemsSubCategoryHealthModel =>
-      throw _privateConstructorUsedError;
-  ProductItemsSubCategoryWomenModel? get productItemsSubCategoryWomenModel =>
-      throw _privateConstructorUsedError;
-  int get shopBannerIndex => throw _privateConstructorUsedError;
-  bool get showProgress => throw _privateConstructorUsedError;
-  int get brandBannerIndex => throw _privateConstructorUsedError;
-  int get ordereProgressIndex => throw _privateConstructorUsedError;
-  int get womensCareBannerIndex => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ShopProductsStateCopyWith<ShopProductsState> get copyWith =>
@@ -12353,22 +5086,7 @@ abstract class $ShopProductsStateCopyWith<$Res> {
       OrderModel? orderModel,
       OrderModelbyIdModel? ordersByIdModel,
       int? orderId,
-      String errorMessage,
-      ShopHomeBackgroundCardModel? shopHomeBackgroundCardModelWomens,
-      ShopHomeBackgroundCardHealthyDietModel?
-          shopHomeBackgroundCardModelHealthyDiet,
-      SunnahProductHomeCardModel? shopHomeBackgroundCardModelSunnah,
-      ShopAdBrands? shopAdBrands,
-      ShopAdBrandsById? shopAdBrandsById,
-      TopBrandsModel? topBrandsModel,
-      ProductItemsSubCategorySunnahModel? productItemsSubCategorySunnahModel,
-      ProductItemsSubCategoryHealthModel? productItemsSubCategoryHealthModel,
-      ProductItemsSubCategoryWomenModel? productItemsSubCategoryWomenModel,
-      int shopBannerIndex,
-      bool showProgress,
-      int brandBannerIndex,
-      int ordereProgressIndex,
-      int womensCareBannerIndex});
+      String errorMessage});
 
   $ShopProductsCopyWith<$Res>? get flashSaleproducts;
   $ShopProductsCopyWith<$Res>? get popularProducts;
@@ -12382,21 +5100,6 @@ abstract class $ShopProductsStateCopyWith<$Res> {
   $ShopBrandProductModelCopyWith<$Res>? get brandProduct;
   $OrderModelCopyWith<$Res>? get orderModel;
   $OrderModelbyIdModelCopyWith<$Res>? get ordersByIdModel;
-  $ShopHomeBackgroundCardModelCopyWith<$Res>?
-      get shopHomeBackgroundCardModelWomens;
-  $ShopHomeBackgroundCardHealthyDietModelCopyWith<$Res>?
-      get shopHomeBackgroundCardModelHealthyDiet;
-  $SunnahProductHomeCardModelCopyWith<$Res>?
-      get shopHomeBackgroundCardModelSunnah;
-  $ShopAdBrandsCopyWith<$Res>? get shopAdBrands;
-  $ShopAdBrandsByIdCopyWith<$Res>? get shopAdBrandsById;
-  $TopBrandsModelCopyWith<$Res>? get topBrandsModel;
-  $ProductItemsSubCategorySunnahModelCopyWith<$Res>?
-      get productItemsSubCategorySunnahModel;
-  $ProductItemsSubCategoryHealthModelCopyWith<$Res>?
-      get productItemsSubCategoryHealthModel;
-  $ProductItemsSubCategoryWomenModelCopyWith<$Res>?
-      get productItemsSubCategoryWomenModel;
 }
 
 /// @nodoc
@@ -12437,20 +5140,6 @@ class _$ShopProductsStateCopyWithImpl<$Res, $Val extends ShopProductsState>
     Object? ordersByIdModel = freezed,
     Object? orderId = freezed,
     Object? errorMessage = null,
-    Object? shopHomeBackgroundCardModelWomens = freezed,
-    Object? shopHomeBackgroundCardModelHealthyDiet = freezed,
-    Object? shopHomeBackgroundCardModelSunnah = freezed,
-    Object? shopAdBrands = freezed,
-    Object? shopAdBrandsById = freezed,
-    Object? topBrandsModel = freezed,
-    Object? productItemsSubCategorySunnahModel = freezed,
-    Object? productItemsSubCategoryHealthModel = freezed,
-    Object? productItemsSubCategoryWomenModel = freezed,
-    Object? shopBannerIndex = null,
-    Object? showProgress = null,
-    Object? brandBannerIndex = null,
-    Object? ordereProgressIndex = null,
-    Object? womensCareBannerIndex = null,
   }) {
     return _then(_value.copyWith(
       flashSaleproducts: freezed == flashSaleproducts
@@ -12553,68 +5242,6 @@ class _$ShopProductsStateCopyWithImpl<$Res, $Val extends ShopProductsState>
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
               as String,
-      shopHomeBackgroundCardModelWomens: freezed ==
-              shopHomeBackgroundCardModelWomens
-          ? _value.shopHomeBackgroundCardModelWomens
-          : shopHomeBackgroundCardModelWomens // ignore: cast_nullable_to_non_nullable
-              as ShopHomeBackgroundCardModel?,
-      shopHomeBackgroundCardModelHealthyDiet: freezed ==
-              shopHomeBackgroundCardModelHealthyDiet
-          ? _value.shopHomeBackgroundCardModelHealthyDiet
-          : shopHomeBackgroundCardModelHealthyDiet // ignore: cast_nullable_to_non_nullable
-              as ShopHomeBackgroundCardHealthyDietModel?,
-      shopHomeBackgroundCardModelSunnah: freezed ==
-              shopHomeBackgroundCardModelSunnah
-          ? _value.shopHomeBackgroundCardModelSunnah
-          : shopHomeBackgroundCardModelSunnah // ignore: cast_nullable_to_non_nullable
-              as SunnahProductHomeCardModel?,
-      shopAdBrands: freezed == shopAdBrands
-          ? _value.shopAdBrands
-          : shopAdBrands // ignore: cast_nullable_to_non_nullable
-              as ShopAdBrands?,
-      shopAdBrandsById: freezed == shopAdBrandsById
-          ? _value.shopAdBrandsById
-          : shopAdBrandsById // ignore: cast_nullable_to_non_nullable
-              as ShopAdBrandsById?,
-      topBrandsModel: freezed == topBrandsModel
-          ? _value.topBrandsModel
-          : topBrandsModel // ignore: cast_nullable_to_non_nullable
-              as TopBrandsModel?,
-      productItemsSubCategorySunnahModel: freezed ==
-              productItemsSubCategorySunnahModel
-          ? _value.productItemsSubCategorySunnahModel
-          : productItemsSubCategorySunnahModel // ignore: cast_nullable_to_non_nullable
-              as ProductItemsSubCategorySunnahModel?,
-      productItemsSubCategoryHealthModel: freezed ==
-              productItemsSubCategoryHealthModel
-          ? _value.productItemsSubCategoryHealthModel
-          : productItemsSubCategoryHealthModel // ignore: cast_nullable_to_non_nullable
-              as ProductItemsSubCategoryHealthModel?,
-      productItemsSubCategoryWomenModel: freezed ==
-              productItemsSubCategoryWomenModel
-          ? _value.productItemsSubCategoryWomenModel
-          : productItemsSubCategoryWomenModel // ignore: cast_nullable_to_non_nullable
-              as ProductItemsSubCategoryWomenModel?,
-      shopBannerIndex: null == shopBannerIndex
-          ? _value.shopBannerIndex
-          : shopBannerIndex // ignore: cast_nullable_to_non_nullable
-              as int,
-      showProgress: null == showProgress
-          ? _value.showProgress
-          : showProgress // ignore: cast_nullable_to_non_nullable
-              as bool,
-      brandBannerIndex: null == brandBannerIndex
-          ? _value.brandBannerIndex
-          : brandBannerIndex // ignore: cast_nullable_to_non_nullable
-              as int,
-      ordereProgressIndex: null == ordereProgressIndex
-          ? _value.ordereProgressIndex
-          : ordereProgressIndex // ignore: cast_nullable_to_non_nullable
-              as int,
-      womensCareBannerIndex: null == womensCareBannerIndex
-          ? _value.womensCareBannerIndex
-          : womensCareBannerIndex // ignore: cast_nullable_to_non_nullable
-              as int,
     ) as $Val);
   }
 
@@ -12761,132 +5388,6 @@ class _$ShopProductsStateCopyWithImpl<$Res, $Val extends ShopProductsState>
       return _then(_value.copyWith(ordersByIdModel: value) as $Val);
     });
   }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $ShopHomeBackgroundCardModelCopyWith<$Res>?
-      get shopHomeBackgroundCardModelWomens {
-    if (_value.shopHomeBackgroundCardModelWomens == null) {
-      return null;
-    }
-
-    return $ShopHomeBackgroundCardModelCopyWith<$Res>(
-        _value.shopHomeBackgroundCardModelWomens!, (value) {
-      return _then(
-          _value.copyWith(shopHomeBackgroundCardModelWomens: value) as $Val);
-    });
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $ShopHomeBackgroundCardHealthyDietModelCopyWith<$Res>?
-      get shopHomeBackgroundCardModelHealthyDiet {
-    if (_value.shopHomeBackgroundCardModelHealthyDiet == null) {
-      return null;
-    }
-
-    return $ShopHomeBackgroundCardHealthyDietModelCopyWith<$Res>(
-        _value.shopHomeBackgroundCardModelHealthyDiet!, (value) {
-      return _then(_value.copyWith(
-          shopHomeBackgroundCardModelHealthyDiet: value) as $Val);
-    });
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $SunnahProductHomeCardModelCopyWith<$Res>?
-      get shopHomeBackgroundCardModelSunnah {
-    if (_value.shopHomeBackgroundCardModelSunnah == null) {
-      return null;
-    }
-
-    return $SunnahProductHomeCardModelCopyWith<$Res>(
-        _value.shopHomeBackgroundCardModelSunnah!, (value) {
-      return _then(
-          _value.copyWith(shopHomeBackgroundCardModelSunnah: value) as $Val);
-    });
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $ShopAdBrandsCopyWith<$Res>? get shopAdBrands {
-    if (_value.shopAdBrands == null) {
-      return null;
-    }
-
-    return $ShopAdBrandsCopyWith<$Res>(_value.shopAdBrands!, (value) {
-      return _then(_value.copyWith(shopAdBrands: value) as $Val);
-    });
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $ShopAdBrandsByIdCopyWith<$Res>? get shopAdBrandsById {
-    if (_value.shopAdBrandsById == null) {
-      return null;
-    }
-
-    return $ShopAdBrandsByIdCopyWith<$Res>(_value.shopAdBrandsById!, (value) {
-      return _then(_value.copyWith(shopAdBrandsById: value) as $Val);
-    });
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $TopBrandsModelCopyWith<$Res>? get topBrandsModel {
-    if (_value.topBrandsModel == null) {
-      return null;
-    }
-
-    return $TopBrandsModelCopyWith<$Res>(_value.topBrandsModel!, (value) {
-      return _then(_value.copyWith(topBrandsModel: value) as $Val);
-    });
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $ProductItemsSubCategorySunnahModelCopyWith<$Res>?
-      get productItemsSubCategorySunnahModel {
-    if (_value.productItemsSubCategorySunnahModel == null) {
-      return null;
-    }
-
-    return $ProductItemsSubCategorySunnahModelCopyWith<$Res>(
-        _value.productItemsSubCategorySunnahModel!, (value) {
-      return _then(
-          _value.copyWith(productItemsSubCategorySunnahModel: value) as $Val);
-    });
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $ProductItemsSubCategoryHealthModelCopyWith<$Res>?
-      get productItemsSubCategoryHealthModel {
-    if (_value.productItemsSubCategoryHealthModel == null) {
-      return null;
-    }
-
-    return $ProductItemsSubCategoryHealthModelCopyWith<$Res>(
-        _value.productItemsSubCategoryHealthModel!, (value) {
-      return _then(
-          _value.copyWith(productItemsSubCategoryHealthModel: value) as $Val);
-    });
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $ProductItemsSubCategoryWomenModelCopyWith<$Res>?
-      get productItemsSubCategoryWomenModel {
-    if (_value.productItemsSubCategoryWomenModel == null) {
-      return null;
-    }
-
-    return $ProductItemsSubCategoryWomenModelCopyWith<$Res>(
-        _value.productItemsSubCategoryWomenModel!, (value) {
-      return _then(
-          _value.copyWith(productItemsSubCategoryWomenModel: value) as $Val);
-    });
-  }
 }
 
 /// @nodoc
@@ -12922,22 +5423,7 @@ abstract class _$$_InitialCopyWith<$Res>
       OrderModel? orderModel,
       OrderModelbyIdModel? ordersByIdModel,
       int? orderId,
-      String errorMessage,
-      ShopHomeBackgroundCardModel? shopHomeBackgroundCardModelWomens,
-      ShopHomeBackgroundCardHealthyDietModel?
-          shopHomeBackgroundCardModelHealthyDiet,
-      SunnahProductHomeCardModel? shopHomeBackgroundCardModelSunnah,
-      ShopAdBrands? shopAdBrands,
-      ShopAdBrandsById? shopAdBrandsById,
-      TopBrandsModel? topBrandsModel,
-      ProductItemsSubCategorySunnahModel? productItemsSubCategorySunnahModel,
-      ProductItemsSubCategoryHealthModel? productItemsSubCategoryHealthModel,
-      ProductItemsSubCategoryWomenModel? productItemsSubCategoryWomenModel,
-      int shopBannerIndex,
-      bool showProgress,
-      int brandBannerIndex,
-      int ordereProgressIndex,
-      int womensCareBannerIndex});
+      String errorMessage});
 
   @override
   $ShopProductsCopyWith<$Res>? get flashSaleproducts;
@@ -12963,30 +5449,6 @@ abstract class _$$_InitialCopyWith<$Res>
   $OrderModelCopyWith<$Res>? get orderModel;
   @override
   $OrderModelbyIdModelCopyWith<$Res>? get ordersByIdModel;
-  @override
-  $ShopHomeBackgroundCardModelCopyWith<$Res>?
-      get shopHomeBackgroundCardModelWomens;
-  @override
-  $ShopHomeBackgroundCardHealthyDietModelCopyWith<$Res>?
-      get shopHomeBackgroundCardModelHealthyDiet;
-  @override
-  $SunnahProductHomeCardModelCopyWith<$Res>?
-      get shopHomeBackgroundCardModelSunnah;
-  @override
-  $ShopAdBrandsCopyWith<$Res>? get shopAdBrands;
-  @override
-  $ShopAdBrandsByIdCopyWith<$Res>? get shopAdBrandsById;
-  @override
-  $TopBrandsModelCopyWith<$Res>? get topBrandsModel;
-  @override
-  $ProductItemsSubCategorySunnahModelCopyWith<$Res>?
-      get productItemsSubCategorySunnahModel;
-  @override
-  $ProductItemsSubCategoryHealthModelCopyWith<$Res>?
-      get productItemsSubCategoryHealthModel;
-  @override
-  $ProductItemsSubCategoryWomenModelCopyWith<$Res>?
-      get productItemsSubCategoryWomenModel;
 }
 
 /// @nodoc
@@ -13024,20 +5486,6 @@ class __$$_InitialCopyWithImpl<$Res>
     Object? ordersByIdModel = freezed,
     Object? orderId = freezed,
     Object? errorMessage = null,
-    Object? shopHomeBackgroundCardModelWomens = freezed,
-    Object? shopHomeBackgroundCardModelHealthyDiet = freezed,
-    Object? shopHomeBackgroundCardModelSunnah = freezed,
-    Object? shopAdBrands = freezed,
-    Object? shopAdBrandsById = freezed,
-    Object? topBrandsModel = freezed,
-    Object? productItemsSubCategorySunnahModel = freezed,
-    Object? productItemsSubCategoryHealthModel = freezed,
-    Object? productItemsSubCategoryWomenModel = freezed,
-    Object? shopBannerIndex = null,
-    Object? showProgress = null,
-    Object? brandBannerIndex = null,
-    Object? ordereProgressIndex = null,
-    Object? womensCareBannerIndex = null,
   }) {
     return _then(_$_Initial(
       flashSaleproducts: freezed == flashSaleproducts
@@ -13140,68 +5588,6 @@ class __$$_InitialCopyWithImpl<$Res>
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
               as String,
-      shopHomeBackgroundCardModelWomens: freezed ==
-              shopHomeBackgroundCardModelWomens
-          ? _value.shopHomeBackgroundCardModelWomens
-          : shopHomeBackgroundCardModelWomens // ignore: cast_nullable_to_non_nullable
-              as ShopHomeBackgroundCardModel?,
-      shopHomeBackgroundCardModelHealthyDiet: freezed ==
-              shopHomeBackgroundCardModelHealthyDiet
-          ? _value.shopHomeBackgroundCardModelHealthyDiet
-          : shopHomeBackgroundCardModelHealthyDiet // ignore: cast_nullable_to_non_nullable
-              as ShopHomeBackgroundCardHealthyDietModel?,
-      shopHomeBackgroundCardModelSunnah: freezed ==
-              shopHomeBackgroundCardModelSunnah
-          ? _value.shopHomeBackgroundCardModelSunnah
-          : shopHomeBackgroundCardModelSunnah // ignore: cast_nullable_to_non_nullable
-              as SunnahProductHomeCardModel?,
-      shopAdBrands: freezed == shopAdBrands
-          ? _value.shopAdBrands
-          : shopAdBrands // ignore: cast_nullable_to_non_nullable
-              as ShopAdBrands?,
-      shopAdBrandsById: freezed == shopAdBrandsById
-          ? _value.shopAdBrandsById
-          : shopAdBrandsById // ignore: cast_nullable_to_non_nullable
-              as ShopAdBrandsById?,
-      topBrandsModel: freezed == topBrandsModel
-          ? _value.topBrandsModel
-          : topBrandsModel // ignore: cast_nullable_to_non_nullable
-              as TopBrandsModel?,
-      productItemsSubCategorySunnahModel: freezed ==
-              productItemsSubCategorySunnahModel
-          ? _value.productItemsSubCategorySunnahModel
-          : productItemsSubCategorySunnahModel // ignore: cast_nullable_to_non_nullable
-              as ProductItemsSubCategorySunnahModel?,
-      productItemsSubCategoryHealthModel: freezed ==
-              productItemsSubCategoryHealthModel
-          ? _value.productItemsSubCategoryHealthModel
-          : productItemsSubCategoryHealthModel // ignore: cast_nullable_to_non_nullable
-              as ProductItemsSubCategoryHealthModel?,
-      productItemsSubCategoryWomenModel: freezed ==
-              productItemsSubCategoryWomenModel
-          ? _value.productItemsSubCategoryWomenModel
-          : productItemsSubCategoryWomenModel // ignore: cast_nullable_to_non_nullable
-              as ProductItemsSubCategoryWomenModel?,
-      shopBannerIndex: null == shopBannerIndex
-          ? _value.shopBannerIndex
-          : shopBannerIndex // ignore: cast_nullable_to_non_nullable
-              as int,
-      showProgress: null == showProgress
-          ? _value.showProgress
-          : showProgress // ignore: cast_nullable_to_non_nullable
-              as bool,
-      brandBannerIndex: null == brandBannerIndex
-          ? _value.brandBannerIndex
-          : brandBannerIndex // ignore: cast_nullable_to_non_nullable
-              as int,
-      ordereProgressIndex: null == ordereProgressIndex
-          ? _value.ordereProgressIndex
-          : ordereProgressIndex // ignore: cast_nullable_to_non_nullable
-              as int,
-      womensCareBannerIndex: null == womensCareBannerIndex
-          ? _value.womensCareBannerIndex
-          : womensCareBannerIndex // ignore: cast_nullable_to_non_nullable
-              as int,
     ));
   }
 }
@@ -13234,21 +5620,7 @@ class _$_Initial implements _Initial {
       required this.orderModel,
       required this.ordersByIdModel,
       required this.orderId,
-      required this.errorMessage,
-      required this.shopHomeBackgroundCardModelWomens,
-      required this.shopHomeBackgroundCardModelHealthyDiet,
-      required this.shopHomeBackgroundCardModelSunnah,
-      required this.shopAdBrands,
-      required this.shopAdBrandsById,
-      required this.topBrandsModel,
-      required this.productItemsSubCategorySunnahModel,
-      required this.productItemsSubCategoryHealthModel,
-      required this.productItemsSubCategoryWomenModel,
-      required this.shopBannerIndex,
-      required this.showProgress,
-      required this.brandBannerIndex,
-      required this.ordereProgressIndex,
-      required this.womensCareBannerIndex})
+      required this.errorMessage})
       : _wishListItems = wishListItems;
 
   @override
@@ -13309,39 +5681,10 @@ class _$_Initial implements _Initial {
   final int? orderId;
   @override
   final String errorMessage;
-  @override
-  final ShopHomeBackgroundCardModel? shopHomeBackgroundCardModelWomens;
-  @override
-  final ShopHomeBackgroundCardHealthyDietModel?
-      shopHomeBackgroundCardModelHealthyDiet;
-  @override
-  final SunnahProductHomeCardModel? shopHomeBackgroundCardModelSunnah;
-  @override
-  final ShopAdBrands? shopAdBrands;
-  @override
-  final ShopAdBrandsById? shopAdBrandsById;
-  @override
-  final TopBrandsModel? topBrandsModel;
-  @override
-  final ProductItemsSubCategorySunnahModel? productItemsSubCategorySunnahModel;
-  @override
-  final ProductItemsSubCategoryHealthModel? productItemsSubCategoryHealthModel;
-  @override
-  final ProductItemsSubCategoryWomenModel? productItemsSubCategoryWomenModel;
-  @override
-  final int shopBannerIndex;
-  @override
-  final bool showProgress;
-  @override
-  final int brandBannerIndex;
-  @override
-  final int ordereProgressIndex;
-  @override
-  final int womensCareBannerIndex;
 
   @override
   String toString() {
-    return 'ShopProductsState(flashSaleproducts: $flashSaleproducts, flashSaleLoading: $flashSaleLoading, popularProducts: $popularProducts, popularProductLoading: $popularProductLoading, recentProducts: $recentProducts, recentProductLoading: $recentProductLoading, homeBanner: $homeBanner, bannersLoading: $bannersLoading, shopBanner: $shopBanner, shopBannerLoading: $shopBannerLoading, articles: $articles, articleLoading: $articleLoading, isLoading: $isLoading, shopBrandModel: $shopBrandModel, wishList: $wishList, wishListMessage: $wishListMessage, wishListItems: $wishListItems, searchProducts: $searchProducts, brandProduct: $brandProduct, index: $index, isWishListed: $isWishListed, orderModel: $orderModel, ordersByIdModel: $ordersByIdModel, orderId: $orderId, errorMessage: $errorMessage, shopHomeBackgroundCardModelWomens: $shopHomeBackgroundCardModelWomens, shopHomeBackgroundCardModelHealthyDiet: $shopHomeBackgroundCardModelHealthyDiet, shopHomeBackgroundCardModelSunnah: $shopHomeBackgroundCardModelSunnah, shopAdBrands: $shopAdBrands, shopAdBrandsById: $shopAdBrandsById, topBrandsModel: $topBrandsModel, productItemsSubCategorySunnahModel: $productItemsSubCategorySunnahModel, productItemsSubCategoryHealthModel: $productItemsSubCategoryHealthModel, productItemsSubCategoryWomenModel: $productItemsSubCategoryWomenModel, shopBannerIndex: $shopBannerIndex, showProgress: $showProgress, brandBannerIndex: $brandBannerIndex, ordereProgressIndex: $ordereProgressIndex, womensCareBannerIndex: $womensCareBannerIndex)';
+    return 'ShopProductsState(flashSaleproducts: $flashSaleproducts, flashSaleLoading: $flashSaleLoading, popularProducts: $popularProducts, popularProductLoading: $popularProductLoading, recentProducts: $recentProducts, recentProductLoading: $recentProductLoading, homeBanner: $homeBanner, bannersLoading: $bannersLoading, shopBanner: $shopBanner, shopBannerLoading: $shopBannerLoading, articles: $articles, articleLoading: $articleLoading, isLoading: $isLoading, shopBrandModel: $shopBrandModel, wishList: $wishList, wishListMessage: $wishListMessage, wishListItems: $wishListItems, searchProducts: $searchProducts, brandProduct: $brandProduct, index: $index, isWishListed: $isWishListed, orderModel: $orderModel, ordersByIdModel: $ordersByIdModel, orderId: $orderId, errorMessage: $errorMessage)';
   }
 
   @override
@@ -13396,38 +5739,7 @@ class _$_Initial implements _Initial {
                 other.ordersByIdModel == ordersByIdModel) &&
             (identical(other.orderId, orderId) || other.orderId == orderId) &&
             (identical(other.errorMessage, errorMessage) ||
-                other.errorMessage == errorMessage) &&
-            (identical(other.shopHomeBackgroundCardModelWomens, shopHomeBackgroundCardModelWomens) ||
-                other.shopHomeBackgroundCardModelWomens ==
-                    shopHomeBackgroundCardModelWomens) &&
-            (identical(other.shopHomeBackgroundCardModelHealthyDiet, shopHomeBackgroundCardModelHealthyDiet) ||
-                other.shopHomeBackgroundCardModelHealthyDiet ==
-                    shopHomeBackgroundCardModelHealthyDiet) &&
-            (identical(other.shopHomeBackgroundCardModelSunnah, shopHomeBackgroundCardModelSunnah) ||
-                other.shopHomeBackgroundCardModelSunnah ==
-                    shopHomeBackgroundCardModelSunnah) &&
-            (identical(other.shopAdBrands, shopAdBrands) ||
-                other.shopAdBrands == shopAdBrands) &&
-            (identical(other.shopAdBrandsById, shopAdBrandsById) ||
-                other.shopAdBrandsById == shopAdBrandsById) &&
-            (identical(other.topBrandsModel, topBrandsModel) ||
-                other.topBrandsModel == topBrandsModel) &&
-            (identical(other.productItemsSubCategorySunnahModel, productItemsSubCategorySunnahModel) ||
-                other.productItemsSubCategorySunnahModel ==
-                    productItemsSubCategorySunnahModel) &&
-            (identical(other.productItemsSubCategoryHealthModel, productItemsSubCategoryHealthModel) ||
-                other.productItemsSubCategoryHealthModel ==
-                    productItemsSubCategoryHealthModel) &&
-            (identical(other.productItemsSubCategoryWomenModel, productItemsSubCategoryWomenModel) ||
-                other.productItemsSubCategoryWomenModel ==
-                    productItemsSubCategoryWomenModel) &&
-            (identical(other.shopBannerIndex, shopBannerIndex) ||
-                other.shopBannerIndex == shopBannerIndex) &&
-            (identical(other.showProgress, showProgress) ||
-                other.showProgress == showProgress) &&
-            (identical(other.brandBannerIndex, brandBannerIndex) || other.brandBannerIndex == brandBannerIndex) &&
-            (identical(other.ordereProgressIndex, ordereProgressIndex) || other.ordereProgressIndex == ordereProgressIndex) &&
-            (identical(other.womensCareBannerIndex, womensCareBannerIndex) || other.womensCareBannerIndex == womensCareBannerIndex));
+                other.errorMessage == errorMessage));
   }
 
   @override
@@ -13457,21 +5769,7 @@ class _$_Initial implements _Initial {
         orderModel,
         ordersByIdModel,
         orderId,
-        errorMessage,
-        shopHomeBackgroundCardModelWomens,
-        shopHomeBackgroundCardModelHealthyDiet,
-        shopHomeBackgroundCardModelSunnah,
-        shopAdBrands,
-        shopAdBrandsById,
-        topBrandsModel,
-        productItemsSubCategorySunnahModel,
-        productItemsSubCategoryHealthModel,
-        productItemsSubCategoryWomenModel,
-        shopBannerIndex,
-        showProgress,
-        brandBannerIndex,
-        ordereProgressIndex,
-        womensCareBannerIndex
+        errorMessage
       ]);
 
   @JsonKey(ignore: true)
@@ -13507,27 +5805,7 @@ abstract class _Initial implements ShopProductsState {
       required final OrderModel? orderModel,
       required final OrderModelbyIdModel? ordersByIdModel,
       required final int? orderId,
-      required final String errorMessage,
-      required final ShopHomeBackgroundCardModel?
-          shopHomeBackgroundCardModelWomens,
-      required final ShopHomeBackgroundCardHealthyDietModel?
-          shopHomeBackgroundCardModelHealthyDiet,
-      required final SunnahProductHomeCardModel?
-          shopHomeBackgroundCardModelSunnah,
-      required final ShopAdBrands? shopAdBrands,
-      required final ShopAdBrandsById? shopAdBrandsById,
-      required final TopBrandsModel? topBrandsModel,
-      required final ProductItemsSubCategorySunnahModel?
-          productItemsSubCategorySunnahModel,
-      required final ProductItemsSubCategoryHealthModel?
-          productItemsSubCategoryHealthModel,
-      required final ProductItemsSubCategoryWomenModel?
-          productItemsSubCategoryWomenModel,
-      required final int shopBannerIndex,
-      required final bool showProgress,
-      required final int brandBannerIndex,
-      required final int ordereProgressIndex,
-      required final int womensCareBannerIndex}) = _$_Initial;
+      required final String errorMessage}) = _$_Initial;
 
   @override
   ShopProducts? get flashSaleproducts;
@@ -13579,35 +5857,6 @@ abstract class _Initial implements ShopProductsState {
   int? get orderId;
   @override
   String get errorMessage;
-  @override
-  ShopHomeBackgroundCardModel? get shopHomeBackgroundCardModelWomens;
-  @override
-  ShopHomeBackgroundCardHealthyDietModel?
-      get shopHomeBackgroundCardModelHealthyDiet;
-  @override
-  SunnahProductHomeCardModel? get shopHomeBackgroundCardModelSunnah;
-  @override
-  ShopAdBrands? get shopAdBrands;
-  @override
-  ShopAdBrandsById? get shopAdBrandsById;
-  @override
-  TopBrandsModel? get topBrandsModel;
-  @override
-  ProductItemsSubCategorySunnahModel? get productItemsSubCategorySunnahModel;
-  @override
-  ProductItemsSubCategoryHealthModel? get productItemsSubCategoryHealthModel;
-  @override
-  ProductItemsSubCategoryWomenModel? get productItemsSubCategoryWomenModel;
-  @override
-  int get shopBannerIndex;
-  @override
-  bool get showProgress;
-  @override
-  int get brandBannerIndex;
-  @override
-  int get ordereProgressIndex;
-  @override
-  int get womensCareBannerIndex;
   @override
   @JsonKey(ignore: true)
   _$$_InitialCopyWith<_$_Initial> get copyWith =>

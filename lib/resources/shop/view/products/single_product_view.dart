@@ -152,17 +152,20 @@ class _SingleProductViewState extends State<SingleProductView> {
                       IconButton(
                           onPressed: () {
                             showModalBottomSheet(
-                              backgroundColor: Colors.transparent,
                               context: context,
-                              isScrollControlled: true,
-                              builder: (context) => buildShowModelSheet(
-                                  context,
-                                  colorMap,
-                                  setState,
-                                  selectedColor,
-                                  sizeList,
-                                  selectedSize,
-                                  quantity),
+                              builder: (context) => StatefulBuilder(
+                                builder: (context, setState) => Padding(
+                                  padding: const EdgeInsets.all(20.0),
+                                  child: buildShowModelSheet(
+                                      context,
+                                      colorMap,
+                                      setState,
+                                      selectedColor,
+                                      sizeList,
+                                      selectedSize,
+                                      quantity),
+                                ),
+                              ),
                             );
                           },
                           icon: Icon(
@@ -184,8 +187,7 @@ class _SingleProductViewState extends State<SingleProductView> {
                 ),
                 Text(
                   widget.passValue.description,
-                  style:
-                      TextStyle(fontSize: 16, color: ColorManager.textGrey99),
+                  style: const TextStyle(fontSize: 16, color: black122),
                 ),
                 const SizedBox(
                   height: 20,
@@ -212,8 +214,7 @@ class _SingleProductViewState extends State<SingleProductView> {
                 ),
                 Text(
                   widget.passValue.otherInfo,
-                  style:
-                      TextStyle(fontSize: 16, color: ColorManager.textGrey99),
+                  style: const TextStyle(fontSize: 16, color: black122),
                 ),
                 Container(
                   padding: const EdgeInsets.symmetric(vertical: 40),
@@ -227,7 +228,7 @@ class _SingleProductViewState extends State<SingleProductView> {
                             fontSize: 18,
                             fontWeight: FontWeight.w700),
                       ),
-                      const SizedBox(
+                      SizedBox(
                         height: 10,
                       ),
                       Row(
@@ -236,33 +237,28 @@ class _SingleProductViewState extends State<SingleProductView> {
                         children: [
                           Row(
                             children: [
-                              const Icon(Icons.star,
-                                  color: orange255, size: 20),
-                              const Icon(Icons.star,
-                                  color: orange255, size: 20),
-                              const Icon(Icons.star,
-                                  color: orange255, size: 20),
-                              const Icon(Icons.star,
-                                  color: orange255, size: 20),
-                              const Icon(Icons.star,
-                                  color: orange255, size: 20),
-                              const SizedBox(
+                              Icon(Icons.star, color: orange255, size: 20),
+                              Icon(Icons.star, color: orange255, size: 20),
+                              Icon(Icons.star, color: orange255, size: 20),
+                              Icon(Icons.star, color: orange255, size: 20),
+                              Icon(Icons.star, color: orange255, size: 20),
+                              SizedBox(
                                 width: 10,
                               ),
-                              const Text(
+                              Text(
                                 '4,5/5',
                                 style: TextStyle(
                                     color: Colors.black,
                                     fontWeight: FontWeight.w700,
                                     fontSize: 15),
                               ),
-                              const SizedBox(
+                              SizedBox(
                                 width: 10,
                               ),
                               Text(
                                 '(120 reviews)',
                                 style: TextStyle(
-                                    color: ColorManager.textGrey99,
+                                    color: black122,
                                     fontWeight: FontWeight.w700,
                                     fontSize: 15),
                               ),
@@ -343,10 +339,13 @@ class _SingleProductViewState extends State<SingleProductView> {
             onPressed: () {
               showModalBottomSheet(
                 context: context,
-                isScrollControlled: true,
-                backgroundColor: Colors.transparent,
-                builder: (context) => buildShowModelSheet(context, colorMap,
-                    setState, selectedColor, sizeList, selectedSize, quantity),
+                builder: (context) => StatefulBuilder(
+                  builder: (context, setState) => Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: buildShowModelSheet(context, colorMap, setState,
+                        selectedColor, sizeList, selectedSize, quantity),
+                  ),
+                ),
               );
             },
             style: ButtonStyle(
@@ -364,7 +363,7 @@ class _SingleProductViewState extends State<SingleProductView> {
                   Icons.shopping_cart,
                   color: ColorManager.greenColor1,
                 ),
-                const SizedBox(
+                SizedBox(
                   width: 10,
                 ),
                 Text(
@@ -391,274 +390,218 @@ class _SingleProductViewState extends State<SingleProductView> {
       int selectedSize,
       int quantity) {
     return StatefulBuilder(
-      builder: (context, setState) => Container(
-        height: SizeUtility(context).height / 1.6,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(12),
-          color: ColorManager.whiteColor,
-        ),
-        padding: const EdgeInsets.all(25),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  children: [
-                    Container(
-                      height: 130,
-                      width: 130,
-                      decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: NetworkImage(
-                              widget.passValue!.colors![0].images![0],
-                            ),
-                            fit: BoxFit.cover,
-                          ),
-                          borderRadius: BorderRadius.circular(20),
-                          border: Border.all(color: black208)),
-                    ),
-                    const SizedBox(
-                      width: 20,
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text('${widget.passValue.discountPrice} ₹',
-                            style: TextStyle(
-                                color: ColorManager.greenColor1,
-                                fontWeight: FontWeight.w700,
-                                fontSize: 24)),
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        Text('${widget.passValue.actualPrice} ₹',
-                            style: const TextStyle(
-                                decoration: TextDecoration.lineThrough,
-                                fontSize: 20)),
-                      ],
-                    ),
-                  ],
-                ),
-                IconButton(
-                    onPressed: () {
-                      Navigator.of(context).pop();
-                    },
-                    icon: Icon(
-                      Icons.close,
-                      color: ColorManager.textGrey99,
-                    ))
-              ],
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            const Text(
-              'Colors',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            SizedBox(
-                height: 30,
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: colorMap.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    final colorEntry = colorMap.entries.toList()[index];
-                    // final colorName = colorEntry.key;
-                    final colorValue = colorEntry.value;
-
-                    return GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          selectedColor = index;
-                          print(selectedColor);
-                          final selectedColorName =
-                              colorMap.keys.toList()[selectedColor];
-                          print(selectedColorName);
-                        });
-                      },
-                      child: Padding(
-                        padding: const EdgeInsets.only(right: 20),
-                        child: CircleAvatar(
-                          radius: 15,
-                          backgroundColor: colorValue,
-                          child: selectedColor == index
-                              ? Container(
-                                  width: 10,
-                                  height: 10,
-                                  decoration: const BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    color: Colors.white,
-                                  ),
-                                )
-                              : null,
-                        ),
-                      ),
-                    );
-                  },
-                )),
-            const SizedBox(
-              height: 20,
-            ),
-            const Text(
-              'Sizes',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            Row(
-              children: List.generate(
-                sizeList.length,
-                (index) => GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      selectedSize = index;
-                      final selectedSizeValue = sizeList[selectedSize];
-                      print(selectedSizeValue);
-                    });
-                  },
-                  child: Container(
-                    alignment: Alignment.center,
-                    height: 50,
-                    width: 50,
-                    padding: const EdgeInsets.all(5),
-                    margin: const EdgeInsets.symmetric(horizontal: 10),
+      builder: (context, setState) => Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  Container(
+                    height: 130,
+                    width: 130,
                     decoration: BoxDecoration(
-                      color: selectedSize == index ? Colors.green : null,
-                      border: Border.all(color: Colors.black),
+                        image: DecorationImage(
+                          image: NetworkImage(
+                            widget.passValue!.colors![0].images![0],
+                          ),
+                          fit: BoxFit.cover,
+                        ),
+                        borderRadius: BorderRadius.circular(20),
+                        border: Border.all(color: black208)),
+                  ),
+                  const SizedBox(
+                    width: 20,
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text('${widget.passValue.discountPrice} ₹',
+                          style: TextStyle(
+                              color: ColorManager.greenColor1,
+                              fontWeight: FontWeight.w700,
+                              fontSize: 24)),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      Text('${widget.passValue.actualPrice} ₹',
+                          style: const TextStyle(
+                              decoration: TextDecoration.lineThrough,
+                              fontSize: 20)),
+                    ],
+                  ),
+                ],
+              ),
+              IconButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  icon: const Icon(
+                    Icons.close,
+                    color: black122,
+                  ))
+            ],
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          const Text(
+            'Colors',
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          SizedBox(
+              height: 30,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: colorMap.length,
+                itemBuilder: (BuildContext context, int index) {
+                  final colorEntry = colorMap.entries.toList()[index];
+                  // final colorName = colorEntry.key;
+                  final colorValue = colorEntry.value;
+
+                  return GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        selectedColor = index;
+                        print(selectedColor);
+                        final selectedColorName =
+                            colorMap.keys.toList()[selectedColor];
+                        print(selectedColorName);
+                      });
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.only(right: 20),
+                      child: CircleAvatar(
+                        radius: 15,
+                        backgroundColor: colorValue,
+                        child: selectedColor == index
+                            ? Container(
+                                width: 10,
+                                height: 10,
+                                decoration: const BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: Colors.white,
+                                ),
+                              )
+                            : null,
+                      ),
                     ),
-                    child: Text(
-                      sizeList[index],
-                      style: const TextStyle(fontSize: 20),
-                    ),
+                  );
+                },
+              )),
+          const SizedBox(
+            height: 20,
+          ),
+          const Text(
+            'Sizes',
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          Row(
+            children: List.generate(
+              sizeList.length,
+              (index) => GestureDetector(
+                onTap: () {
+                  setState(() {
+                    selectedSize = index;
+                    final selectedSizeValue = sizeList[selectedSize];
+                    print(selectedSizeValue);
+                  });
+                },
+                child: Container(
+                  alignment: Alignment.center,
+                  height: 50,
+                  width: 50,
+                  padding: const EdgeInsets.all(5),
+                  margin: const EdgeInsets.symmetric(horizontal: 10),
+                  decoration: BoxDecoration(
+                    color: selectedSize == index ? Colors.green : null,
+                    border: Border.all(color: Colors.black),
+                  ),
+                  child: Text(
+                    sizeList[index],
+                    style: const TextStyle(fontSize: 20),
                   ),
                 ),
               ),
             ),
-            const SizedBox(
-              height: 15,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const Text(
-                  'Quantity',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
-                ),
-                BlocBuilder<CartBloc, CartState>(
-                  builder: (context, state) => Row(
-                    children: [
-                      Container(
-                        alignment: Alignment.center,
-                        height: 50,
-                        width: 50,
-                        padding: const EdgeInsets.all(5),
-                        margin: const EdgeInsets.symmetric(horizontal: 20),
-                        decoration:
-                            BoxDecoration(border: Border.all(color: black208)),
-                        child: IconButton(
-                            onPressed: () {
-                              setState(() {
-                                if (quantity > 1) {
-                                  quantity -= 1;
-                                  print('quantity: $quantity');
-                                }
-                              });
-                            },
-                            icon: const Icon(Icons.remove)),
-                      ),
-                      Text(
-                        quantity.toString(),
-                        style: const TextStyle(fontSize: 17),
-                      ),
-                      Container(
-                        alignment: Alignment.center,
-                        height: 50,
-                        width: 50,
-                        padding: const EdgeInsets.all(5),
-                        margin: const EdgeInsets.symmetric(horizontal: 20),
-                        decoration:
-                            BoxDecoration(border: Border.all(color: black208)),
-                        child: IconButton(
-                            onPressed: () {
-                              setState(() {
-                                quantity += 1;
-                              });
-                            },
-                            icon: Icon(Icons.add,
-                                color: ColorManager.greenColor1)),
-                      ),
-                    ],
-                  ),
-                )
-              ],
-            ),
-            const SizedBox(
-              height: 15,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                BlocBuilder<CartBloc, CartState>(
-                  builder: (context, state) => ElevatedButton(
-                    style: ButtonStyle(
-                      backgroundColor:
-                          MaterialStateProperty.all(Colors.transparent),
-                      shape: MaterialStateProperty.all(
-                        RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30.0),
-                          side: BorderSide(
-                              color: ColorManager.greenColor1, width: 2.0),
-                        ),
-                      ),
-                      elevation: MaterialStateProperty.all(0),
-                      fixedSize: MaterialStateProperty.all(
-                          Size(SizeUtility(context).width * 42 / 100, 60)),
+          ),
+          const SizedBox(
+            height: 15,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              const Text(
+                'Quantity',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
+              ),
+              BlocBuilder<CartBloc, CartState>(
+                builder: (context, state) => Row(
+                  children: [
+                    Container(
+                      alignment: Alignment.center,
+                      height: 50,
+                      width: 50,
+                      padding: const EdgeInsets.all(5),
+                      margin: const EdgeInsets.symmetric(horizontal: 20),
+                      decoration:
+                          BoxDecoration(border: Border.all(color: black208)),
+                      child: IconButton(
+                          onPressed: () {
+                            setState(() {
+                              if (quantity > 1) {
+                                quantity -= 1;
+                                print('quantity: $quantity');
+                              }
+                            });
+                          },
+                          icon: const Icon(Icons.remove)),
                     ),
-                    onPressed: () async {
-                      Navigator.of(context).pop();
-                      context.read<CartBloc>().add(AddCartEvent(
-                            productId: widget.passValue.id,
-                            basePrice: widget.passValue.discountPrice.toInt(),
-                            size: sizeList[selectedSize],
-                            color: colorMap.keys.elementAt(selectedColor),
-                            context: context,
-                            quantity: quantity,
-                            brandId: widget.passValue.brand.id,
-                          ));
-                    },
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        Icon(
-                          Icons.shopping_cart,
-                          color: ColorManager.greenColor1,
-                        ),
-                        const SizedBox(
-                          width: 10,
-                        ),
-                        Text(
-                          'Add to cart',
-                          style: TextStyle(
-                              color: ColorManager.greenColor1,
-                              fontSize: 20,
-                              fontWeight: FontWeight.w700),
-                        )
-                      ],
+                    Text(
+                      quantity.toString(),
+                      style: const TextStyle(fontSize: 17),
                     ),
-                  ),
+                    Container(
+                      alignment: Alignment.center,
+                      height: 50,
+                      width: 50,
+                      padding: const EdgeInsets.all(5),
+                      margin: const EdgeInsets.symmetric(horizontal: 20),
+                      decoration:
+                          BoxDecoration(border: Border.all(color: black208)),
+                      child: IconButton(
+                          onPressed: () {
+                            setState(() {
+                              quantity += 1;
+                            });
+                          },
+                          icon:
+                              Icon(Icons.add, color: ColorManager.greenColor1)),
+                    ),
+                  ],
                 ),
-                ElevatedButton(
+              )
+            ],
+          ),
+          const SizedBox(
+            height: 15,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              BlocBuilder<CartBloc, CartState>(
+                builder: (context, state) => ElevatedButton(
                   style: ButtonStyle(
                     backgroundColor:
-                        MaterialStateProperty.all(ColorManager.greenColor1),
+                        MaterialStateProperty.all(Colors.transparent),
                     shape: MaterialStateProperty.all(
                       RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(30.0),
@@ -671,34 +614,81 @@ class _SingleProductViewState extends State<SingleProductView> {
                         Size(SizeUtility(context).width * 42 / 100, 60)),
                   ),
                   onPressed: () async {
+                    Navigator.of(context).pop();
                     context.read<CartBloc>().add(AddCartEvent(
-                        productId: widget.passValue.id,
-                        basePrice: widget.passValue.discountPrice.toInt(),
-                        size: sizeList[selectedSize],
-                        color: colorMap.keys.elementAt(selectedColor),
-                        context: context,
-                        quantity: quantity,
-                        brandId: widget.passValue.brand.id));
-
-                    Future.delayed(const Duration(milliseconds: 400), () {
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                            builder: (context) => const CartView()),
-                      );
-                    });
+                          productId: widget.passValue.id,
+                          basePrice: widget.passValue.discountPrice.toInt(),
+                          size: sizeList[selectedSize],
+                          color: colorMap.keys.elementAt(selectedColor),
+                          context: context,
+                          quantity: quantity,
+                          brandId: widget.passValue.brand.id,
+                        ));
                   },
-                  child: const Text(
-                    'Buy Now',
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20,
-                        fontWeight: FontWeight.w700),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Icon(
+                        Icons.shopping_cart,
+                        color: ColorManager.greenColor1,
+                      ),
+                      const SizedBox(
+                        width: 10,
+                      ),
+                      Text(
+                        'Add to cart',
+                        style: TextStyle(
+                            color: ColorManager.greenColor1,
+                            fontSize: 20,
+                            fontWeight: FontWeight.w700),
+                      )
+                    ],
                   ),
-                )
-              ],
-            ),
-          ],
-        ),
+                ),
+              ),
+              ElevatedButton(
+                style: ButtonStyle(
+                  backgroundColor:
+                      MaterialStateProperty.all(ColorManager.greenColor1),
+                  shape: MaterialStateProperty.all(
+                    RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30.0),
+                      side: BorderSide(
+                          color: ColorManager.greenColor1, width: 2.0),
+                    ),
+                  ),
+                  elevation: MaterialStateProperty.all(0),
+                  fixedSize: MaterialStateProperty.all(
+                      Size(SizeUtility(context).width * 42 / 100, 60)),
+                ),
+                onPressed: () async {
+                  context.read<CartBloc>().add(AddCartEvent(
+                      productId: widget.passValue.id,
+                      basePrice: widget.passValue.discountPrice.toInt(),
+                      size: sizeList[selectedSize],
+                      color: colorMap.keys.elementAt(selectedColor),
+                      context: context,
+                      quantity: quantity,
+                      brandId: widget.passValue.brand.id));
+
+                  Future.delayed(const Duration(milliseconds: 400), () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => const CartView()),
+                    );
+                  });
+                },
+                child: const Text(
+                  'Buy Now',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w700),
+                ),
+              )
+            ],
+          ),
+        ],
       ),
     );
   }
@@ -722,10 +712,10 @@ class _SingleProductViewState extends State<SingleProductView> {
             children: [
               SizedBox(
                 width: SizeUtility(context).width * 70 / 100,
-                child: Row(
+                child: const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Text(
+                    Text(
                       'Sujankha',
                       style:
                           TextStyle(fontWeight: FontWeight.w700, fontSize: 17),
@@ -735,7 +725,7 @@ class _SingleProductViewState extends State<SingleProductView> {
                       style: TextStyle(
                           fontWeight: FontWeight.w700,
                           fontSize: 17,
-                          color: ColorManager.textGrey99),
+                          color: black122),
                     )
                   ],
                 ),
@@ -765,12 +755,10 @@ class _SingleProductViewState extends State<SingleProductView> {
               const SizedBox(
                 height: 15,
               ),
-              Text(
+              const Text(
                 'Apr 18',
                 style: TextStyle(
-                    fontWeight: FontWeight.w700,
-                    fontSize: 17,
-                    color: ColorManager.textGrey99),
+                    fontWeight: FontWeight.w700, fontSize: 17, color: black122),
               ),
             ],
           )
@@ -809,8 +797,8 @@ class _SingleProductViewState extends State<SingleProductView> {
                 height: 15,
               ),
               Text(title,
-                  style: TextStyle(
-                      color: ColorManager.grey83,
+                  style: const TextStyle(
+                      color: black83,
                       fontSize: 18,
                       fontWeight: FontWeight.w600,
                       height: 1.3),
@@ -855,12 +843,10 @@ class _SingleProductViewState extends State<SingleProductView> {
               const SizedBox(
                 height: 15,
               ),
-              Text(
+              const Text(
                 'Salman Fragrances',
                 style: TextStyle(
-                    color: ColorManager.blackColor,
-                    fontSize: 14,
-                    fontWeight: FontWeight.w600),
+                    color: black131, fontSize: 14, fontWeight: FontWeight.w600),
               ),
               const SizedBox(
                 height: 15,

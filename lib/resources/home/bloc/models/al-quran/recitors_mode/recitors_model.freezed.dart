@@ -358,9 +358,10 @@ class _$_Recitations implements _Recitations {
 abstract class _Recitations implements Recitations {
   const factory _Recitations(
       {required final int id,
-      @JsonKey(name: "reciter_name") required final String recitorName,
+      @JsonKey(name: "reciter_name")
+          required final String recitorName,
       @JsonKey(name: "translated_name")
-      required final TranslatedName translatedName,
+          required final TranslatedName translatedName,
       final String? style}) = _$_Recitations;
 
   factory _Recitations.fromJson(Map<String, dynamic> json) =

@@ -80,6 +80,9 @@ class ProductsView extends StatelessWidget {
                           ));
                         },
                         child: ShopProductWidget(
+                            color: passValue.colors[0].text,
+                            size: passValue.size[0].value,
+                            brandId: passValue.brand!.id,
                             isWishlisted: false,
                             brand: passValue.products[index].brand.name,
                             productId: passValue?.products[index].id,
@@ -103,6 +106,9 @@ class ProductsView extends StatelessWidget {
                       ));
                     },
                     child: ShopProductWidget(
+                        color: passValue.colors[0].text,
+                        size: passValue.size[0].value,
+                        brandId: passValue.brand!.id,
                         isWishlisted: false,
                         brand: passValue.products[index].brand.name,
                         productId: passValue?.id,

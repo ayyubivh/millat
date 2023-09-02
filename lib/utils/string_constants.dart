@@ -80,7 +80,7 @@ class Appstrings {
   static const String filters = "Filters";
   static const String byReview = "By Review";
   static const String sortBy = "Sort By";
-  static const String womensCare = "Womens's Care";
+  static const String womensCare = "Women's Care";
   static const String healthyDiet = "Healthy Diet";
   static const String followSunnah = "Follow Sunnah";
   static const String follow = "Follow";
@@ -179,6 +179,7 @@ class Appstrings {
   static const String giftSubTitle = "Customized gift wrapping for \$20";
   static const String sunnah = "Sunnah";
   static const String hadith = "Hadith";
+
   //hadith
   static const String bookmarks = "Bookmarks";
   static const String books = "books";

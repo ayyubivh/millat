@@ -342,6 +342,9 @@ class SingleBrandView extends StatelessWidget {
                           children: [
                             kHeight15,
                             ShopProductWidget(
+                              color: data?.colors[0].text ?? "",
+                              size: data?.size[0].value ?? "",
+                              brandId: data?.brand!.id,
                               isWishlisted: false,
                               brand: data?.brand?.name,
                               productId: data?.id ?? 'null',

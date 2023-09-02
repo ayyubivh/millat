@@ -38,7 +38,6 @@ class CartProductWidget extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.only(bottom: 10),
       width: double.infinity,
-      color: Colors.transparent,
       child: SizedBox(
         height: 133,
         child: Padding(
@@ -48,12 +47,19 @@ class CartProductWidget extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Container(
-                    width: 88,
-                    height: 88,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(16),
-                      image: DecorationImage(image: NetworkImage(image!)),
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(16),
+                    child: Container(
+                      width: 88,
+                      height: 88,
+                      decoration: BoxDecoration(
+                        color: ColorManager.lightYellow,
+                        borderRadius: BorderRadius.circular(16),
+                        image: DecorationImage(
+                          image: NetworkImage(image!),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
                     ),
                   ),
                   kWidth20,
@@ -106,6 +112,7 @@ class CartProductWidget extends StatelessWidget {
                               color: textBlack.withOpacity(0.5),
                               fontSize: 14,
                               fontWeight: FontWeight.w600,
+                              overflow: TextOverflow.ellipsis,
                             ),
                           ),
                         ),

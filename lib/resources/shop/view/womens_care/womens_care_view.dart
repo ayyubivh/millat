@@ -155,22 +155,27 @@ class WomensCareView extends StatelessWidget {
                     context: context,
                     text: Appstrings.flashSale,
                     isShowTimer: true,
-                    onTap: () {
-                      Navigator.of(context)
-                          .pushNamed(ProductsView.routeName, arguments: {
-                        'appBarTitle': Appstrings.flashSale,
-                        'passValue': context
-                            .read<ShopProductsBloc>()
-                            .state
-                            .flashSaleproducts
-                            ?.result
-                            ?.shopProductCategory
-                      });
-                    },
+                    // onTap: () {
+                    //   Navigator.of(context)
+                    //       .pushNamed(ProductsView.routeName, arguments: {
+                    //     'appBarTitle': Appstrings.flashSale,
+                    //     'passValue': context
+                    //         .read<ShopProductsBloc>()
+                    //         .state
+                    //         .flashSaleproducts
+                    //         ?.result
+                    //         ?.shopProductCategory
+                    //   });
+                    // },
                   ),
                   kHeight10,
                   BlocBuilder<ShopProductsBloc, ShopProductsState>(
                     builder: (context, state) {
+                      if (state.flashSaleproducts?.result?.shopProductCategory
+                              ?.products ==
+                          null) {
+                        return const Loader();
+                      }
                       return SizedBox(
                         height: 240,
                         child: ListView.builder(
@@ -192,8 +197,11 @@ class WomensCareView extends StatelessWidget {
                                   child: Padding(
                                     padding: const EdgeInsets.only(right: 15),
                                     child: ShopProductWidget(
+                                        color: data!.colors![0].text!,
+                                        size: data.size![0].value!,
+                                        brandId: data.brand!.id,
                                         isWishlisted: state.isWishListed,
-                                        brand: data!.brand!.name.toString(),
+                                        brand: data.brand!.name.toString(),
                                         productId: data.id,
                                         image: data.colors![0].images![0],
                                         title: data.title.toString(),
@@ -210,18 +218,6 @@ class WomensCareView extends StatelessWidget {
                   _produtsTitleWidget(
                     context: context,
                     text: Appstrings.mostPopular,
-                    onTap: () {
-                      Navigator.of(context)
-                          .pushNamed(ProductsView.routeName, arguments: {
-                        'appBarTitle': Appstrings.mostPopular,
-                        'passValue': context
-                            .read<ShopProductsBloc>()
-                            .state
-                            .flashSaleproducts
-                            ?.result
-                            ?.shopProductCategory
-                      });
-                    },
                   ),
                   kHeight16,
                   BlocBuilder<ShopProductsBloc, ShopProductsState>(
@@ -253,9 +249,11 @@ class WomensCareView extends StatelessWidget {
                                   child: Padding(
                                     padding: const EdgeInsets.only(right: 15),
                                     child: ShopProductWidget(
+                                        color: data!.colors![0].text!,
+                                        size: data.size![0].value!,
+                                        brandId: data.brand!.id,
                                         isWishlisted: state.isWishListed,
-                                        brandId: data?.brand?.id,
-                                        brand: data!.brand!.name.toString(),
+                                        brand: data.brand!.name.toString(),
                                         productId: data.id,
                                         image: data.colors![0].images![0],
                                         title: data.title,
@@ -333,7 +331,6 @@ class WomensCareView extends StatelessWidget {
   Widget _produtsTitleWidget({
     required BuildContext context,
     required String text,
-    required VoidCallback onTap,
     bool isShowTimer = false,
   }) {
     return Row(

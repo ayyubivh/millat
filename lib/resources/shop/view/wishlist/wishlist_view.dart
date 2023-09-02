@@ -96,6 +96,9 @@ class WishListView extends StatelessWidget {
                               children: [
                                 const SizedBox(height: 15),
                                 ShopProductWidget(
+                                  color: data?.colors[0].text ?? "",
+                                  size: data?.size[0].value ?? "",
+                                  brandId: data?.id,
                                   isWishlisted: state.isWishListed,
                                   brand: data?.brand ?? 'null',
                                   productId: data?.id ?? 'null',

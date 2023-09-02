@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/utils/color_manager.dart';
+import 'package:millat/utils/string_constants.dart';
 
 import '../../../../components/common_widgets/shop_products_widget.dart';
 import '../../../../utils/size_utility.dart';
@@ -22,9 +23,16 @@ class WomensCareSubCategoryView extends StatelessWidget {
         elevation: 0,
         backgroundColor: ColorManager.whiteColor,
         foregroundColor: ColorManager.blackColor,
+        title: const Text(
+          Appstrings.womensCare,
+          style: TextStyle(
+            fontSize: 18,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 30),
+        padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
         child: BlocBuilder<CategoryBloc, CategoryState>(
           builder: (context, state) {
             return state.productLoading
@@ -32,8 +40,8 @@ class WomensCareSubCategoryView extends StatelessWidget {
                     child: CircularProgressIndicator(
                         color: ColorManager.greenColor1),
                   )
-                : Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 30),
+                : SizedBox(
+                    // padding: const EdgeInsets.symmetric(horizontal: 10),
                     height: SizeUtility(context).height,
                     child: GridView.builder(
                       physics: const BouncingScrollPhysics(),
@@ -57,6 +65,9 @@ class WomensCareSubCategoryView extends StatelessWidget {
                             );
                           },
                           child: ShopProductWidget(
+                            color: data.colors[0].text,
+                            size: data.size[0].value,
+                            brandId: data.brand!.id,
                             isWishlisted: false,
                             brand: data.brand!.name.toString(),
                             productId: data.id,

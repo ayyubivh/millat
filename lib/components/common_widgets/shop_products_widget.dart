@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:millat/resources/shop/bloc/logic/cart_bloc/cart_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/size_utility.dart';
-import '../../resources/shop/bloc/logic/cart_bloc/cart_bloc.dart';
+import 'package:millat/utils/utils.dart';
 import '../../utils/color_manager.dart';
 
 class ShopProductWidget extends StatelessWidget {
@@ -16,6 +17,8 @@ class ShopProductWidget extends StatelessWidget {
   final String? productId;
   final bool? isWishlisted;
   final String? brandId;
+  final String size;
+  final String color;
   const ShopProductWidget({
     Key? key,
     required this.image,
@@ -27,12 +30,13 @@ class ShopProductWidget extends StatelessWidget {
     required this.brand,
     required this.isWishlisted,
     this.brandId,
+    required this.size,
+    required this.color,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      // color: Colors.amber,
+    return SizedBox(
       height: 231,
       width: SizeUtility(context).width / 2.6,
       child: Column(
@@ -146,32 +150,71 @@ class ShopProductWidget extends StatelessWidget {
                 ),
               ),
               const Spacer(),
-              GestureDetector(
-                onTap: () {
-                  // context.read<CartBloc>().add(AddCartEvent(
-                  //       productId: productId ?? "",
-                  //       basePrice: discountPrice,
-                  //       size: "M",
-                  //       color: "yellow",
-                  //       context: context,
-                  //       quantity: 1,
-                  //       brandId: brandId ?? "",
-                  //     ));
+              BlocBuilder<CartBloc, CartState>(
+                builder: (context, state) {
+                  final cartItems =
+                      state.cartModel?.result?.cartProducts?.cartItems;
+                  final containsProductId = cartItems
+                      ?.any((cartItem) => cartItem.productId?.id == productId);
+
+                  if (containsProductId != null && !containsProductId) {
+                    return GestureDetector(
+                      onTap: () {
+                        showSnackBar(context, "Product Added To  Cart!");
+
+                        print(
+                            "$productId\n$discountPrice\n$brandId \n$color \n $size");
+                        context.read<CartBloc>().add(AddCartEvent(
+                              productId: productId ?? "",
+                              basePrice: discountPrice,
+                              size: size,
+                              color: color,
+                              context: context,
+                              quantity: 1,
+                              brandId: brandId ?? "",
+                            ));
+                      },
+                      child: Container(
+                        height: 20,
+                        width: 20,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: ColorManager.primary,
+                        ),
+                        child: Center(
+                          child: Icon(
+                            Icons.add,
+                            size: 17,
+                            color: ColorManager.whiteColor,
+                          ),
+                        ),
+                      ),
+                    );
+                  } else {
+                    return GestureDetector(
+                      onTap: () {
+                        context.read<CartBloc>().add(RemoveCartItemEvent(
+                            context: context, productId: productId.toString()));
+                        showSnackBar(context, "Product Removed From Cart!");
+                      },
+                      child: Container(
+                        height: 20,
+                        width: 20,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: ColorManager.redColor,
+                        ),
+                        child: Center(
+                          child: Icon(
+                            Icons.remove,
+                            size: 17,
+                            color: ColorManager.whiteColor,
+                          ),
+                        ),
+                      ),
+                    );
+                  }
                 },
-                child: Container(
-                  height: 20,
-                  width: 20,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: ColorManager.primary,
-                  ),
-                  child: Center(
-                      child: Icon(
-                    Icons.add,
-                    size: 17,
-                    color: ColorManager.whiteColor,
-                  )),
-                ),
               )
             ],
           ),

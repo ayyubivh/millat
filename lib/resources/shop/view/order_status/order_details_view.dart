@@ -201,6 +201,9 @@ class OrdetailsView extends StatelessWidget {
                         child: Padding(
                           padding: const EdgeInsets.only(right: 15),
                           child: ShopProductWidget(
+                              color: data?.colors?[0].text ?? "",
+                              size: data?.size?[0].value ?? "",
+                              brandId: data?.brand!.id,
                               isWishlisted: state.isWishListed,
                               brand: data!.brand!.name.toString(),
                               productId: data.id,

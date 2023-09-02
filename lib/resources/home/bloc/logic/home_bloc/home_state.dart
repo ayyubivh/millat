@@ -14,7 +14,9 @@ class HomeState with _$HomeState {
     required bool prayerTrackerAsr,
     required bool prayerTrackerMagrib,
     required bool prayerTrackerIsha,
-    required List<PrayerTrackerModel>? prayerTracker,
+    required PrayerTrackerModel? prayerTracker,
+    required double namazCompletedCount,
+    required String dailyPrayerTrackerDate,
   }) = _HomeState;
   factory HomeState.initial() => const HomeState(
       isLoading: false,
@@ -28,5 +30,7 @@ class HomeState with _$HomeState {
       prayerTrackerFajr: false,
       prayerTrackerIsha: false,
       prayerTrackerMagrib: false,
-      prayerTracker: []);
+      prayerTracker: null,
+      namazCompletedCount: 0,
+      dailyPrayerTrackerDate: "");
 }

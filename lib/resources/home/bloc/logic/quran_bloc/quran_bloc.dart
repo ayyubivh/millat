@@ -57,7 +57,9 @@ class QuranBloc extends Bloc<QuranEvent, QuranState> {
     on<SaveQuranTexttypeName>(_saveQuranTexttypeName);
     on<OnTapofNextEvent>(_onTapofNextEvent);
     on<OnTapofPrevEvent>(_onTapofPrevEvent);
-    on<OnChangeQuranTabbar>(_onChangeQuranTabbar);
+    on<SaveLastReadEvent>(_saveLastReadEvent);
+    on<FetchSingleVerseTranslation>(_fetchSingleVerseTranslation);
+    on<PlaySingleAudio>(_playSingleAudio);
   }
 
   _fetchQuranChapters(
@@ -81,20 +83,23 @@ class QuranBloc extends Bloc<QuranEvent, QuranState> {
       if (state.quranTextTypeName == indopak) {
         emit(
           state.copyWith(
-              chapterVersesIndoPakModel: data,
-              isLoading: false,
-              chapterName: "Juz ${event.id}"),
+            chapterVersesIndoPakModel: data,
+            isLoading: false,
+            // chapterName:,
+          ),
         );
       } else if (state.quranTextTypeName == uthmani) {
         emit(state.copyWith(
-            chapterVersesOfUthmani: data,
-            isLoading: false,
-            chapterName: "Juz ${event.id}"));
+          chapterVersesOfUthmani: data,
+          isLoading: false,
+          // chapterName: "Juz ${event.id}"
+        ));
       } else if (state.quranTextTypeName == nosymbol) {
         emit(state.copyWith(
-            chapterVersesOfNosymbol: data,
-            isLoading: false,
-            chapterName: "Juz ${event.id}"));
+          chapterVersesOfNosymbol: data,
+          isLoading: false,
+          // chapterName: "Juz ${event.id}"
+        ));
       }
     } catch (e) {
       emit(state.copyWith(isLoading: false));
@@ -208,11 +213,21 @@ class QuranBloc extends Bloc<QuranEvent, QuranState> {
   }
 
   _increaseFontsize(IncreaseFontsize event, Emitter<QuranState> emit) {
-    emit(state.copyWith(fontsize: state.fontsize + 2.0));
+    final increasedSize = state.fontsize + 2.0;
+    const maxSize = 35.0;
+
+    final newFontSize = increasedSize <= maxSize ? increasedSize : maxSize;
+
+    emit(state.copyWith(fontsize: newFontSize));
   }
 
   _decreaseFontsize(event, Emitter<QuranState> emit) {
-    emit(state.copyWith(fontsize: state.fontsize - 2.0));
+    final decreasedSize = state.fontsize - 2.0;
+    const minSize = 10.0;
+
+    final newFontSize = decreasedSize >= minSize ? decreasedSize : minSize;
+
+    emit(state.copyWith(fontsize: newFontSize));
   }
 
   _fetchAllTranslationsEvent(event, Emitter<QuranState> emit) async {
@@ -248,7 +263,6 @@ class QuranBloc extends Bloc<QuranEvent, QuranState> {
       final data = await quranServices.fetchAllParaTranslationTexts(
           paraId: event.paraId, translationId: event.translationId);
       emit(state.copyWith(paraTranslationText: data, isLoading: false));
-      print('here is the audion files in the bloc ${data}');
     } catch (e) {
       emit(state.copyWith(isLoading: false));
       debugPrint("error fetch quran bloc $e");
@@ -298,6 +312,34 @@ class QuranBloc extends Bloc<QuranEvent, QuranState> {
         emit(state.copyWith(audioPlaying: false));
         break;
       }
+    }
+  }
+
+  _playSingleAudio(PlaySingleAudio event, Emitter<QuranState> emit) async {
+    try {
+      // Replace this with the correct URL or file path to your audio
+      final audioUrl =
+          "https://verses.quran.com/Alafasy/mp3/${event.chapterId}${event.aya}.mp3";
+
+      // Set the audio source URL
+      await audioPlayer.setUrl(audioUrl);
+      emit(state.copyWith(audioPlaying: true));
+      if (audioPlayer.playing) {
+        await audioPlayer.pause();
+        emit(state.copyWith(audioPlaying: false));
+      } else {
+        await audioPlayer.play();
+        emit(state.copyWith(audioPlaying: true));
+      }
+      await for (final playbackState in audioPlayer.playerStateStream) {
+        if (playbackState.processingState == ProcessingState.completed) {
+          emit(state.copyWith(audioPlaying: false));
+          break;
+        }
+      }
+    } catch (e) {
+      print("Error during audio playback: $e");
+      emit(state.copyWith(audioPlaying: false));
     }
   }
 
@@ -405,7 +447,18 @@ class QuranBloc extends Bloc<QuranEvent, QuranState> {
     }
   }
 
-  _onChangeQuranTabbar(event, Emitter<QuranState> emit) {
-    emit(state.copyWith(tabBarIndex: event.index));
+  _saveLastReadEvent(SaveLastReadEvent event, Emitter<QuranState> emit) {
+    emit(state.copyWith(lastRead: event.value));
+  }
+
+  _fetchSingleVerseTranslation(
+      FetchSingleVerseTranslation event, Emitter<QuranState> emit) async {
+    try {
+      final data = await quranServices.fetchSingleVerseTranslationTexts(
+          translationId: state.globalTransilationId, verseKey: event.verseKey);
+      emit(state.copyWith(singleTranslation: data!));
+    } catch (e) {
+      throw Exception(e);
+    }
   }
 }

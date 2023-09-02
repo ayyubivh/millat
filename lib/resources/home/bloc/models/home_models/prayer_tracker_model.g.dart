@@ -3,54 +3,51 @@
 part of 'prayer_tracker_model.dart';
 
 // **************************************************************************
-// TypeAdapterGenerator
+// JsonSerializableGenerator
 // **************************************************************************
 
-class PrayerTrackerModelAdapter extends TypeAdapter<PrayerTrackerModel> {
-  @override
-  final int typeId = 2;
-
-  @override
-  PrayerTrackerModel read(BinaryReader reader) {
-    final numOfFields = reader.readByte();
-    final fields = <int, dynamic>{
-      for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
-    };
-    return PrayerTrackerModel(
-      fajr: fields[0] as bool,
-      dhuhr: fields[1] as bool,
-      asr: fields[2] as bool,
-      magrib: fields[3] as bool,
-      isha: fields[4] as bool,
-      date: fields[5] as DateTime,
+_$_PrayerTrackerModel _$$_PrayerTrackerModelFromJson(
+        Map<String, dynamic> json) =>
+    _$_PrayerTrackerModel(
+      status: json['status'] as int,
+      message: json['message'] as String,
+      error: json['error'] as String,
+      result: Result.fromJson(json['result'] as Map<String, dynamic>),
     );
-  }
 
-  @override
-  void write(BinaryWriter writer, PrayerTrackerModel obj) {
-    writer
-      ..writeByte(6)
-      ..writeByte(0)
-      ..write(obj.fajr)
-      ..writeByte(1)
-      ..write(obj.dhuhr)
-      ..writeByte(2)
-      ..write(obj.asr)
-      ..writeByte(3)
-      ..write(obj.magrib)
-      ..writeByte(4)
-      ..write(obj.isha)
-      ..writeByte(5)
-      ..write(obj.date);
-  }
+Map<String, dynamic> _$$_PrayerTrackerModelToJson(
+        _$_PrayerTrackerModel instance) =>
+    <String, dynamic>{
+      'status': instance.status,
+      'message': instance.message,
+      'error': instance.error,
+      'result': instance.result,
+    };
 
-  @override
-  int get hashCode => typeId.hashCode;
+_$_Result _$$_ResultFromJson(Map<String, dynamic> json) => _$_Result(
+      data: json['data'] == null
+          ? null
+          : Data.fromJson(json['data'] as Map<String, dynamic>),
+    );
 
-  @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is PrayerTrackerModelAdapter &&
-          runtimeType == other.runtimeType &&
-          typeId == other.typeId;
-}
+Map<String, dynamic> _$$_ResultToJson(_$_Result instance) => <String, dynamic>{
+      'data': instance.data,
+    };
+
+_$_Data _$$_DataFromJson(Map<String, dynamic> json) => _$_Data(
+      id: json['_id'] as String,
+      date: json['date'] as String,
+      userId: json['userId'] as String,
+      createdAt: json['createdAt'] as String,
+      namaz: (json['namaz'] as List<dynamic>).map((e) => e as String).toList(),
+      updatedAt: json['updatedAt'] as String,
+    );
+
+Map<String, dynamic> _$$_DataToJson(_$_Data instance) => <String, dynamic>{
+      '_id': instance.id,
+      'date': instance.date,
+      'userId': instance.userId,
+      'createdAt': instance.createdAt,
+      'namaz': instance.namaz,
+      'updatedAt': instance.updatedAt,
+    };

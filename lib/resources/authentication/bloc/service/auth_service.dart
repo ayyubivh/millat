@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/resources/authentication/bloc/logic/database_bloc/database_bloc.dart';
@@ -174,7 +173,9 @@ class AuthService extends HttpServices {
         final Map<String, dynamic> data = json.decode(
           response.body,
         );
+
         final result = AuthUserModel.fromJson(data);
+
         return result;
       } catch (e) {
         throw Exception('Failed to parse response');
@@ -189,8 +190,12 @@ class AuthService extends HttpServices {
   Future<Map<String, dynamic>> editAuthUser({
     required String name,
     required String userName,
-    required String email,
+    String? email,
     required BuildContext context,
+    dynamic imageFile,
+    required String dob,
+    required String profession,
+    required String institution,
   }) async {
     final databaseState = context.read<DatabaseBloc>().state;
     final token = databaseState.token;
@@ -203,7 +208,24 @@ class AuthService extends HttpServices {
     final request = http.MultipartRequest('PATCH', uri)
       ..headers.addAll(headers)
       ..fields['name'] = name
-      ..fields['username'] = userName;
+      ..fields['username'] = userName
+      ..fields["profession"] = profession
+      ..fields['institution'] = institution;
+
+    if (email != null) {
+      request.fields['email'] = email;
+    }
+
+    request.fields['DOB'] = dob;
+
+    if (imageFile != null) {
+      request.files.add(http.MultipartFile(
+        'picture',
+        imageFile.openRead(),
+        imageFile.lengthSync(),
+        filename: imageFile.path.split("/").last,
+      ));
+    }
 
     try {
       final response = await request.send();

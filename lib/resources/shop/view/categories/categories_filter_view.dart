@@ -5,7 +5,6 @@ import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/shop/bloc/logic/category_bloc/category_bloc.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/size_utility.dart';
-import '../../bloc/logic/shop_bloc/shop_products_bloc.dart';
 import 'categories_view.dart';
 
 class CategoriesFilter extends StatefulWidget {
@@ -41,16 +40,18 @@ class _CategoriesFilterState extends State<CategoriesFilter> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(95),
+          preferredSize: const Size.fromHeight(70),
           child: AppBar(
+            centerTitle: true,
             elevation: 0,
-            leading: IconButton(
-              onPressed: () {
-                context
-                    .read<ShopProductsBloc>()
-                    .add(const TabIndexChangeEvent(index: 0));
-              },
-              icon: const Icon(Icons.arrow_back),
+            leading: Padding(
+              padding: const EdgeInsets.only(top: 15.0),
+              child: IconButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                icon: const Icon(Icons.arrow_back),
+              ),
             ),
             flexibleSpace: Container(
               decoration: BoxDecoration(
@@ -61,11 +62,14 @@ class _CategoriesFilterState extends State<CategoriesFilter> {
                 ),
               ),
             ),
-            title: const Text(
-              "Category",
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
+            title: const Padding(
+              padding: EdgeInsets.only(top: 15),
+              child: Text(
+                "Category",
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
           ),
@@ -90,7 +94,8 @@ class _CategoriesFilterState extends State<CategoriesFilter> {
                                     color: ColorManager.whiteColor),
                               )
                             : SizedBox(
-                                width: 90,
+                                width: 130,
+                                // height: 98,
                                 child: ListView.builder(
                                   physics: const NeverScrollableScrollPhysics(),
                                   itemCount:
@@ -142,7 +147,7 @@ class _CategoriesFilterState extends State<CategoriesFilter> {
                 return state.productLoading ||
                         state.product?.result?.products == null
                     ? Padding(
-                        padding: EdgeInsets.only(left: 130),
+                        padding: const EdgeInsets.only(left: 130),
                         child: Center(
                           child: CircularProgressIndicator(
                             color: ColorManager.greenColor1,
@@ -153,10 +158,11 @@ class _CategoriesFilterState extends State<CategoriesFilter> {
                         child: GridView.builder(
                         gridDelegate:
                             const SliverGridDelegateWithFixedCrossAxisCount(
-                                crossAxisCount: 3,
-                                crossAxisSpacing: 30,
-                                mainAxisSpacing: 0,
-                                childAspectRatio: 0.7),
+                          crossAxisCount: 3,
+                          crossAxisSpacing: 30,
+                          mainAxisSpacing: 0,
+                          childAspectRatio: 0.7,
+                        ),
                         padding: EdgeInsets.zero,
                         itemBuilder: (context, index) {
                           if (state.product?.result?.products[index]

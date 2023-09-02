@@ -106,7 +106,7 @@ class HaditTinkerCardsState extends State<HaditTinkerCards> {
                               fontWeight: FontWeight.w600,
                               color: ColorManager.blackColor,
                             ),
-                            textDirection: TextDirection.rtl,
+                            // textDirection: TextDirection.rtl,
                           ),
                         ),
                         const Spacer(),
@@ -162,7 +162,7 @@ class HaditTinkerCardsState extends State<HaditTinkerCards> {
         ),
         Padding(
           padding: EdgeInsets.only(
-            left: SizeUtility(context).width / 2.72,
+            left: SizeUtility(context).width / 2.56,
           ),
           child: CircleAvatar(
             radius: 23.5,

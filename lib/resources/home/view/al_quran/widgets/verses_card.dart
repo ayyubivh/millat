@@ -89,7 +89,7 @@ class VersesCardWidget extends StatelessWidget {
                   style: TextStyle(
                     fontSize: state.fontsize,
                     fontWeight: FontWeight.w800,
-                    fontFamily: 'Hafs',
+                    fontFamily: 'Uthmani Regular',
                   ),
                   textDirection: TextDirection.rtl,
                   maxLines: 4,

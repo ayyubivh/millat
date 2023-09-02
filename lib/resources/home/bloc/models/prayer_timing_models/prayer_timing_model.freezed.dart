@@ -2451,9 +2451,8 @@ abstract class $PrayerMetaCopyWith<$Res> {
       String timezone,
       Method method,
       @JsonKey(name: 'latitudeAdjustmentMethod')
-          String latitudeAdjustmentMethod,
-      @JsonKey(name: 'midnightMode')
-          String midnightMode,
+      String latitudeAdjustmentMethod,
+      @JsonKey(name: 'midnightMode') String midnightMode,
       String school,
       Offset offset});
 
@@ -2550,9 +2549,8 @@ abstract class _$$_PrayerMetaCopyWith<$Res>
       String timezone,
       Method method,
       @JsonKey(name: 'latitudeAdjustmentMethod')
-          String latitudeAdjustmentMethod,
-      @JsonKey(name: 'midnightMode')
-          String midnightMode,
+      String latitudeAdjustmentMethod,
+      @JsonKey(name: 'midnightMode') String midnightMode,
       String school,
       Offset offset});
 
@@ -2628,9 +2626,8 @@ class _$_PrayerMeta implements _PrayerMeta {
       required this.timezone,
       required this.method,
       @JsonKey(name: 'latitudeAdjustmentMethod')
-          required this.latitudeAdjustmentMethod,
-      @JsonKey(name: 'midnightMode')
-          required this.midnightMode,
+      required this.latitudeAdjustmentMethod,
+      @JsonKey(name: 'midnightMode') required this.midnightMode,
       required this.school,
       required this.offset});
 
@@ -2708,9 +2705,8 @@ abstract class _PrayerMeta implements PrayerMeta {
       required final String timezone,
       required final Method method,
       @JsonKey(name: 'latitudeAdjustmentMethod')
-          required final String latitudeAdjustmentMethod,
-      @JsonKey(name: 'midnightMode')
-          required final String midnightMode,
+      required final String latitudeAdjustmentMethod,
+      @JsonKey(name: 'midnightMode') required final String midnightMode,
       required final String school,
       required final Offset offset}) = _$_PrayerMeta;
 

@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:millat/components/buttons/main_button.dart';
 import 'package:millat/components/common_widgets/reusable_methods.dart';
-import 'package:millat/resources/authentication/bloc/logic/database_bloc/database_bloc.dart';
+import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/home/bloc/logic/bookmark_bloc/bookmark_bloc.dart';
+import 'package:millat/resources/home/bloc/logic/quran_bloc/quran_bloc.dart';
 import 'package:millat/resources/home/view/al_quran/bookmark_view.dart';
 import 'package:millat/resources/home/view/al_quran/widgets/al_quran_appbar.dart';
 import 'package:millat/resources/home/view/al_quran/widgets/creat_new_bookmark_widget.dart';
 import 'package:millat/resources/home/view/al_quran/widgets/quran_tabbar_widget.dart';
+import 'package:millat/resources/home/view/al_quran/widgets/single_aya_verses_vew.dart';
+import 'package:millat/resources/home/view/al_quran/widgets/verses_view.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/size_utility.dart';
@@ -46,7 +48,7 @@ class AlQuranView extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             kHeight20,
-            _section2(),
+            _section2(context),
             const SizedBox(height: 20),
             _section3(context),
             const SizedBox(height: 25),
@@ -69,59 +71,80 @@ class AlQuranView extends StatelessWidget {
     );
   }
 
-  Widget _section2() {
+  Widget _section2(BuildContext context) {
     return gradientContainer(
       padding: const EdgeInsets.all(20),
       height: 131,
       width: double.infinity,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      child: BlocBuilder<QuranBloc, QuranState>(
+        builder: (context, state) => GestureDetector(
+          onTap: () {
+            context
+                .read<QuranBloc>()
+                .add(FetchSingleVerseTranslation(verseKey: state.lastRead));
+            final lastRead = state.lastRead;
+            final parts = lastRead.split(":");
+            String secondPart = parts[0];
+            Navigator.of(context).push(MaterialPageRoute(
+              builder: (context) => VersesView(
+                  scrollType: VersesScroll.scroll,
+                  type: Qurantype.sura,
+                  chapterid: int.parse(secondPart)),
+            ));
+          },
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Column(
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    "Al-Fatiah",
-                    style: TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w400,
-                      color: ColorManager.whiteColor,
-                    ),
-                  ),
-                  const SizedBox(height: 15),
-                  Align(
-                    alignment: Alignment.topLeft,
-                    child: Text(
-                      "1:3",
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w600,
-                        color: ColorManager.whiteColor,
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      BlocBuilder<QuranBloc, QuranState>(
+                        builder: (context, state) => Text(
+                          state.chapterName,
+                          style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w400,
+                            color: ColorManager.whiteColor,
+                          ),
+                        ),
                       ),
+                      const SizedBox(height: 15),
+                      Align(
+                        alignment: Alignment.topLeft,
+                        child: Text(
+                          state.lastRead,
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w600,
+                            color: ColorManager.whiteColor,
+                          ),
+                        ),
+                      ),
+                      kHeight10,
+                      Text(
+                        "Last Read",
+                        style: TextStyle(
+                            color: ColorManager.whiteColor,
+                            fontWeight: FontWeight.w400,
+                            fontSize: 14),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 80,
+                    width: 80,
+                    child: Image.asset(
+                      "assets/images/quran_3.png",
                     ),
-                  ),
-                  kHeight10,
-                  Text(
-                    "Last Read",
-                    style: TextStyle(
-                        color: ColorManager.whiteColor,
-                        fontWeight: FontWeight.w400,
-                        fontSize: 14),
-                  ),
+                  )
                 ],
               ),
-              SizedBox(
-                height: 80,
-                width: 80,
-                child: Image.asset(
-                  "assets/images/quran_3.png",
-                ),
-              )
             ],
           ),
-        ],
+        ),
       ),
     );
   }
@@ -161,6 +184,7 @@ class AlQuranView extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     mainText,

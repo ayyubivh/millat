@@ -50,4 +50,32 @@ class ShopProductsEvent with _$ShopProductsEvent {
     required BuildContext context,
     required int shiprockeId,
   }) = CancelOrder;
+  const factory ShopProductsEvent.fetchShopHomeBackgroundCard() =
+      FetchShopHomeBackgroundCard;
+  const factory ShopProductsEvent.fetchShopHomeBackgroundCardHelthyDiet() =
+      FetchShopHomeBackgroundCardHelthyDiet;
+  const factory ShopProductsEvent.fetchShopHomeBackgroundCardSunnah() =
+      FetchShopHomeBackgroundCardSunnah;
+  const factory ShopProductsEvent.fetchShopAdBrands() = FetchShopAdBrands;
+  const factory ShopProductsEvent.fetchTopBrands() = FetchTopBrands;
+  const factory ShopProductsEvent.fetchProductItemsSubcategorySunnah() =
+      FetchProductItemsSubcategorySunnah;
+  const factory ShopProductsEvent.fetchProductItemsSubcategoryHealth() =
+      FetchProductItemsSubcategoryHealth;
+  const factory ShopProductsEvent.fetchProductItemsSubcategoryWomen() =
+      FetchProductItemsSubcategoryWomen;
+  const factory ShopProductsEvent.changeShopBannerIndex(int index) =
+      ChangeShopBannerIndex;
+  const factory ShopProductsEvent.changeBrandBannerIndex(int index) =
+      ChangeBrandBannerIndex;
+  const factory ShopProductsEvent.showOrderProgressEvent() =
+      ShowOrderProgressEvent;
+  const factory ShopProductsEvent.indexChangeOnOrderProgress({
+    required int index,
+  }) = IndexChangeOnOrderProgress;
+  const factory ShopProductsEvent.indexChangeOnWomensCareBanner({
+    required int index,
+  }) = IndexChangeOnWomensCareBanner;
+  const factory ShopProductsEvent.fetchShopAdBrandsById({required String id}) =
+      FetchShopAdBrandsById;
 }

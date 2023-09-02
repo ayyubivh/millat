@@ -1,5 +1,3 @@
-// ignore_for_file: invalid_annotation_target
-
 import 'package:freezed_annotation/freezed_annotation.dart';
 part 'auth_user_model.g.dart';
 part 'auth_user_model.freezed.dart';
@@ -30,11 +28,15 @@ class Result with _$Result {
 class UserProfile with _$UserProfile {
   const factory UserProfile({
     @JsonKey(name: "_id") required String? id,
+    required String? institution,
     required String? username,
     required String? email,
     required String? name,
     required String? createdAt,
     required String? updatedAt,
+    required String? picture,
+    required String? profession,
+    @JsonKey(name: "DOB") required String? dob,
   }) = _UserProfile;
 
   factory UserProfile.fromJson(Map<String, dynamic> json) =>

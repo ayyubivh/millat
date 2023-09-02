@@ -1005,48 +1005,29 @@ class _$_Order implements _Order {
 
 abstract class _Order implements Order {
   const factory _Order(
-      {@JsonKey(name: '_id')
-          required final String? id,
-      @JsonKey(name: 'userId')
-          required final String? userId,
-      @JsonKey(name: 'brandId')
-          required final Brand? brand,
-      @JsonKey(name: 'order_id')
-          required final String? orderId,
+      {@JsonKey(name: '_id') required final String? id,
+      @JsonKey(name: 'userId') required final String? userId,
+      @JsonKey(name: 'brandId') required final Brand? brand,
+      @JsonKey(name: 'order_id') required final String? orderId,
       @JsonKey(name: 'shiprocket_order_id')
-          required final String? shiprocketOrderId,
-      @JsonKey(name: 'shipment_id')
-          required final String? shipmentId,
-      @JsonKey(name: 'productId')
-          required final Product? productId,
-      @JsonKey(name: 'quantity')
-          required final int? quantity,
-      @JsonKey(name: 'selling_price')
-          required final double? sellingPrice,
-      @JsonKey(name: 'discount')
-          required final double? discount,
-      @JsonKey(name: 'tax')
-          required final double? tax,
+      required final String? shiprocketOrderId,
+      @JsonKey(name: 'shipment_id') required final String? shipmentId,
+      @JsonKey(name: 'productId') required final Product? productId,
+      @JsonKey(name: 'quantity') required final int? quantity,
+      @JsonKey(name: 'selling_price') required final double? sellingPrice,
+      @JsonKey(name: 'discount') required final double? discount,
+      @JsonKey(name: 'tax') required final double? tax,
       final String? size,
       final String? color,
-      @JsonKey(name: 'sub_total')
-          required final double? subTotal,
-      @JsonKey(name: 'order_date')
-          required final String? orderDate,
-      @JsonKey(name: 'shipping_status')
-          required final String? shippingStatus,
-      @JsonKey(name: 'payment_method')
-          required final String? paymentMethod,
-      @JsonKey(name: 'shipping_charges')
-          required final double? shippingCharges,
-      @JsonKey(name: 'payment_status')
-          required final String? paymentStatus,
-      @JsonKey(name: 'address')
-          required final Address? address,
-      @JsonKey(name: 'createdAt')
-          required final String? createdAt,
-      @JsonKey(name: 'updatedAt')
-          required final String? updatedAt}) = _$_Order;
+      @JsonKey(name: 'sub_total') required final double? subTotal,
+      @JsonKey(name: 'order_date') required final String? orderDate,
+      @JsonKey(name: 'shipping_status') required final String? shippingStatus,
+      @JsonKey(name: 'payment_method') required final String? paymentMethod,
+      @JsonKey(name: 'shipping_charges') required final double? shippingCharges,
+      @JsonKey(name: 'payment_status') required final String? paymentStatus,
+      @JsonKey(name: 'address') required final Address? address,
+      @JsonKey(name: 'createdAt') required final String? createdAt,
+      @JsonKey(name: 'updatedAt') required final String? updatedAt}) = _$_Order;
 
   factory _Order.fromJson(Map<String, dynamic> json) = _$_Order.fromJson;
 

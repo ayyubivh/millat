@@ -41,7 +41,7 @@ class NamazTimingState with _$NamazTimingState {
         prayerModel: null,
         currentNamaz: {},
         upcomingNamaz: {},
-        showImsak: false,
+        showImsak: true,
         school: 0,
         isArtCalcMehod: true,
         method: 1,

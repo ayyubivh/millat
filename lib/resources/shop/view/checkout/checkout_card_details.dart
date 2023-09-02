@@ -3,6 +3,8 @@ import 'package:millat/resources/shop/view/checkout/checkout_confirmation.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/size_utility.dart';
 
+import '../../../../utils/string_constants.dart';
+
 class CheckoutCardDetails extends StatefulWidget {
   const CheckoutCardDetails({Key? key}) : super(key: key);
 
@@ -42,21 +44,22 @@ class _CheckoutCardDetailsState extends State<CheckoutCardDetails> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      'Personal Info',
+                      Appstrings.personalInfo,
                       style: TextStyle(
                           fontWeight: FontWeight.w700,
                           color: ColorManager.greenColor1),
                     ),
                     Text(
-                      'Payment',
+                      Appstrings.payment,
                       style: TextStyle(
                           fontWeight: FontWeight.w600,
                           color: ColorManager.greenColor1),
                     ),
-                    const Text(
-                      'Confirmation',
+                    Text(
+                      Appstrings.confirmation,
                       style: TextStyle(
-                          fontWeight: FontWeight.w600, color: black131),
+                          fontWeight: FontWeight.w600,
+                          color: ColorManager.blackColor),
                     ),
                   ],
                 ),
@@ -190,9 +193,9 @@ class _CheckoutCardDetailsState extends State<CheckoutCardDetails> {
                     ),
                     SizedBox(
                         width: SizeUtility(context).width * 75 / 100,
-                        child: const Text(
+                        child:   Text(
                           'We follow the Payment Card Industry Data Security Standard (PCI DSS) and use industry-standard encryption to protect the confidentiality of your personal information.',
-                          style: TextStyle(color: black122),
+                          style: TextStyle(color:  ColorManager.textGrey99),
                         ))
                   ],
                 ),
@@ -201,9 +204,9 @@ class _CheckoutCardDetailsState extends State<CheckoutCardDetails> {
                 ),
                 SizedBox(
                     width: SizeUtility(context).width * 75 / 100,
-                    child: const Text(
+                    child:   Text(
                       'Payment will be processed separately by PIPO according to the PIPO Privacy Policy',
-                      style: TextStyle(color: black122, fontSize: 15),
+                      style: TextStyle(color:  ColorManager.textGrey99, fontSize: 15),
                     )),
                 const SizedBox(
                   height: 10,

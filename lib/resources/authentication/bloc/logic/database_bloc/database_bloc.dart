@@ -1,7 +1,9 @@
+import 'dart:io';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hive/hive.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:millat/resources/authentication/bloc/service/auth_service.dart';
 import 'package:millat/utils/string_constants.dart';
 
@@ -57,6 +59,7 @@ class DatabaseBloc extends Bloc<DatabaseEvent, DatabaseState> {
         emit(state.copyWith(isLoading: true));
         try {
           final data = await authService.fetchAuthUser(context: event.context);
+
           emit(state.copyWith(authUserModel: data, isLoading: false));
         } catch (e) {
           emit(state.copyWith(isLoading: false));
@@ -66,19 +69,49 @@ class DatabaseBloc extends Bloc<DatabaseEvent, DatabaseState> {
       },
     );
     on<EditAuthUser>((event, emit) async {
-      emit(state.copyWith(isLoading: true));
+      emit(state.copyWith(
+        editIsloading: true,
+      ));
       final data = await authService.editAuthUser(
-          context: event.context,
-          name: event.name,
-          email: event.email,
-          userName: event.userName);
+        context: event.context,
+        name: event.name,
+        email: event.email,
+        userName: event.userName,
+        imageFile: state.imagebytes,
+        dob: event.dob,
+        institution: event.institution,
+        profession: event.profession,
+      );
+      print('image ${state.imagebytes}');
       if (data['status'] == true) {
+        print('data $data');
         emit(state.copyWith(
-            isLoading: false, succesMessage: data['message'].toString()));
+            editIsloading: false, succesMessage: data['message'].toString()));
       } else {
         emit(state.copyWith(
-            isLoading: false, failedMessage: data['message'].toString()));
+            editIsloading: false, failedMessage: data['message'].toString()));
       }
     });
+    on<UploadImageEvent>((event, emit) async {
+      try {
+        File? image = await pickImage(event.source);
+        emit(state.copyWith(
+          imagebytes: image,
+        ));
+      } catch (e) {
+        throw Exception(e);
+        // log("e yann ...>>>>${e.toString()}");
+      }
+    });
+  }
+  Future<File?> pickImage(ImageSource source) async {
+    final ImagePicker _imagePicker = ImagePicker();
+    XFile? pickedFile = await _imagePicker.pickImage(source: source);
+
+    if (pickedFile != null) {
+      return File(pickedFile.path);
+    }
+
+    return null;
   }
 }

@@ -4,12 +4,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/resources/home/bloc/logic/dua_bloc/dua_bloc.dart';
 import 'package:millat/resources/home/view/dua/widgets/dua_share_view.dart';
 import 'package:millat/resources/home/view/dua/widgets/settings_pop_up_widget.dart';
+import 'package:millat/resources/home/view/tasbih/tasbih_view.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/loader.dart';
 import 'package:millat/utils/utils.dart';
 
 import '../../../../../utils/constants.dart';
 import '../../../../../utils/string_constants.dart';
+import '../../../bloc/logic/tasbih_bloc/tasbih_bloc.dart';
 
 class InsideDuaView extends StatelessWidget {
   const InsideDuaView({super.key});
@@ -61,6 +63,8 @@ class InsideDuaView extends StatelessWidget {
                     context: context,
                     index: index,
                     arabicText: state.displayArabicText ? data.content! : "",
+                    translatedText:
+                        state.displayTranslationText ? translationText : "",
                     translationText:
                         state.displayTranslationText ? translationText : "",
                     resource: data.resource.toString(),
@@ -101,9 +105,10 @@ class InsideDuaView extends StatelessWidget {
       required double textSize,
       required VoidCallback onTapCopyText,
       required VoidCallback onTapShare,
+      required String translatedText,
       String? duaId}) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 25.0, vertical: 18),
+      padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 18),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -162,10 +167,23 @@ class InsideDuaView extends StatelessWidget {
                   children: [
                     const ImageIcon(
                       AssetImage("assets/icons/dua_play.png"),
+                      size: 19,
                     ),
                     kWidht10,
-                    const ImageIcon(
-                      AssetImage("assets/icons/dua_tasbih.png"),
+                    GestureDetector(
+                      onTap: () {
+                        context.read<TasbihBloc>().add(SelectDhikerEvent(
+                            dikr: arabicText,
+                            translate: translatedText,
+                            id: duaId!));
+                        Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => const TasbihView(),
+                        ));
+                      },
+                      child: const ImageIcon(
+                        AssetImage("assets/icons/dua_tasbih.png"),
+                        size: 19,
+                      ),
                     ),
                     kWidht10,
                     GestureDetector(
@@ -212,6 +230,7 @@ class InsideDuaView extends StatelessWidget {
                       },
                       child: const ImageIcon(
                         AssetImage("assets/icons/dua_gpay.png"),
+                        size: 19,
                       ),
                     ),
                   ],
@@ -219,26 +238,36 @@ class InsideDuaView extends StatelessWidget {
                 const Spacer(),
                 Row(
                   children: [
-                    InkWell(
-                      onTap: onTapShare,
-                      child: const ImageIcon(
-                        AssetImage("assets/icons/send.png"),
-                      ),
-                    ),
+                    // InkWell(
+                    //   onTap: onTapShare,
+                    //   child: const ImageIcon(
+                    //     AssetImage("assets/icons/send.png"),
+                    //   ),
+                    // ),
                     kWidht10,
                     InkWell(
                       onTap: onTapCopyText,
                       child: const ImageIcon(
                         AssetImage("assets/icons/copy.png"),
+                        size: 19,
                       ),
                     ),
                     kWidht10,
                     BlocBuilder<DuaBloc, DuaState>(
                       builder: (context, state) => state.bookmarkItems!
                               .contains(duaId)
-                          ? const ImageIcon(
-                              AssetImage('assets/icons/bookmark_filled.png'),
-                              size: 20,
+                          ? GestureDetector(
+                              onTap: () {
+                                context.read<DuaBloc>().add(RemoveBookmark(
+                                    context: context, duaId: duaId!));
+                                context
+                                    .read<DuaBloc>()
+                                    .add(FetchDuaBookMarksEvent(context));
+                              },
+                              child: const ImageIcon(
+                                AssetImage('assets/icons/bookmark_filled.png'),
+                                size: 19,
+                              ),
                             )
                           : GestureDetector(
                               onTap: () {
@@ -250,6 +279,7 @@ class InsideDuaView extends StatelessWidget {
                               },
                               child: const ImageIcon(
                                 AssetImage("assets/icons/bookmark.png"),
+                                size: 19,
                               ),
                             ),
                     ),

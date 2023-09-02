@@ -10,4 +10,5 @@ class LocationEvent with _$LocationEvent {
   const factory LocationEvent.searchCities({required String query}) =
       SearchCities;
   const factory LocationEvent.changeLocationOnToggle() = ChangeLocationOnToggle;
+  const factory LocationEvent.fetchWeatherEvent() = FetchWeatherEvent;
 }

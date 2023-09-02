@@ -6,19 +6,44 @@ import '../../../../../utils/constants.dart';
 import 'addnew_collection_view.dart';
 
 class BookmarkNewCollectionWidget extends StatelessWidget {
-  const BookmarkNewCollectionWidget({super.key});
+  final BookMarkCollectionType? type;
+  final List<String>? verseKeys;
+  const BookmarkNewCollectionWidget({super.key, this.type, this.verseKeys});
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Image.asset("assets/images/quran_bookmark.png"),
+        Container(
+          height: 86,
+          width: 86,
+          padding: const EdgeInsets.all(25),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(12),
+            gradient: const LinearGradient(
+              begin: Alignment.centerLeft,
+              end: Alignment.centerRight,
+              colors: [
+                Color(0xFFBCFEB1),
+                Color(0xFF00A05B),
+              ],
+            ),
+          ),
+          child: Image.asset(
+            "assets/icons/book_mark_quran.png",
+            height: 20,
+            width: 23,
+          ),
+        ),
         kWidht10,
         InkWell(
           onTap: () {
             Navigator.of(context).push(MaterialPageRoute(
-              builder: (context) => const AddNewBookMarkCollection(
-                  type: BookMarkCollectionType.add),
+              builder: (context) => AddNewBookMarkCollection(
+                  verseKeys: verseKeys,
+                  type: type == null
+                      ? BookMarkCollectionType.add
+                      : BookMarkCollectionType.addSpecificOne),
             ));
           },
           child: Icon(

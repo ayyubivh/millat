@@ -142,7 +142,7 @@ class _SignUpViewState extends State<SignUpView> {
                         },
                         child: RichText(
                             text: TextSpan(children: [
-                          TextSpan(
+                          const TextSpan(
                               text: 'Already have an account? ',
                               style: TextStyle(
                                   color: black133,

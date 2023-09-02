@@ -2,8 +2,8 @@
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'quran_all_translations_model.freezed.dart';
 part 'quran_all_translations_model.g.dart';
+part 'quran_all_translations_model.freezed.dart';
 
 @freezed
 class TranslationsModel with _$TranslationsModel {

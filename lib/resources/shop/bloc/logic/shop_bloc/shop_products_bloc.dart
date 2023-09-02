@@ -8,10 +8,19 @@ import 'package:millat/resources/shop/bloc/models/recent_products/recent_product
 import 'package:millat/resources/shop/bloc/service/orders_service.dart';
 import 'package:millat/resources/shop/bloc/service/shop_services.dart';
 import '../../models/banners/banners_model.dart';
+import '../../models/home_sub_category_card/home_sub_category_card_model.dart';
+import '../../models/home_sub_category_card/home_sub_category_healthy_diet.dart';
+import '../../models/home_sub_category_card/home_sub_category_sunnah_model.dart';
 import '../../models/orders/fetch_order_byId_model.dart';
 import '../../models/orders/orders_model.dart';
+import '../../models/products/product_item_health/product_item_health_model.dart';
+import '../../models/products/product_item_sunnah/products_items_sunnah_model.dart';
+import '../../models/products/product_item_women/products_item_women_model.dart';
+import '../../models/shop_by_brand/shop_ad_brand_by_id.dart';
+import '../../models/shop_by_brand/shop_ad_brand_model.dart';
 import '../../models/shop_by_brand/shop_by_brand_models.dart';
 import '../../models/shop_by_brand/shop_by_brand_products.dart';
+import '../../models/shop_by_brand/top_brands/top_brands_model.dart';
 import '../../models/shop_products/shop_products_model.dart';
 import '../../models/wishlist/wishllist_models.dart';
 
@@ -41,6 +50,21 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
     on<FetchOrdersById>(_fetchOrdersById);
     on<FetchOrdersbyFilterEvent>(_fetchOrdersbyFilterEvent);
     on<CancelOrder>(_cancelOrder);
+    on<FetchShopHomeBackgroundCard>(_fetchShopHomeBackgroundCard);
+    on<FetchShopHomeBackgroundCardHelthyDiet>(
+        _fetchShopHomeBackgroundCardHelthyDiet);
+    on<FetchShopHomeBackgroundCardSunnah>(_fetchShopHomeBackgroundCardSunnah);
+    on<FetchShopAdBrands>(_fetchShopAdBrands);
+    on<FetchTopBrands>(_fetchTopBrands);
+    on<FetchProductItemsSubcategorySunnah>(_fetchProductItemsSubcategorySunnah);
+    on<FetchProductItemsSubcategoryWomen>(_fetchProductItemsSubcategoryWomen);
+    on<FetchProductItemsSubcategoryHealth>(_fetchProductItemsSubcategoryHealth);
+    on<ChangeShopBannerIndex>(_changeShopBannerIndex);
+    on<ChangeBrandBannerIndex>(_changeBrandBannerIndex);
+    on<ShowOrderProgressEvent>(_showProgressEvent);
+    on<IndexChangeOnOrderProgress>(_indexChangeOnOrderProgress);
+    on<IndexChangeOnWomensCareBanner>(indexChangeOnWomensCareBanner);
+    on<FetchShopAdBrandsById>(_fetchShopAdBrandsById);
   }
 
   FutureOr<void> _fetchFlashSaleProducts(
@@ -314,6 +338,144 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
       ordersService.cancelOrder(
           context: event.context, shiprocketId: event.shiprockeId);
       emit(state.copyWith(isLoading: false, errorMessage: ""));
+    } catch (e) {
+      emit(state.copyWith(isLoading: false, errorMessage: "$e"));
+    }
+  }
+
+  _fetchShopHomeBackgroundCard(FetchShopHomeBackgroundCard event,
+      Emitter<ShopProductsState> emit) async {
+    emit(state.copyWith(isLoading: true, errorMessage: ""));
+    try {
+      final data = await shopService.fetchShopHomeBackgroundCard(
+          slug: "women_product_home_card");
+      emit(state.copyWith(
+          isLoading: false, shopHomeBackgroundCardModelWomens: data));
+    } catch (e) {
+      emit(state.copyWith(isLoading: false, errorMessage: "$e"));
+    }
+  }
+
+  _fetchShopHomeBackgroundCardHelthyDiet(
+      FetchShopHomeBackgroundCardHelthyDiet event,
+      Emitter<ShopProductsState> emit) async {
+    emit(state.copyWith(isLoading: true, errorMessage: ""));
+    try {
+      final data = await shopService.fetchShopHomeBackgroundCardHelthyDiet(
+          slug: "healthy_diet_product_home_card");
+
+      emit(state.copyWith(
+          isLoading: false, shopHomeBackgroundCardModelHealthyDiet: data));
+    } catch (e) {
+      emit(state.copyWith(isLoading: false, errorMessage: "$e"));
+    }
+  }
+
+  _fetchShopHomeBackgroundCardSunnah(FetchShopHomeBackgroundCardSunnah event,
+      Emitter<ShopProductsState> emit) async {
+    emit(state.copyWith(isLoading: true, errorMessage: ""));
+    try {
+      final data = await shopService.fetchShopHomeBackgroundSunnah(
+          slug: "sunnah_product_home_card");
+
+      emit(state.copyWith(
+          isLoading: false, shopHomeBackgroundCardModelSunnah: data));
+    } catch (e) {
+      emit(state.copyWith(isLoading: false, errorMessage: "$e"));
+    }
+  }
+
+  _fetchShopAdBrands(
+      FetchShopAdBrands event, Emitter<ShopProductsState> emit) async {
+    emit(state.copyWith(isLoading: true, errorMessage: ""));
+    try {
+      final data = await shopService.fetchShopBrands();
+
+      emit(state.copyWith(isLoading: false, shopAdBrands: data));
+    } catch (e) {
+      emit(state.copyWith(isLoading: false, errorMessage: "$e"));
+    }
+  }
+
+  _fetchTopBrands(FetchTopBrands event, Emitter<ShopProductsState> emit) async {
+    emit(state.copyWith(isLoading: true, errorMessage: ""));
+    try {
+      final data = await shopService.fetchTopBrands();
+
+      emit(state.copyWith(isLoading: false, topBrandsModel: data));
+    } catch (e) {
+      emit(state.copyWith(isLoading: false, errorMessage: "$e"));
+    }
+  }
+
+  _fetchProductItemsSubcategorySunnah(FetchProductItemsSubcategorySunnah event,
+      Emitter<ShopProductsState> emit) async {
+    try {
+      final data = await shopService.fetchProductItemsSubcategorySunnah();
+
+      emit(state.copyWith(
+          isLoading: false, productItemsSubCategorySunnahModel: data));
+    } catch (e) {
+      emit(state.copyWith(isLoading: false, errorMessage: "$e"));
+    }
+  }
+
+  _fetchProductItemsSubcategoryWomen(FetchProductItemsSubcategoryWomen event,
+      Emitter<ShopProductsState> emit) async {
+    try {
+      final data = await shopService.fetchProductItemsSubcategoryWomen();
+
+      emit(state.copyWith(
+          isLoading: false, productItemsSubCategoryWomenModel: data));
+    } catch (e) {
+      emit(state.copyWith(isLoading: false, errorMessage: "$e"));
+    }
+  }
+
+  _fetchProductItemsSubcategoryHealth(FetchProductItemsSubcategoryHealth event,
+      Emitter<ShopProductsState> emit) async {
+    try {
+      final data = await shopService.fetchProductItemsSubcategoryHealth();
+
+      emit(state.copyWith(
+          isLoading: false, productItemsSubCategoryHealthModel: data));
+    } catch (e) {
+      emit(state.copyWith(isLoading: false, errorMessage: "$e"));
+    }
+  }
+
+  _changeShopBannerIndex(
+      ChangeShopBannerIndex event, Emitter<ShopProductsState> emit) {
+    emit(state.copyWith(shopBannerIndex: event.index));
+  }
+
+  _changeBrandBannerIndex(
+      ChangeBrandBannerIndex event, Emitter<ShopProductsState> emit) {
+    emit(state.copyWith(brandBannerIndex: event.index));
+  }
+
+  _showProgressEvent(
+      ShowOrderProgressEvent event, Emitter<ShopProductsState> emit) {
+    emit(state.copyWith(showProgress: !state.showProgress));
+  }
+
+  _indexChangeOnOrderProgress(
+      IndexChangeOnOrderProgress event, Emitter<ShopProductsState> emit) {
+    emit(state.copyWith(ordereProgressIndex: event.index));
+  }
+
+  indexChangeOnWomensCareBanner(
+      IndexChangeOnWomensCareBanner event, Emitter<ShopProductsState> emit) {
+    emit(state.copyWith(womensCareBannerIndex: event.index));
+  }
+
+  _fetchShopAdBrandsById(
+      FetchShopAdBrandsById event, Emitter<ShopProductsState> emit) async {
+    emit(state.copyWith(isLoading: true, errorMessage: ""));
+    try {
+      final data = await shopService.fetchAdShopBrandsbyId(id: event.id);
+
+      emit(state.copyWith(isLoading: false, shopAdBrandsById: data));
     } catch (e) {
       emit(state.copyWith(isLoading: false, errorMessage: "$e"));
     }

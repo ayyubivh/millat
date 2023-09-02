@@ -1,11 +1,12 @@
 import 'package:bloc/bloc.dart';
+import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:intl/intl.dart';
 import 'package:millat/resources/home/bloc/models/home_models/event_of_the_month_model/event_of_the_month_model.dart';
 import 'package:millat/resources/home/bloc/models/home_models/top_offers_model/top_offers_model.dart';
 import 'package:millat/resources/home/bloc/service/home_services.dart';
-import 'package:millat/utils/string_constants.dart';
-
-import '../../db/prayer_tracker_db_functions.dart';
+import 'package:millat/utils/utils.dart';
+import '../../../../../utils/string_constants.dart';
 import '../../models/home_models/brand_of_the_day_model/brandofthe_day_model.dart';
 import '../../models/home_models/hadit_of_the_day_model/hadit_oftheday_mode.dart';
 import '../../models/home_models/large_discount_model/home_large_discounts_model.dart';
@@ -34,6 +35,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     try {
       final data = await homeServices.fetchLargeDiscountsBanner();
       emit(state.copyWith(largeDiscountModel: data, isLoading: false));
+      print("here large disocunt banner $data");
     } catch (e) {
       emit(state.copyWith(isLoading: false));
     }
@@ -89,32 +91,66 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   _fetchPrayerTrackerEvent(
       FetchPrayerTrackerEvent event, Emitter<HomeState> emit) async {
     try {
-      final data = await PrayerTrackerDB.instance.getAllPrayerTracker();
+      final data = await homeServices.fetchDailyPrayerTracker(event.context,
+          Utilities.formatDatePrayerTracker(event.date.toString()));
 
-      if (data.isNotEmpty) {
-        final now = DateTime.now();
+      emit(state.copyWith(
+          dailyPrayerTrackerDate: Utilities.formatDate(event.date.toString())));
+      final namaz = data.result.data?.namaz;
 
-        if (now.isAfter(data[0].date)) {
-          emit(state.copyWith(
-            prayerTracker: data,
-            prayerTrackerDhuhr: false,
-            prayerTrackerAsr: false,
-            prayerTrackerFajr: false,
-            prayerTrackerMagrib: false,
-            prayerTrackerIsha: false,
-          ));
-        } else {
-          emit(state.copyWith(
-            prayerTracker: data,
-            prayerTrackerDhuhr: data[0].dhuhr,
-            prayerTrackerAsr: data[0].asr,
-            prayerTrackerFajr: data[0].fajr,
-            prayerTrackerMagrib: data[0].magrib,
-            prayerTrackerIsha: data[0].isha,
-          ));
+      if (data.result.data == null) {
+        emit(state.copyWith(
+          namazCompletedCount: 0,
+          prayerTrackerFajr: false,
+          prayerTrackerDhuhr: false,
+          prayerTrackerAsr: false,
+          prayerTrackerMagrib: false,
+          prayerTrackerIsha: false,
+        ));
+      } else {
+        emit(state.copyWith(
+          namazCompletedCount: 0,
+          prayerTrackerFajr: false,
+          prayerTrackerDhuhr: false,
+          prayerTrackerAsr: false,
+          prayerTrackerMagrib: false,
+          prayerTrackerIsha: false,
+        ));
+
+        for (var prayerTime in namaz!) {
+          switch (prayerTime) {
+            case Appstrings.fajr:
+              emit(state.copyWith(
+                prayerTrackerFajr: true,
+                namazCompletedCount: state.namazCompletedCount + 1,
+              ));
+              break;
+            case Appstrings.dhuhr:
+              emit(state.copyWith(
+                prayerTrackerDhuhr: true,
+                namazCompletedCount: state.namazCompletedCount + 1,
+              ));
+              break;
+            case Appstrings.asr:
+              emit(state.copyWith(
+                prayerTrackerAsr: true,
+                namazCompletedCount: state.namazCompletedCount + 1,
+              ));
+              break;
+            case Appstrings.magrib:
+              emit(state.copyWith(
+                prayerTrackerMagrib: true,
+                namazCompletedCount: state.namazCompletedCount + 1,
+              ));
+              break;
+            case Appstrings.isha:
+              emit(state.copyWith(
+                prayerTrackerIsha: true,
+                namazCompletedCount: state.namazCompletedCount + 1,
+              ));
+              break;
+          }
         }
-        print(
-            'Here are all prayer states: date ${data[0].date} asr: ${state.prayerTrackerAsr} dhuhr:${state.prayerTrackerDhuhr} magrib:${state.prayerTrackerMagrib}');
       }
     } catch (e) {
       throw Exception(e);
@@ -128,46 +164,42 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   }
 
   _addPrayerToPrayerTracker(
-      AddPrayerToPrayerTracker event, Emitter<HomeState> emit) {
+      AddPrayerToPrayerTracker event, Emitter<HomeState> emit) async {
     try {
-      switch (event.namazName) {
-        case Appstrings.fajr:
-          emit(state.copyWith(
-              prayerTrackerFajr:
-                  state.prayerTrackerFajr == true ? false : true));
-          break;
-        case Appstrings.dhuhr:
-          emit(state.copyWith(
-              prayerTrackerDhuhr:
-                  state.prayerTrackerDhuhr == true ? false : true));
-          break;
-        case Appstrings.asr:
-          emit(state.copyWith(
-              prayerTrackerAsr: state.prayerTrackerAsr == true ? false : true));
-          break;
-        case Appstrings.magrib:
-          emit(state.copyWith(
-              prayerTrackerMagrib:
-                  state.prayerTrackerMagrib == true ? false : true));
-          break;
-        case Appstrings.isha:
-          emit(state.copyWith(
-              prayerTrackerIsha:
-                  state.prayerTrackerIsha == true ? false : true));
-          break;
-        default:
-      }
+      DateTime now = DateTime.now();
 
-      final data = PrayerTrackerModel(
-        fajr: state.prayerTrackerFajr,
-        dhuhr: state.prayerTrackerDhuhr,
-        asr: state.prayerTrackerAsr,
-        magrib: state.prayerTrackerMagrib,
-        isha: state.prayerTrackerIsha,
-        date: DateTime.now(),
-      );
-
-      PrayerTrackerDB.instance.addCollection(data);
+      String formattedDate = DateFormat('dd-MM-yyyy').format(now);
+      await homeServices.addDailyPrayerTracker(
+          context: event.context,
+          date: formattedDate,
+          namazName: event.namazName);
+      // switch (event.namazName) {
+      //   case Appstrings.fajr:
+      //     emit(state.copyWith(
+      //         prayerTrackerFajr:
+      //             state.prayerTrackerFajr == true ? false : true));
+      //     break;
+      //   case Appstrings.dhuhr:
+      //     emit(state.copyWith(
+      //         prayerTrackerDhuhr:
+      //             state.prayerTrackerDhuhr == true ? false : true));
+      //     break;
+      //   case Appstrings.asr:
+      //     emit(state.copyWith(
+      //         prayerTrackerAsr: state.prayerTrackerAsr == true ? false : true));
+      //     break;
+      //   case Appstrings.magrib:
+      //     emit(state.copyWith(
+      //         prayerTrackerMagrib:
+      //             state.prayerTrackerMagrib == true ? false : true));
+      //     break;
+      //   case Appstrings.isha:
+      //     emit(state.copyWith(
+      //         prayerTrackerIsha:
+      //             state.prayerTrackerIsha == true ? false : true));
+      //     break;
+      //   default:
+      // }
     } catch (e) {
       throw Exception(e);
     }

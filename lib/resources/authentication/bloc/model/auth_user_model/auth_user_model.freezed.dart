@@ -378,11 +378,16 @@ UserProfile _$UserProfileFromJson(Map<String, dynamic> json) {
 mixin _$UserProfile {
   @JsonKey(name: "_id")
   String? get id => throw _privateConstructorUsedError;
+  String? get institution => throw _privateConstructorUsedError;
   String? get username => throw _privateConstructorUsedError;
   String? get email => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
   String? get createdAt => throw _privateConstructorUsedError;
   String? get updatedAt => throw _privateConstructorUsedError;
+  String? get picture => throw _privateConstructorUsedError;
+  String? get profession => throw _privateConstructorUsedError;
+  @JsonKey(name: "DOB")
+  String? get dob => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -398,11 +403,15 @@ abstract class $UserProfileCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: "_id") String? id,
+      String? institution,
       String? username,
       String? email,
       String? name,
       String? createdAt,
-      String? updatedAt});
+      String? updatedAt,
+      String? picture,
+      String? profession,
+      @JsonKey(name: "DOB") String? dob});
 }
 
 /// @nodoc
@@ -419,16 +428,24 @@ class _$UserProfileCopyWithImpl<$Res, $Val extends UserProfile>
   @override
   $Res call({
     Object? id = freezed,
+    Object? institution = freezed,
     Object? username = freezed,
     Object? email = freezed,
     Object? name = freezed,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
+    Object? picture = freezed,
+    Object? profession = freezed,
+    Object? dob = freezed,
   }) {
     return _then(_value.copyWith(
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      institution: freezed == institution
+          ? _value.institution
+          : institution // ignore: cast_nullable_to_non_nullable
               as String?,
       username: freezed == username
           ? _value.username
@@ -449,6 +466,18 @@ class _$UserProfileCopyWithImpl<$Res, $Val extends UserProfile>
       updatedAt: freezed == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
+              as String?,
+      picture: freezed == picture
+          ? _value.picture
+          : picture // ignore: cast_nullable_to_non_nullable
+              as String?,
+      profession: freezed == profession
+          ? _value.profession
+          : profession // ignore: cast_nullable_to_non_nullable
+              as String?,
+      dob: freezed == dob
+          ? _value.dob
+          : dob // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -464,11 +493,15 @@ abstract class _$$_UserProfileCopyWith<$Res>
   @useResult
   $Res call(
       {@JsonKey(name: "_id") String? id,
+      String? institution,
       String? username,
       String? email,
       String? name,
       String? createdAt,
-      String? updatedAt});
+      String? updatedAt,
+      String? picture,
+      String? profession,
+      @JsonKey(name: "DOB") String? dob});
 }
 
 /// @nodoc
@@ -483,16 +516,24 @@ class __$$_UserProfileCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = freezed,
+    Object? institution = freezed,
     Object? username = freezed,
     Object? email = freezed,
     Object? name = freezed,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
+    Object? picture = freezed,
+    Object? profession = freezed,
+    Object? dob = freezed,
   }) {
     return _then(_$_UserProfile(
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      institution: freezed == institution
+          ? _value.institution
+          : institution // ignore: cast_nullable_to_non_nullable
               as String?,
       username: freezed == username
           ? _value.username
@@ -514,6 +555,18 @@ class __$$_UserProfileCopyWithImpl<$Res>
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as String?,
+      picture: freezed == picture
+          ? _value.picture
+          : picture // ignore: cast_nullable_to_non_nullable
+              as String?,
+      profession: freezed == profession
+          ? _value.profession
+          : profession // ignore: cast_nullable_to_non_nullable
+              as String?,
+      dob: freezed == dob
+          ? _value.dob
+          : dob // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -523,11 +576,15 @@ class __$$_UserProfileCopyWithImpl<$Res>
 class _$_UserProfile implements _UserProfile {
   const _$_UserProfile(
       {@JsonKey(name: "_id") required this.id,
+      required this.institution,
       required this.username,
       required this.email,
       required this.name,
       required this.createdAt,
-      required this.updatedAt});
+      required this.updatedAt,
+      required this.picture,
+      required this.profession,
+      @JsonKey(name: "DOB") required this.dob});
 
   factory _$_UserProfile.fromJson(Map<String, dynamic> json) =>
       _$$_UserProfileFromJson(json);
@@ -535,6 +592,8 @@ class _$_UserProfile implements _UserProfile {
   @override
   @JsonKey(name: "_id")
   final String? id;
+  @override
+  final String? institution;
   @override
   final String? username;
   @override
@@ -545,10 +604,17 @@ class _$_UserProfile implements _UserProfile {
   final String? createdAt;
   @override
   final String? updatedAt;
+  @override
+  final String? picture;
+  @override
+  final String? profession;
+  @override
+  @JsonKey(name: "DOB")
+  final String? dob;
 
   @override
   String toString() {
-    return 'UserProfile(id: $id, username: $username, email: $email, name: $name, createdAt: $createdAt, updatedAt: $updatedAt)';
+    return 'UserProfile(id: $id, institution: $institution, username: $username, email: $email, name: $name, createdAt: $createdAt, updatedAt: $updatedAt, picture: $picture, profession: $profession, dob: $dob)';
   }
 
   @override
@@ -557,6 +623,8 @@ class _$_UserProfile implements _UserProfile {
         (other.runtimeType == runtimeType &&
             other is _$_UserProfile &&
             (identical(other.id, id) || other.id == id) &&
+            (identical(other.institution, institution) ||
+                other.institution == institution) &&
             (identical(other.username, username) ||
                 other.username == username) &&
             (identical(other.email, email) || other.email == email) &&
@@ -564,13 +632,17 @@ class _$_UserProfile implements _UserProfile {
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
             (identical(other.updatedAt, updatedAt) ||
-                other.updatedAt == updatedAt));
+                other.updatedAt == updatedAt) &&
+            (identical(other.picture, picture) || other.picture == picture) &&
+            (identical(other.profession, profession) ||
+                other.profession == profession) &&
+            (identical(other.dob, dob) || other.dob == dob));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, username, email, name, createdAt, updatedAt);
+  int get hashCode => Object.hash(runtimeType, id, institution, username, email,
+      name, createdAt, updatedAt, picture, profession, dob);
 
   @JsonKey(ignore: true)
   @override
@@ -589,11 +661,15 @@ class _$_UserProfile implements _UserProfile {
 abstract class _UserProfile implements UserProfile {
   const factory _UserProfile(
       {@JsonKey(name: "_id") required final String? id,
+      required final String? institution,
       required final String? username,
       required final String? email,
       required final String? name,
       required final String? createdAt,
-      required final String? updatedAt}) = _$_UserProfile;
+      required final String? updatedAt,
+      required final String? picture,
+      required final String? profession,
+      @JsonKey(name: "DOB") required final String? dob}) = _$_UserProfile;
 
   factory _UserProfile.fromJson(Map<String, dynamic> json) =
       _$_UserProfile.fromJson;
@@ -601,6 +677,8 @@ abstract class _UserProfile implements UserProfile {
   @override
   @JsonKey(name: "_id")
   String? get id;
+  @override
+  String? get institution;
   @override
   String? get username;
   @override
@@ -611,6 +689,13 @@ abstract class _UserProfile implements UserProfile {
   String? get createdAt;
   @override
   String? get updatedAt;
+  @override
+  String? get picture;
+  @override
+  String? get profession;
+  @override
+  @JsonKey(name: "DOB")
+  String? get dob;
   @override
   @JsonKey(ignore: true)
   _$$_UserProfileCopyWith<_$_UserProfile> get copyWith =>

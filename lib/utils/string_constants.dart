@@ -71,6 +71,7 @@ class Appstrings {
 //Quran
   static const String myFavorite = "My Favourites";
   //shop
+
   static const String shop = "Shop";
   static const String brand = "Brands";
   static const String thousandBrands = "1000+ Brands";
@@ -179,6 +180,7 @@ class Appstrings {
   static const String giftSubTitle = "Customized gift wrapping for \$20";
   static const String sunnah = "Sunnah";
   static const String hadith = "Hadith";
+  static const String noProductsFound = "No products found!";
 
   //hadith
   static const String bookmarks = "Bookmarks";

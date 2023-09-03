@@ -2,9 +2,10 @@ part of 'shop_products_bloc.dart';
 
 @freezed
 class ShopProductsEvent with _$ShopProductsEvent {
-  const factory ShopProductsEvent.fetchFlashSaleProducts() =
-      FetchFlashSaleProducts;
-  const factory ShopProductsEvent.fetchPopularProducts() = FetchPopularProducts;
+  const factory ShopProductsEvent.fetchFlashSaleProducts(
+      {required String endPointSlug}) = FetchFlashSaleProducts;
+  const factory ShopProductsEvent.fetchPopularProducts(
+      {required String endPointSlug}) = FetchPopularProducts;
   const factory ShopProductsEvent.fetchRecentProductProducts() =
       FetchRecentProductProducts;
   const factory ShopProductsEvent.fetchHomeBanners() = FetchHomeBanners;

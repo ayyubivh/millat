@@ -48,3 +48,9 @@ enum VersesScroll {
   scroll,
   notScroll,
 }
+
+enum CategoryItemType {
+  womens,
+  sunnah,
+  health,
+}

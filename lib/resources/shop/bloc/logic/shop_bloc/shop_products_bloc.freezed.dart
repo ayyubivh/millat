@@ -18,8 +18,8 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$ShopProductsEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() fetchFlashSaleProducts,
-    required TResult Function() fetchPopularProducts,
+    required TResult Function(String endPointSlug) fetchFlashSaleProducts,
+    required TResult Function(String endPointSlug) fetchPopularProducts,
     required TResult Function() fetchRecentProductProducts,
     required TResult Function() fetchHomeBanners,
     required TResult Function() fetchShopBanners,
@@ -67,8 +67,8 @@ mixin _$ShopProductsEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? fetchFlashSaleProducts,
-    TResult? Function()? fetchPopularProducts,
+    TResult? Function(String endPointSlug)? fetchFlashSaleProducts,
+    TResult? Function(String endPointSlug)? fetchPopularProducts,
     TResult? Function()? fetchRecentProductProducts,
     TResult? Function()? fetchHomeBanners,
     TResult? Function()? fetchShopBanners,
@@ -114,8 +114,8 @@ mixin _$ShopProductsEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? fetchFlashSaleProducts,
-    TResult Function()? fetchPopularProducts,
+    TResult Function(String endPointSlug)? fetchFlashSaleProducts,
+    TResult Function(String endPointSlug)? fetchPopularProducts,
     TResult Function()? fetchRecentProductProducts,
     TResult Function()? fetchHomeBanners,
     TResult Function()? fetchShopBanners,
@@ -328,6 +328,8 @@ abstract class _$$FetchFlashSaleProductsCopyWith<$Res> {
   factory _$$FetchFlashSaleProductsCopyWith(_$FetchFlashSaleProducts value,
           $Res Function(_$FetchFlashSaleProducts) then) =
       __$$FetchFlashSaleProductsCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String endPointSlug});
 }
 
 /// @nodoc
@@ -337,32 +339,58 @@ class __$$FetchFlashSaleProductsCopyWithImpl<$Res>
   __$$FetchFlashSaleProductsCopyWithImpl(_$FetchFlashSaleProducts _value,
       $Res Function(_$FetchFlashSaleProducts) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? endPointSlug = null,
+  }) {
+    return _then(_$FetchFlashSaleProducts(
+      endPointSlug: null == endPointSlug
+          ? _value.endPointSlug
+          : endPointSlug // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$FetchFlashSaleProducts implements FetchFlashSaleProducts {
-  const _$FetchFlashSaleProducts();
+  const _$FetchFlashSaleProducts({required this.endPointSlug});
+
+  @override
+  final String endPointSlug;
 
   @override
   String toString() {
-    return 'ShopProductsEvent.fetchFlashSaleProducts()';
+    return 'ShopProductsEvent.fetchFlashSaleProducts(endPointSlug: $endPointSlug)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$FetchFlashSaleProducts);
+        (other.runtimeType == runtimeType &&
+            other is _$FetchFlashSaleProducts &&
+            (identical(other.endPointSlug, endPointSlug) ||
+                other.endPointSlug == endPointSlug));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, endPointSlug);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$FetchFlashSaleProductsCopyWith<_$FetchFlashSaleProducts> get copyWith =>
+      __$$FetchFlashSaleProductsCopyWithImpl<_$FetchFlashSaleProducts>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() fetchFlashSaleProducts,
-    required TResult Function() fetchPopularProducts,
+    required TResult Function(String endPointSlug) fetchFlashSaleProducts,
+    required TResult Function(String endPointSlug) fetchPopularProducts,
     required TResult Function() fetchRecentProductProducts,
     required TResult Function() fetchHomeBanners,
     required TResult Function() fetchShopBanners,
@@ -407,14 +435,14 @@ class _$FetchFlashSaleProducts implements FetchFlashSaleProducts {
     required TResult Function(int index) indexChangeOnWomensCareBanner,
     required TResult Function(String id) fetchShopAdBrandsById,
   }) {
-    return fetchFlashSaleProducts();
+    return fetchFlashSaleProducts(endPointSlug);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? fetchFlashSaleProducts,
-    TResult? Function()? fetchPopularProducts,
+    TResult? Function(String endPointSlug)? fetchFlashSaleProducts,
+    TResult? Function(String endPointSlug)? fetchPopularProducts,
     TResult? Function()? fetchRecentProductProducts,
     TResult? Function()? fetchHomeBanners,
     TResult? Function()? fetchShopBanners,
@@ -457,14 +485,14 @@ class _$FetchFlashSaleProducts implements FetchFlashSaleProducts {
     TResult? Function(int index)? indexChangeOnWomensCareBanner,
     TResult? Function(String id)? fetchShopAdBrandsById,
   }) {
-    return fetchFlashSaleProducts?.call();
+    return fetchFlashSaleProducts?.call(endPointSlug);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? fetchFlashSaleProducts,
-    TResult Function()? fetchPopularProducts,
+    TResult Function(String endPointSlug)? fetchFlashSaleProducts,
+    TResult Function(String endPointSlug)? fetchPopularProducts,
     TResult Function()? fetchRecentProductProducts,
     TResult Function()? fetchHomeBanners,
     TResult Function()? fetchShopBanners,
@@ -509,7 +537,7 @@ class _$FetchFlashSaleProducts implements FetchFlashSaleProducts {
     required TResult orElse(),
   }) {
     if (fetchFlashSaleProducts != null) {
-      return fetchFlashSaleProducts();
+      return fetchFlashSaleProducts(endPointSlug);
     }
     return orElse();
   }
@@ -671,7 +699,13 @@ class _$FetchFlashSaleProducts implements FetchFlashSaleProducts {
 }
 
 abstract class FetchFlashSaleProducts implements ShopProductsEvent {
-  const factory FetchFlashSaleProducts() = _$FetchFlashSaleProducts;
+  const factory FetchFlashSaleProducts({required final String endPointSlug}) =
+      _$FetchFlashSaleProducts;
+
+  String get endPointSlug;
+  @JsonKey(ignore: true)
+  _$$FetchFlashSaleProductsCopyWith<_$FetchFlashSaleProducts> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -679,6 +713,8 @@ abstract class _$$FetchPopularProductsCopyWith<$Res> {
   factory _$$FetchPopularProductsCopyWith(_$FetchPopularProducts value,
           $Res Function(_$FetchPopularProducts) then) =
       __$$FetchPopularProductsCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String endPointSlug});
 }
 
 /// @nodoc
@@ -688,32 +724,58 @@ class __$$FetchPopularProductsCopyWithImpl<$Res>
   __$$FetchPopularProductsCopyWithImpl(_$FetchPopularProducts _value,
       $Res Function(_$FetchPopularProducts) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? endPointSlug = null,
+  }) {
+    return _then(_$FetchPopularProducts(
+      endPointSlug: null == endPointSlug
+          ? _value.endPointSlug
+          : endPointSlug // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$FetchPopularProducts implements FetchPopularProducts {
-  const _$FetchPopularProducts();
+  const _$FetchPopularProducts({required this.endPointSlug});
+
+  @override
+  final String endPointSlug;
 
   @override
   String toString() {
-    return 'ShopProductsEvent.fetchPopularProducts()';
+    return 'ShopProductsEvent.fetchPopularProducts(endPointSlug: $endPointSlug)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$FetchPopularProducts);
+        (other.runtimeType == runtimeType &&
+            other is _$FetchPopularProducts &&
+            (identical(other.endPointSlug, endPointSlug) ||
+                other.endPointSlug == endPointSlug));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, endPointSlug);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$FetchPopularProductsCopyWith<_$FetchPopularProducts> get copyWith =>
+      __$$FetchPopularProductsCopyWithImpl<_$FetchPopularProducts>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() fetchFlashSaleProducts,
-    required TResult Function() fetchPopularProducts,
+    required TResult Function(String endPointSlug) fetchFlashSaleProducts,
+    required TResult Function(String endPointSlug) fetchPopularProducts,
     required TResult Function() fetchRecentProductProducts,
     required TResult Function() fetchHomeBanners,
     required TResult Function() fetchShopBanners,
@@ -758,14 +820,14 @@ class _$FetchPopularProducts implements FetchPopularProducts {
     required TResult Function(int index) indexChangeOnWomensCareBanner,
     required TResult Function(String id) fetchShopAdBrandsById,
   }) {
-    return fetchPopularProducts();
+    return fetchPopularProducts(endPointSlug);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? fetchFlashSaleProducts,
-    TResult? Function()? fetchPopularProducts,
+    TResult? Function(String endPointSlug)? fetchFlashSaleProducts,
+    TResult? Function(String endPointSlug)? fetchPopularProducts,
     TResult? Function()? fetchRecentProductProducts,
     TResult? Function()? fetchHomeBanners,
     TResult? Function()? fetchShopBanners,
@@ -808,14 +870,14 @@ class _$FetchPopularProducts implements FetchPopularProducts {
     TResult? Function(int index)? indexChangeOnWomensCareBanner,
     TResult? Function(String id)? fetchShopAdBrandsById,
   }) {
-    return fetchPopularProducts?.call();
+    return fetchPopularProducts?.call(endPointSlug);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? fetchFlashSaleProducts,
-    TResult Function()? fetchPopularProducts,
+    TResult Function(String endPointSlug)? fetchFlashSaleProducts,
+    TResult Function(String endPointSlug)? fetchPopularProducts,
     TResult Function()? fetchRecentProductProducts,
     TResult Function()? fetchHomeBanners,
     TResult Function()? fetchShopBanners,
@@ -860,7 +922,7 @@ class _$FetchPopularProducts implements FetchPopularProducts {
     required TResult orElse(),
   }) {
     if (fetchPopularProducts != null) {
-      return fetchPopularProducts();
+      return fetchPopularProducts(endPointSlug);
     }
     return orElse();
   }
@@ -1022,7 +1084,13 @@ class _$FetchPopularProducts implements FetchPopularProducts {
 }
 
 abstract class FetchPopularProducts implements ShopProductsEvent {
-  const factory FetchPopularProducts() = _$FetchPopularProducts;
+  const factory FetchPopularProducts({required final String endPointSlug}) =
+      _$FetchPopularProducts;
+
+  String get endPointSlug;
+  @JsonKey(ignore: true)
+  _$$FetchPopularProductsCopyWith<_$FetchPopularProducts> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1066,8 +1134,8 @@ class _$FetchRecentProductProducts implements FetchRecentProductProducts {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() fetchFlashSaleProducts,
-    required TResult Function() fetchPopularProducts,
+    required TResult Function(String endPointSlug) fetchFlashSaleProducts,
+    required TResult Function(String endPointSlug) fetchPopularProducts,
     required TResult Function() fetchRecentProductProducts,
     required TResult Function() fetchHomeBanners,
     required TResult Function() fetchShopBanners,
@@ -1118,8 +1186,8 @@ class _$FetchRecentProductProducts implements FetchRecentProductProducts {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? fetchFlashSaleProducts,
-    TResult? Function()? fetchPopularProducts,
+    TResult? Function(String endPointSlug)? fetchFlashSaleProducts,
+    TResult? Function(String endPointSlug)? fetchPopularProducts,
     TResult? Function()? fetchRecentProductProducts,
     TResult? Function()? fetchHomeBanners,
     TResult? Function()? fetchShopBanners,
@@ -1168,8 +1236,8 @@ class _$FetchRecentProductProducts implements FetchRecentProductProducts {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? fetchFlashSaleProducts,
-    TResult Function()? fetchPopularProducts,
+    TResult Function(String endPointSlug)? fetchFlashSaleProducts,
+    TResult Function(String endPointSlug)? fetchPopularProducts,
     TResult Function()? fetchRecentProductProducts,
     TResult Function()? fetchHomeBanners,
     TResult Function()? fetchShopBanners,
@@ -1417,8 +1485,8 @@ class _$FetchHomeBanners implements FetchHomeBanners {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() fetchFlashSaleProducts,
-    required TResult Function() fetchPopularProducts,
+    required TResult Function(String endPointSlug) fetchFlashSaleProducts,
+    required TResult Function(String endPointSlug) fetchPopularProducts,
     required TResult Function() fetchRecentProductProducts,
     required TResult Function() fetchHomeBanners,
     required TResult Function() fetchShopBanners,
@@ -1469,8 +1537,8 @@ class _$FetchHomeBanners implements FetchHomeBanners {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? fetchFlashSaleProducts,
-    TResult? Function()? fetchPopularProducts,
+    TResult? Function(String endPointSlug)? fetchFlashSaleProducts,
+    TResult? Function(String endPointSlug)? fetchPopularProducts,
     TResult? Function()? fetchRecentProductProducts,
     TResult? Function()? fetchHomeBanners,
     TResult? Function()? fetchShopBanners,
@@ -1519,8 +1587,8 @@ class _$FetchHomeBanners implements FetchHomeBanners {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? fetchFlashSaleProducts,
-    TResult Function()? fetchPopularProducts,
+    TResult Function(String endPointSlug)? fetchFlashSaleProducts,
+    TResult Function(String endPointSlug)? fetchPopularProducts,
     TResult Function()? fetchRecentProductProducts,
     TResult Function()? fetchHomeBanners,
     TResult Function()? fetchShopBanners,
@@ -1768,8 +1836,8 @@ class _$FetchShopBanners implements FetchShopBanners {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() fetchFlashSaleProducts,
-    required TResult Function() fetchPopularProducts,
+    required TResult Function(String endPointSlug) fetchFlashSaleProducts,
+    required TResult Function(String endPointSlug) fetchPopularProducts,
     required TResult Function() fetchRecentProductProducts,
     required TResult Function() fetchHomeBanners,
     required TResult Function() fetchShopBanners,
@@ -1820,8 +1888,8 @@ class _$FetchShopBanners implements FetchShopBanners {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? fetchFlashSaleProducts,
-    TResult? Function()? fetchPopularProducts,
+    TResult? Function(String endPointSlug)? fetchFlashSaleProducts,
+    TResult? Function(String endPointSlug)? fetchPopularProducts,
     TResult? Function()? fetchRecentProductProducts,
     TResult? Function()? fetchHomeBanners,
     TResult? Function()? fetchShopBanners,
@@ -1870,8 +1938,8 @@ class _$FetchShopBanners implements FetchShopBanners {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? fetchFlashSaleProducts,
-    TResult Function()? fetchPopularProducts,
+    TResult Function(String endPointSlug)? fetchFlashSaleProducts,
+    TResult Function(String endPointSlug)? fetchPopularProducts,
     TResult Function()? fetchRecentProductProducts,
     TResult Function()? fetchHomeBanners,
     TResult Function()? fetchShopBanners,
@@ -2119,8 +2187,8 @@ class _$FetchArticles implements FetchArticles {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() fetchFlashSaleProducts,
-    required TResult Function() fetchPopularProducts,
+    required TResult Function(String endPointSlug) fetchFlashSaleProducts,
+    required TResult Function(String endPointSlug) fetchPopularProducts,
     required TResult Function() fetchRecentProductProducts,
     required TResult Function() fetchHomeBanners,
     required TResult Function() fetchShopBanners,
@@ -2171,8 +2239,8 @@ class _$FetchArticles implements FetchArticles {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? fetchFlashSaleProducts,
-    TResult? Function()? fetchPopularProducts,
+    TResult? Function(String endPointSlug)? fetchFlashSaleProducts,
+    TResult? Function(String endPointSlug)? fetchPopularProducts,
     TResult? Function()? fetchRecentProductProducts,
     TResult? Function()? fetchHomeBanners,
     TResult? Function()? fetchShopBanners,
@@ -2221,8 +2289,8 @@ class _$FetchArticles implements FetchArticles {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? fetchFlashSaleProducts,
-    TResult Function()? fetchPopularProducts,
+    TResult Function(String endPointSlug)? fetchFlashSaleProducts,
+    TResult Function(String endPointSlug)? fetchPopularProducts,
     TResult Function()? fetchRecentProductProducts,
     TResult Function()? fetchHomeBanners,
     TResult Function()? fetchShopBanners,
@@ -2470,8 +2538,8 @@ class _$FetchShopByBrand implements FetchShopByBrand {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() fetchFlashSaleProducts,
-    required TResult Function() fetchPopularProducts,
+    required TResult Function(String endPointSlug) fetchFlashSaleProducts,
+    required TResult Function(String endPointSlug) fetchPopularProducts,
     required TResult Function() fetchRecentProductProducts,
     required TResult Function() fetchHomeBanners,
     required TResult Function() fetchShopBanners,
@@ -2522,8 +2590,8 @@ class _$FetchShopByBrand implements FetchShopByBrand {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? fetchFlashSaleProducts,
-    TResult? Function()? fetchPopularProducts,
+    TResult? Function(String endPointSlug)? fetchFlashSaleProducts,
+    TResult? Function(String endPointSlug)? fetchPopularProducts,
     TResult? Function()? fetchRecentProductProducts,
     TResult? Function()? fetchHomeBanners,
     TResult? Function()? fetchShopBanners,
@@ -2572,8 +2640,8 @@ class _$FetchShopByBrand implements FetchShopByBrand {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? fetchFlashSaleProducts,
-    TResult Function()? fetchPopularProducts,
+    TResult Function(String endPointSlug)? fetchFlashSaleProducts,
+    TResult Function(String endPointSlug)? fetchPopularProducts,
     TResult Function()? fetchRecentProductProducts,
     TResult Function()? fetchHomeBanners,
     TResult Function()? fetchShopBanners,
@@ -2847,8 +2915,8 @@ class _$FetchWishList implements FetchWishList {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() fetchFlashSaleProducts,
-    required TResult Function() fetchPopularProducts,
+    required TResult Function(String endPointSlug) fetchFlashSaleProducts,
+    required TResult Function(String endPointSlug) fetchPopularProducts,
     required TResult Function() fetchRecentProductProducts,
     required TResult Function() fetchHomeBanners,
     required TResult Function() fetchShopBanners,
@@ -2899,8 +2967,8 @@ class _$FetchWishList implements FetchWishList {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? fetchFlashSaleProducts,
-    TResult? Function()? fetchPopularProducts,
+    TResult? Function(String endPointSlug)? fetchFlashSaleProducts,
+    TResult? Function(String endPointSlug)? fetchPopularProducts,
     TResult? Function()? fetchRecentProductProducts,
     TResult? Function()? fetchHomeBanners,
     TResult? Function()? fetchShopBanners,
@@ -2949,8 +3017,8 @@ class _$FetchWishList implements FetchWishList {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? fetchFlashSaleProducts,
-    TResult Function()? fetchPopularProducts,
+    TResult Function(String endPointSlug)? fetchFlashSaleProducts,
+    TResult Function(String endPointSlug)? fetchPopularProducts,
     TResult Function()? fetchRecentProductProducts,
     TResult Function()? fetchHomeBanners,
     TResult Function()? fetchShopBanners,
@@ -3229,8 +3297,8 @@ class _$SearchProduct implements SearchProduct {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() fetchFlashSaleProducts,
-    required TResult Function() fetchPopularProducts,
+    required TResult Function(String endPointSlug) fetchFlashSaleProducts,
+    required TResult Function(String endPointSlug) fetchPopularProducts,
     required TResult Function() fetchRecentProductProducts,
     required TResult Function() fetchHomeBanners,
     required TResult Function() fetchShopBanners,
@@ -3281,8 +3349,8 @@ class _$SearchProduct implements SearchProduct {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? fetchFlashSaleProducts,
-    TResult? Function()? fetchPopularProducts,
+    TResult? Function(String endPointSlug)? fetchFlashSaleProducts,
+    TResult? Function(String endPointSlug)? fetchPopularProducts,
     TResult? Function()? fetchRecentProductProducts,
     TResult? Function()? fetchHomeBanners,
     TResult? Function()? fetchShopBanners,
@@ -3331,8 +3399,8 @@ class _$SearchProduct implements SearchProduct {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? fetchFlashSaleProducts,
-    TResult Function()? fetchPopularProducts,
+    TResult Function(String endPointSlug)? fetchFlashSaleProducts,
+    TResult Function(String endPointSlug)? fetchPopularProducts,
     TResult Function()? fetchRecentProductProducts,
     TResult Function()? fetchHomeBanners,
     TResult Function()? fetchShopBanners,
@@ -3620,8 +3688,8 @@ class _$AddWishListEvent implements AddWishListEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() fetchFlashSaleProducts,
-    required TResult Function() fetchPopularProducts,
+    required TResult Function(String endPointSlug) fetchFlashSaleProducts,
+    required TResult Function(String endPointSlug) fetchPopularProducts,
     required TResult Function() fetchRecentProductProducts,
     required TResult Function() fetchHomeBanners,
     required TResult Function() fetchShopBanners,
@@ -3672,8 +3740,8 @@ class _$AddWishListEvent implements AddWishListEvent {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? fetchFlashSaleProducts,
-    TResult? Function()? fetchPopularProducts,
+    TResult? Function(String endPointSlug)? fetchFlashSaleProducts,
+    TResult? Function(String endPointSlug)? fetchPopularProducts,
     TResult? Function()? fetchRecentProductProducts,
     TResult? Function()? fetchHomeBanners,
     TResult? Function()? fetchShopBanners,
@@ -3722,8 +3790,8 @@ class _$AddWishListEvent implements AddWishListEvent {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? fetchFlashSaleProducts,
-    TResult Function()? fetchPopularProducts,
+    TResult Function(String endPointSlug)? fetchFlashSaleProducts,
+    TResult Function(String endPointSlug)? fetchPopularProducts,
     TResult Function()? fetchRecentProductProducts,
     TResult Function()? fetchHomeBanners,
     TResult Function()? fetchShopBanners,
@@ -4015,8 +4083,8 @@ class _$RemoveWishlistEvent implements RemoveWishlistEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() fetchFlashSaleProducts,
-    required TResult Function() fetchPopularProducts,
+    required TResult Function(String endPointSlug) fetchFlashSaleProducts,
+    required TResult Function(String endPointSlug) fetchPopularProducts,
     required TResult Function() fetchRecentProductProducts,
     required TResult Function() fetchHomeBanners,
     required TResult Function() fetchShopBanners,
@@ -4067,8 +4135,8 @@ class _$RemoveWishlistEvent implements RemoveWishlistEvent {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? fetchFlashSaleProducts,
-    TResult? Function()? fetchPopularProducts,
+    TResult? Function(String endPointSlug)? fetchFlashSaleProducts,
+    TResult? Function(String endPointSlug)? fetchPopularProducts,
     TResult? Function()? fetchRecentProductProducts,
     TResult? Function()? fetchHomeBanners,
     TResult? Function()? fetchShopBanners,
@@ -4117,8 +4185,8 @@ class _$RemoveWishlistEvent implements RemoveWishlistEvent {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? fetchFlashSaleProducts,
-    TResult Function()? fetchPopularProducts,
+    TResult Function(String endPointSlug)? fetchFlashSaleProducts,
+    TResult Function(String endPointSlug)? fetchPopularProducts,
     TResult Function()? fetchRecentProductProducts,
     TResult Function()? fetchHomeBanners,
     TResult Function()? fetchShopBanners,
@@ -4403,8 +4471,8 @@ class _$FetchShopByBrandProducts implements FetchShopByBrandProducts {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() fetchFlashSaleProducts,
-    required TResult Function() fetchPopularProducts,
+    required TResult Function(String endPointSlug) fetchFlashSaleProducts,
+    required TResult Function(String endPointSlug) fetchPopularProducts,
     required TResult Function() fetchRecentProductProducts,
     required TResult Function() fetchHomeBanners,
     required TResult Function() fetchShopBanners,
@@ -4455,8 +4523,8 @@ class _$FetchShopByBrandProducts implements FetchShopByBrandProducts {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? fetchFlashSaleProducts,
-    TResult? Function()? fetchPopularProducts,
+    TResult? Function(String endPointSlug)? fetchFlashSaleProducts,
+    TResult? Function(String endPointSlug)? fetchPopularProducts,
     TResult? Function()? fetchRecentProductProducts,
     TResult? Function()? fetchHomeBanners,
     TResult? Function()? fetchShopBanners,
@@ -4505,8 +4573,8 @@ class _$FetchShopByBrandProducts implements FetchShopByBrandProducts {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? fetchFlashSaleProducts,
-    TResult Function()? fetchPopularProducts,
+    TResult Function(String endPointSlug)? fetchFlashSaleProducts,
+    TResult Function(String endPointSlug)? fetchPopularProducts,
     TResult Function()? fetchRecentProductProducts,
     TResult Function()? fetchHomeBanners,
     TResult Function()? fetchShopBanners,
@@ -4787,8 +4855,8 @@ class _$TabIndexChangeEvent implements TabIndexChangeEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() fetchFlashSaleProducts,
-    required TResult Function() fetchPopularProducts,
+    required TResult Function(String endPointSlug) fetchFlashSaleProducts,
+    required TResult Function(String endPointSlug) fetchPopularProducts,
     required TResult Function() fetchRecentProductProducts,
     required TResult Function() fetchHomeBanners,
     required TResult Function() fetchShopBanners,
@@ -4839,8 +4907,8 @@ class _$TabIndexChangeEvent implements TabIndexChangeEvent {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? fetchFlashSaleProducts,
-    TResult? Function()? fetchPopularProducts,
+    TResult? Function(String endPointSlug)? fetchFlashSaleProducts,
+    TResult? Function(String endPointSlug)? fetchPopularProducts,
     TResult? Function()? fetchRecentProductProducts,
     TResult? Function()? fetchHomeBanners,
     TResult? Function()? fetchShopBanners,
@@ -4889,8 +4957,8 @@ class _$TabIndexChangeEvent implements TabIndexChangeEvent {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? fetchFlashSaleProducts,
-    TResult Function()? fetchPopularProducts,
+    TResult Function(String endPointSlug)? fetchFlashSaleProducts,
+    TResult Function(String endPointSlug)? fetchPopularProducts,
     TResult Function()? fetchRecentProductProducts,
     TResult Function()? fetchHomeBanners,
     TResult Function()? fetchShopBanners,
@@ -5248,8 +5316,8 @@ class _$PostOrders implements PostOrders {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() fetchFlashSaleProducts,
-    required TResult Function() fetchPopularProducts,
+    required TResult Function(String endPointSlug) fetchFlashSaleProducts,
+    required TResult Function(String endPointSlug) fetchPopularProducts,
     required TResult Function() fetchRecentProductProducts,
     required TResult Function() fetchHomeBanners,
     required TResult Function() fetchShopBanners,
@@ -5301,8 +5369,8 @@ class _$PostOrders implements PostOrders {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? fetchFlashSaleProducts,
-    TResult? Function()? fetchPopularProducts,
+    TResult? Function(String endPointSlug)? fetchFlashSaleProducts,
+    TResult? Function(String endPointSlug)? fetchPopularProducts,
     TResult? Function()? fetchRecentProductProducts,
     TResult? Function()? fetchHomeBanners,
     TResult? Function()? fetchShopBanners,
@@ -5352,8 +5420,8 @@ class _$PostOrders implements PostOrders {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? fetchFlashSaleProducts,
-    TResult Function()? fetchPopularProducts,
+    TResult Function(String endPointSlug)? fetchFlashSaleProducts,
+    TResult Function(String endPointSlug)? fetchPopularProducts,
     TResult Function()? fetchRecentProductProducts,
     TResult Function()? fetchHomeBanners,
     TResult Function()? fetchShopBanners,
@@ -5648,8 +5716,8 @@ class _$FetchOrders implements FetchOrders {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() fetchFlashSaleProducts,
-    required TResult Function() fetchPopularProducts,
+    required TResult Function(String endPointSlug) fetchFlashSaleProducts,
+    required TResult Function(String endPointSlug) fetchPopularProducts,
     required TResult Function() fetchRecentProductProducts,
     required TResult Function() fetchHomeBanners,
     required TResult Function() fetchShopBanners,
@@ -5700,8 +5768,8 @@ class _$FetchOrders implements FetchOrders {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? fetchFlashSaleProducts,
-    TResult? Function()? fetchPopularProducts,
+    TResult? Function(String endPointSlug)? fetchFlashSaleProducts,
+    TResult? Function(String endPointSlug)? fetchPopularProducts,
     TResult? Function()? fetchRecentProductProducts,
     TResult? Function()? fetchHomeBanners,
     TResult? Function()? fetchShopBanners,
@@ -5750,8 +5818,8 @@ class _$FetchOrders implements FetchOrders {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? fetchFlashSaleProducts,
-    TResult Function()? fetchPopularProducts,
+    TResult Function(String endPointSlug)? fetchFlashSaleProducts,
+    TResult Function(String endPointSlug)? fetchPopularProducts,
     TResult Function()? fetchRecentProductProducts,
     TResult Function()? fetchHomeBanners,
     TResult Function()? fetchShopBanners,
@@ -6038,8 +6106,8 @@ class _$FetchOrdersById implements FetchOrdersById {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() fetchFlashSaleProducts,
-    required TResult Function() fetchPopularProducts,
+    required TResult Function(String endPointSlug) fetchFlashSaleProducts,
+    required TResult Function(String endPointSlug) fetchPopularProducts,
     required TResult Function() fetchRecentProductProducts,
     required TResult Function() fetchHomeBanners,
     required TResult Function() fetchShopBanners,
@@ -6090,8 +6158,8 @@ class _$FetchOrdersById implements FetchOrdersById {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? fetchFlashSaleProducts,
-    TResult? Function()? fetchPopularProducts,
+    TResult? Function(String endPointSlug)? fetchFlashSaleProducts,
+    TResult? Function(String endPointSlug)? fetchPopularProducts,
     TResult? Function()? fetchRecentProductProducts,
     TResult? Function()? fetchHomeBanners,
     TResult? Function()? fetchShopBanners,
@@ -6140,8 +6208,8 @@ class _$FetchOrdersById implements FetchOrdersById {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? fetchFlashSaleProducts,
-    TResult Function()? fetchPopularProducts,
+    TResult Function(String endPointSlug)? fetchFlashSaleProducts,
+    TResult Function(String endPointSlug)? fetchPopularProducts,
     TResult Function()? fetchRecentProductProducts,
     TResult Function()? fetchHomeBanners,
     TResult Function()? fetchShopBanners,
@@ -6434,8 +6502,8 @@ class _$FetchOrdersbyFilterEvent implements FetchOrdersbyFilterEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() fetchFlashSaleProducts,
-    required TResult Function() fetchPopularProducts,
+    required TResult Function(String endPointSlug) fetchFlashSaleProducts,
+    required TResult Function(String endPointSlug) fetchPopularProducts,
     required TResult Function() fetchRecentProductProducts,
     required TResult Function() fetchHomeBanners,
     required TResult Function() fetchShopBanners,
@@ -6486,8 +6554,8 @@ class _$FetchOrdersbyFilterEvent implements FetchOrdersbyFilterEvent {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? fetchFlashSaleProducts,
-    TResult? Function()? fetchPopularProducts,
+    TResult? Function(String endPointSlug)? fetchFlashSaleProducts,
+    TResult? Function(String endPointSlug)? fetchPopularProducts,
     TResult? Function()? fetchRecentProductProducts,
     TResult? Function()? fetchHomeBanners,
     TResult? Function()? fetchShopBanners,
@@ -6536,8 +6604,8 @@ class _$FetchOrdersbyFilterEvent implements FetchOrdersbyFilterEvent {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? fetchFlashSaleProducts,
-    TResult Function()? fetchPopularProducts,
+    TResult Function(String endPointSlug)? fetchFlashSaleProducts,
+    TResult Function(String endPointSlug)? fetchPopularProducts,
     TResult Function()? fetchRecentProductProducts,
     TResult Function()? fetchHomeBanners,
     TResult Function()? fetchShopBanners,
@@ -6828,8 +6896,8 @@ class _$CancelOrder implements CancelOrder {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() fetchFlashSaleProducts,
-    required TResult Function() fetchPopularProducts,
+    required TResult Function(String endPointSlug) fetchFlashSaleProducts,
+    required TResult Function(String endPointSlug) fetchPopularProducts,
     required TResult Function() fetchRecentProductProducts,
     required TResult Function() fetchHomeBanners,
     required TResult Function() fetchShopBanners,
@@ -6880,8 +6948,8 @@ class _$CancelOrder implements CancelOrder {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? fetchFlashSaleProducts,
-    TResult? Function()? fetchPopularProducts,
+    TResult? Function(String endPointSlug)? fetchFlashSaleProducts,
+    TResult? Function(String endPointSlug)? fetchPopularProducts,
     TResult? Function()? fetchRecentProductProducts,
     TResult? Function()? fetchHomeBanners,
     TResult? Function()? fetchShopBanners,
@@ -6930,8 +6998,8 @@ class _$CancelOrder implements CancelOrder {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? fetchFlashSaleProducts,
-    TResult Function()? fetchPopularProducts,
+    TResult Function(String endPointSlug)? fetchFlashSaleProducts,
+    TResult Function(String endPointSlug)? fetchPopularProducts,
     TResult Function()? fetchRecentProductProducts,
     TResult Function()? fetchHomeBanners,
     TResult Function()? fetchShopBanners,
@@ -7190,8 +7258,8 @@ class _$FetchShopHomeBackgroundCard implements FetchShopHomeBackgroundCard {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() fetchFlashSaleProducts,
-    required TResult Function() fetchPopularProducts,
+    required TResult Function(String endPointSlug) fetchFlashSaleProducts,
+    required TResult Function(String endPointSlug) fetchPopularProducts,
     required TResult Function() fetchRecentProductProducts,
     required TResult Function() fetchHomeBanners,
     required TResult Function() fetchShopBanners,
@@ -7242,8 +7310,8 @@ class _$FetchShopHomeBackgroundCard implements FetchShopHomeBackgroundCard {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? fetchFlashSaleProducts,
-    TResult? Function()? fetchPopularProducts,
+    TResult? Function(String endPointSlug)? fetchFlashSaleProducts,
+    TResult? Function(String endPointSlug)? fetchPopularProducts,
     TResult? Function()? fetchRecentProductProducts,
     TResult? Function()? fetchHomeBanners,
     TResult? Function()? fetchShopBanners,
@@ -7292,8 +7360,8 @@ class _$FetchShopHomeBackgroundCard implements FetchShopHomeBackgroundCard {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? fetchFlashSaleProducts,
-    TResult Function()? fetchPopularProducts,
+    TResult Function(String endPointSlug)? fetchFlashSaleProducts,
+    TResult Function(String endPointSlug)? fetchPopularProducts,
     TResult Function()? fetchRecentProductProducts,
     TResult Function()? fetchHomeBanners,
     TResult Function()? fetchShopBanners,
@@ -7546,8 +7614,8 @@ class _$FetchShopHomeBackgroundCardHelthyDiet
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() fetchFlashSaleProducts,
-    required TResult Function() fetchPopularProducts,
+    required TResult Function(String endPointSlug) fetchFlashSaleProducts,
+    required TResult Function(String endPointSlug) fetchPopularProducts,
     required TResult Function() fetchRecentProductProducts,
     required TResult Function() fetchHomeBanners,
     required TResult Function() fetchShopBanners,
@@ -7598,8 +7666,8 @@ class _$FetchShopHomeBackgroundCardHelthyDiet
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? fetchFlashSaleProducts,
-    TResult? Function()? fetchPopularProducts,
+    TResult? Function(String endPointSlug)? fetchFlashSaleProducts,
+    TResult? Function(String endPointSlug)? fetchPopularProducts,
     TResult? Function()? fetchRecentProductProducts,
     TResult? Function()? fetchHomeBanners,
     TResult? Function()? fetchShopBanners,
@@ -7648,8 +7716,8 @@ class _$FetchShopHomeBackgroundCardHelthyDiet
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? fetchFlashSaleProducts,
-    TResult Function()? fetchPopularProducts,
+    TResult Function(String endPointSlug)? fetchFlashSaleProducts,
+    TResult Function(String endPointSlug)? fetchPopularProducts,
     TResult Function()? fetchRecentProductProducts,
     TResult Function()? fetchHomeBanners,
     TResult Function()? fetchShopBanners,
@@ -7904,8 +7972,8 @@ class _$FetchShopHomeBackgroundCardSunnah
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() fetchFlashSaleProducts,
-    required TResult Function() fetchPopularProducts,
+    required TResult Function(String endPointSlug) fetchFlashSaleProducts,
+    required TResult Function(String endPointSlug) fetchPopularProducts,
     required TResult Function() fetchRecentProductProducts,
     required TResult Function() fetchHomeBanners,
     required TResult Function() fetchShopBanners,
@@ -7956,8 +8024,8 @@ class _$FetchShopHomeBackgroundCardSunnah
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? fetchFlashSaleProducts,
-    TResult? Function()? fetchPopularProducts,
+    TResult? Function(String endPointSlug)? fetchFlashSaleProducts,
+    TResult? Function(String endPointSlug)? fetchPopularProducts,
     TResult? Function()? fetchRecentProductProducts,
     TResult? Function()? fetchHomeBanners,
     TResult? Function()? fetchShopBanners,
@@ -8006,8 +8074,8 @@ class _$FetchShopHomeBackgroundCardSunnah
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? fetchFlashSaleProducts,
-    TResult Function()? fetchPopularProducts,
+    TResult Function(String endPointSlug)? fetchFlashSaleProducts,
+    TResult Function(String endPointSlug)? fetchPopularProducts,
     TResult Function()? fetchRecentProductProducts,
     TResult Function()? fetchHomeBanners,
     TResult Function()? fetchShopBanners,
@@ -8256,8 +8324,8 @@ class _$FetchShopAdBrands implements FetchShopAdBrands {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() fetchFlashSaleProducts,
-    required TResult Function() fetchPopularProducts,
+    required TResult Function(String endPointSlug) fetchFlashSaleProducts,
+    required TResult Function(String endPointSlug) fetchPopularProducts,
     required TResult Function() fetchRecentProductProducts,
     required TResult Function() fetchHomeBanners,
     required TResult Function() fetchShopBanners,
@@ -8308,8 +8376,8 @@ class _$FetchShopAdBrands implements FetchShopAdBrands {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? fetchFlashSaleProducts,
-    TResult? Function()? fetchPopularProducts,
+    TResult? Function(String endPointSlug)? fetchFlashSaleProducts,
+    TResult? Function(String endPointSlug)? fetchPopularProducts,
     TResult? Function()? fetchRecentProductProducts,
     TResult? Function()? fetchHomeBanners,
     TResult? Function()? fetchShopBanners,
@@ -8358,8 +8426,8 @@ class _$FetchShopAdBrands implements FetchShopAdBrands {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? fetchFlashSaleProducts,
-    TResult Function()? fetchPopularProducts,
+    TResult Function(String endPointSlug)? fetchFlashSaleProducts,
+    TResult Function(String endPointSlug)? fetchPopularProducts,
     TResult Function()? fetchRecentProductProducts,
     TResult Function()? fetchHomeBanners,
     TResult Function()? fetchShopBanners,
@@ -8607,8 +8675,8 @@ class _$FetchTopBrands implements FetchTopBrands {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() fetchFlashSaleProducts,
-    required TResult Function() fetchPopularProducts,
+    required TResult Function(String endPointSlug) fetchFlashSaleProducts,
+    required TResult Function(String endPointSlug) fetchPopularProducts,
     required TResult Function() fetchRecentProductProducts,
     required TResult Function() fetchHomeBanners,
     required TResult Function() fetchShopBanners,
@@ -8659,8 +8727,8 @@ class _$FetchTopBrands implements FetchTopBrands {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? fetchFlashSaleProducts,
-    TResult? Function()? fetchPopularProducts,
+    TResult? Function(String endPointSlug)? fetchFlashSaleProducts,
+    TResult? Function(String endPointSlug)? fetchPopularProducts,
     TResult? Function()? fetchRecentProductProducts,
     TResult? Function()? fetchHomeBanners,
     TResult? Function()? fetchShopBanners,
@@ -8709,8 +8777,8 @@ class _$FetchTopBrands implements FetchTopBrands {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? fetchFlashSaleProducts,
-    TResult Function()? fetchPopularProducts,
+    TResult Function(String endPointSlug)? fetchFlashSaleProducts,
+    TResult Function(String endPointSlug)? fetchPopularProducts,
     TResult Function()? fetchRecentProductProducts,
     TResult Function()? fetchHomeBanners,
     TResult Function()? fetchShopBanners,
@@ -8963,8 +9031,8 @@ class _$FetchProductItemsSubcategorySunnah
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() fetchFlashSaleProducts,
-    required TResult Function() fetchPopularProducts,
+    required TResult Function(String endPointSlug) fetchFlashSaleProducts,
+    required TResult Function(String endPointSlug) fetchPopularProducts,
     required TResult Function() fetchRecentProductProducts,
     required TResult Function() fetchHomeBanners,
     required TResult Function() fetchShopBanners,
@@ -9015,8 +9083,8 @@ class _$FetchProductItemsSubcategorySunnah
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? fetchFlashSaleProducts,
-    TResult? Function()? fetchPopularProducts,
+    TResult? Function(String endPointSlug)? fetchFlashSaleProducts,
+    TResult? Function(String endPointSlug)? fetchPopularProducts,
     TResult? Function()? fetchRecentProductProducts,
     TResult? Function()? fetchHomeBanners,
     TResult? Function()? fetchShopBanners,
@@ -9065,8 +9133,8 @@ class _$FetchProductItemsSubcategorySunnah
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? fetchFlashSaleProducts,
-    TResult Function()? fetchPopularProducts,
+    TResult Function(String endPointSlug)? fetchFlashSaleProducts,
+    TResult Function(String endPointSlug)? fetchPopularProducts,
     TResult Function()? fetchRecentProductProducts,
     TResult Function()? fetchHomeBanners,
     TResult Function()? fetchShopBanners,
@@ -9320,8 +9388,8 @@ class _$FetchProductItemsSubcategoryHealth
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() fetchFlashSaleProducts,
-    required TResult Function() fetchPopularProducts,
+    required TResult Function(String endPointSlug) fetchFlashSaleProducts,
+    required TResult Function(String endPointSlug) fetchPopularProducts,
     required TResult Function() fetchRecentProductProducts,
     required TResult Function() fetchHomeBanners,
     required TResult Function() fetchShopBanners,
@@ -9372,8 +9440,8 @@ class _$FetchProductItemsSubcategoryHealth
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? fetchFlashSaleProducts,
-    TResult? Function()? fetchPopularProducts,
+    TResult? Function(String endPointSlug)? fetchFlashSaleProducts,
+    TResult? Function(String endPointSlug)? fetchPopularProducts,
     TResult? Function()? fetchRecentProductProducts,
     TResult? Function()? fetchHomeBanners,
     TResult? Function()? fetchShopBanners,
@@ -9422,8 +9490,8 @@ class _$FetchProductItemsSubcategoryHealth
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? fetchFlashSaleProducts,
-    TResult Function()? fetchPopularProducts,
+    TResult Function(String endPointSlug)? fetchFlashSaleProducts,
+    TResult Function(String endPointSlug)? fetchPopularProducts,
     TResult Function()? fetchRecentProductProducts,
     TResult Function()? fetchHomeBanners,
     TResult Function()? fetchShopBanners,
@@ -9677,8 +9745,8 @@ class _$FetchProductItemsSubcategoryWomen
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() fetchFlashSaleProducts,
-    required TResult Function() fetchPopularProducts,
+    required TResult Function(String endPointSlug) fetchFlashSaleProducts,
+    required TResult Function(String endPointSlug) fetchPopularProducts,
     required TResult Function() fetchRecentProductProducts,
     required TResult Function() fetchHomeBanners,
     required TResult Function() fetchShopBanners,
@@ -9729,8 +9797,8 @@ class _$FetchProductItemsSubcategoryWomen
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? fetchFlashSaleProducts,
-    TResult? Function()? fetchPopularProducts,
+    TResult? Function(String endPointSlug)? fetchFlashSaleProducts,
+    TResult? Function(String endPointSlug)? fetchPopularProducts,
     TResult? Function()? fetchRecentProductProducts,
     TResult? Function()? fetchHomeBanners,
     TResult? Function()? fetchShopBanners,
@@ -9779,8 +9847,8 @@ class _$FetchProductItemsSubcategoryWomen
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? fetchFlashSaleProducts,
-    TResult Function()? fetchPopularProducts,
+    TResult Function(String endPointSlug)? fetchFlashSaleProducts,
+    TResult Function(String endPointSlug)? fetchPopularProducts,
     TResult Function()? fetchRecentProductProducts,
     TResult Function()? fetchHomeBanners,
     TResult Function()? fetchShopBanners,
@@ -10056,8 +10124,8 @@ class _$ChangeShopBannerIndex implements ChangeShopBannerIndex {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() fetchFlashSaleProducts,
-    required TResult Function() fetchPopularProducts,
+    required TResult Function(String endPointSlug) fetchFlashSaleProducts,
+    required TResult Function(String endPointSlug) fetchPopularProducts,
     required TResult Function() fetchRecentProductProducts,
     required TResult Function() fetchHomeBanners,
     required TResult Function() fetchShopBanners,
@@ -10108,8 +10176,8 @@ class _$ChangeShopBannerIndex implements ChangeShopBannerIndex {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? fetchFlashSaleProducts,
-    TResult? Function()? fetchPopularProducts,
+    TResult? Function(String endPointSlug)? fetchFlashSaleProducts,
+    TResult? Function(String endPointSlug)? fetchPopularProducts,
     TResult? Function()? fetchRecentProductProducts,
     TResult? Function()? fetchHomeBanners,
     TResult? Function()? fetchShopBanners,
@@ -10158,8 +10226,8 @@ class _$ChangeShopBannerIndex implements ChangeShopBannerIndex {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? fetchFlashSaleProducts,
-    TResult Function()? fetchPopularProducts,
+    TResult Function(String endPointSlug)? fetchFlashSaleProducts,
+    TResult Function(String endPointSlug)? fetchPopularProducts,
     TResult Function()? fetchRecentProductProducts,
     TResult Function()? fetchHomeBanners,
     TResult Function()? fetchShopBanners,
@@ -10440,8 +10508,8 @@ class _$ChangeBrandBannerIndex implements ChangeBrandBannerIndex {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() fetchFlashSaleProducts,
-    required TResult Function() fetchPopularProducts,
+    required TResult Function(String endPointSlug) fetchFlashSaleProducts,
+    required TResult Function(String endPointSlug) fetchPopularProducts,
     required TResult Function() fetchRecentProductProducts,
     required TResult Function() fetchHomeBanners,
     required TResult Function() fetchShopBanners,
@@ -10492,8 +10560,8 @@ class _$ChangeBrandBannerIndex implements ChangeBrandBannerIndex {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? fetchFlashSaleProducts,
-    TResult? Function()? fetchPopularProducts,
+    TResult? Function(String endPointSlug)? fetchFlashSaleProducts,
+    TResult? Function(String endPointSlug)? fetchPopularProducts,
     TResult? Function()? fetchRecentProductProducts,
     TResult? Function()? fetchHomeBanners,
     TResult? Function()? fetchShopBanners,
@@ -10542,8 +10610,8 @@ class _$ChangeBrandBannerIndex implements ChangeBrandBannerIndex {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? fetchFlashSaleProducts,
-    TResult Function()? fetchPopularProducts,
+    TResult Function(String endPointSlug)? fetchFlashSaleProducts,
+    TResult Function(String endPointSlug)? fetchPopularProducts,
     TResult Function()? fetchRecentProductProducts,
     TResult Function()? fetchHomeBanners,
     TResult Function()? fetchShopBanners,
@@ -10797,8 +10865,8 @@ class _$ShowOrderProgressEvent implements ShowOrderProgressEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() fetchFlashSaleProducts,
-    required TResult Function() fetchPopularProducts,
+    required TResult Function(String endPointSlug) fetchFlashSaleProducts,
+    required TResult Function(String endPointSlug) fetchPopularProducts,
     required TResult Function() fetchRecentProductProducts,
     required TResult Function() fetchHomeBanners,
     required TResult Function() fetchShopBanners,
@@ -10849,8 +10917,8 @@ class _$ShowOrderProgressEvent implements ShowOrderProgressEvent {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? fetchFlashSaleProducts,
-    TResult? Function()? fetchPopularProducts,
+    TResult? Function(String endPointSlug)? fetchFlashSaleProducts,
+    TResult? Function(String endPointSlug)? fetchPopularProducts,
     TResult? Function()? fetchRecentProductProducts,
     TResult? Function()? fetchHomeBanners,
     TResult? Function()? fetchShopBanners,
@@ -10899,8 +10967,8 @@ class _$ShowOrderProgressEvent implements ShowOrderProgressEvent {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? fetchFlashSaleProducts,
-    TResult Function()? fetchPopularProducts,
+    TResult Function(String endPointSlug)? fetchFlashSaleProducts,
+    TResult Function(String endPointSlug)? fetchPopularProducts,
     TResult Function()? fetchRecentProductProducts,
     TResult Function()? fetchHomeBanners,
     TResult Function()? fetchShopBanners,
@@ -11177,8 +11245,8 @@ class _$IndexChangeOnOrderProgress implements IndexChangeOnOrderProgress {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() fetchFlashSaleProducts,
-    required TResult Function() fetchPopularProducts,
+    required TResult Function(String endPointSlug) fetchFlashSaleProducts,
+    required TResult Function(String endPointSlug) fetchPopularProducts,
     required TResult Function() fetchRecentProductProducts,
     required TResult Function() fetchHomeBanners,
     required TResult Function() fetchShopBanners,
@@ -11229,8 +11297,8 @@ class _$IndexChangeOnOrderProgress implements IndexChangeOnOrderProgress {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? fetchFlashSaleProducts,
-    TResult? Function()? fetchPopularProducts,
+    TResult? Function(String endPointSlug)? fetchFlashSaleProducts,
+    TResult? Function(String endPointSlug)? fetchPopularProducts,
     TResult? Function()? fetchRecentProductProducts,
     TResult? Function()? fetchHomeBanners,
     TResult? Function()? fetchShopBanners,
@@ -11279,8 +11347,8 @@ class _$IndexChangeOnOrderProgress implements IndexChangeOnOrderProgress {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? fetchFlashSaleProducts,
-    TResult Function()? fetchPopularProducts,
+    TResult Function(String endPointSlug)? fetchFlashSaleProducts,
+    TResult Function(String endPointSlug)? fetchPopularProducts,
     TResult Function()? fetchRecentProductProducts,
     TResult Function()? fetchHomeBanners,
     TResult Function()? fetchShopBanners,
@@ -11564,8 +11632,8 @@ class _$IndexChangeOnWomensCareBanner implements IndexChangeOnWomensCareBanner {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() fetchFlashSaleProducts,
-    required TResult Function() fetchPopularProducts,
+    required TResult Function(String endPointSlug) fetchFlashSaleProducts,
+    required TResult Function(String endPointSlug) fetchPopularProducts,
     required TResult Function() fetchRecentProductProducts,
     required TResult Function() fetchHomeBanners,
     required TResult Function() fetchShopBanners,
@@ -11616,8 +11684,8 @@ class _$IndexChangeOnWomensCareBanner implements IndexChangeOnWomensCareBanner {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? fetchFlashSaleProducts,
-    TResult? Function()? fetchPopularProducts,
+    TResult? Function(String endPointSlug)? fetchFlashSaleProducts,
+    TResult? Function(String endPointSlug)? fetchPopularProducts,
     TResult? Function()? fetchRecentProductProducts,
     TResult? Function()? fetchHomeBanners,
     TResult? Function()? fetchShopBanners,
@@ -11666,8 +11734,8 @@ class _$IndexChangeOnWomensCareBanner implements IndexChangeOnWomensCareBanner {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? fetchFlashSaleProducts,
-    TResult Function()? fetchPopularProducts,
+    TResult Function(String endPointSlug)? fetchFlashSaleProducts,
+    TResult Function(String endPointSlug)? fetchPopularProducts,
     TResult Function()? fetchRecentProductProducts,
     TResult Function()? fetchHomeBanners,
     TResult Function()? fetchShopBanners,
@@ -11948,8 +12016,8 @@ class _$FetchShopAdBrandsById implements FetchShopAdBrandsById {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() fetchFlashSaleProducts,
-    required TResult Function() fetchPopularProducts,
+    required TResult Function(String endPointSlug) fetchFlashSaleProducts,
+    required TResult Function(String endPointSlug) fetchPopularProducts,
     required TResult Function() fetchRecentProductProducts,
     required TResult Function() fetchHomeBanners,
     required TResult Function() fetchShopBanners,
@@ -12000,8 +12068,8 @@ class _$FetchShopAdBrandsById implements FetchShopAdBrandsById {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? fetchFlashSaleProducts,
-    TResult? Function()? fetchPopularProducts,
+    TResult? Function(String endPointSlug)? fetchFlashSaleProducts,
+    TResult? Function(String endPointSlug)? fetchPopularProducts,
     TResult? Function()? fetchRecentProductProducts,
     TResult? Function()? fetchHomeBanners,
     TResult? Function()? fetchShopBanners,
@@ -12050,8 +12118,8 @@ class _$FetchShopAdBrandsById implements FetchShopAdBrandsById {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? fetchFlashSaleProducts,
-    TResult Function()? fetchPopularProducts,
+    TResult Function(String endPointSlug)? fetchFlashSaleProducts,
+    TResult Function(String endPointSlug)? fetchPopularProducts,
     TResult Function()? fetchRecentProductProducts,
     TResult Function()? fetchHomeBanners,
     TResult Function()? fetchShopBanners,

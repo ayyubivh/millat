@@ -72,7 +72,7 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
     emit(state.copyWith(isLoading: true));
 
     try {
-      final data = await shopService.fetchFlashSaleProducts();
+      final data = await shopService.fetchFlashSaleProducts(event.endPointSlug);
       emit(state.copyWith(flashSaleproducts: data, isLoading: false));
     } catch (e) {
       emit(state.copyWith(errorMessage: "An error occurred", isLoading: false));
@@ -84,7 +84,7 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
     emit(state.copyWith(isLoading: true));
 
     try {
-      final data = await shopService.fetchPopularProducts();
+      final data = await shopService.fetchPopularProducts(event.endPointSlug);
       emit(state.copyWith(popularProducts: data, isLoading: false));
     } catch (e) {
       emit(state.copyWith(errorMessage: "An error occurred", isLoading: false));

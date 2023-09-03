@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:http/http.dart' as http;
-import 'package:millat/resources/home/bloc/service/quran_service.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:millat/resources/home/bloc/logic/bookmark_bloc/bookmark_bloc.dart';
@@ -22,7 +21,6 @@ import 'package:millat/resources/shop/view/brand/shop_brand_view.dart';
 import 'package:millat/resources/shop/view/categories/categories_view.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/loader.dart';
-
 import '../../../enums/enumertations.dart';
 import '../../../utils/assets_paths.dart';
 import '../../../utils/color_manager.dart';

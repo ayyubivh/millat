@@ -4,17 +4,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/components/buttons/green_gradient_button.dart';
 import 'package:millat/components/common_widgets/build_categories_widget.dart';
 import 'package:millat/enums/enumertations.dart';
-import 'package:millat/resources/home/bloc/logic/home_bloc/home_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/category_bloc/category_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
 import 'package:millat/resources/shop/view/brand/shop_brand_view.dart';
 import 'package:millat/resources/shop/view/brand/single_brand_view.dart';
 import 'package:millat/resources/shop/view/categories/categories_filter_view.dart';
-import 'package:millat/resources/shop/view/categories/categories_view.dart';
 import 'package:millat/resources/shop/view/search/search_view.dart';
-import 'package:millat/resources/shop/view/shop_by_brand/shop_by_brand_view.dart';
 import 'package:millat/resources/shop/view/widgets/shop_home_subcategory_card_widget.dart';
-import 'package:millat/resources/shop/view/womens_care/womens_care_view.dart';
+import 'package:millat/resources/shop/view/womens_care/shop_specific_category_view.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/loader.dart';
@@ -22,7 +19,6 @@ import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/string_constants.dart';
 import '../../../components/common_widgets/cart_icon_widget.dart';
 import '../../../utils/color_manager.dart';
-import '../../home/bloc/service/home_services.dart';
 import '../bloc/logic/cart_bloc/cart_bloc.dart';
 
 class ShopView extends StatefulWidget {
@@ -41,7 +37,7 @@ class _ShopViewState extends State<ShopView> {
 
     categoryBloc.add(const CategoryEvent.fetchCategories());
     shopProductsBloc
-      ..add(const ShopProductsEvent.fetchRecentProductProducts())
+      // ..add(const ShopProductsEvent.fetchRecentProductProducts())
       ..add(const ShopProductsEvent.fetchShopByBrand())
       ..add(const ShopProductsEvent.fetchShopBanners())
       ..add(const ShopProductsEvent.fetchArticles())
@@ -117,7 +113,10 @@ class _ShopViewState extends State<ShopView> {
                           BackgroundContainer(
                             onTap: () {
                               Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => const WomensCareView(),
+                                builder: (context) =>
+                                    const ShopSpecificCategoryView(
+                                        categoryItemType:
+                                            CategoryItemType.womens),
                               ));
                             },
                             width: 205,
@@ -147,13 +146,10 @@ class _ShopViewState extends State<ShopView> {
                           BackgroundContainer(
                             onTap: () {
                               Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) {
-                                  return const CategoriesView(
-                                      category: "Healthy diet",
-                                      subCategory: "subCategory",
-                                      type: FilterType.category);
-                                },
-                              ));
+                                  builder: (context) =>
+                                      const ShopSpecificCategoryView(
+                                          categoryItemType:
+                                              CategoryItemType.health)));
                             },
                             width: 155,
                             title: healthyDietData!.subCategoryId.title,
@@ -185,11 +181,10 @@ class _ShopViewState extends State<ShopView> {
                           BackgroundContainer(
                             onTap: () {
                               Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => const CategoriesView(
-                                    category: "Pro muslim",
-                                    subCategory: "subCategory",
-                                    type: FilterType.category),
-                              ));
+                                  builder: (context) =>
+                                      const ShopSpecificCategoryView(
+                                          categoryItemType:
+                                              CategoryItemType.sunnah)));
                             },
                             cardType: ShopHomeCardtype.sunnah,
                             title: sunnahData!.subCategoryId.title,

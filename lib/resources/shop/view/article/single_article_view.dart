@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/resources/shop/bloc/models/articles/articles_model.dart';
 import 'package:millat/resources/shop/view/cart/cart.dart';
+import 'package:millat/resources/shop/view/products/single_product_view.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
@@ -32,15 +33,15 @@ class SingleArticleView extends StatelessWidget {
               color: ColorManager.blackColor, fontWeight: FontWeight.w700),
         ),
         actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: 40),
-            child: ImageIcon(
-              const AssetImage(
-                AppAssetsStrings.searchIcon,
-              ),
-              color: ColorManager.blackColor,
-            ),
-          ),
+          // Padding(
+          //   padding: const EdgeInsets.only(right: 40),
+          //   child: ImageIcon(
+          //     const AssetImage(
+          //       AppAssetsStrings.searchIcon,
+          //     ),
+          //     color: ColorManager.blackColor,
+          //   ),
+          // ),
         ],
         leading: BackButton(
           color: ColorManager.blackColor,
@@ -196,17 +197,17 @@ class SingleArticleView extends StatelessWidget {
                 print(
                   "${passValue!.product!.id}\n\n ${passValue!.product!.actualPrice!}\n${passValue!.product!.size![0].value!}\n${passValue!.product!.colors![0].text!}\n ${passValue!.product!.brand!}",
                 );
-                context.read<CartBloc>().add(CartEvent.addCart(
-                      productId: passValue!.product!.id,
-                      basePrice: passValue!.product!.actualPrice!,
-                      size: passValue!.product!.size![0].value!,
-                      context: context,
-                      color: passValue!.product!.colors![0].text!,
-                      quantity: 1,
-                      brandId: passValue!.product!.brand!,
-                    ));
+                // context.read<CartBloc>().add(CartEvent.addCart(
+                //       productId: passValue!.product!.id,
+                //       basePrice: passValue!.product!.actualPrice!,
+                //       size: passValue!.product!.size![0].value!,
+                //       context: context,
+                //       color: passValue!.product!.colors![0].text!,
+                //       quantity: 1,
+                //       brandId: passValue!.product!.brand!,
+                //     ));
                 Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => const CartView(),
+                  builder: (context) => SingleProductView(passValue: passValue),
                 ));
               },
               icon: Icon(

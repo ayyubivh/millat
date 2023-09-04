@@ -15,4 +15,5 @@ class HomeEvent with _$HomeEvent {
     required String namazName,
     required BuildContext context,
   }) = AddPrayerToPrayerTracker;
+  const factory HomeEvent.changeIndexofAllaysaysBg() = ChangeIndexofAllaysaysBg;
 }

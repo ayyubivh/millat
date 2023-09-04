@@ -42,7 +42,7 @@ class ShopService extends HttpServices {
       try {
         final Map<String, dynamic> data = json.decode(response.body);
         final result = ShopProducts.fromJson(data);
-
+        print("flash sale products $result");
         return result;
       } catch (e) {
         throw Exception('Failed to parse response');
@@ -288,7 +288,7 @@ class ShopService extends HttpServices {
       try {
         final Map<String, dynamic> data = json.decode(response.body);
         final result = ProductModel.fromJson(data);
-        print('jsone here on a mat cha${result}');
+        print('jsone here on a mat cha$result');
 
         return result;
       } catch (e) {

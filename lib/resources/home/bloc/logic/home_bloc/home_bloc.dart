@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -26,6 +28,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     on<FetchEventOfTheMonth>(_fetchEventOfTheMonth);
     on<FetchPrayerTrackerEvent>(_fetchPrayerTrackerEvent);
     on<AddPrayerToPrayerTracker>(_addPrayerToPrayerTracker);
+    on<ChangeIndexofAllaysaysBg>(_changeIndexofAllaysaysBg);
   }
 
   _fetchLargeDisountsBanner(
@@ -203,5 +206,10 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     } catch (e) {
       throw Exception(e);
     }
+  }
+
+  _changeIndexofAllaysaysBg(
+      ChangeIndexofAllaysaysBg event, Emitter<HomeState> emit) {
+    emit(state.copyWith(allaysBgindex: state.allaysBgindex + 1));
   }
 }

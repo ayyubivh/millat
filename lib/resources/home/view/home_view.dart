@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:http/http.dart' as http;
+import 'package:millat/resources/shop/view/brand/single_brand_view.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:millat/resources/home/bloc/logic/bookmark_bloc/bookmark_bloc.dart';
@@ -46,6 +47,7 @@ class HomeView extends StatefulWidget {
 class _HomeViewState extends State<HomeView> {
   int _currentIndex = 0;
   String verskey = "";
+
   @override
   void initState() {
     BlocProvider.of<QuranBloc>(context)
@@ -69,7 +71,8 @@ class _HomeViewState extends State<HomeView> {
       ..add(const FetchTopOffersBanner())
       ..add(const FetchBrandofTheDay())
       ..add(const FetchHadithOfTheDay())
-      ..add(const FetchEventOfTheMonth());
+      ..add(const FetchEventOfTheMonth())
+      ..add(const ChangeIndexofAllaysaysBg());
 
     super.initState();
   }
@@ -88,7 +91,7 @@ class _HomeViewState extends State<HomeView> {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBody: true,
-      endDrawer: const HomeDrawyerWidget(),
+      // endDrawer: const HomeDrawyerWidget(),
       backgroundColor: ColorManager.whiteColor,
       body: BlocListener<DatabaseBloc, DatabaseState>(
         listener: (context, state) {
@@ -168,7 +171,7 @@ class _HomeViewState extends State<HomeView> {
                                     BlocBuilder<DatabaseBloc, DatabaseState>(
                                       builder: (context, state) => Text(
                                           state.authUserModel?.result?.user
-                                                  ?.username ??
+                                                  ?.name ??
                                               "",
                                           style: TextStyle(
                                               color: ColorManager.whiteColor,
@@ -194,16 +197,16 @@ class _HomeViewState extends State<HomeView> {
                                 const SizedBox(
                                   width: 20,
                                 ),
-                                GestureDetector(
-                                  onTap: () {
-                                    Scaffold.of(context).openEndDrawer();
-                                  },
-                                  child: ImageIcon(
-                                      const AssetImage(
-                                          AppAssetsStrings.menuIcon),
-                                      color: ColorManager.whiteColor,
-                                      size: 25),
-                                ),
+                                // GestureDetector(
+                                //   onTap: () {
+                                //     Scaffold.of(context).openEndDrawer();
+                                //   },
+                                //   child: ImageIcon(
+                                //       const AssetImage(
+                                //           AppAssetsStrings.menuIcon),
+                                //       color: ColorManager.whiteColor,
+                                //       size: 25),
+                                // ),
                               ],
                             ),
                           ),
@@ -367,15 +370,61 @@ class _HomeViewState extends State<HomeView> {
                   return GestureDetector(
                     onTap: () {
                       Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => const ShopBrandView(),
+                        builder: (context) =>
+                            SingleBrandView(passValue: data.brandId),
                       ));
                     },
                     child: Padding(
                       padding: const EdgeInsets.only(right: 10),
-                      child: Image.network(
-                        data.image!,
-                        // height: 230,
-                        // width: 330,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: ColorManager.veryLightGreen,
+                          borderRadius: BorderRadius.circular(14),
+                        ),
+                        height: 230,
+                        width: SizeUtility(context).width / 1.6,
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(14),
+                          child: Stack(
+                            children: [
+                              // Image.network(
+                              //   data.image!,
+                              //   height: 230,
+                              //   width: SizeUtility(context).width / 1.6,
+                              //   fit: BoxFit.cover,
+                              // ),
+                              Padding(
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 15, vertical: 15),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(
+                                      "Get\n${data.discount.toString()}%OFF",
+                                      style: TextStyle(
+                                        fontSize: 24,
+                                        color: ColorManager.blackColor,
+                                        fontWeight: FontWeight.w800,
+                                        height: 1.2,
+                                      ),
+                                    ),
+                                    Container(
+                                      height: 50,
+                                      width: 50,
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(12),
+                                        color: ColorManager.whiteColor,
+                                      ),
+                                      child:
+                                          Image.network(data.brandId!.image!),
+                                    )
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
                       ),
                     ),
                   );
@@ -695,6 +744,8 @@ class _HomeViewState extends State<HomeView> {
                                       namazName: Appstrings.fajr,
                                       context: context))
                               : null;
+                          context.read<HomeBloc>().add(FetchPrayerTrackerEvent(
+                              date: DateTime.now(), context: context));
                         },
                       ),
                       dailyTrackerWidget(
@@ -707,6 +758,8 @@ class _HomeViewState extends State<HomeView> {
                                       namazName: Appstrings.dhuhr,
                                       context: context))
                               : null;
+                          context.read<HomeBloc>().add(FetchPrayerTrackerEvent(
+                              date: DateTime.now(), context: context));
                         },
                       ),
                       dailyTrackerWidget(
@@ -719,6 +772,8 @@ class _HomeViewState extends State<HomeView> {
                                       namazName: Appstrings.asr,
                                       context: context))
                               : null;
+                          context.read<HomeBloc>().add(FetchPrayerTrackerEvent(
+                              date: DateTime.now(), context: context));
                         },
                       ),
                       dailyTrackerWidget(
@@ -731,6 +786,8 @@ class _HomeViewState extends State<HomeView> {
                                       namazName: Appstrings.magrib,
                                       context: context))
                               : null;
+                          context.read<HomeBloc>().add(FetchPrayerTrackerEvent(
+                              date: DateTime.now(), context: context));
                         },
                       ),
                       dailyTrackerWidget(
@@ -744,6 +801,8 @@ class _HomeViewState extends State<HomeView> {
                                       namazName: Appstrings.isha,
                                       context: context))
                               : null;
+                          context.read<HomeBloc>().add(FetchPrayerTrackerEvent(
+                              date: DateTime.now(), context: context));
                         },
                       )
                     ],
@@ -771,22 +830,24 @@ class _HomeViewState extends State<HomeView> {
         GestureDetector(
           onTap: onTap,
           child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               CircleAvatar(
-                backgroundColor: ColorManager.whiteColor,
+                backgroundColor: isCompleted == false
+                    ? ColorManager.lightRedColor
+                    : ColorManager.primary,
                 radius: 16,
-                child: CircleAvatar(
-                  backgroundColor: isCompleted == false
-                      ? ColorManager.redColor
-                      : ColorManager.primary,
-                  radius: 8,
+                child: Icon(
+                  isCompleted == true ? Icons.check : Icons.close,
+                  color: ColorManager.whiteColor,
+                  size: 18,
                 ),
               ),
               isShow == true
                   ? Container(
                       width: 40,
                       height: 2,
-                      color: ColorManager.primary,
+                      color: ColorManager.dividerGreyAe,
                     )
                   : const SizedBox()
             ],
@@ -805,96 +866,109 @@ class _HomeViewState extends State<HomeView> {
   }
 
   Widget _quranAyaWidget(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 290,
       width: SizeUtility(context).width,
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-      decoration: const BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage(AppAssetsStrings.haditOfTheDayBg))),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-        child: BlocBuilder<QuranBloc, QuranState>(
-          builder: (context, state) {
-            if (state.versesByKeyModel!.isEmpty) {
-              return const Loader();
-            }
-            final data = state.versesByKeyModel?[0];
+      child: PageView(
+          physics: const NeverScrollableScrollPhysics(),
+          controller: PageController(
+              initialPage: context.read<HomeBloc>().state.allaysBgindex),
+          children: List.generate(
+            7,
+            (index) => Container(
+              height: 290,
+              width: SizeUtility(context).width,
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+              decoration: BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage(
+                          "assets/backgrounds/allay_says_bg_$index.png"))),
+              child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                child: BlocBuilder<QuranBloc, QuranState>(
+                  builder: (context, state) {
+                    if (state.versesByKeyModel!.isEmpty) {
+                      return const Loader();
+                    }
+                    final data = state.versesByKeyModel?[0];
 
-            return Column(
-              children: [
-                kHeight15,
-                Text(
-                  Appstrings.allaySays,
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w600,
-                    color: ColorManager.primary,
-                  ),
+                    return Column(
+                      children: [
+                        kHeight15,
+                        Text(
+                          Appstrings.allaySays,
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                            color: ColorManager.primary,
+                          ),
+                        ),
+                        kHeight10,
+                        // Text(
+                        //   "Al-Faitha : 2,3",
+                        //   style: TextStyle(
+                        //     fontSize: 15,
+                        //     fontWeight: FontWeight.w500,
+                        //     color: ColorManager.textGrey88,
+                        //   ),
+                        // ),
+                        kHeight10,
+                        Text(
+                          data!.verses[0].textIndopak,
+                          style: TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.w600,
+                            color: ColorManager.blackColor,
+                            fontFamily: "Hafs",
+                          ),
+                          textDirection: TextDirection.rtl,
+                        ),
+                        kHeight5,
+                        Divider(
+                          thickness: 1,
+                          color: ColorManager.blackColor,
+                        ),
+                        kHeight8,
+                        Text(
+                          verskey == "1:2"
+                              ? Appstrings.tempAyaMeaning1
+                              : verskey == "2:2"
+                                  ? Appstrings.tempAyaMeaning2
+                                  : verskey == "3:4"
+                                      ? Appstrings.tempAyaMeaning3
+                                      : Appstrings.tempAyaMeaning4,
+                          style: TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.w600,
+                            color: ColorManager.blackColor,
+                            letterSpacing: 0.5,
+                            height: 1.2,
+                          ),
+                          textDirection: TextDirection.rtl,
+                        ),
+                        kHeight5,
+                        const Spacer(),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              Appstrings.learnMore,
+                              style: TextStyle(
+                                fontSize: 15,
+                                fontWeight: FontWeight.w600,
+                                color: ColorManager.primary,
+                              ),
+                            ),
+                          ],
+                        )
+                      ],
+                    );
+                  },
                 ),
-                kHeight10,
-                // Text(
-                //   "Al-Faitha : 2,3",
-                //   style: TextStyle(
-                //     fontSize: 15,
-                //     fontWeight: FontWeight.w500,
-                //     color: ColorManager.textGrey88,
-                //   ),
-                // ),
-                kHeight10,
-                Text(
-                  data!.verses[0].textIndopak,
-                  style: TextStyle(
-                    fontSize: 15,
-                    fontWeight: FontWeight.w600,
-                    color: ColorManager.blackColor,
-                    fontFamily: "Hafs",
-                  ),
-                  textDirection: TextDirection.rtl,
-                ),
-                kHeight5,
-                Divider(
-                  thickness: 1,
-                  color: ColorManager.blackColor,
-                ),
-                kHeight8,
-                Text(
-                  verskey == "1:2"
-                      ? Appstrings.tempAyaMeaning1
-                      : verskey == "2:2"
-                          ? Appstrings.tempAyaMeaning2
-                          : verskey == "3:4"
-                              ? Appstrings.tempAyaMeaning3
-                              : Appstrings.tempAyaMeaning4,
-                  style: TextStyle(
-                    fontSize: 15,
-                    fontWeight: FontWeight.w600,
-                    color: ColorManager.blackColor,
-                    letterSpacing: 0.5,
-                    height: 1.2,
-                  ),
-                  textDirection: TextDirection.rtl,
-                ),
-                kHeight5,
-                const Spacer(),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      Appstrings.learnMore,
-                      style: TextStyle(
-                        fontSize: 15,
-                        fontWeight: FontWeight.w600,
-                        color: ColorManager.primary,
-                      ),
-                    ),
-                  ],
-                )
-              ],
-            );
-          },
-        ),
-      ),
+              ),
+            ),
+          )),
     );
   }
 

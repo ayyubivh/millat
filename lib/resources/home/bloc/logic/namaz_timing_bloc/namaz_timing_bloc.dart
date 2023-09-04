@@ -222,16 +222,24 @@ class NamazTimingBloc extends Bloc<NamazTimingEvent, NamazTimingState> {
 
   String getCurrentNamaz(PrayerTimings prayerTimings) {
     final currentTime = DateTime.now();
+    final fajrTime = parseTime(prayerTimings.fajr!);
+    final sunriseTime = parseTime(prayerTimings.sunrise!);
+    final dhuhrTime = parseTime(prayerTimings.dhuhr!);
+    final asrTime = parseTime(prayerTimings.asr!);
+    final maghribTime = parseTime(prayerTimings.maghrib!);
+    final ishaTime = parseTime(prayerTimings.isha!);
 
-    if (currentTime.isBefore(parseTime(prayerTimings.fajr!))) {
+    if (currentTime.isBefore(fajrTime)) {
       return 'Isha';
-    } else if (currentTime.isBefore(parseTime(prayerTimings.dhuhr!))) {
+    } else if (currentTime.isBefore(sunriseTime)) {
       return 'Fajr';
-    } else if (currentTime.isBefore(parseTime(prayerTimings.asr!))) {
+    } else if (currentTime.isBefore(dhuhrTime)) {
+      return 'Sunrise';
+    } else if (currentTime.isBefore(asrTime)) {
       return 'Dhuhr';
-    } else if (currentTime.isBefore(parseTime(prayerTimings.maghrib!))) {
+    } else if (currentTime.isBefore(maghribTime)) {
       return 'Asr';
-    } else if (currentTime.isBefore(parseTime(prayerTimings.isha!))) {
+    } else if (currentTime.isBefore(ishaTime)) {
       return 'Maghrib';
     } else {
       return 'Isha';

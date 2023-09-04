@@ -23,7 +23,6 @@ class TasbihView extends StatefulWidget {
 class TasbihViewState extends State<TasbihView>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
-  final AudioPlayer audioPlayer = AudioPlayer();
   @override
   void initState() {
     super.initState();
@@ -36,14 +35,13 @@ class TasbihViewState extends State<TasbihView>
   @override
   void dispose() {
     _controller.dispose();
-    audioPlayer.dispose();
+
     super.dispose();
   }
 
   void _onTapTasbihBall() {
     HapticFeedback.heavyImpact();
-    audioPlayer.setAsset("assets/audio/tasbih_click.mp3");
-    audioPlayer.play();
+
     context.read<TasbihBloc>().add(const DikhrIncreaseCountEvent());
     _controller.reverse(from: 0.6);
 
@@ -100,7 +98,22 @@ class TasbihViewState extends State<TasbihView>
               icon: const Icon(Icons.autorenew),
             ),
             kWidht10,
-            const Icon(Icons.volume_up_outlined),
+            BlocBuilder<TasbihBloc, TasbihState>(
+                builder: (context, state) => state.audioMute == false
+                    ? GestureDetector(
+                        onTap: () {
+                          context
+                              .read<TasbihBloc>()
+                              .add(const MuteAudioEvent());
+                        },
+                        child: const Icon(Icons.volume_up_outlined))
+                    : GestureDetector(
+                        onTap: () {
+                          context
+                              .read<TasbihBloc>()
+                              .add(const MuteAudioEvent());
+                        },
+                        child: const Icon(Icons.volume_off_outlined))),
             kWidth20,
           ],
           centerTitle: true,
@@ -188,22 +201,22 @@ class TasbihViewState extends State<TasbihView>
                           ).value;
                           return Positioned(
                             top: state.tasbihThemes == TasbihThemes.orange
-                                ? 161 - curvedValue * 200
+                                ? 95 - curvedValue * 200
                                 : state.tasbihThemes == TasbihThemes.purple
-                                    ? 150 - curvedValue * 200
+                                    ? 70 - curvedValue * 200
                                     : state.tasbihThemes == TasbihThemes.green
-                                        ? 168 - curvedValue * 200
-                                        : 158 - curvedValue * 200,
+                                        ? 148 - curvedValue * 200
+                                        : 129 - curvedValue * 200,
                             left: state.tasbihThemes == TasbihThemes.orange
                                 ? 81 + curvedValue * SizeUtility(context).width
                                 : state.tasbihThemes == TasbihThemes.purple
-                                    ? 58 +
+                                    ? 68 +
                                         curvedValue * SizeUtility(context).width
                                     : state.tasbihThemes == TasbihThemes.green
-                                        ? 58 +
+                                        ? 78 +
                                             curvedValue *
                                                 SizeUtility(context).width
-                                        : 43 +
+                                        : 58 +
                                             curvedValue *
                                                 SizeUtility(context).width,
                             child: Image.asset(
@@ -212,12 +225,12 @@ class TasbihViewState extends State<TasbihView>
                                   ? 140
                                   : state.tasbihThemes == TasbihThemes.green
                                       ? 148
-                                      : 158,
+                                      : 167,
                               height: state.tasbihThemes == TasbihThemes.orange
                                   ? 140
                                   : state.tasbihThemes == TasbihThemes.green
                                       ? 148
-                                      : 158,
+                                      : 167,
                             ),
                           );
                         },
@@ -226,6 +239,14 @@ class TasbihViewState extends State<TasbihView>
                   ),
                 ),
               ),
+            ],
+          ),
+        ),
+        bottomSheet: Container(
+          color: appThemeData[state.tasbihThemes]!.primaryColor,
+          height: 260,
+          child: Column(
+            children: [
               const Text(
                 'Tap anywhere to begin',
                 style: TextStyle(
@@ -239,61 +260,63 @@ class TasbihViewState extends State<TasbihView>
                     ? _chooseDikrButton(context, state)
                     : _dikhrContainer(state),
               ),
-              kHeight15,
-            ],
-          ),
-        ),
-        bottomSheet: Container(
-          color: appThemeData[state.tasbihThemes]!.primaryColor,
-          height: 120,
-          alignment: Alignment.topLeft,
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 30),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const Text(
-                  'Tasbih Themes',
-                  style: TextStyle(
-                    fontSize: 17,
-                    fontWeight: FontWeight.w600,
+              const Spacer(),
+              Container(
+                height: 120,
+                alignment: Alignment.topLeft,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 30),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Text(
+                        'Tasbih Themes',
+                        style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                      kHeight8,
+                      SizedBox(
+                        height: 80,
+                        child: ListView.builder(
+                          scrollDirection: Axis.horizontal,
+                          itemCount: 4,
+                          itemBuilder: (context, index) {
+                            final tasbihTheme = TasbihThemes.values[index];
+
+                            return GestureDetector(
+                              onTap: () {
+                                context.read<TasbihBloc>()
+                                  ..add(ChangeThemeEvent(
+                                      tasbihTheme: tasbihTheme))
+                                  ..add(ChangeThemeIndex(themeIndex: index));
+                              },
+                              child: Container(
+                                margin:
+                                    const EdgeInsets.symmetric(horizontal: 8),
+                                width: 80,
+                                height: 80,
+                                decoration: BoxDecoration(
+                                  border: state.themeIndex == index
+                                      ? Border.all(color: ColorManager.redColor)
+                                      : null,
+                                  color:
+                                      appThemeData[tasbihTheme]!.primaryColor,
+                                  borderRadius: BorderRadius.circular(12),
+                                ),
+                                child: Image.asset(
+                                    'assets/images/tasbih_theme_ball_${index + 1}.png'),
+                              ),
+                            );
+                          },
+                        ),
+                      )
+                    ],
                   ),
                 ),
-                kHeight8,
-                SizedBox(
-                  height: 80,
-                  child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: 4,
-                    itemBuilder: (context, index) {
-                      final tasbihTheme = TasbihThemes.values[index];
-
-                      return GestureDetector(
-                        onTap: () {
-                          context.read<TasbihBloc>()
-                            ..add(ChangeThemeEvent(tasbihTheme: tasbihTheme))
-                            ..add(ChangeThemeIndex(themeIndex: index));
-                        },
-                        child: Container(
-                          margin: const EdgeInsets.symmetric(horizontal: 8),
-                          width: 80,
-                          height: 80,
-                          decoration: BoxDecoration(
-                            border: state.themeIndex == index
-                                ? Border.all(color: ColorManager.redColor)
-                                : null,
-                            color: appThemeData[tasbihTheme]!.primaryColor,
-                            borderRadius: BorderRadius.circular(12),
-                          ),
-                          child: Image.asset(
-                              'assets/images/tasbih_theme_ball_${index + 1}.png'),
-                        ),
-                      );
-                    },
-                  ),
-                )
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),

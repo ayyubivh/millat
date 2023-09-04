@@ -131,11 +131,26 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
   }
 
   FutureOr<void> _fetchArticles(
-      FetchArticles event, Emitter<ShopProductsState> emit) async {
+    FetchArticles event,
+    Emitter<ShopProductsState> emit,
+  ) async {
     try {
       final data = await shopService.fetchArticles();
+      if (event.searchQuery.isEmpty) {
+        emit(state.copyWith(articles: data.result?.articles));
+      }
+
+      // Filter articles based on the search query (event.searchQuery)
+      final filteredArticles = data.result?.articles
+          ?.where((article) =>
+              article.title
+                  ?.toLowerCase()
+                  .contains(event.searchQuery.toLowerCase()) ==
+              true)
+          .toList();
+
       emit(state.copyWith(
-        articles: data,
+        articles: filteredArticles,
       ));
     } catch (e) {
       emit(state.copyWith(
@@ -189,7 +204,7 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
       emit(state.copyWith(
         searchProducts: data,
       ));
-      print('serch result product on the data ${data}');
+      print('serch result product on the data $data');
     } catch (e) {
       emit(state.copyWith(
         errorMessage: "An error occurred",

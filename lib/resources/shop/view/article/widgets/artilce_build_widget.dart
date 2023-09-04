@@ -30,21 +30,38 @@ class ArticleBuilWidget extends StatelessWidget {
               color: ColorManager.greenColor1,
               fontWeight: FontWeight.w700,
             )),
-        kHeight10,
+        kHeight8,
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            SizedBox(
-              height: 70,
-              width: SizeUtility(context).width / 2,
-              child: Text(
-                title,
-                style: TextStyle(
-                  color: ColorManager.blackColor,
-                  fontSize: 20,
-                  fontWeight: FontWeight.w800,
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(
+                  height: 30,
+                  width: SizeUtility(context).width / 2,
+                  child: Text(
+                    title,
+                    style: TextStyle(
+                      color: ColorManager.blackColor,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w800,
+                    ),
+                  ),
                 ),
-              ),
+                SizedBox(
+                  width: SizeUtility(context).width - 140,
+                  child: Text(
+                    content,
+                    style: const TextStyle(
+                      color: black102,
+                      fontSize: 15,
+                    ),
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ),
+              ],
             ),
             ClipRRect(
               borderRadius: BorderRadius.circular(20),
@@ -57,19 +74,7 @@ class ArticleBuilWidget extends StatelessWidget {
             ),
           ],
         ),
-        SizedBox(
-          width: SizeUtility(context).width - 140,
-          child: Text(
-            content,
-            style: const TextStyle(
-              color: black102,
-              fontSize: 15,
-            ),
-            maxLines: 2,
-            overflow: TextOverflow.ellipsis,
-          ),
-        ),
-        kHeight15,
+        kHeight8,
         Row(
           children: [
             Icon(
@@ -88,7 +93,7 @@ class ArticleBuilWidget extends StatelessWidget {
             ),
           ],
         ),
-        kHeight30,
+        kHeight20,
       ],
     );
   }

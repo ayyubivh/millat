@@ -10,6 +10,7 @@ class ColorManager {
   static Color greenColor1 = HexColor.fromHex("#4DC591");
   static Color darkGreenClr4f = HexColor.fromHex("#4F7364");
   static Color redColor = HexColor.fromHex("#FF3B30");
+  static Color lightRedColor = HexColor.fromHex("#FF878A");
   static Color blue5 = HexColor.fromHex("#3581EA");
   static Color dotGrey = HexColor.fromHex("#E1E1E1");
   static Color lightBlackColor = HexColor.fromHex("#888888");
@@ -38,6 +39,7 @@ class ColorManager {
   static Color textGrey88 = HexColor.fromHex("#888787");
   static Color blue7A = HexColor.fromHex("#007AFF");
   static Color greyB8 = HexColor.fromHex("#B8B8B8");
+  static Color dividerGreyAe = HexColor.fromHex("#AEC2BA");
 //shop
   static Color reviewStar = HexColor.fromHex("#FFE174");
   static Color categorySelectedGreen = HexColor.fromHex("#597766");

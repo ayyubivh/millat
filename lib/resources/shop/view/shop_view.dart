@@ -40,7 +40,6 @@ class _ShopViewState extends State<ShopView> {
       // ..add(const ShopProductsEvent.fetchRecentProductProducts())
       ..add(const ShopProductsEvent.fetchShopByBrand())
       ..add(const ShopProductsEvent.fetchShopBanners())
-      ..add(const ShopProductsEvent.fetchArticles())
       ..add(const FetchShopHomeBackgroundCard())
       ..add(const ShopProductsEvent.fetchShopHomeBackgroundCardSunnah())
       ..add(const ShopProductsEvent.fetchShopHomeBackgroundCardHelthyDiet())

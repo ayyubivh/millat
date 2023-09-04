@@ -30,6 +30,7 @@ mixin _$TasbihEvent {
     required TResult Function() decreaseTasbhiCountEvent,
     required TResult Function(TasbihThemes tasbihTheme) changeThemeEvent,
     required TResult Function(int themeIndex) changeThemeIndex,
+    required TResult Function() muteAudioEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -45,6 +46,7 @@ mixin _$TasbihEvent {
     TResult? Function()? decreaseTasbhiCountEvent,
     TResult? Function(TasbihThemes tasbihTheme)? changeThemeEvent,
     TResult? Function(int themeIndex)? changeThemeIndex,
+    TResult? Function()? muteAudioEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -60,6 +62,7 @@ mixin _$TasbihEvent {
     TResult Function()? decreaseTasbhiCountEvent,
     TResult Function(TasbihThemes tasbihTheme)? changeThemeEvent,
     TResult Function(int themeIndex)? changeThemeIndex,
+    TResult Function()? muteAudioEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -79,6 +82,7 @@ mixin _$TasbihEvent {
         decreaseTasbhiCountEvent,
     required TResult Function(ChangeThemeEvent value) changeThemeEvent,
     required TResult Function(ChangeThemeIndex value) changeThemeIndex,
+    required TResult Function(MuteAudioEvent value) muteAudioEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -93,6 +97,7 @@ mixin _$TasbihEvent {
     TResult? Function(DecreaseTasbhiCountEvent value)? decreaseTasbhiCountEvent,
     TResult? Function(ChangeThemeEvent value)? changeThemeEvent,
     TResult? Function(ChangeThemeIndex value)? changeThemeIndex,
+    TResult? Function(MuteAudioEvent value)? muteAudioEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -107,6 +112,7 @@ mixin _$TasbihEvent {
     TResult Function(DecreaseTasbhiCountEvent value)? decreaseTasbhiCountEvent,
     TResult Function(ChangeThemeEvent value)? changeThemeEvent,
     TResult Function(ChangeThemeIndex value)? changeThemeIndex,
+    TResult Function(MuteAudioEvent value)? muteAudioEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -224,6 +230,7 @@ class _$SelectDhikerEvent implements SelectDhikerEvent {
     required TResult Function() decreaseTasbhiCountEvent,
     required TResult Function(TasbihThemes tasbihTheme) changeThemeEvent,
     required TResult Function(int themeIndex) changeThemeIndex,
+    required TResult Function() muteAudioEvent,
   }) {
     return selectDhikerEvent(dikr, translate, id);
   }
@@ -242,6 +249,7 @@ class _$SelectDhikerEvent implements SelectDhikerEvent {
     TResult? Function()? decreaseTasbhiCountEvent,
     TResult? Function(TasbihThemes tasbihTheme)? changeThemeEvent,
     TResult? Function(int themeIndex)? changeThemeIndex,
+    TResult? Function()? muteAudioEvent,
   }) {
     return selectDhikerEvent?.call(dikr, translate, id);
   }
@@ -260,6 +268,7 @@ class _$SelectDhikerEvent implements SelectDhikerEvent {
     TResult Function()? decreaseTasbhiCountEvent,
     TResult Function(TasbihThemes tasbihTheme)? changeThemeEvent,
     TResult Function(int themeIndex)? changeThemeIndex,
+    TResult Function()? muteAudioEvent,
     required TResult orElse(),
   }) {
     if (selectDhikerEvent != null) {
@@ -285,6 +294,7 @@ class _$SelectDhikerEvent implements SelectDhikerEvent {
         decreaseTasbhiCountEvent,
     required TResult Function(ChangeThemeEvent value) changeThemeEvent,
     required TResult Function(ChangeThemeIndex value) changeThemeIndex,
+    required TResult Function(MuteAudioEvent value) muteAudioEvent,
   }) {
     return selectDhikerEvent(this);
   }
@@ -302,6 +312,7 @@ class _$SelectDhikerEvent implements SelectDhikerEvent {
     TResult? Function(DecreaseTasbhiCountEvent value)? decreaseTasbhiCountEvent,
     TResult? Function(ChangeThemeEvent value)? changeThemeEvent,
     TResult? Function(ChangeThemeIndex value)? changeThemeIndex,
+    TResult? Function(MuteAudioEvent value)? muteAudioEvent,
   }) {
     return selectDhikerEvent?.call(this);
   }
@@ -319,6 +330,7 @@ class _$SelectDhikerEvent implements SelectDhikerEvent {
     TResult Function(DecreaseTasbhiCountEvent value)? decreaseTasbhiCountEvent,
     TResult Function(ChangeThemeEvent value)? changeThemeEvent,
     TResult Function(ChangeThemeIndex value)? changeThemeIndex,
+    TResult Function(MuteAudioEvent value)? muteAudioEvent,
     required TResult orElse(),
   }) {
     if (selectDhikerEvent != null) {
@@ -392,6 +404,7 @@ class _$FetchDhikr implements FetchDhikr {
     required TResult Function() decreaseTasbhiCountEvent,
     required TResult Function(TasbihThemes tasbihTheme) changeThemeEvent,
     required TResult Function(int themeIndex) changeThemeIndex,
+    required TResult Function() muteAudioEvent,
   }) {
     return fetchDhikr();
   }
@@ -410,6 +423,7 @@ class _$FetchDhikr implements FetchDhikr {
     TResult? Function()? decreaseTasbhiCountEvent,
     TResult? Function(TasbihThemes tasbihTheme)? changeThemeEvent,
     TResult? Function(int themeIndex)? changeThemeIndex,
+    TResult? Function()? muteAudioEvent,
   }) {
     return fetchDhikr?.call();
   }
@@ -428,6 +442,7 @@ class _$FetchDhikr implements FetchDhikr {
     TResult Function()? decreaseTasbhiCountEvent,
     TResult Function(TasbihThemes tasbihTheme)? changeThemeEvent,
     TResult Function(int themeIndex)? changeThemeIndex,
+    TResult Function()? muteAudioEvent,
     required TResult orElse(),
   }) {
     if (fetchDhikr != null) {
@@ -453,6 +468,7 @@ class _$FetchDhikr implements FetchDhikr {
         decreaseTasbhiCountEvent,
     required TResult Function(ChangeThemeEvent value) changeThemeEvent,
     required TResult Function(ChangeThemeIndex value) changeThemeIndex,
+    required TResult Function(MuteAudioEvent value) muteAudioEvent,
   }) {
     return fetchDhikr(this);
   }
@@ -470,6 +486,7 @@ class _$FetchDhikr implements FetchDhikr {
     TResult? Function(DecreaseTasbhiCountEvent value)? decreaseTasbhiCountEvent,
     TResult? Function(ChangeThemeEvent value)? changeThemeEvent,
     TResult? Function(ChangeThemeIndex value)? changeThemeIndex,
+    TResult? Function(MuteAudioEvent value)? muteAudioEvent,
   }) {
     return fetchDhikr?.call(this);
   }
@@ -487,6 +504,7 @@ class _$FetchDhikr implements FetchDhikr {
     TResult Function(DecreaseTasbhiCountEvent value)? decreaseTasbhiCountEvent,
     TResult Function(ChangeThemeEvent value)? changeThemeEvent,
     TResult Function(ChangeThemeIndex value)? changeThemeIndex,
+    TResult Function(MuteAudioEvent value)? muteAudioEvent,
     required TResult orElse(),
   }) {
     if (fetchDhikr != null) {
@@ -551,6 +569,7 @@ class _$DikhrIncreaseCountEvent implements DikhrIncreaseCountEvent {
     required TResult Function() decreaseTasbhiCountEvent,
     required TResult Function(TasbihThemes tasbihTheme) changeThemeEvent,
     required TResult Function(int themeIndex) changeThemeIndex,
+    required TResult Function() muteAudioEvent,
   }) {
     return dikhrIncreaseCountEvent();
   }
@@ -569,6 +588,7 @@ class _$DikhrIncreaseCountEvent implements DikhrIncreaseCountEvent {
     TResult? Function()? decreaseTasbhiCountEvent,
     TResult? Function(TasbihThemes tasbihTheme)? changeThemeEvent,
     TResult? Function(int themeIndex)? changeThemeIndex,
+    TResult? Function()? muteAudioEvent,
   }) {
     return dikhrIncreaseCountEvent?.call();
   }
@@ -587,6 +607,7 @@ class _$DikhrIncreaseCountEvent implements DikhrIncreaseCountEvent {
     TResult Function()? decreaseTasbhiCountEvent,
     TResult Function(TasbihThemes tasbihTheme)? changeThemeEvent,
     TResult Function(int themeIndex)? changeThemeIndex,
+    TResult Function()? muteAudioEvent,
     required TResult orElse(),
   }) {
     if (dikhrIncreaseCountEvent != null) {
@@ -612,6 +633,7 @@ class _$DikhrIncreaseCountEvent implements DikhrIncreaseCountEvent {
         decreaseTasbhiCountEvent,
     required TResult Function(ChangeThemeEvent value) changeThemeEvent,
     required TResult Function(ChangeThemeIndex value) changeThemeIndex,
+    required TResult Function(MuteAudioEvent value) muteAudioEvent,
   }) {
     return dikhrIncreaseCountEvent(this);
   }
@@ -629,6 +651,7 @@ class _$DikhrIncreaseCountEvent implements DikhrIncreaseCountEvent {
     TResult? Function(DecreaseTasbhiCountEvent value)? decreaseTasbhiCountEvent,
     TResult? Function(ChangeThemeEvent value)? changeThemeEvent,
     TResult? Function(ChangeThemeIndex value)? changeThemeIndex,
+    TResult? Function(MuteAudioEvent value)? muteAudioEvent,
   }) {
     return dikhrIncreaseCountEvent?.call(this);
   }
@@ -646,6 +669,7 @@ class _$DikhrIncreaseCountEvent implements DikhrIncreaseCountEvent {
     TResult Function(DecreaseTasbhiCountEvent value)? decreaseTasbhiCountEvent,
     TResult Function(ChangeThemeEvent value)? changeThemeEvent,
     TResult Function(ChangeThemeIndex value)? changeThemeIndex,
+    TResult Function(MuteAudioEvent value)? muteAudioEvent,
     required TResult orElse(),
   }) {
     if (dikhrIncreaseCountEvent != null) {
@@ -737,6 +761,7 @@ class _$ChangeTasbihGoalEvent implements ChangeTasbihGoalEvent {
     required TResult Function() decreaseTasbhiCountEvent,
     required TResult Function(TasbihThemes tasbihTheme) changeThemeEvent,
     required TResult Function(int themeIndex) changeThemeIndex,
+    required TResult Function() muteAudioEvent,
   }) {
     return changeTasbihGoalEvent(newValue);
   }
@@ -755,6 +780,7 @@ class _$ChangeTasbihGoalEvent implements ChangeTasbihGoalEvent {
     TResult? Function()? decreaseTasbhiCountEvent,
     TResult? Function(TasbihThemes tasbihTheme)? changeThemeEvent,
     TResult? Function(int themeIndex)? changeThemeIndex,
+    TResult? Function()? muteAudioEvent,
   }) {
     return changeTasbihGoalEvent?.call(newValue);
   }
@@ -773,6 +799,7 @@ class _$ChangeTasbihGoalEvent implements ChangeTasbihGoalEvent {
     TResult Function()? decreaseTasbhiCountEvent,
     TResult Function(TasbihThemes tasbihTheme)? changeThemeEvent,
     TResult Function(int themeIndex)? changeThemeIndex,
+    TResult Function()? muteAudioEvent,
     required TResult orElse(),
   }) {
     if (changeTasbihGoalEvent != null) {
@@ -798,6 +825,7 @@ class _$ChangeTasbihGoalEvent implements ChangeTasbihGoalEvent {
         decreaseTasbhiCountEvent,
     required TResult Function(ChangeThemeEvent value) changeThemeEvent,
     required TResult Function(ChangeThemeIndex value) changeThemeIndex,
+    required TResult Function(MuteAudioEvent value) muteAudioEvent,
   }) {
     return changeTasbihGoalEvent(this);
   }
@@ -815,6 +843,7 @@ class _$ChangeTasbihGoalEvent implements ChangeTasbihGoalEvent {
     TResult? Function(DecreaseTasbhiCountEvent value)? decreaseTasbhiCountEvent,
     TResult? Function(ChangeThemeEvent value)? changeThemeEvent,
     TResult? Function(ChangeThemeIndex value)? changeThemeIndex,
+    TResult? Function(MuteAudioEvent value)? muteAudioEvent,
   }) {
     return changeTasbihGoalEvent?.call(this);
   }
@@ -832,6 +861,7 @@ class _$ChangeTasbihGoalEvent implements ChangeTasbihGoalEvent {
     TResult Function(DecreaseTasbhiCountEvent value)? decreaseTasbhiCountEvent,
     TResult Function(ChangeThemeEvent value)? changeThemeEvent,
     TResult Function(ChangeThemeIndex value)? changeThemeIndex,
+    TResult Function(MuteAudioEvent value)? muteAudioEvent,
     required TResult orElse(),
   }) {
     if (changeTasbihGoalEvent != null) {
@@ -902,6 +932,7 @@ class _$ResetTashbihCounterEvent implements ResetTashbihCounterEvent {
     required TResult Function() decreaseTasbhiCountEvent,
     required TResult Function(TasbihThemes tasbihTheme) changeThemeEvent,
     required TResult Function(int themeIndex) changeThemeIndex,
+    required TResult Function() muteAudioEvent,
   }) {
     return resetTashbihCounterEvent();
   }
@@ -920,6 +951,7 @@ class _$ResetTashbihCounterEvent implements ResetTashbihCounterEvent {
     TResult? Function()? decreaseTasbhiCountEvent,
     TResult? Function(TasbihThemes tasbihTheme)? changeThemeEvent,
     TResult? Function(int themeIndex)? changeThemeIndex,
+    TResult? Function()? muteAudioEvent,
   }) {
     return resetTashbihCounterEvent?.call();
   }
@@ -938,6 +970,7 @@ class _$ResetTashbihCounterEvent implements ResetTashbihCounterEvent {
     TResult Function()? decreaseTasbhiCountEvent,
     TResult Function(TasbihThemes tasbihTheme)? changeThemeEvent,
     TResult Function(int themeIndex)? changeThemeIndex,
+    TResult Function()? muteAudioEvent,
     required TResult orElse(),
   }) {
     if (resetTashbihCounterEvent != null) {
@@ -963,6 +996,7 @@ class _$ResetTashbihCounterEvent implements ResetTashbihCounterEvent {
         decreaseTasbhiCountEvent,
     required TResult Function(ChangeThemeEvent value) changeThemeEvent,
     required TResult Function(ChangeThemeIndex value) changeThemeIndex,
+    required TResult Function(MuteAudioEvent value) muteAudioEvent,
   }) {
     return resetTashbihCounterEvent(this);
   }
@@ -980,6 +1014,7 @@ class _$ResetTashbihCounterEvent implements ResetTashbihCounterEvent {
     TResult? Function(DecreaseTasbhiCountEvent value)? decreaseTasbhiCountEvent,
     TResult? Function(ChangeThemeEvent value)? changeThemeEvent,
     TResult? Function(ChangeThemeIndex value)? changeThemeIndex,
+    TResult? Function(MuteAudioEvent value)? muteAudioEvent,
   }) {
     return resetTashbihCounterEvent?.call(this);
   }
@@ -997,6 +1032,7 @@ class _$ResetTashbihCounterEvent implements ResetTashbihCounterEvent {
     TResult Function(DecreaseTasbhiCountEvent value)? decreaseTasbhiCountEvent,
     TResult Function(ChangeThemeEvent value)? changeThemeEvent,
     TResult Function(ChangeThemeIndex value)? changeThemeIndex,
+    TResult Function(MuteAudioEvent value)? muteAudioEvent,
     required TResult orElse(),
   }) {
     if (resetTashbihCounterEvent != null) {
@@ -1095,6 +1131,7 @@ class _$AddTasbihEvent implements AddTasbihEvent {
     required TResult Function() decreaseTasbhiCountEvent,
     required TResult Function(TasbihThemes tasbihTheme) changeThemeEvent,
     required TResult Function(int themeIndex) changeThemeIndex,
+    required TResult Function() muteAudioEvent,
   }) {
     return addTasbihEvent(buildContext, id);
   }
@@ -1113,6 +1150,7 @@ class _$AddTasbihEvent implements AddTasbihEvent {
     TResult? Function()? decreaseTasbhiCountEvent,
     TResult? Function(TasbihThemes tasbihTheme)? changeThemeEvent,
     TResult? Function(int themeIndex)? changeThemeIndex,
+    TResult? Function()? muteAudioEvent,
   }) {
     return addTasbihEvent?.call(buildContext, id);
   }
@@ -1131,6 +1169,7 @@ class _$AddTasbihEvent implements AddTasbihEvent {
     TResult Function()? decreaseTasbhiCountEvent,
     TResult Function(TasbihThemes tasbihTheme)? changeThemeEvent,
     TResult Function(int themeIndex)? changeThemeIndex,
+    TResult Function()? muteAudioEvent,
     required TResult orElse(),
   }) {
     if (addTasbihEvent != null) {
@@ -1156,6 +1195,7 @@ class _$AddTasbihEvent implements AddTasbihEvent {
         decreaseTasbhiCountEvent,
     required TResult Function(ChangeThemeEvent value) changeThemeEvent,
     required TResult Function(ChangeThemeIndex value) changeThemeIndex,
+    required TResult Function(MuteAudioEvent value) muteAudioEvent,
   }) {
     return addTasbihEvent(this);
   }
@@ -1173,6 +1213,7 @@ class _$AddTasbihEvent implements AddTasbihEvent {
     TResult? Function(DecreaseTasbhiCountEvent value)? decreaseTasbhiCountEvent,
     TResult? Function(ChangeThemeEvent value)? changeThemeEvent,
     TResult? Function(ChangeThemeIndex value)? changeThemeIndex,
+    TResult? Function(MuteAudioEvent value)? muteAudioEvent,
   }) {
     return addTasbihEvent?.call(this);
   }
@@ -1190,6 +1231,7 @@ class _$AddTasbihEvent implements AddTasbihEvent {
     TResult Function(DecreaseTasbhiCountEvent value)? decreaseTasbhiCountEvent,
     TResult Function(ChangeThemeEvent value)? changeThemeEvent,
     TResult Function(ChangeThemeIndex value)? changeThemeIndex,
+    TResult Function(MuteAudioEvent value)? muteAudioEvent,
     required TResult orElse(),
   }) {
     if (addTasbihEvent != null) {
@@ -1261,6 +1303,7 @@ class _$CheckLoopEvent implements CheckLoopEvent {
     required TResult Function() decreaseTasbhiCountEvent,
     required TResult Function(TasbihThemes tasbihTheme) changeThemeEvent,
     required TResult Function(int themeIndex) changeThemeIndex,
+    required TResult Function() muteAudioEvent,
   }) {
     return checkLoopEvent();
   }
@@ -1279,6 +1322,7 @@ class _$CheckLoopEvent implements CheckLoopEvent {
     TResult? Function()? decreaseTasbhiCountEvent,
     TResult? Function(TasbihThemes tasbihTheme)? changeThemeEvent,
     TResult? Function(int themeIndex)? changeThemeIndex,
+    TResult? Function()? muteAudioEvent,
   }) {
     return checkLoopEvent?.call();
   }
@@ -1297,6 +1341,7 @@ class _$CheckLoopEvent implements CheckLoopEvent {
     TResult Function()? decreaseTasbhiCountEvent,
     TResult Function(TasbihThemes tasbihTheme)? changeThemeEvent,
     TResult Function(int themeIndex)? changeThemeIndex,
+    TResult Function()? muteAudioEvent,
     required TResult orElse(),
   }) {
     if (checkLoopEvent != null) {
@@ -1322,6 +1367,7 @@ class _$CheckLoopEvent implements CheckLoopEvent {
         decreaseTasbhiCountEvent,
     required TResult Function(ChangeThemeEvent value) changeThemeEvent,
     required TResult Function(ChangeThemeIndex value) changeThemeIndex,
+    required TResult Function(MuteAudioEvent value) muteAudioEvent,
   }) {
     return checkLoopEvent(this);
   }
@@ -1339,6 +1385,7 @@ class _$CheckLoopEvent implements CheckLoopEvent {
     TResult? Function(DecreaseTasbhiCountEvent value)? decreaseTasbhiCountEvent,
     TResult? Function(ChangeThemeEvent value)? changeThemeEvent,
     TResult? Function(ChangeThemeIndex value)? changeThemeIndex,
+    TResult? Function(MuteAudioEvent value)? muteAudioEvent,
   }) {
     return checkLoopEvent?.call(this);
   }
@@ -1356,6 +1403,7 @@ class _$CheckLoopEvent implements CheckLoopEvent {
     TResult Function(DecreaseTasbhiCountEvent value)? decreaseTasbhiCountEvent,
     TResult Function(ChangeThemeEvent value)? changeThemeEvent,
     TResult Function(ChangeThemeIndex value)? changeThemeIndex,
+    TResult Function(MuteAudioEvent value)? muteAudioEvent,
     required TResult orElse(),
   }) {
     if (checkLoopEvent != null) {
@@ -1420,6 +1468,7 @@ class _$DecreaseTasbhiCountEvent implements DecreaseTasbhiCountEvent {
     required TResult Function() decreaseTasbhiCountEvent,
     required TResult Function(TasbihThemes tasbihTheme) changeThemeEvent,
     required TResult Function(int themeIndex) changeThemeIndex,
+    required TResult Function() muteAudioEvent,
   }) {
     return decreaseTasbhiCountEvent();
   }
@@ -1438,6 +1487,7 @@ class _$DecreaseTasbhiCountEvent implements DecreaseTasbhiCountEvent {
     TResult? Function()? decreaseTasbhiCountEvent,
     TResult? Function(TasbihThemes tasbihTheme)? changeThemeEvent,
     TResult? Function(int themeIndex)? changeThemeIndex,
+    TResult? Function()? muteAudioEvent,
   }) {
     return decreaseTasbhiCountEvent?.call();
   }
@@ -1456,6 +1506,7 @@ class _$DecreaseTasbhiCountEvent implements DecreaseTasbhiCountEvent {
     TResult Function()? decreaseTasbhiCountEvent,
     TResult Function(TasbihThemes tasbihTheme)? changeThemeEvent,
     TResult Function(int themeIndex)? changeThemeIndex,
+    TResult Function()? muteAudioEvent,
     required TResult orElse(),
   }) {
     if (decreaseTasbhiCountEvent != null) {
@@ -1481,6 +1532,7 @@ class _$DecreaseTasbhiCountEvent implements DecreaseTasbhiCountEvent {
         decreaseTasbhiCountEvent,
     required TResult Function(ChangeThemeEvent value) changeThemeEvent,
     required TResult Function(ChangeThemeIndex value) changeThemeIndex,
+    required TResult Function(MuteAudioEvent value) muteAudioEvent,
   }) {
     return decreaseTasbhiCountEvent(this);
   }
@@ -1498,6 +1550,7 @@ class _$DecreaseTasbhiCountEvent implements DecreaseTasbhiCountEvent {
     TResult? Function(DecreaseTasbhiCountEvent value)? decreaseTasbhiCountEvent,
     TResult? Function(ChangeThemeEvent value)? changeThemeEvent,
     TResult? Function(ChangeThemeIndex value)? changeThemeIndex,
+    TResult? Function(MuteAudioEvent value)? muteAudioEvent,
   }) {
     return decreaseTasbhiCountEvent?.call(this);
   }
@@ -1515,6 +1568,7 @@ class _$DecreaseTasbhiCountEvent implements DecreaseTasbhiCountEvent {
     TResult Function(DecreaseTasbhiCountEvent value)? decreaseTasbhiCountEvent,
     TResult Function(ChangeThemeEvent value)? changeThemeEvent,
     TResult Function(ChangeThemeIndex value)? changeThemeIndex,
+    TResult Function(MuteAudioEvent value)? muteAudioEvent,
     required TResult orElse(),
   }) {
     if (decreaseTasbhiCountEvent != null) {
@@ -1605,6 +1659,7 @@ class _$ChangeThemeEvent implements ChangeThemeEvent {
     required TResult Function() decreaseTasbhiCountEvent,
     required TResult Function(TasbihThemes tasbihTheme) changeThemeEvent,
     required TResult Function(int themeIndex) changeThemeIndex,
+    required TResult Function() muteAudioEvent,
   }) {
     return changeThemeEvent(tasbihTheme);
   }
@@ -1623,6 +1678,7 @@ class _$ChangeThemeEvent implements ChangeThemeEvent {
     TResult? Function()? decreaseTasbhiCountEvent,
     TResult? Function(TasbihThemes tasbihTheme)? changeThemeEvent,
     TResult? Function(int themeIndex)? changeThemeIndex,
+    TResult? Function()? muteAudioEvent,
   }) {
     return changeThemeEvent?.call(tasbihTheme);
   }
@@ -1641,6 +1697,7 @@ class _$ChangeThemeEvent implements ChangeThemeEvent {
     TResult Function()? decreaseTasbhiCountEvent,
     TResult Function(TasbihThemes tasbihTheme)? changeThemeEvent,
     TResult Function(int themeIndex)? changeThemeIndex,
+    TResult Function()? muteAudioEvent,
     required TResult orElse(),
   }) {
     if (changeThemeEvent != null) {
@@ -1666,6 +1723,7 @@ class _$ChangeThemeEvent implements ChangeThemeEvent {
         decreaseTasbhiCountEvent,
     required TResult Function(ChangeThemeEvent value) changeThemeEvent,
     required TResult Function(ChangeThemeIndex value) changeThemeIndex,
+    required TResult Function(MuteAudioEvent value) muteAudioEvent,
   }) {
     return changeThemeEvent(this);
   }
@@ -1683,6 +1741,7 @@ class _$ChangeThemeEvent implements ChangeThemeEvent {
     TResult? Function(DecreaseTasbhiCountEvent value)? decreaseTasbhiCountEvent,
     TResult? Function(ChangeThemeEvent value)? changeThemeEvent,
     TResult? Function(ChangeThemeIndex value)? changeThemeIndex,
+    TResult? Function(MuteAudioEvent value)? muteAudioEvent,
   }) {
     return changeThemeEvent?.call(this);
   }
@@ -1700,6 +1759,7 @@ class _$ChangeThemeEvent implements ChangeThemeEvent {
     TResult Function(DecreaseTasbhiCountEvent value)? decreaseTasbhiCountEvent,
     TResult Function(ChangeThemeEvent value)? changeThemeEvent,
     TResult Function(ChangeThemeIndex value)? changeThemeIndex,
+    TResult Function(MuteAudioEvent value)? muteAudioEvent,
     required TResult orElse(),
   }) {
     if (changeThemeEvent != null) {
@@ -1796,6 +1856,7 @@ class _$ChangeThemeIndex implements ChangeThemeIndex {
     required TResult Function() decreaseTasbhiCountEvent,
     required TResult Function(TasbihThemes tasbihTheme) changeThemeEvent,
     required TResult Function(int themeIndex) changeThemeIndex,
+    required TResult Function() muteAudioEvent,
   }) {
     return changeThemeIndex(themeIndex);
   }
@@ -1814,6 +1875,7 @@ class _$ChangeThemeIndex implements ChangeThemeIndex {
     TResult? Function()? decreaseTasbhiCountEvent,
     TResult? Function(TasbihThemes tasbihTheme)? changeThemeEvent,
     TResult? Function(int themeIndex)? changeThemeIndex,
+    TResult? Function()? muteAudioEvent,
   }) {
     return changeThemeIndex?.call(themeIndex);
   }
@@ -1832,6 +1894,7 @@ class _$ChangeThemeIndex implements ChangeThemeIndex {
     TResult Function()? decreaseTasbhiCountEvent,
     TResult Function(TasbihThemes tasbihTheme)? changeThemeEvent,
     TResult Function(int themeIndex)? changeThemeIndex,
+    TResult Function()? muteAudioEvent,
     required TResult orElse(),
   }) {
     if (changeThemeIndex != null) {
@@ -1857,6 +1920,7 @@ class _$ChangeThemeIndex implements ChangeThemeIndex {
         decreaseTasbhiCountEvent,
     required TResult Function(ChangeThemeEvent value) changeThemeEvent,
     required TResult Function(ChangeThemeIndex value) changeThemeIndex,
+    required TResult Function(MuteAudioEvent value) muteAudioEvent,
   }) {
     return changeThemeIndex(this);
   }
@@ -1874,6 +1938,7 @@ class _$ChangeThemeIndex implements ChangeThemeIndex {
     TResult? Function(DecreaseTasbhiCountEvent value)? decreaseTasbhiCountEvent,
     TResult? Function(ChangeThemeEvent value)? changeThemeEvent,
     TResult? Function(ChangeThemeIndex value)? changeThemeIndex,
+    TResult? Function(MuteAudioEvent value)? muteAudioEvent,
   }) {
     return changeThemeIndex?.call(this);
   }
@@ -1891,6 +1956,7 @@ class _$ChangeThemeIndex implements ChangeThemeIndex {
     TResult Function(DecreaseTasbhiCountEvent value)? decreaseTasbhiCountEvent,
     TResult Function(ChangeThemeEvent value)? changeThemeEvent,
     TResult Function(ChangeThemeIndex value)? changeThemeIndex,
+    TResult Function(MuteAudioEvent value)? muteAudioEvent,
     required TResult orElse(),
   }) {
     if (changeThemeIndex != null) {
@@ -1911,6 +1977,170 @@ abstract class ChangeThemeIndex implements TasbihEvent {
 }
 
 /// @nodoc
+abstract class _$$MuteAudioEventCopyWith<$Res> {
+  factory _$$MuteAudioEventCopyWith(
+          _$MuteAudioEvent value, $Res Function(_$MuteAudioEvent) then) =
+      __$$MuteAudioEventCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$MuteAudioEventCopyWithImpl<$Res>
+    extends _$TasbihEventCopyWithImpl<$Res, _$MuteAudioEvent>
+    implements _$$MuteAudioEventCopyWith<$Res> {
+  __$$MuteAudioEventCopyWithImpl(
+      _$MuteAudioEvent _value, $Res Function(_$MuteAudioEvent) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$MuteAudioEvent implements MuteAudioEvent {
+  const _$MuteAudioEvent();
+
+  @override
+  String toString() {
+    return 'TasbihEvent.muteAudioEvent()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$MuteAudioEvent);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String dikr, String translate, String id)
+        selectDhikerEvent,
+    required TResult Function() fetchDhikr,
+    required TResult Function() dikhrIncreaseCountEvent,
+    required TResult Function(int newValue) changeTasbihGoalEvent,
+    required TResult Function() resetTashbihCounterEvent,
+    required TResult Function(BuildContext buildContext, String id)
+        addTasbihEvent,
+    required TResult Function() checkLoopEvent,
+    required TResult Function() decreaseTasbhiCountEvent,
+    required TResult Function(TasbihThemes tasbihTheme) changeThemeEvent,
+    required TResult Function(int themeIndex) changeThemeIndex,
+    required TResult Function() muteAudioEvent,
+  }) {
+    return muteAudioEvent();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String dikr, String translate, String id)?
+        selectDhikerEvent,
+    TResult? Function()? fetchDhikr,
+    TResult? Function()? dikhrIncreaseCountEvent,
+    TResult? Function(int newValue)? changeTasbihGoalEvent,
+    TResult? Function()? resetTashbihCounterEvent,
+    TResult? Function(BuildContext buildContext, String id)? addTasbihEvent,
+    TResult? Function()? checkLoopEvent,
+    TResult? Function()? decreaseTasbhiCountEvent,
+    TResult? Function(TasbihThemes tasbihTheme)? changeThemeEvent,
+    TResult? Function(int themeIndex)? changeThemeIndex,
+    TResult? Function()? muteAudioEvent,
+  }) {
+    return muteAudioEvent?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String dikr, String translate, String id)?
+        selectDhikerEvent,
+    TResult Function()? fetchDhikr,
+    TResult Function()? dikhrIncreaseCountEvent,
+    TResult Function(int newValue)? changeTasbihGoalEvent,
+    TResult Function()? resetTashbihCounterEvent,
+    TResult Function(BuildContext buildContext, String id)? addTasbihEvent,
+    TResult Function()? checkLoopEvent,
+    TResult Function()? decreaseTasbhiCountEvent,
+    TResult Function(TasbihThemes tasbihTheme)? changeThemeEvent,
+    TResult Function(int themeIndex)? changeThemeIndex,
+    TResult Function()? muteAudioEvent,
+    required TResult orElse(),
+  }) {
+    if (muteAudioEvent != null) {
+      return muteAudioEvent();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(SelectDhikerEvent value) selectDhikerEvent,
+    required TResult Function(FetchDhikr value) fetchDhikr,
+    required TResult Function(DikhrIncreaseCountEvent value)
+        dikhrIncreaseCountEvent,
+    required TResult Function(ChangeTasbihGoalEvent value)
+        changeTasbihGoalEvent,
+    required TResult Function(ResetTashbihCounterEvent value)
+        resetTashbihCounterEvent,
+    required TResult Function(AddTasbihEvent value) addTasbihEvent,
+    required TResult Function(CheckLoopEvent value) checkLoopEvent,
+    required TResult Function(DecreaseTasbhiCountEvent value)
+        decreaseTasbhiCountEvent,
+    required TResult Function(ChangeThemeEvent value) changeThemeEvent,
+    required TResult Function(ChangeThemeIndex value) changeThemeIndex,
+    required TResult Function(MuteAudioEvent value) muteAudioEvent,
+  }) {
+    return muteAudioEvent(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(SelectDhikerEvent value)? selectDhikerEvent,
+    TResult? Function(FetchDhikr value)? fetchDhikr,
+    TResult? Function(DikhrIncreaseCountEvent value)? dikhrIncreaseCountEvent,
+    TResult? Function(ChangeTasbihGoalEvent value)? changeTasbihGoalEvent,
+    TResult? Function(ResetTashbihCounterEvent value)? resetTashbihCounterEvent,
+    TResult? Function(AddTasbihEvent value)? addTasbihEvent,
+    TResult? Function(CheckLoopEvent value)? checkLoopEvent,
+    TResult? Function(DecreaseTasbhiCountEvent value)? decreaseTasbhiCountEvent,
+    TResult? Function(ChangeThemeEvent value)? changeThemeEvent,
+    TResult? Function(ChangeThemeIndex value)? changeThemeIndex,
+    TResult? Function(MuteAudioEvent value)? muteAudioEvent,
+  }) {
+    return muteAudioEvent?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(SelectDhikerEvent value)? selectDhikerEvent,
+    TResult Function(FetchDhikr value)? fetchDhikr,
+    TResult Function(DikhrIncreaseCountEvent value)? dikhrIncreaseCountEvent,
+    TResult Function(ChangeTasbihGoalEvent value)? changeTasbihGoalEvent,
+    TResult Function(ResetTashbihCounterEvent value)? resetTashbihCounterEvent,
+    TResult Function(AddTasbihEvent value)? addTasbihEvent,
+    TResult Function(CheckLoopEvent value)? checkLoopEvent,
+    TResult Function(DecreaseTasbhiCountEvent value)? decreaseTasbhiCountEvent,
+    TResult Function(ChangeThemeEvent value)? changeThemeEvent,
+    TResult Function(ChangeThemeIndex value)? changeThemeIndex,
+    TResult Function(MuteAudioEvent value)? muteAudioEvent,
+    required TResult orElse(),
+  }) {
+    if (muteAudioEvent != null) {
+      return muteAudioEvent(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class MuteAudioEvent implements TasbihEvent {
+  const factory MuteAudioEvent() = _$MuteAudioEvent;
+}
+
+/// @nodoc
 mixin _$TasbihState {
   String get tasbihDhikr => throw _privateConstructorUsedError;
   String get tasbihDikrTranslate => throw _privateConstructorUsedError;
@@ -1921,6 +2151,8 @@ mixin _$TasbihState {
   bool get isBoolGreaterThanOne => throw _privateConstructorUsedError;
   TasbihThemes get tasbihThemes => throw _privateConstructorUsedError;
   int? get themeIndex => throw _privateConstructorUsedError;
+  bool get audioPlaying => throw _privateConstructorUsedError;
+  bool get audioMute => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $TasbihStateCopyWith<TasbihState> get copyWith =>
@@ -1942,7 +2174,9 @@ abstract class $TasbihStateCopyWith<$Res> {
       int dhikrhGoal,
       bool isBoolGreaterThanOne,
       TasbihThemes tasbihThemes,
-      int? themeIndex});
+      int? themeIndex,
+      bool audioPlaying,
+      bool audioMute});
 
   $DhikrModelCopyWith<$Res>? get dhikrModel;
 }
@@ -1969,6 +2203,8 @@ class _$TasbihStateCopyWithImpl<$Res, $Val extends TasbihState>
     Object? isBoolGreaterThanOne = null,
     Object? tasbihThemes = null,
     Object? themeIndex = freezed,
+    Object? audioPlaying = null,
+    Object? audioMute = null,
   }) {
     return _then(_value.copyWith(
       tasbihDhikr: null == tasbihDhikr
@@ -2007,6 +2243,14 @@ class _$TasbihStateCopyWithImpl<$Res, $Val extends TasbihState>
           ? _value.themeIndex
           : themeIndex // ignore: cast_nullable_to_non_nullable
               as int?,
+      audioPlaying: null == audioPlaying
+          ? _value.audioPlaying
+          : audioPlaying // ignore: cast_nullable_to_non_nullable
+              as bool,
+      audioMute: null == audioMute
+          ? _value.audioMute
+          : audioMute // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 
@@ -2040,7 +2284,9 @@ abstract class _$$_TasbihStateCopyWith<$Res>
       int dhikrhGoal,
       bool isBoolGreaterThanOne,
       TasbihThemes tasbihThemes,
-      int? themeIndex});
+      int? themeIndex,
+      bool audioPlaying,
+      bool audioMute});
 
   @override
   $DhikrModelCopyWith<$Res>? get dhikrModel;
@@ -2066,6 +2312,8 @@ class __$$_TasbihStateCopyWithImpl<$Res>
     Object? isBoolGreaterThanOne = null,
     Object? tasbihThemes = null,
     Object? themeIndex = freezed,
+    Object? audioPlaying = null,
+    Object? audioMute = null,
   }) {
     return _then(_$_TasbihState(
       tasbihDhikr: null == tasbihDhikr
@@ -2104,6 +2352,14 @@ class __$$_TasbihStateCopyWithImpl<$Res>
           ? _value.themeIndex
           : themeIndex // ignore: cast_nullable_to_non_nullable
               as int?,
+      audioPlaying: null == audioPlaying
+          ? _value.audioPlaying
+          : audioPlaying // ignore: cast_nullable_to_non_nullable
+              as bool,
+      audioMute: null == audioMute
+          ? _value.audioMute
+          : audioMute // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -2120,7 +2376,9 @@ class _$_TasbihState implements _TasbihState {
       required this.dhikrhGoal,
       required this.isBoolGreaterThanOne,
       required this.tasbihThemes,
-      required this.themeIndex});
+      required this.themeIndex,
+      required this.audioPlaying,
+      required this.audioMute});
 
   @override
   final String tasbihDhikr;
@@ -2140,10 +2398,14 @@ class _$_TasbihState implements _TasbihState {
   final TasbihThemes tasbihThemes;
   @override
   final int? themeIndex;
+  @override
+  final bool audioPlaying;
+  @override
+  final bool audioMute;
 
   @override
   String toString() {
-    return 'TasbihState(tasbihDhikr: $tasbihDhikr, tasbihDikrTranslate: $tasbihDikrTranslate, tasbihId: $tasbihId, dhikrModel: $dhikrModel, dhikrCount: $dhikrCount, dhikrhGoal: $dhikrhGoal, isBoolGreaterThanOne: $isBoolGreaterThanOne, tasbihThemes: $tasbihThemes, themeIndex: $themeIndex)';
+    return 'TasbihState(tasbihDhikr: $tasbihDhikr, tasbihDikrTranslate: $tasbihDikrTranslate, tasbihId: $tasbihId, dhikrModel: $dhikrModel, dhikrCount: $dhikrCount, dhikrhGoal: $dhikrhGoal, isBoolGreaterThanOne: $isBoolGreaterThanOne, tasbihThemes: $tasbihThemes, themeIndex: $themeIndex, audioPlaying: $audioPlaying, audioMute: $audioMute)';
   }
 
   @override
@@ -2168,7 +2430,11 @@ class _$_TasbihState implements _TasbihState {
             (identical(other.tasbihThemes, tasbihThemes) ||
                 other.tasbihThemes == tasbihThemes) &&
             (identical(other.themeIndex, themeIndex) ||
-                other.themeIndex == themeIndex));
+                other.themeIndex == themeIndex) &&
+            (identical(other.audioPlaying, audioPlaying) ||
+                other.audioPlaying == audioPlaying) &&
+            (identical(other.audioMute, audioMute) ||
+                other.audioMute == audioMute));
   }
 
   @override
@@ -2182,7 +2448,9 @@ class _$_TasbihState implements _TasbihState {
       dhikrhGoal,
       isBoolGreaterThanOne,
       tasbihThemes,
-      themeIndex);
+      themeIndex,
+      audioPlaying,
+      audioMute);
 
   @JsonKey(ignore: true)
   @override
@@ -2201,7 +2469,9 @@ abstract class _TasbihState implements TasbihState {
       required final int dhikrhGoal,
       required final bool isBoolGreaterThanOne,
       required final TasbihThemes tasbihThemes,
-      required final int? themeIndex}) = _$_TasbihState;
+      required final int? themeIndex,
+      required final bool audioPlaying,
+      required final bool audioMute}) = _$_TasbihState;
 
   @override
   String get tasbihDhikr;
@@ -2221,6 +2491,10 @@ abstract class _TasbihState implements TasbihState {
   TasbihThemes get tasbihThemes;
   @override
   int? get themeIndex;
+  @override
+  bool get audioPlaying;
+  @override
+  bool get audioMute;
   @override
   @JsonKey(ignore: true)
   _$$_TasbihStateCopyWith<_$_TasbihState> get copyWith =>

@@ -2,7 +2,9 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:just_audio/just_audio.dart';
 import 'package:millat/resources/home/bloc/service/tasbih_services.dart';
 
 import '../../../../../enums/enumertations.dart';
@@ -14,6 +16,8 @@ part 'tasbih_bloc.freezed.dart';
 
 class TasbihBloc extends Bloc<TasbihEvent, TasbihState> {
   TasbihService tasbihService = TasbihService();
+  final AudioPlayer audioPlayer = AudioPlayer();
+
   TasbihBloc() : super(TasbihState.initial()) {
     on<SelectDhikerEvent>(_selectDikrEvent);
     on<FetchDhikr>(_fetchDhikr);
@@ -25,6 +29,7 @@ class TasbihBloc extends Bloc<TasbihEvent, TasbihState> {
     on<DecreaseTasbhiCountEvent>(_decreaseTasbhiCountEvent);
     on<ChangeThemeEvent>(_changeThemeEvent);
     on<ChangeThemeIndex>(_changeThemeIndex);
+    on<MuteAudioEvent>(_muteAudioEvent);
   }
 
   _selectDikrEvent(SelectDhikerEvent event, Emitter<TasbihState> emit) {
@@ -45,6 +50,9 @@ class TasbihBloc extends Bloc<TasbihEvent, TasbihState> {
 
   _dikhrIncreaseEvent(
       DikhrIncreaseCountEvent event, Emitter<TasbihState> emit) {
+    audioPlayer.setAsset("assets/audio/tasbih_click.mp3");
+    audioPlayer.play();
+    HapticFeedback.vibrate();
     emit(state.copyWith(dhikrCount: state.dhikrCount + 1));
   }
 
@@ -84,5 +92,15 @@ class TasbihBloc extends Bloc<TasbihEvent, TasbihState> {
 
   _changeThemeIndex(ChangeThemeIndex event, Emitter<TasbihState> emit) {
     emit(state.copyWith(themeIndex: event.themeIndex));
+  }
+
+  _muteAudioEvent(MuteAudioEvent event, Emitter<TasbihState> emit) async {
+    if (state.audioMute == false) {
+      await audioPlayer.setVolume(0.0);
+      emit(state.copyWith(audioMute: true));
+    } else {
+      await audioPlayer.setVolume(5.0);
+      emit(state.copyWith(audioMute: false));
+    }
   }
 }

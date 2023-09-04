@@ -326,7 +326,7 @@ class _PrayerTrackerCalendarViewState extends State<PrayerTrackerCalendarView> {
                       width: 32,
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
-                        color: ColorManager.redColor,
+                        color: ColorManager.lightRedColor,
                       ),
                       padding: const EdgeInsets.all(1),
                       child: Icon(

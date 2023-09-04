@@ -1,5 +1,4 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/enums/enumertations.dart';
@@ -50,6 +49,122 @@ class ShopSpecificCategoryView extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
+            Container(
+              height: 55,
+              width: double.infinity,
+              decoration: const BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [
+                    Color(0xFF00A05B), // #00A05B
+                    Color(0xFFBCFEB1), // #BCFEB1
+                  ],
+                  begin: Alignment
+                      .centerLeft, // Adjust the begin and end values as needed
+                  end: Alignment
+                      .centerRight, // to control the direction of the gradient.
+                ),
+              ),
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 30).copyWith(top: 10),
+              child: Row(
+                children: [
+                  Text(
+                    "Super Flash sale 50% off",
+                    style: TextStyle(
+                      fontSize: 13,
+                      fontWeight: FontWeight.bold,
+                      color: ColorManager.whiteColor,
+                    ),
+                  ),
+                  Spacer(),
+                  Row(
+                    children: [
+                      Container(
+                        height: 24,
+                        width: 28,
+                        decoration: BoxDecoration(
+                            color: ColorManager.lightGreen,
+                            borderRadius: BorderRadius.circular(8),
+                            border: Border.all(
+                              color: ColorManager.primary,
+                            )),
+                        child: Center(
+                          child: Text(
+                            "08",
+                            style: TextStyle(
+                              fontSize: 12,
+                              color: ColorManager.primary,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ),
+                      kWidth5,
+                      Text(
+                        ":",
+                        style: TextStyle(
+                          fontSize: 12,
+                          color: ColorManager.primary,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      kWidth5,
+                      Container(
+                        height: 24,
+                        width: 28,
+                        decoration: BoxDecoration(
+                            color: ColorManager.lightGreen,
+                            borderRadius: BorderRadius.circular(8),
+                            border: Border.all(
+                              color: ColorManager.primary,
+                            )),
+                        child: Center(
+                          child: Text(
+                            "23",
+                            style: TextStyle(
+                              fontSize: 12,
+                              color: ColorManager.primary,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ),
+                      kWidth5,
+                      Text(
+                        ":",
+                        style: TextStyle(
+                          fontSize: 12,
+                          color: ColorManager.primary,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      kWidth5,
+                      Container(
+                        height: 24,
+                        width: 28,
+                        decoration: BoxDecoration(
+                            color: ColorManager.lightGreen,
+                            borderRadius: BorderRadius.circular(8),
+                            border: Border.all(
+                              color: ColorManager.primary,
+                            )),
+                        child: Center(
+                          child: Text(
+                            "15",
+                            style: TextStyle(
+                              fontSize: 12,
+                              color: ColorManager.primary,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ),
+                      kWidth5,
+                    ],
+                  )
+                ],
+              ),
+            ),
             BlocBuilder<ShopProductsBloc, ShopProductsState>(
               builder: (context, state) {
                 List<String> sliderImages = [];
@@ -68,7 +183,7 @@ class ShopSpecificCategoryView extends StatelessWidget {
                       [];
                 }
 
-                return Column(
+                return Stack(
                   children: [
                     CarouselSlider(
                       items: sliderImages.map(
@@ -98,22 +213,27 @@ class ShopSpecificCategoryView extends StatelessWidget {
                         },
                       ),
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: sliderImages.map((banner) {
-                        int index = sliderImages.indexOf(banner);
-                        return Container(
-                          width: state.womensCareBannerIndex == index ? 6 : 6,
-                          height: 6,
-                          margin: const EdgeInsets.symmetric(horizontal: 4),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(30),
-                            color: state.womensCareBannerIndex == index
-                                ? ColorManager.primary
-                                : ColorManager.textGrey2,
-                          ),
-                        );
-                      }).toList(),
+                    Positioned(
+                      left: 0,
+                      right: 0,
+                      bottom: 25,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: sliderImages.map((banner) {
+                          int index = sliderImages.indexOf(banner);
+                          return Container(
+                            width: state.womensCareBannerIndex == index ? 6 : 6,
+                            height: 6,
+                            margin: const EdgeInsets.symmetric(horizontal: 4),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(30),
+                              color: state.womensCareBannerIndex == index
+                                  ? ColorManager.primary
+                                  : ColorManager.textGrey2,
+                            ),
+                          );
+                        }).toList(),
+                      ),
                     ),
                   ],
                 );
@@ -221,43 +341,52 @@ class ShopSpecificCategoryView extends StatelessWidget {
                       if (state.flashSaleproducts?.result?.shopProductCategory
                               ?.products ==
                           null) {
-                        return const Loader();
+                        return const Loader(); // Display a loader or any other loading widget.
                       }
+
+                      final products = state.flashSaleproducts?.result
+                          ?.shopProductCategory?.products;
+
+                      if (products == null || products.isEmpty) {
+                        return const Text(
+                            'No products available'); // Display a message for no data.
+                      }
+
                       return SizedBox(
                         height: 240,
                         child: ListView.builder(
-                            scrollDirection: Axis.horizontal,
-                            itemCount: state.flashSaleproducts?.result
-                                ?.shopProductCategory?.products!.length,
-                            itemBuilder: (context, index) {
-                              final data = state.flashSaleproducts?.result!
-                                  .shopProductCategory?.products![index];
+                          scrollDirection: Axis.horizontal,
+                          itemCount: products.length,
+                          itemBuilder: (context, index) {
+                            final data = products[index];
 
-                              return GestureDetector(
-                                  onTap: () {
-                                    Navigator.of(context)
-                                        .push(MaterialPageRoute(
-                                      builder: (context) =>
-                                          SingleProductView(passValue: data),
-                                    ));
-                                  },
-                                  child: Padding(
-                                    padding: const EdgeInsets.only(right: 15),
-                                    child: ShopProductWidget(
-                                        color: data!.colors![0].text!,
-                                        size: data.size![0].value!,
-                                        brandId: data.brand!.id,
-                                        isWishlisted: state.isWishListed,
-                                        brand: data.brand!.name.toString(),
-                                        productId: data.id,
-                                        image: data.colors![0].images![0],
-                                        title: data.title.toString(),
-                                        actualPrice: data.actualPrice!.toInt(),
-                                        discount: data.discount!.toInt(),
-                                        discountPrice:
-                                            data.discountPrice!.toInt()),
-                                  ));
-                            }),
+                            return GestureDetector(
+                              onTap: () {
+                                Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) =>
+                                      SingleProductView(passValue: data),
+                                ));
+                              },
+                              child: Padding(
+                                padding: const EdgeInsets.only(right: 15),
+                                child: ShopProductWidget(
+                                  color: data.colors?[0].text ?? "",
+                                  size: data.size?[0].value ?? "",
+                                  brandId: data.brand?.id ?? "",
+                                  isWishlisted: state.isWishListed,
+                                  brand: data.brand?.name ?? "",
+                                  productId: data.id,
+                                  image: data.colors?[0].images?[0] ?? "",
+                                  title: data.title ?? "",
+                                  actualPrice: data.actualPrice?.toInt() ?? 0,
+                                  discount: data.discount?.toInt() ?? 0,
+                                  discountPrice:
+                                      data.discountPrice?.toInt() ?? 0,
+                                ),
+                              ),
+                            );
+                          },
+                        ),
                       );
                     },
                   ),
@@ -272,44 +401,54 @@ class ShopSpecificCategoryView extends StatelessWidget {
                       if (state.popularProducts?.result?.shopProductCategory
                               ?.products ==
                           null) {
-                        return const Loader();
+                        return const Loader(); // Display a loader or any other loading widget.
                       }
+
+                      final products = state.popularProducts?.result
+                          ?.shopProductCategory?.products;
+
+                      if (products == null || products.isEmpty) {
+                        return const Text(
+                            'No popular products available'); // Display a message for no data.
+                      }
+
                       return SizedBox(
                         height: 240,
                         child: ListView.builder(
-                            scrollDirection: Axis.horizontal,
-                            itemCount: state.popularProducts?.result
-                                ?.shopProductCategory?.products!.length,
-                            itemBuilder: (context, index) {
-                              final data = state.popularProducts?.result
-                                  ?.shopProductCategory!.products![index];
-                              return GestureDetector(
-                                  onTap: () {
-                                    Navigator.of(context)
-                                        .push(MaterialPageRoute(
-                                      builder: (context) {
-                                        return SingleProductView(
-                                            passValue: data);
-                                      },
-                                    ));
+                          scrollDirection: Axis.horizontal,
+                          itemCount: products.length,
+                          itemBuilder: (context, index) {
+                            final data = products[index];
+
+                            return GestureDetector(
+                              onTap: () {
+                                Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) {
+                                    return SingleProductView(passValue: data);
                                   },
-                                  child: Padding(
-                                    padding: const EdgeInsets.only(right: 15),
-                                    child: ShopProductWidget(
-                                        color: data!.colors![0].text!,
-                                        size: data.size![0].value!,
-                                        brandId: data.brand!.id,
-                                        isWishlisted: state.isWishListed,
-                                        brand: data.brand!.name.toString(),
-                                        productId: data.id,
-                                        image: data.colors![0].images![0],
-                                        title: data.title,
-                                        actualPrice: data.actualPrice!.toInt(),
-                                        discount: data.discount!.toInt(),
-                                        discountPrice:
-                                            data.discountPrice!.toInt()),
-                                  ));
-                            }),
+                                ));
+                              },
+                              child: Padding(
+                                padding: const EdgeInsets.only(right: 15),
+                                child: ShopProductWidget(
+                                  color: data.colors?[0].text ?? "",
+                                  size: data.size?[0].value ?? "",
+                                  brandId: data.brand?.id ?? "",
+                                  isWishlisted: state.isWishListed,
+                                  brand: data.brand?.name ?? "",
+                                  productId: data.id,
+                                  image: data.colors?[0].images?[0] ?? "",
+                                  title:
+                                      data.title ?? "", // Make title nullable.
+                                  actualPrice: data.actualPrice?.toInt() ?? 0,
+                                  discount: data.discount?.toInt() ?? 0,
+                                  discountPrice:
+                                      data.discountPrice?.toInt() ?? 0,
+                                ),
+                              ),
+                            );
+                          },
+                        ),
                       );
                     },
                   ),

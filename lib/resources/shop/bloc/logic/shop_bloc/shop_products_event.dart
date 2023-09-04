@@ -10,7 +10,9 @@ class ShopProductsEvent with _$ShopProductsEvent {
       FetchRecentProductProducts;
   const factory ShopProductsEvent.fetchHomeBanners() = FetchHomeBanners;
   const factory ShopProductsEvent.fetchShopBanners() = FetchShopBanners;
-  const factory ShopProductsEvent.fetchArticles() = FetchArticles;
+  const factory ShopProductsEvent.fetchArticles({
+    required String searchQuery,
+  }) = FetchArticles;
   const factory ShopProductsEvent.fetchShopByBrand() = FetchShopByBrand;
   const factory ShopProductsEvent.fetchWishList(BuildContext context) =
       FetchWishList;

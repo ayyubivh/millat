@@ -4,6 +4,7 @@ import 'package:millat/resources/authentication/bloc/logic/database_bloc/databas
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
 import 'package:millat/resources/shop/view/article/single_article_view.dart';
 import 'package:millat/resources/shop/view/article/widgets/artilce_build_widget.dart';
+import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/loader.dart';
@@ -19,6 +20,11 @@ class ArticlesView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      BlocProvider.of<ShopProductsBloc>(context)
+          .add(const ShopProductsEvent.fetchArticles(searchQuery: ""));
+    });
+    final TextEditingController searchController = TextEditingController();
     return Scaffold(
       backgroundColor: ColorManager.whiteColor,
       body: SingleChildScrollView(
@@ -28,8 +34,9 @@ class ArticlesView extends StatelessWidget {
             Container(
               height: 192,
               width: double.infinity,
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 30).copyWith(top: 50),
+              padding: const EdgeInsets.symmetric(horizontal: 30).copyWith(
+                top: 50,
+              ),
               decoration: BoxDecoration(
                   gradient: LinearGradient(colors: [
                 ColorManager.greenColor1,
@@ -38,35 +45,50 @@ class ArticlesView extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Container(
-                    width: double.infinity,
+                  SizedBox(
                     height: 48,
-                    decoration: BoxDecoration(
-                      color: ColorManager.whiteColor,
-                      borderRadius: BorderRadius.circular(30.0),
-                    ),
-                    child: Align(
-                      alignment: Alignment.topLeft,
-                      child: Row(
-                        children: [
-                          IconButton(
-                            onPressed: () {
-                              // Navigator.of(context).pushNamed(SearchView.routeName);
-                            },
-                            icon: const Icon(
-                              Icons.search,
-                              color: black102,
-                            ),
+                    child: TextFormField(
+                      autofocus: true,
+                      controller: searchController,
+                      decoration: InputDecoration(
+                        prefixIcon: Transform.scale(
+                          scale: 0.5, // Adjust the scale factor as needed
+                          child: const ImageIcon(
+                            AssetImage(AppAssetsStrings.searchIcon),
+                            size: 20, // Adjust the size as needed
+                            color: black132,
                           ),
-                          const Text(
-                            Appstrings.search,
-                            style: TextStyle(
-                              color: black102,
-                              fontSize: 17,
-                            ),
-                          )
-                        ],
+                        ),
+                        filled: true,
+                        fillColor: ColorManager.whiteColor,
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(30.0),
+                        ),
+                        contentPadding: const EdgeInsets.only(top: 20),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(30.0),
+                          borderSide: BorderSide.none,
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(30.0),
+                          borderSide: BorderSide.none,
+                        ),
+                        hintStyle: const TextStyle(
+                          color: black132,
+                          fontSize: 17,
+                          fontWeight: FontWeight.w500,
+                        ),
+                        hintText: 'Search...',
                       ),
+                      onChanged: (value) {
+                        context
+                            .read<ShopProductsBloc>()
+                            .add(FetchArticles(searchQuery: value));
+                      },
+                      onFieldSubmitted: (value) {
+                        context.read<ShopProductsBloc>().add(
+                            FetchArticles(searchQuery: searchController.text));
+                      },
                     ),
                   ),
                   kHeight20,
@@ -108,7 +130,8 @@ class ArticlesView extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30),
+              padding: const EdgeInsets.symmetric(horizontal: 30)
+                  .copyWith(bottom: 100),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -124,14 +147,15 @@ class ArticlesView extends StatelessWidget {
                     height: SizeUtility(context).height,
                     child: BlocBuilder<ShopProductsBloc, ShopProductsState>(
                       builder: (context, state) {
-                        if (state.articles?.result?.articles == null) {
+                        if (state.articles == null) {
                           return const Loader();
                         }
                         return ListView.builder(
-                          itemCount: state.articles?.result?.articles?.length,
+                          itemCount: state.articles?.length,
+                          shrinkWrap: true,
+                          physics: const NeverScrollableScrollPhysics(),
                           itemBuilder: (context, index) {
-                            final data =
-                                state.articles!.result!.articles![index];
+                            final data = state.articles![index];
                             return GestureDetector(
                                 onTap: () {
                                   Navigator.of(context).push(MaterialPageRoute(

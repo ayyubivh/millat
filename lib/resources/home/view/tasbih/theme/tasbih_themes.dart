@@ -8,12 +8,16 @@ final tasbihThemeImage = {
   TasbihThemes.orange: AppAssetsStrings.tasbihBallOrange,
   TasbihThemes.purple: AppAssetsStrings.tasbihBallPurple,
   TasbihThemes.green: AppAssetsStrings.tasbihBallGreen,
+  TasbihThemes.darkBlue: AppAssetsStrings.tasbihDarkBlue,
+  TasbihThemes.lightOrange: AppAssetsStrings.tasbihLightOrange
 };
 final tasbihThemeSingleBall = {
   TasbihThemes.pink: "assets/images/tasbih_theme_ball_1.png",
   TasbihThemes.orange: "assets/images/tasbih_theme_ball_2.png",
   TasbihThemes.purple: "assets/images/tasbih_theme_ball_3.png",
   TasbihThemes.green: "assets/images/tasbih_theme_ball_4.png",
+  TasbihThemes.darkBlue: "assets/images/tasbih_theme_ball_5.png",
+  TasbihThemes.lightOrange: "assets/images/tasbih_theme_ball_6.png",
 };
 final appThemeData = {
   TasbihThemes.pink: ThemeData(
@@ -100,7 +104,51 @@ final appThemeData = {
       labelSmall: TextStyle(
         fontSize: 17,
         fontWeight: FontWeight.w400,
-        color: ColorManager.tasbihThemeGreenTextClor,
+        color: ColorManager.tasbihThemeDarkBlueTextClr,
+      ),
+    ),
+  ),
+  TasbihThemes.darkBlue: ThemeData(
+    primaryColor: ColorManager.tasbihThemeDarkBlueBgClr,
+    primaryColorLight: ColorManager.tasbihThemDarkBlueGradient1,
+    primaryColorDark: ColorManager.tasbihThemDarkBlueGradient2,
+    textTheme: TextTheme(
+      titleLarge: TextStyle(
+        fontSize: 40,
+        fontWeight: FontWeight.w600,
+        color: ColorManager.tasbihThemeDarkBlueTextClr,
+      ),
+      bodyMedium: TextStyle(
+        fontSize: 40,
+        fontWeight: FontWeight.w600,
+        color: ColorManager.tasbihThemeDarkBlueTextClr,
+      ),
+      labelSmall: TextStyle(
+        fontSize: 17,
+        fontWeight: FontWeight.w400,
+        color: ColorManager.tasbihThemeDarkBlueTextClr,
+      ),
+    ),
+  ),
+  TasbihThemes.lightOrange: ThemeData(
+    primaryColor: ColorManager.tasbihThemelightOrangeBgClr,
+    primaryColorLight: ColorManager.tasbihThemlightOrangeGradient1,
+    primaryColorDark: ColorManager.tasbihThemlightOrangeGradient2,
+    textTheme: TextTheme(
+      titleLarge: TextStyle(
+        fontSize: 40,
+        fontWeight: FontWeight.w600,
+        color: ColorManager.tasbihThemelightOrangeTextClr,
+      ),
+      bodyMedium: TextStyle(
+        fontSize: 40,
+        fontWeight: FontWeight.w600,
+        color: ColorManager.tasbihThemelightOrangeTextClr,
+      ),
+      labelSmall: TextStyle(
+        fontSize: 17,
+        fontWeight: FontWeight.w400,
+        color: ColorManager.tasbihThemelightOrangeTextClr,
       ),
     ),
   ),

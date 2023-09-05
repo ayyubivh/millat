@@ -160,8 +160,6 @@ class ShopProductWidget extends StatelessWidget {
                   if (containsProductId != null && !containsProductId) {
                     return GestureDetector(
                       onTap: () {
-                        showSnackBar(context, "Product Added To  Cart!");
-
                         print(
                             "$productId\n$discountPrice\n$brandId \n$color \n $size");
                         context.read<CartBloc>().add(AddCartEvent(
@@ -173,6 +171,7 @@ class ShopProductWidget extends StatelessWidget {
                               quantity: 1,
                               brandId: brandId ?? "",
                             ));
+                        showSnackBar(context, "Product Added To  Cart!");
                       },
                       child: Container(
                         height: 20,

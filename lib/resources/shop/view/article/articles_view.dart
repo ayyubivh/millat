@@ -147,7 +147,7 @@ class ArticlesView extends StatelessWidget {
                     height: SizeUtility(context).height,
                     child: BlocBuilder<ShopProductsBloc, ShopProductsState>(
                       builder: (context, state) {
-                        if (state.articles == null) {
+                        if (state.articles == null || state.isLoading) {
                           return const Loader();
                         }
                         return ListView.builder(
@@ -195,12 +195,14 @@ class ArticlesView extends StatelessWidget {
       ),
       padding: const EdgeInsets.all(8),
       margin: const EdgeInsets.only(right: 10),
-      child: Text(text,
-          style: TextStyle(
-            fontSize: 16,
-            color: ColorManager.greenGreyTextClr,
-            fontWeight: FontWeight.w700,
-          )),
+      child: Center(
+        child: Text(text,
+            style: TextStyle(
+              fontSize: 16,
+              color: ColorManager.greenGreyTextClr,
+              fontWeight: FontWeight.w700,
+            )),
+      ),
     );
   }
 }

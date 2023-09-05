@@ -9,6 +9,7 @@ import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.da
 import 'package:millat/resources/shop/view/brand/shop_brand_view.dart';
 import 'package:millat/resources/shop/view/brand/single_brand_view.dart';
 import 'package:millat/resources/shop/view/categories/categories_filter_view.dart';
+import 'package:millat/resources/shop/view/categories/categories_view.dart';
 import 'package:millat/resources/shop/view/search/search_view.dart';
 import 'package:millat/resources/shop/view/widgets/shop_home_subcategory_card_widget.dart';
 import 'package:millat/resources/shop/view/womens_care/shop_specific_category_view.dart';
@@ -443,11 +444,20 @@ class _ShopViewState extends State<ShopView> {
             kHeight20,
             CarouselSlider(
               items: banners?.map((banner) {
-                return ClipRRect(
-                  borderRadius: BorderRadius.circular(20),
-                  child: Image.network(
-                    banner.image,
-                    fit: BoxFit.contain,
+                return GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const CategoriesView(
+                            category: "",
+                            subCategory: "",
+                            type: FilterType.category)));
+                  },
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(20),
+                    child: Image.network(
+                      banner.image,
+                      fit: BoxFit.contain,
+                    ),
                   ),
                 );
               }).toList(),

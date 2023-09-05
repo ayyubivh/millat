@@ -126,7 +126,7 @@ class WishListView extends StatelessWidget {
               ? const SizedBox()
               : Container(
                   padding: const EdgeInsets.symmetric(horizontal: 25),
-                  height: 240,
+                  height: 150,
                   child: Column(
                     children: [
                       const Text(

@@ -1,3 +1,5 @@
+// ignore_for_file: unused_local_variable
+
 import 'dart:io';
 
 import 'package:carousel_slider/carousel_slider.dart';
@@ -15,10 +17,9 @@ import 'package:millat/resources/home/bloc/logic/quran_bloc/quran_bloc.dart';
 import 'package:millat/resources/home/view/qibla/qibla_view.dart';
 import 'package:millat/resources/home/view/tasbih/tasbih_view.dart';
 import 'package:millat/resources/home/view/widgets/hadit_tinder_cards.dart';
-import 'package:millat/resources/home/view/widgets/home_drawyer_widget.dart';
+
 import 'package:millat/resources/home/view/widgets/notification_view.dart';
 import 'package:millat/resources/home/view/widgets/prayer_tracker_calendar_view.dart';
-import 'package:millat/resources/shop/view/brand/shop_brand_view.dart';
 import 'package:millat/resources/shop/view/categories/categories_view.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/loader.dart';
@@ -370,8 +371,9 @@ class _HomeViewState extends State<HomeView> {
                   return GestureDetector(
                     onTap: () {
                       Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) =>
-                            SingleBrandView(passValue: data.brandId),
+                        builder: (context) => SingleBrandView(
+                            passValue: data.brandId,
+                            brandViewType: BrandViewType.brandOftheDay),
                       ));
                     },
                     child: Padding(
@@ -387,28 +389,27 @@ class _HomeViewState extends State<HomeView> {
                           borderRadius: BorderRadius.circular(14),
                           child: Stack(
                             children: [
-                              // Image.network(
-                              //   data.image!,
-                              //   height: 230,
-                              //   width: SizeUtility(context).width / 1.6,
-                              //   fit: BoxFit.cover,
-                              // ),
+                              Image.network(
+                                data.image!,
+                                height: 230,
+                                width: SizeUtility(context).width / 1.6,
+                                fit: BoxFit.cover,
+                              ),
                               Padding(
                                 padding: const EdgeInsets.symmetric(
                                     horizontal: 15, vertical: 15),
                                 child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
+                                  mainAxisAlignment: MainAxisAlignment.end,
                                   children: [
-                                    Text(
-                                      "Get\n${data.discount.toString()}%OFF",
-                                      style: TextStyle(
-                                        fontSize: 24,
-                                        color: ColorManager.blackColor,
-                                        fontWeight: FontWeight.w800,
-                                        height: 1.2,
-                                      ),
-                                    ),
+                                    // Text(
+                                    //   "Get\n${data.discount.toString()}%OFF",
+                                    //   style: TextStyle(
+                                    //     fontSize: 24,
+                                    //     color: ColorManager.blackColor,
+                                    //     fontWeight: FontWeight.w800,
+                                    //     height: 1.2,
+                                    //   ),
+                                    // ),
                                     Container(
                                       height: 50,
                                       width: 50,
@@ -730,11 +731,35 @@ class _HomeViewState extends State<HomeView> {
                 builder: (context, state) {
                   final currentNamaz = state.currentNamaz;
                   final currentNamazName = currentNamaz?['name'] ?? '';
-                  // final isActiveNamaz = currentNamazName == namazName;
+
+                  String currentNamazTime = currentNamaz?['time'] ?? '';
+                  DateTime now = DateTime.now();
+                  List<String> timeParts = currentNamazTime.split(':');
+
+                  bool isFajr = false;
+                  bool isDhuhr = false;
+                  bool isAsr = false;
+                  bool isMagrib = false;
+                  bool isIsha = false;
+
+                  if (timeParts.length == 2) {
+                    int hour = int.tryParse(timeParts[0]) ?? 0;
+                    int minute = int.tryParse(timeParts[1]) ?? 0;
+                    DateTime namazTime =
+                        DateTime(now.year, now.month, now.day, hour, minute);
+                    // print(namazTime);
+                    isFajr = namazTime.isAfter(now);
+                    isDhuhr = namazTime.isAfter(now);
+                    isAsr = namazTime.isAfter(now);
+                    isMagrib = namazTime.isAfter(now);
+                    isIsha = namazTime.isAfter(now);
+                  }
+
                   return Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       dailyTrackerWidget(
+                        isUpcoming: isFajr,
                         namazName: Appstrings.fajr,
                         isCompleted: data.prayerTrackerFajr,
                         onTap: () {
@@ -749,6 +774,7 @@ class _HomeViewState extends State<HomeView> {
                         },
                       ),
                       dailyTrackerWidget(
+                        isUpcoming: isDhuhr,
                         namazName: Appstrings.dhuhr,
                         isCompleted: data.prayerTrackerDhuhr,
                         onTap: () {
@@ -763,6 +789,7 @@ class _HomeViewState extends State<HomeView> {
                         },
                       ),
                       dailyTrackerWidget(
+                        isUpcoming: isAsr,
                         namazName: Appstrings.asr,
                         isCompleted: data.prayerTrackerAsr,
                         onTap: () {
@@ -777,6 +804,7 @@ class _HomeViewState extends State<HomeView> {
                         },
                       ),
                       dailyTrackerWidget(
+                        isUpcoming: true,
                         namazName: Appstrings.magrib,
                         isCompleted: data.prayerTrackerMagrib,
                         onTap: () {
@@ -791,6 +819,7 @@ class _HomeViewState extends State<HomeView> {
                         },
                       ),
                       dailyTrackerWidget(
+                        isUpcoming: true,
                         namazName: Appstrings.isha,
                         isShow: false,
                         isCompleted: data.prayerTrackerIsha,
@@ -817,12 +846,12 @@ class _HomeViewState extends State<HomeView> {
     );
   }
 
-  Widget dailyTrackerWidget({
-    required String namazName,
-    bool isShow = true,
-    required bool isCompleted,
-    required VoidCallback onTap,
-  }) {
+  Widget dailyTrackerWidget(
+      {required String namazName,
+      bool isShow = true,
+      required bool isCompleted,
+      required VoidCallback onTap,
+      required bool isUpcoming}) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.center,
@@ -832,17 +861,26 @@ class _HomeViewState extends State<HomeView> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              CircleAvatar(
-                backgroundColor: isCompleted == false
-                    ? ColorManager.lightRedColor
-                    : ColorManager.primary,
-                radius: 16,
-                child: Icon(
-                  isCompleted == true ? Icons.check : Icons.close,
-                  color: ColorManager.whiteColor,
-                  size: 18,
-                ),
-              ),
+              isUpcoming == true
+                  ? CircleAvatar(
+                      radius: 16,
+                      backgroundColor: ColorManager.primary,
+                      child: CircleAvatar(
+                        radius: 14,
+                        backgroundColor: ColorManager.whiteColor,
+                      ),
+                    )
+                  : CircleAvatar(
+                      backgroundColor: isCompleted == false
+                          ? ColorManager.lightRedColor
+                          : ColorManager.primary,
+                      radius: 16,
+                      child: Icon(
+                        isCompleted == true ? Icons.check : Icons.close,
+                        color: ColorManager.whiteColor,
+                        size: 18,
+                      ),
+                    ),
               isShow == true
                   ? Container(
                       width: 40,

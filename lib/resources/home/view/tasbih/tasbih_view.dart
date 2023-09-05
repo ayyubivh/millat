@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:just_audio/just_audio.dart';
 import 'package:millat/components/textfields/custom_text_field.dart';
 import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/home/bloc/logic/tasbih_bloc/tasbih_bloc.dart';
@@ -43,7 +42,7 @@ class TasbihViewState extends State<TasbihView>
     HapticFeedback.heavyImpact();
 
     context.read<TasbihBloc>().add(const DikhrIncreaseCountEvent());
-    _controller.reverse(from: 0.6);
+    _controller.reverse(from: 0.5);
 
     // Future.delayed(const Duration(milliseconds: 308), () {
     //   if (_controller.isAnimating) {
@@ -206,7 +205,13 @@ class TasbihViewState extends State<TasbihView>
                                     ? 70 - curvedValue * 200
                                     : state.tasbihThemes == TasbihThemes.green
                                         ? 148 - curvedValue * 200
-                                        : 129 - curvedValue * 200,
+                                        : state.tasbihThemes ==
+                                                TasbihThemes.darkBlue
+                                            ? 80 - curvedValue * 200
+                                            : state.tasbihThemes ==
+                                                    TasbihThemes.lightOrange
+                                                ? 64 - curvedValue * 200
+                                                : 129 - curvedValue * 200,
                             left: state.tasbihThemes == TasbihThemes.orange
                                 ? 81 + curvedValue * SizeUtility(context).width
                                 : state.tasbihThemes == TasbihThemes.purple
@@ -216,16 +221,31 @@ class TasbihViewState extends State<TasbihView>
                                         ? 78 +
                                             curvedValue *
                                                 SizeUtility(context).width
-                                        : 58 +
-                                            curvedValue *
-                                                SizeUtility(context).width,
+                                        : state.tasbihThemes ==
+                                                TasbihThemes.darkBlue
+                                            ? 78 +
+                                                curvedValue *
+                                                    SizeUtility(context).width
+                                            : state.tasbihThemes ==
+                                                    TasbihThemes.lightOrange
+                                                ? 68 +
+                                                    curvedValue *
+                                                        SizeUtility(context)
+                                                            .width
+                                                : 58 +
+                                                    curvedValue *
+                                                        SizeUtility(context)
+                                                            .width,
                             child: Image.asset(
                               tasbihThemeSingleBall[state.tasbihThemes]!,
                               width: state.tasbihThemes == TasbihThemes.orange
                                   ? 140
                                   : state.tasbihThemes == TasbihThemes.green
                                       ? 148
-                                      : 167,
+                                      : state.tasbihThemes ==
+                                              TasbihThemes.darkBlue
+                                          ? 148
+                                          : 167,
                               height: state.tasbihThemes == TasbihThemes.orange
                                   ? 140
                                   : state.tasbihThemes == TasbihThemes.green
@@ -281,7 +301,7 @@ class TasbihViewState extends State<TasbihView>
                         height: 80,
                         child: ListView.builder(
                           scrollDirection: Axis.horizontal,
-                          itemCount: 4,
+                          itemCount: 6,
                           itemBuilder: (context, index) {
                             final tasbihTheme = TasbihThemes.values[index];
 
@@ -569,18 +589,18 @@ class TasbihViewState extends State<TasbihView>
                 Row(
                   children: [
                     Expanded(
-                      child: Container(
-                        height: 62,
-                        decoration: BoxDecoration(
-                          borderRadius: const BorderRadius.only(
-                              bottomLeft: Radius.circular(12)),
-                          color: ColorManager.whiteColor,
-                        ),
-                        child: Center(
-                          child: GestureDetector(
-                            onTap: () {
-                              Navigator.of(context).pop();
-                            },
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.of(context).pop();
+                        },
+                        child: Container(
+                          height: 62,
+                          decoration: BoxDecoration(
+                            borderRadius: const BorderRadius.only(
+                                bottomLeft: Radius.circular(12)),
+                            color: ColorManager.whiteColor,
+                          ),
+                          child: Center(
                             child: Text(
                               'Cancel',
                               style: TextStyle(
@@ -593,21 +613,21 @@ class TasbihViewState extends State<TasbihView>
                       ),
                     ),
                     Expanded(
-                      child: Container(
-                        decoration: BoxDecoration(
-                          borderRadius: const BorderRadius.only(
-                              bottomRight: Radius.circular(12)),
-                          color: ColorManager.primary,
-                        ),
-                        height: 62,
-                        child: Center(
-                          child: GestureDetector(
-                            onTap: () {
-                              Navigator.of(context).pop();
-                              context
-                                  .read<TasbihBloc>()
-                                  .add(const ResetTashbihCounterEvent());
-                            },
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.of(context).pop();
+                          context
+                              .read<TasbihBloc>()
+                              .add(const ResetTashbihCounterEvent());
+                        },
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: const BorderRadius.only(
+                                bottomRight: Radius.circular(12)),
+                            color: ColorManager.primary,
+                          ),
+                          height: 62,
+                          child: Center(
                             child: Text(
                               'Reset',
                               style: TextStyle(

@@ -291,6 +291,8 @@ class NamazTimingBloc extends Bloc<NamazTimingEvent, NamazTimingState> {
       case 'Isha':
         return 'Fajr';
       case 'Fajr':
+        return 'Sunrise';
+      case 'Sunrise':
         return 'Dhuhr';
       case 'Dhuhr':
         return 'Asr';
@@ -307,6 +309,8 @@ class NamazTimingBloc extends Bloc<NamazTimingEvent, NamazTimingState> {
     switch (namazName) {
       case 'Fajr':
         return prayerTimings.fajr!;
+      case 'Sunrise':
+        return prayerTimings.sunrise!;
       case 'Dhuhr':
         return prayerTimings.dhuhr!;
       case 'Asr':

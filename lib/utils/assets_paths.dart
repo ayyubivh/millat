@@ -26,6 +26,9 @@ class AppAssetsStrings {
   static const String tasbihBallOrange = "$imagesPath/tasbih_ball_orange.png";
   static const String tasbihBallPurple = "$imagesPath/tasbih_ball_purple.png";
   static const String tasbihBallGreen = "$imagesPath/tasbih_ball_green.png";
+  static const String tasbihDarkBlue = "$imagesPath/tasbih_balls_dark_blue.png";
+  static const String tasbihLightOrange =
+      "$imagesPath/tasbih_balls_light_orange.png";
 //shop
   static const String adilQadri = "$imagesPath/adil_qadri.png";
   static const String adilQadriLogo = "$imagesPath/adil_qadiri_log.png";

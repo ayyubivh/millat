@@ -134,10 +134,11 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
     FetchArticles event,
     Emitter<ShopProductsState> emit,
   ) async {
+    emit(state.copyWith(isLoading: true));
     try {
       final data = await shopService.fetchArticles();
       if (event.searchQuery.isEmpty) {
-        emit(state.copyWith(articles: data.result?.articles));
+        emit(state.copyWith(articles: data.result?.articles, isLoading: false));
       }
 
       // Filter articles based on the search query (event.searchQuery)
@@ -149,12 +150,11 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
               true)
           .toList();
 
-      emit(state.copyWith(
-        articles: filteredArticles,
-      ));
+      emit(state.copyWith(articles: filteredArticles, isLoading: false));
     } catch (e) {
       emit(state.copyWith(
         errorMessage: "An error occurred",
+        isLoading: false,
       ));
     }
   }
@@ -489,8 +489,8 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
     emit(state.copyWith(isLoading: true, errorMessage: ""));
     try {
       final data = await shopService.fetchAdShopBrandsbyId(id: event.id);
-
       emit(state.copyWith(isLoading: false, shopAdBrandsById: data));
+      print("ad brands bloc ${state.shopAdBrandsById}");
     } catch (e) {
       emit(state.copyWith(isLoading: false, errorMessage: "$e"));
     }

@@ -15,9 +15,7 @@ class ShopBrandView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      BlocProvider.of<ShopProductsBloc>(context).add(const FetchTopBrands());
-    });
+    WidgetsBinding.instance.addPostFrameCallback((_) {});
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(

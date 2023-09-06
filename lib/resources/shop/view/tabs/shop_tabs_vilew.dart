@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
 import 'package:millat/resources/shop/view/article/articles_view.dart';
 import 'package:millat/resources/shop/view/shop_view.dart';
-import 'package:millat/resources/shop/view/wishlist/wishlist_view.dart';
-import 'package:millat/resources/shop/view/womens_care/womens_care_view.dart';
+import 'package:millat/resources/shop/view/womens_care/shop_specific_category_view.dart';
 import 'package:millat/resources/tabs/view/tabs_view.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/color_manager.dart';
@@ -21,7 +21,7 @@ class ShopTabsView extends StatelessWidget {
       const ShopView(),
       const ArticlesView(),
       // const CategoriesFilter(),
-      const WomensCareView(),
+      const ShopSpecificCategoryView(categoryItemType: CategoryItemType.womens),
       const ProfileView(),
     ];
 

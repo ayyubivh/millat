@@ -16,8 +16,8 @@ class UserProfileView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      BlocProvider.of<DatabaseBloc>(context)
-          .add(FetchAuthUser(context: context));
+      // BlocProvider.of<DatabaseBloc>(context)
+      //     .add(FetchAuthUser(context: context));
     });
     return BlocBuilder<DatabaseBloc, DatabaseState>(
       builder: (context, state) {
@@ -167,64 +167,108 @@ class UserProfileView extends StatelessWidget {
                     textAlign: TextAlign.center,
                   ),
                 ),
-                kHeight10,
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    _customELevatedButton(
-                      textColor: ColorManager.whiteColor,
-                      context: context,
-                      text: Appstrings.editProfile,
-                      backgroundColor: ColorManager.primary,
-                      icon: AppAssetsStrings.editIcon,
-                      onTap: () {
-                        Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => const EditProfileView(),
-                        ));
-                      },
-                    ),
-                    _customELevatedButton(
-                      textColor: ColorManager.primary,
-                      context: context,
-                      text: Appstrings.shareProfile,
-                      backgroundColor: ColorManager.whiteColor,
-                      icon: AppAssetsStrings.sendIcon,
-                      onTap: () {},
-                    )
-                  ],
-                ),
                 kHeight15,
                 Container(
-                  height: 50,
-                  width: SizeUtility(context).width,
+                  height: 42,
+                  margin: EdgeInsets.symmetric(
+                      horizontal: SizeUtility(context).width / 6),
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8),
-                    border: Border.all(
-                      color: ColorManager.blue5,
+                    borderRadius: BorderRadius.circular(
+                      30,
                     ),
+                    color: ColorManager.whiteColor,
+                    boxShadow: [
+                      BoxShadow(
+                        color: ColorManager.grey83.withOpacity(0.3),
+                        blurRadius: 3,
+                        spreadRadius: 1,
+                        offset: const Offset(0, 2),
+                      ),
+                    ],
                   ),
                   child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Icon(
-                        Icons.thumb_up_off_alt,
-                        color: ColorManager.blue7A,
+                      Image.asset(
+                        AppAssetsStrings.editUserProfile,
+                        width: 19,
+                        height: 19,
                       ),
                       kWidth8,
                       Text(
-                        '2.3 Likes',
+                        "Edit profile",
                         style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w500,
-                          color: ColorManager.blue7A,
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold,
+                          color: ColorManager.blackColor,
                         ),
                       )
                     ],
                   ),
                 ),
                 kHeight15,
-                const Divider(thickness: 1),
-                kHeight15,
+                Container(
+                  height: 60,
+                  width: SizeUtility(context).width,
+                  decoration: BoxDecoration(
+                    color: ColorManager.whiteColor,
+                    boxShadow: [
+                      BoxShadow(
+                        color: ColorManager.grey83.withOpacity(0.3),
+                        blurRadius: 3,
+                        spreadRadius: 1,
+                        offset: const Offset(0, 2),
+                      ),
+                    ],
+                  ),
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: Row(
+                    children: [
+                      Image.asset(
+                        AppAssetsStrings.inviteFriend,
+                        height: 23,
+                        width: 24,
+                      ),
+                      kWidth8,
+                      Column(
+                        children: [
+                          Text("Invite Your Friends"),
+                        ],
+                      )
+                    ],
+                  ),
+                ),
+                // Container(
+                //   height: 50,
+                //   width: SizeUtility(context).width,
+                //   decoration: BoxDecoration(
+                //     borderRadius: BorderRadius.circular(8),
+                //     border: Border.all(
+                //       color: ColorManager.blue5,
+                //     ),
+                //   ),
+                //   child: Row(
+                //     mainAxisAlignment: MainAxisAlignment.center,
+                //     children: [
+                //       Icon(
+                //         Icons.thumb_up_off_alt,
+                //         color: ColorManager.blue7A,
+                //       ),
+                //       kWidth8,
+                //       Text(
+                //         '2.3 Likes',
+                //         style: TextStyle(
+                //           fontSize: 16,
+                //           fontWeight: FontWeight.w500,
+                //           color: ColorManager.blue7A,
+                //         ),
+                //       )
+                //     ],
+                //   ),
+                //
+                // ),
+
                 // Align(
                 //     alignment: Alignment.topLeft,
                 //     child: _activityTexts(Appstrings.activity)),
@@ -269,45 +313,6 @@ class UserProfileView extends StatelessWidget {
         fontSize: 17,
         fontWeight: FontWeight.w600,
         color: ColorManager.blackColor,
-      ),
-    );
-  }
-
-  Widget _customELevatedButton({
-    required String text,
-    required Color backgroundColor,
-    required String icon,
-    required Color textColor,
-    required BuildContext context,
-    required VoidCallback onTap,
-  }) {
-    return ElevatedButton(
-      onPressed: onTap,
-      style: ElevatedButton.styleFrom(
-          elevation: 0,
-          fixedSize: Size(SizeUtility(context).width / 2.5, 44),
-          backgroundColor: backgroundColor,
-          shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(8),
-              side: BorderSide(color: textColor))),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          ImageIcon(
-            AssetImage(
-              icon,
-            ),
-            color: textColor,
-          ),
-          Text(
-            text,
-            style: TextStyle(
-              fontSize: 15,
-              fontWeight: FontWeight.w500,
-              color: textColor,
-            ),
-          )
-        ],
       ),
     );
   }

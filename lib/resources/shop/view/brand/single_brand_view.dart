@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/components/common_widgets/shop_products_widget.dart';
+import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/shop/bloc/logic/category_bloc/category_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
 import 'package:millat/utils/color_manager.dart';
@@ -13,8 +14,10 @@ import '../../../../utils/assets_paths.dart';
 import '../products/single_product_view.dart';
 
 class SingleBrandView extends StatelessWidget {
+  final BrandViewType? brandViewType;
   final dynamic passValue;
-  const SingleBrandView({super.key, required this.passValue});
+  const SingleBrandView(
+      {super.key, required this.passValue, this.brandViewType});
 
   @override
   Widget build(BuildContext context) {
@@ -35,11 +38,11 @@ class SingleBrandView extends StatelessWidget {
           children: [
             Stack(
               children: [
-                SizedBox(
-                  height: 400,
-                  width: SizeUtility(context).width,
-                  child: passValue.coverImage == null
-                      ? Container(
+                brandViewType == BrandViewType.brandOftheDay
+                    ? SizedBox(
+                        height: 400,
+                        width: SizeUtility(context).width,
+                        child: Container(
                           height: 400,
                           width: double.infinity,
                           decoration: BoxDecoration(
@@ -50,12 +53,29 @@ class SingleBrandView extends StatelessWidget {
                             Icons.photo_size_select_actual,
                             size: 200,
                           ),
-                        )
-                      : Image.network(
-                          passValue.coverImage!,
-                          fit: BoxFit.fill,
                         ),
-                ),
+                      )
+                    : SizedBox(
+                        height: 400,
+                        width: SizeUtility(context).width,
+                        child: passValue.coverImage == null
+                            ? Container(
+                                height: 400,
+                                width: double.infinity,
+                                decoration: BoxDecoration(
+                                    color: ColorManager.black4A,
+                                    borderRadius: const BorderRadius.vertical(
+                                        bottom: Radius.circular(30))),
+                                child: const Icon(
+                                  Icons.photo_size_select_actual,
+                                  size: 200,
+                                ),
+                              )
+                            : Image.network(
+                                passValue.coverImage!,
+                                fit: BoxFit.fill,
+                              ),
+                      ),
                 Positioned(
                   right: 0,
                   left: 0,
@@ -161,127 +181,136 @@ class SingleBrandView extends StatelessWidget {
               ],
             ),
             kHeight20,
-            BlocBuilder<ShopProductsBloc, ShopProductsState>(
-              builder: (context, state) {
-                if (state.shopAdBrandsById?.result.data == null) {
-                  return const SizedBox();
-                }
-                final banners = state.shopAdBrandsById!.result.data;
-                return Column(
-                  children: [
-                    GestureDetector(
-                      child: CarouselSlider(
-                        items: banners.map((banner) {
-                          return GestureDetector(
-                            onTap: () {
-                              Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) =>
-                                    SingleBrandView(passValue: banner.brandId),
-                              ));
-                            },
-                            child: Container(
-                              height: 226,
-                              width: SizeUtility(context).width,
-                              decoration: BoxDecoration(
-                                color: Colors.orange.withOpacity(0.65),
-                                borderRadius: BorderRadius.circular(12),
-                              ),
-                              margin:
-                                  const EdgeInsets.symmetric(horizontal: 30),
-                              child: Column(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  ClipRRect(
-                                    borderRadius: const BorderRadius.vertical(
-                                      top: Radius.circular(12),
-                                    ),
-                                    child: Image.asset(
-                                      AppAssetsStrings.brandBackgroundImg,
-                                      fit: BoxFit.fill,
-                                      width: SizeUtility(context).width,
-                                      height: 173,
-                                    ),
-                                  ),
-                                  Container(
-                                    height: 52,
+            brandViewType == BrandViewType.brandOftheDay
+                ? kHeight16
+                : BlocBuilder<ShopProductsBloc, ShopProductsState>(
+                    builder: (context, state) {
+                      if (state.shopAdBrandsById?.result.data == null) {
+                        return const SizedBox(
+                          height: 10,
+                        );
+                      }
+                      final banners = state.shopAdBrandsById!.result.data;
+
+                      return Column(
+                        children: [
+                          GestureDetector(
+                            child: CarouselSlider(
+                              items: banners.map((banner) {
+                                return GestureDetector(
+                                  onTap: () {
+                                    Navigator.of(context)
+                                        .push(MaterialPageRoute(
+                                      builder: (context) => SingleBrandView(
+                                          passValue: banner.brandId),
+                                    ));
+                                  },
+                                  child: Container(
+                                    height: 226,
                                     width: SizeUtility(context).width,
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 14),
-                                    child: Row(
+                                    decoration: BoxDecoration(
+                                      color: Colors.orange.withOpacity(0.65),
+                                      borderRadius: BorderRadius.circular(12),
+                                    ),
+                                    margin: const EdgeInsets.symmetric(
+                                        horizontal: 30),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.min,
                                       children: [
-                                        const Text(
-                                          "Discount Alerts",
-                                          style: TextStyle(
-                                            fontSize: 14,
-                                            fontWeight: FontWeight.w600,
+                                        ClipRRect(
+                                          borderRadius:
+                                              const BorderRadius.vertical(
+                                            top: Radius.circular(12),
+                                          ),
+                                          child: Image.asset(
+                                            AppAssetsStrings.brandBackgroundImg,
+                                            fit: BoxFit.fill,
+                                            width: SizeUtility(context).width,
+                                            height: 173,
                                           ),
                                         ),
-                                        kWidth8,
-                                        ImageIcon(
-                                          const AssetImage(
-                                            AppAssetsStrings.discountStar,
-                                          ),
-                                          color: ColorManager.whiteColor,
-                                        ),
-                                        kWidth8,
-                                        Text(
-                                          banner.text,
-                                          style: const TextStyle(
-                                            fontSize: 14,
-                                            fontWeight: FontWeight.w600,
+                                        Container(
+                                          height: 52,
+                                          width: SizeUtility(context).width,
+                                          padding: const EdgeInsets.symmetric(
+                                              horizontal: 14),
+                                          child: Row(
+                                            children: [
+                                              const Text(
+                                                "Discount Alerts",
+                                                style: TextStyle(
+                                                  fontSize: 14,
+                                                  fontWeight: FontWeight.w600,
+                                                ),
+                                              ),
+                                              kWidth8,
+                                              ImageIcon(
+                                                const AssetImage(
+                                                  AppAssetsStrings.discountStar,
+                                                ),
+                                                color: ColorManager.whiteColor,
+                                              ),
+                                              kWidth8,
+                                              Text(
+                                                banner.text,
+                                                style: const TextStyle(
+                                                  fontSize: 14,
+                                                  fontWeight: FontWeight.w600,
+                                                ),
+                                              ),
+                                            ],
                                           ),
                                         ),
                                       ],
                                     ),
                                   ),
-                                ],
+                                );
+                              }).toList(),
+                              options: CarouselOptions(
+                                height: 226,
+                                viewportFraction: 1,
+                                enlargeCenterPage: false,
+                                autoPlay: true,
+                                autoPlayCurve: Curves.fastOutSlowIn,
+                                enableInfiniteScroll: true,
+                                enlargeFactor: 0.3,
+                                scrollDirection: Axis.horizontal,
+                                autoPlayAnimationDuration:
+                                    const Duration(milliseconds: 800),
+                                onPageChanged: (index, reason) {
+                                  context
+                                      .read<ShopProductsBloc>()
+                                      .add(ChangeBrandBannerIndex(index));
+                                },
                               ),
                             ),
-                          );
-                        }).toList(),
-                        options: CarouselOptions(
-                          height: 226,
-                          viewportFraction: 1,
-                          enlargeCenterPage: false,
-                          autoPlay: true,
-                          autoPlayCurve: Curves.fastOutSlowIn,
-                          enableInfiniteScroll: true,
-                          enlargeFactor: 0.3,
-                          scrollDirection: Axis.horizontal,
-                          autoPlayAnimationDuration:
-                              const Duration(milliseconds: 800),
-                          onPageChanged: (index, reason) {
-                            context
-                                .read<ShopProductsBloc>()
-                                .add(ChangeBrandBannerIndex(index));
-                          },
-                        ),
-                      ),
-                    ),
-                    kHeight20,
-                    BlocBuilder<ShopProductsBloc, ShopProductsState>(
-                      builder: (context, state) => Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: banners.map((banner) {
-                          int index = banners.indexOf(banner);
-                          return Container(
-                            width: state.brandBannerIndex == index ? 24 : 6,
-                            height: 6,
-                            margin: const EdgeInsets.symmetric(horizontal: 4),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(30),
-                              color: state.brandBannerIndex == index
-                                  ? ColorManager.primary
-                                  : ColorManager.textGrey,
+                          ),
+                          kHeight20,
+                          BlocBuilder<ShopProductsBloc, ShopProductsState>(
+                            builder: (context, state) => Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: banners.map((banner) {
+                                int index = banners.indexOf(banner);
+                                return Container(
+                                  width:
+                                      state.brandBannerIndex == index ? 24 : 6,
+                                  height: 6,
+                                  margin:
+                                      const EdgeInsets.symmetric(horizontal: 4),
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(30),
+                                    color: state.brandBannerIndex == index
+                                        ? ColorManager.primary
+                                        : ColorManager.textGrey,
+                                  ),
+                                );
+                              }).toList(),
                             ),
-                          );
-                        }).toList(),
-                      ),
-                    ),
-                  ],
-                );
-              },
-            ),
+                          ),
+                        ],
+                      );
+                    },
+                  ),
             kHeight30,
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -342,6 +371,9 @@ class SingleBrandView extends StatelessWidget {
                           children: [
                             kHeight15,
                             ShopProductWidget(
+                              color: data?.colors[0].text ?? "",
+                              size: data?.size[0].value ?? "",
+                              brandId: data?.brand!.id,
                               isWishlisted: false,
                               brand: data?.brand?.name,
                               productId: data?.id ?? 'null',

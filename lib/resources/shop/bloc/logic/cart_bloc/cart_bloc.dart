@@ -41,9 +41,7 @@ class CartBloc extends Bloc<CartEvent, CartState> {
     }
   }
 
-  Future _addCart(AddCartEvent event, Emitter<CartState> emit) async {
-    emit(state.copyWith(cartSuccesmessage: ""));
-
+  Future<void> _addCart(AddCartEvent event, Emitter<CartState> emit) async {
     try {
       final data = await _cartServices.addCart(
         productId: event.productId,
@@ -56,25 +54,72 @@ class CartBloc extends Bloc<CartEvent, CartState> {
       );
 
       if (data['status'] == 200) {
-        print(data['status'].toString());
+        final updatedCartModel = state.cartModel?.copyWith(
+          result: state.cartModel?.result?.copyWith(
+            cartProducts: state.cartModel?.result?.cartProducts?.copyWith(
+              cartItems: [
+                ...state.cartModel?.result?.cartProducts?.cartItems ?? [],
+                CartItem(
+                  sellingPrice: event.basePrice,
+                  productId: ProductInfo(id: event.productId),
+                  quantity: event.quantity,
+                  basePrice: event.basePrice,
+                  size: event.size,
+                  color: event.color,
+                ),
+              ],
+            ),
+          ),
+        );
+
         emit(state.copyWith(
           cartSuccesmessage: data['message'],
           cartLength: state.cartLength + 1,
+          cartModel: updatedCartModel,
         ));
-        emit(state.copyWith(cartSuccesmessage: ""));
-        print(' on success ${data['message']}');
+
+        print('Success: ${data['message']}');
       } else if (data['status'] == 409) {
-        print(data['status'].toString());
         emit(state.copyWith(
           cartSuccesmessage: data['message'],
-          errorMessage: 'product already added',
+          errorMessage: 'Product already added',
           statusCode: 409,
         ));
-        emit(state.copyWith(cartSuccesmessage: ""));
       }
     } catch (e) {
       emit(state.copyWith(
-          errorMessage: "An error occurred", cartLoading: false));
+        errorMessage: 'An error occurred',
+        cartLoading: false,
+      ));
+    }
+  }
+
+  FutureOr<void> _romveCartItemEvent(
+      RemoveCartItemEvent event, Emitter<CartState> emit) async {
+    try {
+      final updatedCartModel = state.cartModel?.copyWith(
+        result: state.cartModel?.result?.copyWith(
+          cartProducts: state.cartModel?.result?.cartProducts?.copyWith(
+            cartItems: state.cartModel?.result?.cartProducts?.cartItems
+                ?.where(
+                  (item) => item.productId?.id != event.productId,
+                )
+                .toList(),
+          ),
+        ),
+      );
+      // final cartItemsCount =
+      //     state.cartModel?.result!.cartProducts!.cartItems!.length ?? 0;
+      await _cartServices.removeCartItem(
+        context: event.context,
+        productId: event.productId,
+      );
+      emit(state.copyWith(
+        cartModel: updatedCartModel,
+        cartLength: state.cartLength - 1,
+      ));
+    } catch (e) {
+      emit(state.copyWith(errorMessage: "An error occurred"));
     }
   }
 
@@ -149,35 +194,6 @@ class CartBloc extends Bloc<CartEvent, CartState> {
         errorMessage: "An error occurred",
         cartLoading: false,
       ));
-    }
-  }
-
-  FutureOr<void> _romveCartItemEvent(
-      RemoveCartItemEvent event, Emitter<CartState> emit) async {
-    try {
-      final updatedCartModel = state.cartModel?.copyWith(
-        result: state.cartModel?.result?.copyWith(
-          cartProducts: state.cartModel?.result?.cartProducts?.copyWith(
-            cartItems: state.cartModel?.result?.cartProducts?.cartItems
-                ?.where(
-                  (item) => item.productId?.id != event.productId,
-                )
-                .toList(),
-          ),
-        ),
-      );
-      // final cartItemsCount =
-      //     state.cartModel?.result!.cartProducts!.cartItems!.length ?? 0;
-      await _cartServices.removeCartItem(
-        context: event.context,
-        productId: event.productId,
-      );
-      emit(state.copyWith(
-        cartModel: updatedCartModel,
-        cartLength: state.cartLength - 1,
-      ));
-    } catch (e) {
-      emit(state.copyWith(errorMessage: "An error occurred"));
     }
   }
 

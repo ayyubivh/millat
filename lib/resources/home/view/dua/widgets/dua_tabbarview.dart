@@ -82,11 +82,14 @@ class DuaTabbarview extends StatelessWidget {
                                         color: ColorManager.primary,
                                         width: 1.5,
                                       )),
+                                  padding: const EdgeInsets.all(10),
                                   child: Column(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Image.network(
                                         "${data[index].image}",
+                                        height: 60,
+                                        width: 60,
                                       ),
                                       kHeight15,
                                       Text(

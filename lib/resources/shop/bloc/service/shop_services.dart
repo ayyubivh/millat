@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:http/http.dart' as http;
@@ -26,22 +27,22 @@ import '../models/shop_by_brand/top_brands/top_brands_model.dart';
 import '../models/shop_products/shop_products_model.dart';
 
 class ShopService extends HttpServices {
-  final flashSale = 'shop_product_category?slug=women_flash_sales';
-  final popularProduct = 'shop_product_category?slug=women_popular_products';
+  // final flashSale = 'shop_product_category?slug=women_flash_sales';
+  // final popularProduct = 'shop_product_category?slug=women_popular_products';
   final recentProduct = 'product?slug=recent_products';
   final banner = 'banner?slug=home_banner';
   final shopBanner = 'banner?slug=shop_banner';
   final article = 'article';
 
   // Fetching all flash sale products
-  Future<ShopProducts> fetchFlashSaleProducts() async {
-    final response = await get(endPoint: flashSale);
+  Future<ShopProducts> fetchFlashSaleProducts(String endPonitSlug) async {
+    final response = await get(endPoint: endPonitSlug);
 
     if (response.statusCode == 200) {
       try {
         final Map<String, dynamic> data = json.decode(response.body);
         final result = ShopProducts.fromJson(data);
-
+        print("flash sale products $result");
         return result;
       } catch (e) {
         throw Exception('Failed to parse response');
@@ -53,8 +54,8 @@ class ShopService extends HttpServices {
   }
 
   // Fetching all popular products
-  Future<ShopProducts> fetchPopularProducts() async {
-    final response = await get(endPoint: popularProduct);
+  Future<ShopProducts> fetchPopularProducts(String endPonitSlug) async {
+    final response = await get(endPoint: endPonitSlug);
 
     if (response.statusCode == 200) {
       try {
@@ -287,7 +288,7 @@ class ShopService extends HttpServices {
       try {
         final Map<String, dynamic> data = json.decode(response.body);
         final result = ProductModel.fromJson(data);
-        print('jsone here on a mat cha${result}');
+        print('jsone here on a mat cha$result');
 
         return result;
       } catch (e) {
@@ -312,7 +313,7 @@ class ShopService extends HttpServices {
         try {
           final Map<String, dynamic> jsonData = json.decode(responseBody);
           final result = ShopBrandProductModel.fromJson(jsonData);
-          print('result here of shopbrand ${result}');
+          log('result here of shopbrand $result');
 
           final filteredProducts = result.result?.products
               ?.where((product) => product.brand?.name == brandName)
@@ -325,7 +326,7 @@ class ShopService extends HttpServices {
             result: ResultsofShopBrand(products: filteredProducts ?? []),
           );
 
-          print('Filtered products: $filteredProducts');
+          log('Filtered products: $filteredProducts');
           return filteredResult;
         } catch (e) {
           print('Error decoding JSON: $e');

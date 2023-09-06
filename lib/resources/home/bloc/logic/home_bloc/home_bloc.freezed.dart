@@ -27,6 +27,7 @@ mixin _$HomeEvent {
         fetchPrayerTrackerEvent,
     required TResult Function(String namazName, BuildContext context)
         addPrayerToPrayerTracker,
+    required TResult Function() changeIndexofAllaysaysBg,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -40,6 +41,7 @@ mixin _$HomeEvent {
         fetchPrayerTrackerEvent,
     TResult? Function(String namazName, BuildContext context)?
         addPrayerToPrayerTracker,
+    TResult? Function()? changeIndexofAllaysaysBg,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -53,6 +55,7 @@ mixin _$HomeEvent {
         fetchPrayerTrackerEvent,
     TResult Function(String namazName, BuildContext context)?
         addPrayerToPrayerTracker,
+    TResult Function()? changeIndexofAllaysaysBg,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -68,6 +71,8 @@ mixin _$HomeEvent {
         fetchPrayerTrackerEvent,
     required TResult Function(AddPrayerToPrayerTracker value)
         addPrayerToPrayerTracker,
+    required TResult Function(ChangeIndexofAllaysaysBg value)
+        changeIndexofAllaysaysBg,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -79,6 +84,7 @@ mixin _$HomeEvent {
     TResult? Function(FetchEventOfTheMonth value)? fetchEventOfTheMonth,
     TResult? Function(FetchPrayerTrackerEvent value)? fetchPrayerTrackerEvent,
     TResult? Function(AddPrayerToPrayerTracker value)? addPrayerToPrayerTracker,
+    TResult? Function(ChangeIndexofAllaysaysBg value)? changeIndexofAllaysaysBg,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -90,6 +96,7 @@ mixin _$HomeEvent {
     TResult Function(FetchEventOfTheMonth value)? fetchEventOfTheMonth,
     TResult Function(FetchPrayerTrackerEvent value)? fetchPrayerTrackerEvent,
     TResult Function(AddPrayerToPrayerTracker value)? addPrayerToPrayerTracker,
+    TResult Function(ChangeIndexofAllaysaysBg value)? changeIndexofAllaysaysBg,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -160,6 +167,7 @@ class _$FetchLargeDisountsBanner implements FetchLargeDisountsBanner {
         fetchPrayerTrackerEvent,
     required TResult Function(String namazName, BuildContext context)
         addPrayerToPrayerTracker,
+    required TResult Function() changeIndexofAllaysaysBg,
   }) {
     return fetchLargeDisountsBanner();
   }
@@ -176,6 +184,7 @@ class _$FetchLargeDisountsBanner implements FetchLargeDisountsBanner {
         fetchPrayerTrackerEvent,
     TResult? Function(String namazName, BuildContext context)?
         addPrayerToPrayerTracker,
+    TResult? Function()? changeIndexofAllaysaysBg,
   }) {
     return fetchLargeDisountsBanner?.call();
   }
@@ -192,6 +201,7 @@ class _$FetchLargeDisountsBanner implements FetchLargeDisountsBanner {
         fetchPrayerTrackerEvent,
     TResult Function(String namazName, BuildContext context)?
         addPrayerToPrayerTracker,
+    TResult Function()? changeIndexofAllaysaysBg,
     required TResult orElse(),
   }) {
     if (fetchLargeDisountsBanner != null) {
@@ -213,6 +223,8 @@ class _$FetchLargeDisountsBanner implements FetchLargeDisountsBanner {
         fetchPrayerTrackerEvent,
     required TResult Function(AddPrayerToPrayerTracker value)
         addPrayerToPrayerTracker,
+    required TResult Function(ChangeIndexofAllaysaysBg value)
+        changeIndexofAllaysaysBg,
   }) {
     return fetchLargeDisountsBanner(this);
   }
@@ -227,6 +239,7 @@ class _$FetchLargeDisountsBanner implements FetchLargeDisountsBanner {
     TResult? Function(FetchEventOfTheMonth value)? fetchEventOfTheMonth,
     TResult? Function(FetchPrayerTrackerEvent value)? fetchPrayerTrackerEvent,
     TResult? Function(AddPrayerToPrayerTracker value)? addPrayerToPrayerTracker,
+    TResult? Function(ChangeIndexofAllaysaysBg value)? changeIndexofAllaysaysBg,
   }) {
     return fetchLargeDisountsBanner?.call(this);
   }
@@ -241,6 +254,7 @@ class _$FetchLargeDisountsBanner implements FetchLargeDisountsBanner {
     TResult Function(FetchEventOfTheMonth value)? fetchEventOfTheMonth,
     TResult Function(FetchPrayerTrackerEvent value)? fetchPrayerTrackerEvent,
     TResult Function(AddPrayerToPrayerTracker value)? addPrayerToPrayerTracker,
+    TResult Function(ChangeIndexofAllaysaysBg value)? changeIndexofAllaysaysBg,
     required TResult orElse(),
   }) {
     if (fetchLargeDisountsBanner != null) {
@@ -301,6 +315,7 @@ class _$FetchTopOffersBanner implements FetchTopOffersBanner {
         fetchPrayerTrackerEvent,
     required TResult Function(String namazName, BuildContext context)
         addPrayerToPrayerTracker,
+    required TResult Function() changeIndexofAllaysaysBg,
   }) {
     return fetchTopOffersBanner();
   }
@@ -317,6 +332,7 @@ class _$FetchTopOffersBanner implements FetchTopOffersBanner {
         fetchPrayerTrackerEvent,
     TResult? Function(String namazName, BuildContext context)?
         addPrayerToPrayerTracker,
+    TResult? Function()? changeIndexofAllaysaysBg,
   }) {
     return fetchTopOffersBanner?.call();
   }
@@ -333,6 +349,7 @@ class _$FetchTopOffersBanner implements FetchTopOffersBanner {
         fetchPrayerTrackerEvent,
     TResult Function(String namazName, BuildContext context)?
         addPrayerToPrayerTracker,
+    TResult Function()? changeIndexofAllaysaysBg,
     required TResult orElse(),
   }) {
     if (fetchTopOffersBanner != null) {
@@ -354,6 +371,8 @@ class _$FetchTopOffersBanner implements FetchTopOffersBanner {
         fetchPrayerTrackerEvent,
     required TResult Function(AddPrayerToPrayerTracker value)
         addPrayerToPrayerTracker,
+    required TResult Function(ChangeIndexofAllaysaysBg value)
+        changeIndexofAllaysaysBg,
   }) {
     return fetchTopOffersBanner(this);
   }
@@ -368,6 +387,7 @@ class _$FetchTopOffersBanner implements FetchTopOffersBanner {
     TResult? Function(FetchEventOfTheMonth value)? fetchEventOfTheMonth,
     TResult? Function(FetchPrayerTrackerEvent value)? fetchPrayerTrackerEvent,
     TResult? Function(AddPrayerToPrayerTracker value)? addPrayerToPrayerTracker,
+    TResult? Function(ChangeIndexofAllaysaysBg value)? changeIndexofAllaysaysBg,
   }) {
     return fetchTopOffersBanner?.call(this);
   }
@@ -382,6 +402,7 @@ class _$FetchTopOffersBanner implements FetchTopOffersBanner {
     TResult Function(FetchEventOfTheMonth value)? fetchEventOfTheMonth,
     TResult Function(FetchPrayerTrackerEvent value)? fetchPrayerTrackerEvent,
     TResult Function(AddPrayerToPrayerTracker value)? addPrayerToPrayerTracker,
+    TResult Function(ChangeIndexofAllaysaysBg value)? changeIndexofAllaysaysBg,
     required TResult orElse(),
   }) {
     if (fetchTopOffersBanner != null) {
@@ -442,6 +463,7 @@ class _$FetchBrandofTheDay implements FetchBrandofTheDay {
         fetchPrayerTrackerEvent,
     required TResult Function(String namazName, BuildContext context)
         addPrayerToPrayerTracker,
+    required TResult Function() changeIndexofAllaysaysBg,
   }) {
     return fetchBrandofTheDay();
   }
@@ -458,6 +480,7 @@ class _$FetchBrandofTheDay implements FetchBrandofTheDay {
         fetchPrayerTrackerEvent,
     TResult? Function(String namazName, BuildContext context)?
         addPrayerToPrayerTracker,
+    TResult? Function()? changeIndexofAllaysaysBg,
   }) {
     return fetchBrandofTheDay?.call();
   }
@@ -474,6 +497,7 @@ class _$FetchBrandofTheDay implements FetchBrandofTheDay {
         fetchPrayerTrackerEvent,
     TResult Function(String namazName, BuildContext context)?
         addPrayerToPrayerTracker,
+    TResult Function()? changeIndexofAllaysaysBg,
     required TResult orElse(),
   }) {
     if (fetchBrandofTheDay != null) {
@@ -495,6 +519,8 @@ class _$FetchBrandofTheDay implements FetchBrandofTheDay {
         fetchPrayerTrackerEvent,
     required TResult Function(AddPrayerToPrayerTracker value)
         addPrayerToPrayerTracker,
+    required TResult Function(ChangeIndexofAllaysaysBg value)
+        changeIndexofAllaysaysBg,
   }) {
     return fetchBrandofTheDay(this);
   }
@@ -509,6 +535,7 @@ class _$FetchBrandofTheDay implements FetchBrandofTheDay {
     TResult? Function(FetchEventOfTheMonth value)? fetchEventOfTheMonth,
     TResult? Function(FetchPrayerTrackerEvent value)? fetchPrayerTrackerEvent,
     TResult? Function(AddPrayerToPrayerTracker value)? addPrayerToPrayerTracker,
+    TResult? Function(ChangeIndexofAllaysaysBg value)? changeIndexofAllaysaysBg,
   }) {
     return fetchBrandofTheDay?.call(this);
   }
@@ -523,6 +550,7 @@ class _$FetchBrandofTheDay implements FetchBrandofTheDay {
     TResult Function(FetchEventOfTheMonth value)? fetchEventOfTheMonth,
     TResult Function(FetchPrayerTrackerEvent value)? fetchPrayerTrackerEvent,
     TResult Function(AddPrayerToPrayerTracker value)? addPrayerToPrayerTracker,
+    TResult Function(ChangeIndexofAllaysaysBg value)? changeIndexofAllaysaysBg,
     required TResult orElse(),
   }) {
     if (fetchBrandofTheDay != null) {
@@ -583,6 +611,7 @@ class _$FetchHadithOfTheDay implements FetchHadithOfTheDay {
         fetchPrayerTrackerEvent,
     required TResult Function(String namazName, BuildContext context)
         addPrayerToPrayerTracker,
+    required TResult Function() changeIndexofAllaysaysBg,
   }) {
     return fetchHadithOfTheDay();
   }
@@ -599,6 +628,7 @@ class _$FetchHadithOfTheDay implements FetchHadithOfTheDay {
         fetchPrayerTrackerEvent,
     TResult? Function(String namazName, BuildContext context)?
         addPrayerToPrayerTracker,
+    TResult? Function()? changeIndexofAllaysaysBg,
   }) {
     return fetchHadithOfTheDay?.call();
   }
@@ -615,6 +645,7 @@ class _$FetchHadithOfTheDay implements FetchHadithOfTheDay {
         fetchPrayerTrackerEvent,
     TResult Function(String namazName, BuildContext context)?
         addPrayerToPrayerTracker,
+    TResult Function()? changeIndexofAllaysaysBg,
     required TResult orElse(),
   }) {
     if (fetchHadithOfTheDay != null) {
@@ -636,6 +667,8 @@ class _$FetchHadithOfTheDay implements FetchHadithOfTheDay {
         fetchPrayerTrackerEvent,
     required TResult Function(AddPrayerToPrayerTracker value)
         addPrayerToPrayerTracker,
+    required TResult Function(ChangeIndexofAllaysaysBg value)
+        changeIndexofAllaysaysBg,
   }) {
     return fetchHadithOfTheDay(this);
   }
@@ -650,6 +683,7 @@ class _$FetchHadithOfTheDay implements FetchHadithOfTheDay {
     TResult? Function(FetchEventOfTheMonth value)? fetchEventOfTheMonth,
     TResult? Function(FetchPrayerTrackerEvent value)? fetchPrayerTrackerEvent,
     TResult? Function(AddPrayerToPrayerTracker value)? addPrayerToPrayerTracker,
+    TResult? Function(ChangeIndexofAllaysaysBg value)? changeIndexofAllaysaysBg,
   }) {
     return fetchHadithOfTheDay?.call(this);
   }
@@ -664,6 +698,7 @@ class _$FetchHadithOfTheDay implements FetchHadithOfTheDay {
     TResult Function(FetchEventOfTheMonth value)? fetchEventOfTheMonth,
     TResult Function(FetchPrayerTrackerEvent value)? fetchPrayerTrackerEvent,
     TResult Function(AddPrayerToPrayerTracker value)? addPrayerToPrayerTracker,
+    TResult Function(ChangeIndexofAllaysaysBg value)? changeIndexofAllaysaysBg,
     required TResult orElse(),
   }) {
     if (fetchHadithOfTheDay != null) {
@@ -724,6 +759,7 @@ class _$FetchEventOfTheMonth implements FetchEventOfTheMonth {
         fetchPrayerTrackerEvent,
     required TResult Function(String namazName, BuildContext context)
         addPrayerToPrayerTracker,
+    required TResult Function() changeIndexofAllaysaysBg,
   }) {
     return fetchEventOfTheMonth();
   }
@@ -740,6 +776,7 @@ class _$FetchEventOfTheMonth implements FetchEventOfTheMonth {
         fetchPrayerTrackerEvent,
     TResult? Function(String namazName, BuildContext context)?
         addPrayerToPrayerTracker,
+    TResult? Function()? changeIndexofAllaysaysBg,
   }) {
     return fetchEventOfTheMonth?.call();
   }
@@ -756,6 +793,7 @@ class _$FetchEventOfTheMonth implements FetchEventOfTheMonth {
         fetchPrayerTrackerEvent,
     TResult Function(String namazName, BuildContext context)?
         addPrayerToPrayerTracker,
+    TResult Function()? changeIndexofAllaysaysBg,
     required TResult orElse(),
   }) {
     if (fetchEventOfTheMonth != null) {
@@ -777,6 +815,8 @@ class _$FetchEventOfTheMonth implements FetchEventOfTheMonth {
         fetchPrayerTrackerEvent,
     required TResult Function(AddPrayerToPrayerTracker value)
         addPrayerToPrayerTracker,
+    required TResult Function(ChangeIndexofAllaysaysBg value)
+        changeIndexofAllaysaysBg,
   }) {
     return fetchEventOfTheMonth(this);
   }
@@ -791,6 +831,7 @@ class _$FetchEventOfTheMonth implements FetchEventOfTheMonth {
     TResult? Function(FetchEventOfTheMonth value)? fetchEventOfTheMonth,
     TResult? Function(FetchPrayerTrackerEvent value)? fetchPrayerTrackerEvent,
     TResult? Function(AddPrayerToPrayerTracker value)? addPrayerToPrayerTracker,
+    TResult? Function(ChangeIndexofAllaysaysBg value)? changeIndexofAllaysaysBg,
   }) {
     return fetchEventOfTheMonth?.call(this);
   }
@@ -805,6 +846,7 @@ class _$FetchEventOfTheMonth implements FetchEventOfTheMonth {
     TResult Function(FetchEventOfTheMonth value)? fetchEventOfTheMonth,
     TResult Function(FetchPrayerTrackerEvent value)? fetchPrayerTrackerEvent,
     TResult Function(AddPrayerToPrayerTracker value)? addPrayerToPrayerTracker,
+    TResult Function(ChangeIndexofAllaysaysBg value)? changeIndexofAllaysaysBg,
     required TResult orElse(),
   }) {
     if (fetchEventOfTheMonth != null) {
@@ -900,6 +942,7 @@ class _$FetchPrayerTrackerEvent implements FetchPrayerTrackerEvent {
         fetchPrayerTrackerEvent,
     required TResult Function(String namazName, BuildContext context)
         addPrayerToPrayerTracker,
+    required TResult Function() changeIndexofAllaysaysBg,
   }) {
     return fetchPrayerTrackerEvent(date, context);
   }
@@ -916,6 +959,7 @@ class _$FetchPrayerTrackerEvent implements FetchPrayerTrackerEvent {
         fetchPrayerTrackerEvent,
     TResult? Function(String namazName, BuildContext context)?
         addPrayerToPrayerTracker,
+    TResult? Function()? changeIndexofAllaysaysBg,
   }) {
     return fetchPrayerTrackerEvent?.call(date, context);
   }
@@ -932,6 +976,7 @@ class _$FetchPrayerTrackerEvent implements FetchPrayerTrackerEvent {
         fetchPrayerTrackerEvent,
     TResult Function(String namazName, BuildContext context)?
         addPrayerToPrayerTracker,
+    TResult Function()? changeIndexofAllaysaysBg,
     required TResult orElse(),
   }) {
     if (fetchPrayerTrackerEvent != null) {
@@ -953,6 +998,8 @@ class _$FetchPrayerTrackerEvent implements FetchPrayerTrackerEvent {
         fetchPrayerTrackerEvent,
     required TResult Function(AddPrayerToPrayerTracker value)
         addPrayerToPrayerTracker,
+    required TResult Function(ChangeIndexofAllaysaysBg value)
+        changeIndexofAllaysaysBg,
   }) {
     return fetchPrayerTrackerEvent(this);
   }
@@ -967,6 +1014,7 @@ class _$FetchPrayerTrackerEvent implements FetchPrayerTrackerEvent {
     TResult? Function(FetchEventOfTheMonth value)? fetchEventOfTheMonth,
     TResult? Function(FetchPrayerTrackerEvent value)? fetchPrayerTrackerEvent,
     TResult? Function(AddPrayerToPrayerTracker value)? addPrayerToPrayerTracker,
+    TResult? Function(ChangeIndexofAllaysaysBg value)? changeIndexofAllaysaysBg,
   }) {
     return fetchPrayerTrackerEvent?.call(this);
   }
@@ -981,6 +1029,7 @@ class _$FetchPrayerTrackerEvent implements FetchPrayerTrackerEvent {
     TResult Function(FetchEventOfTheMonth value)? fetchEventOfTheMonth,
     TResult Function(FetchPrayerTrackerEvent value)? fetchPrayerTrackerEvent,
     TResult Function(AddPrayerToPrayerTracker value)? addPrayerToPrayerTracker,
+    TResult Function(ChangeIndexofAllaysaysBg value)? changeIndexofAllaysaysBg,
     required TResult orElse(),
   }) {
     if (fetchPrayerTrackerEvent != null) {
@@ -1087,6 +1136,7 @@ class _$AddPrayerToPrayerTracker implements AddPrayerToPrayerTracker {
         fetchPrayerTrackerEvent,
     required TResult Function(String namazName, BuildContext context)
         addPrayerToPrayerTracker,
+    required TResult Function() changeIndexofAllaysaysBg,
   }) {
     return addPrayerToPrayerTracker(namazName, context);
   }
@@ -1103,6 +1153,7 @@ class _$AddPrayerToPrayerTracker implements AddPrayerToPrayerTracker {
         fetchPrayerTrackerEvent,
     TResult? Function(String namazName, BuildContext context)?
         addPrayerToPrayerTracker,
+    TResult? Function()? changeIndexofAllaysaysBg,
   }) {
     return addPrayerToPrayerTracker?.call(namazName, context);
   }
@@ -1119,6 +1170,7 @@ class _$AddPrayerToPrayerTracker implements AddPrayerToPrayerTracker {
         fetchPrayerTrackerEvent,
     TResult Function(String namazName, BuildContext context)?
         addPrayerToPrayerTracker,
+    TResult Function()? changeIndexofAllaysaysBg,
     required TResult orElse(),
   }) {
     if (addPrayerToPrayerTracker != null) {
@@ -1140,6 +1192,8 @@ class _$AddPrayerToPrayerTracker implements AddPrayerToPrayerTracker {
         fetchPrayerTrackerEvent,
     required TResult Function(AddPrayerToPrayerTracker value)
         addPrayerToPrayerTracker,
+    required TResult Function(ChangeIndexofAllaysaysBg value)
+        changeIndexofAllaysaysBg,
   }) {
     return addPrayerToPrayerTracker(this);
   }
@@ -1154,6 +1208,7 @@ class _$AddPrayerToPrayerTracker implements AddPrayerToPrayerTracker {
     TResult? Function(FetchEventOfTheMonth value)? fetchEventOfTheMonth,
     TResult? Function(FetchPrayerTrackerEvent value)? fetchPrayerTrackerEvent,
     TResult? Function(AddPrayerToPrayerTracker value)? addPrayerToPrayerTracker,
+    TResult? Function(ChangeIndexofAllaysaysBg value)? changeIndexofAllaysaysBg,
   }) {
     return addPrayerToPrayerTracker?.call(this);
   }
@@ -1168,6 +1223,7 @@ class _$AddPrayerToPrayerTracker implements AddPrayerToPrayerTracker {
     TResult Function(FetchEventOfTheMonth value)? fetchEventOfTheMonth,
     TResult Function(FetchPrayerTrackerEvent value)? fetchPrayerTrackerEvent,
     TResult Function(AddPrayerToPrayerTracker value)? addPrayerToPrayerTracker,
+    TResult Function(ChangeIndexofAllaysaysBg value)? changeIndexofAllaysaysBg,
     required TResult orElse(),
   }) {
     if (addPrayerToPrayerTracker != null) {
@@ -1190,6 +1246,155 @@ abstract class AddPrayerToPrayerTracker implements HomeEvent {
 }
 
 /// @nodoc
+abstract class _$$ChangeIndexofAllaysaysBgCopyWith<$Res> {
+  factory _$$ChangeIndexofAllaysaysBgCopyWith(_$ChangeIndexofAllaysaysBg value,
+          $Res Function(_$ChangeIndexofAllaysaysBg) then) =
+      __$$ChangeIndexofAllaysaysBgCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ChangeIndexofAllaysaysBgCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$ChangeIndexofAllaysaysBg>
+    implements _$$ChangeIndexofAllaysaysBgCopyWith<$Res> {
+  __$$ChangeIndexofAllaysaysBgCopyWithImpl(_$ChangeIndexofAllaysaysBg _value,
+      $Res Function(_$ChangeIndexofAllaysaysBg) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$ChangeIndexofAllaysaysBg implements ChangeIndexofAllaysaysBg {
+  const _$ChangeIndexofAllaysaysBg();
+
+  @override
+  String toString() {
+    return 'HomeEvent.changeIndexofAllaysaysBg()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ChangeIndexofAllaysaysBg);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() fetchLargeDisountsBanner,
+    required TResult Function() fetchTopOffersBanner,
+    required TResult Function() fetchBrandofTheDay,
+    required TResult Function() fetchHadithOfTheDay,
+    required TResult Function() fetchEventOfTheMonth,
+    required TResult Function(DateTime date, BuildContext context)
+        fetchPrayerTrackerEvent,
+    required TResult Function(String namazName, BuildContext context)
+        addPrayerToPrayerTracker,
+    required TResult Function() changeIndexofAllaysaysBg,
+  }) {
+    return changeIndexofAllaysaysBg();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? fetchLargeDisountsBanner,
+    TResult? Function()? fetchTopOffersBanner,
+    TResult? Function()? fetchBrandofTheDay,
+    TResult? Function()? fetchHadithOfTheDay,
+    TResult? Function()? fetchEventOfTheMonth,
+    TResult? Function(DateTime date, BuildContext context)?
+        fetchPrayerTrackerEvent,
+    TResult? Function(String namazName, BuildContext context)?
+        addPrayerToPrayerTracker,
+    TResult? Function()? changeIndexofAllaysaysBg,
+  }) {
+    return changeIndexofAllaysaysBg?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? fetchLargeDisountsBanner,
+    TResult Function()? fetchTopOffersBanner,
+    TResult Function()? fetchBrandofTheDay,
+    TResult Function()? fetchHadithOfTheDay,
+    TResult Function()? fetchEventOfTheMonth,
+    TResult Function(DateTime date, BuildContext context)?
+        fetchPrayerTrackerEvent,
+    TResult Function(String namazName, BuildContext context)?
+        addPrayerToPrayerTracker,
+    TResult Function()? changeIndexofAllaysaysBg,
+    required TResult orElse(),
+  }) {
+    if (changeIndexofAllaysaysBg != null) {
+      return changeIndexofAllaysaysBg();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FetchLargeDisountsBanner value)
+        fetchLargeDisountsBanner,
+    required TResult Function(FetchTopOffersBanner value) fetchTopOffersBanner,
+    required TResult Function(FetchBrandofTheDay value) fetchBrandofTheDay,
+    required TResult Function(FetchHadithOfTheDay value) fetchHadithOfTheDay,
+    required TResult Function(FetchEventOfTheMonth value) fetchEventOfTheMonth,
+    required TResult Function(FetchPrayerTrackerEvent value)
+        fetchPrayerTrackerEvent,
+    required TResult Function(AddPrayerToPrayerTracker value)
+        addPrayerToPrayerTracker,
+    required TResult Function(ChangeIndexofAllaysaysBg value)
+        changeIndexofAllaysaysBg,
+  }) {
+    return changeIndexofAllaysaysBg(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(FetchLargeDisountsBanner value)? fetchLargeDisountsBanner,
+    TResult? Function(FetchTopOffersBanner value)? fetchTopOffersBanner,
+    TResult? Function(FetchBrandofTheDay value)? fetchBrandofTheDay,
+    TResult? Function(FetchHadithOfTheDay value)? fetchHadithOfTheDay,
+    TResult? Function(FetchEventOfTheMonth value)? fetchEventOfTheMonth,
+    TResult? Function(FetchPrayerTrackerEvent value)? fetchPrayerTrackerEvent,
+    TResult? Function(AddPrayerToPrayerTracker value)? addPrayerToPrayerTracker,
+    TResult? Function(ChangeIndexofAllaysaysBg value)? changeIndexofAllaysaysBg,
+  }) {
+    return changeIndexofAllaysaysBg?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FetchLargeDisountsBanner value)? fetchLargeDisountsBanner,
+    TResult Function(FetchTopOffersBanner value)? fetchTopOffersBanner,
+    TResult Function(FetchBrandofTheDay value)? fetchBrandofTheDay,
+    TResult Function(FetchHadithOfTheDay value)? fetchHadithOfTheDay,
+    TResult Function(FetchEventOfTheMonth value)? fetchEventOfTheMonth,
+    TResult Function(FetchPrayerTrackerEvent value)? fetchPrayerTrackerEvent,
+    TResult Function(AddPrayerToPrayerTracker value)? addPrayerToPrayerTracker,
+    TResult Function(ChangeIndexofAllaysaysBg value)? changeIndexofAllaysaysBg,
+    required TResult orElse(),
+  }) {
+    if (changeIndexofAllaysaysBg != null) {
+      return changeIndexofAllaysaysBg(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ChangeIndexofAllaysaysBg implements HomeEvent {
+  const factory ChangeIndexofAllaysaysBg() = _$ChangeIndexofAllaysaysBg;
+}
+
+/// @nodoc
 mixin _$HomeState {
   bool get isLoading => throw _privateConstructorUsedError;
   LargeDiscountModel? get largeDiscountModel =>
@@ -1209,6 +1414,7 @@ mixin _$HomeState {
   PrayerTrackerModel? get prayerTracker => throw _privateConstructorUsedError;
   double get namazCompletedCount => throw _privateConstructorUsedError;
   String get dailyPrayerTrackerDate => throw _privateConstructorUsedError;
+  int get allaysBgindex => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $HomeStateCopyWith<HomeState> get copyWith =>
@@ -1234,7 +1440,8 @@ abstract class $HomeStateCopyWith<$Res> {
       bool prayerTrackerIsha,
       PrayerTrackerModel? prayerTracker,
       double namazCompletedCount,
-      String dailyPrayerTrackerDate});
+      String dailyPrayerTrackerDate,
+      int allaysBgindex});
 
   $LargeDiscountModelCopyWith<$Res>? get largeDiscountModel;
   $TopOffersModelCopyWith<$Res>? get topOffersModel;
@@ -1271,6 +1478,7 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
     Object? prayerTracker = freezed,
     Object? namazCompletedCount = null,
     Object? dailyPrayerTrackerDate = null,
+    Object? allaysBgindex = null,
   }) {
     return _then(_value.copyWith(
       isLoading: null == isLoading
@@ -1329,6 +1537,10 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
           ? _value.dailyPrayerTrackerDate
           : dailyPrayerTrackerDate // ignore: cast_nullable_to_non_nullable
               as String,
+      allaysBgindex: null == allaysBgindex
+          ? _value.allaysBgindex
+          : allaysBgindex // ignore: cast_nullable_to_non_nullable
+              as int,
     ) as $Val);
   }
 
@@ -1430,7 +1642,8 @@ abstract class _$$_HomeStateCopyWith<$Res> implements $HomeStateCopyWith<$Res> {
       bool prayerTrackerIsha,
       PrayerTrackerModel? prayerTracker,
       double namazCompletedCount,
-      String dailyPrayerTrackerDate});
+      String dailyPrayerTrackerDate,
+      int allaysBgindex});
 
   @override
   $LargeDiscountModelCopyWith<$Res>? get largeDiscountModel;
@@ -1471,6 +1684,7 @@ class __$$_HomeStateCopyWithImpl<$Res>
     Object? prayerTracker = freezed,
     Object? namazCompletedCount = null,
     Object? dailyPrayerTrackerDate = null,
+    Object? allaysBgindex = null,
   }) {
     return _then(_$_HomeState(
       isLoading: null == isLoading
@@ -1529,6 +1743,10 @@ class __$$_HomeStateCopyWithImpl<$Res>
           ? _value.dailyPrayerTrackerDate
           : dailyPrayerTrackerDate // ignore: cast_nullable_to_non_nullable
               as String,
+      allaysBgindex: null == allaysBgindex
+          ? _value.allaysBgindex
+          : allaysBgindex // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -1550,7 +1768,8 @@ class _$_HomeState implements _HomeState {
       required this.prayerTrackerIsha,
       required this.prayerTracker,
       required this.namazCompletedCount,
-      required this.dailyPrayerTrackerDate});
+      required this.dailyPrayerTrackerDate,
+      required this.allaysBgindex});
 
   @override
   final bool isLoading;
@@ -1580,10 +1799,12 @@ class _$_HomeState implements _HomeState {
   final double namazCompletedCount;
   @override
   final String dailyPrayerTrackerDate;
+  @override
+  final int allaysBgindex;
 
   @override
   String toString() {
-    return 'HomeState(isLoading: $isLoading, largeDiscountModel: $largeDiscountModel, topOffersModel: $topOffersModel, brandOftheDayModel: $brandOftheDayModel, haditOfTheDayModel: $haditOfTheDayModel, eventOfTheMonthModel: $eventOfTheMonthModel, prayerTrackerFajr: $prayerTrackerFajr, prayerTrackerDhuhr: $prayerTrackerDhuhr, prayerTrackerAsr: $prayerTrackerAsr, prayerTrackerMagrib: $prayerTrackerMagrib, prayerTrackerIsha: $prayerTrackerIsha, prayerTracker: $prayerTracker, namazCompletedCount: $namazCompletedCount, dailyPrayerTrackerDate: $dailyPrayerTrackerDate)';
+    return 'HomeState(isLoading: $isLoading, largeDiscountModel: $largeDiscountModel, topOffersModel: $topOffersModel, brandOftheDayModel: $brandOftheDayModel, haditOfTheDayModel: $haditOfTheDayModel, eventOfTheMonthModel: $eventOfTheMonthModel, prayerTrackerFajr: $prayerTrackerFajr, prayerTrackerDhuhr: $prayerTrackerDhuhr, prayerTrackerAsr: $prayerTrackerAsr, prayerTrackerMagrib: $prayerTrackerMagrib, prayerTrackerIsha: $prayerTrackerIsha, prayerTracker: $prayerTracker, namazCompletedCount: $namazCompletedCount, dailyPrayerTrackerDate: $dailyPrayerTrackerDate, allaysBgindex: $allaysBgindex)';
   }
 
   @override
@@ -1618,7 +1839,9 @@ class _$_HomeState implements _HomeState {
             (identical(other.namazCompletedCount, namazCompletedCount) ||
                 other.namazCompletedCount == namazCompletedCount) &&
             (identical(other.dailyPrayerTrackerDate, dailyPrayerTrackerDate) ||
-                other.dailyPrayerTrackerDate == dailyPrayerTrackerDate));
+                other.dailyPrayerTrackerDate == dailyPrayerTrackerDate) &&
+            (identical(other.allaysBgindex, allaysBgindex) ||
+                other.allaysBgindex == allaysBgindex));
   }
 
   @override
@@ -1637,7 +1860,8 @@ class _$_HomeState implements _HomeState {
       prayerTrackerIsha,
       prayerTracker,
       namazCompletedCount,
-      dailyPrayerTrackerDate);
+      dailyPrayerTrackerDate,
+      allaysBgindex);
 
   @JsonKey(ignore: true)
   @override
@@ -1661,7 +1885,8 @@ abstract class _HomeState implements HomeState {
       required final bool prayerTrackerIsha,
       required final PrayerTrackerModel? prayerTracker,
       required final double namazCompletedCount,
-      required final String dailyPrayerTrackerDate}) = _$_HomeState;
+      required final String dailyPrayerTrackerDate,
+      required final int allaysBgindex}) = _$_HomeState;
 
   @override
   bool get isLoading;
@@ -1691,6 +1916,8 @@ abstract class _HomeState implements HomeState {
   double get namazCompletedCount;
   @override
   String get dailyPrayerTrackerDate;
+  @override
+  int get allaysBgindex;
   @override
   @JsonKey(ignore: true)
   _$$_HomeStateCopyWith<_$_HomeState> get copyWith =>

@@ -42,9 +42,22 @@ enum TasbihThemes {
   orange,
   purple,
   green,
+  darkBlue,
+  lightOrange,
 }
 
 enum VersesScroll {
   scroll,
   notScroll,
+}
+
+enum CategoryItemType {
+  womens,
+  sunnah,
+  health,
+}
+
+enum BrandViewType {
+  brandOftheDay,
+  mainBrand,
 }

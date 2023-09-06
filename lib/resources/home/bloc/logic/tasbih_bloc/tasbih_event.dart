@@ -26,4 +26,5 @@ class TasbihEvent with _$TasbihEvent {
   }) = ChangeThemeEvent;
   const factory TasbihEvent.changeThemeIndex({required int themeIndex}) =
       ChangeThemeIndex;
+  const factory TasbihEvent.muteAudioEvent() = MuteAudioEvent;
 }

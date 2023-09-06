@@ -10,6 +10,7 @@ class ColorManager {
   static Color greenColor1 = HexColor.fromHex("#4DC591");
   static Color darkGreenClr4f = HexColor.fromHex("#4F7364");
   static Color redColor = HexColor.fromHex("#FF3B30");
+  static Color lightRedColor = HexColor.fromHex("#FF878A");
   static Color blue5 = HexColor.fromHex("#3581EA");
   static Color dotGrey = HexColor.fromHex("#E1E1E1");
   static Color lightBlackColor = HexColor.fromHex("#888888");
@@ -38,6 +39,7 @@ class ColorManager {
   static Color textGrey88 = HexColor.fromHex("#888787");
   static Color blue7A = HexColor.fromHex("#007AFF");
   static Color greyB8 = HexColor.fromHex("#B8B8B8");
+  static Color dividerGreyAe = HexColor.fromHex("#AEC2BA");
 //shop
   static Color reviewStar = HexColor.fromHex("#FFE174");
   static Color categorySelectedGreen = HexColor.fromHex("#597766");
@@ -60,6 +62,7 @@ class ColorManager {
   static Color lightYellow = HexColor.fromHex("#FAF7F1");
   static Color textLightGrey = HexColor.fromHex("#B8B5C3");
   static Color grey83 = HexColor.fromHex("#838383");
+  static Color greyShadow9D = HexColor.fromHex("#9D9D9D1F");
   // Tasbih Colors
   //theme pink
   static Color tasbihThemePinkBgClr = HexColor.fromHex("#FBE5E8");
@@ -69,14 +72,14 @@ class ColorManager {
   static Color textPink89 = HexColor.fromHex("#895674");
 
 //theme orange
-  static Color tasbihThemeOraneBGColor = HexColor.fromHex("#FFE2BD");
+  static Color tasbihThemeOraneBGColor = HexColor.fromHex("#E8C298");
   static Color tasbihThemeOrangeClr = HexColor.fromHex("#FFA32F");
   static Color tasbihThemeOrangetextClr = HexColor.fromHex("#E1A353");
   static Color tasbihThemOrangeGradient2 = HexColor.fromHex("#FECA87");
   static Color tasbihThemOrangeGradient1 = HexColor.fromHex("#F88F0A");
 
 //theme Green
-  static Color tasbihThemePurpleBgClr = HexColor.fromHex("#BDBBF4");
+  static Color tasbihThemePurpleBgClr = HexColor.fromHex("#CCD7FF");
   static Color tasbihThemePurpleClr = HexColor.fromHex("#3D39AD");
   static Color tasbihThemePurpleTextClr = HexColor.fromHex("#636D83");
   static Color tasbihThemPurpleGradient2 = HexColor.fromHex("#8883FE");
@@ -89,6 +92,16 @@ class ColorManager {
   static Color tasbihThemGreenGradient1 = HexColor.fromHex("#044026");
 
   static Color tasbihThemeLightPurplClr = HexColor.fromHex("#CCD7FF");
+//theme darkBlue
+  static Color tasbihThemeDarkBlueBgClr = HexColor.fromHex("#BDBBF4");
+  static Color tasbihThemeDarkBlueTextClr = HexColor.fromHex("#3D39AD");
+  static Color tasbihThemDarkBlueGradient2 = HexColor.fromHex("#8883FE");
+  static Color tasbihThemDarkBlueGradient1 = HexColor.fromHex("#1B14C3");
+  //theme lightOrang
+  static Color tasbihThemelightOrangeBgClr = HexColor.fromHex("#FFE2BD");
+  static Color tasbihThemelightOrangeTextClr = HexColor.fromHex("#7C3E18");
+  static Color tasbihThemlightOrangeGradient2 = HexColor.fromHex("#7C3E18");
+  static Color tasbihThemlightOrangeGradient1 = HexColor.fromHex("#BC774D");
 
   //Dua view
   static Color haditTextfieldGreyClr = HexColor.fromHex("#B3B3B3");

@@ -4,17 +4,16 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/components/buttons/green_gradient_button.dart';
 import 'package:millat/components/common_widgets/build_categories_widget.dart';
 import 'package:millat/enums/enumertations.dart';
-import 'package:millat/resources/home/bloc/logic/home_bloc/home_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/category_bloc/category_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
+import 'package:millat/resources/shop/view/article/articles_view.dart';
 import 'package:millat/resources/shop/view/brand/shop_brand_view.dart';
 import 'package:millat/resources/shop/view/brand/single_brand_view.dart';
 import 'package:millat/resources/shop/view/categories/categories_filter_view.dart';
 import 'package:millat/resources/shop/view/categories/categories_view.dart';
 import 'package:millat/resources/shop/view/search/search_view.dart';
-import 'package:millat/resources/shop/view/shop_by_brand/shop_by_brand_view.dart';
 import 'package:millat/resources/shop/view/widgets/shop_home_subcategory_card_widget.dart';
-import 'package:millat/resources/shop/view/womens_care/womens_care_view.dart';
+import 'package:millat/resources/shop/view/womens_care/shop_specific_category_view.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/loader.dart';
@@ -22,7 +21,6 @@ import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/string_constants.dart';
 import '../../../components/common_widgets/cart_icon_widget.dart';
 import '../../../utils/color_manager.dart';
-import '../../home/bloc/service/home_services.dart';
 import '../bloc/logic/cart_bloc/cart_bloc.dart';
 
 class ShopView extends StatefulWidget {
@@ -41,17 +39,17 @@ class _ShopViewState extends State<ShopView> {
 
     categoryBloc.add(const CategoryEvent.fetchCategories());
     shopProductsBloc
-      ..add(const ShopProductsEvent.fetchRecentProductProducts())
+      // ..add(const ShopProductsEvent.fetchRecentProductProducts())
       ..add(const ShopProductsEvent.fetchShopByBrand())
       ..add(const ShopProductsEvent.fetchShopBanners())
-      ..add(const ShopProductsEvent.fetchArticles())
-      ..add(const FetchShopHomeBackgroundCard())
+      ..add(const ShopProductsEvent.fetchShopHomeBackgroundCard())
       ..add(const ShopProductsEvent.fetchShopHomeBackgroundCardSunnah())
       ..add(const ShopProductsEvent.fetchShopHomeBackgroundCardHelthyDiet())
       ..add(const ShopProductsEvent.fetchShopAdBrands())
       ..add(const ShopProductsEvent.fetchProductItemsSubcategorySunnah())
       ..add(const ShopProductsEvent.fetchProductItemsSubcategoryWomen())
-      ..add(const ShopProductsEvent.fetchProductItemsSubcategoryHealth());
+      ..add(const ShopProductsEvent.fetchProductItemsSubcategoryHealth())
+      ..add(ShopProductsEvent.fetchWishList(context));
     cartBloc.add(FetchCartEvent(context));
 
     BlocProvider.of<ShopProductsBloc>(context).add(const FetchTopBrands());
@@ -99,7 +97,7 @@ class _ShopViewState extends State<ShopView> {
                       }
 
                       final womenData =
-                          state.shopHomeBackgroundCardModelWomens!.result.data;
+                          state.shopHomeBackgroundCardModelWomens?.result.data;
                       final womenSubCategoryData =
                           state.productItemsSubCategoryWomenModel?.result.items;
                       final healthyDietData = state
@@ -117,19 +115,22 @@ class _ShopViewState extends State<ShopView> {
                           BackgroundContainer(
                             onTap: () {
                               Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => const WomensCareView(),
+                                builder: (context) =>
+                                    const ShopSpecificCategoryView(
+                                        categoryItemType:
+                                            CategoryItemType.womens),
                               ));
                             },
                             width: 205,
-                            title: womenData.subCategoryId.title,
-                            imageUrl: womenData.design.image,
-                            text: womenData.design.text,
+                            title: womenData?.subCategoryId.title ?? "",
+                            imageUrl: womenData?.design.image ?? "",
+                            text: womenData?.design.text ?? "",
                             buttonColor: ColorManager.pinkButtonColor,
                             gradientColors: [
                               ColorManager.pinkGradient2,
                               ColorManager.pinkGradient1,
                             ],
-                            textColor: womenData.design.color,
+                            textColor: womenData?.design.color ?? "",
                             child: shopCardSubcategoryWidget(
                               state: state,
                               height: 110,
@@ -147,13 +148,10 @@ class _ShopViewState extends State<ShopView> {
                           BackgroundContainer(
                             onTap: () {
                               Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) {
-                                  return const CategoriesView(
-                                      category: "Healthy diet",
-                                      subCategory: "subCategory",
-                                      type: FilterType.category);
-                                },
-                              ));
+                                  builder: (context) =>
+                                      const ShopSpecificCategoryView(
+                                          categoryItemType:
+                                              CategoryItemType.health)));
                             },
                             width: 155,
                             title: healthyDietData!.subCategoryId.title,
@@ -185,10 +183,7 @@ class _ShopViewState extends State<ShopView> {
                           BackgroundContainer(
                             onTap: () {
                               Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => const CategoriesView(
-                                    category: "Pro muslim",
-                                    subCategory: "subCategory",
-                                    type: FilterType.category),
+                                builder: (context) => const ArticlesView(),
                               ));
                             },
                             cardType: ShopHomeCardtype.sunnah,
@@ -449,11 +444,20 @@ class _ShopViewState extends State<ShopView> {
             kHeight20,
             CarouselSlider(
               items: banners?.map((banner) {
-                return ClipRRect(
-                  borderRadius: BorderRadius.circular(20),
-                  child: Image.network(
-                    banner.image,
-                    fit: BoxFit.contain,
+                return GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const CategoriesView(
+                            category: "",
+                            subCategory: "",
+                            type: FilterType.category)));
+                  },
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(20),
+                    child: Image.network(
+                      banner.image,
+                      fit: BoxFit.contain,
+                    ),
                   ),
                 );
               }).toList(),

@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:millat/resources/home/view/home_view.dart';
+import 'package:millat/resources/authentication/bloc/logic/database_bloc/database_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
 import 'package:millat/resources/shop/bloc/models/cart/cart_models.dart';
-import 'package:millat/resources/tabs/view/tabs_view.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
-import 'package:millat/utils/loader.dart';
 import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/string_constants.dart';
 import 'package:millat/utils/utils.dart';
@@ -201,6 +199,9 @@ class OrdetailsView extends StatelessWidget {
                         child: Padding(
                           padding: const EdgeInsets.only(right: 15),
                           child: ShopProductWidget(
+                              color: data?.colors?[0].text ?? "",
+                              size: data?.size?[0].value ?? "",
+                              brandId: data?.brand!.id,
                               isWishlisted: state.isWishListed,
                               brand: data!.brand!.name.toString(),
                               productId: data.id,
@@ -325,8 +326,20 @@ class OrdetailsView extends StatelessWidget {
                 borderRadius: const BorderRadius.vertical(
                   top: Radius.circular(12),
                 ),
-                border: Border.all(
-                  color: ColorManager.greyB8,
+                border: Border(
+                  left: BorderSide(
+                    color: ColorManager.greyB8,
+                  ),
+                  top: BorderSide(
+                    color: ColorManager.greyB8,
+                  ),
+                  right: BorderSide(
+                    color: ColorManager.greyB8,
+                  ),
+                  bottom: BorderSide(
+                    color: ColorManager.greyB8,
+                    width: 0,
+                  ),
                 ),
               ),
               child: Column(
@@ -362,7 +375,7 @@ class OrdetailsView extends StatelessWidget {
               ),
             ),
             Container(
-              height: 50,
+              height: 60,
               decoration: BoxDecoration(
                 color: ColorManager.whiteColor,
                 borderRadius: const BorderRadius.vertical(
@@ -372,24 +385,45 @@ class OrdetailsView extends StatelessWidget {
                   color: ColorManager.greyB8,
                 ),
               ),
-              child: Row(
+              padding: const EdgeInsets.all(8),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   kWidht10,
                   Text(
-                    Appstrings.downloadInvoice,
+                    "You'll receive on email at",
                     style: TextStyle(
-                      fontSize: 17,
-                      fontWeight: FontWeight.w600,
-                      color: ColorManager.primary,
+                      color: ColorManager.textGrey99,
+                      fontSize: 15,
+                      fontWeight: FontWeight.w500,
+                      height: 1.2,
                     ),
+                    textAlign: TextAlign.center,
                   ),
-                  const Spacer(),
-                  Icon(
-                    Icons.arrow_forward_ios,
-                    color: ColorManager.primary,
-                    size: 20,
+                  Row(
+                    children: [
+                      Text(
+                        context.read<DatabaseBloc>().state.email,
+                        style: TextStyle(
+                          color: ColorManager.blackColor,
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold,
+                          height: 1.2,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                      Text(
+                        " once your order is confirmed",
+                        style: TextStyle(
+                          color: ColorManager.textGrey99,
+                          fontSize: 15,
+                          fontWeight: FontWeight.w500,
+                          height: 1.2,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                    ],
                   ),
-                  kWidht10
                 ],
               ),
             )
@@ -434,9 +468,10 @@ class OrdetailsView extends StatelessWidget {
                 height: 200,
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  border: Border.all(
+                  border: Border.symmetric(
+                      vertical: BorderSide(
                     color: ColorManager.greyB8,
-                  ),
+                  )),
                 ),
                 padding: const EdgeInsets.all(12),
                 child: Column(

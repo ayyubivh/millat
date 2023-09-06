@@ -6,7 +6,6 @@ import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.da
 import 'package:millat/resources/shop/view/order_status/order_details_view.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
-import 'package:millat/utils/loader.dart';
 import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/string_constants.dart';
 
@@ -23,107 +22,137 @@ class PaymentSuccessful extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    int total = subTotal + delivery;
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      // BlocProvider.of<ShopProductsBloc>(context).add(FetchOrdersById(
-      //     context,
-      //     int.parse(
-      //         context.read<ShopProductsBloc>().state.orderId.toString())));
+      BlocProvider.of<ShopProductsBloc>(context).add(FetchOrdersById(
+          context,
+          int.parse(
+              context.read<ShopProductsBloc>().state.orderId.toString())));
     });
     return BlocBuilder<ShopProductsBloc, ShopProductsState>(
-        builder: (context, state) => state.isLoading || state.orderId == null
-            ? const Loader()
-            : Scaffold(
+        builder: (context, state) =>
+            //  state.isLoading || state.orderId == null
+            //     ? const Loader()
+            //     :
+            Scaffold(
                 appBar: AppBar(
                     elevation: 0, backgroundColor: ColorManager.whiteColor),
                 body: SizedBox(
                   width: SizeUtility(context).width,
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 30),
-                    child: ListView(
-                      // crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Image.asset(
-                          AppAssetsStrings.paymentSuccess,
-                          width: SizeUtility(context).width * 80 / 100,
-                        ),
-                        kHeight25,
-                        Text(
-                          Appstrings.thanksForOrder,
-                          style: TextStyle(
-                            color: ColorManager.blackColor,
-                            fontSize: 22,
-                            fontWeight: FontWeight.bold,
+                    child: SingleChildScrollView(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Image.asset(
+                            AppAssetsStrings.paymentSuccess,
+                            width: SizeUtility(context).width * 80 / 100,
                           ),
-                        ),
-                        kHeight20,
-                        Text(
-                          "You'll receive on email at",
-                          style: TextStyle(
-                            color: ColorManager.textGrey99,
-                            fontSize: 15,
-                            fontWeight: FontWeight.w500,
-                            height: 1.2,
+                          kHeight25,
+                          Text(
+                            Appstrings.thanksForOrder,
+                            style: TextStyle(
+                              color: ColorManager.blackColor,
+                              fontSize: 22,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
-                          textAlign: TextAlign.center,
-                        ),
-                        Row(
-                          children: [
-                            Text(
-                              context.read<DatabaseBloc>().state.email,
-                              style: TextStyle(
-                                color: ColorManager.blackColor,
-                                fontSize: 15,
-                                fontWeight: FontWeight.bold,
-                                height: 1.2,
-                              ),
-                              textAlign: TextAlign.center,
+                          kHeight20,
+                          Text(
+                            "You'll receive on email at",
+                            style: TextStyle(
+                              color: ColorManager.textGrey99,
+                              fontSize: 15,
+                              fontWeight: FontWeight.w500,
+                              height: 1.2,
                             ),
-                            Text(
-                              "once your order is confirmed",
-                              style: TextStyle(
-                                color: ColorManager.textGrey99,
-                                fontSize: 15,
-                                fontWeight: FontWeight.w500,
-                                height: 1.2,
+                            textAlign: TextAlign.center,
+                          ),
+                          Row(
+                            children: [
+                              Text(
+                                context.read<DatabaseBloc>().state.email,
+                                style: TextStyle(
+                                  color: ColorManager.blackColor,
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.bold,
+                                  height: 1.2,
+                                ),
+                                textAlign: TextAlign.center,
                               ),
-                              textAlign: TextAlign.center,
-                            ),
-                          ],
-                        ),
-                        kHeight20,
-                        BlocBuilder<ShopProductsBloc, ShopProductsState>(
-                          builder: (context, state) => Container(
-                            height: 138,
-                            padding: const EdgeInsets.all(12),
-                            decoration: BoxDecoration(
-                                border: Border.all(
+                              Text(
+                                " once your order is confirmed",
+                                style: TextStyle(
                                   color: ColorManager.textGrey99,
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.w500,
+                                  height: 1.2,
                                 ),
-                                borderRadius: BorderRadius.circular(8)),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                const Text(
-                                  Appstrings.orderDetails,
-                                  style: TextStyle(
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.w600,
+                                textAlign: TextAlign.center,
+                              ),
+                            ],
+                          ),
+                          kHeight20,
+                          BlocBuilder<ShopProductsBloc, ShopProductsState>(
+                            builder: (context, state) => Container(
+                              height: 138,
+                              padding: const EdgeInsets.all(14),
+                              decoration: BoxDecoration(
+                                  border: Border.all(
+                                    color: ColorManager.dotGrey,
                                   ),
-                                ),
-                                _orderDetailWidget(
-                                    text: Appstrings.subTotal,
-                                    amount: subTotal.toString()),
-                                kHeight16,
-                                _orderDetailWidget(
-                                    text: Appstrings.deliveryCharge,
-                                    amount: delivery.toString()),
-                              ],
+                                  borderRadius: BorderRadius.circular(8)),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  const Text(
+                                    Appstrings.orderDetails,
+                                    style: TextStyle(
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                  kHeight16,
+                                  _orderDetailWidget(
+                                      text: Appstrings.subTotal,
+                                      amount: subTotal.toString()),
+                                  kHeight10,
+                                  _orderDetailWidget(
+                                      text: Appstrings.deliveryCharge,
+                                      amount: delivery.toString()),
+                                  kHeight10,
+                                  Row(
+                                    children: [
+                                      Text(
+                                        "Amount Paid",
+                                        style: TextStyle(
+                                          color: ColorManager.textGrey99,
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.w500,
+                                          height: 1.2,
+                                        ),
+                                        textAlign: TextAlign.center,
+                                      ),
+                                      const Spacer(),
+                                      Text(
+                                        "Rs ${total.toString()}",
+                                        style: TextStyle(
+                                          fontSize: 15,
+                                          color: ColorManager.primary,
+                                          fontWeight: FontWeight.w900,
+                                        ),
+                                      )
+                                    ],
+                                  )
+                                ],
+                              ),
                             ),
                           ),
-                        ),
-                        kHeight100,
-                        kHeight100,
-                      ],
+                          kHeight100,
+                          kHeight100,
+                        ],
+                      ),
                     ),
                   ),
                 ),
@@ -201,7 +230,7 @@ class PaymentSuccessful extends StatelessWidget {
           textAlign: TextAlign.center,
         ),
         Text(
-          amount,
+          "₹ $amount",
           style: TextStyle(
             color: ColorManager.blackColor,
             fontSize: 15,

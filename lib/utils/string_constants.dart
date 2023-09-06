@@ -25,7 +25,7 @@ class Appstrings {
   static const String magrib = "Maghrib";
   static const String isha = "Isha";
   static const String qiyam = "qiyam";
-  static const String sunrise = "sunrise";
+  static const String sunrise = "Sunrise";
   static const String hijabs = "Hijab's";
   static const String dates = "Dates";
   static const String attars = "Attars";
@@ -71,6 +71,7 @@ class Appstrings {
 //Quran
   static const String myFavorite = "My Favourites";
   //shop
+
   static const String shop = "Shop";
   static const String brand = "Brands";
   static const String thousandBrands = "1000+ Brands";
@@ -80,7 +81,7 @@ class Appstrings {
   static const String filters = "Filters";
   static const String byReview = "By Review";
   static const String sortBy = "Sort By";
-  static const String womensCare = "Womens's Care";
+  static const String womensCare = "Women's Care";
   static const String healthyDiet = "Healthy Diet";
   static const String followSunnah = "Follow Sunnah";
   static const String follow = "Follow";
@@ -100,6 +101,7 @@ class Appstrings {
   static const String confirmation = "Confirmation";
   static const String reviewOrder = "Review Your Order";
   static const String pay = "Pay";
+  static const String placeOrder = "Place order";
   static const String promoCode = "Promo Code";
   static const String apply = "Apply";
   static const String thanksForOrder = "Thank for your order";
@@ -179,6 +181,8 @@ class Appstrings {
   static const String giftSubTitle = "Customized gift wrapping for \$20";
   static const String sunnah = "Sunnah";
   static const String hadith = "Hadith";
+  static const String noProductsFound = "No products found!";
+
   //hadith
   static const String bookmarks = "Bookmarks";
   static const String books = "books";

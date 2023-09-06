@@ -327,6 +327,9 @@ class _CategoriesViewState extends State<CategoriesView> {
                                         );
                                       },
                                       child: ShopProductWidget(
+                                        color: data.colors[0].text,
+                                        size: data.size[0].value,
+                                        brandId: data.brand!.id,
                                         isWishlisted: false,
                                         brand: data.brand!.name.toString(),
                                         productId: data.id,

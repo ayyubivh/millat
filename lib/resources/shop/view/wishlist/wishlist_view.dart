@@ -96,6 +96,9 @@ class WishListView extends StatelessWidget {
                               children: [
                                 const SizedBox(height: 15),
                                 ShopProductWidget(
+                                  color: data?.colors[0].text ?? "",
+                                  size: data?.size[0].value ?? "",
+                                  brandId: data?.id,
                                   isWishlisted: state.isWishListed,
                                   brand: data?.brand ?? 'null',
                                   productId: data?.id ?? 'null',
@@ -123,7 +126,7 @@ class WishListView extends StatelessWidget {
               ? const SizedBox()
               : Container(
                   padding: const EdgeInsets.symmetric(horizontal: 25),
-                  height: 240,
+                  height: 150,
                   child: Column(
                     children: [
                       const Text(
@@ -138,9 +141,7 @@ class WishListView extends StatelessWidget {
                       MainButton(
                         title: 'Start Exploring',
                         onPressed: () {
-                          context
-                              .read<ShopProductsBloc>()
-                              .add(const TabIndexChangeEvent(index: 0));
+                          Navigator.of(context).pop();
                         },
                       )
                     ],

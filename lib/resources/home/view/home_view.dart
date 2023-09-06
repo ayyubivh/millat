@@ -133,91 +133,109 @@ class _HomeViewState extends State<HomeView> {
                     }
                     return true;
                   },
-                  child: Stack(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       AnimatedContainer(
-                        duration: const Duration(milliseconds: 300),
-                        height: 200,
+                        duration: const Duration(milliseconds: 310),
+                        height: scrollNotifier.value == true ? 290 : 200,
                         width: SizeUtility(context).width,
-                        decoration: BoxDecoration(
-                          // color: Colors.transparent.withOpacity(0),
-                          image: DecorationImage(
-                            image: AssetImage(
-                              scrollNotifier.value
-                                  ? AppAssetsStrings.homeAppbar
-                                  : AppAssetsStrings.namazTimingAppbar,
-                            ),
-                            fit: BoxFit.fill,
+                        decoration:
+                            BoxDecoration(color: ColorManager.midGreenColor
+                                // color: Colors.transparent.withOpacity(0),
+                                // image: DecorationImage(
+                                //   image: AssetImage(
+                                //     scrollNotifier.value
+                                //         ? AppAssetsStrings.homeAppbar
+                                //         : AppAssetsStrings.namazTimingAppbar,
+                                //   ),
+                                //   fit: BoxFit.fill,
+                                // ),
+                                ),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 30,
+                          ).copyWith(top: 40),
+                          child: Stack(
+                            // crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Row(
+                                children: [
+                                  Text(Appstrings.assalamuAlaikum,
+                                      style: TextStyle(
+                                        color: ColorManager.whiteColor,
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w500,
+                                      )),
+                                  kHeight5,
+
+                                  const Spacer(),
+                                  GestureDetector(
+                                    onTap: () {
+                                      Navigator.of(context)
+                                          .push(MaterialPageRoute(
+                                        builder: (context) =>
+                                            const NotificationView(),
+                                      ));
+                                    },
+                                    child: ImageIcon(
+                                        const AssetImage(
+                                            AppAssetsStrings.bellIcon),
+                                        color: ColorManager.whiteColor,
+                                        size: 25),
+                                  ),
+                                  // GestureDetector(
+                                  //   onTap: () {
+                                  //     Scaffold.of(context).openEndDrawer();
+                                  //   },
+                                  //   child: ImageIcon(
+                                  //       const AssetImage(
+                                  //           AppAssetsStrings.menuIcon),
+                                  //       color: ColorManager.whiteColor,
+                                  //       size: 25),
+                                  // ),
+                                ],
+                              ),
+                              BlocBuilder<DatabaseBloc, DatabaseState>(
+                                builder: (context, state) => Padding(
+                                  padding: const EdgeInsets.only(top: 28),
+                                  child: Text(
+                                      state.authUserModel?.result?.user?.name ??
+                                          "",
+                                      style: TextStyle(
+                                        color: ColorManager.whiteColor,
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.w500,
+                                      )),
+                                ),
+                              ),
+                              Padding(
+                                padding:
+                                    const EdgeInsets.only(left: 55, top: 20),
+                                child: Image.asset(
+                                  AppAssetsStrings.homeBgDesign,
+                                  height: 114,
+                                  width: SizeUtility(context).width / 1.4,
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(top: 70),
+                                child: scrollNotifier.value == true
+                                    ? animatedContainerWidget1(context)
+                                    : animatedContainerWidget2(context),
+                              )
+                            ],
                           ),
                         ),
                       ),
-                      Column(
-                        children: [
-                          kHeight50,
-                          Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 30),
-                            child: Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(Appstrings.assalamuAlaikum,
-                                        style: TextStyle(
-                                            color: ColorManager.whiteColor,
-                                            fontSize: 18)),
-                                    const SizedBox(
-                                      height: 5,
-                                    ),
-                                    BlocBuilder<DatabaseBloc, DatabaseState>(
-                                      builder: (context, state) => Text(
-                                          state.authUserModel?.result?.user
-                                                  ?.name ??
-                                              "",
-                                          style: TextStyle(
-                                              color: ColorManager.whiteColor,
-                                              fontSize: 18)),
-                                    ),
-                                  ],
-                                ),
-                                const Spacer(),
-                                GestureDetector(
-                                  onTap: () {
-                                    Navigator.of(context)
-                                        .push(MaterialPageRoute(
-                                      builder: (context) =>
-                                          const NotificationView(),
-                                    ));
-                                  },
-                                  child: ImageIcon(
-                                      const AssetImage(
-                                          AppAssetsStrings.bellIcon),
-                                      color: ColorManager.whiteColor,
-                                      size: 25),
-                                ),
-                                const SizedBox(
-                                  width: 20,
-                                ),
-                                // GestureDetector(
-                                //   onTap: () {
-                                //     Scaffold.of(context).openEndDrawer();
-                                //   },
-                                //   child: ImageIcon(
-                                //       const AssetImage(
-                                //           AppAssetsStrings.menuIcon),
-                                //       color: ColorManager.whiteColor,
-                                //       size: 25),
-                                // ),
-                              ],
-                            ),
-                          ),
-                          kHeight25,
-                          scrollNotifier.value == true
-                              ? animatedContainerWidget1(context)
-                              : animatedContainerWidget2(context),
-                          Expanded(
-                            child: SingleChildScrollView(
-                              child: Column(
+                      Expanded(
+                        child: SingleChildScrollView(
+                          child: Column(
+                            children: [
+                              kHeight50,
+                              kHeight25,
+                              Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   kHeight16,
@@ -326,9 +344,9 @@ class _HomeViewState extends State<HomeView> {
                                   kHeight50,
                                 ],
                               ),
-                            ),
+                            ],
                           ),
-                        ],
+                        ),
                       ),
                     ],
                   ),
@@ -1139,8 +1157,8 @@ class _HomeViewState extends State<HomeView> {
     return AnimatedContainer(
         curve: Curves.decelerate,
         duration: const Duration(milliseconds: 1000),
-        height: 90,
-        margin: const EdgeInsets.symmetric(horizontal: 30),
+        // height: 75,
+        // margin: const EdgeInsets.symmetric(horizontal: 30),
         padding: const EdgeInsets.symmetric(
           horizontal: 15,
         ),
@@ -1172,13 +1190,7 @@ class _HomeViewState extends State<HomeView> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Text(
-                          'Now',
-                          style: TextStyle(
-                            fontSize: 12,
-                            fontWeight: FontWeight.w300,
-                          ),
-                        ),
+                        _nowText(),
                         const SizedBox(height: 6),
                         BlocBuilder<NamazTimingBloc, NamazTimingState>(
                           builder: (context, state) {
@@ -1194,10 +1206,7 @@ class _HomeViewState extends State<HomeView> {
                               children: [
                                 Text(
                                   currentNamazName,
-                                  style: TextStyle(
-                                    color: ColorManager.mainColor,
-                                    fontSize: 20,
-                                  ),
+                                  style: _currentNamazTextstyle(),
                                 ),
                                 const SizedBox(
                                   width: 10,
@@ -1225,13 +1234,7 @@ class _HomeViewState extends State<HomeView> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Text(
-                          'Upcoming Namaz',
-                          style: TextStyle(
-                            fontSize: 15,
-                            fontWeight: FontWeight.w300,
-                          ),
-                        ),
+                        _upcomingText(),
                         const SizedBox(height: 6),
                         BlocBuilder<NamazTimingBloc, NamazTimingState>(
                           builder: (context, state) {
@@ -1247,10 +1250,7 @@ class _HomeViewState extends State<HomeView> {
                               children: [
                                 Text(
                                   upcomingNamazName,
-                                  style: TextStyle(
-                                    color: ColorManager.mainColor,
-                                    fontSize: 20,
-                                  ),
+                                  style: _currentNamazTextstyle(),
                                 ),
                                 const SizedBox(
                                   width: 10,
@@ -1278,9 +1278,9 @@ class _HomeViewState extends State<HomeView> {
     return AnimatedContainer(
       curve: Curves.decelerate,
       duration: const Duration(milliseconds: 1000),
-      height: scrollNotifier.value == false ? 180 : 190,
-      padding: const EdgeInsets.all(20),
-      margin: const EdgeInsets.symmetric(horizontal: 30),
+      // height: scrollNotifier.value == false ? 180 : 190,
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      // margin: const EdgeInsets.symmetric(horizontal: 30),
       decoration: BoxDecoration(
         color: ColorManager.whiteColor,
         borderRadius: BorderRadius.circular(20),
@@ -1314,11 +1314,9 @@ class _HomeViewState extends State<HomeView> {
             ImageIcon(
               const AssetImage('assets/icons/calendar.png'),
               color: ColorManager.mainColor,
-              size: 35,
+              size: 24,
             ),
-            const SizedBox(
-              width: 10,
-            ),
+            kWidht10,
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -1345,13 +1343,17 @@ class _HomeViewState extends State<HomeView> {
                 onPressed: () {
                   Navigator.of(context).pushNamed(NamazTimingView.routeName);
                 },
-                icon: const ImageIcon(AssetImage('assets/icons/location.png'),
-                    color: blueColor),
+                icon: const ImageIcon(
+                  AssetImage('assets/icons/map-pin.png'),
+                  color: blueColor,
+                  size: 16,
+                ),
                 label: const Text(
                   'Allow Me',
                   style: TextStyle(
                     color: blueColor,
-                    fontSize: 15,
+                    fontSize: 14,
+                    fontWeight: FontWeight.w500,
                   ),
                 )),
           ],
@@ -1370,15 +1372,11 @@ class _HomeViewState extends State<HomeView> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        const Column(
+        Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              'Now',
-              style: TextStyle(color: black104, fontSize: 15),
-            ),
-            kHeight5,
-            Text(
+            _nowText(),
+            const Text(
               "----------",
               style: TextStyle(
                 fontSize: 16,
@@ -1413,9 +1411,20 @@ class _HomeViewState extends State<HomeView> {
     );
   }
 
+  Text _nowText() {
+    return Text(
+      'Now',
+      style: TextStyle(
+        color: ColorManager.darkGrey68,
+        fontSize: 12,
+        fontWeight: FontWeight.w400,
+      ),
+    );
+  }
+
   SizedBox _locationButton(BuildContext context) {
     return SizedBox(
-      height: 35,
+      height: 30,
       width: SizeUtility(context).width / 2.8,
       child: ElevatedButton(
         onPressed: () {
@@ -1445,27 +1454,31 @@ class _HomeViewState extends State<HomeView> {
             ImageIcon(
               const AssetImage('assets/icons/calendar.png'),
               color: ColorManager.mainColor,
-              size: 35,
+              size: 24,
             ),
-            const SizedBox(
-              width: 10,
-            ),
+            kWidht10,
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 BlocBuilder<NamazTimingBloc, NamazTimingState>(
                   builder: (context, state) => Text(
                     state.arabicDate,
-                    style: const TextStyle(
+                    style: TextStyle(
+                      fontSize: 14,
                       fontFamily: 'ArabicFont',
-                      color: black104,
+                      color: ColorManager.darkGrey68,
+                      fontWeight: FontWeight.w500,
                     ),
                   ),
                 ),
                 kHeight5,
                 Text(
                   Utilities.formatDate(DateTime.now().toString()),
-                  style: const TextStyle(color: black104),
+                  style: TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.w400,
+                    color: ColorManager.darkGrey68,
+                  ),
                 )
               ],
             ),
@@ -1474,27 +1487,29 @@ class _HomeViewState extends State<HomeView> {
                 onPressed: () {
                   Navigator.of(context).pushNamed(NamazTimingView.routeName);
                 },
-                icon: const ImageIcon(AssetImage('assets/icons/bell.png'),
-                    color: blueColor),
+                icon: const ImageIcon(
+                  AssetImage('assets/icons/bell.png'),
+                  color: blueColor,
+                  size: 16,
+                ),
                 label: const Text(
                   'Notify Me',
-                  style: TextStyle(color: blueColor),
+                  style: TextStyle(
+                    color: blueColor,
+                    fontSize: 14,
+                    fontWeight: FontWeight.w500,
+                  ),
                 )),
           ],
         ),
-        const SizedBox(
-          height: 10,
-        ),
+        kHeight8,
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
-                  'Now',
-                  style: TextStyle(color: black104, fontSize: 15),
-                ),
+                _nowText(),
                 kHeight5,
                 BlocBuilder<NamazTimingBloc, NamazTimingState>(
                   builder: (context, state) {
@@ -1508,19 +1523,14 @@ class _HomeViewState extends State<HomeView> {
                       children: [
                         Text(
                           currentNamazName,
-                          style: TextStyle(
-                            color: ColorManager.mainColor,
-                            fontSize: 20,
-                          ),
+                          style: _currentNamazTextstyle(),
                         ),
-                        const SizedBox(
-                          width: 10,
-                        ),
+                        kWidht10,
                         Text(
                           currentNamazTime,
-                          style: const TextStyle(
-                            color: black132,
-                            fontSize: 17,
+                          style: TextStyle(
+                            color: ColorManager.darkGrey68,
+                            fontSize: 16,
                             fontWeight: FontWeight.w600,
                           ),
                         ),
@@ -1538,10 +1548,7 @@ class _HomeViewState extends State<HomeView> {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
-                  'Upcoming Namaz',
-                  style: TextStyle(color: black104, fontSize: 15),
-                ),
+                _upcomingText(),
                 kHeight5,
                 BlocBuilder<NamazTimingBloc, NamazTimingState>(
                   builder: (context, state) {
@@ -1553,21 +1560,14 @@ class _HomeViewState extends State<HomeView> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          upcomingNamazName,
-                          style: TextStyle(
-                            color: ColorManager.mainColor,
-                            fontSize: 20,
-                          ),
-                        ),
-                        const SizedBox(
-                          width: 10,
-                        ),
+                        Text(upcomingNamazName,
+                            style: _currentNamazTextstyle()),
+                        kWidht10,
                         Text(
                           upcomingNamazTime,
-                          style: const TextStyle(
-                            color: black132,
-                            fontSize: 17,
+                          style: TextStyle(
+                            color: ColorManager.darkGrey68,
+                            fontSize: 16,
                             fontWeight: FontWeight.w600,
                           ),
                         ),
@@ -1579,9 +1579,7 @@ class _HomeViewState extends State<HomeView> {
             ),
           ],
         ),
-        const SizedBox(
-          height: 20,
-        ),
+        kHeight16,
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -1592,12 +1590,14 @@ class _HomeViewState extends State<HomeView> {
                   color: black165,
                   size: 20,
                 ),
-                const SizedBox(
-                  width: 10,
-                ),
+                kWidth8,
                 BlocBuilder<LocationBloc, LocationState>(
                   builder: (context, state) => Text(state.currentLocaion,
-                      style: const TextStyle(color: black165)),
+                      style: TextStyle(
+                        color: ColorManager.textGrey,
+                        fontSize: 12,
+                        fontWeight: FontWeight.w500,
+                      )),
                 )
               ],
             ),
@@ -1606,11 +1606,9 @@ class _HomeViewState extends State<HomeView> {
                 ImageIcon(
                   AssetImage('assets/icons/share.png'),
                   color: black165,
-                  size: 20,
+                  size: 16,
                 ),
-                SizedBox(
-                  width: 10,
-                ),
+                kWidth8,
                 Text(
                   'Share',
                   style: TextStyle(color: black165),
@@ -1620,6 +1618,25 @@ class _HomeViewState extends State<HomeView> {
           ],
         ),
       ],
+    );
+  }
+
+  TextStyle _currentNamazTextstyle() {
+    return TextStyle(
+      color: ColorManager.lightPrimary,
+      fontSize: 20,
+      fontWeight: FontWeight.w600,
+    );
+  }
+
+  Text _upcomingText() {
+    return Text(
+      'Upcoming Namaz',
+      style: TextStyle(
+        color: ColorManager.darkGrey68,
+        fontSize: 12,
+        fontWeight: FontWeight.w400,
+      ),
     );
   }
 

@@ -13,6 +13,9 @@ import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/validators.dart';
 
+import '../../../utils/utils.dart';
+import '../class/google_signin.dart';
+
 class SignUpView extends StatefulWidget {
   const SignUpView({Key? key}) : super(key: key);
 
@@ -172,8 +175,11 @@ class _SignUpViewState extends State<SignUpView> {
                           const SizedBox(
                             width: 40,
                           ),
-                          Image.asset('assets/logos/google_logo.png',
-                              width: 40),
+                          InkWell(
+                            onTap: () => googleSignIn(),
+                            child: Image.asset('assets/logos/google_logo.png',
+                                width: 40),
+                          ),
                           const SizedBox(
                             width: 40,
                           ),
@@ -189,6 +195,25 @@ class _SignUpViewState extends State<SignUpView> {
         },
       ),
     ));
+  }
+
+  Future googleSignIn() async {
+    try {
+      final user = await GoogleSignInService.login();
+      await user?.authentication;
+      // var userAuth = await user?.authentication;
+      // print(user?.displayName);
+      // print(user?.email);
+      // print(user?.id);
+      // print(user?.photoUrl);
+      // print(user._idToken);
+      // print(userAuth);
+
+      showSnackBar(context, "${user?.displayName} signed in");
+      await GoogleSignInService.logout();
+    } catch (exception) {
+      showSnackBar(context, exception.toString());
+    }
   }
 
   ScaffoldFeatureController buildError(String message) {

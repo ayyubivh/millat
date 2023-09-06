@@ -24,10 +24,10 @@ class PaymentSuccessful extends StatelessWidget {
   Widget build(BuildContext context) {
     int total = subTotal + delivery;
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      // BlocProvider.of<ShopProductsBloc>(context).add(FetchOrdersById(
-      //     context,
-      //     int.parse(
-      //         context.read<ShopProductsBloc>().state.orderId.toString())));
+      BlocProvider.of<ShopProductsBloc>(context).add(FetchOrdersById(
+          context,
+          int.parse(
+              context.read<ShopProductsBloc>().state.orderId.toString())));
     });
     return BlocBuilder<ShopProductsBloc, ShopProductsState>(
         builder: (context, state) =>

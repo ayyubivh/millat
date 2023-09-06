@@ -28,7 +28,7 @@ class ShopBrandView extends StatelessWidget {
                 children: [
                   _topBrandsPart(),
                   kHeight15,
-                  _filterRow(),
+                  // _filterRow(),
                   _brandsListPart(),
                 ],
               ),

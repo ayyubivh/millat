@@ -731,29 +731,20 @@ class _HomeViewState extends State<HomeView> {
                 builder: (context, state) {
                   final currentNamaz = state.currentNamaz;
                   final currentNamazName = currentNamaz?['name'] ?? '';
+                  final namazTime = state.prayerModel?.data.timings;
 
-                  String currentNamazTime = currentNamaz?['time'] ?? '';
+                  String fajrTime = namazTime?.fajr ?? "";
+                  String dhuhrTime = namazTime?.dhuhr ?? "";
+                  String asrTime = namazTime?.asr ?? "";
+                  String magribTime = namazTime?.maghrib ?? "";
+                  String ishaTime = namazTime?.isha ?? "";
                   DateTime now = DateTime.now();
-                  List<String> timeParts = currentNamazTime.split(':');
 
-                  bool isFajr = false;
-                  bool isDhuhr = false;
-                  bool isAsr = false;
-                  bool isMagrib = false;
-                  bool isIsha = false;
-
-                  if (timeParts.length == 2) {
-                    int hour = int.tryParse(timeParts[0]) ?? 0;
-                    int minute = int.tryParse(timeParts[1]) ?? 0;
-                    DateTime namazTime =
-                        DateTime(now.year, now.month, now.day, hour, minute);
-                    // print(namazTime);
-                    isFajr = namazTime.isAfter(now);
-                    isDhuhr = namazTime.isAfter(now);
-                    isAsr = namazTime.isAfter(now);
-                    isMagrib = namazTime.isAfter(now);
-                    isIsha = namazTime.isAfter(now);
-                  }
+                  bool isFajr = isNamazTimeAfter(now, dhuhrTime);
+                  bool isDhuhr = isNamazTimeAfter(now, asrTime);
+                  bool isAsr = isNamazTimeAfter(now, magribTime);
+                  bool isMagrib = isNamazTimeAfter(now, ishaTime);
+                  bool isIsha = isNamazTimeAfter(now, ishaTime);
 
                   return Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -763,7 +754,8 @@ class _HomeViewState extends State<HomeView> {
                         namazName: Appstrings.fajr,
                         isCompleted: data.prayerTrackerFajr,
                         onTap: () {
-                          currentNamazName == Appstrings.fajr
+                          currentNamazName == Appstrings.fajr ||
+                                  currentNamazName == Appstrings.sunrise
                               ? context.read<HomeBloc>().add(
                                   AddPrayerToPrayerTracker(
                                       namazName: Appstrings.fajr,
@@ -804,7 +796,7 @@ class _HomeViewState extends State<HomeView> {
                         },
                       ),
                       dailyTrackerWidget(
-                        isUpcoming: true,
+                        isUpcoming: isMagrib,
                         namazName: Appstrings.magrib,
                         isCompleted: data.prayerTrackerMagrib,
                         onTap: () {
@@ -819,7 +811,7 @@ class _HomeViewState extends State<HomeView> {
                         },
                       ),
                       dailyTrackerWidget(
-                        isUpcoming: true,
+                        isUpcoming: isIsha,
                         namazName: Appstrings.isha,
                         isShow: false,
                         isCompleted: data.prayerTrackerIsha,
@@ -846,6 +838,21 @@ class _HomeViewState extends State<HomeView> {
     );
   }
 
+  bool isNamazTimeAfter(DateTime currentTime, String namazTime) {
+    List<String> timeParts = namazTime.split(':');
+
+    if (timeParts.length == 2) {
+      int hour = int.tryParse(timeParts[0]) ?? 0;
+      int minute = int.tryParse(timeParts[1]) ?? 0;
+      DateTime namazDateTime = DateTime(
+          currentTime.year, currentTime.month, currentTime.day, hour, minute);
+
+      return namazDateTime.isAfter(currentTime);
+    }
+
+    return false;
+  }
+
   Widget dailyTrackerWidget(
       {required String namazName,
       bool isShow = true,
@@ -861,7 +868,7 @@ class _HomeViewState extends State<HomeView> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              isUpcoming == true
+              isUpcoming == true && isCompleted == false
                   ? CircleAvatar(
                       radius: 16,
                       backgroundColor: ColorManager.primary,

@@ -95,9 +95,7 @@ class ShopProductWidget extends StatelessWidget {
                                 context: context,
                               ),
                             );
-                        // print('$isWishlisted on the isWishlisted if');
                       } else {
-                        // print('$isWishlisted on the isWishlisted else');
                         context.read<ShopProductsBloc>().add(
                               AddWishListEvent(
                                 productId: productId ?? '',
@@ -157,7 +155,7 @@ class ShopProductWidget extends StatelessWidget {
                   final containsProductId = cartItems
                       ?.any((cartItem) => cartItem.productId?.id == productId);
 
-                  if (containsProductId != null && !containsProductId) {
+                  if (containsProductId == false) {
                     return GestureDetector(
                       onTap: () {
                         print(

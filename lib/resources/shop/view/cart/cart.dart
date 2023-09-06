@@ -10,6 +10,7 @@ import 'package:millat/resources/shop/view/tabs/shop_tabs_vilew.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/color_manager.dart';
+import 'package:millat/utils/loader.dart';
 import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/string_constants.dart';
 
@@ -49,10 +50,10 @@ class _CartViewState extends State<CartView> {
           BlocBuilder<CartBloc, CartState>(
             builder: (context, state) {
               if (state.cartLoading) {
-                return Center(
-                  child: CircularProgressIndicator(
-                      color: ColorManager.greenColor1),
-                );
+                return Padding(
+                    padding:
+                        EdgeInsets.only(top: SizeUtility(context).height / 3),
+                    child: const Loader());
               } else if (state
                       .cartModel?.result?.cartProducts?.cartItems?.isEmpty ??
                   true) {

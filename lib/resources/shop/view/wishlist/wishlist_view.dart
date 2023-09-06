@@ -141,9 +141,7 @@ class WishListView extends StatelessWidget {
                       MainButton(
                         title: 'Start Exploring',
                         onPressed: () {
-                          context
-                              .read<ShopProductsBloc>()
-                              .add(const TabIndexChangeEvent(index: 0));
+                          Navigator.of(context).pop();
                         },
                       )
                     ],

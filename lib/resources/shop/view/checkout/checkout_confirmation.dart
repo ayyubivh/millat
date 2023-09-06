@@ -11,7 +11,6 @@ import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/string_constants.dart';
 import '../../bloc/logic/cart_bloc/cart_bloc.dart';
-import 'checkout_payment.dart';
 
 class CheckoutConfirmation extends StatefulWidget {
   const CheckoutConfirmation({Key? key}) : super(key: key);
@@ -414,7 +413,7 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
             const estimatingTax = 2036;
             final total = subTotal + shippingFee + estimatingTax;
             return MainButton(
-              title: Appstrings.pay,
+              title: Appstrings.placeOrder,
               onPressed: () {
                 final pickUpaddress = context
                     .read<AddressBloc>()

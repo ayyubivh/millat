@@ -48,7 +48,6 @@ class ArticlesView extends StatelessWidget {
                   SizedBox(
                     height: 48,
                     child: TextFormField(
-                      autofocus: true,
                       controller: searchController,
                       decoration: InputDecoration(
                         prefixIcon: Transform.scale(

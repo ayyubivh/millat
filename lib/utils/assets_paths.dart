@@ -62,7 +62,8 @@ class AppAssetsStrings {
   static const String lock = "$iconsPath/lock.png";
   static const String cashOnDelivery = "$imagesPath/cash_on_delivery.png";
   static const String gift = "$iconsPath/gift.png";
-
+  static const String editUserProfile = "$iconsPath/edit_user_profile.png";
+  static const String inviteFriend = "$iconsPath/invite_friend.png";
   //icons
   static const String brandItems = "$iconsPath/brand_items.png";
   static const String searchIcon = "$iconsPath/search.png";

@@ -25,7 +25,7 @@ class Appstrings {
   static const String magrib = "Maghrib";
   static const String isha = "Isha";
   static const String qiyam = "qiyam";
-  static const String sunrise = "sunrise";
+  static const String sunrise = "Sunrise";
   static const String hijabs = "Hijab's";
   static const String dates = "Dates";
   static const String attars = "Attars";
@@ -101,6 +101,7 @@ class Appstrings {
   static const String confirmation = "Confirmation";
   static const String reviewOrder = "Review Your Order";
   static const String pay = "Pay";
+  static const String placeOrder = "Place order";
   static const String promoCode = "Promo Code";
   static const String apply = "Apply";
   static const String thanksForOrder = "Thank for your order";

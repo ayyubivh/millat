@@ -6,7 +6,6 @@ import 'package:millat/resources/authentication/bloc/logic/database_bloc/databas
 import 'package:millat/resources/profile/views/user_profile_view.dart';
 import 'package:millat/resources/profile/widgets/profile_textformfield_widget.dart';
 import 'package:millat/utils/color_manager.dart';
-import 'package:millat/utils/loader.dart';
 import 'package:millat/utils/string_constants.dart';
 import '../../../utils/assets_paths.dart';
 import '../../../utils/constants.dart';
@@ -360,10 +359,14 @@ class _EditProfileViewState extends State<EditProfileView> {
                         ?.result
                         ?.user
                         ?.email;
+                    dynamic stateImage;
                     if (img == null) {
+                      stateImage =
+                          context.read<DatabaseBloc>().state.imagebytes;
+                    }
+                    if (stateImage == null && img == null) {
                       return showSnackBar(context, "Please Select Image");
                     }
-
                     context.read<DatabaseBloc>().add(EditAuthUser(
                         context: context,
                         name: _nameController.text,
@@ -374,7 +377,7 @@ class _EditProfileViewState extends State<EditProfileView> {
                         dob: _dateofBirthcontroller.text,
                         institution: _companyController.text,
                         profession: _professionController.text,
-                        image: img));
+                        image: ''));
 
                     context
                         .read<DatabaseBloc>()

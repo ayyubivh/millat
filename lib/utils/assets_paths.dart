@@ -64,8 +64,9 @@ class AppAssetsStrings {
   static const String gift = "$iconsPath/gift.png";
   static const String editUserProfile = "$iconsPath/edit_user_profile.png";
   static const String inviteFriend = "$iconsPath/invite_friend.png";
-  static const String homeBgDesign =
-      "$backgroundsPath/home_background_design.png";
+  static const String logout = "$iconsPath/logout.png";
+  static const String instagramIcon = "$iconsPath/instagram.png";
+  static const String twitterIcon = "$iconsPath/twitter.png";
   //icons
   static const String brandItems = "$iconsPath/brand_items.png";
   static const String searchIcon = "$iconsPath/search.png";
@@ -94,6 +95,8 @@ class AppAssetsStrings {
   static const String starIcon = "$iconsPath/star.png";
   static const String reviewStar = "$iconsPath/review_star.png";
   static const String womensCareTabs = "$iconsPath/women_care_tabs.png";
+  static const String share = "$iconsPath/share.png";
+  static const String addFriend = "$iconsPath/add_friend.png";
   //images
   static const String hadikBookimg1 = "$imagesPath/hadith_book_1.png";
   static const String largeDiscountImg1 =

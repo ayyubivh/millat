@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class ColorManager {
   static Color primary = HexColor.fromHex("#00A05B");
+  static Color lightPrimary = HexColor.fromHex("#07C889");
   static Color mainColor = HexColor.fromHex("#44BB88");
   static Color darkGreenColor = HexColor.fromHex("#05654B");
   static Color darkGreenColor2 = HexColor.fromHex("#00C891");
@@ -63,6 +64,7 @@ class ColorManager {
   static Color textLightGrey = HexColor.fromHex("#B8B5C3");
   static Color grey83 = HexColor.fromHex("#838383");
   static Color greyShadow9D = HexColor.fromHex("#9D9D9D1F");
+  static Color darkGrey68 = HexColor.fromHex("#686868");
   // Tasbih Colors
   //theme pink
   static Color tasbihThemePinkBgClr = HexColor.fromHex("#FBE5E8");

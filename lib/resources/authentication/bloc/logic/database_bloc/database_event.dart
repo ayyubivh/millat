@@ -27,4 +27,5 @@ class DatabaseEvent with _$DatabaseEvent {
   const factory DatabaseEvent.removeTokenEvent() = RemoveTokenEvent;
   const factory DatabaseEvent.uploadImageEvent({required ImageSource source}) =
       UploadImageEvent;
+  const factory DatabaseEvent.fetchContactEvent() = FetchContactEvent;
 }

@@ -17,7 +17,9 @@ class HomeState with _$HomeState {
       required PrayerTrackerModel? prayerTracker,
       required double namazCompletedCount,
       required String dailyPrayerTrackerDate,
-      required int allaysBgindex}) = _HomeState;
+      required int allaysBgindex,
+      required int homeTabIndex,
+      required bool tinderCardSwipVal}) = _HomeState;
   factory HomeState.initial() => const HomeState(
         isLoading: false,
         largeDiscountModel: null,
@@ -34,5 +36,7 @@ class HomeState with _$HomeState {
         namazCompletedCount: 0,
         allaysBgindex: 0,
         dailyPrayerTrackerDate: "",
+        homeTabIndex: 0,
+        tinderCardSwipVal: true,
       );
 }

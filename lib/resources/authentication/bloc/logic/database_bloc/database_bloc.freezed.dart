@@ -35,6 +35,7 @@ mixin _$DatabaseEvent {
         editAuthUser,
     required TResult Function() removeTokenEvent,
     required TResult Function(ImageSource source) uploadImageEvent,
+    required TResult Function() fetchContactEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -56,6 +57,7 @@ mixin _$DatabaseEvent {
         editAuthUser,
     TResult? Function()? removeTokenEvent,
     TResult? Function(ImageSource source)? uploadImageEvent,
+    TResult? Function()? fetchContactEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -77,6 +79,7 @@ mixin _$DatabaseEvent {
         editAuthUser,
     TResult Function()? removeTokenEvent,
     TResult Function(ImageSource source)? uploadImageEvent,
+    TResult Function()? fetchContactEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -90,6 +93,7 @@ mixin _$DatabaseEvent {
     required TResult Function(EditAuthUser value) editAuthUser,
     required TResult Function(RemoveTokenEvent value) removeTokenEvent,
     required TResult Function(UploadImageEvent value) uploadImageEvent,
+    required TResult Function(FetchContactEvent value) fetchContactEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -102,6 +106,7 @@ mixin _$DatabaseEvent {
     TResult? Function(EditAuthUser value)? editAuthUser,
     TResult? Function(RemoveTokenEvent value)? removeTokenEvent,
     TResult? Function(UploadImageEvent value)? uploadImageEvent,
+    TResult? Function(FetchContactEvent value)? fetchContactEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -114,6 +119,7 @@ mixin _$DatabaseEvent {
     TResult Function(EditAuthUser value)? editAuthUser,
     TResult Function(RemoveTokenEvent value)? removeTokenEvent,
     TResult Function(UploadImageEvent value)? uploadImageEvent,
+    TResult Function(FetchContactEvent value)? fetchContactEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -218,6 +224,7 @@ class _$StoreTokenEvent implements StoreTokenEvent {
         editAuthUser,
     required TResult Function() removeTokenEvent,
     required TResult Function(ImageSource source) uploadImageEvent,
+    required TResult Function() fetchContactEvent,
   }) {
     return storeTokenEvent(token);
   }
@@ -242,6 +249,7 @@ class _$StoreTokenEvent implements StoreTokenEvent {
         editAuthUser,
     TResult? Function()? removeTokenEvent,
     TResult? Function(ImageSource source)? uploadImageEvent,
+    TResult? Function()? fetchContactEvent,
   }) {
     return storeTokenEvent?.call(token);
   }
@@ -266,6 +274,7 @@ class _$StoreTokenEvent implements StoreTokenEvent {
         editAuthUser,
     TResult Function()? removeTokenEvent,
     TResult Function(ImageSource source)? uploadImageEvent,
+    TResult Function()? fetchContactEvent,
     required TResult orElse(),
   }) {
     if (storeTokenEvent != null) {
@@ -285,6 +294,7 @@ class _$StoreTokenEvent implements StoreTokenEvent {
     required TResult Function(EditAuthUser value) editAuthUser,
     required TResult Function(RemoveTokenEvent value) removeTokenEvent,
     required TResult Function(UploadImageEvent value) uploadImageEvent,
+    required TResult Function(FetchContactEvent value) fetchContactEvent,
   }) {
     return storeTokenEvent(this);
   }
@@ -300,6 +310,7 @@ class _$StoreTokenEvent implements StoreTokenEvent {
     TResult? Function(EditAuthUser value)? editAuthUser,
     TResult? Function(RemoveTokenEvent value)? removeTokenEvent,
     TResult? Function(UploadImageEvent value)? uploadImageEvent,
+    TResult? Function(FetchContactEvent value)? fetchContactEvent,
   }) {
     return storeTokenEvent?.call(this);
   }
@@ -315,6 +326,7 @@ class _$StoreTokenEvent implements StoreTokenEvent {
     TResult Function(EditAuthUser value)? editAuthUser,
     TResult Function(RemoveTokenEvent value)? removeTokenEvent,
     TResult Function(UploadImageEvent value)? uploadImageEvent,
+    TResult Function(FetchContactEvent value)? fetchContactEvent,
     required TResult orElse(),
   }) {
     if (storeTokenEvent != null) {
@@ -389,6 +401,7 @@ class _$FetchToken implements FetchToken {
         editAuthUser,
     required TResult Function() removeTokenEvent,
     required TResult Function(ImageSource source) uploadImageEvent,
+    required TResult Function() fetchContactEvent,
   }) {
     return fetchToken();
   }
@@ -413,6 +426,7 @@ class _$FetchToken implements FetchToken {
         editAuthUser,
     TResult? Function()? removeTokenEvent,
     TResult? Function(ImageSource source)? uploadImageEvent,
+    TResult? Function()? fetchContactEvent,
   }) {
     return fetchToken?.call();
   }
@@ -437,6 +451,7 @@ class _$FetchToken implements FetchToken {
         editAuthUser,
     TResult Function()? removeTokenEvent,
     TResult Function(ImageSource source)? uploadImageEvent,
+    TResult Function()? fetchContactEvent,
     required TResult orElse(),
   }) {
     if (fetchToken != null) {
@@ -456,6 +471,7 @@ class _$FetchToken implements FetchToken {
     required TResult Function(EditAuthUser value) editAuthUser,
     required TResult Function(RemoveTokenEvent value) removeTokenEvent,
     required TResult Function(UploadImageEvent value) uploadImageEvent,
+    required TResult Function(FetchContactEvent value) fetchContactEvent,
   }) {
     return fetchToken(this);
   }
@@ -471,6 +487,7 @@ class _$FetchToken implements FetchToken {
     TResult? Function(EditAuthUser value)? editAuthUser,
     TResult? Function(RemoveTokenEvent value)? removeTokenEvent,
     TResult? Function(UploadImageEvent value)? uploadImageEvent,
+    TResult? Function(FetchContactEvent value)? fetchContactEvent,
   }) {
     return fetchToken?.call(this);
   }
@@ -486,6 +503,7 @@ class _$FetchToken implements FetchToken {
     TResult Function(EditAuthUser value)? editAuthUser,
     TResult Function(RemoveTokenEvent value)? removeTokenEvent,
     TResult Function(UploadImageEvent value)? uploadImageEvent,
+    TResult Function(FetchContactEvent value)? fetchContactEvent,
     required TResult orElse(),
   }) {
     if (fetchToken != null) {
@@ -588,6 +606,7 @@ class _$StoreUserDetails implements StoreUserDetails {
         editAuthUser,
     required TResult Function() removeTokenEvent,
     required TResult Function(ImageSource source) uploadImageEvent,
+    required TResult Function() fetchContactEvent,
   }) {
     return storeUserDetails(email, name);
   }
@@ -612,6 +631,7 @@ class _$StoreUserDetails implements StoreUserDetails {
         editAuthUser,
     TResult? Function()? removeTokenEvent,
     TResult? Function(ImageSource source)? uploadImageEvent,
+    TResult? Function()? fetchContactEvent,
   }) {
     return storeUserDetails?.call(email, name);
   }
@@ -636,6 +656,7 @@ class _$StoreUserDetails implements StoreUserDetails {
         editAuthUser,
     TResult Function()? removeTokenEvent,
     TResult Function(ImageSource source)? uploadImageEvent,
+    TResult Function()? fetchContactEvent,
     required TResult orElse(),
   }) {
     if (storeUserDetails != null) {
@@ -655,6 +676,7 @@ class _$StoreUserDetails implements StoreUserDetails {
     required TResult Function(EditAuthUser value) editAuthUser,
     required TResult Function(RemoveTokenEvent value) removeTokenEvent,
     required TResult Function(UploadImageEvent value) uploadImageEvent,
+    required TResult Function(FetchContactEvent value) fetchContactEvent,
   }) {
     return storeUserDetails(this);
   }
@@ -670,6 +692,7 @@ class _$StoreUserDetails implements StoreUserDetails {
     TResult? Function(EditAuthUser value)? editAuthUser,
     TResult? Function(RemoveTokenEvent value)? removeTokenEvent,
     TResult? Function(UploadImageEvent value)? uploadImageEvent,
+    TResult? Function(FetchContactEvent value)? fetchContactEvent,
   }) {
     return storeUserDetails?.call(this);
   }
@@ -685,6 +708,7 @@ class _$StoreUserDetails implements StoreUserDetails {
     TResult Function(EditAuthUser value)? editAuthUser,
     TResult Function(RemoveTokenEvent value)? removeTokenEvent,
     TResult Function(UploadImageEvent value)? uploadImageEvent,
+    TResult Function(FetchContactEvent value)? fetchContactEvent,
     required TResult orElse(),
   }) {
     if (storeUserDetails != null) {
@@ -761,6 +785,7 @@ class _$FetchUserDetails implements FetchUserDetails {
         editAuthUser,
     required TResult Function() removeTokenEvent,
     required TResult Function(ImageSource source) uploadImageEvent,
+    required TResult Function() fetchContactEvent,
   }) {
     return fetchUserDetails();
   }
@@ -785,6 +810,7 @@ class _$FetchUserDetails implements FetchUserDetails {
         editAuthUser,
     TResult? Function()? removeTokenEvent,
     TResult? Function(ImageSource source)? uploadImageEvent,
+    TResult? Function()? fetchContactEvent,
   }) {
     return fetchUserDetails?.call();
   }
@@ -809,6 +835,7 @@ class _$FetchUserDetails implements FetchUserDetails {
         editAuthUser,
     TResult Function()? removeTokenEvent,
     TResult Function(ImageSource source)? uploadImageEvent,
+    TResult Function()? fetchContactEvent,
     required TResult orElse(),
   }) {
     if (fetchUserDetails != null) {
@@ -828,6 +855,7 @@ class _$FetchUserDetails implements FetchUserDetails {
     required TResult Function(EditAuthUser value) editAuthUser,
     required TResult Function(RemoveTokenEvent value) removeTokenEvent,
     required TResult Function(UploadImageEvent value) uploadImageEvent,
+    required TResult Function(FetchContactEvent value) fetchContactEvent,
   }) {
     return fetchUserDetails(this);
   }
@@ -843,6 +871,7 @@ class _$FetchUserDetails implements FetchUserDetails {
     TResult? Function(EditAuthUser value)? editAuthUser,
     TResult? Function(RemoveTokenEvent value)? removeTokenEvent,
     TResult? Function(UploadImageEvent value)? uploadImageEvent,
+    TResult? Function(FetchContactEvent value)? fetchContactEvent,
   }) {
     return fetchUserDetails?.call(this);
   }
@@ -858,6 +887,7 @@ class _$FetchUserDetails implements FetchUserDetails {
     TResult Function(EditAuthUser value)? editAuthUser,
     TResult Function(RemoveTokenEvent value)? removeTokenEvent,
     TResult Function(UploadImageEvent value)? uploadImageEvent,
+    TResult Function(FetchContactEvent value)? fetchContactEvent,
     required TResult orElse(),
   }) {
     if (fetchUserDetails != null) {
@@ -952,6 +982,7 @@ class _$FetchAuthUser implements FetchAuthUser {
         editAuthUser,
     required TResult Function() removeTokenEvent,
     required TResult Function(ImageSource source) uploadImageEvent,
+    required TResult Function() fetchContactEvent,
   }) {
     return fetchAuthUser(context);
   }
@@ -976,6 +1007,7 @@ class _$FetchAuthUser implements FetchAuthUser {
         editAuthUser,
     TResult? Function()? removeTokenEvent,
     TResult? Function(ImageSource source)? uploadImageEvent,
+    TResult? Function()? fetchContactEvent,
   }) {
     return fetchAuthUser?.call(context);
   }
@@ -1000,6 +1032,7 @@ class _$FetchAuthUser implements FetchAuthUser {
         editAuthUser,
     TResult Function()? removeTokenEvent,
     TResult Function(ImageSource source)? uploadImageEvent,
+    TResult Function()? fetchContactEvent,
     required TResult orElse(),
   }) {
     if (fetchAuthUser != null) {
@@ -1019,6 +1052,7 @@ class _$FetchAuthUser implements FetchAuthUser {
     required TResult Function(EditAuthUser value) editAuthUser,
     required TResult Function(RemoveTokenEvent value) removeTokenEvent,
     required TResult Function(UploadImageEvent value) uploadImageEvent,
+    required TResult Function(FetchContactEvent value) fetchContactEvent,
   }) {
     return fetchAuthUser(this);
   }
@@ -1034,6 +1068,7 @@ class _$FetchAuthUser implements FetchAuthUser {
     TResult? Function(EditAuthUser value)? editAuthUser,
     TResult? Function(RemoveTokenEvent value)? removeTokenEvent,
     TResult? Function(UploadImageEvent value)? uploadImageEvent,
+    TResult? Function(FetchContactEvent value)? fetchContactEvent,
   }) {
     return fetchAuthUser?.call(this);
   }
@@ -1049,6 +1084,7 @@ class _$FetchAuthUser implements FetchAuthUser {
     TResult Function(EditAuthUser value)? editAuthUser,
     TResult Function(RemoveTokenEvent value)? removeTokenEvent,
     TResult Function(UploadImageEvent value)? uploadImageEvent,
+    TResult Function(FetchContactEvent value)? fetchContactEvent,
     required TResult orElse(),
   }) {
     if (fetchAuthUser != null) {
@@ -1225,6 +1261,7 @@ class _$EditAuthUser implements EditAuthUser {
         editAuthUser,
     required TResult Function() removeTokenEvent,
     required TResult Function(ImageSource source) uploadImageEvent,
+    required TResult Function() fetchContactEvent,
   }) {
     return editAuthUser(
         name, email, userName, institution, dob, profession, image, context);
@@ -1250,6 +1287,7 @@ class _$EditAuthUser implements EditAuthUser {
         editAuthUser,
     TResult? Function()? removeTokenEvent,
     TResult? Function(ImageSource source)? uploadImageEvent,
+    TResult? Function()? fetchContactEvent,
   }) {
     return editAuthUser?.call(
         name, email, userName, institution, dob, profession, image, context);
@@ -1275,6 +1313,7 @@ class _$EditAuthUser implements EditAuthUser {
         editAuthUser,
     TResult Function()? removeTokenEvent,
     TResult Function(ImageSource source)? uploadImageEvent,
+    TResult Function()? fetchContactEvent,
     required TResult orElse(),
   }) {
     if (editAuthUser != null) {
@@ -1295,6 +1334,7 @@ class _$EditAuthUser implements EditAuthUser {
     required TResult Function(EditAuthUser value) editAuthUser,
     required TResult Function(RemoveTokenEvent value) removeTokenEvent,
     required TResult Function(UploadImageEvent value) uploadImageEvent,
+    required TResult Function(FetchContactEvent value) fetchContactEvent,
   }) {
     return editAuthUser(this);
   }
@@ -1310,6 +1350,7 @@ class _$EditAuthUser implements EditAuthUser {
     TResult? Function(EditAuthUser value)? editAuthUser,
     TResult? Function(RemoveTokenEvent value)? removeTokenEvent,
     TResult? Function(UploadImageEvent value)? uploadImageEvent,
+    TResult? Function(FetchContactEvent value)? fetchContactEvent,
   }) {
     return editAuthUser?.call(this);
   }
@@ -1325,6 +1366,7 @@ class _$EditAuthUser implements EditAuthUser {
     TResult Function(EditAuthUser value)? editAuthUser,
     TResult Function(RemoveTokenEvent value)? removeTokenEvent,
     TResult Function(UploadImageEvent value)? uploadImageEvent,
+    TResult Function(FetchContactEvent value)? fetchContactEvent,
     required TResult orElse(),
   }) {
     if (editAuthUser != null) {
@@ -1413,6 +1455,7 @@ class _$RemoveTokenEvent implements RemoveTokenEvent {
         editAuthUser,
     required TResult Function() removeTokenEvent,
     required TResult Function(ImageSource source) uploadImageEvent,
+    required TResult Function() fetchContactEvent,
   }) {
     return removeTokenEvent();
   }
@@ -1437,6 +1480,7 @@ class _$RemoveTokenEvent implements RemoveTokenEvent {
         editAuthUser,
     TResult? Function()? removeTokenEvent,
     TResult? Function(ImageSource source)? uploadImageEvent,
+    TResult? Function()? fetchContactEvent,
   }) {
     return removeTokenEvent?.call();
   }
@@ -1461,6 +1505,7 @@ class _$RemoveTokenEvent implements RemoveTokenEvent {
         editAuthUser,
     TResult Function()? removeTokenEvent,
     TResult Function(ImageSource source)? uploadImageEvent,
+    TResult Function()? fetchContactEvent,
     required TResult orElse(),
   }) {
     if (removeTokenEvent != null) {
@@ -1480,6 +1525,7 @@ class _$RemoveTokenEvent implements RemoveTokenEvent {
     required TResult Function(EditAuthUser value) editAuthUser,
     required TResult Function(RemoveTokenEvent value) removeTokenEvent,
     required TResult Function(UploadImageEvent value) uploadImageEvent,
+    required TResult Function(FetchContactEvent value) fetchContactEvent,
   }) {
     return removeTokenEvent(this);
   }
@@ -1495,6 +1541,7 @@ class _$RemoveTokenEvent implements RemoveTokenEvent {
     TResult? Function(EditAuthUser value)? editAuthUser,
     TResult? Function(RemoveTokenEvent value)? removeTokenEvent,
     TResult? Function(UploadImageEvent value)? uploadImageEvent,
+    TResult? Function(FetchContactEvent value)? fetchContactEvent,
   }) {
     return removeTokenEvent?.call(this);
   }
@@ -1510,6 +1557,7 @@ class _$RemoveTokenEvent implements RemoveTokenEvent {
     TResult Function(EditAuthUser value)? editAuthUser,
     TResult Function(RemoveTokenEvent value)? removeTokenEvent,
     TResult Function(UploadImageEvent value)? uploadImageEvent,
+    TResult Function(FetchContactEvent value)? fetchContactEvent,
     required TResult orElse(),
   }) {
     if (removeTokenEvent != null) {
@@ -1604,6 +1652,7 @@ class _$UploadImageEvent implements UploadImageEvent {
         editAuthUser,
     required TResult Function() removeTokenEvent,
     required TResult Function(ImageSource source) uploadImageEvent,
+    required TResult Function() fetchContactEvent,
   }) {
     return uploadImageEvent(source);
   }
@@ -1628,6 +1677,7 @@ class _$UploadImageEvent implements UploadImageEvent {
         editAuthUser,
     TResult? Function()? removeTokenEvent,
     TResult? Function(ImageSource source)? uploadImageEvent,
+    TResult? Function()? fetchContactEvent,
   }) {
     return uploadImageEvent?.call(source);
   }
@@ -1652,6 +1702,7 @@ class _$UploadImageEvent implements UploadImageEvent {
         editAuthUser,
     TResult Function()? removeTokenEvent,
     TResult Function(ImageSource source)? uploadImageEvent,
+    TResult Function()? fetchContactEvent,
     required TResult orElse(),
   }) {
     if (uploadImageEvent != null) {
@@ -1671,6 +1722,7 @@ class _$UploadImageEvent implements UploadImageEvent {
     required TResult Function(EditAuthUser value) editAuthUser,
     required TResult Function(RemoveTokenEvent value) removeTokenEvent,
     required TResult Function(UploadImageEvent value) uploadImageEvent,
+    required TResult Function(FetchContactEvent value) fetchContactEvent,
   }) {
     return uploadImageEvent(this);
   }
@@ -1686,6 +1738,7 @@ class _$UploadImageEvent implements UploadImageEvent {
     TResult? Function(EditAuthUser value)? editAuthUser,
     TResult? Function(RemoveTokenEvent value)? removeTokenEvent,
     TResult? Function(UploadImageEvent value)? uploadImageEvent,
+    TResult? Function(FetchContactEvent value)? fetchContactEvent,
   }) {
     return uploadImageEvent?.call(this);
   }
@@ -1701,6 +1754,7 @@ class _$UploadImageEvent implements UploadImageEvent {
     TResult Function(EditAuthUser value)? editAuthUser,
     TResult Function(RemoveTokenEvent value)? removeTokenEvent,
     TResult Function(UploadImageEvent value)? uploadImageEvent,
+    TResult Function(FetchContactEvent value)? fetchContactEvent,
     required TResult orElse(),
   }) {
     if (uploadImageEvent != null) {
@@ -1721,6 +1775,177 @@ abstract class UploadImageEvent implements DatabaseEvent {
 }
 
 /// @nodoc
+abstract class _$$FetchContactEventCopyWith<$Res> {
+  factory _$$FetchContactEventCopyWith(
+          _$FetchContactEvent value, $Res Function(_$FetchContactEvent) then) =
+      __$$FetchContactEventCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$FetchContactEventCopyWithImpl<$Res>
+    extends _$DatabaseEventCopyWithImpl<$Res, _$FetchContactEvent>
+    implements _$$FetchContactEventCopyWith<$Res> {
+  __$$FetchContactEventCopyWithImpl(
+      _$FetchContactEvent _value, $Res Function(_$FetchContactEvent) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$FetchContactEvent implements FetchContactEvent {
+  const _$FetchContactEvent();
+
+  @override
+  String toString() {
+    return 'DatabaseEvent.fetchContactEvent()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$FetchContactEvent);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String token) storeTokenEvent,
+    required TResult Function() fetchToken,
+    required TResult Function(String email, String name) storeUserDetails,
+    required TResult Function() fetchUserDetails,
+    required TResult Function(BuildContext context) fetchAuthUser,
+    required TResult Function(
+            String name,
+            String? email,
+            String userName,
+            String institution,
+            String dob,
+            String profession,
+            String image,
+            BuildContext context)
+        editAuthUser,
+    required TResult Function() removeTokenEvent,
+    required TResult Function(ImageSource source) uploadImageEvent,
+    required TResult Function() fetchContactEvent,
+  }) {
+    return fetchContactEvent();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String token)? storeTokenEvent,
+    TResult? Function()? fetchToken,
+    TResult? Function(String email, String name)? storeUserDetails,
+    TResult? Function()? fetchUserDetails,
+    TResult? Function(BuildContext context)? fetchAuthUser,
+    TResult? Function(
+            String name,
+            String? email,
+            String userName,
+            String institution,
+            String dob,
+            String profession,
+            String image,
+            BuildContext context)?
+        editAuthUser,
+    TResult? Function()? removeTokenEvent,
+    TResult? Function(ImageSource source)? uploadImageEvent,
+    TResult? Function()? fetchContactEvent,
+  }) {
+    return fetchContactEvent?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String token)? storeTokenEvent,
+    TResult Function()? fetchToken,
+    TResult Function(String email, String name)? storeUserDetails,
+    TResult Function()? fetchUserDetails,
+    TResult Function(BuildContext context)? fetchAuthUser,
+    TResult Function(
+            String name,
+            String? email,
+            String userName,
+            String institution,
+            String dob,
+            String profession,
+            String image,
+            BuildContext context)?
+        editAuthUser,
+    TResult Function()? removeTokenEvent,
+    TResult Function(ImageSource source)? uploadImageEvent,
+    TResult Function()? fetchContactEvent,
+    required TResult orElse(),
+  }) {
+    if (fetchContactEvent != null) {
+      return fetchContactEvent();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(StoreTokenEvent value) storeTokenEvent,
+    required TResult Function(FetchToken value) fetchToken,
+    required TResult Function(StoreUserDetails value) storeUserDetails,
+    required TResult Function(FetchUserDetails value) fetchUserDetails,
+    required TResult Function(FetchAuthUser value) fetchAuthUser,
+    required TResult Function(EditAuthUser value) editAuthUser,
+    required TResult Function(RemoveTokenEvent value) removeTokenEvent,
+    required TResult Function(UploadImageEvent value) uploadImageEvent,
+    required TResult Function(FetchContactEvent value) fetchContactEvent,
+  }) {
+    return fetchContactEvent(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(StoreTokenEvent value)? storeTokenEvent,
+    TResult? Function(FetchToken value)? fetchToken,
+    TResult? Function(StoreUserDetails value)? storeUserDetails,
+    TResult? Function(FetchUserDetails value)? fetchUserDetails,
+    TResult? Function(FetchAuthUser value)? fetchAuthUser,
+    TResult? Function(EditAuthUser value)? editAuthUser,
+    TResult? Function(RemoveTokenEvent value)? removeTokenEvent,
+    TResult? Function(UploadImageEvent value)? uploadImageEvent,
+    TResult? Function(FetchContactEvent value)? fetchContactEvent,
+  }) {
+    return fetchContactEvent?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(StoreTokenEvent value)? storeTokenEvent,
+    TResult Function(FetchToken value)? fetchToken,
+    TResult Function(StoreUserDetails value)? storeUserDetails,
+    TResult Function(FetchUserDetails value)? fetchUserDetails,
+    TResult Function(FetchAuthUser value)? fetchAuthUser,
+    TResult Function(EditAuthUser value)? editAuthUser,
+    TResult Function(RemoveTokenEvent value)? removeTokenEvent,
+    TResult Function(UploadImageEvent value)? uploadImageEvent,
+    TResult Function(FetchContactEvent value)? fetchContactEvent,
+    required TResult orElse(),
+  }) {
+    if (fetchContactEvent != null) {
+      return fetchContactEvent(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class FetchContactEvent implements DatabaseEvent {
+  const factory FetchContactEvent() = _$FetchContactEvent;
+}
+
+/// @nodoc
 mixin _$DatabaseState {
   String get token => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
@@ -1731,6 +1956,7 @@ mixin _$DatabaseState {
   String get succesMessage => throw _privateConstructorUsedError;
   File? get imagebytes => throw _privateConstructorUsedError;
   String get failedMessage => throw _privateConstructorUsedError;
+  List<Contact>? get contacts => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $DatabaseStateCopyWith<DatabaseState> get copyWith =>
@@ -1752,7 +1978,8 @@ abstract class $DatabaseStateCopyWith<$Res> {
       bool editIsloading,
       String succesMessage,
       File? imagebytes,
-      String failedMessage});
+      String failedMessage,
+      List<Contact>? contacts});
 
   $AuthUserModelCopyWith<$Res>? get authUserModel;
 }
@@ -1779,6 +2006,7 @@ class _$DatabaseStateCopyWithImpl<$Res, $Val extends DatabaseState>
     Object? succesMessage = null,
     Object? imagebytes = freezed,
     Object? failedMessage = null,
+    Object? contacts = freezed,
   }) {
     return _then(_value.copyWith(
       token: null == token
@@ -1817,6 +2045,10 @@ class _$DatabaseStateCopyWithImpl<$Res, $Val extends DatabaseState>
           ? _value.failedMessage
           : failedMessage // ignore: cast_nullable_to_non_nullable
               as String,
+      contacts: freezed == contacts
+          ? _value.contacts
+          : contacts // ignore: cast_nullable_to_non_nullable
+              as List<Contact>?,
     ) as $Val);
   }
 
@@ -1850,7 +2082,8 @@ abstract class _$$_InitialCopyWith<$Res>
       bool editIsloading,
       String succesMessage,
       File? imagebytes,
-      String failedMessage});
+      String failedMessage,
+      List<Contact>? contacts});
 
   @override
   $AuthUserModelCopyWith<$Res>? get authUserModel;
@@ -1875,6 +2108,7 @@ class __$$_InitialCopyWithImpl<$Res>
     Object? succesMessage = null,
     Object? imagebytes = freezed,
     Object? failedMessage = null,
+    Object? contacts = freezed,
   }) {
     return _then(_$_Initial(
       token: null == token
@@ -1913,6 +2147,10 @@ class __$$_InitialCopyWithImpl<$Res>
           ? _value.failedMessage
           : failedMessage // ignore: cast_nullable_to_non_nullable
               as String,
+      contacts: freezed == contacts
+          ? _value._contacts
+          : contacts // ignore: cast_nullable_to_non_nullable
+              as List<Contact>?,
     ));
   }
 }
@@ -1929,7 +2167,9 @@ class _$_Initial implements _Initial {
       required this.editIsloading,
       required this.succesMessage,
       required this.imagebytes,
-      required this.failedMessage});
+      required this.failedMessage,
+      required final List<Contact>? contacts})
+      : _contacts = contacts;
 
   @override
   final String token;
@@ -1949,10 +2189,19 @@ class _$_Initial implements _Initial {
   final File? imagebytes;
   @override
   final String failedMessage;
+  final List<Contact>? _contacts;
+  @override
+  List<Contact>? get contacts {
+    final value = _contacts;
+    if (value == null) return null;
+    if (_contacts is EqualUnmodifiableListView) return _contacts;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
 
   @override
   String toString() {
-    return 'DatabaseState(token: $token, name: $name, email: $email, authUserModel: $authUserModel, isLoading: $isLoading, editIsloading: $editIsloading, succesMessage: $succesMessage, imagebytes: $imagebytes, failedMessage: $failedMessage)';
+    return 'DatabaseState(token: $token, name: $name, email: $email, authUserModel: $authUserModel, isLoading: $isLoading, editIsloading: $editIsloading, succesMessage: $succesMessage, imagebytes: $imagebytes, failedMessage: $failedMessage, contacts: $contacts)';
   }
 
   @override
@@ -1974,7 +2223,8 @@ class _$_Initial implements _Initial {
             (identical(other.imagebytes, imagebytes) ||
                 other.imagebytes == imagebytes) &&
             (identical(other.failedMessage, failedMessage) ||
-                other.failedMessage == failedMessage));
+                other.failedMessage == failedMessage) &&
+            const DeepCollectionEquality().equals(other._contacts, _contacts));
   }
 
   @override
@@ -1988,7 +2238,8 @@ class _$_Initial implements _Initial {
       editIsloading,
       succesMessage,
       imagebytes,
-      failedMessage);
+      failedMessage,
+      const DeepCollectionEquality().hash(_contacts));
 
   @JsonKey(ignore: true)
   @override
@@ -2007,7 +2258,8 @@ abstract class _Initial implements DatabaseState {
       required final bool editIsloading,
       required final String succesMessage,
       required final File? imagebytes,
-      required final String failedMessage}) = _$_Initial;
+      required final String failedMessage,
+      required final List<Contact>? contacts}) = _$_Initial;
 
   @override
   String get token;
@@ -2027,6 +2279,8 @@ abstract class _Initial implements DatabaseState {
   File? get imagebytes;
   @override
   String get failedMessage;
+  @override
+  List<Contact>? get contacts;
   @override
   @JsonKey(ignore: true)
   _$$_InitialCopyWith<_$_Initial> get copyWith =>

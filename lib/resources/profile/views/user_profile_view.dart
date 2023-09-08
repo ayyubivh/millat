@@ -39,22 +39,11 @@ class UserProfileView extends StatelessWidget {
             title: Text(
               Appstrings.profile,
               style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.w600,
-                  color: ColorManager.blackColor),
-            ),
-            actions: [
-              GestureDetector(
-                onTap: () {
-                  logoutPopUp(context);
-                },
-                child: Icon(
-                  Icons.logout,
-                  color: ColorManager.blackColor,
-                ),
+                fontSize: 24,
+                fontWeight: FontWeight.w600,
+                color: ColorManager.blackColor,
               ),
-              kWidth15,
-            ],
+            ),
           ),
           body: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 30),
@@ -270,9 +259,10 @@ class UserProfileView extends StatelessWidget {
                             ],
                           ),
                           const Spacer(),
-                          const Icon(
+                          Icon(
                             Icons.navigate_next_outlined,
                             size: 28,
+                            color: ColorManager.black4F,
                           )
                         ],
                       ),
@@ -433,18 +423,23 @@ class UserProfileView extends StatelessWidget {
           children: [
             ImageIcon(
               AssetImage(image),
+              color: ColorManager.black4F,
+              size: 16,
             ),
-            kWidth5,
+            kWidth8,
             Text(
               text,
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.w600,
+                color: ColorManager.black4F,
               ),
             ),
             const Spacer(),
-            const Icon(
+            Icon(
               Icons.navigate_next_outlined,
+              color: ColorManager.black4F,
+              size: 28,
             )
           ],
         ),

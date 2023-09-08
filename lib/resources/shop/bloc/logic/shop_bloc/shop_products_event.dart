@@ -81,4 +81,7 @@ class ShopProductsEvent with _$ShopProductsEvent {
   }) = IndexChangeOnWomensCareBanner;
   const factory ShopProductsEvent.fetchShopAdBrandsById({required String id}) =
       FetchShopAdBrandsById;
+  const factory ShopProductsEvent.savePaymentMethodType({
+    required int index,
+  }) = SavePaymentMethodType;
 }

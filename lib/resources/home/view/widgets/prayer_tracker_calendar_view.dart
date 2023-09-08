@@ -6,6 +6,7 @@ import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/string_constants.dart';
+import 'package:millat/utils/utils.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:table_calendar/table_calendar.dart';
 
@@ -154,32 +155,53 @@ class _PrayerTrackerCalendarViewState extends State<PrayerTrackerCalendarView> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     BlocBuilder<HomeBloc, HomeState>(
-                      builder: (context, state) => Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          namazTimingTrackerWidget(
-                            text: Appstrings.fajr,
-                            isCompleted: state.prayerTrackerFajr,
-                          ),
-                          namazTimingTrackerWidget(
-                            text: Appstrings.dhuhr,
-                            isCompleted: state.prayerTrackerDhuhr,
-                          ),
-                          namazTimingTrackerWidget(
-                            text: Appstrings.asr,
-                            isCompleted: state.prayerTrackerAsr,
-                          ),
-                          namazTimingTrackerWidget(
-                            text: Appstrings.magrib,
-                            isCompleted: state.prayerTrackerMagrib,
-                          ),
-                          namazTimingTrackerWidget(
-                            text: Appstrings.isha,
-                            isCompleted: state.prayerTrackerIsha,
-                            isShowdivider: false,
-                          ),
-                        ],
-                      ),
+                      builder: (context, state) {
+                        //        final currentNamaz = state.currentNamaz;
+                        // final currentNamazName = currentNamaz?['name'] ?? '';
+                        // final namazTime = state.prayerModel?.data.timings;
+
+                        // String fajrTime = namazTime?.fajr ?? "";
+                        // String sunriseTime = namazTime?.sunrise ?? "";
+                        // String dhuhrTime = namazTime?.dhuhr ?? "";
+                        // String asrTime = namazTime?.asr ?? "";
+                        // String magribTime = namazTime?.maghrib ?? "";
+                        // String ishaTime = namazTime?.isha ?? "";
+                        // DateTime now = DateTime.now();
+
+                        // bool isFajr = Utilities.isNamazTimeAfter(now, sunriseTime);
+                        // bool isDhuhr = Utilities.isNamazTimeAfter(now, asrTime);
+                        // bool isAsr = Utilities.isNamazTimeAfter(now, magribTime);
+                        // bool isMagrib = Utilities.isNamazTimeAfter(now, ishaTime);
+                        // bool isIsha = Utilities.isNamazTimeAfter(now, fajrTime);
+
+                        return Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            namazTimingTrackerWidget(
+                              text: Appstrings.fajr,
+                              isCompleted: state.prayerTrackerFajr,
+                              isUpcoming: false,
+                            ),
+                            namazTimingTrackerWidget(
+                                text: Appstrings.dhuhr,
+                                isCompleted: state.prayerTrackerDhuhr,
+                                isUpcoming: false),
+                            namazTimingTrackerWidget(
+                                text: Appstrings.asr,
+                                isCompleted: state.prayerTrackerAsr,
+                                isUpcoming: true),
+                            namazTimingTrackerWidget(
+                                text: Appstrings.magrib,
+                                isCompleted: state.prayerTrackerMagrib,
+                                isUpcoming: true),
+                            namazTimingTrackerWidget(
+                                text: Appstrings.isha,
+                                isCompleted: state.prayerTrackerIsha,
+                                isShowdivider: false,
+                                isUpcoming: true),
+                          ],
+                        );
+                      },
                     )
                   ],
                 ),
@@ -293,6 +315,7 @@ class _PrayerTrackerCalendarViewState extends State<PrayerTrackerCalendarView> {
   namazTimingTrackerWidget({
     required String text,
     required bool isCompleted,
+    required bool isUpcoming,
     bool isShowdivider = true,
   }) {
     return Column(
@@ -305,36 +328,46 @@ class _PrayerTrackerCalendarViewState extends State<PrayerTrackerCalendarView> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              isCompleted
+              isCompleted == false && isUpcoming == true
                   ? Container(
                       height: 32,
                       width: 32,
-                      // backgroundColor: ColorManager.primary,
-                      // radius: 11,
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
-                        color: ColorManager.primary,
-                      ),
-                      child: Icon(
-                        Icons.check,
-                        size: 18,
                         color: ColorManager.whiteColor,
-                      ),
-                    )
-                  : Container(
-                      height: 32,
-                      width: 32,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: ColorManager.lightRedColor,
                       ),
                       padding: const EdgeInsets.all(1),
-                      child: Icon(
-                        Icons.close,
-                        color: ColorManager.whiteColor,
-                        size: 16,
-                      ),
-                    ),
+                    )
+                  : isCompleted
+                      ? Container(
+                          height: 32,
+                          width: 32,
+                          // backgroundColor: ColorManager.primary,
+                          // radius: 11,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: ColorManager.primary,
+                          ),
+                          child: Icon(
+                            Icons.check,
+                            size: 18,
+                            color: ColorManager.whiteColor,
+                          ),
+                        )
+                      : Container(
+                          height: 32,
+                          width: 32,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: ColorManager.lightRedColor,
+                          ),
+                          padding: const EdgeInsets.all(1),
+                          child: Icon(
+                            Icons.close,
+                            color: ColorManager.whiteColor,
+                            size: 16,
+                          ),
+                        ),
               isShowdivider
                   ? Container(
                       width: 40,

@@ -167,6 +167,7 @@ class ProfileView extends StatelessWidget {
       required String text,
       required String icon}) {
     return ListTile(
+      onTap: onTap,
       leading: CircleAvatar(
         backgroundColor: ColorManager.appBarColor,
         child: ImageIcon(
@@ -174,12 +175,9 @@ class ProfileView extends StatelessWidget {
           color: ColorManager.blackColor,
         ),
       ),
-      trailing: InkWell(
-        onTap: onTap,
-        child: const Icon(
-          Icons.arrow_forward_ios,
-          size: 20,
-        ),
+      trailing: const Icon(
+        Icons.arrow_forward_ios,
+        size: 20,
       ),
       title: Text(
         text,

@@ -8,6 +8,7 @@ class Appstrings {
   static const String calculationMethodKey = "Calculation-Method";
   static const String asrCalculationMethodKey = "Asr-calculation-Method";
   static const String highLatitudeMethodsKey = "HighLatitude-Methods";
+  static const String addressDefaultIndex = "AdrressIndex";
   //Home
   static const String quran = "Quran";
   static const String tasbih = "Tasbih";
@@ -71,6 +72,7 @@ class Appstrings {
   static const String inviteYourFriend = "Invite your Friends";
   static const String get100Coins = "Get 100 Coins";
   static const String profileFooterText = "For regular updates follow us on";
+  static const String share = "Share";
 //Quran
   static const String myFavorite = "My Favourites";
   //shop
@@ -141,7 +143,7 @@ class Appstrings {
   static const String total = "Total";
   static const String tax = "Tax";
   static const String youMaylike = "You May Also Like";
-  static const String noResultFound = "no result found";
+  static const String noResultFound = "No result found";
   static const String newest = "Newest";
   static const String customerReview = "Customer Review";
   static const String priceLowtoHigh = "Price:lowest to high";
@@ -206,7 +208,7 @@ class Appstrings {
   static const String largeDiscount = "Large Discounts";
   static const String onLargeDiscount = "On large orders";
   static const String hadithOfTheDay = "Hadith of the day";
-  static const String share = "Share";
+
   static const String shareProfile = "Share Profile";
   static const String readMore = "Read More....";
   static const String allaySays = "Allah Says";

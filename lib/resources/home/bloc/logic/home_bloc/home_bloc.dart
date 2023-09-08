@@ -29,6 +29,9 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     on<FetchPrayerTrackerEvent>(_fetchPrayerTrackerEvent);
     on<AddPrayerToPrayerTracker>(_addPrayerToPrayerTracker);
     on<ChangeIndexofAllaysaysBg>(_changeIndexofAllaysaysBg);
+    on<ChangeHomeTabIndexEvent>(_changeHomeTabIndexEvent);
+    on<RemoveDailyPrayerTrackerNamaz>(_removeDailyPrayerTrackerNamaz);
+    on<ChangeTinterCardSwipeOption>(_changeTinterCardSwipeOption);
   }
 
   _fetchLargeDisountsBanner(
@@ -176,33 +179,19 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
           context: event.context,
           date: formattedDate,
           namazName: event.namazName);
-      // switch (event.namazName) {
-      //   case Appstrings.fajr:
-      //     emit(state.copyWith(
-      //         prayerTrackerFajr:
-      //             state.prayerTrackerFajr == true ? false : true));
-      //     break;
-      //   case Appstrings.dhuhr:
-      //     emit(state.copyWith(
-      //         prayerTrackerDhuhr:
-      //             state.prayerTrackerDhuhr == true ? false : true));
-      //     break;
-      //   case Appstrings.asr:
-      //     emit(state.copyWith(
-      //         prayerTrackerAsr: state.prayerTrackerAsr == true ? false : true));
-      //     break;
-      //   case Appstrings.magrib:
-      //     emit(state.copyWith(
-      //         prayerTrackerMagrib:
-      //             state.prayerTrackerMagrib == true ? false : true));
-      //     break;
-      //   case Appstrings.isha:
-      //     emit(state.copyWith(
-      //         prayerTrackerIsha:
-      //             state.prayerTrackerIsha == true ? false : true));
-      //     break;
-      //   default:
-      // }
+    } catch (e) {
+      throw Exception(e);
+    }
+  }
+
+  _removeDailyPrayerTrackerNamaz(
+      RemoveDailyPrayerTrackerNamaz event, Emitter<HomeState> emit) async {
+    try {
+      DateTime now = DateTime.now();
+
+      String formattedDate = DateFormat('dd-MM-yyyy').format(now);
+      await homeServices.removeDailyPrayerTracker(
+          context: event.context, date: formattedDate, namaz: event.namazName);
     } catch (e) {
       throw Exception(e);
     }
@@ -211,5 +200,15 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   _changeIndexofAllaysaysBg(
       ChangeIndexofAllaysaysBg event, Emitter<HomeState> emit) {
     emit(state.copyWith(allaysBgindex: state.allaysBgindex + 1));
+  }
+
+  _changeHomeTabIndexEvent(
+      ChangeHomeTabIndexEvent event, Emitter<HomeState> emit) {
+    emit(state.copyWith(homeTabIndex: event.newIndex));
+  }
+
+  _changeTinterCardSwipeOption(
+      ChangeTinterCardSwipeOption event, Emitter<HomeState> emit) {
+    emit(state.copyWith(tinderCardSwipVal: event.value));
   }
 }

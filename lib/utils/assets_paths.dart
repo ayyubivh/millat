@@ -18,6 +18,8 @@ class AppAssetsStrings {
   static const String millatlogoTitle = "$logosPath/millat_logo.png";
   static const String haditOfTheDayBg =
       "$backgroundsPath/hadit_of_the_day_bg.png";
+  static const homeBgDesign = "$backgroundsPath/home_background_design.png";
+
   //tasbih
 
   static const String tasbihBallPink = "$imagesPath/tasbih_balls_pink.png";

@@ -8,7 +8,6 @@ import 'package:millat/resources/home/view/al_quran/bookmark_view.dart';
 import 'package:millat/resources/home/view/al_quran/widgets/al_quran_appbar.dart';
 import 'package:millat/resources/home/view/al_quran/widgets/creat_new_bookmark_widget.dart';
 import 'package:millat/resources/home/view/al_quran/widgets/quran_tabbar_widget.dart';
-import 'package:millat/resources/home/view/al_quran/widgets/single_aya_verses_vew.dart';
 import 'package:millat/resources/home/view/al_quran/widgets/verses_view.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/color_manager.dart';
@@ -49,9 +48,9 @@ class AlQuranView extends StatelessWidget {
           children: [
             kHeight20,
             _section2(context),
-            const SizedBox(height: 20),
-            _section3(context),
-            const SizedBox(height: 25),
+            kHeight20,
+            // _section3(context),
+
             const QuranTabBarWidget()
           ],
         ),
@@ -59,17 +58,17 @@ class AlQuranView extends StatelessWidget {
     );
   }
 
-  Widget _section3(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        _gradienContainer(context, "assets/images/quran_2.png", "Topic Wise",
-            "Explore Quran by\n50+ topics", ""),
-        _gradienContainer(context, "assets/images/hafiz.png", "Haiz-e-Quran",
-            "Read by pages", "15 Lines"),
-      ],
-    );
-  }
+  // Widget _section3(BuildContext context) {
+  //   return Row(
+  //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+  //     children: [
+  //       _gradienContainer(context, "assets/images/quran_2.png", "Topic Wise",
+  //           "Explore Quran by\n50+ topics", ""),
+  //       _gradienContainer(context, "assets/images/hafiz.png", "Haiz-e-Quran",
+  //           "Read by pages", "15 Lines"),
+  //     ],
+  //   );
+  // }
 
   Widget _section2(BuildContext context) {
     return gradientContainer(

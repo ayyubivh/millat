@@ -16,4 +16,13 @@ class HomeEvent with _$HomeEvent {
     required BuildContext context,
   }) = AddPrayerToPrayerTracker;
   const factory HomeEvent.changeIndexofAllaysaysBg() = ChangeIndexofAllaysaysBg;
+  const factory HomeEvent.changeHomeTabIndexEvent({
+    required int newIndex,
+  }) = ChangeHomeTabIndexEvent;
+  const factory HomeEvent.removeDailyPrayerTrackerNamaz({
+    required String namazName,
+    required BuildContext context,
+  }) = RemoveDailyPrayerTrackerNamaz;
+  const factory HomeEvent.changeTinterCardSwipeOption({required bool value}) =
+      ChangeTinterCardSwipeOption;
 }

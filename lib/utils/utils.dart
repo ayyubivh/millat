@@ -32,6 +32,20 @@ class Utilities {
       return 'just now';
     }
   }
+  static bool isNamazTimeAfter(DateTime currentTime, String namazTime) {
+    List<String> timeParts = namazTime.split(':');
+
+    if (timeParts.length == 2) {
+      int hour = int.tryParse(timeParts[0]) ?? 0;
+      int minute = int.tryParse(timeParts[1]) ?? 0;
+      DateTime namazDateTime = DateTime(
+          currentTime.year, currentTime.month, currentTime.day, hour, minute);
+
+      return namazDateTime.isAfter(currentTime);
+    }
+
+    return false;
+  }
 }
 
 void showSnackBar(BuildContext context, String text) {

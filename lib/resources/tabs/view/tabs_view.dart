@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:millat/resources/home/bloc/logic/home_bloc/home_bloc.dart';
 import 'package:millat/resources/home/view/home_view.dart';
 import 'package:millat/resources/home/view/namaz_timing/namaz_timing_view.dart';
 import 'package:millat/resources/shop/view/tabs/shop_tabs_vilew.dart';
@@ -18,23 +19,22 @@ class TabsView extends StatefulWidget {
 }
 
 class _TabsViewState extends State<TabsView> {
-  int index = 0;
   List screens = [
     const HomeView(),
     const ShopTabsView(),
     const NamazTimingView(),
     const UserProfileView(),
   ];
-
-  void onTap(int _index) {
+  DateTime? currentBackPressTime;
+  void onTap(int index) {
     setState(() {
-      if (_index == 1) {
+      if (index == 1) {
         Navigator.push(
           context,
           MaterialPageRoute(builder: (context) => const ShopTabsView()),
         );
       }
-      index = _index;
+      context.read<HomeBloc>().add(ChangeHomeTabIndexEvent(newIndex: index));
     });
   }
 
@@ -49,51 +49,72 @@ class _TabsViewState extends State<TabsView> {
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: () => onBackPress(context),
-      child: Scaffold(
-        extendBody: true,
-        bottomNavigationBar: SizedBox(
-          height: 60,
-          child: BottomNavigationBar(
-            onTap: onTap,
-            currentIndex: index,
-            unselectedItemColor: black137,
-            selectedItemColor: ColorManager.primary,
-            showUnselectedLabels: true,
-            selectedIconTheme:
-                IconThemeData(color: ColorManager.primary, size: 25),
-            unselectedIconTheme: const IconThemeData(color: black137, size: 25),
-            type: BottomNavigationBarType.fixed,
-            items: const [
-              BottomNavigationBarItem(
-                  label: '',
-                  icon: ImageIcon(
-                    AssetImage('assets/icons/home.png'),
-                    size: 22,
-                  )),
-              BottomNavigationBarItem(
-                  label: '',
-                  icon: ImageIcon(
-                    AssetImage('assets/icons/store.png'),
-                    size: 22,
-                  )),
-              BottomNavigationBarItem(
-                  label: '',
-                  icon: ImageIcon(
-                    AssetImage(AppAssetsStrings.starHome),
-                    size: 22,
-                  )),
-              BottomNavigationBarItem(
-                  label: '',
-                  icon: ImageIcon(
-                    AssetImage(AppAssetsStrings.profile),
-                    size: 22,
-                  )),
-            ],
+    return BlocBuilder<HomeBloc, HomeState>(
+      builder: (context, state) => WillPopScope(
+        onWillPop: () {
+          if (state.homeTabIndex == 0) {
+            // DateTime now = DateTime.now();
+            // if (currentBackPressTime == null ||
+            //     now.difference(currentBackPressTime!) >
+            //         const Duration(seconds: 2)) {
+            //   currentBackPressTime = now;
+
+            //   return Future.value(false);
+            // }
+            // return Future.value(true);
+            return onBackPress(context);
+          } else {
+            context
+                .read<HomeBloc>()
+                .add(const ChangeHomeTabIndexEvent(newIndex: 0));
+            return Future.value(false);
+          }
+        },
+        child: Scaffold(
+          extendBody: true,
+          bottomNavigationBar: SizedBox(
+            height: 60,
+            child: BottomNavigationBar(
+              onTap: onTap,
+              currentIndex: state.homeTabIndex,
+              unselectedItemColor: black137,
+              selectedItemColor: ColorManager.primary,
+              showUnselectedLabels: true,
+              selectedIconTheme:
+                  IconThemeData(color: ColorManager.primary, size: 25),
+              unselectedIconTheme:
+                  const IconThemeData(color: black137, size: 25),
+              type: BottomNavigationBarType.fixed,
+              items: const [
+                BottomNavigationBarItem(
+                    label: '',
+                    icon: ImageIcon(
+                      AssetImage('assets/icons/home.png'),
+                      size: 22,
+                    )),
+                BottomNavigationBarItem(
+                    label: '',
+                    icon: ImageIcon(
+                      AssetImage('assets/icons/store.png'),
+                      size: 22,
+                    )),
+                BottomNavigationBarItem(
+                    label: '',
+                    icon: ImageIcon(
+                      AssetImage(AppAssetsStrings.starHome),
+                      size: 22,
+                    )),
+                BottomNavigationBarItem(
+                    label: '',
+                    icon: ImageIcon(
+                      AssetImage(AppAssetsStrings.profile),
+                      size: 22,
+                    )),
+              ],
+            ),
           ),
+          body: screens[state.homeTabIndex],
         ),
-        body: screens[index],
       ),
     );
   }

@@ -19,6 +19,7 @@ class EditProfileView extends StatefulWidget {
 }
 
 class _EditProfileViewState extends State<EditProfileView> {
+  final _formKey = GlobalKey<FormState>();
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _userNameController = TextEditingController();
   final TextEditingController _dateofBirthcontroller = TextEditingController();
@@ -30,10 +31,11 @@ class _EditProfileViewState extends State<EditProfileView> {
     final data = context.read<DatabaseBloc>().state.authUserModel?.result?.user;
     _userNameController.text = data?.username ?? "";
     _nameController.text = data?.name ?? "";
-    _emailController.text = data?.email ?? "";
+    _emailController.text = data?.email ?? ".com";
     _dateofBirthcontroller.text = data?.dob ?? "";
     _companyController.text = data?.institution ?? "";
     _professionController.text = data?.profession ?? "";
+    _phoneController.text = "91";
   }
 
   @override
@@ -47,25 +49,15 @@ class _EditProfileViewState extends State<EditProfileView> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text(Appstrings.editProfile,
-              style:
-                  TextStyle(color: Colors.black, fontWeight: FontWeight.w700)),
+          title: Text(Appstrings.editProfile,
+              style: TextStyle(
+                color: ColorManager.blackColor,
+                fontWeight: FontWeight.w700,
+              )),
           centerTitle: false,
-          leading: const BackButton(color: Colors.black),
+          leading: BackButton(color: ColorManager.blackColor),
           elevation: 0,
           backgroundColor: Colors.transparent,
-          actions: [
-            GestureDetector(
-              onTap: () {
-                logoutPopUp(context);
-              },
-              child: Icon(
-                Icons.logout,
-                color: ColorManager.blackColor,
-              ),
-            ),
-            kWidth15,
-          ],
         ),
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 30),
@@ -279,66 +271,111 @@ class _EditProfileViewState extends State<EditProfileView> {
                     ],
                   ),
                 ),
-                _textFieldWidget(
-                  controller: _nameController,
-                  textFieldName: Appstrings.fullName,
-                  hintName: Appstrings.fullName,
-                  textInputType: TextInputType.name,
-                ),
-                _textFieldWidget(
-                  controller: _userNameController,
-                  textFieldName: Appstrings.userName,
-                  hintName: Appstrings.userName,
-                  textInputType: TextInputType.name,
-                ),
-                _textFieldWidget(
-                    controller: _dateofBirthcontroller,
-                    textFieldName: Appstrings.dateOfBirth,
-                    hintName: Appstrings.dateOfBirth,
-                    textInputType: TextInputType.datetime,
-                    icon: ImageIcon(
-                      const AssetImage(AppAssetsStrings.dateIcon),
-                      color: ColorManager.blackColor,
-                      size: 10,
-                    )),
-                _textFieldWidget(
-                    controller: _emailController,
-                    textFieldName: Appstrings.email,
-                    hintName: Appstrings.email,
-                    textInputType: TextInputType.emailAddress,
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Email is required';
-                      }
-                      final emailRegExp = RegExp(
-                          r'^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$');
-                      if (!emailRegExp.hasMatch(value)) {
-                        return 'Enter a valid email address';
-                      }
-                      return null;
-                    },
-                    icon: ImageIcon(
-                      const AssetImage(AppAssetsStrings.mailIcon),
-                      color: ColorManager.blackColor,
-                      size: 10,
-                    )),
-                _textFieldWidget(
-                    controller: _phoneController,
-                    textFieldName: Appstrings.mobileNumber,
-                    hintName: Appstrings.mobileNumber,
-                    textInputType: TextInputType.name,
-                    maxLength: 10),
-                _textFieldWidget(
-                  controller: _professionController,
-                  textFieldName: Appstrings.profession,
-                  hintName: Appstrings.profession,
-                  textInputType: TextInputType.name,
-                ),
-                _textFieldWidget(
-                  controller: _companyController,
-                  textFieldName: Appstrings.companyOrStudy,
-                  hintName: Appstrings.companyOrStudy,
-                  textInputType: TextInputType.name,
+                Form(
+                  key: _formKey,
+                  child: Column(
+                    children: [
+                      _textFieldWidget(
+                        controller: _nameController,
+                        textFieldName: Appstrings.fullName,
+                        hintName: Appstrings.fullName,
+                        textInputType: TextInputType.name,
+                        validator: (val) {
+                          if (val == null || val.isEmpty) {
+                            return "Full Name is required";
+                          }
+                          return null;
+                        },
+                      ),
+                      _textFieldWidget(
+                        controller: _userNameController,
+                        textFieldName: Appstrings.userName,
+                        hintName: Appstrings.userName,
+                        textInputType: TextInputType.name,
+                        validator: (val) {
+                          if (val == null || val.isEmpty) {
+                            return "UserName is required";
+                          }
+                          return null;
+                        },
+                      ),
+                      _textFieldWidget(
+                        controller: _dateofBirthcontroller,
+                        textFieldName: Appstrings.dateOfBirth,
+                        hintName: Appstrings.dateOfBirth,
+                        textInputType: TextInputType.datetime,
+                        icon: ImageIcon(
+                          const AssetImage(AppAssetsStrings.dateIcon),
+                          color: ColorManager.blackColor,
+                          size: 10,
+                        ),
+                        validator: (value) {
+                          final RegExp dateRegex = RegExp(
+                            r'^(0[1-9]|[12][0-9]|3[01])-(0[1-9]|1[0-2])-\d{4}$',
+                          );
+
+                          if (value == null || value.isEmpty) {
+                            return 'Date of birth is required';
+                          } else if (!dateRegex.hasMatch(value)) {
+                            return 'Invalid date format eg:(01-12-1997)';
+                          }
+                          return null;
+                        },
+                      ),
+                      _textFieldWidget(
+                          controller: _emailController,
+                          textFieldName: Appstrings.email,
+                          hintName: Appstrings.email,
+                          textInputType: TextInputType.emailAddress,
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Email is required';
+                            }
+                            final emailRegExp = RegExp(
+                                r'^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$');
+                            if (!emailRegExp.hasMatch(value)) {
+                              return 'Enter a valid email address';
+                            }
+                            return null;
+                          },
+                          icon: ImageIcon(
+                            const AssetImage(AppAssetsStrings.mailIcon),
+                            color: ColorManager.blackColor,
+                            size: 10,
+                          )),
+                      _textFieldWidget(
+                        controller: _phoneController,
+                        textFieldName: Appstrings.mobileNumber,
+                        hintName: Appstrings.mobileNumber,
+                        textInputType: TextInputType.phone,
+                        maxLength: 12,
+                        // validator: (val) {
+                        //   if (val == null || val.isEmpty || val.length != 12) {
+                        //     return "Phone Number is required";
+                        //   }
+                        //   return null;
+                        // },
+                      ),
+                      _textFieldWidget(
+                        controller: _professionController,
+                        textFieldName: Appstrings.profession,
+                        hintName: Appstrings.profession,
+                        textInputType: TextInputType.name,
+                        validator: (val) {
+                          if (val == null || val.isEmpty) {
+                            return "Profession is required";
+                          }
+                          return null;
+                        },
+                      ),
+                      _textFieldWidget(
+                        controller: _companyController,
+                        textFieldName: Appstrings.companyOrStudy,
+                        hintName: Appstrings.companyOrStudy,
+                        textInputType: TextInputType.name,
+                      ),
+                    ],
+                  ),
                 ),
                 kHeight15,
                 MainButton(
@@ -367,22 +404,24 @@ class _EditProfileViewState extends State<EditProfileView> {
                     if (stateImage == null && img == null) {
                       return showSnackBar(context, "Please Select Image");
                     }
-                    context.read<DatabaseBloc>().add(EditAuthUser(
-                        context: context,
-                        name: _nameController.text,
-                        email: email == _emailController.text
-                            ? null
-                            : _emailController.text,
-                        userName: _userNameController.text,
-                        dob: _dateofBirthcontroller.text,
-                        institution: _companyController.text,
-                        profession: _professionController.text,
-                        image: ''));
+                    if (_formKey.currentState!.validate()) {
+                      context.read<DatabaseBloc>().add(EditAuthUser(
+                          context: context,
+                          name: _nameController.text,
+                          email: email == _emailController.text
+                              ? null
+                              : _emailController.text,
+                          userName: _userNameController.text,
+                          dob: _dateofBirthcontroller.text,
+                          institution: _companyController.text,
+                          profession: _professionController.text,
+                          image: ''));
 
-                    context
-                        .read<DatabaseBloc>()
-                        .add(FetchAuthUser(context: context));
-                    Navigator.of(context).pop();
+                      context
+                          .read<DatabaseBloc>()
+                          .add(FetchAuthUser(context: context));
+                      Navigator.of(context).pop();
+                    }
                   },
                 )
               ],

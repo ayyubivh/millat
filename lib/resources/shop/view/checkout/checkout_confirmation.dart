@@ -4,16 +4,20 @@ import 'package:millat/components/buttons/main_button.dart';
 import 'package:millat/resources/shop/bloc/logic/address_bloc/address_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
 import 'package:millat/resources/shop/view/cart/widgets/cart_product_widget.dart';
+import 'package:millat/resources/shop/view/checkout/checkout_payment.dart';
 import 'package:millat/resources/shop/view/order_status/payment_successful.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
+import 'package:millat/utils/loader.dart';
 import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/string_constants.dart';
 import '../../bloc/logic/cart_bloc/cart_bloc.dart';
 
 class CheckoutConfirmation extends StatefulWidget {
-  const CheckoutConfirmation({Key? key}) : super(key: key);
+  final int paymentType;
+  const CheckoutConfirmation({Key? key, required this.paymentType})
+      : super(key: key);
 
   @override
   State<CheckoutConfirmation> createState() => _CheckoutConfirmationState();
@@ -30,6 +34,7 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
 
   // bool showMore = false;
   int maxItemsToShow = 2;
+  bool isGift = false;
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +52,7 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
         backgroundColor: ColorManager.whiteColor,
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+        padding: const EdgeInsets.symmetric(horizontal: 30),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -96,10 +101,7 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
               BlocBuilder<CartBloc, CartState>(
                 builder: (context, state) {
                   if (state.cartLoading) {
-                    return Center(
-                      child: CircularProgressIndicator(
-                          color: ColorManager.greenColor1),
-                    );
+                    return const Loader();
                   } else if (state.cartModel?.result?.cartProducts?.cartItems ==
                       null) {
                     return const Center(
@@ -193,8 +195,12 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
                     const Spacer(),
                     Switch(
                       activeColor: ColorManager.primary,
-                      value: false,
-                      onChanged: (value) {},
+                      value: isGift,
+                      onChanged: (value) {
+                        setState(() {
+                          isGift = !isGift;
+                        });
+                      },
                     )
                   ],
                 ),
@@ -228,7 +234,12 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
                         children: [
                           SizedBox(
                             width: SizeUtility(context).width * 50 / 100,
-                            child: const TextField(),
+                            child: TextField(
+                              cursorColor: ColorManager.primary,
+                              decoration: const InputDecoration(
+                                focusedBorder: UnderlineInputBorder(),
+                              ),
+                            ),
                           ),
                           const Spacer(),
                           Container(
@@ -277,58 +288,9 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
                 ],
               ),
               kHeight20,
-              Container(
-                height: 96,
-                width: SizeUtility(context).width,
-                decoration: BoxDecoration(
-                    color: ColorManager.whiteColor,
-                    borderRadius: BorderRadius.circular(6),
-                    boxShadow: [
-                      BoxShadow(
-                        spreadRadius: 2,
-                        blurRadius: 2,
-                        color: ColorManager.grey08,
-                      ),
-                    ]),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Row(
-                      children: [
-                        Text(
-                          Appstrings.cashOnDeliver,
-                          style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        kWidth8,
-                        ImageIcon(
-                          AssetImage(AppAssetsStrings.lock),
-                          size: 15,
-                        )
-                      ],
-                    ),
-                    kHeight8,
-                    Container(
-                      height: 32,
-                      width: 50,
-                      padding: const EdgeInsets.all(3),
-                      decoration: BoxDecoration(
-                          border: Border.all(
-                        color: ColorManager.grey08,
-                      )),
-                      child: Image.asset(
-                        AppAssetsStrings.cashOnDelivery,
-                        height: 20,
-                        width: 20,
-                      ),
-                    ),
-                    kHeight10,
-                  ],
-                ),
-              ),
+              widget.paymentType == 1
+                  ? _codPaymentWidget(context)
+                  : _onlinePayment(context),
               kHeight20,
               RichText(
                 text: TextSpan(
@@ -399,8 +361,9 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
         ),
       ),
       bottomNavigationBar: Container(
-        height: 100,
-        padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 30),
+        height: 65,
+        color: ColorManager.whiteColor,
+        padding: const EdgeInsets.symmetric(horizontal: 30).copyWith(bottom: 7),
         child: BlocBuilder<CartBloc, CartState>(
           builder: (context, state) {
             final cartItems = state.cartModel?.result?.cartProducts?.cartItems;
@@ -431,9 +394,9 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
                       id: pickUpaddress.id,
                       shippingCharges: shippingFee,
                       totalDiscount: 0,
-                      weight: 4,
+                      weight: 0,
                       pickupLocation: pickUpaddress.addressLine,
-                      quantity: 2,
+                      quantity: state.cartLength,
                       totalPrice: total,
                       context: context,
                     ));
@@ -446,6 +409,119 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
             );
           },
         ),
+      ),
+    );
+  }
+
+  Widget _onlinePayment(BuildContext context) {
+    return Container(
+      height: 96,
+      width: SizeUtility(context).width,
+      decoration: BoxDecoration(
+          color: ColorManager.whiteColor,
+          borderRadius: BorderRadius.circular(6),
+          boxShadow: [
+            BoxShadow(
+              spreadRadius: 4,
+              blurRadius: 4,
+              color: ColorManager.grey08,
+            ),
+          ]),
+      margin: const EdgeInsets.symmetric(horizontal: 5),
+      padding: const EdgeInsets.symmetric(horizontal: 10),
+      child: Row(
+        children: [
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Row(
+                children: [
+                  Text(
+                    Appstrings.payOnline,
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  kWidth8,
+                  ImageIcon(
+                    AssetImage(AppAssetsStrings.lock),
+                    size: 15,
+                  )
+                ],
+              ),
+              kHeight10,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  paymentRowWidget(AppAssetsStrings.masterCard),
+                  paymentRowWidget(AppAssetsStrings.phonePay),
+                  paymentRowWidget(AppAssetsStrings.visa),
+                  paymentRowWidget(AppAssetsStrings.discover),
+                  paymentRowWidget(AppAssetsStrings.googlePay),
+                ],
+              )
+            ],
+          )
+        ],
+      ),
+    );
+  }
+
+  Widget _codPaymentWidget(BuildContext context) {
+    return Container(
+      height: 96,
+      width: SizeUtility(context).width,
+      decoration: BoxDecoration(
+          color: ColorManager.whiteColor,
+          borderRadius: BorderRadius.circular(6),
+          boxShadow: [
+            BoxShadow(
+              spreadRadius: 4,
+              blurRadius: 4,
+              color: ColorManager.grey08,
+            ),
+          ]),
+      margin: const EdgeInsets.symmetric(horizontal: 5),
+      padding: const EdgeInsets.symmetric(horizontal: 10),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          const Row(
+            children: [
+              Text(
+                Appstrings.cashOnDeliver,
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              kWidth8,
+              ImageIcon(
+                AssetImage(AppAssetsStrings.lock),
+                size: 15,
+              )
+            ],
+          ),
+          kHeight8,
+          Container(
+            height: 32,
+            width: 50,
+            padding: const EdgeInsets.all(3),
+            decoration: BoxDecoration(
+                border: Border.all(
+              color: ColorManager.grey08,
+            )),
+            child: Image.asset(
+              AppAssetsStrings.cashOnDelivery,
+              height: 20,
+              width: 20,
+            ),
+          ),
+          kHeight10,
+        ],
       ),
     );
   }

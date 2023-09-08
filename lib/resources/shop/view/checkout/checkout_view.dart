@@ -12,23 +12,16 @@ import 'package:millat/utils/utils.dart';
 import '../../bloc/logic/address_bloc/address_bloc.dart';
 import 'checkout_payment.dart';
 
-class CheckoutView extends StatefulWidget {
+class CheckoutView extends StatelessWidget {
   const CheckoutView({Key? key}) : super(key: key);
 
   @override
-  State<CheckoutView> createState() => _CheckoutViewState();
-}
-
-class _CheckoutViewState extends State<CheckoutView> {
-  @override
-  void initState() {
-    BlocProvider.of<AddressBloc>(context)
-        .add(FetchAddressEvent(context: context));
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      BlocProvider.of<AddressBloc>(context)
+        ..add(FetchAddressEvent(context: context))
+        ..add(const FetchAddressDefaultIndex());
+    });
     return Scaffold(
         backgroundColor: ColorManager.scaffolBgColor,
         appBar: AppBar(
@@ -137,14 +130,10 @@ class _CheckoutViewState extends State<CheckoutView> {
                             },
                           );
                         },
-                        separatorBuilder: (context, index) => const SizedBox(
-                              height: 15,
-                            ));
+                        separatorBuilder: (context, index) => kHeight15);
                   },
                 ),
-                const SizedBox(
-                  height: 30,
-                ),
+                kHeight30,
               ],
             ),
           ),

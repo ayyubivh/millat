@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/components/buttons/main_button.dart';
+import 'package:millat/components/debounce/debounce.dart';
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
 import 'package:millat/resources/shop/view/products/single_product_view.dart';
 import 'package:millat/utils/assets_paths.dart';
@@ -21,6 +22,7 @@ class SearchView extends StatefulWidget {
 class _SearchViewState extends State<SearchView> {
   int _currentIndex = 0;
   String selectedFilter = '';
+  final _debouncer = Debouncer(milliseconds: 1000);
 
   RangeValues priceRange = const RangeValues(20, 80); // Initial range
 
@@ -39,74 +41,69 @@ class _SearchViewState extends State<SearchView> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
+              width: SizeUtility(context).width,
+              height: 124,
               padding: const EdgeInsets.only(
                 top: 30,
                 left: 15,
                 right: 20,
               ),
-              width: SizeUtility(context).width,
-              height: 157,
               decoration: BoxDecoration(
                 gradient: LinearGradient(
                     colors: [ColorManager.greenColor1, ColorManager.primary],
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter),
               ),
-              child: Column(
-                children: [
-                  Row(
-                    children: [
-                      IconButton(
-                        onPressed: () {
-                          Navigator.of(context).pop();
-                        },
-                        icon: const Icon(Icons.arrow_back),
-                        color: ColorManager.whiteColor,
-                        // iconSize: 22,
-                      ),
-                      Text(
-                        'Back',
-                        style: TextStyle(
-                          color: ColorManager.whiteColor,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16,
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 10),
-                  SizedBox(
-                    height: 48,
-                    child: TextFormField(
-                      autofocus: true,
-                      controller: searchController,
-                      decoration: InputDecoration(
-                        suffixIcon: IconButton(
-                            onPressed: () {
-                              context
-                                  .read<ShopProductsBloc>()
-                                  .add(SearchProduct(searchController.text));
-                            },
-                            icon: const Icon(Icons.search, color: black142)),
-                        filled: true,
-                        fillColor: ColorManager.whiteColor,
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(30.0),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(30.0),
-                          borderSide: BorderSide.none,
-                        ),
-                        hintText: 'Search...',
-                      ),
-                      onFieldSubmitted: (value) {
+              child: Container(
+                padding: const EdgeInsets.only(top: 20),
+                height: 48,
+                child: TextFormField(
+                  autofocus: true,
+                  controller: searchController,
+                  decoration: InputDecoration(
+                    contentPadding: const EdgeInsets.symmetric(
+                        vertical: 12, horizontal: 16),
+                    prefixIcon: GestureDetector(
+                      onTap: () {
                         context
                             .read<ShopProductsBloc>()
                             .add(SearchProduct(searchController.text));
                       },
+                      child: Container(
+                        padding: const EdgeInsets.all(12),
+                        child: const ImageIcon(
+                          AssetImage(
+                            AppAssetsStrings.searchIcon,
+                          ),
+                          size: 16,
+                          color: black104,
+                        ),
+                      ),
                     ),
+                    filled: true,
+                    fillColor: ColorManager.whiteColor,
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(30.0),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(30.0),
+                      borderSide: BorderSide.none,
+                    ),
+                    hintText: 'Search...',
                   ),
-                ],
+                  onChanged: (value) {
+                    _debouncer.run(() {
+                      context
+                          .read<ShopProductsBloc>()
+                          .add(SearchProduct(searchController.text));
+                    });
+                  },
+                  onFieldSubmitted: (value) {
+                    context
+                        .read<ShopProductsBloc>()
+                        .add(SearchProduct(searchController.text));
+                  },
+                ),
               ),
             ),
             Padding(

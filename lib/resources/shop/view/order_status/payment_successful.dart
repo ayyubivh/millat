@@ -6,6 +6,7 @@ import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.da
 import 'package:millat/resources/shop/view/order_status/order_details_view.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
+import 'package:millat/utils/loader.dart';
 import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/string_constants.dart';
 
@@ -30,11 +31,9 @@ class PaymentSuccessful extends StatelessWidget {
               context.read<ShopProductsBloc>().state.orderId.toString())));
     });
     return BlocBuilder<ShopProductsBloc, ShopProductsState>(
-        builder: (context, state) =>
-            //  state.isLoading || state.orderId == null
-            //     ? const Loader()
-            //     :
-            Scaffold(
+        builder: (context, state) => state.isLoading || state.orderId == null
+            ? const Loader()
+            : Scaffold(
                 appBar: AppBar(
                     elevation: 0, backgroundColor: ColorManager.whiteColor),
                 body: SizedBox(

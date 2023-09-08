@@ -46,6 +46,7 @@ class ShopProductsState with _$ShopProductsState {
     required int brandBannerIndex,
     required int ordereProgressIndex,
     required int womensCareBannerIndex,
+    required int paymentMethod,
   }) = _Initial;
 
   factory ShopProductsState.initial() => const ShopProductsState(
@@ -88,5 +89,6 @@ class ShopProductsState with _$ShopProductsState {
         ordereProgressIndex: -1,
         womensCareBannerIndex: -1,
         shopAdBrandsById: null,
+        paymentMethod: 0,
       );
 }

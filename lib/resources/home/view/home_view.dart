@@ -138,7 +138,7 @@ class _HomeViewState extends State<HomeView> {
                     children: [
                       AnimatedContainer(
                         duration: const Duration(milliseconds: 310),
-                        height: scrollNotifier.value == true ? 290 : 200,
+                        height: scrollNotifier.value == true ? 290 : 178,
                         width: SizeUtility(context).width,
                         decoration:
                             BoxDecoration(color: ColorManager.midGreenColor
@@ -155,7 +155,8 @@ class _HomeViewState extends State<HomeView> {
                         child: Padding(
                           padding: const EdgeInsets.symmetric(
                             horizontal: 30,
-                          ).copyWith(top: 40),
+                          ).copyWith(
+                              top: scrollNotifier.value == true ? 35 : 25),
                           child: Stack(
                             // crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -167,7 +168,6 @@ class _HomeViewState extends State<HomeView> {
                                         fontSize: 16,
                                         fontWeight: FontWeight.w500,
                                       )),
-                                  kHeight5,
 
                                   const Spacer(),
                                   GestureDetector(
@@ -198,7 +198,10 @@ class _HomeViewState extends State<HomeView> {
                               ),
                               BlocBuilder<DatabaseBloc, DatabaseState>(
                                 builder: (context, state) => Padding(
-                                  padding: const EdgeInsets.only(top: 28),
+                                  padding: EdgeInsets.only(
+                                      top: scrollNotifier.value == true
+                                          ? 28
+                                          : 24),
                                   child: Text(
                                       state.authUserModel?.result?.user?.name ??
                                           "",
@@ -210,8 +213,10 @@ class _HomeViewState extends State<HomeView> {
                                 ),
                               ),
                               Padding(
-                                padding:
-                                    const EdgeInsets.only(left: 55, top: 20),
+                                padding: EdgeInsets.only(
+                                    left: 55,
+                                    top:
+                                        scrollNotifier.value == true ? 20 : 10),
                                 child: Image.asset(
                                   AppAssetsStrings.homeBgDesign,
                                   height: 114,
@@ -220,7 +225,10 @@ class _HomeViewState extends State<HomeView> {
                                 ),
                               ),
                               Padding(
-                                padding: const EdgeInsets.only(top: 70),
+                                padding: EdgeInsets.only(
+                                  top: scrollNotifier.value == true ? 70 : 60,
+                                  // bottom: 15,
+                                ),
                                 child: scrollNotifier.value == true
                                     ? animatedContainerWidget1(context)
                                     : animatedContainerWidget2(context),
@@ -233,8 +241,6 @@ class _HomeViewState extends State<HomeView> {
                         child: SingleChildScrollView(
                           child: Column(
                             children: [
-                              kHeight50,
-                              kHeight25,
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
@@ -435,8 +441,13 @@ class _HomeViewState extends State<HomeView> {
                                         borderRadius: BorderRadius.circular(12),
                                         color: ColorManager.whiteColor,
                                       ),
-                                      child:
-                                          Image.network(data.brandId!.image!),
+                                      child: ClipRRect(
+                                        borderRadius: BorderRadius.circular(12),
+                                        child: Image.network(
+                                          data.brandId!.image!,
+                                          fit: BoxFit.contain,
+                                        ),
+                                      ),
                                     )
                                   ],
                                 ),
@@ -752,17 +763,18 @@ class _HomeViewState extends State<HomeView> {
                   final namazTime = state.prayerModel?.data.timings;
 
                   String fajrTime = namazTime?.fajr ?? "";
+                  String sunriseTime = namazTime?.sunrise ?? "";
                   String dhuhrTime = namazTime?.dhuhr ?? "";
                   String asrTime = namazTime?.asr ?? "";
                   String magribTime = namazTime?.maghrib ?? "";
                   String ishaTime = namazTime?.isha ?? "";
                   DateTime now = DateTime.now();
 
-                  bool isFajr = isNamazTimeAfter(now, dhuhrTime);
-                  bool isDhuhr = isNamazTimeAfter(now, asrTime);
-                  bool isAsr = isNamazTimeAfter(now, magribTime);
-                  bool isMagrib = isNamazTimeAfter(now, ishaTime);
-                  bool isIsha = isNamazTimeAfter(now, ishaTime);
+                  bool isFajr = Utilities.isNamazTimeAfter(now, sunriseTime);
+                  bool isDhuhr = Utilities.isNamazTimeAfter(now, asrTime);
+                  bool isAsr = Utilities.isNamazTimeAfter(now, magribTime);
+                  bool isMagrib = Utilities.isNamazTimeAfter(now, ishaTime);
+                  bool isIsha = Utilities.isNamazTimeAfter(now, fajrTime);
 
                   return Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -772,13 +784,19 @@ class _HomeViewState extends State<HomeView> {
                         namazName: Appstrings.fajr,
                         isCompleted: data.prayerTrackerFajr,
                         onTap: () {
-                          currentNamazName == Appstrings.fajr ||
-                                  currentNamazName == Appstrings.sunrise
-                              ? context.read<HomeBloc>().add(
-                                  AddPrayerToPrayerTracker(
-                                      namazName: Appstrings.fajr,
-                                      context: context))
-                              : null;
+                          if (data.prayerTrackerFajr == true &&
+                              currentNamazName == Appstrings.fajr) {
+                            context.read<HomeBloc>().add(
+                                RemoveDailyPrayerTrackerNamaz(
+                                    namazName: Appstrings.fajr,
+                                    context: context));
+                          } else if (currentNamazName == Appstrings.fajr) {
+                            context.read<HomeBloc>().add(
+                                AddPrayerToPrayerTracker(
+                                    namazName: Appstrings.fajr,
+                                    context: context));
+                          }
+
                           context.read<HomeBloc>().add(FetchPrayerTrackerEvent(
                               date: DateTime.now(), context: context));
                         },
@@ -788,12 +806,19 @@ class _HomeViewState extends State<HomeView> {
                         namazName: Appstrings.dhuhr,
                         isCompleted: data.prayerTrackerDhuhr,
                         onTap: () {
-                          currentNamazName == Appstrings.dhuhr
-                              ? context.read<HomeBloc>().add(
-                                  AddPrayerToPrayerTracker(
-                                      namazName: Appstrings.dhuhr,
-                                      context: context))
-                              : null;
+                          if (data.prayerTrackerDhuhr == true &&
+                              currentNamazName == Appstrings.dhuhr) {
+                            context.read<HomeBloc>().add(
+                                RemoveDailyPrayerTrackerNamaz(
+                                    namazName: Appstrings.dhuhr,
+                                    context: context));
+                          } else if (currentNamazName == Appstrings.dhuhr) {
+                            context.read<HomeBloc>().add(
+                                AddPrayerToPrayerTracker(
+                                    namazName: Appstrings.dhuhr,
+                                    context: context));
+                          }
+
                           context.read<HomeBloc>().add(FetchPrayerTrackerEvent(
                               date: DateTime.now(), context: context));
                         },
@@ -803,12 +828,19 @@ class _HomeViewState extends State<HomeView> {
                         namazName: Appstrings.asr,
                         isCompleted: data.prayerTrackerAsr,
                         onTap: () {
-                          currentNamazName == Appstrings.asr
-                              ? context.read<HomeBloc>().add(
-                                  AddPrayerToPrayerTracker(
-                                      namazName: Appstrings.asr,
-                                      context: context))
-                              : null;
+                          if (data.prayerTrackerAsr == true &&
+                              currentNamazName == Appstrings.asr) {
+                            context.read<HomeBloc>().add(
+                                RemoveDailyPrayerTrackerNamaz(
+                                    namazName: Appstrings.asr,
+                                    context: context));
+                          } else if (currentNamazName == Appstrings.asr) {
+                            context.read<HomeBloc>().add(
+                                AddPrayerToPrayerTracker(
+                                    namazName: Appstrings.asr,
+                                    context: context));
+                          }
+
                           context.read<HomeBloc>().add(FetchPrayerTrackerEvent(
                               date: DateTime.now(), context: context));
                         },
@@ -818,28 +850,42 @@ class _HomeViewState extends State<HomeView> {
                         namazName: Appstrings.magrib,
                         isCompleted: data.prayerTrackerMagrib,
                         onTap: () {
-                          currentNamazName == Appstrings.magrib
-                              ? context.read<HomeBloc>().add(
-                                  AddPrayerToPrayerTracker(
-                                      namazName: Appstrings.magrib,
-                                      context: context))
-                              : null;
+                          if (data.prayerTrackerMagrib == true &&
+                              currentNamazName == Appstrings.magrib) {
+                            context.read<HomeBloc>().add(
+                                RemoveDailyPrayerTrackerNamaz(
+                                    namazName: Appstrings.magrib,
+                                    context: context));
+                          } else if (currentNamazName == Appstrings.magrib) {
+                            context.read<HomeBloc>().add(
+                                AddPrayerToPrayerTracker(
+                                    namazName: Appstrings.magrib,
+                                    context: context));
+                          }
+
                           context.read<HomeBloc>().add(FetchPrayerTrackerEvent(
                               date: DateTime.now(), context: context));
                         },
                       ),
                       dailyTrackerWidget(
-                        isUpcoming: isIsha,
+                        isUpcoming: true,
                         namazName: Appstrings.isha,
                         isShow: false,
                         isCompleted: data.prayerTrackerIsha,
                         onTap: () {
-                          currentNamazName == Appstrings.isha
-                              ? context.read<HomeBloc>().add(
-                                  AddPrayerToPrayerTracker(
-                                      namazName: Appstrings.isha,
-                                      context: context))
-                              : null;
+                          if (data.prayerTrackerIsha == true &&
+                              currentNamazName == Appstrings.isha) {
+                            context.read<HomeBloc>().add(
+                                RemoveDailyPrayerTrackerNamaz(
+                                    namazName: Appstrings.isha,
+                                    context: context));
+                          } else if (currentNamazName == Appstrings.isha) {
+                            context.read<HomeBloc>().add(
+                                AddPrayerToPrayerTracker(
+                                    namazName: Appstrings.isha,
+                                    context: context));
+                          }
+
                           context.read<HomeBloc>().add(FetchPrayerTrackerEvent(
                               date: DateTime.now(), context: context));
                         },
@@ -854,21 +900,6 @@ class _HomeViewState extends State<HomeView> {
         kHeight20,
       ],
     );
-  }
-
-  bool isNamazTimeAfter(DateTime currentTime, String namazTime) {
-    List<String> timeParts = namazTime.split(':');
-
-    if (timeParts.length == 2) {
-      int hour = int.tryParse(timeParts[0]) ?? 0;
-      int minute = int.tryParse(timeParts[1]) ?? 0;
-      DateTime namazDateTime = DateTime(
-          currentTime.year, currentTime.month, currentTime.day, hour, minute);
-
-      return namazDateTime.isAfter(currentTime);
-    }
-
-    return false;
   }
 
   Widget dailyTrackerWidget(
@@ -1157,7 +1188,7 @@ class _HomeViewState extends State<HomeView> {
     return AnimatedContainer(
         curve: Curves.decelerate,
         duration: const Duration(milliseconds: 1000),
-        // height: 75,
+        height: 74,
         // margin: const EdgeInsets.symmetric(horizontal: 30),
         padding: const EdgeInsets.symmetric(
           horizontal: 15,
@@ -1180,7 +1211,7 @@ class _HomeViewState extends State<HomeView> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     _offlineText(),
-                    _locationButton(context),
+                    // _locationButton(context),
                   ],
                 )
               : Row(
@@ -1278,7 +1309,7 @@ class _HomeViewState extends State<HomeView> {
     return AnimatedContainer(
       curve: Curves.decelerate,
       duration: const Duration(milliseconds: 1000),
-      // height: scrollNotifier.value == false ? 180 : 190,
+      height: 167,
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       // margin: const EdgeInsets.symmetric(horizontal: 30),
       decoration: BoxDecoration(
@@ -1386,7 +1417,7 @@ class _HomeViewState extends State<HomeView> {
           ],
         ),
         Container(
-          height: 30,
+          height: 20,
           width: 0.7,
           color: dividerColor,
         ),
@@ -1601,19 +1632,28 @@ class _HomeViewState extends State<HomeView> {
                 )
               ],
             ),
-            const Row(
-              children: [
-                ImageIcon(
-                  AssetImage('assets/icons/share.png'),
-                  color: black165,
-                  size: 16,
-                ),
-                kWidth8,
-                Text(
-                  'Share',
-                  style: TextStyle(color: black165),
-                )
-              ],
+            GestureDetector(
+              onTap: () {
+                Share.share(
+                  "Salam ! I'm your true friend It's ${context.read<NamazTimingBloc>().state.currentNamaz?['name'] ?? ""} time. Don't miss your fazar salah. It will help you to do better in duniya & akhirah.To always be on time for salah install our app (link) This app is 100% add free. Yay! Install Now",
+                );
+              },
+              child: const Row(
+                children: [
+                  ImageIcon(
+                    AssetImage('assets/icons/share.png'),
+                    color: black165,
+                    size: 16,
+                  ),
+                  kWidth8,
+                  Text(
+                    Appstrings.share,
+                    style: TextStyle(
+                      color: black165,
+                    ),
+                  )
+                ],
+              ),
             )
           ],
         ),

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/components/buttons/main_button.dart';
+import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
 import 'package:millat/resources/shop/view/checkout/checkout_confirmation.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/color_manager.dart';
@@ -9,16 +11,9 @@ import 'package:millat/utils/utils.dart';
 
 import '../../../../utils/string_constants.dart';
 
-class CheckoutPayment extends StatefulWidget {
+class CheckoutPayment extends StatelessWidget {
   const CheckoutPayment({Key? key}) : super(key: key);
 
-  @override
-  State<CheckoutPayment> createState() => _CheckoutPaymentState();
-}
-
-class _CheckoutPaymentState extends State<CheckoutPayment> {
-  int currentIndex = -1;
-  bool isAgrementChecked = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -101,238 +96,154 @@ class _CheckoutPaymentState extends State<CheckoutPayment> {
                     color: ColorManager.veryLightGreen,
                     borderRadius: BorderRadius.circular(6),
                   ),
-                  child: Row(
-                    children: [
-                      Radio(
-                          value: true,
-                          groupValue: currentIndex == 1,
-                          onChanged: (value) {
-                            setState(() {
-                              currentIndex = 1;
-                            });
-                          },
-                          fillColor: MaterialStateProperty.all(
-                              ColorManager.greenColor1)),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const Row(
-                            children: [
-                              Text(
-                                Appstrings.cashOnDeliver,
-                                style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                              kWidth8,
-                              ImageIcon(
-                                AssetImage(AppAssetsStrings.lock),
-                                size: 15,
-                              )
-                            ],
-                          ),
-                          kHeight8,
-                          Container(
-                            height: 32,
-                            width: 50,
-                            padding: const EdgeInsets.all(3),
-                            decoration: BoxDecoration(
-                                border: Border.all(
-                              color: ColorManager.grey08,
-                            )),
-                            child: Image.asset(
-                              AppAssetsStrings.cashOnDelivery,
-                              height: 20,
-                              width: 20,
-                            ),
-                          ),
-                          kHeight10,
-                        ],
-                      )
-                    ],
-                  ),
+                  child: paymenCODwidget(context),
                 )
               ],
             ),
           ),
         ),
-        bottomSheet: Container(
-          color: ColorManager.whiteColor,
-          padding: const EdgeInsets.symmetric(horizontal: 10),
-          height: 140,
-          child: Column(
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Checkbox(
-                    value: isAgrementChecked,
-                    onChanged: (newValue) {
-                      setState(() {
-                        isAgrementChecked = !isAgrementChecked;
-                      });
-                    },
-                    activeColor: ColorManager.primary,
-                  ),
-                  Flexible(
-                    child: RichText(
-                      text: TextSpan(
-                        text: 'Please indicate your agreement to our ',
-                        style: TextStyle(
-                          fontSize: 14,
-                          color: ColorManager.textGreyA6,
-                        ),
-                        children: [
-                          TextSpan(
-                            text: 'terms & conditions ',
-                            style: TextStyle(
-                              color: ColorManager.primary,
-                              fontSize: 14,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          TextSpan(
-                            text: 'by checking this checkbox.',
-                            style: TextStyle(
-                              color: ColorManager.textGreyA6,
-                              fontSize: 14,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: MainButton(
-                  title: Appstrings.continueText,
-                  onPressed: () {
-                    if (currentIndex == -1) {
-                      showSnackBar(context, 'Select the Payment method!');
-                      return;
-                    }
-                    if (isAgrementChecked == false) {
-                      return;
-                    }
-                    Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const CheckoutConfirmation(),
-                    ));
-                  },
-                ),
-              ),
-            ],
+        bottomSheet: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+          child: BlocBuilder<ShopProductsBloc, ShopProductsState>(
+            builder: (context, state) => MainButton(
+              title: Appstrings.continueText,
+              onPressed: () {
+                if (state.paymentMethod == -1) {
+                  showSnackBar(context, 'Select the Payment method!');
+                  return;
+                }
+
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) =>
+                      CheckoutConfirmation(paymentType: state.paymentMethod),
+                ));
+              },
+            ),
           ),
         ));
   }
 
-  Widget paymentOnlineWidget() {
-    return Row(
-      children: [
-        Radio(
-            value: true,
-            groupValue: currentIndex == 0,
-            onChanged: (value) {
-              setState(() {
-                currentIndex = 0;
-              });
-            },
-            fillColor: MaterialStateProperty.all(ColorManager.greenColor1)),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Row(
-              children: [
-                Text(
-                  Appstrings.payOnline,
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
+  Widget paymenCODwidget(BuildContext context) {
+    return BlocBuilder<ShopProductsBloc, ShopProductsState>(
+      builder: (context, state) => Row(
+        children: [
+          Radio(
+              value: true,
+              groupValue: state.paymentMethod == 1,
+              onChanged: (value) {
+                context
+                    .read<ShopProductsBloc>()
+                    .add(const SavePaymentMethodType(index: 1));
+              },
+              fillColor: MaterialStateProperty.all(ColorManager.greenColor1)),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Row(
+                children: [
+                  Text(
+                    Appstrings.cashOnDeliver,
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
+                  kWidth8,
+                  ImageIcon(
+                    AssetImage(AppAssetsStrings.lock),
+                    size: 15,
+                  )
+                ],
+              ),
+              kHeight8,
+              Container(
+                height: 32,
+                width: 50,
+                padding: const EdgeInsets.all(3),
+                decoration: BoxDecoration(
+                    border: Border.all(
+                  color: ColorManager.grey08,
+                )),
+                child: Image.asset(
+                  AppAssetsStrings.cashOnDelivery,
+                  height: 20,
+                  width: 20,
                 ),
-                kWidth8,
-                ImageIcon(
-                  AssetImage(AppAssetsStrings.lock),
-                  size: 15,
-                )
-              ],
-            ),
-            kHeight10,
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                paymentRowWidget(AppAssetsStrings.masterCard),
-                paymentRowWidget(AppAssetsStrings.phonePay),
-                paymentRowWidget(AppAssetsStrings.visa),
-                paymentRowWidget(AppAssetsStrings.discover),
-                paymentRowWidget(AppAssetsStrings.googlePay),
-              ],
-            )
-          ],
-        )
-      ],
-    );
-  }
-
-  Widget paymentRowWidget(String image) {
-    return Container(
-      height: 34,
-      width: 52,
-      decoration: BoxDecoration(
-          color: ColorManager.whiteColor,
-          border: Border.all(
-            color: ColorManager.greyD9,
-          )),
-      margin: const EdgeInsets.only(right: 12),
-      padding: const EdgeInsets.all(6),
-      child: Image.asset(
-        image,
+              ),
+              kHeight10,
+            ],
+          )
+        ],
       ),
     );
   }
 
-  Widget buildPaymentCard({
-    required String image,
-    required String text,
-    required Function() onTap,
-    required bool isSelected,
-  }) {
-    return Card(
-      elevation: 0,
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Row(
-              children: [
-                Image.asset(image, width: 35, height: 35),
-                const SizedBox(
-                  width: 15,
-                ),
-                Text(
-                  text,
-                  style: const TextStyle(
-                      fontWeight: FontWeight.w600, fontSize: 17),
-                )
-              ],
-            ),
-            Radio(
-                value: true,
-                groupValue: isSelected,
-                onChanged: (value) {
-                  setState(() {
-                    onTap();
-                  });
-                },
-                fillColor: MaterialStateProperty.all(ColorManager.greenColor1)),
-          ],
-        ),
+  Widget paymentOnlineWidget() {
+    return BlocBuilder<ShopProductsBloc, ShopProductsState>(
+      builder: (context, state) => Row(
+        children: [
+          Radio(
+              value: true,
+              groupValue: state.paymentMethod == 0,
+              onChanged: (value) {
+                context
+                    .read<ShopProductsBloc>()
+                    .add(const SavePaymentMethodType(index: 0));
+              },
+              fillColor: MaterialStateProperty.all(ColorManager.greenColor1)),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Row(
+                children: [
+                  Text(
+                    Appstrings.payOnline,
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  kWidth8,
+                  ImageIcon(
+                    AssetImage(AppAssetsStrings.lock),
+                    size: 15,
+                  )
+                ],
+              ),
+              kHeight10,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  paymentRowWidget(AppAssetsStrings.masterCard),
+                  paymentRowWidget(AppAssetsStrings.phonePay),
+                  paymentRowWidget(AppAssetsStrings.visa),
+                  paymentRowWidget(AppAssetsStrings.discover),
+                  paymentRowWidget(AppAssetsStrings.googlePay),
+                ],
+              )
+            ],
+          )
+        ],
       ),
     );
   }
+}
+
+Widget paymentRowWidget(String image) {
+  return Container(
+    height: 34,
+    width: 52,
+    decoration: BoxDecoration(
+        color: ColorManager.whiteColor,
+        border: Border.all(
+          color: ColorManager.greyD9,
+        )),
+    margin: const EdgeInsets.only(right: 12),
+    padding: const EdgeInsets.all(6),
+    child: Image.asset(
+      image,
+    ),
+  );
 }

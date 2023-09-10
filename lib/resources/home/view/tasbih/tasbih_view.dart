@@ -200,20 +200,20 @@ class TasbihViewState extends State<TasbihView>
                           ).value;
                           return Positioned(
                             top: state.tasbihThemes == TasbihThemes.orange
-                                ? 95 - curvedValue * 200
+                                ? 152 - curvedValue * 200
                                 : state.tasbihThemes == TasbihThemes.purple
-                                    ? 70 - curvedValue * 200
+                                    ? 130 - curvedValue * 200
                                     : state.tasbihThemes == TasbihThemes.green
                                         ? 148 - curvedValue * 200
                                         : state.tasbihThemes ==
                                                 TasbihThemes.darkBlue
-                                            ? 80 - curvedValue * 200
+                                            ? 130 - curvedValue * 200
                                             : state.tasbihThemes ==
                                                     TasbihThemes.lightOrange
-                                                ? 64 - curvedValue * 200
+                                                ? 125 - curvedValue * 200
                                                 : 129 - curvedValue * 200,
                             left: state.tasbihThemes == TasbihThemes.orange
-                                ? 81 + curvedValue * SizeUtility(context).width
+                                ? 80 + curvedValue * SizeUtility(context).width
                                 : state.tasbihThemes == TasbihThemes.purple
                                     ? 68 +
                                         curvedValue * SizeUtility(context).width
@@ -223,7 +223,7 @@ class TasbihViewState extends State<TasbihView>
                                                 SizeUtility(context).width
                                         : state.tasbihThemes ==
                                                 TasbihThemes.darkBlue
-                                            ? 78 +
+                                            ? 77 +
                                                 curvedValue *
                                                     SizeUtility(context).width
                                             : state.tasbihThemes ==
@@ -326,7 +326,9 @@ class TasbihViewState extends State<TasbihView>
                                   borderRadius: BorderRadius.circular(12),
                                 ),
                                 child: Image.asset(
-                                    'assets/images/tasbih_theme_ball_${index + 1}.png'),
+                                  'assets/images/tasbih_theme_ball_${index + 1}.png',
+                                  fit: BoxFit.contain,
+                                ),
                               ),
                             );
                           },
@@ -534,7 +536,6 @@ class TasbihViewState extends State<TasbihView>
                                             int.parse(numberController.text)));
                                 Navigator.of(context).pop();
                               }
-                              print('empty');
                             },
                             child: Text(
                               'Save',

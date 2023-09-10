@@ -156,50 +156,62 @@ class _PrayerTrackerCalendarViewState extends State<PrayerTrackerCalendarView> {
                   children: [
                     BlocBuilder<HomeBloc, HomeState>(
                       builder: (context, state) {
-                        //        final currentNamaz = state.currentNamaz;
-                        // final currentNamazName = currentNamaz?['name'] ?? '';
-                        // final namazTime = state.prayerModel?.data.timings;
+                        final prayerData = state;
 
-                        // String fajrTime = namazTime?.fajr ?? "";
-                        // String sunriseTime = namazTime?.sunrise ?? "";
-                        // String dhuhrTime = namazTime?.dhuhr ?? "";
-                        // String asrTime = namazTime?.asr ?? "";
-                        // String magribTime = namazTime?.maghrib ?? "";
-                        // String ishaTime = namazTime?.isha ?? "";
-                        // DateTime now = DateTime.now();
+                        return BlocBuilder<NamazTimingBloc, NamazTimingState>(
+                          builder: (context, state) {
+                            final currentNamaz = state.currentNamaz;
+                            final currentNamazName =
+                                currentNamaz?['name'] ?? '';
+                            final namazTime = state.prayerModel?.data.timings;
 
-                        // bool isFajr = Utilities.isNamazTimeAfter(now, sunriseTime);
-                        // bool isDhuhr = Utilities.isNamazTimeAfter(now, asrTime);
-                        // bool isAsr = Utilities.isNamazTimeAfter(now, magribTime);
-                        // bool isMagrib = Utilities.isNamazTimeAfter(now, ishaTime);
-                        // bool isIsha = Utilities.isNamazTimeAfter(now, fajrTime);
+                            String fajrTime = namazTime?.fajr ?? "";
+                            String sunriseTime = namazTime?.sunrise ?? "";
+                            String dhuhrTime = namazTime?.dhuhr ?? "";
+                            String asrTime = namazTime?.asr ?? "";
+                            String magribTime = namazTime?.maghrib ?? "";
+                            String ishaTime = namazTime?.isha ?? "";
+                            DateTime now = DateTime.now();
 
-                        return Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            namazTimingTrackerWidget(
-                              text: Appstrings.fajr,
-                              isCompleted: state.prayerTrackerFajr,
-                              isUpcoming: false,
-                            ),
-                            namazTimingTrackerWidget(
-                                text: Appstrings.dhuhr,
-                                isCompleted: state.prayerTrackerDhuhr,
-                                isUpcoming: false),
-                            namazTimingTrackerWidget(
-                                text: Appstrings.asr,
-                                isCompleted: state.prayerTrackerAsr,
-                                isUpcoming: true),
-                            namazTimingTrackerWidget(
-                                text: Appstrings.magrib,
-                                isCompleted: state.prayerTrackerMagrib,
-                                isUpcoming: true),
-                            namazTimingTrackerWidget(
-                                text: Appstrings.isha,
-                                isCompleted: state.prayerTrackerIsha,
-                                isShowdivider: false,
-                                isUpcoming: true),
-                          ],
+                            bool isFajr =
+                                Utilities.isNamazTimeAfter(now, sunriseTime);
+                            bool isDhuhr =
+                                Utilities.isNamazTimeAfter(now, asrTime);
+                            bool isAsr =
+                                Utilities.isNamazTimeAfter(now, magribTime);
+                            bool isMagrib =
+                                Utilities.isNamazTimeAfter(now, ishaTime);
+                            bool isIsha =
+                                Utilities.isNamazTimeAfter(now, fajrTime);
+                            return Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                namazTimingTrackerWidget(
+                                  text: Appstrings.fajr,
+                                  isCompleted: prayerData.prayerTrackerFajr,
+                                  isUpcoming: isFajr,
+                                ),
+                                namazTimingTrackerWidget(
+                                    text: Appstrings.dhuhr,
+                                    isCompleted: prayerData.prayerTrackerDhuhr,
+                                    isUpcoming: isDhuhr),
+                                namazTimingTrackerWidget(
+                                    text: Appstrings.asr,
+                                    isCompleted: prayerData.prayerTrackerAsr,
+                                    isUpcoming: isAsr),
+                                namazTimingTrackerWidget(
+                                    text: Appstrings.magrib,
+                                    isCompleted: prayerData.prayerTrackerMagrib,
+                                    isUpcoming: isMagrib),
+                                namazTimingTrackerWidget(
+                                  text: Appstrings.isha,
+                                  isCompleted: prayerData.prayerTrackerIsha,
+                                  isShowdivider: false,
+                                  isUpcoming: true,
+                                ),
+                              ],
+                            );
+                          },
                         );
                       },
                     )

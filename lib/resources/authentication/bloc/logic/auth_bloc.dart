@@ -75,10 +75,11 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         }
       } else if (event is SocialLogin) {
         emit(AuthLoading());
+        emit(AuthloadingSocialLogin());
         final result = await _authService.loginWithSocial(
             email: event.email, name: event.name, context: event.context);
         if (result['status'] == true) {
-          emit(AuthLoaded(event.email));
+          emit(AuthLoadedSocialLogin());
         } else {
           emit(AuthError(result['message']));
         }

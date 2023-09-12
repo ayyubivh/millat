@@ -44,10 +44,14 @@ class _SignUpViewState extends State<SignUpView> {
             Navigator.of(context).pushReplacement(MaterialPageRoute(
               builder: (context) => const LoginView(),
             ));
+          } else if (state is AuthLoadedSocialLogin) {
+            Navigator.of(context).pushReplacement(MaterialPageRoute(
+              builder: (context) => const TabsView(),
+            ));
           }
         },
         builder: (context, state) {
-          if (state is AuthLoading) {
+          if (state is AuthLoading || state is AuthloadingSocialLogin) {
             return Center(
               child: CircularProgressIndicator(color: ColorManager.greenColor1),
             );

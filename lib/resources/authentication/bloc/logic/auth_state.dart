@@ -7,6 +7,10 @@ class AuthInitial extends AuthState {}
 
 class AuthLoading extends AuthState {}
 
+class AuthloadingSocialLogin extends AuthState {}
+
+class AuthLoadedSocialLogin extends AuthState {}
+
 class AuthLoaded extends AuthState {
   final String email;
 

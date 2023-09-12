@@ -130,6 +130,9 @@ extension HexColor on Color {
     if (hexColorString.length == 6) {
       hexColorString = "FF$hexColorString";
     }
+    if (hexColorString == "") {
+      return Colors.black;
+    }
     return Color(int.parse(hexColorString, radix: 16));
   }
 }

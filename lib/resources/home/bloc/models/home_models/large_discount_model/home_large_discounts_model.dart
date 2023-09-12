@@ -9,7 +9,7 @@ class LargeDiscountModel with _$LargeDiscountModel {
     int? status,
     String? message,
     String? error,
-    Result? result, // Change the type here to nullable
+    Result? result,
   }) = _LargeDiscountModel;
 
   factory LargeDiscountModel.fromJson(Map<String, dynamic> json) =>
@@ -29,12 +29,12 @@ class Result with _$Result {
 class BannerItem with _$BannerItem {
   const factory BannerItem({
     @JsonKey(name: '_id') required String id,
-    required SubCategory? subCategoryId,
-    required String? subCategoryName,
-    required String? image,
-    required String? url,
-    required String? createdAt,
-    required String? updatedAt,
+    SubCategory? subCategoryId,
+    String? subCategoryName,
+    String? image,
+    String? url,
+    String? createdAt,
+    String? updatedAt,
   }) = _BannerItem;
 
   factory BannerItem.fromJson(Map<String, dynamic> json) =>
@@ -45,11 +45,11 @@ class BannerItem with _$BannerItem {
 class SubCategory with _$SubCategory {
   const factory SubCategory({
     @JsonKey(name: '_id') required String id,
-    required Category? categoryId,
-    required String? title,
-    required String? image,
-    required String? createdAt,
-    required String? updatedAt,
+    Category? categoryId,
+    String? title,
+    String? image,
+    String? createdAt,
+    String? updatedAt,
   }) = _SubCategory;
 
   factory SubCategory.fromJson(Map<String, dynamic> json) =>
@@ -59,11 +59,11 @@ class SubCategory with _$SubCategory {
 @freezed
 class Category with _$Category {
   const factory Category({
-    @JsonKey(name: '_id') required String? id,
-    required String? title,
-    required String? image,
-    required String? createdAt,
-    required String? updatedAt,
+    @JsonKey(name: '_id') String? id,
+    String? title,
+    String? image,
+    String? createdAt,
+    String? updatedAt,
   }) = _Category;
 
   factory Category.fromJson(Map<String, dynamic> json) =>

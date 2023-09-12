@@ -27,7 +27,7 @@ _$_CartResult _$$_CartResultFromJson(Map<String, dynamic> json) =>
     _$_CartResult(
       cartProducts: json['cartProducts'] == null
           ? null
-          : CartProduct.fromJson(json['cartProducts'] as Map<String, dynamic>),
+          : CartProducts.fromJson(json['cartProducts'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$_CartResultToJson(_$_CartResult instance) =>
@@ -35,8 +35,8 @@ Map<String, dynamic> _$$_CartResultToJson(_$_CartResult instance) =>
       'cartProducts': instance.cartProducts,
     };
 
-_$_CartProduct _$$_CartProductFromJson(Map<String, dynamic> json) =>
-    _$_CartProduct(
+_$_CartProducts _$$_CartProductsFromJson(Map<String, dynamic> json) =>
+    _$_CartProducts(
       id: json['_id'] as String?,
       userId: json['userId'] as String?,
       cartItems: (json['cartItems'] as List<dynamic>?)
@@ -46,7 +46,7 @@ _$_CartProduct _$$_CartProductFromJson(Map<String, dynamic> json) =>
       updatedAt: json['updatedAt'] as String?,
     );
 
-Map<String, dynamic> _$$_CartProductToJson(_$_CartProduct instance) =>
+Map<String, dynamic> _$$_CartProductsToJson(_$_CartProducts instance) =>
     <String, dynamic>{
       '_id': instance.id,
       'userId': instance.userId,
@@ -60,20 +60,22 @@ _$_CartItem _$$_CartItemFromJson(Map<String, dynamic> json) => _$_CartItem(
           ? null
           : ProductInfo.fromJson(json['productId'] as Map<String, dynamic>),
       quantity: json['quantity'] as int?,
-      basePrice: json['basePrice'] as int?,
+      sellingPrice: json['sellingPrice'] as int?,
+      discount: json['discount'] as int?,
+      tax: json['tax'] as int?,
       size: json['size'] as String?,
       color: json['color'] as String?,
-      sellingPrice: json['selling_price'] as int,
     );
 
 Map<String, dynamic> _$$_CartItemToJson(_$_CartItem instance) =>
     <String, dynamic>{
       'productId': instance.productId,
       'quantity': instance.quantity,
-      'basePrice': instance.basePrice,
+      'sellingPrice': instance.sellingPrice,
+      'discount': instance.discount,
+      'tax': instance.tax,
       'size': instance.size,
       'color': instance.color,
-      'selling_price': instance.sellingPrice,
     };
 
 _$_ProductInfo _$$_ProductInfoFromJson(Map<String, dynamic> json) =>
@@ -81,25 +83,25 @@ _$_ProductInfo _$$_ProductInfoFromJson(Map<String, dynamic> json) =>
       id: json['_id'] as String?,
       title: json['title'] as String?,
       brand: json['brand'] as String?,
-      description: json['description'] as String?,
-      otherInfo: json['otherInfo'] as String?,
       category: json['category'] as String?,
       subcategory: json['subcategory'] as String?,
-      actualPrice: json['actualPrice'] as int?,
-      discountPrice: json['discountPrice'] as int?,
+      itemType: json['itemType'] as String?,
+      pickupAddress: json['pickupAddress'] as String?,
+      description: json['description'] as String?,
+      regularPrice: json['regularPrice'] as int?,
+      salePrice: json['salePrice'] as int?,
       discount: json['discount'] as int?,
-      colors: (json['colors'] as List<dynamic>?)
-          ?.map((e) => ColorOption.fromJson(e as Map<String, dynamic>))
-          .toList(),
+      color: json['color'] as String?,
+      images:
+          (json['images'] as List<dynamic>?)?.map((e) => e as String).toList(),
       size: (json['size'] as List<dynamic>?)
-          ?.map((e) => SizeOption.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      meta: (json['meta'] as List<dynamic>?)
-          ?.map((e) => MetaInfo.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Size.fromJson(e as Map<String, dynamic>))
           .toList(),
       keywords: (json['keywords'] as List<dynamic>?)
           ?.map((e) => e as String)
           .toList(),
+      madeFrom: json['madeFrom'] as String?,
+      productCareInfo: json['productCareInfo'] as String?,
       createdAt: json['createdAt'] as String?,
       updatedAt: json['updatedAt'] as String?,
     );
@@ -109,53 +111,40 @@ Map<String, dynamic> _$$_ProductInfoToJson(_$_ProductInfo instance) =>
       '_id': instance.id,
       'title': instance.title,
       'brand': instance.brand,
-      'description': instance.description,
-      'otherInfo': instance.otherInfo,
       'category': instance.category,
       'subcategory': instance.subcategory,
-      'actualPrice': instance.actualPrice,
-      'discountPrice': instance.discountPrice,
+      'itemType': instance.itemType,
+      'pickupAddress': instance.pickupAddress,
+      'description': instance.description,
+      'regularPrice': instance.regularPrice,
+      'salePrice': instance.salePrice,
       'discount': instance.discount,
-      'colors': instance.colors,
+      'color': instance.color,
+      'images': instance.images,
       'size': instance.size,
-      'meta': instance.meta,
       'keywords': instance.keywords,
+      'madeFrom': instance.madeFrom,
+      'productCareInfo': instance.productCareInfo,
       'createdAt': instance.createdAt,
       'updatedAt': instance.updatedAt,
     };
 
-_$_ColorOption _$$_ColorOptionFromJson(Map<String, dynamic> json) =>
-    _$_ColorOption(
-      text: json['text'] as String?,
-      images:
-          (json['images'] as List<dynamic>?)?.map((e) => e as String).toList(),
-    );
-
-Map<String, dynamic> _$$_ColorOptionToJson(_$_ColorOption instance) =>
-    <String, dynamic>{
-      'text': instance.text,
-      'images': instance.images,
-    };
-
-_$_SizeOption _$$_SizeOptionFromJson(Map<String, dynamic> json) =>
-    _$_SizeOption(
-      value: json['value'] as String?,
+_$_Size _$$_SizeFromJson(Map<String, dynamic> json) => _$_Size(
+      size: json['size'] as String?,
+      stock: json['stock'] as int?,
       price: json['price'] as int?,
+      sku: json['sku'] as String?,
+      width: json['width'] as String?,
+      height: json['height'] as String?,
+      weight: json['weight'] as String?,
     );
 
-Map<String, dynamic> _$$_SizeOptionToJson(_$_SizeOption instance) =>
-    <String, dynamic>{
-      'value': instance.value,
+Map<String, dynamic> _$$_SizeToJson(_$_Size instance) => <String, dynamic>{
+      'size': instance.size,
+      'stock': instance.stock,
       'price': instance.price,
-    };
-
-_$_MetaInfo _$$_MetaInfoFromJson(Map<String, dynamic> json) => _$_MetaInfo(
-      key: json['key'] as String?,
-      value: json['value'] as String?,
-    );
-
-Map<String, dynamic> _$$_MetaInfoToJson(_$_MetaInfo instance) =>
-    <String, dynamic>{
-      'key': instance.key,
-      'value': instance.value,
+      'sku': instance.sku,
+      'width': instance.width,
+      'height': instance.height,
+      'weight': instance.weight,
     };

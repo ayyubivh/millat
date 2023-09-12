@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:millat/resources/shop/bloc/models/shop_products/shop_products_model.dart';
 
 import '../../../../components/common_widgets/shop_products_widget.dart';
 import '../../../../utils/color_manager.dart';

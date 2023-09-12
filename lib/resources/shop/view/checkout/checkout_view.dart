@@ -144,6 +144,7 @@ class CheckoutView extends StatelessWidget {
               title: Appstrings.continueText,
               onPressed: () {
                 String? id = context.read<AddressBloc>().state.addressId;
+                print(context.read<AddressBloc>().state.addressModel);
                 if (id == null) {
                   showSnackBar(context, 'select the address');
                   return;

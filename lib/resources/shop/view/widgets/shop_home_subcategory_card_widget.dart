@@ -68,7 +68,7 @@ class BackgroundContainer extends StatelessWidget {
                   Text(
                     title,
                     style: TextStyle(
-                      color: HexColor.fromHex(textColor),
+                      // color: HexColor.fromHex(textColor),
                       fontSize: 28,
                       fontWeight: FontWeight.bold,
                     ),

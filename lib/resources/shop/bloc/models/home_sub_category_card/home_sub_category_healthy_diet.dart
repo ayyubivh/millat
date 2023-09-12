@@ -38,7 +38,7 @@ class Data with _$Data {
     required String createdAt,
     required String updatedAt,
     required String slug,
-    required SubCategory subCategoryId,
+    required SubCategory? subCategoryId,
   }) = _Data;
 
   factory Data.fromJson(Map<String, dynamic> json) => _$DataFromJson(json);
@@ -47,11 +47,11 @@ class Data with _$Data {
 @freezed
 class Design with _$Design {
   const factory Design({
-    required String image,
-    required String bgcolor,
-    required String color,
-    required String text,
-    required String subText,
+    required String? image,
+    required String? bgcolor,
+    required String? color,
+    required String? text,
+    required String? subText,
   }) = _Design;
 
   factory Design.fromJson(Map<String, dynamic> json) => _$DesignFromJson(json);
@@ -60,9 +60,9 @@ class Design with _$Design {
 @freezed
 class BigBannerImage with _$BigBannerImage {
   const factory BigBannerImage({
-    required String imageUrl,
-    required String url,
-    required String discount,
+    required String? imageUrl,
+    required String? url,
+    required String? discount,
   }) = _BigBannerImage;
 
   factory BigBannerImage.fromJson(Map<String, dynamic> json) =>
@@ -86,10 +86,10 @@ class SmallBannerImage with _$SmallBannerImage {
 class SubCategory with _$SubCategory {
   const factory SubCategory({
     @JsonKey(name: '_id') required String id,
-    required String categoryId,
-    required String title,
-    required String image,
-    required String createdAt,
+    required String? categoryId,
+    required String? title,
+    required String? image,
+    required String? createdAt,
     required String updatedAt,
   }) = _SubCategory;
 

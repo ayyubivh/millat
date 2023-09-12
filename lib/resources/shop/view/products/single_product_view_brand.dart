@@ -779,7 +779,7 @@ class _SingleProductViewBrandState extends State<SingleProductViewBrand> {
     return GestureDetector(
       onTap: () {
         Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => const SingleProductView(),
+          builder: (context) => SingleProductView(),
         ));
       },
       child: Padding(

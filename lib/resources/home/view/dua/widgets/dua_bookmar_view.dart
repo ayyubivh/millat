@@ -113,6 +113,9 @@ class DuaBookMarkView extends StatelessWidget {
                                                           .duaId,
                                                     ))
                                                     ..add(const FetchDuaById());
+                                                  context.read<DuaBloc>().add(
+                                                      FetchDuaBookMarksEvent(
+                                                          context));
                                                 },
                                                 icon: const Icon(
                                                   Icons.close,

@@ -168,7 +168,7 @@ class ShopSpecificCategoryView extends StatelessWidget {
                         [];
                   } else if (categoryItemType == CategoryItemType.sunnah) {
                     sliderImages = state.shopHomeBackgroundCardModelSunnah
-                            ?.result.data.sliderImage ??
+                            ?.result?.data?.sliderImage ??
                         [];
                   } else {
                     sliderImages = state.shopHomeBackgroundCardModelHealthyDiet
@@ -366,18 +366,17 @@ class ShopSpecificCategoryView extends StatelessWidget {
                                 child: Padding(
                                   padding: const EdgeInsets.only(right: 15),
                                   child: ShopProductWidget(
-                                    color: data.colors?[0].text ?? "",
-                                    size: data.size?[0].value ?? "",
+                                    color: data.color ?? "",
+                                    size: data.size?[0].size ?? "",
                                     brandId: data.brand?.id ?? "",
                                     isWishlisted: state.isWishListed,
                                     brand: data.brand?.name ?? "",
                                     productId: data.id,
-                                    image: data.colors?[0].images?[0] ?? "",
+                                    image: data.images?[0] ?? "",
                                     title: data.title ?? "",
-                                    actualPrice: data.actualPrice?.toInt() ?? 0,
+                                    actualPrice: data.regularPrice ?? 0,
                                     discount: data.discount?.toInt() ?? 0,
-                                    discountPrice:
-                                        data.discountPrice?.toInt() ?? 0,
+                                    discountPrice: data.salePrice ?? 0,
                                   ),
                                 ),
                               );
@@ -403,12 +402,11 @@ class ShopSpecificCategoryView extends StatelessWidget {
                         } else if (categoryItemType ==
                             CategoryItemType.sunnah) {
                           final data = state
-                              .shopHomeBackgroundCardModelSunnah?.result.data;
-                          smallBannerImageUrls = data?.smallBannerImage
-                                  .map((image) => image.imageUrl)
-                                  .toList() ??
-                              [];
-                          bigBannerImageUrl = data?.bigBannerImage.imageUrl;
+                              .shopHomeBackgroundCardModelSunnah?.result?.data;
+                          smallBannerImageUrls = data!.smallBannerImage!
+                              .map((image) => image.imageUrl!)
+                              .toList();
+                          bigBannerImageUrl = data.bigBannerImage!.imageUrl;
                         } else {
                           final data = state
                               .shopHomeBackgroundCardModelHealthyDiet
@@ -485,23 +483,19 @@ class ShopSpecificCategoryView extends StatelessWidget {
                                           padding:
                                               const EdgeInsets.only(right: 15),
                                           child: ShopProductWidget(
-                                            color: data.colors?[0].text ?? "",
-                                            size: data.size?[0].value ?? "",
+                                            color: data.color ?? "",
+                                            size: data.size?[0].size ?? "",
                                             brandId: data.brand?.id ?? "",
                                             isWishlisted: state.isWishListed,
                                             brand: data.brand?.name ?? "",
                                             productId: data.id,
-                                            image: data.colors?[0].images?[0] ??
-                                                "",
+                                            image: data.images?[0] ?? "",
                                             title: data.title ??
                                                 "", // Make title nullable.
-                                            actualPrice:
-                                                data.actualPrice?.toInt() ?? 0,
+                                            actualPrice: data.regularPrice ?? 0,
                                             discount:
                                                 data.discount?.toInt() ?? 0,
-                                            discountPrice:
-                                                data.discountPrice?.toInt() ??
-                                                    0,
+                                            discountPrice: data.salePrice ?? 0,
                                           ),
                                         ),
                                       );

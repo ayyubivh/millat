@@ -17,8 +17,8 @@ class OrderHistoryView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      // BlocProvider.of<ShopProductsBloc>(context)
-      //     .add(ShopProductsEvent.fetchOrders(context));
+      BlocProvider.of<ShopProductsBloc>(context)
+          .add(ShopProductsEvent.fetchOrders(context));
     });
     return Scaffold(
       appBar: AppBar(
@@ -54,7 +54,7 @@ class OrderHistoryView extends StatelessWidget {
             itemCount: state.orderModel?.result?.orderProducts?.length ?? 0,
             itemBuilder: (context, index) {
               final data = state.orderModel?.result?.orderProducts?[index];
-
+              // print(data?.productId?.images?[0]);
               return SizedBox(
                 child: OrdersProfileWidget(
                   date: data?.orderDate ?? "",
@@ -62,8 +62,8 @@ class OrderHistoryView extends StatelessWidget {
                   title: data?.productId?.title,
                   size: data?.size,
                   orderStatus: data?.shippingStatus,
-                  image: data?.productId?.colors?[0].images?[0] ?? "",
-                  price: data!.productId!.actualPrice!.toDouble(),
+                  image: data?.productId?.images?[0],
+                  price: data!.productId?.salePrice?.toDouble() ?? 0,
                   jsonColor: data.color,
                   colorName: data.color,
                   quantity: data.quantity?.toInt() ?? 0,

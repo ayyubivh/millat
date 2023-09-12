@@ -46,8 +46,9 @@ _$_Data _$$_DataFromJson(Map<String, dynamic> json) => _$_Data(
       createdAt: json['createdAt'] as String,
       updatedAt: json['updatedAt'] as String,
       slug: json['slug'] as String,
-      subCategoryId:
-          SubCategory.fromJson(json['subCategoryId'] as Map<String, dynamic>),
+      subCategoryId: json['subCategoryId'] == null
+          ? null
+          : SubCategory.fromJson(json['subCategoryId'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$_DataToJson(_$_Data instance) => <String, dynamic>{
@@ -65,7 +66,7 @@ Map<String, dynamic> _$$_DataToJson(_$_Data instance) => <String, dynamic>{
 _$_Design _$$_DesignFromJson(Map<String, dynamic> json) => _$_Design(
       image: json['image'] as String,
       bgcolor: json['bgcolor'] as String,
-      subText: json['subText'] as String,
+      subText: json['subText'] as String?,
       text: json['text'] as String,
       color: json['color'] as String,
     );
@@ -81,7 +82,7 @@ Map<String, dynamic> _$$_DesignToJson(_$_Design instance) => <String, dynamic>{
 _$_BigBannerImage _$$_BigBannerImageFromJson(Map<String, dynamic> json) =>
     _$_BigBannerImage(
       imageUrl: json['imageUrl'] as String,
-      url: json['url'] as String,
+      url: json['url'] as String?,
       discount: json['discount'] as String,
     );
 
@@ -95,7 +96,7 @@ Map<String, dynamic> _$$_BigBannerImageToJson(_$_BigBannerImage instance) =>
 _$_SmallBannerImage _$$_SmallBannerImageFromJson(Map<String, dynamic> json) =>
     _$_SmallBannerImage(
       imageUrl: json['imageUrl'] as String,
-      url: json['url'] as String,
+      url: json['url'] as String?,
       discount: json['discount'] as String,
       id: json['_id'] as String,
     );

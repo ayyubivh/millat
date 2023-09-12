@@ -227,7 +227,7 @@ CartResult _$CartResultFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$CartResult {
-  CartProduct? get cartProducts => throw _privateConstructorUsedError;
+  CartProducts? get cartProducts => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -241,9 +241,9 @@ abstract class $CartResultCopyWith<$Res> {
           CartResult value, $Res Function(CartResult) then) =
       _$CartResultCopyWithImpl<$Res, CartResult>;
   @useResult
-  $Res call({CartProduct? cartProducts});
+  $Res call({CartProducts? cartProducts});
 
-  $CartProductCopyWith<$Res>? get cartProducts;
+  $CartProductsCopyWith<$Res>? get cartProducts;
 }
 
 /// @nodoc
@@ -265,18 +265,18 @@ class _$CartResultCopyWithImpl<$Res, $Val extends CartResult>
       cartProducts: freezed == cartProducts
           ? _value.cartProducts
           : cartProducts // ignore: cast_nullable_to_non_nullable
-              as CartProduct?,
+              as CartProducts?,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $CartProductCopyWith<$Res>? get cartProducts {
+  $CartProductsCopyWith<$Res>? get cartProducts {
     if (_value.cartProducts == null) {
       return null;
     }
 
-    return $CartProductCopyWith<$Res>(_value.cartProducts!, (value) {
+    return $CartProductsCopyWith<$Res>(_value.cartProducts!, (value) {
       return _then(_value.copyWith(cartProducts: value) as $Val);
     });
   }
@@ -290,10 +290,10 @@ abstract class _$$_CartResultCopyWith<$Res>
       __$$_CartResultCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({CartProduct? cartProducts});
+  $Res call({CartProducts? cartProducts});
 
   @override
-  $CartProductCopyWith<$Res>? get cartProducts;
+  $CartProductsCopyWith<$Res>? get cartProducts;
 }
 
 /// @nodoc
@@ -313,7 +313,7 @@ class __$$_CartResultCopyWithImpl<$Res>
       cartProducts: freezed == cartProducts
           ? _value.cartProducts
           : cartProducts // ignore: cast_nullable_to_non_nullable
-              as CartProduct?,
+              as CartProducts?,
     ));
   }
 }
@@ -327,7 +327,7 @@ class _$_CartResult implements _CartResult {
       _$$_CartResultFromJson(json);
 
   @override
-  final CartProduct? cartProducts;
+  final CartProducts? cartProducts;
 
   @override
   String toString() {
@@ -362,27 +362,27 @@ class _$_CartResult implements _CartResult {
 }
 
 abstract class _CartResult implements CartResult {
-  const factory _CartResult({required final CartProduct? cartProducts}) =
+  const factory _CartResult({required final CartProducts? cartProducts}) =
       _$_CartResult;
 
   factory _CartResult.fromJson(Map<String, dynamic> json) =
       _$_CartResult.fromJson;
 
   @override
-  CartProduct? get cartProducts;
+  CartProducts? get cartProducts;
   @override
   @JsonKey(ignore: true)
   _$$_CartResultCopyWith<_$_CartResult> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
-CartProduct _$CartProductFromJson(Map<String, dynamic> json) {
-  return _CartProduct.fromJson(json);
+CartProducts _$CartProductsFromJson(Map<String, dynamic> json) {
+  return _CartProducts.fromJson(json);
 }
 
 /// @nodoc
-mixin _$CartProduct {
-  @JsonKey(name: "_id")
+mixin _$CartProducts {
+  @JsonKey(name: '_id')
   String? get id => throw _privateConstructorUsedError;
   String? get userId => throw _privateConstructorUsedError;
   List<CartItem>? get cartItems => throw _privateConstructorUsedError;
@@ -391,18 +391,18 @@ mixin _$CartProduct {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $CartProductCopyWith<CartProduct> get copyWith =>
+  $CartProductsCopyWith<CartProducts> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $CartProductCopyWith<$Res> {
-  factory $CartProductCopyWith(
-          CartProduct value, $Res Function(CartProduct) then) =
-      _$CartProductCopyWithImpl<$Res, CartProduct>;
+abstract class $CartProductsCopyWith<$Res> {
+  factory $CartProductsCopyWith(
+          CartProducts value, $Res Function(CartProducts) then) =
+      _$CartProductsCopyWithImpl<$Res, CartProducts>;
   @useResult
   $Res call(
-      {@JsonKey(name: "_id") String? id,
+      {@JsonKey(name: '_id') String? id,
       String? userId,
       List<CartItem>? cartItems,
       String? createdAt,
@@ -410,9 +410,9 @@ abstract class $CartProductCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$CartProductCopyWithImpl<$Res, $Val extends CartProduct>
-    implements $CartProductCopyWith<$Res> {
-  _$CartProductCopyWithImpl(this._value, this._then);
+class _$CartProductsCopyWithImpl<$Res, $Val extends CartProducts>
+    implements $CartProductsCopyWith<$Res> {
+  _$CartProductsCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -454,15 +454,15 @@ class _$CartProductCopyWithImpl<$Res, $Val extends CartProduct>
 }
 
 /// @nodoc
-abstract class _$$_CartProductCopyWith<$Res>
-    implements $CartProductCopyWith<$Res> {
-  factory _$$_CartProductCopyWith(
-          _$_CartProduct value, $Res Function(_$_CartProduct) then) =
-      __$$_CartProductCopyWithImpl<$Res>;
+abstract class _$$_CartProductsCopyWith<$Res>
+    implements $CartProductsCopyWith<$Res> {
+  factory _$$_CartProductsCopyWith(
+          _$_CartProducts value, $Res Function(_$_CartProducts) then) =
+      __$$_CartProductsCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: "_id") String? id,
+      {@JsonKey(name: '_id') String? id,
       String? userId,
       List<CartItem>? cartItems,
       String? createdAt,
@@ -470,11 +470,11 @@ abstract class _$$_CartProductCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_CartProductCopyWithImpl<$Res>
-    extends _$CartProductCopyWithImpl<$Res, _$_CartProduct>
-    implements _$$_CartProductCopyWith<$Res> {
-  __$$_CartProductCopyWithImpl(
-      _$_CartProduct _value, $Res Function(_$_CartProduct) _then)
+class __$$_CartProductsCopyWithImpl<$Res>
+    extends _$CartProductsCopyWithImpl<$Res, _$_CartProducts>
+    implements _$$_CartProductsCopyWith<$Res> {
+  __$$_CartProductsCopyWithImpl(
+      _$_CartProducts _value, $Res Function(_$_CartProducts) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -486,7 +486,7 @@ class __$$_CartProductCopyWithImpl<$Res>
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
   }) {
-    return _then(_$_CartProduct(
+    return _then(_$_CartProducts(
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -513,20 +513,20 @@ class __$$_CartProductCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_CartProduct implements _CartProduct {
-  const _$_CartProduct(
-      {@JsonKey(name: "_id") required this.id,
+class _$_CartProducts implements _CartProducts {
+  const _$_CartProducts(
+      {@JsonKey(name: '_id') required this.id,
       required this.userId,
       required final List<CartItem>? cartItems,
       required this.createdAt,
       required this.updatedAt})
       : _cartItems = cartItems;
 
-  factory _$_CartProduct.fromJson(Map<String, dynamic> json) =>
-      _$$_CartProductFromJson(json);
+  factory _$_CartProducts.fromJson(Map<String, dynamic> json) =>
+      _$$_CartProductsFromJson(json);
 
   @override
-  @JsonKey(name: "_id")
+  @JsonKey(name: '_id')
   final String? id;
   @override
   final String? userId;
@@ -547,14 +547,14 @@ class _$_CartProduct implements _CartProduct {
 
   @override
   String toString() {
-    return 'CartProduct(id: $id, userId: $userId, cartItems: $cartItems, createdAt: $createdAt, updatedAt: $updatedAt)';
+    return 'CartProducts(id: $id, userId: $userId, cartItems: $cartItems, createdAt: $createdAt, updatedAt: $updatedAt)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_CartProduct &&
+            other is _$_CartProducts &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.userId, userId) || other.userId == userId) &&
             const DeepCollectionEquality()
@@ -573,30 +573,30 @@ class _$_CartProduct implements _CartProduct {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_CartProductCopyWith<_$_CartProduct> get copyWith =>
-      __$$_CartProductCopyWithImpl<_$_CartProduct>(this, _$identity);
+  _$$_CartProductsCopyWith<_$_CartProducts> get copyWith =>
+      __$$_CartProductsCopyWithImpl<_$_CartProducts>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_CartProductToJson(
+    return _$$_CartProductsToJson(
       this,
     );
   }
 }
 
-abstract class _CartProduct implements CartProduct {
-  const factory _CartProduct(
-      {@JsonKey(name: "_id") required final String? id,
+abstract class _CartProducts implements CartProducts {
+  const factory _CartProducts(
+      {@JsonKey(name: '_id') required final String? id,
       required final String? userId,
       required final List<CartItem>? cartItems,
       required final String? createdAt,
-      required final String? updatedAt}) = _$_CartProduct;
+      required final String? updatedAt}) = _$_CartProducts;
 
-  factory _CartProduct.fromJson(Map<String, dynamic> json) =
-      _$_CartProduct.fromJson;
+  factory _CartProducts.fromJson(Map<String, dynamic> json) =
+      _$_CartProducts.fromJson;
 
   @override
-  @JsonKey(name: "_id")
+  @JsonKey(name: '_id')
   String? get id;
   @override
   String? get userId;
@@ -608,7 +608,7 @@ abstract class _CartProduct implements CartProduct {
   String? get updatedAt;
   @override
   @JsonKey(ignore: true)
-  _$$_CartProductCopyWith<_$_CartProduct> get copyWith =>
+  _$$_CartProductsCopyWith<_$_CartProducts> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -620,11 +620,11 @@ CartItem _$CartItemFromJson(Map<String, dynamic> json) {
 mixin _$CartItem {
   ProductInfo? get productId => throw _privateConstructorUsedError;
   int? get quantity => throw _privateConstructorUsedError;
-  int? get basePrice => throw _privateConstructorUsedError;
+  int? get sellingPrice => throw _privateConstructorUsedError;
+  int? get discount => throw _privateConstructorUsedError;
+  int? get tax => throw _privateConstructorUsedError;
   String? get size => throw _privateConstructorUsedError;
   String? get color => throw _privateConstructorUsedError;
-  @JsonKey(name: "selling_price")
-  int get sellingPrice => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -640,10 +640,11 @@ abstract class $CartItemCopyWith<$Res> {
   $Res call(
       {ProductInfo? productId,
       int? quantity,
-      int? basePrice,
+      int? sellingPrice,
+      int? discount,
+      int? tax,
       String? size,
-      String? color,
-      @JsonKey(name: "selling_price") int sellingPrice});
+      String? color});
 
   $ProductInfoCopyWith<$Res>? get productId;
 }
@@ -663,10 +664,11 @@ class _$CartItemCopyWithImpl<$Res, $Val extends CartItem>
   $Res call({
     Object? productId = freezed,
     Object? quantity = freezed,
-    Object? basePrice = freezed,
+    Object? sellingPrice = freezed,
+    Object? discount = freezed,
+    Object? tax = freezed,
     Object? size = freezed,
     Object? color = freezed,
-    Object? sellingPrice = null,
   }) {
     return _then(_value.copyWith(
       productId: freezed == productId
@@ -677,9 +679,17 @@ class _$CartItemCopyWithImpl<$Res, $Val extends CartItem>
           ? _value.quantity
           : quantity // ignore: cast_nullable_to_non_nullable
               as int?,
-      basePrice: freezed == basePrice
-          ? _value.basePrice
-          : basePrice // ignore: cast_nullable_to_non_nullable
+      sellingPrice: freezed == sellingPrice
+          ? _value.sellingPrice
+          : sellingPrice // ignore: cast_nullable_to_non_nullable
+              as int?,
+      discount: freezed == discount
+          ? _value.discount
+          : discount // ignore: cast_nullable_to_non_nullable
+              as int?,
+      tax: freezed == tax
+          ? _value.tax
+          : tax // ignore: cast_nullable_to_non_nullable
               as int?,
       size: freezed == size
           ? _value.size
@@ -689,10 +699,6 @@ class _$CartItemCopyWithImpl<$Res, $Val extends CartItem>
           ? _value.color
           : color // ignore: cast_nullable_to_non_nullable
               as String?,
-      sellingPrice: null == sellingPrice
-          ? _value.sellingPrice
-          : sellingPrice // ignore: cast_nullable_to_non_nullable
-              as int,
     ) as $Val);
   }
 
@@ -719,10 +725,11 @@ abstract class _$$_CartItemCopyWith<$Res> implements $CartItemCopyWith<$Res> {
   $Res call(
       {ProductInfo? productId,
       int? quantity,
-      int? basePrice,
+      int? sellingPrice,
+      int? discount,
+      int? tax,
       String? size,
-      String? color,
-      @JsonKey(name: "selling_price") int sellingPrice});
+      String? color});
 
   @override
   $ProductInfoCopyWith<$Res>? get productId;
@@ -741,10 +748,11 @@ class __$$_CartItemCopyWithImpl<$Res>
   $Res call({
     Object? productId = freezed,
     Object? quantity = freezed,
-    Object? basePrice = freezed,
+    Object? sellingPrice = freezed,
+    Object? discount = freezed,
+    Object? tax = freezed,
     Object? size = freezed,
     Object? color = freezed,
-    Object? sellingPrice = null,
   }) {
     return _then(_$_CartItem(
       productId: freezed == productId
@@ -755,9 +763,17 @@ class __$$_CartItemCopyWithImpl<$Res>
           ? _value.quantity
           : quantity // ignore: cast_nullable_to_non_nullable
               as int?,
-      basePrice: freezed == basePrice
-          ? _value.basePrice
-          : basePrice // ignore: cast_nullable_to_non_nullable
+      sellingPrice: freezed == sellingPrice
+          ? _value.sellingPrice
+          : sellingPrice // ignore: cast_nullable_to_non_nullable
+              as int?,
+      discount: freezed == discount
+          ? _value.discount
+          : discount // ignore: cast_nullable_to_non_nullable
+              as int?,
+      tax: freezed == tax
+          ? _value.tax
+          : tax // ignore: cast_nullable_to_non_nullable
               as int?,
       size: freezed == size
           ? _value.size
@@ -767,10 +783,6 @@ class __$$_CartItemCopyWithImpl<$Res>
           ? _value.color
           : color // ignore: cast_nullable_to_non_nullable
               as String?,
-      sellingPrice: null == sellingPrice
-          ? _value.sellingPrice
-          : sellingPrice // ignore: cast_nullable_to_non_nullable
-              as int,
     ));
   }
 }
@@ -781,10 +793,11 @@ class _$_CartItem implements _CartItem {
   const _$_CartItem(
       {required this.productId,
       required this.quantity,
-      required this.basePrice,
+      required this.sellingPrice,
+      this.discount,
+      this.tax,
       required this.size,
-      required this.color,
-      @JsonKey(name: "selling_price") required this.sellingPrice});
+      required this.color});
 
   factory _$_CartItem.fromJson(Map<String, dynamic> json) =>
       _$$_CartItemFromJson(json);
@@ -794,18 +807,19 @@ class _$_CartItem implements _CartItem {
   @override
   final int? quantity;
   @override
-  final int? basePrice;
+  final int? sellingPrice;
+  @override
+  final int? discount;
+  @override
+  final int? tax;
   @override
   final String? size;
   @override
   final String? color;
-  @override
-  @JsonKey(name: "selling_price")
-  final int sellingPrice;
 
   @override
   String toString() {
-    return 'CartItem(productId: $productId, quantity: $quantity, basePrice: $basePrice, size: $size, color: $color, sellingPrice: $sellingPrice)';
+    return 'CartItem(productId: $productId, quantity: $quantity, sellingPrice: $sellingPrice, discount: $discount, tax: $tax, size: $size, color: $color)';
   }
 
   @override
@@ -817,18 +831,19 @@ class _$_CartItem implements _CartItem {
                 other.productId == productId) &&
             (identical(other.quantity, quantity) ||
                 other.quantity == quantity) &&
-            (identical(other.basePrice, basePrice) ||
-                other.basePrice == basePrice) &&
-            (identical(other.size, size) || other.size == size) &&
-            (identical(other.color, color) || other.color == color) &&
             (identical(other.sellingPrice, sellingPrice) ||
-                other.sellingPrice == sellingPrice));
+                other.sellingPrice == sellingPrice) &&
+            (identical(other.discount, discount) ||
+                other.discount == discount) &&
+            (identical(other.tax, tax) || other.tax == tax) &&
+            (identical(other.size, size) || other.size == size) &&
+            (identical(other.color, color) || other.color == color));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, productId, quantity, basePrice, size, color, sellingPrice);
+  int get hashCode => Object.hash(runtimeType, productId, quantity,
+      sellingPrice, discount, tax, size, color);
 
   @JsonKey(ignore: true)
   @override
@@ -846,13 +861,13 @@ class _$_CartItem implements _CartItem {
 
 abstract class _CartItem implements CartItem {
   const factory _CartItem(
-          {required final ProductInfo? productId,
-          required final int? quantity,
-          required final int? basePrice,
-          required final String? size,
-          required final String? color,
-          @JsonKey(name: "selling_price") required final int sellingPrice}) =
-      _$_CartItem;
+      {required final ProductInfo? productId,
+      required final int? quantity,
+      required final int? sellingPrice,
+      final int? discount,
+      final int? tax,
+      required final String? size,
+      required final String? color}) = _$_CartItem;
 
   factory _CartItem.fromJson(Map<String, dynamic> json) = _$_CartItem.fromJson;
 
@@ -861,14 +876,15 @@ abstract class _CartItem implements CartItem {
   @override
   int? get quantity;
   @override
-  int? get basePrice;
+  int? get sellingPrice;
+  @override
+  int? get discount;
+  @override
+  int? get tax;
   @override
   String? get size;
   @override
   String? get color;
-  @override
-  @JsonKey(name: "selling_price")
-  int get sellingPrice;
   @override
   @JsonKey(ignore: true)
   _$$_CartItemCopyWith<_$_CartItem> get copyWith =>
@@ -881,21 +897,26 @@ ProductInfo _$ProductInfoFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ProductInfo {
-  @JsonKey(name: "_id")
+  @JsonKey(name: '_id')
   String? get id => throw _privateConstructorUsedError;
   String? get title => throw _privateConstructorUsedError;
   String? get brand => throw _privateConstructorUsedError;
-  String? get description => throw _privateConstructorUsedError;
-  String? get otherInfo => throw _privateConstructorUsedError;
   String? get category => throw _privateConstructorUsedError;
   String? get subcategory => throw _privateConstructorUsedError;
-  int? get actualPrice => throw _privateConstructorUsedError;
-  int? get discountPrice => throw _privateConstructorUsedError;
+  String? get itemType => throw _privateConstructorUsedError;
+  String? get pickupAddress => throw _privateConstructorUsedError;
+  String? get description => throw _privateConstructorUsedError;
+  @JsonKey(name: 'regularPrice')
+  int? get regularPrice => throw _privateConstructorUsedError;
+  @JsonKey(name: 'salePrice')
+  int? get salePrice => throw _privateConstructorUsedError;
   int? get discount => throw _privateConstructorUsedError;
-  List<ColorOption>? get colors => throw _privateConstructorUsedError;
-  List<SizeOption>? get size => throw _privateConstructorUsedError;
-  List<MetaInfo>? get meta => throw _privateConstructorUsedError;
+  String? get color => throw _privateConstructorUsedError;
+  List<String>? get images => throw _privateConstructorUsedError;
+  List<Size>? get size => throw _privateConstructorUsedError;
   List<String>? get keywords => throw _privateConstructorUsedError;
+  String? get madeFrom => throw _privateConstructorUsedError;
+  String? get productCareInfo => throw _privateConstructorUsedError;
   String? get createdAt => throw _privateConstructorUsedError;
   String? get updatedAt => throw _privateConstructorUsedError;
 
@@ -912,20 +933,23 @@ abstract class $ProductInfoCopyWith<$Res> {
       _$ProductInfoCopyWithImpl<$Res, ProductInfo>;
   @useResult
   $Res call(
-      {@JsonKey(name: "_id") String? id,
+      {@JsonKey(name: '_id') String? id,
       String? title,
       String? brand,
-      String? description,
-      String? otherInfo,
       String? category,
       String? subcategory,
-      int? actualPrice,
-      int? discountPrice,
+      String? itemType,
+      String? pickupAddress,
+      String? description,
+      @JsonKey(name: 'regularPrice') int? regularPrice,
+      @JsonKey(name: 'salePrice') int? salePrice,
       int? discount,
-      List<ColorOption>? colors,
-      List<SizeOption>? size,
-      List<MetaInfo>? meta,
+      String? color,
+      List<String>? images,
+      List<Size>? size,
       List<String>? keywords,
+      String? madeFrom,
+      String? productCareInfo,
       String? createdAt,
       String? updatedAt});
 }
@@ -946,17 +970,20 @@ class _$ProductInfoCopyWithImpl<$Res, $Val extends ProductInfo>
     Object? id = freezed,
     Object? title = freezed,
     Object? brand = freezed,
-    Object? description = freezed,
-    Object? otherInfo = freezed,
     Object? category = freezed,
     Object? subcategory = freezed,
-    Object? actualPrice = freezed,
-    Object? discountPrice = freezed,
+    Object? itemType = freezed,
+    Object? pickupAddress = freezed,
+    Object? description = freezed,
+    Object? regularPrice = freezed,
+    Object? salePrice = freezed,
     Object? discount = freezed,
-    Object? colors = freezed,
+    Object? color = freezed,
+    Object? images = freezed,
     Object? size = freezed,
-    Object? meta = freezed,
     Object? keywords = freezed,
+    Object? madeFrom = freezed,
+    Object? productCareInfo = freezed,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
   }) {
@@ -973,14 +1000,6 @@ class _$ProductInfoCopyWithImpl<$Res, $Val extends ProductInfo>
           ? _value.brand
           : brand // ignore: cast_nullable_to_non_nullable
               as String?,
-      description: freezed == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String?,
-      otherInfo: freezed == otherInfo
-          ? _value.otherInfo
-          : otherInfo // ignore: cast_nullable_to_non_nullable
-              as String?,
       category: freezed == category
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
@@ -989,34 +1008,54 @@ class _$ProductInfoCopyWithImpl<$Res, $Val extends ProductInfo>
           ? _value.subcategory
           : subcategory // ignore: cast_nullable_to_non_nullable
               as String?,
-      actualPrice: freezed == actualPrice
-          ? _value.actualPrice
-          : actualPrice // ignore: cast_nullable_to_non_nullable
+      itemType: freezed == itemType
+          ? _value.itemType
+          : itemType // ignore: cast_nullable_to_non_nullable
+              as String?,
+      pickupAddress: freezed == pickupAddress
+          ? _value.pickupAddress
+          : pickupAddress // ignore: cast_nullable_to_non_nullable
+              as String?,
+      description: freezed == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String?,
+      regularPrice: freezed == regularPrice
+          ? _value.regularPrice
+          : regularPrice // ignore: cast_nullable_to_non_nullable
               as int?,
-      discountPrice: freezed == discountPrice
-          ? _value.discountPrice
-          : discountPrice // ignore: cast_nullable_to_non_nullable
+      salePrice: freezed == salePrice
+          ? _value.salePrice
+          : salePrice // ignore: cast_nullable_to_non_nullable
               as int?,
       discount: freezed == discount
           ? _value.discount
           : discount // ignore: cast_nullable_to_non_nullable
               as int?,
-      colors: freezed == colors
-          ? _value.colors
-          : colors // ignore: cast_nullable_to_non_nullable
-              as List<ColorOption>?,
+      color: freezed == color
+          ? _value.color
+          : color // ignore: cast_nullable_to_non_nullable
+              as String?,
+      images: freezed == images
+          ? _value.images
+          : images // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
       size: freezed == size
           ? _value.size
           : size // ignore: cast_nullable_to_non_nullable
-              as List<SizeOption>?,
-      meta: freezed == meta
-          ? _value.meta
-          : meta // ignore: cast_nullable_to_non_nullable
-              as List<MetaInfo>?,
+              as List<Size>?,
       keywords: freezed == keywords
           ? _value.keywords
           : keywords // ignore: cast_nullable_to_non_nullable
               as List<String>?,
+      madeFrom: freezed == madeFrom
+          ? _value.madeFrom
+          : madeFrom // ignore: cast_nullable_to_non_nullable
+              as String?,
+      productCareInfo: freezed == productCareInfo
+          ? _value.productCareInfo
+          : productCareInfo // ignore: cast_nullable_to_non_nullable
+              as String?,
       createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -1038,20 +1077,23 @@ abstract class _$$_ProductInfoCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: "_id") String? id,
+      {@JsonKey(name: '_id') String? id,
       String? title,
       String? brand,
-      String? description,
-      String? otherInfo,
       String? category,
       String? subcategory,
-      int? actualPrice,
-      int? discountPrice,
+      String? itemType,
+      String? pickupAddress,
+      String? description,
+      @JsonKey(name: 'regularPrice') int? regularPrice,
+      @JsonKey(name: 'salePrice') int? salePrice,
       int? discount,
-      List<ColorOption>? colors,
-      List<SizeOption>? size,
-      List<MetaInfo>? meta,
+      String? color,
+      List<String>? images,
+      List<Size>? size,
       List<String>? keywords,
+      String? madeFrom,
+      String? productCareInfo,
       String? createdAt,
       String? updatedAt});
 }
@@ -1070,17 +1112,20 @@ class __$$_ProductInfoCopyWithImpl<$Res>
     Object? id = freezed,
     Object? title = freezed,
     Object? brand = freezed,
-    Object? description = freezed,
-    Object? otherInfo = freezed,
     Object? category = freezed,
     Object? subcategory = freezed,
-    Object? actualPrice = freezed,
-    Object? discountPrice = freezed,
+    Object? itemType = freezed,
+    Object? pickupAddress = freezed,
+    Object? description = freezed,
+    Object? regularPrice = freezed,
+    Object? salePrice = freezed,
     Object? discount = freezed,
-    Object? colors = freezed,
+    Object? color = freezed,
+    Object? images = freezed,
     Object? size = freezed,
-    Object? meta = freezed,
     Object? keywords = freezed,
+    Object? madeFrom = freezed,
+    Object? productCareInfo = freezed,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
   }) {
@@ -1097,14 +1142,6 @@ class __$$_ProductInfoCopyWithImpl<$Res>
           ? _value.brand
           : brand // ignore: cast_nullable_to_non_nullable
               as String?,
-      description: freezed == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String?,
-      otherInfo: freezed == otherInfo
-          ? _value.otherInfo
-          : otherInfo // ignore: cast_nullable_to_non_nullable
-              as String?,
       category: freezed == category
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
@@ -1113,34 +1150,54 @@ class __$$_ProductInfoCopyWithImpl<$Res>
           ? _value.subcategory
           : subcategory // ignore: cast_nullable_to_non_nullable
               as String?,
-      actualPrice: freezed == actualPrice
-          ? _value.actualPrice
-          : actualPrice // ignore: cast_nullable_to_non_nullable
+      itemType: freezed == itemType
+          ? _value.itemType
+          : itemType // ignore: cast_nullable_to_non_nullable
+              as String?,
+      pickupAddress: freezed == pickupAddress
+          ? _value.pickupAddress
+          : pickupAddress // ignore: cast_nullable_to_non_nullable
+              as String?,
+      description: freezed == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String?,
+      regularPrice: freezed == regularPrice
+          ? _value.regularPrice
+          : regularPrice // ignore: cast_nullable_to_non_nullable
               as int?,
-      discountPrice: freezed == discountPrice
-          ? _value.discountPrice
-          : discountPrice // ignore: cast_nullable_to_non_nullable
+      salePrice: freezed == salePrice
+          ? _value.salePrice
+          : salePrice // ignore: cast_nullable_to_non_nullable
               as int?,
       discount: freezed == discount
           ? _value.discount
           : discount // ignore: cast_nullable_to_non_nullable
               as int?,
-      colors: freezed == colors
-          ? _value._colors
-          : colors // ignore: cast_nullable_to_non_nullable
-              as List<ColorOption>?,
+      color: freezed == color
+          ? _value.color
+          : color // ignore: cast_nullable_to_non_nullable
+              as String?,
+      images: freezed == images
+          ? _value._images
+          : images // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
       size: freezed == size
           ? _value._size
           : size // ignore: cast_nullable_to_non_nullable
-              as List<SizeOption>?,
-      meta: freezed == meta
-          ? _value._meta
-          : meta // ignore: cast_nullable_to_non_nullable
-              as List<MetaInfo>?,
+              as List<Size>?,
       keywords: freezed == keywords
           ? _value._keywords
           : keywords // ignore: cast_nullable_to_non_nullable
               as List<String>?,
+      madeFrom: freezed == madeFrom
+          ? _value.madeFrom
+          : madeFrom // ignore: cast_nullable_to_non_nullable
+              as String?,
+      productCareInfo: freezed == productCareInfo
+          ? _value.productCareInfo
+          : productCareInfo // ignore: cast_nullable_to_non_nullable
+              as String?,
       createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -1157,77 +1214,75 @@ class __$$_ProductInfoCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_ProductInfo implements _ProductInfo {
   const _$_ProductInfo(
-      {@JsonKey(name: "_id") required this.id,
+      {@JsonKey(name: '_id') this.id,
       this.title,
       this.brand,
-      this.description,
-      this.otherInfo,
       this.category,
       this.subcategory,
-      this.actualPrice,
-      this.discountPrice,
+      this.itemType,
+      this.pickupAddress,
+      this.description,
+      @JsonKey(name: 'regularPrice') this.regularPrice,
+      @JsonKey(name: 'salePrice') this.salePrice,
       this.discount,
-      final List<ColorOption>? colors,
-      final List<SizeOption>? size,
-      final List<MetaInfo>? meta,
+      this.color,
+      final List<String>? images,
+      final List<Size>? size,
       final List<String>? keywords,
+      this.madeFrom,
+      this.productCareInfo,
       this.createdAt,
       this.updatedAt})
-      : _colors = colors,
+      : _images = images,
         _size = size,
-        _meta = meta,
         _keywords = keywords;
 
   factory _$_ProductInfo.fromJson(Map<String, dynamic> json) =>
       _$$_ProductInfoFromJson(json);
 
   @override
-  @JsonKey(name: "_id")
+  @JsonKey(name: '_id')
   final String? id;
   @override
   final String? title;
   @override
   final String? brand;
   @override
-  final String? description;
-  @override
-  final String? otherInfo;
-  @override
   final String? category;
   @override
   final String? subcategory;
   @override
-  final int? actualPrice;
+  final String? itemType;
   @override
-  final int? discountPrice;
+  final String? pickupAddress;
+  @override
+  final String? description;
+  @override
+  @JsonKey(name: 'regularPrice')
+  final int? regularPrice;
+  @override
+  @JsonKey(name: 'salePrice')
+  final int? salePrice;
   @override
   final int? discount;
-  final List<ColorOption>? _colors;
   @override
-  List<ColorOption>? get colors {
-    final value = _colors;
+  final String? color;
+  final List<String>? _images;
+  @override
+  List<String>? get images {
+    final value = _images;
     if (value == null) return null;
-    if (_colors is EqualUnmodifiableListView) return _colors;
+    if (_images is EqualUnmodifiableListView) return _images;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
 
-  final List<SizeOption>? _size;
+  final List<Size>? _size;
   @override
-  List<SizeOption>? get size {
+  List<Size>? get size {
     final value = _size;
     if (value == null) return null;
     if (_size is EqualUnmodifiableListView) return _size;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
-
-  final List<MetaInfo>? _meta;
-  @override
-  List<MetaInfo>? get meta {
-    final value = _meta;
-    if (value == null) return null;
-    if (_meta is EqualUnmodifiableListView) return _meta;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
@@ -1243,13 +1298,17 @@ class _$_ProductInfo implements _ProductInfo {
   }
 
   @override
+  final String? madeFrom;
+  @override
+  final String? productCareInfo;
+  @override
   final String? createdAt;
   @override
   final String? updatedAt;
 
   @override
   String toString() {
-    return 'ProductInfo(id: $id, title: $title, brand: $brand, description: $description, otherInfo: $otherInfo, category: $category, subcategory: $subcategory, actualPrice: $actualPrice, discountPrice: $discountPrice, discount: $discount, colors: $colors, size: $size, meta: $meta, keywords: $keywords, createdAt: $createdAt, updatedAt: $updatedAt)';
+    return 'ProductInfo(id: $id, title: $title, brand: $brand, category: $category, subcategory: $subcategory, itemType: $itemType, pickupAddress: $pickupAddress, description: $description, regularPrice: $regularPrice, salePrice: $salePrice, discount: $discount, color: $color, images: $images, size: $size, keywords: $keywords, madeFrom: $madeFrom, productCareInfo: $productCareInfo, createdAt: $createdAt, updatedAt: $updatedAt)';
   }
 
   @override
@@ -1260,24 +1319,30 @@ class _$_ProductInfo implements _ProductInfo {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.brand, brand) || other.brand == brand) &&
-            (identical(other.description, description) ||
-                other.description == description) &&
-            (identical(other.otherInfo, otherInfo) ||
-                other.otherInfo == otherInfo) &&
             (identical(other.category, category) ||
                 other.category == category) &&
             (identical(other.subcategory, subcategory) ||
                 other.subcategory == subcategory) &&
-            (identical(other.actualPrice, actualPrice) ||
-                other.actualPrice == actualPrice) &&
-            (identical(other.discountPrice, discountPrice) ||
-                other.discountPrice == discountPrice) &&
+            (identical(other.itemType, itemType) ||
+                other.itemType == itemType) &&
+            (identical(other.pickupAddress, pickupAddress) ||
+                other.pickupAddress == pickupAddress) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
+            (identical(other.regularPrice, regularPrice) ||
+                other.regularPrice == regularPrice) &&
+            (identical(other.salePrice, salePrice) ||
+                other.salePrice == salePrice) &&
             (identical(other.discount, discount) ||
                 other.discount == discount) &&
-            const DeepCollectionEquality().equals(other._colors, _colors) &&
+            (identical(other.color, color) || other.color == color) &&
+            const DeepCollectionEquality().equals(other._images, _images) &&
             const DeepCollectionEquality().equals(other._size, _size) &&
-            const DeepCollectionEquality().equals(other._meta, _meta) &&
             const DeepCollectionEquality().equals(other._keywords, _keywords) &&
+            (identical(other.madeFrom, madeFrom) ||
+                other.madeFrom == madeFrom) &&
+            (identical(other.productCareInfo, productCareInfo) ||
+                other.productCareInfo == productCareInfo) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
             (identical(other.updatedAt, updatedAt) ||
@@ -1286,24 +1351,28 @@ class _$_ProductInfo implements _ProductInfo {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      id,
-      title,
-      brand,
-      description,
-      otherInfo,
-      category,
-      subcategory,
-      actualPrice,
-      discountPrice,
-      discount,
-      const DeepCollectionEquality().hash(_colors),
-      const DeepCollectionEquality().hash(_size),
-      const DeepCollectionEquality().hash(_meta),
-      const DeepCollectionEquality().hash(_keywords),
-      createdAt,
-      updatedAt);
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        id,
+        title,
+        brand,
+        category,
+        subcategory,
+        itemType,
+        pickupAddress,
+        description,
+        regularPrice,
+        salePrice,
+        discount,
+        color,
+        const DeepCollectionEquality().hash(_images),
+        const DeepCollectionEquality().hash(_size),
+        const DeepCollectionEquality().hash(_keywords),
+        madeFrom,
+        productCareInfo,
+        createdAt,
+        updatedAt
+      ]);
 
   @JsonKey(ignore: true)
   @override
@@ -1321,20 +1390,23 @@ class _$_ProductInfo implements _ProductInfo {
 
 abstract class _ProductInfo implements ProductInfo {
   const factory _ProductInfo(
-      {@JsonKey(name: "_id") required final String? id,
+      {@JsonKey(name: '_id') final String? id,
       final String? title,
       final String? brand,
-      final String? description,
-      final String? otherInfo,
       final String? category,
       final String? subcategory,
-      final int? actualPrice,
-      final int? discountPrice,
+      final String? itemType,
+      final String? pickupAddress,
+      final String? description,
+      @JsonKey(name: 'regularPrice') final int? regularPrice,
+      @JsonKey(name: 'salePrice') final int? salePrice,
       final int? discount,
-      final List<ColorOption>? colors,
-      final List<SizeOption>? size,
-      final List<MetaInfo>? meta,
+      final String? color,
+      final List<String>? images,
+      final List<Size>? size,
       final List<String>? keywords,
+      final String? madeFrom,
+      final String? productCareInfo,
       final String? createdAt,
       final String? updatedAt}) = _$_ProductInfo;
 
@@ -1342,34 +1414,42 @@ abstract class _ProductInfo implements ProductInfo {
       _$_ProductInfo.fromJson;
 
   @override
-  @JsonKey(name: "_id")
+  @JsonKey(name: '_id')
   String? get id;
   @override
   String? get title;
   @override
   String? get brand;
   @override
-  String? get description;
-  @override
-  String? get otherInfo;
-  @override
   String? get category;
   @override
   String? get subcategory;
   @override
-  int? get actualPrice;
+  String? get itemType;
   @override
-  int? get discountPrice;
+  String? get pickupAddress;
+  @override
+  String? get description;
+  @override
+  @JsonKey(name: 'regularPrice')
+  int? get regularPrice;
+  @override
+  @JsonKey(name: 'salePrice')
+  int? get salePrice;
   @override
   int? get discount;
   @override
-  List<ColorOption>? get colors;
+  String? get color;
   @override
-  List<SizeOption>? get size;
+  List<String>? get images;
   @override
-  List<MetaInfo>? get meta;
+  List<Size>? get size;
   @override
   List<String>? get keywords;
+  @override
+  String? get madeFrom;
+  @override
+  String? get productCareInfo;
   @override
   String? get createdAt;
   @override
@@ -1380,198 +1460,45 @@ abstract class _ProductInfo implements ProductInfo {
       throw _privateConstructorUsedError;
 }
 
-ColorOption _$ColorOptionFromJson(Map<String, dynamic> json) {
-  return _ColorOption.fromJson(json);
+Size _$SizeFromJson(Map<String, dynamic> json) {
+  return _Size.fromJson(json);
 }
 
 /// @nodoc
-mixin _$ColorOption {
-  String? get text => throw _privateConstructorUsedError;
-  List<String>? get images => throw _privateConstructorUsedError;
-
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $ColorOptionCopyWith<ColorOption> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $ColorOptionCopyWith<$Res> {
-  factory $ColorOptionCopyWith(
-          ColorOption value, $Res Function(ColorOption) then) =
-      _$ColorOptionCopyWithImpl<$Res, ColorOption>;
-  @useResult
-  $Res call({String? text, List<String>? images});
-}
-
-/// @nodoc
-class _$ColorOptionCopyWithImpl<$Res, $Val extends ColorOption>
-    implements $ColorOptionCopyWith<$Res> {
-  _$ColorOptionCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? text = freezed,
-    Object? images = freezed,
-  }) {
-    return _then(_value.copyWith(
-      text: freezed == text
-          ? _value.text
-          : text // ignore: cast_nullable_to_non_nullable
-              as String?,
-      images: freezed == images
-          ? _value.images
-          : images // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$_ColorOptionCopyWith<$Res>
-    implements $ColorOptionCopyWith<$Res> {
-  factory _$$_ColorOptionCopyWith(
-          _$_ColorOption value, $Res Function(_$_ColorOption) then) =
-      __$$_ColorOptionCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String? text, List<String>? images});
-}
-
-/// @nodoc
-class __$$_ColorOptionCopyWithImpl<$Res>
-    extends _$ColorOptionCopyWithImpl<$Res, _$_ColorOption>
-    implements _$$_ColorOptionCopyWith<$Res> {
-  __$$_ColorOptionCopyWithImpl(
-      _$_ColorOption _value, $Res Function(_$_ColorOption) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? text = freezed,
-    Object? images = freezed,
-  }) {
-    return _then(_$_ColorOption(
-      text: freezed == text
-          ? _value.text
-          : text // ignore: cast_nullable_to_non_nullable
-              as String?,
-      images: freezed == images
-          ? _value._images
-          : images // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$_ColorOption implements _ColorOption {
-  const _$_ColorOption(
-      {required this.text, required final List<String>? images})
-      : _images = images;
-
-  factory _$_ColorOption.fromJson(Map<String, dynamic> json) =>
-      _$$_ColorOptionFromJson(json);
-
-  @override
-  final String? text;
-  final List<String>? _images;
-  @override
-  List<String>? get images {
-    final value = _images;
-    if (value == null) return null;
-    if (_images is EqualUnmodifiableListView) return _images;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
-
-  @override
-  String toString() {
-    return 'ColorOption(text: $text, images: $images)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_ColorOption &&
-            (identical(other.text, text) || other.text == text) &&
-            const DeepCollectionEquality().equals(other._images, _images));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(
-      runtimeType, text, const DeepCollectionEquality().hash(_images));
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$_ColorOptionCopyWith<_$_ColorOption> get copyWith =>
-      __$$_ColorOptionCopyWithImpl<_$_ColorOption>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$_ColorOptionToJson(
-      this,
-    );
-  }
-}
-
-abstract class _ColorOption implements ColorOption {
-  const factory _ColorOption(
-      {required final String? text,
-      required final List<String>? images}) = _$_ColorOption;
-
-  factory _ColorOption.fromJson(Map<String, dynamic> json) =
-      _$_ColorOption.fromJson;
-
-  @override
-  String? get text;
-  @override
-  List<String>? get images;
-  @override
-  @JsonKey(ignore: true)
-  _$$_ColorOptionCopyWith<_$_ColorOption> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-SizeOption _$SizeOptionFromJson(Map<String, dynamic> json) {
-  return _SizeOption.fromJson(json);
-}
-
-/// @nodoc
-mixin _$SizeOption {
-  String? get value => throw _privateConstructorUsedError;
+mixin _$Size {
+  String? get size => throw _privateConstructorUsedError;
+  int? get stock => throw _privateConstructorUsedError;
   int? get price => throw _privateConstructorUsedError;
+  String? get sku => throw _privateConstructorUsedError;
+  @JsonKey(name: 'width')
+  String? get width => throw _privateConstructorUsedError;
+  String? get height => throw _privateConstructorUsedError;
+  String? get weight => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $SizeOptionCopyWith<SizeOption> get copyWith =>
-      throw _privateConstructorUsedError;
+  $SizeCopyWith<Size> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $SizeOptionCopyWith<$Res> {
-  factory $SizeOptionCopyWith(
-          SizeOption value, $Res Function(SizeOption) then) =
-      _$SizeOptionCopyWithImpl<$Res, SizeOption>;
+abstract class $SizeCopyWith<$Res> {
+  factory $SizeCopyWith(Size value, $Res Function(Size) then) =
+      _$SizeCopyWithImpl<$Res, Size>;
   @useResult
-  $Res call({String? value, int? price});
+  $Res call(
+      {String? size,
+      int? stock,
+      int? price,
+      String? sku,
+      @JsonKey(name: 'width') String? width,
+      String? height,
+      String? weight});
 }
 
 /// @nodoc
-class _$SizeOptionCopyWithImpl<$Res, $Val extends SizeOption>
-    implements $SizeOptionCopyWith<$Res> {
-  _$SizeOptionCopyWithImpl(this._value, this._then);
+class _$SizeCopyWithImpl<$Res, $Val extends Size>
+    implements $SizeCopyWith<$Res> {
+  _$SizeCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -1581,269 +1508,209 @@ class _$SizeOptionCopyWithImpl<$Res, $Val extends SizeOption>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? value = freezed,
+    Object? size = freezed,
+    Object? stock = freezed,
     Object? price = freezed,
+    Object? sku = freezed,
+    Object? width = freezed,
+    Object? height = freezed,
+    Object? weight = freezed,
   }) {
     return _then(_value.copyWith(
-      value: freezed == value
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
+      size: freezed == size
+          ? _value.size
+          : size // ignore: cast_nullable_to_non_nullable
               as String?,
+      stock: freezed == stock
+          ? _value.stock
+          : stock // ignore: cast_nullable_to_non_nullable
+              as int?,
       price: freezed == price
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
               as int?,
+      sku: freezed == sku
+          ? _value.sku
+          : sku // ignore: cast_nullable_to_non_nullable
+              as String?,
+      width: freezed == width
+          ? _value.width
+          : width // ignore: cast_nullable_to_non_nullable
+              as String?,
+      height: freezed == height
+          ? _value.height
+          : height // ignore: cast_nullable_to_non_nullable
+              as String?,
+      weight: freezed == weight
+          ? _value.weight
+          : weight // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$_SizeOptionCopyWith<$Res>
-    implements $SizeOptionCopyWith<$Res> {
-  factory _$$_SizeOptionCopyWith(
-          _$_SizeOption value, $Res Function(_$_SizeOption) then) =
-      __$$_SizeOptionCopyWithImpl<$Res>;
+abstract class _$$_SizeCopyWith<$Res> implements $SizeCopyWith<$Res> {
+  factory _$$_SizeCopyWith(_$_Size value, $Res Function(_$_Size) then) =
+      __$$_SizeCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? value, int? price});
+  $Res call(
+      {String? size,
+      int? stock,
+      int? price,
+      String? sku,
+      @JsonKey(name: 'width') String? width,
+      String? height,
+      String? weight});
 }
 
 /// @nodoc
-class __$$_SizeOptionCopyWithImpl<$Res>
-    extends _$SizeOptionCopyWithImpl<$Res, _$_SizeOption>
-    implements _$$_SizeOptionCopyWith<$Res> {
-  __$$_SizeOptionCopyWithImpl(
-      _$_SizeOption _value, $Res Function(_$_SizeOption) _then)
+class __$$_SizeCopyWithImpl<$Res> extends _$SizeCopyWithImpl<$Res, _$_Size>
+    implements _$$_SizeCopyWith<$Res> {
+  __$$_SizeCopyWithImpl(_$_Size _value, $Res Function(_$_Size) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? value = freezed,
+    Object? size = freezed,
+    Object? stock = freezed,
     Object? price = freezed,
+    Object? sku = freezed,
+    Object? width = freezed,
+    Object? height = freezed,
+    Object? weight = freezed,
   }) {
-    return _then(_$_SizeOption(
-      value: freezed == value
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
+    return _then(_$_Size(
+      size: freezed == size
+          ? _value.size
+          : size // ignore: cast_nullable_to_non_nullable
               as String?,
+      stock: freezed == stock
+          ? _value.stock
+          : stock // ignore: cast_nullable_to_non_nullable
+              as int?,
       price: freezed == price
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
               as int?,
+      sku: freezed == sku
+          ? _value.sku
+          : sku // ignore: cast_nullable_to_non_nullable
+              as String?,
+      width: freezed == width
+          ? _value.width
+          : width // ignore: cast_nullable_to_non_nullable
+              as String?,
+      height: freezed == height
+          ? _value.height
+          : height // ignore: cast_nullable_to_non_nullable
+              as String?,
+      weight: freezed == weight
+          ? _value.weight
+          : weight // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$_SizeOption implements _SizeOption {
-  const _$_SizeOption({required this.value, required this.price});
+class _$_Size implements _Size {
+  const _$_Size(
+      {required this.size,
+      required this.stock,
+      required this.price,
+      required this.sku,
+      @JsonKey(name: 'width') required this.width,
+      required this.height,
+      required this.weight});
 
-  factory _$_SizeOption.fromJson(Map<String, dynamic> json) =>
-      _$$_SizeOptionFromJson(json);
+  factory _$_Size.fromJson(Map<String, dynamic> json) => _$$_SizeFromJson(json);
 
   @override
-  final String? value;
+  final String? size;
+  @override
+  final int? stock;
   @override
   final int? price;
+  @override
+  final String? sku;
+  @override
+  @JsonKey(name: 'width')
+  final String? width;
+  @override
+  final String? height;
+  @override
+  final String? weight;
 
   @override
   String toString() {
-    return 'SizeOption(value: $value, price: $price)';
+    return 'Size(size: $size, stock: $stock, price: $price, sku: $sku, width: $width, height: $height, weight: $weight)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SizeOption &&
-            (identical(other.value, value) || other.value == value) &&
-            (identical(other.price, price) || other.price == price));
+            other is _$_Size &&
+            (identical(other.size, size) || other.size == size) &&
+            (identical(other.stock, stock) || other.stock == stock) &&
+            (identical(other.price, price) || other.price == price) &&
+            (identical(other.sku, sku) || other.sku == sku) &&
+            (identical(other.width, width) || other.width == width) &&
+            (identical(other.height, height) || other.height == height) &&
+            (identical(other.weight, weight) || other.weight == weight));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, value, price);
+  int get hashCode =>
+      Object.hash(runtimeType, size, stock, price, sku, width, height, weight);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SizeOptionCopyWith<_$_SizeOption> get copyWith =>
-      __$$_SizeOptionCopyWithImpl<_$_SizeOption>(this, _$identity);
+  _$$_SizeCopyWith<_$_Size> get copyWith =>
+      __$$_SizeCopyWithImpl<_$_Size>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SizeOptionToJson(
+    return _$$_SizeToJson(
       this,
     );
   }
 }
 
-abstract class _SizeOption implements SizeOption {
-  const factory _SizeOption(
-      {required final String? value,
-      required final int? price}) = _$_SizeOption;
+abstract class _Size implements Size {
+  const factory _Size(
+      {required final String? size,
+      required final int? stock,
+      required final int? price,
+      required final String? sku,
+      @JsonKey(name: 'width') required final String? width,
+      required final String? height,
+      required final String? weight}) = _$_Size;
 
-  factory _SizeOption.fromJson(Map<String, dynamic> json) =
-      _$_SizeOption.fromJson;
+  factory _Size.fromJson(Map<String, dynamic> json) = _$_Size.fromJson;
 
   @override
-  String? get value;
+  String? get size;
+  @override
+  int? get stock;
   @override
   int? get price;
   @override
-  @JsonKey(ignore: true)
-  _$$_SizeOptionCopyWith<_$_SizeOption> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-MetaInfo _$MetaInfoFromJson(Map<String, dynamic> json) {
-  return _MetaInfo.fromJson(json);
-}
-
-/// @nodoc
-mixin _$MetaInfo {
-  String? get key => throw _privateConstructorUsedError;
-  String? get value => throw _privateConstructorUsedError;
-
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $MetaInfoCopyWith<MetaInfo> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $MetaInfoCopyWith<$Res> {
-  factory $MetaInfoCopyWith(MetaInfo value, $Res Function(MetaInfo) then) =
-      _$MetaInfoCopyWithImpl<$Res, MetaInfo>;
-  @useResult
-  $Res call({String? key, String? value});
-}
-
-/// @nodoc
-class _$MetaInfoCopyWithImpl<$Res, $Val extends MetaInfo>
-    implements $MetaInfoCopyWith<$Res> {
-  _$MetaInfoCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
+  String? get sku;
   @override
-  $Res call({
-    Object? key = freezed,
-    Object? value = freezed,
-  }) {
-    return _then(_value.copyWith(
-      key: freezed == key
-          ? _value.key
-          : key // ignore: cast_nullable_to_non_nullable
-              as String?,
-      value: freezed == value
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$_MetaInfoCopyWith<$Res> implements $MetaInfoCopyWith<$Res> {
-  factory _$$_MetaInfoCopyWith(
-          _$_MetaInfo value, $Res Function(_$_MetaInfo) then) =
-      __$$_MetaInfoCopyWithImpl<$Res>;
+  @JsonKey(name: 'width')
+  String? get width;
   @override
-  @useResult
-  $Res call({String? key, String? value});
-}
-
-/// @nodoc
-class __$$_MetaInfoCopyWithImpl<$Res>
-    extends _$MetaInfoCopyWithImpl<$Res, _$_MetaInfo>
-    implements _$$_MetaInfoCopyWith<$Res> {
-  __$$_MetaInfoCopyWithImpl(
-      _$_MetaInfo _value, $Res Function(_$_MetaInfo) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
+  String? get height;
   @override
-  $Res call({
-    Object? key = freezed,
-    Object? value = freezed,
-  }) {
-    return _then(_$_MetaInfo(
-      key: freezed == key
-          ? _value.key
-          : key // ignore: cast_nullable_to_non_nullable
-              as String?,
-      value: freezed == value
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$_MetaInfo implements _MetaInfo {
-  const _$_MetaInfo({required this.key, required this.value});
-
-  factory _$_MetaInfo.fromJson(Map<String, dynamic> json) =>
-      _$$_MetaInfoFromJson(json);
-
-  @override
-  final String? key;
-  @override
-  final String? value;
-
-  @override
-  String toString() {
-    return 'MetaInfo(key: $key, value: $value)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_MetaInfo &&
-            (identical(other.key, key) || other.key == key) &&
-            (identical(other.value, value) || other.value == value));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, key, value);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$_MetaInfoCopyWith<_$_MetaInfo> get copyWith =>
-      __$$_MetaInfoCopyWithImpl<_$_MetaInfo>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$_MetaInfoToJson(
-      this,
-    );
-  }
-}
-
-abstract class _MetaInfo implements MetaInfo {
-  const factory _MetaInfo(
-      {required final String? key, required final String? value}) = _$_MetaInfo;
-
-  factory _MetaInfo.fromJson(Map<String, dynamic> json) = _$_MetaInfo.fromJson;
-
-  @override
-  String? get key;
-  @override
-  String? get value;
+  String? get weight;
   @override
   @JsonKey(ignore: true)
-  _$$_MetaInfoCopyWith<_$_MetaInfo> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$_SizeCopyWith<_$_Size> get copyWith => throw _privateConstructorUsedError;
 }

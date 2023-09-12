@@ -36,7 +36,7 @@ class Data with _$Data {
     required String createdAt,
     required String updatedAt,
     required String slug,
-    required SubCategory subCategoryId,
+    SubCategory? subCategoryId, // Make subCategoryId nullable
   }) = _Data;
 
   factory Data.fromJson(Map<String, dynamic> json) => _$DataFromJson(json);
@@ -47,7 +47,7 @@ class Design with _$Design {
   const factory Design({
     required String image,
     required String bgcolor,
-    required String subText,
+    String? subText, // Make subText nullable
     required String text,
     required String color,
   }) = _Design;
@@ -59,7 +59,7 @@ class Design with _$Design {
 class BigBannerImage with _$BigBannerImage {
   const factory BigBannerImage({
     required String imageUrl,
-    required String url,
+    String? url, // Make url nullable
     required String discount,
   }) = _BigBannerImage;
 
@@ -71,7 +71,7 @@ class BigBannerImage with _$BigBannerImage {
 class SmallBannerImage with _$SmallBannerImage {
   const factory SmallBannerImage({
     required String imageUrl,
-    required String url,
+    String? url, // Make url nullable
     required String discount,
     @JsonKey(name: "_id") required String id,
   }) = _SmallBannerImage;

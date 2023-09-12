@@ -26,18 +26,36 @@ class HaditTinkerCardsState extends State<HaditTinkerCards> {
         if (cards == null) {
           return Container();
         }
-        return SwipeCards(
-          matchEngine:
-              MatchEngine(swipeItems: cards.map(_buildSwipeItem).toList()),
-          itemBuilder: (
-            BuildContext context,
-            int index,
-          ) {
-            return _buildHadithCard(context, cards[index]);
-          },
-          onStackFinished: () {},
-          upSwipeAllowed: true,
-          fillSpace: true,
+        return BlocBuilder<HomeBloc, HomeState>(
+          builder: (context, state) => !state.tinderCardSwipVal
+              ? _buildHadithCard(context, cards[cards.length - 1])
+              : SwipeCards(
+                  leftSwipeAllowed: state.tinderCardSwipVal,
+                  rightSwipeAllowed: state.tinderCardSwipVal,
+
+                  itemChanged: (p0, p1) {
+                    if (p1 == cards.length - 1) {
+                      context
+                          .read<HomeBloc>()
+                          .add(const ChangeTinterCardSwipeOption(value: false));
+                    }
+                    // else if (p1 != cards.length - 1) {
+                    //   context
+                    //       .read<HomeBloc>()
+                    //       .add(const ChangeTinterCardSwipeOption(value: true));
+                    // }
+                  },
+                  matchEngine: MatchEngine(
+                      swipeItems: cards.map(_buildSwipeItem).toList()),
+                  itemBuilder: (
+                    BuildContext context,
+                    int index,
+                  ) {
+                    return _buildHadithCard(context, cards[index]);
+                  },
+                  onStackFinished: () {},
+                  // fillSpace: true,
+                ),
         );
       },
     );
@@ -56,7 +74,7 @@ class HaditTinkerCardsState extends State<HaditTinkerCards> {
     return Stack(
       children: [
         Container(
-          padding: const EdgeInsets.only(top: 15),
+          padding: const EdgeInsets.only(top: 16),
           height: 340,
           child: Stack(
             children: [

@@ -4,6 +4,7 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:intl/intl.dart';
+import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/home/bloc/models/home_models/event_of_the_month_model/event_of_the_month_model.dart';
 import 'package:millat/resources/home/bloc/models/home_models/top_offers_model/top_offers_model.dart';
 import 'package:millat/resources/home/bloc/service/home_services.dart';
@@ -29,6 +30,11 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     on<FetchPrayerTrackerEvent>(_fetchPrayerTrackerEvent);
     on<AddPrayerToPrayerTracker>(_addPrayerToPrayerTracker);
     on<ChangeIndexofAllaysaysBg>(_changeIndexofAllaysaysBg);
+    on<ChangeHomeTabIndexEvent>(_changeHomeTabIndexEvent);
+    on<RemoveDailyPrayerTrackerNamaz>(_removeDailyPrayerTrackerNamaz);
+    on<ChangeTinterCardSwipeOption>(_changeTinterCardSwipeOption);
+    on<ChangeCompassThemeEvent>(_changeCompassThemeEvent);
+    on<ChangeCompassThemeIndex>(_changeCompassThemeIndex);
   }
 
   _fetchLargeDisountsBanner(
@@ -176,33 +182,19 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
           context: event.context,
           date: formattedDate,
           namazName: event.namazName);
-      // switch (event.namazName) {
-      //   case Appstrings.fajr:
-      //     emit(state.copyWith(
-      //         prayerTrackerFajr:
-      //             state.prayerTrackerFajr == true ? false : true));
-      //     break;
-      //   case Appstrings.dhuhr:
-      //     emit(state.copyWith(
-      //         prayerTrackerDhuhr:
-      //             state.prayerTrackerDhuhr == true ? false : true));
-      //     break;
-      //   case Appstrings.asr:
-      //     emit(state.copyWith(
-      //         prayerTrackerAsr: state.prayerTrackerAsr == true ? false : true));
-      //     break;
-      //   case Appstrings.magrib:
-      //     emit(state.copyWith(
-      //         prayerTrackerMagrib:
-      //             state.prayerTrackerMagrib == true ? false : true));
-      //     break;
-      //   case Appstrings.isha:
-      //     emit(state.copyWith(
-      //         prayerTrackerIsha:
-      //             state.prayerTrackerIsha == true ? false : true));
-      //     break;
-      //   default:
-      // }
+    } catch (e) {
+      throw Exception(e);
+    }
+  }
+
+  _removeDailyPrayerTrackerNamaz(
+      RemoveDailyPrayerTrackerNamaz event, Emitter<HomeState> emit) async {
+    try {
+      DateTime now = DateTime.now();
+
+      String formattedDate = DateFormat('dd-MM-yyyy').format(now);
+      await homeServices.removeDailyPrayerTracker(
+          context: event.context, date: formattedDate, namaz: event.namazName);
     } catch (e) {
       throw Exception(e);
     }
@@ -211,5 +203,25 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   _changeIndexofAllaysaysBg(
       ChangeIndexofAllaysaysBg event, Emitter<HomeState> emit) {
     emit(state.copyWith(allaysBgindex: state.allaysBgindex + 1));
+  }
+
+  _changeHomeTabIndexEvent(
+      ChangeHomeTabIndexEvent event, Emitter<HomeState> emit) {
+    emit(state.copyWith(homeTabIndex: event.newIndex));
+  }
+
+  _changeTinterCardSwipeOption(
+      ChangeTinterCardSwipeOption event, Emitter<HomeState> emit) {
+    emit(state.copyWith(tinderCardSwipVal: event.value));
+  }
+
+  _changeCompassThemeEvent(
+      ChangeCompassThemeEvent event, Emitter<HomeState> emit) {
+    emit(state.copyWith(compassTheme: event.compassTheme));
+  }
+
+  _changeCompassThemeIndex(
+      ChangeCompassThemeIndex event, Emitter<HomeState> emit) {
+    emit(state.copyWith(compassThemeIndex: event.index));
   }
 }

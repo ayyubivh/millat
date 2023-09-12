@@ -59,7 +59,7 @@ class TasbihViewState extends State<TasbihView>
       builder: (context, state) => Scaffold(
         appBar: AppBar(
           foregroundColor: ColorManager.blackColor,
-          backgroundColor: appThemeData[state.tasbihThemes]!.primaryColor,
+          backgroundColor: tasbihThemeData[state.tasbihThemes]!.primaryColor,
           elevation: 1,
           leading: BlocBuilder<TasbihBloc, TasbihState>(
             builder: (context, state) => BackButton(
@@ -124,7 +124,7 @@ class TasbihViewState extends State<TasbihView>
             ),
           ),
         ),
-        backgroundColor: appThemeData[state.tasbihThemes]!.primaryColor,
+        backgroundColor: tasbihThemeData[state.tasbihThemes]!.primaryColor,
         body: Center(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -149,8 +149,9 @@ class TasbihViewState extends State<TasbihView>
               BlocBuilder<TasbihBloc, TasbihState>(
                 builder: (context, state) => Text(
                   state.dhikrCount.toString(),
-                  style:
-                      appThemeData[state.tasbihThemes]!.textTheme.bodyMedium!,
+                  style: tasbihThemeData[state.tasbihThemes]!
+                      .textTheme
+                      .bodyMedium!,
                 ),
               ),
               kHeight5,
@@ -160,7 +161,7 @@ class TasbihViewState extends State<TasbihView>
                   BlocBuilder<TasbihBloc, TasbihState>(
                     builder: (context, state) => Text(
                       state.dhikrhGoal.toString(),
-                      style: appThemeData[state.tasbihThemes]!
+                      style: tasbihThemeData[state.tasbihThemes]!
                           .textTheme
                           .labelSmall,
                     ),
@@ -173,7 +174,7 @@ class TasbihViewState extends State<TasbihView>
                     child: Icon(
                       Icons.border_color_outlined,
                       size: 19,
-                      color: appThemeData[state.tasbihThemes]!
+                      color: tasbihThemeData[state.tasbihThemes]!
                           .textTheme
                           .labelSmall!
                           .color,
@@ -200,20 +201,20 @@ class TasbihViewState extends State<TasbihView>
                           ).value;
                           return Positioned(
                             top: state.tasbihThemes == TasbihThemes.orange
-                                ? 95 - curvedValue * 200
+                                ? 152 - curvedValue * 200
                                 : state.tasbihThemes == TasbihThemes.purple
-                                    ? 70 - curvedValue * 200
+                                    ? 130 - curvedValue * 200
                                     : state.tasbihThemes == TasbihThemes.green
                                         ? 148 - curvedValue * 200
                                         : state.tasbihThemes ==
                                                 TasbihThemes.darkBlue
-                                            ? 80 - curvedValue * 200
+                                            ? 130 - curvedValue * 200
                                             : state.tasbihThemes ==
                                                     TasbihThemes.lightOrange
-                                                ? 64 - curvedValue * 200
+                                                ? 125 - curvedValue * 200
                                                 : 129 - curvedValue * 200,
                             left: state.tasbihThemes == TasbihThemes.orange
-                                ? 81 + curvedValue * SizeUtility(context).width
+                                ? 80 + curvedValue * SizeUtility(context).width
                                 : state.tasbihThemes == TasbihThemes.purple
                                     ? 68 +
                                         curvedValue * SizeUtility(context).width
@@ -223,7 +224,7 @@ class TasbihViewState extends State<TasbihView>
                                                 SizeUtility(context).width
                                         : state.tasbihThemes ==
                                                 TasbihThemes.darkBlue
-                                            ? 78 +
+                                            ? 77 +
                                                 curvedValue *
                                                     SizeUtility(context).width
                                             : state.tasbihThemes ==
@@ -263,7 +264,7 @@ class TasbihViewState extends State<TasbihView>
           ),
         ),
         bottomSheet: Container(
-          color: appThemeData[state.tasbihThemes]!.primaryColor,
+          color: tasbihThemeData[state.tasbihThemes]!.primaryColor,
           height: 260,
           child: Column(
             children: [
@@ -321,12 +322,14 @@ class TasbihViewState extends State<TasbihView>
                                   border: state.themeIndex == index
                                       ? Border.all(color: ColorManager.redColor)
                                       : null,
-                                  color:
-                                      appThemeData[tasbihTheme]!.primaryColor,
+                                  color: tasbihThemeData[tasbihTheme]!
+                                      .primaryColor,
                                   borderRadius: BorderRadius.circular(12),
                                 ),
                                 child: Image.asset(
-                                    'assets/images/tasbih_theme_ball_${index + 1}.png'),
+                                  'assets/images/tasbih_theme_ball_${index + 1}.png',
+                                  fit: BoxFit.contain,
+                                ),
                               ),
                             );
                           },
@@ -351,13 +354,13 @@ class TasbihViewState extends State<TasbihView>
         borderRadius: BorderRadius.circular(12),
         gradient: LinearGradient(
           colors: [
-            appThemeData[state.tasbihThemes]!.primaryColorDark,
-            appThemeData[state.tasbihThemes]!.primaryColorLight,
+            tasbihThemeData[state.tasbihThemes]!.primaryColorDark,
+            tasbihThemeData[state.tasbihThemes]!.primaryColorLight,
           ],
         ),
       ),
       width: double.infinity,
-      height: 90,
+      height: 95,
       child: BlocBuilder<TasbihBloc, TasbihState>(
         builder: (context, state) => Column(
           crossAxisAlignment: CrossAxisAlignment.end,
@@ -372,21 +375,24 @@ class TasbihViewState extends State<TasbihView>
                 Text(
                   state.tasbihDhikr,
                   style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w600,
-                      color: ColorManager.whiteColor,
-                      fontFamily: "Hafs"),
+                    fontSize: 16,
+                    fontWeight: FontWeight.w600,
+                    color: ColorManager.whiteColor,
+                    fontFamily: "Hafs",
+                  ),
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
                 ),
               ],
             ),
-            Text(
-              state.tasbihDikrTranslate,
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.w600,
-                color: ColorManager.whiteColor,
-              ),
-            ),
+            // Text(
+            //   state.tasbihDikrTranslate,
+            //   style: TextStyle(
+            //     fontSize: 16,
+            //     fontWeight: FontWeight.w600,
+            //     color: ColorManager.whiteColor,
+            //   ),
+            // ),
             Align(
               alignment: Alignment.topLeft,
               child: GestureDetector(
@@ -422,8 +428,8 @@ class TasbihViewState extends State<TasbihView>
           borderRadius: BorderRadius.circular(4),
           gradient: LinearGradient(
             colors: [
-              appThemeData[state.tasbihThemes]!.primaryColorDark,
-              appThemeData[state.tasbihThemes]!.primaryColorLight,
+              tasbihThemeData[state.tasbihThemes]!.primaryColorDark,
+              tasbihThemeData[state.tasbihThemes]!.primaryColorLight,
             ],
           ),
         ),
@@ -534,7 +540,6 @@ class TasbihViewState extends State<TasbihView>
                                             int.parse(numberController.text)));
                                 Navigator.of(context).pop();
                               }
-                              print('empty');
                             },
                             child: Text(
                               'Save',

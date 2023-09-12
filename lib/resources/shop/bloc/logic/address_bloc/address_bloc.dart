@@ -4,6 +4,8 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:millat/resources/shop/bloc/service/address_service.dart';
+import 'package:millat/utils/string_constants.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../models/address_model/addres_byid_model.dart';
 import '../../models/address_model/address_model.dart';
@@ -22,6 +24,7 @@ class AddressBloc extends Bloc<AddressEvent, AddressState> {
     on<FetchAddressByIdEvent>(_fetchAddressByIdEvent);
     on<DeleteAddressEvent>(_deleteAddressEvent);
     on<UpdateAddress>(_updateAddress);
+    on<FetchAddressDefaultIndex>(_fetchAddressDefaultIndex);
   }
 
   _addAddress(AddAddress event, Emitter<AddressState> emit) async {
@@ -86,9 +89,17 @@ class AddressBloc extends Bloc<AddressEvent, AddressState> {
     }
   }
 
-  FutureOr<void> _selectAddressEvent(
-      SelectAddressEvent event, Emitter<AddressState> emit) {
+  _fetchAddressDefaultIndex(
+      FetchAddressDefaultIndex event, Emitter<AddressState> emit) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    final value = prefs.getInt(Appstrings.addressDefaultIndex);
+    emit(state.copyWith(selectedIndex: value ?? 0));
+  }
+
+  _selectAddressEvent(SelectAddressEvent event, Emitter<AddressState> emit) {
     emit(state.copyWith(selectedIndex: event.selectedIndex));
+    _saveIndexToSharedPreferences(
+        Appstrings.addressDefaultIndex, event.selectedIndex);
     print('index in the blco ${state.selectedIndex}');
   }
 
@@ -128,5 +139,10 @@ class AddressBloc extends Bloc<AddressEvent, AddressState> {
     } catch (e) {
       throw Exception();
     }
+  }
+
+  Future<void> _saveIndexToSharedPreferences(String key, int value) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setInt(key, value);
   }
 }

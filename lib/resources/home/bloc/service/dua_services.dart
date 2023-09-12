@@ -162,7 +162,7 @@ class DuaServices extends HttpServices {
         final Map<String, dynamic> data = json.decode(response.body);
 
         final result = DuaBookMarkModel.fromJson(data);
-        print('here on the fetch bookmark results $result');
+
         return result;
       } catch (e) {
         print('error on fetch bookmark API fetch: ${e.toString()}');

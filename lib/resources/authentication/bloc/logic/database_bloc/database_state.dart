@@ -12,6 +12,7 @@ class DatabaseState with _$DatabaseState {
     required String succesMessage,
     required File? imagebytes,
     required String failedMessage,
+    required List<Contact>? contacts,
   }) = _Initial;
   factory DatabaseState.initial() => const DatabaseState(
       token: "",
@@ -22,5 +23,6 @@ class DatabaseState with _$DatabaseState {
       isLoading: false,
       succesMessage: "",
       failedMessage: "",
-      editIsloading: false);
+      editIsloading: false,
+      contacts: []);
 }

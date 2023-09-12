@@ -2,22 +2,27 @@ part of 'home_bloc.dart';
 
 @freezed
 class HomeState with _$HomeState {
-  const factory HomeState(
-      {required bool isLoading,
-      required LargeDiscountModel? largeDiscountModel,
-      required TopOffersModel? topOffersModel,
-      required BrandOftheDayModel? brandOftheDayModel,
-      required HaditOfTheDayModel? haditOfTheDayModel,
-      required EventOfTheMonthModel? eventOfTheMonthModel,
-      required bool prayerTrackerFajr,
-      required bool prayerTrackerDhuhr,
-      required bool prayerTrackerAsr,
-      required bool prayerTrackerMagrib,
-      required bool prayerTrackerIsha,
-      required PrayerTrackerModel? prayerTracker,
-      required double namazCompletedCount,
-      required String dailyPrayerTrackerDate,
-      required int allaysBgindex}) = _HomeState;
+  const factory HomeState({
+    required bool isLoading,
+    required LargeDiscountModel? largeDiscountModel,
+    required TopOffersModel? topOffersModel,
+    required BrandOftheDayModel? brandOftheDayModel,
+    required HaditOfTheDayModel? haditOfTheDayModel,
+    required EventOfTheMonthModel? eventOfTheMonthModel,
+    required bool prayerTrackerFajr,
+    required bool prayerTrackerDhuhr,
+    required bool prayerTrackerAsr,
+    required bool prayerTrackerMagrib,
+    required bool prayerTrackerIsha,
+    required PrayerTrackerModel? prayerTracker,
+    required double namazCompletedCount,
+    required String dailyPrayerTrackerDate,
+    required int allaysBgindex,
+    required int homeTabIndex,
+    required bool tinderCardSwipVal,
+    required CompassTheme compassTheme,
+    required int compassThemeIndex,
+  }) = _HomeState;
   factory HomeState.initial() => const HomeState(
         isLoading: false,
         largeDiscountModel: null,
@@ -34,5 +39,9 @@ class HomeState with _$HomeState {
         namazCompletedCount: 0,
         allaysBgindex: 0,
         dailyPrayerTrackerDate: "",
+        homeTabIndex: 0,
+        tinderCardSwipVal: true,
+        compassTheme: CompassTheme.one,
+        compassThemeIndex: 0,
       );
 }

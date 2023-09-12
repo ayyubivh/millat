@@ -46,6 +46,15 @@ enum TasbihThemes {
   lightOrange,
 }
 
+enum CompassTheme {
+  one,
+  two,
+  three,
+  four,
+  five,
+  six,
+}
+
 enum VersesScroll {
   scroll,
   notScroll,

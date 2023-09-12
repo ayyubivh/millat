@@ -738,7 +738,7 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                                                           .spaceBetween,
                                                   children: [
                                                     const Text(
-                                                      'Show Imsak in Prayer Time Page',
+                                                      'Show Qiyam in Prayer Time Page',
                                                       style: TextStyle(
                                                         fontWeight:
                                                             FontWeight.w600,
@@ -1010,7 +1010,7 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                     'Asr': data.asr,
                     'Maghrib': data.maghrib,
                     'Isha': data.isha,
-                    "Qiyam": data.imsak
+                    "Qiyam": data.midnight,
                   };
                   final List<String> prayerNames = times.keys.toList();
                   final List prayerTimes = times.values.toList();

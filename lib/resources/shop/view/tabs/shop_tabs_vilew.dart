@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/enums/enumertations.dart';
+import 'package:millat/resources/home/bloc/logic/home_bloc/home_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
 import 'package:millat/resources/shop/view/article/articles_view.dart';
 import 'package:millat/resources/shop/view/shop_view.dart';
@@ -29,19 +30,24 @@ class ShopTabsView extends StatelessWidget {
       builder: (context, state) => WillPopScope(
         onWillPop: () {
           if (state.index == 0) {
-            DateTime now = DateTime.now();
-            if (currentBackPressTime == null ||
-                now.difference(currentBackPressTime!) >
-                    const Duration(seconds: 2)) {
-              currentBackPressTime = now;
+            // DateTime now = DateTime.now();
+            // if (currentBackPressTime == null ||
+            //     now.difference(currentBackPressTime!) >
+            //         const Duration(seconds: 2)) {
+            //   currentBackPressTime = now;
 
-              return Future.value(false);
-            }
+            //   return Future.value(false);
+            // }
+            context
+                .read<HomeBloc>()
+                .add(const ChangeHomeTabIndexEvent(newIndex: 0));
+
             return Future.value(true);
           } else {
             context
                 .read<ShopProductsBloc>()
                 .add(const TabIndexChangeEvent(index: 0));
+
             return Future.value(false);
           }
         },
@@ -57,6 +63,9 @@ class ShopTabsView extends StatelessWidget {
                     context,
                     MaterialPageRoute(builder: (context) => const TabsView()),
                   );
+                  context
+                      .read<HomeBloc>()
+                      .add(const ChangeHomeTabIndexEvent(newIndex: 0));
                 } else {
                   context
                       .read<ShopProductsBloc>()

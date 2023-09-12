@@ -635,17 +635,28 @@ BrandId _$BrandIdFromJson(Map<String, dynamic> json) {
 mixin _$BrandId {
   @JsonKey(name: "_id")
   String? get id => throw _privateConstructorUsedError;
+  String? get role => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
   String? get email => throw _privateConstructorUsedError;
   String? get password => throw _privateConstructorUsedError;
-  String? get roles => throw _privateConstructorUsedError;
-  bool? get active => throw _privateConstructorUsedError;
+  bool? get isActive => throw _privateConstructorUsedError;
+  int? get phoneNumber => throw _privateConstructorUsedError;
+  String? get logo => throw _privateConstructorUsedError;
+  String? get coverImage => throw _privateConstructorUsedError;
+  String? get description => throw _privateConstructorUsedError;
+  String? get cityName => throw _privateConstructorUsedError;
+  String? get brandName => throw _privateConstructorUsedError;
+  String? get companyName => throw _privateConstructorUsedError;
+  String? get companyRegYear => throw _privateConstructorUsedError;
+  int? get revenueOfLastThreeMonths =>
+      throw _privateConstructorUsedError; // Change to int
+  String? get category => throw _privateConstructorUsedError;
+  List<String>? get subCategory => throw _privateConstructorUsedError;
+  @JsonKey(name: "GST")
+  String? get gst => throw _privateConstructorUsedError;
+  String? get otp => throw _privateConstructorUsedError;
   String? get createdAt => throw _privateConstructorUsedError;
   String? get updatedAt => throw _privateConstructorUsedError;
-  String? get otp => throw _privateConstructorUsedError;
-  String? get phone_number => throw _privateConstructorUsedError;
-  String? get description => throw _privateConstructorUsedError;
-  String? get image => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -659,17 +670,26 @@ abstract class $BrandIdCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: "_id") String? id,
+      String? role,
       String? name,
       String? email,
       String? password,
-      String? roles,
-      bool? active,
-      String? createdAt,
-      String? updatedAt,
-      String? otp,
-      String? phone_number,
+      bool? isActive,
+      int? phoneNumber,
+      String? logo,
+      String? coverImage,
       String? description,
-      String? image});
+      String? cityName,
+      String? brandName,
+      String? companyName,
+      String? companyRegYear,
+      int? revenueOfLastThreeMonths,
+      String? category,
+      List<String>? subCategory,
+      @JsonKey(name: "GST") String? gst,
+      String? otp,
+      String? createdAt,
+      String? updatedAt});
 }
 
 /// @nodoc
@@ -686,22 +706,35 @@ class _$BrandIdCopyWithImpl<$Res, $Val extends BrandId>
   @override
   $Res call({
     Object? id = freezed,
+    Object? role = freezed,
     Object? name = freezed,
     Object? email = freezed,
     Object? password = freezed,
-    Object? roles = freezed,
-    Object? active = freezed,
+    Object? isActive = freezed,
+    Object? phoneNumber = freezed,
+    Object? logo = freezed,
+    Object? coverImage = freezed,
+    Object? description = freezed,
+    Object? cityName = freezed,
+    Object? brandName = freezed,
+    Object? companyName = freezed,
+    Object? companyRegYear = freezed,
+    Object? revenueOfLastThreeMonths = freezed,
+    Object? category = freezed,
+    Object? subCategory = freezed,
+    Object? gst = freezed,
+    Object? otp = freezed,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
-    Object? otp = freezed,
-    Object? phone_number = freezed,
-    Object? description = freezed,
-    Object? image = freezed,
   }) {
     return _then(_value.copyWith(
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      role: freezed == role
+          ? _value.role
+          : role // ignore: cast_nullable_to_non_nullable
               as String?,
       name: freezed == name
           ? _value.name
@@ -715,14 +748,62 @@ class _$BrandIdCopyWithImpl<$Res, $Val extends BrandId>
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String?,
-      roles: freezed == roles
-          ? _value.roles
-          : roles // ignore: cast_nullable_to_non_nullable
-              as String?,
-      active: freezed == active
-          ? _value.active
-          : active // ignore: cast_nullable_to_non_nullable
+      isActive: freezed == isActive
+          ? _value.isActive
+          : isActive // ignore: cast_nullable_to_non_nullable
               as bool?,
+      phoneNumber: freezed == phoneNumber
+          ? _value.phoneNumber
+          : phoneNumber // ignore: cast_nullable_to_non_nullable
+              as int?,
+      logo: freezed == logo
+          ? _value.logo
+          : logo // ignore: cast_nullable_to_non_nullable
+              as String?,
+      coverImage: freezed == coverImage
+          ? _value.coverImage
+          : coverImage // ignore: cast_nullable_to_non_nullable
+              as String?,
+      description: freezed == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String?,
+      cityName: freezed == cityName
+          ? _value.cityName
+          : cityName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      brandName: freezed == brandName
+          ? _value.brandName
+          : brandName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      companyName: freezed == companyName
+          ? _value.companyName
+          : companyName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      companyRegYear: freezed == companyRegYear
+          ? _value.companyRegYear
+          : companyRegYear // ignore: cast_nullable_to_non_nullable
+              as String?,
+      revenueOfLastThreeMonths: freezed == revenueOfLastThreeMonths
+          ? _value.revenueOfLastThreeMonths
+          : revenueOfLastThreeMonths // ignore: cast_nullable_to_non_nullable
+              as int?,
+      category: freezed == category
+          ? _value.category
+          : category // ignore: cast_nullable_to_non_nullable
+              as String?,
+      subCategory: freezed == subCategory
+          ? _value.subCategory
+          : subCategory // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+      gst: freezed == gst
+          ? _value.gst
+          : gst // ignore: cast_nullable_to_non_nullable
+              as String?,
+      otp: freezed == otp
+          ? _value.otp
+          : otp // ignore: cast_nullable_to_non_nullable
+              as String?,
       createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -730,22 +811,6 @@ class _$BrandIdCopyWithImpl<$Res, $Val extends BrandId>
       updatedAt: freezed == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
-              as String?,
-      otp: freezed == otp
-          ? _value.otp
-          : otp // ignore: cast_nullable_to_non_nullable
-              as String?,
-      phone_number: freezed == phone_number
-          ? _value.phone_number
-          : phone_number // ignore: cast_nullable_to_non_nullable
-              as String?,
-      description: freezed == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String?,
-      image: freezed == image
-          ? _value.image
-          : image // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -760,17 +825,26 @@ abstract class _$$_BrandIdCopyWith<$Res> implements $BrandIdCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: "_id") String? id,
+      String? role,
       String? name,
       String? email,
       String? password,
-      String? roles,
-      bool? active,
-      String? createdAt,
-      String? updatedAt,
-      String? otp,
-      String? phone_number,
+      bool? isActive,
+      int? phoneNumber,
+      String? logo,
+      String? coverImage,
       String? description,
-      String? image});
+      String? cityName,
+      String? brandName,
+      String? companyName,
+      String? companyRegYear,
+      int? revenueOfLastThreeMonths,
+      String? category,
+      List<String>? subCategory,
+      @JsonKey(name: "GST") String? gst,
+      String? otp,
+      String? createdAt,
+      String? updatedAt});
 }
 
 /// @nodoc
@@ -784,22 +858,35 @@ class __$$_BrandIdCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = freezed,
+    Object? role = freezed,
     Object? name = freezed,
     Object? email = freezed,
     Object? password = freezed,
-    Object? roles = freezed,
-    Object? active = freezed,
+    Object? isActive = freezed,
+    Object? phoneNumber = freezed,
+    Object? logo = freezed,
+    Object? coverImage = freezed,
+    Object? description = freezed,
+    Object? cityName = freezed,
+    Object? brandName = freezed,
+    Object? companyName = freezed,
+    Object? companyRegYear = freezed,
+    Object? revenueOfLastThreeMonths = freezed,
+    Object? category = freezed,
+    Object? subCategory = freezed,
+    Object? gst = freezed,
+    Object? otp = freezed,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
-    Object? otp = freezed,
-    Object? phone_number = freezed,
-    Object? description = freezed,
-    Object? image = freezed,
   }) {
     return _then(_$_BrandId(
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      role: freezed == role
+          ? _value.role
+          : role // ignore: cast_nullable_to_non_nullable
               as String?,
       name: freezed == name
           ? _value.name
@@ -813,14 +900,62 @@ class __$$_BrandIdCopyWithImpl<$Res>
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String?,
-      roles: freezed == roles
-          ? _value.roles
-          : roles // ignore: cast_nullable_to_non_nullable
-              as String?,
-      active: freezed == active
-          ? _value.active
-          : active // ignore: cast_nullable_to_non_nullable
+      isActive: freezed == isActive
+          ? _value.isActive
+          : isActive // ignore: cast_nullable_to_non_nullable
               as bool?,
+      phoneNumber: freezed == phoneNumber
+          ? _value.phoneNumber
+          : phoneNumber // ignore: cast_nullable_to_non_nullable
+              as int?,
+      logo: freezed == logo
+          ? _value.logo
+          : logo // ignore: cast_nullable_to_non_nullable
+              as String?,
+      coverImage: freezed == coverImage
+          ? _value.coverImage
+          : coverImage // ignore: cast_nullable_to_non_nullable
+              as String?,
+      description: freezed == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String?,
+      cityName: freezed == cityName
+          ? _value.cityName
+          : cityName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      brandName: freezed == brandName
+          ? _value.brandName
+          : brandName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      companyName: freezed == companyName
+          ? _value.companyName
+          : companyName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      companyRegYear: freezed == companyRegYear
+          ? _value.companyRegYear
+          : companyRegYear // ignore: cast_nullable_to_non_nullable
+              as String?,
+      revenueOfLastThreeMonths: freezed == revenueOfLastThreeMonths
+          ? _value.revenueOfLastThreeMonths
+          : revenueOfLastThreeMonths // ignore: cast_nullable_to_non_nullable
+              as int?,
+      category: freezed == category
+          ? _value.category
+          : category // ignore: cast_nullable_to_non_nullable
+              as String?,
+      subCategory: freezed == subCategory
+          ? _value._subCategory
+          : subCategory // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+      gst: freezed == gst
+          ? _value.gst
+          : gst // ignore: cast_nullable_to_non_nullable
+              as String?,
+      otp: freezed == otp
+          ? _value.otp
+          : otp // ignore: cast_nullable_to_non_nullable
+              as String?,
       createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -828,22 +963,6 @@ class __$$_BrandIdCopyWithImpl<$Res>
       updatedAt: freezed == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
-              as String?,
-      otp: freezed == otp
-          ? _value.otp
-          : otp // ignore: cast_nullable_to_non_nullable
-              as String?,
-      phone_number: freezed == phone_number
-          ? _value.phone_number
-          : phone_number // ignore: cast_nullable_to_non_nullable
-              as String?,
-      description: freezed == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String?,
-      image: freezed == image
-          ? _value.image
-          : image // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -854,17 +973,27 @@ class __$$_BrandIdCopyWithImpl<$Res>
 class _$_BrandId implements _BrandId {
   const _$_BrandId(
       {@JsonKey(name: "_id") this.id,
+      this.role,
       this.name,
       this.email,
       this.password,
-      this.roles,
-      this.active,
-      this.createdAt,
-      this.updatedAt,
-      this.otp,
-      this.phone_number,
+      this.isActive,
+      this.phoneNumber,
+      this.logo,
+      this.coverImage,
       this.description,
-      this.image});
+      this.cityName,
+      this.brandName,
+      this.companyName,
+      this.companyRegYear,
+      this.revenueOfLastThreeMonths,
+      this.category,
+      final List<String>? subCategory,
+      @JsonKey(name: "GST") this.gst,
+      this.otp,
+      this.createdAt,
+      this.updatedAt})
+      : _subCategory = subCategory;
 
   factory _$_BrandId.fromJson(Map<String, dynamic> json) =>
       _$$_BrandIdFromJson(json);
@@ -873,31 +1002,59 @@ class _$_BrandId implements _BrandId {
   @JsonKey(name: "_id")
   final String? id;
   @override
+  final String? role;
+  @override
   final String? name;
   @override
   final String? email;
   @override
   final String? password;
   @override
-  final String? roles;
+  final bool? isActive;
   @override
-  final bool? active;
+  final int? phoneNumber;
+  @override
+  final String? logo;
+  @override
+  final String? coverImage;
+  @override
+  final String? description;
+  @override
+  final String? cityName;
+  @override
+  final String? brandName;
+  @override
+  final String? companyName;
+  @override
+  final String? companyRegYear;
+  @override
+  final int? revenueOfLastThreeMonths;
+// Change to int
+  @override
+  final String? category;
+  final List<String>? _subCategory;
+  @override
+  List<String>? get subCategory {
+    final value = _subCategory;
+    if (value == null) return null;
+    if (_subCategory is EqualUnmodifiableListView) return _subCategory;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  @override
+  @JsonKey(name: "GST")
+  final String? gst;
+  @override
+  final String? otp;
   @override
   final String? createdAt;
   @override
   final String? updatedAt;
-  @override
-  final String? otp;
-  @override
-  final String? phone_number;
-  @override
-  final String? description;
-  @override
-  final String? image;
 
   @override
   String toString() {
-    return 'BrandId(id: $id, name: $name, email: $email, password: $password, roles: $roles, active: $active, createdAt: $createdAt, updatedAt: $updatedAt, otp: $otp, phone_number: $phone_number, description: $description, image: $image)';
+    return 'BrandId(id: $id, role: $role, name: $name, email: $email, password: $password, isActive: $isActive, phoneNumber: $phoneNumber, logo: $logo, coverImage: $coverImage, description: $description, cityName: $cityName, brandName: $brandName, companyName: $companyName, companyRegYear: $companyRegYear, revenueOfLastThreeMonths: $revenueOfLastThreeMonths, category: $category, subCategory: $subCategory, gst: $gst, otp: $otp, createdAt: $createdAt, updatedAt: $updatedAt)';
   }
 
   @override
@@ -906,28 +1063,69 @@ class _$_BrandId implements _BrandId {
         (other.runtimeType == runtimeType &&
             other is _$_BrandId &&
             (identical(other.id, id) || other.id == id) &&
+            (identical(other.role, role) || other.role == role) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.email, email) || other.email == email) &&
             (identical(other.password, password) ||
                 other.password == password) &&
-            (identical(other.roles, roles) || other.roles == roles) &&
-            (identical(other.active, active) || other.active == active) &&
+            (identical(other.isActive, isActive) ||
+                other.isActive == isActive) &&
+            (identical(other.phoneNumber, phoneNumber) ||
+                other.phoneNumber == phoneNumber) &&
+            (identical(other.logo, logo) || other.logo == logo) &&
+            (identical(other.coverImage, coverImage) ||
+                other.coverImage == coverImage) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
+            (identical(other.cityName, cityName) ||
+                other.cityName == cityName) &&
+            (identical(other.brandName, brandName) ||
+                other.brandName == brandName) &&
+            (identical(other.companyName, companyName) ||
+                other.companyName == companyName) &&
+            (identical(other.companyRegYear, companyRegYear) ||
+                other.companyRegYear == companyRegYear) &&
+            (identical(
+                    other.revenueOfLastThreeMonths, revenueOfLastThreeMonths) ||
+                other.revenueOfLastThreeMonths == revenueOfLastThreeMonths) &&
+            (identical(other.category, category) ||
+                other.category == category) &&
+            const DeepCollectionEquality()
+                .equals(other._subCategory, _subCategory) &&
+            (identical(other.gst, gst) || other.gst == gst) &&
+            (identical(other.otp, otp) || other.otp == otp) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
             (identical(other.updatedAt, updatedAt) ||
-                other.updatedAt == updatedAt) &&
-            (identical(other.otp, otp) || other.otp == otp) &&
-            (identical(other.phone_number, phone_number) ||
-                other.phone_number == phone_number) &&
-            (identical(other.description, description) ||
-                other.description == description) &&
-            (identical(other.image, image) || other.image == image));
+                other.updatedAt == updatedAt));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, name, email, password, roles,
-      active, createdAt, updatedAt, otp, phone_number, description, image);
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        id,
+        role,
+        name,
+        email,
+        password,
+        isActive,
+        phoneNumber,
+        logo,
+        coverImage,
+        description,
+        cityName,
+        brandName,
+        companyName,
+        companyRegYear,
+        revenueOfLastThreeMonths,
+        category,
+        const DeepCollectionEquality().hash(_subCategory),
+        gst,
+        otp,
+        createdAt,
+        updatedAt
+      ]);
 
   @JsonKey(ignore: true)
   @override
@@ -946,17 +1144,26 @@ class _$_BrandId implements _BrandId {
 abstract class _BrandId implements BrandId {
   const factory _BrandId(
       {@JsonKey(name: "_id") final String? id,
+      final String? role,
       final String? name,
       final String? email,
       final String? password,
-      final String? roles,
-      final bool? active,
-      final String? createdAt,
-      final String? updatedAt,
-      final String? otp,
-      final String? phone_number,
+      final bool? isActive,
+      final int? phoneNumber,
+      final String? logo,
+      final String? coverImage,
       final String? description,
-      final String? image}) = _$_BrandId;
+      final String? cityName,
+      final String? brandName,
+      final String? companyName,
+      final String? companyRegYear,
+      final int? revenueOfLastThreeMonths,
+      final String? category,
+      final List<String>? subCategory,
+      @JsonKey(name: "GST") final String? gst,
+      final String? otp,
+      final String? createdAt,
+      final String? updatedAt}) = _$_BrandId;
 
   factory _BrandId.fromJson(Map<String, dynamic> json) = _$_BrandId.fromJson;
 
@@ -964,27 +1171,46 @@ abstract class _BrandId implements BrandId {
   @JsonKey(name: "_id")
   String? get id;
   @override
+  String? get role;
+  @override
   String? get name;
   @override
   String? get email;
   @override
   String? get password;
   @override
-  String? get roles;
+  bool? get isActive;
   @override
-  bool? get active;
+  int? get phoneNumber;
+  @override
+  String? get logo;
+  @override
+  String? get coverImage;
+  @override
+  String? get description;
+  @override
+  String? get cityName;
+  @override
+  String? get brandName;
+  @override
+  String? get companyName;
+  @override
+  String? get companyRegYear;
+  @override
+  int? get revenueOfLastThreeMonths;
+  @override // Change to int
+  String? get category;
+  @override
+  List<String>? get subCategory;
+  @override
+  @JsonKey(name: "GST")
+  String? get gst;
+  @override
+  String? get otp;
   @override
   String? get createdAt;
   @override
   String? get updatedAt;
-  @override
-  String? get otp;
-  @override
-  String? get phone_number;
-  @override
-  String? get description;
-  @override
-  String? get image;
   @override
   @JsonKey(ignore: true)
   _$$_BrandIdCopyWith<_$_BrandId> get copyWith =>

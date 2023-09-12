@@ -47,17 +47,26 @@ class BrandItem with _$BrandItem {
 class BrandId with _$BrandId {
   const factory BrandId({
     @JsonKey(name: "_id") String? id,
+    String? role,
     String? name,
     String? email,
     String? password,
-    String? roles,
-    bool? active,
+    bool? isActive,
+    int? phoneNumber,
+    String? logo,
+    String? coverImage,
+    String? description,
+    String? cityName,
+    String? brandName,
+    String? companyName,
+    String? companyRegYear,
+    int? revenueOfLastThreeMonths, // Change to int
+    String? category,
+    List<String>? subCategory,
+    @JsonKey(name: "GST") String? gst,
+    String? otp,
     String? createdAt,
     String? updatedAt,
-    String? otp,
-    String? phone_number,
-    String? description,
-    String? image,
   }) = _BrandId;
 
   factory BrandId.fromJson(Map<String, dynamic> json) =>

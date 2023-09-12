@@ -553,35 +553,41 @@ class _ShopViewState extends State<ShopView> {
             ],
           ),
           kHeight15,
-          Container(
-            width: double.infinity,
-            height: 52,
-            decoration: BoxDecoration(
-              color: ColorManager.whiteColor,
-              borderRadius: BorderRadius.circular(30.0),
-            ),
-            child: Align(
-              alignment: Alignment.topLeft,
-              child: Row(
-                children: [
-                  IconButton(
-                    onPressed: () {
-                      Navigator.of(context).pushNamed(SearchView.routeName);
-                    },
-                    icon: const Icon(
-                      Icons.search,
+          GestureDetector(
+            onTap: () {
+              Navigator.of(context).pushNamed(SearchView.routeName);
+            },
+            child: Container(
+              width: double.infinity,
+              height: 52,
+              decoration: BoxDecoration(
+                color: ColorManager.whiteColor,
+                borderRadius: BorderRadius.circular(30.0),
+              ),
+              padding: const EdgeInsets.only(left: 15),
+              child: const Align(
+                alignment: Alignment.centerLeft,
+                child: Row(
+                  children: [
+                    // Icon(
+                    //   Icons.search,
+                    //   color: black102,
+                    // ),
+                    ImageIcon(
+                      AssetImage(AppAssetsStrings.searchIcon),
                       color: black102,
                     ),
-                  ),
-                  const Text(
-                    shopText2,
-                    style: TextStyle(
-                      color: black102,
-                      fontSize: 17,
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                  )
-                ],
+                    kWidth8,
+                    Text(
+                      shopText2,
+                      style: TextStyle(
+                        color: black102,
+                        fontSize: 17,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    )
+                  ],
+                ),
               ),
             ),
           ),

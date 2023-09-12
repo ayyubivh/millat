@@ -5,6 +5,7 @@ import 'package:millat/resources/home/view/dua/widgets/inside_dua_view.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/loader.dart';
+import 'package:millat/utils/size_utility.dart';
 
 class DuaCategoryView extends StatelessWidget {
   const DuaCategoryView({
@@ -85,9 +86,9 @@ class DuaCategoryView extends StatelessWidget {
                             itemCount: state.duaSubcategoryModel?.result
                                 .duaSubCategory!.length,
                             itemBuilder: (context, index) {
-                              final data = state.duaSubcategoryModel!.result
+                              final data = state.duaSubcategoryModel?.result
                                   .duaSubCategory![index];
-                              return ListTile(
+                              return GestureDetector(
                                 onTap: () {
                                   context.read<DuaBloc>().add(
                                         FetchDuaBySubcategoryEvent(
@@ -99,15 +100,15 @@ class DuaCategoryView extends StatelessWidget {
                                             const InsideDuaView()),
                                   );
                                 },
-                                title: Column(
+                                child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Container(
-                                      color: ColorManager.appBarColor,
-                                      height: 25,
-                                      width: 25,
+                                      color: ColorManager.greyEE,
+                                      height: 23,
+                                      width: 23,
                                       child: Center(
-                                        child: Text("${data.count}"),
+                                        child: Text("${data!.count}"),
                                       ),
                                     ),
                                     kHeight10,
@@ -115,11 +116,16 @@ class DuaCategoryView extends StatelessWidget {
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceBetween,
                                       children: [
-                                        Text(
-                                          data.subCategory.toString(),
-                                          style: const TextStyle(
-                                            fontSize: 15,
-                                            fontWeight: FontWeight.w600,
+                                        SizedBox(
+                                          width:
+                                              SizeUtility(context).width / 1.6,
+                                          child: Text(
+                                            data.subCategory.toString(),
+                                            style: const TextStyle(
+                                              fontSize: 15,
+                                              fontWeight: FontWeight.w600,
+                                              height: 1.4,
+                                            ),
                                           ),
                                         ),
                                         const Icon(

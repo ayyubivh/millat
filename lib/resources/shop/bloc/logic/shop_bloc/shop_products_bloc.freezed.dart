@@ -63,6 +63,7 @@ mixin _$ShopProductsEvent {
     required TResult Function(int index) indexChangeOnOrderProgress,
     required TResult Function(int index) indexChangeOnWomensCareBanner,
     required TResult Function(String id) fetchShopAdBrandsById,
+    required TResult Function(int index) savePaymentMethodType,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -110,6 +111,7 @@ mixin _$ShopProductsEvent {
     TResult? Function(int index)? indexChangeOnOrderProgress,
     TResult? Function(int index)? indexChangeOnWomensCareBanner,
     TResult? Function(String id)? fetchShopAdBrandsById,
+    TResult? Function(int index)? savePaymentMethodType,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -157,6 +159,7 @@ mixin _$ShopProductsEvent {
     TResult Function(int index)? indexChangeOnOrderProgress,
     TResult Function(int index)? indexChangeOnWomensCareBanner,
     TResult Function(String id)? fetchShopAdBrandsById,
+    TResult Function(int index)? savePaymentMethodType,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -210,6 +213,8 @@ mixin _$ShopProductsEvent {
         indexChangeOnWomensCareBanner,
     required TResult Function(FetchShopAdBrandsById value)
         fetchShopAdBrandsById,
+    required TResult Function(SavePaymentMethodType value)
+        savePaymentMethodType,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -255,6 +260,7 @@ mixin _$ShopProductsEvent {
     TResult? Function(IndexChangeOnWomensCareBanner value)?
         indexChangeOnWomensCareBanner,
     TResult? Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
+    TResult? Function(SavePaymentMethodType value)? savePaymentMethodType,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -300,6 +306,7 @@ mixin _$ShopProductsEvent {
     TResult Function(IndexChangeOnWomensCareBanner value)?
         indexChangeOnWomensCareBanner,
     TResult Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
+    TResult Function(SavePaymentMethodType value)? savePaymentMethodType,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -434,6 +441,7 @@ class _$FetchFlashSaleProducts implements FetchFlashSaleProducts {
     required TResult Function(int index) indexChangeOnOrderProgress,
     required TResult Function(int index) indexChangeOnWomensCareBanner,
     required TResult Function(String id) fetchShopAdBrandsById,
+    required TResult Function(int index) savePaymentMethodType,
   }) {
     return fetchFlashSaleProducts(endPointSlug);
   }
@@ -484,6 +492,7 @@ class _$FetchFlashSaleProducts implements FetchFlashSaleProducts {
     TResult? Function(int index)? indexChangeOnOrderProgress,
     TResult? Function(int index)? indexChangeOnWomensCareBanner,
     TResult? Function(String id)? fetchShopAdBrandsById,
+    TResult? Function(int index)? savePaymentMethodType,
   }) {
     return fetchFlashSaleProducts?.call(endPointSlug);
   }
@@ -534,6 +543,7 @@ class _$FetchFlashSaleProducts implements FetchFlashSaleProducts {
     TResult Function(int index)? indexChangeOnOrderProgress,
     TResult Function(int index)? indexChangeOnWomensCareBanner,
     TResult Function(String id)? fetchShopAdBrandsById,
+    TResult Function(int index)? savePaymentMethodType,
     required TResult orElse(),
   }) {
     if (fetchFlashSaleProducts != null) {
@@ -593,6 +603,8 @@ class _$FetchFlashSaleProducts implements FetchFlashSaleProducts {
         indexChangeOnWomensCareBanner,
     required TResult Function(FetchShopAdBrandsById value)
         fetchShopAdBrandsById,
+    required TResult Function(SavePaymentMethodType value)
+        savePaymentMethodType,
   }) {
     return fetchFlashSaleProducts(this);
   }
@@ -641,6 +653,7 @@ class _$FetchFlashSaleProducts implements FetchFlashSaleProducts {
     TResult? Function(IndexChangeOnWomensCareBanner value)?
         indexChangeOnWomensCareBanner,
     TResult? Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
+    TResult? Function(SavePaymentMethodType value)? savePaymentMethodType,
   }) {
     return fetchFlashSaleProducts?.call(this);
   }
@@ -689,6 +702,7 @@ class _$FetchFlashSaleProducts implements FetchFlashSaleProducts {
     TResult Function(IndexChangeOnWomensCareBanner value)?
         indexChangeOnWomensCareBanner,
     TResult Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
+    TResult Function(SavePaymentMethodType value)? savePaymentMethodType,
     required TResult orElse(),
   }) {
     if (fetchFlashSaleProducts != null) {
@@ -819,6 +833,7 @@ class _$FetchPopularProducts implements FetchPopularProducts {
     required TResult Function(int index) indexChangeOnOrderProgress,
     required TResult Function(int index) indexChangeOnWomensCareBanner,
     required TResult Function(String id) fetchShopAdBrandsById,
+    required TResult Function(int index) savePaymentMethodType,
   }) {
     return fetchPopularProducts(endPointSlug);
   }
@@ -869,6 +884,7 @@ class _$FetchPopularProducts implements FetchPopularProducts {
     TResult? Function(int index)? indexChangeOnOrderProgress,
     TResult? Function(int index)? indexChangeOnWomensCareBanner,
     TResult? Function(String id)? fetchShopAdBrandsById,
+    TResult? Function(int index)? savePaymentMethodType,
   }) {
     return fetchPopularProducts?.call(endPointSlug);
   }
@@ -919,6 +935,7 @@ class _$FetchPopularProducts implements FetchPopularProducts {
     TResult Function(int index)? indexChangeOnOrderProgress,
     TResult Function(int index)? indexChangeOnWomensCareBanner,
     TResult Function(String id)? fetchShopAdBrandsById,
+    TResult Function(int index)? savePaymentMethodType,
     required TResult orElse(),
   }) {
     if (fetchPopularProducts != null) {
@@ -978,6 +995,8 @@ class _$FetchPopularProducts implements FetchPopularProducts {
         indexChangeOnWomensCareBanner,
     required TResult Function(FetchShopAdBrandsById value)
         fetchShopAdBrandsById,
+    required TResult Function(SavePaymentMethodType value)
+        savePaymentMethodType,
   }) {
     return fetchPopularProducts(this);
   }
@@ -1026,6 +1045,7 @@ class _$FetchPopularProducts implements FetchPopularProducts {
     TResult? Function(IndexChangeOnWomensCareBanner value)?
         indexChangeOnWomensCareBanner,
     TResult? Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
+    TResult? Function(SavePaymentMethodType value)? savePaymentMethodType,
   }) {
     return fetchPopularProducts?.call(this);
   }
@@ -1074,6 +1094,7 @@ class _$FetchPopularProducts implements FetchPopularProducts {
     TResult Function(IndexChangeOnWomensCareBanner value)?
         indexChangeOnWomensCareBanner,
     TResult Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
+    TResult Function(SavePaymentMethodType value)? savePaymentMethodType,
     required TResult orElse(),
   }) {
     if (fetchPopularProducts != null) {
@@ -1179,6 +1200,7 @@ class _$FetchRecentProductProducts implements FetchRecentProductProducts {
     required TResult Function(int index) indexChangeOnOrderProgress,
     required TResult Function(int index) indexChangeOnWomensCareBanner,
     required TResult Function(String id) fetchShopAdBrandsById,
+    required TResult Function(int index) savePaymentMethodType,
   }) {
     return fetchRecentProductProducts();
   }
@@ -1229,6 +1251,7 @@ class _$FetchRecentProductProducts implements FetchRecentProductProducts {
     TResult? Function(int index)? indexChangeOnOrderProgress,
     TResult? Function(int index)? indexChangeOnWomensCareBanner,
     TResult? Function(String id)? fetchShopAdBrandsById,
+    TResult? Function(int index)? savePaymentMethodType,
   }) {
     return fetchRecentProductProducts?.call();
   }
@@ -1279,6 +1302,7 @@ class _$FetchRecentProductProducts implements FetchRecentProductProducts {
     TResult Function(int index)? indexChangeOnOrderProgress,
     TResult Function(int index)? indexChangeOnWomensCareBanner,
     TResult Function(String id)? fetchShopAdBrandsById,
+    TResult Function(int index)? savePaymentMethodType,
     required TResult orElse(),
   }) {
     if (fetchRecentProductProducts != null) {
@@ -1338,6 +1362,8 @@ class _$FetchRecentProductProducts implements FetchRecentProductProducts {
         indexChangeOnWomensCareBanner,
     required TResult Function(FetchShopAdBrandsById value)
         fetchShopAdBrandsById,
+    required TResult Function(SavePaymentMethodType value)
+        savePaymentMethodType,
   }) {
     return fetchRecentProductProducts(this);
   }
@@ -1386,6 +1412,7 @@ class _$FetchRecentProductProducts implements FetchRecentProductProducts {
     TResult? Function(IndexChangeOnWomensCareBanner value)?
         indexChangeOnWomensCareBanner,
     TResult? Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
+    TResult? Function(SavePaymentMethodType value)? savePaymentMethodType,
   }) {
     return fetchRecentProductProducts?.call(this);
   }
@@ -1434,6 +1461,7 @@ class _$FetchRecentProductProducts implements FetchRecentProductProducts {
     TResult Function(IndexChangeOnWomensCareBanner value)?
         indexChangeOnWomensCareBanner,
     TResult Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
+    TResult Function(SavePaymentMethodType value)? savePaymentMethodType,
     required TResult orElse(),
   }) {
     if (fetchRecentProductProducts != null) {
@@ -1530,6 +1558,7 @@ class _$FetchHomeBanners implements FetchHomeBanners {
     required TResult Function(int index) indexChangeOnOrderProgress,
     required TResult Function(int index) indexChangeOnWomensCareBanner,
     required TResult Function(String id) fetchShopAdBrandsById,
+    required TResult Function(int index) savePaymentMethodType,
   }) {
     return fetchHomeBanners();
   }
@@ -1580,6 +1609,7 @@ class _$FetchHomeBanners implements FetchHomeBanners {
     TResult? Function(int index)? indexChangeOnOrderProgress,
     TResult? Function(int index)? indexChangeOnWomensCareBanner,
     TResult? Function(String id)? fetchShopAdBrandsById,
+    TResult? Function(int index)? savePaymentMethodType,
   }) {
     return fetchHomeBanners?.call();
   }
@@ -1630,6 +1660,7 @@ class _$FetchHomeBanners implements FetchHomeBanners {
     TResult Function(int index)? indexChangeOnOrderProgress,
     TResult Function(int index)? indexChangeOnWomensCareBanner,
     TResult Function(String id)? fetchShopAdBrandsById,
+    TResult Function(int index)? savePaymentMethodType,
     required TResult orElse(),
   }) {
     if (fetchHomeBanners != null) {
@@ -1689,6 +1720,8 @@ class _$FetchHomeBanners implements FetchHomeBanners {
         indexChangeOnWomensCareBanner,
     required TResult Function(FetchShopAdBrandsById value)
         fetchShopAdBrandsById,
+    required TResult Function(SavePaymentMethodType value)
+        savePaymentMethodType,
   }) {
     return fetchHomeBanners(this);
   }
@@ -1737,6 +1770,7 @@ class _$FetchHomeBanners implements FetchHomeBanners {
     TResult? Function(IndexChangeOnWomensCareBanner value)?
         indexChangeOnWomensCareBanner,
     TResult? Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
+    TResult? Function(SavePaymentMethodType value)? savePaymentMethodType,
   }) {
     return fetchHomeBanners?.call(this);
   }
@@ -1785,6 +1819,7 @@ class _$FetchHomeBanners implements FetchHomeBanners {
     TResult Function(IndexChangeOnWomensCareBanner value)?
         indexChangeOnWomensCareBanner,
     TResult Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
+    TResult Function(SavePaymentMethodType value)? savePaymentMethodType,
     required TResult orElse(),
   }) {
     if (fetchHomeBanners != null) {
@@ -1881,6 +1916,7 @@ class _$FetchShopBanners implements FetchShopBanners {
     required TResult Function(int index) indexChangeOnOrderProgress,
     required TResult Function(int index) indexChangeOnWomensCareBanner,
     required TResult Function(String id) fetchShopAdBrandsById,
+    required TResult Function(int index) savePaymentMethodType,
   }) {
     return fetchShopBanners();
   }
@@ -1931,6 +1967,7 @@ class _$FetchShopBanners implements FetchShopBanners {
     TResult? Function(int index)? indexChangeOnOrderProgress,
     TResult? Function(int index)? indexChangeOnWomensCareBanner,
     TResult? Function(String id)? fetchShopAdBrandsById,
+    TResult? Function(int index)? savePaymentMethodType,
   }) {
     return fetchShopBanners?.call();
   }
@@ -1981,6 +2018,7 @@ class _$FetchShopBanners implements FetchShopBanners {
     TResult Function(int index)? indexChangeOnOrderProgress,
     TResult Function(int index)? indexChangeOnWomensCareBanner,
     TResult Function(String id)? fetchShopAdBrandsById,
+    TResult Function(int index)? savePaymentMethodType,
     required TResult orElse(),
   }) {
     if (fetchShopBanners != null) {
@@ -2040,6 +2078,8 @@ class _$FetchShopBanners implements FetchShopBanners {
         indexChangeOnWomensCareBanner,
     required TResult Function(FetchShopAdBrandsById value)
         fetchShopAdBrandsById,
+    required TResult Function(SavePaymentMethodType value)
+        savePaymentMethodType,
   }) {
     return fetchShopBanners(this);
   }
@@ -2088,6 +2128,7 @@ class _$FetchShopBanners implements FetchShopBanners {
     TResult? Function(IndexChangeOnWomensCareBanner value)?
         indexChangeOnWomensCareBanner,
     TResult? Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
+    TResult? Function(SavePaymentMethodType value)? savePaymentMethodType,
   }) {
     return fetchShopBanners?.call(this);
   }
@@ -2136,6 +2177,7 @@ class _$FetchShopBanners implements FetchShopBanners {
     TResult Function(IndexChangeOnWomensCareBanner value)?
         indexChangeOnWomensCareBanner,
     TResult Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
+    TResult Function(SavePaymentMethodType value)? savePaymentMethodType,
     required TResult orElse(),
   }) {
     if (fetchShopBanners != null) {
@@ -2259,6 +2301,7 @@ class _$FetchArticles implements FetchArticles {
     required TResult Function(int index) indexChangeOnOrderProgress,
     required TResult Function(int index) indexChangeOnWomensCareBanner,
     required TResult Function(String id) fetchShopAdBrandsById,
+    required TResult Function(int index) savePaymentMethodType,
   }) {
     return fetchArticles(searchQuery);
   }
@@ -2309,6 +2352,7 @@ class _$FetchArticles implements FetchArticles {
     TResult? Function(int index)? indexChangeOnOrderProgress,
     TResult? Function(int index)? indexChangeOnWomensCareBanner,
     TResult? Function(String id)? fetchShopAdBrandsById,
+    TResult? Function(int index)? savePaymentMethodType,
   }) {
     return fetchArticles?.call(searchQuery);
   }
@@ -2359,6 +2403,7 @@ class _$FetchArticles implements FetchArticles {
     TResult Function(int index)? indexChangeOnOrderProgress,
     TResult Function(int index)? indexChangeOnWomensCareBanner,
     TResult Function(String id)? fetchShopAdBrandsById,
+    TResult Function(int index)? savePaymentMethodType,
     required TResult orElse(),
   }) {
     if (fetchArticles != null) {
@@ -2418,6 +2463,8 @@ class _$FetchArticles implements FetchArticles {
         indexChangeOnWomensCareBanner,
     required TResult Function(FetchShopAdBrandsById value)
         fetchShopAdBrandsById,
+    required TResult Function(SavePaymentMethodType value)
+        savePaymentMethodType,
   }) {
     return fetchArticles(this);
   }
@@ -2466,6 +2513,7 @@ class _$FetchArticles implements FetchArticles {
     TResult? Function(IndexChangeOnWomensCareBanner value)?
         indexChangeOnWomensCareBanner,
     TResult? Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
+    TResult? Function(SavePaymentMethodType value)? savePaymentMethodType,
   }) {
     return fetchArticles?.call(this);
   }
@@ -2514,6 +2562,7 @@ class _$FetchArticles implements FetchArticles {
     TResult Function(IndexChangeOnWomensCareBanner value)?
         indexChangeOnWomensCareBanner,
     TResult Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
+    TResult Function(SavePaymentMethodType value)? savePaymentMethodType,
     required TResult orElse(),
   }) {
     if (fetchArticles != null) {
@@ -2616,6 +2665,7 @@ class _$FetchShopByBrand implements FetchShopByBrand {
     required TResult Function(int index) indexChangeOnOrderProgress,
     required TResult Function(int index) indexChangeOnWomensCareBanner,
     required TResult Function(String id) fetchShopAdBrandsById,
+    required TResult Function(int index) savePaymentMethodType,
   }) {
     return fetchShopByBrand();
   }
@@ -2666,6 +2716,7 @@ class _$FetchShopByBrand implements FetchShopByBrand {
     TResult? Function(int index)? indexChangeOnOrderProgress,
     TResult? Function(int index)? indexChangeOnWomensCareBanner,
     TResult? Function(String id)? fetchShopAdBrandsById,
+    TResult? Function(int index)? savePaymentMethodType,
   }) {
     return fetchShopByBrand?.call();
   }
@@ -2716,6 +2767,7 @@ class _$FetchShopByBrand implements FetchShopByBrand {
     TResult Function(int index)? indexChangeOnOrderProgress,
     TResult Function(int index)? indexChangeOnWomensCareBanner,
     TResult Function(String id)? fetchShopAdBrandsById,
+    TResult Function(int index)? savePaymentMethodType,
     required TResult orElse(),
   }) {
     if (fetchShopByBrand != null) {
@@ -2775,6 +2827,8 @@ class _$FetchShopByBrand implements FetchShopByBrand {
         indexChangeOnWomensCareBanner,
     required TResult Function(FetchShopAdBrandsById value)
         fetchShopAdBrandsById,
+    required TResult Function(SavePaymentMethodType value)
+        savePaymentMethodType,
   }) {
     return fetchShopByBrand(this);
   }
@@ -2823,6 +2877,7 @@ class _$FetchShopByBrand implements FetchShopByBrand {
     TResult? Function(IndexChangeOnWomensCareBanner value)?
         indexChangeOnWomensCareBanner,
     TResult? Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
+    TResult? Function(SavePaymentMethodType value)? savePaymentMethodType,
   }) {
     return fetchShopByBrand?.call(this);
   }
@@ -2871,6 +2926,7 @@ class _$FetchShopByBrand implements FetchShopByBrand {
     TResult Function(IndexChangeOnWomensCareBanner value)?
         indexChangeOnWomensCareBanner,
     TResult Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
+    TResult Function(SavePaymentMethodType value)? savePaymentMethodType,
     required TResult orElse(),
   }) {
     if (fetchShopByBrand != null) {
@@ -2993,6 +3049,7 @@ class _$FetchWishList implements FetchWishList {
     required TResult Function(int index) indexChangeOnOrderProgress,
     required TResult Function(int index) indexChangeOnWomensCareBanner,
     required TResult Function(String id) fetchShopAdBrandsById,
+    required TResult Function(int index) savePaymentMethodType,
   }) {
     return fetchWishList(context);
   }
@@ -3043,6 +3100,7 @@ class _$FetchWishList implements FetchWishList {
     TResult? Function(int index)? indexChangeOnOrderProgress,
     TResult? Function(int index)? indexChangeOnWomensCareBanner,
     TResult? Function(String id)? fetchShopAdBrandsById,
+    TResult? Function(int index)? savePaymentMethodType,
   }) {
     return fetchWishList?.call(context);
   }
@@ -3093,6 +3151,7 @@ class _$FetchWishList implements FetchWishList {
     TResult Function(int index)? indexChangeOnOrderProgress,
     TResult Function(int index)? indexChangeOnWomensCareBanner,
     TResult Function(String id)? fetchShopAdBrandsById,
+    TResult Function(int index)? savePaymentMethodType,
     required TResult orElse(),
   }) {
     if (fetchWishList != null) {
@@ -3152,6 +3211,8 @@ class _$FetchWishList implements FetchWishList {
         indexChangeOnWomensCareBanner,
     required TResult Function(FetchShopAdBrandsById value)
         fetchShopAdBrandsById,
+    required TResult Function(SavePaymentMethodType value)
+        savePaymentMethodType,
   }) {
     return fetchWishList(this);
   }
@@ -3200,6 +3261,7 @@ class _$FetchWishList implements FetchWishList {
     TResult? Function(IndexChangeOnWomensCareBanner value)?
         indexChangeOnWomensCareBanner,
     TResult? Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
+    TResult? Function(SavePaymentMethodType value)? savePaymentMethodType,
   }) {
     return fetchWishList?.call(this);
   }
@@ -3248,6 +3310,7 @@ class _$FetchWishList implements FetchWishList {
     TResult Function(IndexChangeOnWomensCareBanner value)?
         indexChangeOnWomensCareBanner,
     TResult Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
+    TResult Function(SavePaymentMethodType value)? savePaymentMethodType,
     required TResult orElse(),
   }) {
     if (fetchWishList != null) {
@@ -3375,6 +3438,7 @@ class _$SearchProduct implements SearchProduct {
     required TResult Function(int index) indexChangeOnOrderProgress,
     required TResult Function(int index) indexChangeOnWomensCareBanner,
     required TResult Function(String id) fetchShopAdBrandsById,
+    required TResult Function(int index) savePaymentMethodType,
   }) {
     return searchProduct(query);
   }
@@ -3425,6 +3489,7 @@ class _$SearchProduct implements SearchProduct {
     TResult? Function(int index)? indexChangeOnOrderProgress,
     TResult? Function(int index)? indexChangeOnWomensCareBanner,
     TResult? Function(String id)? fetchShopAdBrandsById,
+    TResult? Function(int index)? savePaymentMethodType,
   }) {
     return searchProduct?.call(query);
   }
@@ -3475,6 +3540,7 @@ class _$SearchProduct implements SearchProduct {
     TResult Function(int index)? indexChangeOnOrderProgress,
     TResult Function(int index)? indexChangeOnWomensCareBanner,
     TResult Function(String id)? fetchShopAdBrandsById,
+    TResult Function(int index)? savePaymentMethodType,
     required TResult orElse(),
   }) {
     if (searchProduct != null) {
@@ -3534,6 +3600,8 @@ class _$SearchProduct implements SearchProduct {
         indexChangeOnWomensCareBanner,
     required TResult Function(FetchShopAdBrandsById value)
         fetchShopAdBrandsById,
+    required TResult Function(SavePaymentMethodType value)
+        savePaymentMethodType,
   }) {
     return searchProduct(this);
   }
@@ -3582,6 +3650,7 @@ class _$SearchProduct implements SearchProduct {
     TResult? Function(IndexChangeOnWomensCareBanner value)?
         indexChangeOnWomensCareBanner,
     TResult? Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
+    TResult? Function(SavePaymentMethodType value)? savePaymentMethodType,
   }) {
     return searchProduct?.call(this);
   }
@@ -3630,6 +3699,7 @@ class _$SearchProduct implements SearchProduct {
     TResult Function(IndexChangeOnWomensCareBanner value)?
         indexChangeOnWomensCareBanner,
     TResult Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
+    TResult Function(SavePaymentMethodType value)? savePaymentMethodType,
     required TResult orElse(),
   }) {
     if (searchProduct != null) {
@@ -3766,6 +3836,7 @@ class _$AddWishListEvent implements AddWishListEvent {
     required TResult Function(int index) indexChangeOnOrderProgress,
     required TResult Function(int index) indexChangeOnWomensCareBanner,
     required TResult Function(String id) fetchShopAdBrandsById,
+    required TResult Function(int index) savePaymentMethodType,
   }) {
     return addWishListEvent(productId, context);
   }
@@ -3816,6 +3887,7 @@ class _$AddWishListEvent implements AddWishListEvent {
     TResult? Function(int index)? indexChangeOnOrderProgress,
     TResult? Function(int index)? indexChangeOnWomensCareBanner,
     TResult? Function(String id)? fetchShopAdBrandsById,
+    TResult? Function(int index)? savePaymentMethodType,
   }) {
     return addWishListEvent?.call(productId, context);
   }
@@ -3866,6 +3938,7 @@ class _$AddWishListEvent implements AddWishListEvent {
     TResult Function(int index)? indexChangeOnOrderProgress,
     TResult Function(int index)? indexChangeOnWomensCareBanner,
     TResult Function(String id)? fetchShopAdBrandsById,
+    TResult Function(int index)? savePaymentMethodType,
     required TResult orElse(),
   }) {
     if (addWishListEvent != null) {
@@ -3925,6 +3998,8 @@ class _$AddWishListEvent implements AddWishListEvent {
         indexChangeOnWomensCareBanner,
     required TResult Function(FetchShopAdBrandsById value)
         fetchShopAdBrandsById,
+    required TResult Function(SavePaymentMethodType value)
+        savePaymentMethodType,
   }) {
     return addWishListEvent(this);
   }
@@ -3973,6 +4048,7 @@ class _$AddWishListEvent implements AddWishListEvent {
     TResult? Function(IndexChangeOnWomensCareBanner value)?
         indexChangeOnWomensCareBanner,
     TResult? Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
+    TResult? Function(SavePaymentMethodType value)? savePaymentMethodType,
   }) {
     return addWishListEvent?.call(this);
   }
@@ -4021,6 +4097,7 @@ class _$AddWishListEvent implements AddWishListEvent {
     TResult Function(IndexChangeOnWomensCareBanner value)?
         indexChangeOnWomensCareBanner,
     TResult Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
+    TResult Function(SavePaymentMethodType value)? savePaymentMethodType,
     required TResult orElse(),
   }) {
     if (addWishListEvent != null) {
@@ -4161,6 +4238,7 @@ class _$RemoveWishlistEvent implements RemoveWishlistEvent {
     required TResult Function(int index) indexChangeOnOrderProgress,
     required TResult Function(int index) indexChangeOnWomensCareBanner,
     required TResult Function(String id) fetchShopAdBrandsById,
+    required TResult Function(int index) savePaymentMethodType,
   }) {
     return removeWishlistEvent(productId, context);
   }
@@ -4211,6 +4289,7 @@ class _$RemoveWishlistEvent implements RemoveWishlistEvent {
     TResult? Function(int index)? indexChangeOnOrderProgress,
     TResult? Function(int index)? indexChangeOnWomensCareBanner,
     TResult? Function(String id)? fetchShopAdBrandsById,
+    TResult? Function(int index)? savePaymentMethodType,
   }) {
     return removeWishlistEvent?.call(productId, context);
   }
@@ -4261,6 +4340,7 @@ class _$RemoveWishlistEvent implements RemoveWishlistEvent {
     TResult Function(int index)? indexChangeOnOrderProgress,
     TResult Function(int index)? indexChangeOnWomensCareBanner,
     TResult Function(String id)? fetchShopAdBrandsById,
+    TResult Function(int index)? savePaymentMethodType,
     required TResult orElse(),
   }) {
     if (removeWishlistEvent != null) {
@@ -4320,6 +4400,8 @@ class _$RemoveWishlistEvent implements RemoveWishlistEvent {
         indexChangeOnWomensCareBanner,
     required TResult Function(FetchShopAdBrandsById value)
         fetchShopAdBrandsById,
+    required TResult Function(SavePaymentMethodType value)
+        savePaymentMethodType,
   }) {
     return removeWishlistEvent(this);
   }
@@ -4368,6 +4450,7 @@ class _$RemoveWishlistEvent implements RemoveWishlistEvent {
     TResult? Function(IndexChangeOnWomensCareBanner value)?
         indexChangeOnWomensCareBanner,
     TResult? Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
+    TResult? Function(SavePaymentMethodType value)? savePaymentMethodType,
   }) {
     return removeWishlistEvent?.call(this);
   }
@@ -4416,6 +4499,7 @@ class _$RemoveWishlistEvent implements RemoveWishlistEvent {
     TResult Function(IndexChangeOnWomensCareBanner value)?
         indexChangeOnWomensCareBanner,
     TResult Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
+    TResult Function(SavePaymentMethodType value)? savePaymentMethodType,
     required TResult orElse(),
   }) {
     if (removeWishlistEvent != null) {
@@ -4549,6 +4633,7 @@ class _$FetchShopByBrandProducts implements FetchShopByBrandProducts {
     required TResult Function(int index) indexChangeOnOrderProgress,
     required TResult Function(int index) indexChangeOnWomensCareBanner,
     required TResult Function(String id) fetchShopAdBrandsById,
+    required TResult Function(int index) savePaymentMethodType,
   }) {
     return fetchShopByBrandProducts(brandName);
   }
@@ -4599,6 +4684,7 @@ class _$FetchShopByBrandProducts implements FetchShopByBrandProducts {
     TResult? Function(int index)? indexChangeOnOrderProgress,
     TResult? Function(int index)? indexChangeOnWomensCareBanner,
     TResult? Function(String id)? fetchShopAdBrandsById,
+    TResult? Function(int index)? savePaymentMethodType,
   }) {
     return fetchShopByBrandProducts?.call(brandName);
   }
@@ -4649,6 +4735,7 @@ class _$FetchShopByBrandProducts implements FetchShopByBrandProducts {
     TResult Function(int index)? indexChangeOnOrderProgress,
     TResult Function(int index)? indexChangeOnWomensCareBanner,
     TResult Function(String id)? fetchShopAdBrandsById,
+    TResult Function(int index)? savePaymentMethodType,
     required TResult orElse(),
   }) {
     if (fetchShopByBrandProducts != null) {
@@ -4708,6 +4795,8 @@ class _$FetchShopByBrandProducts implements FetchShopByBrandProducts {
         indexChangeOnWomensCareBanner,
     required TResult Function(FetchShopAdBrandsById value)
         fetchShopAdBrandsById,
+    required TResult Function(SavePaymentMethodType value)
+        savePaymentMethodType,
   }) {
     return fetchShopByBrandProducts(this);
   }
@@ -4756,6 +4845,7 @@ class _$FetchShopByBrandProducts implements FetchShopByBrandProducts {
     TResult? Function(IndexChangeOnWomensCareBanner value)?
         indexChangeOnWomensCareBanner,
     TResult? Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
+    TResult? Function(SavePaymentMethodType value)? savePaymentMethodType,
   }) {
     return fetchShopByBrandProducts?.call(this);
   }
@@ -4804,6 +4894,7 @@ class _$FetchShopByBrandProducts implements FetchShopByBrandProducts {
     TResult Function(IndexChangeOnWomensCareBanner value)?
         indexChangeOnWomensCareBanner,
     TResult Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
+    TResult Function(SavePaymentMethodType value)? savePaymentMethodType,
     required TResult orElse(),
   }) {
     if (fetchShopByBrandProducts != null) {
@@ -4933,6 +5024,7 @@ class _$TabIndexChangeEvent implements TabIndexChangeEvent {
     required TResult Function(int index) indexChangeOnOrderProgress,
     required TResult Function(int index) indexChangeOnWomensCareBanner,
     required TResult Function(String id) fetchShopAdBrandsById,
+    required TResult Function(int index) savePaymentMethodType,
   }) {
     return tabIndexChangeEvent(index);
   }
@@ -4983,6 +5075,7 @@ class _$TabIndexChangeEvent implements TabIndexChangeEvent {
     TResult? Function(int index)? indexChangeOnOrderProgress,
     TResult? Function(int index)? indexChangeOnWomensCareBanner,
     TResult? Function(String id)? fetchShopAdBrandsById,
+    TResult? Function(int index)? savePaymentMethodType,
   }) {
     return tabIndexChangeEvent?.call(index);
   }
@@ -5033,6 +5126,7 @@ class _$TabIndexChangeEvent implements TabIndexChangeEvent {
     TResult Function(int index)? indexChangeOnOrderProgress,
     TResult Function(int index)? indexChangeOnWomensCareBanner,
     TResult Function(String id)? fetchShopAdBrandsById,
+    TResult Function(int index)? savePaymentMethodType,
     required TResult orElse(),
   }) {
     if (tabIndexChangeEvent != null) {
@@ -5092,6 +5186,8 @@ class _$TabIndexChangeEvent implements TabIndexChangeEvent {
         indexChangeOnWomensCareBanner,
     required TResult Function(FetchShopAdBrandsById value)
         fetchShopAdBrandsById,
+    required TResult Function(SavePaymentMethodType value)
+        savePaymentMethodType,
   }) {
     return tabIndexChangeEvent(this);
   }
@@ -5140,6 +5236,7 @@ class _$TabIndexChangeEvent implements TabIndexChangeEvent {
     TResult? Function(IndexChangeOnWomensCareBanner value)?
         indexChangeOnWomensCareBanner,
     TResult? Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
+    TResult? Function(SavePaymentMethodType value)? savePaymentMethodType,
   }) {
     return tabIndexChangeEvent?.call(this);
   }
@@ -5188,6 +5285,7 @@ class _$TabIndexChangeEvent implements TabIndexChangeEvent {
     TResult Function(IndexChangeOnWomensCareBanner value)?
         indexChangeOnWomensCareBanner,
     TResult Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
+    TResult Function(SavePaymentMethodType value)? savePaymentMethodType,
     required TResult orElse(),
   }) {
     if (tabIndexChangeEvent != null) {
@@ -5394,6 +5492,7 @@ class _$PostOrders implements PostOrders {
     required TResult Function(int index) indexChangeOnOrderProgress,
     required TResult Function(int index) indexChangeOnWomensCareBanner,
     required TResult Function(String id) fetchShopAdBrandsById,
+    required TResult Function(int index) savePaymentMethodType,
   }) {
     return postOrders(context, totalPrice, pickupLocation, quantity,
         totalDiscount, shippingCharges, weight, id);
@@ -5445,6 +5544,7 @@ class _$PostOrders implements PostOrders {
     TResult? Function(int index)? indexChangeOnOrderProgress,
     TResult? Function(int index)? indexChangeOnWomensCareBanner,
     TResult? Function(String id)? fetchShopAdBrandsById,
+    TResult? Function(int index)? savePaymentMethodType,
   }) {
     return postOrders?.call(context, totalPrice, pickupLocation, quantity,
         totalDiscount, shippingCharges, weight, id);
@@ -5496,6 +5596,7 @@ class _$PostOrders implements PostOrders {
     TResult Function(int index)? indexChangeOnOrderProgress,
     TResult Function(int index)? indexChangeOnWomensCareBanner,
     TResult Function(String id)? fetchShopAdBrandsById,
+    TResult Function(int index)? savePaymentMethodType,
     required TResult orElse(),
   }) {
     if (postOrders != null) {
@@ -5556,6 +5657,8 @@ class _$PostOrders implements PostOrders {
         indexChangeOnWomensCareBanner,
     required TResult Function(FetchShopAdBrandsById value)
         fetchShopAdBrandsById,
+    required TResult Function(SavePaymentMethodType value)
+        savePaymentMethodType,
   }) {
     return postOrders(this);
   }
@@ -5604,6 +5707,7 @@ class _$PostOrders implements PostOrders {
     TResult? Function(IndexChangeOnWomensCareBanner value)?
         indexChangeOnWomensCareBanner,
     TResult? Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
+    TResult? Function(SavePaymentMethodType value)? savePaymentMethodType,
   }) {
     return postOrders?.call(this);
   }
@@ -5652,6 +5756,7 @@ class _$PostOrders implements PostOrders {
     TResult Function(IndexChangeOnWomensCareBanner value)?
         indexChangeOnWomensCareBanner,
     TResult Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
+    TResult Function(SavePaymentMethodType value)? savePaymentMethodType,
     required TResult orElse(),
   }) {
     if (postOrders != null) {
@@ -5794,6 +5899,7 @@ class _$FetchOrders implements FetchOrders {
     required TResult Function(int index) indexChangeOnOrderProgress,
     required TResult Function(int index) indexChangeOnWomensCareBanner,
     required TResult Function(String id) fetchShopAdBrandsById,
+    required TResult Function(int index) savePaymentMethodType,
   }) {
     return fetchOrders(context);
   }
@@ -5844,6 +5950,7 @@ class _$FetchOrders implements FetchOrders {
     TResult? Function(int index)? indexChangeOnOrderProgress,
     TResult? Function(int index)? indexChangeOnWomensCareBanner,
     TResult? Function(String id)? fetchShopAdBrandsById,
+    TResult? Function(int index)? savePaymentMethodType,
   }) {
     return fetchOrders?.call(context);
   }
@@ -5894,6 +6001,7 @@ class _$FetchOrders implements FetchOrders {
     TResult Function(int index)? indexChangeOnOrderProgress,
     TResult Function(int index)? indexChangeOnWomensCareBanner,
     TResult Function(String id)? fetchShopAdBrandsById,
+    TResult Function(int index)? savePaymentMethodType,
     required TResult orElse(),
   }) {
     if (fetchOrders != null) {
@@ -5953,6 +6061,8 @@ class _$FetchOrders implements FetchOrders {
         indexChangeOnWomensCareBanner,
     required TResult Function(FetchShopAdBrandsById value)
         fetchShopAdBrandsById,
+    required TResult Function(SavePaymentMethodType value)
+        savePaymentMethodType,
   }) {
     return fetchOrders(this);
   }
@@ -6001,6 +6111,7 @@ class _$FetchOrders implements FetchOrders {
     TResult? Function(IndexChangeOnWomensCareBanner value)?
         indexChangeOnWomensCareBanner,
     TResult? Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
+    TResult? Function(SavePaymentMethodType value)? savePaymentMethodType,
   }) {
     return fetchOrders?.call(this);
   }
@@ -6049,6 +6160,7 @@ class _$FetchOrders implements FetchOrders {
     TResult Function(IndexChangeOnWomensCareBanner value)?
         indexChangeOnWomensCareBanner,
     TResult Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
+    TResult Function(SavePaymentMethodType value)? savePaymentMethodType,
     required TResult orElse(),
   }) {
     if (fetchOrders != null) {
@@ -6184,6 +6296,7 @@ class _$FetchOrdersById implements FetchOrdersById {
     required TResult Function(int index) indexChangeOnOrderProgress,
     required TResult Function(int index) indexChangeOnWomensCareBanner,
     required TResult Function(String id) fetchShopAdBrandsById,
+    required TResult Function(int index) savePaymentMethodType,
   }) {
     return fetchOrdersById(context, id);
   }
@@ -6234,6 +6347,7 @@ class _$FetchOrdersById implements FetchOrdersById {
     TResult? Function(int index)? indexChangeOnOrderProgress,
     TResult? Function(int index)? indexChangeOnWomensCareBanner,
     TResult? Function(String id)? fetchShopAdBrandsById,
+    TResult? Function(int index)? savePaymentMethodType,
   }) {
     return fetchOrdersById?.call(context, id);
   }
@@ -6284,6 +6398,7 @@ class _$FetchOrdersById implements FetchOrdersById {
     TResult Function(int index)? indexChangeOnOrderProgress,
     TResult Function(int index)? indexChangeOnWomensCareBanner,
     TResult Function(String id)? fetchShopAdBrandsById,
+    TResult Function(int index)? savePaymentMethodType,
     required TResult orElse(),
   }) {
     if (fetchOrdersById != null) {
@@ -6343,6 +6458,8 @@ class _$FetchOrdersById implements FetchOrdersById {
         indexChangeOnWomensCareBanner,
     required TResult Function(FetchShopAdBrandsById value)
         fetchShopAdBrandsById,
+    required TResult Function(SavePaymentMethodType value)
+        savePaymentMethodType,
   }) {
     return fetchOrdersById(this);
   }
@@ -6391,6 +6508,7 @@ class _$FetchOrdersById implements FetchOrdersById {
     TResult? Function(IndexChangeOnWomensCareBanner value)?
         indexChangeOnWomensCareBanner,
     TResult? Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
+    TResult? Function(SavePaymentMethodType value)? savePaymentMethodType,
   }) {
     return fetchOrdersById?.call(this);
   }
@@ -6439,6 +6557,7 @@ class _$FetchOrdersById implements FetchOrdersById {
     TResult Function(IndexChangeOnWomensCareBanner value)?
         indexChangeOnWomensCareBanner,
     TResult Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
+    TResult Function(SavePaymentMethodType value)? savePaymentMethodType,
     required TResult orElse(),
   }) {
     if (fetchOrdersById != null) {
@@ -6580,6 +6699,7 @@ class _$FetchOrdersbyFilterEvent implements FetchOrdersbyFilterEvent {
     required TResult Function(int index) indexChangeOnOrderProgress,
     required TResult Function(int index) indexChangeOnWomensCareBanner,
     required TResult Function(String id) fetchShopAdBrandsById,
+    required TResult Function(int index) savePaymentMethodType,
   }) {
     return fetchOrdersbyFilterEvent(context, filterName);
   }
@@ -6630,6 +6750,7 @@ class _$FetchOrdersbyFilterEvent implements FetchOrdersbyFilterEvent {
     TResult? Function(int index)? indexChangeOnOrderProgress,
     TResult? Function(int index)? indexChangeOnWomensCareBanner,
     TResult? Function(String id)? fetchShopAdBrandsById,
+    TResult? Function(int index)? savePaymentMethodType,
   }) {
     return fetchOrdersbyFilterEvent?.call(context, filterName);
   }
@@ -6680,6 +6801,7 @@ class _$FetchOrdersbyFilterEvent implements FetchOrdersbyFilterEvent {
     TResult Function(int index)? indexChangeOnOrderProgress,
     TResult Function(int index)? indexChangeOnWomensCareBanner,
     TResult Function(String id)? fetchShopAdBrandsById,
+    TResult Function(int index)? savePaymentMethodType,
     required TResult orElse(),
   }) {
     if (fetchOrdersbyFilterEvent != null) {
@@ -6739,6 +6861,8 @@ class _$FetchOrdersbyFilterEvent implements FetchOrdersbyFilterEvent {
         indexChangeOnWomensCareBanner,
     required TResult Function(FetchShopAdBrandsById value)
         fetchShopAdBrandsById,
+    required TResult Function(SavePaymentMethodType value)
+        savePaymentMethodType,
   }) {
     return fetchOrdersbyFilterEvent(this);
   }
@@ -6787,6 +6911,7 @@ class _$FetchOrdersbyFilterEvent implements FetchOrdersbyFilterEvent {
     TResult? Function(IndexChangeOnWomensCareBanner value)?
         indexChangeOnWomensCareBanner,
     TResult? Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
+    TResult? Function(SavePaymentMethodType value)? savePaymentMethodType,
   }) {
     return fetchOrdersbyFilterEvent?.call(this);
   }
@@ -6835,6 +6960,7 @@ class _$FetchOrdersbyFilterEvent implements FetchOrdersbyFilterEvent {
     TResult Function(IndexChangeOnWomensCareBanner value)?
         indexChangeOnWomensCareBanner,
     TResult Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
+    TResult Function(SavePaymentMethodType value)? savePaymentMethodType,
     required TResult orElse(),
   }) {
     if (fetchOrdersbyFilterEvent != null) {
@@ -6974,6 +7100,7 @@ class _$CancelOrder implements CancelOrder {
     required TResult Function(int index) indexChangeOnOrderProgress,
     required TResult Function(int index) indexChangeOnWomensCareBanner,
     required TResult Function(String id) fetchShopAdBrandsById,
+    required TResult Function(int index) savePaymentMethodType,
   }) {
     return cancelOrder(context, shiprockeId);
   }
@@ -7024,6 +7151,7 @@ class _$CancelOrder implements CancelOrder {
     TResult? Function(int index)? indexChangeOnOrderProgress,
     TResult? Function(int index)? indexChangeOnWomensCareBanner,
     TResult? Function(String id)? fetchShopAdBrandsById,
+    TResult? Function(int index)? savePaymentMethodType,
   }) {
     return cancelOrder?.call(context, shiprockeId);
   }
@@ -7074,6 +7202,7 @@ class _$CancelOrder implements CancelOrder {
     TResult Function(int index)? indexChangeOnOrderProgress,
     TResult Function(int index)? indexChangeOnWomensCareBanner,
     TResult Function(String id)? fetchShopAdBrandsById,
+    TResult Function(int index)? savePaymentMethodType,
     required TResult orElse(),
   }) {
     if (cancelOrder != null) {
@@ -7133,6 +7262,8 @@ class _$CancelOrder implements CancelOrder {
         indexChangeOnWomensCareBanner,
     required TResult Function(FetchShopAdBrandsById value)
         fetchShopAdBrandsById,
+    required TResult Function(SavePaymentMethodType value)
+        savePaymentMethodType,
   }) {
     return cancelOrder(this);
   }
@@ -7181,6 +7312,7 @@ class _$CancelOrder implements CancelOrder {
     TResult? Function(IndexChangeOnWomensCareBanner value)?
         indexChangeOnWomensCareBanner,
     TResult? Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
+    TResult? Function(SavePaymentMethodType value)? savePaymentMethodType,
   }) {
     return cancelOrder?.call(this);
   }
@@ -7229,6 +7361,7 @@ class _$CancelOrder implements CancelOrder {
     TResult Function(IndexChangeOnWomensCareBanner value)?
         indexChangeOnWomensCareBanner,
     TResult Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
+    TResult Function(SavePaymentMethodType value)? savePaymentMethodType,
     required TResult orElse(),
   }) {
     if (cancelOrder != null) {
@@ -7336,6 +7469,7 @@ class _$FetchShopHomeBackgroundCard implements FetchShopHomeBackgroundCard {
     required TResult Function(int index) indexChangeOnOrderProgress,
     required TResult Function(int index) indexChangeOnWomensCareBanner,
     required TResult Function(String id) fetchShopAdBrandsById,
+    required TResult Function(int index) savePaymentMethodType,
   }) {
     return fetchShopHomeBackgroundCard();
   }
@@ -7386,6 +7520,7 @@ class _$FetchShopHomeBackgroundCard implements FetchShopHomeBackgroundCard {
     TResult? Function(int index)? indexChangeOnOrderProgress,
     TResult? Function(int index)? indexChangeOnWomensCareBanner,
     TResult? Function(String id)? fetchShopAdBrandsById,
+    TResult? Function(int index)? savePaymentMethodType,
   }) {
     return fetchShopHomeBackgroundCard?.call();
   }
@@ -7436,6 +7571,7 @@ class _$FetchShopHomeBackgroundCard implements FetchShopHomeBackgroundCard {
     TResult Function(int index)? indexChangeOnOrderProgress,
     TResult Function(int index)? indexChangeOnWomensCareBanner,
     TResult Function(String id)? fetchShopAdBrandsById,
+    TResult Function(int index)? savePaymentMethodType,
     required TResult orElse(),
   }) {
     if (fetchShopHomeBackgroundCard != null) {
@@ -7495,6 +7631,8 @@ class _$FetchShopHomeBackgroundCard implements FetchShopHomeBackgroundCard {
         indexChangeOnWomensCareBanner,
     required TResult Function(FetchShopAdBrandsById value)
         fetchShopAdBrandsById,
+    required TResult Function(SavePaymentMethodType value)
+        savePaymentMethodType,
   }) {
     return fetchShopHomeBackgroundCard(this);
   }
@@ -7543,6 +7681,7 @@ class _$FetchShopHomeBackgroundCard implements FetchShopHomeBackgroundCard {
     TResult? Function(IndexChangeOnWomensCareBanner value)?
         indexChangeOnWomensCareBanner,
     TResult? Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
+    TResult? Function(SavePaymentMethodType value)? savePaymentMethodType,
   }) {
     return fetchShopHomeBackgroundCard?.call(this);
   }
@@ -7591,6 +7730,7 @@ class _$FetchShopHomeBackgroundCard implements FetchShopHomeBackgroundCard {
     TResult Function(IndexChangeOnWomensCareBanner value)?
         indexChangeOnWomensCareBanner,
     TResult Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
+    TResult Function(SavePaymentMethodType value)? savePaymentMethodType,
     required TResult orElse(),
   }) {
     if (fetchShopHomeBackgroundCard != null) {
@@ -7692,6 +7832,7 @@ class _$FetchShopHomeBackgroundCardHelthyDiet
     required TResult Function(int index) indexChangeOnOrderProgress,
     required TResult Function(int index) indexChangeOnWomensCareBanner,
     required TResult Function(String id) fetchShopAdBrandsById,
+    required TResult Function(int index) savePaymentMethodType,
   }) {
     return fetchShopHomeBackgroundCardHelthyDiet();
   }
@@ -7742,6 +7883,7 @@ class _$FetchShopHomeBackgroundCardHelthyDiet
     TResult? Function(int index)? indexChangeOnOrderProgress,
     TResult? Function(int index)? indexChangeOnWomensCareBanner,
     TResult? Function(String id)? fetchShopAdBrandsById,
+    TResult? Function(int index)? savePaymentMethodType,
   }) {
     return fetchShopHomeBackgroundCardHelthyDiet?.call();
   }
@@ -7792,6 +7934,7 @@ class _$FetchShopHomeBackgroundCardHelthyDiet
     TResult Function(int index)? indexChangeOnOrderProgress,
     TResult Function(int index)? indexChangeOnWomensCareBanner,
     TResult Function(String id)? fetchShopAdBrandsById,
+    TResult Function(int index)? savePaymentMethodType,
     required TResult orElse(),
   }) {
     if (fetchShopHomeBackgroundCardHelthyDiet != null) {
@@ -7851,6 +7994,8 @@ class _$FetchShopHomeBackgroundCardHelthyDiet
         indexChangeOnWomensCareBanner,
     required TResult Function(FetchShopAdBrandsById value)
         fetchShopAdBrandsById,
+    required TResult Function(SavePaymentMethodType value)
+        savePaymentMethodType,
   }) {
     return fetchShopHomeBackgroundCardHelthyDiet(this);
   }
@@ -7899,6 +8044,7 @@ class _$FetchShopHomeBackgroundCardHelthyDiet
     TResult? Function(IndexChangeOnWomensCareBanner value)?
         indexChangeOnWomensCareBanner,
     TResult? Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
+    TResult? Function(SavePaymentMethodType value)? savePaymentMethodType,
   }) {
     return fetchShopHomeBackgroundCardHelthyDiet?.call(this);
   }
@@ -7947,6 +8093,7 @@ class _$FetchShopHomeBackgroundCardHelthyDiet
     TResult Function(IndexChangeOnWomensCareBanner value)?
         indexChangeOnWomensCareBanner,
     TResult Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
+    TResult Function(SavePaymentMethodType value)? savePaymentMethodType,
     required TResult orElse(),
   }) {
     if (fetchShopHomeBackgroundCardHelthyDiet != null) {
@@ -8050,6 +8197,7 @@ class _$FetchShopHomeBackgroundCardSunnah
     required TResult Function(int index) indexChangeOnOrderProgress,
     required TResult Function(int index) indexChangeOnWomensCareBanner,
     required TResult Function(String id) fetchShopAdBrandsById,
+    required TResult Function(int index) savePaymentMethodType,
   }) {
     return fetchShopHomeBackgroundCardSunnah();
   }
@@ -8100,6 +8248,7 @@ class _$FetchShopHomeBackgroundCardSunnah
     TResult? Function(int index)? indexChangeOnOrderProgress,
     TResult? Function(int index)? indexChangeOnWomensCareBanner,
     TResult? Function(String id)? fetchShopAdBrandsById,
+    TResult? Function(int index)? savePaymentMethodType,
   }) {
     return fetchShopHomeBackgroundCardSunnah?.call();
   }
@@ -8150,6 +8299,7 @@ class _$FetchShopHomeBackgroundCardSunnah
     TResult Function(int index)? indexChangeOnOrderProgress,
     TResult Function(int index)? indexChangeOnWomensCareBanner,
     TResult Function(String id)? fetchShopAdBrandsById,
+    TResult Function(int index)? savePaymentMethodType,
     required TResult orElse(),
   }) {
     if (fetchShopHomeBackgroundCardSunnah != null) {
@@ -8209,6 +8359,8 @@ class _$FetchShopHomeBackgroundCardSunnah
         indexChangeOnWomensCareBanner,
     required TResult Function(FetchShopAdBrandsById value)
         fetchShopAdBrandsById,
+    required TResult Function(SavePaymentMethodType value)
+        savePaymentMethodType,
   }) {
     return fetchShopHomeBackgroundCardSunnah(this);
   }
@@ -8257,6 +8409,7 @@ class _$FetchShopHomeBackgroundCardSunnah
     TResult? Function(IndexChangeOnWomensCareBanner value)?
         indexChangeOnWomensCareBanner,
     TResult? Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
+    TResult? Function(SavePaymentMethodType value)? savePaymentMethodType,
   }) {
     return fetchShopHomeBackgroundCardSunnah?.call(this);
   }
@@ -8305,6 +8458,7 @@ class _$FetchShopHomeBackgroundCardSunnah
     TResult Function(IndexChangeOnWomensCareBanner value)?
         indexChangeOnWomensCareBanner,
     TResult Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
+    TResult Function(SavePaymentMethodType value)? savePaymentMethodType,
     required TResult orElse(),
   }) {
     if (fetchShopHomeBackgroundCardSunnah != null) {
@@ -8402,6 +8556,7 @@ class _$FetchShopAdBrands implements FetchShopAdBrands {
     required TResult Function(int index) indexChangeOnOrderProgress,
     required TResult Function(int index) indexChangeOnWomensCareBanner,
     required TResult Function(String id) fetchShopAdBrandsById,
+    required TResult Function(int index) savePaymentMethodType,
   }) {
     return fetchShopAdBrands();
   }
@@ -8452,6 +8607,7 @@ class _$FetchShopAdBrands implements FetchShopAdBrands {
     TResult? Function(int index)? indexChangeOnOrderProgress,
     TResult? Function(int index)? indexChangeOnWomensCareBanner,
     TResult? Function(String id)? fetchShopAdBrandsById,
+    TResult? Function(int index)? savePaymentMethodType,
   }) {
     return fetchShopAdBrands?.call();
   }
@@ -8502,6 +8658,7 @@ class _$FetchShopAdBrands implements FetchShopAdBrands {
     TResult Function(int index)? indexChangeOnOrderProgress,
     TResult Function(int index)? indexChangeOnWomensCareBanner,
     TResult Function(String id)? fetchShopAdBrandsById,
+    TResult Function(int index)? savePaymentMethodType,
     required TResult orElse(),
   }) {
     if (fetchShopAdBrands != null) {
@@ -8561,6 +8718,8 @@ class _$FetchShopAdBrands implements FetchShopAdBrands {
         indexChangeOnWomensCareBanner,
     required TResult Function(FetchShopAdBrandsById value)
         fetchShopAdBrandsById,
+    required TResult Function(SavePaymentMethodType value)
+        savePaymentMethodType,
   }) {
     return fetchShopAdBrands(this);
   }
@@ -8609,6 +8768,7 @@ class _$FetchShopAdBrands implements FetchShopAdBrands {
     TResult? Function(IndexChangeOnWomensCareBanner value)?
         indexChangeOnWomensCareBanner,
     TResult? Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
+    TResult? Function(SavePaymentMethodType value)? savePaymentMethodType,
   }) {
     return fetchShopAdBrands?.call(this);
   }
@@ -8657,6 +8817,7 @@ class _$FetchShopAdBrands implements FetchShopAdBrands {
     TResult Function(IndexChangeOnWomensCareBanner value)?
         indexChangeOnWomensCareBanner,
     TResult Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
+    TResult Function(SavePaymentMethodType value)? savePaymentMethodType,
     required TResult orElse(),
   }) {
     if (fetchShopAdBrands != null) {
@@ -8753,6 +8914,7 @@ class _$FetchTopBrands implements FetchTopBrands {
     required TResult Function(int index) indexChangeOnOrderProgress,
     required TResult Function(int index) indexChangeOnWomensCareBanner,
     required TResult Function(String id) fetchShopAdBrandsById,
+    required TResult Function(int index) savePaymentMethodType,
   }) {
     return fetchTopBrands();
   }
@@ -8803,6 +8965,7 @@ class _$FetchTopBrands implements FetchTopBrands {
     TResult? Function(int index)? indexChangeOnOrderProgress,
     TResult? Function(int index)? indexChangeOnWomensCareBanner,
     TResult? Function(String id)? fetchShopAdBrandsById,
+    TResult? Function(int index)? savePaymentMethodType,
   }) {
     return fetchTopBrands?.call();
   }
@@ -8853,6 +9016,7 @@ class _$FetchTopBrands implements FetchTopBrands {
     TResult Function(int index)? indexChangeOnOrderProgress,
     TResult Function(int index)? indexChangeOnWomensCareBanner,
     TResult Function(String id)? fetchShopAdBrandsById,
+    TResult Function(int index)? savePaymentMethodType,
     required TResult orElse(),
   }) {
     if (fetchTopBrands != null) {
@@ -8912,6 +9076,8 @@ class _$FetchTopBrands implements FetchTopBrands {
         indexChangeOnWomensCareBanner,
     required TResult Function(FetchShopAdBrandsById value)
         fetchShopAdBrandsById,
+    required TResult Function(SavePaymentMethodType value)
+        savePaymentMethodType,
   }) {
     return fetchTopBrands(this);
   }
@@ -8960,6 +9126,7 @@ class _$FetchTopBrands implements FetchTopBrands {
     TResult? Function(IndexChangeOnWomensCareBanner value)?
         indexChangeOnWomensCareBanner,
     TResult? Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
+    TResult? Function(SavePaymentMethodType value)? savePaymentMethodType,
   }) {
     return fetchTopBrands?.call(this);
   }
@@ -9008,6 +9175,7 @@ class _$FetchTopBrands implements FetchTopBrands {
     TResult Function(IndexChangeOnWomensCareBanner value)?
         indexChangeOnWomensCareBanner,
     TResult Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
+    TResult Function(SavePaymentMethodType value)? savePaymentMethodType,
     required TResult orElse(),
   }) {
     if (fetchTopBrands != null) {
@@ -9109,6 +9277,7 @@ class _$FetchProductItemsSubcategorySunnah
     required TResult Function(int index) indexChangeOnOrderProgress,
     required TResult Function(int index) indexChangeOnWomensCareBanner,
     required TResult Function(String id) fetchShopAdBrandsById,
+    required TResult Function(int index) savePaymentMethodType,
   }) {
     return fetchProductItemsSubcategorySunnah();
   }
@@ -9159,6 +9328,7 @@ class _$FetchProductItemsSubcategorySunnah
     TResult? Function(int index)? indexChangeOnOrderProgress,
     TResult? Function(int index)? indexChangeOnWomensCareBanner,
     TResult? Function(String id)? fetchShopAdBrandsById,
+    TResult? Function(int index)? savePaymentMethodType,
   }) {
     return fetchProductItemsSubcategorySunnah?.call();
   }
@@ -9209,6 +9379,7 @@ class _$FetchProductItemsSubcategorySunnah
     TResult Function(int index)? indexChangeOnOrderProgress,
     TResult Function(int index)? indexChangeOnWomensCareBanner,
     TResult Function(String id)? fetchShopAdBrandsById,
+    TResult Function(int index)? savePaymentMethodType,
     required TResult orElse(),
   }) {
     if (fetchProductItemsSubcategorySunnah != null) {
@@ -9268,6 +9439,8 @@ class _$FetchProductItemsSubcategorySunnah
         indexChangeOnWomensCareBanner,
     required TResult Function(FetchShopAdBrandsById value)
         fetchShopAdBrandsById,
+    required TResult Function(SavePaymentMethodType value)
+        savePaymentMethodType,
   }) {
     return fetchProductItemsSubcategorySunnah(this);
   }
@@ -9316,6 +9489,7 @@ class _$FetchProductItemsSubcategorySunnah
     TResult? Function(IndexChangeOnWomensCareBanner value)?
         indexChangeOnWomensCareBanner,
     TResult? Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
+    TResult? Function(SavePaymentMethodType value)? savePaymentMethodType,
   }) {
     return fetchProductItemsSubcategorySunnah?.call(this);
   }
@@ -9364,6 +9538,7 @@ class _$FetchProductItemsSubcategorySunnah
     TResult Function(IndexChangeOnWomensCareBanner value)?
         indexChangeOnWomensCareBanner,
     TResult Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
+    TResult Function(SavePaymentMethodType value)? savePaymentMethodType,
     required TResult orElse(),
   }) {
     if (fetchProductItemsSubcategorySunnah != null) {
@@ -9466,6 +9641,7 @@ class _$FetchProductItemsSubcategoryHealth
     required TResult Function(int index) indexChangeOnOrderProgress,
     required TResult Function(int index) indexChangeOnWomensCareBanner,
     required TResult Function(String id) fetchShopAdBrandsById,
+    required TResult Function(int index) savePaymentMethodType,
   }) {
     return fetchProductItemsSubcategoryHealth();
   }
@@ -9516,6 +9692,7 @@ class _$FetchProductItemsSubcategoryHealth
     TResult? Function(int index)? indexChangeOnOrderProgress,
     TResult? Function(int index)? indexChangeOnWomensCareBanner,
     TResult? Function(String id)? fetchShopAdBrandsById,
+    TResult? Function(int index)? savePaymentMethodType,
   }) {
     return fetchProductItemsSubcategoryHealth?.call();
   }
@@ -9566,6 +9743,7 @@ class _$FetchProductItemsSubcategoryHealth
     TResult Function(int index)? indexChangeOnOrderProgress,
     TResult Function(int index)? indexChangeOnWomensCareBanner,
     TResult Function(String id)? fetchShopAdBrandsById,
+    TResult Function(int index)? savePaymentMethodType,
     required TResult orElse(),
   }) {
     if (fetchProductItemsSubcategoryHealth != null) {
@@ -9625,6 +9803,8 @@ class _$FetchProductItemsSubcategoryHealth
         indexChangeOnWomensCareBanner,
     required TResult Function(FetchShopAdBrandsById value)
         fetchShopAdBrandsById,
+    required TResult Function(SavePaymentMethodType value)
+        savePaymentMethodType,
   }) {
     return fetchProductItemsSubcategoryHealth(this);
   }
@@ -9673,6 +9853,7 @@ class _$FetchProductItemsSubcategoryHealth
     TResult? Function(IndexChangeOnWomensCareBanner value)?
         indexChangeOnWomensCareBanner,
     TResult? Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
+    TResult? Function(SavePaymentMethodType value)? savePaymentMethodType,
   }) {
     return fetchProductItemsSubcategoryHealth?.call(this);
   }
@@ -9721,6 +9902,7 @@ class _$FetchProductItemsSubcategoryHealth
     TResult Function(IndexChangeOnWomensCareBanner value)?
         indexChangeOnWomensCareBanner,
     TResult Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
+    TResult Function(SavePaymentMethodType value)? savePaymentMethodType,
     required TResult orElse(),
   }) {
     if (fetchProductItemsSubcategoryHealth != null) {
@@ -9823,6 +10005,7 @@ class _$FetchProductItemsSubcategoryWomen
     required TResult Function(int index) indexChangeOnOrderProgress,
     required TResult Function(int index) indexChangeOnWomensCareBanner,
     required TResult Function(String id) fetchShopAdBrandsById,
+    required TResult Function(int index) savePaymentMethodType,
   }) {
     return fetchProductItemsSubcategoryWomen();
   }
@@ -9873,6 +10056,7 @@ class _$FetchProductItemsSubcategoryWomen
     TResult? Function(int index)? indexChangeOnOrderProgress,
     TResult? Function(int index)? indexChangeOnWomensCareBanner,
     TResult? Function(String id)? fetchShopAdBrandsById,
+    TResult? Function(int index)? savePaymentMethodType,
   }) {
     return fetchProductItemsSubcategoryWomen?.call();
   }
@@ -9923,6 +10107,7 @@ class _$FetchProductItemsSubcategoryWomen
     TResult Function(int index)? indexChangeOnOrderProgress,
     TResult Function(int index)? indexChangeOnWomensCareBanner,
     TResult Function(String id)? fetchShopAdBrandsById,
+    TResult Function(int index)? savePaymentMethodType,
     required TResult orElse(),
   }) {
     if (fetchProductItemsSubcategoryWomen != null) {
@@ -9982,6 +10167,8 @@ class _$FetchProductItemsSubcategoryWomen
         indexChangeOnWomensCareBanner,
     required TResult Function(FetchShopAdBrandsById value)
         fetchShopAdBrandsById,
+    required TResult Function(SavePaymentMethodType value)
+        savePaymentMethodType,
   }) {
     return fetchProductItemsSubcategoryWomen(this);
   }
@@ -10030,6 +10217,7 @@ class _$FetchProductItemsSubcategoryWomen
     TResult? Function(IndexChangeOnWomensCareBanner value)?
         indexChangeOnWomensCareBanner,
     TResult? Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
+    TResult? Function(SavePaymentMethodType value)? savePaymentMethodType,
   }) {
     return fetchProductItemsSubcategoryWomen?.call(this);
   }
@@ -10078,6 +10266,7 @@ class _$FetchProductItemsSubcategoryWomen
     TResult Function(IndexChangeOnWomensCareBanner value)?
         indexChangeOnWomensCareBanner,
     TResult Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
+    TResult Function(SavePaymentMethodType value)? savePaymentMethodType,
     required TResult orElse(),
   }) {
     if (fetchProductItemsSubcategoryWomen != null) {
@@ -10202,6 +10391,7 @@ class _$ChangeShopBannerIndex implements ChangeShopBannerIndex {
     required TResult Function(int index) indexChangeOnOrderProgress,
     required TResult Function(int index) indexChangeOnWomensCareBanner,
     required TResult Function(String id) fetchShopAdBrandsById,
+    required TResult Function(int index) savePaymentMethodType,
   }) {
     return changeShopBannerIndex(index);
   }
@@ -10252,6 +10442,7 @@ class _$ChangeShopBannerIndex implements ChangeShopBannerIndex {
     TResult? Function(int index)? indexChangeOnOrderProgress,
     TResult? Function(int index)? indexChangeOnWomensCareBanner,
     TResult? Function(String id)? fetchShopAdBrandsById,
+    TResult? Function(int index)? savePaymentMethodType,
   }) {
     return changeShopBannerIndex?.call(index);
   }
@@ -10302,6 +10493,7 @@ class _$ChangeShopBannerIndex implements ChangeShopBannerIndex {
     TResult Function(int index)? indexChangeOnOrderProgress,
     TResult Function(int index)? indexChangeOnWomensCareBanner,
     TResult Function(String id)? fetchShopAdBrandsById,
+    TResult Function(int index)? savePaymentMethodType,
     required TResult orElse(),
   }) {
     if (changeShopBannerIndex != null) {
@@ -10361,6 +10553,8 @@ class _$ChangeShopBannerIndex implements ChangeShopBannerIndex {
         indexChangeOnWomensCareBanner,
     required TResult Function(FetchShopAdBrandsById value)
         fetchShopAdBrandsById,
+    required TResult Function(SavePaymentMethodType value)
+        savePaymentMethodType,
   }) {
     return changeShopBannerIndex(this);
   }
@@ -10409,6 +10603,7 @@ class _$ChangeShopBannerIndex implements ChangeShopBannerIndex {
     TResult? Function(IndexChangeOnWomensCareBanner value)?
         indexChangeOnWomensCareBanner,
     TResult? Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
+    TResult? Function(SavePaymentMethodType value)? savePaymentMethodType,
   }) {
     return changeShopBannerIndex?.call(this);
   }
@@ -10457,6 +10652,7 @@ class _$ChangeShopBannerIndex implements ChangeShopBannerIndex {
     TResult Function(IndexChangeOnWomensCareBanner value)?
         indexChangeOnWomensCareBanner,
     TResult Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
+    TResult Function(SavePaymentMethodType value)? savePaymentMethodType,
     required TResult orElse(),
   }) {
     if (changeShopBannerIndex != null) {
@@ -10586,6 +10782,7 @@ class _$ChangeBrandBannerIndex implements ChangeBrandBannerIndex {
     required TResult Function(int index) indexChangeOnOrderProgress,
     required TResult Function(int index) indexChangeOnWomensCareBanner,
     required TResult Function(String id) fetchShopAdBrandsById,
+    required TResult Function(int index) savePaymentMethodType,
   }) {
     return changeBrandBannerIndex(index);
   }
@@ -10636,6 +10833,7 @@ class _$ChangeBrandBannerIndex implements ChangeBrandBannerIndex {
     TResult? Function(int index)? indexChangeOnOrderProgress,
     TResult? Function(int index)? indexChangeOnWomensCareBanner,
     TResult? Function(String id)? fetchShopAdBrandsById,
+    TResult? Function(int index)? savePaymentMethodType,
   }) {
     return changeBrandBannerIndex?.call(index);
   }
@@ -10686,6 +10884,7 @@ class _$ChangeBrandBannerIndex implements ChangeBrandBannerIndex {
     TResult Function(int index)? indexChangeOnOrderProgress,
     TResult Function(int index)? indexChangeOnWomensCareBanner,
     TResult Function(String id)? fetchShopAdBrandsById,
+    TResult Function(int index)? savePaymentMethodType,
     required TResult orElse(),
   }) {
     if (changeBrandBannerIndex != null) {
@@ -10745,6 +10944,8 @@ class _$ChangeBrandBannerIndex implements ChangeBrandBannerIndex {
         indexChangeOnWomensCareBanner,
     required TResult Function(FetchShopAdBrandsById value)
         fetchShopAdBrandsById,
+    required TResult Function(SavePaymentMethodType value)
+        savePaymentMethodType,
   }) {
     return changeBrandBannerIndex(this);
   }
@@ -10793,6 +10994,7 @@ class _$ChangeBrandBannerIndex implements ChangeBrandBannerIndex {
     TResult? Function(IndexChangeOnWomensCareBanner value)?
         indexChangeOnWomensCareBanner,
     TResult? Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
+    TResult? Function(SavePaymentMethodType value)? savePaymentMethodType,
   }) {
     return changeBrandBannerIndex?.call(this);
   }
@@ -10841,6 +11043,7 @@ class _$ChangeBrandBannerIndex implements ChangeBrandBannerIndex {
     TResult Function(IndexChangeOnWomensCareBanner value)?
         indexChangeOnWomensCareBanner,
     TResult Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
+    TResult Function(SavePaymentMethodType value)? savePaymentMethodType,
     required TResult orElse(),
   }) {
     if (changeBrandBannerIndex != null) {
@@ -10943,6 +11146,7 @@ class _$ShowOrderProgressEvent implements ShowOrderProgressEvent {
     required TResult Function(int index) indexChangeOnOrderProgress,
     required TResult Function(int index) indexChangeOnWomensCareBanner,
     required TResult Function(String id) fetchShopAdBrandsById,
+    required TResult Function(int index) savePaymentMethodType,
   }) {
     return showOrderProgressEvent();
   }
@@ -10993,6 +11197,7 @@ class _$ShowOrderProgressEvent implements ShowOrderProgressEvent {
     TResult? Function(int index)? indexChangeOnOrderProgress,
     TResult? Function(int index)? indexChangeOnWomensCareBanner,
     TResult? Function(String id)? fetchShopAdBrandsById,
+    TResult? Function(int index)? savePaymentMethodType,
   }) {
     return showOrderProgressEvent?.call();
   }
@@ -11043,6 +11248,7 @@ class _$ShowOrderProgressEvent implements ShowOrderProgressEvent {
     TResult Function(int index)? indexChangeOnOrderProgress,
     TResult Function(int index)? indexChangeOnWomensCareBanner,
     TResult Function(String id)? fetchShopAdBrandsById,
+    TResult Function(int index)? savePaymentMethodType,
     required TResult orElse(),
   }) {
     if (showOrderProgressEvent != null) {
@@ -11102,6 +11308,8 @@ class _$ShowOrderProgressEvent implements ShowOrderProgressEvent {
         indexChangeOnWomensCareBanner,
     required TResult Function(FetchShopAdBrandsById value)
         fetchShopAdBrandsById,
+    required TResult Function(SavePaymentMethodType value)
+        savePaymentMethodType,
   }) {
     return showOrderProgressEvent(this);
   }
@@ -11150,6 +11358,7 @@ class _$ShowOrderProgressEvent implements ShowOrderProgressEvent {
     TResult? Function(IndexChangeOnWomensCareBanner value)?
         indexChangeOnWomensCareBanner,
     TResult? Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
+    TResult? Function(SavePaymentMethodType value)? savePaymentMethodType,
   }) {
     return showOrderProgressEvent?.call(this);
   }
@@ -11198,6 +11407,7 @@ class _$ShowOrderProgressEvent implements ShowOrderProgressEvent {
     TResult Function(IndexChangeOnWomensCareBanner value)?
         indexChangeOnWomensCareBanner,
     TResult Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
+    TResult Function(SavePaymentMethodType value)? savePaymentMethodType,
     required TResult orElse(),
   }) {
     if (showOrderProgressEvent != null) {
@@ -11323,6 +11533,7 @@ class _$IndexChangeOnOrderProgress implements IndexChangeOnOrderProgress {
     required TResult Function(int index) indexChangeOnOrderProgress,
     required TResult Function(int index) indexChangeOnWomensCareBanner,
     required TResult Function(String id) fetchShopAdBrandsById,
+    required TResult Function(int index) savePaymentMethodType,
   }) {
     return indexChangeOnOrderProgress(index);
   }
@@ -11373,6 +11584,7 @@ class _$IndexChangeOnOrderProgress implements IndexChangeOnOrderProgress {
     TResult? Function(int index)? indexChangeOnOrderProgress,
     TResult? Function(int index)? indexChangeOnWomensCareBanner,
     TResult? Function(String id)? fetchShopAdBrandsById,
+    TResult? Function(int index)? savePaymentMethodType,
   }) {
     return indexChangeOnOrderProgress?.call(index);
   }
@@ -11423,6 +11635,7 @@ class _$IndexChangeOnOrderProgress implements IndexChangeOnOrderProgress {
     TResult Function(int index)? indexChangeOnOrderProgress,
     TResult Function(int index)? indexChangeOnWomensCareBanner,
     TResult Function(String id)? fetchShopAdBrandsById,
+    TResult Function(int index)? savePaymentMethodType,
     required TResult orElse(),
   }) {
     if (indexChangeOnOrderProgress != null) {
@@ -11482,6 +11695,8 @@ class _$IndexChangeOnOrderProgress implements IndexChangeOnOrderProgress {
         indexChangeOnWomensCareBanner,
     required TResult Function(FetchShopAdBrandsById value)
         fetchShopAdBrandsById,
+    required TResult Function(SavePaymentMethodType value)
+        savePaymentMethodType,
   }) {
     return indexChangeOnOrderProgress(this);
   }
@@ -11530,6 +11745,7 @@ class _$IndexChangeOnOrderProgress implements IndexChangeOnOrderProgress {
     TResult? Function(IndexChangeOnWomensCareBanner value)?
         indexChangeOnWomensCareBanner,
     TResult? Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
+    TResult? Function(SavePaymentMethodType value)? savePaymentMethodType,
   }) {
     return indexChangeOnOrderProgress?.call(this);
   }
@@ -11578,6 +11794,7 @@ class _$IndexChangeOnOrderProgress implements IndexChangeOnOrderProgress {
     TResult Function(IndexChangeOnWomensCareBanner value)?
         indexChangeOnWomensCareBanner,
     TResult Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
+    TResult Function(SavePaymentMethodType value)? savePaymentMethodType,
     required TResult orElse(),
   }) {
     if (indexChangeOnOrderProgress != null) {
@@ -11710,6 +11927,7 @@ class _$IndexChangeOnWomensCareBanner implements IndexChangeOnWomensCareBanner {
     required TResult Function(int index) indexChangeOnOrderProgress,
     required TResult Function(int index) indexChangeOnWomensCareBanner,
     required TResult Function(String id) fetchShopAdBrandsById,
+    required TResult Function(int index) savePaymentMethodType,
   }) {
     return indexChangeOnWomensCareBanner(index);
   }
@@ -11760,6 +11978,7 @@ class _$IndexChangeOnWomensCareBanner implements IndexChangeOnWomensCareBanner {
     TResult? Function(int index)? indexChangeOnOrderProgress,
     TResult? Function(int index)? indexChangeOnWomensCareBanner,
     TResult? Function(String id)? fetchShopAdBrandsById,
+    TResult? Function(int index)? savePaymentMethodType,
   }) {
     return indexChangeOnWomensCareBanner?.call(index);
   }
@@ -11810,6 +12029,7 @@ class _$IndexChangeOnWomensCareBanner implements IndexChangeOnWomensCareBanner {
     TResult Function(int index)? indexChangeOnOrderProgress,
     TResult Function(int index)? indexChangeOnWomensCareBanner,
     TResult Function(String id)? fetchShopAdBrandsById,
+    TResult Function(int index)? savePaymentMethodType,
     required TResult orElse(),
   }) {
     if (indexChangeOnWomensCareBanner != null) {
@@ -11869,6 +12089,8 @@ class _$IndexChangeOnWomensCareBanner implements IndexChangeOnWomensCareBanner {
         indexChangeOnWomensCareBanner,
     required TResult Function(FetchShopAdBrandsById value)
         fetchShopAdBrandsById,
+    required TResult Function(SavePaymentMethodType value)
+        savePaymentMethodType,
   }) {
     return indexChangeOnWomensCareBanner(this);
   }
@@ -11917,6 +12139,7 @@ class _$IndexChangeOnWomensCareBanner implements IndexChangeOnWomensCareBanner {
     TResult? Function(IndexChangeOnWomensCareBanner value)?
         indexChangeOnWomensCareBanner,
     TResult? Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
+    TResult? Function(SavePaymentMethodType value)? savePaymentMethodType,
   }) {
     return indexChangeOnWomensCareBanner?.call(this);
   }
@@ -11965,6 +12188,7 @@ class _$IndexChangeOnWomensCareBanner implements IndexChangeOnWomensCareBanner {
     TResult Function(IndexChangeOnWomensCareBanner value)?
         indexChangeOnWomensCareBanner,
     TResult Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
+    TResult Function(SavePaymentMethodType value)? savePaymentMethodType,
     required TResult orElse(),
   }) {
     if (indexChangeOnWomensCareBanner != null) {
@@ -12094,6 +12318,7 @@ class _$FetchShopAdBrandsById implements FetchShopAdBrandsById {
     required TResult Function(int index) indexChangeOnOrderProgress,
     required TResult Function(int index) indexChangeOnWomensCareBanner,
     required TResult Function(String id) fetchShopAdBrandsById,
+    required TResult Function(int index) savePaymentMethodType,
   }) {
     return fetchShopAdBrandsById(id);
   }
@@ -12144,6 +12369,7 @@ class _$FetchShopAdBrandsById implements FetchShopAdBrandsById {
     TResult? Function(int index)? indexChangeOnOrderProgress,
     TResult? Function(int index)? indexChangeOnWomensCareBanner,
     TResult? Function(String id)? fetchShopAdBrandsById,
+    TResult? Function(int index)? savePaymentMethodType,
   }) {
     return fetchShopAdBrandsById?.call(id);
   }
@@ -12194,6 +12420,7 @@ class _$FetchShopAdBrandsById implements FetchShopAdBrandsById {
     TResult Function(int index)? indexChangeOnOrderProgress,
     TResult Function(int index)? indexChangeOnWomensCareBanner,
     TResult Function(String id)? fetchShopAdBrandsById,
+    TResult Function(int index)? savePaymentMethodType,
     required TResult orElse(),
   }) {
     if (fetchShopAdBrandsById != null) {
@@ -12253,6 +12480,8 @@ class _$FetchShopAdBrandsById implements FetchShopAdBrandsById {
         indexChangeOnWomensCareBanner,
     required TResult Function(FetchShopAdBrandsById value)
         fetchShopAdBrandsById,
+    required TResult Function(SavePaymentMethodType value)
+        savePaymentMethodType,
   }) {
     return fetchShopAdBrandsById(this);
   }
@@ -12301,6 +12530,7 @@ class _$FetchShopAdBrandsById implements FetchShopAdBrandsById {
     TResult? Function(IndexChangeOnWomensCareBanner value)?
         indexChangeOnWomensCareBanner,
     TResult? Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
+    TResult? Function(SavePaymentMethodType value)? savePaymentMethodType,
   }) {
     return fetchShopAdBrandsById?.call(this);
   }
@@ -12349,6 +12579,7 @@ class _$FetchShopAdBrandsById implements FetchShopAdBrandsById {
     TResult Function(IndexChangeOnWomensCareBanner value)?
         indexChangeOnWomensCareBanner,
     TResult Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
+    TResult Function(SavePaymentMethodType value)? savePaymentMethodType,
     required TResult orElse(),
   }) {
     if (fetchShopAdBrandsById != null) {
@@ -12365,6 +12596,397 @@ abstract class FetchShopAdBrandsById implements ShopProductsEvent {
   String get id;
   @JsonKey(ignore: true)
   _$$FetchShopAdBrandsByIdCopyWith<_$FetchShopAdBrandsById> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SavePaymentMethodTypeCopyWith<$Res> {
+  factory _$$SavePaymentMethodTypeCopyWith(_$SavePaymentMethodType value,
+          $Res Function(_$SavePaymentMethodType) then) =
+      __$$SavePaymentMethodTypeCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int index});
+}
+
+/// @nodoc
+class __$$SavePaymentMethodTypeCopyWithImpl<$Res>
+    extends _$ShopProductsEventCopyWithImpl<$Res, _$SavePaymentMethodType>
+    implements _$$SavePaymentMethodTypeCopyWith<$Res> {
+  __$$SavePaymentMethodTypeCopyWithImpl(_$SavePaymentMethodType _value,
+      $Res Function(_$SavePaymentMethodType) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? index = null,
+  }) {
+    return _then(_$SavePaymentMethodType(
+      index: null == index
+          ? _value.index
+          : index // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SavePaymentMethodType implements SavePaymentMethodType {
+  const _$SavePaymentMethodType({required this.index});
+
+  @override
+  final int index;
+
+  @override
+  String toString() {
+    return 'ShopProductsEvent.savePaymentMethodType(index: $index)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SavePaymentMethodType &&
+            (identical(other.index, index) || other.index == index));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, index);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SavePaymentMethodTypeCopyWith<_$SavePaymentMethodType> get copyWith =>
+      __$$SavePaymentMethodTypeCopyWithImpl<_$SavePaymentMethodType>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String endPointSlug) fetchFlashSaleProducts,
+    required TResult Function(String endPointSlug) fetchPopularProducts,
+    required TResult Function() fetchRecentProductProducts,
+    required TResult Function() fetchHomeBanners,
+    required TResult Function() fetchShopBanners,
+    required TResult Function(String searchQuery) fetchArticles,
+    required TResult Function() fetchShopByBrand,
+    required TResult Function(BuildContext context) fetchWishList,
+    required TResult Function(String query) searchProduct,
+    required TResult Function(String productId, BuildContext context)
+        addWishListEvent,
+    required TResult Function(String productId, BuildContext context)
+        removeWishlistEvent,
+    required TResult Function(String brandName) fetchShopByBrandProducts,
+    required TResult Function(int index) tabIndexChangeEvent,
+    required TResult Function(
+            BuildContext context,
+            int totalPrice,
+            String pickupLocation,
+            int quantity,
+            int totalDiscount,
+            int shippingCharges,
+            int weight,
+            String id)
+        postOrders,
+    required TResult Function(BuildContext context) fetchOrders,
+    required TResult Function(BuildContext context, int id) fetchOrdersById,
+    required TResult Function(BuildContext context, String filterName)
+        fetchOrdersbyFilterEvent,
+    required TResult Function(BuildContext context, int shiprockeId)
+        cancelOrder,
+    required TResult Function() fetchShopHomeBackgroundCard,
+    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
+    required TResult Function() fetchShopHomeBackgroundCardSunnah,
+    required TResult Function() fetchShopAdBrands,
+    required TResult Function() fetchTopBrands,
+    required TResult Function() fetchProductItemsSubcategorySunnah,
+    required TResult Function() fetchProductItemsSubcategoryHealth,
+    required TResult Function() fetchProductItemsSubcategoryWomen,
+    required TResult Function(int index) changeShopBannerIndex,
+    required TResult Function(int index) changeBrandBannerIndex,
+    required TResult Function() showOrderProgressEvent,
+    required TResult Function(int index) indexChangeOnOrderProgress,
+    required TResult Function(int index) indexChangeOnWomensCareBanner,
+    required TResult Function(String id) fetchShopAdBrandsById,
+    required TResult Function(int index) savePaymentMethodType,
+  }) {
+    return savePaymentMethodType(index);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String endPointSlug)? fetchFlashSaleProducts,
+    TResult? Function(String endPointSlug)? fetchPopularProducts,
+    TResult? Function()? fetchRecentProductProducts,
+    TResult? Function()? fetchHomeBanners,
+    TResult? Function()? fetchShopBanners,
+    TResult? Function(String searchQuery)? fetchArticles,
+    TResult? Function()? fetchShopByBrand,
+    TResult? Function(BuildContext context)? fetchWishList,
+    TResult? Function(String query)? searchProduct,
+    TResult? Function(String productId, BuildContext context)? addWishListEvent,
+    TResult? Function(String productId, BuildContext context)?
+        removeWishlistEvent,
+    TResult? Function(String brandName)? fetchShopByBrandProducts,
+    TResult? Function(int index)? tabIndexChangeEvent,
+    TResult? Function(
+            BuildContext context,
+            int totalPrice,
+            String pickupLocation,
+            int quantity,
+            int totalDiscount,
+            int shippingCharges,
+            int weight,
+            String id)?
+        postOrders,
+    TResult? Function(BuildContext context)? fetchOrders,
+    TResult? Function(BuildContext context, int id)? fetchOrdersById,
+    TResult? Function(BuildContext context, String filterName)?
+        fetchOrdersbyFilterEvent,
+    TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult? Function()? fetchShopHomeBackgroundCard,
+    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
+    TResult? Function()? fetchShopHomeBackgroundCardSunnah,
+    TResult? Function()? fetchShopAdBrands,
+    TResult? Function()? fetchTopBrands,
+    TResult? Function()? fetchProductItemsSubcategorySunnah,
+    TResult? Function()? fetchProductItemsSubcategoryHealth,
+    TResult? Function()? fetchProductItemsSubcategoryWomen,
+    TResult? Function(int index)? changeShopBannerIndex,
+    TResult? Function(int index)? changeBrandBannerIndex,
+    TResult? Function()? showOrderProgressEvent,
+    TResult? Function(int index)? indexChangeOnOrderProgress,
+    TResult? Function(int index)? indexChangeOnWomensCareBanner,
+    TResult? Function(String id)? fetchShopAdBrandsById,
+    TResult? Function(int index)? savePaymentMethodType,
+  }) {
+    return savePaymentMethodType?.call(index);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String endPointSlug)? fetchFlashSaleProducts,
+    TResult Function(String endPointSlug)? fetchPopularProducts,
+    TResult Function()? fetchRecentProductProducts,
+    TResult Function()? fetchHomeBanners,
+    TResult Function()? fetchShopBanners,
+    TResult Function(String searchQuery)? fetchArticles,
+    TResult Function()? fetchShopByBrand,
+    TResult Function(BuildContext context)? fetchWishList,
+    TResult Function(String query)? searchProduct,
+    TResult Function(String productId, BuildContext context)? addWishListEvent,
+    TResult Function(String productId, BuildContext context)?
+        removeWishlistEvent,
+    TResult Function(String brandName)? fetchShopByBrandProducts,
+    TResult Function(int index)? tabIndexChangeEvent,
+    TResult Function(
+            BuildContext context,
+            int totalPrice,
+            String pickupLocation,
+            int quantity,
+            int totalDiscount,
+            int shippingCharges,
+            int weight,
+            String id)?
+        postOrders,
+    TResult Function(BuildContext context)? fetchOrders,
+    TResult Function(BuildContext context, int id)? fetchOrdersById,
+    TResult Function(BuildContext context, String filterName)?
+        fetchOrdersbyFilterEvent,
+    TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult Function()? fetchShopHomeBackgroundCard,
+    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
+    TResult Function()? fetchShopHomeBackgroundCardSunnah,
+    TResult Function()? fetchShopAdBrands,
+    TResult Function()? fetchTopBrands,
+    TResult Function()? fetchProductItemsSubcategorySunnah,
+    TResult Function()? fetchProductItemsSubcategoryHealth,
+    TResult Function()? fetchProductItemsSubcategoryWomen,
+    TResult Function(int index)? changeShopBannerIndex,
+    TResult Function(int index)? changeBrandBannerIndex,
+    TResult Function()? showOrderProgressEvent,
+    TResult Function(int index)? indexChangeOnOrderProgress,
+    TResult Function(int index)? indexChangeOnWomensCareBanner,
+    TResult Function(String id)? fetchShopAdBrandsById,
+    TResult Function(int index)? savePaymentMethodType,
+    required TResult orElse(),
+  }) {
+    if (savePaymentMethodType != null) {
+      return savePaymentMethodType(index);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FetchFlashSaleProducts value)
+        fetchFlashSaleProducts,
+    required TResult Function(FetchPopularProducts value) fetchPopularProducts,
+    required TResult Function(FetchRecentProductProducts value)
+        fetchRecentProductProducts,
+    required TResult Function(FetchHomeBanners value) fetchHomeBanners,
+    required TResult Function(FetchShopBanners value) fetchShopBanners,
+    required TResult Function(FetchArticles value) fetchArticles,
+    required TResult Function(FetchShopByBrand value) fetchShopByBrand,
+    required TResult Function(FetchWishList value) fetchWishList,
+    required TResult Function(SearchProduct value) searchProduct,
+    required TResult Function(AddWishListEvent value) addWishListEvent,
+    required TResult Function(RemoveWishlistEvent value) removeWishlistEvent,
+    required TResult Function(FetchShopByBrandProducts value)
+        fetchShopByBrandProducts,
+    required TResult Function(TabIndexChangeEvent value) tabIndexChangeEvent,
+    required TResult Function(PostOrders value) postOrders,
+    required TResult Function(FetchOrders value) fetchOrders,
+    required TResult Function(FetchOrdersById value) fetchOrdersById,
+    required TResult Function(FetchOrdersbyFilterEvent value)
+        fetchOrdersbyFilterEvent,
+    required TResult Function(CancelOrder value) cancelOrder,
+    required TResult Function(FetchShopHomeBackgroundCard value)
+        fetchShopHomeBackgroundCard,
+    required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
+        fetchShopHomeBackgroundCardHelthyDiet,
+    required TResult Function(FetchShopHomeBackgroundCardSunnah value)
+        fetchShopHomeBackgroundCardSunnah,
+    required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
+    required TResult Function(FetchTopBrands value) fetchTopBrands,
+    required TResult Function(FetchProductItemsSubcategorySunnah value)
+        fetchProductItemsSubcategorySunnah,
+    required TResult Function(FetchProductItemsSubcategoryHealth value)
+        fetchProductItemsSubcategoryHealth,
+    required TResult Function(FetchProductItemsSubcategoryWomen value)
+        fetchProductItemsSubcategoryWomen,
+    required TResult Function(ChangeShopBannerIndex value)
+        changeShopBannerIndex,
+    required TResult Function(ChangeBrandBannerIndex value)
+        changeBrandBannerIndex,
+    required TResult Function(ShowOrderProgressEvent value)
+        showOrderProgressEvent,
+    required TResult Function(IndexChangeOnOrderProgress value)
+        indexChangeOnOrderProgress,
+    required TResult Function(IndexChangeOnWomensCareBanner value)
+        indexChangeOnWomensCareBanner,
+    required TResult Function(FetchShopAdBrandsById value)
+        fetchShopAdBrandsById,
+    required TResult Function(SavePaymentMethodType value)
+        savePaymentMethodType,
+  }) {
+    return savePaymentMethodType(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(FetchFlashSaleProducts value)? fetchFlashSaleProducts,
+    TResult? Function(FetchPopularProducts value)? fetchPopularProducts,
+    TResult? Function(FetchRecentProductProducts value)?
+        fetchRecentProductProducts,
+    TResult? Function(FetchHomeBanners value)? fetchHomeBanners,
+    TResult? Function(FetchShopBanners value)? fetchShopBanners,
+    TResult? Function(FetchArticles value)? fetchArticles,
+    TResult? Function(FetchShopByBrand value)? fetchShopByBrand,
+    TResult? Function(FetchWishList value)? fetchWishList,
+    TResult? Function(SearchProduct value)? searchProduct,
+    TResult? Function(AddWishListEvent value)? addWishListEvent,
+    TResult? Function(RemoveWishlistEvent value)? removeWishlistEvent,
+    TResult? Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
+    TResult? Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
+    TResult? Function(PostOrders value)? postOrders,
+    TResult? Function(FetchOrders value)? fetchOrders,
+    TResult? Function(FetchOrdersById value)? fetchOrdersById,
+    TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
+    TResult? Function(CancelOrder value)? cancelOrder,
+    TResult? Function(FetchShopHomeBackgroundCard value)?
+        fetchShopHomeBackgroundCard,
+    TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
+        fetchShopHomeBackgroundCardHelthyDiet,
+    TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
+        fetchShopHomeBackgroundCardSunnah,
+    TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
+    TResult? Function(FetchTopBrands value)? fetchTopBrands,
+    TResult? Function(FetchProductItemsSubcategorySunnah value)?
+        fetchProductItemsSubcategorySunnah,
+    TResult? Function(FetchProductItemsSubcategoryHealth value)?
+        fetchProductItemsSubcategoryHealth,
+    TResult? Function(FetchProductItemsSubcategoryWomen value)?
+        fetchProductItemsSubcategoryWomen,
+    TResult? Function(ChangeShopBannerIndex value)? changeShopBannerIndex,
+    TResult? Function(ChangeBrandBannerIndex value)? changeBrandBannerIndex,
+    TResult? Function(ShowOrderProgressEvent value)? showOrderProgressEvent,
+    TResult? Function(IndexChangeOnOrderProgress value)?
+        indexChangeOnOrderProgress,
+    TResult? Function(IndexChangeOnWomensCareBanner value)?
+        indexChangeOnWomensCareBanner,
+    TResult? Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
+    TResult? Function(SavePaymentMethodType value)? savePaymentMethodType,
+  }) {
+    return savePaymentMethodType?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FetchFlashSaleProducts value)? fetchFlashSaleProducts,
+    TResult Function(FetchPopularProducts value)? fetchPopularProducts,
+    TResult Function(FetchRecentProductProducts value)?
+        fetchRecentProductProducts,
+    TResult Function(FetchHomeBanners value)? fetchHomeBanners,
+    TResult Function(FetchShopBanners value)? fetchShopBanners,
+    TResult Function(FetchArticles value)? fetchArticles,
+    TResult Function(FetchShopByBrand value)? fetchShopByBrand,
+    TResult Function(FetchWishList value)? fetchWishList,
+    TResult Function(SearchProduct value)? searchProduct,
+    TResult Function(AddWishListEvent value)? addWishListEvent,
+    TResult Function(RemoveWishlistEvent value)? removeWishlistEvent,
+    TResult Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
+    TResult Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
+    TResult Function(PostOrders value)? postOrders,
+    TResult Function(FetchOrders value)? fetchOrders,
+    TResult Function(FetchOrdersById value)? fetchOrdersById,
+    TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
+    TResult Function(CancelOrder value)? cancelOrder,
+    TResult Function(FetchShopHomeBackgroundCard value)?
+        fetchShopHomeBackgroundCard,
+    TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
+        fetchShopHomeBackgroundCardHelthyDiet,
+    TResult Function(FetchShopHomeBackgroundCardSunnah value)?
+        fetchShopHomeBackgroundCardSunnah,
+    TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
+    TResult Function(FetchTopBrands value)? fetchTopBrands,
+    TResult Function(FetchProductItemsSubcategorySunnah value)?
+        fetchProductItemsSubcategorySunnah,
+    TResult Function(FetchProductItemsSubcategoryHealth value)?
+        fetchProductItemsSubcategoryHealth,
+    TResult Function(FetchProductItemsSubcategoryWomen value)?
+        fetchProductItemsSubcategoryWomen,
+    TResult Function(ChangeShopBannerIndex value)? changeShopBannerIndex,
+    TResult Function(ChangeBrandBannerIndex value)? changeBrandBannerIndex,
+    TResult Function(ShowOrderProgressEvent value)? showOrderProgressEvent,
+    TResult Function(IndexChangeOnOrderProgress value)?
+        indexChangeOnOrderProgress,
+    TResult Function(IndexChangeOnWomensCareBanner value)?
+        indexChangeOnWomensCareBanner,
+    TResult Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
+    TResult Function(SavePaymentMethodType value)? savePaymentMethodType,
+    required TResult orElse(),
+  }) {
+    if (savePaymentMethodType != null) {
+      return savePaymentMethodType(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SavePaymentMethodType implements ShopProductsEvent {
+  const factory SavePaymentMethodType({required final int index}) =
+      _$SavePaymentMethodType;
+
+  int get index;
+  @JsonKey(ignore: true)
+  _$$SavePaymentMethodTypeCopyWith<_$SavePaymentMethodType> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -12417,6 +13039,7 @@ mixin _$ShopProductsState {
   int get brandBannerIndex => throw _privateConstructorUsedError;
   int get ordereProgressIndex => throw _privateConstructorUsedError;
   int get womensCareBannerIndex => throw _privateConstructorUsedError;
+  int get paymentMethod => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ShopProductsStateCopyWith<ShopProductsState> get copyWith =>
@@ -12469,7 +13092,8 @@ abstract class $ShopProductsStateCopyWith<$Res> {
       bool showProgress,
       int brandBannerIndex,
       int ordereProgressIndex,
-      int womensCareBannerIndex});
+      int womensCareBannerIndex,
+      int paymentMethod});
 
   $ShopProductsCopyWith<$Res>? get flashSaleproducts;
   $ShopProductsCopyWith<$Res>? get popularProducts;
@@ -12551,6 +13175,7 @@ class _$ShopProductsStateCopyWithImpl<$Res, $Val extends ShopProductsState>
     Object? brandBannerIndex = null,
     Object? ordereProgressIndex = null,
     Object? womensCareBannerIndex = null,
+    Object? paymentMethod = null,
   }) {
     return _then(_value.copyWith(
       flashSaleproducts: freezed == flashSaleproducts
@@ -12714,6 +13339,10 @@ class _$ShopProductsStateCopyWithImpl<$Res, $Val extends ShopProductsState>
       womensCareBannerIndex: null == womensCareBannerIndex
           ? _value.womensCareBannerIndex
           : womensCareBannerIndex // ignore: cast_nullable_to_non_nullable
+              as int,
+      paymentMethod: null == paymentMethod
+          ? _value.paymentMethod
+          : paymentMethod // ignore: cast_nullable_to_non_nullable
               as int,
     ) as $Val);
   }
@@ -13025,7 +13654,8 @@ abstract class _$$_InitialCopyWith<$Res>
       bool showProgress,
       int brandBannerIndex,
       int ordereProgressIndex,
-      int womensCareBannerIndex});
+      int womensCareBannerIndex,
+      int paymentMethod});
 
   @override
   $ShopProductsCopyWith<$Res>? get flashSaleproducts;
@@ -13124,6 +13754,7 @@ class __$$_InitialCopyWithImpl<$Res>
     Object? brandBannerIndex = null,
     Object? ordereProgressIndex = null,
     Object? womensCareBannerIndex = null,
+    Object? paymentMethod = null,
   }) {
     return _then(_$_Initial(
       flashSaleproducts: freezed == flashSaleproducts
@@ -13288,6 +13919,10 @@ class __$$_InitialCopyWithImpl<$Res>
           ? _value.womensCareBannerIndex
           : womensCareBannerIndex // ignore: cast_nullable_to_non_nullable
               as int,
+      paymentMethod: null == paymentMethod
+          ? _value.paymentMethod
+          : paymentMethod // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -13334,7 +13969,8 @@ class _$_Initial implements _Initial {
       required this.showProgress,
       required this.brandBannerIndex,
       required this.ordereProgressIndex,
-      required this.womensCareBannerIndex})
+      required this.womensCareBannerIndex,
+      required this.paymentMethod})
       : _articles = articles,
         _wishListItems = wishListItems;
 
@@ -13433,10 +14069,12 @@ class _$_Initial implements _Initial {
   final int ordereProgressIndex;
   @override
   final int womensCareBannerIndex;
+  @override
+  final int paymentMethod;
 
   @override
   String toString() {
-    return 'ShopProductsState(flashSaleproducts: $flashSaleproducts, flashSaleLoading: $flashSaleLoading, popularProducts: $popularProducts, popularProductLoading: $popularProductLoading, recentProducts: $recentProducts, recentProductLoading: $recentProductLoading, homeBanner: $homeBanner, bannersLoading: $bannersLoading, shopBanner: $shopBanner, shopBannerLoading: $shopBannerLoading, articles: $articles, articleLoading: $articleLoading, isLoading: $isLoading, shopBrandModel: $shopBrandModel, wishList: $wishList, wishListMessage: $wishListMessage, wishListItems: $wishListItems, searchProducts: $searchProducts, brandProduct: $brandProduct, index: $index, isWishListed: $isWishListed, orderModel: $orderModel, ordersByIdModel: $ordersByIdModel, orderId: $orderId, errorMessage: $errorMessage, shopHomeBackgroundCardModelWomens: $shopHomeBackgroundCardModelWomens, shopHomeBackgroundCardModelHealthyDiet: $shopHomeBackgroundCardModelHealthyDiet, shopHomeBackgroundCardModelSunnah: $shopHomeBackgroundCardModelSunnah, shopAdBrands: $shopAdBrands, shopAdBrandsById: $shopAdBrandsById, topBrandsModel: $topBrandsModel, productItemsSubCategorySunnahModel: $productItemsSubCategorySunnahModel, productItemsSubCategoryHealthModel: $productItemsSubCategoryHealthModel, productItemsSubCategoryWomenModel: $productItemsSubCategoryWomenModel, shopBannerIndex: $shopBannerIndex, showProgress: $showProgress, brandBannerIndex: $brandBannerIndex, ordereProgressIndex: $ordereProgressIndex, womensCareBannerIndex: $womensCareBannerIndex)';
+    return 'ShopProductsState(flashSaleproducts: $flashSaleproducts, flashSaleLoading: $flashSaleLoading, popularProducts: $popularProducts, popularProductLoading: $popularProductLoading, recentProducts: $recentProducts, recentProductLoading: $recentProductLoading, homeBanner: $homeBanner, bannersLoading: $bannersLoading, shopBanner: $shopBanner, shopBannerLoading: $shopBannerLoading, articles: $articles, articleLoading: $articleLoading, isLoading: $isLoading, shopBrandModel: $shopBrandModel, wishList: $wishList, wishListMessage: $wishListMessage, wishListItems: $wishListItems, searchProducts: $searchProducts, brandProduct: $brandProduct, index: $index, isWishListed: $isWishListed, orderModel: $orderModel, ordersByIdModel: $ordersByIdModel, orderId: $orderId, errorMessage: $errorMessage, shopHomeBackgroundCardModelWomens: $shopHomeBackgroundCardModelWomens, shopHomeBackgroundCardModelHealthyDiet: $shopHomeBackgroundCardModelHealthyDiet, shopHomeBackgroundCardModelSunnah: $shopHomeBackgroundCardModelSunnah, shopAdBrands: $shopAdBrands, shopAdBrandsById: $shopAdBrandsById, topBrandsModel: $topBrandsModel, productItemsSubCategorySunnahModel: $productItemsSubCategorySunnahModel, productItemsSubCategoryHealthModel: $productItemsSubCategoryHealthModel, productItemsSubCategoryWomenModel: $productItemsSubCategoryWomenModel, shopBannerIndex: $shopBannerIndex, showProgress: $showProgress, brandBannerIndex: $brandBannerIndex, ordereProgressIndex: $ordereProgressIndex, womensCareBannerIndex: $womensCareBannerIndex, paymentMethod: $paymentMethod)';
   }
 
   @override
@@ -13521,7 +14159,8 @@ class _$_Initial implements _Initial {
                 other.showProgress == showProgress) &&
             (identical(other.brandBannerIndex, brandBannerIndex) || other.brandBannerIndex == brandBannerIndex) &&
             (identical(other.ordereProgressIndex, ordereProgressIndex) || other.ordereProgressIndex == ordereProgressIndex) &&
-            (identical(other.womensCareBannerIndex, womensCareBannerIndex) || other.womensCareBannerIndex == womensCareBannerIndex));
+            (identical(other.womensCareBannerIndex, womensCareBannerIndex) || other.womensCareBannerIndex == womensCareBannerIndex) &&
+            (identical(other.paymentMethod, paymentMethod) || other.paymentMethod == paymentMethod));
   }
 
   @override
@@ -13565,7 +14204,8 @@ class _$_Initial implements _Initial {
         showProgress,
         brandBannerIndex,
         ordereProgressIndex,
-        womensCareBannerIndex
+        womensCareBannerIndex,
+        paymentMethod
       ]);
 
   @JsonKey(ignore: true)
@@ -13621,7 +14261,8 @@ abstract class _Initial implements ShopProductsState {
       required final bool showProgress,
       required final int brandBannerIndex,
       required final int ordereProgressIndex,
-      required final int womensCareBannerIndex}) = _$_Initial;
+      required final int womensCareBannerIndex,
+      required final int paymentMethod}) = _$_Initial;
 
   @override
   ShopProducts? get flashSaleproducts;
@@ -13702,6 +14343,8 @@ abstract class _Initial implements ShopProductsState {
   int get ordereProgressIndex;
   @override
   int get womensCareBannerIndex;
+  @override
+  int get paymentMethod;
   @override
   @JsonKey(ignore: true)
   _$$_InitialCopyWith<_$_Initial> get copyWith =>

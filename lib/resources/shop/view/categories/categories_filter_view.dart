@@ -121,12 +121,13 @@ class _CategoriesFilterState extends State<CategoriesFilter> {
                                             );
                                       },
                                       child: Container(
-                                        // height: 98,
+                                        height: 98,
                                         width: 130,
                                         color: isSelected
                                             ? ColorManager.categorySelectedGreen
                                             : ColorManager.whiteColor,
                                         child: CategoryFullView(
+                                          isShowborder: true,
                                           iconImage: category.image.toString(),
                                           categoryTitle:
                                               category.title.toString(),
@@ -187,6 +188,7 @@ class _CategoriesFilterState extends State<CategoriesFilter> {
                               ));
                             },
                             child: CategoryFullView(
+                              isShowborder: false,
                               iconImage: state.product?.result?.products[index]
                                   .subcategory?.image,
                               categoryTitle: state.product?.result

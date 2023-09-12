@@ -25,7 +25,7 @@ class SingleBrandView extends StatelessWidget {
       BlocProvider.of<ShopProductsBloc>(context)
           .add(FetchShopAdBrandsById(id: passValue.id));
       BlocProvider.of<CategoryBloc>(context)
-          .add(FetchFilterProducts(category: passValue.id, subCategory: ""));
+          .add(const FetchFilterProducts(category: "", subCategory: ""));
       BlocProvider.of<ShopProductsBloc>(context).add(const FetchShopAdBrands());
     });
     var textStyle = TextStyle(

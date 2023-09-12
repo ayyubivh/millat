@@ -11,6 +11,7 @@ import '../model/auth_user_model/auth_user_model.dart';
 
 class AuthService extends HttpServices {
   final String loginAPI = 'auth/signin_with_email';
+  final String loginWithGoogleApi = "social_auth/signin";
   final String loginWithOTPAPI = 'auth/signin';
   final String signUpAPI = 'auth/signup';
   final String verifyOTPAPI = 'auth/verify';
@@ -35,8 +36,28 @@ class AuthService extends HttpServices {
         context.read<DatabaseBloc>().add(StoreUserDetails(
             email: result.result!.user!.email.toString(),
             name: result.result!.user!.name.toString()));
-        print(
-            'token on the service${result.result!.token}------------ email----------- ${result.result!.user!.email} and the name--------- ${result.result!.user!.name}');
+
+        return {
+          'status': true,
+        };
+      } else {
+        return {'status': false, 'message': jsonDecode(value.body)['message']};
+      }
+    }).catchError((error) {
+      return {'status': false};
+    });
+  }
+
+  signInWithGoogle({
+    required String email,
+    required String name,
+  }) async {
+    return await posts(
+        endPoint: loginWithGoogleApi,
+        body: {"email": email, "name": name}).then((value) {
+      print(value.body);
+
+      if (value.statusCode == 200) {
         return {
           'status': true,
         };

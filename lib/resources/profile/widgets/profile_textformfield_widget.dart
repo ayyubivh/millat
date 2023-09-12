@@ -9,6 +9,7 @@ class ProfieEditTextFormField extends StatelessWidget {
   final TextEditingController? controller;
   final TextInputType textInputType;
   final String? Function(String? val)? validator;
+  final Function()? onTap;
 
   final Function(String)? onChanged;
   const ProfieEditTextFormField(
@@ -17,6 +18,7 @@ class ProfieEditTextFormField extends StatelessWidget {
       required this.icon,
       this.controller,
       this.validator,
+      this.onTap,
       this.onChanged,
       this.textInputType = TextInputType.none,
       this.maxLength});
@@ -24,6 +26,7 @@ class ProfieEditTextFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      onTap: onTap,
       maxLength: maxLength,
       validator: validator,
       controller: controller,

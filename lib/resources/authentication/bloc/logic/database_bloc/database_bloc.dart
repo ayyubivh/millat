@@ -6,7 +6,8 @@ import 'package:hive/hive.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:millat/resources/authentication/bloc/service/auth_service.dart';
 import 'package:millat/utils/string_constants.dart';
-
+import 'package:permission_handler/permission_handler.dart';
+import 'package:contacts_service/contacts_service.dart';
 import '../../model/auth_user_model/auth_user_model.dart';
 
 part 'database_event.dart';
@@ -103,10 +104,25 @@ class DatabaseBloc extends Bloc<DatabaseEvent, DatabaseState> {
         // log("e yann ...>>>>${e.toString()}");
       }
     });
+    on<FetchContactEvent>((event, emit) async {
+      emit(state.copyWith(isLoading: true));
+      try {
+        if (await Permission.contacts.isGranted) {
+          final contacts = await ContactsService.getContacts();
+
+          emit(state.copyWith(contacts: contacts, isLoading: false));
+        } else {
+          await Permission.contacts.request();
+        }
+      } catch (e) {
+        emit(state.copyWith(isLoading: false));
+        throw Exception(e);
+      }
+    });
   }
   Future<File?> pickImage(ImageSource source) async {
-    final ImagePicker _imagePicker = ImagePicker();
-    XFile? pickedFile = await _imagePicker.pickImage(source: source);
+    final ImagePicker imagePicker = ImagePicker();
+    XFile? pickedFile = await imagePicker.pickImage(source: source);
 
     if (pickedFile != null) {
       return File(pickedFile.path);

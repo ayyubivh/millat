@@ -15,7 +15,7 @@ class AddressState with _$AddressState {
       successMessage: "",
       failMessage: "",
       addressModel: null,
-      selectedIndex: null,
+      selectedIndex: 0,
       addressId: null,
       addressIdModel: null,
       isLoading: false);

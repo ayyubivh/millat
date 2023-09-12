@@ -152,6 +152,42 @@ class HomeServices extends HttpServices {
     }
   }
 
+//remove daily prayer tracker
+  removeDailyPrayerTracker(
+      {required String date,
+      required String namaz,
+      required BuildContext context}) async {
+    final body = {
+      "date": date,
+      "namaz": namaz,
+    };
+    const endPoint = 'namaz_track/untick';
+    final databaseState = context.read<DatabaseBloc>().state;
+    final token = databaseState.token;
+    final headers = {
+      'Content-Type': 'application/json; charset=utf-8',
+      'Authorization': 'Bearer $token',
+    };
+
+    final response = await http.patch(Uri.parse(kBaseUrl + endPoint),
+        headers: headers, body: jsonEncode(body));
+
+    try {
+      if (response.statusCode == 200) {
+        final Map<String, dynamic> data = json.decode(response.body);
+
+        return data;
+      } else {
+        print('API request failed with status code: ${response.statusCode}');
+        throw Exception(
+            'API request failed with status code: ${response.statusCode}');
+      }
+    } catch (e) {
+      print('error on API fetch: ${e.toString()}');
+      throw Exception('Failed to parse response');
+    }
+  }
+
   //fetch daily prayer trackers
   Future<PrayerTrackerModel> fetchDailyPrayerTracker(
       BuildContext context, String date) async {

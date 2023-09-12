@@ -8,7 +8,7 @@ import 'package:intl/intl.dart';
 import 'package:millat/resources/home/bloc/service/namaz_timing_service.dart';
 import 'package:millat/resources/home/bloc/service/notification_service.dart';
 import 'package:millat/utils/string_constants.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:millat/utils/utils.dart';
 
 import '../../models/namaz_methods/namaz_mthods_model.dart';
 import '../../models/prayer_timing_models/prayer_timing_model.dart';
@@ -64,6 +64,7 @@ class NamazTimingBloc extends Bloc<NamazTimingEvent, NamazTimingState> {
         method: state.method,
         highLatMethodVal: state.highLatMethodVal,
       );
+
       final address = state.prayerModel?.data.meta.method.location;
       final currentAddress = await _getAddress(
         address?.latitude ?? 0,
@@ -335,20 +336,27 @@ class NamazTimingBloc extends Bloc<NamazTimingEvent, NamazTimingState> {
   _fetchNamazTimingNotificationsFromLocalStorage(
       FetchNamazTimingNotificationsFromLocalStorage event,
       Emitter<NamazTimingState> emit) async {
-    final notifyFajr =
-        await _getBoolFromSharedPreferences(Appstrings.fajr, nullVal: true);
-    final notifySunrise =
-        await _getBoolFromSharedPreferences(Appstrings.sunrise, nullVal: true);
-    final notifyDhuhr =
-        await _getBoolFromSharedPreferences(Appstrings.dhuhr, nullVal: true);
-    final notifyAsr =
-        await _getBoolFromSharedPreferences(Appstrings.asr, nullVal: true);
-    final notifyMagrib =
-        await _getBoolFromSharedPreferences(Appstrings.magrib, nullVal: true);
-    final notifyIsha =
-        await _getBoolFromSharedPreferences(Appstrings.isha, nullVal: true);
-    final notifyQiyam =
-        await _getBoolFromSharedPreferences(Appstrings.qiyam, nullVal: true);
+    final notifyFajr = await Utilities.getBoolFromSharedPreferences(
+        Appstrings.fajr,
+        nullVal: true);
+    final notifySunrise = await Utilities.getBoolFromSharedPreferences(
+        Appstrings.sunrise,
+        nullVal: true);
+    final notifyDhuhr = await Utilities.getBoolFromSharedPreferences(
+        Appstrings.dhuhr,
+        nullVal: true);
+    final notifyAsr = await Utilities.getBoolFromSharedPreferences(
+        Appstrings.asr,
+        nullVal: true);
+    final notifyMagrib = await Utilities.getBoolFromSharedPreferences(
+        Appstrings.magrib,
+        nullVal: true);
+    final notifyIsha = await Utilities.getBoolFromSharedPreferences(
+        Appstrings.isha,
+        nullVal: true);
+    final notifyQiyam = await Utilities.getBoolFromSharedPreferences(
+        Appstrings.qiyam,
+        nullVal: true);
 
     emit(state.copyWith(
       notifyFajr: notifyFajr,
@@ -368,37 +376,43 @@ class NamazTimingBloc extends Bloc<NamazTimingEvent, NamazTimingState> {
         final updatedFajrNotify = !state.notifyFajr;
         // print(updatedFajrNotify);
         emit(state.copyWith(notifyFajr: updatedFajrNotify));
-        _saveBoolToSharedPreferences(Appstrings.fajr, updatedFajrNotify);
+        Utilities.saveBoolToSharedPreferences(
+            Appstrings.fajr, updatedFajrNotify);
         break;
       case 1:
         final updatedSunriseNotify = !state.notifySunrise;
         emit(state.copyWith(notifySunrise: updatedSunriseNotify));
-        _saveBoolToSharedPreferences(Appstrings.sunrise, updatedSunriseNotify);
+        Utilities.saveBoolToSharedPreferences(
+            Appstrings.sunrise, updatedSunriseNotify);
         break;
       case 2:
         final updatedDhuhrNotify = !state.notifyDhuhr;
         emit(state.copyWith(notifyDhuhr: updatedDhuhrNotify));
-        _saveBoolToSharedPreferences(Appstrings.dhuhr, updatedDhuhrNotify);
+        Utilities.saveBoolToSharedPreferences(
+            Appstrings.dhuhr, updatedDhuhrNotify);
         break;
       case 3:
         final updatedAsrNotify = !state.notifyAsr;
         emit(state.copyWith(notifyAsr: updatedAsrNotify));
-        _saveBoolToSharedPreferences(Appstrings.asr, updatedAsrNotify);
+        Utilities.saveBoolToSharedPreferences(Appstrings.asr, updatedAsrNotify);
         break;
       case 4:
         final updatedMagribNotify = !state.notifyMagrib;
         emit(state.copyWith(notifyMagrib: updatedMagribNotify));
-        _saveBoolToSharedPreferences(Appstrings.magrib, updatedMagribNotify);
+        Utilities.saveBoolToSharedPreferences(
+            Appstrings.magrib, updatedMagribNotify);
         break;
       case 5:
         final updatedIshaNotify = !state.notifyIsha;
         emit(state.copyWith(notifyIsha: updatedIshaNotify));
-        _saveBoolToSharedPreferences(Appstrings.isha, updatedIshaNotify);
+        Utilities.saveBoolToSharedPreferences(
+            Appstrings.isha, updatedIshaNotify);
         break;
       case 6:
         final updatedQiyamNotify = !state.notifyQiyam;
         emit(state.copyWith(notifyQiyam: updatedQiyamNotify));
-        _saveBoolToSharedPreferences(Appstrings.qiyam, updatedQiyamNotify);
+        Utilities.saveBoolToSharedPreferences(
+            Appstrings.qiyam, updatedQiyamNotify);
         break;
       default:
     }
@@ -411,14 +425,15 @@ class NamazTimingBloc extends Bloc<NamazTimingEvent, NamazTimingState> {
   _addAutoDetectValToLocalStorage(event, Emitter<NamazTimingState> emit) {
     emit(state.copyWith(autoDetectLocationDb: event.value));
 
-    _saveBoolToSharedPreferences(Appstrings.autoDetectLocationKey, event.value);
+    Utilities.saveBoolToSharedPreferences(
+        Appstrings.autoDetectLocationKey, event.value);
   }
 
   _getAutoDetetectLocationFromLocalStorage(
       GetAutoDetetectLocationFromLocalStorage event,
       Emitter<NamazTimingState> emit) async {
     try {
-      final val = await _getBoolFromSharedPreferences(
+      final val = await Utilities.getBoolFromSharedPreferences(
           Appstrings.autoDetectLocationKey,
           nullVal: true);
       emit(state.copyWith(autoDetectLocationDb: val));
@@ -431,14 +446,15 @@ class NamazTimingBloc extends Bloc<NamazTimingEvent, NamazTimingState> {
       AddAutomaticSettingToLocalStorage event, Emitter<NamazTimingState> emit) {
     emit(state.copyWith(automaticSettingsDb: event.value));
 
-    _saveBoolToSharedPreferences(Appstrings.autoMaticSettingsKey, event.value);
+    Utilities.saveBoolToSharedPreferences(
+        Appstrings.autoMaticSettingsKey, event.value);
   }
 
   _getAutomaticSettingsFromLocalStorage(
       GetAutomaticSettingsFromLocalStorage event,
       Emitter<NamazTimingState> emit) async {
     try {
-      final val = await _getBoolFromSharedPreferences(
+      final val = await Utilities.getBoolFromSharedPreferences(
           Appstrings.autoMaticSettingsKey,
           nullVal: true);
       emit(state.copyWith(automaticSettingsDb: val));
@@ -451,13 +467,14 @@ class NamazTimingBloc extends Bloc<NamazTimingEvent, NamazTimingState> {
       AddShowimsakValToLocalStorage event, Emitter<NamazTimingState> emit) {
     emit(state.copyWith(showImsak: event.value));
 
-    _saveBoolToSharedPreferences(Appstrings.showImsakKey, event.value);
+    Utilities.saveBoolToSharedPreferences(Appstrings.showImsakKey, event.value);
   }
 
   _getShowimskValFromLocalStorage(GetShowimskValFromLocalStorage event,
       Emitter<NamazTimingState> emit) async {
     try {
-      final val = await _getBoolFromSharedPreferences(Appstrings.showImsakKey,
+      final val = await Utilities.getBoolFromSharedPreferences(
+          Appstrings.showImsakKey,
           nullVal: false);
       emit(state.copyWith(
         showImsak: val,
@@ -469,13 +486,14 @@ class NamazTimingBloc extends Bloc<NamazTimingEvent, NamazTimingState> {
 
   _addCalculationMethodToLocalStorage(AddCalculationMethodToLocalStorage event,
       Emitter<NamazTimingState> emit) {
-    _saveIntToSharedPreferences(Appstrings.calculationMethodKey, event.value);
+    Utilities.saveIntToSharedPreferences(
+        Appstrings.calculationMethodKey, event.value);
   }
 
   _getCalculationMethodFromStorage(GetCalculationMethodFromStorage event,
       Emitter<NamazTimingState> emit) async {
     try {
-      final val = await _getIntFromSharedPreferences(
+      final val = await Utilities.getIntFromSharedPreferences(
           Appstrings.calculationMethodKey, 1);
       emit(state.copyWith(method: val));
     } catch (e) {
@@ -487,14 +505,14 @@ class NamazTimingBloc extends Bloc<NamazTimingEvent, NamazTimingState> {
       AddAsrCalculationMethodToLocalStorage event,
       Emitter<NamazTimingState> emit) {
     emit(state.copyWith(school: event.value));
-    _saveIntToSharedPreferences(
+    Utilities.saveIntToSharedPreferences(
         Appstrings.asrCalculationMethodKey, event.value);
   }
 
   _getAsrCalculationMethodFromStorage(GetAsrCalculationMethodFromStorage event,
       Emitter<NamazTimingState> emit) async {
     try {
-      final val = await _getIntFromSharedPreferences(
+      final val = await Utilities.getIntFromSharedPreferences(
           Appstrings.asrCalculationMethodKey, 0);
       emit(state.copyWith(school: val));
     } catch (e) {
@@ -506,14 +524,15 @@ class NamazTimingBloc extends Bloc<NamazTimingEvent, NamazTimingState> {
       AddHighLatitudeMethodsToLocalStorage event,
       Emitter<NamazTimingState> emit) {
     emit(state.copyWith(highLatMethodVal: event.value));
-    _saveIntToSharedPreferences(Appstrings.highLatitudeMethodsKey, event.value);
+    Utilities.saveIntToSharedPreferences(
+        Appstrings.highLatitudeMethodsKey, event.value);
   }
 
   _getHighLatitudeMethodsToLocalStorage(
       GetHighLatitudeMethodsToLocalStorage event,
       Emitter<NamazTimingState> emit) async {
     try {
-      final val = await _getIntFromSharedPreferences(
+      final val = await Utilities.getIntFromSharedPreferences(
           Appstrings.highLatitudeMethodsKey, 0);
       emit(state.copyWith(highLatMethodVal: val));
     } catch (e) {
@@ -522,26 +541,4 @@ class NamazTimingBloc extends Bloc<NamazTimingEvent, NamazTimingState> {
   }
 
   // reusable method for adding and gettin from localstorage
-  Future<void> _saveIntToSharedPreferences(String key, int value) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    await prefs.setInt(key, value);
-  }
-
-  Future<int> _getIntFromSharedPreferences(String key, int nullVal) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    final value = prefs.getInt(key);
-    return value ?? nullVal;
-  }
-
-  Future<void> _saveBoolToSharedPreferences(String key, bool value) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    await prefs.setBool(key, value);
-  }
-
-  Future<bool> _getBoolFromSharedPreferences(String key,
-      {bool nullVal = false}) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    final value = prefs.getBool(key);
-    return value ?? nullVal;
-  }
 }

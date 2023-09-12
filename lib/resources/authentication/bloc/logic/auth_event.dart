@@ -37,3 +37,10 @@ class ForgotPassword extends AuthEvent {
 
   ForgotPassword(this.email);
 }
+
+class GoogleSign extends AuthEvent {
+  final String email;
+  final String name;
+
+  GoogleSign({required this.email, required this.name});
+}

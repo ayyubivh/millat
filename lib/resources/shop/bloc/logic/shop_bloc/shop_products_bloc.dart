@@ -65,6 +65,7 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
     on<IndexChangeOnOrderProgress>(_indexChangeOnOrderProgress);
     on<IndexChangeOnWomensCareBanner>(indexChangeOnWomensCareBanner);
     on<FetchShopAdBrandsById>(_fetchShopAdBrandsById);
+    on<SavePaymentMethodType>(_saveMethodType);
   }
 
   FutureOr<void> _fetchFlashSaleProducts(
@@ -199,16 +200,20 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
 
   FutureOr<void> _searchProduct(
       SearchProduct event, Emitter<ShopProductsState> emit) async {
-    try {
-      final data = await shopService.fetchSearchProduct(event.query);
-      emit(state.copyWith(
-        searchProducts: data,
-      ));
-      print('serch result product on the data $data');
-    } catch (e) {
-      emit(state.copyWith(
-        errorMessage: "An error occurred",
-      ));
+    if (event.query == "") {
+      emit(state.copyWith(searchProducts: null));
+    } else {
+      try {
+        final data = await shopService.fetchSearchProduct(event.query);
+        emit(state.copyWith(
+          searchProducts: data,
+        ));
+        print('serch result product on the data $data');
+      } catch (e) {
+        emit(state.copyWith(
+          errorMessage: "An error occurred",
+        ));
+      }
     }
   }
 
@@ -494,5 +499,10 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
     } catch (e) {
       emit(state.copyWith(isLoading: false, errorMessage: "$e"));
     }
+  }
+
+  _saveMethodType(
+      SavePaymentMethodType event, Emitter<ShopProductsState> emit) {
+    emit(state.copyWith(paymentMethod: event.index));
   }
 }

@@ -39,22 +39,11 @@ class UserProfileView extends StatelessWidget {
             title: Text(
               Appstrings.profile,
               style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.w600,
-                  color: ColorManager.blackColor),
-            ),
-            actions: [
-              GestureDetector(
-                onTap: () {
-                  logoutPopUp(context);
-                },
-                child: Icon(
-                  Icons.logout,
-                  color: ColorManager.blackColor,
-                ),
+                fontSize: 24,
+                fontWeight: FontWeight.w600,
+                color: ColorManager.blackColor,
               ),
-              kWidth15,
-            ],
+            ),
           ),
           body: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 30),
@@ -270,9 +259,10 @@ class UserProfileView extends StatelessWidget {
                             ],
                           ),
                           const Spacer(),
-                          const Icon(
+                          Icon(
                             Icons.navigate_next_outlined,
                             size: 28,
+                            color: ColorManager.black4F,
                           )
                         ],
                       ),
@@ -433,18 +423,23 @@ class UserProfileView extends StatelessWidget {
           children: [
             ImageIcon(
               AssetImage(image),
+              color: ColorManager.black4F,
+              size: 16,
             ),
-            kWidth5,
+            kWidth8,
             Text(
               text,
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.w600,
+                color: ColorManager.black4F,
               ),
             ),
             const Spacer(),
-            const Icon(
+            Icon(
               Icons.navigate_next_outlined,
+              color: ColorManager.black4F,
+              size: 28,
             )
           ],
         ),
@@ -484,18 +479,18 @@ Future<dynamic> logoutPopUp(BuildContext context) {
               Row(
                 children: [
                   Expanded(
-                    child: Container(
-                      height: 62,
-                      decoration: BoxDecoration(
-                        borderRadius: const BorderRadius.only(
-                            bottomLeft: Radius.circular(12)),
-                        color: ColorManager.whiteColor,
-                      ),
-                      child: Center(
-                        child: GestureDetector(
-                          onTap: () {
-                            Navigator.of(context).pop();
-                          },
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).pop();
+                      },
+                      child: Container(
+                        height: 62,
+                        decoration: BoxDecoration(
+                          borderRadius: const BorderRadius.only(
+                              bottomLeft: Radius.circular(12)),
+                          color: ColorManager.whiteColor,
+                        ),
+                        child: Center(
                           child: Text(
                             Appstrings.cancel,
                             style: TextStyle(
@@ -508,24 +503,23 @@ Future<dynamic> logoutPopUp(BuildContext context) {
                     ),
                   ),
                   Expanded(
-                    child: Container(
-                      decoration: BoxDecoration(
-                        borderRadius: const BorderRadius.only(
-                            bottomRight: Radius.circular(12)),
-                        color: ColorManager.primary,
-                      ),
-                      height: 62,
-                      child: Center(
-                        child: GestureDetector(
-                          onTap: () {
-                            context
-                                .read<DatabaseBloc>()
-                                .add(const RemoveTokenEvent());
-                            Navigator.of(context)
-                                .pushReplacement(MaterialPageRoute(
-                              builder: (context) => const SignUpView(),
-                            ));
-                          },
+                    child: GestureDetector(
+                      onTap: () {
+                        context
+                            .read<DatabaseBloc>()
+                            .add(const RemoveTokenEvent());
+                        Navigator.of(context).pushReplacement(MaterialPageRoute(
+                          builder: (context) => const SignUpView(),
+                        ));
+                      },
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: const BorderRadius.only(
+                              bottomRight: Radius.circular(12)),
+                          color: ColorManager.primary,
+                        ),
+                        height: 62,
+                        child: Center(
                           child: Text(
                             Appstrings.logout,
                             style: TextStyle(

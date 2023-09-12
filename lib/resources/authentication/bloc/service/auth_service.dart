@@ -33,9 +33,9 @@ class AuthService extends HttpServices {
         context
             .read<DatabaseBloc>()
             .add(StoreTokenEvent(token: result.result!.token.toString()));
-        context.read<DatabaseBloc>().add(StoreUserDetails(
-            email: result.result!.user!.email.toString(),
-            name: result.result!.user!.name.toString()));
+        // context.read<DatabaseBloc>().add(StoreUserDetails(
+        //     email: result.result!.user!.email.toString(),
+        //     name: result.result!.user!.name.toString()));
 
         return {
           'status': true,
@@ -48,16 +48,20 @@ class AuthService extends HttpServices {
     });
   }
 
-  signInWithGoogle({
+  loginWithSocial({
     required String email,
     required String name,
+    required BuildContext context,
   }) async {
     return await posts(
         endPoint: loginWithGoogleApi,
         body: {"email": email, "name": name}).then((value) {
       print(value.body);
-
+      final result = UserModel.fromJson(jsonDecode(value.body));
       if (value.statusCode == 200) {
+        context
+            .read<DatabaseBloc>()
+            .add(StoreTokenEvent(token: result.result!.token.toString()));
         return {
           'status': true,
         };

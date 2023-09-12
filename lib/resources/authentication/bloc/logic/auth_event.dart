@@ -38,9 +38,10 @@ class ForgotPassword extends AuthEvent {
   ForgotPassword(this.email);
 }
 
-class GoogleSign extends AuthEvent {
+class SocialLogin extends AuthEvent {
   final String email;
   final String name;
+  final BuildContext context;
 
-  GoogleSign({required this.email, required this.name});
+  SocialLogin(this.context, {required this.email, required this.name});
 }

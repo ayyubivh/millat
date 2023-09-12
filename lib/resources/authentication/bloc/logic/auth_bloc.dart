@@ -73,10 +73,15 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
             emit(AuthError(res['message']));
           }
         }
-      } else if (event is GoogleSign) {
+      } else if (event is SocialLogin) {
         emit(AuthLoading());
-        final user = await _authService.signInWithGoogle(
-            email: event.email, name: event.name);
+        final result = await _authService.loginWithSocial(
+            email: event.email, name: event.name, context: event.context);
+        if (result['status'] == true) {
+          emit(AuthLoaded(event.email));
+        } else {
+          emit(AuthError(result['message']));
+        }
       }
     });
   }

@@ -4,6 +4,7 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:intl/intl.dart';
+import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/home/bloc/models/home_models/event_of_the_month_model/event_of_the_month_model.dart';
 import 'package:millat/resources/home/bloc/models/home_models/top_offers_model/top_offers_model.dart';
 import 'package:millat/resources/home/bloc/service/home_services.dart';
@@ -32,6 +33,8 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     on<ChangeHomeTabIndexEvent>(_changeHomeTabIndexEvent);
     on<RemoveDailyPrayerTrackerNamaz>(_removeDailyPrayerTrackerNamaz);
     on<ChangeTinterCardSwipeOption>(_changeTinterCardSwipeOption);
+    on<ChangeCompassThemeEvent>(_changeCompassThemeEvent);
+    on<ChangeCompassThemeIndex>(_changeCompassThemeIndex);
   }
 
   _fetchLargeDisountsBanner(
@@ -210,5 +213,15 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   _changeTinterCardSwipeOption(
       ChangeTinterCardSwipeOption event, Emitter<HomeState> emit) {
     emit(state.copyWith(tinderCardSwipVal: event.value));
+  }
+
+  _changeCompassThemeEvent(
+      ChangeCompassThemeEvent event, Emitter<HomeState> emit) {
+    emit(state.copyWith(compassTheme: event.compassTheme));
+  }
+
+  _changeCompassThemeIndex(
+      ChangeCompassThemeIndex event, Emitter<HomeState> emit) {
+    emit(state.copyWith(compassThemeIndex: event.index));
   }
 }

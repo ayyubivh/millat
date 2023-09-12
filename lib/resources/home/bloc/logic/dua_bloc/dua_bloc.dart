@@ -37,7 +37,6 @@ class DuaBloc extends Bloc<DuaEvent, DuaState> {
     try {
       final data = await duaServices.fetchDuaCategory();
       emit(state.copyWith(duaCategoryModel: data, isLoading: false));
-      print('here is all the dua categories $data');
     } catch (e) {
       emit(state.copyWith(isLoading: false));
     }
@@ -78,6 +77,7 @@ class DuaBloc extends Bloc<DuaEvent, DuaState> {
       final upadatedbookMarklist =
           data.result?.bookmarks[0].bookmarks.map((e) => e.duaId).toSet();
       print('here is the ids of duas $upadatedbookMarklist');
+
       emit(state.copyWith(
           duaBookMarkModel: data,
           isLoading: false,

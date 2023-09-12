@@ -4,6 +4,8 @@ import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:millat/utils/string_constants.dart';
+import 'package:millat/utils/utils.dart';
 import 'package:weather/weather.dart';
 import 'package:permission_handler/permission_handler.dart' as perm;
 import 'package:permission_handler/permission_handler.dart';
@@ -69,6 +71,13 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
   Future<void> _fetchCurrentLocation(
       FetchCurrentLocation event, Emitter<LocationState> emit) async {
     try {
+      final currentLocationFromPrefs =
+          await Utilities.getStringFromSharedPreferences(
+              Appstrings.currenLocationKey);
+      if (currentLocationFromPrefs.isNotEmpty) {
+        emit(state.copyWith(currentLocaion: currentLocationFromPrefs));
+        debugPrint("Location from the local storage $currentLocationFromPrefs");
+      }
       PermissionStatus permissionStatus = await Permission.location.request();
       debugPrint('here the permission status $permissionStatus');
 
@@ -96,11 +105,13 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
             currentLocation.latitude,
             currentLocation.longitude,
           );
-
+          Utilities.saveStringToSharedPreferences(
+              Appstrings.currenLocationKey, currentAddress);
           emit(state.copyWith(
             currentLocaion: currentAddress,
             location: currentAddress,
           ));
+
           // NamazMethodDbModel
           // NamazMethodDB.instance.addNamazMethode(obj)
           // debugPrint('Current address: $currentAddress');

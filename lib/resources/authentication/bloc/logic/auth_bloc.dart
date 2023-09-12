@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/resources/authentication/bloc/service/auth_service.dart';
+import 'package:millat/resources/authentication/class/google_signin.dart';
 
 part 'auth_event.dart';
 part 'auth_state.dart';
@@ -72,6 +73,10 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
             emit(AuthError(res['message']));
           }
         }
+      } else if (event is GoogleSign) {
+        emit(AuthLoading());
+        final user = await _authService.signInWithGoogle(
+            email: event.email, name: event.name);
       }
     });
   }

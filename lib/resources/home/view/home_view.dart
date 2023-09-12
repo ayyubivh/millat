@@ -443,10 +443,12 @@ class _HomeViewState extends State<HomeView> {
                                       ),
                                       child: ClipRRect(
                                         borderRadius: BorderRadius.circular(12),
-                                        child: Image.network(
-                                          data.brandId!.image!,
-                                          fit: BoxFit.contain,
-                                        ),
+                                        child: data.brandId?.logo == ""
+                                            ? const Placeholder()
+                                            : Image.network(
+                                                data.brandId!.logo!,
+                                                fit: BoxFit.contain,
+                                              ),
                                       ),
                                     )
                                   ],
@@ -552,8 +554,7 @@ class _HomeViewState extends State<HomeView> {
                   state.eventOfTheMonthModel?.result?.event == null) {
                 return const Loader();
               }
-              final banners =
-                  state.eventOfTheMonthModel?.result!.event![0].images;
+              final banners = state.eventOfTheMonthModel?.result!.event;
 
               return Column(
                 children: [
@@ -562,7 +563,7 @@ class _HomeViewState extends State<HomeView> {
                       return ClipRRect(
                         // borderRadius: BorderRadius.circular(20),
                         child: Image.network(
-                          banner,
+                          banner.images![0],
                           height: 327,
                           fit: BoxFit.contain,
                         ),
@@ -673,7 +674,7 @@ class _HomeViewState extends State<HomeView> {
           BlocBuilder<HomeBloc, HomeState>(
             builder: (context, state) {
               if (state.isLoading ||
-                  state.largeDiscountModel?.result.banners == null) {
+                  state.largeDiscountModel?.result?.banners == null) {
                 return const Loader();
               }
 
@@ -681,11 +682,11 @@ class _HomeViewState extends State<HomeView> {
                 height: 90,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
-                  itemCount: state.largeDiscountModel!.result.banners.length,
+                  itemCount: state.largeDiscountModel!.result!.banners.length,
                   itemBuilder: (context, index) {
                     final banner =
-                        state.largeDiscountModel!.result.banners[index];
-                    final subCategoryIdTitle = banner.subCategoryId.title;
+                        state.largeDiscountModel!.result!.banners[index];
+                    final subCategoryIdTitle = banner.subCategoryId!.title;
                     final subCategoryName = banner.subCategoryName;
                     return GestureDetector(
                       onTap: () {
@@ -698,7 +699,7 @@ class _HomeViewState extends State<HomeView> {
                         ));
                       },
                       child: Image.network(
-                        banner.image,
+                        banner.image!,
                         height: 70,
                         width: 90,
                       ),

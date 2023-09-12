@@ -9,6 +9,7 @@ class Appstrings {
   static const String asrCalculationMethodKey = "Asr-calculation-Method";
   static const String highLatitudeMethodsKey = "HighLatitude-Methods";
   static const String addressDefaultIndex = "AdrressIndex";
+  static const String currenLocationKey = "Current-Location-key";
   //Home
   static const String quran = "Quran";
   static const String tasbih = "Tasbih";
@@ -73,6 +74,9 @@ class Appstrings {
   static const String get100Coins = "Get 100 Coins";
   static const String profileFooterText = "For regular updates follow us on";
   static const String share = "Share";
+  //qibla
+  static const String compassThemes = "Compass Themes";
+  static const String qiblaDirection = "Qibla Direction";
 //Quran
   static const String myFavorite = "My Favourites";
   //shop

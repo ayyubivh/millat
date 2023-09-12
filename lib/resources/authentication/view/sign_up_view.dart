@@ -42,7 +42,7 @@ class _SignUpViewState extends State<SignUpView> {
           } else if (state is AuthLoaded) {
             clearDate();
             Navigator.of(context).pushReplacement(MaterialPageRoute(
-              builder: (context) => const TabsView(),
+              builder: (context) => const LoginView(),
             ));
           }
         },
@@ -200,18 +200,16 @@ class _SignUpViewState extends State<SignUpView> {
   Future googleSignIn() async {
     try {
       final user = await GoogleSignInService.login();
+
       await user?.authentication;
-      // var userAuth = await user?.authentication;
-      // print(user?.displayName);
-      // print(user?.email);
-      // print(user?.id);
-      // print(user?.photoUrl);
-      // print(user._idToken);
-      // print(userAuth);
 
       showSnackBar(context, "${user?.displayName} signed in");
+      // context
+      //     .read<AuthBloc>()
+      //     .add(GoogleSign(email: user!.email, name: user.displayName!));
       await GoogleSignInService.logout();
     } catch (exception) {
+      print(exception);
       showSnackBar(context, exception.toString());
     }
   }

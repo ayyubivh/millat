@@ -23,7 +23,7 @@ mixin _$TopOffersModel {
   int? get status => throw _privateConstructorUsedError;
   String? get message => throw _privateConstructorUsedError;
   String? get error => throw _privateConstructorUsedError;
-  TopOfferBanners get result => throw _privateConstructorUsedError;
+  TopOffersResult get result => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -38,9 +38,9 @@ abstract class $TopOffersModelCopyWith<$Res> {
       _$TopOffersModelCopyWithImpl<$Res, TopOffersModel>;
   @useResult
   $Res call(
-      {int? status, String? message, String? error, TopOfferBanners result});
+      {int? status, String? message, String? error, TopOffersResult result});
 
-  $TopOfferBannersCopyWith<$Res> get result;
+  $TopOffersResultCopyWith<$Res> get result;
 }
 
 /// @nodoc
@@ -77,14 +77,14 @@ class _$TopOffersModelCopyWithImpl<$Res, $Val extends TopOffersModel>
       result: null == result
           ? _value.result
           : result // ignore: cast_nullable_to_non_nullable
-              as TopOfferBanners,
+              as TopOffersResult,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $TopOfferBannersCopyWith<$Res> get result {
-    return $TopOfferBannersCopyWith<$Res>(_value.result, (value) {
+  $TopOffersResultCopyWith<$Res> get result {
+    return $TopOffersResultCopyWith<$Res>(_value.result, (value) {
       return _then(_value.copyWith(result: value) as $Val);
     });
   }
@@ -99,10 +99,10 @@ abstract class _$$_TopOffersModelCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {int? status, String? message, String? error, TopOfferBanners result});
+      {int? status, String? message, String? error, TopOffersResult result});
 
   @override
-  $TopOfferBannersCopyWith<$Res> get result;
+  $TopOffersResultCopyWith<$Res> get result;
 }
 
 /// @nodoc
@@ -137,7 +137,7 @@ class __$$_TopOffersModelCopyWithImpl<$Res>
       result: null == result
           ? _value.result
           : result // ignore: cast_nullable_to_non_nullable
-              as TopOfferBanners,
+              as TopOffersResult,
     ));
   }
 }
@@ -158,7 +158,7 @@ class _$_TopOffersModel implements _TopOffersModel {
   @override
   final String? error;
   @override
-  final TopOfferBanners result;
+  final TopOffersResult result;
 
   @override
   String toString() {
@@ -199,7 +199,7 @@ abstract class _TopOffersModel implements TopOffersModel {
       {final int? status,
       final String? message,
       final String? error,
-      required final TopOfferBanners result}) = _$_TopOffersModel;
+      required final TopOffersResult result}) = _$_TopOffersModel;
 
   factory _TopOffersModel.fromJson(Map<String, dynamic> json) =
       _$_TopOffersModel.fromJson;
@@ -211,40 +211,40 @@ abstract class _TopOffersModel implements TopOffersModel {
   @override
   String? get error;
   @override
-  TopOfferBanners get result;
+  TopOffersResult get result;
   @override
   @JsonKey(ignore: true)
   _$$_TopOffersModelCopyWith<_$_TopOffersModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
-TopOfferBanners _$TopOfferBannersFromJson(Map<String, dynamic> json) {
-  return _TopOfferBanners.fromJson(json);
+TopOffersResult _$TopOffersResultFromJson(Map<String, dynamic> json) {
+  return _TopOffersResult.fromJson(json);
 }
 
 /// @nodoc
-mixin _$TopOfferBanners {
+mixin _$TopOffersResult {
   List<BannerItem> get banners => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $TopOfferBannersCopyWith<TopOfferBanners> get copyWith =>
+  $TopOffersResultCopyWith<TopOffersResult> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $TopOfferBannersCopyWith<$Res> {
-  factory $TopOfferBannersCopyWith(
-          TopOfferBanners value, $Res Function(TopOfferBanners) then) =
-      _$TopOfferBannersCopyWithImpl<$Res, TopOfferBanners>;
+abstract class $TopOffersResultCopyWith<$Res> {
+  factory $TopOffersResultCopyWith(
+          TopOffersResult value, $Res Function(TopOffersResult) then) =
+      _$TopOffersResultCopyWithImpl<$Res, TopOffersResult>;
   @useResult
   $Res call({List<BannerItem> banners});
 }
 
 /// @nodoc
-class _$TopOfferBannersCopyWithImpl<$Res, $Val extends TopOfferBanners>
-    implements $TopOfferBannersCopyWith<$Res> {
-  _$TopOfferBannersCopyWithImpl(this._value, this._then);
+class _$TopOffersResultCopyWithImpl<$Res, $Val extends TopOffersResult>
+    implements $TopOffersResultCopyWith<$Res> {
+  _$TopOffersResultCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -266,22 +266,22 @@ class _$TopOfferBannersCopyWithImpl<$Res, $Val extends TopOfferBanners>
 }
 
 /// @nodoc
-abstract class _$$_TopOfferBannersCopyWith<$Res>
-    implements $TopOfferBannersCopyWith<$Res> {
-  factory _$$_TopOfferBannersCopyWith(
-          _$_TopOfferBanners value, $Res Function(_$_TopOfferBanners) then) =
-      __$$_TopOfferBannersCopyWithImpl<$Res>;
+abstract class _$$_TopOffersResultCopyWith<$Res>
+    implements $TopOffersResultCopyWith<$Res> {
+  factory _$$_TopOffersResultCopyWith(
+          _$_TopOffersResult value, $Res Function(_$_TopOffersResult) then) =
+      __$$_TopOffersResultCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<BannerItem> banners});
 }
 
 /// @nodoc
-class __$$_TopOfferBannersCopyWithImpl<$Res>
-    extends _$TopOfferBannersCopyWithImpl<$Res, _$_TopOfferBanners>
-    implements _$$_TopOfferBannersCopyWith<$Res> {
-  __$$_TopOfferBannersCopyWithImpl(
-      _$_TopOfferBanners _value, $Res Function(_$_TopOfferBanners) _then)
+class __$$_TopOffersResultCopyWithImpl<$Res>
+    extends _$TopOffersResultCopyWithImpl<$Res, _$_TopOffersResult>
+    implements _$$_TopOffersResultCopyWith<$Res> {
+  __$$_TopOffersResultCopyWithImpl(
+      _$_TopOffersResult _value, $Res Function(_$_TopOffersResult) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -289,7 +289,7 @@ class __$$_TopOfferBannersCopyWithImpl<$Res>
   $Res call({
     Object? banners = null,
   }) {
-    return _then(_$_TopOfferBanners(
+    return _then(_$_TopOffersResult(
       banners: null == banners
           ? _value._banners
           : banners // ignore: cast_nullable_to_non_nullable
@@ -300,12 +300,12 @@ class __$$_TopOfferBannersCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_TopOfferBanners implements _TopOfferBanners {
-  const _$_TopOfferBanners({required final List<BannerItem> banners})
+class _$_TopOffersResult implements _TopOffersResult {
+  const _$_TopOffersResult({required final List<BannerItem> banners})
       : _banners = banners;
 
-  factory _$_TopOfferBanners.fromJson(Map<String, dynamic> json) =>
-      _$$_TopOfferBannersFromJson(json);
+  factory _$_TopOffersResult.fromJson(Map<String, dynamic> json) =>
+      _$$_TopOffersResultFromJson(json);
 
   final List<BannerItem> _banners;
   @override
@@ -317,14 +317,14 @@ class _$_TopOfferBanners implements _TopOfferBanners {
 
   @override
   String toString() {
-    return 'TopOfferBanners(banners: $banners)';
+    return 'TopOffersResult(banners: $banners)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_TopOfferBanners &&
+            other is _$_TopOffersResult &&
             const DeepCollectionEquality().equals(other._banners, _banners));
   }
 
@@ -336,29 +336,29 @@ class _$_TopOfferBanners implements _TopOfferBanners {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_TopOfferBannersCopyWith<_$_TopOfferBanners> get copyWith =>
-      __$$_TopOfferBannersCopyWithImpl<_$_TopOfferBanners>(this, _$identity);
+  _$$_TopOffersResultCopyWith<_$_TopOffersResult> get copyWith =>
+      __$$_TopOffersResultCopyWithImpl<_$_TopOffersResult>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_TopOfferBannersToJson(
+    return _$$_TopOffersResultToJson(
       this,
     );
   }
 }
 
-abstract class _TopOfferBanners implements TopOfferBanners {
-  const factory _TopOfferBanners({required final List<BannerItem> banners}) =
-      _$_TopOfferBanners;
+abstract class _TopOffersResult implements TopOffersResult {
+  const factory _TopOffersResult({required final List<BannerItem> banners}) =
+      _$_TopOffersResult;
 
-  factory _TopOfferBanners.fromJson(Map<String, dynamic> json) =
-      _$_TopOfferBanners.fromJson;
+  factory _TopOffersResult.fromJson(Map<String, dynamic> json) =
+      _$_TopOffersResult.fromJson;
 
   @override
   List<BannerItem> get banners;
   @override
   @JsonKey(ignore: true)
-  _$$_TopOfferBannersCopyWith<_$_TopOfferBanners> get copyWith =>
+  _$$_TopOffersResultCopyWith<_$_TopOffersResult> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -373,10 +373,10 @@ mixin _$BannerItem {
   SubCategoryId get subCategoryId => throw _privateConstructorUsedError;
   String get subCategoryName => throw _privateConstructorUsedError;
   String get image => throw _privateConstructorUsedError;
-  String get createdAt => throw _privateConstructorUsedError;
-  String get updatedAt => throw _privateConstructorUsedError;
   int? get discount => throw _privateConstructorUsedError;
   String? get url => throw _privateConstructorUsedError;
+  String get createdAt => throw _privateConstructorUsedError;
+  String get updatedAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -395,10 +395,10 @@ abstract class $BannerItemCopyWith<$Res> {
       SubCategoryId subCategoryId,
       String subCategoryName,
       String image,
-      String createdAt,
-      String updatedAt,
       int? discount,
-      String? url});
+      String? url,
+      String createdAt,
+      String updatedAt});
 
   $SubCategoryIdCopyWith<$Res> get subCategoryId;
 }
@@ -420,10 +420,10 @@ class _$BannerItemCopyWithImpl<$Res, $Val extends BannerItem>
     Object? subCategoryId = null,
     Object? subCategoryName = null,
     Object? image = null,
-    Object? createdAt = null,
-    Object? updatedAt = null,
     Object? discount = freezed,
     Object? url = freezed,
+    Object? createdAt = null,
+    Object? updatedAt = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -442,14 +442,6 @@ class _$BannerItemCopyWithImpl<$Res, $Val extends BannerItem>
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as String,
-      createdAt: null == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as String,
-      updatedAt: null == updatedAt
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
-              as String,
       discount: freezed == discount
           ? _value.discount
           : discount // ignore: cast_nullable_to_non_nullable
@@ -458,6 +450,14 @@ class _$BannerItemCopyWithImpl<$Res, $Val extends BannerItem>
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
               as String?,
+      createdAt: null == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as String,
+      updatedAt: null == updatedAt
+          ? _value.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 
@@ -483,10 +483,10 @@ abstract class _$$_BannerItemCopyWith<$Res>
       SubCategoryId subCategoryId,
       String subCategoryName,
       String image,
-      String createdAt,
-      String updatedAt,
       int? discount,
-      String? url});
+      String? url,
+      String createdAt,
+      String updatedAt});
 
   @override
   $SubCategoryIdCopyWith<$Res> get subCategoryId;
@@ -507,10 +507,10 @@ class __$$_BannerItemCopyWithImpl<$Res>
     Object? subCategoryId = null,
     Object? subCategoryName = null,
     Object? image = null,
-    Object? createdAt = null,
-    Object? updatedAt = null,
     Object? discount = freezed,
     Object? url = freezed,
+    Object? createdAt = null,
+    Object? updatedAt = null,
   }) {
     return _then(_$_BannerItem(
       id: null == id
@@ -529,14 +529,6 @@ class __$$_BannerItemCopyWithImpl<$Res>
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as String,
-      createdAt: null == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as String,
-      updatedAt: null == updatedAt
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
-              as String,
       discount: freezed == discount
           ? _value.discount
           : discount // ignore: cast_nullable_to_non_nullable
@@ -545,6 +537,14 @@ class __$$_BannerItemCopyWithImpl<$Res>
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
               as String?,
+      createdAt: null == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as String,
+      updatedAt: null == updatedAt
+          ? _value.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -557,10 +557,10 @@ class _$_BannerItem implements _BannerItem {
       required this.subCategoryId,
       required this.subCategoryName,
       required this.image,
-      required this.createdAt,
-      required this.updatedAt,
       this.discount,
-      this.url});
+      this.url,
+      required this.createdAt,
+      required this.updatedAt});
 
   factory _$_BannerItem.fromJson(Map<String, dynamic> json) =>
       _$$_BannerItemFromJson(json);
@@ -575,17 +575,17 @@ class _$_BannerItem implements _BannerItem {
   @override
   final String image;
   @override
-  final String createdAt;
-  @override
-  final String updatedAt;
-  @override
   final int? discount;
   @override
   final String? url;
+  @override
+  final String createdAt;
+  @override
+  final String updatedAt;
 
   @override
   String toString() {
-    return 'BannerItem(id: $id, subCategoryId: $subCategoryId, subCategoryName: $subCategoryName, image: $image, createdAt: $createdAt, updatedAt: $updatedAt, discount: $discount, url: $url)';
+    return 'BannerItem(id: $id, subCategoryId: $subCategoryId, subCategoryName: $subCategoryName, image: $image, discount: $discount, url: $url, createdAt: $createdAt, updatedAt: $updatedAt)';
   }
 
   @override
@@ -599,19 +599,19 @@ class _$_BannerItem implements _BannerItem {
             (identical(other.subCategoryName, subCategoryName) ||
                 other.subCategoryName == subCategoryName) &&
             (identical(other.image, image) || other.image == image) &&
+            (identical(other.discount, discount) ||
+                other.discount == discount) &&
+            (identical(other.url, url) || other.url == url) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
             (identical(other.updatedAt, updatedAt) ||
-                other.updatedAt == updatedAt) &&
-            (identical(other.discount, discount) ||
-                other.discount == discount) &&
-            (identical(other.url, url) || other.url == url));
+                other.updatedAt == updatedAt));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, id, subCategoryId,
-      subCategoryName, image, createdAt, updatedAt, discount, url);
+      subCategoryName, image, discount, url, createdAt, updatedAt);
 
   @JsonKey(ignore: true)
   @override
@@ -633,10 +633,10 @@ abstract class _BannerItem implements BannerItem {
       required final SubCategoryId subCategoryId,
       required final String subCategoryName,
       required final String image,
-      required final String createdAt,
-      required final String updatedAt,
       final int? discount,
-      final String? url}) = _$_BannerItem;
+      final String? url,
+      required final String createdAt,
+      required final String updatedAt}) = _$_BannerItem;
 
   factory _BannerItem.fromJson(Map<String, dynamic> json) =
       _$_BannerItem.fromJson;
@@ -651,13 +651,13 @@ abstract class _BannerItem implements BannerItem {
   @override
   String get image;
   @override
-  String get createdAt;
-  @override
-  String get updatedAt;
-  @override
   int? get discount;
   @override
   String? get url;
+  @override
+  String get createdAt;
+  @override
+  String get updatedAt;
   @override
   @JsonKey(ignore: true)
   _$$_BannerItemCopyWith<_$_BannerItem> get copyWith =>
@@ -672,7 +672,7 @@ SubCategoryId _$SubCategoryIdFromJson(Map<String, dynamic> json) {
 mixin _$SubCategoryId {
   @JsonKey(name: '_id')
   String get id => throw _privateConstructorUsedError;
-  CategoryId get categoryId => throw _privateConstructorUsedError;
+  CategoryId? get categoryId => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   String get image => throw _privateConstructorUsedError;
   String get createdAt => throw _privateConstructorUsedError;
@@ -692,13 +692,13 @@ abstract class $SubCategoryIdCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: '_id') String id,
-      CategoryId categoryId,
+      CategoryId? categoryId,
       String title,
       String image,
       String createdAt,
       String updatedAt});
 
-  $CategoryIdCopyWith<$Res> get categoryId;
+  $CategoryIdCopyWith<$Res>? get categoryId;
 }
 
 /// @nodoc
@@ -715,7 +715,7 @@ class _$SubCategoryIdCopyWithImpl<$Res, $Val extends SubCategoryId>
   @override
   $Res call({
     Object? id = null,
-    Object? categoryId = null,
+    Object? categoryId = freezed,
     Object? title = null,
     Object? image = null,
     Object? createdAt = null,
@@ -726,10 +726,10 @@ class _$SubCategoryIdCopyWithImpl<$Res, $Val extends SubCategoryId>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      categoryId: null == categoryId
+      categoryId: freezed == categoryId
           ? _value.categoryId
           : categoryId // ignore: cast_nullable_to_non_nullable
-              as CategoryId,
+              as CategoryId?,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -751,8 +751,12 @@ class _$SubCategoryIdCopyWithImpl<$Res, $Val extends SubCategoryId>
 
   @override
   @pragma('vm:prefer-inline')
-  $CategoryIdCopyWith<$Res> get categoryId {
-    return $CategoryIdCopyWith<$Res>(_value.categoryId, (value) {
+  $CategoryIdCopyWith<$Res>? get categoryId {
+    if (_value.categoryId == null) {
+      return null;
+    }
+
+    return $CategoryIdCopyWith<$Res>(_value.categoryId!, (value) {
       return _then(_value.copyWith(categoryId: value) as $Val);
     });
   }
@@ -768,14 +772,14 @@ abstract class _$$_SubCategoryIdCopyWith<$Res>
   @useResult
   $Res call(
       {@JsonKey(name: '_id') String id,
-      CategoryId categoryId,
+      CategoryId? categoryId,
       String title,
       String image,
       String createdAt,
       String updatedAt});
 
   @override
-  $CategoryIdCopyWith<$Res> get categoryId;
+  $CategoryIdCopyWith<$Res>? get categoryId;
 }
 
 /// @nodoc
@@ -790,7 +794,7 @@ class __$$_SubCategoryIdCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
-    Object? categoryId = null,
+    Object? categoryId = freezed,
     Object? title = null,
     Object? image = null,
     Object? createdAt = null,
@@ -801,10 +805,10 @@ class __$$_SubCategoryIdCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      categoryId: null == categoryId
+      categoryId: freezed == categoryId
           ? _value.categoryId
           : categoryId // ignore: cast_nullable_to_non_nullable
-              as CategoryId,
+              as CategoryId?,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -843,7 +847,7 @@ class _$_SubCategoryId implements _SubCategoryId {
   @JsonKey(name: '_id')
   final String id;
   @override
-  final CategoryId categoryId;
+  final CategoryId? categoryId;
   @override
   final String title;
   @override
@@ -896,7 +900,7 @@ class _$_SubCategoryId implements _SubCategoryId {
 abstract class _SubCategoryId implements SubCategoryId {
   const factory _SubCategoryId(
       {@JsonKey(name: '_id') required final String id,
-      required final CategoryId categoryId,
+      required final CategoryId? categoryId,
       required final String title,
       required final String image,
       required final String createdAt,
@@ -909,7 +913,7 @@ abstract class _SubCategoryId implements SubCategoryId {
   @JsonKey(name: '_id')
   String get id;
   @override
-  CategoryId get categoryId;
+  CategoryId? get categoryId;
   @override
   String get title;
   @override

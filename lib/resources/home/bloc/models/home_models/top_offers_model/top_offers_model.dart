@@ -8,7 +8,7 @@ class TopOffersModel with _$TopOffersModel {
     int? status,
     String? message,
     String? error,
-    required TopOfferBanners result,
+    required TopOffersResult result,
   }) = _TopOffersModel;
 
   factory TopOffersModel.fromJson(Map<String, dynamic> json) =>
@@ -16,13 +16,13 @@ class TopOffersModel with _$TopOffersModel {
 }
 
 @freezed
-class TopOfferBanners with _$TopOfferBanners {
-  const factory TopOfferBanners({
+class TopOffersResult with _$TopOffersResult {
+  const factory TopOffersResult({
     required List<BannerItem> banners,
-  }) = _TopOfferBanners;
+  }) = _TopOffersResult;
 
-  factory TopOfferBanners.fromJson(Map<String, dynamic> json) =>
-      _$TopOfferBannersFromJson(json);
+  factory TopOffersResult.fromJson(Map<String, dynamic> json) =>
+      _$TopOffersResultFromJson(json);
 }
 
 @freezed
@@ -32,10 +32,10 @@ class BannerItem with _$BannerItem {
     required SubCategoryId subCategoryId,
     required String subCategoryName,
     required String image,
-    required String createdAt,
-    required String updatedAt,
     int? discount,
     String? url,
+    required String createdAt,
+    required String updatedAt,
   }) = _BannerItem;
 
   factory BannerItem.fromJson(Map<String, dynamic> json) =>
@@ -46,7 +46,7 @@ class BannerItem with _$BannerItem {
 class SubCategoryId with _$SubCategoryId {
   const factory SubCategoryId({
     @JsonKey(name: '_id') required String id,
-    required CategoryId categoryId,
+    required CategoryId? categoryId,
     required String title,
     required String image,
     required String createdAt,

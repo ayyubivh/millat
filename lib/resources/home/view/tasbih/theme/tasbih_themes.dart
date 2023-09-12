@@ -19,7 +19,7 @@ final tasbihThemeSingleBall = {
   TasbihThemes.darkBlue: "assets/images/tasbih_theme_ball_5.png",
   TasbihThemes.lightOrange: "assets/images/tasbih_theme_ball_6.png",
 };
-final appThemeData = {
+final tasbihThemeData = {
   TasbihThemes.pink: ThemeData(
     primaryColor: ColorManager.tasbihThemePinkBgClr,
     primaryColorLight: ColorManager.tasbihGradientClr1,

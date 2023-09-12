@@ -107,11 +107,21 @@ class ColorManager {
 
   //Dua view
   static Color haditTextfieldGreyClr = HexColor.fromHex("#B3B3B3");
+  static Color greyEE = HexColor.fromHex("#EEEEEE");
   //Hadith view
   static Color lightPrimaryGreenClr = HexColor.fromHex("#D9EEE5");
   static Color hadithBorderClr = HexColor.fromHex("#CCCCCC");
   static Color hadithGradientBlue1 = HexColor.fromHex("#24FFF6");
   static Color hadithGradientBlue2 = HexColor.fromHex("#6F7BF7");
+  //qibla
+
+  //compass themes
+  static Color onePrimaryColor = HexColor.fromHex("#E3DBC5");
+  static Color twoPrimaryColor = HexColor.fromHex("#FEE0B4");
+  static Color threePrimaryColor = HexColor.fromHex("#FBE9C1");
+  static Color fourPrimaryColor = HexColor.fromHex("#DDCEB7");
+  static Color fivePrimaryColor = HexColor.fromHex("#EBD7C1");
+  static Color sixPrimaryColor = HexColor.fromHex("#DECCA0");
 }
 
 extension HexColor on Color {

@@ -129,8 +129,8 @@ class SettingsPopUpWidget extends StatelessWidget {
                     inactiveColor: ColorManager.dotGrey,
                     activeColor: ColorManager.primary,
                     value: state.sliderValue,
-                    max: 60,
-                    min: 10.0,
+                    max: 25.0,
+                    min: 2.0,
 
                     // label: _currentSliderValue.round().toString(),
                     onChanged: (double value) {

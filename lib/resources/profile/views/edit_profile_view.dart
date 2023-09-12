@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:intl/intl.dart';
 import 'package:millat/components/buttons/main_button.dart';
 import 'package:millat/resources/authentication/bloc/logic/database_bloc/database_bloc.dart';
-import 'package:millat/resources/profile/views/user_profile_view.dart';
 import 'package:millat/resources/profile/widgets/profile_textformfield_widget.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/string_constants.dart';
@@ -36,6 +36,26 @@ class _EditProfileViewState extends State<EditProfileView> {
     _companyController.text = data?.institution ?? "";
     _professionController.text = data?.profession ?? "";
     _phoneController.text = "91";
+  }
+
+  DateTime? _selectedDate;
+
+  Future<void> _selectDate(BuildContext context) async {
+    final DateTime? picked = await showDatePicker(
+      context: context,
+      initialDate: _selectedDate ?? DateTime.now(),
+      firstDate: DateTime(1900),
+      lastDate: DateTime.now(),
+    );
+
+    if (picked != null && picked != _selectedDate) {
+      setState(() {
+        _selectedDate = picked;
+
+        String formattedDate = DateFormat('MM-dd-yyyy').format(_selectedDate!);
+        _dateofBirthcontroller.text = formattedDate;
+      });
+    }
   }
 
   @override
@@ -302,6 +322,9 @@ class _EditProfileViewState extends State<EditProfileView> {
                       _textFieldWidget(
                         controller: _dateofBirthcontroller,
                         textFieldName: Appstrings.dateOfBirth,
+                        onTap: () {
+                          _selectDate(context);
+                        },
                         hintName: Appstrings.dateOfBirth,
                         textInputType: TextInputType.datetime,
                         icon: ImageIcon(
@@ -322,6 +345,20 @@ class _EditProfileViewState extends State<EditProfileView> {
                           return null;
                         },
                       ),
+                      // TextFormField(
+                      //   readOnly: true, // Make the text field read-only
+                      //   onTap: () {
+                      //     // Show the date picker when the text field is tapped
+                      //     _selectDate(context);
+                      //   },
+                      //   decoration: InputDecoration(
+                      //     labelText: 'Date of Birth',
+                      //     hintText: _selectedDate != null
+                      //         ? '${_selectedDate!.toLocal()}'
+                      //             .split(' ')[0] // Display selected date
+                      //         : 'Select Date of Birth',
+                      //   ),
+                      // ),
                       _textFieldWidget(
                           controller: _emailController,
                           textFieldName: Appstrings.email,
@@ -446,6 +483,7 @@ class _EditProfileViewState extends State<EditProfileView> {
       required String textFieldName,
       int? maxLength,
       TextInputType? textInputType,
+      Function()? onTap,
       required TextEditingController controller,
       String? Function(String? val)? validator,
       ImageIcon? icon}) {
@@ -461,6 +499,7 @@ class _EditProfileViewState extends State<EditProfileView> {
         ),
         kHeight10,
         ProfieEditTextFormField(
+          onTap: onTap,
           maxLength: maxLength,
           controller: controller,
           icon: icon ?? const Icon(null),

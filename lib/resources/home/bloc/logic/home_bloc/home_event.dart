@@ -25,4 +25,10 @@ class HomeEvent with _$HomeEvent {
   }) = RemoveDailyPrayerTrackerNamaz;
   const factory HomeEvent.changeTinterCardSwipeOption({required bool value}) =
       ChangeTinterCardSwipeOption;
+  const factory HomeEvent.changeCompassThemeEvent({
+    required CompassTheme compassTheme,
+  }) = ChangeCompassThemeEvent;
+  const factory HomeEvent.changeCompassThemeIndex({
+    required int index,
+  }) = ChangeCompassThemeIndex;
 }

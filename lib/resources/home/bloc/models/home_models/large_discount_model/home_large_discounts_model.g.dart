@@ -12,7 +12,9 @@ _$_LargeDiscountModel _$$_LargeDiscountModelFromJson(
       status: json['status'] as int?,
       message: json['message'] as String?,
       error: json['error'] as String?,
-      result: BannersResult.fromJson(json['result'] as Map<String, dynamic>),
+      result: json['result'] == null
+          ? null
+          : Result.fromJson(json['result'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$_LargeDiscountModelToJson(
@@ -24,28 +26,27 @@ Map<String, dynamic> _$$_LargeDiscountModelToJson(
       'result': instance.result,
     };
 
-_$_BannersResult _$$_BannersResultFromJson(Map<String, dynamic> json) =>
-    _$_BannersResult(
+_$_Result _$$_ResultFromJson(Map<String, dynamic> json) => _$_Result(
       banners: (json['banners'] as List<dynamic>)
           .map((e) => BannerItem.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
-Map<String, dynamic> _$$_BannersResultToJson(_$_BannersResult instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$$_ResultToJson(_$_Result instance) => <String, dynamic>{
       'banners': instance.banners,
     };
 
 _$_BannerItem _$$_BannerItemFromJson(Map<String, dynamic> json) =>
     _$_BannerItem(
       id: json['_id'] as String,
-      subCategoryId:
-          SubCategory.fromJson(json['subCategoryId'] as Map<String, dynamic>),
-      subCategoryName: json['subCategoryName'] as String,
-      image: json['image'] as String,
-      url: json['url'] as String,
-      createdAt: json['createdAt'] as String,
-      updatedAt: json['updatedAt'] as String,
+      subCategoryId: json['subCategoryId'] == null
+          ? null
+          : SubCategory.fromJson(json['subCategoryId'] as Map<String, dynamic>),
+      subCategoryName: json['subCategoryName'] as String?,
+      image: json['image'] as String?,
+      url: json['url'] as String?,
+      createdAt: json['createdAt'] as String?,
+      updatedAt: json['updatedAt'] as String?,
     );
 
 Map<String, dynamic> _$$_BannerItemToJson(_$_BannerItem instance) =>
@@ -62,11 +63,13 @@ Map<String, dynamic> _$$_BannerItemToJson(_$_BannerItem instance) =>
 _$_SubCategory _$$_SubCategoryFromJson(Map<String, dynamic> json) =>
     _$_SubCategory(
       id: json['_id'] as String,
-      categoryId: Category.fromJson(json['categoryId'] as Map<String, dynamic>),
-      title: json['title'] as String,
-      image: json['image'] as String,
-      createdAt: json['createdAt'] as String,
-      updatedAt: json['updatedAt'] as String,
+      categoryId: json['categoryId'] == null
+          ? null
+          : Category.fromJson(json['categoryId'] as Map<String, dynamic>),
+      title: json['title'] as String?,
+      image: json['image'] as String?,
+      createdAt: json['createdAt'] as String?,
+      updatedAt: json['updatedAt'] as String?,
     );
 
 Map<String, dynamic> _$$_SubCategoryToJson(_$_SubCategory instance) =>
@@ -80,11 +83,11 @@ Map<String, dynamic> _$$_SubCategoryToJson(_$_SubCategory instance) =>
     };
 
 _$_Category _$$_CategoryFromJson(Map<String, dynamic> json) => _$_Category(
-      id: json['_id'] as String,
-      title: json['title'] as String,
-      image: json['image'] as String,
-      createdAt: json['createdAt'] as String,
-      updatedAt: json['updatedAt'] as String,
+      id: json['_id'] as String?,
+      title: json['title'] as String?,
+      image: json['image'] as String?,
+      createdAt: json['createdAt'] as String?,
+      updatedAt: json['updatedAt'] as String?,
     );
 
 Map<String, dynamic> _$$_CategoryToJson(_$_Category instance) =>

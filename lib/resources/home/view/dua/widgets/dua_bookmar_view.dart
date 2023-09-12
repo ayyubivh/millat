@@ -37,18 +37,11 @@ class DuaBookMarkView extends StatelessWidget {
               return const Loader();
             } else if (state.duaModelbyId == null) {
               return const Loader();
-            } else if (state
-                .duaBookMarkModel!.result!.bookmarks[0].bookmarks.isEmpty) {
+            } else if (state.duaBookMarkModel?.result == null) {
               return Padding(
-                padding: EdgeInsets.only(top: SizeUtility(context).height / 3),
-                child: const Center(
-                    child: Text(
-                  "Book Mark is Empty",
-                  style: TextStyle(
-                    fontSize: 20,
-                  ),
-                )),
-              );
+                  padding:
+                      EdgeInsets.only(top: SizeUtility(context).height / 3),
+                  child: const Loader());
             } else {
               return Expanded(
                 child: ListView.builder(
@@ -109,17 +102,17 @@ class DuaBookMarkView extends StatelessWidget {
                                               ),
                                               child: IconButton(
                                                 onPressed: () {
-                                                  context
-                                                      .read<DuaBloc>()
-                                                      .add(RemoveBookmark(
-                                                        context: context,
-                                                        duaId: state
-                                                            .duaBookMarkModel!
-                                                            .result!
-                                                            .bookmarks[0]
-                                                            .bookmarks[index]
-                                                            .duaId,
-                                                      ));
+                                                  context.read<DuaBloc>()
+                                                    ..add(RemoveBookmark(
+                                                      context: context,
+                                                      duaId: state
+                                                          .duaBookMarkModel!
+                                                          .result!
+                                                          .bookmarks[0]
+                                                          .bookmarks[index]
+                                                          .duaId,
+                                                    ))
+                                                    ..add(const FetchDuaById());
                                                 },
                                                 icon: const Icon(
                                                   Icons.close,

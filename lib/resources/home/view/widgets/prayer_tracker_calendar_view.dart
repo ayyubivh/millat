@@ -160,9 +160,9 @@ class _PrayerTrackerCalendarViewState extends State<PrayerTrackerCalendarView> {
 
                         return BlocBuilder<NamazTimingBloc, NamazTimingState>(
                           builder: (context, state) {
-                            final currentNamaz = state.currentNamaz;
-                            final currentNamazName =
-                                currentNamaz?['name'] ?? '';
+                            // final currentNamaz = state.currentNamaz;
+                            // final currentNamazName =
+                            //     currentNamaz?['name'] ?? '';
                             final namazTime = state.prayerModel?.data.timings;
 
                             String fajrTime = namazTime?.fajr ?? "";
@@ -181,33 +181,55 @@ class _PrayerTrackerCalendarViewState extends State<PrayerTrackerCalendarView> {
                                 Utilities.isNamazTimeAfter(now, magribTime);
                             bool isMagrib =
                                 Utilities.isNamazTimeAfter(now, ishaTime);
-                            bool isIsha =
-                                Utilities.isNamazTimeAfter(now, fajrTime);
+                            // bool isIsha =
+                            //     Utilities.isNamazTimeAfter(now, fajrTime);
+                            final nowFormatedDate =
+                                Utilities.formatDate(now.toString());
                             return Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 namazTimingTrackerWidget(
                                   text: Appstrings.fajr,
                                   isCompleted: prayerData.prayerTrackerFajr,
-                                  isUpcoming: isFajr,
+                                  isUpcoming:
+                                      prayerData.dailyPrayerTrackerDate ==
+                                              nowFormatedDate
+                                          ? isFajr
+                                          : false,
                                 ),
                                 namazTimingTrackerWidget(
                                     text: Appstrings.dhuhr,
                                     isCompleted: prayerData.prayerTrackerDhuhr,
-                                    isUpcoming: isDhuhr),
+                                    isUpcoming:
+                                        prayerData.dailyPrayerTrackerDate ==
+                                                nowFormatedDate
+                                            ? isDhuhr
+                                            : false),
                                 namazTimingTrackerWidget(
                                     text: Appstrings.asr,
                                     isCompleted: prayerData.prayerTrackerAsr,
-                                    isUpcoming: isAsr),
+                                    isUpcoming:
+                                        prayerData.dailyPrayerTrackerDate ==
+                                                nowFormatedDate
+                                            ? isAsr
+                                            : false),
                                 namazTimingTrackerWidget(
                                     text: Appstrings.magrib,
                                     isCompleted: prayerData.prayerTrackerMagrib,
-                                    isUpcoming: isMagrib),
+                                    isUpcoming:
+                                        prayerData.dailyPrayerTrackerDate ==
+                                                nowFormatedDate
+                                            ? isMagrib
+                                            : false),
                                 namazTimingTrackerWidget(
                                   text: Appstrings.isha,
                                   isCompleted: prayerData.prayerTrackerIsha,
                                   isShowdivider: false,
-                                  isUpcoming: true,
+                                  isUpcoming:
+                                      prayerData.dailyPrayerTrackerDate ==
+                                              nowFormatedDate
+                                          ? true
+                                          : false,
                                 ),
                               ],
                             );

@@ -479,18 +479,18 @@ Future<dynamic> logoutPopUp(BuildContext context) {
               Row(
                 children: [
                   Expanded(
-                    child: Container(
-                      height: 62,
-                      decoration: BoxDecoration(
-                        borderRadius: const BorderRadius.only(
-                            bottomLeft: Radius.circular(12)),
-                        color: ColorManager.whiteColor,
-                      ),
-                      child: Center(
-                        child: GestureDetector(
-                          onTap: () {
-                            Navigator.of(context).pop();
-                          },
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).pop();
+                      },
+                      child: Container(
+                        height: 62,
+                        decoration: BoxDecoration(
+                          borderRadius: const BorderRadius.only(
+                              bottomLeft: Radius.circular(12)),
+                          color: ColorManager.whiteColor,
+                        ),
+                        child: Center(
                           child: Text(
                             Appstrings.cancel,
                             style: TextStyle(
@@ -503,24 +503,23 @@ Future<dynamic> logoutPopUp(BuildContext context) {
                     ),
                   ),
                   Expanded(
-                    child: Container(
-                      decoration: BoxDecoration(
-                        borderRadius: const BorderRadius.only(
-                            bottomRight: Radius.circular(12)),
-                        color: ColorManager.primary,
-                      ),
-                      height: 62,
-                      child: Center(
-                        child: GestureDetector(
-                          onTap: () {
-                            context
-                                .read<DatabaseBloc>()
-                                .add(const RemoveTokenEvent());
-                            Navigator.of(context)
-                                .pushReplacement(MaterialPageRoute(
-                              builder: (context) => const SignUpView(),
-                            ));
-                          },
+                    child: GestureDetector(
+                      onTap: () {
+                        context
+                            .read<DatabaseBloc>()
+                            .add(const RemoveTokenEvent());
+                        Navigator.of(context).pushReplacement(MaterialPageRoute(
+                          builder: (context) => const SignUpView(),
+                        ));
+                      },
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: const BorderRadius.only(
+                              bottomRight: Radius.circular(12)),
+                          color: ColorManager.primary,
+                        ),
+                        height: 62,
+                        child: Center(
                           child: Text(
                             Appstrings.logout,
                             style: TextStyle(

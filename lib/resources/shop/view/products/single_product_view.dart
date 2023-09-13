@@ -1,11 +1,14 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:millat/components/buttons/main_button.dart';
 import 'package:millat/components/common_widgets/cart_icon_widget.dart';
 import 'package:millat/resources/shop/bloc/logic/cart_bloc/cart_bloc.dart';
+import 'package:millat/resources/shop/bloc/models/shop_products/shop_products_model.dart';
 import 'package:millat/resources/shop/view/cart/cart.dart';
 import 'package:millat/resources/shop/view/reviews/reviews_view.dart';
 import 'package:millat/utils/color_manager.dart';
+import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/utils.dart';
 
@@ -33,15 +36,15 @@ class SingleProductView extends StatelessWidget {
         elevation: 0,
         leading: BackButton(color: ColorManager.blackColor),
         actions: [
-          Padding(
-            padding: const EdgeInsets.only(left: 10),
-            child: ImageIcon(
-              const AssetImage(
-                'assets/icons/search.png',
-              ),
-              color: ColorManager.blackColor,
-            ),
-          ),
+          // Padding(
+          //   padding: const EdgeInsets.only(left: 10),
+          //   child: ImageIcon(
+          //     const AssetImage(
+          //       'assets/icons/search.png',
+          //     ),
+          //     color: ColorManager.blackColor,
+          //   ),
+          // ),
           BlocBuilder<CartBloc, CartState>(
             builder: (context, state) {
               return CartIconWidget(
@@ -64,7 +67,7 @@ class SingleProductView extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: black247,
                   image: DecorationImage(
-                    image: NetworkImage(passValue!.colors![0].images![0]),
+                    image: NetworkImage(passValue.images![0]),
                   ),
                 ),
               ),
@@ -72,20 +75,20 @@ class SingleProductView extends StatelessWidget {
                 height: 10,
               ),
               Text(
-                passValue.title,
+                passValue.title ?? "",
                 style: const TextStyle(
                     fontSize: 22, fontWeight: FontWeight.w600, height: 2),
               ),
-              Text('${passValue.actualPrice} ₹',
+              Text('${passValue.regularPrice} ₹',
                   style: const TextStyle(
                       color: black60,
                       fontSize: 17,
                       decoration: TextDecoration.lineThrough,
                       height: 1.5)),
-              Text(passValue.brand.name ?? 'null',
+              Text(passValue.brand?.name ?? 'null',
                   style: const TextStyle(
                       color: black60, fontSize: 17, height: 1.5)),
-              Text('${passValue.discountPrice} ₹',
+              Text('${passValue.salePrice} ₹',
                   style: TextStyle(
                       color: ColorManager.greenColor1,
                       fontSize: 22,
@@ -169,7 +172,7 @@ class SingleProductView extends StatelessWidget {
                 height: 20,
               ),
               Text(
-                passValue.description,
+                passValue.description ?? "",
                 style: TextStyle(fontSize: 16, color: ColorManager.textGrey99),
               ),
               const SizedBox(
@@ -196,7 +199,7 @@ class SingleProductView extends StatelessWidget {
                 height: 20,
               ),
               Text(
-                passValue.otherInfo,
+                passValue.brand?.name ?? "",
                 style: TextStyle(fontSize: 16, color: ColorManager.textGrey99),
               ),
               Container(
@@ -317,46 +320,46 @@ class SingleProductView extends StatelessWidget {
         ),
       ),
       bottomSheet: Padding(
-        padding: const EdgeInsets.only(bottom: 20),
-        child: ElevatedButton(
-          onPressed: () {
-            showModalBottomSheet(
-              context: context,
-              isScrollControlled: true,
-              backgroundColor: Colors.transparent,
-              builder: (context) => buildShowModelSheet(context, colorMap,
-                  selectedColor, sizeList, selectedSize, quantity),
-            );
-          },
-          style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all(
-                ColorManager.greenColor1.withOpacity(0.16)),
-            elevation: MaterialStateProperty.all(0),
-            fixedSize:
-                MaterialStateProperty.all(Size(SizeUtility(context).width, 60)),
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-              Icon(
-                Icons.shopping_cart,
-                color: ColorManager.greenColor1,
+          padding: const EdgeInsets.only(bottom: 20, left: 30, right: 30),
+          child: GestureDetector(
+            onTap: () {
+              showModalBottomSheet(
+                context: context,
+                isScrollControlled: true,
+                backgroundColor: Colors.transparent,
+                builder: (context) => buildShowModelSheet(context, colorMap,
+                    selectedColor, sizeList, selectedSize, quantity),
+              );
+            },
+            child: Container(
+              height: 55,
+              width: SizeUtility(context).width,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(4),
+                color: ColorManager.mainColor.withOpacity(0.2),
               ),
-              const SizedBox(
-                width: 10,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image.asset(
+                    "assets/icons/add_cart.png",
+                    width: 21,
+                    height: 21,
+                    color: ColorManager.primary,
+                  ),
+                  kWidht10,
+                  Text(
+                    "Add to cart",
+                    style: TextStyle(
+                      fontSize: 17,
+                      fontWeight: FontWeight.bold,
+                      color: ColorManager.primary,
+                    ),
+                  )
+                ],
               ),
-              Text(
-                'Add to cart',
-                style: TextStyle(
-                    color: ColorManager.greenColor1,
-                    fontSize: 20,
-                    fontWeight: FontWeight.w700),
-              )
-            ],
-          ),
-        ),
-      ),
+            ),
+          )),
     );
   }
 
@@ -390,7 +393,7 @@ class SingleProductView extends StatelessWidget {
                       decoration: BoxDecoration(
                           image: DecorationImage(
                             image: NetworkImage(
-                              passValue!.colors![0].images![0],
+                              passValue.images![0],
                             ),
                             fit: BoxFit.cover,
                           ),
@@ -403,7 +406,7 @@ class SingleProductView extends StatelessWidget {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text('${passValue.discountPrice} ₹',
+                        Text('${passValue.salePrice} ₹',
                             style: TextStyle(
                                 color: ColorManager.greenColor1,
                                 fontWeight: FontWeight.w700,
@@ -411,7 +414,7 @@ class SingleProductView extends StatelessWidget {
                         const SizedBox(
                           height: 20,
                         ),
-                        Text('${passValue.actualPrice} ₹',
+                        Text('${passValue.regularPrice} ₹',
                             style: const TextStyle(
                                 decoration: TextDecoration.lineThrough,
                                 fontSize: 20)),
@@ -583,94 +586,67 @@ class SingleProductView extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 BlocBuilder<CartBloc, CartState>(
-                  builder: (context, state) => ElevatedButton(
-                    style: ButtonStyle(
-                      backgroundColor:
-                          MaterialStateProperty.all(Colors.transparent),
-                      shape: MaterialStateProperty.all(
-                        RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30.0),
-                          side: BorderSide(
-                              color: ColorManager.greenColor1, width: 2.0),
-                        ),
-                      ),
-                      elevation: MaterialStateProperty.all(0),
-                      fixedSize: MaterialStateProperty.all(
-                          Size(SizeUtility(context).width * 42 / 100, 60)),
-                    ),
-                    onPressed: () async {
+                  builder: (context, state) => GestureDetector(
+                    onTap: () {
                       Navigator.of(context).pop();
                       context.read<CartBloc>().add(AddCartEvent(
-                            productId: passValue.id,
-                            basePrice: passValue.discountPrice.toInt(),
+                            productId: passValue.id ?? "",
+                            basePrice: passValue.regularPrice ?? 0,
                             size: sizeList[selectedSize],
                             color: colorMap.keys.elementAt(selectedColor),
                             context: context,
                             quantity: quantity,
-                            brandId: passValue.brand.id,
+                            brandId: passValue.brand?.id ?? "",
                           ));
                       showSnackBar(context, "Product Added Successfully!");
                     },
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        Icon(
-                          Icons.shopping_cart,
-                          color: ColorManager.greenColor1,
-                        ),
-                        const SizedBox(
-                          width: 10,
-                        ),
-                        Text(
-                          'Add to cart',
+                    child: Container(
+                      width: SizeUtility(context).width / 2.5,
+                      height: 54,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(30),
+                          border: Border.all(
+                            color: ColorManager.primary,
+                          )),
+                      child: Center(
+                        child: Text(
+                          "Add to cart",
                           style: TextStyle(
-                              color: ColorManager.greenColor1,
-                              fontSize: 20,
-                              fontWeight: FontWeight.w700),
-                        )
-                      ],
+                            fontWeight: FontWeight.bold,
+                            fontSize: 17,
+                            color: ColorManager.primary,
+                          ),
+                        ),
+                      ),
                     ),
                   ),
                 ),
-                ElevatedButton(
-                  style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all(ColorManager.greenColor1),
-                    shape: MaterialStateProperty.all(
-                      RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30.0),
-                        side: BorderSide(
-                            color: ColorManager.greenColor1, width: 2.0),
-                      ),
-                    ),
-                    elevation: MaterialStateProperty.all(0),
-                    fixedSize: MaterialStateProperty.all(
-                        Size(SizeUtility(context).width * 42 / 100, 60)),
-                  ),
-                  onPressed: () async {
-                    context.read<CartBloc>().add(AddCartEvent(
-                        productId: passValue.id,
-                        basePrice: passValue.discountPrice.toInt(),
-                        size: sizeList[selectedSize],
-                        color: colorMap.keys.elementAt(selectedColor),
-                        context: context,
-                        quantity: quantity,
-                        brandId: passValue.brand.id));
+                Container(
+                  decoration:
+                      BoxDecoration(borderRadius: BorderRadius.circular(30)),
+                  width: SizeUtility(context).width / 2.5,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(30),
+                    child: MainButton(
+                      title: "Buy Now",
+                      onPressed: () {
+                        context.read<CartBloc>().add(AddCartEvent(
+                            productId: passValue.id ?? "",
+                            basePrice: passValue.regularPrice ?? 0,
+                            size: sizeList[selectedSize],
+                            color: colorMap.keys.elementAt(selectedColor),
+                            context: context,
+                            quantity: quantity,
+                            brandId: passValue.brand?.id ?? ""));
 
-                    Future.delayed(const Duration(milliseconds: 400), () {
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                            builder: (context) => const CartView()),
-                      );
-                    });
-                  },
-                  child: const Text(
-                    'Buy Now',
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20,
-                        fontWeight: FontWeight.w700),
+                        Future.delayed(const Duration(milliseconds: 400), () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                                builder: (context) => const CartView()),
+                          );
+                        });
+                      },
+                    ),
                   ),
                 )
               ],
@@ -764,7 +740,7 @@ class SingleProductView extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => const SingleProductView(),
+          builder: (context) => SingleProductView(),
         ));
       },
       child: Padding(

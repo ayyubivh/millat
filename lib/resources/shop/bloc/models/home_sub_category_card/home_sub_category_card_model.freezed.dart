@@ -387,7 +387,7 @@ mixin _$Data {
   String get createdAt => throw _privateConstructorUsedError;
   String get updatedAt => throw _privateConstructorUsedError;
   String get slug => throw _privateConstructorUsedError;
-  SubCategory get subCategoryId => throw _privateConstructorUsedError;
+  SubCategory? get subCategoryId => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -408,11 +408,11 @@ abstract class $DataCopyWith<$Res> {
       String createdAt,
       String updatedAt,
       String slug,
-      SubCategory subCategoryId});
+      SubCategory? subCategoryId});
 
   $DesignCopyWith<$Res> get design;
   $BigBannerImageCopyWith<$Res> get bigBannerImage;
-  $SubCategoryCopyWith<$Res> get subCategoryId;
+  $SubCategoryCopyWith<$Res>? get subCategoryId;
 }
 
 /// @nodoc
@@ -436,7 +436,7 @@ class _$DataCopyWithImpl<$Res, $Val extends Data>
     Object? createdAt = null,
     Object? updatedAt = null,
     Object? slug = null,
-    Object? subCategoryId = null,
+    Object? subCategoryId = freezed,
   }) {
     return _then(_value.copyWith(
       design: null == design
@@ -471,10 +471,10 @@ class _$DataCopyWithImpl<$Res, $Val extends Data>
           ? _value.slug
           : slug // ignore: cast_nullable_to_non_nullable
               as String,
-      subCategoryId: null == subCategoryId
+      subCategoryId: freezed == subCategoryId
           ? _value.subCategoryId
           : subCategoryId // ignore: cast_nullable_to_non_nullable
-              as SubCategory,
+              as SubCategory?,
     ) as $Val);
   }
 
@@ -496,8 +496,12 @@ class _$DataCopyWithImpl<$Res, $Val extends Data>
 
   @override
   @pragma('vm:prefer-inline')
-  $SubCategoryCopyWith<$Res> get subCategoryId {
-    return $SubCategoryCopyWith<$Res>(_value.subCategoryId, (value) {
+  $SubCategoryCopyWith<$Res>? get subCategoryId {
+    if (_value.subCategoryId == null) {
+      return null;
+    }
+
+    return $SubCategoryCopyWith<$Res>(_value.subCategoryId!, (value) {
       return _then(_value.copyWith(subCategoryId: value) as $Val);
     });
   }
@@ -518,14 +522,14 @@ abstract class _$$_DataCopyWith<$Res> implements $DataCopyWith<$Res> {
       String createdAt,
       String updatedAt,
       String slug,
-      SubCategory subCategoryId});
+      SubCategory? subCategoryId});
 
   @override
   $DesignCopyWith<$Res> get design;
   @override
   $BigBannerImageCopyWith<$Res> get bigBannerImage;
   @override
-  $SubCategoryCopyWith<$Res> get subCategoryId;
+  $SubCategoryCopyWith<$Res>? get subCategoryId;
 }
 
 /// @nodoc
@@ -545,7 +549,7 @@ class __$$_DataCopyWithImpl<$Res> extends _$DataCopyWithImpl<$Res, _$_Data>
     Object? createdAt = null,
     Object? updatedAt = null,
     Object? slug = null,
-    Object? subCategoryId = null,
+    Object? subCategoryId = freezed,
   }) {
     return _then(_$_Data(
       design: null == design
@@ -580,10 +584,10 @@ class __$$_DataCopyWithImpl<$Res> extends _$DataCopyWithImpl<$Res, _$_Data>
           ? _value.slug
           : slug // ignore: cast_nullable_to_non_nullable
               as String,
-      subCategoryId: null == subCategoryId
+      subCategoryId: freezed == subCategoryId
           ? _value.subCategoryId
           : subCategoryId // ignore: cast_nullable_to_non_nullable
-              as SubCategory,
+              as SubCategory?,
     ));
   }
 }
@@ -600,7 +604,7 @@ class _$_Data implements _Data {
       required this.createdAt,
       required this.updatedAt,
       required this.slug,
-      required this.subCategoryId})
+      this.subCategoryId})
       : _sliderImage = sliderImage,
         _smallBannerImage = smallBannerImage;
 
@@ -637,7 +641,7 @@ class _$_Data implements _Data {
   @override
   final String slug;
   @override
-  final SubCategory subCategoryId;
+  final SubCategory? subCategoryId;
 
   @override
   String toString() {
@@ -704,7 +708,7 @@ abstract class _Data implements Data {
       required final String createdAt,
       required final String updatedAt,
       required final String slug,
-      required final SubCategory subCategoryId}) = _$_Data;
+      final SubCategory? subCategoryId}) = _$_Data;
 
   factory _Data.fromJson(Map<String, dynamic> json) = _$_Data.fromJson;
 
@@ -726,7 +730,7 @@ abstract class _Data implements Data {
   @override
   String get slug;
   @override
-  SubCategory get subCategoryId;
+  SubCategory? get subCategoryId;
   @override
   @JsonKey(ignore: true)
   _$$_DataCopyWith<_$_Data> get copyWith => throw _privateConstructorUsedError;
@@ -740,7 +744,8 @@ Design _$DesignFromJson(Map<String, dynamic> json) {
 mixin _$Design {
   String get image => throw _privateConstructorUsedError;
   String get bgcolor => throw _privateConstructorUsedError;
-  String get subText => throw _privateConstructorUsedError;
+  String? get subText =>
+      throw _privateConstructorUsedError; // Make subText nullable
   String get text => throw _privateConstructorUsedError;
   String get color => throw _privateConstructorUsedError;
 
@@ -757,7 +762,7 @@ abstract class $DesignCopyWith<$Res> {
   $Res call(
       {String image,
       String bgcolor,
-      String subText,
+      String? subText,
       String text,
       String color});
 }
@@ -777,7 +782,7 @@ class _$DesignCopyWithImpl<$Res, $Val extends Design>
   $Res call({
     Object? image = null,
     Object? bgcolor = null,
-    Object? subText = null,
+    Object? subText = freezed,
     Object? text = null,
     Object? color = null,
   }) {
@@ -790,10 +795,10 @@ class _$DesignCopyWithImpl<$Res, $Val extends Design>
           ? _value.bgcolor
           : bgcolor // ignore: cast_nullable_to_non_nullable
               as String,
-      subText: null == subText
+      subText: freezed == subText
           ? _value.subText
           : subText // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       text: null == text
           ? _value.text
           : text // ignore: cast_nullable_to_non_nullable
@@ -815,7 +820,7 @@ abstract class _$$_DesignCopyWith<$Res> implements $DesignCopyWith<$Res> {
   $Res call(
       {String image,
       String bgcolor,
-      String subText,
+      String? subText,
       String text,
       String color});
 }
@@ -832,7 +837,7 @@ class __$$_DesignCopyWithImpl<$Res>
   $Res call({
     Object? image = null,
     Object? bgcolor = null,
-    Object? subText = null,
+    Object? subText = freezed,
     Object? text = null,
     Object? color = null,
   }) {
@@ -845,10 +850,10 @@ class __$$_DesignCopyWithImpl<$Res>
           ? _value.bgcolor
           : bgcolor // ignore: cast_nullable_to_non_nullable
               as String,
-      subText: null == subText
+      subText: freezed == subText
           ? _value.subText
           : subText // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       text: null == text
           ? _value.text
           : text // ignore: cast_nullable_to_non_nullable
@@ -867,7 +872,7 @@ class _$_Design implements _Design {
   const _$_Design(
       {required this.image,
       required this.bgcolor,
-      required this.subText,
+      this.subText,
       required this.text,
       required this.color});
 
@@ -879,7 +884,8 @@ class _$_Design implements _Design {
   @override
   final String bgcolor;
   @override
-  final String subText;
+  final String? subText;
+// Make subText nullable
   @override
   final String text;
   @override
@@ -925,7 +931,7 @@ abstract class _Design implements Design {
   const factory _Design(
       {required final String image,
       required final String bgcolor,
-      required final String subText,
+      final String? subText,
       required final String text,
       required final String color}) = _$_Design;
 
@@ -936,8 +942,8 @@ abstract class _Design implements Design {
   @override
   String get bgcolor;
   @override
-  String get subText;
-  @override
+  String? get subText;
+  @override // Make subText nullable
   String get text;
   @override
   String get color;
@@ -954,7 +960,7 @@ BigBannerImage _$BigBannerImageFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$BigBannerImage {
   String get imageUrl => throw _privateConstructorUsedError;
-  String get url => throw _privateConstructorUsedError;
+  String? get url => throw _privateConstructorUsedError; // Make url nullable
   String get discount => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -969,7 +975,7 @@ abstract class $BigBannerImageCopyWith<$Res> {
           BigBannerImage value, $Res Function(BigBannerImage) then) =
       _$BigBannerImageCopyWithImpl<$Res, BigBannerImage>;
   @useResult
-  $Res call({String imageUrl, String url, String discount});
+  $Res call({String imageUrl, String? url, String discount});
 }
 
 /// @nodoc
@@ -986,7 +992,7 @@ class _$BigBannerImageCopyWithImpl<$Res, $Val extends BigBannerImage>
   @override
   $Res call({
     Object? imageUrl = null,
-    Object? url = null,
+    Object? url = freezed,
     Object? discount = null,
   }) {
     return _then(_value.copyWith(
@@ -994,10 +1000,10 @@ class _$BigBannerImageCopyWithImpl<$Res, $Val extends BigBannerImage>
           ? _value.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
               as String,
-      url: null == url
+      url: freezed == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       discount: null == discount
           ? _value.discount
           : discount // ignore: cast_nullable_to_non_nullable
@@ -1014,7 +1020,7 @@ abstract class _$$_BigBannerImageCopyWith<$Res>
       __$$_BigBannerImageCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String imageUrl, String url, String discount});
+  $Res call({String imageUrl, String? url, String discount});
 }
 
 /// @nodoc
@@ -1029,7 +1035,7 @@ class __$$_BigBannerImageCopyWithImpl<$Res>
   @override
   $Res call({
     Object? imageUrl = null,
-    Object? url = null,
+    Object? url = freezed,
     Object? discount = null,
   }) {
     return _then(_$_BigBannerImage(
@@ -1037,10 +1043,10 @@ class __$$_BigBannerImageCopyWithImpl<$Res>
           ? _value.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
               as String,
-      url: null == url
+      url: freezed == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       discount: null == discount
           ? _value.discount
           : discount // ignore: cast_nullable_to_non_nullable
@@ -1053,7 +1059,7 @@ class __$$_BigBannerImageCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_BigBannerImage implements _BigBannerImage {
   const _$_BigBannerImage(
-      {required this.imageUrl, required this.url, required this.discount});
+      {required this.imageUrl, this.url, required this.discount});
 
   factory _$_BigBannerImage.fromJson(Map<String, dynamic> json) =>
       _$$_BigBannerImageFromJson(json);
@@ -1061,7 +1067,8 @@ class _$_BigBannerImage implements _BigBannerImage {
   @override
   final String imageUrl;
   @override
-  final String url;
+  final String? url;
+// Make url nullable
   @override
   final String discount;
 
@@ -1103,7 +1110,7 @@ class _$_BigBannerImage implements _BigBannerImage {
 abstract class _BigBannerImage implements BigBannerImage {
   const factory _BigBannerImage(
       {required final String imageUrl,
-      required final String url,
+      final String? url,
       required final String discount}) = _$_BigBannerImage;
 
   factory _BigBannerImage.fromJson(Map<String, dynamic> json) =
@@ -1112,8 +1119,8 @@ abstract class _BigBannerImage implements BigBannerImage {
   @override
   String get imageUrl;
   @override
-  String get url;
-  @override
+  String? get url;
+  @override // Make url nullable
   String get discount;
   @override
   @JsonKey(ignore: true)
@@ -1128,7 +1135,7 @@ SmallBannerImage _$SmallBannerImageFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$SmallBannerImage {
   String get imageUrl => throw _privateConstructorUsedError;
-  String get url => throw _privateConstructorUsedError;
+  String? get url => throw _privateConstructorUsedError; // Make url nullable
   String get discount => throw _privateConstructorUsedError;
   @JsonKey(name: "_id")
   String get id => throw _privateConstructorUsedError;
@@ -1147,7 +1154,7 @@ abstract class $SmallBannerImageCopyWith<$Res> {
   @useResult
   $Res call(
       {String imageUrl,
-      String url,
+      String? url,
       String discount,
       @JsonKey(name: "_id") String id});
 }
@@ -1166,7 +1173,7 @@ class _$SmallBannerImageCopyWithImpl<$Res, $Val extends SmallBannerImage>
   @override
   $Res call({
     Object? imageUrl = null,
-    Object? url = null,
+    Object? url = freezed,
     Object? discount = null,
     Object? id = null,
   }) {
@@ -1175,10 +1182,10 @@ class _$SmallBannerImageCopyWithImpl<$Res, $Val extends SmallBannerImage>
           ? _value.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
               as String,
-      url: null == url
+      url: freezed == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       discount: null == discount
           ? _value.discount
           : discount // ignore: cast_nullable_to_non_nullable
@@ -1201,7 +1208,7 @@ abstract class _$$_SmallBannerImageCopyWith<$Res>
   @useResult
   $Res call(
       {String imageUrl,
-      String url,
+      String? url,
       String discount,
       @JsonKey(name: "_id") String id});
 }
@@ -1218,7 +1225,7 @@ class __$$_SmallBannerImageCopyWithImpl<$Res>
   @override
   $Res call({
     Object? imageUrl = null,
-    Object? url = null,
+    Object? url = freezed,
     Object? discount = null,
     Object? id = null,
   }) {
@@ -1227,10 +1234,10 @@ class __$$_SmallBannerImageCopyWithImpl<$Res>
           ? _value.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
               as String,
-      url: null == url
+      url: freezed == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       discount: null == discount
           ? _value.discount
           : discount // ignore: cast_nullable_to_non_nullable
@@ -1248,7 +1255,7 @@ class __$$_SmallBannerImageCopyWithImpl<$Res>
 class _$_SmallBannerImage implements _SmallBannerImage {
   const _$_SmallBannerImage(
       {required this.imageUrl,
-      required this.url,
+      this.url,
       required this.discount,
       @JsonKey(name: "_id") required this.id});
 
@@ -1258,7 +1265,8 @@ class _$_SmallBannerImage implements _SmallBannerImage {
   @override
   final String imageUrl;
   @override
-  final String url;
+  final String? url;
+// Make url nullable
   @override
   final String discount;
   @override
@@ -1304,7 +1312,7 @@ class _$_SmallBannerImage implements _SmallBannerImage {
 abstract class _SmallBannerImage implements SmallBannerImage {
   const factory _SmallBannerImage(
       {required final String imageUrl,
-      required final String url,
+      final String? url,
       required final String discount,
       @JsonKey(name: "_id") required final String id}) = _$_SmallBannerImage;
 
@@ -1314,8 +1322,8 @@ abstract class _SmallBannerImage implements SmallBannerImage {
   @override
   String get imageUrl;
   @override
-  String get url;
-  @override
+  String? get url;
+  @override // Make url nullable
   String get discount;
   @override
   @JsonKey(name: "_id")

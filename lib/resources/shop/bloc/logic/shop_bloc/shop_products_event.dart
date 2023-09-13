@@ -84,4 +84,6 @@ class ShopProductsEvent with _$ShopProductsEvent {
   const factory ShopProductsEvent.savePaymentMethodType({
     required int index,
   }) = SavePaymentMethodType;
+  const factory ShopProductsEvent.fetchProductItemsbyCategory() =
+      FetchProductItemsbyCategory;
 }

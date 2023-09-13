@@ -4,6 +4,7 @@ import 'package:millat/components/common_widgets/build_category_full_view.dart';
 import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/shop/bloc/logic/category_bloc/category_bloc.dart';
 import 'package:millat/utils/color_manager.dart';
+import 'package:millat/utils/loader.dart';
 import 'package:millat/utils/size_utility.dart';
 import 'categories_view.dart';
 
@@ -166,37 +167,33 @@ class _CategoriesFilterState extends State<CategoriesFilter> {
                         ),
                         padding: EdgeInsets.zero,
                         itemBuilder: (context, index) {
-                          if (state.product?.result?.products[index]
-                                  .subcategory ==
-                              null) {
-                            return const Center(
-                              child: Text('Subcatery is empty'),
-                            );
-                          }
+                          // if (state.product?.result == null) {
+                          //   return const Loader();
+                          // }
                           return GestureDetector(
                             onTap: () {
                               Navigator.of(context).push(MaterialPageRoute(
                                 builder: (context) => CategoriesView(
                                   type: FilterType.category,
-                                  category: state.product!.result!
-                                      .products[index].category!.title
+                                  category: state.product?.result!
+                                      .products?[index].category?.title
                                       .toString(),
                                   subCategory: state.product!.result!
-                                      .products[index].subcategory!.title
+                                      .products?[index].subcategory!.title
                                       .toString(),
                                 ),
                               ));
                             },
                             child: CategoryFullView(
                               isShowborder: false,
-                              iconImage: state.product?.result?.products[index]
-                                  .subcategory?.image,
+                              iconImage: state
+                                  .product?.result?.products?[index].images?[0],
                               categoryTitle: state.product?.result
-                                  ?.products[index].subcategory?.title,
+                                  ?.products?[index].category?.title,
                             ),
                           );
                         },
-                        itemCount: state.product?.result?.products.length ?? 0,
+                        itemCount: state.product?.result?.products?.length ?? 0,
                       ));
               },
             )

@@ -34,13 +34,13 @@ class WishListView extends StatelessWidget {
       body: BlocBuilder<ShopProductsBloc, ShopProductsState>(
         builder: (context, state) {
           return state.isLoading ||
-                  state.wishList?.result?.wishlist.products == null
+                  state.wishList?.result?.wishlist?.products == null
               ? Center(
                   child: CircularProgressIndicator(
                     color: ColorManager.greenColor1,
                   ),
                 )
-              : state.wishList!.result!.wishlist.products!.isEmpty
+              : state.wishList!.result!.wishlist!.products!.isEmpty
                   ? Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 30),
                       child: Column(
@@ -76,10 +76,10 @@ class WishListView extends StatelessWidget {
                         mainAxisExtent: 320,
                       ),
                       itemCount:
-                          state.wishList?.result?.wishlist.products!.length,
+                          state.wishList?.result?.wishlist?.products!.length,
                       itemBuilder: (context, index) {
                         final data =
-                            state.wishList?.result?.wishlist.products?[index];
+                            state.wishList?.result?.wishlist?.products?[index];
                         return GestureDetector(
                           onTap: () {
                             Navigator.of(context)
@@ -96,18 +96,17 @@ class WishListView extends StatelessWidget {
                               children: [
                                 const SizedBox(height: 15),
                                 ShopProductWidget(
-                                  color: data?.colors[0].text ?? "",
-                                  size: data?.size[0].value ?? "",
+                                  color: data?.color ?? "",
+                                  size: data?.size?[0].size ?? "",
                                   brandId: data?.id,
                                   isWishlisted: state.isWishListed,
                                   brand: data?.brand ?? 'null',
                                   productId: data?.id ?? 'null',
                                   title: data?.title,
-                                  image: data?.colors[0].images[0] ?? 'null',
-                                  discountPrice:
-                                      data?.discountPrice.toInt() ?? 0,
-                                  actualPrice: data?.actualPrice.toInt() ?? 0,
-                                  discount: data?.discount.toInt() ?? 0,
+                                  image: data?.images?[0] ?? 'null',
+                                  discountPrice: data?.salePrice?.toInt() ?? 0,
+                                  actualPrice: data?.regularPrice?.toInt() ?? 0,
+                                  discount: data?.discount?.toInt() ?? 0,
                                 ),
                               ],
                             ),
@@ -122,7 +121,7 @@ class WishListView extends StatelessWidget {
           if (state.wishList?.result == null) {
             return const Loader();
           }
-          return state.wishList!.result!.wishlist.products!.isNotEmpty
+          return state.wishList!.result!.wishlist!.products!.isNotEmpty
               ? const SizedBox()
               : Container(
                   padding: const EdgeInsets.symmetric(horizontal: 25),

@@ -162,8 +162,8 @@ class _$_OrderModel implements _OrderModel {
   const _$_OrderModel(
       {@JsonKey(name: 'status') required this.status,
       @JsonKey(name: 'message') required this.message,
-      @JsonKey(name: 'error') this.error,
-      @JsonKey(name: 'result') this.result});
+      @JsonKey(name: 'error') required this.error,
+      @JsonKey(name: 'result') required this.result});
 
   factory _$_OrderModel.fromJson(Map<String, dynamic> json) =>
       _$$_OrderModelFromJson(json);
@@ -217,10 +217,11 @@ class _$_OrderModel implements _OrderModel {
 
 abstract class _OrderModel implements OrderModel {
   const factory _OrderModel(
-      {@JsonKey(name: 'status') required final int? status,
-      @JsonKey(name: 'message') required final String? message,
-      @JsonKey(name: 'error') final String? error,
-      @JsonKey(name: 'result') final OrderResult? result}) = _$_OrderModel;
+          {@JsonKey(name: 'status') required final int? status,
+          @JsonKey(name: 'message') required final String? message,
+          @JsonKey(name: 'error') required final String? error,
+          @JsonKey(name: 'result') required final OrderResult? result}) =
+      _$_OrderModel;
 
   factory _OrderModel.fromJson(Map<String, dynamic> json) =
       _$_OrderModel.fromJson;
@@ -251,6 +252,12 @@ OrderResult _$OrderResultFromJson(Map<String, dynamic> json) {
 mixin _$OrderResult {
   @JsonKey(name: 'orderProducts')
   List<OrderProduct>? get orderProducts => throw _privateConstructorUsedError;
+  @JsonKey(name: 'totalProducts')
+  int? get totalProducts => throw _privateConstructorUsedError;
+  @JsonKey(name: 'totalPage')
+  int? get totalPage => throw _privateConstructorUsedError;
+  @JsonKey(name: 'pageNumber')
+  int? get pageNumber => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -265,7 +272,10 @@ abstract class $OrderResultCopyWith<$Res> {
       _$OrderResultCopyWithImpl<$Res, OrderResult>;
   @useResult
   $Res call(
-      {@JsonKey(name: 'orderProducts') List<OrderProduct>? orderProducts});
+      {@JsonKey(name: 'orderProducts') List<OrderProduct>? orderProducts,
+      @JsonKey(name: 'totalProducts') int? totalProducts,
+      @JsonKey(name: 'totalPage') int? totalPage,
+      @JsonKey(name: 'pageNumber') int? pageNumber});
 }
 
 /// @nodoc
@@ -282,12 +292,27 @@ class _$OrderResultCopyWithImpl<$Res, $Val extends OrderResult>
   @override
   $Res call({
     Object? orderProducts = freezed,
+    Object? totalProducts = freezed,
+    Object? totalPage = freezed,
+    Object? pageNumber = freezed,
   }) {
     return _then(_value.copyWith(
       orderProducts: freezed == orderProducts
           ? _value.orderProducts
           : orderProducts // ignore: cast_nullable_to_non_nullable
               as List<OrderProduct>?,
+      totalProducts: freezed == totalProducts
+          ? _value.totalProducts
+          : totalProducts // ignore: cast_nullable_to_non_nullable
+              as int?,
+      totalPage: freezed == totalPage
+          ? _value.totalPage
+          : totalPage // ignore: cast_nullable_to_non_nullable
+              as int?,
+      pageNumber: freezed == pageNumber
+          ? _value.pageNumber
+          : pageNumber // ignore: cast_nullable_to_non_nullable
+              as int?,
     ) as $Val);
   }
 }
@@ -301,7 +326,10 @@ abstract class _$$_OrderResultCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: 'orderProducts') List<OrderProduct>? orderProducts});
+      {@JsonKey(name: 'orderProducts') List<OrderProduct>? orderProducts,
+      @JsonKey(name: 'totalProducts') int? totalProducts,
+      @JsonKey(name: 'totalPage') int? totalPage,
+      @JsonKey(name: 'pageNumber') int? pageNumber});
 }
 
 /// @nodoc
@@ -316,12 +344,27 @@ class __$$_OrderResultCopyWithImpl<$Res>
   @override
   $Res call({
     Object? orderProducts = freezed,
+    Object? totalProducts = freezed,
+    Object? totalPage = freezed,
+    Object? pageNumber = freezed,
   }) {
     return _then(_$_OrderResult(
       orderProducts: freezed == orderProducts
           ? _value._orderProducts
           : orderProducts // ignore: cast_nullable_to_non_nullable
               as List<OrderProduct>?,
+      totalProducts: freezed == totalProducts
+          ? _value.totalProducts
+          : totalProducts // ignore: cast_nullable_to_non_nullable
+              as int?,
+      totalPage: freezed == totalPage
+          ? _value.totalPage
+          : totalPage // ignore: cast_nullable_to_non_nullable
+              as int?,
+      pageNumber: freezed == pageNumber
+          ? _value.pageNumber
+          : pageNumber // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -331,7 +374,10 @@ class __$$_OrderResultCopyWithImpl<$Res>
 class _$_OrderResult implements _OrderResult {
   const _$_OrderResult(
       {@JsonKey(name: 'orderProducts')
-      required final List<OrderProduct>? orderProducts})
+      required final List<OrderProduct>? orderProducts,
+      @JsonKey(name: 'totalProducts') required this.totalProducts,
+      @JsonKey(name: 'totalPage') required this.totalPage,
+      @JsonKey(name: 'pageNumber') required this.pageNumber})
       : _orderProducts = orderProducts;
 
   factory _$_OrderResult.fromJson(Map<String, dynamic> json) =>
@@ -349,8 +395,18 @@ class _$_OrderResult implements _OrderResult {
   }
 
   @override
+  @JsonKey(name: 'totalProducts')
+  final int? totalProducts;
+  @override
+  @JsonKey(name: 'totalPage')
+  final int? totalPage;
+  @override
+  @JsonKey(name: 'pageNumber')
+  final int? pageNumber;
+
+  @override
   String toString() {
-    return 'OrderResult(orderProducts: $orderProducts)';
+    return 'OrderResult(orderProducts: $orderProducts, totalProducts: $totalProducts, totalPage: $totalPage, pageNumber: $pageNumber)';
   }
 
   @override
@@ -359,13 +415,23 @@ class _$_OrderResult implements _OrderResult {
         (other.runtimeType == runtimeType &&
             other is _$_OrderResult &&
             const DeepCollectionEquality()
-                .equals(other._orderProducts, _orderProducts));
+                .equals(other._orderProducts, _orderProducts) &&
+            (identical(other.totalProducts, totalProducts) ||
+                other.totalProducts == totalProducts) &&
+            (identical(other.totalPage, totalPage) ||
+                other.totalPage == totalPage) &&
+            (identical(other.pageNumber, pageNumber) ||
+                other.pageNumber == pageNumber));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_orderProducts));
+      runtimeType,
+      const DeepCollectionEquality().hash(_orderProducts),
+      totalProducts,
+      totalPage,
+      pageNumber);
 
   @JsonKey(ignore: true)
   @override
@@ -383,8 +449,12 @@ class _$_OrderResult implements _OrderResult {
 
 abstract class _OrderResult implements OrderResult {
   const factory _OrderResult(
-      {@JsonKey(name: 'orderProducts')
-      required final List<OrderProduct>? orderProducts}) = _$_OrderResult;
+          {@JsonKey(name: 'orderProducts')
+          required final List<OrderProduct>? orderProducts,
+          @JsonKey(name: 'totalProducts') required final int? totalProducts,
+          @JsonKey(name: 'totalPage') required final int? totalPage,
+          @JsonKey(name: 'pageNumber') required final int? pageNumber}) =
+      _$_OrderResult;
 
   factory _OrderResult.fromJson(Map<String, dynamic> json) =
       _$_OrderResult.fromJson;
@@ -392,6 +462,15 @@ abstract class _OrderResult implements OrderResult {
   @override
   @JsonKey(name: 'orderProducts')
   List<OrderProduct>? get orderProducts;
+  @override
+  @JsonKey(name: 'totalProducts')
+  int? get totalProducts;
+  @override
+  @JsonKey(name: 'totalPage')
+  int? get totalPage;
+  @override
+  @JsonKey(name: 'pageNumber')
+  int? get pageNumber;
   @override
   @JsonKey(ignore: true)
   _$$_OrderResultCopyWith<_$_OrderResult> get copyWith =>
@@ -409,7 +488,7 @@ mixin _$OrderProduct {
   @JsonKey(name: 'userId')
   String? get userId => throw _privateConstructorUsedError;
   @JsonKey(name: 'brandId')
-  Brand? get brand => throw _privateConstructorUsedError;
+  Brand? get brandId => throw _privateConstructorUsedError;
   @JsonKey(name: 'order_id')
   String? get orderId => throw _privateConstructorUsedError;
   @JsonKey(name: 'shiprocket_order_id')
@@ -421,15 +500,17 @@ mixin _$OrderProduct {
   @JsonKey(name: 'quantity')
   int? get quantity => throw _privateConstructorUsedError;
   @JsonKey(name: 'selling_price')
-  double? get sellingPrice => throw _privateConstructorUsedError;
+  int? get sellingPrice => throw _privateConstructorUsedError;
   @JsonKey(name: 'discount')
-  double? get discount => throw _privateConstructorUsedError;
+  int? get discount => throw _privateConstructorUsedError;
   @JsonKey(name: 'tax')
-  double? get tax => throw _privateConstructorUsedError;
+  int? get tax => throw _privateConstructorUsedError;
+  @JsonKey(name: 'size')
   String? get size => throw _privateConstructorUsedError;
+  @JsonKey(name: 'color')
   String? get color => throw _privateConstructorUsedError;
   @JsonKey(name: 'sub_total')
-  double? get subTotal => throw _privateConstructorUsedError;
+  int? get subTotal => throw _privateConstructorUsedError;
   @JsonKey(name: 'order_date')
   String? get orderDate => throw _privateConstructorUsedError;
   @JsonKey(name: 'shipping_status')
@@ -437,7 +518,7 @@ mixin _$OrderProduct {
   @JsonKey(name: 'payment_method')
   String? get paymentMethod => throw _privateConstructorUsedError;
   @JsonKey(name: 'shipping_charges')
-  double? get shippingCharges => throw _privateConstructorUsedError;
+  int? get shippingCharges => throw _privateConstructorUsedError;
   @JsonKey(name: 'payment_status')
   String? get paymentStatus => throw _privateConstructorUsedError;
   @JsonKey(name: 'address')
@@ -462,28 +543,28 @@ abstract class $OrderProductCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: '_id') String? id,
       @JsonKey(name: 'userId') String? userId,
-      @JsonKey(name: 'brandId') Brand? brand,
+      @JsonKey(name: 'brandId') Brand? brandId,
       @JsonKey(name: 'order_id') String? orderId,
       @JsonKey(name: 'shiprocket_order_id') String? shiprocketOrderId,
       @JsonKey(name: 'shipment_id') String? shipmentId,
       @JsonKey(name: 'productId') Product? productId,
       @JsonKey(name: 'quantity') int? quantity,
-      @JsonKey(name: 'selling_price') double? sellingPrice,
-      @JsonKey(name: 'discount') double? discount,
-      @JsonKey(name: 'tax') double? tax,
-      String? size,
-      String? color,
-      @JsonKey(name: 'sub_total') double? subTotal,
+      @JsonKey(name: 'selling_price') int? sellingPrice,
+      @JsonKey(name: 'discount') int? discount,
+      @JsonKey(name: 'tax') int? tax,
+      @JsonKey(name: 'size') String? size,
+      @JsonKey(name: 'color') String? color,
+      @JsonKey(name: 'sub_total') int? subTotal,
       @JsonKey(name: 'order_date') String? orderDate,
       @JsonKey(name: 'shipping_status') String? shippingStatus,
       @JsonKey(name: 'payment_method') String? paymentMethod,
-      @JsonKey(name: 'shipping_charges') double? shippingCharges,
+      @JsonKey(name: 'shipping_charges') int? shippingCharges,
       @JsonKey(name: 'payment_status') String? paymentStatus,
       @JsonKey(name: 'address') Address? address,
       @JsonKey(name: 'createdAt') String? createdAt,
       @JsonKey(name: 'updatedAt') String? updatedAt});
 
-  $BrandCopyWith<$Res>? get brand;
+  $BrandCopyWith<$Res>? get brandId;
   $ProductCopyWith<$Res>? get productId;
   $AddressCopyWith<$Res>? get address;
 }
@@ -503,7 +584,7 @@ class _$OrderProductCopyWithImpl<$Res, $Val extends OrderProduct>
   $Res call({
     Object? id = freezed,
     Object? userId = freezed,
-    Object? brand = freezed,
+    Object? brandId = freezed,
     Object? orderId = freezed,
     Object? shiprocketOrderId = freezed,
     Object? shipmentId = freezed,
@@ -533,9 +614,9 @@ class _$OrderProductCopyWithImpl<$Res, $Val extends OrderProduct>
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
               as String?,
-      brand: freezed == brand
-          ? _value.brand
-          : brand // ignore: cast_nullable_to_non_nullable
+      brandId: freezed == brandId
+          ? _value.brandId
+          : brandId // ignore: cast_nullable_to_non_nullable
               as Brand?,
       orderId: freezed == orderId
           ? _value.orderId
@@ -560,15 +641,15 @@ class _$OrderProductCopyWithImpl<$Res, $Val extends OrderProduct>
       sellingPrice: freezed == sellingPrice
           ? _value.sellingPrice
           : sellingPrice // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as int?,
       discount: freezed == discount
           ? _value.discount
           : discount // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as int?,
       tax: freezed == tax
           ? _value.tax
           : tax // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as int?,
       size: freezed == size
           ? _value.size
           : size // ignore: cast_nullable_to_non_nullable
@@ -580,7 +661,7 @@ class _$OrderProductCopyWithImpl<$Res, $Val extends OrderProduct>
       subTotal: freezed == subTotal
           ? _value.subTotal
           : subTotal // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as int?,
       orderDate: freezed == orderDate
           ? _value.orderDate
           : orderDate // ignore: cast_nullable_to_non_nullable
@@ -596,7 +677,7 @@ class _$OrderProductCopyWithImpl<$Res, $Val extends OrderProduct>
       shippingCharges: freezed == shippingCharges
           ? _value.shippingCharges
           : shippingCharges // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as int?,
       paymentStatus: freezed == paymentStatus
           ? _value.paymentStatus
           : paymentStatus // ignore: cast_nullable_to_non_nullable
@@ -618,13 +699,13 @@ class _$OrderProductCopyWithImpl<$Res, $Val extends OrderProduct>
 
   @override
   @pragma('vm:prefer-inline')
-  $BrandCopyWith<$Res>? get brand {
-    if (_value.brand == null) {
+  $BrandCopyWith<$Res>? get brandId {
+    if (_value.brandId == null) {
       return null;
     }
 
-    return $BrandCopyWith<$Res>(_value.brand!, (value) {
-      return _then(_value.copyWith(brand: value) as $Val);
+    return $BrandCopyWith<$Res>(_value.brandId!, (value) {
+      return _then(_value.copyWith(brandId: value) as $Val);
     });
   }
 
@@ -664,29 +745,29 @@ abstract class _$$_OrderProductCopyWith<$Res>
   $Res call(
       {@JsonKey(name: '_id') String? id,
       @JsonKey(name: 'userId') String? userId,
-      @JsonKey(name: 'brandId') Brand? brand,
+      @JsonKey(name: 'brandId') Brand? brandId,
       @JsonKey(name: 'order_id') String? orderId,
       @JsonKey(name: 'shiprocket_order_id') String? shiprocketOrderId,
       @JsonKey(name: 'shipment_id') String? shipmentId,
       @JsonKey(name: 'productId') Product? productId,
       @JsonKey(name: 'quantity') int? quantity,
-      @JsonKey(name: 'selling_price') double? sellingPrice,
-      @JsonKey(name: 'discount') double? discount,
-      @JsonKey(name: 'tax') double? tax,
-      String? size,
-      String? color,
-      @JsonKey(name: 'sub_total') double? subTotal,
+      @JsonKey(name: 'selling_price') int? sellingPrice,
+      @JsonKey(name: 'discount') int? discount,
+      @JsonKey(name: 'tax') int? tax,
+      @JsonKey(name: 'size') String? size,
+      @JsonKey(name: 'color') String? color,
+      @JsonKey(name: 'sub_total') int? subTotal,
       @JsonKey(name: 'order_date') String? orderDate,
       @JsonKey(name: 'shipping_status') String? shippingStatus,
       @JsonKey(name: 'payment_method') String? paymentMethod,
-      @JsonKey(name: 'shipping_charges') double? shippingCharges,
+      @JsonKey(name: 'shipping_charges') int? shippingCharges,
       @JsonKey(name: 'payment_status') String? paymentStatus,
       @JsonKey(name: 'address') Address? address,
       @JsonKey(name: 'createdAt') String? createdAt,
       @JsonKey(name: 'updatedAt') String? updatedAt});
 
   @override
-  $BrandCopyWith<$Res>? get brand;
+  $BrandCopyWith<$Res>? get brandId;
   @override
   $ProductCopyWith<$Res>? get productId;
   @override
@@ -706,7 +787,7 @@ class __$$_OrderProductCopyWithImpl<$Res>
   $Res call({
     Object? id = freezed,
     Object? userId = freezed,
-    Object? brand = freezed,
+    Object? brandId = freezed,
     Object? orderId = freezed,
     Object? shiprocketOrderId = freezed,
     Object? shipmentId = freezed,
@@ -736,9 +817,9 @@ class __$$_OrderProductCopyWithImpl<$Res>
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
               as String?,
-      brand: freezed == brand
-          ? _value.brand
-          : brand // ignore: cast_nullable_to_non_nullable
+      brandId: freezed == brandId
+          ? _value.brandId
+          : brandId // ignore: cast_nullable_to_non_nullable
               as Brand?,
       orderId: freezed == orderId
           ? _value.orderId
@@ -763,15 +844,15 @@ class __$$_OrderProductCopyWithImpl<$Res>
       sellingPrice: freezed == sellingPrice
           ? _value.sellingPrice
           : sellingPrice // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as int?,
       discount: freezed == discount
           ? _value.discount
           : discount // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as int?,
       tax: freezed == tax
           ? _value.tax
           : tax // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as int?,
       size: freezed == size
           ? _value.size
           : size // ignore: cast_nullable_to_non_nullable
@@ -783,7 +864,7 @@ class __$$_OrderProductCopyWithImpl<$Res>
       subTotal: freezed == subTotal
           ? _value.subTotal
           : subTotal // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as int?,
       orderDate: freezed == orderDate
           ? _value.orderDate
           : orderDate // ignore: cast_nullable_to_non_nullable
@@ -799,7 +880,7 @@ class __$$_OrderProductCopyWithImpl<$Res>
       shippingCharges: freezed == shippingCharges
           ? _value.shippingCharges
           : shippingCharges // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as int?,
       paymentStatus: freezed == paymentStatus
           ? _value.paymentStatus
           : paymentStatus // ignore: cast_nullable_to_non_nullable
@@ -826,7 +907,7 @@ class _$_OrderProduct implements _OrderProduct {
   const _$_OrderProduct(
       {@JsonKey(name: '_id') required this.id,
       @JsonKey(name: 'userId') required this.userId,
-      @JsonKey(name: 'brandId') required this.brand,
+      @JsonKey(name: 'brandId') required this.brandId,
       @JsonKey(name: 'order_id') required this.orderId,
       @JsonKey(name: 'shiprocket_order_id') required this.shiprocketOrderId,
       @JsonKey(name: 'shipment_id') required this.shipmentId,
@@ -835,8 +916,8 @@ class _$_OrderProduct implements _OrderProduct {
       @JsonKey(name: 'selling_price') required this.sellingPrice,
       @JsonKey(name: 'discount') required this.discount,
       @JsonKey(name: 'tax') required this.tax,
-      this.size,
-      this.color,
+      @JsonKey(name: 'size') required this.size,
+      @JsonKey(name: 'color') required this.color,
       @JsonKey(name: 'sub_total') required this.subTotal,
       @JsonKey(name: 'order_date') required this.orderDate,
       @JsonKey(name: 'shipping_status') required this.shippingStatus,
@@ -858,7 +939,7 @@ class _$_OrderProduct implements _OrderProduct {
   final String? userId;
   @override
   @JsonKey(name: 'brandId')
-  final Brand? brand;
+  final Brand? brandId;
   @override
   @JsonKey(name: 'order_id')
   final String? orderId;
@@ -876,20 +957,22 @@ class _$_OrderProduct implements _OrderProduct {
   final int? quantity;
   @override
   @JsonKey(name: 'selling_price')
-  final double? sellingPrice;
+  final int? sellingPrice;
   @override
   @JsonKey(name: 'discount')
-  final double? discount;
+  final int? discount;
   @override
   @JsonKey(name: 'tax')
-  final double? tax;
+  final int? tax;
   @override
+  @JsonKey(name: 'size')
   final String? size;
   @override
+  @JsonKey(name: 'color')
   final String? color;
   @override
   @JsonKey(name: 'sub_total')
-  final double? subTotal;
+  final int? subTotal;
   @override
   @JsonKey(name: 'order_date')
   final String? orderDate;
@@ -901,7 +984,7 @@ class _$_OrderProduct implements _OrderProduct {
   final String? paymentMethod;
   @override
   @JsonKey(name: 'shipping_charges')
-  final double? shippingCharges;
+  final int? shippingCharges;
   @override
   @JsonKey(name: 'payment_status')
   final String? paymentStatus;
@@ -917,7 +1000,7 @@ class _$_OrderProduct implements _OrderProduct {
 
   @override
   String toString() {
-    return 'OrderProduct(id: $id, userId: $userId, brand: $brand, orderId: $orderId, shiprocketOrderId: $shiprocketOrderId, shipmentId: $shipmentId, productId: $productId, quantity: $quantity, sellingPrice: $sellingPrice, discount: $discount, tax: $tax, size: $size, color: $color, subTotal: $subTotal, orderDate: $orderDate, shippingStatus: $shippingStatus, paymentMethod: $paymentMethod, shippingCharges: $shippingCharges, paymentStatus: $paymentStatus, address: $address, createdAt: $createdAt, updatedAt: $updatedAt)';
+    return 'OrderProduct(id: $id, userId: $userId, brandId: $brandId, orderId: $orderId, shiprocketOrderId: $shiprocketOrderId, shipmentId: $shipmentId, productId: $productId, quantity: $quantity, sellingPrice: $sellingPrice, discount: $discount, tax: $tax, size: $size, color: $color, subTotal: $subTotal, orderDate: $orderDate, shippingStatus: $shippingStatus, paymentMethod: $paymentMethod, shippingCharges: $shippingCharges, paymentStatus: $paymentStatus, address: $address, createdAt: $createdAt, updatedAt: $updatedAt)';
   }
 
   @override
@@ -927,7 +1010,7 @@ class _$_OrderProduct implements _OrderProduct {
             other is _$_OrderProduct &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.userId, userId) || other.userId == userId) &&
-            (identical(other.brand, brand) || other.brand == brand) &&
+            (identical(other.brandId, brandId) || other.brandId == brandId) &&
             (identical(other.orderId, orderId) || other.orderId == orderId) &&
             (identical(other.shiprocketOrderId, shiprocketOrderId) ||
                 other.shiprocketOrderId == shiprocketOrderId) &&
@@ -969,7 +1052,7 @@ class _$_OrderProduct implements _OrderProduct {
         runtimeType,
         id,
         userId,
-        brand,
+        brandId,
         orderId,
         shiprocketOrderId,
         shipmentId,
@@ -1009,23 +1092,23 @@ abstract class _OrderProduct implements OrderProduct {
   const factory _OrderProduct(
       {@JsonKey(name: '_id') required final String? id,
       @JsonKey(name: 'userId') required final String? userId,
-      @JsonKey(name: 'brandId') required final Brand? brand,
+      @JsonKey(name: 'brandId') required final Brand? brandId,
       @JsonKey(name: 'order_id') required final String? orderId,
       @JsonKey(name: 'shiprocket_order_id')
       required final String? shiprocketOrderId,
       @JsonKey(name: 'shipment_id') required final String? shipmentId,
       @JsonKey(name: 'productId') required final Product? productId,
       @JsonKey(name: 'quantity') required final int? quantity,
-      @JsonKey(name: 'selling_price') required final double? sellingPrice,
-      @JsonKey(name: 'discount') required final double? discount,
-      @JsonKey(name: 'tax') required final double? tax,
-      final String? size,
-      final String? color,
-      @JsonKey(name: 'sub_total') required final double? subTotal,
+      @JsonKey(name: 'selling_price') required final int? sellingPrice,
+      @JsonKey(name: 'discount') required final int? discount,
+      @JsonKey(name: 'tax') required final int? tax,
+      @JsonKey(name: 'size') required final String? size,
+      @JsonKey(name: 'color') required final String? color,
+      @JsonKey(name: 'sub_total') required final int? subTotal,
       @JsonKey(name: 'order_date') required final String? orderDate,
       @JsonKey(name: 'shipping_status') required final String? shippingStatus,
       @JsonKey(name: 'payment_method') required final String? paymentMethod,
-      @JsonKey(name: 'shipping_charges') required final double? shippingCharges,
+      @JsonKey(name: 'shipping_charges') required final int? shippingCharges,
       @JsonKey(name: 'payment_status') required final String? paymentStatus,
       @JsonKey(name: 'address') required final Address? address,
       @JsonKey(name: 'createdAt') required final String? createdAt,
@@ -1043,7 +1126,7 @@ abstract class _OrderProduct implements OrderProduct {
   String? get userId;
   @override
   @JsonKey(name: 'brandId')
-  Brand? get brand;
+  Brand? get brandId;
   @override
   @JsonKey(name: 'order_id')
   String? get orderId;
@@ -1061,20 +1144,22 @@ abstract class _OrderProduct implements OrderProduct {
   int? get quantity;
   @override
   @JsonKey(name: 'selling_price')
-  double? get sellingPrice;
+  int? get sellingPrice;
   @override
   @JsonKey(name: 'discount')
-  double? get discount;
+  int? get discount;
   @override
   @JsonKey(name: 'tax')
-  double? get tax;
+  int? get tax;
   @override
+  @JsonKey(name: 'size')
   String? get size;
   @override
+  @JsonKey(name: 'color')
   String? get color;
   @override
   @JsonKey(name: 'sub_total')
-  double? get subTotal;
+  int? get subTotal;
   @override
   @JsonKey(name: 'order_date')
   String? get orderDate;
@@ -1086,7 +1171,7 @@ abstract class _OrderProduct implements OrderProduct {
   String? get paymentMethod;
   @override
   @JsonKey(name: 'shipping_charges')
-  double? get shippingCharges;
+  int? get shippingCharges;
   @override
   @JsonKey(name: 'payment_status')
   String? get paymentStatus;
@@ -1119,16 +1204,38 @@ mixin _$Brand {
   String? get email => throw _privateConstructorUsedError;
   @JsonKey(name: 'password')
   String? get password => throw _privateConstructorUsedError;
-  @JsonKey(name: 'roles')
-  String? get roles => throw _privateConstructorUsedError;
-  @JsonKey(name: 'active')
-  bool? get active => throw _privateConstructorUsedError;
+  @JsonKey(name: 'isActive')
+  bool? get isActive => throw _privateConstructorUsedError;
+  @JsonKey(name: 'phoneNumber')
+  int? get phoneNumber => throw _privateConstructorUsedError;
+  @JsonKey(name: 'logo')
+  String? get logo => throw _privateConstructorUsedError;
+  @JsonKey(name: 'coverImage')
+  String? get coverImage => throw _privateConstructorUsedError;
+  @JsonKey(name: 'description')
+  String? get description => throw _privateConstructorUsedError;
+  @JsonKey(name: 'cityName')
+  String? get cityName => throw _privateConstructorUsedError;
+  @JsonKey(name: 'brandName')
+  String? get brandName => throw _privateConstructorUsedError;
+  @JsonKey(name: 'companyName')
+  String? get companyName => throw _privateConstructorUsedError;
+  @JsonKey(name: 'companyRegYear')
+  String? get companyRegYear => throw _privateConstructorUsedError;
+  @JsonKey(name: 'revenueOfLastThreeMonths')
+  int? get revenueOfLastThreeMonths => throw _privateConstructorUsedError;
+  @JsonKey(name: 'category')
+  String? get category => throw _privateConstructorUsedError;
+  @JsonKey(name: 'subCategory')
+  List<String>? get subCategory => throw _privateConstructorUsedError;
+  @JsonKey(name: 'GST')
+  String? get GST => throw _privateConstructorUsedError;
   @JsonKey(name: 'createdAt')
   String? get createdAt => throw _privateConstructorUsedError;
   @JsonKey(name: 'updatedAt')
   String? get updatedAt => throw _privateConstructorUsedError;
-  @JsonKey(name: 'image')
-  String? get image => throw _privateConstructorUsedError;
+  @JsonKey(name: 'role')
+  String? get role => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -1145,11 +1252,22 @@ abstract class $BrandCopyWith<$Res> {
       @JsonKey(name: 'name') String? name,
       @JsonKey(name: 'email') String? email,
       @JsonKey(name: 'password') String? password,
-      @JsonKey(name: 'roles') String? roles,
-      @JsonKey(name: 'active') bool? active,
+      @JsonKey(name: 'isActive') bool? isActive,
+      @JsonKey(name: 'phoneNumber') int? phoneNumber,
+      @JsonKey(name: 'logo') String? logo,
+      @JsonKey(name: 'coverImage') String? coverImage,
+      @JsonKey(name: 'description') String? description,
+      @JsonKey(name: 'cityName') String? cityName,
+      @JsonKey(name: 'brandName') String? brandName,
+      @JsonKey(name: 'companyName') String? companyName,
+      @JsonKey(name: 'companyRegYear') String? companyRegYear,
+      @JsonKey(name: 'revenueOfLastThreeMonths') int? revenueOfLastThreeMonths,
+      @JsonKey(name: 'category') String? category,
+      @JsonKey(name: 'subCategory') List<String>? subCategory,
+      @JsonKey(name: 'GST') String? GST,
       @JsonKey(name: 'createdAt') String? createdAt,
       @JsonKey(name: 'updatedAt') String? updatedAt,
-      @JsonKey(name: 'image') String? image});
+      @JsonKey(name: 'role') String? role});
 }
 
 /// @nodoc
@@ -1169,11 +1287,22 @@ class _$BrandCopyWithImpl<$Res, $Val extends Brand>
     Object? name = freezed,
     Object? email = freezed,
     Object? password = freezed,
-    Object? roles = freezed,
-    Object? active = freezed,
+    Object? isActive = freezed,
+    Object? phoneNumber = freezed,
+    Object? logo = freezed,
+    Object? coverImage = freezed,
+    Object? description = freezed,
+    Object? cityName = freezed,
+    Object? brandName = freezed,
+    Object? companyName = freezed,
+    Object? companyRegYear = freezed,
+    Object? revenueOfLastThreeMonths = freezed,
+    Object? category = freezed,
+    Object? subCategory = freezed,
+    Object? GST = freezed,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
-    Object? image = freezed,
+    Object? role = freezed,
   }) {
     return _then(_value.copyWith(
       id: freezed == id
@@ -1192,14 +1321,58 @@ class _$BrandCopyWithImpl<$Res, $Val extends Brand>
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String?,
-      roles: freezed == roles
-          ? _value.roles
-          : roles // ignore: cast_nullable_to_non_nullable
-              as String?,
-      active: freezed == active
-          ? _value.active
-          : active // ignore: cast_nullable_to_non_nullable
+      isActive: freezed == isActive
+          ? _value.isActive
+          : isActive // ignore: cast_nullable_to_non_nullable
               as bool?,
+      phoneNumber: freezed == phoneNumber
+          ? _value.phoneNumber
+          : phoneNumber // ignore: cast_nullable_to_non_nullable
+              as int?,
+      logo: freezed == logo
+          ? _value.logo
+          : logo // ignore: cast_nullable_to_non_nullable
+              as String?,
+      coverImage: freezed == coverImage
+          ? _value.coverImage
+          : coverImage // ignore: cast_nullable_to_non_nullable
+              as String?,
+      description: freezed == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String?,
+      cityName: freezed == cityName
+          ? _value.cityName
+          : cityName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      brandName: freezed == brandName
+          ? _value.brandName
+          : brandName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      companyName: freezed == companyName
+          ? _value.companyName
+          : companyName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      companyRegYear: freezed == companyRegYear
+          ? _value.companyRegYear
+          : companyRegYear // ignore: cast_nullable_to_non_nullable
+              as String?,
+      revenueOfLastThreeMonths: freezed == revenueOfLastThreeMonths
+          ? _value.revenueOfLastThreeMonths
+          : revenueOfLastThreeMonths // ignore: cast_nullable_to_non_nullable
+              as int?,
+      category: freezed == category
+          ? _value.category
+          : category // ignore: cast_nullable_to_non_nullable
+              as String?,
+      subCategory: freezed == subCategory
+          ? _value.subCategory
+          : subCategory // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+      GST: freezed == GST
+          ? _value.GST
+          : GST // ignore: cast_nullable_to_non_nullable
+              as String?,
       createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -1208,9 +1381,9 @@ class _$BrandCopyWithImpl<$Res, $Val extends Brand>
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as String?,
-      image: freezed == image
-          ? _value.image
-          : image // ignore: cast_nullable_to_non_nullable
+      role: freezed == role
+          ? _value.role
+          : role // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -1227,11 +1400,22 @@ abstract class _$$_BrandCopyWith<$Res> implements $BrandCopyWith<$Res> {
       @JsonKey(name: 'name') String? name,
       @JsonKey(name: 'email') String? email,
       @JsonKey(name: 'password') String? password,
-      @JsonKey(name: 'roles') String? roles,
-      @JsonKey(name: 'active') bool? active,
+      @JsonKey(name: 'isActive') bool? isActive,
+      @JsonKey(name: 'phoneNumber') int? phoneNumber,
+      @JsonKey(name: 'logo') String? logo,
+      @JsonKey(name: 'coverImage') String? coverImage,
+      @JsonKey(name: 'description') String? description,
+      @JsonKey(name: 'cityName') String? cityName,
+      @JsonKey(name: 'brandName') String? brandName,
+      @JsonKey(name: 'companyName') String? companyName,
+      @JsonKey(name: 'companyRegYear') String? companyRegYear,
+      @JsonKey(name: 'revenueOfLastThreeMonths') int? revenueOfLastThreeMonths,
+      @JsonKey(name: 'category') String? category,
+      @JsonKey(name: 'subCategory') List<String>? subCategory,
+      @JsonKey(name: 'GST') String? GST,
       @JsonKey(name: 'createdAt') String? createdAt,
       @JsonKey(name: 'updatedAt') String? updatedAt,
-      @JsonKey(name: 'image') String? image});
+      @JsonKey(name: 'role') String? role});
 }
 
 /// @nodoc
@@ -1247,11 +1431,22 @@ class __$$_BrandCopyWithImpl<$Res> extends _$BrandCopyWithImpl<$Res, _$_Brand>
     Object? name = freezed,
     Object? email = freezed,
     Object? password = freezed,
-    Object? roles = freezed,
-    Object? active = freezed,
+    Object? isActive = freezed,
+    Object? phoneNumber = freezed,
+    Object? logo = freezed,
+    Object? coverImage = freezed,
+    Object? description = freezed,
+    Object? cityName = freezed,
+    Object? brandName = freezed,
+    Object? companyName = freezed,
+    Object? companyRegYear = freezed,
+    Object? revenueOfLastThreeMonths = freezed,
+    Object? category = freezed,
+    Object? subCategory = freezed,
+    Object? GST = freezed,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
-    Object? image = freezed,
+    Object? role = freezed,
   }) {
     return _then(_$_Brand(
       id: freezed == id
@@ -1270,14 +1465,58 @@ class __$$_BrandCopyWithImpl<$Res> extends _$BrandCopyWithImpl<$Res, _$_Brand>
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String?,
-      roles: freezed == roles
-          ? _value.roles
-          : roles // ignore: cast_nullable_to_non_nullable
-              as String?,
-      active: freezed == active
-          ? _value.active
-          : active // ignore: cast_nullable_to_non_nullable
+      isActive: freezed == isActive
+          ? _value.isActive
+          : isActive // ignore: cast_nullable_to_non_nullable
               as bool?,
+      phoneNumber: freezed == phoneNumber
+          ? _value.phoneNumber
+          : phoneNumber // ignore: cast_nullable_to_non_nullable
+              as int?,
+      logo: freezed == logo
+          ? _value.logo
+          : logo // ignore: cast_nullable_to_non_nullable
+              as String?,
+      coverImage: freezed == coverImage
+          ? _value.coverImage
+          : coverImage // ignore: cast_nullable_to_non_nullable
+              as String?,
+      description: freezed == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String?,
+      cityName: freezed == cityName
+          ? _value.cityName
+          : cityName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      brandName: freezed == brandName
+          ? _value.brandName
+          : brandName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      companyName: freezed == companyName
+          ? _value.companyName
+          : companyName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      companyRegYear: freezed == companyRegYear
+          ? _value.companyRegYear
+          : companyRegYear // ignore: cast_nullable_to_non_nullable
+              as String?,
+      revenueOfLastThreeMonths: freezed == revenueOfLastThreeMonths
+          ? _value.revenueOfLastThreeMonths
+          : revenueOfLastThreeMonths // ignore: cast_nullable_to_non_nullable
+              as int?,
+      category: freezed == category
+          ? _value.category
+          : category // ignore: cast_nullable_to_non_nullable
+              as String?,
+      subCategory: freezed == subCategory
+          ? _value._subCategory
+          : subCategory // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+      GST: freezed == GST
+          ? _value.GST
+          : GST // ignore: cast_nullable_to_non_nullable
+              as String?,
       createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -1286,9 +1525,9 @@ class __$$_BrandCopyWithImpl<$Res> extends _$BrandCopyWithImpl<$Res, _$_Brand>
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as String?,
-      image: freezed == image
-          ? _value.image
-          : image // ignore: cast_nullable_to_non_nullable
+      role: freezed == role
+          ? _value.role
+          : role // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -1302,11 +1541,24 @@ class _$_Brand implements _Brand {
       @JsonKey(name: 'name') required this.name,
       @JsonKey(name: 'email') required this.email,
       @JsonKey(name: 'password') required this.password,
-      @JsonKey(name: 'roles') required this.roles,
-      @JsonKey(name: 'active') required this.active,
+      @JsonKey(name: 'isActive') required this.isActive,
+      @JsonKey(name: 'phoneNumber') required this.phoneNumber,
+      @JsonKey(name: 'logo') required this.logo,
+      @JsonKey(name: 'coverImage') required this.coverImage,
+      @JsonKey(name: 'description') required this.description,
+      @JsonKey(name: 'cityName') required this.cityName,
+      @JsonKey(name: 'brandName') required this.brandName,
+      @JsonKey(name: 'companyName') required this.companyName,
+      @JsonKey(name: 'companyRegYear') required this.companyRegYear,
+      @JsonKey(name: 'revenueOfLastThreeMonths')
+      required this.revenueOfLastThreeMonths,
+      @JsonKey(name: 'category') required this.category,
+      @JsonKey(name: 'subCategory') required final List<String>? subCategory,
+      @JsonKey(name: 'GST') required this.GST,
       @JsonKey(name: 'createdAt') required this.createdAt,
       @JsonKey(name: 'updatedAt') required this.updatedAt,
-      @JsonKey(name: 'image') required this.image});
+      @JsonKey(name: 'role') required this.role})
+      : _subCategory = subCategory;
 
   factory _$_Brand.fromJson(Map<String, dynamic> json) =>
       _$$_BrandFromJson(json);
@@ -1324,11 +1576,52 @@ class _$_Brand implements _Brand {
   @JsonKey(name: 'password')
   final String? password;
   @override
-  @JsonKey(name: 'roles')
-  final String? roles;
+  @JsonKey(name: 'isActive')
+  final bool? isActive;
   @override
-  @JsonKey(name: 'active')
-  final bool? active;
+  @JsonKey(name: 'phoneNumber')
+  final int? phoneNumber;
+  @override
+  @JsonKey(name: 'logo')
+  final String? logo;
+  @override
+  @JsonKey(name: 'coverImage')
+  final String? coverImage;
+  @override
+  @JsonKey(name: 'description')
+  final String? description;
+  @override
+  @JsonKey(name: 'cityName')
+  final String? cityName;
+  @override
+  @JsonKey(name: 'brandName')
+  final String? brandName;
+  @override
+  @JsonKey(name: 'companyName')
+  final String? companyName;
+  @override
+  @JsonKey(name: 'companyRegYear')
+  final String? companyRegYear;
+  @override
+  @JsonKey(name: 'revenueOfLastThreeMonths')
+  final int? revenueOfLastThreeMonths;
+  @override
+  @JsonKey(name: 'category')
+  final String? category;
+  final List<String>? _subCategory;
+  @override
+  @JsonKey(name: 'subCategory')
+  List<String>? get subCategory {
+    final value = _subCategory;
+    if (value == null) return null;
+    if (_subCategory is EqualUnmodifiableListView) return _subCategory;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  @override
+  @JsonKey(name: 'GST')
+  final String? GST;
   @override
   @JsonKey(name: 'createdAt')
   final String? createdAt;
@@ -1336,12 +1629,12 @@ class _$_Brand implements _Brand {
   @JsonKey(name: 'updatedAt')
   final String? updatedAt;
   @override
-  @JsonKey(name: 'image')
-  final String? image;
+  @JsonKey(name: 'role')
+  final String? role;
 
   @override
   String toString() {
-    return 'Brand(id: $id, name: $name, email: $email, password: $password, roles: $roles, active: $active, createdAt: $createdAt, updatedAt: $updatedAt, image: $image)';
+    return 'Brand(id: $id, name: $name, email: $email, password: $password, isActive: $isActive, phoneNumber: $phoneNumber, logo: $logo, coverImage: $coverImage, description: $description, cityName: $cityName, brandName: $brandName, companyName: $companyName, companyRegYear: $companyRegYear, revenueOfLastThreeMonths: $revenueOfLastThreeMonths, category: $category, subCategory: $subCategory, GST: $GST, createdAt: $createdAt, updatedAt: $updatedAt, role: $role)';
   }
 
   @override
@@ -1354,19 +1647,63 @@ class _$_Brand implements _Brand {
             (identical(other.email, email) || other.email == email) &&
             (identical(other.password, password) ||
                 other.password == password) &&
-            (identical(other.roles, roles) || other.roles == roles) &&
-            (identical(other.active, active) || other.active == active) &&
+            (identical(other.isActive, isActive) ||
+                other.isActive == isActive) &&
+            (identical(other.phoneNumber, phoneNumber) ||
+                other.phoneNumber == phoneNumber) &&
+            (identical(other.logo, logo) || other.logo == logo) &&
+            (identical(other.coverImage, coverImage) ||
+                other.coverImage == coverImage) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
+            (identical(other.cityName, cityName) ||
+                other.cityName == cityName) &&
+            (identical(other.brandName, brandName) ||
+                other.brandName == brandName) &&
+            (identical(other.companyName, companyName) ||
+                other.companyName == companyName) &&
+            (identical(other.companyRegYear, companyRegYear) ||
+                other.companyRegYear == companyRegYear) &&
+            (identical(
+                    other.revenueOfLastThreeMonths, revenueOfLastThreeMonths) ||
+                other.revenueOfLastThreeMonths == revenueOfLastThreeMonths) &&
+            (identical(other.category, category) ||
+                other.category == category) &&
+            const DeepCollectionEquality()
+                .equals(other._subCategory, _subCategory) &&
+            (identical(other.GST, GST) || other.GST == GST) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
             (identical(other.updatedAt, updatedAt) ||
                 other.updatedAt == updatedAt) &&
-            (identical(other.image, image) || other.image == image));
+            (identical(other.role, role) || other.role == role));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, name, email, password, roles,
-      active, createdAt, updatedAt, image);
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        id,
+        name,
+        email,
+        password,
+        isActive,
+        phoneNumber,
+        logo,
+        coverImage,
+        description,
+        cityName,
+        brandName,
+        companyName,
+        companyRegYear,
+        revenueOfLastThreeMonths,
+        category,
+        const DeepCollectionEquality().hash(_subCategory),
+        GST,
+        createdAt,
+        updatedAt,
+        role
+      ]);
 
   @JsonKey(ignore: true)
   @override
@@ -1388,11 +1725,23 @@ abstract class _Brand implements Brand {
       @JsonKey(name: 'name') required final String? name,
       @JsonKey(name: 'email') required final String? email,
       @JsonKey(name: 'password') required final String? password,
-      @JsonKey(name: 'roles') required final String? roles,
-      @JsonKey(name: 'active') required final bool? active,
+      @JsonKey(name: 'isActive') required final bool? isActive,
+      @JsonKey(name: 'phoneNumber') required final int? phoneNumber,
+      @JsonKey(name: 'logo') required final String? logo,
+      @JsonKey(name: 'coverImage') required final String? coverImage,
+      @JsonKey(name: 'description') required final String? description,
+      @JsonKey(name: 'cityName') required final String? cityName,
+      @JsonKey(name: 'brandName') required final String? brandName,
+      @JsonKey(name: 'companyName') required final String? companyName,
+      @JsonKey(name: 'companyRegYear') required final String? companyRegYear,
+      @JsonKey(name: 'revenueOfLastThreeMonths')
+      required final int? revenueOfLastThreeMonths,
+      @JsonKey(name: 'category') required final String? category,
+      @JsonKey(name: 'subCategory') required final List<String>? subCategory,
+      @JsonKey(name: 'GST') required final String? GST,
       @JsonKey(name: 'createdAt') required final String? createdAt,
       @JsonKey(name: 'updatedAt') required final String? updatedAt,
-      @JsonKey(name: 'image') required final String? image}) = _$_Brand;
+      @JsonKey(name: 'role') required final String? role}) = _$_Brand;
 
   factory _Brand.fromJson(Map<String, dynamic> json) = _$_Brand.fromJson;
 
@@ -1409,11 +1758,44 @@ abstract class _Brand implements Brand {
   @JsonKey(name: 'password')
   String? get password;
   @override
-  @JsonKey(name: 'roles')
-  String? get roles;
+  @JsonKey(name: 'isActive')
+  bool? get isActive;
   @override
-  @JsonKey(name: 'active')
-  bool? get active;
+  @JsonKey(name: 'phoneNumber')
+  int? get phoneNumber;
+  @override
+  @JsonKey(name: 'logo')
+  String? get logo;
+  @override
+  @JsonKey(name: 'coverImage')
+  String? get coverImage;
+  @override
+  @JsonKey(name: 'description')
+  String? get description;
+  @override
+  @JsonKey(name: 'cityName')
+  String? get cityName;
+  @override
+  @JsonKey(name: 'brandName')
+  String? get brandName;
+  @override
+  @JsonKey(name: 'companyName')
+  String? get companyName;
+  @override
+  @JsonKey(name: 'companyRegYear')
+  String? get companyRegYear;
+  @override
+  @JsonKey(name: 'revenueOfLastThreeMonths')
+  int? get revenueOfLastThreeMonths;
+  @override
+  @JsonKey(name: 'category')
+  String? get category;
+  @override
+  @JsonKey(name: 'subCategory')
+  List<String>? get subCategory;
+  @override
+  @JsonKey(name: 'GST')
+  String? get GST;
   @override
   @JsonKey(name: 'createdAt')
   String? get createdAt;
@@ -1421,8 +1803,8 @@ abstract class _Brand implements Brand {
   @JsonKey(name: 'updatedAt')
   String? get updatedAt;
   @override
-  @JsonKey(name: 'image')
-  String? get image;
+  @JsonKey(name: 'role')
+  String? get role;
   @override
   @JsonKey(ignore: true)
   _$$_BrandCopyWith<_$_Brand> get copyWith =>
@@ -1441,26 +1823,34 @@ mixin _$Product {
   String? get title => throw _privateConstructorUsedError;
   @JsonKey(name: 'brand')
   String? get brandId => throw _privateConstructorUsedError;
+  @JsonKey(name: 'category')
+  Category? get category => throw _privateConstructorUsedError;
+  @JsonKey(name: 'subcategory')
+  String? get subcategory => throw _privateConstructorUsedError;
+  @JsonKey(name: 'itemType')
+  String? get itemType => throw _privateConstructorUsedError;
+  @JsonKey(name: 'pickupAddress')
+  String? get pickupAddress => throw _privateConstructorUsedError;
   @JsonKey(name: 'description')
   String? get description => throw _privateConstructorUsedError;
-  @JsonKey(name: 'otherInfo')
-  String? get otherInfo =>
-      throw _privateConstructorUsedError; // @JsonKey(name: 'category') required Category? category,
-  @JsonKey(name: 'subcategory')
-  String? get subCategory => throw _privateConstructorUsedError;
-  @JsonKey(name: 'actualPrice')
-  double? get actualPrice => throw _privateConstructorUsedError;
-  @JsonKey(name: 'discountPrice')
-  double? get discountPrice => throw _privateConstructorUsedError;
+  @JsonKey(name: 'regularPrice')
+  int? get regularPrice => throw _privateConstructorUsedError;
+  @JsonKey(name: 'salePrice')
+  int? get salePrice => throw _privateConstructorUsedError;
+  @JsonKey(name: 'discount')
   int? get discount => throw _privateConstructorUsedError;
-  @JsonKey(name: 'colors')
-  List<ColorOption>? get colors => throw _privateConstructorUsedError;
+  @JsonKey(name: 'color')
+  String? get color => throw _privateConstructorUsedError;
+  @JsonKey(name: 'images')
+  List<String>? get images => throw _privateConstructorUsedError;
   @JsonKey(name: 'size')
-  List<SizeOption>? get size => throw _privateConstructorUsedError;
-  @JsonKey(name: 'meta')
-  List<Meta>? get meta => throw _privateConstructorUsedError;
+  List<Size>? get size => throw _privateConstructorUsedError;
   @JsonKey(name: 'keywords')
   List<String>? get keywords => throw _privateConstructorUsedError;
+  @JsonKey(name: 'madeFrom')
+  String? get madeFrom => throw _privateConstructorUsedError;
+  @JsonKey(name: 'productCareInfo')
+  String? get productCareInfo => throw _privateConstructorUsedError;
   @JsonKey(name: 'createdAt')
   String? get createdAt => throw _privateConstructorUsedError;
   @JsonKey(name: 'updatedAt')
@@ -1480,18 +1870,24 @@ abstract class $ProductCopyWith<$Res> {
       {@JsonKey(name: '_id') String? id,
       @JsonKey(name: 'title') String? title,
       @JsonKey(name: 'brand') String? brandId,
+      @JsonKey(name: 'category') Category? category,
+      @JsonKey(name: 'subcategory') String? subcategory,
+      @JsonKey(name: 'itemType') String? itemType,
+      @JsonKey(name: 'pickupAddress') String? pickupAddress,
       @JsonKey(name: 'description') String? description,
-      @JsonKey(name: 'otherInfo') String? otherInfo,
-      @JsonKey(name: 'subcategory') String? subCategory,
-      @JsonKey(name: 'actualPrice') double? actualPrice,
-      @JsonKey(name: 'discountPrice') double? discountPrice,
-      int? discount,
-      @JsonKey(name: 'colors') List<ColorOption>? colors,
-      @JsonKey(name: 'size') List<SizeOption>? size,
-      @JsonKey(name: 'meta') List<Meta>? meta,
+      @JsonKey(name: 'regularPrice') int? regularPrice,
+      @JsonKey(name: 'salePrice') int? salePrice,
+      @JsonKey(name: 'discount') int? discount,
+      @JsonKey(name: 'color') String? color,
+      @JsonKey(name: 'images') List<String>? images,
+      @JsonKey(name: 'size') List<Size>? size,
       @JsonKey(name: 'keywords') List<String>? keywords,
+      @JsonKey(name: 'madeFrom') String? madeFrom,
+      @JsonKey(name: 'productCareInfo') String? productCareInfo,
       @JsonKey(name: 'createdAt') String? createdAt,
       @JsonKey(name: 'updatedAt') String? updatedAt});
+
+  $CategoryCopyWith<$Res>? get category;
 }
 
 /// @nodoc
@@ -1510,16 +1906,20 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
     Object? id = freezed,
     Object? title = freezed,
     Object? brandId = freezed,
+    Object? category = freezed,
+    Object? subcategory = freezed,
+    Object? itemType = freezed,
+    Object? pickupAddress = freezed,
     Object? description = freezed,
-    Object? otherInfo = freezed,
-    Object? subCategory = freezed,
-    Object? actualPrice = freezed,
-    Object? discountPrice = freezed,
+    Object? regularPrice = freezed,
+    Object? salePrice = freezed,
     Object? discount = freezed,
-    Object? colors = freezed,
+    Object? color = freezed,
+    Object? images = freezed,
     Object? size = freezed,
-    Object? meta = freezed,
     Object? keywords = freezed,
+    Object? madeFrom = freezed,
+    Object? productCareInfo = freezed,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
   }) {
@@ -1536,46 +1936,62 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
           ? _value.brandId
           : brandId // ignore: cast_nullable_to_non_nullable
               as String?,
+      category: freezed == category
+          ? _value.category
+          : category // ignore: cast_nullable_to_non_nullable
+              as Category?,
+      subcategory: freezed == subcategory
+          ? _value.subcategory
+          : subcategory // ignore: cast_nullable_to_non_nullable
+              as String?,
+      itemType: freezed == itemType
+          ? _value.itemType
+          : itemType // ignore: cast_nullable_to_non_nullable
+              as String?,
+      pickupAddress: freezed == pickupAddress
+          ? _value.pickupAddress
+          : pickupAddress // ignore: cast_nullable_to_non_nullable
+              as String?,
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
-      otherInfo: freezed == otherInfo
-          ? _value.otherInfo
-          : otherInfo // ignore: cast_nullable_to_non_nullable
-              as String?,
-      subCategory: freezed == subCategory
-          ? _value.subCategory
-          : subCategory // ignore: cast_nullable_to_non_nullable
-              as String?,
-      actualPrice: freezed == actualPrice
-          ? _value.actualPrice
-          : actualPrice // ignore: cast_nullable_to_non_nullable
-              as double?,
-      discountPrice: freezed == discountPrice
-          ? _value.discountPrice
-          : discountPrice // ignore: cast_nullable_to_non_nullable
-              as double?,
+      regularPrice: freezed == regularPrice
+          ? _value.regularPrice
+          : regularPrice // ignore: cast_nullable_to_non_nullable
+              as int?,
+      salePrice: freezed == salePrice
+          ? _value.salePrice
+          : salePrice // ignore: cast_nullable_to_non_nullable
+              as int?,
       discount: freezed == discount
           ? _value.discount
           : discount // ignore: cast_nullable_to_non_nullable
               as int?,
-      colors: freezed == colors
-          ? _value.colors
-          : colors // ignore: cast_nullable_to_non_nullable
-              as List<ColorOption>?,
+      color: freezed == color
+          ? _value.color
+          : color // ignore: cast_nullable_to_non_nullable
+              as String?,
+      images: freezed == images
+          ? _value.images
+          : images // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
       size: freezed == size
           ? _value.size
           : size // ignore: cast_nullable_to_non_nullable
-              as List<SizeOption>?,
-      meta: freezed == meta
-          ? _value.meta
-          : meta // ignore: cast_nullable_to_non_nullable
-              as List<Meta>?,
+              as List<Size>?,
       keywords: freezed == keywords
           ? _value.keywords
           : keywords // ignore: cast_nullable_to_non_nullable
               as List<String>?,
+      madeFrom: freezed == madeFrom
+          ? _value.madeFrom
+          : madeFrom // ignore: cast_nullable_to_non_nullable
+              as String?,
+      productCareInfo: freezed == productCareInfo
+          ? _value.productCareInfo
+          : productCareInfo // ignore: cast_nullable_to_non_nullable
+              as String?,
       createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -1585,6 +2001,18 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $CategoryCopyWith<$Res>? get category {
+    if (_value.category == null) {
+      return null;
+    }
+
+    return $CategoryCopyWith<$Res>(_value.category!, (value) {
+      return _then(_value.copyWith(category: value) as $Val);
+    });
   }
 }
 
@@ -1599,18 +2027,25 @@ abstract class _$$_ProductCopyWith<$Res> implements $ProductCopyWith<$Res> {
       {@JsonKey(name: '_id') String? id,
       @JsonKey(name: 'title') String? title,
       @JsonKey(name: 'brand') String? brandId,
+      @JsonKey(name: 'category') Category? category,
+      @JsonKey(name: 'subcategory') String? subcategory,
+      @JsonKey(name: 'itemType') String? itemType,
+      @JsonKey(name: 'pickupAddress') String? pickupAddress,
       @JsonKey(name: 'description') String? description,
-      @JsonKey(name: 'otherInfo') String? otherInfo,
-      @JsonKey(name: 'subcategory') String? subCategory,
-      @JsonKey(name: 'actualPrice') double? actualPrice,
-      @JsonKey(name: 'discountPrice') double? discountPrice,
-      int? discount,
-      @JsonKey(name: 'colors') List<ColorOption>? colors,
-      @JsonKey(name: 'size') List<SizeOption>? size,
-      @JsonKey(name: 'meta') List<Meta>? meta,
+      @JsonKey(name: 'regularPrice') int? regularPrice,
+      @JsonKey(name: 'salePrice') int? salePrice,
+      @JsonKey(name: 'discount') int? discount,
+      @JsonKey(name: 'color') String? color,
+      @JsonKey(name: 'images') List<String>? images,
+      @JsonKey(name: 'size') List<Size>? size,
       @JsonKey(name: 'keywords') List<String>? keywords,
+      @JsonKey(name: 'madeFrom') String? madeFrom,
+      @JsonKey(name: 'productCareInfo') String? productCareInfo,
       @JsonKey(name: 'createdAt') String? createdAt,
       @JsonKey(name: 'updatedAt') String? updatedAt});
+
+  @override
+  $CategoryCopyWith<$Res>? get category;
 }
 
 /// @nodoc
@@ -1626,16 +2061,20 @@ class __$$_ProductCopyWithImpl<$Res>
     Object? id = freezed,
     Object? title = freezed,
     Object? brandId = freezed,
+    Object? category = freezed,
+    Object? subcategory = freezed,
+    Object? itemType = freezed,
+    Object? pickupAddress = freezed,
     Object? description = freezed,
-    Object? otherInfo = freezed,
-    Object? subCategory = freezed,
-    Object? actualPrice = freezed,
-    Object? discountPrice = freezed,
+    Object? regularPrice = freezed,
+    Object? salePrice = freezed,
     Object? discount = freezed,
-    Object? colors = freezed,
+    Object? color = freezed,
+    Object? images = freezed,
     Object? size = freezed,
-    Object? meta = freezed,
     Object? keywords = freezed,
+    Object? madeFrom = freezed,
+    Object? productCareInfo = freezed,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
   }) {
@@ -1652,46 +2091,62 @@ class __$$_ProductCopyWithImpl<$Res>
           ? _value.brandId
           : brandId // ignore: cast_nullable_to_non_nullable
               as String?,
+      category: freezed == category
+          ? _value.category
+          : category // ignore: cast_nullable_to_non_nullable
+              as Category?,
+      subcategory: freezed == subcategory
+          ? _value.subcategory
+          : subcategory // ignore: cast_nullable_to_non_nullable
+              as String?,
+      itemType: freezed == itemType
+          ? _value.itemType
+          : itemType // ignore: cast_nullable_to_non_nullable
+              as String?,
+      pickupAddress: freezed == pickupAddress
+          ? _value.pickupAddress
+          : pickupAddress // ignore: cast_nullable_to_non_nullable
+              as String?,
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
-      otherInfo: freezed == otherInfo
-          ? _value.otherInfo
-          : otherInfo // ignore: cast_nullable_to_non_nullable
-              as String?,
-      subCategory: freezed == subCategory
-          ? _value.subCategory
-          : subCategory // ignore: cast_nullable_to_non_nullable
-              as String?,
-      actualPrice: freezed == actualPrice
-          ? _value.actualPrice
-          : actualPrice // ignore: cast_nullable_to_non_nullable
-              as double?,
-      discountPrice: freezed == discountPrice
-          ? _value.discountPrice
-          : discountPrice // ignore: cast_nullable_to_non_nullable
-              as double?,
+      regularPrice: freezed == regularPrice
+          ? _value.regularPrice
+          : regularPrice // ignore: cast_nullable_to_non_nullable
+              as int?,
+      salePrice: freezed == salePrice
+          ? _value.salePrice
+          : salePrice // ignore: cast_nullable_to_non_nullable
+              as int?,
       discount: freezed == discount
           ? _value.discount
           : discount // ignore: cast_nullable_to_non_nullable
               as int?,
-      colors: freezed == colors
-          ? _value._colors
-          : colors // ignore: cast_nullable_to_non_nullable
-              as List<ColorOption>?,
+      color: freezed == color
+          ? _value.color
+          : color // ignore: cast_nullable_to_non_nullable
+              as String?,
+      images: freezed == images
+          ? _value._images
+          : images // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
       size: freezed == size
           ? _value._size
           : size // ignore: cast_nullable_to_non_nullable
-              as List<SizeOption>?,
-      meta: freezed == meta
-          ? _value._meta
-          : meta // ignore: cast_nullable_to_non_nullable
-              as List<Meta>?,
+              as List<Size>?,
       keywords: freezed == keywords
           ? _value._keywords
           : keywords // ignore: cast_nullable_to_non_nullable
               as List<String>?,
+      madeFrom: freezed == madeFrom
+          ? _value.madeFrom
+          : madeFrom // ignore: cast_nullable_to_non_nullable
+              as String?,
+      productCareInfo: freezed == productCareInfo
+          ? _value.productCareInfo
+          : productCareInfo // ignore: cast_nullable_to_non_nullable
+              as String?,
       createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -1711,21 +2166,24 @@ class _$_Product implements _Product {
       {@JsonKey(name: '_id') required this.id,
       @JsonKey(name: 'title') required this.title,
       @JsonKey(name: 'brand') required this.brandId,
+      @JsonKey(name: 'category') required this.category,
+      @JsonKey(name: 'subcategory') required this.subcategory,
+      @JsonKey(name: 'itemType') required this.itemType,
+      @JsonKey(name: 'pickupAddress') required this.pickupAddress,
       @JsonKey(name: 'description') required this.description,
-      @JsonKey(name: 'otherInfo') required this.otherInfo,
-      @JsonKey(name: 'subcategory') required this.subCategory,
-      @JsonKey(name: 'actualPrice') required this.actualPrice,
-      @JsonKey(name: 'discountPrice') required this.discountPrice,
-      required this.discount,
-      @JsonKey(name: 'colors') required final List<ColorOption>? colors,
-      @JsonKey(name: 'size') required final List<SizeOption>? size,
-      @JsonKey(name: 'meta') required final List<Meta>? meta,
+      @JsonKey(name: 'regularPrice') required this.regularPrice,
+      @JsonKey(name: 'salePrice') required this.salePrice,
+      @JsonKey(name: 'discount') required this.discount,
+      @JsonKey(name: 'color') required this.color,
+      @JsonKey(name: 'images') required final List<String>? images,
+      @JsonKey(name: 'size') required final List<Size>? size,
       @JsonKey(name: 'keywords') required final List<String>? keywords,
+      @JsonKey(name: 'madeFrom') required this.madeFrom,
+      @JsonKey(name: 'productCareInfo') required this.productCareInfo,
       @JsonKey(name: 'createdAt') required this.createdAt,
       @JsonKey(name: 'updatedAt') required this.updatedAt})
-      : _colors = colors,
+      : _images = images,
         _size = size,
-        _meta = meta,
         _keywords = keywords;
 
   factory _$_Product.fromJson(Map<String, dynamic> json) =>
@@ -1741,52 +2199,50 @@ class _$_Product implements _Product {
   @JsonKey(name: 'brand')
   final String? brandId;
   @override
+  @JsonKey(name: 'category')
+  final Category? category;
+  @override
+  @JsonKey(name: 'subcategory')
+  final String? subcategory;
+  @override
+  @JsonKey(name: 'itemType')
+  final String? itemType;
+  @override
+  @JsonKey(name: 'pickupAddress')
+  final String? pickupAddress;
+  @override
   @JsonKey(name: 'description')
   final String? description;
   @override
-  @JsonKey(name: 'otherInfo')
-  final String? otherInfo;
-// @JsonKey(name: 'category') required Category? category,
+  @JsonKey(name: 'regularPrice')
+  final int? regularPrice;
   @override
-  @JsonKey(name: 'subcategory')
-  final String? subCategory;
+  @JsonKey(name: 'salePrice')
+  final int? salePrice;
   @override
-  @JsonKey(name: 'actualPrice')
-  final double? actualPrice;
-  @override
-  @JsonKey(name: 'discountPrice')
-  final double? discountPrice;
-  @override
+  @JsonKey(name: 'discount')
   final int? discount;
-  final List<ColorOption>? _colors;
   @override
-  @JsonKey(name: 'colors')
-  List<ColorOption>? get colors {
-    final value = _colors;
+  @JsonKey(name: 'color')
+  final String? color;
+  final List<String>? _images;
+  @override
+  @JsonKey(name: 'images')
+  List<String>? get images {
+    final value = _images;
     if (value == null) return null;
-    if (_colors is EqualUnmodifiableListView) return _colors;
+    if (_images is EqualUnmodifiableListView) return _images;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
 
-  final List<SizeOption>? _size;
+  final List<Size>? _size;
   @override
   @JsonKey(name: 'size')
-  List<SizeOption>? get size {
+  List<Size>? get size {
     final value = _size;
     if (value == null) return null;
     if (_size is EqualUnmodifiableListView) return _size;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
-
-  final List<Meta>? _meta;
-  @override
-  @JsonKey(name: 'meta')
-  List<Meta>? get meta {
-    final value = _meta;
-    if (value == null) return null;
-    if (_meta is EqualUnmodifiableListView) return _meta;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
@@ -1803,6 +2259,12 @@ class _$_Product implements _Product {
   }
 
   @override
+  @JsonKey(name: 'madeFrom')
+  final String? madeFrom;
+  @override
+  @JsonKey(name: 'productCareInfo')
+  final String? productCareInfo;
+  @override
   @JsonKey(name: 'createdAt')
   final String? createdAt;
   @override
@@ -1811,7 +2273,7 @@ class _$_Product implements _Product {
 
   @override
   String toString() {
-    return 'Product(id: $id, title: $title, brandId: $brandId, description: $description, otherInfo: $otherInfo, subCategory: $subCategory, actualPrice: $actualPrice, discountPrice: $discountPrice, discount: $discount, colors: $colors, size: $size, meta: $meta, keywords: $keywords, createdAt: $createdAt, updatedAt: $updatedAt)';
+    return 'Product(id: $id, title: $title, brandId: $brandId, category: $category, subcategory: $subcategory, itemType: $itemType, pickupAddress: $pickupAddress, description: $description, regularPrice: $regularPrice, salePrice: $salePrice, discount: $discount, color: $color, images: $images, size: $size, keywords: $keywords, madeFrom: $madeFrom, productCareInfo: $productCareInfo, createdAt: $createdAt, updatedAt: $updatedAt)';
   }
 
   @override
@@ -1822,22 +2284,30 @@ class _$_Product implements _Product {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.brandId, brandId) || other.brandId == brandId) &&
+            (identical(other.category, category) ||
+                other.category == category) &&
+            (identical(other.subcategory, subcategory) ||
+                other.subcategory == subcategory) &&
+            (identical(other.itemType, itemType) ||
+                other.itemType == itemType) &&
+            (identical(other.pickupAddress, pickupAddress) ||
+                other.pickupAddress == pickupAddress) &&
             (identical(other.description, description) ||
                 other.description == description) &&
-            (identical(other.otherInfo, otherInfo) ||
-                other.otherInfo == otherInfo) &&
-            (identical(other.subCategory, subCategory) ||
-                other.subCategory == subCategory) &&
-            (identical(other.actualPrice, actualPrice) ||
-                other.actualPrice == actualPrice) &&
-            (identical(other.discountPrice, discountPrice) ||
-                other.discountPrice == discountPrice) &&
+            (identical(other.regularPrice, regularPrice) ||
+                other.regularPrice == regularPrice) &&
+            (identical(other.salePrice, salePrice) ||
+                other.salePrice == salePrice) &&
             (identical(other.discount, discount) ||
                 other.discount == discount) &&
-            const DeepCollectionEquality().equals(other._colors, _colors) &&
+            (identical(other.color, color) || other.color == color) &&
+            const DeepCollectionEquality().equals(other._images, _images) &&
             const DeepCollectionEquality().equals(other._size, _size) &&
-            const DeepCollectionEquality().equals(other._meta, _meta) &&
             const DeepCollectionEquality().equals(other._keywords, _keywords) &&
+            (identical(other.madeFrom, madeFrom) ||
+                other.madeFrom == madeFrom) &&
+            (identical(other.productCareInfo, productCareInfo) ||
+                other.productCareInfo == productCareInfo) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
             (identical(other.updatedAt, updatedAt) ||
@@ -1846,23 +2316,28 @@ class _$_Product implements _Product {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      id,
-      title,
-      brandId,
-      description,
-      otherInfo,
-      subCategory,
-      actualPrice,
-      discountPrice,
-      discount,
-      const DeepCollectionEquality().hash(_colors),
-      const DeepCollectionEquality().hash(_size),
-      const DeepCollectionEquality().hash(_meta),
-      const DeepCollectionEquality().hash(_keywords),
-      createdAt,
-      updatedAt);
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        id,
+        title,
+        brandId,
+        category,
+        subcategory,
+        itemType,
+        pickupAddress,
+        description,
+        regularPrice,
+        salePrice,
+        discount,
+        color,
+        const DeepCollectionEquality().hash(_images),
+        const DeepCollectionEquality().hash(_size),
+        const DeepCollectionEquality().hash(_keywords),
+        madeFrom,
+        productCareInfo,
+        createdAt,
+        updatedAt
+      ]);
 
   @JsonKey(ignore: true)
   @override
@@ -1880,22 +2355,26 @@ class _$_Product implements _Product {
 
 abstract class _Product implements Product {
   const factory _Product(
-          {@JsonKey(name: '_id') required final String? id,
-          @JsonKey(name: 'title') required final String? title,
-          @JsonKey(name: 'brand') required final String? brandId,
-          @JsonKey(name: 'description') required final String? description,
-          @JsonKey(name: 'otherInfo') required final String? otherInfo,
-          @JsonKey(name: 'subcategory') required final String? subCategory,
-          @JsonKey(name: 'actualPrice') required final double? actualPrice,
-          @JsonKey(name: 'discountPrice') required final double? discountPrice,
-          required final int? discount,
-          @JsonKey(name: 'colors') required final List<ColorOption>? colors,
-          @JsonKey(name: 'size') required final List<SizeOption>? size,
-          @JsonKey(name: 'meta') required final List<Meta>? meta,
-          @JsonKey(name: 'keywords') required final List<String>? keywords,
-          @JsonKey(name: 'createdAt') required final String? createdAt,
-          @JsonKey(name: 'updatedAt') required final String? updatedAt}) =
-      _$_Product;
+      {@JsonKey(name: '_id') required final String? id,
+      @JsonKey(name: 'title') required final String? title,
+      @JsonKey(name: 'brand') required final String? brandId,
+      @JsonKey(name: 'category') required final Category? category,
+      @JsonKey(name: 'subcategory') required final String? subcategory,
+      @JsonKey(name: 'itemType') required final String? itemType,
+      @JsonKey(name: 'pickupAddress') required final String? pickupAddress,
+      @JsonKey(name: 'description') required final String? description,
+      @JsonKey(name: 'regularPrice') required final int? regularPrice,
+      @JsonKey(name: 'salePrice') required final int? salePrice,
+      @JsonKey(name: 'discount') required final int? discount,
+      @JsonKey(name: 'color') required final String? color,
+      @JsonKey(name: 'images') required final List<String>? images,
+      @JsonKey(name: 'size') required final List<Size>? size,
+      @JsonKey(name: 'keywords') required final List<String>? keywords,
+      @JsonKey(name: 'madeFrom') required final String? madeFrom,
+      @JsonKey(name: 'productCareInfo') required final String? productCareInfo,
+      @JsonKey(name: 'createdAt') required final String? createdAt,
+      @JsonKey(name: 'updatedAt')
+      required final String? updatedAt}) = _$_Product;
 
   factory _Product.fromJson(Map<String, dynamic> json) = _$_Product.fromJson;
 
@@ -1909,34 +2388,47 @@ abstract class _Product implements Product {
   @JsonKey(name: 'brand')
   String? get brandId;
   @override
+  @JsonKey(name: 'category')
+  Category? get category;
+  @override
+  @JsonKey(name: 'subcategory')
+  String? get subcategory;
+  @override
+  @JsonKey(name: 'itemType')
+  String? get itemType;
+  @override
+  @JsonKey(name: 'pickupAddress')
+  String? get pickupAddress;
+  @override
   @JsonKey(name: 'description')
   String? get description;
   @override
-  @JsonKey(name: 'otherInfo')
-  String? get otherInfo;
-  @override // @JsonKey(name: 'category') required Category? category,
-  @JsonKey(name: 'subcategory')
-  String? get subCategory;
+  @JsonKey(name: 'regularPrice')
+  int? get regularPrice;
   @override
-  @JsonKey(name: 'actualPrice')
-  double? get actualPrice;
+  @JsonKey(name: 'salePrice')
+  int? get salePrice;
   @override
-  @JsonKey(name: 'discountPrice')
-  double? get discountPrice;
-  @override
+  @JsonKey(name: 'discount')
   int? get discount;
   @override
-  @JsonKey(name: 'colors')
-  List<ColorOption>? get colors;
+  @JsonKey(name: 'color')
+  String? get color;
+  @override
+  @JsonKey(name: 'images')
+  List<String>? get images;
   @override
   @JsonKey(name: 'size')
-  List<SizeOption>? get size;
-  @override
-  @JsonKey(name: 'meta')
-  List<Meta>? get meta;
+  List<Size>? get size;
   @override
   @JsonKey(name: 'keywords')
   List<String>? get keywords;
+  @override
+  @JsonKey(name: 'madeFrom')
+  String? get madeFrom;
+  @override
+  @JsonKey(name: 'productCareInfo')
+  String? get productCareInfo;
   @override
   @JsonKey(name: 'createdAt')
   String? get createdAt;
@@ -1949,38 +2441,46 @@ abstract class _Product implements Product {
       throw _privateConstructorUsedError;
 }
 
-ColorOption _$ColorOptionFromJson(Map<String, dynamic> json) {
-  return _ColorOption.fromJson(json);
+Category _$CategoryFromJson(Map<String, dynamic> json) {
+  return _Category.fromJson(json);
 }
 
 /// @nodoc
-mixin _$ColorOption {
-  @JsonKey(name: 'text')
-  String? get text => throw _privateConstructorUsedError;
-  @JsonKey(name: 'images')
-  List<String>? get images => throw _privateConstructorUsedError;
+mixin _$Category {
+  @JsonKey(name: '_id')
+  String? get id => throw _privateConstructorUsedError;
+  @JsonKey(name: 'title')
+  String? get title => throw _privateConstructorUsedError;
+  @JsonKey(name: 'image')
+  String? get image => throw _privateConstructorUsedError;
+  @JsonKey(name: 'createdAt')
+  String? get createdAt => throw _privateConstructorUsedError;
+  @JsonKey(name: 'updatedAt')
+  String? get updatedAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ColorOptionCopyWith<ColorOption> get copyWith =>
+  $CategoryCopyWith<Category> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ColorOptionCopyWith<$Res> {
-  factory $ColorOptionCopyWith(
-          ColorOption value, $Res Function(ColorOption) then) =
-      _$ColorOptionCopyWithImpl<$Res, ColorOption>;
+abstract class $CategoryCopyWith<$Res> {
+  factory $CategoryCopyWith(Category value, $Res Function(Category) then) =
+      _$CategoryCopyWithImpl<$Res, Category>;
   @useResult
   $Res call(
-      {@JsonKey(name: 'text') String? text,
-      @JsonKey(name: 'images') List<String>? images});
+      {@JsonKey(name: '_id') String? id,
+      @JsonKey(name: 'title') String? title,
+      @JsonKey(name: 'image') String? image,
+      @JsonKey(name: 'createdAt') String? createdAt,
+      @JsonKey(name: 'updatedAt') String? updatedAt});
 }
 
 /// @nodoc
-class _$ColorOptionCopyWithImpl<$Res, $Val extends ColorOption>
-    implements $ColorOptionCopyWith<$Res> {
-  _$ColorOptionCopyWithImpl(this._value, this._then);
+class _$CategoryCopyWithImpl<$Res, $Val extends Category>
+    implements $CategoryCopyWith<$Res> {
+  _$CategoryCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -1990,173 +2490,238 @@ class _$ColorOptionCopyWithImpl<$Res, $Val extends ColorOption>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? text = freezed,
-    Object? images = freezed,
+    Object? id = freezed,
+    Object? title = freezed,
+    Object? image = freezed,
+    Object? createdAt = freezed,
+    Object? updatedAt = freezed,
   }) {
     return _then(_value.copyWith(
-      text: freezed == text
-          ? _value.text
-          : text // ignore: cast_nullable_to_non_nullable
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
               as String?,
-      images: freezed == images
-          ? _value.images
-          : images // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
+      title: freezed == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String?,
+      image: freezed == image
+          ? _value.image
+          : image // ignore: cast_nullable_to_non_nullable
+              as String?,
+      createdAt: freezed == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as String?,
+      updatedAt: freezed == updatedAt
+          ? _value.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$_ColorOptionCopyWith<$Res>
-    implements $ColorOptionCopyWith<$Res> {
-  factory _$$_ColorOptionCopyWith(
-          _$_ColorOption value, $Res Function(_$_ColorOption) then) =
-      __$$_ColorOptionCopyWithImpl<$Res>;
+abstract class _$$_CategoryCopyWith<$Res> implements $CategoryCopyWith<$Res> {
+  factory _$$_CategoryCopyWith(
+          _$_Category value, $Res Function(_$_Category) then) =
+      __$$_CategoryCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: 'text') String? text,
-      @JsonKey(name: 'images') List<String>? images});
+      {@JsonKey(name: '_id') String? id,
+      @JsonKey(name: 'title') String? title,
+      @JsonKey(name: 'image') String? image,
+      @JsonKey(name: 'createdAt') String? createdAt,
+      @JsonKey(name: 'updatedAt') String? updatedAt});
 }
 
 /// @nodoc
-class __$$_ColorOptionCopyWithImpl<$Res>
-    extends _$ColorOptionCopyWithImpl<$Res, _$_ColorOption>
-    implements _$$_ColorOptionCopyWith<$Res> {
-  __$$_ColorOptionCopyWithImpl(
-      _$_ColorOption _value, $Res Function(_$_ColorOption) _then)
+class __$$_CategoryCopyWithImpl<$Res>
+    extends _$CategoryCopyWithImpl<$Res, _$_Category>
+    implements _$$_CategoryCopyWith<$Res> {
+  __$$_CategoryCopyWithImpl(
+      _$_Category _value, $Res Function(_$_Category) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? text = freezed,
-    Object? images = freezed,
+    Object? id = freezed,
+    Object? title = freezed,
+    Object? image = freezed,
+    Object? createdAt = freezed,
+    Object? updatedAt = freezed,
   }) {
-    return _then(_$_ColorOption(
-      text: freezed == text
-          ? _value.text
-          : text // ignore: cast_nullable_to_non_nullable
+    return _then(_$_Category(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
               as String?,
-      images: freezed == images
-          ? _value._images
-          : images // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
+      title: freezed == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String?,
+      image: freezed == image
+          ? _value.image
+          : image // ignore: cast_nullable_to_non_nullable
+              as String?,
+      createdAt: freezed == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as String?,
+      updatedAt: freezed == updatedAt
+          ? _value.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$_ColorOption implements _ColorOption {
-  const _$_ColorOption(
-      {@JsonKey(name: 'text') required this.text,
-      @JsonKey(name: 'images') required final List<String>? images})
-      : _images = images;
+class _$_Category implements _Category {
+  const _$_Category(
+      {@JsonKey(name: '_id') required this.id,
+      @JsonKey(name: 'title') required this.title,
+      @JsonKey(name: 'image') required this.image,
+      @JsonKey(name: 'createdAt') required this.createdAt,
+      @JsonKey(name: 'updatedAt') required this.updatedAt});
 
-  factory _$_ColorOption.fromJson(Map<String, dynamic> json) =>
-      _$$_ColorOptionFromJson(json);
+  factory _$_Category.fromJson(Map<String, dynamic> json) =>
+      _$$_CategoryFromJson(json);
 
   @override
-  @JsonKey(name: 'text')
-  final String? text;
-  final List<String>? _images;
+  @JsonKey(name: '_id')
+  final String? id;
   @override
-  @JsonKey(name: 'images')
-  List<String>? get images {
-    final value = _images;
-    if (value == null) return null;
-    if (_images is EqualUnmodifiableListView) return _images;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
+  @JsonKey(name: 'title')
+  final String? title;
+  @override
+  @JsonKey(name: 'image')
+  final String? image;
+  @override
+  @JsonKey(name: 'createdAt')
+  final String? createdAt;
+  @override
+  @JsonKey(name: 'updatedAt')
+  final String? updatedAt;
 
   @override
   String toString() {
-    return 'ColorOption(text: $text, images: $images)';
+    return 'Category(id: $id, title: $title, image: $image, createdAt: $createdAt, updatedAt: $updatedAt)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ColorOption &&
-            (identical(other.text, text) || other.text == text) &&
-            const DeepCollectionEquality().equals(other._images, _images));
+            other is _$_Category &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.title, title) || other.title == title) &&
+            (identical(other.image, image) || other.image == image) &&
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt) &&
+            (identical(other.updatedAt, updatedAt) ||
+                other.updatedAt == updatedAt));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, text, const DeepCollectionEquality().hash(_images));
+  int get hashCode =>
+      Object.hash(runtimeType, id, title, image, createdAt, updatedAt);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ColorOptionCopyWith<_$_ColorOption> get copyWith =>
-      __$$_ColorOptionCopyWithImpl<_$_ColorOption>(this, _$identity);
+  _$$_CategoryCopyWith<_$_Category> get copyWith =>
+      __$$_CategoryCopyWithImpl<_$_Category>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ColorOptionToJson(
+    return _$$_CategoryToJson(
       this,
     );
   }
 }
 
-abstract class _ColorOption implements ColorOption {
-  const factory _ColorOption(
-          {@JsonKey(name: 'text') required final String? text,
-          @JsonKey(name: 'images') required final List<String>? images}) =
-      _$_ColorOption;
+abstract class _Category implements Category {
+  const factory _Category(
+          {@JsonKey(name: '_id') required final String? id,
+          @JsonKey(name: 'title') required final String? title,
+          @JsonKey(name: 'image') required final String? image,
+          @JsonKey(name: 'createdAt') required final String? createdAt,
+          @JsonKey(name: 'updatedAt') required final String? updatedAt}) =
+      _$_Category;
 
-  factory _ColorOption.fromJson(Map<String, dynamic> json) =
-      _$_ColorOption.fromJson;
+  factory _Category.fromJson(Map<String, dynamic> json) = _$_Category.fromJson;
 
   @override
-  @JsonKey(name: 'text')
-  String? get text;
+  @JsonKey(name: '_id')
+  String? get id;
   @override
-  @JsonKey(name: 'images')
-  List<String>? get images;
+  @JsonKey(name: 'title')
+  String? get title;
+  @override
+  @JsonKey(name: 'image')
+  String? get image;
+  @override
+  @JsonKey(name: 'createdAt')
+  String? get createdAt;
+  @override
+  @JsonKey(name: 'updatedAt')
+  String? get updatedAt;
   @override
   @JsonKey(ignore: true)
-  _$$_ColorOptionCopyWith<_$_ColorOption> get copyWith =>
+  _$$_CategoryCopyWith<_$_Category> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
-SizeOption _$SizeOptionFromJson(Map<String, dynamic> json) {
-  return _SizeOption.fromJson(json);
+Size _$SizeFromJson(Map<String, dynamic> json) {
+  return _Size.fromJson(json);
 }
 
 /// @nodoc
-mixin _$SizeOption {
-  @JsonKey(name: 'value')
-  String? get value => throw _privateConstructorUsedError;
+mixin _$Size {
+  @JsonKey(name: 'size')
+  String? get size => throw _privateConstructorUsedError;
+  @JsonKey(name: 'stock')
+  int? get stock => throw _privateConstructorUsedError;
   @JsonKey(name: 'price')
-  double? get price => throw _privateConstructorUsedError;
+  int? get price => throw _privateConstructorUsedError;
+  @JsonKey(name: 'sku')
+  String? get sku => throw _privateConstructorUsedError;
+  @JsonKey(name: 'width')
+  String? get width => throw _privateConstructorUsedError;
+  @JsonKey(name: 'height')
+  String? get height => throw _privateConstructorUsedError;
+  @JsonKey(name: 'weight')
+  String? get weight => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $SizeOptionCopyWith<SizeOption> get copyWith =>
-      throw _privateConstructorUsedError;
+  $SizeCopyWith<Size> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $SizeOptionCopyWith<$Res> {
-  factory $SizeOptionCopyWith(
-          SizeOption value, $Res Function(SizeOption) then) =
-      _$SizeOptionCopyWithImpl<$Res, SizeOption>;
+abstract class $SizeCopyWith<$Res> {
+  factory $SizeCopyWith(Size value, $Res Function(Size) then) =
+      _$SizeCopyWithImpl<$Res, Size>;
   @useResult
   $Res call(
-      {@JsonKey(name: 'value') String? value,
-      @JsonKey(name: 'price') double? price});
+      {@JsonKey(name: 'size') String? size,
+      @JsonKey(name: 'stock') int? stock,
+      @JsonKey(name: 'price') int? price,
+      @JsonKey(name: 'sku') String? sku,
+      @JsonKey(name: 'width') String? width,
+      @JsonKey(name: 'height') String? height,
+      @JsonKey(name: 'weight') String? weight});
 }
 
 /// @nodoc
-class _$SizeOptionCopyWithImpl<$Res, $Val extends SizeOption>
-    implements $SizeOptionCopyWith<$Res> {
-  _$SizeOptionCopyWithImpl(this._value, this._then);
+class _$SizeCopyWithImpl<$Res, $Val extends Size>
+    implements $SizeCopyWith<$Res> {
+  _$SizeCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -2166,217 +2731,108 @@ class _$SizeOptionCopyWithImpl<$Res, $Val extends SizeOption>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? value = freezed,
+    Object? size = freezed,
+    Object? stock = freezed,
     Object? price = freezed,
+    Object? sku = freezed,
+    Object? width = freezed,
+    Object? height = freezed,
+    Object? weight = freezed,
   }) {
     return _then(_value.copyWith(
-      value: freezed == value
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
+      size: freezed == size
+          ? _value.size
+          : size // ignore: cast_nullable_to_non_nullable
               as String?,
+      stock: freezed == stock
+          ? _value.stock
+          : stock // ignore: cast_nullable_to_non_nullable
+              as int?,
       price: freezed == price
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as int?,
+      sku: freezed == sku
+          ? _value.sku
+          : sku // ignore: cast_nullable_to_non_nullable
+              as String?,
+      width: freezed == width
+          ? _value.width
+          : width // ignore: cast_nullable_to_non_nullable
+              as String?,
+      height: freezed == height
+          ? _value.height
+          : height // ignore: cast_nullable_to_non_nullable
+              as String?,
+      weight: freezed == weight
+          ? _value.weight
+          : weight // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$_SizeOptionCopyWith<$Res>
-    implements $SizeOptionCopyWith<$Res> {
-  factory _$$_SizeOptionCopyWith(
-          _$_SizeOption value, $Res Function(_$_SizeOption) then) =
-      __$$_SizeOptionCopyWithImpl<$Res>;
+abstract class _$$_SizeCopyWith<$Res> implements $SizeCopyWith<$Res> {
+  factory _$$_SizeCopyWith(_$_Size value, $Res Function(_$_Size) then) =
+      __$$_SizeCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: 'value') String? value,
-      @JsonKey(name: 'price') double? price});
+      {@JsonKey(name: 'size') String? size,
+      @JsonKey(name: 'stock') int? stock,
+      @JsonKey(name: 'price') int? price,
+      @JsonKey(name: 'sku') String? sku,
+      @JsonKey(name: 'width') String? width,
+      @JsonKey(name: 'height') String? height,
+      @JsonKey(name: 'weight') String? weight});
 }
 
 /// @nodoc
-class __$$_SizeOptionCopyWithImpl<$Res>
-    extends _$SizeOptionCopyWithImpl<$Res, _$_SizeOption>
-    implements _$$_SizeOptionCopyWith<$Res> {
-  __$$_SizeOptionCopyWithImpl(
-      _$_SizeOption _value, $Res Function(_$_SizeOption) _then)
+class __$$_SizeCopyWithImpl<$Res> extends _$SizeCopyWithImpl<$Res, _$_Size>
+    implements _$$_SizeCopyWith<$Res> {
+  __$$_SizeCopyWithImpl(_$_Size _value, $Res Function(_$_Size) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? value = freezed,
+    Object? size = freezed,
+    Object? stock = freezed,
     Object? price = freezed,
+    Object? sku = freezed,
+    Object? width = freezed,
+    Object? height = freezed,
+    Object? weight = freezed,
   }) {
-    return _then(_$_SizeOption(
-      value: freezed == value
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
+    return _then(_$_Size(
+      size: freezed == size
+          ? _value.size
+          : size // ignore: cast_nullable_to_non_nullable
               as String?,
+      stock: freezed == stock
+          ? _value.stock
+          : stock // ignore: cast_nullable_to_non_nullable
+              as int?,
       price: freezed == price
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
-              as double?,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$_SizeOption implements _SizeOption {
-  const _$_SizeOption(
-      {@JsonKey(name: 'value') required this.value,
-      @JsonKey(name: 'price') required this.price});
-
-  factory _$_SizeOption.fromJson(Map<String, dynamic> json) =>
-      _$$_SizeOptionFromJson(json);
-
-  @override
-  @JsonKey(name: 'value')
-  final String? value;
-  @override
-  @JsonKey(name: 'price')
-  final double? price;
-
-  @override
-  String toString() {
-    return 'SizeOption(value: $value, price: $price)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_SizeOption &&
-            (identical(other.value, value) || other.value == value) &&
-            (identical(other.price, price) || other.price == price));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, value, price);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$_SizeOptionCopyWith<_$_SizeOption> get copyWith =>
-      __$$_SizeOptionCopyWithImpl<_$_SizeOption>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$_SizeOptionToJson(
-      this,
-    );
-  }
-}
-
-abstract class _SizeOption implements SizeOption {
-  const factory _SizeOption(
-      {@JsonKey(name: 'value') required final String? value,
-      @JsonKey(name: 'price') required final double? price}) = _$_SizeOption;
-
-  factory _SizeOption.fromJson(Map<String, dynamic> json) =
-      _$_SizeOption.fromJson;
-
-  @override
-  @JsonKey(name: 'value')
-  String? get value;
-  @override
-  @JsonKey(name: 'price')
-  double? get price;
-  @override
-  @JsonKey(ignore: true)
-  _$$_SizeOptionCopyWith<_$_SizeOption> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-Meta _$MetaFromJson(Map<String, dynamic> json) {
-  return _Meta.fromJson(json);
-}
-
-/// @nodoc
-mixin _$Meta {
-  @JsonKey(name: 'key')
-  String? get key => throw _privateConstructorUsedError;
-  @JsonKey(name: 'value')
-  String? get value => throw _privateConstructorUsedError;
-
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $MetaCopyWith<Meta> get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $MetaCopyWith<$Res> {
-  factory $MetaCopyWith(Meta value, $Res Function(Meta) then) =
-      _$MetaCopyWithImpl<$Res, Meta>;
-  @useResult
-  $Res call(
-      {@JsonKey(name: 'key') String? key,
-      @JsonKey(name: 'value') String? value});
-}
-
-/// @nodoc
-class _$MetaCopyWithImpl<$Res, $Val extends Meta>
-    implements $MetaCopyWith<$Res> {
-  _$MetaCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? key = freezed,
-    Object? value = freezed,
-  }) {
-    return _then(_value.copyWith(
-      key: freezed == key
-          ? _value.key
-          : key // ignore: cast_nullable_to_non_nullable
+              as int?,
+      sku: freezed == sku
+          ? _value.sku
+          : sku // ignore: cast_nullable_to_non_nullable
               as String?,
-      value: freezed == value
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
+      width: freezed == width
+          ? _value.width
+          : width // ignore: cast_nullable_to_non_nullable
               as String?,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$_MetaCopyWith<$Res> implements $MetaCopyWith<$Res> {
-  factory _$$_MetaCopyWith(_$_Meta value, $Res Function(_$_Meta) then) =
-      __$$_MetaCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {@JsonKey(name: 'key') String? key,
-      @JsonKey(name: 'value') String? value});
-}
-
-/// @nodoc
-class __$$_MetaCopyWithImpl<$Res> extends _$MetaCopyWithImpl<$Res, _$_Meta>
-    implements _$$_MetaCopyWith<$Res> {
-  __$$_MetaCopyWithImpl(_$_Meta _value, $Res Function(_$_Meta) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? key = freezed,
-    Object? value = freezed,
-  }) {
-    return _then(_$_Meta(
-      key: freezed == key
-          ? _value.key
-          : key // ignore: cast_nullable_to_non_nullable
+      height: freezed == height
+          ? _value.height
+          : height // ignore: cast_nullable_to_non_nullable
               as String?,
-      value: freezed == value
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
+      weight: freezed == weight
+          ? _value.weight
+          : weight // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -2384,68 +2840,114 @@ class __$$_MetaCopyWithImpl<$Res> extends _$MetaCopyWithImpl<$Res, _$_Meta>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Meta implements _Meta {
-  const _$_Meta(
-      {@JsonKey(name: 'key') required this.key,
-      @JsonKey(name: 'value') required this.value});
+class _$_Size implements _Size {
+  const _$_Size(
+      {@JsonKey(name: 'size') required this.size,
+      @JsonKey(name: 'stock') required this.stock,
+      @JsonKey(name: 'price') required this.price,
+      @JsonKey(name: 'sku') required this.sku,
+      @JsonKey(name: 'width') required this.width,
+      @JsonKey(name: 'height') required this.height,
+      @JsonKey(name: 'weight') required this.weight});
 
-  factory _$_Meta.fromJson(Map<String, dynamic> json) => _$$_MetaFromJson(json);
+  factory _$_Size.fromJson(Map<String, dynamic> json) => _$$_SizeFromJson(json);
 
   @override
-  @JsonKey(name: 'key')
-  final String? key;
+  @JsonKey(name: 'size')
+  final String? size;
   @override
-  @JsonKey(name: 'value')
-  final String? value;
+  @JsonKey(name: 'stock')
+  final int? stock;
+  @override
+  @JsonKey(name: 'price')
+  final int? price;
+  @override
+  @JsonKey(name: 'sku')
+  final String? sku;
+  @override
+  @JsonKey(name: 'width')
+  final String? width;
+  @override
+  @JsonKey(name: 'height')
+  final String? height;
+  @override
+  @JsonKey(name: 'weight')
+  final String? weight;
 
   @override
   String toString() {
-    return 'Meta(key: $key, value: $value)';
+    return 'Size(size: $size, stock: $stock, price: $price, sku: $sku, width: $width, height: $height, weight: $weight)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Meta &&
-            (identical(other.key, key) || other.key == key) &&
-            (identical(other.value, value) || other.value == value));
+            other is _$_Size &&
+            (identical(other.size, size) || other.size == size) &&
+            (identical(other.stock, stock) || other.stock == stock) &&
+            (identical(other.price, price) || other.price == price) &&
+            (identical(other.sku, sku) || other.sku == sku) &&
+            (identical(other.width, width) || other.width == width) &&
+            (identical(other.height, height) || other.height == height) &&
+            (identical(other.weight, weight) || other.weight == weight));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, key, value);
+  int get hashCode =>
+      Object.hash(runtimeType, size, stock, price, sku, width, height, weight);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_MetaCopyWith<_$_Meta> get copyWith =>
-      __$$_MetaCopyWithImpl<_$_Meta>(this, _$identity);
+  _$$_SizeCopyWith<_$_Size> get copyWith =>
+      __$$_SizeCopyWithImpl<_$_Size>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_MetaToJson(
+    return _$$_SizeToJson(
       this,
     );
   }
 }
 
-abstract class _Meta implements Meta {
-  const factory _Meta(
-      {@JsonKey(name: 'key') required final String? key,
-      @JsonKey(name: 'value') required final String? value}) = _$_Meta;
+abstract class _Size implements Size {
+  const factory _Size(
+      {@JsonKey(name: 'size') required final String? size,
+      @JsonKey(name: 'stock') required final int? stock,
+      @JsonKey(name: 'price') required final int? price,
+      @JsonKey(name: 'sku') required final String? sku,
+      @JsonKey(name: 'width') required final String? width,
+      @JsonKey(name: 'height') required final String? height,
+      @JsonKey(name: 'weight') required final String? weight}) = _$_Size;
 
-  factory _Meta.fromJson(Map<String, dynamic> json) = _$_Meta.fromJson;
+  factory _Size.fromJson(Map<String, dynamic> json) = _$_Size.fromJson;
 
   @override
-  @JsonKey(name: 'key')
-  String? get key;
+  @JsonKey(name: 'size')
+  String? get size;
   @override
-  @JsonKey(name: 'value')
-  String? get value;
+  @JsonKey(name: 'stock')
+  int? get stock;
+  @override
+  @JsonKey(name: 'price')
+  int? get price;
+  @override
+  @JsonKey(name: 'sku')
+  String? get sku;
+  @override
+  @JsonKey(name: 'width')
+  String? get width;
+  @override
+  @JsonKey(name: 'height')
+  String? get height;
+  @override
+  @JsonKey(name: 'weight')
+  String? get weight;
   @override
   @JsonKey(ignore: true)
-  _$$_MetaCopyWith<_$_Meta> get copyWith => throw _privateConstructorUsedError;
+  _$$_SizeCopyWith<_$_Size> get copyWith => throw _privateConstructorUsedError;
 }
 
 Address _$AddressFromJson(Map<String, dynamic> json) {

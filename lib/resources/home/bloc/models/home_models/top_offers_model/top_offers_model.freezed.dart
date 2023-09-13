@@ -370,7 +370,7 @@ BannerItem _$BannerItemFromJson(Map<String, dynamic> json) {
 mixin _$BannerItem {
   @JsonKey(name: "_id")
   String get id => throw _privateConstructorUsedError;
-  SubCategoryId get subCategoryId => throw _privateConstructorUsedError;
+  SubCategoryId? get subCategoryId => throw _privateConstructorUsedError;
   String get subCategoryName => throw _privateConstructorUsedError;
   String get image => throw _privateConstructorUsedError;
   int? get discount => throw _privateConstructorUsedError;
@@ -392,7 +392,7 @@ abstract class $BannerItemCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: "_id") String id,
-      SubCategoryId subCategoryId,
+      SubCategoryId? subCategoryId,
       String subCategoryName,
       String image,
       int? discount,
@@ -400,7 +400,7 @@ abstract class $BannerItemCopyWith<$Res> {
       String createdAt,
       String updatedAt});
 
-  $SubCategoryIdCopyWith<$Res> get subCategoryId;
+  $SubCategoryIdCopyWith<$Res>? get subCategoryId;
 }
 
 /// @nodoc
@@ -417,7 +417,7 @@ class _$BannerItemCopyWithImpl<$Res, $Val extends BannerItem>
   @override
   $Res call({
     Object? id = null,
-    Object? subCategoryId = null,
+    Object? subCategoryId = freezed,
     Object? subCategoryName = null,
     Object? image = null,
     Object? discount = freezed,
@@ -430,10 +430,10 @@ class _$BannerItemCopyWithImpl<$Res, $Val extends BannerItem>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      subCategoryId: null == subCategoryId
+      subCategoryId: freezed == subCategoryId
           ? _value.subCategoryId
           : subCategoryId // ignore: cast_nullable_to_non_nullable
-              as SubCategoryId,
+              as SubCategoryId?,
       subCategoryName: null == subCategoryName
           ? _value.subCategoryName
           : subCategoryName // ignore: cast_nullable_to_non_nullable
@@ -463,8 +463,12 @@ class _$BannerItemCopyWithImpl<$Res, $Val extends BannerItem>
 
   @override
   @pragma('vm:prefer-inline')
-  $SubCategoryIdCopyWith<$Res> get subCategoryId {
-    return $SubCategoryIdCopyWith<$Res>(_value.subCategoryId, (value) {
+  $SubCategoryIdCopyWith<$Res>? get subCategoryId {
+    if (_value.subCategoryId == null) {
+      return null;
+    }
+
+    return $SubCategoryIdCopyWith<$Res>(_value.subCategoryId!, (value) {
       return _then(_value.copyWith(subCategoryId: value) as $Val);
     });
   }
@@ -480,7 +484,7 @@ abstract class _$$_BannerItemCopyWith<$Res>
   @useResult
   $Res call(
       {@JsonKey(name: "_id") String id,
-      SubCategoryId subCategoryId,
+      SubCategoryId? subCategoryId,
       String subCategoryName,
       String image,
       int? discount,
@@ -489,7 +493,7 @@ abstract class _$$_BannerItemCopyWith<$Res>
       String updatedAt});
 
   @override
-  $SubCategoryIdCopyWith<$Res> get subCategoryId;
+  $SubCategoryIdCopyWith<$Res>? get subCategoryId;
 }
 
 /// @nodoc
@@ -504,7 +508,7 @@ class __$$_BannerItemCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
-    Object? subCategoryId = null,
+    Object? subCategoryId = freezed,
     Object? subCategoryName = null,
     Object? image = null,
     Object? discount = freezed,
@@ -517,10 +521,10 @@ class __$$_BannerItemCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      subCategoryId: null == subCategoryId
+      subCategoryId: freezed == subCategoryId
           ? _value.subCategoryId
           : subCategoryId // ignore: cast_nullable_to_non_nullable
-              as SubCategoryId,
+              as SubCategoryId?,
       subCategoryName: null == subCategoryName
           ? _value.subCategoryName
           : subCategoryName // ignore: cast_nullable_to_non_nullable
@@ -554,7 +558,7 @@ class __$$_BannerItemCopyWithImpl<$Res>
 class _$_BannerItem implements _BannerItem {
   const _$_BannerItem(
       {@JsonKey(name: "_id") required this.id,
-      required this.subCategoryId,
+      this.subCategoryId,
       required this.subCategoryName,
       required this.image,
       this.discount,
@@ -569,7 +573,7 @@ class _$_BannerItem implements _BannerItem {
   @JsonKey(name: "_id")
   final String id;
   @override
-  final SubCategoryId subCategoryId;
+  final SubCategoryId? subCategoryId;
   @override
   final String subCategoryName;
   @override
@@ -630,7 +634,7 @@ class _$_BannerItem implements _BannerItem {
 abstract class _BannerItem implements BannerItem {
   const factory _BannerItem(
       {@JsonKey(name: "_id") required final String id,
-      required final SubCategoryId subCategoryId,
+      final SubCategoryId? subCategoryId,
       required final String subCategoryName,
       required final String image,
       final int? discount,
@@ -645,7 +649,7 @@ abstract class _BannerItem implements BannerItem {
   @JsonKey(name: "_id")
   String get id;
   @override
-  SubCategoryId get subCategoryId;
+  SubCategoryId? get subCategoryId;
   @override
   String get subCategoryName;
   @override
@@ -834,7 +838,7 @@ class __$$_SubCategoryIdCopyWithImpl<$Res>
 class _$_SubCategoryId implements _SubCategoryId {
   const _$_SubCategoryId(
       {@JsonKey(name: '_id') required this.id,
-      required this.categoryId,
+      this.categoryId,
       required this.title,
       required this.image,
       required this.createdAt,
@@ -900,7 +904,7 @@ class _$_SubCategoryId implements _SubCategoryId {
 abstract class _SubCategoryId implements SubCategoryId {
   const factory _SubCategoryId(
       {@JsonKey(name: '_id') required final String id,
-      required final CategoryId? categoryId,
+      final CategoryId? categoryId,
       required final String title,
       required final String image,
       required final String createdAt,

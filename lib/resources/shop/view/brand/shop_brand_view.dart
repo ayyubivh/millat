@@ -42,7 +42,7 @@ class ShopBrandView extends StatelessWidget {
   Widget _brandsListPart() {
     return BlocBuilder<ShopProductsBloc, ShopProductsState>(
       builder: (context, state) {
-        if (state.topBrandsModel?.result.data == null) {
+        if (state.topBrandsModel?.result?.data == null) {
           return const SizedBox();
         }
         return Column(
@@ -50,18 +50,18 @@ class ShopBrandView extends StatelessWidget {
             ListView.builder(
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
-              itemCount: state.topBrandsModel!.result.data.topBrands.length,
+              itemCount: state.topBrandsModel!.result?.data?.length,
               itemBuilder: (context, index) {
-                final data =
-                    state.topBrandsModel!.result.data.topBrands[index].brandId;
+                final data = state.topBrandsModel!.result?.data?[index];
+
                 return GestureDetector(
                   onTap: () {
-                    print("here is the id ${data.id}");
                     Navigator.of(context).push(MaterialPageRoute(
                       builder: (context) => SingleBrandView(passValue: data),
                     ));
                   },
-                  child: brandTileContainer(context, data),
+                  child: brandTileContainer(
+                      context, state.topBrandsModel!.result!.data![index]),
                 );
               },
             ),
@@ -96,20 +96,20 @@ class ShopBrandView extends StatelessWidget {
           padding: const EdgeInsets.all(1),
           child: BlocBuilder<ShopProductsBloc, ShopProductsState>(
             builder: (context, state) {
-              if (state.topBrandsModel?.result.data == null) {
+              if (state.topBrandsModel?.result?.data == null) {
                 return const Loader();
               }
               return GridView.builder(
-                itemCount: state.topBrandsModel!.result.data.topBrands.length,
+                itemCount: state.topBrandsModel!.result?.data?.length,
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 4,
                   mainAxisSpacing: 4,
                 ),
                 itemBuilder: (context, index) {
-                  final data = state
-                      .topBrandsModel?.result.data.topBrands[index].brandId;
+                  final data = state.topBrandsModel?.result?.data?[index];
                   return GestureDetector(
                     onTap: () {
+                      print("here is the id ${data?.subCategory?[0]}");
                       Navigator.of(context).push(MaterialPageRoute(
                         builder: (context) => SingleBrandView(passValue: data),
                       ));
@@ -125,11 +125,11 @@ class ShopBrandView extends StatelessWidget {
                               color: ColorManager.whiteColor,
                               borderRadius: BorderRadius.circular(8),
                             ),
-                            child: data?.image != null
-                                ? Image.network(data!.image!)
+                            child: data?.logo != null
+                                ? Image.network(data!.logo!)
                                 : const Icon(
                                     Icons.image_not_supported_outlined)),
-                        // kHeight10,
+                        kHeight10,
                         Text(
                           data?.name ?? "",
                           style: const TextStyle(
@@ -243,7 +243,7 @@ class ShopBrandView extends StatelessWidget {
     );
   }
 
-  Widget brandTileContainer(BuildContext context, Brand data) {
+  Widget brandTileContainer(BuildContext context, Data data) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 10),
       child: Column(
@@ -258,7 +258,7 @@ class ShopBrandView extends StatelessWidget {
               borderRadius: BorderRadius.circular(21),
               child: Stack(
                 children: [
-                  data.coverImage == null
+                  data.coverImage == null || data.coverImage!.isEmpty
                       ? Container(
                           height: 209,
                           width: double.infinity,
@@ -299,7 +299,7 @@ class ShopBrandView extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            data.name,
+                            data.brandName ?? "",
                             style: TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.w600,
@@ -342,9 +342,9 @@ class ShopBrandView extends StatelessWidget {
                           shape: BoxShape.circle),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(30),
-                        child: data.image == null
+                        child: data.logo == null
                             ? const Icon(Icons.image_not_supported_outlined)
-                            : Image.network(data.image!),
+                            : Image.network(data.logo!),
                       ),
                     ),
                   )

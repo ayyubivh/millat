@@ -2,6 +2,7 @@
 
 import 'dart:io';
 
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -162,12 +163,41 @@ class _HomeViewState extends State<HomeView> {
                             children: [
                               Row(
                                 children: [
-                                  Text(Appstrings.assalamuAlaikum,
-                                      style: TextStyle(
-                                        color: ColorManager.whiteColor,
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w500,
-                                      )),
+                                  // Text(
+                                  //           Appstrings.assalamuAlaikum,
+                                  //           key:
+                                  //               const ValueKey<String>('text1'),
+                                  //           style: TextStyle(
+                                  //             color: ColorManager.whiteColor,
+                                  //             fontSize: 16,
+                                  //             fontWeight: FontWeight.w500,
+                                  //           ),
+                                  //         ),
+                                  AnimatedSwitcher(
+                                    duration:
+                                        const Duration(milliseconds: 1000),
+                                    child: scrollNotifier.value == false
+                                        ? Text(
+                                            Appstrings.assalamuAlaikum,
+                                            key:
+                                                const ValueKey<String>('text1'),
+                                            style: TextStyle(
+                                              color: ColorManager.whiteColor,
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.w500,
+                                            ),
+                                          )
+                                        : Text(
+                                            Appstrings.assalamuAlaikum,
+                                            key:
+                                                const ValueKey<String>('text2'),
+                                            style: TextStyle(
+                                              color: ColorManager.whiteColor,
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.w500,
+                                            ),
+                                          ),
+                                  ),
 
                                   const Spacer(),
                                   GestureDetector(
@@ -202,17 +232,38 @@ class _HomeViewState extends State<HomeView> {
                                       top: scrollNotifier.value == true
                                           ? 28
                                           : 24),
-                                  child: Text(
-                                      state.authUserModel?.result?.user?.name ??
-                                          "",
-                                      style: TextStyle(
-                                        color: ColorManager.whiteColor,
-                                        fontSize: 15,
-                                        fontWeight: FontWeight.w500,
-                                      )),
+                                  child: AnimatedSwitcher(
+                                    duration:
+                                        const Duration(milliseconds: 1000),
+                                    child: scrollNotifier.value == false
+                                        ? Text(
+                                            state.authUserModel?.result?.user
+                                                    ?.name ??
+                                                "",
+                                            key:
+                                                const ValueKey<String>('text1'),
+                                            style: TextStyle(
+                                              color: ColorManager.whiteColor,
+                                              fontSize: 15,
+                                              fontWeight: FontWeight.w500,
+                                            ))
+                                        : Text(
+                                            state.authUserModel?.result?.user
+                                                    ?.name ??
+                                                "",
+                                            key:
+                                                const ValueKey<String>('text2'),
+                                            style: TextStyle(
+                                              color: ColorManager.whiteColor,
+                                              fontSize: 15,
+                                              fontWeight: FontWeight.w500,
+                                            )),
+                                  ),
                                 ),
                               ),
-                              Padding(
+                              AnimatedContainer(
+                                curve: Curves.decelerate,
+                                duration: const Duration(milliseconds: 1000),
                                 padding: EdgeInsets.only(
                                     left: 55,
                                     top:
@@ -491,29 +542,29 @@ class _HomeViewState extends State<HomeView> {
               height: 100,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
-                itemCount: state.topOffersModel!.result.banners.length,
+                itemCount: state.topOffersModel?.result.banners.length,
                 itemExtent: 95,
                 itemBuilder: (context, index) {
-                  final data = state.topOffersModel!.result.banners[index];
+                  final data = state.topOffersModel?.result.banners[index];
                   return GestureDetector(
                     onTap: () {
                       Navigator.of(context).push(MaterialPageRoute(
                         builder: (context) => CategoriesView(
-                            category: data.subCategoryId.title,
-                            subCategory: data.subCategoryName,
+                            category: data?.subCategoryId?.title,
+                            subCategory: data?.subCategoryName,
                             type: FilterType.category),
                       ));
                     },
                     child: Column(
                       children: [
                         Image.network(
-                          data.image,
+                          data?.image ?? "",
                           height: 75,
                           width: 75,
                         ),
                         kHeight5,
                         Text(
-                          data.subCategoryName,
+                          data?.subCategoryName ?? "",
                           style: const TextStyle(
                             fontSize: 15,
                             fontWeight: FontWeight.w500,
@@ -686,7 +737,7 @@ class _HomeViewState extends State<HomeView> {
                   itemBuilder: (context, index) {
                     final banner =
                         state.largeDiscountModel!.result!.banners[index];
-                    final subCategoryIdTitle = banner.subCategoryId!.title;
+                    final subCategoryIdTitle = banner.subCategoryId?.title;
                     final subCategoryName = banner.subCategoryName;
                     return GestureDetector(
                       onTap: () {
@@ -1636,7 +1687,7 @@ class _HomeViewState extends State<HomeView> {
             GestureDetector(
               onTap: () {
                 Share.share(
-                  "Salam ! I'm your true friend It's ${context.read<NamazTimingBloc>().state.currentNamaz?['name'] ?? ""} time. Don't miss your fazar salah. It will help you to do better in duniya & akhirah.To always be on time for salah install our app (link) This app is 100% add free. Yay! Install Now",
+                  "Salam ! I'm your true friend It's ${context.read<NamazTimingBloc>().state.currentNamaz?['name'] ?? ""} time. Don't miss your  ${context.read<NamazTimingBloc>().state.currentNamaz?['name'] ?? ""} salah. It will help you to do better in duniya & akhirah To always be on time for salah install our app (link) This app is 100% add free. Yay! Install Now",
                 );
               },
               child: const Row(

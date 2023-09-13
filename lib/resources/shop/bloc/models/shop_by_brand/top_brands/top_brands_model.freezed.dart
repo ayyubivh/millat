@@ -20,10 +20,10 @@ TopBrandsModel _$TopBrandsModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$TopBrandsModel {
-  int get status => throw _privateConstructorUsedError;
-  String get message => throw _privateConstructorUsedError;
-  String get error => throw _privateConstructorUsedError;
-  Result get result => throw _privateConstructorUsedError;
+  int? get status => throw _privateConstructorUsedError;
+  String? get message => throw _privateConstructorUsedError;
+  String? get error => throw _privateConstructorUsedError;
+  Result? get result => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -37,9 +37,9 @@ abstract class $TopBrandsModelCopyWith<$Res> {
           TopBrandsModel value, $Res Function(TopBrandsModel) then) =
       _$TopBrandsModelCopyWithImpl<$Res, TopBrandsModel>;
   @useResult
-  $Res call({int status, String message, String error, Result result});
+  $Res call({int? status, String? message, String? error, Result? result});
 
-  $ResultCopyWith<$Res> get result;
+  $ResultCopyWith<$Res>? get result;
 }
 
 /// @nodoc
@@ -55,35 +55,39 @@ class _$TopBrandsModelCopyWithImpl<$Res, $Val extends TopBrandsModel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? status = null,
-    Object? message = null,
-    Object? error = null,
-    Object? result = null,
+    Object? status = freezed,
+    Object? message = freezed,
+    Object? error = freezed,
+    Object? result = freezed,
   }) {
     return _then(_value.copyWith(
-      status: null == status
+      status: freezed == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as int,
-      message: null == message
+              as int?,
+      message: freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
-              as String,
-      error: null == error
+              as String?,
+      error: freezed == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
-              as String,
-      result: null == result
+              as String?,
+      result: freezed == result
           ? _value.result
           : result // ignore: cast_nullable_to_non_nullable
-              as Result,
+              as Result?,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $ResultCopyWith<$Res> get result {
-    return $ResultCopyWith<$Res>(_value.result, (value) {
+  $ResultCopyWith<$Res>? get result {
+    if (_value.result == null) {
+      return null;
+    }
+
+    return $ResultCopyWith<$Res>(_value.result!, (value) {
       return _then(_value.copyWith(result: value) as $Val);
     });
   }
@@ -97,10 +101,10 @@ abstract class _$$_TopBrandsModelCopyWith<$Res>
       __$$_TopBrandsModelCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int status, String message, String error, Result result});
+  $Res call({int? status, String? message, String? error, Result? result});
 
   @override
-  $ResultCopyWith<$Res> get result;
+  $ResultCopyWith<$Res>? get result;
 }
 
 /// @nodoc
@@ -114,28 +118,28 @@ class __$$_TopBrandsModelCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? status = null,
-    Object? message = null,
-    Object? error = null,
-    Object? result = null,
+    Object? status = freezed,
+    Object? message = freezed,
+    Object? error = freezed,
+    Object? result = freezed,
   }) {
     return _then(_$_TopBrandsModel(
-      status: null == status
+      status: freezed == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as int,
-      message: null == message
+              as int?,
+      message: freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
-              as String,
-      error: null == error
+              as String?,
+      error: freezed == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
-              as String,
-      result: null == result
+              as String?,
+      result: freezed == result
           ? _value.result
           : result // ignore: cast_nullable_to_non_nullable
-              as Result,
+              as Result?,
     ));
   }
 }
@@ -153,13 +157,13 @@ class _$_TopBrandsModel implements _TopBrandsModel {
       _$$_TopBrandsModelFromJson(json);
 
   @override
-  final int status;
+  final int? status;
   @override
-  final String message;
+  final String? message;
   @override
-  final String error;
+  final String? error;
   @override
-  final Result result;
+  final Result? result;
 
   @override
   String toString() {
@@ -197,22 +201,22 @@ class _$_TopBrandsModel implements _TopBrandsModel {
 
 abstract class _TopBrandsModel implements TopBrandsModel {
   const factory _TopBrandsModel(
-      {required final int status,
-      required final String message,
-      required final String error,
-      required final Result result}) = _$_TopBrandsModel;
+      {required final int? status,
+      required final String? message,
+      required final String? error,
+      required final Result? result}) = _$_TopBrandsModel;
 
   factory _TopBrandsModel.fromJson(Map<String, dynamic> json) =
       _$_TopBrandsModel.fromJson;
 
   @override
-  int get status;
+  int? get status;
   @override
-  String get message;
+  String? get message;
   @override
-  String get error;
+  String? get error;
   @override
-  Result get result;
+  Result? get result;
   @override
   @JsonKey(ignore: true)
   _$$_TopBrandsModelCopyWith<_$_TopBrandsModel> get copyWith =>
@@ -225,7 +229,7 @@ Result _$ResultFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Result {
-  Data get data => throw _privateConstructorUsedError;
+  List<Data>? get data => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -237,9 +241,7 @@ abstract class $ResultCopyWith<$Res> {
   factory $ResultCopyWith(Result value, $Res Function(Result) then) =
       _$ResultCopyWithImpl<$Res, Result>;
   @useResult
-  $Res call({Data data});
-
-  $DataCopyWith<$Res> get data;
+  $Res call({List<Data>? data});
 }
 
 /// @nodoc
@@ -255,22 +257,14 @@ class _$ResultCopyWithImpl<$Res, $Val extends Result>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = null,
+    Object? data = freezed,
   }) {
     return _then(_value.copyWith(
-      data: null == data
+      data: freezed == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as Data,
+              as List<Data>?,
     ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $DataCopyWith<$Res> get data {
-    return $DataCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value) as $Val);
-    });
   }
 }
 
@@ -280,10 +274,7 @@ abstract class _$$_ResultCopyWith<$Res> implements $ResultCopyWith<$Res> {
       __$$_ResultCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Data data});
-
-  @override
-  $DataCopyWith<$Res> get data;
+  $Res call({List<Data>? data});
 }
 
 /// @nodoc
@@ -296,13 +287,13 @@ class __$$_ResultCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = null,
+    Object? data = freezed,
   }) {
     return _then(_$_Result(
-      data: null == data
-          ? _value.data
+      data: freezed == data
+          ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
-              as Data,
+              as List<Data>?,
     ));
   }
 }
@@ -310,13 +301,20 @@ class __$$_ResultCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Result implements _Result {
-  const _$_Result({required this.data});
+  const _$_Result({required final List<Data>? data}) : _data = data;
 
   factory _$_Result.fromJson(Map<String, dynamic> json) =>
       _$$_ResultFromJson(json);
 
+  final List<Data>? _data;
   @override
-  final Data data;
+  List<Data>? get data {
+    final value = _data;
+    if (value == null) return null;
+    if (_data is EqualUnmodifiableListView) return _data;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
 
   @override
   String toString() {
@@ -328,12 +326,13 @@ class _$_Result implements _Result {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Result &&
-            (identical(other.data, data) || other.data == data));
+            const DeepCollectionEquality().equals(other._data, _data));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, data);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_data));
 
   @JsonKey(ignore: true)
   @override
@@ -350,12 +349,12 @@ class _$_Result implements _Result {
 }
 
 abstract class _Result implements Result {
-  const factory _Result({required final Data data}) = _$_Result;
+  const factory _Result({required final List<Data>? data}) = _$_Result;
 
   factory _Result.fromJson(Map<String, dynamic> json) = _$_Result.fromJson;
 
   @override
-  Data get data;
+  List<Data>? get data;
   @override
   @JsonKey(ignore: true)
   _$$_ResultCopyWith<_$_Result> get copyWith =>
@@ -369,10 +368,34 @@ Data _$DataFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Data {
   @JsonKey(name: "_id")
-  String get id => throw _privateConstructorUsedError;
-  List<TopBrand> get topBrands => throw _privateConstructorUsedError;
-  String get createdAt => throw _privateConstructorUsedError;
-  String get updatedAt => throw _privateConstructorUsedError;
+  String? get id => throw _privateConstructorUsedError;
+  String? get role => throw _privateConstructorUsedError;
+  String? get name => throw _privateConstructorUsedError;
+  String? get email => throw _privateConstructorUsedError;
+  String? get password => throw _privateConstructorUsedError;
+  @JsonKey(name: "isActive")
+  bool? get active => throw _privateConstructorUsedError;
+  int? get phoneNumber => throw _privateConstructorUsedError;
+  String? get logo => throw _privateConstructorUsedError;
+  String? get coverImage => throw _privateConstructorUsedError;
+  String? get description => throw _privateConstructorUsedError;
+  @JsonKey(name: "cityName")
+  String? get cityName => throw _privateConstructorUsedError;
+  @JsonKey(name: "brandName")
+  String? get brandName => throw _privateConstructorUsedError;
+  @JsonKey(name: "companyName")
+  String? get companyName => throw _privateConstructorUsedError;
+  @JsonKey(name: "companyRegYear")
+  String? get companyRegYear => throw _privateConstructorUsedError;
+  @JsonKey(name: "revenueOfLastThreeMonths")
+  int? get revenueOfLastThreeMonths => throw _privateConstructorUsedError;
+  String? get category => throw _privateConstructorUsedError;
+  @JsonKey(name: "subCategory")
+  List<String>? get subCategory => throw _privateConstructorUsedError;
+  String? get GST => throw _privateConstructorUsedError;
+  String? get otp => throw _privateConstructorUsedError;
+  String? get createdAt => throw _privateConstructorUsedError;
+  String? get updatedAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -385,10 +408,27 @@ abstract class $DataCopyWith<$Res> {
       _$DataCopyWithImpl<$Res, Data>;
   @useResult
   $Res call(
-      {@JsonKey(name: "_id") String id,
-      List<TopBrand> topBrands,
-      String createdAt,
-      String updatedAt});
+      {@JsonKey(name: "_id") String? id,
+      String? role,
+      String? name,
+      String? email,
+      String? password,
+      @JsonKey(name: "isActive") bool? active,
+      int? phoneNumber,
+      String? logo,
+      String? coverImage,
+      String? description,
+      @JsonKey(name: "cityName") String? cityName,
+      @JsonKey(name: "brandName") String? brandName,
+      @JsonKey(name: "companyName") String? companyName,
+      @JsonKey(name: "companyRegYear") String? companyRegYear,
+      @JsonKey(name: "revenueOfLastThreeMonths") int? revenueOfLastThreeMonths,
+      String? category,
+      @JsonKey(name: "subCategory") List<String>? subCategory,
+      String? GST,
+      String? otp,
+      String? createdAt,
+      String? updatedAt});
 }
 
 /// @nodoc
@@ -404,28 +444,113 @@ class _$DataCopyWithImpl<$Res, $Val extends Data>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
-    Object? topBrands = null,
-    Object? createdAt = null,
-    Object? updatedAt = null,
+    Object? id = freezed,
+    Object? role = freezed,
+    Object? name = freezed,
+    Object? email = freezed,
+    Object? password = freezed,
+    Object? active = freezed,
+    Object? phoneNumber = freezed,
+    Object? logo = freezed,
+    Object? coverImage = freezed,
+    Object? description = freezed,
+    Object? cityName = freezed,
+    Object? brandName = freezed,
+    Object? companyName = freezed,
+    Object? companyRegYear = freezed,
+    Object? revenueOfLastThreeMonths = freezed,
+    Object? category = freezed,
+    Object? subCategory = freezed,
+    Object? GST = freezed,
+    Object? otp = freezed,
+    Object? createdAt = freezed,
+    Object? updatedAt = freezed,
   }) {
     return _then(_value.copyWith(
-      id: null == id
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      topBrands: null == topBrands
-          ? _value.topBrands
-          : topBrands // ignore: cast_nullable_to_non_nullable
-              as List<TopBrand>,
-      createdAt: null == createdAt
+              as String?,
+      role: freezed == role
+          ? _value.role
+          : role // ignore: cast_nullable_to_non_nullable
+              as String?,
+      name: freezed == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      email: freezed == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String?,
+      password: freezed == password
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as String?,
+      active: freezed == active
+          ? _value.active
+          : active // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      phoneNumber: freezed == phoneNumber
+          ? _value.phoneNumber
+          : phoneNumber // ignore: cast_nullable_to_non_nullable
+              as int?,
+      logo: freezed == logo
+          ? _value.logo
+          : logo // ignore: cast_nullable_to_non_nullable
+              as String?,
+      coverImage: freezed == coverImage
+          ? _value.coverImage
+          : coverImage // ignore: cast_nullable_to_non_nullable
+              as String?,
+      description: freezed == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String?,
+      cityName: freezed == cityName
+          ? _value.cityName
+          : cityName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      brandName: freezed == brandName
+          ? _value.brandName
+          : brandName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      companyName: freezed == companyName
+          ? _value.companyName
+          : companyName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      companyRegYear: freezed == companyRegYear
+          ? _value.companyRegYear
+          : companyRegYear // ignore: cast_nullable_to_non_nullable
+              as String?,
+      revenueOfLastThreeMonths: freezed == revenueOfLastThreeMonths
+          ? _value.revenueOfLastThreeMonths
+          : revenueOfLastThreeMonths // ignore: cast_nullable_to_non_nullable
+              as int?,
+      category: freezed == category
+          ? _value.category
+          : category // ignore: cast_nullable_to_non_nullable
+              as String?,
+      subCategory: freezed == subCategory
+          ? _value.subCategory
+          : subCategory // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+      GST: freezed == GST
+          ? _value.GST
+          : GST // ignore: cast_nullable_to_non_nullable
+              as String?,
+      otp: freezed == otp
+          ? _value.otp
+          : otp // ignore: cast_nullable_to_non_nullable
+              as String?,
+      createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as String,
-      updatedAt: null == updatedAt
+              as String?,
+      updatedAt: freezed == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ) as $Val);
   }
 }
@@ -437,10 +562,27 @@ abstract class _$$_DataCopyWith<$Res> implements $DataCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: "_id") String id,
-      List<TopBrand> topBrands,
-      String createdAt,
-      String updatedAt});
+      {@JsonKey(name: "_id") String? id,
+      String? role,
+      String? name,
+      String? email,
+      String? password,
+      @JsonKey(name: "isActive") bool? active,
+      int? phoneNumber,
+      String? logo,
+      String? coverImage,
+      String? description,
+      @JsonKey(name: "cityName") String? cityName,
+      @JsonKey(name: "brandName") String? brandName,
+      @JsonKey(name: "companyName") String? companyName,
+      @JsonKey(name: "companyRegYear") String? companyRegYear,
+      @JsonKey(name: "revenueOfLastThreeMonths") int? revenueOfLastThreeMonths,
+      String? category,
+      @JsonKey(name: "subCategory") List<String>? subCategory,
+      String? GST,
+      String? otp,
+      String? createdAt,
+      String? updatedAt});
 }
 
 /// @nodoc
@@ -452,28 +594,113 @@ class __$$_DataCopyWithImpl<$Res> extends _$DataCopyWithImpl<$Res, _$_Data>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
-    Object? topBrands = null,
-    Object? createdAt = null,
-    Object? updatedAt = null,
+    Object? id = freezed,
+    Object? role = freezed,
+    Object? name = freezed,
+    Object? email = freezed,
+    Object? password = freezed,
+    Object? active = freezed,
+    Object? phoneNumber = freezed,
+    Object? logo = freezed,
+    Object? coverImage = freezed,
+    Object? description = freezed,
+    Object? cityName = freezed,
+    Object? brandName = freezed,
+    Object? companyName = freezed,
+    Object? companyRegYear = freezed,
+    Object? revenueOfLastThreeMonths = freezed,
+    Object? category = freezed,
+    Object? subCategory = freezed,
+    Object? GST = freezed,
+    Object? otp = freezed,
+    Object? createdAt = freezed,
+    Object? updatedAt = freezed,
   }) {
     return _then(_$_Data(
-      id: null == id
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      topBrands: null == topBrands
-          ? _value._topBrands
-          : topBrands // ignore: cast_nullable_to_non_nullable
-              as List<TopBrand>,
-      createdAt: null == createdAt
+              as String?,
+      role: freezed == role
+          ? _value.role
+          : role // ignore: cast_nullable_to_non_nullable
+              as String?,
+      name: freezed == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      email: freezed == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String?,
+      password: freezed == password
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as String?,
+      active: freezed == active
+          ? _value.active
+          : active // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      phoneNumber: freezed == phoneNumber
+          ? _value.phoneNumber
+          : phoneNumber // ignore: cast_nullable_to_non_nullable
+              as int?,
+      logo: freezed == logo
+          ? _value.logo
+          : logo // ignore: cast_nullable_to_non_nullable
+              as String?,
+      coverImage: freezed == coverImage
+          ? _value.coverImage
+          : coverImage // ignore: cast_nullable_to_non_nullable
+              as String?,
+      description: freezed == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String?,
+      cityName: freezed == cityName
+          ? _value.cityName
+          : cityName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      brandName: freezed == brandName
+          ? _value.brandName
+          : brandName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      companyName: freezed == companyName
+          ? _value.companyName
+          : companyName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      companyRegYear: freezed == companyRegYear
+          ? _value.companyRegYear
+          : companyRegYear // ignore: cast_nullable_to_non_nullable
+              as String?,
+      revenueOfLastThreeMonths: freezed == revenueOfLastThreeMonths
+          ? _value.revenueOfLastThreeMonths
+          : revenueOfLastThreeMonths // ignore: cast_nullable_to_non_nullable
+              as int?,
+      category: freezed == category
+          ? _value.category
+          : category // ignore: cast_nullable_to_non_nullable
+              as String?,
+      subCategory: freezed == subCategory
+          ? _value._subCategory
+          : subCategory // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+      GST: freezed == GST
+          ? _value.GST
+          : GST // ignore: cast_nullable_to_non_nullable
+              as String?,
+      otp: freezed == otp
+          ? _value.otp
+          : otp // ignore: cast_nullable_to_non_nullable
+              as String?,
+      createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as String,
-      updatedAt: null == updatedAt
+              as String?,
+      updatedAt: freezed == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -483,32 +710,93 @@ class __$$_DataCopyWithImpl<$Res> extends _$DataCopyWithImpl<$Res, _$_Data>
 class _$_Data implements _Data {
   const _$_Data(
       {@JsonKey(name: "_id") required this.id,
-      required final List<TopBrand> topBrands,
+      required this.role,
+      required this.name,
+      required this.email,
+      required this.password,
+      @JsonKey(name: "isActive") required this.active,
+      required this.phoneNumber,
+      required this.logo,
+      required this.coverImage,
+      required this.description,
+      @JsonKey(name: "cityName") required this.cityName,
+      @JsonKey(name: "brandName") required this.brandName,
+      @JsonKey(name: "companyName") required this.companyName,
+      @JsonKey(name: "companyRegYear") required this.companyRegYear,
+      @JsonKey(name: "revenueOfLastThreeMonths")
+      required this.revenueOfLastThreeMonths,
+      required this.category,
+      @JsonKey(name: "subCategory") required final List<String>? subCategory,
+      required this.GST,
+      required this.otp,
       required this.createdAt,
       required this.updatedAt})
-      : _topBrands = topBrands;
+      : _subCategory = subCategory;
 
   factory _$_Data.fromJson(Map<String, dynamic> json) => _$$_DataFromJson(json);
 
   @override
   @JsonKey(name: "_id")
-  final String id;
-  final List<TopBrand> _topBrands;
+  final String? id;
   @override
-  List<TopBrand> get topBrands {
-    if (_topBrands is EqualUnmodifiableListView) return _topBrands;
+  final String? role;
+  @override
+  final String? name;
+  @override
+  final String? email;
+  @override
+  final String? password;
+  @override
+  @JsonKey(name: "isActive")
+  final bool? active;
+  @override
+  final int? phoneNumber;
+  @override
+  final String? logo;
+  @override
+  final String? coverImage;
+  @override
+  final String? description;
+  @override
+  @JsonKey(name: "cityName")
+  final String? cityName;
+  @override
+  @JsonKey(name: "brandName")
+  final String? brandName;
+  @override
+  @JsonKey(name: "companyName")
+  final String? companyName;
+  @override
+  @JsonKey(name: "companyRegYear")
+  final String? companyRegYear;
+  @override
+  @JsonKey(name: "revenueOfLastThreeMonths")
+  final int? revenueOfLastThreeMonths;
+  @override
+  final String? category;
+  final List<String>? _subCategory;
+  @override
+  @JsonKey(name: "subCategory")
+  List<String>? get subCategory {
+    final value = _subCategory;
+    if (value == null) return null;
+    if (_subCategory is EqualUnmodifiableListView) return _subCategory;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_topBrands);
+    return EqualUnmodifiableListView(value);
   }
 
   @override
-  final String createdAt;
+  final String? GST;
   @override
-  final String updatedAt;
+  final String? otp;
+  @override
+  final String? createdAt;
+  @override
+  final String? updatedAt;
 
   @override
   String toString() {
-    return 'Data(id: $id, topBrands: $topBrands, createdAt: $createdAt, updatedAt: $updatedAt)';
+    return 'Data(id: $id, role: $role, name: $name, email: $email, password: $password, active: $active, phoneNumber: $phoneNumber, logo: $logo, coverImage: $coverImage, description: $description, cityName: $cityName, brandName: $brandName, companyName: $companyName, companyRegYear: $companyRegYear, revenueOfLastThreeMonths: $revenueOfLastThreeMonths, category: $category, subCategory: $subCategory, GST: $GST, otp: $otp, createdAt: $createdAt, updatedAt: $updatedAt)';
   }
 
   @override
@@ -517,8 +805,36 @@ class _$_Data implements _Data {
         (other.runtimeType == runtimeType &&
             other is _$_Data &&
             (identical(other.id, id) || other.id == id) &&
+            (identical(other.role, role) || other.role == role) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.email, email) || other.email == email) &&
+            (identical(other.password, password) ||
+                other.password == password) &&
+            (identical(other.active, active) || other.active == active) &&
+            (identical(other.phoneNumber, phoneNumber) ||
+                other.phoneNumber == phoneNumber) &&
+            (identical(other.logo, logo) || other.logo == logo) &&
+            (identical(other.coverImage, coverImage) ||
+                other.coverImage == coverImage) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
+            (identical(other.cityName, cityName) ||
+                other.cityName == cityName) &&
+            (identical(other.brandName, brandName) ||
+                other.brandName == brandName) &&
+            (identical(other.companyName, companyName) ||
+                other.companyName == companyName) &&
+            (identical(other.companyRegYear, companyRegYear) ||
+                other.companyRegYear == companyRegYear) &&
+            (identical(
+                    other.revenueOfLastThreeMonths, revenueOfLastThreeMonths) ||
+                other.revenueOfLastThreeMonths == revenueOfLastThreeMonths) &&
+            (identical(other.category, category) ||
+                other.category == category) &&
             const DeepCollectionEquality()
-                .equals(other._topBrands, _topBrands) &&
+                .equals(other._subCategory, _subCategory) &&
+            (identical(other.GST, GST) || other.GST == GST) &&
+            (identical(other.otp, otp) || other.otp == otp) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
             (identical(other.updatedAt, updatedAt) ||
@@ -527,8 +843,30 @@ class _$_Data implements _Data {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id,
-      const DeepCollectionEquality().hash(_topBrands), createdAt, updatedAt);
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        id,
+        role,
+        name,
+        email,
+        password,
+        active,
+        phoneNumber,
+        logo,
+        coverImage,
+        description,
+        cityName,
+        brandName,
+        companyName,
+        companyRegYear,
+        revenueOfLastThreeMonths,
+        category,
+        const DeepCollectionEquality().hash(_subCategory),
+        GST,
+        otp,
+        createdAt,
+        updatedAt
+      ]);
 
   @JsonKey(ignore: true)
   @override
@@ -546,590 +884,82 @@ class _$_Data implements _Data {
 
 abstract class _Data implements Data {
   const factory _Data(
-      {@JsonKey(name: "_id") required final String id,
-      required final List<TopBrand> topBrands,
-      required final String createdAt,
-      required final String updatedAt}) = _$_Data;
+      {@JsonKey(name: "_id") required final String? id,
+      required final String? role,
+      required final String? name,
+      required final String? email,
+      required final String? password,
+      @JsonKey(name: "isActive") required final bool? active,
+      required final int? phoneNumber,
+      required final String? logo,
+      required final String? coverImage,
+      required final String? description,
+      @JsonKey(name: "cityName") required final String? cityName,
+      @JsonKey(name: "brandName") required final String? brandName,
+      @JsonKey(name: "companyName") required final String? companyName,
+      @JsonKey(name: "companyRegYear") required final String? companyRegYear,
+      @JsonKey(name: "revenueOfLastThreeMonths")
+      required final int? revenueOfLastThreeMonths,
+      required final String? category,
+      @JsonKey(name: "subCategory") required final List<String>? subCategory,
+      required final String? GST,
+      required final String? otp,
+      required final String? createdAt,
+      required final String? updatedAt}) = _$_Data;
 
   factory _Data.fromJson(Map<String, dynamic> json) = _$_Data.fromJson;
 
   @override
   @JsonKey(name: "_id")
-  String get id;
+  String? get id;
   @override
-  List<TopBrand> get topBrands;
+  String? get role;
   @override
-  String get createdAt;
+  String? get name;
   @override
-  String get updatedAt;
+  String? get email;
   @override
-  @JsonKey(ignore: true)
-  _$$_DataCopyWith<_$_Data> get copyWith => throw _privateConstructorUsedError;
-}
-
-TopBrand _$TopBrandFromJson(Map<String, dynamic> json) {
-  return _TopBrand.fromJson(json);
-}
-
-/// @nodoc
-mixin _$TopBrand {
-  Brand get brandId => throw _privateConstructorUsedError;
-  @JsonKey(name: "_id")
-  String get id => throw _privateConstructorUsedError;
-
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $TopBrandCopyWith<TopBrand> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $TopBrandCopyWith<$Res> {
-  factory $TopBrandCopyWith(TopBrand value, $Res Function(TopBrand) then) =
-      _$TopBrandCopyWithImpl<$Res, TopBrand>;
-  @useResult
-  $Res call({Brand brandId, @JsonKey(name: "_id") String id});
-
-  $BrandCopyWith<$Res> get brandId;
-}
-
-/// @nodoc
-class _$TopBrandCopyWithImpl<$Res, $Val extends TopBrand>
-    implements $TopBrandCopyWith<$Res> {
-  _$TopBrandCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
+  String? get password;
   @override
-  $Res call({
-    Object? brandId = null,
-    Object? id = null,
-  }) {
-    return _then(_value.copyWith(
-      brandId: null == brandId
-          ? _value.brandId
-          : brandId // ignore: cast_nullable_to_non_nullable
-              as Brand,
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
-
+  @JsonKey(name: "isActive")
+  bool? get active;
   @override
-  @pragma('vm:prefer-inline')
-  $BrandCopyWith<$Res> get brandId {
-    return $BrandCopyWith<$Res>(_value.brandId, (value) {
-      return _then(_value.copyWith(brandId: value) as $Val);
-    });
-  }
-}
-
-/// @nodoc
-abstract class _$$_TopBrandCopyWith<$Res> implements $TopBrandCopyWith<$Res> {
-  factory _$$_TopBrandCopyWith(
-          _$_TopBrand value, $Res Function(_$_TopBrand) then) =
-      __$$_TopBrandCopyWithImpl<$Res>;
+  int? get phoneNumber;
   @override
-  @useResult
-  $Res call({Brand brandId, @JsonKey(name: "_id") String id});
-
-  @override
-  $BrandCopyWith<$Res> get brandId;
-}
-
-/// @nodoc
-class __$$_TopBrandCopyWithImpl<$Res>
-    extends _$TopBrandCopyWithImpl<$Res, _$_TopBrand>
-    implements _$$_TopBrandCopyWith<$Res> {
-  __$$_TopBrandCopyWithImpl(
-      _$_TopBrand _value, $Res Function(_$_TopBrand) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? brandId = null,
-    Object? id = null,
-  }) {
-    return _then(_$_TopBrand(
-      brandId: null == brandId
-          ? _value.brandId
-          : brandId // ignore: cast_nullable_to_non_nullable
-              as Brand,
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$_TopBrand implements _TopBrand {
-  const _$_TopBrand(
-      {required this.brandId, @JsonKey(name: "_id") required this.id});
-
-  factory _$_TopBrand.fromJson(Map<String, dynamic> json) =>
-      _$$_TopBrandFromJson(json);
-
-  @override
-  final Brand brandId;
-  @override
-  @JsonKey(name: "_id")
-  final String id;
-
-  @override
-  String toString() {
-    return 'TopBrand(brandId: $brandId, id: $id)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_TopBrand &&
-            (identical(other.brandId, brandId) || other.brandId == brandId) &&
-            (identical(other.id, id) || other.id == id));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, brandId, id);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$_TopBrandCopyWith<_$_TopBrand> get copyWith =>
-      __$$_TopBrandCopyWithImpl<_$_TopBrand>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$_TopBrandToJson(
-      this,
-    );
-  }
-}
-
-abstract class _TopBrand implements TopBrand {
-  const factory _TopBrand(
-      {required final Brand brandId,
-      @JsonKey(name: "_id") required final String id}) = _$_TopBrand;
-
-  factory _TopBrand.fromJson(Map<String, dynamic> json) = _$_TopBrand.fromJson;
-
-  @override
-  Brand get brandId;
-  @override
-  @JsonKey(name: "_id")
-  String get id;
-  @override
-  @JsonKey(ignore: true)
-  _$$_TopBrandCopyWith<_$_TopBrand> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-Brand _$BrandFromJson(Map<String, dynamic> json) {
-  return _Brand.fromJson(json);
-}
-
-/// @nodoc
-mixin _$Brand {
-  @JsonKey(name: "_id")
-  String get id => throw _privateConstructorUsedError;
-  String get name => throw _privateConstructorUsedError;
-  String get email => throw _privateConstructorUsedError;
-  String get password => throw _privateConstructorUsedError;
-  String get roles => throw _privateConstructorUsedError;
-  bool get active => throw _privateConstructorUsedError;
-  String get createdAt => throw _privateConstructorUsedError;
-  String get updatedAt => throw _privateConstructorUsedError;
-  String? get otp => throw _privateConstructorUsedError;
-  @JsonKey(name: "phone_number")
-  String? get phoneNumber => throw _privateConstructorUsedError;
-  String? get description => throw _privateConstructorUsedError;
-  String? get image => throw _privateConstructorUsedError;
-  String? get coverImage => throw _privateConstructorUsedError;
-
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $BrandCopyWith<Brand> get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $BrandCopyWith<$Res> {
-  factory $BrandCopyWith(Brand value, $Res Function(Brand) then) =
-      _$BrandCopyWithImpl<$Res, Brand>;
-  @useResult
-  $Res call(
-      {@JsonKey(name: "_id") String id,
-      String name,
-      String email,
-      String password,
-      String roles,
-      bool active,
-      String createdAt,
-      String updatedAt,
-      String? otp,
-      @JsonKey(name: "phone_number") String? phoneNumber,
-      String? description,
-      String? image,
-      String? coverImage});
-}
-
-/// @nodoc
-class _$BrandCopyWithImpl<$Res, $Val extends Brand>
-    implements $BrandCopyWith<$Res> {
-  _$BrandCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-    Object? name = null,
-    Object? email = null,
-    Object? password = null,
-    Object? roles = null,
-    Object? active = null,
-    Object? createdAt = null,
-    Object? updatedAt = null,
-    Object? otp = freezed,
-    Object? phoneNumber = freezed,
-    Object? description = freezed,
-    Object? image = freezed,
-    Object? coverImage = freezed,
-  }) {
-    return _then(_value.copyWith(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      email: null == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String,
-      password: null == password
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
-              as String,
-      roles: null == roles
-          ? _value.roles
-          : roles // ignore: cast_nullable_to_non_nullable
-              as String,
-      active: null == active
-          ? _value.active
-          : active // ignore: cast_nullable_to_non_nullable
-              as bool,
-      createdAt: null == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as String,
-      updatedAt: null == updatedAt
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
-              as String,
-      otp: freezed == otp
-          ? _value.otp
-          : otp // ignore: cast_nullable_to_non_nullable
-              as String?,
-      phoneNumber: freezed == phoneNumber
-          ? _value.phoneNumber
-          : phoneNumber // ignore: cast_nullable_to_non_nullable
-              as String?,
-      description: freezed == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String?,
-      image: freezed == image
-          ? _value.image
-          : image // ignore: cast_nullable_to_non_nullable
-              as String?,
-      coverImage: freezed == coverImage
-          ? _value.coverImage
-          : coverImage // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$_BrandCopyWith<$Res> implements $BrandCopyWith<$Res> {
-  factory _$$_BrandCopyWith(_$_Brand value, $Res Function(_$_Brand) then) =
-      __$$_BrandCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {@JsonKey(name: "_id") String id,
-      String name,
-      String email,
-      String password,
-      String roles,
-      bool active,
-      String createdAt,
-      String updatedAt,
-      String? otp,
-      @JsonKey(name: "phone_number") String? phoneNumber,
-      String? description,
-      String? image,
-      String? coverImage});
-}
-
-/// @nodoc
-class __$$_BrandCopyWithImpl<$Res> extends _$BrandCopyWithImpl<$Res, _$_Brand>
-    implements _$$_BrandCopyWith<$Res> {
-  __$$_BrandCopyWithImpl(_$_Brand _value, $Res Function(_$_Brand) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-    Object? name = null,
-    Object? email = null,
-    Object? password = null,
-    Object? roles = null,
-    Object? active = null,
-    Object? createdAt = null,
-    Object? updatedAt = null,
-    Object? otp = freezed,
-    Object? phoneNumber = freezed,
-    Object? description = freezed,
-    Object? image = freezed,
-    Object? coverImage = freezed,
-  }) {
-    return _then(_$_Brand(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      email: null == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String,
-      password: null == password
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
-              as String,
-      roles: null == roles
-          ? _value.roles
-          : roles // ignore: cast_nullable_to_non_nullable
-              as String,
-      active: null == active
-          ? _value.active
-          : active // ignore: cast_nullable_to_non_nullable
-              as bool,
-      createdAt: null == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as String,
-      updatedAt: null == updatedAt
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
-              as String,
-      otp: freezed == otp
-          ? _value.otp
-          : otp // ignore: cast_nullable_to_non_nullable
-              as String?,
-      phoneNumber: freezed == phoneNumber
-          ? _value.phoneNumber
-          : phoneNumber // ignore: cast_nullable_to_non_nullable
-              as String?,
-      description: freezed == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String?,
-      image: freezed == image
-          ? _value.image
-          : image // ignore: cast_nullable_to_non_nullable
-              as String?,
-      coverImage: freezed == coverImage
-          ? _value.coverImage
-          : coverImage // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$_Brand implements _Brand {
-  const _$_Brand(
-      {@JsonKey(name: "_id") required this.id,
-      required this.name,
-      required this.email,
-      required this.password,
-      required this.roles,
-      required this.active,
-      required this.createdAt,
-      required this.updatedAt,
-      this.otp,
-      @JsonKey(name: "phone_number") this.phoneNumber,
-      this.description,
-      this.image,
-      this.coverImage});
-
-  factory _$_Brand.fromJson(Map<String, dynamic> json) =>
-      _$$_BrandFromJson(json);
-
-  @override
-  @JsonKey(name: "_id")
-  final String id;
-  @override
-  final String name;
-  @override
-  final String email;
-  @override
-  final String password;
-  @override
-  final String roles;
-  @override
-  final bool active;
-  @override
-  final String createdAt;
-  @override
-  final String updatedAt;
-  @override
-  final String? otp;
-  @override
-  @JsonKey(name: "phone_number")
-  final String? phoneNumber;
-  @override
-  final String? description;
-  @override
-  final String? image;
-  @override
-  final String? coverImage;
-
-  @override
-  String toString() {
-    return 'Brand(id: $id, name: $name, email: $email, password: $password, roles: $roles, active: $active, createdAt: $createdAt, updatedAt: $updatedAt, otp: $otp, phoneNumber: $phoneNumber, description: $description, image: $image, coverImage: $coverImage)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_Brand &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.email, email) || other.email == email) &&
-            (identical(other.password, password) ||
-                other.password == password) &&
-            (identical(other.roles, roles) || other.roles == roles) &&
-            (identical(other.active, active) || other.active == active) &&
-            (identical(other.createdAt, createdAt) ||
-                other.createdAt == createdAt) &&
-            (identical(other.updatedAt, updatedAt) ||
-                other.updatedAt == updatedAt) &&
-            (identical(other.otp, otp) || other.otp == otp) &&
-            (identical(other.phoneNumber, phoneNumber) ||
-                other.phoneNumber == phoneNumber) &&
-            (identical(other.description, description) ||
-                other.description == description) &&
-            (identical(other.image, image) || other.image == image) &&
-            (identical(other.coverImage, coverImage) ||
-                other.coverImage == coverImage));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      id,
-      name,
-      email,
-      password,
-      roles,
-      active,
-      createdAt,
-      updatedAt,
-      otp,
-      phoneNumber,
-      description,
-      image,
-      coverImage);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$_BrandCopyWith<_$_Brand> get copyWith =>
-      __$$_BrandCopyWithImpl<_$_Brand>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$_BrandToJson(
-      this,
-    );
-  }
-}
-
-abstract class _Brand implements Brand {
-  const factory _Brand(
-      {@JsonKey(name: "_id") required final String id,
-      required final String name,
-      required final String email,
-      required final String password,
-      required final String roles,
-      required final bool active,
-      required final String createdAt,
-      required final String updatedAt,
-      final String? otp,
-      @JsonKey(name: "phone_number") final String? phoneNumber,
-      final String? description,
-      final String? image,
-      final String? coverImage}) = _$_Brand;
-
-  factory _Brand.fromJson(Map<String, dynamic> json) = _$_Brand.fromJson;
-
-  @override
-  @JsonKey(name: "_id")
-  String get id;
-  @override
-  String get name;
-  @override
-  String get email;
-  @override
-  String get password;
-  @override
-  String get roles;
-  @override
-  bool get active;
-  @override
-  String get createdAt;
-  @override
-  String get updatedAt;
-  @override
-  String? get otp;
-  @override
-  @JsonKey(name: "phone_number")
-  String? get phoneNumber;
-  @override
-  String? get description;
-  @override
-  String? get image;
+  String? get logo;
   @override
   String? get coverImage;
   @override
+  String? get description;
+  @override
+  @JsonKey(name: "cityName")
+  String? get cityName;
+  @override
+  @JsonKey(name: "brandName")
+  String? get brandName;
+  @override
+  @JsonKey(name: "companyName")
+  String? get companyName;
+  @override
+  @JsonKey(name: "companyRegYear")
+  String? get companyRegYear;
+  @override
+  @JsonKey(name: "revenueOfLastThreeMonths")
+  int? get revenueOfLastThreeMonths;
+  @override
+  String? get category;
+  @override
+  @JsonKey(name: "subCategory")
+  List<String>? get subCategory;
+  @override
+  String? get GST;
+  @override
+  String? get otp;
+  @override
+  String? get createdAt;
+  @override
+  String? get updatedAt;
+  @override
   @JsonKey(ignore: true)
-  _$$_BrandCopyWith<_$_Brand> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$_DataCopyWith<_$_Data> get copyWith => throw _privateConstructorUsedError;
 }

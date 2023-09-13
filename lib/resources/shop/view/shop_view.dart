@@ -90,11 +90,11 @@ class _ShopViewState extends State<ShopView> {
                   kHeight15,
                   BlocBuilder<ShopProductsBloc, ShopProductsState>(
                     builder: (context, state) {
-                      if (state
-                              .shopHomeBackgroundCardModelWomens?.result.data ==
-                          null) {
-                        return const Loader();
-                      }
+                      // if (state
+                      //         .shopHomeBackgroundCardModelWomens?.result.data ==
+                      //     null) {
+                      //   return const Loader();
+                      // }
 
                       final womenData =
                           state.shopHomeBackgroundCardModelWomens?.result.data;
@@ -106,10 +106,10 @@ class _ShopViewState extends State<ShopView> {
                       final healthyDietSubCategoryData = state
                           .productItemsSubCategoryHealthModel?.result?.items;
                       final sunnahData =
-                          state.shopHomeBackgroundCardModelSunnah?.result.data;
+                          state.shopHomeBackgroundCardModelSunnah?.result?.data;
                       final sunnahSubCategoryData = state
                           .productItemsSubCategorySunnahModel?.result.items;
-
+                      // print("sub category $womenSubCategoryData");
                       return Column(
                         children: [
                           BackgroundContainer(
@@ -122,7 +122,7 @@ class _ShopViewState extends State<ShopView> {
                               ));
                             },
                             width: 205,
-                            title: womenData?.subCategoryId.title ?? "",
+                            title: womenData?.subCategoryId?.title ?? "",
                             imageUrl: womenData?.design.image ?? "",
                             text: womenData?.design.text ?? "",
                             buttonColor: ColorManager.pinkButtonColor,
@@ -131,16 +131,18 @@ class _ShopViewState extends State<ShopView> {
                               ColorManager.pinkGradient1,
                             ],
                             textColor: womenData?.design.color ?? "",
-                            child: shopCardSubcategoryWidget(
-                              state: state,
-                              height: 110,
-                              color: ColorManager.lightPinkClr,
-                              itemCount: womenSubCategoryData?.length ?? 0,
-                              getTitle: (index) =>
-                                  womenSubCategoryData?[index].title ?? '',
-                              getImageUrl: (index) =>
-                                  womenSubCategoryData?[index].image ?? '',
-                            ),
+                            child: womenSubCategoryData == null
+                                ? const SizedBox()
+                                : shopCardSubcategoryWidget(
+                                    state: state,
+                                    height: 110,
+                                    color: ColorManager.lightPinkClr,
+                                    itemCount: womenSubCategoryData.length,
+                                    getTitle: (index) =>
+                                        womenSubCategoryData[index].title,
+                                    getImageUrl: (index) =>
+                                        womenSubCategoryData[index].image,
+                                  ),
                           ),
                           kHeight15,
                           _titleWidget(text: Appstrings.healthyDiet),
@@ -154,28 +156,32 @@ class _ShopViewState extends State<ShopView> {
                                               CategoryItemType.health)));
                             },
                             width: 155,
-                            title: healthyDietData!.subCategoryId.title,
-                            imageUrl: healthyDietData.design.image,
-                            text: healthyDietData.design.text,
+                            title: healthyDietData?.subCategoryId?.title ?? "",
+                            imageUrl: healthyDietData?.design.image ?? "",
+                            text: healthyDietData?.design.text ?? "",
                             buttonColor: ColorManager.healthyDietButtonClr,
                             gradientColors: [
                               ColorManager.helthyDietGradientClr2,
                               ColorManager.helthyDietGradientClr1,
                             ],
-                            textColor: healthyDietData.design.color,
-                            child: shopCardSubcategoryWidget(
-                              state: state,
-                              height: 110,
-                              color: ColorManager.helthyDietGradientClr2,
-                              itemCount:
-                                  healthyDietSubCategoryData?.length ?? 0,
-                              getTitle: (index) =>
-                                  healthyDietSubCategoryData?[index].title ??
-                                  '',
-                              getImageUrl: (index) =>
-                                  healthyDietSubCategoryData?[index].image ??
-                                  '',
-                            ),
+                            textColor: healthyDietData?.design.color ?? "",
+                            child: healthyDietSubCategoryData == null
+                                ? const SizedBox()
+                                : shopCardSubcategoryWidget(
+                                    state: state,
+                                    height: 110,
+                                    color: ColorManager.helthyDietGradientClr2,
+                                    itemCount:
+                                        healthyDietSubCategoryData.length,
+                                    getTitle: (index) =>
+                                        healthyDietSubCategoryData[index]
+                                            .title ??
+                                        '',
+                                    getImageUrl: (index) =>
+                                        healthyDietSubCategoryData[index]
+                                            .image ??
+                                        "",
+                                  ),
                           ),
                           kHeight15,
                           _titleWidget(text: Appstrings.followSunnah),
@@ -187,26 +193,28 @@ class _ShopViewState extends State<ShopView> {
                               ));
                             },
                             cardType: ShopHomeCardtype.sunnah,
-                            title: sunnahData!.subCategoryId.title,
-                            imageUrl: sunnahData.design.image,
-                            text: sunnahData.design.text,
+                            title: sunnahData?.subCategoryId?.title ?? "",
+                            imageUrl: sunnahData?.design?.image ?? "",
+                            text: sunnahData?.design?.text ?? "",
                             buttonColor: ColorManager.whiteColor,
                             width: SizeUtility(context).width,
                             gradientColors: [
                               ColorManager.sunnahGreenClr2,
                               ColorManager.sunnahGreenClr1,
                             ],
-                            textColor: sunnahData.design.color,
-                            child: shopCardSubcategoryWidget(
-                              state: state,
-                              height: 110,
-                              color: ColorManager.whiteColor,
-                              itemCount: sunnahSubCategoryData?.length ?? 0,
-                              getTitle: (index) =>
-                                  sunnahSubCategoryData?[index].title ?? '',
-                              getImageUrl: (index) =>
-                                  sunnahSubCategoryData?[index].image ?? '',
-                            ),
+                            textColor: sunnahData?.design?.color ?? "",
+                            child: sunnahSubCategoryData == null
+                                ? const SizedBox()
+                                : shopCardSubcategoryWidget(
+                                    state: state,
+                                    height: 110,
+                                    color: ColorManager.whiteColor,
+                                    itemCount: sunnahSubCategoryData.length,
+                                    getTitle: (index) =>
+                                        sunnahSubCategoryData[index].title,
+                                    getImageUrl: (index) =>
+                                        sunnahSubCategoryData[index].image,
+                                  ),
                           ),
                         ],
                       );
@@ -270,23 +278,22 @@ class _ShopViewState extends State<ShopView> {
   Widget _brandsWidget() {
     return BlocBuilder<ShopProductsBloc, ShopProductsState>(
       builder: (context, state) {
-        return state.topBrandsModel?.result.data == null
+        return state.topBrandsModel?.result?.data == null
             ? const SizedBox()
             : SizedBox(
                 height: 100,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
-                  itemCount: state.topBrandsModel!.result.data.topBrands.length,
+                  itemCount: state.topBrandsModel!.result!.data!.length,
                   itemBuilder: (BuildContext context, int index) {
-                    final data = state
-                        .topBrandsModel?.result.data.topBrands[index].brandId;
+                    final data = state.topBrandsModel?.result?.data?[index];
                     return GestureDetector(
                       onTap: () {
                         Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) =>
                                 SingleBrandView(passValue: data)));
                       },
-                      child: buildShopbyBrand(data?.image, data?.name ?? ""),
+                      child: buildShopbyBrand(data?.logo, data?.name ?? ""),
                     );
                   },
                 ),
@@ -298,15 +305,15 @@ class _ShopViewState extends State<ShopView> {
   Widget _brandCarouselSliderWidget() {
     return BlocBuilder<ShopProductsBloc, ShopProductsState>(
       builder: (context, state) {
-        if (state.shopAdBrands?.result.data == null) {
+        if (state.shopAdBrands?.result?.data == null) {
           return const SizedBox();
         }
-        final banners = state.shopAdBrands!.result.data;
+        final banners = state.shopAdBrands!.result?.data;
         return Column(
           children: [
             GestureDetector(
               child: CarouselSlider(
-                items: banners.map((banner) {
+                items: banners?.map((banner) {
                   return GestureDetector(
                     onTap: () {
                       Navigator.of(context).push(MaterialPageRoute(
@@ -345,8 +352,8 @@ class _ShopViewState extends State<ShopView> {
                                   radius: 32,
                                   backgroundColor: ColorManager.whiteColor,
                                   child: ClipOval(
-                                      child:
-                                          Image.network(banner.brandId.image)),
+                                      child: Image.network(
+                                          banner.brandId?.logo ?? "")),
                                 ),
                               )
                             ],
@@ -373,7 +380,7 @@ class _ShopViewState extends State<ShopView> {
                                 ),
                                 kWidth8,
                                 Text(
-                                  banner.text,
+                                  banner.text ?? "",
                                   style: const TextStyle(
                                     fontSize: 14,
                                     fontWeight: FontWeight.w600,
@@ -409,7 +416,7 @@ class _ShopViewState extends State<ShopView> {
             BlocBuilder<ShopProductsBloc, ShopProductsState>(
               builder: (context, state) => Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: banners.map((banner) {
+                children: banners!.map((banner) {
                   int index = banners.indexOf(banner);
                   return Container(
                     width: state.brandBannerIndex == index ? 24 : 6,

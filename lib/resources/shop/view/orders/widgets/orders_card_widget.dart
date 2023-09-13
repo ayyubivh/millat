@@ -123,7 +123,7 @@ class OrdersProfileWidget extends StatelessWidget {
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(8),
                                     image: DecorationImage(
-                                        image: NetworkImage(image!)),
+                                        image: NetworkImage(image ?? "")),
                                   ),
                                 ),
                                 const SizedBox(width: 20),

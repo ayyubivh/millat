@@ -34,9 +34,11 @@ class _CheckoutDetailsState extends State<CheckoutDetails> {
   final formkey = GlobalKey<FormState>();
   @override
   void initState() {
-    BlocProvider.of<AddressBloc>(context).add(FetchAddressByIdEvent(
-        context: context,
-        id: context.read<AddressBloc>().state.addressId.toString()));
+    widget.type == AddressNavType.editAddress
+        ? BlocProvider.of<AddressBloc>(context).add(FetchAddressByIdEvent(
+            context: context,
+            id: context.read<AddressBloc>().state.addressId.toString()))
+        : null;
     widget.type == AddressNavType.editAddress ? addFieldVal() : null;
     super.initState();
   }

@@ -2,8 +2,8 @@
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'shop_products_model.freezed.dart';
 part 'shop_products_model.g.dart';
+part 'shop_products_model.freezed.dart';
 
 @freezed
 class ShopProducts with _$ShopProducts {
@@ -33,7 +33,8 @@ class ShopProductCategory with _$ShopProductCategory {
     @JsonKey(name: '_id') required String? id,
     required String? title,
     required String? slug,
-    required List<Products>? products,
+    required List<Product>?
+        products, // Update to use 'Product' instead of 'Products'
     required String? createdAt,
     required String? updatedAt,
   }) = _ShopProductCategory;
@@ -43,28 +44,41 @@ class ShopProductCategory with _$ShopProductCategory {
 }
 
 @freezed
-class Products with _$Products {
-  const factory Products({
+class Product with _$Product {
+  // Define 'Product' class for individual products
+  const factory Product({
     @JsonKey(name: '_id') required String? id,
     required String? title,
     required Brand? brand,
-    required String? description,
-    required String? otherInfo,
     required Category? category,
-    required SubCategory? subcategory,
-    required int? actualPrice,
-    required int? discountPrice,
+    required String? itemType,
+    required String? pickupAddress,
+    required String? description,
+    @JsonKey(name: 'regularPrice') required int? regularPrice,
+    @JsonKey(name: 'salePrice') required int? salePrice,
     required int? discount,
-    required List<Colors>? colors,
+    required String? color,
+    required List<String>? images,
     required List<Size>? size,
-    required List<Meta>? meta,
     required List<String>? keywords,
+    required String? madeFrom,
+    required String? productCareInfo,
     required String? createdAt,
     required String? updatedAt,
-  }) = _Products;
+  }) = _Product;
 
-  factory Products.fromJson(Map<String, dynamic> json) =>
-      _$ProductsFromJson(json);
+  factory Product.fromJson(Map<String, dynamic> json) =>
+      _$ProductFromJson(json);
+}
+
+@freezed
+class Brand with _$Brand {
+  const factory Brand({
+    @JsonKey(name: '_id') required String id,
+    required String? name,
+  }) = _Brand;
+
+  factory Brand.fromJson(Map<String, dynamic> json) => _$BrandFromJson(json);
 }
 
 @freezed
@@ -78,51 +92,16 @@ class Category with _$Category {
 }
 
 @freezed
-class SubCategory with _$SubCategory {
-  const factory SubCategory({
-    required String? title,
-  }) = _SubCategory;
-
-  factory SubCategory.fromJson(Map<String, dynamic> json) =>
-      _$SubCategoryFromJson(json);
-}
-
-@freezed
-class Brand with _$Brand {
-  const factory Brand({
-    @JsonKey(name: "_id") required String id,
-    required String? name,
-  }) = _Brand;
-
-  factory Brand.fromJson(Map<String, dynamic> json) => _$BrandFromJson(json);
-}
-
-@freezed
-class Colors with _$Colors {
-  const factory Colors({
-    required String? text,
-    required List<String>? images,
-  }) = _Colors;
-
-  factory Colors.fromJson(Map<String, dynamic> json) => _$ColorsFromJson(json);
-}
-
-@freezed
 class Size with _$Size {
   const factory Size({
-    required String? value,
+    required String? size,
+    int? stock,
     int? price,
+    String? sku,
+    String? width,
+    String? height,
+    String? weight,
   }) = _Size;
 
   factory Size.fromJson(Map<String, dynamic> json) => _$SizeFromJson(json);
-}
-
-@freezed
-class Meta with _$Meta {
-  const factory Meta({
-    required String? key,
-    required String? value,
-  }) = _Meta;
-
-  factory Meta.fromJson(Map<String, dynamic> json) => _$MetaFromJson(json);
 }

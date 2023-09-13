@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+
 part 'top_offers_model.g.dart';
 part 'top_offers_model.freezed.dart';
 
@@ -29,7 +30,7 @@ class TopOffersResult with _$TopOffersResult {
 class BannerItem with _$BannerItem {
   const factory BannerItem({
     @JsonKey(name: "_id") required String id,
-    required SubCategoryId subCategoryId,
+    SubCategoryId? subCategoryId,
     required String subCategoryName,
     required String image,
     int? discount,
@@ -46,7 +47,7 @@ class BannerItem with _$BannerItem {
 class SubCategoryId with _$SubCategoryId {
   const factory SubCategoryId({
     @JsonKey(name: '_id') required String id,
-    required CategoryId? categoryId,
+    CategoryId? categoryId,
     required String title,
     required String image,
     required String createdAt,

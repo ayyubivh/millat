@@ -9,10 +9,12 @@ part of 'home_sub_category_sunnah_model.dart';
 _$_SunnahProductHomeCardModel _$$_SunnahProductHomeCardModelFromJson(
         Map<String, dynamic> json) =>
     _$_SunnahProductHomeCardModel(
-      status: json['status'] as int,
-      message: json['message'] as String,
-      error: json['error'] as String,
-      result: Result.fromJson(json['result'] as Map<String, dynamic>),
+      status: json['status'] as int?,
+      message: json['message'] as String?,
+      error: json['error'] as String?,
+      result: json['result'] == null
+          ? null
+          : Result.fromJson(json['result'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$_SunnahProductHomeCardModelToJson(
@@ -25,7 +27,9 @@ Map<String, dynamic> _$$_SunnahProductHomeCardModelToJson(
     };
 
 _$_Result _$$_ResultFromJson(Map<String, dynamic> json) => _$_Result(
-      data: Data.fromJson(json['data'] as Map<String, dynamic>),
+      data: json['data'] == null
+          ? null
+          : Data.fromJson(json['data'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$_ResultToJson(_$_Result instance) => <String, dynamic>{
@@ -33,27 +37,32 @@ Map<String, dynamic> _$$_ResultToJson(_$_Result instance) => <String, dynamic>{
     };
 
 _$_Data _$$_DataFromJson(Map<String, dynamic> json) => _$_Data(
-      design: Design.fromJson(json['design'] as Map<String, dynamic>),
-      bigBannerImage: BigBannerImage.fromJson(
-          json['bigBannerImage'] as Map<String, dynamic>),
-      id: json['_id'] as String,
-      slug: json['slug'] as String,
-      sliderImage: (json['sliderImage'] as List<dynamic>)
-          .map((e) => e as String)
+      id: json['_id'] as String?,
+      design: json['design'] == null
+          ? null
+          : Design.fromJson(json['design'] as Map<String, dynamic>),
+      bigBannerImage: json['bigBannerImage'] == null
+          ? null
+          : BigBannerImage.fromJson(
+              json['bigBannerImage'] as Map<String, dynamic>),
+      slug: json['slug'] as String?,
+      sliderImage: (json['sliderImage'] as List<dynamic>?)
+          ?.map((e) => e as String)
           .toList(),
-      smallBannerImage: (json['smallBannerImage'] as List<dynamic>)
-          .map((e) => SmallBannerImage.fromJson(e as Map<String, dynamic>))
+      smallBannerImage: (json['smallBannerImage'] as List<dynamic>?)
+          ?.map((e) => SmallBannerImage.fromJson(e as Map<String, dynamic>))
           .toList(),
-      createdAt: json['createdAt'] as String,
-      updatedAt: json['updatedAt'] as String,
-      subCategoryId:
-          SubCategory.fromJson(json['subCategoryId'] as Map<String, dynamic>),
+      createdAt: json['createdAt'] as String?,
+      updatedAt: json['updatedAt'] as String?,
+      subCategoryId: json['subCategoryId'] == null
+          ? null
+          : SubCategory.fromJson(json['subCategoryId'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$_DataToJson(_$_Data instance) => <String, dynamic>{
+      '_id': instance.id,
       'design': instance.design,
       'bigBannerImage': instance.bigBannerImage,
-      '_id': instance.id,
       'slug': instance.slug,
       'sliderImage': instance.sliderImage,
       'smallBannerImage': instance.smallBannerImage,
@@ -63,11 +72,11 @@ Map<String, dynamic> _$$_DataToJson(_$_Data instance) => <String, dynamic>{
     };
 
 _$_Design _$$_DesignFromJson(Map<String, dynamic> json) => _$_Design(
-      image: json['image'] as String,
-      bgcolor: json['bgcolor'] as String,
-      color: json['color'] as String,
-      text: json['text'] as String,
-      subText: json['subText'] as String,
+      image: json['image'] as String?,
+      bgcolor: json['bgcolor'] as String?,
+      color: json['color'] as String?,
+      text: json['text'] as String?,
+      subText: json['subText'] as String?,
     );
 
 Map<String, dynamic> _$$_DesignToJson(_$_Design instance) => <String, dynamic>{
@@ -80,9 +89,9 @@ Map<String, dynamic> _$$_DesignToJson(_$_Design instance) => <String, dynamic>{
 
 _$_BigBannerImage _$$_BigBannerImageFromJson(Map<String, dynamic> json) =>
     _$_BigBannerImage(
-      imageUrl: json['imageUrl'] as String,
-      url: json['url'] as String,
-      discount: json['discount'] as String,
+      imageUrl: json['imageUrl'] as String?,
+      url: json['url'] as String?,
+      discount: json['discount'] as String?,
     );
 
 Map<String, dynamic> _$$_BigBannerImageToJson(_$_BigBannerImage instance) =>
@@ -94,10 +103,10 @@ Map<String, dynamic> _$$_BigBannerImageToJson(_$_BigBannerImage instance) =>
 
 _$_SmallBannerImage _$$_SmallBannerImageFromJson(Map<String, dynamic> json) =>
     _$_SmallBannerImage(
-      imageUrl: json['imageUrl'] as String,
-      url: json['url'] as String,
-      discount: json['discount'] as String,
-      id: json['_id'] as String,
+      imageUrl: json['imageUrl'] as String?,
+      url: json['url'] as String?,
+      discount: json['discount'] as String?,
+      id: json['_id'] as String?,
     );
 
 Map<String, dynamic> _$$_SmallBannerImageToJson(_$_SmallBannerImage instance) =>
@@ -110,12 +119,12 @@ Map<String, dynamic> _$$_SmallBannerImageToJson(_$_SmallBannerImage instance) =>
 
 _$_SubCategory _$$_SubCategoryFromJson(Map<String, dynamic> json) =>
     _$_SubCategory(
-      id: json['_id'] as String,
-      categoryId: json['categoryId'] as String,
-      title: json['title'] as String,
-      image: json['image'] as String,
-      createdAt: json['createdAt'] as String,
-      updatedAt: json['updatedAt'] as String,
+      id: json['_id'] as String?,
+      categoryId: json['categoryId'] as String?,
+      title: json['title'] as String?,
+      image: json['image'] as String?,
+      createdAt: json['createdAt'] as String?,
+      updatedAt: json['updatedAt'] as String?,
     );
 
 Map<String, dynamic> _$$_SubCategoryToJson(_$_SubCategory instance) =>

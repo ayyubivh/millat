@@ -37,8 +37,10 @@ Map<String, dynamic> _$$_TopOffersResultToJson(_$_TopOffersResult instance) =>
 _$_BannerItem _$$_BannerItemFromJson(Map<String, dynamic> json) =>
     _$_BannerItem(
       id: json['_id'] as String,
-      subCategoryId:
-          SubCategoryId.fromJson(json['subCategoryId'] as Map<String, dynamic>),
+      subCategoryId: json['subCategoryId'] == null
+          ? null
+          : SubCategoryId.fromJson(
+              json['subCategoryId'] as Map<String, dynamic>),
       subCategoryName: json['subCategoryName'] as String,
       image: json['image'] as String,
       discount: json['discount'] as int?,

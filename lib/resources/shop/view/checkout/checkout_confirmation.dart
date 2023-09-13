@@ -129,10 +129,10 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
                               title: data.productId!.title,
                               subTitle: data.productId!.description,
                               size: data.size,
-                              image: data.productId?.colors![0].images![0],
-                              price: data.productId?.discountPrice ?? 0,
+                              image: data.productId?.images![0],
+                              price: data.productId?.salePrice ?? 0,
                               actualPrice:
-                                  data.productId?.actualPrice.toString(),
+                                  data.productId?.regularPrice.toString(),
                               jsonColor: data.color,
                               colorName: data.color,
                               quantity: data.quantity!.toInt(),
@@ -369,7 +369,7 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
             final cartItems = state.cartModel?.result?.cartProducts?.cartItems;
 
             final subTotal = _getTotalPrice(
-              cartItems?.map((e) => e.basePrice).toList(),
+              cartItems?.map((e) => e.sellingPrice).toList(),
               cartItems?.map((e) => e.quantity).toList(),
             );
             const shippingFee = 27;

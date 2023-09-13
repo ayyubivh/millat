@@ -1,5 +1,3 @@
-// ignore_for_file: invalid_annotation_target
-
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'cart_models.freezed.dart';
@@ -21,7 +19,7 @@ class CartModel with _$CartModel {
 @freezed
 class CartResult with _$CartResult {
   const factory CartResult({
-    required CartProduct? cartProducts,
+    required CartProducts? cartProducts,
   }) = _CartResult;
 
   factory CartResult.fromJson(Map<String, dynamic> json) =>
@@ -29,17 +27,17 @@ class CartResult with _$CartResult {
 }
 
 @freezed
-class CartProduct with _$CartProduct {
-  const factory CartProduct({
-    @JsonKey(name: "_id") required String? id,
+class CartProducts with _$CartProducts {
+  const factory CartProducts({
+    @JsonKey(name: '_id') required String? id,
     required String? userId,
     required List<CartItem>? cartItems,
     required String? createdAt,
     required String? updatedAt,
-  }) = _CartProduct;
+  }) = _CartProducts;
 
-  factory CartProduct.fromJson(Map<String, dynamic> json) =>
-      _$CartProductFromJson(json);
+  factory CartProducts.fromJson(Map<String, dynamic> json) =>
+      _$CartProductsFromJson(json);
 }
 
 @freezed
@@ -47,10 +45,11 @@ class CartItem with _$CartItem {
   const factory CartItem({
     required ProductInfo? productId,
     required int? quantity,
-    required int? basePrice,
+    @JsonKey(name: "selling_price") required int? sellingPrice,
+    int? discount,
+    int? tax,
     required String? size,
     required String? color,
-    @JsonKey(name: "selling_price") required int sellingPrice,
   }) = _CartItem;
 
   factory CartItem.fromJson(Map<String, dynamic> json) =>
@@ -60,20 +59,23 @@ class CartItem with _$CartItem {
 @freezed
 class ProductInfo with _$ProductInfo {
   const factory ProductInfo({
-    @JsonKey(name: "_id") required String? id,
+    @JsonKey(name: '_id') String? id,
     String? title,
     String? brand,
-    String? description,
-    String? otherInfo,
     String? category,
     String? subcategory,
-    int? actualPrice,
-    int? discountPrice,
+    String? itemType,
+    String? pickupAddress,
+    String? description,
+    @JsonKey(name: 'regularPrice') int? regularPrice,
+    @JsonKey(name: 'salePrice') int? salePrice,
     int? discount,
-    List<ColorOption>? colors,
-    List<SizeOption>? size,
-    List<MetaInfo>? meta,
+    String? color,
+    List<String>? images,
+    List<Size>? size,
     List<String>? keywords,
+    String? madeFrom,
+    String? productCareInfo,
     String? createdAt,
     String? updatedAt,
   }) = _ProductInfo;
@@ -83,34 +85,16 @@ class ProductInfo with _$ProductInfo {
 }
 
 @freezed
-class ColorOption with _$ColorOption {
-  const factory ColorOption({
-    required String? text,
-    required List<String>? images,
-  }) = _ColorOption;
-
-  factory ColorOption.fromJson(Map<String, dynamic> json) =>
-      _$ColorOptionFromJson(json);
-}
-
-@freezed
-class SizeOption with _$SizeOption {
-  const factory SizeOption({
-    required String? value,
+class Size with _$Size {
+  const factory Size({
+    required String? size,
+    required int? stock,
     required int? price,
-  }) = _SizeOption;
+    required String? sku,
+    @JsonKey(name: 'width') required String? width,
+    required String? height,
+    required String? weight,
+  }) = _Size;
 
-  factory SizeOption.fromJson(Map<String, dynamic> json) =>
-      _$SizeOptionFromJson(json);
-}
-
-@freezed
-class MetaInfo with _$MetaInfo {
-  const factory MetaInfo({
-    required String? key,
-    required String? value,
-  }) = _MetaInfo;
-
-  factory MetaInfo.fromJson(Map<String, dynamic> json) =>
-      _$MetaInfoFromJson(json);
+  factory Size.fromJson(Map<String, dynamic> json) => _$SizeFromJson(json);
 }

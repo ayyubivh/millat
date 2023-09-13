@@ -541,12 +541,12 @@ class __$$_BannerItemCopyWithImpl<$Res>
 class _$_BannerItem implements _BannerItem {
   const _$_BannerItem(
       {@JsonKey(name: '_id') required this.id,
-      required this.subCategoryId,
-      required this.subCategoryName,
-      required this.image,
-      required this.url,
-      required this.createdAt,
-      required this.updatedAt});
+      this.subCategoryId,
+      this.subCategoryName,
+      this.image,
+      this.url,
+      this.createdAt,
+      this.updatedAt});
 
   factory _$_BannerItem.fromJson(Map<String, dynamic> json) =>
       _$$_BannerItemFromJson(json);
@@ -612,12 +612,12 @@ class _$_BannerItem implements _BannerItem {
 abstract class _BannerItem implements BannerItem {
   const factory _BannerItem(
       {@JsonKey(name: '_id') required final String id,
-      required final SubCategory? subCategoryId,
-      required final String? subCategoryName,
-      required final String? image,
-      required final String? url,
-      required final String? createdAt,
-      required final String? updatedAt}) = _$_BannerItem;
+      final SubCategory? subCategoryId,
+      final String? subCategoryName,
+      final String? image,
+      final String? url,
+      final String? createdAt,
+      final String? updatedAt}) = _$_BannerItem;
 
   factory _BannerItem.fromJson(Map<String, dynamic> json) =
       _$_BannerItem.fromJson;
@@ -813,11 +813,11 @@ class __$$_SubCategoryCopyWithImpl<$Res>
 class _$_SubCategory implements _SubCategory {
   const _$_SubCategory(
       {@JsonKey(name: '_id') required this.id,
-      required this.categoryId,
-      required this.title,
-      required this.image,
-      required this.createdAt,
-      required this.updatedAt});
+      this.categoryId,
+      this.title,
+      this.image,
+      this.createdAt,
+      this.updatedAt});
 
   factory _$_SubCategory.fromJson(Map<String, dynamic> json) =>
       _$$_SubCategoryFromJson(json);
@@ -879,11 +879,11 @@ class _$_SubCategory implements _SubCategory {
 abstract class _SubCategory implements SubCategory {
   const factory _SubCategory(
       {@JsonKey(name: '_id') required final String id,
-      required final Category? categoryId,
-      required final String? title,
-      required final String? image,
-      required final String? createdAt,
-      required final String? updatedAt}) = _$_SubCategory;
+      final Category? categoryId,
+      final String? title,
+      final String? image,
+      final String? createdAt,
+      final String? updatedAt}) = _$_SubCategory;
 
   factory _SubCategory.fromJson(Map<String, dynamic> json) =
       _$_SubCategory.fromJson;
@@ -1044,11 +1044,11 @@ class __$$_CategoryCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Category implements _Category {
   const _$_Category(
-      {@JsonKey(name: '_id') required this.id,
-      required this.title,
-      required this.image,
-      required this.createdAt,
-      required this.updatedAt});
+      {@JsonKey(name: '_id') this.id,
+      this.title,
+      this.image,
+      this.createdAt,
+      this.updatedAt});
 
   factory _$_Category.fromJson(Map<String, dynamic> json) =>
       _$$_CategoryFromJson(json);
@@ -1105,11 +1105,11 @@ class _$_Category implements _Category {
 
 abstract class _Category implements Category {
   const factory _Category(
-      {@JsonKey(name: '_id') required final String? id,
-      required final String? title,
-      required final String? image,
-      required final String? createdAt,
-      required final String? updatedAt}) = _$_Category;
+      {@JsonKey(name: '_id') final String? id,
+      final String? title,
+      final String? image,
+      final String? createdAt,
+      final String? updatedAt}) = _$_Category;
 
   factory _Category.fromJson(Map<String, dynamic> json) = _$_Category.fromJson;
 

@@ -45,6 +45,7 @@ class ShopService extends HttpServices {
         print("flash sale products $result");
         return result;
       } catch (e) {
+        debugPrint("error on the fetching flash sale products $e");
         throw Exception('Failed to parse response');
       }
     } else {
@@ -427,7 +428,7 @@ class ShopService extends HttpServices {
   Future<ShopAdBrandsById> fetchAdShopBrandsbyId({required String id}) async {
     final endPoint = "ad_brand/$id";
     final response = await get(endPoint: endPoint);
-
+    // print(id);
     if (response.statusCode == 200) {
       try {
         final Map<String, dynamic> data = json.decode(response.body);
@@ -445,7 +446,7 @@ class ShopService extends HttpServices {
   }
 
   Future<TopBrandsModel> fetchTopBrands() async {
-    const endPoint = "top_brand";
+    const endPoint = "seller";
     final response = await get(endPoint: endPoint);
 
     if (response.statusCode == 200) {
@@ -466,6 +467,27 @@ class ShopService extends HttpServices {
 
   Future<ProductItemsSubCategoryWomenModel>
       fetchProductItemsSubcategoryWomen() async {
+    const endPoint = "item?subcategory=Women";
+    final response = await get(endPoint: endPoint);
+
+    if (response.statusCode == 200) {
+      try {
+        final Map<String, dynamic> data = json.decode(response.body);
+        final result = ProductItemsSubCategoryWomenModel.fromJson(data);
+
+        return result;
+      } catch (e) {
+        print('item subcategory women: ${e.toString()}');
+        throw Exception('Failed to parse response');
+      }
+    } else {
+      throw Exception(
+          'API request failed with status code: ${response.statusCode}');
+    }
+  }
+
+  Future<ProductItemsSubCategoryWomenModel>
+      fetchProductItemsbyCategory() async {
     const endPoint = "item?subcategory=Women";
     final response = await get(endPoint: endPoint);
 

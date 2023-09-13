@@ -69,9 +69,10 @@ class _CartViewState extends State<CartView> {
           final cartItems = state.cartModel?.result?.cartProducts?.cartItems;
 
           final subTotal = _getTotalPrice(
-            cartItems?.map((e) => e.sellingPrice).toList(),
+            cartItems?.map((e) => e.productId?.salePrice).toList(),
             cartItems?.map((e) => e.quantity).toList(),
           );
+
           int shippingFee = cartItems?.length == 0 ? 0 : 27;
 
           final total = subTotal + shippingFee;

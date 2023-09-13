@@ -2,6 +2,7 @@
 
 import 'dart:io';
 
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -162,12 +163,41 @@ class _HomeViewState extends State<HomeView> {
                             children: [
                               Row(
                                 children: [
-                                  Text(Appstrings.assalamuAlaikum,
-                                      style: TextStyle(
-                                        color: ColorManager.whiteColor,
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w500,
-                                      )),
+                                  // Text(
+                                  //           Appstrings.assalamuAlaikum,
+                                  //           key:
+                                  //               const ValueKey<String>('text1'),
+                                  //           style: TextStyle(
+                                  //             color: ColorManager.whiteColor,
+                                  //             fontSize: 16,
+                                  //             fontWeight: FontWeight.w500,
+                                  //           ),
+                                  //         ),
+                                  AnimatedSwitcher(
+                                    duration:
+                                        const Duration(milliseconds: 1000),
+                                    child: scrollNotifier.value == false
+                                        ? Text(
+                                            Appstrings.assalamuAlaikum,
+                                            key:
+                                                const ValueKey<String>('text1'),
+                                            style: TextStyle(
+                                              color: ColorManager.whiteColor,
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.w500,
+                                            ),
+                                          )
+                                        : Text(
+                                            Appstrings.assalamuAlaikum,
+                                            key:
+                                                const ValueKey<String>('text2'),
+                                            style: TextStyle(
+                                              color: ColorManager.whiteColor,
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.w500,
+                                            ),
+                                          ),
+                                  ),
 
                                   const Spacer(),
                                   GestureDetector(
@@ -202,17 +232,38 @@ class _HomeViewState extends State<HomeView> {
                                       top: scrollNotifier.value == true
                                           ? 28
                                           : 24),
-                                  child: Text(
-                                      state.authUserModel?.result?.user?.name ??
-                                          "",
-                                      style: TextStyle(
-                                        color: ColorManager.whiteColor,
-                                        fontSize: 15,
-                                        fontWeight: FontWeight.w500,
-                                      )),
+                                  child: AnimatedSwitcher(
+                                    duration:
+                                        const Duration(milliseconds: 1000),
+                                    child: scrollNotifier.value == false
+                                        ? Text(
+                                            state.authUserModel?.result?.user
+                                                    ?.name ??
+                                                "",
+                                            key:
+                                                const ValueKey<String>('text1'),
+                                            style: TextStyle(
+                                              color: ColorManager.whiteColor,
+                                              fontSize: 15,
+                                              fontWeight: FontWeight.w500,
+                                            ))
+                                        : Text(
+                                            state.authUserModel?.result?.user
+                                                    ?.name ??
+                                                "",
+                                            key:
+                                                const ValueKey<String>('text2'),
+                                            style: TextStyle(
+                                              color: ColorManager.whiteColor,
+                                              fontSize: 15,
+                                              fontWeight: FontWeight.w500,
+                                            )),
+                                  ),
                                 ),
                               ),
-                              Padding(
+                              AnimatedContainer(
+                                curve: Curves.decelerate,
+                                duration: const Duration(milliseconds: 1000),
                                 padding: EdgeInsets.only(
                                     left: 55,
                                     top:

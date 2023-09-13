@@ -56,9 +56,10 @@ class ShopSpecificCategoryBannerView extends StatelessWidget {
                             crossAxisSpacing: 20,
                             mainAxisExtent: 250,
                           ),
-                          itemCount: state.product!.result!.products.length,
+                          itemCount: state.product!.result!.products?.length,
                           itemBuilder: (context, index) {
-                            final data = state.product!.result!.products[index];
+                            final data =
+                                state.product!.result!.products?[index];
                             return GestureDetector(
                               onTap: () {
                                 Navigator.of(context).push(
@@ -70,17 +71,17 @@ class ShopSpecificCategoryBannerView extends StatelessWidget {
                                 );
                               },
                               child: ShopProductWidget(
-                                color: data.colors[0].text,
-                                size: data.size[0].value,
-                                brandId: data.brand!.id,
+                                color: data?.color ?? "",
+                                size: data?.size?[0].size ?? "",
+                                brandId: data?.brand!.id,
                                 isWishlisted: false,
-                                brand: data.brand!.name.toString(),
-                                productId: data.id,
-                                title: data.title,
-                                image: data.colors[0].images![0],
-                                discountPrice: data.discountPrice.toInt(),
-                                actualPrice: data.actualPrice.toInt(),
-                                discount: data.discount.toInt(),
+                                brand: data?.brand!.name.toString(),
+                                productId: data?.id,
+                                title: data?.title,
+                                image: data?.images![0],
+                                discountPrice: data?.salePrice?.toInt() ?? 0,
+                                actualPrice: data?.regularPrice?.toInt() ?? 0,
+                                discount: data?.discount?.toInt() ?? 0,
                               ),
                             );
                           },

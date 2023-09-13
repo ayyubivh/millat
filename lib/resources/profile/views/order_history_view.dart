@@ -54,7 +54,6 @@ class OrderHistoryView extends StatelessWidget {
             itemCount: state.orderModel?.result?.orderProducts?.length ?? 0,
             itemBuilder: (context, index) {
               final data = state.orderModel?.result?.orderProducts?[index];
-              // print(data?.productId?.images?[0]);
               return SizedBox(
                 child: OrdersProfileWidget(
                   date: data?.orderDate ?? "",

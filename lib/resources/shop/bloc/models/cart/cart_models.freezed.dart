@@ -620,6 +620,7 @@ CartItem _$CartItemFromJson(Map<String, dynamic> json) {
 mixin _$CartItem {
   ProductInfo? get productId => throw _privateConstructorUsedError;
   int? get quantity => throw _privateConstructorUsedError;
+  @JsonKey(name: "selling_price")
   int? get sellingPrice => throw _privateConstructorUsedError;
   int? get discount => throw _privateConstructorUsedError;
   int? get tax => throw _privateConstructorUsedError;
@@ -640,7 +641,7 @@ abstract class $CartItemCopyWith<$Res> {
   $Res call(
       {ProductInfo? productId,
       int? quantity,
-      int? sellingPrice,
+      @JsonKey(name: "selling_price") int? sellingPrice,
       int? discount,
       int? tax,
       String? size,
@@ -725,7 +726,7 @@ abstract class _$$_CartItemCopyWith<$Res> implements $CartItemCopyWith<$Res> {
   $Res call(
       {ProductInfo? productId,
       int? quantity,
-      int? sellingPrice,
+      @JsonKey(name: "selling_price") int? sellingPrice,
       int? discount,
       int? tax,
       String? size,
@@ -793,7 +794,7 @@ class _$_CartItem implements _CartItem {
   const _$_CartItem(
       {required this.productId,
       required this.quantity,
-      required this.sellingPrice,
+      @JsonKey(name: "selling_price") required this.sellingPrice,
       this.discount,
       this.tax,
       required this.size,
@@ -807,6 +808,7 @@ class _$_CartItem implements _CartItem {
   @override
   final int? quantity;
   @override
+  @JsonKey(name: "selling_price")
   final int? sellingPrice;
   @override
   final int? discount;
@@ -863,7 +865,7 @@ abstract class _CartItem implements CartItem {
   const factory _CartItem(
       {required final ProductInfo? productId,
       required final int? quantity,
-      required final int? sellingPrice,
+      @JsonKey(name: "selling_price") required final int? sellingPrice,
       final int? discount,
       final int? tax,
       required final String? size,
@@ -876,6 +878,7 @@ abstract class _CartItem implements CartItem {
   @override
   int? get quantity;
   @override
+  @JsonKey(name: "selling_price")
   int? get sellingPrice;
   @override
   int? get discount;

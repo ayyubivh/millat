@@ -60,7 +60,7 @@ _$_CartItem _$$_CartItemFromJson(Map<String, dynamic> json) => _$_CartItem(
           ? null
           : ProductInfo.fromJson(json['productId'] as Map<String, dynamic>),
       quantity: json['quantity'] as int?,
-      sellingPrice: json['sellingPrice'] as int?,
+      sellingPrice: json['selling_price'] as int?,
       discount: json['discount'] as int?,
       tax: json['tax'] as int?,
       size: json['size'] as String?,
@@ -71,7 +71,7 @@ Map<String, dynamic> _$$_CartItemToJson(_$_CartItem instance) =>
     <String, dynamic>{
       'productId': instance.productId,
       'quantity': instance.quantity,
-      'sellingPrice': instance.sellingPrice,
+      'selling_price': instance.sellingPrice,
       'discount': instance.discount,
       'tax': instance.tax,
       'size': instance.size,

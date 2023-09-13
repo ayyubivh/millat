@@ -175,24 +175,27 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
   }
 
   Future<void> _fetchWishList(
-      FetchWishList event, Emitter<ShopProductsState> emit) async {
+    FetchWishList event,
+    Emitter<ShopProductsState> emit,
+  ) async {
     emit(state.copyWith(isLoading: true));
 
     try {
       final data = await shopService.fetchWishlist(event.context);
 
       final wishListItems =
-          data.result?.wishlist.products?.map((item) => item.id).toList() ?? [];
+          data.result?.wishlist?.products!.map((item) => item.id).toList();
 
       emit(
         state.copyWith(
-            wishList: data,
-            isLoading: false,
-            wishListItems: wishListItems.toSet()),
+          wishList: data,
+          isLoading: false,
+          wishListItems: Set<String>.from(wishListItems ?? []),
+        ),
       );
     } catch (e) {
       emit(state.copyWith(
-        errorMessage: "An error occurred",
+        errorMessage: "An error occurred: $e",
         isLoading: false,
       ));
     }
@@ -255,8 +258,8 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
 
       final newWishLists = state.wishList!.copyWith(
         result: state.wishList?.result?.copyWith(
-          wishlist: state.wishList!.result!.wishlist.copyWith(
-            products: state.wishList!.result!.wishlist.products
+          wishlist: state.wishList!.result!.wishlist?.copyWith(
+            products: state.wishList!.result!.wishlist?.products
                 ?.where((element) => element.id != event.productId)
                 .toList(),
           ),

@@ -152,10 +152,11 @@ class ShopProductWidget extends StatelessWidget {
                 builder: (context, state) {
                   final cartItems =
                       state.cartModel?.result?.cartProducts?.cartItems;
-                  final containsProductId = cartItems
-                      ?.any((cartItem) => cartItem.productId?.id == productId);
+                  final isProductInCart = cartItems?.any(
+                          (cartItem) => cartItem.productId?.id == productId) ??
+                      false;
 
-                  if (containsProductId == false) {
+                  if (!isProductInCart) {
                     return GestureDetector(
                       onTap: () {
                         print(
@@ -169,7 +170,7 @@ class ShopProductWidget extends StatelessWidget {
                               quantity: 1,
                               brandId: brandId ?? "",
                             ));
-                        showSnackBar(context, "Product Added To  Cart!");
+                        showSnackBar(context, "Product Added To Cart!");
                       },
                       child: Container(
                         height: 20,
@@ -191,7 +192,9 @@ class ShopProductWidget extends StatelessWidget {
                     return GestureDetector(
                       onTap: () {
                         context.read<CartBloc>().add(RemoveCartItemEvent(
-                            context: context, productId: productId.toString()));
+                              context: context,
+                              productId: productId.toString(),
+                            ));
                         showSnackBar(context, "Product Removed From Cart!");
                       },
                       child: Container(

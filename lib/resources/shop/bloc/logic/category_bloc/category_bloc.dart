@@ -32,7 +32,7 @@ class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
     try {
       final data = await _categoryService.filterProduct(
           event.category, event.subCategory);
-
+      print("filtered products $data");
       emit(state.copyWith(
         product: data,
         productLoading: false,

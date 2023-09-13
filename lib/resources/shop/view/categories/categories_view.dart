@@ -33,6 +33,7 @@ class _CategoriesViewState extends State<CategoriesView> {
   var filterOptions = <String>[];
   @override
   void initState() {
+    print("category ${widget.category}------subCategory ${widget.subCategory}");
     BlocProvider.of<ShopProductsBloc>(context).add(const FetchShopBanners());
     BlocProvider.of<CategoryBloc>(context).add(const FetchSubcategories());
 
@@ -255,17 +256,17 @@ class _CategoriesViewState extends State<CategoriesView> {
                     List<Product> filteredProducts = [];
                     if (widget.type == FilterType.brand) {
                       filteredProducts =
-                          state.product!.result!.products.where((product) {
+                          state.product!.result!.products!.where((product) {
                         if (state.priceRangeIndex == 0) {
-                          return product.discountPrice <= 500;
+                          return product.salePrice! <= 500;
                         } else if (state.priceRangeIndex == 1) {
-                          return product.discountPrice >= 500 &&
-                              product.discountPrice <= 1000;
+                          return product.salePrice! >= 500 &&
+                              product.salePrice! <= 1000;
                         } else if (state.priceRangeIndex == 2) {
-                          return product.discountPrice >= 1000 &&
-                              product.discountPrice <= 1500;
+                          return product.salePrice! >= 1000 &&
+                              product.salePrice! <= 1500;
                         } else if (state.priceRangeIndex == 3) {
-                          return product.discountPrice > 1500;
+                          return product.salePrice! > 1500;
                         }
                         return product.subcategory!.title ==
                                 widget.subCategory &&
@@ -276,13 +277,13 @@ class _CategoriesViewState extends State<CategoriesView> {
                         state.product!.result != null &&
                         widget.type == FilterType.category) {
                       if (state.selectedFilter.isNotEmpty) {
-                        filteredProducts = state.product!.result!.products
+                        filteredProducts = state.product!.result!.products!
                             .where((product) =>
                                 product.subcategory?.title ==
                                 state.selectedFilter)
                             .toList();
                       } else {
-                        filteredProducts = state.product!.result!.products;
+                        filteredProducts = state.product!.result!.products!;
                       }
                     }
 
@@ -327,18 +328,17 @@ class _CategoriesViewState extends State<CategoriesView> {
                                         );
                                       },
                                       child: ShopProductWidget(
-                                        color: data.colors[0].text,
-                                        size: data.size[0].value,
+                                        color: data.color ?? "",
+                                        size: data.size?[0].size ?? "",
                                         brandId: data.brand!.id,
                                         isWishlisted: false,
                                         brand: data.brand!.name.toString(),
                                         productId: data.id,
                                         title: data.title,
-                                        image: data.colors[0].images![0],
-                                        discountPrice:
-                                            data.discountPrice.toInt(),
-                                        actualPrice: data.actualPrice.toInt(),
-                                        discount: data.discount.toInt(),
+                                        image: data.images![0],
+                                        discountPrice: data.salePrice!.toInt(),
+                                        actualPrice: data.regularPrice!.toInt(),
+                                        discount: data.discount!.toInt(),
                                       ),
                                     );
                                   },

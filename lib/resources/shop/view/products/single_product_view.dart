@@ -8,6 +8,7 @@ import 'package:millat/resources/shop/bloc/models/shop_products/shop_products_mo
 import 'package:millat/resources/shop/view/cart/cart.dart';
 import 'package:millat/resources/shop/view/reviews/reviews_view.dart';
 import 'package:millat/utils/color_manager.dart';
+import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/utils.dart';
 
@@ -320,9 +321,8 @@ class SingleProductView extends StatelessWidget {
       ),
       bottomSheet: Padding(
           padding: const EdgeInsets.only(bottom: 20, left: 30, right: 30),
-          child: MainButton(
-            title: "Add To Cart",
-            onPressed: () {
+          child: GestureDetector(
+            onTap: () {
               showModalBottomSheet(
                 context: context,
                 isScrollControlled: true,
@@ -331,6 +331,34 @@ class SingleProductView extends StatelessWidget {
                     selectedColor, sizeList, selectedSize, quantity),
               );
             },
+            child: Container(
+              height: 55,
+              width: SizeUtility(context).width,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(4),
+                color: ColorManager.mainColor.withOpacity(0.2),
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image.asset(
+                    "assets/icons/add_cart.png",
+                    width: 21,
+                    height: 21,
+                    color: ColorManager.primary,
+                  ),
+                  kWidht10,
+                  Text(
+                    "Add to cart",
+                    style: TextStyle(
+                      fontSize: 17,
+                      fontWeight: FontWeight.bold,
+                      color: ColorManager.primary,
+                    ),
+                  )
+                ],
+              ),
+            ),
           )),
     );
   }

@@ -66,7 +66,7 @@ class DuaBookMarkView extends StatelessWidget {
                                   padding: const EdgeInsets.all(12),
                                   child: Column(
                                     crossAxisAlignment:
-                                        CrossAxisAlignment.start,
+                                        CrossAxisAlignment.stretch,
                                     children: [
                                       Row(
                                         children: [
@@ -102,20 +102,25 @@ class DuaBookMarkView extends StatelessWidget {
                                               ),
                                               child: IconButton(
                                                 onPressed: () {
-                                                  context.read<DuaBloc>()
-                                                    ..add(RemoveBookmark(
-                                                      context: context,
-                                                      duaId: state
-                                                          .duaBookMarkModel!
-                                                          .result!
-                                                          .bookmarks[0]
-                                                          .bookmarks[index]
-                                                          .duaId,
-                                                    ))
-                                                    ..add(const FetchDuaById());
-                                                  context.read<DuaBloc>().add(
-                                                      FetchDuaBookMarksEvent(
-                                                          context));
+                                                  context
+                                                      .read<DuaBloc>()
+                                                      .add(RemoveBookmark(
+                                                        context: context,
+                                                        duaId: state
+                                                            .duaBookMarkModel!
+                                                            .result!
+                                                            .bookmarks[0]
+                                                            .bookmarks[index]
+                                                            .duaId,
+                                                      ));
+
+                                                  Future.delayed(
+                                                      const Duration(
+                                                          seconds: 2), () {
+                                                    context.read<DuaBloc>().add(
+                                                        FetchDuaBookMarksEvent(
+                                                            context));
+                                                  });
                                                 },
                                                 icon: const Icon(
                                                   Icons.close,

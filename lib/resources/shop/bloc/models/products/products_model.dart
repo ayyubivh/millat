@@ -1,5 +1,3 @@
-// ignore_for_file: invalid_annotation_target
-
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'products_model.g.dart';
@@ -8,9 +6,9 @@ part 'products_model.freezed.dart';
 @freezed
 class ProductModel with _$ProductModel {
   factory ProductModel({
-    required int status,
-    required String message,
-    required String error,
+    required int? status,
+    required String? message,
+    required String? error,
     required ProductResult? result,
   }) = _ProductModel;
 
@@ -21,7 +19,7 @@ class ProductModel with _$ProductModel {
 @freezed
 class ProductResult with _$ProductResult {
   factory ProductResult({
-    required List<Product> products,
+    required List<Product>? products,
   }) = _ProductResult;
 
   factory ProductResult.fromJson(Map<String, dynamic> json) =>
@@ -31,22 +29,25 @@ class ProductResult with _$ProductResult {
 @freezed
 class Product with _$Product {
   factory Product({
-    @JsonKey(name: "_id") required String id,
-    required String title,
+    @JsonKey(name: "_id") required String? id,
+    required String? title,
     required Brand? brand,
-    required String description,
-    required String otherInfo,
     required Category? category,
-    required Subcategory? subcategory,
-    required double actualPrice,
-    required double discountPrice,
-    required double discount,
-    required List<ColorOption> colors,
-    required List<SizeOption> size,
-    required List<Meta> meta,
-    required List<String> keywords,
-    required DateTime createdAt,
-    required DateTime updatedAt,
+    required SubCategory? subcategory,
+    required String? itemType,
+    required String? pickupAddress,
+    required String? description,
+    required double? regularPrice,
+    required double? salePrice,
+    required double? discount,
+    required String? color,
+    required List<String>? images,
+    required List<Size>? size,
+    required List<String>? keywords,
+    required String? madeFrom,
+    required String? productCareInfo,
+    required DateTime? createdAt,
+    required DateTime? updatedAt,
   }) = _Product;
 
   factory Product.fromJson(Map<String, dynamic> json) =>
@@ -56,15 +57,26 @@ class Product with _$Product {
 @freezed
 class Brand with _$Brand {
   factory Brand({
-    @JsonKey(name: "_id") required String id,
-    required String name,
-    required String email,
-    required String password,
-    required String roles,
-    required bool active,
-    required DateTime createdAt,
-    required DateTime updatedAt,
-    required String image,
+    @JsonKey(name: "_id") required String? id,
+    required String? name,
+    required String? email,
+    required String? password,
+    required bool? isActive,
+    required int? phoneNumber,
+    required String? logo,
+    required String? coverImage,
+    required String? description,
+    required String? cityName,
+    required String? brandName,
+    required String? companyName,
+    required DateTime? companyRegYear,
+    required int? revenueOfLastThreeMonths,
+    required String? category,
+    required List<String>? subCategory,
+    required String? GST,
+    required DateTime? createdAt,
+    required DateTime? updatedAt,
+    required String? role,
   }) = _Brand;
 
   factory Brand.fromJson(Map<String, dynamic> json) => _$BrandFromJson(json);
@@ -73,11 +85,11 @@ class Brand with _$Brand {
 @freezed
 class Category with _$Category {
   factory Category({
-    @JsonKey(name: "_id") required String id,
-    required String title,
-    required String image,
-    required DateTime createdAt,
-    required DateTime updatedAt,
+    @JsonKey(name: "_id") required String? id,
+    required String? title,
+    required String? image,
+    required DateTime? createdAt,
+    required DateTime? updatedAt,
   }) = _Category;
 
   factory Category.fromJson(Map<String, dynamic> json) =>
@@ -85,48 +97,30 @@ class Category with _$Category {
 }
 
 @freezed
-class Subcategory with _$Subcategory {
-  factory Subcategory({
-    @JsonKey(name: "_id") required String id,
-    required String categoryId,
-    required String title,
-    required String image,
-    required DateTime createdAt,
-    required DateTime updatedAt,
-  }) = _Subcategory;
+class SubCategory with _$SubCategory {
+  factory SubCategory({
+    @JsonKey(name: "_id") required String? id,
+    required String? title,
+    required String? image,
+    required DateTime? createdAt,
+    required DateTime? updatedAt,
+  }) = _SubCategory;
 
-  factory Subcategory.fromJson(Map<String, dynamic> json) =>
-      _$SubcategoryFromJson(json);
+  factory SubCategory.fromJson(Map<String, dynamic> json) =>
+      _$SubCategoryFromJson(json);
 }
 
 @freezed
-class ColorOption with _$ColorOption {
-  factory ColorOption({
-    required String text,
-    required List<String>? images,
-  }) = _ColorOption;
-
-  factory ColorOption.fromJson(Map<String, dynamic> json) =>
-      _$ColorOptionFromJson(json);
-}
-
-@freezed
-class SizeOption with _$SizeOption {
-  factory SizeOption({
-    required String value,
+class Size with _$Size {
+  factory Size({
+    required String? size,
+    required int? stock,
     required double? price,
-  }) = _SizeOption;
+    required String? sku,
+    required String? width,
+    required String? height,
+    required String? weight,
+  }) = _Size;
 
-  factory SizeOption.fromJson(Map<String, dynamic> json) =>
-      _$SizeOptionFromJson(json);
-}
-
-@freezed
-class Meta with _$Meta {
-  factory Meta({
-    required String key,
-    required String value,
-  }) = _Meta;
-
-  factory Meta.fromJson(Map<String, dynamic> json) => _$MetaFromJson(json);
+  factory Size.fromJson(Map<String, dynamic> json) => _$SizeFromJson(json);
 }

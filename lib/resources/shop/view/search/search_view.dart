@@ -125,7 +125,7 @@ class _SearchViewState extends State<SearchView> {
                   BlocBuilder<ShopProductsBloc, ShopProductsState>(
                     builder: (context, state) {
                       final itemCount =
-                          state.searchProducts?.result?.products.length ?? 0;
+                          state.searchProducts?.result?.products?.length ?? 0;
                       return state.searchProducts?.result?.products == null
                           ? const Padding(
                               padding: EdgeInsets.only(top: 158.0),
@@ -144,7 +144,7 @@ class _SearchViewState extends State<SearchView> {
                               itemCount: itemCount,
                               itemBuilder: (context, index) {
                                 final data = state
-                                    .searchProducts?.result?.products[index];
+                                    .searchProducts?.result?.products?[index];
                                 return Padding(
                                   padding: const EdgeInsets.symmetric(
                                       horizontal: 15),
@@ -163,20 +163,20 @@ class _SearchViewState extends State<SearchView> {
                                           ));
                                         },
                                         child: ShopProductWidget(
-                                          color: data?.colors[0].text ?? "",
-                                          size: data?.size[0].value ?? "",
+                                          color: data?.color ?? "",
+                                          size: data?.size?[0].size ?? "",
                                           brandId: data?.brand!.id,
                                           isWishlisted: state.isWishListed,
                                           brand: data?.brand?.name ?? "",
                                           productId: data?.id ?? 'null',
                                           title: data?.title,
-                                          image: data?.colors[0].images?[0] ??
-                                              'null',
+                                          image: data?.images?[0] ?? 'null',
                                           discountPrice:
-                                              data?.discountPrice.toInt() ?? 0,
+                                              data?.salePrice?.toInt() ?? 0,
                                           actualPrice:
-                                              data?.actualPrice.toInt() ?? 0,
-                                          discount: data?.discount.toInt() ?? 0,
+                                              data?.regularPrice?.toInt() ?? 0,
+                                          discount:
+                                              data?.discount?.toInt() ?? 0,
                                         ),
                                       ),
                                     ],

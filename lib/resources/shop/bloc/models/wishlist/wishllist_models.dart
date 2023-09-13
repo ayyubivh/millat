@@ -1,5 +1,5 @@
-// ignore_for_file: invalid_annotation_target
 import 'package:freezed_annotation/freezed_annotation.dart';
+
 part 'wishllist_models.g.dart';
 part 'wishllist_models.freezed.dart';
 
@@ -19,7 +19,7 @@ class WishlistResponse with _$WishlistResponse {
 @freezed
 class WishlistResult with _$WishlistResult {
   factory WishlistResult({
-    required Wishlist wishlist,
+    required Wishlist? wishlist,
   }) = _WishlistResult;
 
   factory WishlistResult.fromJson(Map<String, dynamic> json) =>
@@ -29,7 +29,7 @@ class WishlistResult with _$WishlistResult {
 @freezed
 class Wishlist with _$Wishlist {
   factory Wishlist({
-    @JsonKey(name: '_id') required String id,
+    @JsonKey(name: '_id') required String? id,
     String? userId,
     String? createdAt,
     List<Product>? products,
@@ -43,22 +43,26 @@ class Wishlist with _$Wishlist {
 @freezed
 class Product with _$Product {
   factory Product({
-    @JsonKey(name: '_id') required String id,
+    @JsonKey(name: '_id') required String? id,
     String? title,
     String? brand,
     String? description,
     String? otherInfo,
-    required Category? category,
-    required Subcategory? subcategory,
-    required int actualPrice,
-    required int discountPrice,
-    required int discount,
-    required List<ColorOption> colors,
-    required List<SizeOption> size,
-    required List<Meta> meta,
-    required List<String> keywords,
-    required DateTime createdAt,
-    required DateTime updatedAt,
+    Category? category,
+    Subcategory? subcategory,
+    String? itemType,
+    String? pickupAddress,
+    int? regularPrice,
+    int? salePrice,
+    int? discount,
+    String? color,
+    List<String>? images,
+    List<Size>? size,
+    List<String>? keywords,
+    String? madeFrom,
+    String? productCareInfo,
+    DateTime? createdAt,
+    DateTime? updatedAt,
   }) = _Product;
 
   factory Product.fromJson(Map<String, dynamic> json) =>
@@ -68,7 +72,7 @@ class Product with _$Product {
 @freezed
 class Category with _$Category {
   factory Category({
-    required String title,
+    String? title,
   }) = _Category;
 
   factory Category.fromJson(Map<String, dynamic> json) =>
@@ -78,7 +82,7 @@ class Category with _$Category {
 @freezed
 class Subcategory with _$Subcategory {
   factory Subcategory({
-    required String title,
+    String? title,
   }) = _Subcategory;
 
   factory Subcategory.fromJson(Map<String, dynamic> json) =>
@@ -86,33 +90,16 @@ class Subcategory with _$Subcategory {
 }
 
 @freezed
-class ColorOption with _$ColorOption {
-  factory ColorOption({
-    required String text,
-    required List<String> images,
-  }) = _ColorOption;
+class Size with _$Size {
+  factory Size({
+    String? size,
+    int? stock,
+    int? price,
+    String? sku,
+    String? width,
+    String? height,
+    String? weight,
+  }) = _Size;
 
-  factory ColorOption.fromJson(Map<String, dynamic> json) =>
-      _$ColorOptionFromJson(json);
-}
-
-@freezed
-class SizeOption with _$SizeOption {
-  factory SizeOption({
-    required String value,
-    double? price,
-  }) = _SizeOption;
-
-  factory SizeOption.fromJson(Map<String, dynamic> json) =>
-      _$SizeOptionFromJson(json);
-}
-
-@freezed
-class Meta with _$Meta {
-  factory Meta({
-    required String key,
-    required String value,
-  }) = _Meta;
-
-  factory Meta.fromJson(Map<String, dynamic> json) => _$MetaFromJson(json);
+  factory Size.fromJson(Map<String, dynamic> json) => _$SizeFromJson(json);
 }

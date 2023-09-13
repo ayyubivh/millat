@@ -1,5 +1,6 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
+// ignore_for_file: invalid_annotation_target
 
+import 'package:freezed_annotation/freezed_annotation.dart';
 part 'fetch_order_byId_model.g.dart';
 part 'fetch_order_byId_model.freezed.dart';
 
@@ -40,8 +41,8 @@ class Order with _$Order {
     @JsonKey(name: 'selling_price') required double? sellingPrice,
     @JsonKey(name: 'discount') required double? discount,
     @JsonKey(name: 'tax') required double? tax,
-    String? size,
-    String? color,
+    @JsonKey(name: 'size') required String? size,
+    @JsonKey(name: 'color') required String? color,
     @JsonKey(name: 'sub_total') required double? subTotal,
     @JsonKey(name: 'order_date') required String? orderDate,
     @JsonKey(name: 'shipping_status') required String? shippingStatus,
@@ -63,11 +64,23 @@ class Brand with _$Brand {
     @JsonKey(name: 'name') required String? name,
     @JsonKey(name: 'email') required String? email,
     @JsonKey(name: 'password') required String? password,
-    @JsonKey(name: 'roles') required String? roles,
-    @JsonKey(name: 'active') required bool? active,
+    @JsonKey(name: 'isActive') required bool? isActive,
+    @JsonKey(name: 'phoneNumber') required int? phoneNumber,
+    @JsonKey(name: 'logo') required String? logo,
+    @JsonKey(name: 'coverImage') required String? coverImage,
+    @JsonKey(name: 'description') required String? description,
+    @JsonKey(name: 'cityName') required String? cityName,
+    @JsonKey(name: 'brandName') required String? brandName,
+    @JsonKey(name: 'companyName') required String? companyName,
+    @JsonKey(name: 'companyRegYear') required String? companyRegYear,
+    @JsonKey(name: 'revenueOfLastThreeMonths')
+    required int? revenueOfLastThreeMonths,
+    @JsonKey(name: 'category') required String? category,
+    @JsonKey(name: 'subCategory') required List<String>? subCategory,
+    @JsonKey(name: 'GST') required String? GST,
     @JsonKey(name: 'createdAt') required String? createdAt,
     @JsonKey(name: 'updatedAt') required String? updatedAt,
-    @JsonKey(name: 'image') required String? image,
+    @JsonKey(name: 'role') required String? role,
   }) = _Brand;
 
   factory Brand.fromJson(Map<String, dynamic> json) => _$BrandFromJson(json);
@@ -79,16 +92,20 @@ class Product with _$Product {
     @JsonKey(name: '_id') required String? id,
     @JsonKey(name: 'title') required String? title,
     @JsonKey(name: 'brand') required String? brandId,
+    @JsonKey(name: 'category') required String? category,
+    @JsonKey(name: 'subcategory') required String? subcategory,
+    @JsonKey(name: 'itemType') required String? itemType,
+    @JsonKey(name: 'pickupAddress') required String? pickupAddress,
     @JsonKey(name: 'description') required String? description,
-    @JsonKey(name: 'otherInfo') required String? otherInfo,
-    @JsonKey(name: 'subcategory') required String? subCategory,
-    @JsonKey(name: 'actualPrice') required double? actualPrice,
-    @JsonKey(name: 'discountPrice') required double? discountPrice,
-    required int? discount,
-    @JsonKey(name: 'colors') required List<ColorOption>? colors,
-    @JsonKey(name: 'size') required List<SizeOption>? size,
-    @JsonKey(name: 'meta') required List<Meta>? meta,
+    @JsonKey(name: 'regularPrice') required int? regularPrice,
+    @JsonKey(name: 'salePrice') required int? salePrice,
+    @JsonKey(name: 'discount') required int? discount,
+    @JsonKey(name: 'color') required String? color,
+    @JsonKey(name: 'images') required List<String>? images,
+    @JsonKey(name: 'size') required List<Size>? size,
     @JsonKey(name: 'keywords') required List<String>? keywords,
+    @JsonKey(name: 'madeFrom') required String? madeFrom,
+    @JsonKey(name: 'productCareInfo') required String? productCareInfo,
     @JsonKey(name: 'createdAt') required String? createdAt,
     @JsonKey(name: 'updatedAt') required String? updatedAt,
   }) = _Product;
@@ -98,35 +115,18 @@ class Product with _$Product {
 }
 
 @freezed
-class ColorOption with _$ColorOption {
-  const factory ColorOption({
-    @JsonKey(name: 'text') required String? text,
-    @JsonKey(name: 'images') required List<String>? images,
-  }) = _ColorOption;
+class Size with _$Size {
+  const factory Size({
+    @JsonKey(name: 'size') required String? size,
+    @JsonKey(name: 'stock') required int? stock,
+    @JsonKey(name: 'price') required int? price,
+    @JsonKey(name: 'sku') required String? sku,
+    @JsonKey(name: 'width') required String? width,
+    @JsonKey(name: 'height') required String? height,
+    @JsonKey(name: 'weight') required String? weight,
+  }) = _Size;
 
-  factory ColorOption.fromJson(Map<String, dynamic> json) =>
-      _$ColorOptionFromJson(json);
-}
-
-@freezed
-class SizeOption with _$SizeOption {
-  const factory SizeOption({
-    @JsonKey(name: 'value') required String? value,
-    @JsonKey(name: 'price') required double? price,
-  }) = _SizeOption;
-
-  factory SizeOption.fromJson(Map<String, dynamic> json) =>
-      _$SizeOptionFromJson(json);
-}
-
-@freezed
-class Meta with _$Meta {
-  const factory Meta({
-    @JsonKey(name: 'key') required String? key,
-    @JsonKey(name: 'value') required String? value,
-  }) = _Meta;
-
-  factory Meta.fromJson(Map<String, dynamic> json) => _$MetaFromJson(json);
+  factory Size.fromJson(Map<String, dynamic> json) => _$SizeFromJson(json);
 }
 
 @freezed

@@ -119,9 +119,13 @@ class ManageAddress extends StatelessWidget {
                                     state: state,
                                     type: data.addressType,
                                     email: context
-                                        .read<DatabaseBloc>()
-                                        .state
-                                        .email,
+                                            .read<DatabaseBloc>()
+                                            .state
+                                            .authUserModel
+                                            ?.result
+                                            ?.user
+                                            ?.name ??
+                                        "",
                                     context: context,
                                     phoneNumber: data.mobile.toString(),
                                     name: data.name,

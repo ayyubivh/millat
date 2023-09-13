@@ -4,8 +4,8 @@ part of 'database_bloc.dart';
 class DatabaseState with _$DatabaseState {
   const factory DatabaseState({
     required String token,
-    required String name,
-    required String email,
+    // required String name,
+    // required String email,
     required AuthUserModel? authUserModel,
     required bool isLoading,
     required bool editIsloading,
@@ -13,16 +13,19 @@ class DatabaseState with _$DatabaseState {
     required File? imagebytes,
     required String failedMessage,
     required List<Contact>? contacts,
+    required String coverImage,
   }) = _Initial;
   factory DatabaseState.initial() => const DatabaseState(
-      token: "",
-      email: "",
-      name: "",
-      imagebytes: null,
-      authUserModel: null,
-      isLoading: false,
-      succesMessage: "",
-      failedMessage: "",
-      editIsloading: false,
-      contacts: []);
+        token: "",
+        // email: "",
+        // name: "",
+        imagebytes: null,
+        authUserModel: null,
+        isLoading: false,
+        succesMessage: "",
+        failedMessage: "",
+        editIsloading: false,
+        coverImage: AppAssetsStrings.profileCoverImg,
+        contacts: [],
+      );
 }

@@ -92,7 +92,14 @@ class ArticlesView extends StatelessWidget {
                   ),
                   kHeight20,
                   Text(
-                    context.read<DatabaseBloc>().state.name,
+                    context
+                            .read<DatabaseBloc>()
+                            .state
+                            .authUserModel
+                            ?.result
+                            ?.user
+                            ?.name ??
+                        "",
                     style: TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.w800,

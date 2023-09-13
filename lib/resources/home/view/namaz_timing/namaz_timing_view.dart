@@ -88,10 +88,13 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                             ),
                             Text(
                                 context
-                                    .read<DatabaseBloc>()
-                                    .state
-                                    .name
-                                    .toString(),
+                                        .read<DatabaseBloc>()
+                                        .state
+                                        .authUserModel
+                                        ?.result
+                                        ?.user
+                                        ?.name ??
+                                    "",
                                 style: TextStyle(
                                     color: ColorManager.whiteColor,
                                     fontSize: 18)),

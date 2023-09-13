@@ -71,7 +71,14 @@ class PaymentSuccessful extends StatelessWidget {
                           Row(
                             children: [
                               Text(
-                                context.read<DatabaseBloc>().state.email,
+                                context
+                                        .read<DatabaseBloc>()
+                                        .state
+                                        .authUserModel
+                                        ?.result
+                                        ?.user
+                                        ?.email ??
+                                    "",
                                 style: TextStyle(
                                   color: ColorManager.blackColor,
                                   fontSize: 15,

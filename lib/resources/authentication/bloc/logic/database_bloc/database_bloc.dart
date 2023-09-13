@@ -5,7 +5,9 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hive/hive.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:millat/resources/authentication/bloc/service/auth_service.dart';
+import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/string_constants.dart';
+import 'package:millat/utils/utils.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:contacts_service/contacts_service.dart';
 import '../../model/auth_user_model/auth_user_model.dart';
@@ -37,24 +39,24 @@ class DatabaseBloc extends Bloc<DatabaseEvent, DatabaseState> {
         emit(state.copyWith(token: token));
       }
     });
-    on<StoreUserDetails>((event, emit) {
-      final authBox = Hive.box(userBox);
-      final email = event.email;
-      final name = event.name;
-      authBox.put(emailKey, email);
-      authBox.put(nameKey, name);
-      emit(state.copyWith(email: email, name: name));
-      // print('email ${email} and the $name');
-      // emit(state.copyWith(userDetails: userDetails));
-    });
-    on<FetchUserDetails>((event, emit) {
-      final authBox = Hive.box(userBox);
-      final email = authBox.get(emailKey);
-      final name = authBox.get(nameKey);
-      emit(state.copyWith(email: email, name: name));
-      print(
-          'email on the database bloc ${state.email} ane the username ${state.name}');
-    });
+    // on<StoreUserDetails>((event, emit) {
+    //   final authBox = Hive.box(userBox);
+    //   final email = event.email;
+    //   final name = event.name;
+    //   authBox.put(emailKey, email);
+    //   authBox.put(nameKey, name);
+    //   // emit(state.copyWith(email: email, name: name));
+    //   // print('email ${email} and the $name');
+    //   // emit(state.copyWith(userDetails: userDetails));
+    // });
+    // on<FetchUserDetails>((event, emit) {
+    //   final authBox = Hive.box(userBox);
+    //   final email = authBox.get(emailKey);
+    //   final name = authBox.get(nameKey);
+    //   // emit(state.copyWith(email: email, name: name));
+    //   // print(
+    //   //     'email on the database bloc ${state.email} ane the username ${state.name}');
+    // });
     on<FetchAuthUser>(
       (event, emit) async {
         emit(state.copyWith(isLoading: true));
@@ -118,6 +120,17 @@ class DatabaseBloc extends Bloc<DatabaseEvent, DatabaseState> {
         emit(state.copyWith(isLoading: false));
         throw Exception(e);
       }
+    });
+    on<SaveCoverImage>((event, emit) async {
+      emit(state.copyWith(coverImage: event.image));
+      await Utilities.saveStringToSharedPreferences(
+          Appstrings.coverImageKey, event.image);
+    });
+    on<FetchCoverImage>((event, emit) async {
+      final img = await Utilities.getStringFromSharedPreferences(
+          Appstrings.coverImageKey,
+          nullVal: state.coverImage);
+      emit(state.copyWith(coverImage: img));
     });
   }
   Future<File?> pickImage(ImageSource source) async {

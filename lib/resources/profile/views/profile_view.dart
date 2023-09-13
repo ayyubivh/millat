@@ -34,12 +34,14 @@ class ProfileView extends StatelessWidget {
                 ClipRRect(
                   borderRadius:
                       const BorderRadius.vertical(bottom: Radius.circular(30)),
-                  child: SizedBox(
-                    height: 280,
-                    width: SizeUtility(context).width,
-                    child: Image.asset(
-                      AppAssetsStrings.profileCoverImg,
-                      fit: BoxFit.fill,
+                  child: BlocBuilder<DatabaseBloc, DatabaseState>(
+                    builder: (context, state) => SizedBox(
+                      height: 280,
+                      width: SizeUtility(context).width,
+                      child: Image.asset(
+                        state.coverImage,
+                        fit: BoxFit.fill,
+                      ),
                     ),
                   ),
                 ),

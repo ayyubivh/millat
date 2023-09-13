@@ -39,7 +39,7 @@ class _EditProfileViewState extends State<EditProfileView> {
   }
 
   DateTime? _selectedDate;
-
+  int currentIndex = 0;
   Future<void> _selectDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
       context: context,
@@ -89,14 +89,16 @@ class _EditProfileViewState extends State<EditProfileView> {
                   height: 220,
                   child: Stack(
                     children: [
-                      SizedBox(
-                        width: double.infinity,
-                        height: 180,
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(12),
-                          child: Image.asset(
-                            AppAssetsStrings.profileCoverImg,
-                            fit: BoxFit.cover,
+                      BlocBuilder<DatabaseBloc, DatabaseState>(
+                        builder: (context, state) => SizedBox(
+                          width: double.infinity,
+                          height: 180,
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(12),
+                            child: Image.asset(
+                              state.coverImage,
+                              fit: BoxFit.cover,
+                            ),
                           ),
                         ),
                       ),
@@ -113,7 +115,7 @@ class _EditProfileViewState extends State<EditProfileView> {
                                 builder: (context, setState) => Container(
                                   margin: const EdgeInsets.all(25),
                                   padding: const EdgeInsets.all(20),
-                                  height: 360,
+                                  height: 250,
                                   decoration: BoxDecoration(
                                     color: ColorManager.whiteColor,
                                     borderRadius: BorderRadius.circular(16),
@@ -146,46 +148,75 @@ class _EditProfileViewState extends State<EditProfileView> {
                                           itemExtent: 90,
                                           scrollDirection: Axis.horizontal,
                                           itemBuilder: (context, index) {
-                                            return Container(
-                                              decoration: BoxDecoration(
-                                                borderRadius:
-                                                    BorderRadius.circular(12),
-                                              ),
-                                              child: ClipRRect(
-                                                borderRadius:
-                                                    BorderRadius.circular(14),
-                                                child: Image.asset(
-                                                  "assets/images/cover_photo_${index + 1}.png",
+                                            return GestureDetector(
+                                              onTap: () {
+                                                setState(
+                                                  () {
+                                                    currentIndex = index;
+                                                  },
+                                                );
+                                                context
+                                                    .read<DatabaseBloc>()
+                                                    .add(SaveCoverImage(
+                                                        image:
+                                                            "assets/images/cover_photo_${currentIndex + 1}.png"));
+                                                Navigator.of(context).pop();
+                                              },
+                                              child: Container(
+                                                margin:
+                                                    const EdgeInsets.symmetric(
+                                                        horizontal: 7),
+                                                decoration: BoxDecoration(
+                                                  borderRadius:
+                                                      BorderRadius.circular(14),
+                                                ),
+                                                child: ClipRRect(
+                                                  borderRadius:
+                                                      BorderRadius.circular(14),
+                                                  child: Image.asset(
+                                                    "assets/images/cover_photo_${index + 1}.png",
+                                                    fit: BoxFit.fill,
+                                                  ),
                                                 ),
                                               ),
                                             );
                                           },
                                         ),
                                       ),
-                                      const Text(
-                                        'Or',
-                                        style: TextStyle(
-                                          fontSize: 15,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                      ),
-                                      kHeight15,
-                                      const Divider(thickness: 1),
-                                      kHeight10,
-                                      _textWidget('Take New Photo'),
-                                      kHeight10,
-                                      const Divider(thickness: 1),
-                                      kHeight10,
-                                      _textWidget('Select an Existing Photo'),
-                                      kHeight10,
-                                      const Divider(thickness: 1),
-                                      kHeight10,
-                                      Text(
-                                        'Cancel',
-                                        style: TextStyle(
-                                          fontSize: 15,
-                                          fontWeight: FontWeight.w500,
-                                          color: ColorManager.redColor,
+                                      // const Text(
+                                      //   'Or',
+                                      //   style: TextStyle(
+                                      //     fontSize: 15,
+                                      //     fontWeight: FontWeight.w500,
+                                      //   ),
+                                      // ),
+                                      // kHeight15,
+                                      // const Divider(thickness: 1),
+                                      // kHeight10,
+                                      // _textWidget('Take New Photo'),
+                                      // kHeight10,
+                                      // const Divider(thickness: 1),
+                                      // kHeight10,
+                                      // _textWidget('Select an Existing Photo'),
+                                      // kHeight10,
+                                      // const Divider(thickness: 1),
+                                      kHeight25,
+                                      GestureDetector(
+                                        onTap: () {
+                                          Navigator.of(context).pop();
+                                        },
+                                        child: Container(
+                                          alignment: Alignment.center,
+                                          height: 30,
+                                          width: double.infinity,
+                                          child: Text(
+                                            'Cancel',
+                                            style: TextStyle(
+                                              fontSize: 15,
+                                              fontWeight: FontWeight.w500,
+                                              color: ColorManager.redColor,
+                                            ),
+                                          ),
                                         ),
                                       ),
                                     ],

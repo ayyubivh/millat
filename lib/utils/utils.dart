@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:html/parser.dart';
 import 'package:intl/intl.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -13,6 +14,12 @@ class Utilities {
     DateTime dateTime = DateTime.parse(date);
     DateFormat dateFormat = DateFormat('dd-MM-yyyy');
     return dateFormat.format(dateTime);
+  }
+
+  static String removeFootnotesFromMeaning(String meaning) {
+    final text = parse(meaning);
+    final String plainText = parse(text.body!.text).documentElement!.text;
+    return plainText;
   }
 
   static Future<void> saveIntToSharedPreferences(String key, int value) async {

@@ -54,14 +54,16 @@ class UserProfileView extends StatelessWidget {
                     height: 220,
                     child: Stack(
                       children: [
-                        SizedBox(
-                          width: double.infinity,
-                          height: 180,
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(12),
-                            child: Image.asset(
-                              AppAssetsStrings.profileCoverImg,
-                              fit: BoxFit.cover,
+                        BlocBuilder<DatabaseBloc, DatabaseState>(
+                          builder: (context, state) => SizedBox(
+                            width: double.infinity,
+                            height: 180,
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(12),
+                              child: Image.asset(
+                                state.coverImage,
+                                fit: BoxFit.cover,
+                              ),
                             ),
                           ),
                         ),

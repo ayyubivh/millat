@@ -14,41 +14,43 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-TermsConditionsResponse _$TermsConditionsResponseFromJson(
-    Map<String, dynamic> json) {
-  return _TermsConditionsResponse.fromJson(json);
+TermsConditionsModel _$TermsConditionsModelFromJson(Map<String, dynamic> json) {
+  return _TermsConditionsModel.fromJson(json);
 }
 
 /// @nodoc
-mixin _$TermsConditionsResponse {
-  int get status => throw _privateConstructorUsedError;
-  String get message => throw _privateConstructorUsedError;
-  String get error => throw _privateConstructorUsedError;
+mixin _$TermsConditionsModel {
+  int? get status => throw _privateConstructorUsedError;
+  String? get message => throw _privateConstructorUsedError;
+  String? get error => throw _privateConstructorUsedError;
   TermsConditionsResult get result => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $TermsConditionsResponseCopyWith<TermsConditionsResponse> get copyWith =>
+  $TermsConditionsModelCopyWith<TermsConditionsModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $TermsConditionsResponseCopyWith<$Res> {
-  factory $TermsConditionsResponseCopyWith(TermsConditionsResponse value,
-          $Res Function(TermsConditionsResponse) then) =
-      _$TermsConditionsResponseCopyWithImpl<$Res, TermsConditionsResponse>;
+abstract class $TermsConditionsModelCopyWith<$Res> {
+  factory $TermsConditionsModelCopyWith(TermsConditionsModel value,
+          $Res Function(TermsConditionsModel) then) =
+      _$TermsConditionsModelCopyWithImpl<$Res, TermsConditionsModel>;
   @useResult
   $Res call(
-      {int status, String message, String error, TermsConditionsResult result});
+      {int? status,
+      String? message,
+      String? error,
+      TermsConditionsResult result});
 
   $TermsConditionsResultCopyWith<$Res> get result;
 }
 
 /// @nodoc
-class _$TermsConditionsResponseCopyWithImpl<$Res,
-        $Val extends TermsConditionsResponse>
-    implements $TermsConditionsResponseCopyWith<$Res> {
-  _$TermsConditionsResponseCopyWithImpl(this._value, this._then);
+class _$TermsConditionsModelCopyWithImpl<$Res,
+        $Val extends TermsConditionsModel>
+    implements $TermsConditionsModelCopyWith<$Res> {
+  _$TermsConditionsModelCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -58,24 +60,24 @@ class _$TermsConditionsResponseCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? status = null,
-    Object? message = null,
-    Object? error = null,
+    Object? status = freezed,
+    Object? message = freezed,
+    Object? error = freezed,
     Object? result = null,
   }) {
     return _then(_value.copyWith(
-      status: null == status
+      status: freezed == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as int,
-      message: null == message
+              as int?,
+      message: freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
-              as String,
-      error: null == error
+              as String?,
+      error: freezed == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       result: null == result
           ? _value.result
           : result // ignore: cast_nullable_to_non_nullable
@@ -93,50 +95,52 @@ class _$TermsConditionsResponseCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_TermsConditionsResponseCopyWith<$Res>
-    implements $TermsConditionsResponseCopyWith<$Res> {
-  factory _$$_TermsConditionsResponseCopyWith(_$_TermsConditionsResponse value,
-          $Res Function(_$_TermsConditionsResponse) then) =
-      __$$_TermsConditionsResponseCopyWithImpl<$Res>;
+abstract class _$$_TermsConditionsModelCopyWith<$Res>
+    implements $TermsConditionsModelCopyWith<$Res> {
+  factory _$$_TermsConditionsModelCopyWith(_$_TermsConditionsModel value,
+          $Res Function(_$_TermsConditionsModel) then) =
+      __$$_TermsConditionsModelCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
-      {int status, String message, String error, TermsConditionsResult result});
+      {int? status,
+      String? message,
+      String? error,
+      TermsConditionsResult result});
 
   @override
   $TermsConditionsResultCopyWith<$Res> get result;
 }
 
 /// @nodoc
-class __$$_TermsConditionsResponseCopyWithImpl<$Res>
-    extends _$TermsConditionsResponseCopyWithImpl<$Res,
-        _$_TermsConditionsResponse>
-    implements _$$_TermsConditionsResponseCopyWith<$Res> {
-  __$$_TermsConditionsResponseCopyWithImpl(_$_TermsConditionsResponse _value,
-      $Res Function(_$_TermsConditionsResponse) _then)
+class __$$_TermsConditionsModelCopyWithImpl<$Res>
+    extends _$TermsConditionsModelCopyWithImpl<$Res, _$_TermsConditionsModel>
+    implements _$$_TermsConditionsModelCopyWith<$Res> {
+  __$$_TermsConditionsModelCopyWithImpl(_$_TermsConditionsModel _value,
+      $Res Function(_$_TermsConditionsModel) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? status = null,
-    Object? message = null,
-    Object? error = null,
+    Object? status = freezed,
+    Object? message = freezed,
+    Object? error = freezed,
     Object? result = null,
   }) {
-    return _then(_$_TermsConditionsResponse(
-      status: null == status
+    return _then(_$_TermsConditionsModel(
+      status: freezed == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as int,
-      message: null == message
+              as int?,
+      message: freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
-              as String,
-      error: null == error
+              as String?,
+      error: freezed == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       result: null == result
           ? _value.result
           : result // ignore: cast_nullable_to_non_nullable
@@ -147,35 +151,35 @@ class __$$_TermsConditionsResponseCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_TermsConditionsResponse implements _TermsConditionsResponse {
-  _$_TermsConditionsResponse(
+class _$_TermsConditionsModel implements _TermsConditionsModel {
+  _$_TermsConditionsModel(
       {required this.status,
       required this.message,
       required this.error,
       required this.result});
 
-  factory _$_TermsConditionsResponse.fromJson(Map<String, dynamic> json) =>
-      _$$_TermsConditionsResponseFromJson(json);
+  factory _$_TermsConditionsModel.fromJson(Map<String, dynamic> json) =>
+      _$$_TermsConditionsModelFromJson(json);
 
   @override
-  final int status;
+  final int? status;
   @override
-  final String message;
+  final String? message;
   @override
-  final String error;
+  final String? error;
   @override
   final TermsConditionsResult result;
 
   @override
   String toString() {
-    return 'TermsConditionsResponse(status: $status, message: $message, error: $error, result: $result)';
+    return 'TermsConditionsModel(status: $status, message: $message, error: $error, result: $result)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_TermsConditionsResponse &&
+            other is _$_TermsConditionsModel &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.message, message) || other.message == message) &&
             (identical(other.error, error) || other.error == error) &&
@@ -189,42 +193,40 @@ class _$_TermsConditionsResponse implements _TermsConditionsResponse {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_TermsConditionsResponseCopyWith<_$_TermsConditionsResponse>
-      get copyWith =>
-          __$$_TermsConditionsResponseCopyWithImpl<_$_TermsConditionsResponse>(
-              this, _$identity);
+  _$$_TermsConditionsModelCopyWith<_$_TermsConditionsModel> get copyWith =>
+      __$$_TermsConditionsModelCopyWithImpl<_$_TermsConditionsModel>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_TermsConditionsResponseToJson(
+    return _$$_TermsConditionsModelToJson(
       this,
     );
   }
 }
 
-abstract class _TermsConditionsResponse implements TermsConditionsResponse {
-  factory _TermsConditionsResponse(
-          {required final int status,
-          required final String message,
-          required final String error,
-          required final TermsConditionsResult result}) =
-      _$_TermsConditionsResponse;
+abstract class _TermsConditionsModel implements TermsConditionsModel {
+  factory _TermsConditionsModel(
+      {required final int? status,
+      required final String? message,
+      required final String? error,
+      required final TermsConditionsResult result}) = _$_TermsConditionsModel;
 
-  factory _TermsConditionsResponse.fromJson(Map<String, dynamic> json) =
-      _$_TermsConditionsResponse.fromJson;
+  factory _TermsConditionsModel.fromJson(Map<String, dynamic> json) =
+      _$_TermsConditionsModel.fromJson;
 
   @override
-  int get status;
+  int? get status;
   @override
-  String get message;
+  String? get message;
   @override
-  String get error;
+  String? get error;
   @override
   TermsConditionsResult get result;
   @override
   @JsonKey(ignore: true)
-  _$$_TermsConditionsResponseCopyWith<_$_TermsConditionsResponse>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$_TermsConditionsModelCopyWith<_$_TermsConditionsModel> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 TermsConditionsResult _$TermsConditionsResultFromJson(
@@ -386,13 +388,13 @@ Data _$DataFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Data {
-  String get id => throw _privateConstructorUsedError;
+  String? get id => throw _privateConstructorUsedError;
   String get slug => throw _privateConstructorUsedError;
-  List<TermsCondition> get content => throw _privateConstructorUsedError;
-  String get createdAt => throw _privateConstructorUsedError;
-  String get date => throw _privateConstructorUsedError;
-  String get policyType => throw _privateConstructorUsedError;
-  String get updatedAt => throw _privateConstructorUsedError;
+  List<TermsCondition>? get content => throw _privateConstructorUsedError;
+  String? get createdAt => throw _privateConstructorUsedError;
+  String? get date => throw _privateConstructorUsedError;
+  String? get policyType => throw _privateConstructorUsedError;
+  String? get updatedAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -405,13 +407,13 @@ abstract class $DataCopyWith<$Res> {
       _$DataCopyWithImpl<$Res, Data>;
   @useResult
   $Res call(
-      {String id,
+      {String? id,
       String slug,
-      List<TermsCondition> content,
-      String createdAt,
-      String date,
-      String policyType,
-      String updatedAt});
+      List<TermsCondition>? content,
+      String? createdAt,
+      String? date,
+      String? policyType,
+      String? updatedAt});
 }
 
 /// @nodoc
@@ -427,43 +429,43 @@ class _$DataCopyWithImpl<$Res, $Val extends Data>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
+    Object? id = freezed,
     Object? slug = null,
-    Object? content = null,
-    Object? createdAt = null,
-    Object? date = null,
-    Object? policyType = null,
-    Object? updatedAt = null,
+    Object? content = freezed,
+    Object? createdAt = freezed,
+    Object? date = freezed,
+    Object? policyType = freezed,
+    Object? updatedAt = freezed,
   }) {
     return _then(_value.copyWith(
-      id: null == id
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       slug: null == slug
           ? _value.slug
           : slug // ignore: cast_nullable_to_non_nullable
               as String,
-      content: null == content
+      content: freezed == content
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
-              as List<TermsCondition>,
-      createdAt: null == createdAt
+              as List<TermsCondition>?,
+      createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as String,
-      date: null == date
+              as String?,
+      date: freezed == date
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
-              as String,
-      policyType: null == policyType
+              as String?,
+      policyType: freezed == policyType
           ? _value.policyType
           : policyType // ignore: cast_nullable_to_non_nullable
-              as String,
-      updatedAt: null == updatedAt
+              as String?,
+      updatedAt: freezed == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ) as $Val);
   }
 }
@@ -475,13 +477,13 @@ abstract class _$$_DataCopyWith<$Res> implements $DataCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String id,
+      {String? id,
       String slug,
-      List<TermsCondition> content,
-      String createdAt,
-      String date,
-      String policyType,
-      String updatedAt});
+      List<TermsCondition>? content,
+      String? createdAt,
+      String? date,
+      String? policyType,
+      String? updatedAt});
 }
 
 /// @nodoc
@@ -493,43 +495,43 @@ class __$$_DataCopyWithImpl<$Res> extends _$DataCopyWithImpl<$Res, _$_Data>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
+    Object? id = freezed,
     Object? slug = null,
-    Object? content = null,
-    Object? createdAt = null,
-    Object? date = null,
-    Object? policyType = null,
-    Object? updatedAt = null,
+    Object? content = freezed,
+    Object? createdAt = freezed,
+    Object? date = freezed,
+    Object? policyType = freezed,
+    Object? updatedAt = freezed,
   }) {
     return _then(_$_Data(
-      id: null == id
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       slug: null == slug
           ? _value.slug
           : slug // ignore: cast_nullable_to_non_nullable
               as String,
-      content: null == content
+      content: freezed == content
           ? _value._content
           : content // ignore: cast_nullable_to_non_nullable
-              as List<TermsCondition>,
-      createdAt: null == createdAt
+              as List<TermsCondition>?,
+      createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as String,
-      date: null == date
+              as String?,
+      date: freezed == date
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
-              as String,
-      policyType: null == policyType
+              as String?,
+      policyType: freezed == policyType
           ? _value.policyType
           : policyType // ignore: cast_nullable_to_non_nullable
-              as String,
-      updatedAt: null == updatedAt
+              as String?,
+      updatedAt: freezed == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -540,7 +542,7 @@ class _$_Data implements _Data {
   _$_Data(
       {required this.id,
       required this.slug,
-      required final List<TermsCondition> content,
+      required final List<TermsCondition>? content,
       required this.createdAt,
       required this.date,
       required this.policyType,
@@ -550,25 +552,27 @@ class _$_Data implements _Data {
   factory _$_Data.fromJson(Map<String, dynamic> json) => _$$_DataFromJson(json);
 
   @override
-  final String id;
+  final String? id;
   @override
   final String slug;
-  final List<TermsCondition> _content;
+  final List<TermsCondition>? _content;
   @override
-  List<TermsCondition> get content {
+  List<TermsCondition>? get content {
+    final value = _content;
+    if (value == null) return null;
     if (_content is EqualUnmodifiableListView) return _content;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_content);
+    return EqualUnmodifiableListView(value);
   }
 
   @override
-  final String createdAt;
+  final String? createdAt;
   @override
-  final String date;
+  final String? date;
   @override
-  final String policyType;
+  final String? policyType;
   @override
-  final String updatedAt;
+  final String? updatedAt;
 
   @override
   String toString() {
@@ -620,30 +624,30 @@ class _$_Data implements _Data {
 
 abstract class _Data implements Data {
   factory _Data(
-      {required final String id,
+      {required final String? id,
       required final String slug,
-      required final List<TermsCondition> content,
-      required final String createdAt,
-      required final String date,
-      required final String policyType,
-      required final String updatedAt}) = _$_Data;
+      required final List<TermsCondition>? content,
+      required final String? createdAt,
+      required final String? date,
+      required final String? policyType,
+      required final String? updatedAt}) = _$_Data;
 
   factory _Data.fromJson(Map<String, dynamic> json) = _$_Data.fromJson;
 
   @override
-  String get id;
+  String? get id;
   @override
   String get slug;
   @override
-  List<TermsCondition> get content;
+  List<TermsCondition>? get content;
   @override
-  String get createdAt;
+  String? get createdAt;
   @override
-  String get date;
+  String? get date;
   @override
-  String get policyType;
+  String? get policyType;
   @override
-  String get updatedAt;
+  String? get updatedAt;
   @override
   @JsonKey(ignore: true)
   _$$_DataCopyWith<_$_Data> get copyWith => throw _privateConstructorUsedError;
@@ -655,9 +659,10 @@ TermsCondition _$TermsConditionFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$TermsCondition {
-  String get title => throw _privateConstructorUsedError;
-  String get html => throw _privateConstructorUsedError;
-  String get id => throw _privateConstructorUsedError;
+  String? get title => throw _privateConstructorUsedError;
+  String? get html => throw _privateConstructorUsedError;
+  String? get id => throw _privateConstructorUsedError;
+  dynamic get re => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -671,7 +676,7 @@ abstract class $TermsConditionCopyWith<$Res> {
           TermsCondition value, $Res Function(TermsCondition) then) =
       _$TermsConditionCopyWithImpl<$Res, TermsCondition>;
   @useResult
-  $Res call({String title, String html, String id});
+  $Res call({String? title, String? html, String? id, dynamic re});
 }
 
 /// @nodoc
@@ -687,23 +692,28 @@ class _$TermsConditionCopyWithImpl<$Res, $Val extends TermsCondition>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? title = null,
-    Object? html = null,
-    Object? id = null,
+    Object? title = freezed,
+    Object? html = freezed,
+    Object? id = freezed,
+    Object? re = freezed,
   }) {
     return _then(_value.copyWith(
-      title: null == title
+      title: freezed == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String,
-      html: null == html
+              as String?,
+      html: freezed == html
           ? _value.html
           : html // ignore: cast_nullable_to_non_nullable
-              as String,
-      id: null == id
+              as String?,
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
+      re: freezed == re
+          ? _value.re
+          : re // ignore: cast_nullable_to_non_nullable
+              as dynamic,
     ) as $Val);
   }
 }
@@ -716,7 +726,7 @@ abstract class _$$_TermsConditionCopyWith<$Res>
       __$$_TermsConditionCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String title, String html, String id});
+  $Res call({String? title, String? html, String? id, dynamic re});
 }
 
 /// @nodoc
@@ -730,23 +740,25 @@ class __$$_TermsConditionCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? title = null,
-    Object? html = null,
-    Object? id = null,
+    Object? title = freezed,
+    Object? html = freezed,
+    Object? id = freezed,
+    Object? re = freezed,
   }) {
     return _then(_$_TermsCondition(
-      title: null == title
+      title: freezed == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String,
-      html: null == html
+              as String?,
+      html: freezed == html
           ? _value.html
           : html // ignore: cast_nullable_to_non_nullable
-              as String,
-      id: null == id
+              as String?,
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
+      re: freezed == re ? _value.re! : re,
     ));
   }
 }
@@ -755,21 +767,23 @@ class __$$_TermsConditionCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_TermsCondition implements _TermsCondition {
   _$_TermsCondition(
-      {required this.title, required this.html, required this.id});
+      {required this.title, required this.html, required this.id, this.re});
 
   factory _$_TermsCondition.fromJson(Map<String, dynamic> json) =>
       _$$_TermsConditionFromJson(json);
 
   @override
-  final String title;
+  final String? title;
   @override
-  final String html;
+  final String? html;
   @override
-  final String id;
+  final String? id;
+  @override
+  final dynamic re;
 
   @override
   String toString() {
-    return 'TermsCondition(title: $title, html: $html, id: $id)';
+    return 'TermsCondition(title: $title, html: $html, id: $id, re: $re)';
   }
 
   @override
@@ -779,12 +793,14 @@ class _$_TermsCondition implements _TermsCondition {
             other is _$_TermsCondition &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.html, html) || other.html == html) &&
-            (identical(other.id, id) || other.id == id));
+            (identical(other.id, id) || other.id == id) &&
+            const DeepCollectionEquality().equals(other.re, re));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, title, html, id);
+  int get hashCode => Object.hash(
+      runtimeType, title, html, id, const DeepCollectionEquality().hash(re));
 
   @JsonKey(ignore: true)
   @override
@@ -802,19 +818,22 @@ class _$_TermsCondition implements _TermsCondition {
 
 abstract class _TermsCondition implements TermsCondition {
   factory _TermsCondition(
-      {required final String title,
-      required final String html,
-      required final String id}) = _$_TermsCondition;
+      {required final String? title,
+      required final String? html,
+      required final String? id,
+      final dynamic re}) = _$_TermsCondition;
 
   factory _TermsCondition.fromJson(Map<String, dynamic> json) =
       _$_TermsCondition.fromJson;
 
   @override
-  String get title;
+  String? get title;
   @override
-  String get html;
+  String? get html;
   @override
-  String get id;
+  String? get id;
+  @override
+  dynamic get re;
   @override
   @JsonKey(ignore: true)
   _$$_TermsConditionCopyWith<_$_TermsCondition> get copyWith =>

@@ -180,17 +180,14 @@ class _VersesViewState extends State<VersesView> {
                                     isSelected: state.audioIndex == index,
                                     shareOnTap: () {
                                       Share.share(
-                                          '${indoPakData[index].textIndopak}\n${removeFootnotesFromMeaning(
-                                        state.chapterTranslationText?[index] ??
-                                            '',
-                                      )}\n\n${state.chapterVersesModel!.data.englishName}: Ayah${index + 1}');
+                                          '${indoPakData[index].textIndopak}\n${state.chapterTranslationText?[index] ?? ''}\n\n${state.chapterVersesModel!.data.englishName}: Ayah${index + 1}');
                                     },
                                     numValue: index + 1,
                                     surah: indoPakData[index]
                                         .textIndopak
                                         .toString(),
-                                    surahMeaning: removeFootnotesFromMeaning(
-                                        state.chapterTranslationText?[index] ??
+                                    surahMeaning:
+                                        (state.chapterTranslationText?[index] ??
                                             ''),
                                   );
                                 },
@@ -249,21 +246,16 @@ class _VersesViewState extends State<VersesView> {
                                         isSelected: state.audioIndex == index,
                                         shareOnTap: () {
                                           Share.share(
-                                              '${uthmaniData[index].textIndopak}\n${removeFootnotesFromMeaning(
-                                            state.chapterTranslationText?[
-                                                    index] ??
-                                                '',
-                                          )}\n\n${state.chapterVersesModel!.data.englishName}: Ayah${index + 1}');
+                                              '${uthmaniData[index].textIndopak}\n${state.chapterTranslationText?[index] ?? ''}\n\n${state.chapterVersesModel!.data.englishName}: Ayah${index + 1}');
                                         },
                                         numValue: index + 1,
                                         surah: uthmaniData[index]
                                             .textIndopak
                                             .toString(),
                                         surahMeaning:
-                                            removeFootnotesFromMeaning(
-                                                state.chapterTranslationText?[
-                                                        index] ??
-                                                    ''),
+                                            (state.chapterTranslationText?[
+                                                    index] ??
+                                                ''),
                                       );
                                     },
                                   )
@@ -320,21 +312,16 @@ class _VersesViewState extends State<VersesView> {
                                         isSelected: state.audioIndex == index,
                                         shareOnTap: () {
                                           Share.share(
-                                              '${noSymbolDataPakData[index].textIndopak}\n${removeFootnotesFromMeaning(
-                                            state.chapterTranslationText?[
-                                                    index] ??
-                                                '',
-                                          )}\n\n${state.chapterVersesModel!.data.englishName}: Ayah${index + 1}');
+                                              '${noSymbolDataPakData[index].textIndopak}\n${state.chapterTranslationText?[index] ?? ''}\n\n${state.chapterVersesModel!.data.englishName}: Ayah${index + 1}');
                                         },
                                         numValue: index + 1,
                                         surah: noSymbolDataPakData[index]
                                             .textIndopak
                                             .toString(),
                                         surahMeaning:
-                                            removeFootnotesFromMeaning(
-                                                state.chapterTranslationText?[
-                                                        index] ??
-                                                    ''),
+                                            (state.chapterTranslationText?[
+                                                    index] ??
+                                                ''),
                                       );
                                     },
                                   );
@@ -399,11 +386,7 @@ class _VersesViewState extends State<VersesView> {
                                                   state.audioIndex == index,
                                               shareOnTap: () {
                                                 Share.share(
-                                                    '${indoPakdata[index].textIndopak}\n${removeFootnotesFromMeaning(
-                                                  state.paraTranslationText?[
-                                                          index] ??
-                                                      '',
-                                                )}\n\n${state.chapterVersesModel!.data.englishName}: Ayah${index + 1}');
+                                                    '${indoPakdata[index].textIndopak}\n${state.paraTranslationText?[index] ?? ''}\n\n${state.chapterVersesModel!.data.englishName}: Ayah${index + 1}');
                                               },
                                               playOntap: () {
                                                 context.read<QuranBloc>().add(
@@ -416,11 +399,9 @@ class _VersesViewState extends State<VersesView> {
                                                   .textIndopak
                                                   .toString(),
                                               surahMeaning:
-                                                  removeFootnotesFromMeaning(
-                                                state.paraTranslationText?[
-                                                        index] ??
-                                                    '',
-                                              ),
+                                                  state.paraTranslationText?[
+                                                          index] ??
+                                                      '',
                                             );
                                     },
                                   )
@@ -484,11 +465,7 @@ class _VersesViewState extends State<VersesView> {
                                                       state.audioIndex == index,
                                                   shareOnTap: () {
                                                     Share.share(
-                                                        '${uthmanidata[index].textIndopak}\n${removeFootnotesFromMeaning(
-                                                      state.paraTranslationText?[
-                                                              index] ??
-                                                          '',
-                                                    )}\n\n${state.chapterVersesModel!.data.englishName}: Ayah${index + 1}');
+                                                        '${uthmanidata[index].textIndopak}\n${state.paraTranslationText?[index] ?? ''}\n\n${state.chapterVersesModel!.data.englishName}: Ayah${index + 1}');
                                                   },
                                                   playOntap: () {
                                                     context
@@ -503,11 +480,9 @@ class _VersesViewState extends State<VersesView> {
                                                       .textIndopak
                                                       .toString(),
                                                   surahMeaning:
-                                                      removeFootnotesFromMeaning(
-                                                    state.paraTranslationText?[
-                                                            index] ??
-                                                        '',
-                                                  ),
+                                                      state.paraTranslationText?[
+                                                              index] ??
+                                                          '',
                                                 );
                                         },
                                       )
@@ -567,11 +542,7 @@ class _VersesViewState extends State<VersesView> {
                                                 state.audioIndex == index,
                                             shareOnTap: () {
                                               Share.share(
-                                                  '${uthmanidata[index].textIndopak}\n${removeFootnotesFromMeaning(
-                                                state.paraTranslationText?[
-                                                        index] ??
-                                                    '',
-                                              )}\n\n${state.chapterVersesModel!.data.englishName}: Ayah${index + 1}');
+                                                  '${uthmanidata[index].textIndopak}\n${state.paraTranslationText?[index] ?? ''}\n\n${state.chapterVersesModel!.data.englishName}: Ayah${index + 1}');
                                             },
                                             playOntap: () {
                                               context.read<QuranBloc>().add(
@@ -584,11 +555,9 @@ class _VersesViewState extends State<VersesView> {
                                                 .textIndopak
                                                 .toString(),
                                             surahMeaning:
-                                                removeFootnotesFromMeaning(
-                                              state.paraTranslationText?[
-                                                      index] ??
-                                                  '',
-                                            ),
+                                                state.paraTranslationText?[
+                                                        index] ??
+                                                    '',
                                           );
                                         },
                                       );
@@ -638,9 +607,7 @@ class _VersesViewState extends State<VersesView> {
                               isSelected: true,
                               shareOnTap: () {
                                 Share.share(
-                                    '${data[index].textIndopak}\n${removeFootnotesFromMeaning(
-                                  state.chapterTranslationText?[index] ?? '',
-                                )}\n\n${state.chapterVersesModel!.data.englishName}: Ayah${index + 1}');
+                                    '${data[index].textIndopak}\n${state.chapterTranslationText?[index] ?? ''}\n\n${state.chapterVersesModel!.data.englishName}: Ayah${index + 1}');
                               },
                               playOntap: () {
                                 context
@@ -1464,10 +1431,4 @@ class _VersesViewState extends State<VersesView> {
       ),
     );
   }
-}
-
-String removeFootnotesFromMeaning(String meaning) {
-  final text = parse(meaning);
-  final String plainText = parse(text.body!.text).documentElement!.text;
-  return plainText;
 }

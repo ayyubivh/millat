@@ -403,7 +403,14 @@ class OrdetailsView extends StatelessWidget {
                   Row(
                     children: [
                       Text(
-                        context.read<DatabaseBloc>().state.email,
+                        context
+                                .read<DatabaseBloc>()
+                                .state
+                                .authUserModel
+                                ?.result
+                                ?.user
+                                ?.email ??
+                            "",
                         style: TextStyle(
                           color: ColorManager.blackColor,
                           fontSize: 15,
@@ -413,7 +420,7 @@ class OrdetailsView extends StatelessWidget {
                         textAlign: TextAlign.center,
                       ),
                       Text(
-                        " once your order is confirmed",
+                        "once your order is confirmed",
                         style: TextStyle(
                           color: ColorManager.textGrey99,
                           fontSize: 15,
@@ -504,7 +511,7 @@ class OrdetailsView extends StatelessWidget {
                             borderRadius: BorderRadius.circular(8),
                             image: DecorationImage(
                               image: NetworkImage(
-                                  data?.productId?.colors?[0].images![0] ?? ""),
+                                  data?.productId?.images![0] ?? ""),
                             ),
                           ),
                         ),
@@ -525,7 +532,7 @@ class OrdetailsView extends StatelessWidget {
                             ),
                             kHeight8,
                             Text(
-                              "${data?.productId?.colors?[0].text ?? ""},${data?.productId?.size?[0].value ?? ""}",
+                              "${data?.productId?.color ?? ""},${data?.productId?.size?[0].size ?? ""}",
                               style: TextStyle(
                                 color: ColorManager.textGrey7A,
                                 fontSize: 13,

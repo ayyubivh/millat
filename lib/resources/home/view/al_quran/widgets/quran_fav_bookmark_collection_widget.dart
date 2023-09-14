@@ -76,7 +76,7 @@ class QuranFavBookmarkCollectionWidget extends StatelessWidget {
                     ),
                     BlocBuilder<DatabaseBloc, DatabaseState>(
                       builder: (context, state) => Text(
-                        state.name,
+                        state.authUserModel?.result?.user?.name ?? "",
                         style: const TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.w500,

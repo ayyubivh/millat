@@ -9,6 +9,7 @@ import 'package:millat/resources/shop/view/womens_care/shop_specific_category_vi
 import 'package:millat/resources/tabs/view/tabs_view.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/color_manager.dart';
+import 'package:millat/utils/size_utility.dart';
 import '../../../profile/views/profile_view.dart';
 
 class ShopTabsView extends StatelessWidget {
@@ -55,7 +56,7 @@ class ShopTabsView extends StatelessWidget {
           extendBody: true,
           body: screens[state.index],
           bottomNavigationBar: SizedBox(
-            height: 60,
+            height: (8.0 / 100.0) * SizeUtility(context).height,
             child: BottomNavigationBar(
               onTap: (newIndex) {
                 if (newIndex == 0 && state.index == newIndex) {

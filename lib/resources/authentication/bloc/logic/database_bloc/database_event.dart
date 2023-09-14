@@ -6,11 +6,11 @@ class DatabaseEvent with _$DatabaseEvent {
     required String token,
   }) = StoreTokenEvent;
   const factory DatabaseEvent.fetchToken() = FetchToken;
-  const factory DatabaseEvent.storeUserDetails({
-    required String email,
-    required String name,
-  }) = StoreUserDetails;
-  const factory DatabaseEvent.fetchUserDetails() = FetchUserDetails;
+  // const factory DatabaseEvent.storeUserDetails({
+  //   required String email,
+  //   required String name,
+  // }) = StoreUserDetails;
+  // const factory DatabaseEvent.fetchUserDetails() = FetchUserDetails;
   const factory DatabaseEvent.fetchAuthUser({
     required BuildContext context,
   }) = FetchAuthUser;
@@ -28,4 +28,8 @@ class DatabaseEvent with _$DatabaseEvent {
   const factory DatabaseEvent.uploadImageEvent({required ImageSource source}) =
       UploadImageEvent;
   const factory DatabaseEvent.fetchContactEvent() = FetchContactEvent;
+  const factory DatabaseEvent.saveCoverImage({
+    required String image,
+  }) = SaveCoverImage;
+  const factory DatabaseEvent.fetchCoverImage() = FetchCoverImage;
 }

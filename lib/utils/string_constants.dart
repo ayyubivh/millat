@@ -10,6 +10,7 @@ class Appstrings {
   static const String highLatitudeMethodsKey = "HighLatitude-Methods";
   static const String addressDefaultIndex = "AdrressIndex";
   static const String currenLocationKey = "Current-Location-key";
+  static const String coverImageKey = "Cover-image-key";
   //Home
   static const String quran = "Quran";
   static const String tasbih = "Tasbih";

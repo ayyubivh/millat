@@ -6,18 +6,18 @@ part of 'terms_and_conditions_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_TermsConditionsResponse _$$_TermsConditionsResponseFromJson(
+_$_TermsConditionsModel _$$_TermsConditionsModelFromJson(
         Map<String, dynamic> json) =>
-    _$_TermsConditionsResponse(
-      status: json['status'] as int,
-      message: json['message'] as String,
-      error: json['error'] as String,
+    _$_TermsConditionsModel(
+      status: json['status'] as int?,
+      message: json['message'] as String?,
+      error: json['error'] as String?,
       result: TermsConditionsResult.fromJson(
           json['result'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$_TermsConditionsResponseToJson(
-        _$_TermsConditionsResponse instance) =>
+Map<String, dynamic> _$$_TermsConditionsModelToJson(
+        _$_TermsConditionsModel instance) =>
     <String, dynamic>{
       'status': instance.status,
       'message': instance.message,
@@ -38,15 +38,15 @@ Map<String, dynamic> _$$_TermsConditionsResultToJson(
     };
 
 _$_Data _$$_DataFromJson(Map<String, dynamic> json) => _$_Data(
-      id: json['id'] as String,
+      id: json['id'] as String?,
       slug: json['slug'] as String,
-      content: (json['content'] as List<dynamic>)
-          .map((e) => TermsCondition.fromJson(e as Map<String, dynamic>))
+      content: (json['content'] as List<dynamic>?)
+          ?.map((e) => TermsCondition.fromJson(e as Map<String, dynamic>))
           .toList(),
-      createdAt: json['createdAt'] as String,
-      date: json['date'] as String,
-      policyType: json['policyType'] as String,
-      updatedAt: json['updatedAt'] as String,
+      createdAt: json['createdAt'] as String?,
+      date: json['date'] as String?,
+      policyType: json['policyType'] as String?,
+      updatedAt: json['updatedAt'] as String?,
     );
 
 Map<String, dynamic> _$$_DataToJson(_$_Data instance) => <String, dynamic>{
@@ -61,9 +61,10 @@ Map<String, dynamic> _$$_DataToJson(_$_Data instance) => <String, dynamic>{
 
 _$_TermsCondition _$$_TermsConditionFromJson(Map<String, dynamic> json) =>
     _$_TermsCondition(
-      title: json['title'] as String,
-      html: json['html'] as String,
-      id: json['id'] as String,
+      title: json['title'] as String?,
+      html: json['html'] as String?,
+      id: json['id'] as String?,
+      re: json['re'],
     );
 
 Map<String, dynamic> _$$_TermsConditionToJson(_$_TermsCondition instance) =>
@@ -71,4 +72,5 @@ Map<String, dynamic> _$$_TermsConditionToJson(_$_TermsCondition instance) =>
       'title': instance.title,
       'html': instance.html,
       'id': instance.id,
+      're': instance.re,
     };

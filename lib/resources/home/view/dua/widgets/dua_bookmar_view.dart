@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/resources/home/bloc/logic/dua_bloc/dua_bloc.dart';
+import 'package:millat/resources/home/bloc/logic/tasbih_bloc/tasbih_bloc.dart';
+import 'package:millat/resources/home/view/tasbih/tasbih_view.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/loader.dart';
@@ -79,10 +81,29 @@ class DuaBookMarkView extends StatelessWidget {
                                             ),
                                           ),
                                           const Spacer(),
-                                          const ImageIcon(
-                                            AssetImage(
-                                                "assets/icons/dua_tasbih.png"),
-                                            size: 20,
+                                          GestureDetector(
+                                            onTap: () {
+                                              context.read<TasbihBloc>().add(
+                                                  SelectDhikerEvent(
+                                                      dikr: data.content,
+                                                      translate: "",
+                                                      id: state
+                                                          .duaBookMarkModel!
+                                                          .result!
+                                                          .bookmarks[0]
+                                                          .bookmarks[index]
+                                                          .duaId));
+                                              Navigator.of(context)
+                                                  .push(MaterialPageRoute(
+                                                builder: (context) =>
+                                                    const TasbihView(),
+                                              ));
+                                            },
+                                            child: const ImageIcon(
+                                              AssetImage(
+                                                  "assets/icons/dua_tasbih.png"),
+                                              size: 20,
+                                            ),
                                           ),
                                           kWidth15,
                                           ImageIcon(

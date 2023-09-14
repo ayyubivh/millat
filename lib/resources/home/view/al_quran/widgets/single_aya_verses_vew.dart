@@ -5,6 +5,7 @@ import 'package:millat/resources/home/bloc/logic/quran_bloc/quran_bloc.dart';
 import 'package:millat/resources/home/view/al_quran/widgets/verses_card.dart';
 import 'package:millat/resources/home/view/al_quran/widgets/verses_view.dart';
 import 'package:millat/utils/color_manager.dart';
+import 'package:millat/utils/utils.dart';
 import 'package:share_plus/share_plus.dart';
 
 class SingleAyaVersesView extends StatelessWidget {
@@ -47,7 +48,7 @@ class SingleAyaVersesView extends StatelessWidget {
                 },
                 shareOnTap: () {
                   Share.share(
-                      '${data.textIndopak}\n${removeFootnotesFromMeaning(
+                      '${data.textIndopak}\n${Utilities.removeFootnotesFromMeaning(
                     state.singleTranslation,
                   )}\n\n Ayah${state.singleTranslation}');
                 },

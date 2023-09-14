@@ -8,6 +8,7 @@ import 'package:millat/resources/home/view/namaz_timing/namaz_timing_view.dart';
 import 'package:millat/resources/shop/view/tabs/shop_tabs_vilew.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/color_manager.dart';
+import 'package:millat/utils/size_utility.dart';
 import '../../authentication/bloc/logic/database_bloc/database_bloc.dart';
 import '../../profile/views/user_profile_view.dart';
 
@@ -73,7 +74,7 @@ class _TabsViewState extends State<TabsView> {
         child: Scaffold(
           extendBody: true,
           bottomNavigationBar: SizedBox(
-            height: 60,
+            height: (8.0 / 100.0) * SizeUtility(context).height,
             child: BottomNavigationBar(
               onTap: onTap,
               currentIndex: state.homeTabIndex,

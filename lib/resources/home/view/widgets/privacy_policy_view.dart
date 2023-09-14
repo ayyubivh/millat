@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:millat/resources/home/view/al_quran/widgets/verses_view.dart';
 import 'package:millat/resources/profile/bloc/logic/terms_and_condtions_bloc/terms_and_condtions_bloc.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/loader.dart';
 import 'package:millat/utils/utils.dart';
-import '../../../../components/buttons/main_button.dart';
 import '../../../../utils/color_manager.dart';
 import '../../../../utils/string_constants.dart';
 

@@ -7,7 +7,8 @@ const String dummyPath = "assets/dummy";
 
 class AppAssetsStrings {
   //Home
-
+  static const String homeTab = "$iconsPath/home.png";
+  static const String shopTabIcon = "$iconsPath/store.png";
   static const String homeQuranIcon = "$iconsPath/quran.png";
   static const String homeTasbihIcon = "$iconsPath/tasbih.png";
   static const String homeDuaIcon = "$iconsPath/dua.png";
@@ -19,6 +20,9 @@ class AppAssetsStrings {
   static const String haditOfTheDayBg =
       "$backgroundsPath/hadit_of_the_day_bg.png";
   static const homeBgDesign = "$backgroundsPath/home_background_design.png";
+  static const rewardsTab = "$iconsPath/rewards_tab.png";
+  static const millatLogo = "$logosPath/Icon only.png";
+  static const copyIcon = "$iconsPath/copy.png";
 
   //tasbih
 
@@ -112,6 +116,22 @@ class AppAssetsStrings {
   static const String homeBanner1 = "$imagesPath/home_quran_banner_1.png";
   static const String homeBanner2 = "$imagesPath/home_quran_banner_2.png";
   static const String profileCoverImg = "$imagesPath/profile_cover.png";
+  static const String quranBookmrark2 = "$imagesPath/quran_bookmark_2.png";
+  //rewards
+  static const String redeemYoucoinBg = "$imagesPath/redeem_your_coin_img.png";
+  static const String redeemYourCoinText = "$imagesPath/redeem_your_coin.png";
+  static const String superSaleAd = "$imagesPath/super_sale_ad.png";
+  static const String arrrowRight = "$iconsPath/arrow-right.png";
+  static const String score = "$imagesPath/score.png";
+  static const String score2 = "$imagesPath/score2.png";
+
+  static const String rewardMoney = "$imagesPath/reward_money.png";
+  static const String rewardCoinBackground =
+      "$backgroundsPath/rewards_coins.png";
+  static const String rewardCoinsBg = "$backgroundsPath/rewards_coin_bg.png";
+  static const String howToEarn = "$iconsPath/how_to_earn.png";
+  static const String shirt = "$imagesPath/shirt.png";
+  static const String email = "$imagesPath/email.png";
 }
 
 const String splashBackgroundPath = '$backgroundsPath/splash_background.png';

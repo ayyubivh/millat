@@ -196,6 +196,7 @@ class Appstrings {
   static const String referFriendEarn = "Reffer Friends, Get 100 coins Each ";
   static const String toName = "To:Name,Phone, or Email";
   static const String contact = "CONTACT";
+
   //hadith
   static const String bookmarks = "Bookmarks";
   static const String books = "books";
@@ -225,6 +226,50 @@ class Appstrings {
       "previously, as a guide for people, and ˹also˺ revealed the Standard ˹to distinguish between right and wrong";
   static const String tempAyaMeaning4 =
       "Do not entrust the incapable ˹among your dependants˺ with your wealth which Allah has made a means of support for you—but feed and clothe them from it, and speak to them kindly.";
+//rewards
+  static const String sponsoredBy = "Sponsored By";
+  static const String shopWithCoins = "Shop With Coins";
+  static const String dailyCoins = "Daily Coins";
+  static const String text500 = "500!";
+  static const String coins = "Coins";
+  static const String earnFreeConins = "Earn free coins everyday";
+  static const String collect = "Collect";
+  static const String howEarn = "How to \nEarn ?";
+  static const String whereUse = "Where to \nUse?";
+  static const String howToEarn = "How to earn";
+  static const String howToRedeem = "How to Redeem";
+  static const String referYourFriend = "Refer your friends";
+  static const String earn1000Points = "Earn 1000 Points";
+  static const String yourReferalLink = "Your Referral Link";
+  static const String completeTask = "Complete the tasks and earn coins";
+  static const String welcome = "Welcome";
+  static const String birthday = "Birthday";
+  static const String firstOrder = "First Order";
+  static const String quranAya = "Quran Aya";
+  static const String dailyRecite = "Daily Recite";
+  static const String prayNamaz = "Pray Namaz";
+  static const String fifthOrder = "5th Order";
+  static const String readDua = "Read Dua";
+  static const String readTasbih = "Read Tasbih";
+  static const String fiveHundred = "500 Points";
+  static const String thousandPoints = "1000 Points";
+  static const String fourHundredPoints = "400 Points";
+  static const String hundredPoints = "100 Points";
+  static const String eightHundredPoints = "800 Points";
+  static const String redeemText1 = "Earn coins by completing the tasks";
+  static const String redeemText2 =
+      "Use coins in shop and get discount on products";
+  static const String redeemText3 =
+      "Once you redeem you will get email regarding the same";
+  static const String frequentlyAsked = "Frequently asked Questions";
+  static const String frequentlyAskedQuestions1 = "Cancellation Policy";
+  static const String frequentlyAskedQuestions2 = "Non-Returnable";
+  static const String frequentlyAskedQuestions3 = "What is refer and earn?";
+  static const String frequentlyAskedQuestions4 = "How to earn more coins?";
+  static const String frequentlyAskedQuestions5 =
+      "Can i use coins on all products?";
+  static const String frequentlyAskedQuestions6 = "How to refer friends";
+  static const String frequentlyAskedQuestions7 = "How many coins i can earn?";
 }
 
 String authToken = 'authToken';

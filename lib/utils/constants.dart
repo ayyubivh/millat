@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 //Heights
+const kHeight2 = SizedBox(height: 2);
 const kHeight3 = SizedBox(height: 3);
 const kHeight5 = SizedBox(height: 5);
 const kHeight8 = SizedBox(height: 8);

@@ -41,6 +41,9 @@ class ColorManager {
   static Color blue7A = HexColor.fromHex("#007AFF");
   static Color greyB8 = HexColor.fromHex("#B8B8B8");
   static Color dividerGreyAe = HexColor.fromHex("#AEC2BA");
+  static Color primaryGreenGradient = HexColor.fromHex("#4BEBA6");
+  static Color primaryGreenGradient2 = HexColor.fromHex("#BCFEB1");
+  static Color darkGreen = HexColor.fromHex("#006639");
 //shop
   static Color reviewStar = HexColor.fromHex("#FFE174");
   static Color categorySelectedGreen = HexColor.fromHex("#597766");
@@ -122,6 +125,11 @@ class ColorManager {
   static Color fourPrimaryColor = HexColor.fromHex("#DDCEB7");
   static Color fivePrimaryColor = HexColor.fromHex("#EBD7C1");
   static Color sixPrimaryColor = HexColor.fromHex("#DECCA0");
+  //rewards
+  static Color rewardsGreenGradient1 = HexColor.fromHex("#77FFAB");
+  static Color rewardsGreenGradient2 = HexColor.fromHex("#129F62");
+  static Color rewardsLightGreenGradient1 = HexColor.fromHex("#4BEAA5");
+  static Color rewardsLightGreenGradient2 = HexColor.fromHex("#68B85B");
 }
 
 extension HexColor on Color {

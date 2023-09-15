@@ -74,7 +74,7 @@ class HaditTinkerCardsState extends State<HaditTinkerCards> {
     return Stack(
       children: [
         Container(
-          padding: const EdgeInsets.only(top: 16),
+          padding: const EdgeInsets.only(top: 30),
           height: 340,
           child: Stack(
             children: [
@@ -169,7 +169,7 @@ class HaditTinkerCardsState extends State<HaditTinkerCards> {
                 painter: LinePainter(),
               ),
               Positioned(
-                bottom: 4,
+                bottom: 0,
                 child: CustomPaint(
                   size: Size(SizeUtility(context).width, 0),
                   painter: LinePainter2(),
@@ -180,12 +180,15 @@ class HaditTinkerCardsState extends State<HaditTinkerCards> {
         ),
         Padding(
           padding: EdgeInsets.only(
-            left: SizeUtility(context).width / 2.56,
+            left: SizeUtility(context).width / 2.66,
           ),
           child: CircleAvatar(
-            radius: 23.5,
+            radius: 30,
             backgroundColor: ColorManager.primary,
-            child: Image.asset(AppAssetsStrings.homeHaditQuranIcon),
+            child: Image.asset(
+              AppAssetsStrings.homeHaditQuranIcon,
+              height: 40,
+            ),
           ),
         ),
       ],

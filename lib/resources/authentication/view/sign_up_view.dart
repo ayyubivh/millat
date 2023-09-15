@@ -12,6 +12,7 @@ import 'package:millat/resources/tabs/view/tabs_view.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/validators.dart';
+import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 
 import '../../../utils/utils.dart';
 import '../class/google_signin.dart';
@@ -187,7 +188,12 @@ class _SignUpViewState extends State<SignUpView> {
                           const SizedBox(
                             width: 40,
                           ),
-                          Image.asset('assets/logos/apple_logo.png', width: 60),
+                          InkWell(
+                              onTap: () => appleSignIn(),
+                              child: Image.asset(
+                                'assets/logos/apple_logo.png',
+                                width: 60,
+                              )),
                         ],
                       )
                     ],
@@ -199,6 +205,22 @@ class _SignUpViewState extends State<SignUpView> {
         },
       ),
     ));
+  }
+
+  Future appleSignIn() async {
+    if (await SignInWithApple.isAvailable()) {
+      try {
+        final credential = await SignInWithApple.getAppleIDCredential(scopes: [
+          AppleIDAuthorizationScopes.email,
+          AppleIDAuthorizationScopes.fullName,
+        ]);
+        print(credential.email);
+      } on Exception catch (e) {
+        print(e);
+      }
+    } else {
+      showSnackBar(context, "Apple SignIn is not available for your device");
+    }
   }
 
   Future googleSignIn() async {

@@ -14,6 +14,7 @@ import 'package:millat/utils/string_constants.dart';
 import '../../../utils/assets_paths.dart';
 import '../../../utils/size_utility.dart';
 import '../../authentication/bloc/logic/database_bloc/database_bloc.dart';
+import '../../authentication/class/google_signin.dart';
 
 class UserProfileView extends StatelessWidget {
   const UserProfileView({super.key});
@@ -506,10 +507,11 @@ Future<dynamic> logoutPopUp(BuildContext context) {
                   ),
                   Expanded(
                     child: GestureDetector(
-                      onTap: () {
+                      onTap: () async {
                         context
                             .read<DatabaseBloc>()
                             .add(const RemoveTokenEvent());
+                        await GoogleSignInService.logout();
                         Navigator.of(context).pushReplacement(MaterialPageRoute(
                           builder: (context) => const SignUpView(),
                         ));

@@ -126,12 +126,12 @@ class _HomeViewState extends State<HomeView> {
                   onNotification: (notification) {
                     final ScrollDirection direction = notification.direction;
                     final double scrollPosition = notification.metrics.pixels;
-                    const double epsilon = 1.0;
+                    const double epsilon = 25.0;
+                    print(scrollPosition);
 
                     if (direction == ScrollDirection.reverse) {
                       scrollNotifier.value = false;
-                    } else if (direction == ScrollDirection.forward &&
-                        scrollPosition <= epsilon) {
+                    } else if (scrollPosition <= 10) {
                       scrollNotifier.value = true;
                     }
                     return true;
@@ -140,7 +140,7 @@ class _HomeViewState extends State<HomeView> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       AnimatedContainer(
-                        duration: const Duration(milliseconds: 310),
+                        duration: const Duration(milliseconds: 1000),
                         height: scrollNotifier.value == true ? 290 : 178,
                         width: SizeUtility(context).width,
                         decoration:
@@ -158,8 +158,7 @@ class _HomeViewState extends State<HomeView> {
                         child: Padding(
                           padding: const EdgeInsets.symmetric(
                             horizontal: 30,
-                          ).copyWith(
-                              top: scrollNotifier.value == true ? 35 : 25),
+                          ).copyWith(top: 35),
                           child: Stack(
                             // crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -202,19 +201,22 @@ class _HomeViewState extends State<HomeView> {
                                   ),
 
                                   const Spacer(),
-                                  GestureDetector(
-                                    onTap: () {
-                                      Navigator.of(context)
-                                          .push(MaterialPageRoute(
-                                        builder: (context) =>
-                                            const NotificationView(),
-                                      ));
-                                    },
-                                    child: ImageIcon(
-                                        const AssetImage(
-                                            AppAssetsStrings.bellIcon),
-                                        color: ColorManager.whiteColor,
-                                        size: 25),
+                                  Padding(
+                                    padding: const EdgeInsets.only(top: 5),
+                                    child: GestureDetector(
+                                      onTap: () {
+                                        Navigator.of(context)
+                                            .push(MaterialPageRoute(
+                                          builder: (context) =>
+                                              const NotificationView(),
+                                        ));
+                                      },
+                                      child: ImageIcon(
+                                          const AssetImage(
+                                              AppAssetsStrings.bellIcon),
+                                          color: ColorManager.whiteColor,
+                                          size: 25),
+                                    ),
                                   ),
                                   // GestureDetector(
                                   //   onTap: () {
@@ -264,12 +266,12 @@ class _HomeViewState extends State<HomeView> {
                                 ),
                               ),
                               AnimatedContainer(
-                                curve: Curves.decelerate,
+                                curve: Curves.linear,
                                 duration: const Duration(milliseconds: 1000),
                                 padding: EdgeInsets.only(
-                                    left: 55,
+                                    left: scrollNotifier.value ? 60 : 70,
                                     top:
-                                        scrollNotifier.value == true ? 20 : 10),
+                                        scrollNotifier.value == true ? 15 : 10),
                                 child: Image.asset(
                                   AppAssetsStrings.homeBgDesign,
                                   height: 114,
@@ -278,11 +280,11 @@ class _HomeViewState extends State<HomeView> {
                                 ),
                               ),
                               Padding(
-                                padding: EdgeInsets.only(
-                                  top: scrollNotifier.value == true ? 70 : 60,
+                                padding: const EdgeInsets.only(
+                                  top: 60,
                                   // bottom: 15,
                                 ),
-                                child: scrollNotifier.value == true
+                                child: scrollNotifier.value
                                     ? animatedContainerWidget1(context)
                                     : animatedContainerWidget2(context),
                               )
@@ -1240,13 +1242,11 @@ class _HomeViewState extends State<HomeView> {
 
   animatedContainerWidget2(BuildContext context) {
     return AnimatedContainer(
-        curve: Curves.decelerate,
+        curve: Curves.linear,
         duration: const Duration(milliseconds: 1000),
         height: 74,
         // margin: const EdgeInsets.symmetric(horizontal: 30),
-        padding: const EdgeInsets.symmetric(
-          horizontal: 15,
-        ),
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         decoration: BoxDecoration(
           color: ColorManager.whiteColor,
           borderRadius: BorderRadius.circular(20),
@@ -1361,7 +1361,7 @@ class _HomeViewState extends State<HomeView> {
 
   Widget animatedContainerWidget1(BuildContext context) {
     return AnimatedContainer(
-      curve: Curves.decelerate,
+      curve: Curves.linear,
       duration: const Duration(milliseconds: 1000),
       height: 167,
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
@@ -1448,7 +1448,12 @@ class _HomeViewState extends State<HomeView> {
           child: _offlineText(),
         ),
         kHeight5,
-        _locationButton(context)
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            _locationButton(context),
+          ],
+        )
       ],
     );
   }
@@ -1507,7 +1512,7 @@ class _HomeViewState extends State<HomeView> {
     );
   }
 
-  SizedBox _locationButton(BuildContext context) {
+  Widget _locationButton(BuildContext context) {
     return SizedBox(
       height: 30,
       width: SizeUtility(context).width / 2.8,

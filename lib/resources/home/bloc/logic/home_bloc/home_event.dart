@@ -31,4 +31,11 @@ class HomeEvent with _$HomeEvent {
   const factory HomeEvent.changeCompassThemeIndex({
     required int index,
   }) = ChangeCompassThemeIndex;
+  const factory HomeEvent.fetchNotificationApi({
+    required BuildContext context,
+  }) = FetchNotificationApi;
+  const factory HomeEvent.addMarkReadNotificationEvent({
+    required String id,
+    required BuildContext context,
+  }) = AddMarkReadNotificationEvent;
 }

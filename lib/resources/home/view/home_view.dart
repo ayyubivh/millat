@@ -2,13 +2,11 @@
 
 import 'dart:io';
 
-import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:http/http.dart' as http;
-import 'package:millat/resources/profile/bloc/service/terms_and_condition_services.dart';
 import 'package:millat/resources/shop/view/brand/single_brand_view.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:share_plus/share_plus.dart';
@@ -34,6 +32,7 @@ import '../../../utils/utils.dart';
 import '../../authentication/bloc/logic/database_bloc/database_bloc.dart';
 import '../../shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
 import '../bloc/logic/location_bloc/location_bloc.dart';
+import '../bloc/service/notification_service.dart';
 import 'al_quran/al_quran_view.dart';
 import 'dua/dua_view.dart';
 import 'namaz_timing/namaz_timing_view.dart';
@@ -99,6 +98,7 @@ class _HomeViewState extends State<HomeView> {
       backgroundColor: ColorManager.whiteColor,
       body: BlocListener<DatabaseBloc, DatabaseState>(
         listener: (context, state) {
+          print("database bloc");
           if (state.token.isNotEmpty) {
             BlocProvider.of<HomeBloc>(context).add(FetchPrayerTrackerEvent(
                 context: context, date: DateTime.now()));
@@ -106,6 +106,8 @@ class _HomeViewState extends State<HomeView> {
         },
         child: BlocListener<LocationBloc, LocationState>(
           listener: (context, state) {
+            print("location bloc");
+
             if (state.currentLocaion.isNotEmpty) {
               context
                   .read<NamazTimingBloc>()

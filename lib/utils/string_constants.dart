@@ -270,6 +270,8 @@ class Appstrings {
       "Can i use coins on all products?";
   static const String frequentlyAskedQuestions6 = "How to refer friends";
   static const String frequentlyAskedQuestions7 = "How many coins i can earn?";
+  static const String redeemRewards = "Redeem Rewards";
+  static const String hajjAndUmmrah = "Hajj & Ummrah";
 }
 
 String authToken = 'authToken';

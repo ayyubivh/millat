@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/resources/authentication/bloc/logic/database_bloc/database_bloc.dart';
 import 'package:millat/resources/rewards/widget/how_to_earn_view.dart';
 import 'package:millat/resources/rewards/widget/how_to_redeem_view.dart';
+import 'package:millat/resources/rewards/widget/redeem_rewards_view.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
@@ -28,230 +29,10 @@ class RewardsHomeView extends StatelessWidget {
               kHeight20,
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  BlocBuilder<DatabaseBloc, DatabaseState>(
-                    builder: (context, state) {
-                      final userPictureUrl =
-                          state.authUserModel?.result?.user?.picture;
-                      return userPictureUrl == null
-                          ? Icon(
-                              Icons.person_2_outlined,
-                              size: 60,
-                              color: ColorManager.black4A,
-                            )
-                          : Container(
-                              decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  // borderRadius: BorderRadius.circular(50),
-                                  border: Border.all(
-                                    color: ColorManager.primary,
-                                    width: 2,
-                                  )),
-                              child: ClipOval(
-                                child: Image.network(
-                                  userPictureUrl,
-                                  width: 40,
-                                  height: 40,
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
-                            );
-                    },
-                  ),
-                  Stack(
-                    children: [
-                      Container(
-                        height: 47,
-                        width: 123,
-                        decoration: BoxDecoration(
-                          // color: ColorManager.primary,
-                          borderRadius: BorderRadius.circular(100),
-                          gradient: LinearGradient(
-                            colors: [
-                              ColorManager.rewardsGreenGradient1,
-                              ColorManager.rewardsGreenGradient2,
-                            ],
-                            begin: Alignment.topLeft,
-                            end: Alignment.bottomCenter,
-                          ),
-                        ),
-                        child: Center(
-                          child: Container(
-                            height: 40,
-                            width: 117,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(100),
-                              gradient: LinearGradient(
-                                colors: [
-                                  ColorManager.rewardsLightGreenGradient2,
-                                  ColorManager.rewardsLightGreenGradient2,
-                                  ColorManager.rewardsLightGreenGradient1,
-                                ],
-                                begin: Alignment.topLeft,
-                                end: Alignment.bottomCenter,
-                              ),
-                            ),
-                            child: Center(
-                              child: Row(
-                                children: [
-                                  kWidth5,
-                                  Text(
-                                    " 12,482",
-                                    style: TextStyle(
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.w700,
-                                      color: ColorManager.whiteColor,
-                                    ),
-                                  ),
-                                  const Spacer(),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                      Positioned(
-                        right: -5,
-                        top: -2,
-                        child: Image.asset(
-                          AppAssetsStrings.score,
-                          height: 58,
-                          width: 58,
-                          fit: BoxFit.contain,
-                        ),
-                      )
-                    ],
-                  )
-                ],
+                children: [_profileImageWidget(), _scoreWidget()],
               ),
               kHeight15,
-              SizedBox(
-                height: 134,
-                width: SizeUtility(context).width,
-                child: Stack(
-                  children: [
-                    Align(
-                      alignment: Alignment.bottomCenter,
-                      child: Container(
-                        height: 112,
-                        width: SizeUtility(context).width,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(12),
-                          gradient: RadialGradient(
-                            colors: [
-                              ColorManager.sunnahGreenClr2,
-                              ColorManager.sunnahGreenClr1,
-                            ],
-                            // stops: [],
-                            radius: 2,
-                            center: Alignment.topLeft,
-                          ),
-                        ),
-                      ),
-                    ),
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        kWidht10,
-                        Padding(
-                          padding: const EdgeInsets.only(top: 14.0),
-                          child: Column(
-                            children: [
-                              Image.asset(
-                                AppAssetsStrings.redeemYourCoinText,
-                                height: 40,
-                              ),
-                              kHeight8,
-                              Text(
-                                "With",
-                                style: TextStyle(
-                                  fontSize: 10,
-                                  fontWeight: FontWeight.w500,
-                                  color: ColorManager.whiteColor,
-                                ),
-                              ),
-                              Text(
-                                "Umrah packages,\nsmartphones And other \nexciting rewards",
-                                style: TextStyle(
-                                    fontSize: 10,
-                                    fontWeight: FontWeight.w700,
-                                    color: ColorManager.whiteColor,
-                                    height: 1.3),
-                                textAlign: TextAlign.center,
-                              )
-                            ],
-                          ),
-                        ),
-                        kWidth15,
-                        const Spacer(),
-                        Image.asset(
-                          AppAssetsStrings.redeemYoucoinBg,
-                          width: 133,
-                          height: 123,
-                          fit: BoxFit.fill,
-                        ),
-                        kWidht10,
-                        Padding(
-                          padding: const EdgeInsets.only(top: 20),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Container(
-                                height: 31,
-                                width: 33,
-                                decoration: BoxDecoration(
-                                  color: ColorManager.whiteColor,
-                                  borderRadius: const BorderRadius.vertical(
-                                    bottom: Radius.circular(4),
-                                  ),
-                                ),
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    const Text(
-                                      Appstrings.sponsoredBy,
-                                      style: TextStyle(
-                                        fontSize: 5,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                    ),
-                                    kHeight2,
-                                    Image.asset(
-                                      AppAssetsStrings.millatLogo,
-                                      height: 18,
-                                      width: 18,
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              Image.asset(
-                                AppAssetsStrings.superSaleAd,
-                                height: 25,
-                                width: 34,
-                              ),
-                              Container(
-                                  height: 12,
-                                  width: 24,
-                                  margin: const EdgeInsets.only(bottom: 10),
-                                  decoration: BoxDecoration(
-                                    color: ColorManager.whiteColor,
-                                    borderRadius: BorderRadius.circular(100),
-                                  ),
-                                  padding: const EdgeInsets.all(1),
-                                  child: Image.asset(
-                                    AppAssetsStrings.arrrowRight,
-                                    width: 12,
-                                    height: 4,
-                                  ))
-                            ],
-                          ),
-                        ),
-                        kWidth15,
-                      ],
-                    ),
-                  ],
-                ),
-              ),
+              _redeemYourCoinsWidget(context),
               kHeight15,
               Container(
                   height: 180,
@@ -540,6 +321,241 @@ class RewardsHomeView extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+
+  Widget _redeemYourCoinsWidget(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) => const RewardsRedeemView(),
+        ));
+      },
+      child: SizedBox(
+        height: 134,
+        width: SizeUtility(context).width,
+        child: Stack(
+          children: [
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Container(
+                height: 112,
+                width: SizeUtility(context).width,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(12),
+                  gradient: RadialGradient(
+                    colors: [
+                      ColorManager.sunnahGreenClr2,
+                      ColorManager.sunnahGreenClr1,
+                    ],
+                    // stops: [],
+                    radius: 2,
+                    center: Alignment.topLeft,
+                  ),
+                ),
+              ),
+            ),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                kWidht10,
+                Padding(
+                  padding: const EdgeInsets.only(top: 14.0),
+                  child: Column(
+                    children: [
+                      Image.asset(
+                        AppAssetsStrings.redeemYourCoinText,
+                        height: 40,
+                      ),
+                      kHeight8,
+                      Text(
+                        "With",
+                        style: TextStyle(
+                          fontSize: 10,
+                          fontWeight: FontWeight.w500,
+                          color: ColorManager.whiteColor,
+                        ),
+                      ),
+                      Text(
+                        "Umrah packages,\nsmartphones And other \nexciting rewards",
+                        style: TextStyle(
+                            fontSize: 10,
+                            fontWeight: FontWeight.w700,
+                            color: ColorManager.whiteColor,
+                            height: 1.3),
+                        textAlign: TextAlign.center,
+                      )
+                    ],
+                  ),
+                ),
+                kWidth15,
+                const Spacer(),
+                Image.asset(
+                  AppAssetsStrings.redeemYoucoinBg,
+                  width: 133,
+                  height: 123,
+                  fit: BoxFit.fill,
+                ),
+                kWidht10,
+                Padding(
+                  padding: const EdgeInsets.only(top: 20),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Container(
+                        height: 31,
+                        width: 33,
+                        decoration: BoxDecoration(
+                          color: ColorManager.whiteColor,
+                          borderRadius: const BorderRadius.vertical(
+                            bottom: Radius.circular(4),
+                          ),
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const Text(
+                              Appstrings.sponsoredBy,
+                              style: TextStyle(
+                                fontSize: 5,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                            kHeight2,
+                            Image.asset(
+                              AppAssetsStrings.millatLogo,
+                              height: 18,
+                              width: 18,
+                            ),
+                          ],
+                        ),
+                      ),
+                      Image.asset(
+                        AppAssetsStrings.superSaleAd,
+                        height: 25,
+                        width: 34,
+                      ),
+                      Container(
+                          height: 12,
+                          width: 24,
+                          margin: const EdgeInsets.only(bottom: 10),
+                          decoration: BoxDecoration(
+                            color: ColorManager.whiteColor,
+                            borderRadius: BorderRadius.circular(100),
+                          ),
+                          padding: const EdgeInsets.all(1),
+                          child: Image.asset(
+                            AppAssetsStrings.arrrowRight,
+                            width: 12,
+                            height: 4,
+                          ))
+                    ],
+                  ),
+                ),
+                kWidth15,
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Stack _scoreWidget() {
+    return Stack(
+      children: [
+        Container(
+          height: 47,
+          width: 123,
+          decoration: BoxDecoration(
+            // color: ColorManager.primary,
+            borderRadius: BorderRadius.circular(100),
+            gradient: LinearGradient(
+              colors: [
+                ColorManager.rewardsGreenGradient1,
+                ColorManager.rewardsGreenGradient2,
+              ],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomCenter,
+            ),
+          ),
+          child: Center(
+            child: Container(
+              height: 40,
+              width: 117,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(100),
+                gradient: LinearGradient(
+                  colors: [
+                    ColorManager.rewardsLightGreenGradient2,
+                    ColorManager.rewardsLightGreenGradient2,
+                    ColorManager.rewardsLightGreenGradient1,
+                  ],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomCenter,
+                ),
+              ),
+              child: Center(
+                child: Row(
+                  children: [
+                    kWidth5,
+                    Text(
+                      " 12,482",
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w700,
+                        color: ColorManager.whiteColor,
+                      ),
+                    ),
+                    const Spacer(),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ),
+        Positioned(
+          right: -5,
+          top: -2,
+          child: Image.asset(
+            AppAssetsStrings.score,
+            height: 58,
+            width: 58,
+            fit: BoxFit.contain,
+          ),
+        )
+      ],
+    );
+  }
+
+  Widget _profileImageWidget() {
+    return BlocBuilder<DatabaseBloc, DatabaseState>(
+      builder: (context, state) {
+        final userPictureUrl = state.authUserModel?.result?.user?.picture;
+        return userPictureUrl == null
+            ? Icon(
+                Icons.person_2_outlined,
+                size: 60,
+                color: ColorManager.black4A,
+              )
+            : Container(
+                decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    // borderRadius: BorderRadius.circular(50),
+                    border: Border.all(
+                      color: ColorManager.primary,
+                      width: 2,
+                    )),
+                child: ClipOval(
+                  child: Image.network(
+                    userPictureUrl,
+                    width: 40,
+                    height: 40,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              );
+      },
     );
   }
 

@@ -106,7 +106,8 @@ class _HomeViewState extends State<HomeView> {
         },
         child: BlocListener<LocationBloc, LocationState>(
           listener: (context, state) {
-            if (state.currentLocaion.isNotEmpty) {
+            if (state.currentLocaion.isNotEmpty &&
+                state.weatherConditionName.isEmpty) {
               context
                   .read<NamazTimingBloc>()
                   .add(FetchPrayerTiming(context: context));

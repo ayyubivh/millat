@@ -525,9 +525,13 @@ class RewardsHomeView extends StatelessWidget {
                   ),
                   lastContinerWidget(
                     context: context,
-                    text: Appstrings.whereUse,
-                    imageAsset: AppAssetsStrings.howToEarn,
-                    onTap: () {},
+                    text: Appstrings.howRedeem,
+                    imageAsset: AppAssetsStrings.howToRedeem,
+                    onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const HowToReedemView(),
+                      ));
+                    },
                   ),
                 ],
               ),

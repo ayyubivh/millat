@@ -235,7 +235,7 @@ class Appstrings {
   static const String earnFreeConins = "Earn free coins everyday";
   static const String collect = "Collect";
   static const String howEarn = "How to \nEarn ?";
-  static const String whereUse = "Where to \nUse?";
+  static const String howRedeem = "How to \nRedeem?";
   static const String howToEarn = "How to earn";
   static const String howToRedeem = "How to Redeem";
   static const String referYourFriend = "Refer your friends";

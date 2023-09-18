@@ -231,7 +231,50 @@ class RewardsRedeemView extends StatelessWidget {
                                                   fit: BoxFit.cover),
                                             ),
                                             child: Column(
-                                              children: [],
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: [
+                                                Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.center,
+                                                  children: [
+                                                    Image.asset(
+                                                      AppAssetsStrings
+                                                          .rewardsSuccesDecorimg,
+                                                      height: 80,
+                                                    ),
+                                                    Image.asset(
+                                                      AppAssetsStrings
+                                                          .rewardsSuccesimg,
+                                                      height: 100,
+                                                    ),
+                                                    Image.asset(
+                                                      AppAssetsStrings
+                                                          .rewardsSuccesDecorimg,
+                                                      height: 100,
+                                                    ),
+                                                  ],
+                                                ),
+                                                kHeight30,
+                                                Text(
+                                                  Appstrings.mashaAllah,
+                                                  style: TextStyle(
+                                                    fontSize: 20,
+                                                    fontWeight: FontWeight.w700,
+                                                    color: ColorManager.primary,
+                                                  ),
+                                                ),
+                                                kHeight5,
+                                                Text(
+                                                  Appstrings
+                                                      .redeemedSuccessfully,
+                                                  style: TextStyle(
+                                                    fontSize: 20,
+                                                    fontWeight: FontWeight.w700,
+                                                    color: ColorManager.black4F,
+                                                  ),
+                                                )
+                                              ],
                                             ),
                                           ),
                                         );
@@ -341,20 +384,21 @@ class RewardsRedeemView extends StatelessWidget {
                                   color: ColorManager.black4F,
                                 ),
                               ),
-                              const TextSpan(
+                              TextSpan(
                                 text: "2",
                                 style: TextStyle(
                                   fontSize: 12,
                                   fontWeight: FontWeight.w600,
-                                  color: Colors.green,
+                                  color: ColorManager.primary,
                                 ),
                               ),
                               TextSpan(
                                 text: "/10",
                                 style: TextStyle(
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w600,
-                                    color: ColorManager.textGrey99),
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w600,
+                                  color: ColorManager.textGrey99,
+                                ),
                               ),
                             ],
                           ),

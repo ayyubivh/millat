@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -7,7 +5,9 @@ import 'package:intl/intl.dart';
 import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/home/bloc/models/home_models/event_of_the_month_model/event_of_the_month_model.dart';
 import 'package:millat/resources/home/bloc/models/home_models/top_offers_model/top_offers_model.dart';
+import 'package:millat/resources/home/bloc/models/notification/get_notification_model.dart';
 import 'package:millat/resources/home/bloc/service/home_services.dart';
+import 'package:millat/resources/home/bloc/service/notification_service.dart';
 import 'package:millat/utils/utils.dart';
 import '../../../../../utils/string_constants.dart';
 import '../../models/home_models/brand_of_the_day_model/brandofthe_day_model.dart';
@@ -35,6 +35,8 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     on<ChangeTinterCardSwipeOption>(_changeTinterCardSwipeOption);
     on<ChangeCompassThemeEvent>(_changeCompassThemeEvent);
     on<ChangeCompassThemeIndex>(_changeCompassThemeIndex);
+    on<FetchNotificationApi>(_fetchNotificationApi);
+    on<AddMarkReadNotificationEvent>(_addMarkReadEvent);
   }
 
   _fetchLargeDisountsBanner(
@@ -223,5 +225,27 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   _changeCompassThemeIndex(
       ChangeCompassThemeIndex event, Emitter<HomeState> emit) {
     emit(state.copyWith(compassThemeIndex: event.index));
+  }
+
+  _fetchNotificationApi(
+      FetchNotificationApi event, Emitter<HomeState> emit) async {
+    try {
+      final data =
+          await NotificationService().fetchNotficationApi(event.context);
+      emit(state.copyWith(notificationModel: data));
+    } catch (e) {
+      throw Exception(e);
+    }
+  }
+
+  _addMarkReadEvent(
+      AddMarkReadNotificationEvent event, Emitter<HomeState> emit) async {
+    try {
+      final data = await NotificationService()
+          .addReadMark(context: event.context, id: event.id);
+      emit(state.copyWith(notificationModel: data));
+    } catch (e) {
+      throw Exception(e);
+    }
   }
 }

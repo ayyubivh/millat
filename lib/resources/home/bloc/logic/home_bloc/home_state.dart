@@ -22,6 +22,7 @@ class HomeState with _$HomeState {
     required bool tinderCardSwipVal,
     required CompassTheme compassTheme,
     required int compassThemeIndex,
+    required NotificationModel? notificationModel,
   }) = _HomeState;
   factory HomeState.initial() => const HomeState(
         isLoading: false,
@@ -43,5 +44,6 @@ class HomeState with _$HomeState {
         tinderCardSwipVal: true,
         compassTheme: CompassTheme.one,
         compassThemeIndex: 0,
+        notificationModel: null,
       );
 }

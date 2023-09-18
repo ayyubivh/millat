@@ -16,6 +16,30 @@ class Utilities {
     return dateFormat.format(dateTime);
   }
 
+  static String formatTimeAgo(String dateTimeString) {
+    try {
+      final DateTime now = DateTime.now();
+      final DateTime dateTime = DateTime.parse(dateTimeString);
+      final Duration difference = now.difference(dateTime);
+
+      if (difference.inDays > 0) {
+        final days = difference.inDays;
+        return '${days.toString()} ${days == 1 ? 'day' : 'days'} ago';
+      } else if (difference.inHours > 0) {
+        final hours = difference.inHours;
+        return '${hours.toString()} ${hours == 1 ? 'hr' : 'hrs'} ago';
+      } else if (difference.inMinutes > 0) {
+        final minutes = difference.inMinutes;
+        return '${minutes.toString()} ${minutes == 1 ? 'min' : 'mins'} ago';
+      } else {
+        return 'just now';
+      }
+    } catch (e) {
+      print('Error formatting time ago: $e');
+      return 'N/A'; // or any default value you prefer
+    }
+  }
+
   static String removeFootnotesFromMeaning(String meaning) {
     final text = parse(meaning);
     final String plainText = parse(text.body!.text).documentElement!.text;

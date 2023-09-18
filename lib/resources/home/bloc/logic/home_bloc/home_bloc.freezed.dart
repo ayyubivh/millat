@@ -35,6 +35,9 @@ mixin _$HomeEvent {
     required TResult Function(CompassTheme compassTheme)
         changeCompassThemeEvent,
     required TResult Function(int index) changeCompassThemeIndex,
+    required TResult Function(BuildContext context) fetchNotificationApi,
+    required TResult Function(String id, BuildContext context)
+        addMarkReadNotificationEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +58,9 @@ mixin _$HomeEvent {
     TResult? Function(bool value)? changeTinterCardSwipeOption,
     TResult? Function(CompassTheme compassTheme)? changeCompassThemeEvent,
     TResult? Function(int index)? changeCompassThemeIndex,
+    TResult? Function(BuildContext context)? fetchNotificationApi,
+    TResult? Function(String id, BuildContext context)?
+        addMarkReadNotificationEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -75,6 +81,9 @@ mixin _$HomeEvent {
     TResult Function(bool value)? changeTinterCardSwipeOption,
     TResult Function(CompassTheme compassTheme)? changeCompassThemeEvent,
     TResult Function(int index)? changeCompassThemeIndex,
+    TResult Function(BuildContext context)? fetchNotificationApi,
+    TResult Function(String id, BuildContext context)?
+        addMarkReadNotificationEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -102,6 +111,9 @@ mixin _$HomeEvent {
         changeCompassThemeEvent,
     required TResult Function(ChangeCompassThemeIndex value)
         changeCompassThemeIndex,
+    required TResult Function(FetchNotificationApi value) fetchNotificationApi,
+    required TResult Function(AddMarkReadNotificationEvent value)
+        addMarkReadNotificationEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -121,6 +133,9 @@ mixin _$HomeEvent {
         changeTinterCardSwipeOption,
     TResult? Function(ChangeCompassThemeEvent value)? changeCompassThemeEvent,
     TResult? Function(ChangeCompassThemeIndex value)? changeCompassThemeIndex,
+    TResult? Function(FetchNotificationApi value)? fetchNotificationApi,
+    TResult? Function(AddMarkReadNotificationEvent value)?
+        addMarkReadNotificationEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -140,6 +155,9 @@ mixin _$HomeEvent {
         changeTinterCardSwipeOption,
     TResult Function(ChangeCompassThemeEvent value)? changeCompassThemeEvent,
     TResult Function(ChangeCompassThemeIndex value)? changeCompassThemeIndex,
+    TResult Function(FetchNotificationApi value)? fetchNotificationApi,
+    TResult Function(AddMarkReadNotificationEvent value)?
+        addMarkReadNotificationEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -218,6 +236,9 @@ class _$FetchLargeDisountsBanner implements FetchLargeDisountsBanner {
     required TResult Function(CompassTheme compassTheme)
         changeCompassThemeEvent,
     required TResult Function(int index) changeCompassThemeIndex,
+    required TResult Function(BuildContext context) fetchNotificationApi,
+    required TResult Function(String id, BuildContext context)
+        addMarkReadNotificationEvent,
   }) {
     return fetchLargeDisountsBanner();
   }
@@ -241,6 +262,9 @@ class _$FetchLargeDisountsBanner implements FetchLargeDisountsBanner {
     TResult? Function(bool value)? changeTinterCardSwipeOption,
     TResult? Function(CompassTheme compassTheme)? changeCompassThemeEvent,
     TResult? Function(int index)? changeCompassThemeIndex,
+    TResult? Function(BuildContext context)? fetchNotificationApi,
+    TResult? Function(String id, BuildContext context)?
+        addMarkReadNotificationEvent,
   }) {
     return fetchLargeDisountsBanner?.call();
   }
@@ -264,6 +288,9 @@ class _$FetchLargeDisountsBanner implements FetchLargeDisountsBanner {
     TResult Function(bool value)? changeTinterCardSwipeOption,
     TResult Function(CompassTheme compassTheme)? changeCompassThemeEvent,
     TResult Function(int index)? changeCompassThemeIndex,
+    TResult Function(BuildContext context)? fetchNotificationApi,
+    TResult Function(String id, BuildContext context)?
+        addMarkReadNotificationEvent,
     required TResult orElse(),
   }) {
     if (fetchLargeDisountsBanner != null) {
@@ -297,6 +324,9 @@ class _$FetchLargeDisountsBanner implements FetchLargeDisountsBanner {
         changeCompassThemeEvent,
     required TResult Function(ChangeCompassThemeIndex value)
         changeCompassThemeIndex,
+    required TResult Function(FetchNotificationApi value) fetchNotificationApi,
+    required TResult Function(AddMarkReadNotificationEvent value)
+        addMarkReadNotificationEvent,
   }) {
     return fetchLargeDisountsBanner(this);
   }
@@ -319,6 +349,9 @@ class _$FetchLargeDisountsBanner implements FetchLargeDisountsBanner {
         changeTinterCardSwipeOption,
     TResult? Function(ChangeCompassThemeEvent value)? changeCompassThemeEvent,
     TResult? Function(ChangeCompassThemeIndex value)? changeCompassThemeIndex,
+    TResult? Function(FetchNotificationApi value)? fetchNotificationApi,
+    TResult? Function(AddMarkReadNotificationEvent value)?
+        addMarkReadNotificationEvent,
   }) {
     return fetchLargeDisountsBanner?.call(this);
   }
@@ -341,6 +374,9 @@ class _$FetchLargeDisountsBanner implements FetchLargeDisountsBanner {
         changeTinterCardSwipeOption,
     TResult Function(ChangeCompassThemeEvent value)? changeCompassThemeEvent,
     TResult Function(ChangeCompassThemeIndex value)? changeCompassThemeIndex,
+    TResult Function(FetchNotificationApi value)? fetchNotificationApi,
+    TResult Function(AddMarkReadNotificationEvent value)?
+        addMarkReadNotificationEvent,
     required TResult orElse(),
   }) {
     if (fetchLargeDisountsBanner != null) {
@@ -409,6 +445,9 @@ class _$FetchTopOffersBanner implements FetchTopOffersBanner {
     required TResult Function(CompassTheme compassTheme)
         changeCompassThemeEvent,
     required TResult Function(int index) changeCompassThemeIndex,
+    required TResult Function(BuildContext context) fetchNotificationApi,
+    required TResult Function(String id, BuildContext context)
+        addMarkReadNotificationEvent,
   }) {
     return fetchTopOffersBanner();
   }
@@ -432,6 +471,9 @@ class _$FetchTopOffersBanner implements FetchTopOffersBanner {
     TResult? Function(bool value)? changeTinterCardSwipeOption,
     TResult? Function(CompassTheme compassTheme)? changeCompassThemeEvent,
     TResult? Function(int index)? changeCompassThemeIndex,
+    TResult? Function(BuildContext context)? fetchNotificationApi,
+    TResult? Function(String id, BuildContext context)?
+        addMarkReadNotificationEvent,
   }) {
     return fetchTopOffersBanner?.call();
   }
@@ -455,6 +497,9 @@ class _$FetchTopOffersBanner implements FetchTopOffersBanner {
     TResult Function(bool value)? changeTinterCardSwipeOption,
     TResult Function(CompassTheme compassTheme)? changeCompassThemeEvent,
     TResult Function(int index)? changeCompassThemeIndex,
+    TResult Function(BuildContext context)? fetchNotificationApi,
+    TResult Function(String id, BuildContext context)?
+        addMarkReadNotificationEvent,
     required TResult orElse(),
   }) {
     if (fetchTopOffersBanner != null) {
@@ -488,6 +533,9 @@ class _$FetchTopOffersBanner implements FetchTopOffersBanner {
         changeCompassThemeEvent,
     required TResult Function(ChangeCompassThemeIndex value)
         changeCompassThemeIndex,
+    required TResult Function(FetchNotificationApi value) fetchNotificationApi,
+    required TResult Function(AddMarkReadNotificationEvent value)
+        addMarkReadNotificationEvent,
   }) {
     return fetchTopOffersBanner(this);
   }
@@ -510,6 +558,9 @@ class _$FetchTopOffersBanner implements FetchTopOffersBanner {
         changeTinterCardSwipeOption,
     TResult? Function(ChangeCompassThemeEvent value)? changeCompassThemeEvent,
     TResult? Function(ChangeCompassThemeIndex value)? changeCompassThemeIndex,
+    TResult? Function(FetchNotificationApi value)? fetchNotificationApi,
+    TResult? Function(AddMarkReadNotificationEvent value)?
+        addMarkReadNotificationEvent,
   }) {
     return fetchTopOffersBanner?.call(this);
   }
@@ -532,6 +583,9 @@ class _$FetchTopOffersBanner implements FetchTopOffersBanner {
         changeTinterCardSwipeOption,
     TResult Function(ChangeCompassThemeEvent value)? changeCompassThemeEvent,
     TResult Function(ChangeCompassThemeIndex value)? changeCompassThemeIndex,
+    TResult Function(FetchNotificationApi value)? fetchNotificationApi,
+    TResult Function(AddMarkReadNotificationEvent value)?
+        addMarkReadNotificationEvent,
     required TResult orElse(),
   }) {
     if (fetchTopOffersBanner != null) {
@@ -600,6 +654,9 @@ class _$FetchBrandofTheDay implements FetchBrandofTheDay {
     required TResult Function(CompassTheme compassTheme)
         changeCompassThemeEvent,
     required TResult Function(int index) changeCompassThemeIndex,
+    required TResult Function(BuildContext context) fetchNotificationApi,
+    required TResult Function(String id, BuildContext context)
+        addMarkReadNotificationEvent,
   }) {
     return fetchBrandofTheDay();
   }
@@ -623,6 +680,9 @@ class _$FetchBrandofTheDay implements FetchBrandofTheDay {
     TResult? Function(bool value)? changeTinterCardSwipeOption,
     TResult? Function(CompassTheme compassTheme)? changeCompassThemeEvent,
     TResult? Function(int index)? changeCompassThemeIndex,
+    TResult? Function(BuildContext context)? fetchNotificationApi,
+    TResult? Function(String id, BuildContext context)?
+        addMarkReadNotificationEvent,
   }) {
     return fetchBrandofTheDay?.call();
   }
@@ -646,6 +706,9 @@ class _$FetchBrandofTheDay implements FetchBrandofTheDay {
     TResult Function(bool value)? changeTinterCardSwipeOption,
     TResult Function(CompassTheme compassTheme)? changeCompassThemeEvent,
     TResult Function(int index)? changeCompassThemeIndex,
+    TResult Function(BuildContext context)? fetchNotificationApi,
+    TResult Function(String id, BuildContext context)?
+        addMarkReadNotificationEvent,
     required TResult orElse(),
   }) {
     if (fetchBrandofTheDay != null) {
@@ -679,6 +742,9 @@ class _$FetchBrandofTheDay implements FetchBrandofTheDay {
         changeCompassThemeEvent,
     required TResult Function(ChangeCompassThemeIndex value)
         changeCompassThemeIndex,
+    required TResult Function(FetchNotificationApi value) fetchNotificationApi,
+    required TResult Function(AddMarkReadNotificationEvent value)
+        addMarkReadNotificationEvent,
   }) {
     return fetchBrandofTheDay(this);
   }
@@ -701,6 +767,9 @@ class _$FetchBrandofTheDay implements FetchBrandofTheDay {
         changeTinterCardSwipeOption,
     TResult? Function(ChangeCompassThemeEvent value)? changeCompassThemeEvent,
     TResult? Function(ChangeCompassThemeIndex value)? changeCompassThemeIndex,
+    TResult? Function(FetchNotificationApi value)? fetchNotificationApi,
+    TResult? Function(AddMarkReadNotificationEvent value)?
+        addMarkReadNotificationEvent,
   }) {
     return fetchBrandofTheDay?.call(this);
   }
@@ -723,6 +792,9 @@ class _$FetchBrandofTheDay implements FetchBrandofTheDay {
         changeTinterCardSwipeOption,
     TResult Function(ChangeCompassThemeEvent value)? changeCompassThemeEvent,
     TResult Function(ChangeCompassThemeIndex value)? changeCompassThemeIndex,
+    TResult Function(FetchNotificationApi value)? fetchNotificationApi,
+    TResult Function(AddMarkReadNotificationEvent value)?
+        addMarkReadNotificationEvent,
     required TResult orElse(),
   }) {
     if (fetchBrandofTheDay != null) {
@@ -791,6 +863,9 @@ class _$FetchHadithOfTheDay implements FetchHadithOfTheDay {
     required TResult Function(CompassTheme compassTheme)
         changeCompassThemeEvent,
     required TResult Function(int index) changeCompassThemeIndex,
+    required TResult Function(BuildContext context) fetchNotificationApi,
+    required TResult Function(String id, BuildContext context)
+        addMarkReadNotificationEvent,
   }) {
     return fetchHadithOfTheDay();
   }
@@ -814,6 +889,9 @@ class _$FetchHadithOfTheDay implements FetchHadithOfTheDay {
     TResult? Function(bool value)? changeTinterCardSwipeOption,
     TResult? Function(CompassTheme compassTheme)? changeCompassThemeEvent,
     TResult? Function(int index)? changeCompassThemeIndex,
+    TResult? Function(BuildContext context)? fetchNotificationApi,
+    TResult? Function(String id, BuildContext context)?
+        addMarkReadNotificationEvent,
   }) {
     return fetchHadithOfTheDay?.call();
   }
@@ -837,6 +915,9 @@ class _$FetchHadithOfTheDay implements FetchHadithOfTheDay {
     TResult Function(bool value)? changeTinterCardSwipeOption,
     TResult Function(CompassTheme compassTheme)? changeCompassThemeEvent,
     TResult Function(int index)? changeCompassThemeIndex,
+    TResult Function(BuildContext context)? fetchNotificationApi,
+    TResult Function(String id, BuildContext context)?
+        addMarkReadNotificationEvent,
     required TResult orElse(),
   }) {
     if (fetchHadithOfTheDay != null) {
@@ -870,6 +951,9 @@ class _$FetchHadithOfTheDay implements FetchHadithOfTheDay {
         changeCompassThemeEvent,
     required TResult Function(ChangeCompassThemeIndex value)
         changeCompassThemeIndex,
+    required TResult Function(FetchNotificationApi value) fetchNotificationApi,
+    required TResult Function(AddMarkReadNotificationEvent value)
+        addMarkReadNotificationEvent,
   }) {
     return fetchHadithOfTheDay(this);
   }
@@ -892,6 +976,9 @@ class _$FetchHadithOfTheDay implements FetchHadithOfTheDay {
         changeTinterCardSwipeOption,
     TResult? Function(ChangeCompassThemeEvent value)? changeCompassThemeEvent,
     TResult? Function(ChangeCompassThemeIndex value)? changeCompassThemeIndex,
+    TResult? Function(FetchNotificationApi value)? fetchNotificationApi,
+    TResult? Function(AddMarkReadNotificationEvent value)?
+        addMarkReadNotificationEvent,
   }) {
     return fetchHadithOfTheDay?.call(this);
   }
@@ -914,6 +1001,9 @@ class _$FetchHadithOfTheDay implements FetchHadithOfTheDay {
         changeTinterCardSwipeOption,
     TResult Function(ChangeCompassThemeEvent value)? changeCompassThemeEvent,
     TResult Function(ChangeCompassThemeIndex value)? changeCompassThemeIndex,
+    TResult Function(FetchNotificationApi value)? fetchNotificationApi,
+    TResult Function(AddMarkReadNotificationEvent value)?
+        addMarkReadNotificationEvent,
     required TResult orElse(),
   }) {
     if (fetchHadithOfTheDay != null) {
@@ -982,6 +1072,9 @@ class _$FetchEventOfTheMonth implements FetchEventOfTheMonth {
     required TResult Function(CompassTheme compassTheme)
         changeCompassThemeEvent,
     required TResult Function(int index) changeCompassThemeIndex,
+    required TResult Function(BuildContext context) fetchNotificationApi,
+    required TResult Function(String id, BuildContext context)
+        addMarkReadNotificationEvent,
   }) {
     return fetchEventOfTheMonth();
   }
@@ -1005,6 +1098,9 @@ class _$FetchEventOfTheMonth implements FetchEventOfTheMonth {
     TResult? Function(bool value)? changeTinterCardSwipeOption,
     TResult? Function(CompassTheme compassTheme)? changeCompassThemeEvent,
     TResult? Function(int index)? changeCompassThemeIndex,
+    TResult? Function(BuildContext context)? fetchNotificationApi,
+    TResult? Function(String id, BuildContext context)?
+        addMarkReadNotificationEvent,
   }) {
     return fetchEventOfTheMonth?.call();
   }
@@ -1028,6 +1124,9 @@ class _$FetchEventOfTheMonth implements FetchEventOfTheMonth {
     TResult Function(bool value)? changeTinterCardSwipeOption,
     TResult Function(CompassTheme compassTheme)? changeCompassThemeEvent,
     TResult Function(int index)? changeCompassThemeIndex,
+    TResult Function(BuildContext context)? fetchNotificationApi,
+    TResult Function(String id, BuildContext context)?
+        addMarkReadNotificationEvent,
     required TResult orElse(),
   }) {
     if (fetchEventOfTheMonth != null) {
@@ -1061,6 +1160,9 @@ class _$FetchEventOfTheMonth implements FetchEventOfTheMonth {
         changeCompassThemeEvent,
     required TResult Function(ChangeCompassThemeIndex value)
         changeCompassThemeIndex,
+    required TResult Function(FetchNotificationApi value) fetchNotificationApi,
+    required TResult Function(AddMarkReadNotificationEvent value)
+        addMarkReadNotificationEvent,
   }) {
     return fetchEventOfTheMonth(this);
   }
@@ -1083,6 +1185,9 @@ class _$FetchEventOfTheMonth implements FetchEventOfTheMonth {
         changeTinterCardSwipeOption,
     TResult? Function(ChangeCompassThemeEvent value)? changeCompassThemeEvent,
     TResult? Function(ChangeCompassThemeIndex value)? changeCompassThemeIndex,
+    TResult? Function(FetchNotificationApi value)? fetchNotificationApi,
+    TResult? Function(AddMarkReadNotificationEvent value)?
+        addMarkReadNotificationEvent,
   }) {
     return fetchEventOfTheMonth?.call(this);
   }
@@ -1105,6 +1210,9 @@ class _$FetchEventOfTheMonth implements FetchEventOfTheMonth {
         changeTinterCardSwipeOption,
     TResult Function(ChangeCompassThemeEvent value)? changeCompassThemeEvent,
     TResult Function(ChangeCompassThemeIndex value)? changeCompassThemeIndex,
+    TResult Function(FetchNotificationApi value)? fetchNotificationApi,
+    TResult Function(AddMarkReadNotificationEvent value)?
+        addMarkReadNotificationEvent,
     required TResult orElse(),
   }) {
     if (fetchEventOfTheMonth != null) {
@@ -1208,6 +1316,9 @@ class _$FetchPrayerTrackerEvent implements FetchPrayerTrackerEvent {
     required TResult Function(CompassTheme compassTheme)
         changeCompassThemeEvent,
     required TResult Function(int index) changeCompassThemeIndex,
+    required TResult Function(BuildContext context) fetchNotificationApi,
+    required TResult Function(String id, BuildContext context)
+        addMarkReadNotificationEvent,
   }) {
     return fetchPrayerTrackerEvent(date, context);
   }
@@ -1231,6 +1342,9 @@ class _$FetchPrayerTrackerEvent implements FetchPrayerTrackerEvent {
     TResult? Function(bool value)? changeTinterCardSwipeOption,
     TResult? Function(CompassTheme compassTheme)? changeCompassThemeEvent,
     TResult? Function(int index)? changeCompassThemeIndex,
+    TResult? Function(BuildContext context)? fetchNotificationApi,
+    TResult? Function(String id, BuildContext context)?
+        addMarkReadNotificationEvent,
   }) {
     return fetchPrayerTrackerEvent?.call(date, context);
   }
@@ -1254,6 +1368,9 @@ class _$FetchPrayerTrackerEvent implements FetchPrayerTrackerEvent {
     TResult Function(bool value)? changeTinterCardSwipeOption,
     TResult Function(CompassTheme compassTheme)? changeCompassThemeEvent,
     TResult Function(int index)? changeCompassThemeIndex,
+    TResult Function(BuildContext context)? fetchNotificationApi,
+    TResult Function(String id, BuildContext context)?
+        addMarkReadNotificationEvent,
     required TResult orElse(),
   }) {
     if (fetchPrayerTrackerEvent != null) {
@@ -1287,6 +1404,9 @@ class _$FetchPrayerTrackerEvent implements FetchPrayerTrackerEvent {
         changeCompassThemeEvent,
     required TResult Function(ChangeCompassThemeIndex value)
         changeCompassThemeIndex,
+    required TResult Function(FetchNotificationApi value) fetchNotificationApi,
+    required TResult Function(AddMarkReadNotificationEvent value)
+        addMarkReadNotificationEvent,
   }) {
     return fetchPrayerTrackerEvent(this);
   }
@@ -1309,6 +1429,9 @@ class _$FetchPrayerTrackerEvent implements FetchPrayerTrackerEvent {
         changeTinterCardSwipeOption,
     TResult? Function(ChangeCompassThemeEvent value)? changeCompassThemeEvent,
     TResult? Function(ChangeCompassThemeIndex value)? changeCompassThemeIndex,
+    TResult? Function(FetchNotificationApi value)? fetchNotificationApi,
+    TResult? Function(AddMarkReadNotificationEvent value)?
+        addMarkReadNotificationEvent,
   }) {
     return fetchPrayerTrackerEvent?.call(this);
   }
@@ -1331,6 +1454,9 @@ class _$FetchPrayerTrackerEvent implements FetchPrayerTrackerEvent {
         changeTinterCardSwipeOption,
     TResult Function(ChangeCompassThemeEvent value)? changeCompassThemeEvent,
     TResult Function(ChangeCompassThemeIndex value)? changeCompassThemeIndex,
+    TResult Function(FetchNotificationApi value)? fetchNotificationApi,
+    TResult Function(AddMarkReadNotificationEvent value)?
+        addMarkReadNotificationEvent,
     required TResult orElse(),
   }) {
     if (fetchPrayerTrackerEvent != null) {
@@ -1445,6 +1571,9 @@ class _$AddPrayerToPrayerTracker implements AddPrayerToPrayerTracker {
     required TResult Function(CompassTheme compassTheme)
         changeCompassThemeEvent,
     required TResult Function(int index) changeCompassThemeIndex,
+    required TResult Function(BuildContext context) fetchNotificationApi,
+    required TResult Function(String id, BuildContext context)
+        addMarkReadNotificationEvent,
   }) {
     return addPrayerToPrayerTracker(namazName, context);
   }
@@ -1468,6 +1597,9 @@ class _$AddPrayerToPrayerTracker implements AddPrayerToPrayerTracker {
     TResult? Function(bool value)? changeTinterCardSwipeOption,
     TResult? Function(CompassTheme compassTheme)? changeCompassThemeEvent,
     TResult? Function(int index)? changeCompassThemeIndex,
+    TResult? Function(BuildContext context)? fetchNotificationApi,
+    TResult? Function(String id, BuildContext context)?
+        addMarkReadNotificationEvent,
   }) {
     return addPrayerToPrayerTracker?.call(namazName, context);
   }
@@ -1491,6 +1623,9 @@ class _$AddPrayerToPrayerTracker implements AddPrayerToPrayerTracker {
     TResult Function(bool value)? changeTinterCardSwipeOption,
     TResult Function(CompassTheme compassTheme)? changeCompassThemeEvent,
     TResult Function(int index)? changeCompassThemeIndex,
+    TResult Function(BuildContext context)? fetchNotificationApi,
+    TResult Function(String id, BuildContext context)?
+        addMarkReadNotificationEvent,
     required TResult orElse(),
   }) {
     if (addPrayerToPrayerTracker != null) {
@@ -1524,6 +1659,9 @@ class _$AddPrayerToPrayerTracker implements AddPrayerToPrayerTracker {
         changeCompassThemeEvent,
     required TResult Function(ChangeCompassThemeIndex value)
         changeCompassThemeIndex,
+    required TResult Function(FetchNotificationApi value) fetchNotificationApi,
+    required TResult Function(AddMarkReadNotificationEvent value)
+        addMarkReadNotificationEvent,
   }) {
     return addPrayerToPrayerTracker(this);
   }
@@ -1546,6 +1684,9 @@ class _$AddPrayerToPrayerTracker implements AddPrayerToPrayerTracker {
         changeTinterCardSwipeOption,
     TResult? Function(ChangeCompassThemeEvent value)? changeCompassThemeEvent,
     TResult? Function(ChangeCompassThemeIndex value)? changeCompassThemeIndex,
+    TResult? Function(FetchNotificationApi value)? fetchNotificationApi,
+    TResult? Function(AddMarkReadNotificationEvent value)?
+        addMarkReadNotificationEvent,
   }) {
     return addPrayerToPrayerTracker?.call(this);
   }
@@ -1568,6 +1709,9 @@ class _$AddPrayerToPrayerTracker implements AddPrayerToPrayerTracker {
         changeTinterCardSwipeOption,
     TResult Function(ChangeCompassThemeEvent value)? changeCompassThemeEvent,
     TResult Function(ChangeCompassThemeIndex value)? changeCompassThemeIndex,
+    TResult Function(FetchNotificationApi value)? fetchNotificationApi,
+    TResult Function(AddMarkReadNotificationEvent value)?
+        addMarkReadNotificationEvent,
     required TResult orElse(),
   }) {
     if (addPrayerToPrayerTracker != null) {
@@ -1645,6 +1789,9 @@ class _$ChangeIndexofAllaysaysBg implements ChangeIndexofAllaysaysBg {
     required TResult Function(CompassTheme compassTheme)
         changeCompassThemeEvent,
     required TResult Function(int index) changeCompassThemeIndex,
+    required TResult Function(BuildContext context) fetchNotificationApi,
+    required TResult Function(String id, BuildContext context)
+        addMarkReadNotificationEvent,
   }) {
     return changeIndexofAllaysaysBg();
   }
@@ -1668,6 +1815,9 @@ class _$ChangeIndexofAllaysaysBg implements ChangeIndexofAllaysaysBg {
     TResult? Function(bool value)? changeTinterCardSwipeOption,
     TResult? Function(CompassTheme compassTheme)? changeCompassThemeEvent,
     TResult? Function(int index)? changeCompassThemeIndex,
+    TResult? Function(BuildContext context)? fetchNotificationApi,
+    TResult? Function(String id, BuildContext context)?
+        addMarkReadNotificationEvent,
   }) {
     return changeIndexofAllaysaysBg?.call();
   }
@@ -1691,6 +1841,9 @@ class _$ChangeIndexofAllaysaysBg implements ChangeIndexofAllaysaysBg {
     TResult Function(bool value)? changeTinterCardSwipeOption,
     TResult Function(CompassTheme compassTheme)? changeCompassThemeEvent,
     TResult Function(int index)? changeCompassThemeIndex,
+    TResult Function(BuildContext context)? fetchNotificationApi,
+    TResult Function(String id, BuildContext context)?
+        addMarkReadNotificationEvent,
     required TResult orElse(),
   }) {
     if (changeIndexofAllaysaysBg != null) {
@@ -1724,6 +1877,9 @@ class _$ChangeIndexofAllaysaysBg implements ChangeIndexofAllaysaysBg {
         changeCompassThemeEvent,
     required TResult Function(ChangeCompassThemeIndex value)
         changeCompassThemeIndex,
+    required TResult Function(FetchNotificationApi value) fetchNotificationApi,
+    required TResult Function(AddMarkReadNotificationEvent value)
+        addMarkReadNotificationEvent,
   }) {
     return changeIndexofAllaysaysBg(this);
   }
@@ -1746,6 +1902,9 @@ class _$ChangeIndexofAllaysaysBg implements ChangeIndexofAllaysaysBg {
         changeTinterCardSwipeOption,
     TResult? Function(ChangeCompassThemeEvent value)? changeCompassThemeEvent,
     TResult? Function(ChangeCompassThemeIndex value)? changeCompassThemeIndex,
+    TResult? Function(FetchNotificationApi value)? fetchNotificationApi,
+    TResult? Function(AddMarkReadNotificationEvent value)?
+        addMarkReadNotificationEvent,
   }) {
     return changeIndexofAllaysaysBg?.call(this);
   }
@@ -1768,6 +1927,9 @@ class _$ChangeIndexofAllaysaysBg implements ChangeIndexofAllaysaysBg {
         changeTinterCardSwipeOption,
     TResult Function(ChangeCompassThemeEvent value)? changeCompassThemeEvent,
     TResult Function(ChangeCompassThemeIndex value)? changeCompassThemeIndex,
+    TResult Function(FetchNotificationApi value)? fetchNotificationApi,
+    TResult Function(AddMarkReadNotificationEvent value)?
+        addMarkReadNotificationEvent,
     required TResult orElse(),
   }) {
     if (changeIndexofAllaysaysBg != null) {
@@ -1864,6 +2026,9 @@ class _$ChangeHomeTabIndexEvent implements ChangeHomeTabIndexEvent {
     required TResult Function(CompassTheme compassTheme)
         changeCompassThemeEvent,
     required TResult Function(int index) changeCompassThemeIndex,
+    required TResult Function(BuildContext context) fetchNotificationApi,
+    required TResult Function(String id, BuildContext context)
+        addMarkReadNotificationEvent,
   }) {
     return changeHomeTabIndexEvent(newIndex);
   }
@@ -1887,6 +2052,9 @@ class _$ChangeHomeTabIndexEvent implements ChangeHomeTabIndexEvent {
     TResult? Function(bool value)? changeTinterCardSwipeOption,
     TResult? Function(CompassTheme compassTheme)? changeCompassThemeEvent,
     TResult? Function(int index)? changeCompassThemeIndex,
+    TResult? Function(BuildContext context)? fetchNotificationApi,
+    TResult? Function(String id, BuildContext context)?
+        addMarkReadNotificationEvent,
   }) {
     return changeHomeTabIndexEvent?.call(newIndex);
   }
@@ -1910,6 +2078,9 @@ class _$ChangeHomeTabIndexEvent implements ChangeHomeTabIndexEvent {
     TResult Function(bool value)? changeTinterCardSwipeOption,
     TResult Function(CompassTheme compassTheme)? changeCompassThemeEvent,
     TResult Function(int index)? changeCompassThemeIndex,
+    TResult Function(BuildContext context)? fetchNotificationApi,
+    TResult Function(String id, BuildContext context)?
+        addMarkReadNotificationEvent,
     required TResult orElse(),
   }) {
     if (changeHomeTabIndexEvent != null) {
@@ -1943,6 +2114,9 @@ class _$ChangeHomeTabIndexEvent implements ChangeHomeTabIndexEvent {
         changeCompassThemeEvent,
     required TResult Function(ChangeCompassThemeIndex value)
         changeCompassThemeIndex,
+    required TResult Function(FetchNotificationApi value) fetchNotificationApi,
+    required TResult Function(AddMarkReadNotificationEvent value)
+        addMarkReadNotificationEvent,
   }) {
     return changeHomeTabIndexEvent(this);
   }
@@ -1965,6 +2139,9 @@ class _$ChangeHomeTabIndexEvent implements ChangeHomeTabIndexEvent {
         changeTinterCardSwipeOption,
     TResult? Function(ChangeCompassThemeEvent value)? changeCompassThemeEvent,
     TResult? Function(ChangeCompassThemeIndex value)? changeCompassThemeIndex,
+    TResult? Function(FetchNotificationApi value)? fetchNotificationApi,
+    TResult? Function(AddMarkReadNotificationEvent value)?
+        addMarkReadNotificationEvent,
   }) {
     return changeHomeTabIndexEvent?.call(this);
   }
@@ -1987,6 +2164,9 @@ class _$ChangeHomeTabIndexEvent implements ChangeHomeTabIndexEvent {
         changeTinterCardSwipeOption,
     TResult Function(ChangeCompassThemeEvent value)? changeCompassThemeEvent,
     TResult Function(ChangeCompassThemeIndex value)? changeCompassThemeIndex,
+    TResult Function(FetchNotificationApi value)? fetchNotificationApi,
+    TResult Function(AddMarkReadNotificationEvent value)?
+        addMarkReadNotificationEvent,
     required TResult orElse(),
   }) {
     if (changeHomeTabIndexEvent != null) {
@@ -2100,6 +2280,9 @@ class _$RemoveDailyPrayerTrackerNamaz implements RemoveDailyPrayerTrackerNamaz {
     required TResult Function(CompassTheme compassTheme)
         changeCompassThemeEvent,
     required TResult Function(int index) changeCompassThemeIndex,
+    required TResult Function(BuildContext context) fetchNotificationApi,
+    required TResult Function(String id, BuildContext context)
+        addMarkReadNotificationEvent,
   }) {
     return removeDailyPrayerTrackerNamaz(namazName, context);
   }
@@ -2123,6 +2306,9 @@ class _$RemoveDailyPrayerTrackerNamaz implements RemoveDailyPrayerTrackerNamaz {
     TResult? Function(bool value)? changeTinterCardSwipeOption,
     TResult? Function(CompassTheme compassTheme)? changeCompassThemeEvent,
     TResult? Function(int index)? changeCompassThemeIndex,
+    TResult? Function(BuildContext context)? fetchNotificationApi,
+    TResult? Function(String id, BuildContext context)?
+        addMarkReadNotificationEvent,
   }) {
     return removeDailyPrayerTrackerNamaz?.call(namazName, context);
   }
@@ -2146,6 +2332,9 @@ class _$RemoveDailyPrayerTrackerNamaz implements RemoveDailyPrayerTrackerNamaz {
     TResult Function(bool value)? changeTinterCardSwipeOption,
     TResult Function(CompassTheme compassTheme)? changeCompassThemeEvent,
     TResult Function(int index)? changeCompassThemeIndex,
+    TResult Function(BuildContext context)? fetchNotificationApi,
+    TResult Function(String id, BuildContext context)?
+        addMarkReadNotificationEvent,
     required TResult orElse(),
   }) {
     if (removeDailyPrayerTrackerNamaz != null) {
@@ -2179,6 +2368,9 @@ class _$RemoveDailyPrayerTrackerNamaz implements RemoveDailyPrayerTrackerNamaz {
         changeCompassThemeEvent,
     required TResult Function(ChangeCompassThemeIndex value)
         changeCompassThemeIndex,
+    required TResult Function(FetchNotificationApi value) fetchNotificationApi,
+    required TResult Function(AddMarkReadNotificationEvent value)
+        addMarkReadNotificationEvent,
   }) {
     return removeDailyPrayerTrackerNamaz(this);
   }
@@ -2201,6 +2393,9 @@ class _$RemoveDailyPrayerTrackerNamaz implements RemoveDailyPrayerTrackerNamaz {
         changeTinterCardSwipeOption,
     TResult? Function(ChangeCompassThemeEvent value)? changeCompassThemeEvent,
     TResult? Function(ChangeCompassThemeIndex value)? changeCompassThemeIndex,
+    TResult? Function(FetchNotificationApi value)? fetchNotificationApi,
+    TResult? Function(AddMarkReadNotificationEvent value)?
+        addMarkReadNotificationEvent,
   }) {
     return removeDailyPrayerTrackerNamaz?.call(this);
   }
@@ -2223,6 +2418,9 @@ class _$RemoveDailyPrayerTrackerNamaz implements RemoveDailyPrayerTrackerNamaz {
         changeTinterCardSwipeOption,
     TResult Function(ChangeCompassThemeEvent value)? changeCompassThemeEvent,
     TResult Function(ChangeCompassThemeIndex value)? changeCompassThemeIndex,
+    TResult Function(FetchNotificationApi value)? fetchNotificationApi,
+    TResult Function(AddMarkReadNotificationEvent value)?
+        addMarkReadNotificationEvent,
     required TResult orElse(),
   }) {
     if (removeDailyPrayerTrackerNamaz != null) {
@@ -2328,6 +2526,9 @@ class _$ChangeTinterCardSwipeOption implements ChangeTinterCardSwipeOption {
     required TResult Function(CompassTheme compassTheme)
         changeCompassThemeEvent,
     required TResult Function(int index) changeCompassThemeIndex,
+    required TResult Function(BuildContext context) fetchNotificationApi,
+    required TResult Function(String id, BuildContext context)
+        addMarkReadNotificationEvent,
   }) {
     return changeTinterCardSwipeOption(value);
   }
@@ -2351,6 +2552,9 @@ class _$ChangeTinterCardSwipeOption implements ChangeTinterCardSwipeOption {
     TResult? Function(bool value)? changeTinterCardSwipeOption,
     TResult? Function(CompassTheme compassTheme)? changeCompassThemeEvent,
     TResult? Function(int index)? changeCompassThemeIndex,
+    TResult? Function(BuildContext context)? fetchNotificationApi,
+    TResult? Function(String id, BuildContext context)?
+        addMarkReadNotificationEvent,
   }) {
     return changeTinterCardSwipeOption?.call(value);
   }
@@ -2374,6 +2578,9 @@ class _$ChangeTinterCardSwipeOption implements ChangeTinterCardSwipeOption {
     TResult Function(bool value)? changeTinterCardSwipeOption,
     TResult Function(CompassTheme compassTheme)? changeCompassThemeEvent,
     TResult Function(int index)? changeCompassThemeIndex,
+    TResult Function(BuildContext context)? fetchNotificationApi,
+    TResult Function(String id, BuildContext context)?
+        addMarkReadNotificationEvent,
     required TResult orElse(),
   }) {
     if (changeTinterCardSwipeOption != null) {
@@ -2407,6 +2614,9 @@ class _$ChangeTinterCardSwipeOption implements ChangeTinterCardSwipeOption {
         changeCompassThemeEvent,
     required TResult Function(ChangeCompassThemeIndex value)
         changeCompassThemeIndex,
+    required TResult Function(FetchNotificationApi value) fetchNotificationApi,
+    required TResult Function(AddMarkReadNotificationEvent value)
+        addMarkReadNotificationEvent,
   }) {
     return changeTinterCardSwipeOption(this);
   }
@@ -2429,6 +2639,9 @@ class _$ChangeTinterCardSwipeOption implements ChangeTinterCardSwipeOption {
         changeTinterCardSwipeOption,
     TResult? Function(ChangeCompassThemeEvent value)? changeCompassThemeEvent,
     TResult? Function(ChangeCompassThemeIndex value)? changeCompassThemeIndex,
+    TResult? Function(FetchNotificationApi value)? fetchNotificationApi,
+    TResult? Function(AddMarkReadNotificationEvent value)?
+        addMarkReadNotificationEvent,
   }) {
     return changeTinterCardSwipeOption?.call(this);
   }
@@ -2451,6 +2664,9 @@ class _$ChangeTinterCardSwipeOption implements ChangeTinterCardSwipeOption {
         changeTinterCardSwipeOption,
     TResult Function(ChangeCompassThemeEvent value)? changeCompassThemeEvent,
     TResult Function(ChangeCompassThemeIndex value)? changeCompassThemeIndex,
+    TResult Function(FetchNotificationApi value)? fetchNotificationApi,
+    TResult Function(AddMarkReadNotificationEvent value)?
+        addMarkReadNotificationEvent,
     required TResult orElse(),
   }) {
     if (changeTinterCardSwipeOption != null) {
@@ -2553,6 +2769,9 @@ class _$ChangeCompassThemeEvent implements ChangeCompassThemeEvent {
     required TResult Function(CompassTheme compassTheme)
         changeCompassThemeEvent,
     required TResult Function(int index) changeCompassThemeIndex,
+    required TResult Function(BuildContext context) fetchNotificationApi,
+    required TResult Function(String id, BuildContext context)
+        addMarkReadNotificationEvent,
   }) {
     return changeCompassThemeEvent(compassTheme);
   }
@@ -2576,6 +2795,9 @@ class _$ChangeCompassThemeEvent implements ChangeCompassThemeEvent {
     TResult? Function(bool value)? changeTinterCardSwipeOption,
     TResult? Function(CompassTheme compassTheme)? changeCompassThemeEvent,
     TResult? Function(int index)? changeCompassThemeIndex,
+    TResult? Function(BuildContext context)? fetchNotificationApi,
+    TResult? Function(String id, BuildContext context)?
+        addMarkReadNotificationEvent,
   }) {
     return changeCompassThemeEvent?.call(compassTheme);
   }
@@ -2599,6 +2821,9 @@ class _$ChangeCompassThemeEvent implements ChangeCompassThemeEvent {
     TResult Function(bool value)? changeTinterCardSwipeOption,
     TResult Function(CompassTheme compassTheme)? changeCompassThemeEvent,
     TResult Function(int index)? changeCompassThemeIndex,
+    TResult Function(BuildContext context)? fetchNotificationApi,
+    TResult Function(String id, BuildContext context)?
+        addMarkReadNotificationEvent,
     required TResult orElse(),
   }) {
     if (changeCompassThemeEvent != null) {
@@ -2632,6 +2857,9 @@ class _$ChangeCompassThemeEvent implements ChangeCompassThemeEvent {
         changeCompassThemeEvent,
     required TResult Function(ChangeCompassThemeIndex value)
         changeCompassThemeIndex,
+    required TResult Function(FetchNotificationApi value) fetchNotificationApi,
+    required TResult Function(AddMarkReadNotificationEvent value)
+        addMarkReadNotificationEvent,
   }) {
     return changeCompassThemeEvent(this);
   }
@@ -2654,6 +2882,9 @@ class _$ChangeCompassThemeEvent implements ChangeCompassThemeEvent {
         changeTinterCardSwipeOption,
     TResult? Function(ChangeCompassThemeEvent value)? changeCompassThemeEvent,
     TResult? Function(ChangeCompassThemeIndex value)? changeCompassThemeIndex,
+    TResult? Function(FetchNotificationApi value)? fetchNotificationApi,
+    TResult? Function(AddMarkReadNotificationEvent value)?
+        addMarkReadNotificationEvent,
   }) {
     return changeCompassThemeEvent?.call(this);
   }
@@ -2676,6 +2907,9 @@ class _$ChangeCompassThemeEvent implements ChangeCompassThemeEvent {
         changeTinterCardSwipeOption,
     TResult Function(ChangeCompassThemeEvent value)? changeCompassThemeEvent,
     TResult Function(ChangeCompassThemeIndex value)? changeCompassThemeIndex,
+    TResult Function(FetchNotificationApi value)? fetchNotificationApi,
+    TResult Function(AddMarkReadNotificationEvent value)?
+        addMarkReadNotificationEvent,
     required TResult orElse(),
   }) {
     if (changeCompassThemeEvent != null) {
@@ -2777,6 +3011,9 @@ class _$ChangeCompassThemeIndex implements ChangeCompassThemeIndex {
     required TResult Function(CompassTheme compassTheme)
         changeCompassThemeEvent,
     required TResult Function(int index) changeCompassThemeIndex,
+    required TResult Function(BuildContext context) fetchNotificationApi,
+    required TResult Function(String id, BuildContext context)
+        addMarkReadNotificationEvent,
   }) {
     return changeCompassThemeIndex(index);
   }
@@ -2800,6 +3037,9 @@ class _$ChangeCompassThemeIndex implements ChangeCompassThemeIndex {
     TResult? Function(bool value)? changeTinterCardSwipeOption,
     TResult? Function(CompassTheme compassTheme)? changeCompassThemeEvent,
     TResult? Function(int index)? changeCompassThemeIndex,
+    TResult? Function(BuildContext context)? fetchNotificationApi,
+    TResult? Function(String id, BuildContext context)?
+        addMarkReadNotificationEvent,
   }) {
     return changeCompassThemeIndex?.call(index);
   }
@@ -2823,6 +3063,9 @@ class _$ChangeCompassThemeIndex implements ChangeCompassThemeIndex {
     TResult Function(bool value)? changeTinterCardSwipeOption,
     TResult Function(CompassTheme compassTheme)? changeCompassThemeEvent,
     TResult Function(int index)? changeCompassThemeIndex,
+    TResult Function(BuildContext context)? fetchNotificationApi,
+    TResult Function(String id, BuildContext context)?
+        addMarkReadNotificationEvent,
     required TResult orElse(),
   }) {
     if (changeCompassThemeIndex != null) {
@@ -2856,6 +3099,9 @@ class _$ChangeCompassThemeIndex implements ChangeCompassThemeIndex {
         changeCompassThemeEvent,
     required TResult Function(ChangeCompassThemeIndex value)
         changeCompassThemeIndex,
+    required TResult Function(FetchNotificationApi value) fetchNotificationApi,
+    required TResult Function(AddMarkReadNotificationEvent value)
+        addMarkReadNotificationEvent,
   }) {
     return changeCompassThemeIndex(this);
   }
@@ -2878,6 +3124,9 @@ class _$ChangeCompassThemeIndex implements ChangeCompassThemeIndex {
         changeTinterCardSwipeOption,
     TResult? Function(ChangeCompassThemeEvent value)? changeCompassThemeEvent,
     TResult? Function(ChangeCompassThemeIndex value)? changeCompassThemeIndex,
+    TResult? Function(FetchNotificationApi value)? fetchNotificationApi,
+    TResult? Function(AddMarkReadNotificationEvent value)?
+        addMarkReadNotificationEvent,
   }) {
     return changeCompassThemeIndex?.call(this);
   }
@@ -2900,6 +3149,9 @@ class _$ChangeCompassThemeIndex implements ChangeCompassThemeIndex {
         changeTinterCardSwipeOption,
     TResult Function(ChangeCompassThemeEvent value)? changeCompassThemeEvent,
     TResult Function(ChangeCompassThemeIndex value)? changeCompassThemeIndex,
+    TResult Function(FetchNotificationApi value)? fetchNotificationApi,
+    TResult Function(AddMarkReadNotificationEvent value)?
+        addMarkReadNotificationEvent,
     required TResult orElse(),
   }) {
     if (changeCompassThemeIndex != null) {
@@ -2917,6 +3169,503 @@ abstract class ChangeCompassThemeIndex implements HomeEvent {
   @JsonKey(ignore: true)
   _$$ChangeCompassThemeIndexCopyWith<_$ChangeCompassThemeIndex> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$FetchNotificationApiCopyWith<$Res> {
+  factory _$$FetchNotificationApiCopyWith(_$FetchNotificationApi value,
+          $Res Function(_$FetchNotificationApi) then) =
+      __$$FetchNotificationApiCopyWithImpl<$Res>;
+  @useResult
+  $Res call({BuildContext context});
+}
+
+/// @nodoc
+class __$$FetchNotificationApiCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$FetchNotificationApi>
+    implements _$$FetchNotificationApiCopyWith<$Res> {
+  __$$FetchNotificationApiCopyWithImpl(_$FetchNotificationApi _value,
+      $Res Function(_$FetchNotificationApi) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? context = null,
+  }) {
+    return _then(_$FetchNotificationApi(
+      context: null == context
+          ? _value.context
+          : context // ignore: cast_nullable_to_non_nullable
+              as BuildContext,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$FetchNotificationApi implements FetchNotificationApi {
+  const _$FetchNotificationApi({required this.context});
+
+  @override
+  final BuildContext context;
+
+  @override
+  String toString() {
+    return 'HomeEvent.fetchNotificationApi(context: $context)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$FetchNotificationApi &&
+            (identical(other.context, context) || other.context == context));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, context);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$FetchNotificationApiCopyWith<_$FetchNotificationApi> get copyWith =>
+      __$$FetchNotificationApiCopyWithImpl<_$FetchNotificationApi>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() fetchLargeDisountsBanner,
+    required TResult Function() fetchTopOffersBanner,
+    required TResult Function() fetchBrandofTheDay,
+    required TResult Function() fetchHadithOfTheDay,
+    required TResult Function() fetchEventOfTheMonth,
+    required TResult Function(DateTime date, BuildContext context)
+        fetchPrayerTrackerEvent,
+    required TResult Function(String namazName, BuildContext context)
+        addPrayerToPrayerTracker,
+    required TResult Function() changeIndexofAllaysaysBg,
+    required TResult Function(int newIndex) changeHomeTabIndexEvent,
+    required TResult Function(String namazName, BuildContext context)
+        removeDailyPrayerTrackerNamaz,
+    required TResult Function(bool value) changeTinterCardSwipeOption,
+    required TResult Function(CompassTheme compassTheme)
+        changeCompassThemeEvent,
+    required TResult Function(int index) changeCompassThemeIndex,
+    required TResult Function(BuildContext context) fetchNotificationApi,
+    required TResult Function(String id, BuildContext context)
+        addMarkReadNotificationEvent,
+  }) {
+    return fetchNotificationApi(context);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? fetchLargeDisountsBanner,
+    TResult? Function()? fetchTopOffersBanner,
+    TResult? Function()? fetchBrandofTheDay,
+    TResult? Function()? fetchHadithOfTheDay,
+    TResult? Function()? fetchEventOfTheMonth,
+    TResult? Function(DateTime date, BuildContext context)?
+        fetchPrayerTrackerEvent,
+    TResult? Function(String namazName, BuildContext context)?
+        addPrayerToPrayerTracker,
+    TResult? Function()? changeIndexofAllaysaysBg,
+    TResult? Function(int newIndex)? changeHomeTabIndexEvent,
+    TResult? Function(String namazName, BuildContext context)?
+        removeDailyPrayerTrackerNamaz,
+    TResult? Function(bool value)? changeTinterCardSwipeOption,
+    TResult? Function(CompassTheme compassTheme)? changeCompassThemeEvent,
+    TResult? Function(int index)? changeCompassThemeIndex,
+    TResult? Function(BuildContext context)? fetchNotificationApi,
+    TResult? Function(String id, BuildContext context)?
+        addMarkReadNotificationEvent,
+  }) {
+    return fetchNotificationApi?.call(context);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? fetchLargeDisountsBanner,
+    TResult Function()? fetchTopOffersBanner,
+    TResult Function()? fetchBrandofTheDay,
+    TResult Function()? fetchHadithOfTheDay,
+    TResult Function()? fetchEventOfTheMonth,
+    TResult Function(DateTime date, BuildContext context)?
+        fetchPrayerTrackerEvent,
+    TResult Function(String namazName, BuildContext context)?
+        addPrayerToPrayerTracker,
+    TResult Function()? changeIndexofAllaysaysBg,
+    TResult Function(int newIndex)? changeHomeTabIndexEvent,
+    TResult Function(String namazName, BuildContext context)?
+        removeDailyPrayerTrackerNamaz,
+    TResult Function(bool value)? changeTinterCardSwipeOption,
+    TResult Function(CompassTheme compassTheme)? changeCompassThemeEvent,
+    TResult Function(int index)? changeCompassThemeIndex,
+    TResult Function(BuildContext context)? fetchNotificationApi,
+    TResult Function(String id, BuildContext context)?
+        addMarkReadNotificationEvent,
+    required TResult orElse(),
+  }) {
+    if (fetchNotificationApi != null) {
+      return fetchNotificationApi(context);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FetchLargeDisountsBanner value)
+        fetchLargeDisountsBanner,
+    required TResult Function(FetchTopOffersBanner value) fetchTopOffersBanner,
+    required TResult Function(FetchBrandofTheDay value) fetchBrandofTheDay,
+    required TResult Function(FetchHadithOfTheDay value) fetchHadithOfTheDay,
+    required TResult Function(FetchEventOfTheMonth value) fetchEventOfTheMonth,
+    required TResult Function(FetchPrayerTrackerEvent value)
+        fetchPrayerTrackerEvent,
+    required TResult Function(AddPrayerToPrayerTracker value)
+        addPrayerToPrayerTracker,
+    required TResult Function(ChangeIndexofAllaysaysBg value)
+        changeIndexofAllaysaysBg,
+    required TResult Function(ChangeHomeTabIndexEvent value)
+        changeHomeTabIndexEvent,
+    required TResult Function(RemoveDailyPrayerTrackerNamaz value)
+        removeDailyPrayerTrackerNamaz,
+    required TResult Function(ChangeTinterCardSwipeOption value)
+        changeTinterCardSwipeOption,
+    required TResult Function(ChangeCompassThemeEvent value)
+        changeCompassThemeEvent,
+    required TResult Function(ChangeCompassThemeIndex value)
+        changeCompassThemeIndex,
+    required TResult Function(FetchNotificationApi value) fetchNotificationApi,
+    required TResult Function(AddMarkReadNotificationEvent value)
+        addMarkReadNotificationEvent,
+  }) {
+    return fetchNotificationApi(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(FetchLargeDisountsBanner value)? fetchLargeDisountsBanner,
+    TResult? Function(FetchTopOffersBanner value)? fetchTopOffersBanner,
+    TResult? Function(FetchBrandofTheDay value)? fetchBrandofTheDay,
+    TResult? Function(FetchHadithOfTheDay value)? fetchHadithOfTheDay,
+    TResult? Function(FetchEventOfTheMonth value)? fetchEventOfTheMonth,
+    TResult? Function(FetchPrayerTrackerEvent value)? fetchPrayerTrackerEvent,
+    TResult? Function(AddPrayerToPrayerTracker value)? addPrayerToPrayerTracker,
+    TResult? Function(ChangeIndexofAllaysaysBg value)? changeIndexofAllaysaysBg,
+    TResult? Function(ChangeHomeTabIndexEvent value)? changeHomeTabIndexEvent,
+    TResult? Function(RemoveDailyPrayerTrackerNamaz value)?
+        removeDailyPrayerTrackerNamaz,
+    TResult? Function(ChangeTinterCardSwipeOption value)?
+        changeTinterCardSwipeOption,
+    TResult? Function(ChangeCompassThemeEvent value)? changeCompassThemeEvent,
+    TResult? Function(ChangeCompassThemeIndex value)? changeCompassThemeIndex,
+    TResult? Function(FetchNotificationApi value)? fetchNotificationApi,
+    TResult? Function(AddMarkReadNotificationEvent value)?
+        addMarkReadNotificationEvent,
+  }) {
+    return fetchNotificationApi?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FetchLargeDisountsBanner value)? fetchLargeDisountsBanner,
+    TResult Function(FetchTopOffersBanner value)? fetchTopOffersBanner,
+    TResult Function(FetchBrandofTheDay value)? fetchBrandofTheDay,
+    TResult Function(FetchHadithOfTheDay value)? fetchHadithOfTheDay,
+    TResult Function(FetchEventOfTheMonth value)? fetchEventOfTheMonth,
+    TResult Function(FetchPrayerTrackerEvent value)? fetchPrayerTrackerEvent,
+    TResult Function(AddPrayerToPrayerTracker value)? addPrayerToPrayerTracker,
+    TResult Function(ChangeIndexofAllaysaysBg value)? changeIndexofAllaysaysBg,
+    TResult Function(ChangeHomeTabIndexEvent value)? changeHomeTabIndexEvent,
+    TResult Function(RemoveDailyPrayerTrackerNamaz value)?
+        removeDailyPrayerTrackerNamaz,
+    TResult Function(ChangeTinterCardSwipeOption value)?
+        changeTinterCardSwipeOption,
+    TResult Function(ChangeCompassThemeEvent value)? changeCompassThemeEvent,
+    TResult Function(ChangeCompassThemeIndex value)? changeCompassThemeIndex,
+    TResult Function(FetchNotificationApi value)? fetchNotificationApi,
+    TResult Function(AddMarkReadNotificationEvent value)?
+        addMarkReadNotificationEvent,
+    required TResult orElse(),
+  }) {
+    if (fetchNotificationApi != null) {
+      return fetchNotificationApi(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class FetchNotificationApi implements HomeEvent {
+  const factory FetchNotificationApi({required final BuildContext context}) =
+      _$FetchNotificationApi;
+
+  BuildContext get context;
+  @JsonKey(ignore: true)
+  _$$FetchNotificationApiCopyWith<_$FetchNotificationApi> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$AddMarkReadNotificationEventCopyWith<$Res> {
+  factory _$$AddMarkReadNotificationEventCopyWith(
+          _$AddMarkReadNotificationEvent value,
+          $Res Function(_$AddMarkReadNotificationEvent) then) =
+      __$$AddMarkReadNotificationEventCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String id, BuildContext context});
+}
+
+/// @nodoc
+class __$$AddMarkReadNotificationEventCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$AddMarkReadNotificationEvent>
+    implements _$$AddMarkReadNotificationEventCopyWith<$Res> {
+  __$$AddMarkReadNotificationEventCopyWithImpl(
+      _$AddMarkReadNotificationEvent _value,
+      $Res Function(_$AddMarkReadNotificationEvent) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? context = null,
+  }) {
+    return _then(_$AddMarkReadNotificationEvent(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      context: null == context
+          ? _value.context
+          : context // ignore: cast_nullable_to_non_nullable
+              as BuildContext,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$AddMarkReadNotificationEvent implements AddMarkReadNotificationEvent {
+  const _$AddMarkReadNotificationEvent(
+      {required this.id, required this.context});
+
+  @override
+  final String id;
+  @override
+  final BuildContext context;
+
+  @override
+  String toString() {
+    return 'HomeEvent.addMarkReadNotificationEvent(id: $id, context: $context)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AddMarkReadNotificationEvent &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.context, context) || other.context == context));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, id, context);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AddMarkReadNotificationEventCopyWith<_$AddMarkReadNotificationEvent>
+      get copyWith => __$$AddMarkReadNotificationEventCopyWithImpl<
+          _$AddMarkReadNotificationEvent>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() fetchLargeDisountsBanner,
+    required TResult Function() fetchTopOffersBanner,
+    required TResult Function() fetchBrandofTheDay,
+    required TResult Function() fetchHadithOfTheDay,
+    required TResult Function() fetchEventOfTheMonth,
+    required TResult Function(DateTime date, BuildContext context)
+        fetchPrayerTrackerEvent,
+    required TResult Function(String namazName, BuildContext context)
+        addPrayerToPrayerTracker,
+    required TResult Function() changeIndexofAllaysaysBg,
+    required TResult Function(int newIndex) changeHomeTabIndexEvent,
+    required TResult Function(String namazName, BuildContext context)
+        removeDailyPrayerTrackerNamaz,
+    required TResult Function(bool value) changeTinterCardSwipeOption,
+    required TResult Function(CompassTheme compassTheme)
+        changeCompassThemeEvent,
+    required TResult Function(int index) changeCompassThemeIndex,
+    required TResult Function(BuildContext context) fetchNotificationApi,
+    required TResult Function(String id, BuildContext context)
+        addMarkReadNotificationEvent,
+  }) {
+    return addMarkReadNotificationEvent(id, context);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? fetchLargeDisountsBanner,
+    TResult? Function()? fetchTopOffersBanner,
+    TResult? Function()? fetchBrandofTheDay,
+    TResult? Function()? fetchHadithOfTheDay,
+    TResult? Function()? fetchEventOfTheMonth,
+    TResult? Function(DateTime date, BuildContext context)?
+        fetchPrayerTrackerEvent,
+    TResult? Function(String namazName, BuildContext context)?
+        addPrayerToPrayerTracker,
+    TResult? Function()? changeIndexofAllaysaysBg,
+    TResult? Function(int newIndex)? changeHomeTabIndexEvent,
+    TResult? Function(String namazName, BuildContext context)?
+        removeDailyPrayerTrackerNamaz,
+    TResult? Function(bool value)? changeTinterCardSwipeOption,
+    TResult? Function(CompassTheme compassTheme)? changeCompassThemeEvent,
+    TResult? Function(int index)? changeCompassThemeIndex,
+    TResult? Function(BuildContext context)? fetchNotificationApi,
+    TResult? Function(String id, BuildContext context)?
+        addMarkReadNotificationEvent,
+  }) {
+    return addMarkReadNotificationEvent?.call(id, context);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? fetchLargeDisountsBanner,
+    TResult Function()? fetchTopOffersBanner,
+    TResult Function()? fetchBrandofTheDay,
+    TResult Function()? fetchHadithOfTheDay,
+    TResult Function()? fetchEventOfTheMonth,
+    TResult Function(DateTime date, BuildContext context)?
+        fetchPrayerTrackerEvent,
+    TResult Function(String namazName, BuildContext context)?
+        addPrayerToPrayerTracker,
+    TResult Function()? changeIndexofAllaysaysBg,
+    TResult Function(int newIndex)? changeHomeTabIndexEvent,
+    TResult Function(String namazName, BuildContext context)?
+        removeDailyPrayerTrackerNamaz,
+    TResult Function(bool value)? changeTinterCardSwipeOption,
+    TResult Function(CompassTheme compassTheme)? changeCompassThemeEvent,
+    TResult Function(int index)? changeCompassThemeIndex,
+    TResult Function(BuildContext context)? fetchNotificationApi,
+    TResult Function(String id, BuildContext context)?
+        addMarkReadNotificationEvent,
+    required TResult orElse(),
+  }) {
+    if (addMarkReadNotificationEvent != null) {
+      return addMarkReadNotificationEvent(id, context);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FetchLargeDisountsBanner value)
+        fetchLargeDisountsBanner,
+    required TResult Function(FetchTopOffersBanner value) fetchTopOffersBanner,
+    required TResult Function(FetchBrandofTheDay value) fetchBrandofTheDay,
+    required TResult Function(FetchHadithOfTheDay value) fetchHadithOfTheDay,
+    required TResult Function(FetchEventOfTheMonth value) fetchEventOfTheMonth,
+    required TResult Function(FetchPrayerTrackerEvent value)
+        fetchPrayerTrackerEvent,
+    required TResult Function(AddPrayerToPrayerTracker value)
+        addPrayerToPrayerTracker,
+    required TResult Function(ChangeIndexofAllaysaysBg value)
+        changeIndexofAllaysaysBg,
+    required TResult Function(ChangeHomeTabIndexEvent value)
+        changeHomeTabIndexEvent,
+    required TResult Function(RemoveDailyPrayerTrackerNamaz value)
+        removeDailyPrayerTrackerNamaz,
+    required TResult Function(ChangeTinterCardSwipeOption value)
+        changeTinterCardSwipeOption,
+    required TResult Function(ChangeCompassThemeEvent value)
+        changeCompassThemeEvent,
+    required TResult Function(ChangeCompassThemeIndex value)
+        changeCompassThemeIndex,
+    required TResult Function(FetchNotificationApi value) fetchNotificationApi,
+    required TResult Function(AddMarkReadNotificationEvent value)
+        addMarkReadNotificationEvent,
+  }) {
+    return addMarkReadNotificationEvent(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(FetchLargeDisountsBanner value)? fetchLargeDisountsBanner,
+    TResult? Function(FetchTopOffersBanner value)? fetchTopOffersBanner,
+    TResult? Function(FetchBrandofTheDay value)? fetchBrandofTheDay,
+    TResult? Function(FetchHadithOfTheDay value)? fetchHadithOfTheDay,
+    TResult? Function(FetchEventOfTheMonth value)? fetchEventOfTheMonth,
+    TResult? Function(FetchPrayerTrackerEvent value)? fetchPrayerTrackerEvent,
+    TResult? Function(AddPrayerToPrayerTracker value)? addPrayerToPrayerTracker,
+    TResult? Function(ChangeIndexofAllaysaysBg value)? changeIndexofAllaysaysBg,
+    TResult? Function(ChangeHomeTabIndexEvent value)? changeHomeTabIndexEvent,
+    TResult? Function(RemoveDailyPrayerTrackerNamaz value)?
+        removeDailyPrayerTrackerNamaz,
+    TResult? Function(ChangeTinterCardSwipeOption value)?
+        changeTinterCardSwipeOption,
+    TResult? Function(ChangeCompassThemeEvent value)? changeCompassThemeEvent,
+    TResult? Function(ChangeCompassThemeIndex value)? changeCompassThemeIndex,
+    TResult? Function(FetchNotificationApi value)? fetchNotificationApi,
+    TResult? Function(AddMarkReadNotificationEvent value)?
+        addMarkReadNotificationEvent,
+  }) {
+    return addMarkReadNotificationEvent?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FetchLargeDisountsBanner value)? fetchLargeDisountsBanner,
+    TResult Function(FetchTopOffersBanner value)? fetchTopOffersBanner,
+    TResult Function(FetchBrandofTheDay value)? fetchBrandofTheDay,
+    TResult Function(FetchHadithOfTheDay value)? fetchHadithOfTheDay,
+    TResult Function(FetchEventOfTheMonth value)? fetchEventOfTheMonth,
+    TResult Function(FetchPrayerTrackerEvent value)? fetchPrayerTrackerEvent,
+    TResult Function(AddPrayerToPrayerTracker value)? addPrayerToPrayerTracker,
+    TResult Function(ChangeIndexofAllaysaysBg value)? changeIndexofAllaysaysBg,
+    TResult Function(ChangeHomeTabIndexEvent value)? changeHomeTabIndexEvent,
+    TResult Function(RemoveDailyPrayerTrackerNamaz value)?
+        removeDailyPrayerTrackerNamaz,
+    TResult Function(ChangeTinterCardSwipeOption value)?
+        changeTinterCardSwipeOption,
+    TResult Function(ChangeCompassThemeEvent value)? changeCompassThemeEvent,
+    TResult Function(ChangeCompassThemeIndex value)? changeCompassThemeIndex,
+    TResult Function(FetchNotificationApi value)? fetchNotificationApi,
+    TResult Function(AddMarkReadNotificationEvent value)?
+        addMarkReadNotificationEvent,
+    required TResult orElse(),
+  }) {
+    if (addMarkReadNotificationEvent != null) {
+      return addMarkReadNotificationEvent(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class AddMarkReadNotificationEvent implements HomeEvent {
+  const factory AddMarkReadNotificationEvent(
+      {required final String id,
+      required final BuildContext context}) = _$AddMarkReadNotificationEvent;
+
+  String get id;
+  BuildContext get context;
+  @JsonKey(ignore: true)
+  _$$AddMarkReadNotificationEventCopyWith<_$AddMarkReadNotificationEvent>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -2944,6 +3693,8 @@ mixin _$HomeState {
   bool get tinderCardSwipVal => throw _privateConstructorUsedError;
   CompassTheme get compassTheme => throw _privateConstructorUsedError;
   int get compassThemeIndex => throw _privateConstructorUsedError;
+  NotificationModel? get notificationModel =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $HomeStateCopyWith<HomeState> get copyWith =>
@@ -2974,7 +3725,8 @@ abstract class $HomeStateCopyWith<$Res> {
       int homeTabIndex,
       bool tinderCardSwipVal,
       CompassTheme compassTheme,
-      int compassThemeIndex});
+      int compassThemeIndex,
+      NotificationModel? notificationModel});
 
   $LargeDiscountModelCopyWith<$Res>? get largeDiscountModel;
   $TopOffersModelCopyWith<$Res>? get topOffersModel;
@@ -2982,6 +3734,7 @@ abstract class $HomeStateCopyWith<$Res> {
   $HaditOfTheDayModelCopyWith<$Res>? get haditOfTheDayModel;
   $EventOfTheMonthModelCopyWith<$Res>? get eventOfTheMonthModel;
   $PrayerTrackerModelCopyWith<$Res>? get prayerTracker;
+  $NotificationModelCopyWith<$Res>? get notificationModel;
 }
 
 /// @nodoc
@@ -3016,6 +3769,7 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
     Object? tinderCardSwipVal = null,
     Object? compassTheme = null,
     Object? compassThemeIndex = null,
+    Object? notificationModel = freezed,
   }) {
     return _then(_value.copyWith(
       isLoading: null == isLoading
@@ -3094,6 +3848,10 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
           ? _value.compassThemeIndex
           : compassThemeIndex // ignore: cast_nullable_to_non_nullable
               as int,
+      notificationModel: freezed == notificationModel
+          ? _value.notificationModel
+          : notificationModel // ignore: cast_nullable_to_non_nullable
+              as NotificationModel?,
     ) as $Val);
   }
 
@@ -3172,6 +3930,18 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
       return _then(_value.copyWith(prayerTracker: value) as $Val);
     });
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $NotificationModelCopyWith<$Res>? get notificationModel {
+    if (_value.notificationModel == null) {
+      return null;
+    }
+
+    return $NotificationModelCopyWith<$Res>(_value.notificationModel!, (value) {
+      return _then(_value.copyWith(notificationModel: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -3200,7 +3970,8 @@ abstract class _$$_HomeStateCopyWith<$Res> implements $HomeStateCopyWith<$Res> {
       int homeTabIndex,
       bool tinderCardSwipVal,
       CompassTheme compassTheme,
-      int compassThemeIndex});
+      int compassThemeIndex,
+      NotificationModel? notificationModel});
 
   @override
   $LargeDiscountModelCopyWith<$Res>? get largeDiscountModel;
@@ -3214,6 +3985,8 @@ abstract class _$$_HomeStateCopyWith<$Res> implements $HomeStateCopyWith<$Res> {
   $EventOfTheMonthModelCopyWith<$Res>? get eventOfTheMonthModel;
   @override
   $PrayerTrackerModelCopyWith<$Res>? get prayerTracker;
+  @override
+  $NotificationModelCopyWith<$Res>? get notificationModel;
 }
 
 /// @nodoc
@@ -3246,6 +4019,7 @@ class __$$_HomeStateCopyWithImpl<$Res>
     Object? tinderCardSwipVal = null,
     Object? compassTheme = null,
     Object? compassThemeIndex = null,
+    Object? notificationModel = freezed,
   }) {
     return _then(_$_HomeState(
       isLoading: null == isLoading
@@ -3324,6 +4098,10 @@ class __$$_HomeStateCopyWithImpl<$Res>
           ? _value.compassThemeIndex
           : compassThemeIndex // ignore: cast_nullable_to_non_nullable
               as int,
+      notificationModel: freezed == notificationModel
+          ? _value.notificationModel
+          : notificationModel // ignore: cast_nullable_to_non_nullable
+              as NotificationModel?,
     ));
   }
 }
@@ -3350,7 +4128,8 @@ class _$_HomeState implements _HomeState {
       required this.homeTabIndex,
       required this.tinderCardSwipVal,
       required this.compassTheme,
-      required this.compassThemeIndex});
+      required this.compassThemeIndex,
+      required this.notificationModel});
 
   @override
   final bool isLoading;
@@ -3390,10 +4169,12 @@ class _$_HomeState implements _HomeState {
   final CompassTheme compassTheme;
   @override
   final int compassThemeIndex;
+  @override
+  final NotificationModel? notificationModel;
 
   @override
   String toString() {
-    return 'HomeState(isLoading: $isLoading, largeDiscountModel: $largeDiscountModel, topOffersModel: $topOffersModel, brandOftheDayModel: $brandOftheDayModel, haditOfTheDayModel: $haditOfTheDayModel, eventOfTheMonthModel: $eventOfTheMonthModel, prayerTrackerFajr: $prayerTrackerFajr, prayerTrackerDhuhr: $prayerTrackerDhuhr, prayerTrackerAsr: $prayerTrackerAsr, prayerTrackerMagrib: $prayerTrackerMagrib, prayerTrackerIsha: $prayerTrackerIsha, prayerTracker: $prayerTracker, namazCompletedCount: $namazCompletedCount, dailyPrayerTrackerDate: $dailyPrayerTrackerDate, allaysBgindex: $allaysBgindex, homeTabIndex: $homeTabIndex, tinderCardSwipVal: $tinderCardSwipVal, compassTheme: $compassTheme, compassThemeIndex: $compassThemeIndex)';
+    return 'HomeState(isLoading: $isLoading, largeDiscountModel: $largeDiscountModel, topOffersModel: $topOffersModel, brandOftheDayModel: $brandOftheDayModel, haditOfTheDayModel: $haditOfTheDayModel, eventOfTheMonthModel: $eventOfTheMonthModel, prayerTrackerFajr: $prayerTrackerFajr, prayerTrackerDhuhr: $prayerTrackerDhuhr, prayerTrackerAsr: $prayerTrackerAsr, prayerTrackerMagrib: $prayerTrackerMagrib, prayerTrackerIsha: $prayerTrackerIsha, prayerTracker: $prayerTracker, namazCompletedCount: $namazCompletedCount, dailyPrayerTrackerDate: $dailyPrayerTrackerDate, allaysBgindex: $allaysBgindex, homeTabIndex: $homeTabIndex, tinderCardSwipVal: $tinderCardSwipVal, compassTheme: $compassTheme, compassThemeIndex: $compassThemeIndex, notificationModel: $notificationModel)';
   }
 
   @override
@@ -3438,7 +4219,9 @@ class _$_HomeState implements _HomeState {
             (identical(other.compassTheme, compassTheme) ||
                 other.compassTheme == compassTheme) &&
             (identical(other.compassThemeIndex, compassThemeIndex) ||
-                other.compassThemeIndex == compassThemeIndex));
+                other.compassThemeIndex == compassThemeIndex) &&
+            (identical(other.notificationModel, notificationModel) ||
+                other.notificationModel == notificationModel));
   }
 
   @override
@@ -3462,7 +4245,8 @@ class _$_HomeState implements _HomeState {
         homeTabIndex,
         tinderCardSwipVal,
         compassTheme,
-        compassThemeIndex
+        compassThemeIndex,
+        notificationModel
       ]);
 
   @JsonKey(ignore: true)
@@ -3492,7 +4276,8 @@ abstract class _HomeState implements HomeState {
       required final int homeTabIndex,
       required final bool tinderCardSwipVal,
       required final CompassTheme compassTheme,
-      required final int compassThemeIndex}) = _$_HomeState;
+      required final int compassThemeIndex,
+      required final NotificationModel? notificationModel}) = _$_HomeState;
 
   @override
   bool get isLoading;
@@ -3532,6 +4317,8 @@ abstract class _HomeState implements HomeState {
   CompassTheme get compassTheme;
   @override
   int get compassThemeIndex;
+  @override
+  NotificationModel? get notificationModel;
   @override
   @JsonKey(ignore: true)
   _$$_HomeStateCopyWith<_$_HomeState> get copyWith =>

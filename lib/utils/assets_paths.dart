@@ -134,6 +134,7 @@ class AppAssetsStrings {
   static const String shirt = "$imagesPath/shirt.png";
   static const String email = "$imagesPath/email.png";
   static const String rewardsKahbaImg = "$imagesPath/rewards_kahba.png";
+  static const String rewardSuccesBg = "$backgroundsPath/reward_success_bg.png";
 }
 
 const String splashBackgroundPath = '$backgroundsPath/splash_background.png';

@@ -131,6 +131,8 @@ class ColorManager {
   static Color rewardsLightGreenGradient1 = HexColor.fromHex("#4BEAA5");
   static Color rewardsLightGreenGradient2 = HexColor.fromHex("#68B85B");
   static Color lightBlueBF = HexColor.fromHex("#BFE6FC");
+  static Color textGrey73 = HexColor.fromHex("#737373");
+  static Color textGrey94 = HexColor.fromHex("#949494");
 }
 
 extension HexColor on Color {

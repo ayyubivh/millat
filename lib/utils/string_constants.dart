@@ -274,6 +274,9 @@ class Appstrings {
   static const String hajjAndUmmrah = "Hajj & Ummrah";
   static const String ummrahAndHajjPackage = "Ummrah & Hajj Package";
   static const String hadithSettings = "Hadith Settings";
+  static const String loremIpsumText =
+      "Lorem ipsum dolor sit amet consectetur. Sed ut placerat ac mauris urna lectus vestibulum. Ut hendrerit id nisl ridiculus proin feugiat sem feugiat. Nulla laoreet leo libero dolor consequat in massa ornare. Sed est curabitur maecenas risus amet.";
+  static const String redeemNow = "Redeem Now";
 }
 
 String authToken = 'authToken';

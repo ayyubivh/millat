@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:millat/components/buttons/main_button.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
@@ -86,7 +87,7 @@ class RewardsRedeemView extends StatelessWidget {
                 ),
                 height: SizeUtility(context).height / 1.2,
                 padding:
-                    const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+                    const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
                 child: Column(
                   children: [
                     Row(
@@ -116,7 +117,134 @@ class RewardsRedeemView extends StatelessWidget {
                         ),
                       ],
                     ),
-                    Divider(),
+                    Divider(
+                      color: ColorManager.black4F,
+                    ),
+                    kHeight16,
+                    Container(
+                      height: SizeUtility(context).height / 1.5,
+                      width: SizeUtility(context).width,
+                      padding: const EdgeInsets.all(2),
+                      decoration: BoxDecoration(
+                        // color: ColorManager.lightBlackColor,
+                        boxShadow: [
+                          BoxShadow(
+                            color: ColorManager.greyEE,
+                            spreadRadius: 12,
+                            blurRadius: 12,
+                            offset: const Offset(3, 3),
+                          ),
+                        ],
+                      ),
+                      child: ClipPath(
+                        clipper: RewardSettingClipper(),
+                        child: Container(
+                          color: ColorManager.whiteColor,
+                          width: SizeUtility(context).width,
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 20, vertical: 20),
+                          child: Column(
+                            children: [
+                              _roundedImgWidget(),
+                              kHeight15,
+                              Text(
+                                Appstrings.ummrahAndHajjPackage,
+                                style: TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.w700,
+                                    color: ColorManager.black4F),
+                                textAlign: TextAlign.center,
+                              ),
+                              kHeight10,
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
+                                children: [
+                                  _scoreWidget(),
+                                  Container(
+                                    height: 24,
+                                    color: ColorManager.black4F,
+                                    width: 2,
+                                  ),
+                                  Text(
+                                    "Your Coins : 12,829",
+                                    style: TextStyle(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w700,
+                                      color: ColorManager.textGrey73,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              kHeight16,
+                              Text(
+                                Appstrings.loremIpsumText,
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w500,
+                                  color: ColorManager.textGrey94,
+                                  height: 1.3,
+                                ),
+                                textAlign: TextAlign.center,
+                              ),
+                              SizedBox(
+                                height: SizeUtility(context).height / 5.5,
+                              ),
+                              DottedLine(
+                                direction: Axis.horizontal,
+                                alignment: WrapAlignment.center,
+                                lineLength: SizeUtility(context).width / 2,
+                                lineThickness: 2.0,
+                                dashLength: 4.0,
+                                dashColor:
+                                    ColorManager.black4F.withOpacity(0.3),
+                                dashRadius: 0.0,
+                                dashGapLength: 4.0,
+                                dashGapRadius: 0.0,
+                              ),
+                              const Spacer(),
+                              Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 30),
+                                child: MainButton(
+                                  title: Appstrings.redeemNow,
+                                  onPressed: () {
+                                    showDialog(
+                                      context: context,
+                                      builder: (BuildContext context) {
+                                        return AlertDialog(
+                                          backgroundColor: Colors.transparent,
+                                          contentPadding:
+                                              const EdgeInsets.all(0),
+                                          content: Container(
+                                            height: 300,
+                                            width: SizeUtility(context).width,
+                                            decoration: BoxDecoration(
+                                              color: ColorManager.whiteColor,
+                                              borderRadius:
+                                                  BorderRadius.circular(16),
+                                              image: const DecorationImage(
+                                                  image: AssetImage(
+                                                    AppAssetsStrings
+                                                        .rewardSuccesBg,
+                                                  ),
+                                                  fit: BoxFit.cover),
+                                            ),
+                                            child: Column(
+                                              children: [],
+                                            ),
+                                          ),
+                                        );
+                                      },
+                                    );
+                                  },
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               );
@@ -151,20 +279,7 @@ class RewardsRedeemView extends StatelessWidget {
                   children: [
                     Row(
                       children: [
-                        Container(
-                          height: 90,
-                          width: 90,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: ColorManager.lightBlueBF,
-                          ),
-                          padding: const EdgeInsets.all(10),
-                          child: Image.asset(
-                            AppAssetsStrings.rewardsKahbaImg,
-                            height: 59,
-                            width: 68,
-                          ),
-                        ),
+                        _roundedImgWidget(),
                         kWidht10,
                         DottedLine(
                           direction: Axis.vertical,
@@ -194,22 +309,7 @@ class RewardsRedeemView extends StatelessWidget {
                                 overflow: TextOverflow.ellipsis,
                                 maxLines: 2,
                               ),
-                              Row(
-                                children: [
-                                  Image.asset(
-                                    AppAssetsStrings.score,
-                                    height: 25,
-                                  ),
-                                  Text(
-                                    "50,0000",
-                                    style: TextStyle(
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.w700,
-                                      color: ColorManager.black4F,
-                                    ),
-                                  ),
-                                ],
-                              ),
+                              _scoreWidget(),
                               Text(
                                 "Valid till 24th July, 2023",
                                 style: TextStyle(
@@ -263,7 +363,7 @@ class RewardsRedeemView extends StatelessWidget {
                         Row(
                           children: [
                             Text(
-                              "Redeem Now ",
+                              Appstrings.redeemNow,
                               style: TextStyle(
                                 fontSize: 14,
                                 color: ColorManager.primary,
@@ -285,6 +385,42 @@ class RewardsRedeemView extends StatelessWidget {
             ),
           ),
         ),
+      ),
+    );
+  }
+
+  Row _scoreWidget() {
+    return Row(
+      children: [
+        Image.asset(
+          AppAssetsStrings.score,
+          height: 25,
+        ),
+        Text(
+          "50,0000",
+          style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.w700,
+            color: ColorManager.black4F,
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _roundedImgWidget() {
+    return Container(
+      height: 90,
+      width: 90,
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        color: ColorManager.lightBlueBF,
+      ),
+      padding: const EdgeInsets.all(10),
+      child: Image.asset(
+        AppAssetsStrings.rewardsKahbaImg,
+        height: 59,
+        width: 68,
       ),
     );
   }
@@ -323,6 +459,61 @@ class RewardClipper extends CustomClipper<Path> {
     double sideRadius = 25.0;
     double midPoint = size.height * (5 / 10);
     double cornerRadius = 10.0;
+
+    path.moveTo(0, cornerRadius);
+    path.lineTo(0, (midPoint - sideRadius));
+
+    //LEFT ARC
+    path.quadraticBezierTo(
+        sideRadius, midPoint - sideRadius, sideRadius, midPoint);
+    path.quadraticBezierTo(
+        sideRadius, midPoint + sideRadius, 0, midPoint + sideRadius);
+
+    path.lineTo(0, size.height - cornerRadius);
+
+    //BottomLeft
+    path.quadraticBezierTo(0, size.height, cornerRadius, size.height);
+
+    path.lineTo(size.width - cornerRadius, size.height);
+
+    //BottomRight
+    path.quadraticBezierTo(
+        size.width, size.height, size.width, size.height - cornerRadius);
+
+    path.lineTo(size.width, (midPoint + sideRadius));
+
+    //RIGHT ARC
+    path.quadraticBezierTo((size.width - sideRadius), (midPoint + sideRadius),
+        (size.width - sideRadius), (midPoint));
+    path.quadraticBezierTo((size.width - sideRadius), (midPoint - sideRadius),
+        size.width, midPoint - sideRadius);
+
+    path.lineTo(size.width, cornerRadius);
+
+    //TopRight
+    path.quadraticBezierTo(size.width, 0, size.width - cornerRadius, 0);
+
+    path.lineTo(cornerRadius, 0);
+
+    //TopLeft
+    path.quadraticBezierTo(0, 0, 0, cornerRadius);
+
+    path.close();
+    return path;
+  }
+
+  @override
+  bool shouldReclip(CustomClipper<Path> oldClipper) => false;
+}
+
+class RewardSettingClipper extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    var path = Path();
+
+    double sideRadius = 30.0;
+    double midPoint = size.height * (8 / 10);
+    double cornerRadius = 20.0;
 
     path.moveTo(0, cornerRadius);
     path.lineTo(0, (midPoint - sideRadius));

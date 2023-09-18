@@ -11,6 +11,12 @@ class AuthloadingSocialLogin extends AuthState {}
 
 class AuthLoadedSocialLogin extends AuthState {}
 
+class AuthSocialLoginNewUser extends AuthState {
+  final String userId;
+
+  AuthSocialLoginNewUser({required this.userId});
+}
+
 class AuthLoaded extends AuthState {
   final String email;
 

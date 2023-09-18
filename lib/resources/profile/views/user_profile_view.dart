@@ -511,7 +511,7 @@ Future<dynamic> logoutPopUp(BuildContext context) {
                         context
                             .read<DatabaseBloc>()
                             .add(const RemoveTokenEvent());
-                        await GoogleSignInService.logout();
+                        // await GoogleSignInService.logout();
                         Navigator.of(context).pushReplacement(MaterialPageRoute(
                           builder: (context) => const SignUpView(),
                         ));

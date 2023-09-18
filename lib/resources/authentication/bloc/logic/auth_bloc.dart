@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/resources/authentication/bloc/service/auth_service.dart';
- 
+
 part 'auth_event.dart';
 part 'auth_state.dart';
 
@@ -41,12 +41,14 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
           }
         }
       } else if (event is SendOTP) {
-        if (event.phoneNumber.isEmpty) {
-          emit(AuthError('Please fill in all the fields'));
-        } else {
-          emit(AuthLoading());
-          final res =
-              await _authService.sendOTP(phoneNumber: event.phoneNumber);
+        final currentState = state;
+        if (currentState is AuthSocialLoginNewUser) {
+          final userId = currentState.userId;
+
+          final res = await _authService.sendOTP(
+            phoneNumber: event.phoneNumber,
+            userId: userId,
+          );
 
           if (res['status'] == true) {
             emit(AuthLoaded(event.phoneNumber));
@@ -77,10 +79,15 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         emit(AuthloadingSocialLogin());
         final result = await _authService.loginWithSocial(
             email: event.email, name: event.name, context: event.context);
-        if (result['status'] == true) {
-          emit(AuthLoadedSocialLogin());
+        print("result of social login ${result}");
+        if (result.status == 200) {
+          if (result.result!.isLogin == false) {
+            emit(AuthSocialLoginNewUser(userId: result.result?.user?.id ?? ""));
+          } else {
+            emit(AuthLoadedSocialLogin());
+          }
         } else {
-          emit(AuthError(result['message']));
+          emit(AuthError(result.error ?? ""));
         }
       }
     });

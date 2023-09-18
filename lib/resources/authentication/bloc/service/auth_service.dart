@@ -8,6 +8,7 @@ import 'package:http/http.dart' as http;
 import 'package:millat/utils/string_constants.dart';
 
 import '../model/auth_user_model/auth_user_model.dart';
+import '../model/auth_user_model/social_user_model.dart';
 
 class AuthService extends HttpServices {
   final String loginAPI = 'auth/signin_with_email';
@@ -48,7 +49,7 @@ class AuthService extends HttpServices {
     });
   }
 
-  loginWithSocial({
+  Future<SocialUserModel> loginWithSocial({
     required String email,
     required String name,
     required BuildContext context,
@@ -56,20 +57,19 @@ class AuthService extends HttpServices {
     return await posts(
         endPoint: loginWithGoogleApi,
         body: {"email": email, "name": name}).then((value) {
-      print(value.body);
-      final result = UserModel.fromJson(jsonDecode(value.body));
+      final result = SocialUserModel.fromJson(jsonDecode(value.body));
       if (value.statusCode == 200) {
-        context
-            .read<DatabaseBloc>()
-            .add(StoreTokenEvent(token: result.result!.token.toString()));
-        return {
-          'status': true,
-        };
+        if (result.result?.token != null) {
+          context
+              .read<DatabaseBloc>()
+              .add(StoreTokenEvent(token: result.result!.token.toString()));
+        }
+        return result;
       } else {
-        return {'status': false, 'message': jsonDecode(value.body)['message']};
+        return result;
       }
     }).catchError((error) {
-      return {'status': false};
+      throw Exception(error);
     });
   }
 
@@ -93,11 +93,10 @@ class AuthService extends HttpServices {
     });
   }
 
-  sendOTP({
-    required String phoneNumber,
-  }) async {
+  sendOTP({required String phoneNumber, required String userId}) async {
     return await posts(endPoint: loginWithOTPAPI, body: {
       "phone_number": phoneNumber,
+      "userId": userId,
     }).then((value) {
       if (value.statusCode == 200) {
         return {

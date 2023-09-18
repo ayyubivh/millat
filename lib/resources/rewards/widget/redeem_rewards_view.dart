@@ -56,160 +56,234 @@ class RewardsRedeemView extends StatelessWidget {
               ],
             ),
             kHeight20,
-            ClipPath(
-              clipper: RewardClipper(),
-              child: Container(
-                padding: const EdgeInsets.all(2),
+            ListView.builder(
+              shrinkWrap: true,
+              itemCount: 3,
+              itemBuilder: (context, index) => _couponWidget(context),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _couponWidget(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8),
+      child: GestureDetector(
+        onTap: () {
+          showModalBottomSheet(
+            context: context,
+            isScrollControlled: true,
+            backgroundColor: Colors.transparent,
+            builder: (context) {
+              return Container(
                 decoration: BoxDecoration(
-                  // border: Border.all(
-                  //   color: ColorManager.blackColor,
-                  // ),
-                  boxShadow: [
-                    BoxShadow(
-                      color: ColorManager.greyEE,
-                      spreadRadius: 12,
-                      blurRadius: 12,
-                      offset: const Offset(3, 3),
-                    ),
-                  ],
+                  color: ColorManager.whiteColor,
+                  borderRadius: const BorderRadius.vertical(
+                    top: Radius.circular(24),
+                  ),
                 ),
-                child: ClipPath(
-                  clipper: RewardClipper(),
-                  child: Container(
-                    height: 166,
-                    width: SizeUtility(context).width,
-                    padding: EdgeInsets.symmetric(
-                        horizontal: SizeUtility(context).width / 8,
-                        vertical: 15),
-                    decoration: BoxDecoration(
-                      color: ColorManager.whiteColor,
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.5),
-                          spreadRadius: 5,
-                          blurRadius: 7,
-                          offset: const Offset(0, 3),
-                        ),
-                      ],
-                    ),
-                    child: Column(
+                height: SizeUtility(context).height / 1.2,
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Row(
-                          children: [
-                            Container(
-                              height: 90,
-                              width: 90,
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: ColorManager.lightBlueBF,
-                              ),
-                              padding: const EdgeInsets.all(10),
-                              child: Image.asset(
-                                AppAssetsStrings.rewardsKahbaImg,
-                                height: 59,
-                                width: 68,
-                              ),
-                            ),
-                            kWidht10,
-                            DottedLine(
-                              direction: Axis.vertical,
-                              alignment: WrapAlignment.center,
-                              lineLength: 85,
-                              lineThickness: 2.0,
-                              dashLength: 4.0,
-                              dashColor: ColorManager.black4F.withOpacity(0.3),
-                              dashRadius: 0.0,
-                              dashGapLength: 4.0,
-                              dashGapRadius: 0.0,
-                            ),
-                            kWidht10,
-                            SizedBox(
-                              width: 160,
-                              height: 100,
-                              child: Column(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  const Text(
-                                    Appstrings.ummrahAndHajjPackage,
-                                    style: TextStyle(
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w700,
-                                    ),
-                                    overflow: TextOverflow.ellipsis,
-                                    maxLines: 2,
-                                  ),
-                                  Row(
-                                    children: [
-                                      Image.asset(
-                                        AppAssetsStrings.score,
-                                        height: 20,
-                                      ),
-                                      Text(
-                                        "50,0000",
-                                        style: TextStyle(
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.w700,
-                                          color: ColorManager.black4F,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  Text(
-                                    "Valid till 24th July, 2023",
-                                    style: TextStyle(
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.w600,
-                                      color: ColorManager.textGrey,
-                                    ),
-                                  )
-                                ],
-                              ),
-                            )
-                          ],
-                        ),
-                        Divider(
-                          thickness: 0,
-                          color: ColorManager.blackColor.withOpacity(0.5),
-                        ),
-                        kHeight3,
-                        Row(
-                          children: [
-                            const Text(
-                              "Available:2/10",
+                        const Expanded(
+                          child: Align(
+                            alignment: Alignment.center,
+                            child: Text(
+                              Appstrings.hadithSettings,
                               style: TextStyle(
-                                fontSize: 12,
+                                fontSize: 16,
                                 fontWeight: FontWeight.w600,
                               ),
                             ),
-                            const Spacer(),
-                            Row(
-                              children: [
-                                Text(
-                                  "Redeem Now ",
-                                  style: TextStyle(
-                                    fontSize: 14,
-                                    color: ColorManager.primary,
-                                    fontWeight: FontWeight.w600,
-                                  ),
+                          ),
+                        ),
+                        IconButton(
+                          onPressed: () {
+                            Navigator.of(context).pop();
+                          },
+                          icon: Icon(
+                            Icons.close,
+                            size: 14,
+                            color: ColorManager.textGrey99,
+                          ),
+                        ),
+                      ],
+                    ),
+                    Divider(),
+                  ],
+                ),
+              );
+            },
+          );
+        },
+        child: ClipPath(
+          clipper: RewardClipper(),
+          child: Container(
+            height: 176,
+            padding: const EdgeInsets.all(2),
+            decoration: BoxDecoration(
+              // color: ColorManager.lightBlackColor,
+              boxShadow: [
+                BoxShadow(
+                  color: ColorManager.greyEE,
+                  spreadRadius: 12,
+                  blurRadius: 12,
+                  offset: const Offset(3, 3),
+                ),
+              ],
+            ),
+            child: ClipPath(
+              clipper: RewardClipper(),
+              child: Container(
+                color: ColorManager.whiteColor,
+                height: 166,
+                width: SizeUtility(context).width,
+                padding: EdgeInsets.symmetric(
+                    horizontal: SizeUtility(context).width / 8, vertical: 15),
+                child: Column(
+                  children: [
+                    Row(
+                      children: [
+                        Container(
+                          height: 90,
+                          width: 90,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: ColorManager.lightBlueBF,
+                          ),
+                          padding: const EdgeInsets.all(10),
+                          child: Image.asset(
+                            AppAssetsStrings.rewardsKahbaImg,
+                            height: 59,
+                            width: 68,
+                          ),
+                        ),
+                        kWidht10,
+                        DottedLine(
+                          direction: Axis.vertical,
+                          alignment: WrapAlignment.center,
+                          lineLength: 85,
+                          lineThickness: 2.0,
+                          dashLength: 4.0,
+                          dashColor: ColorManager.black4F.withOpacity(0.3),
+                          dashRadius: 0.0,
+                          dashGapLength: 4.0,
+                          dashGapRadius: 0.0,
+                        ),
+                        kWidht10,
+                        SizedBox(
+                          width: 160,
+                          height: 100,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const Text(
+                                Appstrings.ummrahAndHajjPackage,
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w700,
                                 ),
-                                Image.asset(
-                                  AppAssetsStrings.arrrowRight,
-                                  height: 12,
-                                  color: ColorManager.primary,
-                                )
-                              ],
+                                overflow: TextOverflow.ellipsis,
+                                maxLines: 2,
+                              ),
+                              Row(
+                                children: [
+                                  Image.asset(
+                                    AppAssetsStrings.score,
+                                    height: 25,
+                                  ),
+                                  Text(
+                                    "50,0000",
+                                    style: TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.w700,
+                                      color: ColorManager.black4F,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              Text(
+                                "Valid till 24th July, 2023",
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w600,
+                                  color: ColorManager.textGrey,
+                                ),
+                              )
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                    Divider(
+                      thickness: 0,
+                      color: ColorManager.blackColor.withOpacity(0.5),
+                    ),
+                    kHeight3,
+                    Row(
+                      children: [
+                        RichText(
+                          text: TextSpan(
+                            children: [
+                              TextSpan(
+                                text: "Available : ",
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w600,
+                                  color: ColorManager.black4F,
+                                ),
+                              ),
+                              const TextSpan(
+                                text: "2",
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w600,
+                                  color: Colors.green,
+                                ),
+                              ),
+                              TextSpan(
+                                text: "/10",
+                                style: TextStyle(
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w600,
+                                    color: ColorManager.textGrey99),
+                              ),
+                            ],
+                          ),
+                        ),
+                        const Spacer(),
+                        Row(
+                          children: [
+                            Text(
+                              "Redeem Now ",
+                              style: TextStyle(
+                                fontSize: 14,
+                                color: ColorManager.primary,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                            Image.asset(
+                              AppAssetsStrings.arrrowRight,
+                              height: 12,
+                              color: ColorManager.primary,
                             )
                           ],
                         )
                       ],
-                    ),
-                  ),
+                    )
+                  ],
                 ),
               ),
-            )
-          ],
+            ),
+          ),
         ),
       ),
     );
@@ -246,7 +320,7 @@ class RewardClipper extends CustomClipper<Path> {
   Path getClip(Size size) {
     var path = Path();
 
-    double sideRadius = 30.0;
+    double sideRadius = 25.0;
     double midPoint = size.height * (5 / 10);
     double cornerRadius = 10.0;
 

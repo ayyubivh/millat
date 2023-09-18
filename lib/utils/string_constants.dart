@@ -273,9 +273,11 @@ class Appstrings {
   static const String redeemRewards = "Redeem Rewards";
   static const String hajjAndUmmrah = "Hajj & Ummrah";
   static const String ummrahAndHajjPackage = "Ummrah & Hajj Package";
+  static const String hadithSettings = "Hadith Settings";
 }
 
 String authToken = 'authToken';
+
 String emailKey = 'email';
 String nameKey = 'name';
 String bookmarkDb = "Bookmark-db";

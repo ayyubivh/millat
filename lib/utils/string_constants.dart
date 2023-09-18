@@ -272,6 +272,7 @@ class Appstrings {
   static const String frequentlyAskedQuestions7 = "How many coins i can earn?";
   static const String redeemRewards = "Redeem Rewards";
   static const String hajjAndUmmrah = "Hajj & Ummrah";
+  static const String ummrahAndHajjPackage = "Ummrah & Hajj Package";
 }
 
 String authToken = 'authToken';

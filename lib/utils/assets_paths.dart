@@ -133,6 +133,7 @@ class AppAssetsStrings {
   static const String howToRedeem = "$iconsPath/how_to_redeem.png";
   static const String shirt = "$imagesPath/shirt.png";
   static const String email = "$imagesPath/email.png";
+  static const String rewardsKahbaImg = "$imagesPath/rewards_kahba.png";
 }
 
 const String splashBackgroundPath = '$backgroundsPath/splash_background.png';

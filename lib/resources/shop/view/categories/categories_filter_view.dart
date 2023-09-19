@@ -6,7 +6,7 @@ import 'package:millat/resources/shop/bloc/logic/category_bloc/category_bloc.dar
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/loader.dart';
 import 'package:millat/utils/size_utility.dart';
-import 'categories_view.dart';
+import 'categories_product_view.dart';
 
 class CategoriesFilter extends StatefulWidget {
   const CategoriesFilter({Key? key}) : super(key: key);
@@ -173,7 +173,7 @@ class _CategoriesFilterState extends State<CategoriesFilter> {
                           return GestureDetector(
                             onTap: () {
                               Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => CategoriesView(
+                                builder: (context) => CategoriesProductView(
                                   type: FilterType.category,
                                   category: state.product?.result!
                                       .products?[index].category?.title
@@ -188,8 +188,8 @@ class _CategoriesFilterState extends State<CategoriesFilter> {
                               isShowborder: false,
                               iconImage: state
                                   .product?.result?.products?[index].images?[0],
-                              categoryTitle: state.product?.result
-                                  ?.products?[index].category?.title,
+                              categoryTitle:
+                                  state.product?.result?.products?[index].title,
                             ),
                           );
                         },

@@ -30,7 +30,7 @@ import 'package:millat/utils/string_constants.dart';
 import 'package:responsive_framework/responsive_wrapper.dart';
 import 'package:responsive_framework/utils/scroll_behavior.dart';
 import 'package:timezone/data/latest.dart' as tz;
-import 'resources/shop/view/categories/categories_view.dart';
+import 'resources/shop/view/categories/categories_product_view.dart';
 
 void main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
@@ -108,13 +108,13 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       routes: {
-        CategoriesView.routeName: (context) {
+        CategoriesProductView.routeName: (context) {
           final args = ModalRoute.of(context)!.settings.arguments
               as Map<String, dynamic>;
           final category = args["category"];
           final subCategory = args["subCategory"];
           final type = args["type"];
-          return CategoriesView(
+          return CategoriesProductView(
               category: category, subCategory: subCategory, type: type);
         },
         NamazTimingView.routeName: (context) => const NamazTimingView(),

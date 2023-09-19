@@ -18,7 +18,8 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$CategoryEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String? category, String? subCategory)
+    required TResult Function(
+            String? category, String? subCategory, String? itemId)
         fetchFilterProducts,
     required TResult Function() fetchCategories,
     required TResult Function() fetchSubcategories,
@@ -31,7 +32,7 @@ mixin _$CategoryEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String? category, String? subCategory)?
+    TResult? Function(String? category, String? subCategory, String? itemId)?
         fetchFilterProducts,
     TResult? Function()? fetchCategories,
     TResult? Function()? fetchSubcategories,
@@ -43,7 +44,7 @@ mixin _$CategoryEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String? category, String? subCategory)?
+    TResult Function(String? category, String? subCategory, String? itemId)?
         fetchFilterProducts,
     TResult Function()? fetchCategories,
     TResult Function()? fetchSubcategories,
@@ -114,7 +115,7 @@ abstract class _$$FetchFilterProductsCopyWith<$Res> {
           $Res Function(_$FetchFilterProducts) then) =
       __$$FetchFilterProductsCopyWithImpl<$Res>;
   @useResult
-  $Res call({String? category, String? subCategory});
+  $Res call({String? category, String? subCategory, String? itemId});
 }
 
 /// @nodoc
@@ -130,6 +131,7 @@ class __$$FetchFilterProductsCopyWithImpl<$Res>
   $Res call({
     Object? category = freezed,
     Object? subCategory = freezed,
+    Object? itemId = freezed,
   }) {
     return _then(_$FetchFilterProducts(
       category: freezed == category
@@ -140,6 +142,10 @@ class __$$FetchFilterProductsCopyWithImpl<$Res>
           ? _value.subCategory
           : subCategory // ignore: cast_nullable_to_non_nullable
               as String?,
+      itemId: freezed == itemId
+          ? _value.itemId
+          : itemId // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -148,16 +154,18 @@ class __$$FetchFilterProductsCopyWithImpl<$Res>
 
 class _$FetchFilterProducts implements FetchFilterProducts {
   const _$FetchFilterProducts(
-      {required this.category, required this.subCategory});
+      {required this.category, required this.subCategory, this.itemId});
 
   @override
   final String? category;
   @override
   final String? subCategory;
+  @override
+  final String? itemId;
 
   @override
   String toString() {
-    return 'CategoryEvent.fetchFilterProducts(category: $category, subCategory: $subCategory)';
+    return 'CategoryEvent.fetchFilterProducts(category: $category, subCategory: $subCategory, itemId: $itemId)';
   }
 
   @override
@@ -168,11 +176,12 @@ class _$FetchFilterProducts implements FetchFilterProducts {
             (identical(other.category, category) ||
                 other.category == category) &&
             (identical(other.subCategory, subCategory) ||
-                other.subCategory == subCategory));
+                other.subCategory == subCategory) &&
+            (identical(other.itemId, itemId) || other.itemId == itemId));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, category, subCategory);
+  int get hashCode => Object.hash(runtimeType, category, subCategory, itemId);
 
   @JsonKey(ignore: true)
   @override
@@ -184,7 +193,8 @@ class _$FetchFilterProducts implements FetchFilterProducts {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String? category, String? subCategory)
+    required TResult Function(
+            String? category, String? subCategory, String? itemId)
         fetchFilterProducts,
     required TResult Function() fetchCategories,
     required TResult Function() fetchSubcategories,
@@ -194,13 +204,13 @@ class _$FetchFilterProducts implements FetchFilterProducts {
     required TResult Function(String brand) filterBrandPickEvent,
     required TResult Function(int index) priceRangeEvent,
   }) {
-    return fetchFilterProducts(category, subCategory);
+    return fetchFilterProducts(category, subCategory, itemId);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String? category, String? subCategory)?
+    TResult? Function(String? category, String? subCategory, String? itemId)?
         fetchFilterProducts,
     TResult? Function()? fetchCategories,
     TResult? Function()? fetchSubcategories,
@@ -209,13 +219,13 @@ class _$FetchFilterProducts implements FetchFilterProducts {
     TResult? Function(String brand)? filterBrandPickEvent,
     TResult? Function(int index)? priceRangeEvent,
   }) {
-    return fetchFilterProducts?.call(category, subCategory);
+    return fetchFilterProducts?.call(category, subCategory, itemId);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String? category, String? subCategory)?
+    TResult Function(String? category, String? subCategory, String? itemId)?
         fetchFilterProducts,
     TResult Function()? fetchCategories,
     TResult Function()? fetchSubcategories,
@@ -226,7 +236,7 @@ class _$FetchFilterProducts implements FetchFilterProducts {
     required TResult orElse(),
   }) {
     if (fetchFilterProducts != null) {
-      return fetchFilterProducts(category, subCategory);
+      return fetchFilterProducts(category, subCategory, itemId);
     }
     return orElse();
   }
@@ -281,10 +291,12 @@ class _$FetchFilterProducts implements FetchFilterProducts {
 abstract class FetchFilterProducts implements CategoryEvent {
   const factory FetchFilterProducts(
       {required final String? category,
-      required final String? subCategory}) = _$FetchFilterProducts;
+      required final String? subCategory,
+      final String? itemId}) = _$FetchFilterProducts;
 
   String? get category;
   String? get subCategory;
+  String? get itemId;
   @JsonKey(ignore: true)
   _$$FetchFilterProductsCopyWith<_$FetchFilterProducts> get copyWith =>
       throw _privateConstructorUsedError;
@@ -328,7 +340,8 @@ class _$FetchCategories implements FetchCategories {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String? category, String? subCategory)
+    required TResult Function(
+            String? category, String? subCategory, String? itemId)
         fetchFilterProducts,
     required TResult Function() fetchCategories,
     required TResult Function() fetchSubcategories,
@@ -344,7 +357,7 @@ class _$FetchCategories implements FetchCategories {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String? category, String? subCategory)?
+    TResult? Function(String? category, String? subCategory, String? itemId)?
         fetchFilterProducts,
     TResult? Function()? fetchCategories,
     TResult? Function()? fetchSubcategories,
@@ -359,7 +372,7 @@ class _$FetchCategories implements FetchCategories {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String? category, String? subCategory)?
+    TResult Function(String? category, String? subCategory, String? itemId)?
         fetchFilterProducts,
     TResult Function()? fetchCategories,
     TResult Function()? fetchSubcategories,
@@ -464,7 +477,8 @@ class _$FetchSubcategories implements FetchSubcategories {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String? category, String? subCategory)
+    required TResult Function(
+            String? category, String? subCategory, String? itemId)
         fetchFilterProducts,
     required TResult Function() fetchCategories,
     required TResult Function() fetchSubcategories,
@@ -480,7 +494,7 @@ class _$FetchSubcategories implements FetchSubcategories {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String? category, String? subCategory)?
+    TResult? Function(String? category, String? subCategory, String? itemId)?
         fetchFilterProducts,
     TResult? Function()? fetchCategories,
     TResult? Function()? fetchSubcategories,
@@ -495,7 +509,7 @@ class _$FetchSubcategories implements FetchSubcategories {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String? category, String? subCategory)?
+    TResult Function(String? category, String? subCategory, String? itemId)?
         fetchFilterProducts,
     TResult Function()? fetchCategories,
     TResult Function()? fetchSubcategories,
@@ -626,7 +640,8 @@ class _$OnSelectFilter implements OnSelectFilter {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String? category, String? subCategory)
+    required TResult Function(
+            String? category, String? subCategory, String? itemId)
         fetchFilterProducts,
     required TResult Function() fetchCategories,
     required TResult Function() fetchSubcategories,
@@ -642,7 +657,7 @@ class _$OnSelectFilter implements OnSelectFilter {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String? category, String? subCategory)?
+    TResult? Function(String? category, String? subCategory, String? itemId)?
         fetchFilterProducts,
     TResult? Function()? fetchCategories,
     TResult? Function()? fetchSubcategories,
@@ -657,7 +672,7 @@ class _$OnSelectFilter implements OnSelectFilter {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String? category, String? subCategory)?
+    TResult Function(String? category, String? subCategory, String? itemId)?
         fetchFilterProducts,
     TResult Function()? fetchCategories,
     TResult Function()? fetchSubcategories,
@@ -804,7 +819,8 @@ class _$FilterEvent implements FilterEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String? category, String? subCategory)
+    required TResult Function(
+            String? category, String? subCategory, String? itemId)
         fetchFilterProducts,
     required TResult Function() fetchCategories,
     required TResult Function() fetchSubcategories,
@@ -820,7 +836,7 @@ class _$FilterEvent implements FilterEvent {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String? category, String? subCategory)?
+    TResult? Function(String? category, String? subCategory, String? itemId)?
         fetchFilterProducts,
     TResult? Function()? fetchCategories,
     TResult? Function()? fetchSubcategories,
@@ -835,7 +851,7 @@ class _$FilterEvent implements FilterEvent {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String? category, String? subCategory)?
+    TResult Function(String? category, String? subCategory, String? itemId)?
         fetchFilterProducts,
     TResult Function()? fetchCategories,
     TResult Function()? fetchSubcategories,
@@ -975,7 +991,8 @@ class _$FilterBrandPickEvent implements FilterBrandPickEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String? category, String? subCategory)
+    required TResult Function(
+            String? category, String? subCategory, String? itemId)
         fetchFilterProducts,
     required TResult Function() fetchCategories,
     required TResult Function() fetchSubcategories,
@@ -991,7 +1008,7 @@ class _$FilterBrandPickEvent implements FilterBrandPickEvent {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String? category, String? subCategory)?
+    TResult? Function(String? category, String? subCategory, String? itemId)?
         fetchFilterProducts,
     TResult? Function()? fetchCategories,
     TResult? Function()? fetchSubcategories,
@@ -1006,7 +1023,7 @@ class _$FilterBrandPickEvent implements FilterBrandPickEvent {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String? category, String? subCategory)?
+    TResult Function(String? category, String? subCategory, String? itemId)?
         fetchFilterProducts,
     TResult Function()? fetchCategories,
     TResult Function()? fetchSubcategories,
@@ -1143,7 +1160,8 @@ class _$PriceRangeEvent implements PriceRangeEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String? category, String? subCategory)
+    required TResult Function(
+            String? category, String? subCategory, String? itemId)
         fetchFilterProducts,
     required TResult Function() fetchCategories,
     required TResult Function() fetchSubcategories,
@@ -1159,7 +1177,7 @@ class _$PriceRangeEvent implements PriceRangeEvent {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String? category, String? subCategory)?
+    TResult? Function(String? category, String? subCategory, String? itemId)?
         fetchFilterProducts,
     TResult? Function()? fetchCategories,
     TResult? Function()? fetchSubcategories,
@@ -1174,7 +1192,7 @@ class _$PriceRangeEvent implements PriceRangeEvent {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String? category, String? subCategory)?
+    TResult Function(String? category, String? subCategory, String? itemId)?
         fetchFilterProducts,
     TResult Function()? fetchCategories,
     TResult Function()? fetchSubcategories,

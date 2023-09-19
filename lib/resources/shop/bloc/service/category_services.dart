@@ -29,9 +29,16 @@ class CategoryService extends HttpServices {
 
   //Fiter products
   Future<ProductModel> filterProduct(
-      String? category, String? subCategory) async {
+      String? category, String? subCategory, String? itemId) async {
+    final itemFilter = "product/filter?itemId=$itemId";
+
     final filter = "product/filter?cate=$category&subcate=$subCategory";
-    final response = await get(endPoint: filter);
+    final response = await get(
+        endPoint: itemId == null
+            ? filter
+            : itemId == ""
+                ? filter
+                : itemFilter);
 
     if (response.statusCode == 200) {
       try {

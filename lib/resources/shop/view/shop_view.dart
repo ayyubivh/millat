@@ -10,13 +10,12 @@ import 'package:millat/resources/shop/view/article/articles_view.dart';
 import 'package:millat/resources/shop/view/brand/shop_brand_view.dart';
 import 'package:millat/resources/shop/view/brand/single_brand_view.dart';
 import 'package:millat/resources/shop/view/categories/categories_filter_view.dart';
-import 'package:millat/resources/shop/view/categories/categories_view.dart';
+import 'package:millat/resources/shop/view/categories/categories_product_view.dart';
 import 'package:millat/resources/shop/view/search/search_view.dart';
 import 'package:millat/resources/shop/view/widgets/shop_home_subcategory_card_widget.dart';
 import 'package:millat/resources/shop/view/womens_care/shop_specific_category_view.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/constants.dart';
-import 'package:millat/utils/loader.dart';
 import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/string_constants.dart';
 import '../../../components/common_widgets/cart_icon_widget.dart';
@@ -454,7 +453,7 @@ class _ShopViewState extends State<ShopView> {
                 return GestureDetector(
                   onTap: () {
                     Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => const CategoriesView(
+                        builder: (context) => const CategoriesProductView(
                             category: "",
                             subCategory: "",
                             type: FilterType.category)));

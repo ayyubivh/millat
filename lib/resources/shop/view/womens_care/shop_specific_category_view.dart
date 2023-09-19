@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/enums/enumertations.dart';
+import 'package:millat/resources/shop/view/categories/categories_product_view.dart';
 import 'package:millat/resources/shop/view/womens_care/shop_specific_category_banner_view.dart';
 import 'package:millat/resources/shop/view/womens_care/shop_specific_category_subcategory_view.dart';
 import 'package:millat/utils/loader.dart';
@@ -241,10 +242,10 @@ class ShopSpecificCategoryView extends StatelessWidget {
                         alignment: Alignment.topRight,
                         child: GestureDetector(
                           onTap: () {
-                            Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => ShopSubCategorySpecificView(
-                                  category: categoryItemType.name.toString()),
-                            ));
+                            // Navigator.of(context).push(MaterialPageRoute(
+                            //   builder: (context) => ShopSubCategorySpecificView(
+                            //       category: categoryItemType.name.toString()),
+                            // ));
                           },
                           child: Text(
                             Appstrings.viewAll,
@@ -281,33 +282,45 @@ class ShopSpecificCategoryView extends StatelessWidget {
                             itemExtent: 100,
                             itemBuilder: (context, index) {
                               final subCategoryData = productItems?[index];
-                              return Column(
-                                children: [
-                                  Container(
-                                    height: 60,
-                                    width: 60,
-                                    padding: const EdgeInsets.all(8),
-                                    margin: const EdgeInsets.only(right: 10),
-                                    decoration: BoxDecoration(
-                                      color: ColorManager.lightGreen,
-                                      borderRadius: BorderRadius.circular(12),
+                              return GestureDetector(
+                                onTap: () {
+                                  print("item id ${productItems?[index].id}");
+                                  Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (context) => CategoriesProductView(
+                                        itemId: productItems?[index].id,
+                                        category: "",
+                                        subCategory: "",
+                                        type: FilterType.specificCategory),
+                                  ));
+                                },
+                                child: Column(
+                                  children: [
+                                    Container(
+                                      height: 60,
+                                      width: 60,
+                                      padding: const EdgeInsets.all(8),
+                                      margin: const EdgeInsets.only(right: 10),
+                                      decoration: BoxDecoration(
+                                        color: ColorManager.lightGreen,
+                                        borderRadius: BorderRadius.circular(12),
+                                      ),
+                                      child: ClipRRect(
+                                        borderRadius: BorderRadius.circular(12),
+                                        child: Image.network(
+                                            subCategoryData?.image ?? ""),
+                                      ),
                                     ),
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(12),
-                                      child: Image.network(
-                                          subCategoryData?.image ?? ""),
+                                    kHeight10,
+                                    Text(
+                                      subCategoryData?.title ?? "",
+                                      style: const TextStyle(
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                      textAlign: TextAlign.center,
                                     ),
-                                  ),
-                                  kHeight10,
-                                  Text(
-                                    subCategoryData?.title ?? "",
-                                    style: const TextStyle(
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w600,
-                                    ),
-                                    textAlign: TextAlign.center,
-                                  ),
-                                ],
+                                  ],
+                                ),
                               );
                             },
                           ),
@@ -358,6 +371,7 @@ class ShopSpecificCategoryView extends StatelessWidget {
 
                               return GestureDetector(
                                 onTap: () {
+                                  // print(data);
                                   Navigator.of(context).push(MaterialPageRoute(
                                     builder: (context) =>
                                         SingleProductView(passValue: data),

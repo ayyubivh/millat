@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:millat/enums/enumertations.dart';
-import '../../resources/shop/view/categories/categories_view.dart';
+import 'package:millat/resources/shop/view/categories/category_view.dart';
 
 class BuildCategoryWidget extends StatelessWidget {
   final String image;
@@ -12,12 +11,15 @@ class BuildCategoryWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
+        // Navigator.of(context).push(MaterialPageRoute(
+        //     builder: (context) => CategoriesView(
+        //           type: FilterType.category,
+        //           category: text,
+        //           subCategory: '',
+        //         )));
         Navigator.of(context).push(MaterialPageRoute(
-            builder: (context) => CategoriesView(
-                  type: FilterType.category,
-                  category: text,
-                  subCategory: '',
-                )));
+          builder: (context) => CategoryView(category: text),
+        ));
       },
       child: Column(
         children: [

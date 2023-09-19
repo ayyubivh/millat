@@ -4,7 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/components/buttons/main_button.dart';
 import 'package:millat/components/common_widgets/cart_icon_widget.dart';
 import 'package:millat/resources/shop/bloc/logic/cart_bloc/cart_bloc.dart';
-import 'package:millat/resources/shop/bloc/models/shop_products/shop_products_model.dart';
 import 'package:millat/resources/shop/view/cart/cart.dart';
 import 'package:millat/resources/shop/view/reviews/reviews_view.dart';
 import 'package:millat/utils/color_manager.dart';

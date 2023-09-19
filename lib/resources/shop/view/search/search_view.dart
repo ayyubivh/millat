@@ -118,8 +118,8 @@ class _SearchViewState extends State<SearchView> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      _filterWidget(),
-                      _sortByWidget(),
+                      filterWidget(),
+                      sortByWidget(),
                     ],
                   ),
                   BlocBuilder<ShopProductsBloc, ShopProductsState>(
@@ -195,7 +195,7 @@ class _SearchViewState extends State<SearchView> {
     );
   }
 
-  GestureDetector _filterWidget() {
+  Widget filterWidget() {
     return GestureDetector(
       onTap: () {
         showModalBottomSheet(
@@ -425,7 +425,7 @@ class _SearchViewState extends State<SearchView> {
     );
   }
 
-  GestureDetector _sortByWidget() {
+  Widget sortByWidget() {
     return GestureDetector(
       onTap: () {
         showModalBottomSheet(

@@ -1,15 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/resources/shop/bloc/models/articles/articles_model.dart';
-import 'package:millat/resources/shop/view/cart/cart.dart';
 import 'package:millat/resources/shop/view/products/single_product_view.dart';
-import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/string_constants.dart';
 import '../../../../utils/utils.dart';
-import '../../bloc/logic/cart_bloc/cart_bloc.dart';
 
 class SingleArticleView extends StatelessWidget {
   final Article? passValue;
@@ -139,86 +135,92 @@ class SingleArticleView extends StatelessWidget {
           ],
         ),
       ),
-      bottomSheet: Container(
-        height: 70,
-        margin: const EdgeInsets.symmetric(horizontal: 30, vertical: 30),
-        decoration: BoxDecoration(
-            color: ColorManager.darkGreenClr4f,
-            borderRadius: BorderRadius.circular(20)),
-        child: Row(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: ClipRRect(
-                  borderRadius: BorderRadius.circular(10),
-                  child: Image.network(
-                    passValue!.image!,
-                    fit: BoxFit.cover,
-                    height: 56,
-                    width: 56,
-                  )),
-            ),
-            const SizedBox(
-              width: 10,
-            ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  passValue!.title ?? "",
-                  style: TextStyle(
-                      color: ColorManager.whiteColor,
-                      fontSize: 15,
-                      fontWeight: FontWeight.w600),
-                ),
-                const SizedBox(
-                  height: 5,
-                ),
-                Text(
-                  passValue!.product?.actualPrice.toString() ?? '0',
-                  style: TextStyle(
-                      color: ColorManager.whiteColor,
-                      fontSize: 15,
-                      fontWeight: FontWeight.w600),
-                ),
-              ],
-            ),
-            const Spacer(),
-            Text(
-              'Buy Now',
-              style: TextStyle(
-                  color: ColorManager.whiteColor,
-                  fontSize: 15,
-                  fontWeight: FontWeight.w600),
-            ),
-            IconButton(
-              onPressed: () {
-                print(
-                  "${passValue!.product!.id}\n\n ${passValue!.product!.actualPrice!}\n${passValue!.product!.size![0].value!}\n${passValue!.product!.colors![0].text!}\n ${passValue!.product!.brand!}",
-                );
-                // context.read<CartBloc>().add(CartEvent.addCart(
-                //       productId: passValue!.product!.id,
-                //       basePrice: passValue!.product!.actualPrice!,
-                //       size: passValue!.product!.size![0].value!,
-                //       context: context,
-                //       color: passValue!.product!.colors![0].text!,
-                //       quantity: 1,
-                //       brandId: passValue!.product!.brand!,
-                //     ));
-                Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => SingleProductView(passValue: passValue),
-                ));
-              },
-              icon: Icon(
-                Icons.arrow_forward_ios,
-                color: ColorManager.whiteColor,
+      bottomSheet: GestureDetector(
+        onTap: () {
+          print(passValue!.product);
+          // Navigator.of(context).push(MaterialPageRoute(
+          //   builder: (context) =>
+          //       SingleProductView(passValue: passValue!.product),
+          // ));
+        },
+        child: Container(
+          height: 70,
+          margin: const EdgeInsets.symmetric(horizontal: 30, vertical: 30),
+          decoration: BoxDecoration(
+              color: ColorManager.darkGreenClr4f,
+              borderRadius: BorderRadius.circular(20)),
+          child: Row(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: ClipRRect(
+                    borderRadius: BorderRadius.circular(10),
+                    child: Image.network(
+                      passValue!.image!,
+                      fit: BoxFit.cover,
+                      height: 56,
+                      width: 56,
+                    )),
               ),
-            ),
-            const SizedBox(
-              width: 10,
-            ),
-          ],
+              kWidht10,
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    width: 144,
+                    child: Text(
+                      passValue!.title ?? "",
+                      style: TextStyle(
+                        color: ColorManager.whiteColor,
+                        fontSize: 15,
+                        fontWeight: FontWeight.w600,
+                      ),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
+                  kHeight10,
+                  Text(
+                    passValue!.product?.actualPrice.toString() ?? '0',
+                    style: TextStyle(
+                        color: ColorManager.whiteColor,
+                        fontSize: 15,
+                        fontWeight: FontWeight.w600),
+                  ),
+                ],
+              ),
+              const Spacer(),
+              Text(
+                'Buy Now',
+                style: TextStyle(
+                    color: ColorManager.whiteColor,
+                    fontSize: 15,
+                    fontWeight: FontWeight.w600),
+              ),
+              IconButton(
+                onPressed: () {
+                  print(
+                    "${passValue!.product!.id}\n\n ${passValue!.product!.actualPrice!}\n${passValue!.product!.size![0].value!}\n${passValue!.product!.colors![0].text!}\n ${passValue!.product!.brand!}",
+                  );
+                  // context.read<CartBloc>().add(CartEvent.addCart(
+                  //       productId: passValue!.product!.id,
+                  //       basePrice: passValue!.product!.actualPrice!,
+                  //       size: passValue!.product!.size![0].value!,
+                  //       context: context,
+                  //       color: passValue!.product!.colors![0].text!,
+                  //       quantity: 1,
+                  //       brandId: passValue!.product!.brand!,
+                  //     ));
+                },
+                icon: Icon(
+                  Icons.arrow_forward_ios,
+                  color: ColorManager.whiteColor,
+                ),
+              ),
+              kWidht10,
+            ],
+          ),
         ),
       ),
     );

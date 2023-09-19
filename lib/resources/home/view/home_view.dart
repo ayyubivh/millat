@@ -20,7 +20,7 @@ import 'package:millat/resources/home/view/widgets/hadit_tinder_cards.dart';
 
 import 'package:millat/resources/home/view/widgets/notification_view.dart';
 import 'package:millat/resources/home/view/widgets/prayer_tracker_calendar_view.dart';
-import 'package:millat/resources/shop/view/categories/categories_view.dart';
+import 'package:millat/resources/shop/view/categories/categories_product_view.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/loader.dart';
 import '../../../enums/enumertations.dart';
@@ -32,7 +32,6 @@ import '../../../utils/utils.dart';
 import '../../authentication/bloc/logic/database_bloc/database_bloc.dart';
 import '../../shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
 import '../bloc/logic/location_bloc/location_bloc.dart';
-import '../bloc/service/notification_service.dart';
 import 'al_quran/al_quran_view.dart';
 import 'dua/dua_view.dart';
 import 'namaz_timing/namaz_timing_view.dart';
@@ -98,17 +97,17 @@ class _HomeViewState extends State<HomeView> {
       backgroundColor: ColorManager.whiteColor,
       body: BlocListener<DatabaseBloc, DatabaseState>(
         listener: (context, state) {
-          print("database bloc");
           if (state.token.isNotEmpty) {
+            print("database bloc");
             BlocProvider.of<HomeBloc>(context).add(FetchPrayerTrackerEvent(
                 context: context, date: DateTime.now()));
           }
         },
         child: BlocListener<LocationBloc, LocationState>(
           listener: (context, state) {
-            print("location bloc");
-
-            if (state.currentLocaion.isNotEmpty) {
+            if (state.currentLocaion.isNotEmpty &&
+                state.weatherConditionName.isEmpty) {
+              print("location bloc");
               context
                   .read<NamazTimingBloc>()
                   .add(FetchPrayerTiming(context: context));
@@ -271,13 +270,13 @@ class _HomeViewState extends State<HomeView> {
                                 curve: Curves.linear,
                                 duration: const Duration(milliseconds: 1000),
                                 padding: EdgeInsets.only(
-                                    left: scrollNotifier.value ? 60 : 70,
-                                    top:
-                                        scrollNotifier.value == true ? 15 : 10),
+                                  left: scrollNotifier.value ? 100 : 120,
+                                  // top: scrollNotifier.value == true ? 2 : 4,
+                                ),
                                 child: Image.asset(
                                   AppAssetsStrings.homeBgDesign,
-                                  height: 114,
-                                  width: SizeUtility(context).width / 1.4,
+                                  height: 84,
+                                  width: SizeUtility(context).width / 1.8,
                                   fit: BoxFit.cover,
                                 ),
                               ),
@@ -555,7 +554,7 @@ class _HomeViewState extends State<HomeView> {
                   return GestureDetector(
                     onTap: () {
                       Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => CategoriesView(
+                        builder: (context) => CategoriesProductView(
                             category: data?.subCategoryId?.title,
                             subCategory: data?.subCategoryName,
                             type: FilterType.category),
@@ -748,7 +747,7 @@ class _HomeViewState extends State<HomeView> {
                     return GestureDetector(
                       onTap: () {
                         Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => CategoriesView(
+                          builder: (context) => CategoriesProductView(
                             category: subCategoryIdTitle,
                             subCategory: subCategoryName,
                             type: FilterType.category,
@@ -1155,7 +1154,7 @@ class _HomeViewState extends State<HomeView> {
                 return GestureDetector(
                   onTap: () {
                     Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => const CategoriesView(
+                        builder: (context) => const CategoriesProductView(
                             category: "",
                             subCategory: "",
                             type: FilterType.category)));

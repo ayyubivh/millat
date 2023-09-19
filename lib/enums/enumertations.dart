@@ -7,6 +7,7 @@ enum AddressNavType {
 enum FilterType {
   category,
   brand,
+  specificCategory,
 }
 
 enum Qurantype {

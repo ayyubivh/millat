@@ -38,15 +38,18 @@ class ArticleBuilWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(
-                  height: 30,
+                  height: 60,
                   width: SizeUtility(context).width / 2,
                   child: Text(
                     title,
                     style: TextStyle(
                       color: ColorManager.blackColor,
                       fontSize: 20,
+                      height: 1.2,
                       fontWeight: FontWeight.w800,
                     ),
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 2,
                   ),
                 ),
                 SizedBox(
@@ -57,7 +60,7 @@ class ArticleBuilWidget extends StatelessWidget {
                       color: black102,
                       fontSize: 15,
                     ),
-                    maxLines: 2,
+                    maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                   ),
                 ),

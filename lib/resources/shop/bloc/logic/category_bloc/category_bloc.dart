@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -31,7 +30,7 @@ class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
 
     try {
       final data = await _categoryService.filterProduct(
-          event.category, event.subCategory);
+          event.category, event.subCategory, event.itemId);
       print("filtered products $data");
       emit(state.copyWith(
         product: data,

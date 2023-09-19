@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/shop/bloc/logic/category_bloc/category_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
-import 'package:millat/resources/shop/view/categories/categories_view.dart';
+import 'package:millat/resources/shop/view/categories/categories_product_view.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/size_utility.dart';
 
@@ -256,7 +256,7 @@ class _FiltersViewState extends State<FiltersView> {
                     'here the print of the nave values ${filterValues.filterSubCategory} and the ${filterValues.filterCategory} ${filterValues.filterBrand}');
 
                 Navigator.of(context).pushReplacement(MaterialPageRoute(
-                  builder: (context) => CategoriesView(
+                  builder: (context) => CategoriesProductView(
                     type: FilterType.brand,
                     category: filterValues.filterCategory.toString(),
                     subCategory: filterValues.filterSubCategory.toString(),

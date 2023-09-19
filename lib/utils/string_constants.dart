@@ -97,6 +97,7 @@ class Appstrings {
   static const String follow = "Follow";
   static const String viewBrands = "View Brands";
   static const String yourCart = "Your Cart";
+  static const String addToCart = "Add to Cart";
   static const String yourCartIsEmpty = "Your cart is empty";
   static const String cartTextBody =
       "Customer network effects freemium. Advisor android paradigm shift product management. ";
@@ -154,6 +155,9 @@ class Appstrings {
   static const String priceLowtoHigh = "Price:lowest to high";
   static const String priceHighToLow = "Price:highest to low";
   static const String priceRange = "Price Range";
+  static const String totalPrice = "Total Price";
+  static const String discountOnTotalPrice = "Discount on total price";
+  static const String totalPayableAmount = "Total Payable Amount";
   static const String sizes = "Sizes";
   static const String xs = "XS";
   static const String s = "S";
@@ -192,6 +196,8 @@ class Appstrings {
   static const String sunnah = "Sunnah";
   static const String hadith = "Hadith";
   static const String noProductsFound = "No products found!";
+  static const String buyNow = "Buy Now";
+
 //Profile
   static const String referFriendEarn = "Reffer Friends, Get 100 coins Each ";
   static const String toName = "To:Name,Phone, or Email";
@@ -281,10 +287,19 @@ class Appstrings {
   static const String redeemedSuccessfully = "Redeemed Successfully";
   static const String claimShopReward = "Claim Shop Rewards";
   static const String incredibleSteals = "Incredible Steals";
-  static const String islamicStore = "Islamic Store";
+  static const String islamicStore = "Islamic \nStore";
   static const String aboutTheProduct = "About the Product";
   static const String aboutTheProductDummy =
       "We have something exciting for you to fall in love with if you are looking for something good in terms of fragrance and without alcohol. Attar Rose is a wonderful attar for both men and women. Attar Rose is ideal for both parties and everyday use. Indulge in the world of aroma with this incredible perfume, which is designed to blend with the body's natural scent. The bottle is compact and lightweight for easy handling. It lasts up to 24 hours and leaves a floral fragrance trail wherever you go. It's easy to carry and has a sweet floral effect with the best aromatic notes. We have a variety of attar to choose from that will keep you fresh and odour-free all day long. Experience the floral aroma of oud agarwood.";
+  static const String composition = "Compostion";
+  static const String howToUse = "How to Use";
+  static const String cancellationPolicy = "Cancellation Policy";
+  static const String nonReturnalbe = "Non-Returnable";
+  static const String islamincStore = "Islamic Store";
+  static const String cancellationPolicyDesc =
+      "Once the payment for your order is complete, the order cannot be cancelled";
+  static const String understood = "Understood";
+  static const String youSaved = "You Just saved ₹300!";
 }
 
 String authToken = 'authToken';

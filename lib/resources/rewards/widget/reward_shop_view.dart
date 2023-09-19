@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:millat/resources/rewards/widget/rewards_single_shop_view.dart';
-import 'package:millat/resources/shop/view/products/single_product_view_brand.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
@@ -63,7 +62,7 @@ class RewardShopView extends StatelessWidget {
                   ),
                   kHeight10,
                   SizedBox(
-                      height: 320,
+                      height: 335,
                       child: ListView.builder(
                         itemCount: 4,
                         scrollDirection: Axis.horizontal,

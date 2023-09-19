@@ -140,6 +140,8 @@ class AppAssetsStrings {
   static const String rewardsSuccesimg = "$imagesPath/rewards_success.png";
   static const String rewardsSuccesDecorimg =
       "$imagesPath/rewards_success_decor.png";
+  static const String rewardsQuranImg = "$imagesPath/rewards_quran_img.png";
+  static const String discountAlert = "$imagesPath/discount_alert.png";
 }
 
 const String splashBackgroundPath = '$backgroundsPath/splash_background.png';

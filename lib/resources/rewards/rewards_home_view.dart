@@ -4,6 +4,8 @@ import 'package:millat/resources/authentication/bloc/logic/database_bloc/databas
 import 'package:millat/resources/rewards/widget/how_to_earn_view.dart';
 import 'package:millat/resources/rewards/widget/how_to_redeem_view.dart';
 import 'package:millat/resources/rewards/widget/redeem_rewards_view.dart';
+import 'package:millat/resources/rewards/widget/reward_shop_view.dart';
+import 'package:millat/resources/rewards/widget/score_widget.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
@@ -29,97 +31,15 @@ class RewardsHomeView extends StatelessWidget {
               kHeight20,
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [_profileImageWidget(), _scoreWidget()],
+                children: [
+                  _profileImageWidget(),
+                  const ScoreWidget(),
+                ],
               ),
               kHeight15,
               _redeemYourCoinsWidget(context),
               kHeight15,
-              Container(
-                  height: 180,
-                  width: SizeUtility(context).width,
-                  decoration: BoxDecoration(
-                      color: ColorManager.primary,
-                      borderRadius: BorderRadius.circular(12),
-                      image: const DecorationImage(
-                        image: AssetImage(
-                          AppAssetsStrings.rewardCoinBackground,
-                        ),
-                        fit: BoxFit.fitWidth,
-                      )),
-                  padding:
-                      const EdgeInsets.symmetric(vertical: 16, horizontal: 14)
-                          .copyWith(top: 20),
-                  child: Column(
-                    children: [
-                      Row(
-                        children: [
-                          Expanded(
-                            child: Align(
-                              alignment: Alignment.center,
-                              child: Text(
-                                Appstrings.shopWithCoins,
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.w600,
-                                  color: ColorManager.whiteColor,
-                                ),
-                              ),
-                            ),
-                          ),
-                          Align(
-                            alignment: Alignment.topRight,
-                            child: Icon(
-                              Icons.keyboard_double_arrow_right_outlined,
-                              color: ColorManager.whiteColor,
-                            ),
-                          ),
-                        ],
-                      ),
-                      kHeight10,
-                      SizedBox(
-                        height: 106,
-                        child: ListView.builder(
-                          scrollDirection: Axis.horizontal,
-                          itemCount: 5,
-                          itemBuilder: (context, index) {
-                            return Container(
-                              height: 106,
-                              width: 93,
-                              decoration: BoxDecoration(
-                                color: ColorManager.whiteColor,
-                                borderRadius: BorderRadius.circular(6),
-                              ),
-                              margin: const EdgeInsets.only(right: 10),
-                              padding: const EdgeInsets.symmetric(
-                                vertical: 5,
-                                horizontal: 5,
-                              ),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Image.asset(
-                                    AppAssetsStrings.quranBookmrark2,
-                                    height: 73,
-                                    width: 106,
-                                    fit: BoxFit.fill,
-                                  ),
-                                  kHeight3,
-                                  Text(
-                                    "₹307.80",
-                                    style: TextStyle(
-                                      fontSize: 13,
-                                      fontWeight: FontWeight.w600,
-                                      color: ColorManager.primary,
-                                    ),
-                                  )
-                                ],
-                              ),
-                            );
-                          },
-                        ),
-                      )
-                    ],
-                  )),
+              _shopWithCoinsWidget(context),
               kHeight15,
               Container(
                 height: 175,
@@ -324,6 +244,101 @@ class RewardsHomeView extends StatelessWidget {
     );
   }
 
+  Widget _shopWithCoinsWidget(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) => const RewardShopView(),
+        ));
+      },
+      child: Container(
+          height: 180,
+          width: SizeUtility(context).width,
+          decoration: BoxDecoration(
+              color: ColorManager.primary,
+              borderRadius: BorderRadius.circular(12),
+              image: const DecorationImage(
+                image: AssetImage(
+                  AppAssetsStrings.rewardCoinBackground,
+                ),
+                fit: BoxFit.fitWidth,
+              )),
+          padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 14)
+              .copyWith(top: 20),
+          child: Column(
+            children: [
+              Row(
+                children: [
+                  Expanded(
+                    child: Align(
+                      alignment: Alignment.center,
+                      child: Text(
+                        Appstrings.shopWithCoins,
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w600,
+                          color: ColorManager.whiteColor,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Align(
+                    alignment: Alignment.topRight,
+                    child: Icon(
+                      Icons.keyboard_double_arrow_right_outlined,
+                      color: ColorManager.whiteColor,
+                    ),
+                  ),
+                ],
+              ),
+              kHeight10,
+              SizedBox(
+                height: 106,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: 5,
+                  itemBuilder: (context, index) {
+                    return Container(
+                      height: 106,
+                      width: 93,
+                      decoration: BoxDecoration(
+                        color: ColorManager.whiteColor,
+                        borderRadius: BorderRadius.circular(6),
+                      ),
+                      margin: const EdgeInsets.only(right: 10),
+                      padding: const EdgeInsets.symmetric(
+                        vertical: 5,
+                        horizontal: 5,
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Image.asset(
+                            AppAssetsStrings.quranBookmrark2,
+                            height: 73,
+                            width: 106,
+                            fit: BoxFit.fill,
+                          ),
+                          kHeight3,
+                          Text(
+                            "₹307.80",
+                            style: TextStyle(
+                              fontSize: 13,
+                              fontWeight: FontWeight.w600,
+                              color: ColorManager.primary,
+                            ),
+                          )
+                        ],
+                      ),
+                    );
+                  },
+                ),
+              )
+            ],
+          )),
+    );
+  }
+
   Widget _redeemYourCoinsWidget(BuildContext context) {
     return GestureDetector(
       onTap: () {
@@ -458,73 +473,6 @@ class RewardsHomeView extends StatelessWidget {
           ],
         ),
       ),
-    );
-  }
-
-  Stack _scoreWidget() {
-    return Stack(
-      children: [
-        Container(
-          height: 47,
-          width: 123,
-          decoration: BoxDecoration(
-            // color: ColorManager.primary,
-            borderRadius: BorderRadius.circular(100),
-            gradient: LinearGradient(
-              colors: [
-                ColorManager.rewardsGreenGradient1,
-                ColorManager.rewardsGreenGradient2,
-              ],
-              begin: Alignment.topLeft,
-              end: Alignment.bottomCenter,
-            ),
-          ),
-          child: Center(
-            child: Container(
-              height: 40,
-              width: 117,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(100),
-                gradient: LinearGradient(
-                  colors: [
-                    ColorManager.rewardsLightGreenGradient2,
-                    ColorManager.rewardsLightGreenGradient2,
-                    ColorManager.rewardsLightGreenGradient1,
-                  ],
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomCenter,
-                ),
-              ),
-              child: Center(
-                child: Row(
-                  children: [
-                    kWidth5,
-                    Text(
-                      " 12,482",
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w700,
-                        color: ColorManager.whiteColor,
-                      ),
-                    ),
-                    const Spacer(),
-                  ],
-                ),
-              ),
-            ),
-          ),
-        ),
-        Positioned(
-          right: -5,
-          top: -2,
-          child: Image.asset(
-            AppAssetsStrings.score,
-            height: 58,
-            width: 58,
-            fit: BoxFit.contain,
-          ),
-        )
-      ],
     );
   }
 

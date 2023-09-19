@@ -133,6 +133,9 @@ class ColorManager {
   static Color lightBlueBF = HexColor.fromHex("#BFE6FC");
   static Color textGrey73 = HexColor.fromHex("#737373");
   static Color textGrey94 = HexColor.fromHex("#949494");
+  static Color orangeClrFA = HexColor.fromHex("#FAA500");
+  static Color greyB4 = HexColor.fromHex("#B4B4B4");
+  static Color greyEB = HexColor.fromHex("#EBEBEB");
 }
 
 extension HexColor on Color {

@@ -73,6 +73,7 @@ class AppAssetsStrings {
   static const String logout = "$iconsPath/logout.png";
   static const String instagramIcon = "$iconsPath/instagram.png";
   static const String twitterIcon = "$iconsPath/twitter.png";
+  static const String addCart = "$iconsPath/add_cart.png";
   //icons
   static const String brandItems = "$iconsPath/brand_items.png";
   static const String searchIcon = "$iconsPath/search.png";
@@ -103,6 +104,8 @@ class AppAssetsStrings {
   static const String womensCareTabs = "$iconsPath/women_care_tabs.png";
   static const String share = "$iconsPath/share.png";
   static const String addFriend = "$iconsPath/add_friend.png";
+  static const String shop2 = "$iconsPath/shop_2.png";
+  static const String clock = "$iconsPath/clock.png";
   //images
   static const String hadikBookimg1 = "$imagesPath/hadith_book_1.png";
   static const String largeDiscountImg1 =
@@ -123,7 +126,6 @@ class AppAssetsStrings {
   static const String superSaleAd = "$imagesPath/super_sale_ad.png";
   static const String arrrowRight = "$iconsPath/arrow-right.png";
   static const String score = "$imagesPath/score.png";
-  static const String score2 = "$imagesPath/score2.png";
 
   static const String rewardMoney = "$imagesPath/reward_money.png";
   static const String rewardCoinBackground =

@@ -279,6 +279,12 @@ class Appstrings {
   static const String redeemNow = "Redeem Now";
   static const String mashaAllah = "Masha'allah";
   static const String redeemedSuccessfully = "Redeemed Successfully";
+  static const String claimShopReward = "Claim Shop Rewards";
+  static const String incredibleSteals = "Incredible Steals";
+  static const String islamicStore = "Islamic Store";
+  static const String aboutTheProduct = "About the Product";
+  static const String aboutTheProductDummy =
+      "We have something exciting for you to fall in love with if you are looking for something good in terms of fragrance and without alcohol. Attar Rose is a wonderful attar for both men and women. Attar Rose is ideal for both parties and everyday use. Indulge in the world of aroma with this incredible perfume, which is designed to blend with the body's natural scent. The bottle is compact and lightweight for easy handling. It lasts up to 24 hours and leaves a floral fragrance trail wherever you go. It's easy to carry and has a sweet floral effect with the best aromatic notes. We have a variety of attar to choose from that will keep you fresh and odour-free all day long. Experience the floral aroma of oud agarwood.";
 }
 
 String authToken = 'authToken';

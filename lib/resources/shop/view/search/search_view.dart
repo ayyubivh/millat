@@ -159,7 +159,8 @@ class _SearchViewState extends State<SearchView> {
                                               .push(MaterialPageRoute(
                                             builder: (context) =>
                                                 SingleProductView(
-                                                    passValue: data),
+                                              id: data?.id ?? "",
+                                            ),
                                           ));
                                         },
                                         child: ShopProductWidget(

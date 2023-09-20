@@ -49,6 +49,7 @@ class ShopSpecificCategoryView extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(
+          physics: const ClampingScrollPhysics(),
           child: Column(
             children: [
               Container(
@@ -350,15 +351,14 @@ class ShopSpecificCategoryView extends StatelessWidget {
                         if (state.flashSaleproducts?.result?.shopProductCategory
                                 ?.products ==
                             null) {
-                          return const Loader(); // Display a loader or any other loading widget.
+                          return const Loader();
                         }
 
                         final products = state.flashSaleproducts?.result
                             ?.shopProductCategory?.products;
 
                         if (products == null || products.isEmpty) {
-                          return const Text(
-                              'No products available'); // Display a message for no data.
+                          return const Text('No products available');
                         }
 
                         return SizedBox(
@@ -373,8 +373,9 @@ class ShopSpecificCategoryView extends StatelessWidget {
                                 onTap: () {
                                   // print(data);
                                   Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (context) =>
-                                        SingleProductView(passValue: data),
+                                    builder: (context) => SingleProductView(
+                                      id: data.id ?? "",
+                                    ),
                                   ));
                                 },
                                 child: Padding(
@@ -489,7 +490,8 @@ class ShopSpecificCategoryView extends StatelessWidget {
                                               .push(MaterialPageRoute(
                                             builder: (context) {
                                               return SingleProductView(
-                                                  passValue: data);
+                                                id: data.id ?? "",
+                                              );
                                             },
                                           ));
                                         },

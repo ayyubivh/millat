@@ -6,6 +6,8 @@ import 'package:http/http.dart' as http;
 import 'package:millat/resources/shop/bloc/models/articles/articles_model.dart'
     as Articles;
 import 'package:millat/resources/shop/bloc/models/banners/banners_model.dart';
+import 'package:millat/resources/shop/bloc/models/category/specific_category_model.dart';
+import 'package:millat/resources/shop/bloc/models/products/product_by_id_model.dart';
 import 'package:millat/resources/shop/bloc/models/products/product_item_women/products_item_women_model.dart';
 import 'package:millat/resources/shop/bloc/models/recent_products/recent_products_model.dart';
 import 'package:millat/resources/shop/bloc/models/shop_by_brand/shop_by_brand_models.dart';
@@ -35,8 +37,8 @@ class ShopService extends HttpServices {
   final article = 'article';
 
   // Fetching all flash sale products
-  Future<ShopProducts> fetchFlashSaleProducts(String endPonitSlug) async {
-    final response = await get(endPoint: endPonitSlug);
+  Future<ShopProducts?> fetchFlashSaleProducts(String endPointSlug) async {
+    final response = await get(endPoint: endPointSlug);
 
     if (response.statusCode == 200) {
       try {
@@ -45,17 +47,16 @@ class ShopService extends HttpServices {
         print("flash sale products $result");
         return result;
       } catch (e) {
-        debugPrint("error on the fetching flash sale products $e");
+        debugPrint("error on fetching flash sale products $e");
         throw Exception('Failed to parse response');
       }
     } else {
-      throw Exception(
-          'API request failed with status code: ${response.statusCode}');
+      return null;
     }
   }
 
   // Fetching all popular products
-  Future<ShopProducts> fetchPopularProducts(String endPonitSlug) async {
+  Future<ShopProducts?> fetchPopularProducts(String endPonitSlug) async {
     final response = await get(endPoint: endPonitSlug);
 
     if (response.statusCode == 200) {
@@ -70,8 +71,7 @@ class ShopService extends HttpServices {
         throw Exception('Failed to parse response');
       }
     } else {
-      throw Exception(
-          'API request failed with status code: ${response.statusCode}');
+      return null;
     }
   }
 
@@ -107,6 +107,28 @@ class ShopService extends HttpServices {
         return result;
       } catch (e) {
         print('error on Banner API fetch: ${e.toString()}');
+        throw Exception('Failed to parse response');
+      }
+    } else {
+      throw Exception(
+          'API request failed with status code: ${response.statusCode}');
+    }
+  }
+
+  //Fetching Articles
+  Future<ProductByIdModel> fetchProductByid({
+    required String id,
+  }) async {
+    final response = await get(endPoint: "product/$id");
+
+    if (response.statusCode == 200) {
+      try {
+        final Map<String, dynamic> data = json.decode(response.body);
+        final result = ProductByIdModel.fromJson(data);
+        print(result);
+        return result;
+      } catch (e) {
+        print('error on Article API fetch: ${e.toString()}');
         throw Exception('Failed to parse response');
       }
     } else {
@@ -339,6 +361,26 @@ class ShopService extends HttpServices {
     } else {
       print('HTTP request failed with status code: ${response.statusCode}');
       throw Exception('Failed to fetch products');
+    }
+  }
+
+//fetching specific category
+  Future<SpecificCategoryModel> fetchSpecificCategoryItems(
+      {required String slug}) async {
+    final endPoint = "specific_category?slug=$slug";
+    final response = await get(endPoint: endPoint);
+
+    if (response.statusCode == 200) {
+      try {
+        final Map<String, dynamic> data = json.decode(response.body);
+        final result = SpecificCategoryModel.fromJson(data);
+        return result;
+      } catch (e) {
+        throw Exception('Failed to parse response');
+      }
+    } else {
+      throw Exception(
+          'API request failed with status code: ${response.statusCode}');
     }
   }
 

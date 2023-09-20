@@ -193,7 +193,7 @@ class OrdetailsView extends StatelessWidget {
                         onTap: () {
                           Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) =>
-                                SingleProductView(passValue: data),
+                                SingleProductView(id: data.id ?? ""),
                           ));
                         },
                         child: Padding(

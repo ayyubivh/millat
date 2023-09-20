@@ -1,3 +1,5 @@
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/components/common_widgets/shop_products_widget.dart';
@@ -9,32 +11,109 @@ import 'package:millat/resources/shop/view/products/single_product_view.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/loader.dart';
+import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/string_constants.dart';
 
-class CategoryView extends StatelessWidget {
+class CategoryView extends StatefulWidget {
   final String category;
   const CategoryView({super.key, required this.category});
 
   @override
-  Widget build(BuildContext context) {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      final shopProductsBloc = BlocProvider.of<ShopProductsBloc>(context);
-      shopProductsBloc
-        ..add(ShopProductsEvent.fetchFlashSaleProducts(
-            endPointSlug: "shop_product_category?slug=${category}_flash_sales"))
-        ..add(ShopProductsEvent.fetchPopularProducts(
-            endPointSlug:
-                "shop_product_category?slug=${category}_popular_products"));
+  State<CategoryView> createState() => _CategoryViewState();
+}
 
-      BlocProvider.of<CategoryBloc>(context).add(const FetchSubcategories());
-    });
+class _CategoryViewState extends State<CategoryView> {
+  @override
+  void initState() {
+    BlocProvider.of<ShopProductsBloc>(context)
+      ..add(ShopProductsEvent.fetchFlashSaleProducts(
+          endPointSlug:
+              "shop_product_category?slug=${widget.category}_flash_sales"))
+      ..add(ShopProductsEvent.fetchPopularProducts(
+          endPointSlug:
+              "shop_product_category?slug=${widget.category}_popular_products"))
+      ..add(
+          ShopProductsEvent.fetchSpecificCategeryItems(slug: widget.category));
+
+    BlocProvider.of<CategoryBloc>(context).add(const FetchSubcategories());
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
+        physics: const ClampingScrollPhysics(),
         child: Column(
           children: [
             _topFlashSaleBanner(),
-            const SizedBox(
-              height: 375,
+            BlocBuilder<ShopProductsBloc, ShopProductsState>(
+              builder: (context, state) {
+                final sliderImage =
+                    state.specificCategoryModel?.result?.data?.sliderImage;
+
+                return sliderImage == null
+                    ? const SizedBox(
+                        height: 350,
+                      )
+                    : Stack(
+                        children: [
+                          CarouselSlider(
+                            items: sliderImage.map(
+                              (e) {
+                                return SizedBox(
+                                  height: 340,
+                                  width: SizeUtility(context).width,
+                                  child: Image.network(e),
+                                );
+                              },
+                            ).toList(),
+                            options: CarouselOptions(
+                              height: 226,
+                              viewportFraction: 1,
+                              enlargeCenterPage: false,
+                              autoPlay: true,
+                              autoPlayCurve: Curves.fastOutSlowIn,
+                              enableInfiniteScroll: true,
+                              enlargeFactor: 0.3,
+                              scrollDirection: Axis.horizontal,
+                              autoPlayAnimationDuration:
+                                  const Duration(milliseconds: 800),
+                              onPageChanged: (index, reason) {
+                                context.read<ShopProductsBloc>().add(
+                                    IndexChangeOnWomensCareBanner(
+                                        index: index));
+                              },
+                            ),
+                          ),
+                          Positioned(
+                            left: 0,
+                            right: 0,
+                            bottom: 25,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: sliderImage.map((banner) {
+                                int index = sliderImage.indexOf(banner);
+                                return Container(
+                                  width: state.womensCareBannerIndex == index
+                                      ? 6
+                                      : 6,
+                                  height: 6,
+                                  margin:
+                                      const EdgeInsets.symmetric(horizontal: 4),
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(30),
+                                    color: state.womensCareBannerIndex == index
+                                        ? ColorManager.primary
+                                        : ColorManager.textGrey2,
+                                  ),
+                                );
+                              }).toList(),
+                            ),
+                          ),
+                        ],
+                      );
+              },
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 30),
@@ -46,7 +125,7 @@ class CategoryView extends StatelessWidget {
                         onTap: () {
                           Navigator.of(context).push(MaterialPageRoute(
                               builder: (context) => CategoriesProductView(
-                                  category: category,
+                                  category: widget.category,
                                   subCategory: '',
                                   type: FilterType.category)));
                         },
@@ -74,7 +153,7 @@ class CategoryView extends StatelessWidget {
                               onTap: () {
                                 Navigator.of(context).push(MaterialPageRoute(
                                     builder: (context) => CategoriesProductView(
-                                        category: category,
+                                        category: widget.category,
                                         subCategory: subCategoryData?.title,
                                         type: FilterType.category)));
                               },
@@ -133,9 +212,7 @@ class CategoryView extends StatelessWidget {
                   kHeight10,
                   BlocBuilder<ShopProductsBloc, ShopProductsState>(
                     builder: (context, state) {
-                      if (state.flashSaleproducts?.result?.shopProductCategory
-                              ?.products ==
-                          null) {
+                      if (state.isLoading) {
                         return const Loader();
                       }
 
@@ -158,8 +235,9 @@ class CategoryView extends StatelessWidget {
                               onTap: () {
                                 // print(data);
                                 Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (context) =>
-                                      SingleProductView(passValue: data),
+                                  builder: (context) => SingleProductView(
+                                    id: data.id ?? "",
+                                  ),
                                 ));
                               },
                               child: Padding(
@@ -192,10 +270,8 @@ class CategoryView extends StatelessWidget {
                   kHeight20,
                   BlocBuilder<ShopProductsBloc, ShopProductsState>(
                     builder: (context, state) {
-                      if (state.popularProducts?.result?.shopProductCategory
-                              ?.products ==
-                          null) {
-                        return const Loader(); // Display a loader or any other loading widget.
+                      if (state.isLoading) {
+                        return const Loader();
                       }
 
                       final products = state.popularProducts?.result
@@ -217,7 +293,9 @@ class CategoryView extends StatelessWidget {
                               onTap: () {
                                 Navigator.of(context).push(MaterialPageRoute(
                                   builder: (context) {
-                                    return SingleProductView(passValue: data);
+                                    return SingleProductView(
+                                      id: data.id ?? "",
+                                    );
                                   },
                                 ));
                               },

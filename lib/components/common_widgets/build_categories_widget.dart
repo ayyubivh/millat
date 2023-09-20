@@ -11,15 +11,10 @@ class BuildCategoryWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        // Navigator.of(context).push(MaterialPageRoute(
-        //     builder: (context) => CategoriesView(
-        //           type: FilterType.category,
-        //           category: text,
-        //           subCategory: '',
-        //         )));
         Navigator.of(context).push(MaterialPageRoute(
           builder: (context) => CategoryView(category: text),
         ));
+        print(text);
       },
       child: Column(
         children: [

@@ -210,7 +210,7 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
                                     Navigator.of(context).push(
                                       MaterialPageRoute(
                                         builder: (context) => SingleProductView(
-                                          passValue: datas,
+                                          id: datas.id ?? "",
                                         ),
                                       ),
                                     );
@@ -271,7 +271,7 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
                                               MaterialPageRoute(
                                                 builder: (context) =>
                                                     SingleProductView(
-                                                  passValue: data,
+                                                  id: data.id ?? "",
                                                 ),
                                               ),
                                             );

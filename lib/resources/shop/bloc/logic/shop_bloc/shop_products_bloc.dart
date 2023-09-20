@@ -3,6 +3,8 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:millat/resources/shop/bloc/models/articles/articles_model.dart';
+import 'package:millat/resources/shop/bloc/models/category/specific_category_model.dart';
+import 'package:millat/resources/shop/bloc/models/products/product_by_id_model.dart';
 import 'package:millat/resources/shop/bloc/models/products/products_model.dart';
 import 'package:millat/resources/shop/bloc/models/recent_products/recent_products_model.dart';
 import 'package:millat/resources/shop/bloc/service/orders_service.dart';
@@ -66,6 +68,8 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
     on<IndexChangeOnWomensCareBanner>(indexChangeOnWomensCareBanner);
     on<FetchShopAdBrandsById>(_fetchShopAdBrandsById);
     on<SavePaymentMethodType>(_saveMethodType);
+    on<FetchSpecificCategeryItems>(_fetchSpecificCategeryItems);
+    on<FetchProductsById>(_fetchProductsById);
   }
 
   FutureOr<void> _fetchFlashSaleProducts(
@@ -74,6 +78,7 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
 
     try {
       final data = await shopService.fetchFlashSaleProducts(event.endPointSlug);
+      print(data);
       emit(state.copyWith(flashSaleproducts: data, isLoading: false));
     } catch (e) {
       emit(state.copyWith(errorMessage: "An error occurred", isLoading: false));
@@ -507,5 +512,28 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
   _saveMethodType(
       SavePaymentMethodType event, Emitter<ShopProductsState> emit) {
     emit(state.copyWith(paymentMethod: event.index));
+  }
+
+  _fetchSpecificCategeryItems(
+      FetchSpecificCategeryItems event, Emitter<ShopProductsState> emit) async {
+    emit(state.copyWith(isLoading: true));
+    try {
+      final data =
+          await shopService.fetchSpecificCategoryItems(slug: event.slug);
+      emit(state.copyWith(specificCategoryModel: data, isLoading: false));
+    } catch (e) {
+      emit(state.copyWith(isLoading: false));
+    }
+  }
+
+  _fetchProductsById(
+      FetchProductsById event, Emitter<ShopProductsState> emit) async {
+    emit(state.copyWith(isLoading: true));
+    try {
+      final data = await shopService.fetchProductByid(id: event.id);
+      emit(state.copyWith(productByIdModel: data, isLoading: false));
+    } catch (e) {
+      emit(state.copyWith(isLoading: false));
+    }
   }
 }

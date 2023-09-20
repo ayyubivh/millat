@@ -65,7 +65,7 @@ class ShopSpecificCategoryBannerView extends StatelessWidget {
                                 Navigator.of(context).push(
                                   MaterialPageRoute(
                                     builder: (context) => SingleProductView(
-                                      passValue: data,
+                                      id: data?.id ?? "",
                                     ),
                                   ),
                                 );

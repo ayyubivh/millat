@@ -4,19 +4,24 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/components/buttons/main_button.dart';
 import 'package:millat/components/common_widgets/cart_icon_widget.dart';
 import 'package:millat/resources/shop/bloc/logic/cart_bloc/cart_bloc.dart';
+import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
 import 'package:millat/resources/shop/view/cart/cart.dart';
 import 'package:millat/resources/shop/view/reviews/reviews_view.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
+import 'package:millat/utils/loader.dart';
 import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/utils.dart';
 
 class SingleProductView extends StatelessWidget {
-  final dynamic passValue;
-  const SingleProductView({Key? key, this.passValue}) : super(key: key);
+  final String id;
+  const SingleProductView({Key? key, required this.id}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      BlocProvider.of<ShopProductsBloc>(context).add(FetchProductsById(id: id));
+    });
     final colorMap = {
       'Pink': Colors.pink,
       'Green': Colors.green,
@@ -29,346 +34,388 @@ class SingleProductView extends StatelessWidget {
     final sizeList = ['S', 'M', 'L', 'ML', 'XL'];
     int quantity = 1;
     int selectedColor = 0;
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        leading: BackButton(color: ColorManager.blackColor),
-        actions: [
-          // Padding(
-          //   padding: const EdgeInsets.only(left: 10),
-          //   child: ImageIcon(
-          //     const AssetImage(
-          //       'assets/icons/search.png',
-          //     ),
-          //     color: ColorManager.blackColor,
-          //   ),
-          // ),
-          BlocBuilder<CartBloc, CartState>(
-            builder: (context, state) {
-              return CartIconWidget(
-                color: ColorManager.blackColor,
-                cartLength: state.cartLength,
-              );
-            },
-          )
-        ],
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Container(
-                height: SizeUtility(context).height * 30 / 100,
-                width: SizeUtility(context).width,
-                decoration: BoxDecoration(
-                  color: black247,
-                  image: DecorationImage(
-                    image: NetworkImage(passValue.images![0]),
-                  ),
-                ),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              Text(
-                passValue.title ?? "",
-                style: const TextStyle(
-                    fontSize: 22, fontWeight: FontWeight.w600, height: 2),
-              ),
-              Text('${passValue.regularPrice} ₹',
-                  style: const TextStyle(
-                      color: black60,
-                      fontSize: 17,
-                      decoration: TextDecoration.lineThrough,
-                      height: 1.5)),
-              Text(passValue.brand?.name ?? 'null',
-                  style: const TextStyle(
-                      color: black60, fontSize: 17, height: 1.5)),
-              Text('${passValue.salePrice} ₹',
-                  style: TextStyle(
-                      color: ColorManager.greenColor1,
-                      fontSize: 22,
-                      height: 1.5)),
-              const SizedBox(
-                height: 10,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  Row(
-                    children: [
-                      Icon(Icons.star, color: orange255, size: 20),
-                      Icon(Icons.star, color: orange255, size: 20),
-                      Icon(Icons.star, color: orange255, size: 20),
-                      Icon(Icons.star, color: orange255, size: 20),
-                      Icon(Icons.star, color: orange255, size: 20),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Text(
-                        '4,5',
-                        style: TextStyle(
-                            color: ColorManager.blackColor,
-                            fontWeight: FontWeight.w700,
-                            fontSize: 15),
-                      ),
-                    ],
-                  ),
-                  ImageIcon(
-                    AssetImage(
-                      'assets/icons/heart.png',
-                    ),
-                    color: black60,
-                  )
-                ],
-              ),
-              Container(
-                padding: const EdgeInsets.symmetric(vertical: 40),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      'Select options',
-                      style: TextStyle(
-                          color: ColorManager.greenColor1,
-                          fontSize: 20,
-                          fontWeight: FontWeight.w700),
-                    ),
-                    IconButton(
-                        onPressed: () {
-                          showModalBottomSheet(
-                            backgroundColor: Colors.transparent,
-                            context: context,
-                            isScrollControlled: true,
-                            builder: (context) => buildShowModelSheet(
-                                context,
-                                colorMap,
-                                selectedColor,
-                                sizeList,
-                                selectedSize,
-                                quantity),
-                          );
-                        },
-                        icon: Icon(
-                          Icons.arrow_forward_ios,
-                          color: ColorManager.greenColor1,
-                        ))
+    return BlocBuilder<ShopProductsBloc, ShopProductsState>(
+      builder: (context, state) {
+        final data = state.productByIdModel?.result?.product;
+        print("brand id ${data?.id}");
+        return state.isLoading
+            ? const Loader()
+            : Scaffold(
+                appBar: AppBar(
+                  backgroundColor: Colors.transparent,
+                  elevation: 0,
+                  leading: BackButton(color: ColorManager.blackColor),
+                  actions: [
+                    // Padding(
+                    //   padding: const EdgeInsets.only(left: 10),
+                    //   child: ImageIcon(
+                    //     const AssetImage(
+                    //       'assets/icons/search.png',
+                    //     ),
+                    //     color: ColorManager.blackColor,
+                    //   ),
+                    // ),
+                    BlocBuilder<CartBloc, CartState>(
+                      builder: (context, state) {
+                        return CartIconWidget(
+                          color: ColorManager.blackColor,
+                          cartLength: state.cartLength,
+                        );
+                      },
+                    )
                   ],
                 ),
-              ),
-              Text(
-                'Product Description',
-                style: TextStyle(
-                    fontWeight: FontWeight.w600,
-                    fontSize: 18,
-                    color: ColorManager.blackColor),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              Text(
-                passValue.description ?? "",
-                style: TextStyle(fontSize: 16, color: ColorManager.textGrey99),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              Text(
-                'Fabric: Cotton Silk',
-                style: TextStyle(
-                    fontWeight: FontWeight.w600,
-                    fontSize: 17,
-                    color: ColorManager.blackColor),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              Text(
-                'Care: Gentle machine wash / Regular Wash',
-                style: TextStyle(
-                    fontWeight: FontWeight.w600,
-                    fontSize: 17,
-                    color: ColorManager.blackColor),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              Text(
-                passValue.brand?.name ?? "",
-                style: TextStyle(fontSize: 16, color: ColorManager.textGrey99),
-              ),
-              Container(
-                padding: const EdgeInsets.symmetric(vertical: 40),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Reviews',
-                      style: TextStyle(
-                          color: ColorManager.blackColor,
-                          fontSize: 18,
-                          fontWeight: FontWeight.w700),
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.center,
+                body: Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: SingleChildScrollView(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
+                        Container(
+                          height: SizeUtility(context).height * 30 / 100,
+                          width: SizeUtility(context).width,
+                          decoration: BoxDecoration(
+                            color: black247,
+                            image: DecorationImage(
+                              image: NetworkImage(data?.images?[0] ?? ""),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                          data?.title ?? "",
+                          style: const TextStyle(
+                              fontSize: 22,
+                              fontWeight: FontWeight.w600,
+                              height: 2),
+                        ),
+                        Text('${data?.regularPrice} ₹',
+                            style: const TextStyle(
+                                color: black60,
+                                fontSize: 17,
+                                decoration: TextDecoration.lineThrough,
+                                height: 1.5)),
+                        Text(data?.brand?.name ?? 'null',
+                            style: const TextStyle(
+                                color: black60, fontSize: 17, height: 1.5)),
+                        Text('${data?.salePrice} ₹',
+                            style: TextStyle(
+                                color: ColorManager.greenColor1,
+                                fontSize: 22,
+                                height: 1.5)),
+                        const SizedBox(
+                          height: 10,
+                        ),
                         Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
-                            const Icon(Icons.star, color: orange255, size: 20),
-                            const Icon(Icons.star, color: orange255, size: 20),
-                            const Icon(Icons.star, color: orange255, size: 20),
-                            const Icon(Icons.star, color: orange255, size: 20),
-                            const Icon(Icons.star, color: orange255, size: 20),
-                            const SizedBox(
-                              width: 10,
+                            Row(
+                              children: [
+                                const Icon(Icons.star,
+                                    color: orange255, size: 20),
+                                const Icon(Icons.star,
+                                    color: orange255, size: 20),
+                                const Icon(Icons.star,
+                                    color: orange255, size: 20),
+                                const Icon(Icons.star,
+                                    color: orange255, size: 20),
+                                const Icon(Icons.star,
+                                    color: orange255, size: 20),
+                                kWidht10,
+                                Text(
+                                  '4,5',
+                                  style: TextStyle(
+                                      color: ColorManager.blackColor,
+                                      fontWeight: FontWeight.w700,
+                                      fontSize: 15),
+                                ),
+                              ],
                             ),
-                            Text(
-                              '4,5/5',
-                              style: TextStyle(
-                                  color: ColorManager.blackColor,
-                                  fontWeight: FontWeight.w700,
-                                  fontSize: 15),
-                            ),
-                            const SizedBox(
-                              width: 10,
-                            ),
-                            Text(
-                              '(120 reviews)',
-                              style: TextStyle(
-                                  color: ColorManager.textGrey99,
-                                  fontWeight: FontWeight.w700,
-                                  fontSize: 15),
-                            ),
+                            ImageIcon(
+                              AssetImage(
+                                'assets/icons/heart.png',
+                              ),
+                              color: black60,
+                            )
                           ],
                         ),
-                        Icon(
-                          Icons.arrow_forward_ios,
-                          color: ColorManager.greenColor1,
-                        )
+                        Container(
+                          padding: const EdgeInsets.symmetric(vertical: 40),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                'Select options',
+                                style: TextStyle(
+                                    color: ColorManager.greenColor1,
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.w700),
+                              ),
+                              IconButton(
+                                  onPressed: () {
+                                    showModalBottomSheet(
+                                      backgroundColor: Colors.transparent,
+                                      context: context,
+                                      isScrollControlled: true,
+                                      builder: (context) => buildShowModelSheet(
+                                          brandId: data?.brand?.id ?? "",
+                                          productId: id,
+                                          image: data!.images![0],
+                                          regularPrice: data.regularPrice ?? 0,
+                                          salePrice: data.salePrice ?? 0,
+                                          context,
+                                          colorMap,
+                                          selectedColor,
+                                          sizeList,
+                                          selectedSize,
+                                          quantity),
+                                    );
+                                  },
+                                  icon: Icon(
+                                    Icons.arrow_forward_ios,
+                                    color: ColorManager.greenColor1,
+                                  ))
+                            ],
+                          ),
+                        ),
+                        Text(
+                          'Product Description',
+                          style: TextStyle(
+                              fontWeight: FontWeight.w600,
+                              fontSize: 18,
+                              color: ColorManager.blackColor),
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        Text(
+                          data?.description ?? "",
+                          style: TextStyle(
+                              fontSize: 16, color: ColorManager.textGrey99),
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        Text(
+                          'Fabric: Cotton Silk',
+                          style: TextStyle(
+                              fontWeight: FontWeight.w600,
+                              fontSize: 17,
+                              color: ColorManager.blackColor),
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        Text(
+                          'Care: Gentle machine wash / Regular Wash',
+                          style: TextStyle(
+                              fontWeight: FontWeight.w600,
+                              fontSize: 17,
+                              color: ColorManager.blackColor),
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        Text(
+                          data?.brand?.name ?? "",
+                          style: TextStyle(
+                              fontSize: 16, color: ColorManager.textGrey99),
+                        ),
+                        Container(
+                          padding: const EdgeInsets.symmetric(vertical: 40),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Reviews',
+                                style: TextStyle(
+                                    color: ColorManager.blackColor,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w700),
+                              ),
+                              const SizedBox(
+                                height: 10,
+                              ),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Row(
+                                    children: [
+                                      const Icon(Icons.star,
+                                          color: orange255, size: 20),
+                                      const Icon(Icons.star,
+                                          color: orange255, size: 20),
+                                      const Icon(Icons.star,
+                                          color: orange255, size: 20),
+                                      const Icon(Icons.star,
+                                          color: orange255, size: 20),
+                                      const Icon(Icons.star,
+                                          color: orange255, size: 20),
+                                      const SizedBox(
+                                        width: 10,
+                                      ),
+                                      Text(
+                                        '4,5/5',
+                                        style: TextStyle(
+                                            color: ColorManager.blackColor,
+                                            fontWeight: FontWeight.w700,
+                                            fontSize: 15),
+                                      ),
+                                      const SizedBox(
+                                        width: 10,
+                                      ),
+                                      Text(
+                                        '(120 reviews)',
+                                        style: TextStyle(
+                                            color: ColorManager.textGrey99,
+                                            fontWeight: FontWeight.w700,
+                                            fontSize: 15),
+                                      ),
+                                    ],
+                                  ),
+                                  Icon(
+                                    Icons.arrow_forward_ios,
+                                    color: ColorManager.greenColor1,
+                                  )
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                        buildReviewItem(
+                            context: context,
+                            comment: 'Very good product, I will buy it again'),
+                        buildReviewItem(
+                            context: context,
+                            comment:
+                                'A very quality product, I highly recommend it.'),
+                        buildReviewItem(
+                            context: context,
+                            comment:
+                                'A very quality product, I highly recommend it.'),
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => const ReviewsView(),
+                            ));
+                          },
+                          child: Container(
+                            alignment: Alignment.center,
+                            padding: const EdgeInsets.symmetric(vertical: 40),
+                            child: Text(
+                              'View all (120)',
+                              style: TextStyle(
+                                  color: ColorManager.greenColor1,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w700),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child: Row(
+                            children: [
+                              buildShopItem(
+                                  context: context,
+                                  image: 'assets/dummy/thope.png',
+                                  title: "Men Kurta Pyjama Set"),
+                              buildShopItem(
+                                  context: context,
+                                  image: 'assets/dummy/sijadah_3.png',
+                                  title: "Hometara Velvet Prayer Mat"),
+                              buildShopItem(
+                                  context: context,
+                                  image: 'assets/dummy/sijadah.png',
+                                  title:
+                                      "Hijaz Turkish Gold Border Lantern..."),
+                              buildShopItem(
+                                  context: context,
+                                  image: 'assets/dummy/sijadah.png',
+                                  title:
+                                      "Hijaz Turkish Gold Border Lantern..."),
+                            ],
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 100,
+                        ),
                       ],
                     ),
-                  ],
-                ),
-              ),
-              buildReviewItem(
-                  context: context,
-                  comment: 'Very good product, I will buy it again'),
-              buildReviewItem(
-                  context: context,
-                  comment: 'A very quality product, I highly recommend it.'),
-              buildReviewItem(
-                  context: context,
-                  comment: 'A very quality product, I highly recommend it.'),
-              GestureDetector(
-                onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => const ReviewsView(),
-                  ));
-                },
-                child: Container(
-                  alignment: Alignment.center,
-                  padding: const EdgeInsets.symmetric(vertical: 40),
-                  child: Text(
-                    'View all (120)',
-                    style: TextStyle(
-                        color: ColorManager.greenColor1,
-                        fontSize: 20,
-                        fontWeight: FontWeight.w700),
                   ),
                 ),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  children: [
-                    buildShopItem(
-                        context: context,
-                        image: 'assets/dummy/thope.png',
-                        title: "Men Kurta Pyjama Set"),
-                    buildShopItem(
-                        context: context,
-                        image: 'assets/dummy/sijadah_3.png',
-                        title: "Hometara Velvet Prayer Mat"),
-                    buildShopItem(
-                        context: context,
-                        image: 'assets/dummy/sijadah.png',
-                        title: "Hijaz Turkish Gold Border Lantern..."),
-                    buildShopItem(
-                        context: context,
-                        image: 'assets/dummy/sijadah.png',
-                        title: "Hijaz Turkish Gold Border Lantern..."),
-                  ],
-                ),
-              ),
-              const SizedBox(
-                height: 100,
-              ),
-            ],
-          ),
-        ),
-      ),
-      bottomSheet: Padding(
-          padding: const EdgeInsets.only(bottom: 20, left: 30, right: 30),
-          child: GestureDetector(
-            onTap: () {
-              showModalBottomSheet(
-                context: context,
-                isScrollControlled: true,
-                backgroundColor: Colors.transparent,
-                builder: (context) => buildShowModelSheet(context, colorMap,
-                    selectedColor, sizeList, selectedSize, quantity),
+                bottomSheet: Padding(
+                    padding:
+                        const EdgeInsets.only(bottom: 20, left: 30, right: 30),
+                    child: GestureDetector(
+                      onTap: () {
+                        showModalBottomSheet(
+                          context: context,
+                          isScrollControlled: true,
+                          backgroundColor: Colors.transparent,
+                          builder: (context) => buildShowModelSheet(
+                            context,
+                            colorMap,
+                            selectedColor,
+                            sizeList,
+                            selectedSize,
+                            quantity,
+                            brandId: data!.brand!.id!,
+                            productId: id,
+                            image: data.images![0],
+                            regularPrice: data.regularPrice ?? 0,
+                            salePrice: data.salePrice ?? 0,
+                          ),
+                        );
+                      },
+                      child: Container(
+                        height: 55,
+                        width: SizeUtility(context).width,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(4),
+                          color: ColorManager.mainColor.withOpacity(0.2),
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Image.asset(
+                              "assets/icons/add_cart.png",
+                              width: 21,
+                              height: 21,
+                              color: ColorManager.primary,
+                            ),
+                            kWidht10,
+                            Text(
+                              "Add to cart",
+                              style: TextStyle(
+                                fontSize: 17,
+                                fontWeight: FontWeight.bold,
+                                color: ColorManager.primary,
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                    )),
               );
-            },
-            child: Container(
-              height: 55,
-              width: SizeUtility(context).width,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(4),
-                color: ColorManager.mainColor.withOpacity(0.2),
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Image.asset(
-                    "assets/icons/add_cart.png",
-                    width: 21,
-                    height: 21,
-                    color: ColorManager.primary,
-                  ),
-                  kWidht10,
-                  Text(
-                    "Add to cart",
-                    style: TextStyle(
-                      fontSize: 17,
-                      fontWeight: FontWeight.bold,
-                      color: ColorManager.primary,
-                    ),
-                  )
-                ],
-              ),
-            ),
-          )),
+      },
     );
   }
 
-  Widget buildShowModelSheet(
-      BuildContext context,
-      Map<String, Color> colorMap,
-      int selectedColor,
-      List<String> sizeList,
-      int selectedSize,
-      int quantity) {
+  Widget buildShowModelSheet(BuildContext context, Map<String, Color> colorMap,
+      int selectedColor, List<String> sizeList, int selectedSize, int quantity,
+      {required String brandId,
+      required String productId,
+      required String image,
+      required int salePrice,
+      required int regularPrice}) {
     return StatefulBuilder(
       builder: (context, setState) => Container(
         height: SizeUtility(context).height / 1.6,
@@ -392,7 +439,7 @@ class SingleProductView extends StatelessWidget {
                       decoration: BoxDecoration(
                           image: DecorationImage(
                             image: NetworkImage(
-                              passValue.images![0],
+                              image,
                             ),
                             fit: BoxFit.cover,
                           ),
@@ -405,7 +452,7 @@ class SingleProductView extends StatelessWidget {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text('${passValue.salePrice} ₹',
+                        Text('$salePrice ₹',
                             style: TextStyle(
                                 color: ColorManager.greenColor1,
                                 fontWeight: FontWeight.w700,
@@ -413,7 +460,7 @@ class SingleProductView extends StatelessWidget {
                         const SizedBox(
                           height: 20,
                         ),
-                        Text('${passValue.regularPrice} ₹',
+                        Text('$regularPrice ₹',
                             style: const TextStyle(
                                 decoration: TextDecoration.lineThrough,
                                 fontSize: 20)),
@@ -589,14 +636,15 @@ class SingleProductView extends StatelessWidget {
                     onTap: () {
                       Navigator.of(context).pop();
                       context.read<CartBloc>().add(AddCartEvent(
-                            productId: passValue.id ?? "",
-                            basePrice: passValue.regularPrice ?? 0,
+                            productId: productId,
+                            basePrice: salePrice,
                             size: sizeList[selectedSize],
                             color: colorMap.keys.elementAt(selectedColor),
                             context: context,
                             quantity: quantity,
-                            brandId: passValue.brand?.id ?? "",
+                            brandId: brandId,
                           ));
+
                       showSnackBar(context, "Product Added Successfully!");
                     },
                     child: Container(
@@ -630,13 +678,13 @@ class SingleProductView extends StatelessWidget {
                       title: "Buy Now",
                       onPressed: () {
                         context.read<CartBloc>().add(AddCartEvent(
-                            productId: passValue.id ?? "",
-                            basePrice: passValue.regularPrice ?? 0,
+                            productId: productId,
+                            basePrice: salePrice,
                             size: sizeList[selectedSize],
                             color: colorMap.keys.elementAt(selectedColor),
                             context: context,
                             quantity: quantity,
-                            brandId: passValue.brand?.id ?? ""));
+                            brandId: brandId));
 
                         Future.delayed(const Duration(milliseconds: 400), () {
                           Navigator.of(context).push(
@@ -739,7 +787,7 @@ class SingleProductView extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => SingleProductView(),
+          builder: (context) => SingleProductView(id: id),
         ));
       },
       child: Padding(

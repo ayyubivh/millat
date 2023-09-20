@@ -86,4 +86,10 @@ class ShopProductsEvent with _$ShopProductsEvent {
   }) = SavePaymentMethodType;
   const factory ShopProductsEvent.fetchProductItemsbyCategory() =
       FetchProductItemsbyCategory;
+  const factory ShopProductsEvent.fetchSpecificCategeryItems({
+    required String slug,
+  }) = FetchSpecificCategeryItems;
+  const factory ShopProductsEvent.fetchProductsById({
+    required String id,
+  }) = FetchProductsById;
 }

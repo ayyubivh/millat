@@ -71,21 +71,22 @@ _$_Product _$$_ProductFromJson(Map<String, dynamic> json) => _$_Product(
       otherInfo: json['otherInfo'] as String?,
       category: json['category'] as String?,
       subcategory: json['subcategory'] as String?,
-      actualPrice: json['actualPrice'] as int?,
-      discountPrice: json['discountPrice'] as int?,
+      itemType: json['itemType'] as String?,
+      pickupAddress: json['pickupAddress'] as String?,
+      regularPrice: json['regularPrice'] as int?,
+      salePrice: json['salePrice'] as int?,
       discount: json['discount'] as int?,
-      colors: (json['colors'] as List<dynamic>?)
-          ?.map((e) => Color.fromJson(e as Map<String, dynamic>))
-          .toList(),
+      color: json['color'] as String?,
+      images:
+          (json['images'] as List<dynamic>?)?.map((e) => e as String).toList(),
       size: (json['size'] as List<dynamic>?)
           ?.map((e) => Size.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      meta: (json['meta'] as List<dynamic>?)
-          ?.map((e) => Meta.fromJson(e as Map<String, dynamic>))
           .toList(),
       keywords: (json['keywords'] as List<dynamic>?)
           ?.map((e) => e as String)
           .toList(),
+      madeFrom: json['madeFrom'] as String?,
+      productCareInfo: json['productCareInfo'] as String?,
       createdAt: json['createdAt'] as String?,
       updatedAt: json['updatedAt'] as String?,
     );
@@ -99,44 +100,37 @@ Map<String, dynamic> _$$_ProductToJson(_$_Product instance) =>
       'otherInfo': instance.otherInfo,
       'category': instance.category,
       'subcategory': instance.subcategory,
-      'actualPrice': instance.actualPrice,
-      'discountPrice': instance.discountPrice,
+      'itemType': instance.itemType,
+      'pickupAddress': instance.pickupAddress,
+      'regularPrice': instance.regularPrice,
+      'salePrice': instance.salePrice,
       'discount': instance.discount,
-      'colors': instance.colors,
+      'color': instance.color,
+      'images': instance.images,
       'size': instance.size,
-      'meta': instance.meta,
       'keywords': instance.keywords,
+      'madeFrom': instance.madeFrom,
+      'productCareInfo': instance.productCareInfo,
       'createdAt': instance.createdAt,
       'updatedAt': instance.updatedAt,
     };
 
-_$_Color _$$_ColorFromJson(Map<String, dynamic> json) => _$_Color(
-      text: json['text'] as String?,
-      images:
-          (json['images'] as List<dynamic>?)?.map((e) => e as String).toList(),
-    );
-
-Map<String, dynamic> _$$_ColorToJson(_$_Color instance) => <String, dynamic>{
-      'text': instance.text,
-      'images': instance.images,
-    };
-
 _$_Size _$$_SizeFromJson(Map<String, dynamic> json) => _$_Size(
-      value: json['value'] as String?,
+      size: json['size'] as String?,
+      stock: json['stock'] as int?,
       price: json['price'] as int?,
+      sku: json['sku'] as String?,
+      width: json['width'] as String?,
+      height: json['height'] as String?,
+      weight: json['weight'] as String?,
     );
 
 Map<String, dynamic> _$$_SizeToJson(_$_Size instance) => <String, dynamic>{
-      'value': instance.value,
+      'size': instance.size,
+      'stock': instance.stock,
       'price': instance.price,
-    };
-
-_$_Meta _$$_MetaFromJson(Map<String, dynamic> json) => _$_Meta(
-      key: json['key'] as String?,
-      value: json['value'] as String?,
-    );
-
-Map<String, dynamic> _$$_MetaToJson(_$_Meta instance) => <String, dynamic>{
-      'key': instance.key,
-      'value': instance.value,
+      'sku': instance.sku,
+      'width': instance.width,
+      'height': instance.height,
+      'weight': instance.weight,
     };

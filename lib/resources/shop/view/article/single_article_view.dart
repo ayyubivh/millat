@@ -69,7 +69,7 @@ class SingleArticleView extends StatelessWidget {
                               fontSize: 20,
                               fontWeight: FontWeight.w600),
                         ),
-                        const SizedBox(height: 35),
+                        kHeight30,
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           crossAxisAlignment: CrossAxisAlignment.end,
@@ -138,10 +138,9 @@ class SingleArticleView extends StatelessWidget {
       bottomSheet: GestureDetector(
         onTap: () {
           print(passValue!.product);
-          // Navigator.of(context).push(MaterialPageRoute(
-          //   builder: (context) =>
-          //       SingleProductView(passValue: passValue!.product),
-          // ));
+          Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) => SingleProductView(id: passValue!.product!.id),
+          ));
         },
         child: Container(
           height: 70,
@@ -182,7 +181,7 @@ class SingleArticleView extends StatelessWidget {
                   ),
                   kHeight10,
                   Text(
-                    passValue!.product?.actualPrice.toString() ?? '0',
+                    passValue!.product?.salePrice.toString() ?? "0",
                     style: TextStyle(
                         color: ColorManager.whiteColor,
                         fontSize: 15,
@@ -200,9 +199,6 @@ class SingleArticleView extends StatelessWidget {
               ),
               IconButton(
                 onPressed: () {
-                  print(
-                    "${passValue!.product!.id}\n\n ${passValue!.product!.actualPrice!}\n${passValue!.product!.size![0].value!}\n${passValue!.product!.colors![0].text!}\n ${passValue!.product!.brand!}",
-                  );
                   // context.read<CartBloc>().add(CartEvent.addCart(
                   //       productId: passValue!.product!.id,
                   //       basePrice: passValue!.product!.actualPrice!,

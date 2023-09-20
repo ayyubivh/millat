@@ -309,22 +309,22 @@ class _SingleProductViewBrandState extends State<SingleProductViewBrand> {
                   scrollDirection: Axis.horizontal,
                   child: Row(
                     children: [
-                      buildShopItem(
-                          context: context,
-                          image: 'assets/dummy/thope.png',
-                          title: "Men Kurta Pyjama Set"),
-                      buildShopItem(
-                          context: context,
-                          image: 'assets/dummy/sijadah_3.png',
-                          title: "Hometara Velvet Prayer Mat"),
-                      buildShopItem(
-                          context: context,
-                          image: 'assets/dummy/sijadah.png',
-                          title: "Hijaz Turkish Gold Border Lantern..."),
-                      buildShopItem(
-                          context: context,
-                          image: 'assets/dummy/sijadah.png',
-                          title: "Hijaz Turkish Gold Border Lantern..."),
+                      // buildShopItem(id: ,
+                      //     context: context,
+                      //     image: 'assets/dummy/thope.png',
+                      //     title: "Men Kurta Pyjama Set"),
+                      // buildShopItem(
+                      //     context: context,
+                      //     image: 'assets/dummy/sijadah_3.png',
+                      //     title: "Hometara Velvet Prayer Mat"),
+                      // buildShopItem(
+                      //     context: context,
+                      //     image: 'assets/dummy/sijadah.png',
+                      //     title: "Hijaz Turkish Gold Border Lantern..."),
+                      // buildShopItem(
+                      //     context: context,
+                      //     image: 'assets/dummy/sijadah.png',
+                      //     title: "Hijaz Turkish Gold Border Lantern..."),
                     ],
                   ),
                 ),
@@ -775,11 +775,14 @@ class _SingleProductViewBrandState extends State<SingleProductViewBrand> {
   Widget buildShopItem(
       {required String image,
       required String title,
-      required BuildContext context}) {
+      required BuildContext context,
+      required String id}) {
     return GestureDetector(
       onTap: () {
         Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => SingleProductView(),
+          builder: (context) => SingleProductView(
+            id: id,
+          ),
         ));
       },
       child: Padding(

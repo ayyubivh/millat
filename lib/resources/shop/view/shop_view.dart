@@ -61,6 +61,7 @@ class _ShopViewState extends State<ShopView> {
     return Scaffold(
       backgroundColor: ColorManager.whiteColor,
       body: SingleChildScrollView(
+        physics: const ClampingScrollPhysics(),
         child: Column(
           children: [
             _categorySections(context),

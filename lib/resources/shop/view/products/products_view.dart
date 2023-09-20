@@ -75,7 +75,7 @@ class ProductsView extends StatelessWidget {
                           print('here ia m recent');
                           Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) => SingleProductView(
-                              passValue: passValue.products![index],
+                              id: passValue.products![index].id,
                             ),
                           ));
                         },
@@ -101,7 +101,7 @@ class ProductsView extends StatelessWidget {
                     onTap: () {
                       Navigator.of(context).push(MaterialPageRoute(
                         builder: (context) => SingleProductView(
-                          passValue: passValue.products![index],
+                          id: passValue.products![index].id,
                         ),
                       ));
                     },

@@ -1,5 +1,3 @@
-// ignore_for_file: invalid_annotation_target
-
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'articles_model.freezed.dart';
@@ -56,13 +54,17 @@ class Product with _$Product {
     required String? otherInfo,
     required String? category,
     required String? subcategory,
-    required int? actualPrice,
-    required int? discountPrice,
+    required String? itemType,
+    required String? pickupAddress,
+    required int? regularPrice,
+    required int? salePrice,
     required int? discount,
-    required List<Color>? colors,
+    required String? color,
+    required List<String>? images,
     required List<Size>? size,
-    required List<Meta>? meta,
     required List<String>? keywords,
+    required String? madeFrom,
+    required String? productCareInfo,
     required String? createdAt,
     required String? updatedAt,
   }) = _Product;
@@ -72,31 +74,16 @@ class Product with _$Product {
 }
 
 @freezed
-class Color with _$Color {
-  const factory Color({
-    required String? text,
-    required List<String>? images,
-  }) = _Color;
-
-  factory Color.fromJson(Map<String, dynamic> json) => _$ColorFromJson(json);
-}
-
-@freezed
 class Size with _$Size {
   const factory Size({
-    required String? value,
+    required String? size,
+    required int? stock,
     required int? price,
+    required String? sku,
+    required String? width,
+    required String? height,
+    required String? weight,
   }) = _Size;
 
   factory Size.fromJson(Map<String, dynamic> json) => _$SizeFromJson(json);
-}
-
-@freezed
-class Meta with _$Meta {
-  const factory Meta({
-    required String? key,
-    required String? value,
-  }) = _Meta;
-
-  factory Meta.fromJson(Map<String, dynamic> json) => _$MetaFromJson(json);
 }

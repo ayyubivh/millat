@@ -1,17 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:millat/components/buttons/main_button.dart';
-import 'package:millat/resources/shop/view/orders/widgets/order_return_view.dart';
 import 'package:millat/resources/shop/view/tabs/shop_tabs_vilew.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/string_constants.dart';
 import 'package:millat/utils/utils.dart';
-
 import '../../../../../utils/color_manager.dart';
 import '../../../bloc/logic/shop_bloc/shop_products_bloc.dart';
-import '../../order_status/order_details_view.dart';
 
 class OrdersProfileWidget extends StatelessWidget {
   final String? id;

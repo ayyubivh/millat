@@ -618,13 +618,15 @@ class _HomeViewState extends State<HomeView> {
                   CarouselSlider(
                     items: banners?.map((banner) {
                       return ClipRRect(
-                        // borderRadius: BorderRadius.circular(20),
-                        child: Image.network(
-                          banner.images![0],
-                          height: 327,
-                          fit: BoxFit.contain,
-                        ),
-                      );
+                          // borderRadius: BorderRadius.circular(20),
+                          child: Utilities.buildCachedNetworkImage(
+                              banner.images![0], 327)
+                          // Image.network(
+                          //   banner.images![0],
+                          //   height: 327,
+                          //   fit: BoxFit.contain,
+                          // ),
+                          );
                     }).toList(),
                     options: CarouselOptions(
                       height: 300,
@@ -1153,21 +1155,17 @@ class _HomeViewState extends State<HomeView> {
             CarouselSlider(
               items: banners?.map((banner) {
                 return GestureDetector(
-                  onTap: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => const CategoriesProductView(
-                            category: "",
-                            subCategory: "",
-                            type: FilterType.category)));
-                  },
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(20),
-                    child: Image.network(
-                      banner.image,
-                      fit: BoxFit.contain,
-                    ),
-                  ),
-                );
+                    onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => const CategoriesProductView(
+                              category: "",
+                              subCategory: "",
+                              type: FilterType.category)));
+                    },
+                    child: ClipRRect(
+                        borderRadius: BorderRadius.circular(20),
+                        child: Utilities.buildCachedNetworkImage(
+                            banner.image, null)));
               }).toList(),
               options: CarouselOptions(
                 height: 150,

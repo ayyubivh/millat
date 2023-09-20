@@ -18,6 +18,7 @@ import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/string_constants.dart';
+import 'package:millat/utils/utils.dart';
 import '../../../components/common_widgets/cart_icon_widget.dart';
 import '../../../utils/color_manager.dart';
 import '../bloc/logic/cart_bloc/cart_bloc.dart';
@@ -109,7 +110,7 @@ class _ShopViewState extends State<ShopView> {
                           state.shopHomeBackgroundCardModelSunnah?.result?.data;
                       final sunnahSubCategoryData = state
                           .productItemsSubCategorySunnahModel?.result.items;
-                      // print("sub category $womenSubCategoryData");
+
                       return Column(
                         children: [
                           BackgroundContainer(
@@ -257,7 +258,8 @@ class _ShopViewState extends State<ShopView> {
                     color: color, borderRadius: BorderRadius.circular(12)),
                 child: ClipRRect(
                     borderRadius: BorderRadius.circular(12),
-                    child: Image.network(getImageUrl(index))),
+                    child: Utilities.buildCachedNetworkImage(
+                        getImageUrl(index), null, BoxFit.cover)),
               ),
               const SizedBox(height: 10),
               Text(
@@ -352,8 +354,8 @@ class _ShopViewState extends State<ShopView> {
                                   radius: 32,
                                   backgroundColor: ColorManager.whiteColor,
                                   child: ClipOval(
-                                      child: Image.network(
-                                          banner.brandId?.logo ?? "")),
+                                      child: Utilities.buildCachedNetworkImage(
+                                          banner.brandId?.logo ?? "", null)),
                                 ),
                               )
                             ],
@@ -460,12 +462,9 @@ class _ShopViewState extends State<ShopView> {
                             type: FilterType.category)));
                   },
                   child: ClipRRect(
-                    borderRadius: BorderRadius.circular(20),
-                    child: Image.network(
-                      banner.image,
-                      fit: BoxFit.contain,
-                    ),
-                  ),
+                      borderRadius: BorderRadius.circular(20),
+                      child: Utilities.buildCachedNetworkImage(
+                          banner.image, null)),
                 );
               }).toList(),
               options: CarouselOptions(
@@ -670,12 +669,7 @@ Widget buildShopbyBrand(String? image, String? name) {
             borderRadius:
                 BorderRadius.circular(28), // Half of the width and height
             child: image != null
-                ? Image.network(
-                    image,
-                    width: 56,
-                    height: 54.47,
-                    fit: BoxFit.cover,
-                  )
+                ? Utilities.buildCachedNetworkImage(image, 56)
                 : const Placeholder(
                     fallbackHeight: 54.47,
                     fallbackWidth: 56,

@@ -51,6 +51,7 @@ class _EditProfileViewState extends State<EditProfileView> {
     if (picked != null && picked != _selectedDate) {
       setState(() {
         _selectedDate = picked;
+        print(_selectedDate);
 
         String formattedDate = DateFormat('MM-dd-yyyy').format(_selectedDate!);
         _dateofBirthcontroller.text = formattedDate;
@@ -363,18 +364,20 @@ class _EditProfileViewState extends State<EditProfileView> {
                           color: ColorManager.blackColor,
                           size: 10,
                         ),
-                        validator: (value) {
-                          final RegExp dateRegex = RegExp(
-                            r'^(0[1-9]|[12][0-9]|3[01])-(0[1-9]|1[0-2])-\d{4}$',
-                          );
+                        // validator: (value) {
+                        //   print("value of validator $value");
+                        //   final RegExp dateRegex = RegExp(
+                        //     r'^(0[1-9]|[12][0-9]|3[01])-(0[1-9]|1[0-2])-\d{4}$',
+                        //   );
 
-                          if (value == null || value.isEmpty) {
-                            return 'Date of birth is required';
-                          } else if (!dateRegex.hasMatch(value)) {
-                            return 'Invalid date format eg:(01-12-1997)';
-                          }
-                          return null;
-                        },
+                        //   if (value == null || value.isEmpty) {
+                        //     return 'Date of birth is required';
+                        //   } else if (!dateRegex.hasMatch(value)) {
+                        //     print('Invalid date format eg:(01-12-1997)');
+                        //     return 'Invalid date format eg:(01-12-1997)';
+                        //   }
+                        //   return null;
+                        // },
                       ),
                       // TextFormField(
                       //   readOnly: true, // Make the text field read-only
@@ -396,6 +399,7 @@ class _EditProfileViewState extends State<EditProfileView> {
                           hintName: Appstrings.email,
                           textInputType: TextInputType.emailAddress,
                           validator: (value) {
+                            print(value);
                             if (value == null || value.isEmpty) {
                               return 'Email is required';
                             }
@@ -416,7 +420,7 @@ class _EditProfileViewState extends State<EditProfileView> {
                         textFieldName: Appstrings.mobileNumber,
                         hintName: Appstrings.mobileNumber,
                         textInputType: TextInputType.phone,
-                        maxLength: 12,
+                        // maxLength: 12,
                         // validator: (val) {
                         //   if (val == null || val.isEmpty || val.length != 12) {
                         //     return "Phone Number is required";
@@ -449,14 +453,15 @@ class _EditProfileViewState extends State<EditProfileView> {
                 MainButton(
                   title: "Save",
                   onPressed: () {
-                    final img = context
+                    print(_dateofBirthcontroller.text);
+                    String? img = context
                         .read<DatabaseBloc>()
                         .state
                         .authUserModel
                         ?.result
                         ?.user
                         ?.picture;
-
+                    print(img);
                     final email = context
                         .read<DatabaseBloc>()
                         .state
@@ -471,6 +476,10 @@ class _EditProfileViewState extends State<EditProfileView> {
                     }
                     if (stateImage == null && img == null) {
                       return showSnackBar(context, "Please Select Image");
+                    }
+                    if (_dateofBirthcontroller.text == "") {
+                      return showSnackBar(
+                          context, "Please Select Date of Birth");
                     }
                     if (_formKey.currentState!.validate()) {
                       context.read<DatabaseBloc>().add(EditAuthUser(
@@ -489,6 +498,8 @@ class _EditProfileViewState extends State<EditProfileView> {
                           .read<DatabaseBloc>()
                           .add(FetchAuthUser(context: context));
                       Navigator.of(context).pop();
+                    } else {
+                      print("not validated");
                     }
                   },
                 )
@@ -496,17 +507,6 @@ class _EditProfileViewState extends State<EditProfileView> {
             ),
           ),
         ));
-  }
-
-  Text _textWidget(String text) {
-    return Text(
-      text,
-      style: TextStyle(
-        fontSize: 15,
-        fontWeight: FontWeight.w500,
-        color: ColorManager.primary,
-      ),
-    );
   }
 
   Widget _textFieldWidget(

@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:html/parser.dart';
 import 'package:intl/intl.dart';
@@ -131,6 +132,24 @@ class Utilities {
 
   //   return false;
   // }
+  static buildCachedNetworkImage(
+      [String? imageUrl, double? height, BoxFit boxFit = BoxFit.contain]) {
+    return CachedNetworkImage(
+      imageUrl: imageUrl!,
+      height: height ?? 0,
+      fit: boxFit,
+      placeholder: (context, url) => const SizedBox(),
+      errorWidget: (context, url, error) => const Icon(
+        Icons.error_outline,
+      ),
+    );
+  }
+
+  static buildCachedNetworkImageProvider(
+    String imageUrl,
+  ) {
+    return CachedNetworkImageProvider(imageUrl);
+  }
 }
 
 void showSnackBar(BuildContext context, String text) {

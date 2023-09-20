@@ -152,7 +152,7 @@ class ShopBrandView extends StatelessWidget {
     );
   }
 
-  Container _stackContainerPart(BuildContext context) {
+  Widget _stackContainerPart(BuildContext context) {
     return Container(
       height: 270,
       decoration: BoxDecoration(

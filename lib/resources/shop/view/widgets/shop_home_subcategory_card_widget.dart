@@ -6,6 +6,7 @@ import 'package:millat/resources/shop/view/widgets/shop_home_card_button.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/size_utility.dart';
+import 'package:millat/utils/utils.dart';
 
 class BackgroundContainer extends StatelessWidget {
   final String imageUrl;
@@ -81,7 +82,8 @@ class BackgroundContainer extends StatelessWidget {
                       width: width,
                       decoration: BoxDecoration(
                         image: DecorationImage(
-                          image: NetworkImage(imageUrl),
+                          image: Utilities.buildCachedNetworkImageProvider(
+                              imageUrl),
                           fit: BoxFit.fill,
                         ),
                       ),
@@ -95,7 +97,8 @@ class BackgroundContainer extends StatelessWidget {
                   width: width,
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: NetworkImage(imageUrl),
+                      image:
+                          Utilities.buildCachedNetworkImageProvider(imageUrl),
                       fit: BoxFit.cover,
                     ),
                   ),

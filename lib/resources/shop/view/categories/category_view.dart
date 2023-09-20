@@ -13,6 +13,7 @@ import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/loader.dart';
 import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/string_constants.dart';
+import 'package:millat/utils/utils.dart';
 
 class CategoryView extends StatefulWidget {
   final String category;
@@ -64,7 +65,7 @@ class _CategoryViewState extends State<CategoryView> {
                                 return SizedBox(
                                   height: 340,
                                   width: SizeUtility(context).width,
-                                  child: Image.network(e),
+                                  child: Utilities.buildCachedNetworkImage(e),
                                 );
                               },
                             ).toList(),
@@ -170,7 +171,7 @@ class _CategoryViewState extends State<CategoryView> {
                                     ),
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(12),
-                                      child: Image.network(
+                                      child: Utilities.buildCachedNetworkImage(
                                           subCategoryData?.image ?? ""),
                                     ),
                                   ),

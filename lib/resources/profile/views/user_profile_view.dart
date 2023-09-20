@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/resources/authentication/view/sign_up_view.dart';
+import 'package:millat/resources/home/bloc/logic/home_bloc/home_bloc.dart';
 import 'package:millat/resources/home/view/widgets/about_us_view.dart';
 import 'package:millat/resources/home/view/widgets/privacy_policy_view.dart';
 import 'package:millat/resources/home/view/widgets/support_help_view.dart';
@@ -511,6 +512,9 @@ Future<dynamic> logoutPopUp(BuildContext context) {
                         context
                             .read<DatabaseBloc>()
                             .add(const RemoveTokenEvent());
+                        context
+                            .read<HomeBloc>()
+                            .add(const ChangeHomeTabIndexEvent(newIndex: 0));
                         // await GoogleSignInService.logout();
                         Navigator.of(context).pushReplacement(MaterialPageRoute(
                           builder: (context) => const SignUpView(),

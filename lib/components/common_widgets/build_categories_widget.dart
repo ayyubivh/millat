@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:millat/resources/shop/view/categories/category_view.dart';
+import 'package:millat/utils/color_manager.dart';
+import 'package:millat/utils/utils.dart';
 
 class BuildCategoryWidget extends StatelessWidget {
   final String image;
@@ -19,16 +21,17 @@ class BuildCategoryWidget extends StatelessWidget {
       child: Column(
         children: [
           CircleAvatar(
-              backgroundColor: Colors.white,
-              radius: 33,
-              child: Image.network(image, height: 35)),
+            backgroundColor: ColorManager.whiteColor,
+            radius: 33,
+            child: Utilities.buildCachedNetworkImage(image, 35),
+          ),
           const SizedBox(
             height: 10,
           ),
           Text(
             text,
-            style: const TextStyle(
-                color: Colors.white, fontWeight: FontWeight.w600),
+            style: TextStyle(
+                color: ColorManager.whiteColor, fontWeight: FontWeight.w600),
           ),
         ],
       ),

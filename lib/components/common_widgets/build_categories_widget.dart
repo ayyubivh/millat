@@ -23,7 +23,8 @@ class BuildCategoryWidget extends StatelessWidget {
           CircleAvatar(
             backgroundColor: ColorManager.whiteColor,
             radius: 33,
-            child: Utilities.buildCachedNetworkImage(image, 35),
+            child:
+                Utilities.buildCachedNetworkImage(imageUrl: image, height: 35),
           ),
           const SizedBox(
             height: 10,

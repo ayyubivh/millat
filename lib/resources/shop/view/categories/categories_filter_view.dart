@@ -3,10 +3,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/components/common_widgets/build_category_full_view.dart';
 import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/shop/bloc/logic/category_bloc/category_bloc.dart';
+import 'package:millat/resources/shop/view/categories/categories_product_view.dart';
+import 'package:millat/resources/shop/view/categories/category_view.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/loader.dart';
+
 import 'package:millat/utils/size_utility.dart';
-import 'categories_product_view.dart';
 
 class CategoriesFilter extends StatefulWidget {
   const CategoriesFilter({Key? key}) : super(key: key);
@@ -20,16 +22,15 @@ class _CategoriesFilterState extends State<CategoriesFilter> {
   String subCategory = '';
   @override
   void initState() {
-    BlocProvider.of<CategoryBloc>(context).add(FetchFilterProducts(
-        category: context
+    BlocProvider.of<CategoryBloc>(context).add(FetchSubCategoriesByCategoryId(
+        categoryId: context
             .read<CategoryBloc>()
             .state
-            .category
-            ?.result!
-            .category![0]
-            .title
-            .toString(),
-        subCategory: ""));
+            .category!
+            .result!
+            .category!
+            .first
+            .id!));
     BlocProvider.of<CategoryBloc>(context)
         .add(const CategoryEvent.fetchCategories());
     BlocProvider.of<CategoryBloc>(context)
@@ -113,13 +114,8 @@ class _CategoriesFilterState extends State<CategoriesFilter> {
                                           currentIndex = index;
                                         });
                                         context.read<CategoryBloc>().add(
-                                              FetchFilterProducts(
-                                                category:
-                                                    category.title.toString(),
-                                                subCategory:
-                                                    category.title.toString(),
-                                              ),
-                                            );
+                                            FetchSubCategoriesByCategoryId(
+                                                categoryId: category.id ?? ""));
                                       },
                                       child: Container(
                                         height: 98,
@@ -147,15 +143,9 @@ class _CategoriesFilterState extends State<CategoriesFilter> {
             BlocBuilder<CategoryBloc, CategoryState>(
               builder: (context, state) {
                 return state.productLoading ||
-                        state.product?.result?.products == null
-                    ? Padding(
-                        padding: const EdgeInsets.only(left: 130),
-                        child: Center(
-                          child: CircularProgressIndicator(
-                            color: ColorManager.greenColor1,
-                          ),
-                        ),
-                      )
+                        state.subcategoryByCategoryIdModel?.result == null
+                    ? const Padding(
+                        padding: EdgeInsets.only(left: 130), child: Loader())
                     : Expanded(
                         child: GridView.builder(
                         gridDelegate:
@@ -167,33 +157,27 @@ class _CategoriesFilterState extends State<CategoriesFilter> {
                         ),
                         padding: EdgeInsets.zero,
                         itemBuilder: (context, index) {
-                          // if (state.product?.result == null) {
-                          //   return const Loader();
-                          // }
+                          final data = state.subcategoryByCategoryIdModel
+                              ?.result?.subCategory;
                           return GestureDetector(
                             onTap: () {
                               Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => CategoriesProductView(
-                                  type: FilterType.category,
-                                  category: state.product?.result!
-                                      .products?[index].category?.title
-                                      .toString(),
-                                  subCategory: state.product!.result!
-                                      .products?[index].subcategory!.title
-                                      .toString(),
-                                ),
-                              ));
+                                  builder: (context) => CategoriesProductView(
+                                      type: FilterType.category,
+                                      subCategory: data?[index].title,
+                                      category: state.category?.result
+                                              ?.category?[currentIndex].title ??
+                                          "")));
                             },
                             child: CategoryFullView(
                               isShowborder: false,
-                              iconImage: state
-                                  .product?.result?.products?[index].images?[0],
-                              categoryTitle:
-                                  state.product?.result?.products?[index].title,
+                              iconImage: data?[index].image,
+                              categoryTitle: data?[index].title,
                             ),
                           );
                         },
-                        itemCount: state.product?.result?.products?.length ?? 0,
+                        itemCount: state.subcategoryByCategoryIdModel?.result
+                            ?.subCategory?.length,
                       ));
               },
             )

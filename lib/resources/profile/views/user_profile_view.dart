@@ -12,6 +12,7 @@ import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/loader.dart';
 import 'package:millat/utils/string_constants.dart';
+import 'package:millat/utils/utils.dart';
 import '../../../utils/assets_paths.dart';
 import '../../../utils/size_utility.dart';
 import '../../authentication/bloc/logic/database_bloc/database_bloc.dart';
@@ -90,11 +91,12 @@ class UserProfileView extends StatelessWidget {
                                           color: ColorManager.black4A,
                                         )
                                       : ClipOval(
-                                          child: Image.network(
-                                            userPictureUrl,
+                                          child:
+                                              Utilities.buildCachedNetworkImage(
+                                            imageUrl: userPictureUrl,
                                             width: 80,
                                             height: 80,
-                                            fit: BoxFit.cover,
+                                            boxFit: BoxFit.cover,
                                           ),
                                         );
                                 },

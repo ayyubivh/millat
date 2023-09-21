@@ -17,4 +17,7 @@ class CategoryEvent with _$CategoryEvent {
   const factory CategoryEvent.priceRangeEvent({
     required int index,
   }) = PriceRangeEvent;
+  const factory CategoryEvent.fetchSubCategoriesByCategoryId({
+    required String categoryId,
+  }) = FetchSubCategoriesByCategoryId;
 }

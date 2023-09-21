@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
+import 'package:millat/utils/utils.dart';
 
 class CategoryFullView extends StatelessWidget {
   final String? iconImage;
@@ -29,8 +30,8 @@ class CategoryFullView extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Image.network(
-            iconImage ?? 'null image',
+          Utilities.buildCachedNetworkImage(
+            imageUrl: iconImage,
             width: 40,
             height: 40,
           ),

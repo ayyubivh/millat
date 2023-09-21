@@ -8,6 +8,7 @@ import 'package:millat/resources/shop/bloc/logic/category_bloc/category_bloc.dar
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
 import 'package:millat/resources/shop/view/categories/categories_product_view.dart';
 import 'package:millat/resources/shop/view/products/single_product_view.dart';
+import 'package:millat/resources/shop/view/womens_care/shop_specific_category_banner_view.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/loader.dart';
@@ -65,7 +66,8 @@ class _CategoryViewState extends State<CategoryView> {
                                 return SizedBox(
                                   height: 340,
                                   width: SizeUtility(context).width,
-                                  child: Utilities.buildCachedNetworkImage(e),
+                                  child: Utilities.buildCachedNetworkImage(
+                                      imageUrl: e),
                                 );
                               },
                             ).toList(),
@@ -172,7 +174,8 @@ class _CategoryViewState extends State<CategoryView> {
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(12),
                                       child: Utilities.buildCachedNetworkImage(
-                                          subCategoryData?.image ?? ""),
+                                          imageUrl:
+                                              subCategoryData?.image ?? ""),
                                     ),
                                   ),
                                   kHeight10,
@@ -264,6 +267,44 @@ class _CategoryViewState extends State<CategoryView> {
                     },
                   ),
                   kHeight20,
+                  BlocBuilder<ShopProductsBloc, ShopProductsState>(
+                    builder: (context, state) {
+                      final img = state.specificCategoryModel?.result?.data
+                              ?.smallBannerImage
+                              ?.map((image) => image.imageUrl)
+                              .toList() ??
+                          [];
+                      return state.specificCategoryModel?.result?.data == null
+                          ? const Loader()
+                          : Column(
+                              children: [
+                                for (var i = 0;
+                                    i <
+                                        state.specificCategoryModel!.result!
+                                            .data!.smallBannerImage!.length
+                                            .toInt();
+                                    i++)
+                                  GestureDetector(
+                                    onTap: () {
+                                      Navigator.of(context)
+                                          .push(MaterialPageRoute(
+                                        builder: (context) =>
+                                            ShopSpecificCategoryBannerView(
+                                                imageUrl: img[i] ?? "",
+                                                category: widget.category),
+                                      ));
+                                    },
+                                    child: Padding(
+                                      padding: const EdgeInsets.only(top: 2.5),
+                                      child: Utilities.buildCachedNetworkImage(
+                                          imageUrl: img[i]),
+                                    ),
+                                  ),
+                              ],
+                            );
+                    },
+                  ),
+                  kHeight20,
                   _produtsTitleWidget(
                     context: context,
                     text: Appstrings.mostPopular,
@@ -323,6 +364,27 @@ class _CategoryViewState extends State<CategoryView> {
                       );
                     },
                   ),
+                  kHeight10,
+                  BlocBuilder<ShopProductsBloc, ShopProductsState>(
+                    builder: (context, state) {
+                      final bigBannerImageUrl = state.specificCategoryModel
+                          ?.result?.data?.bigBannerImage?.imageUrl;
+                      return GestureDetector(
+                        onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) =>
+                                ShopSpecificCategoryBannerView(
+                              imageUrl: bigBannerImageUrl ?? "",
+                              category: widget.category,
+                            ),
+                          ));
+                        },
+                        child: Utilities.buildCachedNetworkImage(
+                            imageUrl: bigBannerImageUrl),
+                      );
+                    },
+                  ),
+                  kHeight25,
                 ],
               ),
             ),

@@ -259,7 +259,7 @@ class _ShopViewState extends State<ShopView> {
                 child: ClipRRect(
                     borderRadius: BorderRadius.circular(12),
                     child: Utilities.buildCachedNetworkImage(
-                        getImageUrl(index), null, BoxFit.cover)),
+                        imageUrl: getImageUrl(index), boxFit: BoxFit.cover)),
               ),
               const SizedBox(height: 10),
               Text(
@@ -313,105 +313,104 @@ class _ShopViewState extends State<ShopView> {
         final banners = state.shopAdBrands!.result?.data;
         return Column(
           children: [
-            GestureDetector(
-              child: CarouselSlider(
-                items: banners?.map((banner) {
-                  return GestureDetector(
-                    onTap: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) =>
-                            SingleBrandView(passValue: banner.brandId),
-                      ));
-                    },
-                    child: Container(
-                      height: 226,
-                      width: SizeUtility(context).width,
-                      decoration: BoxDecoration(
-                        color: Colors.orange.withOpacity(0.65),
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      margin: const EdgeInsets.only(right: 10),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Stack(
+            CarouselSlider(
+              items: banners?.map((banner) {
+                return GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) =>
+                          SingleBrandView(passValue: banner.brandId),
+                    ));
+                  },
+                  child: Container(
+                    height: 226,
+                    width: SizeUtility(context).width,
+                    decoration: BoxDecoration(
+                      color: Colors.orange.withOpacity(0.65),
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    margin: const EdgeInsets.only(right: 10),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Stack(
+                          children: [
+                            ClipRRect(
+                              borderRadius: const BorderRadius.vertical(
+                                top: Radius.circular(12),
+                              ),
+                              child: Image.asset(
+                                AppAssetsStrings.brandBackgroundImg,
+                                fit: BoxFit.fill,
+                                width: SizeUtility(context).width,
+                                height: 173,
+                              ),
+                            ),
+                            Positioned(
+                              top: 20,
+                              left: 20,
+                              child: CircleAvatar(
+                                radius: 32,
+                                backgroundColor: ColorManager.whiteColor,
+                                child: ClipOval(
+                                    child: Utilities.buildCachedNetworkImage(
+                                  imageUrl: banner.brandId?.logo ?? "",
+                                )),
+                              ),
+                            )
+                          ],
+                        ),
+                        Container(
+                          height: 52,
+                          width: SizeUtility(context).width,
+                          padding: const EdgeInsets.symmetric(horizontal: 14),
+                          child: Row(
                             children: [
-                              ClipRRect(
-                                borderRadius: const BorderRadius.vertical(
-                                  top: Radius.circular(12),
-                                ),
-                                child: Image.asset(
-                                  AppAssetsStrings.brandBackgroundImg,
-                                  fit: BoxFit.fill,
-                                  width: SizeUtility(context).width,
-                                  height: 173,
+                              const Text(
+                                "Discount Alerts",
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w600,
                                 ),
                               ),
-                              Positioned(
-                                top: 20,
-                                left: 20,
-                                child: CircleAvatar(
-                                  radius: 32,
-                                  backgroundColor: ColorManager.whiteColor,
-                                  child: ClipOval(
-                                      child: Utilities.buildCachedNetworkImage(
-                                          banner.brandId?.logo ?? "", null)),
+                              kWidth8,
+                              ImageIcon(
+                                const AssetImage(
+                                  AppAssetsStrings.discountStar,
                                 ),
-                              )
+                                color: ColorManager.whiteColor,
+                              ),
+                              kWidth8,
+                              Text(
+                                banner.text ?? "",
+                                style: const TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
                             ],
                           ),
-                          Container(
-                            height: 52,
-                            width: SizeUtility(context).width,
-                            padding: const EdgeInsets.symmetric(horizontal: 14),
-                            child: Row(
-                              children: [
-                                const Text(
-                                  "Discount Alerts",
-                                  style: TextStyle(
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                ),
-                                kWidth8,
-                                ImageIcon(
-                                  const AssetImage(
-                                    AppAssetsStrings.discountStar,
-                                  ),
-                                  color: ColorManager.whiteColor,
-                                ),
-                                kWidth8,
-                                Text(
-                                  banner.text ?? "",
-                                  style: const TextStyle(
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
-                  );
-                }).toList(),
-                options: CarouselOptions(
-                  height: 226,
-                  viewportFraction: 1,
-                  enlargeCenterPage: false,
-                  autoPlay: true,
-                  autoPlayCurve: Curves.fastOutSlowIn,
-                  enableInfiniteScroll: true,
-                  enlargeFactor: 0.3,
-                  scrollDirection: Axis.horizontal,
-                  autoPlayAnimationDuration: const Duration(milliseconds: 800),
-                  onPageChanged: (index, reason) {
-                    context
-                        .read<ShopProductsBloc>()
-                        .add(ChangeBrandBannerIndex(index));
-                  },
-                ),
+                  ),
+                );
+              }).toList(),
+              options: CarouselOptions(
+                height: 226,
+                viewportFraction: 1,
+                enlargeCenterPage: false,
+                autoPlay: true,
+                autoPlayCurve: Curves.fastOutSlowIn,
+                enableInfiniteScroll: true,
+                enlargeFactor: 0.3,
+                scrollDirection: Axis.horizontal,
+                autoPlayAnimationDuration: const Duration(milliseconds: 800),
+                onPageChanged: (index, reason) {
+                  context
+                      .read<ShopProductsBloc>()
+                      .add(ChangeBrandBannerIndex(index));
+                },
               ),
             ),
             kHeight10,
@@ -464,7 +463,8 @@ class _ShopViewState extends State<ShopView> {
                   child: ClipRRect(
                       borderRadius: BorderRadius.circular(20),
                       child: Utilities.buildCachedNetworkImage(
-                          banner.image, null)),
+                        imageUrl: banner.image,
+                      )),
                 );
               }).toList(),
               options: CarouselOptions(
@@ -669,7 +669,7 @@ Widget buildShopbyBrand(String? image, String? name) {
             borderRadius:
                 BorderRadius.circular(28), // Half of the width and height
             child: image != null
-                ? Utilities.buildCachedNetworkImage(image, 56)
+                ? Utilities.buildCachedNetworkImage(imageUrl: image, height: 56)
                 : const Placeholder(
                     fallbackHeight: 54.47,
                     fallbackWidth: 56,

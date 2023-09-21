@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:millat/resources/shop/bloc/models/shop_products/shop_products_model.dart';
-
+import 'package:millat/utils/loader.dart';
 import '../../../../components/common_widgets/shop_products_widget.dart';
 import '../../../../utils/color_manager.dart';
 import '../../../../utils/size_utility.dart';
@@ -23,7 +22,7 @@ class ShopSpecificCategoryBannerView extends StatelessWidget {
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Image.network(imageUrl),
             Container(
@@ -40,16 +39,14 @@ class ShopSpecificCategoryBannerView extends StatelessWidget {
             ),
             BlocBuilder<CategoryBloc, CategoryState>(
               builder: (context, state) {
-                return state.productLoading
-                    ? Center(
-                        child: CircularProgressIndicator(
-                            color: ColorManager.greenColor1),
-                      )
+                return state.productLoading ||
+                        state.product?.result?.products == null
+                    ? const Loader()
                     : Container(
                         margin: const EdgeInsets.symmetric(horizontal: 30),
                         height: SizeUtility(context).height,
+                        width: SizeUtility(context).width,
                         child: GridView.builder(
-                          physics: const BouncingScrollPhysics(),
                           gridDelegate:
                               const SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisCount: 2,

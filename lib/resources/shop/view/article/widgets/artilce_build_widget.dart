@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/string_constants.dart';
+import 'package:millat/utils/utils.dart';
 
 import '../../../../../utils/color_manager.dart';
 
@@ -68,11 +69,11 @@ class ArticleBuilWidget extends StatelessWidget {
             ),
             ClipRRect(
               borderRadius: BorderRadius.circular(20),
-              child: Image.network(
-                image,
+              child: Utilities.buildCachedNetworkImage(
+                imageUrl: image,
                 height: 80,
                 width: 80,
-                fit: BoxFit.cover,
+                boxFit: BoxFit.contain,
               ),
             ),
           ],

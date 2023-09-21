@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:millat/resources/shop/bloc/models/category/categories._model.dart';
+import 'package:millat/resources/shop/bloc/models/category/subcategories_by_category_id.dart';
 import 'package:millat/resources/shop/bloc/models/products/products_model.dart';
 import 'package:millat/resources/shop/bloc/service/category_services.dart';
 
@@ -22,6 +23,7 @@ class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
     on<FilterEvent>(_filterEvent);
     on<FilterBrandPickEvent>(_filterBrandPickEvent);
     on<PriceRangeEvent>(_priceRangeEvent);
+    on<FetchSubCategoriesByCategoryId>(_fetchSubCategoriesByCategoryId);
   }
 
   FutureOr<void> _fetchFilterProducts(
@@ -88,5 +90,20 @@ class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
 
   _priceRangeEvent(PriceRangeEvent event, Emitter<CategoryState> emit) {
     emit(state.copyWith(priceRangeIndex: event.index));
+  }
+
+  _fetchSubCategoriesByCategoryId(
+      FetchSubCategoriesByCategoryId event, Emitter<CategoryState> emit) async {
+    emit(state.copyWith(subCategoryLoading: true));
+
+    try {
+      final data = await _categoryService.fetchSubCategoryByCategoryId(
+          categoryId: event.categoryId);
+      emit(state.copyWith(
+          subcategoryByCategoryIdModel: data, subCategoryLoading: false));
+    } catch (e) {
+      emit(state.copyWith(
+          errorMessage: "An error occurred", subCategoryLoading: false));
+    }
   }
 }

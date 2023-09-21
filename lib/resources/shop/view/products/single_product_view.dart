@@ -77,7 +77,8 @@ class SingleProductView extends StatelessWidget {
                           decoration: BoxDecoration(
                             color: black247,
                             image: DecorationImage(
-                              image: NetworkImage(data?.images?[0] ?? ""),
+                              image: Utilities.buildCachedNetworkImageProvider(
+                                  data?.images?[0] ?? ""),
                             ),
                           ),
                         ),
@@ -438,7 +439,7 @@ class SingleProductView extends StatelessWidget {
                       width: 130,
                       decoration: BoxDecoration(
                           image: DecorationImage(
-                            image: NetworkImage(
+                            image: Utilities.buildCachedNetworkImageProvider(
                               image,
                             ),
                             fit: BoxFit.cover,

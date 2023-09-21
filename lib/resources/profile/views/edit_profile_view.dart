@@ -270,14 +270,13 @@ class _EditProfileViewState extends State<EditProfileView> {
                                                         image: state.imagebytes !=
                                                                 null
                                                             ? FileImage(state
-                                                                    .imagebytes!)
-                                                                as ImageProvider<
-                                                                    Object>
-                                                            : NetworkImage(state
-                                                                .authUserModel!
-                                                                .result!
-                                                                .user!
-                                                                .picture!),
+                                                                .imagebytes!)
+                                                            : Utilities
+                                                                .buildCachedNetworkImageProvider(state
+                                                                    .authUserModel!
+                                                                    .result!
+                                                                    .user!
+                                                                    .picture!),
                                                       ),
                                                     ),
                                                   ),
@@ -461,7 +460,7 @@ class _EditProfileViewState extends State<EditProfileView> {
                         ?.result
                         ?.user
                         ?.picture;
-                    print(img);
+
                     final email = context
                         .read<DatabaseBloc>()
                         .state

@@ -133,10 +133,14 @@ class Utilities {
   //   return false;
   // }
   static buildCachedNetworkImage(
-      [String? imageUrl, double? height, BoxFit boxFit = BoxFit.contain]) {
+      {String? imageUrl,
+      double? height,
+      BoxFit boxFit = BoxFit.contain,
+      double? width}) {
     return CachedNetworkImage(
       imageUrl: imageUrl!,
-      height: height ?? 0,
+      height: height,
+      width: width,
       fit: boxFit,
       placeholder: (context, url) => const SizedBox(),
       errorWidget: (context, url, error) => const Icon(

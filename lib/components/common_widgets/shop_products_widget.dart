@@ -56,14 +56,13 @@ class ShopProductWidget extends StatelessWidget {
               Align(
                 alignment: Alignment.center,
                 child: ClipRRect(
-                  borderRadius: BorderRadius.circular(12),
-                  child: Image.network(
-                    image.toString(),
-                    height: 136,
-                    width: double.infinity,
-                    fit: BoxFit.cover,
-                  ),
-                ),
+                    borderRadius: BorderRadius.circular(12),
+                    child: Utilities.buildCachedNetworkImage(
+                      width: SizeUtility(context).width / 2.6,
+                      imageUrl: image,
+                      height: 136,
+                      boxFit: BoxFit.cover,
+                    )),
               )
             ],
           ),

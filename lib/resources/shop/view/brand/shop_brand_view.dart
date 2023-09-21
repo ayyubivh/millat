@@ -9,6 +9,7 @@ import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/loader.dart';
 import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/string_constants.dart';
+import 'package:millat/utils/utils.dart';
 
 class ShopBrandView extends StatelessWidget {
   const ShopBrandView({super.key});
@@ -18,6 +19,7 @@ class ShopBrandView extends StatelessWidget {
     WidgetsBinding.instance.addPostFrameCallback((_) {});
     return Scaffold(
       body: SingleChildScrollView(
+        physics: const ClampingScrollPhysics(),
         child: Column(
           children: [
             _stackContainerPart(context),
@@ -85,6 +87,7 @@ class ShopBrandView extends StatelessWidget {
         Container(
           width: double.infinity,
           height: 240,
+
           // margin: const EdgeInsets.all(25),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(12),
@@ -126,7 +129,8 @@ class ShopBrandView extends StatelessWidget {
                               borderRadius: BorderRadius.circular(8),
                             ),
                             child: data?.logo != null
-                                ? Image.network(data!.logo!)
+                                ? Utilities.buildCachedNetworkImage(
+                                    imageUrl: data!.logo!)
                                 : const Icon(
                                     Icons.image_not_supported_outlined)),
                         kHeight10,
@@ -137,8 +141,8 @@ class ShopBrandView extends StatelessWidget {
                             fontWeight: FontWeight.w600,
                           ),
                           textAlign: TextAlign.center,
-                          maxLines: 2,
-                          overflow: TextOverflow.fade,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
                         )
                       ],
                     ),
@@ -268,11 +272,8 @@ class ShopBrandView extends StatelessWidget {
                             size: 200,
                           ),
                         )
-                      : Image.network(
-                          data.coverImage!,
-                          fit: BoxFit.cover,
-                          width: SizeUtility(context).width,
-                        ),
+                      : Utilities.buildCachedNetworkImage(
+                          imageUrl: data.coverImage!, boxFit: BoxFit.cover),
                   Positioned.fill(
                     child: DecoratedBox(
                       decoration: BoxDecoration(
@@ -344,7 +345,8 @@ class ShopBrandView extends StatelessWidget {
                         borderRadius: BorderRadius.circular(30),
                         child: data.logo == null
                             ? const Icon(Icons.image_not_supported_outlined)
-                            : Image.network(data.logo!),
+                            : Utilities.buildCachedNetworkImage(
+                                imageUrl: data.logo),
                       ),
                     ),
                   )

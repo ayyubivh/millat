@@ -8,6 +8,7 @@ import 'package:millat/resources/shop/view/womens_care/shop_specific_category_su
 import 'package:millat/utils/loader.dart';
 import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/string_constants.dart';
+import 'package:millat/utils/utils.dart';
 
 import '../../../../components/common_widgets/shop_products_widget.dart';
 import '../../../../utils/color_manager.dart';
@@ -186,7 +187,8 @@ class ShopSpecificCategoryView extends StatelessWidget {
                             return SizedBox(
                               height: 340,
                               width: SizeUtility(context).width,
-                              child: Image.network(e),
+                              child: Utilities.buildCachedNetworkImage(
+                                  imageUrl: e),
                             );
                           },
                         ).toList(),
@@ -307,8 +309,11 @@ class ShopSpecificCategoryView extends StatelessWidget {
                                       ),
                                       child: ClipRRect(
                                         borderRadius: BorderRadius.circular(12),
-                                        child: Image.network(
-                                            subCategoryData?.image ?? ""),
+                                        child:
+                                            Utilities.buildCachedNetworkImage(
+                                                imageUrl:
+                                                    subCategoryData?.image ??
+                                                        ""),
                                       ),
                                     ),
                                     kHeight10,
@@ -451,7 +456,8 @@ class ShopSpecificCategoryView extends StatelessWidget {
                                 },
                                 child: Padding(
                                   padding: const EdgeInsets.only(top: 2.5),
-                                  child: Image.network(smallBannerImageUrls[i]),
+                                  child: Utilities.buildCachedNetworkImage(
+                                      imageUrl: smallBannerImageUrls[i]),
                                 ),
                               ),
                             kHeight20,
@@ -465,7 +471,7 @@ class ShopSpecificCategoryView extends StatelessWidget {
                                 if (state.popularProducts?.result
                                         ?.shopProductCategory?.products ==
                                     null) {
-                                  return const Loader(); // Display a loader or any other loading widget.
+                                  return const Loader();
                                 }
 
                                 final products = state.popularProducts?.result
@@ -531,7 +537,8 @@ class ShopSpecificCategoryView extends StatelessWidget {
                                   ),
                                 ));
                               },
-                              child: Image.network(bigBannerImageUrl ?? ""),
+                              child: Utilities.buildCachedNetworkImage(
+                                  imageUrl: bigBannerImageUrl),
                             ),
                             kHeight100,
                           ],

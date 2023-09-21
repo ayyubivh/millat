@@ -15,6 +15,7 @@ class CategoryState with _$CategoryState {
     required String? filterSubCategory,
     required String? filterBrand,
     required int? priceRangeIndex,
+    required SubcategoryByCategoryIdModel? subcategoryByCategoryIdModel,
   }) = _CategoryState;
   factory CategoryState.initial() => const CategoryState(
         product: null,
@@ -29,5 +30,6 @@ class CategoryState with _$CategoryState {
         filterSubCategory: '',
         filterBrand: '',
         priceRangeIndex: null,
+        subcategoryByCategoryIdModel: null,
       );
 }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/constants.dart';
+import 'package:millat/utils/utils.dart';
 
 import '../../../../../utils/color_manager.dart';
 import '../../../bloc/logic/cart_bloc/cart_bloc.dart';
@@ -56,7 +57,8 @@ class CartProductWidget extends StatelessWidget {
                         color: ColorManager.lightYellow,
                         borderRadius: BorderRadius.circular(16),
                         image: DecorationImage(
-                          image: NetworkImage(image!),
+                          image:
+                              Utilities.buildCachedNetworkImageProvider(image!),
                           fit: BoxFit.cover,
                         ),
                       ),

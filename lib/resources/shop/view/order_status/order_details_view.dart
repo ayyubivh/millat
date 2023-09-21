@@ -320,7 +320,7 @@ class OrdetailsView extends StatelessWidget {
           children: [
             Container(
               height: 150,
-              padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+              padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
               decoration: BoxDecoration(
                 color: ColorManager.whiteColor,
                 borderRadius: const BorderRadius.vertical(
@@ -375,65 +375,52 @@ class OrdetailsView extends StatelessWidget {
               ),
             ),
             Container(
-              height: 60,
-              decoration: BoxDecoration(
-                color: ColorManager.whiteColor,
-                borderRadius: const BorderRadius.vertical(
-                  bottom: Radius.circular(12),
+                decoration: BoxDecoration(
+                  color: ColorManager.whiteColor,
+                  borderRadius: const BorderRadius.vertical(
+                    bottom: Radius.circular(12),
+                  ),
+                  border: Border.all(
+                    color: ColorManager.greyB8,
+                  ),
                 ),
-                border: Border.all(
-                  color: ColorManager.greyB8,
-                ),
-              ),
-              padding: const EdgeInsets.all(8),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  kWidht10,
-                  Text(
-                    "You'll receive on email at",
+                padding: const EdgeInsets.all(12),
+                child: Text.rich(TextSpan(children: [
+                  TextSpan(
+                    text: "You'll receive on email at ",
                     style: TextStyle(
                       color: ColorManager.textGrey99,
                       fontSize: 15,
                       fontWeight: FontWeight.w500,
                       height: 1.2,
                     ),
-                    textAlign: TextAlign.center,
                   ),
-                  Row(
-                    children: [
-                      Text(
-                        context
-                                .read<DatabaseBloc>()
-                                .state
-                                .authUserModel
-                                ?.result
-                                ?.user
-                                ?.email ??
-                            "",
-                        style: TextStyle(
-                          color: ColorManager.blackColor,
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                          height: 1.2,
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                      Text(
-                        "once your order is confirmed",
-                        style: TextStyle(
-                          color: ColorManager.textGrey99,
-                          fontSize: 15,
-                          fontWeight: FontWeight.w500,
-                          height: 1.2,
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                    ],
+                  TextSpan(
+                    text: context
+                            .read<DatabaseBloc>()
+                            .state
+                            .authUserModel
+                            ?.result
+                            ?.user
+                            ?.email ??
+                        "",
+                    style: TextStyle(
+                      color: ColorManager.blackColor,
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold,
+                      height: 1.2,
+                    ),
                   ),
-                ],
-              ),
-            )
+                  TextSpan(
+                    text: " once your order is confirmed",
+                    style: TextStyle(
+                      color: ColorManager.textGrey99,
+                      fontSize: 15,
+                      fontWeight: FontWeight.w500,
+                      height: 1.2,
+                    ),
+                  ),
+                ])))
           ],
         );
       },
@@ -681,7 +668,6 @@ class OrdetailsView extends StatelessWidget {
               Container(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 8, vertical: 12),
-                height: 185,
                 decoration: BoxDecoration(
                   color: ColorManager.whiteColor,
                   borderRadius: BorderRadius.circular(

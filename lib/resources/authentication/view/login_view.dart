@@ -1,17 +1,22 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/components/buttons/main_button.dart';
 import 'package:millat/components/buttons/main_text_button.dart';
 import 'package:millat/components/textFields/custom_text_field.dart';
 import 'package:millat/resources/authentication/bloc/logic/auth_bloc.dart';
+import 'package:millat/resources/authentication/class/google_signin.dart';
 import 'package:millat/resources/authentication/view/forgot_password_view.dart';
 import 'package:millat/resources/authentication/view/send_otp_view.dart';
 import 'package:millat/resources/authentication/view/sign_up_view.dart';
 import 'package:millat/resources/tabs/view/tabs_view.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/validators.dart';
+import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 
 import '../../../utils/color_manager.dart';
+import '../../../utils/utils.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({Key? key}) : super(key: key);
@@ -158,15 +163,20 @@ class _LoginViewState extends State<LoginView> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Image.asset('assets/logos/facebook_logo.png', width: 20),
-                  const SizedBox(
-                    width: 40,
+                  InkWell(
+                    onTap: () => googleSignIn(),
+                    child:
+                        Image.asset('assets/logos/google_logo.png', width: 40),
                   ),
-                  Image.asset('assets/logos/google_logo.png', width: 40),
-                  const SizedBox(
-                    width: 40,
-                  ),
-                  Image.asset('assets/logos/apple_logo.png', width: 60),
+                  const SizedBox(width: 40),
+                  Platform.isIOS
+                      ? InkWell(
+                          onTap: () => appleSignIn(),
+                          child: Image.asset(
+                            'assets/logos/apple_logo.png',
+                            width: 60,
+                          ))
+                      : const SizedBox(),
                 ],
               )
             ],
@@ -174,6 +184,40 @@ class _LoginViewState extends State<LoginView> {
         ),
       ),
     );
+  }
+
+  Future appleSignIn() async {
+    if (await SignInWithApple.isAvailable()) {
+      try {
+        final user = await SignInWithApple.getAppleIDCredential(scopes: [
+          AppleIDAuthorizationScopes.email,
+          AppleIDAuthorizationScopes.fullName,
+        ]);
+        showSnackBar(context, "${user.givenName} signed in");
+        context.read<AuthBloc>().add(
+            SocialLogin(email: user.email!, name: user.givenName!, context));
+      } on Exception catch (e) {
+        print(e);
+      }
+    } else {
+      showSnackBar(context, "Apple SignIn is not available for your device");
+    }
+  }
+
+  Future googleSignIn() async {
+    try {
+      final user = await GoogleSignInService.login();
+
+      await user?.authentication;
+
+      showSnackBar(context, "${user?.displayName} signed in");
+      context.read<AuthBloc>().add(
+          SocialLogin(email: user!.email, name: user.displayName!, context));
+      // await GoogleSignInService.logout();
+    } catch (exception) {
+      print(exception);
+      showSnackBar(context, exception.toString());
+    }
   }
 
   ScaffoldFeatureController buildError(String message) {

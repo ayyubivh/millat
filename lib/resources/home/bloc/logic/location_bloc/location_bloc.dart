@@ -134,13 +134,14 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
       if (placemarks.isNotEmpty) {
         Placemark placemark = placemarks[0];
         // String address = placemark.thoroughfare ?? '';
+        String subLocality = placemark.subLocality ?? '';
         String locality = placemark.locality ?? '';
         // String subAdministrativeArea = placemark.subAdministrativeArea ?? '';
         String administrativeArea = placemark.administrativeArea ?? '';
         // String country = placemark.country ?? '';
         // print(
         //     "=======$placemark address :::: $address===========\nlocality ::::: $locality=============\n subadminstrative area:::::$subAdministrativeArea========\n");
-        String currentAddress = ' $locality, $administrativeArea';
+        String currentAddress = '$subLocality, $locality';
         return currentAddress;
       }
     } catch (e) {

@@ -89,7 +89,7 @@ class _CartViewState extends State<CartView> {
   Widget _notEmptyContainer(
       int subTotal, int shippingFee, int total, bool isShow) {
     return Container(
-        height: isShow ? 265 : 160,
+        height: isShow ? 280 : 160,
         color: ColorManager.whiteColor,
         padding: const EdgeInsets.symmetric(horizontal: 30),
         child: Column(

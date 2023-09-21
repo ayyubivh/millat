@@ -39,16 +39,8 @@ class TasbihViewState extends State<TasbihView>
   }
 
   void _onTapTasbihBall() {
-    HapticFeedback.heavyImpact();
-
     context.read<TasbihBloc>().add(const DikhrIncreaseCountEvent());
     _controller.reverse(from: 0.5);
-
-    // Future.delayed(const Duration(milliseconds: 308), () {
-    //   if (_controller.isAnimating) {
-    //     _controller.stop();
-    //   }
-    // });
   }
 
   final numberController = TextEditingController();

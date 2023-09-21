@@ -179,25 +179,25 @@ class _SignUpViewState extends State<SignUpView> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Image.asset('assets/logos/facebook_logo.png',
-                              width: 20),
-                          const SizedBox(
-                            width: 40,
-                          ),
+                          // Image.asset('assets/logos/facebook_logo.png',
+                          //     width: 20),
+                          // const SizedBox(
+                          //   width: 40,
+                          // ),
                           InkWell(
                             onTap: () => googleSignIn(),
                             child: Image.asset('assets/logos/google_logo.png',
                                 width: 40),
                           ),
-                          const SizedBox(
-                            width: 40,
-                          ),
-                          InkWell(
-                              onTap: () => appleSignIn(),
-                              child: Image.asset(
-                                'assets/logos/apple_logo.png',
-                                width: 60,
-                              )),
+                          const SizedBox(width: 40),
+                          Platform.isIOS
+                              ? InkWell(
+                                  onTap: () => appleSignIn(),
+                                  child: Image.asset(
+                                    'assets/logos/apple_logo.png',
+                                    width: 60,
+                                  ))
+                              : const SizedBox(),
                         ],
                       )
                     ],
@@ -214,11 +214,13 @@ class _SignUpViewState extends State<SignUpView> {
   Future appleSignIn() async {
     if (await SignInWithApple.isAvailable()) {
       try {
-        final credential = await SignInWithApple.getAppleIDCredential(scopes: [
+        final user = await SignInWithApple.getAppleIDCredential(scopes: [
           AppleIDAuthorizationScopes.email,
           AppleIDAuthorizationScopes.fullName,
         ]);
-        print(credential.email);
+        showSnackBar(context, "${user.givenName} signed in");
+        context.read<AuthBloc>().add(
+            SocialLogin(email: user.email!, name: user.givenName!, context));
       } on Exception catch (e) {
         print(e);
       }

@@ -21,8 +21,10 @@ class NotificationService {
     AndroidInitializationSettings initializationSettingsAndroid =
         const AndroidInitializationSettings('app_icon');
 
-    var initializationSettings =
-        InitializationSettings(android: initializationSettingsAndroid);
+    const iosInitializationSetting = DarwinInitializationSettings();
+
+    var initializationSettings = InitializationSettings(
+        android: initializationSettingsAndroid, iOS: iosInitializationSetting);
     await notificationsPlugin.initialize(initializationSettings);
     await notificationsPlugin.initialize(
       initializationSettings,

@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:io';
 
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
@@ -52,7 +53,7 @@ class TasbihBloc extends Bloc<TasbihEvent, TasbihState> {
       DikhrIncreaseCountEvent event, Emitter<TasbihState> emit) {
     audioPlayer.setAsset("assets/audio/tasbih_click.mp3");
     audioPlayer.play();
-    HapticFeedback.vibrate();
+    Platform.isIOS ? HapticFeedback.lightImpact() : HapticFeedback.vibrate();
     emit(state.copyWith(dhikrCount: state.dhikrCount + 1));
   }
 

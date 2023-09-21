@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/enums/enumertations.dart';
@@ -56,7 +58,9 @@ class ShopTabsView extends StatelessWidget {
           extendBody: true,
           body: screens[state.index],
           bottomNavigationBar: SizedBox(
-            height: (8.0 / 100.0) * SizeUtility(context).height,
+            height: Platform.isIOS
+                ? 90
+                : (8.0 / 100.0) * SizeUtility(context).height,
             child: BottomNavigationBar(
               onTap: (newIndex) {
                 if (newIndex == 0 && state.index == newIndex) {

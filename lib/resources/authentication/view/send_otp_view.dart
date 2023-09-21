@@ -15,7 +15,9 @@ class SendOTPView extends StatefulWidget {
 }
 
 class _SendOTPViewState extends State<SendOTPView> {
-  final TextEditingController phoneNumberController = TextEditingController();
+  PhoneNumber? number;
+
+  bool isValidate = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -60,17 +62,21 @@ class _SendOTPViewState extends State<SendOTPView> {
                   ),
                   InternationalPhoneNumberInput(
                     initialValue: PhoneNumber(isoCode: 'IN'),
-                    onInputChanged: (PhoneNumber number) {},
-                    onInputValidated: (bool value) {},
+                    onInputChanged: (value) => number = value,
+                    onInputValidated: (bool value) {
+                      if (value) {
+                        setState(() {
+                          isValidate = value;
+                        });
+                      }
+                    },
                     selectorConfig: const SelectorConfig(
                       selectorType: PhoneInputSelectorType.BOTTOM_SHEET,
                     ),
-                    ignoreBlank: true,
-                    autoValidateMode: AutovalidateMode.disabled,
+                    autoValidateMode: AutovalidateMode.onUserInteraction,
                     selectorTextStyle: const TextStyle(color: Colors.black),
                     formatInput: true,
-                    keyboardType: const TextInputType.numberWithOptions(
-                        signed: true, decimal: true),
+                    keyboardType: TextInputType.phone,
                     inputBorder: const OutlineInputBorder(),
                     inputDecoration: const InputDecoration(
                       labelText: 'Phone Number',
@@ -78,14 +84,9 @@ class _SendOTPViewState extends State<SendOTPView> {
                       focusedBorder: InputBorder.none,
                       enabledBorder: InputBorder.none,
                     ),
-                    onSaved: (PhoneNumber number) {
-                      print('On Saved: $number');
-                    },
-                    textFieldController: phoneNumberController,
+                    maxLength: 11,
                   ),
-                  const SizedBox(
-                    height: 100,
-                  ),
+                  const SizedBox(height: 100),
                   Image.asset('assets/images/phone.png'),
                   const SizedBox(
                     height: 100,
@@ -93,8 +94,14 @@ class _SendOTPViewState extends State<SendOTPView> {
                   MainButton(
                       title: 'Send OTP',
                       onPressed: () {
-                        BlocProvider.of<AuthBloc>(context)
-                            .add(SendOTP(phoneNumberController.text));
+                        if (isValidate) {
+                          BlocProvider.of<AuthBloc>(context)
+                              .add(SendOTP(number!.phoneNumber!));
+                        } else {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                  content: Text("Please entre phone number")));
+                        }
                       }),
                 ],
               ),
@@ -110,7 +117,5 @@ class _SendOTPViewState extends State<SendOTPView> {
         .showSnackBar(SnackBar(content: Text(message)));
   }
 
-  clearDate() {
-    phoneNumberController.clear();
-  }
+  clearDate() => number = null;
 }

@@ -86,24 +86,34 @@ class _QiblahScreenState extends State<QiblahScreen>
                   children: [
                     Image.asset('assets/images/kaaba.png'),
                     const SizedBox(height: 10),
-                    Container(
-                        height: 300,
-                        decoration:
-                            BoxDecoration(shape: BoxShape.circle, boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.8),
-                            blurRadius: 15,
-                            spreadRadius: 10,
-                          )
-                        ]),
-                        child: AnimatedBuilder(
-                          animation: animation!,
-                          builder: (context, child) => Transform.rotate(
-                              angle: animation!.value,
-                              child: Image.asset(
-                                  compassImages[state.compassTheme]
-                                      .toString())),
-                        )),
+                    Stack(
+                      alignment: Alignment.center,
+                      children: [
+                        Container(
+                            height: 300,
+                            decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                boxShadow: [
+                                  BoxShadow(
+                                    color:
+                                        Colors.grey.shade800.withOpacity(0.7),
+                                    blurRadius: 30,
+                                    spreadRadius: 5,
+                                  )
+                                ])),
+                        SizedBox(
+                            height: 350,
+                            child: AnimatedBuilder(
+                              animation: animation!,
+                              builder: (context, child) => Transform.rotate(
+                                  angle: animation!.value,
+                                  child: Image.asset(
+                                    compassImages[state.compassTheme]
+                                        .toString(),
+                                  )),
+                            )),
+                      ],
+                    ),
                     const SizedBox(height: 30),
                     Text(
                       "${qiblahDirection.direction.toInt()} ${getCardinalDirection(qiblahDirection.direction)}°",

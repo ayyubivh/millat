@@ -142,7 +142,13 @@ class _HomeViewState extends State<HomeView> {
                     children: [
                       AnimatedContainer(
                         duration: const Duration(milliseconds: 1000),
-                        height: scrollNotifier.value == true ? 290 : 178,
+                        height: scrollNotifier.value == true
+                            ? Platform.isIOS
+                                ? 310
+                                : 280
+                            : Platform.isIOS
+                                ? 210
+                                : 180,
                         width: SizeUtility(context).width,
                         decoration:
                             BoxDecoration(color: ColorManager.midGreenColor
@@ -159,7 +165,7 @@ class _HomeViewState extends State<HomeView> {
                         child: Padding(
                           padding: const EdgeInsets.symmetric(
                             horizontal: 30,
-                          ).copyWith(top: 35),
+                          ).copyWith(top: Platform.isIOS ? 60 : 35),
                           child: Stack(
                             // crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -270,14 +276,14 @@ class _HomeViewState extends State<HomeView> {
                                 curve: Curves.linear,
                                 duration: const Duration(milliseconds: 1000),
                                 padding: EdgeInsets.only(
-                                  left: scrollNotifier.value ? 100 : 120,
-                                  // top: scrollNotifier.value == true ? 2 : 4,
+                                  left: scrollNotifier.value ? 115 : 150,
+                                  top: scrollNotifier.value == true ? 0 : 5,
                                 ),
                                 child: Image.asset(
                                   AppAssetsStrings.homeBgDesign,
-                                  height: 84,
-                                  width: SizeUtility(context).width / 1.8,
-                                  fit: BoxFit.cover,
+                                  height: scrollNotifier.value ? 80 : 70,
+                                  // width: SizeUtility(context).width / 2,
+                                  // fit: BoxFit.cover,
                                 ),
                               ),
                               Padding(
@@ -288,7 +294,7 @@ class _HomeViewState extends State<HomeView> {
                                 child: scrollNotifier.value
                                     ? animatedContainerWidget1(context)
                                     : animatedContainerWidget2(context),
-                              )
+                              ),
                             ],
                           ),
                         ),

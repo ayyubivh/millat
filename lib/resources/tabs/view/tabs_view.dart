@@ -74,7 +74,9 @@ class _TabsViewState extends State<TabsView> {
         child: Scaffold(
           extendBody: true,
           bottomNavigationBar: SizedBox(
-            height: (8.0 / 100.0) * SizeUtility(context).height,
+            height: Platform.isIOS
+                ? 90
+                : (8.0 / 100.0) * SizeUtility(context).height,
             child: BottomNavigationBar(
               onTap: onTap,
               currentIndex: state.homeTabIndex,

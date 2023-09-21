@@ -75,5 +75,7 @@
 	<string>appTrackingTransparency</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>This app needs access to use photo library to upload users photo</string>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>Play audio files</string>
 </dict>
 </plist>

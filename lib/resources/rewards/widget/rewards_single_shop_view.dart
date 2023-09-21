@@ -215,6 +215,7 @@ class RewardsSingleShopView extends StatelessWidget {
               lastWidget(
                   text: Appstrings.nonReturnalbe,
                   icon: Icons.navigate_next_outlined),
+              kHeight100,
             ],
           ),
         ),

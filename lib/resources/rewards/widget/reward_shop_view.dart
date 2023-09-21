@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:millat/resources/rewards/widget/reward_cart_view.dart';
 import 'package:millat/resources/rewards/widget/rewards_single_shop_view.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/color_manager.dart';
@@ -24,56 +25,31 @@ class RewardShopView extends StatelessWidget {
             fontWeight: FontWeight.w600,
           ),
         ),
-        actions: const [
-          ImageIcon(AssetImage(
-            AppAssetsStrings.addCart,
-          )),
+        actions: [
+          GestureDetector(
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => const RewardCartView(),
+              ));
+            },
+            child: const ImageIcon(AssetImage(
+              AppAssetsStrings.addCart,
+            )),
+          ),
           kWidth20,
         ],
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 30),
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30),
-              child: Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        Appstrings.incredibleSteals,
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w600,
-                          color: ColorManager.black4F,
-                        ),
-                      ),
-                      Text(
-                        Appstrings.viewAll,
-                        style: TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.w600,
-                          color: ColorManager.primary,
-                        ),
-                      ),
-                    ],
-                  ),
-                  kHeight10,
-                  SizedBox(
-                      height: 335,
-                      child: ListView.builder(
-                        itemCount: 4,
-                        scrollDirection: Axis.horizontal,
-                        itemBuilder: (context, index) {
-                          return _itemWidget(context);
-                        },
-                      ))
-                ],
-              ),
-            )
-          ],
+        padding: const EdgeInsets.symmetric(horizontal: 30),
+        child: GridView.builder(
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            mainAxisExtent: 360,
+          ),
+          itemCount: 4,
+          itemBuilder: (context, index) {
+            return _itemWidget(context);
+          },
         ),
       ),
     );

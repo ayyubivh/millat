@@ -300,6 +300,10 @@ class Appstrings {
       "Once the payment for your order is complete, the order cannot be cancelled";
   static const String understood = "Understood";
   static const String youSaved = "You Just saved ₹300!";
+  static const String missDeal = "You're missing a great deal";
+  static const String areYouSureRemove = "Are you sure you want to remove this product from the cart?";
+  static const String remove = "Remove";
+  static const  String keepIt = "Keep It";
 }
 
 String authToken = 'authToken';

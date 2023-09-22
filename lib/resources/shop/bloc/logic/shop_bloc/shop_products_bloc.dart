@@ -70,6 +70,7 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
     on<SavePaymentMethodType>(_saveMethodType);
     on<FetchSpecificCategeryItems>(_fetchSpecificCategeryItems);
     on<FetchProductsById>(_fetchProductsById);
+    on<FetchBrandProducts>(_fetchBrandProducts);
   }
 
   FutureOr<void> _fetchFlashSaleProducts(
@@ -87,13 +88,14 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
 
   FutureOr<void> _fetchPopularProducts(
       FetchPopularProducts event, Emitter<ShopProductsState> emit) async {
-    emit(state.copyWith(isLoading: true));
+    emit(state.copyWith(popularProductLoading: true));
 
     try {
       final data = await shopService.fetchPopularProducts(event.endPointSlug);
-      emit(state.copyWith(popularProducts: data, isLoading: false));
+      emit(state.copyWith(popularProducts: data, popularProductLoading: false));
     } catch (e) {
-      emit(state.copyWith(errorMessage: "An error occurred", isLoading: false));
+      emit(state.copyWith(
+          errorMessage: "An error occurred", popularProductLoading: false));
     }
   }
 
@@ -532,6 +534,17 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
     try {
       final data = await shopService.fetchProductByid(id: event.id);
       emit(state.copyWith(productByIdModel: data, isLoading: false));
+    } catch (e) {
+      emit(state.copyWith(isLoading: false));
+    }
+  }
+
+  _fetchBrandProducts(
+      FetchBrandProducts event, Emitter<ShopProductsState> emit) async {
+    emit(state.copyWith(isLoading: true));
+    try {
+      final data = await shopService.fetchBrandProducts(brandId: event.brandId);
+      emit(state.copyWith(brandProductsModel: data, isLoading: false));
     } catch (e) {
       emit(state.copyWith(isLoading: false));
     }

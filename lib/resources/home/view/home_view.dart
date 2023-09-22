@@ -8,6 +8,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:http/http.dart' as http;
 import 'package:millat/resources/shop/bloc/service/category_services.dart';
+import 'package:millat/resources/shop/bloc/service/review_service.dart';
 import 'package:millat/resources/shop/bloc/service/shop_services.dart';
 import 'package:millat/resources/shop/view/brand/single_brand_view.dart';
 import 'package:path_provider/path_provider.dart';
@@ -77,6 +78,7 @@ class _HomeViewState extends State<HomeView> {
       ..add(const FetchHadithOfTheDay())
       ..add(const FetchEventOfTheMonth())
       ..add(const ChangeIndexofAllaysaysBg());
+
     super.initState();
   }
 

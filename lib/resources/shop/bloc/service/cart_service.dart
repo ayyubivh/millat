@@ -46,7 +46,7 @@ class CartServices extends HttpServices {
     required String productId,
     required int basePrice,
     required String size,
-    required String color,
+    required String? color,
     required int quantity,
     required String brandId,
   }) async {

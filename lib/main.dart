@@ -22,6 +22,7 @@ import 'package:millat/resources/profile/views/manage_address.dart';
 import 'package:millat/resources/shop/bloc/logic/address_bloc/address_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/cart_bloc/cart_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/category_bloc/category_bloc.dart';
+import 'package:millat/resources/shop/bloc/logic/review_bloc/bloc/review_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
 import 'package:millat/resources/shop/view/products/products_view.dart';
 import 'package:millat/resources/shop/view/search/search_view.dart';
@@ -72,7 +73,10 @@ void main() async {
       BlocProvider(create: (context) => TasbihBloc()),
       BlocProvider(create: (context) => HadithBloc()),
       BlocProvider(create: (context) => HomeBloc()),
-      BlocProvider(create: (context) => TermsAndCondtionsBloc())
+      BlocProvider(create: (context) => TermsAndCondtionsBloc()),
+      BlocProvider(
+        create: (context) => ReviewBloc(),
+      )
     ],
     child: MyApp(),
   ));

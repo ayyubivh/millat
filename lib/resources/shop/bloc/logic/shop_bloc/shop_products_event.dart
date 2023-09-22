@@ -92,4 +92,6 @@ class ShopProductsEvent with _$ShopProductsEvent {
   const factory ShopProductsEvent.fetchProductsById({
     required String id,
   }) = FetchProductsById;
+  const factory ShopProductsEvent.fetchBrandProducts(
+      {required String brandId}) = FetchBrandProducts;
 }

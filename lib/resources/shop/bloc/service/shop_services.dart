@@ -198,6 +198,29 @@ class ShopService extends HttpServices {
     }
   }
 
+//fetching brand products
+  Future<ProductModel> fetchBrandProducts({
+    required String brandId,
+  }) async {
+    final response = await get(endPoint: "product/filter?brandId=$brandId");
+
+    if (response.statusCode == 200) {
+      try {
+        final Map<String, dynamic> data = json.decode(response.body);
+        final result = ProductModel.fromJson(data);
+        print(
+            "brand products results -----------------------------================= $result");
+        return result;
+      } catch (e) {
+        print('error on Article API fetch: ${e.toString()}');
+        throw Exception('Failed to parse response');
+      }
+    } else {
+      throw Exception(
+          'API request failed with status code: ${response.statusCode}');
+    }
+  }
+
   // Adding products to wish  list
   addWishList({
     required BuildContext context,

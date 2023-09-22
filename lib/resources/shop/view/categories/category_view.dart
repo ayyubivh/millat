@@ -226,7 +226,6 @@ class _CategoryViewState extends State<CategoryView> {
                       if (products == null || products.isEmpty) {
                         return const Text('No products available');
                       }
-
                       return SizedBox(
                         height: 240,
                         child: ListView.builder(
@@ -237,7 +236,8 @@ class _CategoryViewState extends State<CategoryView> {
 
                             return GestureDetector(
                               onTap: () {
-                                // print(data);
+                                print(data.brand?.id);
+
                                 Navigator.of(context).push(MaterialPageRoute(
                                   builder: (context) => SingleProductView(
                                     id: data.id ?? "",
@@ -249,7 +249,7 @@ class _CategoryViewState extends State<CategoryView> {
                                 child: ShopProductWidget(
                                   color: data.color ?? "",
                                   size: data.size?[0].size ?? "",
-                                  brandId: data.brand?.id ?? "",
+                                  brandId: data.brand?.id,
                                   isWishlisted: state.isWishListed,
                                   brand: data.brand?.name ?? "",
                                   productId: data.id,
@@ -312,15 +312,15 @@ class _CategoryViewState extends State<CategoryView> {
                   kHeight20,
                   BlocBuilder<ShopProductsBloc, ShopProductsState>(
                     builder: (context, state) {
-                      if (state.isLoading) {
-                        return const Loader();
-                      }
+                      // if (state.popularProductLoading) {
+                      //   return const Loader();
+                      // }
 
                       final products = state.popularProducts?.result
                           ?.shopProductCategory?.products;
 
                       if (products == null || products.isEmpty) {
-                        return const Text('No popular products available');
+                        return const Text('No Products available');
                       }
 
                       return SizedBox(
@@ -369,19 +369,21 @@ class _CategoryViewState extends State<CategoryView> {
                     builder: (context, state) {
                       final bigBannerImageUrl = state.specificCategoryModel
                           ?.result?.data?.bigBannerImage?.imageUrl;
-                      return GestureDetector(
-                        onTap: () {
-                          Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) =>
-                                ShopSpecificCategoryBannerView(
-                              imageUrl: bigBannerImageUrl ?? "",
-                              category: widget.category,
-                            ),
-                          ));
-                        },
-                        child: Utilities.buildCachedNetworkImage(
-                            imageUrl: bigBannerImageUrl),
-                      );
+                      return bigBannerImageUrl == null
+                          ? const Loader()
+                          : GestureDetector(
+                              onTap: () {
+                                Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) =>
+                                      ShopSpecificCategoryBannerView(
+                                    imageUrl: bigBannerImageUrl,
+                                    category: widget.category,
+                                  ),
+                                ));
+                              },
+                              child: Utilities.buildCachedNetworkImage(
+                                  imageUrl: bigBannerImageUrl),
+                            );
                     },
                   ),
                   kHeight25,

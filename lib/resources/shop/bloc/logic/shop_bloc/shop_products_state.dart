@@ -49,6 +49,7 @@ class ShopProductsState with _$ShopProductsState {
     required int paymentMethod,
     required SpecificCategoryModel? specificCategoryModel,
     required ProductByIdModel? productByIdModel,
+    required ProductModel? brandProductsModel,
   }) = _Initial;
 
   factory ShopProductsState.initial() => const ShopProductsState(
@@ -94,5 +95,6 @@ class ShopProductsState with _$ShopProductsState {
         paymentMethod: 0,
         specificCategoryModel: null,
         productByIdModel: null,
+        brandProductsModel: null,
       );
 }

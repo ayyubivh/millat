@@ -72,13 +72,13 @@ class _ShopViewState extends State<ShopView> {
               child: Column(
                 children: [
                   _shopCarouselSliderWidget(),
-                  SizedBox(height: SizeUtility(context).height / 25),
-                  _titleWidget(text: Appstrings.brand),
                   kHeight20,
+                  _titleWidget(text: Appstrings.brand),
+                  kHeight10,
                   _brandCarouselSliderWidget(),
                   kHeight20,
                   _brandsWidget(),
-                  kHeight30,
+                  kHeight10,
                   LighGreenGradienButton(
                     text: Appstrings.viewBrands,
                     onTap: () {
@@ -87,7 +87,7 @@ class _ShopViewState extends State<ShopView> {
                       ));
                     },
                   ),
-                  SizedBox(height: SizeUtility(context).height / 25),
+                  kHeight15,
                   _titleWidget(text: Appstrings.womensCare),
                   kHeight15,
                   BlocBuilder<ShopProductsBloc, ShopProductsState>(

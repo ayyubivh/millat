@@ -209,7 +209,7 @@ class SingleProductView extends StatelessWidget {
                           height: 20,
                         ),
                         Text(
-                          'Fabric: Cotton Silk',
+                          'Made of: ${data?.madeFrom ?? ""}',
                           style: TextStyle(
                               fontWeight: FontWeight.w600,
                               fontSize: 17,
@@ -219,7 +219,7 @@ class SingleProductView extends StatelessWidget {
                           height: 20,
                         ),
                         Text(
-                          'Care: Gentle machine wash / Regular Wash',
+                          'Care: ${data?.productCareInfo ?? ""}',
                           style: TextStyle(
                               fontWeight: FontWeight.w600,
                               fontSize: 17,

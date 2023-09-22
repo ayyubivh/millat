@@ -50,6 +50,10 @@ void main() async {
     statusBarColor: Colors.transparent,
     statusBarIconBrightness: Brightness.dark,
   ));
+  await SystemChrome.setPreferredOrientations(<DeviceOrientation>[
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown
+  ]);
 
   if (!Hive.isAdapterRegistered(BookMarktCollectionModelAdapter().typeId)) {
     Hive.registerAdapter(BookMarktCollectionModelAdapter());

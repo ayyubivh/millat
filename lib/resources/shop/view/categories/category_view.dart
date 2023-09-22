@@ -55,24 +55,22 @@ class _CategoryViewState extends State<CategoryView> {
                     state.specificCategoryModel?.result?.data?.sliderImage;
 
                 return sliderImage == null
-                    ? const SizedBox(
-                        height: 350,
-                      )
+                    ? const SizedBox()
                     : Stack(
                         children: [
                           CarouselSlider(
                             items: sliderImage.map(
                               (e) {
                                 return SizedBox(
-                                  height: 340,
-                                  width: SizeUtility(context).width,
+                                  // height: 340,
+                                  // width: SizeUtility(context).width,
                                   child: Utilities.buildCachedNetworkImage(
                                       imageUrl: e),
                                 );
                               },
                             ).toList(),
                             options: CarouselOptions(
-                              height: 226,
+                              // height: 226,
                               viewportFraction: 1,
                               enlargeCenterPage: false,
                               autoPlay: true,
@@ -122,24 +120,24 @@ class _CategoryViewState extends State<CategoryView> {
               padding: const EdgeInsets.symmetric(horizontal: 30),
               child: Column(
                 children: [
-                  Align(
-                      alignment: Alignment.topRight,
-                      child: GestureDetector(
-                        onTap: () {
-                          Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => CategoriesProductView(
-                                  category: widget.category,
-                                  subCategory: '',
-                                  type: FilterType.category)));
-                        },
-                        child: Text(
-                          Appstrings.viewAll,
-                          style: TextStyle(
-                              fontSize: 14,
-                              fontWeight: FontWeight.bold,
-                              color: ColorManager.primary),
-                        ),
-                      )),
+                  // Align(
+                  //     alignment: Alignment.topRight,
+                  //     child: GestureDetector(
+                  //       onTap: () {
+                  //         Navigator.of(context).push(MaterialPageRoute(
+                  //             builder: (context) => CategoriesProductView(
+                  //                 category: widget.category,
+                  //                 subCategory: '',
+                  //                 type: FilterType.category)));
+                  //       },
+                  //       child: Text(
+                  //         Appstrings.viewAll,
+                  //         style: TextStyle(
+                  //             fontSize: 14,
+                  //             fontWeight: FontWeight.bold,
+                  //             color: ColorManager.primary),
+                  //       ),
+                  //     )),
                   BlocBuilder<CategoryBloc, CategoryState>(
                     builder: (context, state) {
                       return SizedBox(

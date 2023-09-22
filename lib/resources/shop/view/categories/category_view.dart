@@ -55,24 +55,22 @@ class _CategoryViewState extends State<CategoryView> {
                     state.specificCategoryModel?.result?.data?.sliderImage;
 
                 return sliderImage == null
-                    ? const SizedBox(
-                        height: 350,
-                      )
+                    ? const SizedBox()
                     : Stack(
                         children: [
                           CarouselSlider(
                             items: sliderImage.map(
                               (e) {
                                 return SizedBox(
-                                  height: 340,
-                                  width: SizeUtility(context).width,
+                                  // height: 340,
+                                  // width: SizeUtility(context).width,
                                   child: Utilities.buildCachedNetworkImage(
                                       imageUrl: e),
                                 );
                               },
                             ).toList(),
                             options: CarouselOptions(
-                              height: 226,
+                              // height: 226,
                               viewportFraction: 1,
                               enlargeCenterPage: false,
                               autoPlay: true,
@@ -122,24 +120,24 @@ class _CategoryViewState extends State<CategoryView> {
               padding: const EdgeInsets.symmetric(horizontal: 30),
               child: Column(
                 children: [
-                  Align(
-                      alignment: Alignment.topRight,
-                      child: GestureDetector(
-                        onTap: () {
-                          Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => CategoriesProductView(
-                                  category: widget.category,
-                                  subCategory: '',
-                                  type: FilterType.category)));
-                        },
-                        child: Text(
-                          Appstrings.viewAll,
-                          style: TextStyle(
-                              fontSize: 14,
-                              fontWeight: FontWeight.bold,
-                              color: ColorManager.primary),
-                        ),
-                      )),
+                  // Align(
+                  //     alignment: Alignment.topRight,
+                  //     child: GestureDetector(
+                  //       onTap: () {
+                  //         Navigator.of(context).push(MaterialPageRoute(
+                  //             builder: (context) => CategoriesProductView(
+                  //                 category: widget.category,
+                  //                 subCategory: '',
+                  //                 type: FilterType.category)));
+                  //       },
+                  //       child: Text(
+                  //         Appstrings.viewAll,
+                  //         style: TextStyle(
+                  //             fontSize: 14,
+                  //             fontWeight: FontWeight.bold,
+                  //             color: ColorManager.primary),
+                  //       ),
+                  //     )),
                   BlocBuilder<CategoryBloc, CategoryState>(
                     builder: (context, state) {
                       return SizedBox(
@@ -226,7 +224,6 @@ class _CategoryViewState extends State<CategoryView> {
                       if (products == null || products.isEmpty) {
                         return const Text('No products available');
                       }
-
                       return SizedBox(
                         height: 240,
                         child: ListView.builder(
@@ -237,7 +234,8 @@ class _CategoryViewState extends State<CategoryView> {
 
                             return GestureDetector(
                               onTap: () {
-                                // print(data);
+                                print(data.brand?.id);
+
                                 Navigator.of(context).push(MaterialPageRoute(
                                   builder: (context) => SingleProductView(
                                     id: data.id ?? "",
@@ -249,7 +247,7 @@ class _CategoryViewState extends State<CategoryView> {
                                 child: ShopProductWidget(
                                   color: data.color ?? "",
                                   size: data.size?[0].size ?? "",
-                                  brandId: data.brand?.id ?? "",
+                                  brandId: data.brand?.id,
                                   isWishlisted: state.isWishListed,
                                   brand: data.brand?.name ?? "",
                                   productId: data.id,
@@ -312,15 +310,15 @@ class _CategoryViewState extends State<CategoryView> {
                   kHeight20,
                   BlocBuilder<ShopProductsBloc, ShopProductsState>(
                     builder: (context, state) {
-                      if (state.isLoading) {
-                        return const Loader();
-                      }
+                      // if (state.popularProductLoading) {
+                      //   return const Loader();
+                      // }
 
                       final products = state.popularProducts?.result
                           ?.shopProductCategory?.products;
 
                       if (products == null || products.isEmpty) {
-                        return const Text('No popular products available');
+                        return const Text('No Products available');
                       }
 
                       return SizedBox(
@@ -369,19 +367,21 @@ class _CategoryViewState extends State<CategoryView> {
                     builder: (context, state) {
                       final bigBannerImageUrl = state.specificCategoryModel
                           ?.result?.data?.bigBannerImage?.imageUrl;
-                      return GestureDetector(
-                        onTap: () {
-                          Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) =>
-                                ShopSpecificCategoryBannerView(
-                              imageUrl: bigBannerImageUrl ?? "",
-                              category: widget.category,
-                            ),
-                          ));
-                        },
-                        child: Utilities.buildCachedNetworkImage(
-                            imageUrl: bigBannerImageUrl),
-                      );
+                      return bigBannerImageUrl == null
+                          ? const Loader()
+                          : GestureDetector(
+                              onTap: () {
+                                Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) =>
+                                      ShopSpecificCategoryBannerView(
+                                    imageUrl: bigBannerImageUrl,
+                                    category: widget.category,
+                                  ),
+                                ));
+                              },
+                              child: Utilities.buildCachedNetworkImage(
+                                  imageUrl: bigBannerImageUrl),
+                            );
                     },
                   ),
                   kHeight25,

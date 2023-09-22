@@ -375,52 +375,53 @@ class OrdetailsView extends StatelessWidget {
               ),
             ),
             Container(
-                decoration: BoxDecoration(
-                  color: ColorManager.whiteColor,
-                  borderRadius: const BorderRadius.vertical(
-                    bottom: Radius.circular(12),
-                  ),
-                  border: Border.all(
-                    color: ColorManager.greyB8,
+              decoration: BoxDecoration(
+                color: ColorManager.whiteColor,
+                borderRadius: const BorderRadius.vertical(
+                  bottom: Radius.circular(12),
+                ),
+                border: Border.all(
+                  color: ColorManager.greyB8,
+                ),
+              ),
+              padding: const EdgeInsets.all(12),
+              child: Text.rich(TextSpan(children: [
+                TextSpan(
+                  text: "You'll receive on email at ",
+                  style: TextStyle(
+                    color: ColorManager.textGrey99,
+                    fontSize: 15,
+                    fontWeight: FontWeight.w500,
+                    height: 1.2,
                   ),
                 ),
-                padding: const EdgeInsets.all(12),
-                child: Text.rich(TextSpan(children: [
-                  TextSpan(
-                    text: "You'll receive on email at ",
-                    style: TextStyle(
-                      color: ColorManager.textGrey99,
-                      fontSize: 15,
-                      fontWeight: FontWeight.w500,
-                      height: 1.2,
-                    ),
+                TextSpan(
+                  text: context
+                          .read<DatabaseBloc>()
+                          .state
+                          .authUserModel
+                          ?.result
+                          ?.user
+                          ?.email ??
+                      "",
+                  style: TextStyle(
+                    color: ColorManager.blackColor,
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold,
+                    height: 1.2,
                   ),
-                  TextSpan(
-                    text: context
-                            .read<DatabaseBloc>()
-                            .state
-                            .authUserModel
-                            ?.result
-                            ?.user
-                            ?.email ??
-                        "",
-                    style: TextStyle(
-                      color: ColorManager.blackColor,
-                      fontSize: 15,
-                      fontWeight: FontWeight.bold,
-                      height: 1.2,
-                    ),
+                ),
+                TextSpan(
+                  text: " once your order is confirmed",
+                  style: TextStyle(
+                    color: ColorManager.textGrey99,
+                    fontSize: 15,
+                    fontWeight: FontWeight.w500,
+                    height: 1.2,
                   ),
-                  TextSpan(
-                    text: " once your order is confirmed",
-                    style: TextStyle(
-                      color: ColorManager.textGrey99,
-                      fontSize: 15,
-                      fontWeight: FontWeight.w500,
-                      height: 1.2,
-                    ),
-                  ),
-                ])))
+                ),
+              ])),
+            )
           ],
         );
       },

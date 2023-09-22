@@ -6,6 +6,7 @@ import 'package:millat/components/common_widgets/build_categories_widget.dart';
 import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/shop/bloc/logic/category_bloc/category_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
+import 'package:millat/resources/shop/bloc/service/review_service.dart';
 import 'package:millat/resources/shop/view/article/articles_view.dart';
 import 'package:millat/resources/shop/view/brand/shop_brand_view.dart';
 import 'package:millat/resources/shop/view/brand/single_brand_view.dart';
@@ -71,13 +72,13 @@ class _ShopViewState extends State<ShopView> {
               child: Column(
                 children: [
                   _shopCarouselSliderWidget(),
-                  SizedBox(height: SizeUtility(context).height / 25),
-                  _titleWidget(text: Appstrings.brand),
                   kHeight20,
+                  _titleWidget(text: Appstrings.brand),
+                  kHeight10,
                   _brandCarouselSliderWidget(),
                   kHeight20,
                   _brandsWidget(),
-                  kHeight30,
+                  kHeight10,
                   LighGreenGradienButton(
                     text: Appstrings.viewBrands,
                     onTap: () {
@@ -86,7 +87,7 @@ class _ShopViewState extends State<ShopView> {
                       ));
                     },
                   ),
-                  SizedBox(height: SizeUtility(context).height / 25),
+                  kHeight15,
                   _titleWidget(text: Appstrings.womensCare),
                   kHeight15,
                   BlocBuilder<ShopProductsBloc, ShopProductsState>(

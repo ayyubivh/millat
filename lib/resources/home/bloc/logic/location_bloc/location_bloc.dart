@@ -111,10 +111,6 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
             currentLocaion: currentAddress,
             location: currentAddress,
           ));
-
-          // NamazMethodDbModel
-          // NamazMethodDB.instance.addNamazMethode(obj)
-          // debugPrint('Current address: $currentAddress');
         }
       } else {
         emit(state.copyWith(errorMessage: 'Location permission denied'));

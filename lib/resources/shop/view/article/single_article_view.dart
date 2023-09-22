@@ -155,7 +155,7 @@ class SingleArticleView extends StatelessWidget {
                 child: ClipRRect(
                     borderRadius: BorderRadius.circular(10),
                     child: Utilities.buildCachedNetworkImage(
-                      imageUrl: passValue!.image!,
+                      imageUrl: passValue!.product?.images?[0],
                       boxFit: BoxFit.cover,
                       height: 56,
                       width: 56,
@@ -169,7 +169,7 @@ class SingleArticleView extends StatelessWidget {
                   SizedBox(
                     width: 144,
                     child: Text(
-                      passValue!.title ?? "",
+                      passValue!.product?.title ?? "",
                       style: TextStyle(
                         color: ColorManager.whiteColor,
                         fontSize: 15,

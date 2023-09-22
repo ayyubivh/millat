@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/components/buttons/main_button.dart';
 import 'package:millat/components/common_widgets/cart_icon_widget.dart';
 import 'package:millat/resources/shop/bloc/logic/cart_bloc/cart_bloc.dart';
+import 'package:millat/resources/shop/bloc/logic/review_bloc/bloc/review_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
 import 'package:millat/resources/shop/view/cart/cart.dart';
 import 'package:millat/resources/shop/view/reviews/reviews_view.dart';
@@ -21,6 +22,8 @@ class SingleProductView extends StatelessWidget {
   Widget build(BuildContext context) {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       BlocProvider.of<ShopProductsBloc>(context).add(FetchProductsById(id: id));
+      BlocProvider.of<ReviewBloc>(context)
+          .add(ReviewEvent.fetchRatingEvent(id: id, context: context));
     });
     final colorMap = {
       'Pink': Colors.pink,
@@ -126,16 +129,21 @@ class SingleProductView extends StatelessWidget {
                                 const Icon(Icons.star,
                                     color: orange255, size: 20),
                                 kWidht10,
-                                Text(
-                                  '4,5',
-                                  style: TextStyle(
-                                      color: ColorManager.blackColor,
-                                      fontWeight: FontWeight.w700,
-                                      fontSize: 15),
+                                BlocBuilder<ReviewBloc, ReviewState>(
+                                  builder: (context, state) => Text(
+                                    state.reviewModel?.result?.data?.ratings?[0]
+                                            .rating
+                                            .toString() ??
+                                        "0",
+                                    style: TextStyle(
+                                        color: ColorManager.blackColor,
+                                        fontWeight: FontWeight.w700,
+                                        fontSize: 15),
+                                  ),
                                 ),
                               ],
                             ),
-                            ImageIcon(
+                            const ImageIcon(
                               AssetImage(
                                 'assets/icons/heart.png',
                               ),
@@ -201,7 +209,7 @@ class SingleProductView extends StatelessWidget {
                           height: 20,
                         ),
                         Text(
-                          'Fabric: Cotton Silk',
+                          'Made of: ${data?.madeFrom ?? ""}',
                           style: TextStyle(
                               fontWeight: FontWeight.w600,
                               fontSize: 17,
@@ -211,7 +219,7 @@ class SingleProductView extends StatelessWidget {
                           height: 20,
                         ),
                         Text(
-                          'Care: Gentle machine wash / Regular Wash',
+                          'Care: ${data?.productCareInfo ?? ""}',
                           style: TextStyle(
                               fontWeight: FontWeight.w600,
                               fontSize: 17,

@@ -1,10 +1,13 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:millat/components/common_widgets/shop_products_widget.dart';
 import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
+import 'package:millat/resources/shop/view/products/single_product_view.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
+import 'package:millat/utils/loader.dart';
 import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/string_constants.dart';
 import 'package:millat/utils/utils.dart';
@@ -21,8 +24,8 @@ class SingleBrandView extends StatelessWidget {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       BlocProvider.of<ShopProductsBloc>(context)
           .add(FetchShopAdBrandsById(id: passValue.id));
-      // BlocProvider.of<CategoryBloc>(context)
-      //     .add(const FetchFilterProducts(category: "", subCategory: ""));
+      BlocProvider.of<ShopProductsBloc>(context)
+          .add(FetchBrandProducts(brandId: passValue.id));
       BlocProvider.of<ShopProductsBloc>(context).add(const FetchShopAdBrands());
     });
     var textStyle = TextStyle(
@@ -53,8 +56,8 @@ class SingleBrandView extends StatelessWidget {
                         ),
                       )
                     : SizedBox(
-                        height: 400,
-                        width: SizeUtility(context).width,
+                        // height: 400,
+                        // width: SizeUtility(context).width,
                         child: passValue.coverImage == ""
                             ? Container(
                                 height: 400,
@@ -70,11 +73,11 @@ class SingleBrandView extends StatelessWidget {
                               )
                             : Utilities.buildCachedNetworkImage(
                                 imageUrl: passValue.coverImage!,
-                                boxFit: BoxFit.fill)),
+                                boxFit: BoxFit.cover)),
                 Positioned(
                   right: 0,
                   left: 0,
-                  top: 100,
+                  top: 80,
                   child: Column(
                     children: [
                       Container(
@@ -345,59 +348,61 @@ class SingleBrandView extends StatelessWidget {
                 ),
               ],
             ),
-            // BlocBuilder<CategoryBloc, CategoryState>(
-            //   builder: (context, state) {
-            //     if (state.product?.result?.products == null) {
-            //       return const Loader();
-            //     }
-            //     return GridView.builder(
-            //       shrinkWrap: true,
-            //       physics: const NeverScrollableScrollPhysics(),
-            //       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            //         crossAxisCount: 2,
-            //         crossAxisSpacing: 20,
-            //         mainAxisExtent: 250,
-            //       ),
-            //       itemCount: state.product!.result!.products.length,
-            //       itemBuilder: (context, index) {
-            //         final data = state.product?.result!.products[index];
+            BlocBuilder<ShopProductsBloc, ShopProductsState>(
+              builder: (context, state) {
+                if (state.brandProductsModel?.result?.products == null ||
+                    state.isLoading == true) {
+                  return const Loader();
+                }
+                return GridView.builder(
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    crossAxisSpacing: 20,
+                    mainAxisExtent: 250,
+                  ),
+                  itemCount: state.brandProductsModel?.result?.products?.length,
+                  itemBuilder: (context, index) {
+                    final data =
+                        state.brandProductsModel?.result?.products?[index];
 
-            //         return GestureDetector(
-            //           onTap: () {
-            //             Navigator.of(context)
-            //                 .push(MaterialPageRoute(builder: (context) {
-            //               return SingleProductView(
-            //                 passValue: data,
-            //               );
-            //             }));
-            //           },
-            //           child: Padding(
-            //             padding: const EdgeInsets.symmetric(horizontal: 30),
-            //             child: Column(
-            //               crossAxisAlignment: CrossAxisAlignment.center,
-            //               children: [
-            //                 kHeight15,
-            //                 ShopProductWidget(
-            //                   color: data?.colors[0].text ?? "",
-            //                   size: data?.size[0].value ?? "",
-            //                   brandId: data?.brand!.id,
-            //                   isWishlisted: false,
-            //                   brand: data?.brand?.name,
-            //                   productId: data?.id ?? 'null',
-            //                   title: data?.title,
-            //                   image: data?.colors[0].images?[0] ?? 'null',
-            //                   discountPrice: data?.discountPrice.toInt() ?? 0,
-            //                   actualPrice: data?.actualPrice.toInt() ?? 0,
-            //                   discount: data?.discount.toInt() ?? 0,
-            //                 ),
-            //               ],
-            //             ),
-            //           ),
-            //         );
-            //       },
-            //     );
-            //   },
-            // )
+                    return GestureDetector(
+                      onTap: () {
+                        Navigator.of(context)
+                            .push(MaterialPageRoute(builder: (context) {
+                          return SingleProductView(
+                            id: data?.id ?? "",
+                          );
+                        }));
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 30),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            kHeight15,
+                            ShopProductWidget(
+                              color: data?.color ?? "",
+                              size: data?.size?[0].size ?? "",
+                              brandId: data?.brand!.id,
+                              isWishlisted: state.isWishListed,
+                              brand: data?.brand?.name,
+                              productId: data?.id ?? 'null',
+                              title: data?.title,
+                              image: data?.images?[0] ?? 'null',
+                              discountPrice: data?.salePrice?.toInt() ?? 0,
+                              actualPrice: data?.regularPrice?.toInt() ?? 0,
+                              discount: data?.discount?.toInt() ?? 0,
+                            ),
+                          ],
+                        ),
+                      ),
+                    );
+                  },
+                );
+              },
+            )
           ],
         ),
       ),

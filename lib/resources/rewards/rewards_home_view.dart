@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/resources/authentication/bloc/logic/database_bloc/database_bloc.dart';
+import 'package:millat/resources/rewards/bloc/logic/bloc/rewards_bloc_bloc.dart';
 import 'package:millat/resources/rewards/widget/how_to_earn_view.dart';
 import 'package:millat/resources/rewards/widget/how_to_redeem_view.dart';
 import 'package:millat/resources/rewards/widget/redeem_rewards_view.dart';
@@ -17,6 +18,10 @@ class RewardsHomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      BlocProvider.of<RewardsBloc>(context)
+          .add(RewardsEvent.fetchRewards(context: context));
+    });
     return Scaffold(
       backgroundColor: ColorManager.whiteColor,
       body: Padding(

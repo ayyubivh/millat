@@ -19,6 +19,7 @@ import 'package:millat/resources/home/view/namaz_timing/namaz_timing_view.dart';
 import 'package:millat/resources/on_boarding/view/on_boarding_view.dart';
 import 'package:millat/resources/profile/bloc/logic/terms_and_condtions_bloc/terms_and_condtions_bloc.dart';
 import 'package:millat/resources/profile/views/manage_address.dart';
+import 'package:millat/resources/rewards/bloc/logic/bloc/rewards_bloc_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/address_bloc/address_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/cart_bloc/cart_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/category_bloc/category_bloc.dart';
@@ -72,7 +73,10 @@ void main() async {
       BlocProvider(create: (context) => TasbihBloc()),
       BlocProvider(create: (context) => HadithBloc()),
       BlocProvider(create: (context) => HomeBloc()),
-      BlocProvider(create: (context) => TermsAndCondtionsBloc())
+      BlocProvider(create: (context) => TermsAndCondtionsBloc()),
+      BlocProvider(
+        create: (context) => RewardsBloc(),
+      )
     ],
     child: MyApp(),
   ));

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:millat/components/buttons/main_button.dart';
 import 'package:millat/components/buttons/main_text_button.dart';
+import 'package:millat/resources/authentication/view/verify_otp_view.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/resources/authentication/view/sign_up_view.dart';
@@ -156,7 +157,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                   title: 'Skip',
                   onTap: () {
                     Navigator.of(context).pushReplacement(MaterialPageRoute(
-                      builder: (context) => const SignUpView(),
+                      builder: (context) => const VerifyOTPView(),
                     ));
                   },
                 )

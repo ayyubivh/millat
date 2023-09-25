@@ -18,6 +18,9 @@ PODS:
     - Flutter
   - flutter_qiblah (0.0.1):
     - Flutter
+  - FMDB (2.7.5):
+    - FMDB/standard (= 2.7.5)
+  - FMDB/standard (2.7.5)
   - geocoding_ios (1.0.5):
     - Flutter
   - geolocator_apple (1.2.0):
@@ -45,11 +48,11 @@ PODS:
     - FlutterMacOS
   - permission_handler_apple (9.1.1):
     - Flutter
-  - PhoneNumberKit (3.6.8):
-    - PhoneNumberKit/PhoneNumberKitCore (= 3.6.8)
-    - PhoneNumberKit/UIKit (= 3.6.8)
-  - PhoneNumberKit/PhoneNumberKitCore (3.6.8)
-  - PhoneNumberKit/UIKit (3.6.8):
+  - PhoneNumberKit (3.7.2):
+    - PhoneNumberKit/PhoneNumberKitCore (= 3.7.2)
+    - PhoneNumberKit/UIKit (= 3.7.2)
+  - PhoneNumberKit/PhoneNumberKitCore (3.7.2)
+  - PhoneNumberKit/UIKit (3.7.2):
     - PhoneNumberKit/PhoneNumberKitCore
   - share_plus (0.0.1):
     - Flutter
@@ -60,6 +63,9 @@ PODS:
     - Flutter
   - smart_auth (0.0.1):
     - Flutter
+  - sqflite (0.0.3):
+    - Flutter
+    - FMDB (>= 2.7.5)
   - url_launcher_ios (0.0.1):
     - Flutter
 
@@ -83,11 +89,13 @@ DEPENDENCIES:
   - shared_preferences_foundation (from `.symlinks/plugins/shared_preferences_foundation/darwin`)
   - sign_in_with_apple (from `.symlinks/plugins/sign_in_with_apple/ios`)
   - smart_auth (from `.symlinks/plugins/smart_auth/ios`)
+  - sqflite (from `.symlinks/plugins/sqflite/ios`)
   - url_launcher_ios (from `.symlinks/plugins/url_launcher_ios/ios`)
 
 SPEC REPOS:
   trunk:
     - AppAuth
+    - FMDB
     - GoogleSignIn
     - GTMAppAuth
     - GTMSessionFetcher
@@ -132,6 +140,8 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/sign_in_with_apple/ios"
   smart_auth:
     :path: ".symlinks/plugins/smart_auth/ios"
+  sqflite:
+    :path: ".symlinks/plugins/sqflite/ios"
   url_launcher_ios:
     :path: ".symlinks/plugins/url_launcher_ios/ios"
 
@@ -144,6 +154,7 @@ SPEC CHECKSUMS:
   flutter_local_notifications: 0c0b1ae97e741e1521e4c1629a459d04b9aec743
   flutter_native_splash: 52501b97d1c0a5f898d687f1646226c1f93c56ef
   flutter_qiblah: f69eeb708d127a2634073ab1f27771c979928f50
+  FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   geocoding_ios: a389ea40f6f548de6e63006a2e31bf66ff80769a
   geolocator_apple: cc556e6844d508c95df1e87e3ea6fa4e58c50401
   google_sign_in_ios: 1256ff9d941db546373826966720b0c24804bcdd
@@ -155,11 +166,12 @@ SPEC CHECKSUMS:
   libphonenumber_plugin: e8a7d64a6624a7c25f2c4ab0b7ead2a8e341e35e
   path_provider_foundation: 29f094ae23ebbca9d3d0cec13889cd9060c0e943
   permission_handler_apple: e76247795d700c14ea09e3a2d8855d41ee80a2e6
-  PhoneNumberKit: 962cb725d664c7d4ac5f3e6f93e2de5f543f0d05
+  PhoneNumberKit: f8e2693b9b192ac170a1f9d039fab9f4e4f068ec
   share_plus: 599aa54e4ea31d4b4c0e9c911bcc26c55e791028
   shared_preferences_foundation: 5b919d13b803cadd15ed2dc053125c68730e5126
   sign_in_with_apple: f3bf75217ea4c2c8b91823f225d70230119b8440
   smart_auth: 4bedbc118723912d0e45a07e8ab34039c19e04f2
+  sqflite: 31f7eba61e3074736dff8807a9b41581e4f7f15a
   url_launcher_ios: 08a3dfac5fb39e8759aeb0abbd5d9480f30fc8b4
 
 PODFILE CHECKSUM: 96e975fd8ee8615b3f04ad1480d56177076a78dd

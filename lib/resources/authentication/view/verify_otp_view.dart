@@ -30,12 +30,12 @@ class _VerifyOTPViewState extends State<VerifyOTPView> {
   @override
   void initState() {
     super.initState();
-    _startTimer();
-    Timer(const Duration(minutes: 1), () {
-      setState(() {
-        isResendTextGreen = true;
-      });
-    });
+    // _startTimer();
+    // Timer(const Duration(minutes: 1), () {
+    //   setState(() {
+    //     isResendTextGreen = true;
+    //   });
+    // });
   }
 
   void _startTimer() {

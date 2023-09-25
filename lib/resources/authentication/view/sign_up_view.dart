@@ -50,7 +50,7 @@ class _SignUpViewState extends State<SignUpView> {
               builder: (context) => const TabsView(),
             ));
           } else if (state is AuthSocialLoginNewUser) {
-            Navigator.of(context).pushReplacement(MaterialPageRoute(
+            Navigator.of(context).push(MaterialPageRoute(
               builder: (context) => const SendOTPView(),
             ));
           }

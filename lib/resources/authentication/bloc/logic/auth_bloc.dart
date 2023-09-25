@@ -7,6 +7,8 @@ part 'auth_state.dart';
 
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
   final AuthService _authService = AuthService();
+  
+  var otp;
 
   AuthBloc() : super(AuthInitial()) {
     on<AuthEvent>((event, emit) async {
@@ -48,6 +50,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
           );
 
           if (res['status'] == true) {
+            otp = res['result'];
+            debugPrint(otp);
             emit(AuthLoaded(event.phoneNumber));
             emit(AuthPhoneNumber(phoneNumber: event.phoneNumber));
           } else {
@@ -59,11 +63,11 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
           emit(AuthError('Please fill in all the fields'));
         } else {
           emit(AuthLoading());
-          final res = await _authService.verifyOTP(
-              otp: event.code,
-              phoneNumber: event.phoneNumber,
-              context: event.context);
-          if (res['status'] == true) {
+          // final res = await _authService.verifyOTP(
+          //     otp: event.code,
+          //     phoneNumber: event.phoneNumber,
+          //     context: event.context);
+          if (otp == event.code) {
             final userId = (state as AuthSocialLoginNewUser).userId;
             final result = _authService.signIn(
                 phoneNumber: event.phoneNumber, userId: userId);
@@ -71,7 +75,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
               emit(AuthLoaded(event.phoneNumber));
             }
           } else {
-            emit(AuthError(res['message']));
+            // emit(AuthError(res['message']));
           }
         }
       } else if (event is SocialLogin) {

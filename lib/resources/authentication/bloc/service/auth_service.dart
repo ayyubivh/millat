@@ -102,7 +102,7 @@ class AuthService extends HttpServices {
       if (value.statusCode == 200) {
         return {
           'status': true,
-          'result': jsonDecode(value.body)['phone_number']
+          'result': jsonDecode(value.body)['result']['otp'],
         };
       } else {
         return {

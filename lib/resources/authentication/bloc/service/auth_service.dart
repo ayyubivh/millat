@@ -13,7 +13,8 @@ import '../model/auth_user_model/social_user_model.dart';
 class AuthService extends HttpServices {
   final String loginAPI = 'auth/signin_with_email';
   final String loginWithGoogleApi = "social_auth/signin";
-  final String loginWithOTPAPI = 'auth/signin';
+  final String signIN = 'auth/signin';
+  final String sentOtpApi = "send_otp";
   final String signUpAPI = 'auth/signup';
   final String verifyOTPAPI = 'auth/verify';
   final String resendOTPAPI = 'auth/resend_otp';
@@ -93,8 +94,31 @@ class AuthService extends HttpServices {
     });
   }
 
-  sendOTP({required String phoneNumber, required String userId}) async {
-    return await posts(endPoint: loginWithOTPAPI, body: {
+  sendOTP({required String phoneNumber,  }) async {
+    return await posts(endPoint: sentOtpApi, body: {
+      "phone_number": phoneNumber,
+      // "userId": userId,
+    }).then((value) {
+      if (value.statusCode == 200) {
+        return {
+          'status': true,
+          'result': jsonDecode(value.body)['phone_number']
+        };
+      } else {
+        return {
+          'status': false,
+          'message': jsonDecode(value.body)['message'],
+        };
+      }
+    }).catchError((error) {
+      return {
+        'status': false,
+      };
+    });
+  }
+
+  signIn({required String phoneNumber, required String userId}) async {
+    return await posts(endPoint: signIN, body: {
       "phone_number": phoneNumber,
       "userId": userId,
     }).then((value) {

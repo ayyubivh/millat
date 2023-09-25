@@ -2,7 +2,9 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:html/parser.dart';
 import 'package:intl/intl.dart';
+import 'package:millat/utils/color_manager.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:fast_cached_network_image/fast_cached_network_image.dart';
 
 class Utilities {
   static formatDate(String date) {
@@ -132,20 +134,49 @@ class Utilities {
 
   //   return false;
   // }
-  static buildCachedNetworkImage(
-      {String? imageUrl,
-      double? height,
-      BoxFit boxFit = BoxFit.contain,
-      double? width}) {
-    return CachedNetworkImage(
-      imageUrl: imageUrl!,
+  // static buildCachedNetworkImage(
+  //     {String? imageUrl,
+  //     double? height,
+  //     BoxFit boxFit = BoxFit.contain,
+  //     double? width}) {
+  //   return CachedNetworkImage(
+  //     imageUrl: imageUrl!,
+  //     height: height,
+  //     width: width,
+  //     fit: boxFit,
+  //     placeholder: (context, url) => const SizedBox(),
+  //     errorWidget: (context, url, error) => const Icon(
+  //       Icons.error_outline,
+  //     ),
+  //   );
+  // }
+
+  Widget buildCachedNetworkImage({
+    String? imageUrl,
+    double? height,
+    BoxFit boxFit = BoxFit.contain,
+    double? width,
+  }) {
+    return FastCachedImage(
+      url: imageUrl!,
       height: height,
       width: width,
       fit: boxFit,
-      placeholder: (context, url) => const SizedBox(),
-      errorWidget: (context, url, error) => const Icon(
-        Icons.error_outline,
-      ),
+      loadingBuilder: (context, progress) {
+        return Container(
+          color: ColorManager.grey08,
+          child: Stack(
+            alignment: Alignment.center,
+            children: [
+              if (progress.isDownloading && progress.totalBytes != null)
+                SizedBox(
+                  width: width,
+                  height: height,
+                ),
+            ],
+          ),
+        );
+      },
     );
   }
 

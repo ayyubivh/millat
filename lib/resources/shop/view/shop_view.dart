@@ -259,7 +259,7 @@ class _ShopViewState extends State<ShopView> {
                     color: color, borderRadius: BorderRadius.circular(12)),
                 child: ClipRRect(
                     borderRadius: BorderRadius.circular(12),
-                    child: Utilities.buildCachedNetworkImage(
+                    child: Utilities().buildCachedNetworkImage(
                         imageUrl: getImageUrl(index), boxFit: BoxFit.cover)),
               ),
               const SizedBox(height: 10),
@@ -354,7 +354,7 @@ class _ShopViewState extends State<ShopView> {
                                 radius: 32,
                                 backgroundColor: ColorManager.whiteColor,
                                 child: ClipOval(
-                                    child: Utilities.buildCachedNetworkImage(
+                                    child: Utilities().buildCachedNetworkImage(
                                   imageUrl: banner.brandId?.logo ?? "",
                                 )),
                               ),
@@ -463,9 +463,8 @@ class _ShopViewState extends State<ShopView> {
                   },
                   child: ClipRRect(
                       borderRadius: BorderRadius.circular(20),
-                      child: Utilities.buildCachedNetworkImage(
-                        imageUrl: banner.image,
-                      )),
+                      child: Utilities()
+                          .buildCachedNetworkImage(imageUrl: banner.image)),
                 );
               }).toList(),
               options: CarouselOptions(
@@ -670,7 +669,8 @@ Widget buildShopbyBrand(String? image, String? name) {
             borderRadius:
                 BorderRadius.circular(28), // Half of the width and height
             child: image != null
-                ? Utilities.buildCachedNetworkImage(imageUrl: image, height: 56)
+                ? Utilities()
+                    .buildCachedNetworkImage(imageUrl: image, height: 56)
                 : const Placeholder(
                     fallbackHeight: 54.47,
                     fallbackWidth: 56,

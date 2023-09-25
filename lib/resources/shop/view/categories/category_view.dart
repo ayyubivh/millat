@@ -64,8 +64,8 @@ class _CategoryViewState extends State<CategoryView> {
                                 return SizedBox(
                                   // height: 340,
                                   // width: SizeUtility(context).width,
-                                  child: Utilities.buildCachedNetworkImage(
-                                      imageUrl: e),
+                                  child: Utilities()
+                                      .buildCachedNetworkImage(imageUrl: e),
                                 );
                               },
                             ).toList(),
@@ -171,9 +171,10 @@ class _CategoryViewState extends State<CategoryView> {
                                     ),
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(12),
-                                      child: Utilities.buildCachedNetworkImage(
-                                          imageUrl:
-                                              subCategoryData?.image ?? ""),
+                                      child: Utilities()
+                                          .buildCachedNetworkImage(
+                                              imageUrl:
+                                                  subCategoryData?.image ?? ""),
                                     ),
                                   ),
                                   kHeight10,
@@ -294,8 +295,9 @@ class _CategoryViewState extends State<CategoryView> {
                                     },
                                     child: Padding(
                                       padding: const EdgeInsets.only(top: 2.5),
-                                      child: Utilities.buildCachedNetworkImage(
-                                          imageUrl: img[i]),
+                                      child: Utilities()
+                                          .buildCachedNetworkImage(
+                                              imageUrl: img[i]),
                                     ),
                                   ),
                               ],
@@ -379,7 +381,7 @@ class _CategoryViewState extends State<CategoryView> {
                                   ),
                                 ));
                               },
-                              child: Utilities.buildCachedNetworkImage(
+                              child: Utilities().buildCachedNetworkImage(
                                   imageUrl: bigBannerImageUrl),
                             );
                     },

@@ -71,7 +71,8 @@ class ProfileView extends StatelessWidget {
                                       color: ColorManager.black4A,
                                     )
                                   : ClipOval(
-                                      child: Utilities.buildCachedNetworkImage(
+                                      child:
+                                          Utilities().buildCachedNetworkImage(
                                         imageUrl: userPictureUrl,
                                         width: 80,
                                         height: 80,

@@ -187,8 +187,8 @@ class ShopSpecificCategoryView extends StatelessWidget {
                             return SizedBox(
                               height: 340,
                               width: SizeUtility(context).width,
-                              child: Utilities.buildCachedNetworkImage(
-                                  imageUrl: e),
+                              child: Utilities()
+                                  .buildCachedNetworkImage(imageUrl: e),
                             );
                           },
                         ).toList(),
@@ -309,8 +309,8 @@ class ShopSpecificCategoryView extends StatelessWidget {
                                       ),
                                       child: ClipRRect(
                                         borderRadius: BorderRadius.circular(12),
-                                        child:
-                                            Utilities.buildCachedNetworkImage(
+                                        child: Utilities()
+                                            .buildCachedNetworkImage(
                                                 imageUrl:
                                                     subCategoryData?.image ??
                                                         ""),
@@ -456,7 +456,7 @@ class ShopSpecificCategoryView extends StatelessWidget {
                                 },
                                 child: Padding(
                                   padding: const EdgeInsets.only(top: 2.5),
-                                  child: Utilities.buildCachedNetworkImage(
+                                  child: Utilities().buildCachedNetworkImage(
                                       imageUrl: smallBannerImageUrls[i]),
                                 ),
                               ),
@@ -537,7 +537,7 @@ class ShopSpecificCategoryView extends StatelessWidget {
                                   ),
                                 ));
                               },
-                              child: Utilities.buildCachedNetworkImage(
+                              child: Utilities().buildCachedNetworkImage(
                                   imageUrl: bigBannerImageUrl),
                             ),
                             kHeight100,

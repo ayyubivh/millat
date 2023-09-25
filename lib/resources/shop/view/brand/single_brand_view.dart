@@ -71,7 +71,7 @@ class SingleBrandView extends StatelessWidget {
                                   size: 200,
                                 ),
                               )
-                            : Utilities.buildCachedNetworkImage(
+                            : Utilities().buildCachedNetworkImage(
                                 imageUrl: passValue.coverImage!,
                                 boxFit: BoxFit.cover)),
                 Positioned(
@@ -90,7 +90,7 @@ class SingleBrandView extends StatelessWidget {
                           borderRadius: BorderRadius.circular(50),
                           child: passValue.logo == null
                               ? const Icon(Icons.image_not_supported_outlined)
-                              : Utilities.buildCachedNetworkImage(
+                              : Utilities().buildCachedNetworkImage(
                                   imageUrl: passValue.logo!),
                         ),
                       ),
@@ -232,7 +232,7 @@ class SingleBrandView extends StatelessWidget {
                                               child: passValue.logo == null
                                                   ? const Icon(Icons
                                                       .image_not_supported_outlined)
-                                                  : Utilities
+                                                  : Utilities()
                                                       .buildCachedNetworkImage(
                                                           imageUrl:
                                                               passValue.logo!),

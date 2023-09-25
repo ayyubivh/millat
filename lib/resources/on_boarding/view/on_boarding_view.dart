@@ -157,7 +157,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                   title: 'Skip',
                   onTap: () {
                     Navigator.of(context).pushReplacement(MaterialPageRoute(
-                      builder: (context) => const VerifyOTPView(),
+                      builder: (context) => const SignUpView(),
                     ));
                   },
                 )

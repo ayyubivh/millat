@@ -70,15 +70,17 @@ class ShopProductWidget extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
-                title.toString(),
-                style: TextStyle(
-                  color: ColorManager.blackColor,
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                  height: 1.3,
+              Expanded(
+                child: Text(
+                  title.toString(),
+                  style: TextStyle(
+                    color: ColorManager.blackColor,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    height: 1.3,
+                  ),
+                  maxLines: 2,
                 ),
-                maxLines: 2,
               ),
               BlocBuilder<ShopProductsBloc, ShopProductsState>(
                 builder: (context, state) {

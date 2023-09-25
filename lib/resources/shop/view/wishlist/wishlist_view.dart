@@ -118,10 +118,11 @@ class WishListView extends StatelessWidget {
       ),
       bottomSheet: BlocBuilder<ShopProductsBloc, ShopProductsState>(
         builder: (context, state) {
-          if (state.wishList?.result == null) {
+          final data = state.wishList?.result?.wishlist?.products;
+          if (data == null) {
             return const Loader();
           }
-          return state.wishList!.result!.wishlist!.products!.isNotEmpty
+          return data.isEmpty
               ? const SizedBox()
               : Container(
                   padding: const EdgeInsets.symmetric(horizontal: 25),

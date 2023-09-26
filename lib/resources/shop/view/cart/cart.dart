@@ -69,7 +69,7 @@ class _CartViewState extends State<CartView> {
           final cartItems = state.cartModel?.result?.cartProducts?.cartItems;
 
           final subTotal = _getTotalPrice(
-            cartItems?.map((e) => e.productId?.salePrice).toList(),
+            cartItems?.map((e) => e.productId?.salePrice?.toInt()).toList(),
             cartItems?.map((e) => e.quantity).toList(),
           );
 
@@ -252,7 +252,7 @@ class _CartViewState extends State<CartView> {
             subTitle: data.productId?.description,
             size: data.size ?? "",
             image: data.productId?.images?[0],
-            price: data.productId?.salePrice ?? 0,
+            price: data.productId?.salePrice?.toInt() ?? 0,
             actualPrice: data.productId?.regularPrice.toString(),
             jsonColor: data.color,
             colorName: data.color,

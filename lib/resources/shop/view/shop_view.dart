@@ -50,7 +50,8 @@ class _ShopViewState extends State<ShopView> {
       ..add(const ShopProductsEvent.fetchProductItemsSubcategorySunnah())
       ..add(const ShopProductsEvent.fetchProductItemsSubcategoryWomen())
       ..add(const ShopProductsEvent.fetchProductItemsSubcategoryHealth())
-      ..add(ShopProductsEvent.fetchWishList(context));
+      ..add(ShopProductsEvent.fetchWishList(context))
+      ..add(const ShopProductsEvent.fetchCoupons());
     cartBloc.add(FetchCartEvent(context));
 
     BlocProvider.of<ShopProductsBloc>(context).add(const FetchTopBrands());

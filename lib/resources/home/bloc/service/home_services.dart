@@ -207,7 +207,7 @@ class HomeServices extends HttpServices {
       if (response.statusCode == 200) {
         final Map<String, dynamic> data = json.decode(response.body);
         final result = PrayerTrackerModel.fromJson(data);
-        print('daily prayer tracker $result');
+
         return result;
       } else {
         throw Exception(

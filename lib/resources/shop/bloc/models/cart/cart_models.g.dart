@@ -88,8 +88,8 @@ _$_ProductInfo _$$_ProductInfoFromJson(Map<String, dynamic> json) =>
       itemType: json['itemType'] as String?,
       pickupAddress: json['pickupAddress'] as String?,
       description: json['description'] as String?,
-      regularPrice: json['regularPrice'] as int?,
-      salePrice: json['salePrice'] as int?,
+      regularPrice: (json['regularPrice'] as num?)?.toDouble(),
+      salePrice: (json['salePrice'] as num?)?.toDouble(),
       discount: json['discount'] as int?,
       color: json['color'] as String?,
       images:

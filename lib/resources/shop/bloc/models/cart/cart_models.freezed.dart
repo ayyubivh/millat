@@ -910,9 +910,9 @@ mixin _$ProductInfo {
   String? get pickupAddress => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
   @JsonKey(name: 'regularPrice')
-  int? get regularPrice => throw _privateConstructorUsedError;
+  double? get regularPrice => throw _privateConstructorUsedError;
   @JsonKey(name: 'salePrice')
-  int? get salePrice => throw _privateConstructorUsedError;
+  double? get salePrice => throw _privateConstructorUsedError;
   int? get discount => throw _privateConstructorUsedError;
   String? get color => throw _privateConstructorUsedError;
   List<String>? get images => throw _privateConstructorUsedError;
@@ -944,8 +944,8 @@ abstract class $ProductInfoCopyWith<$Res> {
       String? itemType,
       String? pickupAddress,
       String? description,
-      @JsonKey(name: 'regularPrice') int? regularPrice,
-      @JsonKey(name: 'salePrice') int? salePrice,
+      @JsonKey(name: 'regularPrice') double? regularPrice,
+      @JsonKey(name: 'salePrice') double? salePrice,
       int? discount,
       String? color,
       List<String>? images,
@@ -1026,11 +1026,11 @@ class _$ProductInfoCopyWithImpl<$Res, $Val extends ProductInfo>
       regularPrice: freezed == regularPrice
           ? _value.regularPrice
           : regularPrice // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double?,
       salePrice: freezed == salePrice
           ? _value.salePrice
           : salePrice // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double?,
       discount: freezed == discount
           ? _value.discount
           : discount // ignore: cast_nullable_to_non_nullable
@@ -1088,8 +1088,8 @@ abstract class _$$_ProductInfoCopyWith<$Res>
       String? itemType,
       String? pickupAddress,
       String? description,
-      @JsonKey(name: 'regularPrice') int? regularPrice,
-      @JsonKey(name: 'salePrice') int? salePrice,
+      @JsonKey(name: 'regularPrice') double? regularPrice,
+      @JsonKey(name: 'salePrice') double? salePrice,
       int? discount,
       String? color,
       List<String>? images,
@@ -1168,11 +1168,11 @@ class __$$_ProductInfoCopyWithImpl<$Res>
       regularPrice: freezed == regularPrice
           ? _value.regularPrice
           : regularPrice // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double?,
       salePrice: freezed == salePrice
           ? _value.salePrice
           : salePrice // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double?,
       discount: freezed == discount
           ? _value.discount
           : discount // ignore: cast_nullable_to_non_nullable
@@ -1262,10 +1262,10 @@ class _$_ProductInfo implements _ProductInfo {
   final String? description;
   @override
   @JsonKey(name: 'regularPrice')
-  final int? regularPrice;
+  final double? regularPrice;
   @override
   @JsonKey(name: 'salePrice')
-  final int? salePrice;
+  final double? salePrice;
   @override
   final int? discount;
   @override
@@ -1401,8 +1401,8 @@ abstract class _ProductInfo implements ProductInfo {
       final String? itemType,
       final String? pickupAddress,
       final String? description,
-      @JsonKey(name: 'regularPrice') final int? regularPrice,
-      @JsonKey(name: 'salePrice') final int? salePrice,
+      @JsonKey(name: 'regularPrice') final double? regularPrice,
+      @JsonKey(name: 'salePrice') final double? salePrice,
       final int? discount,
       final String? color,
       final List<String>? images,
@@ -1435,10 +1435,10 @@ abstract class _ProductInfo implements ProductInfo {
   String? get description;
   @override
   @JsonKey(name: 'regularPrice')
-  int? get regularPrice;
+  double? get regularPrice;
   @override
   @JsonKey(name: 'salePrice')
-  int? get salePrice;
+  double? get salePrice;
   @override
   int? get discount;
   @override

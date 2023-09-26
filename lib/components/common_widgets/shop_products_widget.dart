@@ -37,7 +37,7 @@ class ShopProductWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 231,
+      // height: 231,
       width: SizeUtility(context).width / 2.6,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -79,6 +79,7 @@ class ShopProductWidget extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                     height: 1.3,
                   ),
+                  overflow: TextOverflow.ellipsis,
                   maxLines: 2,
                 ),
               ),

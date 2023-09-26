@@ -330,7 +330,7 @@ class __$$_ResultCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Result implements _Result {
-  const _$_Result({@JsonKey(name: 'data') this.data, this.avgRating});
+  const _$_Result({@JsonKey(name: 'data') this.data, required this.avgRating});
 
   factory _$_Result.fromJson(Map<String, dynamic> json) =>
       _$$_ResultFromJson(json);
@@ -377,7 +377,7 @@ class _$_Result implements _Result {
 abstract class _Result implements Result {
   const factory _Result(
       {@JsonKey(name: 'data') final Data? data,
-      final double? avgRating}) = _$_Result;
+      required final double? avgRating}) = _$_Result;
 
   factory _Result.fromJson(Map<String, dynamic> json) = _$_Result.fromJson;
 

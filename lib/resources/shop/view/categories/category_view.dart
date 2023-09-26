@@ -1,5 +1,4 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/components/common_widgets/shop_products_widget.dart';
@@ -12,7 +11,6 @@ import 'package:millat/resources/shop/view/womens_care/shop_specific_category_ba
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/loader.dart';
-import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/string_constants.dart';
 import 'package:millat/utils/utils.dart';
 
@@ -195,23 +193,7 @@ class _CategoryViewState extends State<CategoryView> {
                     },
                   ),
                   kHeight20,
-                  _produtsTitleWidget(
-                    context: context,
-                    text: Appstrings.flashSale,
-                    isShowTimer: true,
-                    // onTap: () {
-                    //   Navigator.of(context)
-                    //       .pushNamed(ProductsView.routeName, arguments: {
-                    //     'appBarTitle': Appstrings.flashSale,
-                    //     'passValue': context
-                    //         .read<ShopProductsBloc>()
-                    //         .state
-                    //         .flashSaleproducts
-                    //         ?.result
-                    //         ?.shopProductCategory
-                    //   });
-                    // },
-                  ),
+
                   kHeight10,
                   BlocBuilder<ShopProductsBloc, ShopProductsState>(
                     builder: (context, state) {
@@ -223,45 +205,62 @@ class _CategoryViewState extends State<CategoryView> {
                           ?.shopProductCategory?.products;
 
                       if (products == null || products.isEmpty) {
-                        return const Text('No products available');
+                        return const SizedBox();
                       }
-                      return SizedBox(
-                        height: 240,
-                        child: ListView.builder(
-                          scrollDirection: Axis.horizontal,
-                          itemCount: products.length,
-                          itemBuilder: (context, index) {
-                            final data = products[index];
+                      return Column(
+                        children: [
+                          state.flashSaleproducts?.result?.shopProductCategory
+                                      ?.products !=
+                                  null
+                              ? _produtsTitleWidget(
+                                  context: context,
+                                  text: Appstrings.flashSale,
+                                  isShowTimer: true,
+                                )
+                              : const SizedBox(),
+                          kHeight16,
+                          SizedBox(
+                            height: 240,
+                            child: ListView.builder(
+                              scrollDirection: Axis.horizontal,
+                              itemCount: products.length,
+                              itemBuilder: (context, index) {
+                                final data = products[index];
 
-                            return GestureDetector(
-                              onTap: () {
-                                print(data.brand?.id);
+                                return GestureDetector(
+                                  onTap: () {
+                                    print(data.id);
 
-                                Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (context) => SingleProductView(
-                                    id: data.id ?? "",
+                                    Navigator.of(context)
+                                        .push(MaterialPageRoute(
+                                      builder: (context) => SingleProductView(
+                                        id: data.id ?? "",
+                                      ),
+                                    ));
+                                  },
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(right: 15),
+                                    child: ShopProductWidget(
+                                      color: data.color ?? "",
+                                      size: data.size?[0].size ?? "",
+                                      brandId: data.brand?.id,
+                                      isWishlisted: state.isWishListed,
+                                      brand: data.brand?.name ?? "",
+                                      productId: data.id,
+                                      image: data.images?[0] ?? "",
+                                      title: data.title ?? "",
+                                      actualPrice:
+                                          data.regularPrice?.toInt() ?? 0,
+                                      discount: data.discount?.toInt() ?? 0,
+                                      discountPrice:
+                                          data.salePrice?.toInt() ?? 0,
+                                    ),
                                   ),
-                                ));
+                                );
                               },
-                              child: Padding(
-                                padding: const EdgeInsets.only(right: 15),
-                                child: ShopProductWidget(
-                                  color: data.color ?? "",
-                                  size: data.size?[0].size ?? "",
-                                  brandId: data.brand?.id,
-                                  isWishlisted: state.isWishListed,
-                                  brand: data.brand?.name ?? "",
-                                  productId: data.id,
-                                  image: data.images?[0] ?? "",
-                                  title: data.title ?? "",
-                                  actualPrice: data.regularPrice ?? 0,
-                                  discount: data.discount?.toInt() ?? 0,
-                                  discountPrice: data.salePrice ?? 0,
-                                ),
-                              ),
-                            );
-                          },
-                        ),
+                            ),
+                          ),
+                        ],
                       );
                     },
                   ),
@@ -304,11 +303,7 @@ class _CategoryViewState extends State<CategoryView> {
                             );
                     },
                   ),
-                  kHeight20,
-                  _produtsTitleWidget(
-                    context: context,
-                    text: Appstrings.mostPopular,
-                  ),
+
                   kHeight20,
                   BlocBuilder<ShopProductsBloc, ShopProductsState>(
                     builder: (context, state) {
@@ -320,47 +315,64 @@ class _CategoryViewState extends State<CategoryView> {
                           ?.shopProductCategory?.products;
 
                       if (products == null || products.isEmpty) {
-                        return const Text('No Products available');
+                        return const SizedBox();
                       }
 
-                      return SizedBox(
-                        height: 240,
-                        child: ListView.builder(
-                          scrollDirection: Axis.horizontal,
-                          itemCount: products.length,
-                          itemBuilder: (context, index) {
-                            final data = products[index];
+                      return Column(
+                        children: [
+                          state.popularProducts?.result?.shopProductCategory
+                                      ?.products !=
+                                  null
+                              ? _produtsTitleWidget(
+                                  context: context,
+                                  text: Appstrings.mostPopular,
+                                  isShowTimer: true,
+                                )
+                              : const SizedBox(),
+                          kHeight16,
+                          SizedBox(
+                            height: 240,
+                            child: ListView.builder(
+                              scrollDirection: Axis.horizontal,
+                              itemCount: products.length,
+                              itemBuilder: (context, index) {
+                                final data = products[index];
 
-                            return GestureDetector(
-                              onTap: () {
-                                Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (context) {
-                                    return SingleProductView(
-                                      id: data.id ?? "",
-                                    );
+                                return GestureDetector(
+                                  onTap: () {
+                                    Navigator.of(context)
+                                        .push(MaterialPageRoute(
+                                      builder: (context) {
+                                        return SingleProductView(
+                                          id: data.id ?? "",
+                                        );
+                                      },
+                                    ));
                                   },
-                                ));
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(right: 15),
+                                    child: ShopProductWidget(
+                                      color: data.color ?? "",
+                                      size: data.size?[0].size ?? "",
+                                      brandId: data.brand?.id ?? "",
+                                      isWishlisted: state.isWishListed,
+                                      brand: data.brand?.name ?? "",
+                                      productId: data.id,
+                                      image: data.images?[0] ?? "",
+                                      title: data.title ??
+                                          "", // Make title nullable.
+                                      actualPrice:
+                                          data.regularPrice?.toInt() ?? 0,
+                                      discount: data.discount?.toInt() ?? 0,
+                                      discountPrice:
+                                          data.salePrice?.toInt() ?? 0,
+                                    ),
+                                  ),
+                                );
                               },
-                              child: Padding(
-                                padding: const EdgeInsets.only(right: 15),
-                                child: ShopProductWidget(
-                                  color: data.color ?? "",
-                                  size: data.size?[0].size ?? "",
-                                  brandId: data.brand?.id ?? "",
-                                  isWishlisted: state.isWishListed,
-                                  brand: data.brand?.name ?? "",
-                                  productId: data.id,
-                                  image: data.images?[0] ?? "",
-                                  title:
-                                      data.title ?? "", // Make title nullable.
-                                  actualPrice: data.regularPrice ?? 0,
-                                  discount: data.discount?.toInt() ?? 0,
-                                  discountPrice: data.salePrice ?? 0,
-                                ),
-                              ),
-                            );
-                          },
-                        ),
+                            ),
+                          ),
+                        ],
                       );
                     },
                   ),

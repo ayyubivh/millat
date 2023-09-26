@@ -207,9 +207,9 @@ class OrdetailsView extends StatelessWidget {
                               productId: data.id,
                               image: data.images?[0],
                               title: data.title,
-                              actualPrice: data.regularPrice ?? 0,
+                              actualPrice: data.regularPrice?.toInt() ?? 0,
                               discount: data.discount!.toInt(),
-                              discountPrice: data.salePrice ?? 0),
+                              discountPrice: data.salePrice?.toInt() ?? 0),
                         ));
                   },
                 ),

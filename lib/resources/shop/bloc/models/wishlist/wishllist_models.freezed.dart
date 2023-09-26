@@ -628,8 +628,8 @@ mixin _$Product {
   Subcategory? get subcategory => throw _privateConstructorUsedError;
   String? get itemType => throw _privateConstructorUsedError;
   String? get pickupAddress => throw _privateConstructorUsedError;
-  int? get regularPrice => throw _privateConstructorUsedError;
-  int? get salePrice => throw _privateConstructorUsedError;
+  double? get regularPrice => throw _privateConstructorUsedError;
+  double? get salePrice => throw _privateConstructorUsedError;
   int? get discount => throw _privateConstructorUsedError;
   String? get color => throw _privateConstructorUsedError;
   List<String>? get images => throw _privateConstructorUsedError;
@@ -660,8 +660,8 @@ abstract class $ProductCopyWith<$Res> {
       Subcategory? subcategory,
       String? itemType,
       String? pickupAddress,
-      int? regularPrice,
-      int? salePrice,
+      double? regularPrice,
+      double? salePrice,
       int? discount,
       String? color,
       List<String>? images,
@@ -750,11 +750,11 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
       regularPrice: freezed == regularPrice
           ? _value.regularPrice
           : regularPrice // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double?,
       salePrice: freezed == salePrice
           ? _value.salePrice
           : salePrice // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double?,
       discount: freezed == discount
           ? _value.discount
           : discount // ignore: cast_nullable_to_non_nullable
@@ -836,8 +836,8 @@ abstract class _$$_ProductCopyWith<$Res> implements $ProductCopyWith<$Res> {
       Subcategory? subcategory,
       String? itemType,
       String? pickupAddress,
-      int? regularPrice,
-      int? salePrice,
+      double? regularPrice,
+      double? salePrice,
       int? discount,
       String? color,
       List<String>? images,
@@ -925,11 +925,11 @@ class __$$_ProductCopyWithImpl<$Res>
       regularPrice: freezed == regularPrice
           ? _value.regularPrice
           : regularPrice // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double?,
       salePrice: freezed == salePrice
           ? _value.salePrice
           : salePrice // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double?,
       discount: freezed == discount
           ? _value.discount
           : discount // ignore: cast_nullable_to_non_nullable
@@ -1021,9 +1021,9 @@ class _$_Product implements _Product {
   @override
   final String? pickupAddress;
   @override
-  final int? regularPrice;
+  final double? regularPrice;
   @override
-  final int? salePrice;
+  final double? salePrice;
   @override
   final int? discount;
   @override
@@ -1163,8 +1163,8 @@ abstract class _Product implements Product {
       final Subcategory? subcategory,
       final String? itemType,
       final String? pickupAddress,
-      final int? regularPrice,
-      final int? salePrice,
+      final double? regularPrice,
+      final double? salePrice,
       final int? discount,
       final String? color,
       final List<String>? images,
@@ -1197,9 +1197,9 @@ abstract class _Product implements Product {
   @override
   String? get pickupAddress;
   @override
-  int? get regularPrice;
+  double? get regularPrice;
   @override
-  int? get salePrice;
+  double? get salePrice;
   @override
   int? get discount;
   @override

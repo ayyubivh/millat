@@ -1,10 +1,8 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:html/parser.dart';
 import 'package:intl/intl.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:fast_cached_network_image/fast_cached_network_image.dart';
 
 class Utilities {
   static formatDate(String date) {
@@ -157,33 +155,41 @@ class Utilities {
     BoxFit boxFit = BoxFit.contain,
     double? width,
   }) {
-    return FastCachedImage(
-      url: imageUrl!,
+    return Image.network(
+      imageUrl!,
       height: height,
       width: width,
       fit: boxFit,
-      loadingBuilder: (context, progress) {
-        return Container(
-          color: ColorManager.grey08,
-          child: Stack(
-            alignment: Alignment.center,
-            children: [
-              if (progress.isDownloading && progress.totalBytes != null)
-                SizedBox(
-                  width: width,
-                  height: height,
-                ),
-            ],
-          ),
+      loadingBuilder: (BuildContext context, Widget child,
+          ImageChunkEvent? loadingProgress) {
+        if (loadingProgress == null) {
+          return child;
+        } else {
+          return Container(
+            width: width,
+            height: height,
+            color: ColorManager.grey08,
+            child: Center(
+              child: CircularProgressIndicator(
+                color: ColorManager.primary,
+                value: loadingProgress.expectedTotalBytes != null
+                    ? loadingProgress.cumulativeBytesLoaded /
+                        loadingProgress.expectedTotalBytes!
+                    : null,
+              ),
+            ),
+          );
+        }
+      },
+      errorBuilder:
+          (BuildContext context, Object error, StackTrace? stackTrace) {
+        return Icon(
+          Icons.error_outline,
+          size: 40,
+          color: ColorManager.redColor,
         );
       },
     );
-  }
-
-  static buildCachedNetworkImageProvider(
-    String imageUrl,
-  ) {
-    return CachedNetworkImageProvider(imageUrl);
   }
 }
 

@@ -4,7 +4,6 @@ import 'package:millat/components/common_widgets/build_category_full_view.dart';
 import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/shop/bloc/logic/category_bloc/category_bloc.dart';
 import 'package:millat/resources/shop/view/categories/categories_product_view.dart';
-import 'package:millat/resources/shop/view/categories/category_view.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/loader.dart';
 

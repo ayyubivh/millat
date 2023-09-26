@@ -1,4 +1,3 @@
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/components/buttons/main_button.dart';
@@ -7,9 +6,9 @@ import 'package:millat/resources/shop/bloc/models/products/products_model.dart';
 import 'package:millat/resources/shop/view/products/single_product_view.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/constants.dart';
+import 'package:millat/utils/loader.dart';
 import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/string_constants.dart';
-import '../../../../components/common_widgets/cart_icon_widget.dart';
 import '../../../../components/common_widgets/shop_products_widget.dart';
 import '../../../../utils/color_manager.dart';
 import '../../bloc/logic/category_bloc/category_bloc.dart';
@@ -151,7 +150,7 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
                 //     );
                 //   },
                 // ),
-                const SizedBox(height: 30),
+                kHeight30,
                 BlocBuilder<CategoryBloc, CategoryState>(
                   builder: (context, state) {
                     List<Product> filteredProducts = [];
@@ -233,10 +232,7 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
                             ),
                           )
                         : state.productLoading
-                            ? Center(
-                                child: CircularProgressIndicator(
-                                    color: ColorManager.greenColor1),
-                              )
+                            ? const Loader()
                             : filteredProducts.isEmpty
                                 ? Padding(
                                     padding: EdgeInsets.only(
@@ -260,13 +256,14 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
                                         crossAxisCount: 2,
                                         crossAxisSpacing: 20,
                                         mainAxisSpacing: 20,
-                                        mainAxisExtent: 350,
+                                        mainAxisExtent: 250,
                                       ),
                                       itemCount: filteredProducts.length,
                                       itemBuilder: (context, index) {
                                         final data = filteredProducts[index];
                                         return GestureDetector(
                                           onTap: () {
+                                            // print(data.id);
                                             Navigator.of(context).push(
                                               MaterialPageRoute(
                                                 builder: (context) =>

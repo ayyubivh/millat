@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:millat/resources/shop/bloc/models/articles/articles_model.dart';
 import 'package:millat/resources/shop/bloc/models/category/specific_category_model.dart';
+import 'package:millat/resources/shop/bloc/models/coupon_model/coupen_model.dart';
 import 'package:millat/resources/shop/bloc/models/products/product_by_id_model.dart';
 import 'package:millat/resources/shop/bloc/models/products/products_model.dart';
 import 'package:millat/resources/shop/bloc/models/recent_products/recent_products_model.dart';
@@ -71,6 +72,8 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
     on<FetchSpecificCategeryItems>(_fetchSpecificCategeryItems);
     on<FetchProductsById>(_fetchProductsById);
     on<FetchBrandProducts>(_fetchBrandProducts);
+    on<FetchCoupons>(_fetchCoupons);
+    on<IsPromoCodeAvailable>(_isPromoCodeAvailable);
   }
 
   FutureOr<void> _fetchFlashSaleProducts(
@@ -548,5 +551,20 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
     } catch (e) {
       emit(state.copyWith(isLoading: false));
     }
+  }
+
+  _fetchCoupons(FetchCoupons event, Emitter<ShopProductsState> emit) async {
+    emit(state.copyWith(isLoading: true));
+    try {
+      final data = await shopService.fetchCoupons();
+      emit(state.copyWith(couponModel: data, isLoading: false));
+    } catch (e) {
+      emit(state.copyWith(isLoading: false));
+    }
+  }
+
+  _isPromoCodeAvailable(
+      IsPromoCodeAvailable event, Emitter<ShopProductsState> emit) {
+    emit(state.copyWith(isPromoCodeAvailable: event.value));
   }
 }

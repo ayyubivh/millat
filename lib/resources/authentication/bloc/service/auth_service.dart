@@ -13,8 +13,8 @@ import '../model/auth_user_model/social_user_model.dart';
 class AuthService extends HttpServices {
   final String loginAPI = 'auth/signin_with_email';
   final String loginWithGoogleApi = "social_auth/signin";
-  final String signIN = 'auth/signin';
-  final String sentOtpApi = "send_otp";
+  final String signIN = 'social_auth/complete_signin';
+  final String sentOtpApi = "auth/send_otp";
   final String signUpAPI = 'auth/signup';
   final String verifyOTPAPI = 'auth/verify';
   final String resendOTPAPI = 'auth/resend_otp';
@@ -94,50 +94,57 @@ class AuthService extends HttpServices {
     });
   }
 
-  sendOTP({required String phoneNumber,  }) async {
-    return await posts(endPoint: sentOtpApi, body: {
-      "phone_number": phoneNumber,
-      // "userId": userId,
-    }).then((value) {
-      if (value.statusCode == 200) {
+  Future sendOTP({required String phoneNumber}) async {
+    try {
+      final res =
+          await posts(endPoint: sentOtpApi, body: {"phoneNumber": phoneNumber});
+      var value = json.decode(res.body);
+
+      if (value['status'] == 200) {
         return {
           'status': true,
-          'result': jsonDecode(value.body)['result']['otp'],
+          'result': value['result']['otp'].toString(),
         };
       } else {
         return {
           'status': false,
-          'message': jsonDecode(value.body)['message'],
+          'message': value['message'],
         };
       }
-    }).catchError((error) {
+    } catch (e) {
       return {
         'status': false,
+        'message': 'Something went wrong, Please try again later',
       };
-    });
+    }
   }
 
-  signIn({required String phoneNumber, required String userId}) async {
-    return await posts(endPoint: signIN, body: {
-      "phone_number": phoneNumber,
-      "userId": userId,
-    }).then((value) {
-      if (value.statusCode == 200) {
-        return {
-          'status': true,
-          'result': jsonDecode(value.body)['phone_number']
-        };
+  Future signIn(
+      {required String phoneNumber,
+      required String userId,
+      required BuildContext context}) async {
+    try {
+      final res = await posts(
+          endPoint: signIN,
+          body: {"phone_number": phoneNumber, "userId": userId});
+      var value = json.decode(res.body);
+
+      if (value['status'] == 200) {
+        var token = value['result']['token'];
+        context.read<DatabaseBloc>().add(StoreTokenEvent(token: token));
+        return {'status': true, 'result': value['result']};
       } else {
         return {
           'status': false,
-          'message': jsonDecode(value.body)['message'],
+          'result': jsonDecode(value.body)['message'],
         };
       }
-    }).catchError((error) {
+    } catch (e) {
       return {
         'status': false,
+        'message': 'Something went wrong, Please try again later',
       };
-    });
+    }
   }
 
   verifyOTP(

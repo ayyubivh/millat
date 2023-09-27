@@ -26,10 +26,9 @@ class SendOTP extends AuthEvent {
 
 class VerifyOTP extends AuthEvent {
   final String code;
-  final String phoneNumber;
   final BuildContext context;
 
-  VerifyOTP(this.code, this.phoneNumber, this.context);
+  VerifyOTP(this.code,this.context);
 }
 
 class ForgotPassword extends AuthEvent {

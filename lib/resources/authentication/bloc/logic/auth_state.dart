@@ -12,9 +12,11 @@ class AuthloadingSocialLogin extends AuthState {}
 class AuthLoadedSocialLogin extends AuthState {}
 
 class AuthSocialLoginNewUser extends AuthState {
-  final String userId;
+  final String? userId;
+  final String? phoneNumber;
+  final String? otp;
 
-  AuthSocialLoginNewUser({required this.userId});
+  AuthSocialLoginNewUser({this.otp, this.userId, this.phoneNumber});
 }
 
 class AuthLoaded extends AuthState {

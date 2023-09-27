@@ -175,10 +175,7 @@ class _VerifyOTPViewState extends State<VerifyOTPView> {
                       onPressed: () {
                         // if (isTimerRunning) {
                         BlocProvider.of<AuthBloc>(context).add(
-                          VerifyOTP(
-                              otpController.text,
-                              (state as AuthSocialLoginNewUser).userId,
-                              context),
+                          VerifyOTP(otpController.text, context),
                         );
                         // } else {}
                       },

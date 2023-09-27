@@ -109,7 +109,7 @@ class SingleArticleView extends StatelessWidget {
                       width: SizeUtility(context).width / 4,
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(20),
-                        child: Utilities.buildCachedNetworkImage(
+                        child: Utilities().buildCachedNetworkImage(
                           imageUrl: passValue!.image!,
                           height: 202,
                           width: double.infinity,
@@ -154,7 +154,7 @@ class SingleArticleView extends StatelessWidget {
                 padding: const EdgeInsets.all(8.0),
                 child: ClipRRect(
                     borderRadius: BorderRadius.circular(10),
-                    child: Utilities.buildCachedNetworkImage(
+                    child: Utilities().buildCachedNetworkImage(
                       imageUrl: passValue!.product?.images?[0],
                       boxFit: BoxFit.cover,
                       height: 56,

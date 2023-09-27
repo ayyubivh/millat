@@ -69,7 +69,7 @@ class ArticleBuilWidget extends StatelessWidget {
             ),
             ClipRRect(
               borderRadius: BorderRadius.circular(20),
-              child: Utilities.buildCachedNetworkImage(
+              child: Utilities().buildCachedNetworkImage(
                 imageUrl: image,
                 height: 80,
                 width: 80,

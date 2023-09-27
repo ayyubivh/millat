@@ -37,7 +37,7 @@ class ShopProductWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 231,
+      // height: 231,
       width: SizeUtility(context).width / 2.6,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -57,7 +57,7 @@ class ShopProductWidget extends StatelessWidget {
                 alignment: Alignment.center,
                 child: ClipRRect(
                     borderRadius: BorderRadius.circular(12),
-                    child: Utilities.buildCachedNetworkImage(
+                    child: Utilities().buildCachedNetworkImage(
                       width: SizeUtility(context).width / 2.6,
                       imageUrl: image,
                       height: 136,
@@ -70,15 +70,18 @@ class ShopProductWidget extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
-                title.toString(),
-                style: TextStyle(
-                  color: ColorManager.blackColor,
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                  height: 1.3,
+              Expanded(
+                child: Text(
+                  title.toString(),
+                  style: TextStyle(
+                    color: ColorManager.blackColor,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    height: 1.3,
+                  ),
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 2,
                 ),
-                maxLines: 2,
               ),
               BlocBuilder<ShopProductsBloc, ShopProductsState>(
                 builder: (context, state) {

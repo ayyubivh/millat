@@ -270,13 +270,14 @@ class _EditProfileViewState extends State<EditProfileView> {
                                                         image: state.imagebytes !=
                                                                 null
                                                             ? FileImage(state
-                                                                .imagebytes!)
-                                                            : Utilities
-                                                                .buildCachedNetworkImageProvider(state
-                                                                    .authUserModel!
-                                                                    .result!
-                                                                    .user!
-                                                                    .picture!),
+                                                                    .imagebytes!)
+                                                                as ImageProvider<
+                                                                    Object>
+                                                            : NetworkImage(state
+                                                                .authUserModel!
+                                                                .result!
+                                                                .user!
+                                                                .picture!),
                                                       ),
                                                     ),
                                                   ),

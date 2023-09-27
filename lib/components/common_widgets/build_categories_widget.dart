@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:millat/resources/shop/view/categories/category_view.dart';
 import 'package:millat/utils/color_manager.dart';
+import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/utils.dart';
 
 class BuildCategoryWidget extends StatelessWidget {
@@ -16,23 +17,23 @@ class BuildCategoryWidget extends StatelessWidget {
         Navigator.of(context).push(MaterialPageRoute(
           builder: (context) => CategoryView(category: text),
         ));
-        print(text);
       },
       child: Column(
         children: [
           CircleAvatar(
             backgroundColor: ColorManager.whiteColor,
             radius: 33,
-            child:
-                Utilities.buildCachedNetworkImage(imageUrl: image, height: 35),
+            child: Utilities().buildCachedNetworkImage(
+              imageUrl: image,
+              height: 40,
+            ),
           ),
-          const SizedBox(
-            height: 10,
-          ),
+          kHeight10,
           Text(
             text,
             style: TextStyle(
                 color: ColorManager.whiteColor, fontWeight: FontWeight.w600),
+            overflow: TextOverflow.ellipsis,
           ),
         ],
       ),

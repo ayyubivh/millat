@@ -63,7 +63,7 @@ _$_BrandId _$$_BrandIdFromJson(Map<String, dynamic> json) => _$_BrandId(
       password: json['password'] as String?,
       roles: json['roles'] as String?,
       active: json['active'] as bool?,
-      phoneNumber: json['phoneNumber'] as int?,
+      phoneNumber: json['phoneNumber'] as String?,
       logo: json['logo'] as String?,
       coverImage: json['coverImage'] as String?,
       description: json['description'] as String?,

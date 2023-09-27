@@ -56,8 +56,8 @@ class SingleBrandView extends StatelessWidget {
                         ),
                       )
                     : SizedBox(
-                        // height: 400,
-                        // width: SizeUtility(context).width,
+                        height: 320,
+                        width: SizeUtility(context).width,
                         child: passValue.coverImage == ""
                             ? Container(
                                 height: 400,
@@ -71,13 +71,17 @@ class SingleBrandView extends StatelessWidget {
                                   size: 200,
                                 ),
                               )
-                            : Utilities.buildCachedNetworkImage(
-                                imageUrl: passValue.coverImage!,
-                                boxFit: BoxFit.cover)),
+                            : ClipRRect(
+                                borderRadius: const BorderRadius.vertical(
+                                    bottom: Radius.circular(20)),
+                                child: Utilities().buildCachedNetworkImage(
+                                    imageUrl: passValue.coverImage!,
+                                    boxFit: BoxFit.cover),
+                              )),
                 Positioned(
                   right: 0,
                   left: 0,
-                  top: 80,
+                  top: 60,
                   child: Column(
                     children: [
                       Container(
@@ -90,7 +94,7 @@ class SingleBrandView extends StatelessWidget {
                           borderRadius: BorderRadius.circular(50),
                           child: passValue.logo == null
                               ? const Icon(Icons.image_not_supported_outlined)
-                              : Utilities.buildCachedNetworkImage(
+                              : Utilities().buildCachedNetworkImage(
                                   imageUrl: passValue.logo!),
                         ),
                       ),
@@ -103,7 +107,7 @@ class SingleBrandView extends StatelessWidget {
                           color: ColorManager.whiteColor,
                         ),
                       ),
-                      kHeight20,
+                      kHeight16,
                       // Container(
                       //   height: 38,
                       //   width: SizeUtility(context).width / 4,
@@ -232,7 +236,7 @@ class SingleBrandView extends StatelessWidget {
                                               child: passValue.logo == null
                                                   ? const Icon(Icons
                                                       .image_not_supported_outlined)
-                                                  : Utilities
+                                                  : Utilities()
                                                       .buildCachedNetworkImage(
                                                           imageUrl:
                                                               passValue.logo!),

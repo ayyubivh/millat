@@ -30,7 +30,7 @@ class CategoryFullView extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Utilities.buildCachedNetworkImage(
+          Utilities().buildCachedNetworkImage(
             imageUrl: iconImage,
             width: 40,
             height: 40,

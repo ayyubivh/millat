@@ -187,8 +187,8 @@ class ShopSpecificCategoryView extends StatelessWidget {
                             return SizedBox(
                               height: 340,
                               width: SizeUtility(context).width,
-                              child: Utilities.buildCachedNetworkImage(
-                                  imageUrl: e),
+                              child: Utilities()
+                                  .buildCachedNetworkImage(imageUrl: e),
                             );
                           },
                         ).toList(),
@@ -241,23 +241,23 @@ class ShopSpecificCategoryView extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 30),
                 child: Column(
                   children: [
-                    Align(
-                        alignment: Alignment.topRight,
-                        child: GestureDetector(
-                          onTap: () {
-                            // Navigator.of(context).push(MaterialPageRoute(
-                            //   builder: (context) => ShopSubCategorySpecificView(
-                            //       category: categoryItemType.name.toString()),
-                            // ));
-                          },
-                          child: Text(
-                            Appstrings.viewAll,
-                            style: TextStyle(
-                                fontSize: 14,
-                                fontWeight: FontWeight.bold,
-                                color: ColorManager.primary),
-                          ),
-                        )),
+                    // Align(
+                    //     alignment: Alignment.topRight,
+                    //     child: GestureDetector(
+                    //       onTap: () {
+                    //         // Navigator.of(context).push(MaterialPageRoute(
+                    //         //   builder: (context) => ShopSubCategorySpecificView(
+                    //         //       category: categoryItemType.name.toString()),
+                    //         // ));
+                    //       },
+                    //       child: Text(
+                    //         Appstrings.viewAll,
+                    //         style: TextStyle(
+                    //             fontSize: 14,
+                    //             fontWeight: FontWeight.bold,
+                    //             color: ColorManager.primary),
+                    //       ),
+                    //     )),
                     kHeight8,
                     BlocBuilder<ShopProductsBloc, ShopProductsState>(
                       builder: (context, state) {
@@ -309,8 +309,8 @@ class ShopSpecificCategoryView extends StatelessWidget {
                                       ),
                                       child: ClipRRect(
                                         borderRadius: BorderRadius.circular(12),
-                                        child:
-                                            Utilities.buildCachedNetworkImage(
+                                        child: Utilities()
+                                            .buildCachedNetworkImage(
                                                 imageUrl:
                                                     subCategoryData?.image ??
                                                         ""),
@@ -367,7 +367,7 @@ class ShopSpecificCategoryView extends StatelessWidget {
                         }
 
                         return SizedBox(
-                          height: 240,
+                          height: 250,
                           child: ListView.builder(
                             scrollDirection: Axis.horizontal,
                             itemCount: products.length,
@@ -394,9 +394,10 @@ class ShopSpecificCategoryView extends StatelessWidget {
                                     productId: data.id,
                                     image: data.images?[0] ?? "",
                                     title: data.title ?? "",
-                                    actualPrice: data.regularPrice ?? 0,
+                                    actualPrice:
+                                        data.regularPrice?.toInt() ?? 0,
                                     discount: data.discount?.toInt() ?? 0,
-                                    discountPrice: data.salePrice ?? 0,
+                                    discountPrice: data.salePrice?.toInt() ?? 0,
                                   ),
                                 ),
                               );
@@ -456,7 +457,7 @@ class ShopSpecificCategoryView extends StatelessWidget {
                                 },
                                 child: Padding(
                                   padding: const EdgeInsets.only(top: 2.5),
-                                  child: Utilities.buildCachedNetworkImage(
+                                  child: Utilities().buildCachedNetworkImage(
                                       imageUrl: smallBannerImageUrls[i]),
                                 ),
                               ),
@@ -483,7 +484,7 @@ class ShopSpecificCategoryView extends StatelessWidget {
                                 }
 
                                 return SizedBox(
-                                  height: 240,
+                                  height: 250,
                                   child: ListView.builder(
                                     scrollDirection: Axis.horizontal,
                                     itemCount: products.length,
@@ -512,12 +513,13 @@ class ShopSpecificCategoryView extends StatelessWidget {
                                             brand: data.brand?.name ?? "",
                                             productId: data.id,
                                             image: data.images?[0] ?? "",
-                                            title: data.title ??
-                                                "", // Make title nullable.
-                                            actualPrice: data.regularPrice ?? 0,
+                                            title: data.title ?? "",
+                                            actualPrice:
+                                                data.regularPrice?.toInt() ?? 0,
                                             discount:
                                                 data.discount?.toInt() ?? 0,
-                                            discountPrice: data.salePrice ?? 0,
+                                            discountPrice:
+                                                data.salePrice?.toInt() ?? 0,
                                           ),
                                         ),
                                       );
@@ -537,7 +539,7 @@ class ShopSpecificCategoryView extends StatelessWidget {
                                   ),
                                 ));
                               },
-                              child: Utilities.buildCachedNetworkImage(
+                              child: Utilities().buildCachedNetworkImage(
                                   imageUrl: bigBannerImageUrl),
                             ),
                             kHeight100,

@@ -20,7 +20,7 @@ class ReviewModel with _$ReviewModel {
 class Result with _$Result {
   const factory Result({
     @JsonKey(name: 'data') Data? data,
-    double? avgRating,
+    required double? avgRating,
   }) = _Result;
 
   factory Result.fromJson(Map<String, dynamic> json) => _$ResultFromJson(json);
@@ -32,6 +32,7 @@ class Data with _$Data {
     @JsonKey(name: '_id') String? id,
     int? count,
     List<Rating>? ratings,
+    required double? avgRating,
   }) = _Data;
 
   factory Data.fromJson(Map<String, dynamic> json) => _$DataFromJson(json);

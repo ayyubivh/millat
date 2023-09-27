@@ -69,8 +69,8 @@ _$_Product _$$_ProductFromJson(Map<String, dynamic> json) => _$_Product(
           : Subcategory.fromJson(json['subcategory'] as Map<String, dynamic>),
       itemType: json['itemType'] as String?,
       pickupAddress: json['pickupAddress'] as String?,
-      regularPrice: json['regularPrice'] as int?,
-      salePrice: json['salePrice'] as int?,
+      regularPrice: (json['regularPrice'] as num?)?.toDouble(),
+      salePrice: (json['salePrice'] as num?)?.toDouble(),
       discount: json['discount'] as int?,
       color: json['color'] as String?,
       images:

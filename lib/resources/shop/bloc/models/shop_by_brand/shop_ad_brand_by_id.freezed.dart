@@ -648,7 +648,7 @@ mixin _$BrandId {
   String? get email => throw _privateConstructorUsedError;
   String? get password => throw _privateConstructorUsedError;
   bool? get isActive => throw _privateConstructorUsedError;
-  int? get phoneNumber => throw _privateConstructorUsedError;
+  String? get phoneNumber => throw _privateConstructorUsedError;
   String? get logo => throw _privateConstructorUsedError;
   String? get coverImage => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
@@ -681,7 +681,7 @@ abstract class $BrandIdCopyWith<$Res> {
       String? email,
       String? password,
       bool? isActive,
-      int? phoneNumber,
+      String? phoneNumber,
       String? logo,
       String? coverImage,
       String? description,
@@ -756,7 +756,7 @@ class _$BrandIdCopyWithImpl<$Res, $Val extends BrandId>
       phoneNumber: freezed == phoneNumber
           ? _value.phoneNumber
           : phoneNumber // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as String?,
       logo: freezed == logo
           ? _value.logo
           : logo // ignore: cast_nullable_to_non_nullable
@@ -830,7 +830,7 @@ abstract class _$$_BrandIdCopyWith<$Res> implements $BrandIdCopyWith<$Res> {
       String? email,
       String? password,
       bool? isActive,
-      int? phoneNumber,
+      String? phoneNumber,
       String? logo,
       String? coverImage,
       String? description,
@@ -902,7 +902,7 @@ class __$$_BrandIdCopyWithImpl<$Res>
       phoneNumber: freezed == phoneNumber
           ? _value.phoneNumber
           : phoneNumber // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as String?,
       logo: freezed == logo
           ? _value.logo
           : logo // ignore: cast_nullable_to_non_nullable
@@ -1004,7 +1004,7 @@ class _$_BrandId implements _BrandId {
   @override
   final bool? isActive;
   @override
-  final int? phoneNumber;
+  final String? phoneNumber;
   @override
   final String? logo;
   @override
@@ -1137,7 +1137,7 @@ abstract class _BrandId implements BrandId {
       required final String? email,
       required final String? password,
       required final bool? isActive,
-      required final int? phoneNumber,
+      required final String? phoneNumber,
       required final String? logo,
       required final String? coverImage,
       required final String? description,
@@ -1167,7 +1167,7 @@ abstract class _BrandId implements BrandId {
   @override
   bool? get isActive;
   @override
-  int? get phoneNumber;
+  String? get phoneNumber;
   @override
   String? get logo;
   @override

@@ -24,7 +24,7 @@ class _SearchViewState extends State<SearchView> {
   String selectedFilter = '';
   final _debouncer = Debouncer(milliseconds: 1000);
 
-  RangeValues priceRange = const RangeValues(20, 80); // Initial range
+  RangeValues priceRange = const RangeValues(20, 80);
 
   @override
   void initState() {
@@ -138,8 +138,9 @@ class _SearchViewState extends State<SearchView> {
                                   const SliverGridDelegateWithFixedCrossAxisCount(
                                 crossAxisCount: 2,
                                 crossAxisSpacing: 20,
-                                mainAxisExtent: 320,
+                                mainAxisExtent: 270,
                               ),
+                              physics: const NeverScrollableScrollPhysics(),
                               shrinkWrap: true,
                               itemCount: itemCount,
                               itemBuilder: (context, index) {

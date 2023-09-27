@@ -82,8 +82,7 @@ class BackgroundContainer extends StatelessWidget {
                       width: width,
                       decoration: BoxDecoration(
                         image: DecorationImage(
-                          image: Utilities.buildCachedNetworkImageProvider(
-                              imageUrl),
+                          image: NetworkImage(imageUrl),
                           fit: BoxFit.fill,
                         ),
                       ),
@@ -97,8 +96,7 @@ class BackgroundContainer extends StatelessWidget {
                   width: width,
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                      image:
-                          Utilities.buildCachedNetworkImageProvider(imageUrl),
+                      image: NetworkImage(imageUrl),
                       fit: BoxFit.cover,
                     ),
                   ),

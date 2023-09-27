@@ -36,7 +36,6 @@ import 'resources/shop/view/categories/categories_product_view.dart';
 void main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   bool splashRemoved = false;
-
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   Future.delayed(const Duration(seconds: 2), () {
     if (!splashRemoved) {

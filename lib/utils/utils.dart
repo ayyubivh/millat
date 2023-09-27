@@ -1,7 +1,7 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:html/parser.dart';
 import 'package:intl/intl.dart';
+import 'package:millat/utils/color_manager.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Utilities {
@@ -132,27 +132,64 @@ class Utilities {
 
   //   return false;
   // }
-  static buildCachedNetworkImage(
-      {String? imageUrl,
-      double? height,
-      BoxFit boxFit = BoxFit.contain,
-      double? width}) {
-    return CachedNetworkImage(
-      imageUrl: imageUrl!,
+  // static buildCachedNetworkImage(
+  //     {String? imageUrl,
+  //     double? height,
+  //     BoxFit boxFit = BoxFit.contain,
+  //     double? width}) {
+  //   return CachedNetworkImage(
+  //     imageUrl: imageUrl!,
+  //     height: height,
+  //     width: width,
+  //     fit: boxFit,
+  //     placeholder: (context, url) => const SizedBox(),
+  //     errorWidget: (context, url, error) => const Icon(
+  //       Icons.error_outline,
+  //     ),
+  //   );
+  // }
+
+  Widget buildCachedNetworkImage({
+    String? imageUrl,
+    double? height,
+    BoxFit boxFit = BoxFit.contain,
+    double? width,
+  }) {
+    return Image.network(
+      imageUrl!,
       height: height,
       width: width,
       fit: boxFit,
-      placeholder: (context, url) => const SizedBox(),
-      errorWidget: (context, url, error) => const Icon(
-        Icons.error_outline,
-      ),
+      loadingBuilder: (BuildContext context, Widget child,
+          ImageChunkEvent? loadingProgress) {
+        if (loadingProgress == null) {
+          return child;
+        } else {
+          return Container(
+            width: width,
+            height: height,
+            color: ColorManager.grey08,
+            child: Center(
+              child: CircularProgressIndicator(
+                color: ColorManager.primary,
+                value: loadingProgress.expectedTotalBytes != null
+                    ? loadingProgress.cumulativeBytesLoaded /
+                        loadingProgress.expectedTotalBytes!
+                    : null,
+              ),
+            ),
+          );
+        }
+      },
+      errorBuilder:
+          (BuildContext context, Object error, StackTrace? stackTrace) {
+        return Icon(
+          Icons.error_outline,
+          size: 40,
+          color: ColorManager.redColor,
+        );
+      },
     );
-  }
-
-  static buildCachedNetworkImageProvider(
-    String imageUrl,
-  ) {
-    return CachedNetworkImageProvider(imageUrl);
   }
 }
 

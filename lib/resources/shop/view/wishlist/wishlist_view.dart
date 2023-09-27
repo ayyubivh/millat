@@ -3,10 +3,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/components/buttons/main_button.dart';
 import 'package:millat/components/common_widgets/shop_products_widget.dart';
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
-import 'package:millat/resources/shop/view/products/single_product_view_brand.dart';
+import 'package:millat/resources/shop/view/products/single_product_view.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/loader.dart';
+import 'package:millat/utils/size_utility.dart';
 
 class WishListView extends StatelessWidget {
   const WishListView({super.key});
@@ -33,14 +34,9 @@ class WishListView extends StatelessWidget {
       ),
       body: BlocBuilder<ShopProductsBloc, ShopProductsState>(
         builder: (context, state) {
-          return state.isLoading ||
-                  state.wishList?.result?.wishlist?.products == null
-              ? Center(
-                  child: CircularProgressIndicator(
-                    color: ColorManager.greenColor1,
-                  ),
-                )
-              : state.wishList!.result!.wishlist!.products!.isEmpty
+          return state.isLoading
+              ? const Loader()
+              : state.wishList?.result?.wishlist?.products == null
                   ? Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 30),
                       child: Column(
@@ -64,7 +60,13 @@ class WishListView extends StatelessWidget {
                               fontWeight: FontWeight.w500,
                             ),
                           ),
-                          Image.asset("assets/images/wishlist_empty.png"),
+                          Padding(
+                            padding: EdgeInsets.only(
+                              top: SizeUtility(context).height / 8,
+                            ),
+                            child:
+                                Image.asset("assets/images/wishlist_empty.png"),
+                          ),
                         ],
                       ),
                     )
@@ -73,7 +75,7 @@ class WishListView extends StatelessWidget {
                           const SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 2,
                         crossAxisSpacing: 20,
-                        mainAxisExtent: 320,
+                        mainAxisExtent: 250,
                       ),
                       itemCount:
                           state.wishList?.result?.wishlist?.products!.length,
@@ -84,8 +86,8 @@ class WishListView extends StatelessWidget {
                           onTap: () {
                             Navigator.of(context)
                                 .push(MaterialPageRoute(builder: (context) {
-                              return SingleProductViewBrand(
-                                passValue: data,
+                              return SingleProductView(
+                                id: data!.id.toString(),
                               );
                             }));
                           },
@@ -100,7 +102,7 @@ class WishListView extends StatelessWidget {
                                   size: data?.size?[0].size ?? "",
                                   brandId: data?.id,
                                   isWishlisted: state.isWishListed,
-                                  brand: data?.brand ?? 'null',
+                                  brand: "",
                                   productId: data?.id ?? 'null',
                                   title: data?.title,
                                   image: data?.images?[0] ?? 'null',
@@ -118,10 +120,11 @@ class WishListView extends StatelessWidget {
       ),
       bottomSheet: BlocBuilder<ShopProductsBloc, ShopProductsState>(
         builder: (context, state) {
-          if (state.wishList?.result == null) {
-            return const Loader();
+          final data = state.wishList?.result?.wishlist?.products;
+          if (data == null) {
+            return const SizedBox();
           }
-          return state.wishList!.result!.wishlist!.products!.isNotEmpty
+          return data.isNotEmpty
               ? const SizedBox()
               : Container(
                   padding: const EdgeInsets.symmetric(horizontal: 25),

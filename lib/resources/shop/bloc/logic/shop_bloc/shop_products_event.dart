@@ -94,4 +94,8 @@ class ShopProductsEvent with _$ShopProductsEvent {
   }) = FetchProductsById;
   const factory ShopProductsEvent.fetchBrandProducts(
       {required String brandId}) = FetchBrandProducts;
+  const factory ShopProductsEvent.fetchCoupons() = FetchCoupons;
+  const factory ShopProductsEvent.isPromoCodeAvailable({
+    required bool value,
+  }) = IsPromoCodeAvailable;
 }

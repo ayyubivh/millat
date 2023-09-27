@@ -7,9 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:http/http.dart' as http;
-import 'package:millat/resources/shop/bloc/service/category_services.dart';
-import 'package:millat/resources/shop/bloc/service/review_service.dart';
 import 'package:millat/resources/shop/bloc/service/shop_services.dart';
+
 import 'package:millat/resources/shop/view/brand/single_brand_view.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:share_plus/share_plus.dart';
@@ -78,7 +77,7 @@ class _HomeViewState extends State<HomeView> {
       ..add(const FetchHadithOfTheDay())
       ..add(const FetchEventOfTheMonth())
       ..add(const ChangeIndexofAllaysaysBg());
-
+    ShopService().fetchCoupons();
     super.initState();
   }
 
@@ -477,7 +476,7 @@ class _HomeViewState extends State<HomeView> {
                           borderRadius: BorderRadius.circular(14),
                           child: Stack(
                             children: [
-                              Utilities.buildCachedNetworkImage(
+                              Utilities().buildCachedNetworkImage(
                                 imageUrl: data.image!,
                                 height: 230,
                                 width: SizeUtility(context).width / 1.6,
@@ -509,7 +508,8 @@ class _HomeViewState extends State<HomeView> {
                                         borderRadius: BorderRadius.circular(12),
                                         child: data.brandId?.logo == ""
                                             ? const Placeholder()
-                                            : Utilities.buildCachedNetworkImage(
+                                            : Utilities()
+                                                .buildCachedNetworkImage(
                                                 imageUrl: data.brandId!.logo!,
                                                 boxFit: BoxFit.contain,
                                               ),
@@ -570,7 +570,7 @@ class _HomeViewState extends State<HomeView> {
                     },
                     child: Column(
                       children: [
-                        Utilities.buildCachedNetworkImage(
+                        Utilities().buildCachedNetworkImage(
                           imageUrl: data?.image ?? "",
                           height: 75,
                           width: 75,
@@ -625,9 +625,9 @@ class _HomeViewState extends State<HomeView> {
                   CarouselSlider(
                     items: banners?.map((banner) {
                       return ClipRRect(
-                        // child: Utilities.buildCachedNetworkImage(
+                        // child: Utilities().buildCachedNetworkImage(
                         //     imageUrl: banner.images?[0], height: 327)
-                        child: Utilities.buildCachedNetworkImage(
+                        child: Utilities().buildCachedNetworkImage(
                           imageUrl: banner.images![0],
                           height: 327,
                           boxFit: BoxFit.contain,
@@ -763,7 +763,7 @@ class _HomeViewState extends State<HomeView> {
                           ),
                         ));
                       },
-                      child: Utilities.buildCachedNetworkImage(
+                      child: Utilities().buildCachedNetworkImage(
                         imageUrl: banner.image!,
                         height: 70,
                         width: 90,
@@ -1170,7 +1170,7 @@ class _HomeViewState extends State<HomeView> {
                     },
                     child: ClipRRect(
                         borderRadius: BorderRadius.circular(20),
-                        child: Utilities.buildCachedNetworkImage(
+                        child: Utilities().buildCachedNetworkImage(
                           imageUrl: banner.image,
                         )));
               }).toList(),

@@ -34,7 +34,7 @@ class Data with _$Data {
     required String? email,
     required String? password,
     @JsonKey(name: "isActive") required bool? active,
-    required int? phoneNumber,
+    required String? phoneNumber,
     required String? logo,
     required String? coverImage,
     required String? description,

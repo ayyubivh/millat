@@ -7,6 +7,7 @@ import 'package:millat/resources/shop/bloc/models/articles/articles_model.dart'
     as Articles;
 import 'package:millat/resources/shop/bloc/models/banners/banners_model.dart';
 import 'package:millat/resources/shop/bloc/models/category/specific_category_model.dart';
+import 'package:millat/resources/shop/bloc/models/coupon_model/coupen_model.dart';
 import 'package:millat/resources/shop/bloc/models/products/product_by_id_model.dart';
 import 'package:millat/resources/shop/bloc/models/products/product_item_women/products_item_women_model.dart';
 import 'package:millat/resources/shop/bloc/models/recent_products/recent_products_model.dart';
@@ -552,6 +553,27 @@ class ShopService extends HttpServices {
   }
 
   Future<ProductItemsSubCategoryWomenModel>
+      fetchProductItemsSubcategory() async {
+    const endPoint = "item?subcategory=";
+    final response = await get(endPoint: endPoint);
+
+    if (response.statusCode == 200) {
+      try {
+        final Map<String, dynamic> data = json.decode(response.body);
+        final result = ProductItemsSubCategoryWomenModel.fromJson(data);
+
+        return result;
+      } catch (e) {
+        print('item subcategory women: ${e.toString()}');
+        throw Exception('Failed to parse response');
+      }
+    } else {
+      throw Exception(
+          'API request failed with status code: ${response.statusCode}');
+    }
+  }
+
+  Future<ProductItemsSubCategoryWomenModel>
       fetchProductItemsbyCategory() async {
     const endPoint = "item?subcategory=Women";
     final response = await get(endPoint: endPoint);
@@ -602,6 +624,26 @@ class ShopService extends HttpServices {
       try {
         final Map<String, dynamic> data = json.decode(response.body);
         final result = ProductItemsSubCategoryHealthModel.fromJson(data);
+
+        return result;
+      } catch (e) {
+        print('error on item subcategory health: ${e.toString()}');
+        throw Exception('Failed to parse response');
+      }
+    } else {
+      throw Exception(
+          'API request failed with status code: ${response.statusCode}');
+    }
+  }
+
+  Future<CouponModel> fetchCoupons() async {
+    const endPoint = "coupon_code";
+    final response = await get(endPoint: endPoint);
+
+    if (response.statusCode == 200) {
+      try {
+        final Map<String, dynamic> data = json.decode(response.body);
+        final result = CouponModel.fromJson(data);
 
         return result;
       } catch (e) {

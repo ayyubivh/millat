@@ -24,8 +24,12 @@ class CheckoutConfirmation extends StatefulWidget {
 }
 
 class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
+  final promocodeController = TextEditingController();
   @override
   void initState() {
+    context
+        .read<ShopProductsBloc>()
+        .add(const ShopProductsEvent.isPromoCodeAvailable(value: false));
     BlocProvider.of<AddressBloc>(context).add(FetchAddressByIdEvent(
         context: context,
         id: context.read<AddressBloc>().state.addressId.toString()));
@@ -130,7 +134,7 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
                               subTitle: data.productId!.description,
                               size: data.size,
                               image: data.productId?.images![0],
-                              price: data.productId?.salePrice ?? 0,
+                              price: data.productId?.salePrice?.toInt() ?? 0,
                               actualPrice:
                                   data.productId?.regularPrice.toString(),
                               jsonColor: data.color,
@@ -235,6 +239,7 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
                           SizedBox(
                             width: SizeUtility(context).width * 50 / 100,
                             child: TextField(
+                              controller: promocodeController,
                               cursorColor: ColorManager.primary,
                               decoration: const InputDecoration(
                                 focusedBorder: UnderlineInputBorder(),
@@ -242,23 +247,38 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
                             ),
                           ),
                           const Spacer(),
-                          Container(
-                              height: 45,
-                              width: 85,
-                              decoration: BoxDecoration(
-                                color: ColorManager.primary,
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              child: Center(
-                                child: Text(
-                                  Appstrings.apply,
-                                  style: TextStyle(
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.bold,
-                                    color: ColorManager.whiteColor,
-                                  ),
+                          GestureDetector(
+                            onTap: () {
+                              final isPromocode = context
+                                  .read<ShopProductsBloc>()
+                                  .state
+                                  .couponModel
+                                  ?.result
+                                  .data
+                                  ?.any((e) =>
+                                      e.couponCode == promocodeController.text);
+                              context.read<ShopProductsBloc>().add(
+                                  ShopProductsEvent.isPromoCodeAvailable(
+                                      value: isPromocode ?? false));
+                            },
+                            child: Container(
+                                height: 45,
+                                width: 85,
+                                decoration: BoxDecoration(
+                                  color: ColorManager.primary,
+                                  borderRadius: BorderRadius.circular(10),
                                 ),
-                              ))
+                                child: Center(
+                                  child: Text(
+                                    Appstrings.apply,
+                                    style: TextStyle(
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.bold,
+                                      color: ColorManager.whiteColor,
+                                    ),
+                                  ),
+                                )),
+                          )
                         ],
                       )
                     ],
@@ -373,7 +393,7 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
               cartItems?.map((e) => e.quantity).toList(),
             );
             const shippingFee = 27;
-            const estimatingTax = 2036;
+            const estimatingTax = 0;
             final total = subTotal + shippingFee + estimatingTax;
             return MainButton(
               title: Appstrings.placeOrder,
@@ -389,7 +409,15 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
                     "here is the address ${context.read<AddressBloc>().state.addressIdModel!.result.address.addressLine}");
 
                 print('here is the address id ${pickUpaddress.id}');
-
+                final isPromo =
+                    context.read<ShopProductsBloc>().state.isPromoCodeAvailable;
+                final discount = context
+                    .read<ShopProductsBloc>()
+                    .state
+                    .couponModel
+                    ?.result
+                    .data?[0]
+                    .discount;
                 context.read<ShopProductsBloc>().add(PostOrders(
                       id: pickUpaddress.id,
                       shippingCharges: shippingFee,
@@ -397,13 +425,16 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
                       weight: 0,
                       pickupLocation: pickUpaddress.addressLine,
                       quantity: state.cartLength,
-                      totalPrice: total,
+                      totalPrice:
+                          isPromo ? total - discount!.toInt() : total.toInt(),
                       context: context,
                     ));
 
                 Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) =>
-                      PaymentSuccessful(subTotal: total, delivery: shippingFee),
+                  builder: (context) => PaymentSuccessful(
+                      subTotal:
+                          isPromo ? total - discount!.toInt() : total.toInt(),
+                      delivery: shippingFee),
                 ));
               },
             );

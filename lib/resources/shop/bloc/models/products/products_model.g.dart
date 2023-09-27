@@ -102,7 +102,7 @@ _$_Brand _$$_BrandFromJson(Map<String, dynamic> json) => _$_Brand(
       email: json['email'] as String?,
       password: json['password'] as String?,
       isActive: json['isActive'] as bool?,
-      phoneNumber: json['phoneNumber'] as int?,
+      phoneNumber: json['phoneNumber'] as String?,
       logo: json['logo'] as String?,
       coverImage: json['coverImage'] as String?,
       description: json['description'] as String?,

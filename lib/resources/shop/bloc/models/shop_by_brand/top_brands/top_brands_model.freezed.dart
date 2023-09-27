@@ -375,7 +375,7 @@ mixin _$Data {
   String? get password => throw _privateConstructorUsedError;
   @JsonKey(name: "isActive")
   bool? get active => throw _privateConstructorUsedError;
-  int? get phoneNumber => throw _privateConstructorUsedError;
+  String? get phoneNumber => throw _privateConstructorUsedError;
   String? get logo => throw _privateConstructorUsedError;
   String? get coverImage => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
@@ -414,7 +414,7 @@ abstract class $DataCopyWith<$Res> {
       String? email,
       String? password,
       @JsonKey(name: "isActive") bool? active,
-      int? phoneNumber,
+      String? phoneNumber,
       String? logo,
       String? coverImage,
       String? description,
@@ -494,7 +494,7 @@ class _$DataCopyWithImpl<$Res, $Val extends Data>
       phoneNumber: freezed == phoneNumber
           ? _value.phoneNumber
           : phoneNumber // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as String?,
       logo: freezed == logo
           ? _value.logo
           : logo // ignore: cast_nullable_to_non_nullable
@@ -568,7 +568,7 @@ abstract class _$$_DataCopyWith<$Res> implements $DataCopyWith<$Res> {
       String? email,
       String? password,
       @JsonKey(name: "isActive") bool? active,
-      int? phoneNumber,
+      String? phoneNumber,
       String? logo,
       String? coverImage,
       String? description,
@@ -644,7 +644,7 @@ class __$$_DataCopyWithImpl<$Res> extends _$DataCopyWithImpl<$Res, _$_Data>
       phoneNumber: freezed == phoneNumber
           ? _value.phoneNumber
           : phoneNumber // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as String?,
       logo: freezed == logo
           ? _value.logo
           : logo // ignore: cast_nullable_to_non_nullable
@@ -750,7 +750,7 @@ class _$_Data implements _Data {
   @JsonKey(name: "isActive")
   final bool? active;
   @override
-  final int? phoneNumber;
+  final String? phoneNumber;
   @override
   final String? logo;
   @override
@@ -890,7 +890,7 @@ abstract class _Data implements Data {
       required final String? email,
       required final String? password,
       @JsonKey(name: "isActive") required final bool? active,
-      required final int? phoneNumber,
+      required final String? phoneNumber,
       required final String? logo,
       required final String? coverImage,
       required final String? description,
@@ -924,7 +924,7 @@ abstract class _Data implements Data {
   @JsonKey(name: "isActive")
   bool? get active;
   @override
-  int? get phoneNumber;
+  String? get phoneNumber;
   @override
   String? get logo;
   @override

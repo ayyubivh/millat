@@ -42,12 +42,14 @@ _$_Data _$$_DataFromJson(Map<String, dynamic> json) => _$_Data(
       ratings: (json['ratings'] as List<dynamic>?)
           ?.map((e) => Rating.fromJson(e as Map<String, dynamic>))
           .toList(),
+      avgRating: (json['avgRating'] as num?)?.toDouble(),
     );
 
 Map<String, dynamic> _$$_DataToJson(_$_Data instance) => <String, dynamic>{
       '_id': instance.id,
       'count': instance.count,
       'ratings': instance.ratings,
+      'avgRating': instance.avgRating,
     };
 
 _$_Rating _$$_RatingFromJson(Map<String, dynamic> json) => _$_Rating(

@@ -17,6 +17,7 @@ import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/utils.dart';
 
 import '../../../../components/common_widgets/shop_products_widget.dart';
+import '../search/search_view.dart';
 
 class SingleProductView extends StatelessWidget {
   final String id;
@@ -25,7 +26,7 @@ class SingleProductView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      context.read<ShopProductsBloc>().add(FetchFlashSaleProducts(
+      context.read<ShopProductsBloc>().add(const FetchFlashSaleProducts(
           endPointSlug: "shop_product_category?slug=flash_sales"));
       BlocProvider.of<ShopProductsBloc>(context).add(FetchProductsById(id: id));
       BlocProvider.of<ReviewBloc>(context)
@@ -59,15 +60,19 @@ class SingleProductView extends StatelessWidget {
                   elevation: 0,
                   leading: BackButton(color: ColorManager.blackColor),
                   actions: [
-                    // Padding(
-                    //   padding: const EdgeInsets.only(left: 10),
-                    //   child: ImageIcon(
-                    //     const AssetImage(
-                    //       'assets/icons/search.png',
-                    //     ),
-                    //     color: ColorManager.blackColor,
-                    //   ),
-                    // ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 10),
+                      child: GestureDetector(
+                        onTap: () => Navigator.of(context)
+                            .pushNamed(SearchView.routeName),
+                        child: ImageIcon(
+                          const AssetImage(
+                            'assets/icons/search.png',
+                          ),
+                          color: ColorManager.blackColor,
+                        ),
+                      ),
+                    ),
                     BlocBuilder<CartBloc, CartState>(
                       builder: (context, state) {
                         return CartIconWidget(
@@ -145,7 +150,7 @@ class SingleProductView extends StatelessWidget {
                                           RatingBar.builder(
                                             itemSize: 20,
                                             initialRating: state.reviewModel
-                                                    ?.result?.avgRating ??
+                                                    ?.result?.data?.avgRating ??
                                                 0,
                                             minRating: 1,
                                             direction: Axis.horizontal,
@@ -159,50 +164,51 @@ class SingleProductView extends StatelessWidget {
                                               Icons.star,
                                               color: orange255,
                                             ),
-                                            onRatingUpdate: (rating) {
-                                              final userData = context
-                                                  .read<DatabaseBloc>()
-                                                  .state
-                                                  .authUserModel
-                                                  ?.result
-                                                  ?.user;
-                                              final name = userData?.name;
-                                              final userId = userData?.id;
+                                            onRatingUpdate: (value) {},
+                                            // onRatingUpdate: (rating) {
+                                            //   final userData = context
+                                            //       .read<DatabaseBloc>()
+                                            //       .state
+                                            //       .authUserModel
+                                            //       ?.result
+                                            //       ?.user;
+                                            //   final name = userData?.name;
+                                            //   final userId = userData?.id;
 
-                                              final ratingExists = data
-                                                  ?.data?.ratings
-                                                  ?.any((e) =>
-                                                      e.userId == userId);
+                                            //   final ratingExists = data
+                                            //       ?.data?.ratings
+                                            //       ?.any((e) =>
+                                            //           e.userId == userId);
 
-                                              if (ratingExists ?? false) {
-                                                context
-                                                    .read<ReviewBloc>()
-                                                    .add(UpdateReiview(
-                                                      context: context,
-                                                      productId: id,
-                                                      rating: rating.toDouble(),
-                                                      comment: "",
-                                                    ));
-                                                context.read<ReviewBloc>().add(
-                                                    FetchRatingEvent(
-                                                        id: id,
-                                                        context: context));
-                                              } else {
-                                                context
-                                                    .read<ReviewBloc>()
-                                                    .add(AddReview(
-                                                      context: context,
-                                                      productId: id,
-                                                      name: name ?? "",
-                                                      rating: rating.toDouble(),
-                                                      comment: "",
-                                                    ));
-                                                context.read<ReviewBloc>().add(
-                                                    FetchRatingEvent(
-                                                        id: id,
-                                                        context: context));
-                                              }
-                                            },
+                                            //   if (ratingExists ?? false) {
+                                            //     context
+                                            //         .read<ReviewBloc>()
+                                            //         .add(UpdateReiview(
+                                            //           context: context,
+                                            //           productId: id,
+                                            //           rating: rating.toDouble(),
+                                            //           comment: "",
+                                            //         ));
+                                            //     context.read<ReviewBloc>().add(
+                                            //         FetchRatingEvent(
+                                            //             id: id,
+                                            //             context: context));
+                                            //   } else {
+                                            //     context
+                                            //         .read<ReviewBloc>()
+                                            //         .add(AddReview(
+                                            //           context: context,
+                                            //           productId: id,
+                                            //           name: name ?? "",
+                                            //           rating: rating.toDouble(),
+                                            //           comment: "",
+                                            //         ));
+                                            //     context.read<ReviewBloc>().add(
+                                            //         FetchRatingEvent(
+                                            //             id: id,
+                                            //             context: context));
+                                            //   }
+                                            // },
                                           ),
                                           kWidht10,
                                           Text(
@@ -447,12 +453,10 @@ class SingleProductView extends StatelessWidget {
                     ),
                   ),
                 ),
-                floatingActionButton: const Padding(
-                  padding: EdgeInsets.only(right: 12, bottom: 40),
-                  child: Icon(
-                    Icons.favorite_border_outlined,
-                  ),
-                ),
+                // floatingActionButton: const IconButton.filled(
+                //   onPressed: null,
+                //   icon: Icon(Icons.favorite_border_outlined),
+                // ),
                 bottomSheet: Padding(
                     padding:
                         const EdgeInsets.only(bottom: 20, left: 30, right: 30),
@@ -836,8 +840,8 @@ class SingleProductView extends StatelessWidget {
                   children: [
                     Text(
                       name,
-                      style:
-                          TextStyle(fontWeight: FontWeight.w700, fontSize: 17),
+                      style: const TextStyle(
+                          fontWeight: FontWeight.w700, fontSize: 17),
                     ),
                   ],
                 ),
@@ -858,7 +862,7 @@ class SingleProductView extends StatelessWidget {
                   color: orange255,
                 ),
                 onRatingUpdate: (value) {
-                  return null;
+                  return;
                 },
               ),
               kHeight15,

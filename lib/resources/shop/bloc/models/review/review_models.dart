@@ -32,6 +32,7 @@ class Data with _$Data {
     @JsonKey(name: '_id') String? id,
     int? count,
     List<Rating>? ratings,
+    required double? avgRating,
   }) = _Data;
 
   factory Data.fromJson(Map<String, dynamic> json) => _$DataFromJson(json);

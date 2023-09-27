@@ -62,7 +62,7 @@ class Brand with _$Brand {
     required String? email,
     required String? password,
     required bool? isActive,
-    required int? phoneNumber,
+    required String? phoneNumber,
     required String? logo,
     required String? coverImage,
     required String? description,

@@ -48,11 +48,11 @@ PODS:
     - FlutterMacOS
   - permission_handler_apple (9.1.1):
     - Flutter
-  - PhoneNumberKit (3.6.8):
-    - PhoneNumberKit/PhoneNumberKitCore (= 3.6.8)
-    - PhoneNumberKit/UIKit (= 3.6.8)
-  - PhoneNumberKit/PhoneNumberKitCore (3.6.8)
-  - PhoneNumberKit/UIKit (3.6.8):
+  - PhoneNumberKit (3.7.2):
+    - PhoneNumberKit/PhoneNumberKitCore (= 3.7.2)
+    - PhoneNumberKit/UIKit (= 3.7.2)
+  - PhoneNumberKit/PhoneNumberKitCore (3.7.2)
+  - PhoneNumberKit/UIKit (3.7.2):
     - PhoneNumberKit/PhoneNumberKitCore
   - share_plus (0.0.1):
     - Flutter
@@ -166,7 +166,7 @@ SPEC CHECKSUMS:
   libphonenumber_plugin: e8a7d64a6624a7c25f2c4ab0b7ead2a8e341e35e
   path_provider_foundation: 29f094ae23ebbca9d3d0cec13889cd9060c0e943
   permission_handler_apple: e76247795d700c14ea09e3a2d8855d41ee80a2e6
-  PhoneNumberKit: 962cb725d664c7d4ac5f3e6f93e2de5f543f0d05
+  PhoneNumberKit: f8e2693b9b192ac170a1f9d039fab9f4e4f068ec
   share_plus: 599aa54e4ea31d4b4c0e9c911bcc26c55e791028
   shared_preferences_foundation: 5b919d13b803cadd15ed2dc053125c68730e5126
   sign_in_with_apple: f3bf75217ea4c2c8b91823f225d70230119b8440

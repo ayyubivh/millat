@@ -23,7 +23,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+<<<<<<< HEAD
             <point key="canvasLocation" x="-17" y="-41"/>
+=======
+            <point key="canvasLocation" x="123" y="-2"/>
+>>>>>>> social-login-bugs
         </scene>
     </scenes>
 </document>

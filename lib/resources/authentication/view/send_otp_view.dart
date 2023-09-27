@@ -27,7 +27,7 @@ class _SendOTPViewState extends State<SendOTPView> {
           buildError(state.errorMessage);
         } else if (state is AuthLoaded) {
           clearDate();
-          Navigator.of(context).pushReplacement(MaterialPageRoute(
+          Navigator.of(context).push(MaterialPageRoute(
             builder: (context) => const VerifyOTPView(),
           ));
         }
@@ -95,7 +95,8 @@ class _SendOTPViewState extends State<SendOTPView> {
                       title: 'Send OTP',
                       onPressed: () {
                         if (isValidate) {
-                          BlocProvider.of<AuthBloc>(context)
+                          context
+                              .read<AuthBloc>()
                               .add(SendOTP(number!.phoneNumber!));
                         } else {
                           ScaffoldMessenger.of(context).showSnackBar(

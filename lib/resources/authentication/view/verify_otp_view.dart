@@ -26,16 +26,12 @@ class _VerifyOTPViewState extends State<VerifyOTPView> {
   late Timer timer;
   String? receivedOtp;
   bool isResendTextGreen = false;
+  bool isTimerRunning = true;
 
   @override
   void initState() {
     super.initState();
     _startTimer();
-    Timer(const Duration(minutes: 1), () {
-      setState(() {
-        isResendTextGreen = true;
-      });
-    });
   }
 
   void _startTimer() {
@@ -45,6 +41,7 @@ class _VerifyOTPViewState extends State<VerifyOTPView> {
           seconds--;
         } else {
           timer.cancel();
+          isTimerRunning = false;
         }
       });
     });
@@ -54,6 +51,7 @@ class _VerifyOTPViewState extends State<VerifyOTPView> {
   void dispose() {
     otpController.dispose();
     focusNode.dispose();
+    timer.cancel();
     super.dispose();
   }
 
@@ -87,7 +85,7 @@ class _VerifyOTPViewState extends State<VerifyOTPView> {
           if (state is AuthError) {
             buildError(state.errorMessage);
           } else if (state is AuthLoaded) {
-            clearDate();
+            clearData();
             Navigator.of(context).pushReplacement(MaterialPageRoute(
               builder: (context) => const TabsView(),
             ));
@@ -112,7 +110,7 @@ class _VerifyOTPViewState extends State<VerifyOTPView> {
                       height: 40,
                     ),
                     const Text(
-                      'We have sent OTP verification on your email/number. This code will expire in',
+                      'We have sent OTP verification to your email/number. This code will expire in',
                       style:
                           TextStyle(color: black133, fontSize: 16, height: 1.3),
                       textAlign: TextAlign.center,
@@ -125,8 +123,8 @@ class _VerifyOTPViewState extends State<VerifyOTPView> {
                     const SizedBox(height: 30),
                     Pinput(
                       length: 4,
-                      controller: otpController..text = receivedOtp ?? '',
-                      focusNode: focusNode,
+                      controller: otpController,
+                      enabled: isTimerRunning,
                       defaultPinTheme: defaultPinTheme,
                       separator: const SizedBox(width: 16),
                       focusedPinTheme: defaultPinTheme.copyWith(
@@ -142,24 +140,28 @@ class _VerifyOTPViewState extends State<VerifyOTPView> {
                       height: 20,
                     ),
                     RichText(
-                        text: TextSpan(children: [
-                      TextSpan(
-                          text: "I didn't received a code! ",
+                      text: TextSpan(children: [
+                        TextSpan(
+                          text: "Didn't receive a code? ",
                           style: TextStyle(
-                              color: isResendTextGreen
-                                  ? black133
-                                  : ColorManager.mainColor.withOpacity(0.0),
+                            color: isResendTextGreen
+                                ? black133
+                                : ColorManager.mainColor.withOpacity(0.0),
+                            fontSize: 13,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                        if (isResendTextGreen)
+                          TextSpan(
+                            text: 'Resend',
+                            style: TextStyle(
+                              color: ColorManager.mainColor,
                               fontSize: 13,
-                              fontWeight: FontWeight.w500)),
-                      TextSpan(
-                          text: 'Please resend',
-                          style: TextStyle(
-                              color: isResendTextGreen
-                                  ? ColorManager.mainColor
-                                  : ColorManager.mainColor.withOpacity(0.0),
-                              fontSize: 13,
-                              fontWeight: FontWeight.w500)),
-                    ])),
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                      ]),
+                    ),
                     const SizedBox(
                       height: 50,
                     ),
@@ -168,21 +170,14 @@ class _VerifyOTPViewState extends State<VerifyOTPView> {
                     const SizedBox(
                       height: 20,
                     ),
-                    BlocBuilder<AuthBloc, AuthState>(
-                      builder: (context, state) {
-                        if (state is AuthPhoneNumber) {
-                          return MainButton(
-                            title: 'Verify OTP',
-                            onPressed: () {
-                              BlocProvider.of<AuthBloc>(context).add(
-                                VerifyOTP(otpController.text, state.phoneNumber,
-                                    context),
-                              );
-                            },
-                          );
-                        } else {
-                          return Container(); // Return an empty container or a default widget when the state is not AuthPhoneNumber
-                        }
+                    MainButton(
+                      title: 'Verify OTP',
+                      onPressed: () {
+                        // if (isTimerRunning) {
+                        BlocProvider.of<AuthBloc>(context).add(
+                          VerifyOTP(otpController.text, context),
+                        );
+                        // } else {}
                       },
                     ),
                   ],
@@ -193,13 +188,6 @@ class _VerifyOTPViewState extends State<VerifyOTPView> {
         },
       ),
     );
-  }
-
-  receiveOtp(String otp) {
-    setState(() {
-      receivedOtp = otp;
-      otpController.text = otp;
-    });
   }
 
   String formatTime(int seconds) {
@@ -217,7 +205,7 @@ class _VerifyOTPViewState extends State<VerifyOTPView> {
         .showSnackBar(SnackBar(content: Text(message)));
   }
 
-  clearDate() {
+  clearData() {
     otpController.clear();
     receivedOtp = null;
   }

@@ -8,6 +8,7 @@ import 'package:millat/resources/shop/bloc/logic/category_bloc/category_bloc.dar
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
 import 'package:millat/resources/shop/bloc/service/review_service.dart';
 import 'package:millat/resources/shop/view/article/articles_view.dart';
+import 'package:millat/resources/shop/view/article/single_article_view.dart';
 import 'package:millat/resources/shop/view/brand/shop_brand_view.dart';
 import 'package:millat/resources/shop/view/brand/single_brand_view.dart';
 import 'package:millat/resources/shop/view/categories/categories_filter_view.dart';
@@ -101,17 +102,26 @@ class _ShopViewState extends State<ShopView> {
 
                       final womenData =
                           state.shopHomeBackgroundCardModelWomens?.result.data;
-                      final womenSubCategoryData =
-                          state.productItemsSubCategoryWomenModel?.result.items;
+                      final womenSubCategoryData = state
+                          .productItemsSubCategoryWomenModel
+                          ?.result
+                          ?.data
+                          ?.itemList;
                       final healthyDietData = state
                           .shopHomeBackgroundCardModelHealthyDiet?.result.data;
 
                       final healthyDietSubCategoryData = state
-                          .productItemsSubCategoryHealthModel?.result?.items;
+                          .productItemsSubCategoryHealthModel
+                          ?.result
+                          ?.data
+                          ?.itemList;
                       final sunnahData =
                           state.shopHomeBackgroundCardModelSunnah?.result?.data;
                       final sunnahSubCategoryData = state
-                          .productItemsSubCategorySunnahModel?.result.items;
+                          .productItemsSubCategorySunnahModel
+                          ?.result
+                          ?.data
+                          ?.articleList;
 
                       return Column(
                         children: [
@@ -137,14 +147,16 @@ class _ShopViewState extends State<ShopView> {
                             child: womenSubCategoryData == null
                                 ? const SizedBox()
                                 : shopCardSubcategoryWidget(
+                                    getId: (index) =>
+                                        womenSubCategoryData[index].id ?? "",
                                     state: state,
                                     height: 110,
                                     color: ColorManager.lightPinkClr,
                                     itemCount: womenSubCategoryData.length,
                                     getTitle: (index) =>
-                                        womenSubCategoryData[index].title,
+                                        womenSubCategoryData[index].title ?? "",
                                     getImageUrl: (index) =>
-                                        womenSubCategoryData[index].image,
+                                        womenSubCategoryData[index].image ?? "",
                                   ),
                           ),
                           kHeight15,
@@ -171,6 +183,9 @@ class _ShopViewState extends State<ShopView> {
                             child: healthyDietSubCategoryData == null
                                 ? const SizedBox()
                                 : shopCardSubcategoryWidget(
+                                    getId: (index) =>
+                                        healthyDietSubCategoryData[index].id ??
+                                        "",
                                     state: state,
                                     height: 110,
                                     color: ColorManager.helthyDietGradientClr2,
@@ -209,15 +224,20 @@ class _ShopViewState extends State<ShopView> {
                             child: sunnahSubCategoryData == null
                                 ? const SizedBox()
                                 : shopCardSubcategoryWidget(
+                                    data: sunnahSubCategoryData,
+                                    getId: (index) =>
+                                        sunnahSubCategoryData[index].id ?? "",
                                     state: state,
                                     height: 110,
                                     color: ColorManager.whiteColor,
                                     itemCount: sunnahSubCategoryData.length,
                                     getTitle: (index) =>
-                                        sunnahSubCategoryData[index].title,
+                                        sunnahSubCategoryData[index].title ??
+                                        "",
                                     getImageUrl: (index) =>
-                                        sunnahSubCategoryData[index].image,
-                                  ),
+                                        sunnahSubCategoryData[index].image ??
+                                        "",
+                                    isSunnah: true),
                           ),
                         ],
                       );
@@ -241,8 +261,11 @@ class _ShopViewState extends State<ShopView> {
     required double height,
     required Color color,
     required int itemCount,
+    required String Function(int) getId,
     required String Function(int) getTitle,
     required String Function(int) getImageUrl,
+    bool isSunnah = false,
+    dynamic data,
   }) {
     return SizedBox(
       height: height,
@@ -250,29 +273,48 @@ class _ShopViewState extends State<ShopView> {
         itemCount: itemCount,
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) {
-          return Column(
-            children: [
-              Container(
-                height: 81,
-                width: 81,
-                margin: const EdgeInsets.only(right: 10),
-                decoration: BoxDecoration(
-                    color: color, borderRadius: BorderRadius.circular(12)),
-                child: ClipRRect(
-                    borderRadius: BorderRadius.circular(12),
-                    child: Utilities().buildCachedNetworkImage(
-                        imageUrl: getImageUrl(index), boxFit: BoxFit.cover)),
-              ),
-              const SizedBox(height: 10),
-              Text(
-                getTitle(index),
-                style: const TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.w600,
+          return GestureDetector(
+            onTap: () {
+              isSunnah
+                  ? Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const ArticlesView()))
+                  : Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => CategoriesProductView(
+                        itemId: getId(index),
+                        subCategory: "",
+                        type: FilterType.specificCategory,
+                        category: '',
+                        itemName: getTitle(index),
+                      ),
+                    ));
+            },
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  height: 81,
+                  width: 81,
+                  margin: const EdgeInsets.only(right: 10),
+                  decoration: BoxDecoration(
+                      color: color, borderRadius: BorderRadius.circular(12)),
+                  child: ClipRRect(
+                      borderRadius: BorderRadius.circular(12),
+                      child: Utilities().buildCachedNetworkImage(
+                          imageUrl: getImageUrl(index), boxFit: BoxFit.cover)),
                 ),
-                textAlign: TextAlign.center,
-              ),
-            ],
+                kHeight10,
+                Text(
+                  getTitle(index),
+                  style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w600,
+                      color: isSunnah
+                          ? ColorManager.whiteColor
+                          : ColorManager.blackColor),
+                  textAlign: TextAlign.center,
+                ),
+              ],
+            ),
           );
         },
       ),
@@ -678,7 +720,7 @@ Widget buildShopbyBrand(String? image, String? name) {
                   ),
           ),
         ),
-        const SizedBox(height: 10),
+        kHeight10,
         Text(
           name ?? 'No name',
           style: TextStyle(

@@ -5,10 +5,14 @@ import 'package:millat/utils/color_manager.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Utilities {
-  static formatDate(String date) {
-    DateTime dateTime = DateTime.parse(date);
-    DateFormat dateFormat = DateFormat('dd MMMM yyyy');
-    return dateFormat.format(dateTime);
+  static String formatDate(String date) {
+    try {
+      DateTime dateTime = DateTime.parse(date);
+      DateFormat dateFormat = DateFormat('dd MMMM yyyy');
+      return dateFormat.format(dateTime);
+    } catch (e) {
+      return '';
+    }
   }
 
   static formatDatePrayerTracker(String date) {

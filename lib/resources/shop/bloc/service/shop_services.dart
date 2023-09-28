@@ -533,14 +533,13 @@ class ShopService extends HttpServices {
 
   Future<ProductItemsSubCategoryWomenModel>
       fetchProductItemsSubcategoryWomen() async {
-    const endPoint = "item?subcategory=Women";
+    const endPoint = "specific_category/item/data?slug=women_card_item";
     final response = await get(endPoint: endPoint);
 
     if (response.statusCode == 200) {
       try {
         final Map<String, dynamic> data = json.decode(response.body);
         final result = ProductItemsSubCategoryWomenModel.fromJson(data);
-
         return result;
       } catch (e) {
         print('item subcategory women: ${e.toString()}');
@@ -596,7 +595,7 @@ class ShopService extends HttpServices {
 
   Future<ProductItemsSubCategorySunnahModel>
       fetchProductItemsSubcategorySunnah() async {
-    const endPoint = "item?subcategory=sunnah";
+    const endPoint = "specific_category/item/data?slug=sunnah_card_item";
     final response = await get(endPoint: endPoint);
 
     if (response.statusCode == 200) {
@@ -617,7 +616,7 @@ class ShopService extends HttpServices {
 
   Future<ProductItemsSubCategoryHealthModel>
       fetchProductItemsSubcategoryHealth() async {
-    const endPoint = "item?subcategory=health";
+    const endPoint = "specific_category/item/data?slug=healthy_diet_card_item";
     final response = await get(endPoint: endPoint);
 
     if (response.statusCode == 200) {

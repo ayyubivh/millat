@@ -67,7 +67,7 @@ class OrdersService extends HttpServices {
     if (response.statusCode == 200) {
       try {
         final Map<String, dynamic> data = json.decode(response.body);
-
+        print(response.body);
         final result = OrderModel.fromJson(data);
         return result;
       } catch (e) {
@@ -144,6 +144,42 @@ class OrdersService extends HttpServices {
     required int shiprocketId,
   }) async {
     const endPoint = 'order/cancel';
+
+    final databaseState = context.read<DatabaseBloc>().state;
+    final token = databaseState.token;
+
+    final headers = {
+      'Content-Type': 'application/json; charset=utf-8',
+      'Authorization': 'Bearer $token',
+    };
+
+    final body = {
+      "shiprocket_order_id": shiprocketId,
+    };
+
+    final response = await http.post(Uri.parse(kBaseUrl + endPoint),
+        headers: headers, body: jsonEncode(body));
+
+    try {
+      if (response.statusCode == 200) {
+        final Map<String, dynamic> data = json.decode(response.body);
+        print('Response data in the postOrder function: $data');
+        return data;
+      } else {
+        throw Exception(
+            'API request failed with status code: ${response.statusCode}');
+      }
+    } catch (e) {
+      print('Error on API fetch: ${e.toString()}');
+    }
+  }
+
+  //Return Order
+  returnOrder({
+    required BuildContext context,
+    required int shiprocketId,
+  }) async {
+    const endPoint = 'order/return';
 
     final databaseState = context.read<DatabaseBloc>().state;
     final token = databaseState.token;

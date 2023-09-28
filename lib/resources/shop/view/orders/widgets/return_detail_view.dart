@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:millat/resources/shop/view/checkout/checkout_view.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:millat/resources/shop/bloc/logic/address_bloc/address_bloc.dart';
+import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
 import 'package:millat/resources/shop/view/orders/widgets/order_returned_succesfully.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/size_utility.dart';
-
 import '../../../../../components/buttons/main_button.dart';
 import '../../../../../utils/assets_paths.dart';
 import '../../../../../utils/color_manager.dart';
@@ -16,7 +17,7 @@ class OrderRetunDetailView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: ColorManager.scaffolBgColor,
+        backgroundColor: ColorManager.whiteColor,
         appBar: AppBar(
           foregroundColor: ColorManager.blackColor,
           backgroundColor: ColorManager.whiteColor,
@@ -70,7 +71,7 @@ class OrderRetunDetailView extends StatelessWidget {
                                   color: ColorManager.blackColor,
                                 ),
                               ),
-                              Spacer(),
+                              const Spacer(),
                               Icon(
                                 Icons.arrow_forward_ios,
                                 size: 16,
@@ -79,7 +80,7 @@ class OrderRetunDetailView extends StatelessWidget {
                             ],
                           ),
                           kHeight5,
-                          Divider(),
+                          const Divider(),
                           kHeight10,
                           Row(
                             children: [
@@ -140,173 +141,155 @@ class OrderRetunDetailView extends StatelessWidget {
                 ),
               ),
               kHeight20,
-              _buildAddresses(
-                  name: "Ayyubi",
-                  address: "Wadakkanchery",
-                  isSelected: false,
-                  phoneNumber: "9633450914",
-                  email: "ayyubi@gmail.com",
-                  type: "Home",
-                  onTap: () {},
-                  context: context),
-              kHeight20,
-              Container(
-                color: ColorManager.whiteColor,
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      kHeight25,
-                      const Text(
-                        Appstrings.returnProduct,
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      kHeight16,
-                      Container(
-                        height: 150,
-                        width: SizeUtility(context).width,
-                        decoration: BoxDecoration(
-                          color: ColorManager.scaffolBgColor,
-                          borderRadius: BorderRadius.circular(16),
-                        ),
-                        padding: const EdgeInsets.symmetric(horizontal: 15),
-                        child: Column(
-                          children: [
-                            kHeight10,
-                            Row(
-                              children: [
-                                Column(
-                                  children: [
-                                    Container(
-                                      width: 60,
-                                      height: 60,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(12),
-                                        image: const DecorationImage(
-                                          image: AssetImage(
-                                              "assets/dummy/thope.png"),
-                                        ),
-                                      ),
-                                    ),
-                                    kHeight5,
-                                    Row(
-                                      children: [
-                                        ImageIcon(
-                                          const AssetImage(
-                                            AppAssetsStrings.orderIdIcon,
-                                          ),
-                                          size: 16,
-                                          color: ColorManager.blackColor
-                                              .withOpacity(0.5),
-                                        ),
-                                        kWidth5,
-                                        Text(
-                                          '683152',
-                                          style: TextStyle(
-                                            fontSize: 13,
-                                            color: ColorManager.textGrey7A,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                                kWidht10,
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    SizedBox(
-                                      width: MediaQuery.of(context).size.width *
-                                          0.4,
-                                      child: const Text(
-                                        'Flannel Shirt Checked',
-                                        style: TextStyle(
-                                          color: textBlack,
-                                          fontSize: 17,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
-                                    ),
-                                    kHeight8,
-                                    Text(
-                                      "Green,XL",
-                                      style: TextStyle(
-                                        color: ColorManager.textGrey7A,
-                                        fontSize: 13,
-                                      ),
-                                    ),
-                                    kHeight8,
-                                    Text(
-                                      "Status : Processing",
-                                      style: TextStyle(
-                                        color: ColorManager.textGrey7A,
-                                        fontSize: 13,
-                                      ),
-                                    ),
-                                    kHeight8,
-                                    Text(
-                                      "1,534,5",
-                                      style: TextStyle(
-                                        fontSize: 15,
-                                        fontWeight: FontWeight.bold,
-                                        color: ColorManager.primary,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                            Align(
-                              alignment: Alignment.bottomRight,
-                              child: SizedBox(
-                                height: 30,
-                                width: 60,
-                                child: MainButton(
-                                  title: "Track",
-                                  onPressed: () {},
-                                  textSize: 11,
-                                ),
-                              ),
-                            )
-                          ],
-                        ),
-                      ),
-                      kHeight16,
-                      Container(
-                        height: 128,
-                        width: SizeUtility(context).width,
-                        decoration: BoxDecoration(
-                          color: ColorManager.scaffolBgColor,
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                        padding: const EdgeInsets.all(12),
-                        child: Text(
-                          Appstrings.returnDescription,
-                          style: TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.w500,
-                            color: ColorManager.textLightGrey,
-                          ),
-                        ),
-                      ),
-                      kHeight5,
-                      Align(
-                        alignment: Alignment.topLeft,
-                        child: Text(
-                          Appstrings.returnCharText,
-                          style: TextStyle(
-                            fontSize: 12,
-                            fontWeight: FontWeight.w500,
-                            color: ColorManager.textLightGrey,
-                          ),
-                        ),
-                      )
-                    ],
+              BlocBuilder<ShopProductsBloc, ShopProductsState>(
+                builder: (context, state) {
+                  final data = state.ordersByIdModel?.result?.order?.address;
+
+                  return _buildAddresses(
+                      name: data?.name,
+                      address:
+                          "${data?.addressLine} ${data?.city} ${data?.landmark} ${data?.pincode}",
+                      isSelected: false,
+                      phoneNumber: data?.mobile.toString() ?? "",
+                      email: "",
+                      type: data?.addressType ?? "",
+                      onTap: () {},
+                      context: context);
+                },
+              ),
+              kHeight10,
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 30),
+                child: Align(
+                  alignment: Alignment.topLeft,
+                  child: Text(
+                    "Return Product",
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
+                ),
+              ),
+              kHeight10,
+              Container(
+                height: 150,
+                width: SizeUtility(context).width,
+                decoration: BoxDecoration(
+                  color: ColorManager.scaffolBgColor,
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                margin: const EdgeInsets.symmetric(horizontal: 30),
+                padding: const EdgeInsets.symmetric(horizontal: 15),
+                child: BlocBuilder<ShopProductsBloc, ShopProductsState>(
+                  builder: (context, state) {
+                    final data = state.ordersByIdModel?.result?.order;
+                    return SingleChildScrollView(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          kHeight10,
+                          Row(
+                            children: [
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Container(
+                                    width: 60,
+                                    height: 60,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(12),
+                                      image: DecorationImage(
+                                        image: NetworkImage(
+                                            data?.productId?.images![0] ?? ""),
+                                      ),
+                                    ),
+                                  ),
+                                  kHeight5,
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      ImageIcon(
+                                        const AssetImage(
+                                          AppAssetsStrings.orderIdIcon,
+                                        ),
+                                        size: 16,
+                                        color: ColorManager.blackColor
+                                            .withOpacity(0.5),
+                                      ),
+                                      kWidth5,
+                                      Text(
+                                        data?.orderId ?? '',
+                                        style: TextStyle(
+                                          fontSize: 13,
+                                          color: ColorManager.textGrey7A,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                              kWidht10,
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  SizedBox(
+                                    width:
+                                        MediaQuery.of(context).size.width * 0.4,
+                                    child: Text(
+                                      data?.productId?.title ?? "",
+                                      style: const TextStyle(
+                                        color: textBlack,
+                                        fontSize: 17,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ),
+                                  kHeight8,
+                                  Text(
+                                    "${data?.productId?.color ?? ""},${data?.productId?.size?[0].size ?? ""}",
+                                    style: TextStyle(
+                                      color: ColorManager.textGrey7A,
+                                      fontSize: 13,
+                                    ),
+                                  ),
+                                  kHeight8,
+                                  Text(
+                                    "Status : Delivered",
+                                    style: TextStyle(
+                                      color: ColorManager.textGrey7A,
+                                      fontSize: 13,
+                                    ),
+                                  ),
+                                  kHeight8,
+                                  Text(
+                                    data?.sellingPrice.toString() ?? "",
+                                    style: TextStyle(
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.bold,
+                                      color: ColorManager.primary,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                          Align(
+                            alignment: Alignment.bottomRight,
+                            child: SizedBox(
+                              height: 30,
+                              width: 60,
+                              child: MainButton(
+                                title: "Track",
+                                onPressed: () {},
+                                textSize: 11,
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                    );
+                  },
                 ),
               ),
             ],
@@ -320,6 +303,15 @@ class OrderRetunDetailView extends StatelessWidget {
           child: MainButton(
             title: Appstrings.submit,
             onPressed: () {
+              final id = context
+                  .read<ShopProductsBloc>()
+                  .state
+                  .ordersByIdModel!
+                  .result!
+                  .order!
+                  .shiprocketOrderId;
+              context.read<ShopProductsBloc>().add(
+                  ReturnOrder(context: context, shiprockeId: int.parse(id!)));
               Navigator.of(context).push(MaterialPageRoute(
                 builder: (context) => const OrderReturnSuccessView(),
               ));
@@ -361,6 +353,7 @@ class OrderRetunDetailView extends StatelessWidget {
                   color: ColorManager.blackColor,
                 ),
               ),
+              kHeight10,
               Container(
                 height: 25,
                 width: 55,

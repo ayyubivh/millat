@@ -482,7 +482,7 @@ class OrdetailsView extends StatelessWidget {
                     ),
                     kHeight10,
                     Text(
-                      "Monday, 31st July,2023",
+                      Utilities.formatDate(data?.orderDate ?? ""),
                       style: TextStyle(
                         fontSize: 15,
                         fontWeight: FontWeight.w600,
@@ -602,7 +602,7 @@ class OrdetailsView extends StatelessWidget {
                             ),
                           ),
                     const Spacer(),
-                    orderStatus == "Delivered"
+                    orderStatus == "To Ship"
                         ? GestureDetector(
                             onTap: () {
                               final id = context
@@ -616,6 +616,8 @@ class OrdetailsView extends StatelessWidget {
                               context.read<ShopProductsBloc>().add(CancelOrder(
                                   context: context,
                                   shiprockeId: int.parse(id!)));
+
+                              Navigator.of(context).pop();
                               Navigator.of(context).pop();
                             },
                             child: Icon(
@@ -851,9 +853,7 @@ class OrdetailsView extends StatelessWidget {
                           fontSize: 18,
                           color: ColorManager.blackColor),
                     ),
-                    const SizedBox(
-                      height: 10,
-                    ),
+                    kHeight10,
                     SizedBox(
                         width: SizeUtility(context).width * 60 / 100,
                         child: Text(

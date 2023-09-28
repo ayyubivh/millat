@@ -74,6 +74,8 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
     on<FetchBrandProducts>(_fetchBrandProducts);
     on<FetchCoupons>(_fetchCoupons);
     on<IsPromoCodeAvailable>(_isPromoCodeAvailable);
+    on<ChangeIndexEvent>(_changeIndex);
+    on<ReturnOrder>(_returnOrder);
   }
 
   FutureOr<void> _fetchFlashSaleProducts(
@@ -376,6 +378,17 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
     }
   }
 
+  _returnOrder(event, Emitter<ShopProductsState> emit) {
+    emit(state.copyWith(isLoading: true, errorMessage: ""));
+    try {
+      ordersService.returnOrder(
+          context: event.context, shiprocketId: event.shiprockeId);
+      emit(state.copyWith(isLoading: false, errorMessage: ""));
+    } catch (e) {
+      emit(state.copyWith(isLoading: false, errorMessage: "$e"));
+    }
+  }
+
   _fetchShopHomeBackgroundCard(FetchShopHomeBackgroundCard event,
       Emitter<ShopProductsState> emit) async {
     emit(state.copyWith(isLoading: true, errorMessage: ""));
@@ -566,5 +579,9 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
   _isPromoCodeAvailable(
       IsPromoCodeAvailable event, Emitter<ShopProductsState> emit) {
     emit(state.copyWith(isPromoCodeAvailable: event.value));
+  }
+
+  _changeIndex(ChangeIndexEvent event, Emitter<ShopProductsState> emit) {
+    emit(state.copyWith(indexVal: event.index));
   }
 }

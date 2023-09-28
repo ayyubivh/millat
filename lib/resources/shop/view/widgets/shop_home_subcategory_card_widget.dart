@@ -6,7 +6,6 @@ import 'package:millat/resources/shop/view/widgets/shop_home_card_button.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/size_utility.dart';
-import 'package:millat/utils/utils.dart';
 
 class BackgroundContainer extends StatelessWidget {
   final String imageUrl;
@@ -68,7 +67,7 @@ class BackgroundContainer extends StatelessWidget {
                   kHeight5,
                   Text(
                     title,
-                    style: TextStyle(
+                    style: const TextStyle(
                       // color: HexColor.fromHex(textColor),
                       fontSize: 28,
                       fontWeight: FontWeight.bold,

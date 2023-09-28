@@ -16,7 +16,6 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$ReviewEvent {
-  BuildContext get context => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String id, BuildContext context) fetchRatingEvent,
@@ -26,6 +25,7 @@ mixin _$ReviewEvent {
     required TResult Function(BuildContext context, String productId,
             double rating, String comment)
         updateReiview,
+    required TResult Function() expandReviewList,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -37,6 +37,7 @@ mixin _$ReviewEvent {
     TResult? Function(BuildContext context, String productId, double rating,
             String comment)?
         updateReiview,
+    TResult? Function()? expandReviewList,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -48,6 +49,7 @@ mixin _$ReviewEvent {
     TResult Function(BuildContext context, String productId, double rating,
             String comment)?
         updateReiview,
+    TResult Function()? expandReviewList,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -56,6 +58,7 @@ mixin _$ReviewEvent {
     required TResult Function(FetchRatingEvent value) fetchRatingEvent,
     required TResult Function(AddReview value) addReview,
     required TResult Function(UpdateReiview value) updateReiview,
+    required TResult Function(ExpandReviewList value) expandReviewList,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +66,7 @@ mixin _$ReviewEvent {
     TResult? Function(FetchRatingEvent value)? fetchRatingEvent,
     TResult? Function(AddReview value)? addReview,
     TResult? Function(UpdateReiview value)? updateReiview,
+    TResult? Function(ExpandReviewList value)? expandReviewList,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -70,12 +74,9 @@ mixin _$ReviewEvent {
     TResult Function(FetchRatingEvent value)? fetchRatingEvent,
     TResult Function(AddReview value)? addReview,
     TResult Function(UpdateReiview value)? updateReiview,
+    TResult Function(ExpandReviewList value)? expandReviewList,
     required TResult orElse(),
   }) =>
-      throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $ReviewEventCopyWith<ReviewEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -84,8 +85,6 @@ abstract class $ReviewEventCopyWith<$Res> {
   factory $ReviewEventCopyWith(
           ReviewEvent value, $Res Function(ReviewEvent) then) =
       _$ReviewEventCopyWithImpl<$Res, ReviewEvent>;
-  @useResult
-  $Res call({BuildContext context});
 }
 
 /// @nodoc
@@ -97,28 +96,13 @@ class _$ReviewEventCopyWithImpl<$Res, $Val extends ReviewEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? context = null,
-  }) {
-    return _then(_value.copyWith(
-      context: null == context
-          ? _value.context
-          : context // ignore: cast_nullable_to_non_nullable
-              as BuildContext,
-    ) as $Val);
-  }
 }
 
 /// @nodoc
-abstract class _$$FetchRatingEventCopyWith<$Res>
-    implements $ReviewEventCopyWith<$Res> {
+abstract class _$$FetchRatingEventCopyWith<$Res> {
   factory _$$FetchRatingEventCopyWith(
           _$FetchRatingEvent value, $Res Function(_$FetchRatingEvent) then) =
       __$$FetchRatingEventCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call({String id, BuildContext context});
 }
@@ -193,6 +177,7 @@ class _$FetchRatingEvent implements FetchRatingEvent {
     required TResult Function(BuildContext context, String productId,
             double rating, String comment)
         updateReiview,
+    required TResult Function() expandReviewList,
   }) {
     return fetchRatingEvent(id, context);
   }
@@ -207,6 +192,7 @@ class _$FetchRatingEvent implements FetchRatingEvent {
     TResult? Function(BuildContext context, String productId, double rating,
             String comment)?
         updateReiview,
+    TResult? Function()? expandReviewList,
   }) {
     return fetchRatingEvent?.call(id, context);
   }
@@ -221,6 +207,7 @@ class _$FetchRatingEvent implements FetchRatingEvent {
     TResult Function(BuildContext context, String productId, double rating,
             String comment)?
         updateReiview,
+    TResult Function()? expandReviewList,
     required TResult orElse(),
   }) {
     if (fetchRatingEvent != null) {
@@ -235,6 +222,7 @@ class _$FetchRatingEvent implements FetchRatingEvent {
     required TResult Function(FetchRatingEvent value) fetchRatingEvent,
     required TResult Function(AddReview value) addReview,
     required TResult Function(UpdateReiview value) updateReiview,
+    required TResult Function(ExpandReviewList value) expandReviewList,
   }) {
     return fetchRatingEvent(this);
   }
@@ -245,6 +233,7 @@ class _$FetchRatingEvent implements FetchRatingEvent {
     TResult? Function(FetchRatingEvent value)? fetchRatingEvent,
     TResult? Function(AddReview value)? addReview,
     TResult? Function(UpdateReiview value)? updateReiview,
+    TResult? Function(ExpandReviewList value)? expandReviewList,
   }) {
     return fetchRatingEvent?.call(this);
   }
@@ -255,6 +244,7 @@ class _$FetchRatingEvent implements FetchRatingEvent {
     TResult Function(FetchRatingEvent value)? fetchRatingEvent,
     TResult Function(AddReview value)? addReview,
     TResult Function(UpdateReiview value)? updateReiview,
+    TResult Function(ExpandReviewList value)? expandReviewList,
     required TResult orElse(),
   }) {
     if (fetchRatingEvent != null) {
@@ -270,21 +260,17 @@ abstract class FetchRatingEvent implements ReviewEvent {
       required final BuildContext context}) = _$FetchRatingEvent;
 
   String get id;
-  @override
   BuildContext get context;
-  @override
   @JsonKey(ignore: true)
   _$$FetchRatingEventCopyWith<_$FetchRatingEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$AddReviewCopyWith<$Res>
-    implements $ReviewEventCopyWith<$Res> {
+abstract class _$$AddReviewCopyWith<$Res> {
   factory _$$AddReviewCopyWith(
           _$AddReview value, $Res Function(_$AddReview) then) =
       __$$AddReviewCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call(
       {BuildContext context,
@@ -395,6 +381,7 @@ class _$AddReview implements AddReview {
     required TResult Function(BuildContext context, String productId,
             double rating, String comment)
         updateReiview,
+    required TResult Function() expandReviewList,
   }) {
     return addReview(context, productId, name, rating, comment);
   }
@@ -409,6 +396,7 @@ class _$AddReview implements AddReview {
     TResult? Function(BuildContext context, String productId, double rating,
             String comment)?
         updateReiview,
+    TResult? Function()? expandReviewList,
   }) {
     return addReview?.call(context, productId, name, rating, comment);
   }
@@ -423,6 +411,7 @@ class _$AddReview implements AddReview {
     TResult Function(BuildContext context, String productId, double rating,
             String comment)?
         updateReiview,
+    TResult Function()? expandReviewList,
     required TResult orElse(),
   }) {
     if (addReview != null) {
@@ -437,6 +426,7 @@ class _$AddReview implements AddReview {
     required TResult Function(FetchRatingEvent value) fetchRatingEvent,
     required TResult Function(AddReview value) addReview,
     required TResult Function(UpdateReiview value) updateReiview,
+    required TResult Function(ExpandReviewList value) expandReviewList,
   }) {
     return addReview(this);
   }
@@ -447,6 +437,7 @@ class _$AddReview implements AddReview {
     TResult? Function(FetchRatingEvent value)? fetchRatingEvent,
     TResult? Function(AddReview value)? addReview,
     TResult? Function(UpdateReiview value)? updateReiview,
+    TResult? Function(ExpandReviewList value)? expandReviewList,
   }) {
     return addReview?.call(this);
   }
@@ -457,6 +448,7 @@ class _$AddReview implements AddReview {
     TResult Function(FetchRatingEvent value)? fetchRatingEvent,
     TResult Function(AddReview value)? addReview,
     TResult Function(UpdateReiview value)? updateReiview,
+    TResult Function(ExpandReviewList value)? expandReviewList,
     required TResult orElse(),
   }) {
     if (addReview != null) {
@@ -474,25 +466,21 @@ abstract class AddReview implements ReviewEvent {
       required final double rating,
       required final String comment}) = _$AddReview;
 
-  @override
   BuildContext get context;
   String get productId;
   String get name;
   double get rating;
   String get comment;
-  @override
   @JsonKey(ignore: true)
   _$$AddReviewCopyWith<_$AddReview> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UpdateReiviewCopyWith<$Res>
-    implements $ReviewEventCopyWith<$Res> {
+abstract class _$$UpdateReiviewCopyWith<$Res> {
   factory _$$UpdateReiviewCopyWith(
           _$UpdateReiview value, $Res Function(_$UpdateReiview) then) =
       __$$UpdateReiviewCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call(
       {BuildContext context, String productId, double rating, String comment});
@@ -590,6 +578,7 @@ class _$UpdateReiview implements UpdateReiview {
     required TResult Function(BuildContext context, String productId,
             double rating, String comment)
         updateReiview,
+    required TResult Function() expandReviewList,
   }) {
     return updateReiview(context, productId, rating, comment);
   }
@@ -604,6 +593,7 @@ class _$UpdateReiview implements UpdateReiview {
     TResult? Function(BuildContext context, String productId, double rating,
             String comment)?
         updateReiview,
+    TResult? Function()? expandReviewList,
   }) {
     return updateReiview?.call(context, productId, rating, comment);
   }
@@ -618,6 +608,7 @@ class _$UpdateReiview implements UpdateReiview {
     TResult Function(BuildContext context, String productId, double rating,
             String comment)?
         updateReiview,
+    TResult Function()? expandReviewList,
     required TResult orElse(),
   }) {
     if (updateReiview != null) {
@@ -632,6 +623,7 @@ class _$UpdateReiview implements UpdateReiview {
     required TResult Function(FetchRatingEvent value) fetchRatingEvent,
     required TResult Function(AddReview value) addReview,
     required TResult Function(UpdateReiview value) updateReiview,
+    required TResult Function(ExpandReviewList value) expandReviewList,
   }) {
     return updateReiview(this);
   }
@@ -642,6 +634,7 @@ class _$UpdateReiview implements UpdateReiview {
     TResult? Function(FetchRatingEvent value)? fetchRatingEvent,
     TResult? Function(AddReview value)? addReview,
     TResult? Function(UpdateReiview value)? updateReiview,
+    TResult? Function(ExpandReviewList value)? expandReviewList,
   }) {
     return updateReiview?.call(this);
   }
@@ -652,6 +645,7 @@ class _$UpdateReiview implements UpdateReiview {
     TResult Function(FetchRatingEvent value)? fetchRatingEvent,
     TResult Function(AddReview value)? addReview,
     TResult Function(UpdateReiview value)? updateReiview,
+    TResult Function(ExpandReviewList value)? expandReviewList,
     required TResult orElse(),
   }) {
     if (updateReiview != null) {
@@ -668,21 +662,146 @@ abstract class UpdateReiview implements ReviewEvent {
       required final double rating,
       required final String comment}) = _$UpdateReiview;
 
-  @override
   BuildContext get context;
   String get productId;
   double get rating;
   String get comment;
-  @override
   @JsonKey(ignore: true)
   _$$UpdateReiviewCopyWith<_$UpdateReiview> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
+abstract class _$$ExpandReviewListCopyWith<$Res> {
+  factory _$$ExpandReviewListCopyWith(
+          _$ExpandReviewList value, $Res Function(_$ExpandReviewList) then) =
+      __$$ExpandReviewListCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ExpandReviewListCopyWithImpl<$Res>
+    extends _$ReviewEventCopyWithImpl<$Res, _$ExpandReviewList>
+    implements _$$ExpandReviewListCopyWith<$Res> {
+  __$$ExpandReviewListCopyWithImpl(
+      _$ExpandReviewList _value, $Res Function(_$ExpandReviewList) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$ExpandReviewList implements ExpandReviewList {
+  const _$ExpandReviewList();
+
+  @override
+  String toString() {
+    return 'ReviewEvent.expandReviewList()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$ExpandReviewList);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String id, BuildContext context) fetchRatingEvent,
+    required TResult Function(BuildContext context, String productId,
+            String name, double rating, String comment)
+        addReview,
+    required TResult Function(BuildContext context, String productId,
+            double rating, String comment)
+        updateReiview,
+    required TResult Function() expandReviewList,
+  }) {
+    return expandReviewList();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String id, BuildContext context)? fetchRatingEvent,
+    TResult? Function(BuildContext context, String productId, String name,
+            double rating, String comment)?
+        addReview,
+    TResult? Function(BuildContext context, String productId, double rating,
+            String comment)?
+        updateReiview,
+    TResult? Function()? expandReviewList,
+  }) {
+    return expandReviewList?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String id, BuildContext context)? fetchRatingEvent,
+    TResult Function(BuildContext context, String productId, String name,
+            double rating, String comment)?
+        addReview,
+    TResult Function(BuildContext context, String productId, double rating,
+            String comment)?
+        updateReiview,
+    TResult Function()? expandReviewList,
+    required TResult orElse(),
+  }) {
+    if (expandReviewList != null) {
+      return expandReviewList();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FetchRatingEvent value) fetchRatingEvent,
+    required TResult Function(AddReview value) addReview,
+    required TResult Function(UpdateReiview value) updateReiview,
+    required TResult Function(ExpandReviewList value) expandReviewList,
+  }) {
+    return expandReviewList(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(FetchRatingEvent value)? fetchRatingEvent,
+    TResult? Function(AddReview value)? addReview,
+    TResult? Function(UpdateReiview value)? updateReiview,
+    TResult? Function(ExpandReviewList value)? expandReviewList,
+  }) {
+    return expandReviewList?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FetchRatingEvent value)? fetchRatingEvent,
+    TResult Function(AddReview value)? addReview,
+    TResult Function(UpdateReiview value)? updateReiview,
+    TResult Function(ExpandReviewList value)? expandReviewList,
+    required TResult orElse(),
+  }) {
+    if (expandReviewList != null) {
+      return expandReviewList(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ExpandReviewList implements ReviewEvent {
+  const factory ExpandReviewList() = _$ExpandReviewList;
+}
+
+/// @nodoc
 mixin _$ReviewState {
   ReviewModel? get reviewModel => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
+  bool get isExpandedReview => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ReviewStateCopyWith<ReviewState> get copyWith =>
@@ -695,7 +814,7 @@ abstract class $ReviewStateCopyWith<$Res> {
           ReviewState value, $Res Function(ReviewState) then) =
       _$ReviewStateCopyWithImpl<$Res, ReviewState>;
   @useResult
-  $Res call({ReviewModel? reviewModel, bool isLoading});
+  $Res call({ReviewModel? reviewModel, bool isLoading, bool isExpandedReview});
 
   $ReviewModelCopyWith<$Res>? get reviewModel;
 }
@@ -715,6 +834,7 @@ class _$ReviewStateCopyWithImpl<$Res, $Val extends ReviewState>
   $Res call({
     Object? reviewModel = freezed,
     Object? isLoading = null,
+    Object? isExpandedReview = null,
   }) {
     return _then(_value.copyWith(
       reviewModel: freezed == reviewModel
@@ -724,6 +844,10 @@ class _$ReviewStateCopyWithImpl<$Res, $Val extends ReviewState>
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isExpandedReview: null == isExpandedReview
+          ? _value.isExpandedReview
+          : isExpandedReview // ignore: cast_nullable_to_non_nullable
               as bool,
     ) as $Val);
   }
@@ -749,7 +873,7 @@ abstract class _$$_ReviewStateCopyWith<$Res>
       __$$_ReviewStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({ReviewModel? reviewModel, bool isLoading});
+  $Res call({ReviewModel? reviewModel, bool isLoading, bool isExpandedReview});
 
   @override
   $ReviewModelCopyWith<$Res>? get reviewModel;
@@ -768,6 +892,7 @@ class __$$_ReviewStateCopyWithImpl<$Res>
   $Res call({
     Object? reviewModel = freezed,
     Object? isLoading = null,
+    Object? isExpandedReview = null,
   }) {
     return _then(_$_ReviewState(
       reviewModel: freezed == reviewModel
@@ -778,6 +903,10 @@ class __$$_ReviewStateCopyWithImpl<$Res>
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
+      isExpandedReview: null == isExpandedReview
+          ? _value.isExpandedReview
+          : isExpandedReview // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -785,16 +914,21 @@ class __$$_ReviewStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_ReviewState implements _ReviewState {
-  const _$_ReviewState({required this.reviewModel, required this.isLoading});
+  const _$_ReviewState(
+      {required this.reviewModel,
+      required this.isLoading,
+      required this.isExpandedReview});
 
   @override
   final ReviewModel? reviewModel;
   @override
   final bool isLoading;
+  @override
+  final bool isExpandedReview;
 
   @override
   String toString() {
-    return 'ReviewState(reviewModel: $reviewModel, isLoading: $isLoading)';
+    return 'ReviewState(reviewModel: $reviewModel, isLoading: $isLoading, isExpandedReview: $isExpandedReview)';
   }
 
   @override
@@ -805,11 +939,14 @@ class _$_ReviewState implements _ReviewState {
             (identical(other.reviewModel, reviewModel) ||
                 other.reviewModel == reviewModel) &&
             (identical(other.isLoading, isLoading) ||
-                other.isLoading == isLoading));
+                other.isLoading == isLoading) &&
+            (identical(other.isExpandedReview, isExpandedReview) ||
+                other.isExpandedReview == isExpandedReview));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, reviewModel, isLoading);
+  int get hashCode =>
+      Object.hash(runtimeType, reviewModel, isLoading, isExpandedReview);
 
   @JsonKey(ignore: true)
   @override
@@ -821,12 +958,15 @@ class _$_ReviewState implements _ReviewState {
 abstract class _ReviewState implements ReviewState {
   const factory _ReviewState(
       {required final ReviewModel? reviewModel,
-      required final bool isLoading}) = _$_ReviewState;
+      required final bool isLoading,
+      required final bool isExpandedReview}) = _$_ReviewState;
 
   @override
   ReviewModel? get reviewModel;
   @override
   bool get isLoading;
+  @override
+  bool get isExpandedReview;
   @override
   @JsonKey(ignore: true)
   _$$_ReviewStateCopyWith<_$_ReviewState> get copyWith =>

@@ -75,7 +75,7 @@ class WishListView extends StatelessWidget {
                           const SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 2,
                         crossAxisSpacing: 20,
-                        mainAxisExtent: 250,
+                        mainAxisExtent: 260,
                       ),
                       itemCount:
                           state.wishList?.result?.wishlist?.products!.length,

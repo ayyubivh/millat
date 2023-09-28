@@ -8,11 +8,8 @@ import 'package:millat/resources/shop/view/tabs/shop_tabs_vilew.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/loader.dart';
-import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/string_constants.dart';
-
 import '../../../../utils/assets_paths.dart';
-import '../../../tabs/view/tabs_view.dart';
 
 class PaymentSuccessful extends StatelessWidget {
   final int subTotal;

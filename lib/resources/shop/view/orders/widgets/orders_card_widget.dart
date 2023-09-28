@@ -58,8 +58,8 @@ class OrdersProfileWidget extends StatelessWidget {
               return SizedBox(
                 height:
                     state.showProgress && state.ordereProgressIndex == isIndex
-                        ? 346
-                        : 265,
+                        ? 356
+                        : 275,
                 child: Padding(
                   padding: const EdgeInsets.all(15.0),
                   child: Column(
@@ -68,13 +68,22 @@ class OrdersProfileWidget extends StatelessWidget {
                       Row(
                         children: [
                           CircleAvatar(
+                            radius: 20,
                             backgroundColor: ColorManager.veryLightGreen,
-                            child: orderStatus == Appstrings.toShip
-                                ? Image.asset(AppAssetsStrings.processing)
-                                : orderStatus == Appstrings.cancelled
-                                    ? Image.asset(
-                                        AppAssetsStrings.orderStatusCancel)
-                                    : const SizedBox.shrink(),
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Image.asset(
+                                orderStatus == Appstrings.toShip
+                                    ? AppAssetsStrings.processing
+                                    : orderStatus == Appstrings.cancelled
+                                        ? AppAssetsStrings.orderStatusCancel
+                                        : orderStatus == Appstrings.delivered
+                                            ? AppAssetsStrings.delivered
+                                            : AppAssetsStrings.processing,
+                                height: 40,
+                                width: 40,
+                              ),
+                            ),
                           ),
                           kWidth15,
                           Column(
@@ -144,6 +153,8 @@ class OrdersProfileWidget extends StatelessWidget {
                                                 fontSize: 17,
                                                 fontWeight: FontWeight.bold,
                                               ),
+                                              maxLines: 2,
+                                              overflow: TextOverflow.ellipsis,
                                             ),
                                           ),
                                           BlocBuilder<ShopProductsBloc,

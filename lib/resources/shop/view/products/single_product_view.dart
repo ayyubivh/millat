@@ -1,15 +1,14 @@
 import 'dart:async';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:millat/components/buttons/main_button.dart';
 import 'package:millat/components/common_widgets/cart_icon_widget.dart';
-import 'package:millat/resources/authentication/bloc/logic/database_bloc/database_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/cart_bloc/cart_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/review_bloc/bloc/review_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
 import 'package:millat/resources/shop/view/cart/cart.dart';
-import 'package:millat/resources/shop/view/reviews/reviews_view.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/loader.dart';
@@ -31,6 +30,7 @@ class SingleProductView extends StatelessWidget {
       BlocProvider.of<ShopProductsBloc>(context).add(FetchProductsById(id: id));
       BlocProvider.of<ReviewBloc>(context)
           .add(ReviewEvent.fetchRatingEvent(id: id, context: context));
+      context.read<ShopProductsBloc>().add(const ChangeShopBannerIndex(0));
     });
     final colorMap = {
       'Pink': Colors.pink,
@@ -49,7 +49,7 @@ class SingleProductView extends StatelessWidget {
         final data = state.productByIdModel?.result?.product;
 
         final divider = Divider(
-          thickness: 7,
+          thickness: 6,
           color: ColorManager.grey08,
         );
         return state.isLoading
@@ -84,22 +84,58 @@ class SingleProductView extends StatelessWidget {
                   ],
                 ),
                 body: Padding(
-                  padding: const EdgeInsets.all(20.0),
+                  padding: const EdgeInsets.all(25.0),
                   child: SingleChildScrollView(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Container(
-                          height: SizeUtility(context).height * 30 / 100,
-                          width: SizeUtility(context).width,
-                          decoration: BoxDecoration(
-                            color: black247,
-                            image: DecorationImage(
-                              image: NetworkImage(data?.images?[0] ?? ""),
-                            ),
+                        CarouselSlider(
+                          options: CarouselOptions(
+                            height: SizeUtility(context).height * 30 / 100,
+                            viewportFraction: 1,
+                            autoPlayAnimationDuration:
+                                const Duration(milliseconds: 800),
+                            onPageChanged: (index, reason) {
+                              context
+                                  .read<ShopProductsBloc>()
+                                  .add(ChangeShopBannerIndex(index));
+                            },
                           ),
+                          items: data?.images?.map((imageUrl) {
+                                return Container(
+                                  margin: const EdgeInsets.symmetric(
+                                      horizontal: 15),
+                                  decoration: BoxDecoration(
+                                    image: DecorationImage(
+                                      image: NetworkImage(imageUrl),
+                                      fit: BoxFit.contain,
+                                    ),
+                                  ),
+                                );
+                              }).toList() ??
+                              [],
                         ),
                         kHeight10,
+                        BlocBuilder<ShopProductsBloc, ShopProductsState>(
+                          builder: (context, state) => Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: data!.images!.map((banner) {
+                              int index = data.images!.indexOf(banner);
+                              return Container(
+                                width: state.shopBannerIndex == index ? 24 : 6,
+                                height: 6,
+                                margin:
+                                    const EdgeInsets.symmetric(horizontal: 4),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(30),
+                                  color: state.shopBannerIndex == index
+                                      ? ColorManager.primary
+                                      : ColorManager.textGrey,
+                                ),
+                              );
+                            }).toList(),
+                          ),
+                        ),
                         Text(
                           data?.title ?? "",
                           style: const TextStyle(
@@ -165,50 +201,6 @@ class SingleProductView extends StatelessWidget {
                                               color: orange255,
                                             ),
                                             onRatingUpdate: (value) {},
-                                            // onRatingUpdate: (rating) {
-                                            //   final userData = context
-                                            //       .read<DatabaseBloc>()
-                                            //       .state
-                                            //       .authUserModel
-                                            //       ?.result
-                                            //       ?.user;
-                                            //   final name = userData?.name;
-                                            //   final userId = userData?.id;
-
-                                            //   final ratingExists = data
-                                            //       ?.data?.ratings
-                                            //       ?.any((e) =>
-                                            //           e.userId == userId);
-
-                                            //   if (ratingExists ?? false) {
-                                            //     context
-                                            //         .read<ReviewBloc>()
-                                            //         .add(UpdateReiview(
-                                            //           context: context,
-                                            //           productId: id,
-                                            //           rating: rating.toDouble(),
-                                            //           comment: "",
-                                            //         ));
-                                            //     context.read<ReviewBloc>().add(
-                                            //         FetchRatingEvent(
-                                            //             id: id,
-                                            //             context: context));
-                                            //   } else {
-                                            //     context
-                                            //         .read<ReviewBloc>()
-                                            //         .add(AddReview(
-                                            //           context: context,
-                                            //           productId: id,
-                                            //           name: name ?? "",
-                                            //           rating: rating.toDouble(),
-                                            //           comment: "",
-                                            //         ));
-                                            //     context.read<ReviewBloc>().add(
-                                            //         FetchRatingEvent(
-                                            //             id: id,
-                                            //             context: context));
-                                            //   }
-                                            // },
                                           ),
                                           kWidht10,
                                           Text(
@@ -228,13 +220,57 @@ class SingleProductView extends StatelessWidget {
                                           ),
                                         ],
                                       ),
-                                      Icon(
-                                        Icons.arrow_forward_ios,
-                                        color: ColorManager.greenColor1,
+                                      GestureDetector(
+                                        onTap: () {
+                                          context
+                                              .read<ReviewBloc>()
+                                              .add(const ExpandReviewList());
+                                        },
+                                        child: Icon(
+                                          state.isExpandedReview
+                                              ? Icons.expand_more_outlined
+                                              : Icons.navigate_next_outlined,
+                                          color: ColorManager.greenColor1,
+                                          size: 30,
+                                        ),
                                       ),
                                     ],
                                   );
                                 },
+                              ),
+                              BlocBuilder<ReviewBloc, ReviewState>(
+                                builder: (context, state) => !state
+                                        .isExpandedReview
+                                    ? const SizedBox()
+                                    : ListView.builder(
+                                        itemCount: state.reviewModel?.result
+                                                ?.data?.ratings?.length ??
+                                            0,
+                                        shrinkWrap: true,
+                                        physics:
+                                            const NeverScrollableScrollPhysics(),
+                                        itemBuilder: (context, index) {
+                                          final data =
+                                              state.reviewModel?.result?.data;
+                                          return buildReviewItem(
+                                              comment: data?.ratings?[index]
+                                                      .comment ??
+                                                  "",
+                                              context: context,
+                                              name:
+                                                  data?.ratings?[index].name ??
+                                                      "",
+                                              rating: data?.ratings?[index]
+                                                      .rating ??
+                                                  0.0,
+                                              dob: data?.ratings?[index].user
+                                                      ?.dob ??
+                                                  "",
+                                              image: data?.ratings?[index].user
+                                                      ?.picture ??
+                                                  "");
+                                        },
+                                      ),
                               ),
                             ],
                           ),
@@ -321,8 +357,9 @@ class SingleProductView extends StatelessWidget {
                                       );
                                     },
                                     child: Icon(
-                                      Icons.arrow_forward_ios,
+                                      Icons.navigate_next_outlined,
                                       color: ColorManager.greenColor1,
+                                      size: 30,
                                     ),
                                   )
                                 ],
@@ -339,9 +376,7 @@ class SingleProductView extends StatelessWidget {
                               fontSize: 18,
                               color: ColorManager.blackColor),
                         ),
-                        const SizedBox(
-                          height: 20,
-                        ),
+                        kHeight20,
                         Text(
                           data?.description ?? "",
                           style: TextStyle(
@@ -355,9 +390,7 @@ class SingleProductView extends StatelessWidget {
                               fontSize: 17,
                               color: ColorManager.blackColor),
                         ),
-                        const SizedBox(
-                          height: 20,
-                        ),
+                        kHeight20,
                         Text(
                           'Care: ${data?.productCareInfo ?? ""}',
                           style: TextStyle(
@@ -371,84 +404,66 @@ class SingleProductView extends StatelessWidget {
                           style: TextStyle(
                               fontSize: 16, color: ColorManager.textGrey99),
                         ),
-                        BlocBuilder<ReviewBloc, ReviewState>(
-                          builder: (context, state) => ListView.builder(
-                            itemCount: state.reviewModel?.result?.data?.ratings
-                                    ?.length ??
-                                0,
-                            shrinkWrap: true,
-                            physics: const NeverScrollableScrollPhysics(),
-                            itemBuilder: (context, index) {
-                              final data = state.reviewModel?.result?.data;
-                              return buildReviewItem(
-                                  comment: data?.ratings?[index].comment ?? "",
-                                  context: context,
-                                  name: data?.ratings?[index].name ?? "",
-                                  rating: data?.ratings?[index].rating ?? 0.0,
-                                  dob: data?.ratings?[index].user?.dob ?? "",
-                                  image: data?.ratings?[index].user?.picture ??
-                                      "");
-                            },
-                          ),
+                        kHeight16,
+                        divider,
+                        kHeight10,
+                        Text(
+                          'Recently Added',
+                          style: TextStyle(
+                              fontWeight: FontWeight.w600,
+                              fontSize: 18,
+                              color: ColorManager.blackColor),
                         ),
-
                         kHeight10,
                         BlocBuilder<ShopProductsBloc, ShopProductsState>(
                           builder: (context, state) {
-                            if (state.isLoading) {
-                              return const Loader();
-                            }
-
-                            final products = state.flashSaleproducts?.result
-                                ?.shopProductCategory?.products;
-
-                            if (products == null || products.isEmpty) {
+                            if (state.popularProducts?.result
+                                    ?.shopProductCategory?.products ==
+                                null) {
                               return const SizedBox();
                             }
                             return SizedBox(
-                              height: 240,
+                              height: 310,
                               child: ListView.builder(
+                                itemCount: state.popularProducts?.result
+                                    ?.shopProductCategory?.products!.length,
                                 scrollDirection: Axis.horizontal,
-                                itemCount: products.length,
                                 itemBuilder: (context, index) {
-                                  final data = products[index];
-
+                                  final data = state.popularProducts?.result
+                                      ?.shopProductCategory!.products![index];
                                   return GestureDetector(
-                                    onTap: () {
-                                      print(data.id);
-
-                                      Navigator.of(context)
-                                          .push(MaterialPageRoute(
-                                        builder: (context) => SingleProductView(
-                                          id: data.id ?? "",
-                                        ),
+                                      onTap: () {
+                                        Navigator.of(context)
+                                            .push(MaterialPageRoute(
+                                          builder: (context) =>
+                                              SingleProductView(
+                                                  id: data.id ?? ""),
+                                        ));
+                                      },
+                                      child: Padding(
+                                        padding:
+                                            const EdgeInsets.only(right: 15),
+                                        child: ShopProductWidget(
+                                            color: data?.color ?? "",
+                                            size: data?.size?[0].size ?? "",
+                                            brandId: data?.brand!.id,
+                                            isWishlisted: state.isWishListed,
+                                            brand: data!.brand!.name.toString(),
+                                            productId: data.id,
+                                            image: data.images?[0],
+                                            title: data.title,
+                                            actualPrice:
+                                                data.regularPrice?.toInt() ?? 0,
+                                            discount: data.discount!.toInt(),
+                                            discountPrice:
+                                                data.salePrice?.toInt() ?? 0),
                                       ));
-                                    },
-                                    child: Padding(
-                                      padding: const EdgeInsets.only(right: 15),
-                                      child: ShopProductWidget(
-                                        color: data.color ?? "",
-                                        size: data.size?[0].size ?? "",
-                                        brandId: data.brand?.id,
-                                        isWishlisted: state.isWishListed,
-                                        brand: data.brand?.name ?? "",
-                                        productId: data.id,
-                                        image: data.images?[0] ?? "",
-                                        title: data.title ?? "",
-                                        actualPrice:
-                                            data.regularPrice?.toInt() ?? 0,
-                                        discount: data.discount?.toInt() ?? 0,
-                                        discountPrice:
-                                            data.salePrice?.toInt() ?? 0,
-                                      ),
-                                    ),
-                                  );
                                 },
                               ),
                             );
                           },
                         ),
-                        kHeight100,
+                        kHeight10,
                       ],
                     ),
                   ),
@@ -563,9 +578,7 @@ class SingleProductView extends StatelessWidget {
                                 color: ColorManager.greenColor1,
                                 fontWeight: FontWeight.w700,
                                 fontSize: 24)),
-                        const SizedBox(
-                          height: 20,
-                        ),
+                        kHeight20,
                         Text('$regularPrice ₹',
                             style: const TextStyle(
                                 decoration: TextDecoration.lineThrough,

@@ -49,6 +49,8 @@ mixin _$ShopProductsEvent {
         fetchOrdersbyFilterEvent,
     required TResult Function(BuildContext context, int shiprockeId)
         cancelOrder,
+    required TResult Function(BuildContext context, int shiprockeId)
+        returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
     required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
@@ -70,6 +72,7 @@ mixin _$ShopProductsEvent {
     required TResult Function(String brandId) fetchBrandProducts,
     required TResult Function() fetchCoupons,
     required TResult Function(bool value) isPromoCodeAvailable,
+    required TResult Function(int index) changeIndexEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -103,6 +106,7 @@ mixin _$ShopProductsEvent {
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
     TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
@@ -124,6 +128,7 @@ mixin _$ShopProductsEvent {
     TResult? Function(String brandId)? fetchBrandProducts,
     TResult? Function()? fetchCoupons,
     TResult? Function(bool value)? isPromoCodeAvailable,
+    TResult? Function(int index)? changeIndexEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -157,6 +162,7 @@ mixin _$ShopProductsEvent {
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
     TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
@@ -178,6 +184,7 @@ mixin _$ShopProductsEvent {
     TResult Function(String brandId)? fetchBrandProducts,
     TResult Function()? fetchCoupons,
     TResult Function(bool value)? isPromoCodeAvailable,
+    TResult Function(int index)? changeIndexEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -205,6 +212,7 @@ mixin _$ShopProductsEvent {
     required TResult Function(FetchOrdersbyFilterEvent value)
         fetchOrdersbyFilterEvent,
     required TResult Function(CancelOrder value) cancelOrder,
+    required TResult Function(ReturnOrder value) returnOrder,
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
@@ -241,6 +249,7 @@ mixin _$ShopProductsEvent {
     required TResult Function(FetchBrandProducts value) fetchBrandProducts,
     required TResult Function(FetchCoupons value) fetchCoupons,
     required TResult Function(IsPromoCodeAvailable value) isPromoCodeAvailable,
+    required TResult Function(ChangeIndexEvent value) changeIndexEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -264,6 +273,7 @@ mixin _$ShopProductsEvent {
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult? Function(CancelOrder value)? cancelOrder,
+    TResult? Function(ReturnOrder value)? returnOrder,
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
@@ -295,6 +305,7 @@ mixin _$ShopProductsEvent {
     TResult? Function(FetchBrandProducts value)? fetchBrandProducts,
     TResult? Function(FetchCoupons value)? fetchCoupons,
     TResult? Function(IsPromoCodeAvailable value)? isPromoCodeAvailable,
+    TResult? Function(ChangeIndexEvent value)? changeIndexEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -318,6 +329,7 @@ mixin _$ShopProductsEvent {
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult Function(CancelOrder value)? cancelOrder,
+    TResult Function(ReturnOrder value)? returnOrder,
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
@@ -349,6 +361,7 @@ mixin _$ShopProductsEvent {
     TResult Function(FetchBrandProducts value)? fetchBrandProducts,
     TResult Function(FetchCoupons value)? fetchCoupons,
     TResult Function(IsPromoCodeAvailable value)? isPromoCodeAvailable,
+    TResult Function(ChangeIndexEvent value)? changeIndexEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -469,6 +482,8 @@ class _$FetchFlashSaleProducts implements FetchFlashSaleProducts {
         fetchOrdersbyFilterEvent,
     required TResult Function(BuildContext context, int shiprockeId)
         cancelOrder,
+    required TResult Function(BuildContext context, int shiprockeId)
+        returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
     required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
@@ -490,6 +505,7 @@ class _$FetchFlashSaleProducts implements FetchFlashSaleProducts {
     required TResult Function(String brandId) fetchBrandProducts,
     required TResult Function() fetchCoupons,
     required TResult Function(bool value) isPromoCodeAvailable,
+    required TResult Function(int index) changeIndexEvent,
   }) {
     return fetchFlashSaleProducts(endPointSlug);
   }
@@ -526,6 +542,7 @@ class _$FetchFlashSaleProducts implements FetchFlashSaleProducts {
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
     TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
@@ -547,6 +564,7 @@ class _$FetchFlashSaleProducts implements FetchFlashSaleProducts {
     TResult? Function(String brandId)? fetchBrandProducts,
     TResult? Function()? fetchCoupons,
     TResult? Function(bool value)? isPromoCodeAvailable,
+    TResult? Function(int index)? changeIndexEvent,
   }) {
     return fetchFlashSaleProducts?.call(endPointSlug);
   }
@@ -583,6 +601,7 @@ class _$FetchFlashSaleProducts implements FetchFlashSaleProducts {
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
     TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
@@ -604,6 +623,7 @@ class _$FetchFlashSaleProducts implements FetchFlashSaleProducts {
     TResult Function(String brandId)? fetchBrandProducts,
     TResult Function()? fetchCoupons,
     TResult Function(bool value)? isPromoCodeAvailable,
+    TResult Function(int index)? changeIndexEvent,
     required TResult orElse(),
   }) {
     if (fetchFlashSaleProducts != null) {
@@ -637,6 +657,7 @@ class _$FetchFlashSaleProducts implements FetchFlashSaleProducts {
     required TResult Function(FetchOrdersbyFilterEvent value)
         fetchOrdersbyFilterEvent,
     required TResult Function(CancelOrder value) cancelOrder,
+    required TResult Function(ReturnOrder value) returnOrder,
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
@@ -673,6 +694,7 @@ class _$FetchFlashSaleProducts implements FetchFlashSaleProducts {
     required TResult Function(FetchBrandProducts value) fetchBrandProducts,
     required TResult Function(FetchCoupons value) fetchCoupons,
     required TResult Function(IsPromoCodeAvailable value) isPromoCodeAvailable,
+    required TResult Function(ChangeIndexEvent value) changeIndexEvent,
   }) {
     return fetchFlashSaleProducts(this);
   }
@@ -699,6 +721,7 @@ class _$FetchFlashSaleProducts implements FetchFlashSaleProducts {
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult? Function(CancelOrder value)? cancelOrder,
+    TResult? Function(ReturnOrder value)? returnOrder,
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
@@ -730,6 +753,7 @@ class _$FetchFlashSaleProducts implements FetchFlashSaleProducts {
     TResult? Function(FetchBrandProducts value)? fetchBrandProducts,
     TResult? Function(FetchCoupons value)? fetchCoupons,
     TResult? Function(IsPromoCodeAvailable value)? isPromoCodeAvailable,
+    TResult? Function(ChangeIndexEvent value)? changeIndexEvent,
   }) {
     return fetchFlashSaleProducts?.call(this);
   }
@@ -756,6 +780,7 @@ class _$FetchFlashSaleProducts implements FetchFlashSaleProducts {
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult Function(CancelOrder value)? cancelOrder,
+    TResult Function(ReturnOrder value)? returnOrder,
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
@@ -787,6 +812,7 @@ class _$FetchFlashSaleProducts implements FetchFlashSaleProducts {
     TResult Function(FetchBrandProducts value)? fetchBrandProducts,
     TResult Function(FetchCoupons value)? fetchCoupons,
     TResult Function(IsPromoCodeAvailable value)? isPromoCodeAvailable,
+    TResult Function(ChangeIndexEvent value)? changeIndexEvent,
     required TResult orElse(),
   }) {
     if (fetchFlashSaleProducts != null) {
@@ -903,6 +929,8 @@ class _$FetchPopularProducts implements FetchPopularProducts {
         fetchOrdersbyFilterEvent,
     required TResult Function(BuildContext context, int shiprockeId)
         cancelOrder,
+    required TResult Function(BuildContext context, int shiprockeId)
+        returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
     required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
@@ -924,6 +952,7 @@ class _$FetchPopularProducts implements FetchPopularProducts {
     required TResult Function(String brandId) fetchBrandProducts,
     required TResult Function() fetchCoupons,
     required TResult Function(bool value) isPromoCodeAvailable,
+    required TResult Function(int index) changeIndexEvent,
   }) {
     return fetchPopularProducts(endPointSlug);
   }
@@ -960,6 +989,7 @@ class _$FetchPopularProducts implements FetchPopularProducts {
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
     TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
@@ -981,6 +1011,7 @@ class _$FetchPopularProducts implements FetchPopularProducts {
     TResult? Function(String brandId)? fetchBrandProducts,
     TResult? Function()? fetchCoupons,
     TResult? Function(bool value)? isPromoCodeAvailable,
+    TResult? Function(int index)? changeIndexEvent,
   }) {
     return fetchPopularProducts?.call(endPointSlug);
   }
@@ -1017,6 +1048,7 @@ class _$FetchPopularProducts implements FetchPopularProducts {
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
     TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
@@ -1038,6 +1070,7 @@ class _$FetchPopularProducts implements FetchPopularProducts {
     TResult Function(String brandId)? fetchBrandProducts,
     TResult Function()? fetchCoupons,
     TResult Function(bool value)? isPromoCodeAvailable,
+    TResult Function(int index)? changeIndexEvent,
     required TResult orElse(),
   }) {
     if (fetchPopularProducts != null) {
@@ -1071,6 +1104,7 @@ class _$FetchPopularProducts implements FetchPopularProducts {
     required TResult Function(FetchOrdersbyFilterEvent value)
         fetchOrdersbyFilterEvent,
     required TResult Function(CancelOrder value) cancelOrder,
+    required TResult Function(ReturnOrder value) returnOrder,
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
@@ -1107,6 +1141,7 @@ class _$FetchPopularProducts implements FetchPopularProducts {
     required TResult Function(FetchBrandProducts value) fetchBrandProducts,
     required TResult Function(FetchCoupons value) fetchCoupons,
     required TResult Function(IsPromoCodeAvailable value) isPromoCodeAvailable,
+    required TResult Function(ChangeIndexEvent value) changeIndexEvent,
   }) {
     return fetchPopularProducts(this);
   }
@@ -1133,6 +1168,7 @@ class _$FetchPopularProducts implements FetchPopularProducts {
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult? Function(CancelOrder value)? cancelOrder,
+    TResult? Function(ReturnOrder value)? returnOrder,
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
@@ -1164,6 +1200,7 @@ class _$FetchPopularProducts implements FetchPopularProducts {
     TResult? Function(FetchBrandProducts value)? fetchBrandProducts,
     TResult? Function(FetchCoupons value)? fetchCoupons,
     TResult? Function(IsPromoCodeAvailable value)? isPromoCodeAvailable,
+    TResult? Function(ChangeIndexEvent value)? changeIndexEvent,
   }) {
     return fetchPopularProducts?.call(this);
   }
@@ -1190,6 +1227,7 @@ class _$FetchPopularProducts implements FetchPopularProducts {
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult Function(CancelOrder value)? cancelOrder,
+    TResult Function(ReturnOrder value)? returnOrder,
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
@@ -1221,6 +1259,7 @@ class _$FetchPopularProducts implements FetchPopularProducts {
     TResult Function(FetchBrandProducts value)? fetchBrandProducts,
     TResult Function(FetchCoupons value)? fetchCoupons,
     TResult Function(IsPromoCodeAvailable value)? isPromoCodeAvailable,
+    TResult Function(ChangeIndexEvent value)? changeIndexEvent,
     required TResult orElse(),
   }) {
     if (fetchPopularProducts != null) {
@@ -1312,6 +1351,8 @@ class _$FetchRecentProductProducts implements FetchRecentProductProducts {
         fetchOrdersbyFilterEvent,
     required TResult Function(BuildContext context, int shiprockeId)
         cancelOrder,
+    required TResult Function(BuildContext context, int shiprockeId)
+        returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
     required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
@@ -1333,6 +1374,7 @@ class _$FetchRecentProductProducts implements FetchRecentProductProducts {
     required TResult Function(String brandId) fetchBrandProducts,
     required TResult Function() fetchCoupons,
     required TResult Function(bool value) isPromoCodeAvailable,
+    required TResult Function(int index) changeIndexEvent,
   }) {
     return fetchRecentProductProducts();
   }
@@ -1369,6 +1411,7 @@ class _$FetchRecentProductProducts implements FetchRecentProductProducts {
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
     TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
@@ -1390,6 +1433,7 @@ class _$FetchRecentProductProducts implements FetchRecentProductProducts {
     TResult? Function(String brandId)? fetchBrandProducts,
     TResult? Function()? fetchCoupons,
     TResult? Function(bool value)? isPromoCodeAvailable,
+    TResult? Function(int index)? changeIndexEvent,
   }) {
     return fetchRecentProductProducts?.call();
   }
@@ -1426,6 +1470,7 @@ class _$FetchRecentProductProducts implements FetchRecentProductProducts {
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
     TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
@@ -1447,6 +1492,7 @@ class _$FetchRecentProductProducts implements FetchRecentProductProducts {
     TResult Function(String brandId)? fetchBrandProducts,
     TResult Function()? fetchCoupons,
     TResult Function(bool value)? isPromoCodeAvailable,
+    TResult Function(int index)? changeIndexEvent,
     required TResult orElse(),
   }) {
     if (fetchRecentProductProducts != null) {
@@ -1480,6 +1526,7 @@ class _$FetchRecentProductProducts implements FetchRecentProductProducts {
     required TResult Function(FetchOrdersbyFilterEvent value)
         fetchOrdersbyFilterEvent,
     required TResult Function(CancelOrder value) cancelOrder,
+    required TResult Function(ReturnOrder value) returnOrder,
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
@@ -1516,6 +1563,7 @@ class _$FetchRecentProductProducts implements FetchRecentProductProducts {
     required TResult Function(FetchBrandProducts value) fetchBrandProducts,
     required TResult Function(FetchCoupons value) fetchCoupons,
     required TResult Function(IsPromoCodeAvailable value) isPromoCodeAvailable,
+    required TResult Function(ChangeIndexEvent value) changeIndexEvent,
   }) {
     return fetchRecentProductProducts(this);
   }
@@ -1542,6 +1590,7 @@ class _$FetchRecentProductProducts implements FetchRecentProductProducts {
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult? Function(CancelOrder value)? cancelOrder,
+    TResult? Function(ReturnOrder value)? returnOrder,
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
@@ -1573,6 +1622,7 @@ class _$FetchRecentProductProducts implements FetchRecentProductProducts {
     TResult? Function(FetchBrandProducts value)? fetchBrandProducts,
     TResult? Function(FetchCoupons value)? fetchCoupons,
     TResult? Function(IsPromoCodeAvailable value)? isPromoCodeAvailable,
+    TResult? Function(ChangeIndexEvent value)? changeIndexEvent,
   }) {
     return fetchRecentProductProducts?.call(this);
   }
@@ -1599,6 +1649,7 @@ class _$FetchRecentProductProducts implements FetchRecentProductProducts {
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult Function(CancelOrder value)? cancelOrder,
+    TResult Function(ReturnOrder value)? returnOrder,
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
@@ -1630,6 +1681,7 @@ class _$FetchRecentProductProducts implements FetchRecentProductProducts {
     TResult Function(FetchBrandProducts value)? fetchBrandProducts,
     TResult Function(FetchCoupons value)? fetchCoupons,
     TResult Function(IsPromoCodeAvailable value)? isPromoCodeAvailable,
+    TResult Function(ChangeIndexEvent value)? changeIndexEvent,
     required TResult orElse(),
   }) {
     if (fetchRecentProductProducts != null) {
@@ -1712,6 +1764,8 @@ class _$FetchHomeBanners implements FetchHomeBanners {
         fetchOrdersbyFilterEvent,
     required TResult Function(BuildContext context, int shiprockeId)
         cancelOrder,
+    required TResult Function(BuildContext context, int shiprockeId)
+        returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
     required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
@@ -1733,6 +1787,7 @@ class _$FetchHomeBanners implements FetchHomeBanners {
     required TResult Function(String brandId) fetchBrandProducts,
     required TResult Function() fetchCoupons,
     required TResult Function(bool value) isPromoCodeAvailable,
+    required TResult Function(int index) changeIndexEvent,
   }) {
     return fetchHomeBanners();
   }
@@ -1769,6 +1824,7 @@ class _$FetchHomeBanners implements FetchHomeBanners {
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
     TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
@@ -1790,6 +1846,7 @@ class _$FetchHomeBanners implements FetchHomeBanners {
     TResult? Function(String brandId)? fetchBrandProducts,
     TResult? Function()? fetchCoupons,
     TResult? Function(bool value)? isPromoCodeAvailable,
+    TResult? Function(int index)? changeIndexEvent,
   }) {
     return fetchHomeBanners?.call();
   }
@@ -1826,6 +1883,7 @@ class _$FetchHomeBanners implements FetchHomeBanners {
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
     TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
@@ -1847,6 +1905,7 @@ class _$FetchHomeBanners implements FetchHomeBanners {
     TResult Function(String brandId)? fetchBrandProducts,
     TResult Function()? fetchCoupons,
     TResult Function(bool value)? isPromoCodeAvailable,
+    TResult Function(int index)? changeIndexEvent,
     required TResult orElse(),
   }) {
     if (fetchHomeBanners != null) {
@@ -1880,6 +1939,7 @@ class _$FetchHomeBanners implements FetchHomeBanners {
     required TResult Function(FetchOrdersbyFilterEvent value)
         fetchOrdersbyFilterEvent,
     required TResult Function(CancelOrder value) cancelOrder,
+    required TResult Function(ReturnOrder value) returnOrder,
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
@@ -1916,6 +1976,7 @@ class _$FetchHomeBanners implements FetchHomeBanners {
     required TResult Function(FetchBrandProducts value) fetchBrandProducts,
     required TResult Function(FetchCoupons value) fetchCoupons,
     required TResult Function(IsPromoCodeAvailable value) isPromoCodeAvailable,
+    required TResult Function(ChangeIndexEvent value) changeIndexEvent,
   }) {
     return fetchHomeBanners(this);
   }
@@ -1942,6 +2003,7 @@ class _$FetchHomeBanners implements FetchHomeBanners {
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult? Function(CancelOrder value)? cancelOrder,
+    TResult? Function(ReturnOrder value)? returnOrder,
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
@@ -1973,6 +2035,7 @@ class _$FetchHomeBanners implements FetchHomeBanners {
     TResult? Function(FetchBrandProducts value)? fetchBrandProducts,
     TResult? Function(FetchCoupons value)? fetchCoupons,
     TResult? Function(IsPromoCodeAvailable value)? isPromoCodeAvailable,
+    TResult? Function(ChangeIndexEvent value)? changeIndexEvent,
   }) {
     return fetchHomeBanners?.call(this);
   }
@@ -1999,6 +2062,7 @@ class _$FetchHomeBanners implements FetchHomeBanners {
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult Function(CancelOrder value)? cancelOrder,
+    TResult Function(ReturnOrder value)? returnOrder,
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
@@ -2030,6 +2094,7 @@ class _$FetchHomeBanners implements FetchHomeBanners {
     TResult Function(FetchBrandProducts value)? fetchBrandProducts,
     TResult Function(FetchCoupons value)? fetchCoupons,
     TResult Function(IsPromoCodeAvailable value)? isPromoCodeAvailable,
+    TResult Function(ChangeIndexEvent value)? changeIndexEvent,
     required TResult orElse(),
   }) {
     if (fetchHomeBanners != null) {
@@ -2112,6 +2177,8 @@ class _$FetchShopBanners implements FetchShopBanners {
         fetchOrdersbyFilterEvent,
     required TResult Function(BuildContext context, int shiprockeId)
         cancelOrder,
+    required TResult Function(BuildContext context, int shiprockeId)
+        returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
     required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
@@ -2133,6 +2200,7 @@ class _$FetchShopBanners implements FetchShopBanners {
     required TResult Function(String brandId) fetchBrandProducts,
     required TResult Function() fetchCoupons,
     required TResult Function(bool value) isPromoCodeAvailable,
+    required TResult Function(int index) changeIndexEvent,
   }) {
     return fetchShopBanners();
   }
@@ -2169,6 +2237,7 @@ class _$FetchShopBanners implements FetchShopBanners {
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
     TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
@@ -2190,6 +2259,7 @@ class _$FetchShopBanners implements FetchShopBanners {
     TResult? Function(String brandId)? fetchBrandProducts,
     TResult? Function()? fetchCoupons,
     TResult? Function(bool value)? isPromoCodeAvailable,
+    TResult? Function(int index)? changeIndexEvent,
   }) {
     return fetchShopBanners?.call();
   }
@@ -2226,6 +2296,7 @@ class _$FetchShopBanners implements FetchShopBanners {
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
     TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
@@ -2247,6 +2318,7 @@ class _$FetchShopBanners implements FetchShopBanners {
     TResult Function(String brandId)? fetchBrandProducts,
     TResult Function()? fetchCoupons,
     TResult Function(bool value)? isPromoCodeAvailable,
+    TResult Function(int index)? changeIndexEvent,
     required TResult orElse(),
   }) {
     if (fetchShopBanners != null) {
@@ -2280,6 +2352,7 @@ class _$FetchShopBanners implements FetchShopBanners {
     required TResult Function(FetchOrdersbyFilterEvent value)
         fetchOrdersbyFilterEvent,
     required TResult Function(CancelOrder value) cancelOrder,
+    required TResult Function(ReturnOrder value) returnOrder,
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
@@ -2316,6 +2389,7 @@ class _$FetchShopBanners implements FetchShopBanners {
     required TResult Function(FetchBrandProducts value) fetchBrandProducts,
     required TResult Function(FetchCoupons value) fetchCoupons,
     required TResult Function(IsPromoCodeAvailable value) isPromoCodeAvailable,
+    required TResult Function(ChangeIndexEvent value) changeIndexEvent,
   }) {
     return fetchShopBanners(this);
   }
@@ -2342,6 +2416,7 @@ class _$FetchShopBanners implements FetchShopBanners {
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult? Function(CancelOrder value)? cancelOrder,
+    TResult? Function(ReturnOrder value)? returnOrder,
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
@@ -2373,6 +2448,7 @@ class _$FetchShopBanners implements FetchShopBanners {
     TResult? Function(FetchBrandProducts value)? fetchBrandProducts,
     TResult? Function(FetchCoupons value)? fetchCoupons,
     TResult? Function(IsPromoCodeAvailable value)? isPromoCodeAvailable,
+    TResult? Function(ChangeIndexEvent value)? changeIndexEvent,
   }) {
     return fetchShopBanners?.call(this);
   }
@@ -2399,6 +2475,7 @@ class _$FetchShopBanners implements FetchShopBanners {
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult Function(CancelOrder value)? cancelOrder,
+    TResult Function(ReturnOrder value)? returnOrder,
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
@@ -2430,6 +2507,7 @@ class _$FetchShopBanners implements FetchShopBanners {
     TResult Function(FetchBrandProducts value)? fetchBrandProducts,
     TResult Function(FetchCoupons value)? fetchCoupons,
     TResult Function(IsPromoCodeAvailable value)? isPromoCodeAvailable,
+    TResult Function(ChangeIndexEvent value)? changeIndexEvent,
     required TResult orElse(),
   }) {
     if (fetchShopBanners != null) {
@@ -2539,6 +2617,8 @@ class _$FetchArticles implements FetchArticles {
         fetchOrdersbyFilterEvent,
     required TResult Function(BuildContext context, int shiprockeId)
         cancelOrder,
+    required TResult Function(BuildContext context, int shiprockeId)
+        returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
     required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
@@ -2560,6 +2640,7 @@ class _$FetchArticles implements FetchArticles {
     required TResult Function(String brandId) fetchBrandProducts,
     required TResult Function() fetchCoupons,
     required TResult Function(bool value) isPromoCodeAvailable,
+    required TResult Function(int index) changeIndexEvent,
   }) {
     return fetchArticles(searchQuery);
   }
@@ -2596,6 +2677,7 @@ class _$FetchArticles implements FetchArticles {
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
     TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
@@ -2617,6 +2699,7 @@ class _$FetchArticles implements FetchArticles {
     TResult? Function(String brandId)? fetchBrandProducts,
     TResult? Function()? fetchCoupons,
     TResult? Function(bool value)? isPromoCodeAvailable,
+    TResult? Function(int index)? changeIndexEvent,
   }) {
     return fetchArticles?.call(searchQuery);
   }
@@ -2653,6 +2736,7 @@ class _$FetchArticles implements FetchArticles {
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
     TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
@@ -2674,6 +2758,7 @@ class _$FetchArticles implements FetchArticles {
     TResult Function(String brandId)? fetchBrandProducts,
     TResult Function()? fetchCoupons,
     TResult Function(bool value)? isPromoCodeAvailable,
+    TResult Function(int index)? changeIndexEvent,
     required TResult orElse(),
   }) {
     if (fetchArticles != null) {
@@ -2707,6 +2792,7 @@ class _$FetchArticles implements FetchArticles {
     required TResult Function(FetchOrdersbyFilterEvent value)
         fetchOrdersbyFilterEvent,
     required TResult Function(CancelOrder value) cancelOrder,
+    required TResult Function(ReturnOrder value) returnOrder,
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
@@ -2743,6 +2829,7 @@ class _$FetchArticles implements FetchArticles {
     required TResult Function(FetchBrandProducts value) fetchBrandProducts,
     required TResult Function(FetchCoupons value) fetchCoupons,
     required TResult Function(IsPromoCodeAvailable value) isPromoCodeAvailable,
+    required TResult Function(ChangeIndexEvent value) changeIndexEvent,
   }) {
     return fetchArticles(this);
   }
@@ -2769,6 +2856,7 @@ class _$FetchArticles implements FetchArticles {
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult? Function(CancelOrder value)? cancelOrder,
+    TResult? Function(ReturnOrder value)? returnOrder,
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
@@ -2800,6 +2888,7 @@ class _$FetchArticles implements FetchArticles {
     TResult? Function(FetchBrandProducts value)? fetchBrandProducts,
     TResult? Function(FetchCoupons value)? fetchCoupons,
     TResult? Function(IsPromoCodeAvailable value)? isPromoCodeAvailable,
+    TResult? Function(ChangeIndexEvent value)? changeIndexEvent,
   }) {
     return fetchArticles?.call(this);
   }
@@ -2826,6 +2915,7 @@ class _$FetchArticles implements FetchArticles {
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult Function(CancelOrder value)? cancelOrder,
+    TResult Function(ReturnOrder value)? returnOrder,
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
@@ -2857,6 +2947,7 @@ class _$FetchArticles implements FetchArticles {
     TResult Function(FetchBrandProducts value)? fetchBrandProducts,
     TResult Function(FetchCoupons value)? fetchCoupons,
     TResult Function(IsPromoCodeAvailable value)? isPromoCodeAvailable,
+    TResult Function(ChangeIndexEvent value)? changeIndexEvent,
     required TResult orElse(),
   }) {
     if (fetchArticles != null) {
@@ -2945,6 +3036,8 @@ class _$FetchShopByBrand implements FetchShopByBrand {
         fetchOrdersbyFilterEvent,
     required TResult Function(BuildContext context, int shiprockeId)
         cancelOrder,
+    required TResult Function(BuildContext context, int shiprockeId)
+        returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
     required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
@@ -2966,6 +3059,7 @@ class _$FetchShopByBrand implements FetchShopByBrand {
     required TResult Function(String brandId) fetchBrandProducts,
     required TResult Function() fetchCoupons,
     required TResult Function(bool value) isPromoCodeAvailable,
+    required TResult Function(int index) changeIndexEvent,
   }) {
     return fetchShopByBrand();
   }
@@ -3002,6 +3096,7 @@ class _$FetchShopByBrand implements FetchShopByBrand {
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
     TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
@@ -3023,6 +3118,7 @@ class _$FetchShopByBrand implements FetchShopByBrand {
     TResult? Function(String brandId)? fetchBrandProducts,
     TResult? Function()? fetchCoupons,
     TResult? Function(bool value)? isPromoCodeAvailable,
+    TResult? Function(int index)? changeIndexEvent,
   }) {
     return fetchShopByBrand?.call();
   }
@@ -3059,6 +3155,7 @@ class _$FetchShopByBrand implements FetchShopByBrand {
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
     TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
@@ -3080,6 +3177,7 @@ class _$FetchShopByBrand implements FetchShopByBrand {
     TResult Function(String brandId)? fetchBrandProducts,
     TResult Function()? fetchCoupons,
     TResult Function(bool value)? isPromoCodeAvailable,
+    TResult Function(int index)? changeIndexEvent,
     required TResult orElse(),
   }) {
     if (fetchShopByBrand != null) {
@@ -3113,6 +3211,7 @@ class _$FetchShopByBrand implements FetchShopByBrand {
     required TResult Function(FetchOrdersbyFilterEvent value)
         fetchOrdersbyFilterEvent,
     required TResult Function(CancelOrder value) cancelOrder,
+    required TResult Function(ReturnOrder value) returnOrder,
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
@@ -3149,6 +3248,7 @@ class _$FetchShopByBrand implements FetchShopByBrand {
     required TResult Function(FetchBrandProducts value) fetchBrandProducts,
     required TResult Function(FetchCoupons value) fetchCoupons,
     required TResult Function(IsPromoCodeAvailable value) isPromoCodeAvailable,
+    required TResult Function(ChangeIndexEvent value) changeIndexEvent,
   }) {
     return fetchShopByBrand(this);
   }
@@ -3175,6 +3275,7 @@ class _$FetchShopByBrand implements FetchShopByBrand {
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult? Function(CancelOrder value)? cancelOrder,
+    TResult? Function(ReturnOrder value)? returnOrder,
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
@@ -3206,6 +3307,7 @@ class _$FetchShopByBrand implements FetchShopByBrand {
     TResult? Function(FetchBrandProducts value)? fetchBrandProducts,
     TResult? Function(FetchCoupons value)? fetchCoupons,
     TResult? Function(IsPromoCodeAvailable value)? isPromoCodeAvailable,
+    TResult? Function(ChangeIndexEvent value)? changeIndexEvent,
   }) {
     return fetchShopByBrand?.call(this);
   }
@@ -3232,6 +3334,7 @@ class _$FetchShopByBrand implements FetchShopByBrand {
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult Function(CancelOrder value)? cancelOrder,
+    TResult Function(ReturnOrder value)? returnOrder,
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
@@ -3263,6 +3366,7 @@ class _$FetchShopByBrand implements FetchShopByBrand {
     TResult Function(FetchBrandProducts value)? fetchBrandProducts,
     TResult Function(FetchCoupons value)? fetchCoupons,
     TResult Function(IsPromoCodeAvailable value)? isPromoCodeAvailable,
+    TResult Function(ChangeIndexEvent value)? changeIndexEvent,
     required TResult orElse(),
   }) {
     if (fetchShopByBrand != null) {
@@ -3371,6 +3475,8 @@ class _$FetchWishList implements FetchWishList {
         fetchOrdersbyFilterEvent,
     required TResult Function(BuildContext context, int shiprockeId)
         cancelOrder,
+    required TResult Function(BuildContext context, int shiprockeId)
+        returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
     required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
@@ -3392,6 +3498,7 @@ class _$FetchWishList implements FetchWishList {
     required TResult Function(String brandId) fetchBrandProducts,
     required TResult Function() fetchCoupons,
     required TResult Function(bool value) isPromoCodeAvailable,
+    required TResult Function(int index) changeIndexEvent,
   }) {
     return fetchWishList(context);
   }
@@ -3428,6 +3535,7 @@ class _$FetchWishList implements FetchWishList {
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
     TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
@@ -3449,6 +3557,7 @@ class _$FetchWishList implements FetchWishList {
     TResult? Function(String brandId)? fetchBrandProducts,
     TResult? Function()? fetchCoupons,
     TResult? Function(bool value)? isPromoCodeAvailable,
+    TResult? Function(int index)? changeIndexEvent,
   }) {
     return fetchWishList?.call(context);
   }
@@ -3485,6 +3594,7 @@ class _$FetchWishList implements FetchWishList {
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
     TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
@@ -3506,6 +3616,7 @@ class _$FetchWishList implements FetchWishList {
     TResult Function(String brandId)? fetchBrandProducts,
     TResult Function()? fetchCoupons,
     TResult Function(bool value)? isPromoCodeAvailable,
+    TResult Function(int index)? changeIndexEvent,
     required TResult orElse(),
   }) {
     if (fetchWishList != null) {
@@ -3539,6 +3650,7 @@ class _$FetchWishList implements FetchWishList {
     required TResult Function(FetchOrdersbyFilterEvent value)
         fetchOrdersbyFilterEvent,
     required TResult Function(CancelOrder value) cancelOrder,
+    required TResult Function(ReturnOrder value) returnOrder,
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
@@ -3575,6 +3687,7 @@ class _$FetchWishList implements FetchWishList {
     required TResult Function(FetchBrandProducts value) fetchBrandProducts,
     required TResult Function(FetchCoupons value) fetchCoupons,
     required TResult Function(IsPromoCodeAvailable value) isPromoCodeAvailable,
+    required TResult Function(ChangeIndexEvent value) changeIndexEvent,
   }) {
     return fetchWishList(this);
   }
@@ -3601,6 +3714,7 @@ class _$FetchWishList implements FetchWishList {
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult? Function(CancelOrder value)? cancelOrder,
+    TResult? Function(ReturnOrder value)? returnOrder,
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
@@ -3632,6 +3746,7 @@ class _$FetchWishList implements FetchWishList {
     TResult? Function(FetchBrandProducts value)? fetchBrandProducts,
     TResult? Function(FetchCoupons value)? fetchCoupons,
     TResult? Function(IsPromoCodeAvailable value)? isPromoCodeAvailable,
+    TResult? Function(ChangeIndexEvent value)? changeIndexEvent,
   }) {
     return fetchWishList?.call(this);
   }
@@ -3658,6 +3773,7 @@ class _$FetchWishList implements FetchWishList {
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult Function(CancelOrder value)? cancelOrder,
+    TResult Function(ReturnOrder value)? returnOrder,
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
@@ -3689,6 +3805,7 @@ class _$FetchWishList implements FetchWishList {
     TResult Function(FetchBrandProducts value)? fetchBrandProducts,
     TResult Function(FetchCoupons value)? fetchCoupons,
     TResult Function(IsPromoCodeAvailable value)? isPromoCodeAvailable,
+    TResult Function(ChangeIndexEvent value)? changeIndexEvent,
     required TResult orElse(),
   }) {
     if (fetchWishList != null) {
@@ -3802,6 +3919,8 @@ class _$SearchProduct implements SearchProduct {
         fetchOrdersbyFilterEvent,
     required TResult Function(BuildContext context, int shiprockeId)
         cancelOrder,
+    required TResult Function(BuildContext context, int shiprockeId)
+        returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
     required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
@@ -3823,6 +3942,7 @@ class _$SearchProduct implements SearchProduct {
     required TResult Function(String brandId) fetchBrandProducts,
     required TResult Function() fetchCoupons,
     required TResult Function(bool value) isPromoCodeAvailable,
+    required TResult Function(int index) changeIndexEvent,
   }) {
     return searchProduct(query);
   }
@@ -3859,6 +3979,7 @@ class _$SearchProduct implements SearchProduct {
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
     TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
@@ -3880,6 +4001,7 @@ class _$SearchProduct implements SearchProduct {
     TResult? Function(String brandId)? fetchBrandProducts,
     TResult? Function()? fetchCoupons,
     TResult? Function(bool value)? isPromoCodeAvailable,
+    TResult? Function(int index)? changeIndexEvent,
   }) {
     return searchProduct?.call(query);
   }
@@ -3916,6 +4038,7 @@ class _$SearchProduct implements SearchProduct {
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
     TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
@@ -3937,6 +4060,7 @@ class _$SearchProduct implements SearchProduct {
     TResult Function(String brandId)? fetchBrandProducts,
     TResult Function()? fetchCoupons,
     TResult Function(bool value)? isPromoCodeAvailable,
+    TResult Function(int index)? changeIndexEvent,
     required TResult orElse(),
   }) {
     if (searchProduct != null) {
@@ -3970,6 +4094,7 @@ class _$SearchProduct implements SearchProduct {
     required TResult Function(FetchOrdersbyFilterEvent value)
         fetchOrdersbyFilterEvent,
     required TResult Function(CancelOrder value) cancelOrder,
+    required TResult Function(ReturnOrder value) returnOrder,
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
@@ -4006,6 +4131,7 @@ class _$SearchProduct implements SearchProduct {
     required TResult Function(FetchBrandProducts value) fetchBrandProducts,
     required TResult Function(FetchCoupons value) fetchCoupons,
     required TResult Function(IsPromoCodeAvailable value) isPromoCodeAvailable,
+    required TResult Function(ChangeIndexEvent value) changeIndexEvent,
   }) {
     return searchProduct(this);
   }
@@ -4032,6 +4158,7 @@ class _$SearchProduct implements SearchProduct {
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult? Function(CancelOrder value)? cancelOrder,
+    TResult? Function(ReturnOrder value)? returnOrder,
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
@@ -4063,6 +4190,7 @@ class _$SearchProduct implements SearchProduct {
     TResult? Function(FetchBrandProducts value)? fetchBrandProducts,
     TResult? Function(FetchCoupons value)? fetchCoupons,
     TResult? Function(IsPromoCodeAvailable value)? isPromoCodeAvailable,
+    TResult? Function(ChangeIndexEvent value)? changeIndexEvent,
   }) {
     return searchProduct?.call(this);
   }
@@ -4089,6 +4217,7 @@ class _$SearchProduct implements SearchProduct {
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult Function(CancelOrder value)? cancelOrder,
+    TResult Function(ReturnOrder value)? returnOrder,
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
@@ -4120,6 +4249,7 @@ class _$SearchProduct implements SearchProduct {
     TResult Function(FetchBrandProducts value)? fetchBrandProducts,
     TResult Function(FetchCoupons value)? fetchCoupons,
     TResult Function(IsPromoCodeAvailable value)? isPromoCodeAvailable,
+    TResult Function(ChangeIndexEvent value)? changeIndexEvent,
     required TResult orElse(),
   }) {
     if (searchProduct != null) {
@@ -4242,6 +4372,8 @@ class _$AddWishListEvent implements AddWishListEvent {
         fetchOrdersbyFilterEvent,
     required TResult Function(BuildContext context, int shiprockeId)
         cancelOrder,
+    required TResult Function(BuildContext context, int shiprockeId)
+        returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
     required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
@@ -4263,6 +4395,7 @@ class _$AddWishListEvent implements AddWishListEvent {
     required TResult Function(String brandId) fetchBrandProducts,
     required TResult Function() fetchCoupons,
     required TResult Function(bool value) isPromoCodeAvailable,
+    required TResult Function(int index) changeIndexEvent,
   }) {
     return addWishListEvent(productId, context);
   }
@@ -4299,6 +4432,7 @@ class _$AddWishListEvent implements AddWishListEvent {
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
     TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
@@ -4320,6 +4454,7 @@ class _$AddWishListEvent implements AddWishListEvent {
     TResult? Function(String brandId)? fetchBrandProducts,
     TResult? Function()? fetchCoupons,
     TResult? Function(bool value)? isPromoCodeAvailable,
+    TResult? Function(int index)? changeIndexEvent,
   }) {
     return addWishListEvent?.call(productId, context);
   }
@@ -4356,6 +4491,7 @@ class _$AddWishListEvent implements AddWishListEvent {
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
     TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
@@ -4377,6 +4513,7 @@ class _$AddWishListEvent implements AddWishListEvent {
     TResult Function(String brandId)? fetchBrandProducts,
     TResult Function()? fetchCoupons,
     TResult Function(bool value)? isPromoCodeAvailable,
+    TResult Function(int index)? changeIndexEvent,
     required TResult orElse(),
   }) {
     if (addWishListEvent != null) {
@@ -4410,6 +4547,7 @@ class _$AddWishListEvent implements AddWishListEvent {
     required TResult Function(FetchOrdersbyFilterEvent value)
         fetchOrdersbyFilterEvent,
     required TResult Function(CancelOrder value) cancelOrder,
+    required TResult Function(ReturnOrder value) returnOrder,
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
@@ -4446,6 +4584,7 @@ class _$AddWishListEvent implements AddWishListEvent {
     required TResult Function(FetchBrandProducts value) fetchBrandProducts,
     required TResult Function(FetchCoupons value) fetchCoupons,
     required TResult Function(IsPromoCodeAvailable value) isPromoCodeAvailable,
+    required TResult Function(ChangeIndexEvent value) changeIndexEvent,
   }) {
     return addWishListEvent(this);
   }
@@ -4472,6 +4611,7 @@ class _$AddWishListEvent implements AddWishListEvent {
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult? Function(CancelOrder value)? cancelOrder,
+    TResult? Function(ReturnOrder value)? returnOrder,
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
@@ -4503,6 +4643,7 @@ class _$AddWishListEvent implements AddWishListEvent {
     TResult? Function(FetchBrandProducts value)? fetchBrandProducts,
     TResult? Function(FetchCoupons value)? fetchCoupons,
     TResult? Function(IsPromoCodeAvailable value)? isPromoCodeAvailable,
+    TResult? Function(ChangeIndexEvent value)? changeIndexEvent,
   }) {
     return addWishListEvent?.call(this);
   }
@@ -4529,6 +4670,7 @@ class _$AddWishListEvent implements AddWishListEvent {
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult Function(CancelOrder value)? cancelOrder,
+    TResult Function(ReturnOrder value)? returnOrder,
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
@@ -4560,6 +4702,7 @@ class _$AddWishListEvent implements AddWishListEvent {
     TResult Function(FetchBrandProducts value)? fetchBrandProducts,
     TResult Function(FetchCoupons value)? fetchCoupons,
     TResult Function(IsPromoCodeAvailable value)? isPromoCodeAvailable,
+    TResult Function(ChangeIndexEvent value)? changeIndexEvent,
     required TResult orElse(),
   }) {
     if (addWishListEvent != null) {
@@ -4686,6 +4829,8 @@ class _$RemoveWishlistEvent implements RemoveWishlistEvent {
         fetchOrdersbyFilterEvent,
     required TResult Function(BuildContext context, int shiprockeId)
         cancelOrder,
+    required TResult Function(BuildContext context, int shiprockeId)
+        returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
     required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
@@ -4707,6 +4852,7 @@ class _$RemoveWishlistEvent implements RemoveWishlistEvent {
     required TResult Function(String brandId) fetchBrandProducts,
     required TResult Function() fetchCoupons,
     required TResult Function(bool value) isPromoCodeAvailable,
+    required TResult Function(int index) changeIndexEvent,
   }) {
     return removeWishlistEvent(productId, context);
   }
@@ -4743,6 +4889,7 @@ class _$RemoveWishlistEvent implements RemoveWishlistEvent {
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
     TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
@@ -4764,6 +4911,7 @@ class _$RemoveWishlistEvent implements RemoveWishlistEvent {
     TResult? Function(String brandId)? fetchBrandProducts,
     TResult? Function()? fetchCoupons,
     TResult? Function(bool value)? isPromoCodeAvailable,
+    TResult? Function(int index)? changeIndexEvent,
   }) {
     return removeWishlistEvent?.call(productId, context);
   }
@@ -4800,6 +4948,7 @@ class _$RemoveWishlistEvent implements RemoveWishlistEvent {
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
     TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
@@ -4821,6 +4970,7 @@ class _$RemoveWishlistEvent implements RemoveWishlistEvent {
     TResult Function(String brandId)? fetchBrandProducts,
     TResult Function()? fetchCoupons,
     TResult Function(bool value)? isPromoCodeAvailable,
+    TResult Function(int index)? changeIndexEvent,
     required TResult orElse(),
   }) {
     if (removeWishlistEvent != null) {
@@ -4854,6 +5004,7 @@ class _$RemoveWishlistEvent implements RemoveWishlistEvent {
     required TResult Function(FetchOrdersbyFilterEvent value)
         fetchOrdersbyFilterEvent,
     required TResult Function(CancelOrder value) cancelOrder,
+    required TResult Function(ReturnOrder value) returnOrder,
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
@@ -4890,6 +5041,7 @@ class _$RemoveWishlistEvent implements RemoveWishlistEvent {
     required TResult Function(FetchBrandProducts value) fetchBrandProducts,
     required TResult Function(FetchCoupons value) fetchCoupons,
     required TResult Function(IsPromoCodeAvailable value) isPromoCodeAvailable,
+    required TResult Function(ChangeIndexEvent value) changeIndexEvent,
   }) {
     return removeWishlistEvent(this);
   }
@@ -4916,6 +5068,7 @@ class _$RemoveWishlistEvent implements RemoveWishlistEvent {
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult? Function(CancelOrder value)? cancelOrder,
+    TResult? Function(ReturnOrder value)? returnOrder,
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
@@ -4947,6 +5100,7 @@ class _$RemoveWishlistEvent implements RemoveWishlistEvent {
     TResult? Function(FetchBrandProducts value)? fetchBrandProducts,
     TResult? Function(FetchCoupons value)? fetchCoupons,
     TResult? Function(IsPromoCodeAvailable value)? isPromoCodeAvailable,
+    TResult? Function(ChangeIndexEvent value)? changeIndexEvent,
   }) {
     return removeWishlistEvent?.call(this);
   }
@@ -4973,6 +5127,7 @@ class _$RemoveWishlistEvent implements RemoveWishlistEvent {
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult Function(CancelOrder value)? cancelOrder,
+    TResult Function(ReturnOrder value)? returnOrder,
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
@@ -5004,6 +5159,7 @@ class _$RemoveWishlistEvent implements RemoveWishlistEvent {
     TResult Function(FetchBrandProducts value)? fetchBrandProducts,
     TResult Function(FetchCoupons value)? fetchCoupons,
     TResult Function(IsPromoCodeAvailable value)? isPromoCodeAvailable,
+    TResult Function(ChangeIndexEvent value)? changeIndexEvent,
     required TResult orElse(),
   }) {
     if (removeWishlistEvent != null) {
@@ -5123,6 +5279,8 @@ class _$FetchShopByBrandProducts implements FetchShopByBrandProducts {
         fetchOrdersbyFilterEvent,
     required TResult Function(BuildContext context, int shiprockeId)
         cancelOrder,
+    required TResult Function(BuildContext context, int shiprockeId)
+        returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
     required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
@@ -5144,6 +5302,7 @@ class _$FetchShopByBrandProducts implements FetchShopByBrandProducts {
     required TResult Function(String brandId) fetchBrandProducts,
     required TResult Function() fetchCoupons,
     required TResult Function(bool value) isPromoCodeAvailable,
+    required TResult Function(int index) changeIndexEvent,
   }) {
     return fetchShopByBrandProducts(brandName);
   }
@@ -5180,6 +5339,7 @@ class _$FetchShopByBrandProducts implements FetchShopByBrandProducts {
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
     TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
@@ -5201,6 +5361,7 @@ class _$FetchShopByBrandProducts implements FetchShopByBrandProducts {
     TResult? Function(String brandId)? fetchBrandProducts,
     TResult? Function()? fetchCoupons,
     TResult? Function(bool value)? isPromoCodeAvailable,
+    TResult? Function(int index)? changeIndexEvent,
   }) {
     return fetchShopByBrandProducts?.call(brandName);
   }
@@ -5237,6 +5398,7 @@ class _$FetchShopByBrandProducts implements FetchShopByBrandProducts {
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
     TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
@@ -5258,6 +5420,7 @@ class _$FetchShopByBrandProducts implements FetchShopByBrandProducts {
     TResult Function(String brandId)? fetchBrandProducts,
     TResult Function()? fetchCoupons,
     TResult Function(bool value)? isPromoCodeAvailable,
+    TResult Function(int index)? changeIndexEvent,
     required TResult orElse(),
   }) {
     if (fetchShopByBrandProducts != null) {
@@ -5291,6 +5454,7 @@ class _$FetchShopByBrandProducts implements FetchShopByBrandProducts {
     required TResult Function(FetchOrdersbyFilterEvent value)
         fetchOrdersbyFilterEvent,
     required TResult Function(CancelOrder value) cancelOrder,
+    required TResult Function(ReturnOrder value) returnOrder,
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
@@ -5327,6 +5491,7 @@ class _$FetchShopByBrandProducts implements FetchShopByBrandProducts {
     required TResult Function(FetchBrandProducts value) fetchBrandProducts,
     required TResult Function(FetchCoupons value) fetchCoupons,
     required TResult Function(IsPromoCodeAvailable value) isPromoCodeAvailable,
+    required TResult Function(ChangeIndexEvent value) changeIndexEvent,
   }) {
     return fetchShopByBrandProducts(this);
   }
@@ -5353,6 +5518,7 @@ class _$FetchShopByBrandProducts implements FetchShopByBrandProducts {
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult? Function(CancelOrder value)? cancelOrder,
+    TResult? Function(ReturnOrder value)? returnOrder,
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
@@ -5384,6 +5550,7 @@ class _$FetchShopByBrandProducts implements FetchShopByBrandProducts {
     TResult? Function(FetchBrandProducts value)? fetchBrandProducts,
     TResult? Function(FetchCoupons value)? fetchCoupons,
     TResult? Function(IsPromoCodeAvailable value)? isPromoCodeAvailable,
+    TResult? Function(ChangeIndexEvent value)? changeIndexEvent,
   }) {
     return fetchShopByBrandProducts?.call(this);
   }
@@ -5410,6 +5577,7 @@ class _$FetchShopByBrandProducts implements FetchShopByBrandProducts {
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult Function(CancelOrder value)? cancelOrder,
+    TResult Function(ReturnOrder value)? returnOrder,
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
@@ -5441,6 +5609,7 @@ class _$FetchShopByBrandProducts implements FetchShopByBrandProducts {
     TResult Function(FetchBrandProducts value)? fetchBrandProducts,
     TResult Function(FetchCoupons value)? fetchCoupons,
     TResult Function(IsPromoCodeAvailable value)? isPromoCodeAvailable,
+    TResult Function(ChangeIndexEvent value)? changeIndexEvent,
     required TResult orElse(),
   }) {
     if (fetchShopByBrandProducts != null) {
@@ -5556,6 +5725,8 @@ class _$TabIndexChangeEvent implements TabIndexChangeEvent {
         fetchOrdersbyFilterEvent,
     required TResult Function(BuildContext context, int shiprockeId)
         cancelOrder,
+    required TResult Function(BuildContext context, int shiprockeId)
+        returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
     required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
@@ -5577,6 +5748,7 @@ class _$TabIndexChangeEvent implements TabIndexChangeEvent {
     required TResult Function(String brandId) fetchBrandProducts,
     required TResult Function() fetchCoupons,
     required TResult Function(bool value) isPromoCodeAvailable,
+    required TResult Function(int index) changeIndexEvent,
   }) {
     return tabIndexChangeEvent(index);
   }
@@ -5613,6 +5785,7 @@ class _$TabIndexChangeEvent implements TabIndexChangeEvent {
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
     TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
@@ -5634,6 +5807,7 @@ class _$TabIndexChangeEvent implements TabIndexChangeEvent {
     TResult? Function(String brandId)? fetchBrandProducts,
     TResult? Function()? fetchCoupons,
     TResult? Function(bool value)? isPromoCodeAvailable,
+    TResult? Function(int index)? changeIndexEvent,
   }) {
     return tabIndexChangeEvent?.call(index);
   }
@@ -5670,6 +5844,7 @@ class _$TabIndexChangeEvent implements TabIndexChangeEvent {
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
     TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
@@ -5691,6 +5866,7 @@ class _$TabIndexChangeEvent implements TabIndexChangeEvent {
     TResult Function(String brandId)? fetchBrandProducts,
     TResult Function()? fetchCoupons,
     TResult Function(bool value)? isPromoCodeAvailable,
+    TResult Function(int index)? changeIndexEvent,
     required TResult orElse(),
   }) {
     if (tabIndexChangeEvent != null) {
@@ -5724,6 +5900,7 @@ class _$TabIndexChangeEvent implements TabIndexChangeEvent {
     required TResult Function(FetchOrdersbyFilterEvent value)
         fetchOrdersbyFilterEvent,
     required TResult Function(CancelOrder value) cancelOrder,
+    required TResult Function(ReturnOrder value) returnOrder,
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
@@ -5760,6 +5937,7 @@ class _$TabIndexChangeEvent implements TabIndexChangeEvent {
     required TResult Function(FetchBrandProducts value) fetchBrandProducts,
     required TResult Function(FetchCoupons value) fetchCoupons,
     required TResult Function(IsPromoCodeAvailable value) isPromoCodeAvailable,
+    required TResult Function(ChangeIndexEvent value) changeIndexEvent,
   }) {
     return tabIndexChangeEvent(this);
   }
@@ -5786,6 +5964,7 @@ class _$TabIndexChangeEvent implements TabIndexChangeEvent {
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult? Function(CancelOrder value)? cancelOrder,
+    TResult? Function(ReturnOrder value)? returnOrder,
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
@@ -5817,6 +5996,7 @@ class _$TabIndexChangeEvent implements TabIndexChangeEvent {
     TResult? Function(FetchBrandProducts value)? fetchBrandProducts,
     TResult? Function(FetchCoupons value)? fetchCoupons,
     TResult? Function(IsPromoCodeAvailable value)? isPromoCodeAvailable,
+    TResult? Function(ChangeIndexEvent value)? changeIndexEvent,
   }) {
     return tabIndexChangeEvent?.call(this);
   }
@@ -5843,6 +6023,7 @@ class _$TabIndexChangeEvent implements TabIndexChangeEvent {
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult Function(CancelOrder value)? cancelOrder,
+    TResult Function(ReturnOrder value)? returnOrder,
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
@@ -5874,6 +6055,7 @@ class _$TabIndexChangeEvent implements TabIndexChangeEvent {
     TResult Function(FetchBrandProducts value)? fetchBrandProducts,
     TResult Function(FetchCoupons value)? fetchCoupons,
     TResult Function(IsPromoCodeAvailable value)? isPromoCodeAvailable,
+    TResult Function(ChangeIndexEvent value)? changeIndexEvent,
     required TResult orElse(),
   }) {
     if (tabIndexChangeEvent != null) {
@@ -6066,6 +6248,8 @@ class _$PostOrders implements PostOrders {
         fetchOrdersbyFilterEvent,
     required TResult Function(BuildContext context, int shiprockeId)
         cancelOrder,
+    required TResult Function(BuildContext context, int shiprockeId)
+        returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
     required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
@@ -6087,6 +6271,7 @@ class _$PostOrders implements PostOrders {
     required TResult Function(String brandId) fetchBrandProducts,
     required TResult Function() fetchCoupons,
     required TResult Function(bool value) isPromoCodeAvailable,
+    required TResult Function(int index) changeIndexEvent,
   }) {
     return postOrders(context, totalPrice, pickupLocation, quantity,
         totalDiscount, shippingCharges, weight, id);
@@ -6124,6 +6309,7 @@ class _$PostOrders implements PostOrders {
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
     TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
@@ -6145,6 +6331,7 @@ class _$PostOrders implements PostOrders {
     TResult? Function(String brandId)? fetchBrandProducts,
     TResult? Function()? fetchCoupons,
     TResult? Function(bool value)? isPromoCodeAvailable,
+    TResult? Function(int index)? changeIndexEvent,
   }) {
     return postOrders?.call(context, totalPrice, pickupLocation, quantity,
         totalDiscount, shippingCharges, weight, id);
@@ -6182,6 +6369,7 @@ class _$PostOrders implements PostOrders {
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
     TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
@@ -6203,6 +6391,7 @@ class _$PostOrders implements PostOrders {
     TResult Function(String brandId)? fetchBrandProducts,
     TResult Function()? fetchCoupons,
     TResult Function(bool value)? isPromoCodeAvailable,
+    TResult Function(int index)? changeIndexEvent,
     required TResult orElse(),
   }) {
     if (postOrders != null) {
@@ -6237,6 +6426,7 @@ class _$PostOrders implements PostOrders {
     required TResult Function(FetchOrdersbyFilterEvent value)
         fetchOrdersbyFilterEvent,
     required TResult Function(CancelOrder value) cancelOrder,
+    required TResult Function(ReturnOrder value) returnOrder,
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
@@ -6273,6 +6463,7 @@ class _$PostOrders implements PostOrders {
     required TResult Function(FetchBrandProducts value) fetchBrandProducts,
     required TResult Function(FetchCoupons value) fetchCoupons,
     required TResult Function(IsPromoCodeAvailable value) isPromoCodeAvailable,
+    required TResult Function(ChangeIndexEvent value) changeIndexEvent,
   }) {
     return postOrders(this);
   }
@@ -6299,6 +6490,7 @@ class _$PostOrders implements PostOrders {
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult? Function(CancelOrder value)? cancelOrder,
+    TResult? Function(ReturnOrder value)? returnOrder,
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
@@ -6330,6 +6522,7 @@ class _$PostOrders implements PostOrders {
     TResult? Function(FetchBrandProducts value)? fetchBrandProducts,
     TResult? Function(FetchCoupons value)? fetchCoupons,
     TResult? Function(IsPromoCodeAvailable value)? isPromoCodeAvailable,
+    TResult? Function(ChangeIndexEvent value)? changeIndexEvent,
   }) {
     return postOrders?.call(this);
   }
@@ -6356,6 +6549,7 @@ class _$PostOrders implements PostOrders {
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult Function(CancelOrder value)? cancelOrder,
+    TResult Function(ReturnOrder value)? returnOrder,
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
@@ -6387,6 +6581,7 @@ class _$PostOrders implements PostOrders {
     TResult Function(FetchBrandProducts value)? fetchBrandProducts,
     TResult Function(FetchCoupons value)? fetchCoupons,
     TResult Function(IsPromoCodeAvailable value)? isPromoCodeAvailable,
+    TResult Function(ChangeIndexEvent value)? changeIndexEvent,
     required TResult orElse(),
   }) {
     if (postOrders != null) {
@@ -6515,6 +6710,8 @@ class _$FetchOrders implements FetchOrders {
         fetchOrdersbyFilterEvent,
     required TResult Function(BuildContext context, int shiprockeId)
         cancelOrder,
+    required TResult Function(BuildContext context, int shiprockeId)
+        returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
     required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
@@ -6536,6 +6733,7 @@ class _$FetchOrders implements FetchOrders {
     required TResult Function(String brandId) fetchBrandProducts,
     required TResult Function() fetchCoupons,
     required TResult Function(bool value) isPromoCodeAvailable,
+    required TResult Function(int index) changeIndexEvent,
   }) {
     return fetchOrders(context);
   }
@@ -6572,6 +6770,7 @@ class _$FetchOrders implements FetchOrders {
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
     TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
@@ -6593,6 +6792,7 @@ class _$FetchOrders implements FetchOrders {
     TResult? Function(String brandId)? fetchBrandProducts,
     TResult? Function()? fetchCoupons,
     TResult? Function(bool value)? isPromoCodeAvailable,
+    TResult? Function(int index)? changeIndexEvent,
   }) {
     return fetchOrders?.call(context);
   }
@@ -6629,6 +6829,7 @@ class _$FetchOrders implements FetchOrders {
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
     TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
@@ -6650,6 +6851,7 @@ class _$FetchOrders implements FetchOrders {
     TResult Function(String brandId)? fetchBrandProducts,
     TResult Function()? fetchCoupons,
     TResult Function(bool value)? isPromoCodeAvailable,
+    TResult Function(int index)? changeIndexEvent,
     required TResult orElse(),
   }) {
     if (fetchOrders != null) {
@@ -6683,6 +6885,7 @@ class _$FetchOrders implements FetchOrders {
     required TResult Function(FetchOrdersbyFilterEvent value)
         fetchOrdersbyFilterEvent,
     required TResult Function(CancelOrder value) cancelOrder,
+    required TResult Function(ReturnOrder value) returnOrder,
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
@@ -6719,6 +6922,7 @@ class _$FetchOrders implements FetchOrders {
     required TResult Function(FetchBrandProducts value) fetchBrandProducts,
     required TResult Function(FetchCoupons value) fetchCoupons,
     required TResult Function(IsPromoCodeAvailable value) isPromoCodeAvailable,
+    required TResult Function(ChangeIndexEvent value) changeIndexEvent,
   }) {
     return fetchOrders(this);
   }
@@ -6745,6 +6949,7 @@ class _$FetchOrders implements FetchOrders {
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult? Function(CancelOrder value)? cancelOrder,
+    TResult? Function(ReturnOrder value)? returnOrder,
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
@@ -6776,6 +6981,7 @@ class _$FetchOrders implements FetchOrders {
     TResult? Function(FetchBrandProducts value)? fetchBrandProducts,
     TResult? Function(FetchCoupons value)? fetchCoupons,
     TResult? Function(IsPromoCodeAvailable value)? isPromoCodeAvailable,
+    TResult? Function(ChangeIndexEvent value)? changeIndexEvent,
   }) {
     return fetchOrders?.call(this);
   }
@@ -6802,6 +7008,7 @@ class _$FetchOrders implements FetchOrders {
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult Function(CancelOrder value)? cancelOrder,
+    TResult Function(ReturnOrder value)? returnOrder,
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
@@ -6833,6 +7040,7 @@ class _$FetchOrders implements FetchOrders {
     TResult Function(FetchBrandProducts value)? fetchBrandProducts,
     TResult Function(FetchCoupons value)? fetchCoupons,
     TResult Function(IsPromoCodeAvailable value)? isPromoCodeAvailable,
+    TResult Function(ChangeIndexEvent value)? changeIndexEvent,
     required TResult orElse(),
   }) {
     if (fetchOrders != null) {
@@ -6954,6 +7162,8 @@ class _$FetchOrdersById implements FetchOrdersById {
         fetchOrdersbyFilterEvent,
     required TResult Function(BuildContext context, int shiprockeId)
         cancelOrder,
+    required TResult Function(BuildContext context, int shiprockeId)
+        returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
     required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
@@ -6975,6 +7185,7 @@ class _$FetchOrdersById implements FetchOrdersById {
     required TResult Function(String brandId) fetchBrandProducts,
     required TResult Function() fetchCoupons,
     required TResult Function(bool value) isPromoCodeAvailable,
+    required TResult Function(int index) changeIndexEvent,
   }) {
     return fetchOrdersById(context, id);
   }
@@ -7011,6 +7222,7 @@ class _$FetchOrdersById implements FetchOrdersById {
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
     TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
@@ -7032,6 +7244,7 @@ class _$FetchOrdersById implements FetchOrdersById {
     TResult? Function(String brandId)? fetchBrandProducts,
     TResult? Function()? fetchCoupons,
     TResult? Function(bool value)? isPromoCodeAvailable,
+    TResult? Function(int index)? changeIndexEvent,
   }) {
     return fetchOrdersById?.call(context, id);
   }
@@ -7068,6 +7281,7 @@ class _$FetchOrdersById implements FetchOrdersById {
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
     TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
@@ -7089,6 +7303,7 @@ class _$FetchOrdersById implements FetchOrdersById {
     TResult Function(String brandId)? fetchBrandProducts,
     TResult Function()? fetchCoupons,
     TResult Function(bool value)? isPromoCodeAvailable,
+    TResult Function(int index)? changeIndexEvent,
     required TResult orElse(),
   }) {
     if (fetchOrdersById != null) {
@@ -7122,6 +7337,7 @@ class _$FetchOrdersById implements FetchOrdersById {
     required TResult Function(FetchOrdersbyFilterEvent value)
         fetchOrdersbyFilterEvent,
     required TResult Function(CancelOrder value) cancelOrder,
+    required TResult Function(ReturnOrder value) returnOrder,
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
@@ -7158,6 +7374,7 @@ class _$FetchOrdersById implements FetchOrdersById {
     required TResult Function(FetchBrandProducts value) fetchBrandProducts,
     required TResult Function(FetchCoupons value) fetchCoupons,
     required TResult Function(IsPromoCodeAvailable value) isPromoCodeAvailable,
+    required TResult Function(ChangeIndexEvent value) changeIndexEvent,
   }) {
     return fetchOrdersById(this);
   }
@@ -7184,6 +7401,7 @@ class _$FetchOrdersById implements FetchOrdersById {
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult? Function(CancelOrder value)? cancelOrder,
+    TResult? Function(ReturnOrder value)? returnOrder,
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
@@ -7215,6 +7433,7 @@ class _$FetchOrdersById implements FetchOrdersById {
     TResult? Function(FetchBrandProducts value)? fetchBrandProducts,
     TResult? Function(FetchCoupons value)? fetchCoupons,
     TResult? Function(IsPromoCodeAvailable value)? isPromoCodeAvailable,
+    TResult? Function(ChangeIndexEvent value)? changeIndexEvent,
   }) {
     return fetchOrdersById?.call(this);
   }
@@ -7241,6 +7460,7 @@ class _$FetchOrdersById implements FetchOrdersById {
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult Function(CancelOrder value)? cancelOrder,
+    TResult Function(ReturnOrder value)? returnOrder,
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
@@ -7272,6 +7492,7 @@ class _$FetchOrdersById implements FetchOrdersById {
     TResult Function(FetchBrandProducts value)? fetchBrandProducts,
     TResult Function(FetchCoupons value)? fetchCoupons,
     TResult Function(IsPromoCodeAvailable value)? isPromoCodeAvailable,
+    TResult Function(ChangeIndexEvent value)? changeIndexEvent,
     required TResult orElse(),
   }) {
     if (fetchOrdersById != null) {
@@ -7399,6 +7620,8 @@ class _$FetchOrdersbyFilterEvent implements FetchOrdersbyFilterEvent {
         fetchOrdersbyFilterEvent,
     required TResult Function(BuildContext context, int shiprockeId)
         cancelOrder,
+    required TResult Function(BuildContext context, int shiprockeId)
+        returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
     required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
@@ -7420,6 +7643,7 @@ class _$FetchOrdersbyFilterEvent implements FetchOrdersbyFilterEvent {
     required TResult Function(String brandId) fetchBrandProducts,
     required TResult Function() fetchCoupons,
     required TResult Function(bool value) isPromoCodeAvailable,
+    required TResult Function(int index) changeIndexEvent,
   }) {
     return fetchOrdersbyFilterEvent(context, filterName);
   }
@@ -7456,6 +7680,7 @@ class _$FetchOrdersbyFilterEvent implements FetchOrdersbyFilterEvent {
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
     TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
@@ -7477,6 +7702,7 @@ class _$FetchOrdersbyFilterEvent implements FetchOrdersbyFilterEvent {
     TResult? Function(String brandId)? fetchBrandProducts,
     TResult? Function()? fetchCoupons,
     TResult? Function(bool value)? isPromoCodeAvailable,
+    TResult? Function(int index)? changeIndexEvent,
   }) {
     return fetchOrdersbyFilterEvent?.call(context, filterName);
   }
@@ -7513,6 +7739,7 @@ class _$FetchOrdersbyFilterEvent implements FetchOrdersbyFilterEvent {
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
     TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
@@ -7534,6 +7761,7 @@ class _$FetchOrdersbyFilterEvent implements FetchOrdersbyFilterEvent {
     TResult Function(String brandId)? fetchBrandProducts,
     TResult Function()? fetchCoupons,
     TResult Function(bool value)? isPromoCodeAvailable,
+    TResult Function(int index)? changeIndexEvent,
     required TResult orElse(),
   }) {
     if (fetchOrdersbyFilterEvent != null) {
@@ -7567,6 +7795,7 @@ class _$FetchOrdersbyFilterEvent implements FetchOrdersbyFilterEvent {
     required TResult Function(FetchOrdersbyFilterEvent value)
         fetchOrdersbyFilterEvent,
     required TResult Function(CancelOrder value) cancelOrder,
+    required TResult Function(ReturnOrder value) returnOrder,
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
@@ -7603,6 +7832,7 @@ class _$FetchOrdersbyFilterEvent implements FetchOrdersbyFilterEvent {
     required TResult Function(FetchBrandProducts value) fetchBrandProducts,
     required TResult Function(FetchCoupons value) fetchCoupons,
     required TResult Function(IsPromoCodeAvailable value) isPromoCodeAvailable,
+    required TResult Function(ChangeIndexEvent value) changeIndexEvent,
   }) {
     return fetchOrdersbyFilterEvent(this);
   }
@@ -7629,6 +7859,7 @@ class _$FetchOrdersbyFilterEvent implements FetchOrdersbyFilterEvent {
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult? Function(CancelOrder value)? cancelOrder,
+    TResult? Function(ReturnOrder value)? returnOrder,
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
@@ -7660,6 +7891,7 @@ class _$FetchOrdersbyFilterEvent implements FetchOrdersbyFilterEvent {
     TResult? Function(FetchBrandProducts value)? fetchBrandProducts,
     TResult? Function(FetchCoupons value)? fetchCoupons,
     TResult? Function(IsPromoCodeAvailable value)? isPromoCodeAvailable,
+    TResult? Function(ChangeIndexEvent value)? changeIndexEvent,
   }) {
     return fetchOrdersbyFilterEvent?.call(this);
   }
@@ -7686,6 +7918,7 @@ class _$FetchOrdersbyFilterEvent implements FetchOrdersbyFilterEvent {
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult Function(CancelOrder value)? cancelOrder,
+    TResult Function(ReturnOrder value)? returnOrder,
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
@@ -7717,6 +7950,7 @@ class _$FetchOrdersbyFilterEvent implements FetchOrdersbyFilterEvent {
     TResult Function(FetchBrandProducts value)? fetchBrandProducts,
     TResult Function(FetchCoupons value)? fetchCoupons,
     TResult Function(IsPromoCodeAvailable value)? isPromoCodeAvailable,
+    TResult Function(ChangeIndexEvent value)? changeIndexEvent,
     required TResult orElse(),
   }) {
     if (fetchOrdersbyFilterEvent != null) {
@@ -7842,6 +8076,8 @@ class _$CancelOrder implements CancelOrder {
         fetchOrdersbyFilterEvent,
     required TResult Function(BuildContext context, int shiprockeId)
         cancelOrder,
+    required TResult Function(BuildContext context, int shiprockeId)
+        returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
     required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
@@ -7863,6 +8099,7 @@ class _$CancelOrder implements CancelOrder {
     required TResult Function(String brandId) fetchBrandProducts,
     required TResult Function() fetchCoupons,
     required TResult Function(bool value) isPromoCodeAvailable,
+    required TResult Function(int index) changeIndexEvent,
   }) {
     return cancelOrder(context, shiprockeId);
   }
@@ -7899,6 +8136,7 @@ class _$CancelOrder implements CancelOrder {
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
     TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
@@ -7920,6 +8158,7 @@ class _$CancelOrder implements CancelOrder {
     TResult? Function(String brandId)? fetchBrandProducts,
     TResult? Function()? fetchCoupons,
     TResult? Function(bool value)? isPromoCodeAvailable,
+    TResult? Function(int index)? changeIndexEvent,
   }) {
     return cancelOrder?.call(context, shiprockeId);
   }
@@ -7956,6 +8195,7 @@ class _$CancelOrder implements CancelOrder {
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
     TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
@@ -7977,6 +8217,7 @@ class _$CancelOrder implements CancelOrder {
     TResult Function(String brandId)? fetchBrandProducts,
     TResult Function()? fetchCoupons,
     TResult Function(bool value)? isPromoCodeAvailable,
+    TResult Function(int index)? changeIndexEvent,
     required TResult orElse(),
   }) {
     if (cancelOrder != null) {
@@ -8010,6 +8251,7 @@ class _$CancelOrder implements CancelOrder {
     required TResult Function(FetchOrdersbyFilterEvent value)
         fetchOrdersbyFilterEvent,
     required TResult Function(CancelOrder value) cancelOrder,
+    required TResult Function(ReturnOrder value) returnOrder,
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
@@ -8046,6 +8288,7 @@ class _$CancelOrder implements CancelOrder {
     required TResult Function(FetchBrandProducts value) fetchBrandProducts,
     required TResult Function(FetchCoupons value) fetchCoupons,
     required TResult Function(IsPromoCodeAvailable value) isPromoCodeAvailable,
+    required TResult Function(ChangeIndexEvent value) changeIndexEvent,
   }) {
     return cancelOrder(this);
   }
@@ -8072,6 +8315,7 @@ class _$CancelOrder implements CancelOrder {
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult? Function(CancelOrder value)? cancelOrder,
+    TResult? Function(ReturnOrder value)? returnOrder,
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
@@ -8103,6 +8347,7 @@ class _$CancelOrder implements CancelOrder {
     TResult? Function(FetchBrandProducts value)? fetchBrandProducts,
     TResult? Function(FetchCoupons value)? fetchCoupons,
     TResult? Function(IsPromoCodeAvailable value)? isPromoCodeAvailable,
+    TResult? Function(ChangeIndexEvent value)? changeIndexEvent,
   }) {
     return cancelOrder?.call(this);
   }
@@ -8129,6 +8374,7 @@ class _$CancelOrder implements CancelOrder {
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult Function(CancelOrder value)? cancelOrder,
+    TResult Function(ReturnOrder value)? returnOrder,
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
@@ -8160,6 +8406,7 @@ class _$CancelOrder implements CancelOrder {
     TResult Function(FetchBrandProducts value)? fetchBrandProducts,
     TResult Function(FetchCoupons value)? fetchCoupons,
     TResult Function(IsPromoCodeAvailable value)? isPromoCodeAvailable,
+    TResult Function(ChangeIndexEvent value)? changeIndexEvent,
     required TResult orElse(),
   }) {
     if (cancelOrder != null) {
@@ -8178,6 +8425,462 @@ abstract class CancelOrder implements ShopProductsEvent {
   int get shiprockeId;
   @JsonKey(ignore: true)
   _$$CancelOrderCopyWith<_$CancelOrder> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ReturnOrderCopyWith<$Res> {
+  factory _$$ReturnOrderCopyWith(
+          _$ReturnOrder value, $Res Function(_$ReturnOrder) then) =
+      __$$ReturnOrderCopyWithImpl<$Res>;
+  @useResult
+  $Res call({BuildContext context, int shiprockeId});
+}
+
+/// @nodoc
+class __$$ReturnOrderCopyWithImpl<$Res>
+    extends _$ShopProductsEventCopyWithImpl<$Res, _$ReturnOrder>
+    implements _$$ReturnOrderCopyWith<$Res> {
+  __$$ReturnOrderCopyWithImpl(
+      _$ReturnOrder _value, $Res Function(_$ReturnOrder) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? context = null,
+    Object? shiprockeId = null,
+  }) {
+    return _then(_$ReturnOrder(
+      context: null == context
+          ? _value.context
+          : context // ignore: cast_nullable_to_non_nullable
+              as BuildContext,
+      shiprockeId: null == shiprockeId
+          ? _value.shiprockeId
+          : shiprockeId // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ReturnOrder implements ReturnOrder {
+  const _$ReturnOrder({required this.context, required this.shiprockeId});
+
+  @override
+  final BuildContext context;
+  @override
+  final int shiprockeId;
+
+  @override
+  String toString() {
+    return 'ShopProductsEvent.returnOrder(context: $context, shiprockeId: $shiprockeId)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ReturnOrder &&
+            (identical(other.context, context) || other.context == context) &&
+            (identical(other.shiprockeId, shiprockeId) ||
+                other.shiprockeId == shiprockeId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, context, shiprockeId);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ReturnOrderCopyWith<_$ReturnOrder> get copyWith =>
+      __$$ReturnOrderCopyWithImpl<_$ReturnOrder>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String endPointSlug) fetchFlashSaleProducts,
+    required TResult Function(String endPointSlug) fetchPopularProducts,
+    required TResult Function() fetchRecentProductProducts,
+    required TResult Function() fetchHomeBanners,
+    required TResult Function() fetchShopBanners,
+    required TResult Function(String searchQuery) fetchArticles,
+    required TResult Function() fetchShopByBrand,
+    required TResult Function(BuildContext context) fetchWishList,
+    required TResult Function(String query) searchProduct,
+    required TResult Function(String productId, BuildContext context)
+        addWishListEvent,
+    required TResult Function(String productId, BuildContext context)
+        removeWishlistEvent,
+    required TResult Function(String brandName) fetchShopByBrandProducts,
+    required TResult Function(int index) tabIndexChangeEvent,
+    required TResult Function(
+            BuildContext context,
+            int totalPrice,
+            String pickupLocation,
+            int quantity,
+            int totalDiscount,
+            int shippingCharges,
+            int weight,
+            String id)
+        postOrders,
+    required TResult Function(BuildContext context) fetchOrders,
+    required TResult Function(BuildContext context, int id) fetchOrdersById,
+    required TResult Function(BuildContext context, String filterName)
+        fetchOrdersbyFilterEvent,
+    required TResult Function(BuildContext context, int shiprockeId)
+        cancelOrder,
+    required TResult Function(BuildContext context, int shiprockeId)
+        returnOrder,
+    required TResult Function() fetchShopHomeBackgroundCard,
+    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
+    required TResult Function() fetchShopHomeBackgroundCardSunnah,
+    required TResult Function() fetchShopAdBrands,
+    required TResult Function() fetchTopBrands,
+    required TResult Function() fetchProductItemsSubcategorySunnah,
+    required TResult Function() fetchProductItemsSubcategoryHealth,
+    required TResult Function() fetchProductItemsSubcategoryWomen,
+    required TResult Function(int index) changeShopBannerIndex,
+    required TResult Function(int index) changeBrandBannerIndex,
+    required TResult Function() showOrderProgressEvent,
+    required TResult Function(int index) indexChangeOnOrderProgress,
+    required TResult Function(int index) indexChangeOnWomensCareBanner,
+    required TResult Function(String id) fetchShopAdBrandsById,
+    required TResult Function(int index) savePaymentMethodType,
+    required TResult Function() fetchProductItemsbyCategory,
+    required TResult Function(String slug) fetchSpecificCategeryItems,
+    required TResult Function(String id) fetchProductsById,
+    required TResult Function(String brandId) fetchBrandProducts,
+    required TResult Function() fetchCoupons,
+    required TResult Function(bool value) isPromoCodeAvailable,
+    required TResult Function(int index) changeIndexEvent,
+  }) {
+    return returnOrder(context, shiprockeId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String endPointSlug)? fetchFlashSaleProducts,
+    TResult? Function(String endPointSlug)? fetchPopularProducts,
+    TResult? Function()? fetchRecentProductProducts,
+    TResult? Function()? fetchHomeBanners,
+    TResult? Function()? fetchShopBanners,
+    TResult? Function(String searchQuery)? fetchArticles,
+    TResult? Function()? fetchShopByBrand,
+    TResult? Function(BuildContext context)? fetchWishList,
+    TResult? Function(String query)? searchProduct,
+    TResult? Function(String productId, BuildContext context)? addWishListEvent,
+    TResult? Function(String productId, BuildContext context)?
+        removeWishlistEvent,
+    TResult? Function(String brandName)? fetchShopByBrandProducts,
+    TResult? Function(int index)? tabIndexChangeEvent,
+    TResult? Function(
+            BuildContext context,
+            int totalPrice,
+            String pickupLocation,
+            int quantity,
+            int totalDiscount,
+            int shippingCharges,
+            int weight,
+            String id)?
+        postOrders,
+    TResult? Function(BuildContext context)? fetchOrders,
+    TResult? Function(BuildContext context, int id)? fetchOrdersById,
+    TResult? Function(BuildContext context, String filterName)?
+        fetchOrdersbyFilterEvent,
+    TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
+    TResult? Function()? fetchShopHomeBackgroundCard,
+    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
+    TResult? Function()? fetchShopHomeBackgroundCardSunnah,
+    TResult? Function()? fetchShopAdBrands,
+    TResult? Function()? fetchTopBrands,
+    TResult? Function()? fetchProductItemsSubcategorySunnah,
+    TResult? Function()? fetchProductItemsSubcategoryHealth,
+    TResult? Function()? fetchProductItemsSubcategoryWomen,
+    TResult? Function(int index)? changeShopBannerIndex,
+    TResult? Function(int index)? changeBrandBannerIndex,
+    TResult? Function()? showOrderProgressEvent,
+    TResult? Function(int index)? indexChangeOnOrderProgress,
+    TResult? Function(int index)? indexChangeOnWomensCareBanner,
+    TResult? Function(String id)? fetchShopAdBrandsById,
+    TResult? Function(int index)? savePaymentMethodType,
+    TResult? Function()? fetchProductItemsbyCategory,
+    TResult? Function(String slug)? fetchSpecificCategeryItems,
+    TResult? Function(String id)? fetchProductsById,
+    TResult? Function(String brandId)? fetchBrandProducts,
+    TResult? Function()? fetchCoupons,
+    TResult? Function(bool value)? isPromoCodeAvailable,
+    TResult? Function(int index)? changeIndexEvent,
+  }) {
+    return returnOrder?.call(context, shiprockeId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String endPointSlug)? fetchFlashSaleProducts,
+    TResult Function(String endPointSlug)? fetchPopularProducts,
+    TResult Function()? fetchRecentProductProducts,
+    TResult Function()? fetchHomeBanners,
+    TResult Function()? fetchShopBanners,
+    TResult Function(String searchQuery)? fetchArticles,
+    TResult Function()? fetchShopByBrand,
+    TResult Function(BuildContext context)? fetchWishList,
+    TResult Function(String query)? searchProduct,
+    TResult Function(String productId, BuildContext context)? addWishListEvent,
+    TResult Function(String productId, BuildContext context)?
+        removeWishlistEvent,
+    TResult Function(String brandName)? fetchShopByBrandProducts,
+    TResult Function(int index)? tabIndexChangeEvent,
+    TResult Function(
+            BuildContext context,
+            int totalPrice,
+            String pickupLocation,
+            int quantity,
+            int totalDiscount,
+            int shippingCharges,
+            int weight,
+            String id)?
+        postOrders,
+    TResult Function(BuildContext context)? fetchOrders,
+    TResult Function(BuildContext context, int id)? fetchOrdersById,
+    TResult Function(BuildContext context, String filterName)?
+        fetchOrdersbyFilterEvent,
+    TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult Function(BuildContext context, int shiprockeId)? returnOrder,
+    TResult Function()? fetchShopHomeBackgroundCard,
+    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
+    TResult Function()? fetchShopHomeBackgroundCardSunnah,
+    TResult Function()? fetchShopAdBrands,
+    TResult Function()? fetchTopBrands,
+    TResult Function()? fetchProductItemsSubcategorySunnah,
+    TResult Function()? fetchProductItemsSubcategoryHealth,
+    TResult Function()? fetchProductItemsSubcategoryWomen,
+    TResult Function(int index)? changeShopBannerIndex,
+    TResult Function(int index)? changeBrandBannerIndex,
+    TResult Function()? showOrderProgressEvent,
+    TResult Function(int index)? indexChangeOnOrderProgress,
+    TResult Function(int index)? indexChangeOnWomensCareBanner,
+    TResult Function(String id)? fetchShopAdBrandsById,
+    TResult Function(int index)? savePaymentMethodType,
+    TResult Function()? fetchProductItemsbyCategory,
+    TResult Function(String slug)? fetchSpecificCategeryItems,
+    TResult Function(String id)? fetchProductsById,
+    TResult Function(String brandId)? fetchBrandProducts,
+    TResult Function()? fetchCoupons,
+    TResult Function(bool value)? isPromoCodeAvailable,
+    TResult Function(int index)? changeIndexEvent,
+    required TResult orElse(),
+  }) {
+    if (returnOrder != null) {
+      return returnOrder(context, shiprockeId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FetchFlashSaleProducts value)
+        fetchFlashSaleProducts,
+    required TResult Function(FetchPopularProducts value) fetchPopularProducts,
+    required TResult Function(FetchRecentProductProducts value)
+        fetchRecentProductProducts,
+    required TResult Function(FetchHomeBanners value) fetchHomeBanners,
+    required TResult Function(FetchShopBanners value) fetchShopBanners,
+    required TResult Function(FetchArticles value) fetchArticles,
+    required TResult Function(FetchShopByBrand value) fetchShopByBrand,
+    required TResult Function(FetchWishList value) fetchWishList,
+    required TResult Function(SearchProduct value) searchProduct,
+    required TResult Function(AddWishListEvent value) addWishListEvent,
+    required TResult Function(RemoveWishlistEvent value) removeWishlistEvent,
+    required TResult Function(FetchShopByBrandProducts value)
+        fetchShopByBrandProducts,
+    required TResult Function(TabIndexChangeEvent value) tabIndexChangeEvent,
+    required TResult Function(PostOrders value) postOrders,
+    required TResult Function(FetchOrders value) fetchOrders,
+    required TResult Function(FetchOrdersById value) fetchOrdersById,
+    required TResult Function(FetchOrdersbyFilterEvent value)
+        fetchOrdersbyFilterEvent,
+    required TResult Function(CancelOrder value) cancelOrder,
+    required TResult Function(ReturnOrder value) returnOrder,
+    required TResult Function(FetchShopHomeBackgroundCard value)
+        fetchShopHomeBackgroundCard,
+    required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
+        fetchShopHomeBackgroundCardHelthyDiet,
+    required TResult Function(FetchShopHomeBackgroundCardSunnah value)
+        fetchShopHomeBackgroundCardSunnah,
+    required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
+    required TResult Function(FetchTopBrands value) fetchTopBrands,
+    required TResult Function(FetchProductItemsSubcategorySunnah value)
+        fetchProductItemsSubcategorySunnah,
+    required TResult Function(FetchProductItemsSubcategoryHealth value)
+        fetchProductItemsSubcategoryHealth,
+    required TResult Function(FetchProductItemsSubcategoryWomen value)
+        fetchProductItemsSubcategoryWomen,
+    required TResult Function(ChangeShopBannerIndex value)
+        changeShopBannerIndex,
+    required TResult Function(ChangeBrandBannerIndex value)
+        changeBrandBannerIndex,
+    required TResult Function(ShowOrderProgressEvent value)
+        showOrderProgressEvent,
+    required TResult Function(IndexChangeOnOrderProgress value)
+        indexChangeOnOrderProgress,
+    required TResult Function(IndexChangeOnWomensCareBanner value)
+        indexChangeOnWomensCareBanner,
+    required TResult Function(FetchShopAdBrandsById value)
+        fetchShopAdBrandsById,
+    required TResult Function(SavePaymentMethodType value)
+        savePaymentMethodType,
+    required TResult Function(FetchProductItemsbyCategory value)
+        fetchProductItemsbyCategory,
+    required TResult Function(FetchSpecificCategeryItems value)
+        fetchSpecificCategeryItems,
+    required TResult Function(FetchProductsById value) fetchProductsById,
+    required TResult Function(FetchBrandProducts value) fetchBrandProducts,
+    required TResult Function(FetchCoupons value) fetchCoupons,
+    required TResult Function(IsPromoCodeAvailable value) isPromoCodeAvailable,
+    required TResult Function(ChangeIndexEvent value) changeIndexEvent,
+  }) {
+    return returnOrder(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(FetchFlashSaleProducts value)? fetchFlashSaleProducts,
+    TResult? Function(FetchPopularProducts value)? fetchPopularProducts,
+    TResult? Function(FetchRecentProductProducts value)?
+        fetchRecentProductProducts,
+    TResult? Function(FetchHomeBanners value)? fetchHomeBanners,
+    TResult? Function(FetchShopBanners value)? fetchShopBanners,
+    TResult? Function(FetchArticles value)? fetchArticles,
+    TResult? Function(FetchShopByBrand value)? fetchShopByBrand,
+    TResult? Function(FetchWishList value)? fetchWishList,
+    TResult? Function(SearchProduct value)? searchProduct,
+    TResult? Function(AddWishListEvent value)? addWishListEvent,
+    TResult? Function(RemoveWishlistEvent value)? removeWishlistEvent,
+    TResult? Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
+    TResult? Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
+    TResult? Function(PostOrders value)? postOrders,
+    TResult? Function(FetchOrders value)? fetchOrders,
+    TResult? Function(FetchOrdersById value)? fetchOrdersById,
+    TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
+    TResult? Function(CancelOrder value)? cancelOrder,
+    TResult? Function(ReturnOrder value)? returnOrder,
+    TResult? Function(FetchShopHomeBackgroundCard value)?
+        fetchShopHomeBackgroundCard,
+    TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
+        fetchShopHomeBackgroundCardHelthyDiet,
+    TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
+        fetchShopHomeBackgroundCardSunnah,
+    TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
+    TResult? Function(FetchTopBrands value)? fetchTopBrands,
+    TResult? Function(FetchProductItemsSubcategorySunnah value)?
+        fetchProductItemsSubcategorySunnah,
+    TResult? Function(FetchProductItemsSubcategoryHealth value)?
+        fetchProductItemsSubcategoryHealth,
+    TResult? Function(FetchProductItemsSubcategoryWomen value)?
+        fetchProductItemsSubcategoryWomen,
+    TResult? Function(ChangeShopBannerIndex value)? changeShopBannerIndex,
+    TResult? Function(ChangeBrandBannerIndex value)? changeBrandBannerIndex,
+    TResult? Function(ShowOrderProgressEvent value)? showOrderProgressEvent,
+    TResult? Function(IndexChangeOnOrderProgress value)?
+        indexChangeOnOrderProgress,
+    TResult? Function(IndexChangeOnWomensCareBanner value)?
+        indexChangeOnWomensCareBanner,
+    TResult? Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
+    TResult? Function(SavePaymentMethodType value)? savePaymentMethodType,
+    TResult? Function(FetchProductItemsbyCategory value)?
+        fetchProductItemsbyCategory,
+    TResult? Function(FetchSpecificCategeryItems value)?
+        fetchSpecificCategeryItems,
+    TResult? Function(FetchProductsById value)? fetchProductsById,
+    TResult? Function(FetchBrandProducts value)? fetchBrandProducts,
+    TResult? Function(FetchCoupons value)? fetchCoupons,
+    TResult? Function(IsPromoCodeAvailable value)? isPromoCodeAvailable,
+    TResult? Function(ChangeIndexEvent value)? changeIndexEvent,
+  }) {
+    return returnOrder?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FetchFlashSaleProducts value)? fetchFlashSaleProducts,
+    TResult Function(FetchPopularProducts value)? fetchPopularProducts,
+    TResult Function(FetchRecentProductProducts value)?
+        fetchRecentProductProducts,
+    TResult Function(FetchHomeBanners value)? fetchHomeBanners,
+    TResult Function(FetchShopBanners value)? fetchShopBanners,
+    TResult Function(FetchArticles value)? fetchArticles,
+    TResult Function(FetchShopByBrand value)? fetchShopByBrand,
+    TResult Function(FetchWishList value)? fetchWishList,
+    TResult Function(SearchProduct value)? searchProduct,
+    TResult Function(AddWishListEvent value)? addWishListEvent,
+    TResult Function(RemoveWishlistEvent value)? removeWishlistEvent,
+    TResult Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
+    TResult Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
+    TResult Function(PostOrders value)? postOrders,
+    TResult Function(FetchOrders value)? fetchOrders,
+    TResult Function(FetchOrdersById value)? fetchOrdersById,
+    TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
+    TResult Function(CancelOrder value)? cancelOrder,
+    TResult Function(ReturnOrder value)? returnOrder,
+    TResult Function(FetchShopHomeBackgroundCard value)?
+        fetchShopHomeBackgroundCard,
+    TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
+        fetchShopHomeBackgroundCardHelthyDiet,
+    TResult Function(FetchShopHomeBackgroundCardSunnah value)?
+        fetchShopHomeBackgroundCardSunnah,
+    TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
+    TResult Function(FetchTopBrands value)? fetchTopBrands,
+    TResult Function(FetchProductItemsSubcategorySunnah value)?
+        fetchProductItemsSubcategorySunnah,
+    TResult Function(FetchProductItemsSubcategoryHealth value)?
+        fetchProductItemsSubcategoryHealth,
+    TResult Function(FetchProductItemsSubcategoryWomen value)?
+        fetchProductItemsSubcategoryWomen,
+    TResult Function(ChangeShopBannerIndex value)? changeShopBannerIndex,
+    TResult Function(ChangeBrandBannerIndex value)? changeBrandBannerIndex,
+    TResult Function(ShowOrderProgressEvent value)? showOrderProgressEvent,
+    TResult Function(IndexChangeOnOrderProgress value)?
+        indexChangeOnOrderProgress,
+    TResult Function(IndexChangeOnWomensCareBanner value)?
+        indexChangeOnWomensCareBanner,
+    TResult Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
+    TResult Function(SavePaymentMethodType value)? savePaymentMethodType,
+    TResult Function(FetchProductItemsbyCategory value)?
+        fetchProductItemsbyCategory,
+    TResult Function(FetchSpecificCategeryItems value)?
+        fetchSpecificCategeryItems,
+    TResult Function(FetchProductsById value)? fetchProductsById,
+    TResult Function(FetchBrandProducts value)? fetchBrandProducts,
+    TResult Function(FetchCoupons value)? fetchCoupons,
+    TResult Function(IsPromoCodeAvailable value)? isPromoCodeAvailable,
+    TResult Function(ChangeIndexEvent value)? changeIndexEvent,
+    required TResult orElse(),
+  }) {
+    if (returnOrder != null) {
+      return returnOrder(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ReturnOrder implements ShopProductsEvent {
+  const factory ReturnOrder(
+      {required final BuildContext context,
+      required final int shiprockeId}) = _$ReturnOrder;
+
+  BuildContext get context;
+  int get shiprockeId;
+  @JsonKey(ignore: true)
+  _$$ReturnOrderCopyWith<_$ReturnOrder> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -8253,6 +8956,8 @@ class _$FetchShopHomeBackgroundCard implements FetchShopHomeBackgroundCard {
         fetchOrdersbyFilterEvent,
     required TResult Function(BuildContext context, int shiprockeId)
         cancelOrder,
+    required TResult Function(BuildContext context, int shiprockeId)
+        returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
     required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
@@ -8274,6 +8979,7 @@ class _$FetchShopHomeBackgroundCard implements FetchShopHomeBackgroundCard {
     required TResult Function(String brandId) fetchBrandProducts,
     required TResult Function() fetchCoupons,
     required TResult Function(bool value) isPromoCodeAvailable,
+    required TResult Function(int index) changeIndexEvent,
   }) {
     return fetchShopHomeBackgroundCard();
   }
@@ -8310,6 +9016,7 @@ class _$FetchShopHomeBackgroundCard implements FetchShopHomeBackgroundCard {
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
     TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
@@ -8331,6 +9038,7 @@ class _$FetchShopHomeBackgroundCard implements FetchShopHomeBackgroundCard {
     TResult? Function(String brandId)? fetchBrandProducts,
     TResult? Function()? fetchCoupons,
     TResult? Function(bool value)? isPromoCodeAvailable,
+    TResult? Function(int index)? changeIndexEvent,
   }) {
     return fetchShopHomeBackgroundCard?.call();
   }
@@ -8367,6 +9075,7 @@ class _$FetchShopHomeBackgroundCard implements FetchShopHomeBackgroundCard {
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
     TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
@@ -8388,6 +9097,7 @@ class _$FetchShopHomeBackgroundCard implements FetchShopHomeBackgroundCard {
     TResult Function(String brandId)? fetchBrandProducts,
     TResult Function()? fetchCoupons,
     TResult Function(bool value)? isPromoCodeAvailable,
+    TResult Function(int index)? changeIndexEvent,
     required TResult orElse(),
   }) {
     if (fetchShopHomeBackgroundCard != null) {
@@ -8421,6 +9131,7 @@ class _$FetchShopHomeBackgroundCard implements FetchShopHomeBackgroundCard {
     required TResult Function(FetchOrdersbyFilterEvent value)
         fetchOrdersbyFilterEvent,
     required TResult Function(CancelOrder value) cancelOrder,
+    required TResult Function(ReturnOrder value) returnOrder,
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
@@ -8457,6 +9168,7 @@ class _$FetchShopHomeBackgroundCard implements FetchShopHomeBackgroundCard {
     required TResult Function(FetchBrandProducts value) fetchBrandProducts,
     required TResult Function(FetchCoupons value) fetchCoupons,
     required TResult Function(IsPromoCodeAvailable value) isPromoCodeAvailable,
+    required TResult Function(ChangeIndexEvent value) changeIndexEvent,
   }) {
     return fetchShopHomeBackgroundCard(this);
   }
@@ -8483,6 +9195,7 @@ class _$FetchShopHomeBackgroundCard implements FetchShopHomeBackgroundCard {
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult? Function(CancelOrder value)? cancelOrder,
+    TResult? Function(ReturnOrder value)? returnOrder,
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
@@ -8514,6 +9227,7 @@ class _$FetchShopHomeBackgroundCard implements FetchShopHomeBackgroundCard {
     TResult? Function(FetchBrandProducts value)? fetchBrandProducts,
     TResult? Function(FetchCoupons value)? fetchCoupons,
     TResult? Function(IsPromoCodeAvailable value)? isPromoCodeAvailable,
+    TResult? Function(ChangeIndexEvent value)? changeIndexEvent,
   }) {
     return fetchShopHomeBackgroundCard?.call(this);
   }
@@ -8540,6 +9254,7 @@ class _$FetchShopHomeBackgroundCard implements FetchShopHomeBackgroundCard {
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult Function(CancelOrder value)? cancelOrder,
+    TResult Function(ReturnOrder value)? returnOrder,
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
@@ -8571,6 +9286,7 @@ class _$FetchShopHomeBackgroundCard implements FetchShopHomeBackgroundCard {
     TResult Function(FetchBrandProducts value)? fetchBrandProducts,
     TResult Function(FetchCoupons value)? fetchCoupons,
     TResult Function(IsPromoCodeAvailable value)? isPromoCodeAvailable,
+    TResult Function(ChangeIndexEvent value)? changeIndexEvent,
     required TResult orElse(),
   }) {
     if (fetchShopHomeBackgroundCard != null) {
@@ -8658,6 +9374,8 @@ class _$FetchShopHomeBackgroundCardHelthyDiet
         fetchOrdersbyFilterEvent,
     required TResult Function(BuildContext context, int shiprockeId)
         cancelOrder,
+    required TResult Function(BuildContext context, int shiprockeId)
+        returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
     required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
@@ -8679,6 +9397,7 @@ class _$FetchShopHomeBackgroundCardHelthyDiet
     required TResult Function(String brandId) fetchBrandProducts,
     required TResult Function() fetchCoupons,
     required TResult Function(bool value) isPromoCodeAvailable,
+    required TResult Function(int index) changeIndexEvent,
   }) {
     return fetchShopHomeBackgroundCardHelthyDiet();
   }
@@ -8715,6 +9434,7 @@ class _$FetchShopHomeBackgroundCardHelthyDiet
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
     TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
@@ -8736,6 +9456,7 @@ class _$FetchShopHomeBackgroundCardHelthyDiet
     TResult? Function(String brandId)? fetchBrandProducts,
     TResult? Function()? fetchCoupons,
     TResult? Function(bool value)? isPromoCodeAvailable,
+    TResult? Function(int index)? changeIndexEvent,
   }) {
     return fetchShopHomeBackgroundCardHelthyDiet?.call();
   }
@@ -8772,6 +9493,7 @@ class _$FetchShopHomeBackgroundCardHelthyDiet
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
     TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
@@ -8793,6 +9515,7 @@ class _$FetchShopHomeBackgroundCardHelthyDiet
     TResult Function(String brandId)? fetchBrandProducts,
     TResult Function()? fetchCoupons,
     TResult Function(bool value)? isPromoCodeAvailable,
+    TResult Function(int index)? changeIndexEvent,
     required TResult orElse(),
   }) {
     if (fetchShopHomeBackgroundCardHelthyDiet != null) {
@@ -8826,6 +9549,7 @@ class _$FetchShopHomeBackgroundCardHelthyDiet
     required TResult Function(FetchOrdersbyFilterEvent value)
         fetchOrdersbyFilterEvent,
     required TResult Function(CancelOrder value) cancelOrder,
+    required TResult Function(ReturnOrder value) returnOrder,
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
@@ -8862,6 +9586,7 @@ class _$FetchShopHomeBackgroundCardHelthyDiet
     required TResult Function(FetchBrandProducts value) fetchBrandProducts,
     required TResult Function(FetchCoupons value) fetchCoupons,
     required TResult Function(IsPromoCodeAvailable value) isPromoCodeAvailable,
+    required TResult Function(ChangeIndexEvent value) changeIndexEvent,
   }) {
     return fetchShopHomeBackgroundCardHelthyDiet(this);
   }
@@ -8888,6 +9613,7 @@ class _$FetchShopHomeBackgroundCardHelthyDiet
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult? Function(CancelOrder value)? cancelOrder,
+    TResult? Function(ReturnOrder value)? returnOrder,
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
@@ -8919,6 +9645,7 @@ class _$FetchShopHomeBackgroundCardHelthyDiet
     TResult? Function(FetchBrandProducts value)? fetchBrandProducts,
     TResult? Function(FetchCoupons value)? fetchCoupons,
     TResult? Function(IsPromoCodeAvailable value)? isPromoCodeAvailable,
+    TResult? Function(ChangeIndexEvent value)? changeIndexEvent,
   }) {
     return fetchShopHomeBackgroundCardHelthyDiet?.call(this);
   }
@@ -8945,6 +9672,7 @@ class _$FetchShopHomeBackgroundCardHelthyDiet
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult Function(CancelOrder value)? cancelOrder,
+    TResult Function(ReturnOrder value)? returnOrder,
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
@@ -8976,6 +9704,7 @@ class _$FetchShopHomeBackgroundCardHelthyDiet
     TResult Function(FetchBrandProducts value)? fetchBrandProducts,
     TResult Function(FetchCoupons value)? fetchCoupons,
     TResult Function(IsPromoCodeAvailable value)? isPromoCodeAvailable,
+    TResult Function(ChangeIndexEvent value)? changeIndexEvent,
     required TResult orElse(),
   }) {
     if (fetchShopHomeBackgroundCardHelthyDiet != null) {
@@ -9065,6 +9794,8 @@ class _$FetchShopHomeBackgroundCardSunnah
         fetchOrdersbyFilterEvent,
     required TResult Function(BuildContext context, int shiprockeId)
         cancelOrder,
+    required TResult Function(BuildContext context, int shiprockeId)
+        returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
     required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
@@ -9086,6 +9817,7 @@ class _$FetchShopHomeBackgroundCardSunnah
     required TResult Function(String brandId) fetchBrandProducts,
     required TResult Function() fetchCoupons,
     required TResult Function(bool value) isPromoCodeAvailable,
+    required TResult Function(int index) changeIndexEvent,
   }) {
     return fetchShopHomeBackgroundCardSunnah();
   }
@@ -9122,6 +9854,7 @@ class _$FetchShopHomeBackgroundCardSunnah
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
     TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
@@ -9143,6 +9876,7 @@ class _$FetchShopHomeBackgroundCardSunnah
     TResult? Function(String brandId)? fetchBrandProducts,
     TResult? Function()? fetchCoupons,
     TResult? Function(bool value)? isPromoCodeAvailable,
+    TResult? Function(int index)? changeIndexEvent,
   }) {
     return fetchShopHomeBackgroundCardSunnah?.call();
   }
@@ -9179,6 +9913,7 @@ class _$FetchShopHomeBackgroundCardSunnah
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
     TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
@@ -9200,6 +9935,7 @@ class _$FetchShopHomeBackgroundCardSunnah
     TResult Function(String brandId)? fetchBrandProducts,
     TResult Function()? fetchCoupons,
     TResult Function(bool value)? isPromoCodeAvailable,
+    TResult Function(int index)? changeIndexEvent,
     required TResult orElse(),
   }) {
     if (fetchShopHomeBackgroundCardSunnah != null) {
@@ -9233,6 +9969,7 @@ class _$FetchShopHomeBackgroundCardSunnah
     required TResult Function(FetchOrdersbyFilterEvent value)
         fetchOrdersbyFilterEvent,
     required TResult Function(CancelOrder value) cancelOrder,
+    required TResult Function(ReturnOrder value) returnOrder,
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
@@ -9269,6 +10006,7 @@ class _$FetchShopHomeBackgroundCardSunnah
     required TResult Function(FetchBrandProducts value) fetchBrandProducts,
     required TResult Function(FetchCoupons value) fetchCoupons,
     required TResult Function(IsPromoCodeAvailable value) isPromoCodeAvailable,
+    required TResult Function(ChangeIndexEvent value) changeIndexEvent,
   }) {
     return fetchShopHomeBackgroundCardSunnah(this);
   }
@@ -9295,6 +10033,7 @@ class _$FetchShopHomeBackgroundCardSunnah
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult? Function(CancelOrder value)? cancelOrder,
+    TResult? Function(ReturnOrder value)? returnOrder,
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
@@ -9326,6 +10065,7 @@ class _$FetchShopHomeBackgroundCardSunnah
     TResult? Function(FetchBrandProducts value)? fetchBrandProducts,
     TResult? Function(FetchCoupons value)? fetchCoupons,
     TResult? Function(IsPromoCodeAvailable value)? isPromoCodeAvailable,
+    TResult? Function(ChangeIndexEvent value)? changeIndexEvent,
   }) {
     return fetchShopHomeBackgroundCardSunnah?.call(this);
   }
@@ -9352,6 +10092,7 @@ class _$FetchShopHomeBackgroundCardSunnah
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult Function(CancelOrder value)? cancelOrder,
+    TResult Function(ReturnOrder value)? returnOrder,
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
@@ -9383,6 +10124,7 @@ class _$FetchShopHomeBackgroundCardSunnah
     TResult Function(FetchBrandProducts value)? fetchBrandProducts,
     TResult Function(FetchCoupons value)? fetchCoupons,
     TResult Function(IsPromoCodeAvailable value)? isPromoCodeAvailable,
+    TResult Function(ChangeIndexEvent value)? changeIndexEvent,
     required TResult orElse(),
   }) {
     if (fetchShopHomeBackgroundCardSunnah != null) {
@@ -9466,6 +10208,8 @@ class _$FetchShopAdBrands implements FetchShopAdBrands {
         fetchOrdersbyFilterEvent,
     required TResult Function(BuildContext context, int shiprockeId)
         cancelOrder,
+    required TResult Function(BuildContext context, int shiprockeId)
+        returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
     required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
@@ -9487,6 +10231,7 @@ class _$FetchShopAdBrands implements FetchShopAdBrands {
     required TResult Function(String brandId) fetchBrandProducts,
     required TResult Function() fetchCoupons,
     required TResult Function(bool value) isPromoCodeAvailable,
+    required TResult Function(int index) changeIndexEvent,
   }) {
     return fetchShopAdBrands();
   }
@@ -9523,6 +10268,7 @@ class _$FetchShopAdBrands implements FetchShopAdBrands {
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
     TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
@@ -9544,6 +10290,7 @@ class _$FetchShopAdBrands implements FetchShopAdBrands {
     TResult? Function(String brandId)? fetchBrandProducts,
     TResult? Function()? fetchCoupons,
     TResult? Function(bool value)? isPromoCodeAvailable,
+    TResult? Function(int index)? changeIndexEvent,
   }) {
     return fetchShopAdBrands?.call();
   }
@@ -9580,6 +10327,7 @@ class _$FetchShopAdBrands implements FetchShopAdBrands {
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
     TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
@@ -9601,6 +10349,7 @@ class _$FetchShopAdBrands implements FetchShopAdBrands {
     TResult Function(String brandId)? fetchBrandProducts,
     TResult Function()? fetchCoupons,
     TResult Function(bool value)? isPromoCodeAvailable,
+    TResult Function(int index)? changeIndexEvent,
     required TResult orElse(),
   }) {
     if (fetchShopAdBrands != null) {
@@ -9634,6 +10383,7 @@ class _$FetchShopAdBrands implements FetchShopAdBrands {
     required TResult Function(FetchOrdersbyFilterEvent value)
         fetchOrdersbyFilterEvent,
     required TResult Function(CancelOrder value) cancelOrder,
+    required TResult Function(ReturnOrder value) returnOrder,
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
@@ -9670,6 +10420,7 @@ class _$FetchShopAdBrands implements FetchShopAdBrands {
     required TResult Function(FetchBrandProducts value) fetchBrandProducts,
     required TResult Function(FetchCoupons value) fetchCoupons,
     required TResult Function(IsPromoCodeAvailable value) isPromoCodeAvailable,
+    required TResult Function(ChangeIndexEvent value) changeIndexEvent,
   }) {
     return fetchShopAdBrands(this);
   }
@@ -9696,6 +10447,7 @@ class _$FetchShopAdBrands implements FetchShopAdBrands {
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult? Function(CancelOrder value)? cancelOrder,
+    TResult? Function(ReturnOrder value)? returnOrder,
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
@@ -9727,6 +10479,7 @@ class _$FetchShopAdBrands implements FetchShopAdBrands {
     TResult? Function(FetchBrandProducts value)? fetchBrandProducts,
     TResult? Function(FetchCoupons value)? fetchCoupons,
     TResult? Function(IsPromoCodeAvailable value)? isPromoCodeAvailable,
+    TResult? Function(ChangeIndexEvent value)? changeIndexEvent,
   }) {
     return fetchShopAdBrands?.call(this);
   }
@@ -9753,6 +10506,7 @@ class _$FetchShopAdBrands implements FetchShopAdBrands {
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult Function(CancelOrder value)? cancelOrder,
+    TResult Function(ReturnOrder value)? returnOrder,
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
@@ -9784,6 +10538,7 @@ class _$FetchShopAdBrands implements FetchShopAdBrands {
     TResult Function(FetchBrandProducts value)? fetchBrandProducts,
     TResult Function(FetchCoupons value)? fetchCoupons,
     TResult Function(IsPromoCodeAvailable value)? isPromoCodeAvailable,
+    TResult Function(ChangeIndexEvent value)? changeIndexEvent,
     required TResult orElse(),
   }) {
     if (fetchShopAdBrands != null) {
@@ -9866,6 +10621,8 @@ class _$FetchTopBrands implements FetchTopBrands {
         fetchOrdersbyFilterEvent,
     required TResult Function(BuildContext context, int shiprockeId)
         cancelOrder,
+    required TResult Function(BuildContext context, int shiprockeId)
+        returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
     required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
@@ -9887,6 +10644,7 @@ class _$FetchTopBrands implements FetchTopBrands {
     required TResult Function(String brandId) fetchBrandProducts,
     required TResult Function() fetchCoupons,
     required TResult Function(bool value) isPromoCodeAvailable,
+    required TResult Function(int index) changeIndexEvent,
   }) {
     return fetchTopBrands();
   }
@@ -9923,6 +10681,7 @@ class _$FetchTopBrands implements FetchTopBrands {
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
     TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
@@ -9944,6 +10703,7 @@ class _$FetchTopBrands implements FetchTopBrands {
     TResult? Function(String brandId)? fetchBrandProducts,
     TResult? Function()? fetchCoupons,
     TResult? Function(bool value)? isPromoCodeAvailable,
+    TResult? Function(int index)? changeIndexEvent,
   }) {
     return fetchTopBrands?.call();
   }
@@ -9980,6 +10740,7 @@ class _$FetchTopBrands implements FetchTopBrands {
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
     TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
@@ -10001,6 +10762,7 @@ class _$FetchTopBrands implements FetchTopBrands {
     TResult Function(String brandId)? fetchBrandProducts,
     TResult Function()? fetchCoupons,
     TResult Function(bool value)? isPromoCodeAvailable,
+    TResult Function(int index)? changeIndexEvent,
     required TResult orElse(),
   }) {
     if (fetchTopBrands != null) {
@@ -10034,6 +10796,7 @@ class _$FetchTopBrands implements FetchTopBrands {
     required TResult Function(FetchOrdersbyFilterEvent value)
         fetchOrdersbyFilterEvent,
     required TResult Function(CancelOrder value) cancelOrder,
+    required TResult Function(ReturnOrder value) returnOrder,
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
@@ -10070,6 +10833,7 @@ class _$FetchTopBrands implements FetchTopBrands {
     required TResult Function(FetchBrandProducts value) fetchBrandProducts,
     required TResult Function(FetchCoupons value) fetchCoupons,
     required TResult Function(IsPromoCodeAvailable value) isPromoCodeAvailable,
+    required TResult Function(ChangeIndexEvent value) changeIndexEvent,
   }) {
     return fetchTopBrands(this);
   }
@@ -10096,6 +10860,7 @@ class _$FetchTopBrands implements FetchTopBrands {
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult? Function(CancelOrder value)? cancelOrder,
+    TResult? Function(ReturnOrder value)? returnOrder,
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
@@ -10127,6 +10892,7 @@ class _$FetchTopBrands implements FetchTopBrands {
     TResult? Function(FetchBrandProducts value)? fetchBrandProducts,
     TResult? Function(FetchCoupons value)? fetchCoupons,
     TResult? Function(IsPromoCodeAvailable value)? isPromoCodeAvailable,
+    TResult? Function(ChangeIndexEvent value)? changeIndexEvent,
   }) {
     return fetchTopBrands?.call(this);
   }
@@ -10153,6 +10919,7 @@ class _$FetchTopBrands implements FetchTopBrands {
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult Function(CancelOrder value)? cancelOrder,
+    TResult Function(ReturnOrder value)? returnOrder,
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
@@ -10184,6 +10951,7 @@ class _$FetchTopBrands implements FetchTopBrands {
     TResult Function(FetchBrandProducts value)? fetchBrandProducts,
     TResult Function(FetchCoupons value)? fetchCoupons,
     TResult Function(IsPromoCodeAvailable value)? isPromoCodeAvailable,
+    TResult Function(ChangeIndexEvent value)? changeIndexEvent,
     required TResult orElse(),
   }) {
     if (fetchTopBrands != null) {
@@ -10271,6 +11039,8 @@ class _$FetchProductItemsSubcategorySunnah
         fetchOrdersbyFilterEvent,
     required TResult Function(BuildContext context, int shiprockeId)
         cancelOrder,
+    required TResult Function(BuildContext context, int shiprockeId)
+        returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
     required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
@@ -10292,6 +11062,7 @@ class _$FetchProductItemsSubcategorySunnah
     required TResult Function(String brandId) fetchBrandProducts,
     required TResult Function() fetchCoupons,
     required TResult Function(bool value) isPromoCodeAvailable,
+    required TResult Function(int index) changeIndexEvent,
   }) {
     return fetchProductItemsSubcategorySunnah();
   }
@@ -10328,6 +11099,7 @@ class _$FetchProductItemsSubcategorySunnah
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
     TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
@@ -10349,6 +11121,7 @@ class _$FetchProductItemsSubcategorySunnah
     TResult? Function(String brandId)? fetchBrandProducts,
     TResult? Function()? fetchCoupons,
     TResult? Function(bool value)? isPromoCodeAvailable,
+    TResult? Function(int index)? changeIndexEvent,
   }) {
     return fetchProductItemsSubcategorySunnah?.call();
   }
@@ -10385,6 +11158,7 @@ class _$FetchProductItemsSubcategorySunnah
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
     TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
@@ -10406,6 +11180,7 @@ class _$FetchProductItemsSubcategorySunnah
     TResult Function(String brandId)? fetchBrandProducts,
     TResult Function()? fetchCoupons,
     TResult Function(bool value)? isPromoCodeAvailable,
+    TResult Function(int index)? changeIndexEvent,
     required TResult orElse(),
   }) {
     if (fetchProductItemsSubcategorySunnah != null) {
@@ -10439,6 +11214,7 @@ class _$FetchProductItemsSubcategorySunnah
     required TResult Function(FetchOrdersbyFilterEvent value)
         fetchOrdersbyFilterEvent,
     required TResult Function(CancelOrder value) cancelOrder,
+    required TResult Function(ReturnOrder value) returnOrder,
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
@@ -10475,6 +11251,7 @@ class _$FetchProductItemsSubcategorySunnah
     required TResult Function(FetchBrandProducts value) fetchBrandProducts,
     required TResult Function(FetchCoupons value) fetchCoupons,
     required TResult Function(IsPromoCodeAvailable value) isPromoCodeAvailable,
+    required TResult Function(ChangeIndexEvent value) changeIndexEvent,
   }) {
     return fetchProductItemsSubcategorySunnah(this);
   }
@@ -10501,6 +11278,7 @@ class _$FetchProductItemsSubcategorySunnah
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult? Function(CancelOrder value)? cancelOrder,
+    TResult? Function(ReturnOrder value)? returnOrder,
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
@@ -10532,6 +11310,7 @@ class _$FetchProductItemsSubcategorySunnah
     TResult? Function(FetchBrandProducts value)? fetchBrandProducts,
     TResult? Function(FetchCoupons value)? fetchCoupons,
     TResult? Function(IsPromoCodeAvailable value)? isPromoCodeAvailable,
+    TResult? Function(ChangeIndexEvent value)? changeIndexEvent,
   }) {
     return fetchProductItemsSubcategorySunnah?.call(this);
   }
@@ -10558,6 +11337,7 @@ class _$FetchProductItemsSubcategorySunnah
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult Function(CancelOrder value)? cancelOrder,
+    TResult Function(ReturnOrder value)? returnOrder,
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
@@ -10589,6 +11369,7 @@ class _$FetchProductItemsSubcategorySunnah
     TResult Function(FetchBrandProducts value)? fetchBrandProducts,
     TResult Function(FetchCoupons value)? fetchCoupons,
     TResult Function(IsPromoCodeAvailable value)? isPromoCodeAvailable,
+    TResult Function(ChangeIndexEvent value)? changeIndexEvent,
     required TResult orElse(),
   }) {
     if (fetchProductItemsSubcategorySunnah != null) {
@@ -10677,6 +11458,8 @@ class _$FetchProductItemsSubcategoryHealth
         fetchOrdersbyFilterEvent,
     required TResult Function(BuildContext context, int shiprockeId)
         cancelOrder,
+    required TResult Function(BuildContext context, int shiprockeId)
+        returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
     required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
@@ -10698,6 +11481,7 @@ class _$FetchProductItemsSubcategoryHealth
     required TResult Function(String brandId) fetchBrandProducts,
     required TResult Function() fetchCoupons,
     required TResult Function(bool value) isPromoCodeAvailable,
+    required TResult Function(int index) changeIndexEvent,
   }) {
     return fetchProductItemsSubcategoryHealth();
   }
@@ -10734,6 +11518,7 @@ class _$FetchProductItemsSubcategoryHealth
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
     TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
@@ -10755,6 +11540,7 @@ class _$FetchProductItemsSubcategoryHealth
     TResult? Function(String brandId)? fetchBrandProducts,
     TResult? Function()? fetchCoupons,
     TResult? Function(bool value)? isPromoCodeAvailable,
+    TResult? Function(int index)? changeIndexEvent,
   }) {
     return fetchProductItemsSubcategoryHealth?.call();
   }
@@ -10791,6 +11577,7 @@ class _$FetchProductItemsSubcategoryHealth
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
     TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
@@ -10812,6 +11599,7 @@ class _$FetchProductItemsSubcategoryHealth
     TResult Function(String brandId)? fetchBrandProducts,
     TResult Function()? fetchCoupons,
     TResult Function(bool value)? isPromoCodeAvailable,
+    TResult Function(int index)? changeIndexEvent,
     required TResult orElse(),
   }) {
     if (fetchProductItemsSubcategoryHealth != null) {
@@ -10845,6 +11633,7 @@ class _$FetchProductItemsSubcategoryHealth
     required TResult Function(FetchOrdersbyFilterEvent value)
         fetchOrdersbyFilterEvent,
     required TResult Function(CancelOrder value) cancelOrder,
+    required TResult Function(ReturnOrder value) returnOrder,
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
@@ -10881,6 +11670,7 @@ class _$FetchProductItemsSubcategoryHealth
     required TResult Function(FetchBrandProducts value) fetchBrandProducts,
     required TResult Function(FetchCoupons value) fetchCoupons,
     required TResult Function(IsPromoCodeAvailable value) isPromoCodeAvailable,
+    required TResult Function(ChangeIndexEvent value) changeIndexEvent,
   }) {
     return fetchProductItemsSubcategoryHealth(this);
   }
@@ -10907,6 +11697,7 @@ class _$FetchProductItemsSubcategoryHealth
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult? Function(CancelOrder value)? cancelOrder,
+    TResult? Function(ReturnOrder value)? returnOrder,
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
@@ -10938,6 +11729,7 @@ class _$FetchProductItemsSubcategoryHealth
     TResult? Function(FetchBrandProducts value)? fetchBrandProducts,
     TResult? Function(FetchCoupons value)? fetchCoupons,
     TResult? Function(IsPromoCodeAvailable value)? isPromoCodeAvailable,
+    TResult? Function(ChangeIndexEvent value)? changeIndexEvent,
   }) {
     return fetchProductItemsSubcategoryHealth?.call(this);
   }
@@ -10964,6 +11756,7 @@ class _$FetchProductItemsSubcategoryHealth
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult Function(CancelOrder value)? cancelOrder,
+    TResult Function(ReturnOrder value)? returnOrder,
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
@@ -10995,6 +11788,7 @@ class _$FetchProductItemsSubcategoryHealth
     TResult Function(FetchBrandProducts value)? fetchBrandProducts,
     TResult Function(FetchCoupons value)? fetchCoupons,
     TResult Function(IsPromoCodeAvailable value)? isPromoCodeAvailable,
+    TResult Function(ChangeIndexEvent value)? changeIndexEvent,
     required TResult orElse(),
   }) {
     if (fetchProductItemsSubcategoryHealth != null) {
@@ -11083,6 +11877,8 @@ class _$FetchProductItemsSubcategoryWomen
         fetchOrdersbyFilterEvent,
     required TResult Function(BuildContext context, int shiprockeId)
         cancelOrder,
+    required TResult Function(BuildContext context, int shiprockeId)
+        returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
     required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
@@ -11104,6 +11900,7 @@ class _$FetchProductItemsSubcategoryWomen
     required TResult Function(String brandId) fetchBrandProducts,
     required TResult Function() fetchCoupons,
     required TResult Function(bool value) isPromoCodeAvailable,
+    required TResult Function(int index) changeIndexEvent,
   }) {
     return fetchProductItemsSubcategoryWomen();
   }
@@ -11140,6 +11937,7 @@ class _$FetchProductItemsSubcategoryWomen
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
     TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
@@ -11161,6 +11959,7 @@ class _$FetchProductItemsSubcategoryWomen
     TResult? Function(String brandId)? fetchBrandProducts,
     TResult? Function()? fetchCoupons,
     TResult? Function(bool value)? isPromoCodeAvailable,
+    TResult? Function(int index)? changeIndexEvent,
   }) {
     return fetchProductItemsSubcategoryWomen?.call();
   }
@@ -11197,6 +11996,7 @@ class _$FetchProductItemsSubcategoryWomen
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
     TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
@@ -11218,6 +12018,7 @@ class _$FetchProductItemsSubcategoryWomen
     TResult Function(String brandId)? fetchBrandProducts,
     TResult Function()? fetchCoupons,
     TResult Function(bool value)? isPromoCodeAvailable,
+    TResult Function(int index)? changeIndexEvent,
     required TResult orElse(),
   }) {
     if (fetchProductItemsSubcategoryWomen != null) {
@@ -11251,6 +12052,7 @@ class _$FetchProductItemsSubcategoryWomen
     required TResult Function(FetchOrdersbyFilterEvent value)
         fetchOrdersbyFilterEvent,
     required TResult Function(CancelOrder value) cancelOrder,
+    required TResult Function(ReturnOrder value) returnOrder,
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
@@ -11287,6 +12089,7 @@ class _$FetchProductItemsSubcategoryWomen
     required TResult Function(FetchBrandProducts value) fetchBrandProducts,
     required TResult Function(FetchCoupons value) fetchCoupons,
     required TResult Function(IsPromoCodeAvailable value) isPromoCodeAvailable,
+    required TResult Function(ChangeIndexEvent value) changeIndexEvent,
   }) {
     return fetchProductItemsSubcategoryWomen(this);
   }
@@ -11313,6 +12116,7 @@ class _$FetchProductItemsSubcategoryWomen
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult? Function(CancelOrder value)? cancelOrder,
+    TResult? Function(ReturnOrder value)? returnOrder,
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
@@ -11344,6 +12148,7 @@ class _$FetchProductItemsSubcategoryWomen
     TResult? Function(FetchBrandProducts value)? fetchBrandProducts,
     TResult? Function(FetchCoupons value)? fetchCoupons,
     TResult? Function(IsPromoCodeAvailable value)? isPromoCodeAvailable,
+    TResult? Function(ChangeIndexEvent value)? changeIndexEvent,
   }) {
     return fetchProductItemsSubcategoryWomen?.call(this);
   }
@@ -11370,6 +12175,7 @@ class _$FetchProductItemsSubcategoryWomen
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult Function(CancelOrder value)? cancelOrder,
+    TResult Function(ReturnOrder value)? returnOrder,
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
@@ -11401,6 +12207,7 @@ class _$FetchProductItemsSubcategoryWomen
     TResult Function(FetchBrandProducts value)? fetchBrandProducts,
     TResult Function(FetchCoupons value)? fetchCoupons,
     TResult Function(IsPromoCodeAvailable value)? isPromoCodeAvailable,
+    TResult Function(ChangeIndexEvent value)? changeIndexEvent,
     required TResult orElse(),
   }) {
     if (fetchProductItemsSubcategoryWomen != null) {
@@ -11511,6 +12318,8 @@ class _$ChangeShopBannerIndex implements ChangeShopBannerIndex {
         fetchOrdersbyFilterEvent,
     required TResult Function(BuildContext context, int shiprockeId)
         cancelOrder,
+    required TResult Function(BuildContext context, int shiprockeId)
+        returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
     required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
@@ -11532,6 +12341,7 @@ class _$ChangeShopBannerIndex implements ChangeShopBannerIndex {
     required TResult Function(String brandId) fetchBrandProducts,
     required TResult Function() fetchCoupons,
     required TResult Function(bool value) isPromoCodeAvailable,
+    required TResult Function(int index) changeIndexEvent,
   }) {
     return changeShopBannerIndex(index);
   }
@@ -11568,6 +12378,7 @@ class _$ChangeShopBannerIndex implements ChangeShopBannerIndex {
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
     TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
@@ -11589,6 +12400,7 @@ class _$ChangeShopBannerIndex implements ChangeShopBannerIndex {
     TResult? Function(String brandId)? fetchBrandProducts,
     TResult? Function()? fetchCoupons,
     TResult? Function(bool value)? isPromoCodeAvailable,
+    TResult? Function(int index)? changeIndexEvent,
   }) {
     return changeShopBannerIndex?.call(index);
   }
@@ -11625,6 +12437,7 @@ class _$ChangeShopBannerIndex implements ChangeShopBannerIndex {
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
     TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
@@ -11646,6 +12459,7 @@ class _$ChangeShopBannerIndex implements ChangeShopBannerIndex {
     TResult Function(String brandId)? fetchBrandProducts,
     TResult Function()? fetchCoupons,
     TResult Function(bool value)? isPromoCodeAvailable,
+    TResult Function(int index)? changeIndexEvent,
     required TResult orElse(),
   }) {
     if (changeShopBannerIndex != null) {
@@ -11679,6 +12493,7 @@ class _$ChangeShopBannerIndex implements ChangeShopBannerIndex {
     required TResult Function(FetchOrdersbyFilterEvent value)
         fetchOrdersbyFilterEvent,
     required TResult Function(CancelOrder value) cancelOrder,
+    required TResult Function(ReturnOrder value) returnOrder,
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
@@ -11715,6 +12530,7 @@ class _$ChangeShopBannerIndex implements ChangeShopBannerIndex {
     required TResult Function(FetchBrandProducts value) fetchBrandProducts,
     required TResult Function(FetchCoupons value) fetchCoupons,
     required TResult Function(IsPromoCodeAvailable value) isPromoCodeAvailable,
+    required TResult Function(ChangeIndexEvent value) changeIndexEvent,
   }) {
     return changeShopBannerIndex(this);
   }
@@ -11741,6 +12557,7 @@ class _$ChangeShopBannerIndex implements ChangeShopBannerIndex {
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult? Function(CancelOrder value)? cancelOrder,
+    TResult? Function(ReturnOrder value)? returnOrder,
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
@@ -11772,6 +12589,7 @@ class _$ChangeShopBannerIndex implements ChangeShopBannerIndex {
     TResult? Function(FetchBrandProducts value)? fetchBrandProducts,
     TResult? Function(FetchCoupons value)? fetchCoupons,
     TResult? Function(IsPromoCodeAvailable value)? isPromoCodeAvailable,
+    TResult? Function(ChangeIndexEvent value)? changeIndexEvent,
   }) {
     return changeShopBannerIndex?.call(this);
   }
@@ -11798,6 +12616,7 @@ class _$ChangeShopBannerIndex implements ChangeShopBannerIndex {
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult Function(CancelOrder value)? cancelOrder,
+    TResult Function(ReturnOrder value)? returnOrder,
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
@@ -11829,6 +12648,7 @@ class _$ChangeShopBannerIndex implements ChangeShopBannerIndex {
     TResult Function(FetchBrandProducts value)? fetchBrandProducts,
     TResult Function(FetchCoupons value)? fetchCoupons,
     TResult Function(IsPromoCodeAvailable value)? isPromoCodeAvailable,
+    TResult Function(ChangeIndexEvent value)? changeIndexEvent,
     required TResult orElse(),
   }) {
     if (changeShopBannerIndex != null) {
@@ -11944,6 +12764,8 @@ class _$ChangeBrandBannerIndex implements ChangeBrandBannerIndex {
         fetchOrdersbyFilterEvent,
     required TResult Function(BuildContext context, int shiprockeId)
         cancelOrder,
+    required TResult Function(BuildContext context, int shiprockeId)
+        returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
     required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
@@ -11965,6 +12787,7 @@ class _$ChangeBrandBannerIndex implements ChangeBrandBannerIndex {
     required TResult Function(String brandId) fetchBrandProducts,
     required TResult Function() fetchCoupons,
     required TResult Function(bool value) isPromoCodeAvailable,
+    required TResult Function(int index) changeIndexEvent,
   }) {
     return changeBrandBannerIndex(index);
   }
@@ -12001,6 +12824,7 @@ class _$ChangeBrandBannerIndex implements ChangeBrandBannerIndex {
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
     TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
@@ -12022,6 +12846,7 @@ class _$ChangeBrandBannerIndex implements ChangeBrandBannerIndex {
     TResult? Function(String brandId)? fetchBrandProducts,
     TResult? Function()? fetchCoupons,
     TResult? Function(bool value)? isPromoCodeAvailable,
+    TResult? Function(int index)? changeIndexEvent,
   }) {
     return changeBrandBannerIndex?.call(index);
   }
@@ -12058,6 +12883,7 @@ class _$ChangeBrandBannerIndex implements ChangeBrandBannerIndex {
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
     TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
@@ -12079,6 +12905,7 @@ class _$ChangeBrandBannerIndex implements ChangeBrandBannerIndex {
     TResult Function(String brandId)? fetchBrandProducts,
     TResult Function()? fetchCoupons,
     TResult Function(bool value)? isPromoCodeAvailable,
+    TResult Function(int index)? changeIndexEvent,
     required TResult orElse(),
   }) {
     if (changeBrandBannerIndex != null) {
@@ -12112,6 +12939,7 @@ class _$ChangeBrandBannerIndex implements ChangeBrandBannerIndex {
     required TResult Function(FetchOrdersbyFilterEvent value)
         fetchOrdersbyFilterEvent,
     required TResult Function(CancelOrder value) cancelOrder,
+    required TResult Function(ReturnOrder value) returnOrder,
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
@@ -12148,6 +12976,7 @@ class _$ChangeBrandBannerIndex implements ChangeBrandBannerIndex {
     required TResult Function(FetchBrandProducts value) fetchBrandProducts,
     required TResult Function(FetchCoupons value) fetchCoupons,
     required TResult Function(IsPromoCodeAvailable value) isPromoCodeAvailable,
+    required TResult Function(ChangeIndexEvent value) changeIndexEvent,
   }) {
     return changeBrandBannerIndex(this);
   }
@@ -12174,6 +13003,7 @@ class _$ChangeBrandBannerIndex implements ChangeBrandBannerIndex {
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult? Function(CancelOrder value)? cancelOrder,
+    TResult? Function(ReturnOrder value)? returnOrder,
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
@@ -12205,6 +13035,7 @@ class _$ChangeBrandBannerIndex implements ChangeBrandBannerIndex {
     TResult? Function(FetchBrandProducts value)? fetchBrandProducts,
     TResult? Function(FetchCoupons value)? fetchCoupons,
     TResult? Function(IsPromoCodeAvailable value)? isPromoCodeAvailable,
+    TResult? Function(ChangeIndexEvent value)? changeIndexEvent,
   }) {
     return changeBrandBannerIndex?.call(this);
   }
@@ -12231,6 +13062,7 @@ class _$ChangeBrandBannerIndex implements ChangeBrandBannerIndex {
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult Function(CancelOrder value)? cancelOrder,
+    TResult Function(ReturnOrder value)? returnOrder,
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
@@ -12262,6 +13094,7 @@ class _$ChangeBrandBannerIndex implements ChangeBrandBannerIndex {
     TResult Function(FetchBrandProducts value)? fetchBrandProducts,
     TResult Function(FetchCoupons value)? fetchCoupons,
     TResult Function(IsPromoCodeAvailable value)? isPromoCodeAvailable,
+    TResult Function(ChangeIndexEvent value)? changeIndexEvent,
     required TResult orElse(),
   }) {
     if (changeBrandBannerIndex != null) {
@@ -12350,6 +13183,8 @@ class _$ShowOrderProgressEvent implements ShowOrderProgressEvent {
         fetchOrdersbyFilterEvent,
     required TResult Function(BuildContext context, int shiprockeId)
         cancelOrder,
+    required TResult Function(BuildContext context, int shiprockeId)
+        returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
     required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
@@ -12371,6 +13206,7 @@ class _$ShowOrderProgressEvent implements ShowOrderProgressEvent {
     required TResult Function(String brandId) fetchBrandProducts,
     required TResult Function() fetchCoupons,
     required TResult Function(bool value) isPromoCodeAvailable,
+    required TResult Function(int index) changeIndexEvent,
   }) {
     return showOrderProgressEvent();
   }
@@ -12407,6 +13243,7 @@ class _$ShowOrderProgressEvent implements ShowOrderProgressEvent {
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
     TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
@@ -12428,6 +13265,7 @@ class _$ShowOrderProgressEvent implements ShowOrderProgressEvent {
     TResult? Function(String brandId)? fetchBrandProducts,
     TResult? Function()? fetchCoupons,
     TResult? Function(bool value)? isPromoCodeAvailable,
+    TResult? Function(int index)? changeIndexEvent,
   }) {
     return showOrderProgressEvent?.call();
   }
@@ -12464,6 +13302,7 @@ class _$ShowOrderProgressEvent implements ShowOrderProgressEvent {
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
     TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
@@ -12485,6 +13324,7 @@ class _$ShowOrderProgressEvent implements ShowOrderProgressEvent {
     TResult Function(String brandId)? fetchBrandProducts,
     TResult Function()? fetchCoupons,
     TResult Function(bool value)? isPromoCodeAvailable,
+    TResult Function(int index)? changeIndexEvent,
     required TResult orElse(),
   }) {
     if (showOrderProgressEvent != null) {
@@ -12518,6 +13358,7 @@ class _$ShowOrderProgressEvent implements ShowOrderProgressEvent {
     required TResult Function(FetchOrdersbyFilterEvent value)
         fetchOrdersbyFilterEvent,
     required TResult Function(CancelOrder value) cancelOrder,
+    required TResult Function(ReturnOrder value) returnOrder,
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
@@ -12554,6 +13395,7 @@ class _$ShowOrderProgressEvent implements ShowOrderProgressEvent {
     required TResult Function(FetchBrandProducts value) fetchBrandProducts,
     required TResult Function(FetchCoupons value) fetchCoupons,
     required TResult Function(IsPromoCodeAvailable value) isPromoCodeAvailable,
+    required TResult Function(ChangeIndexEvent value) changeIndexEvent,
   }) {
     return showOrderProgressEvent(this);
   }
@@ -12580,6 +13422,7 @@ class _$ShowOrderProgressEvent implements ShowOrderProgressEvent {
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult? Function(CancelOrder value)? cancelOrder,
+    TResult? Function(ReturnOrder value)? returnOrder,
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
@@ -12611,6 +13454,7 @@ class _$ShowOrderProgressEvent implements ShowOrderProgressEvent {
     TResult? Function(FetchBrandProducts value)? fetchBrandProducts,
     TResult? Function(FetchCoupons value)? fetchCoupons,
     TResult? Function(IsPromoCodeAvailable value)? isPromoCodeAvailable,
+    TResult? Function(ChangeIndexEvent value)? changeIndexEvent,
   }) {
     return showOrderProgressEvent?.call(this);
   }
@@ -12637,6 +13481,7 @@ class _$ShowOrderProgressEvent implements ShowOrderProgressEvent {
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult Function(CancelOrder value)? cancelOrder,
+    TResult Function(ReturnOrder value)? returnOrder,
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
@@ -12668,6 +13513,7 @@ class _$ShowOrderProgressEvent implements ShowOrderProgressEvent {
     TResult Function(FetchBrandProducts value)? fetchBrandProducts,
     TResult Function(FetchCoupons value)? fetchCoupons,
     TResult Function(IsPromoCodeAvailable value)? isPromoCodeAvailable,
+    TResult Function(ChangeIndexEvent value)? changeIndexEvent,
     required TResult orElse(),
   }) {
     if (showOrderProgressEvent != null) {
@@ -12779,6 +13625,8 @@ class _$IndexChangeOnOrderProgress implements IndexChangeOnOrderProgress {
         fetchOrdersbyFilterEvent,
     required TResult Function(BuildContext context, int shiprockeId)
         cancelOrder,
+    required TResult Function(BuildContext context, int shiprockeId)
+        returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
     required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
@@ -12800,6 +13648,7 @@ class _$IndexChangeOnOrderProgress implements IndexChangeOnOrderProgress {
     required TResult Function(String brandId) fetchBrandProducts,
     required TResult Function() fetchCoupons,
     required TResult Function(bool value) isPromoCodeAvailable,
+    required TResult Function(int index) changeIndexEvent,
   }) {
     return indexChangeOnOrderProgress(index);
   }
@@ -12836,6 +13685,7 @@ class _$IndexChangeOnOrderProgress implements IndexChangeOnOrderProgress {
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
     TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
@@ -12857,6 +13707,7 @@ class _$IndexChangeOnOrderProgress implements IndexChangeOnOrderProgress {
     TResult? Function(String brandId)? fetchBrandProducts,
     TResult? Function()? fetchCoupons,
     TResult? Function(bool value)? isPromoCodeAvailable,
+    TResult? Function(int index)? changeIndexEvent,
   }) {
     return indexChangeOnOrderProgress?.call(index);
   }
@@ -12893,6 +13744,7 @@ class _$IndexChangeOnOrderProgress implements IndexChangeOnOrderProgress {
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
     TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
@@ -12914,6 +13766,7 @@ class _$IndexChangeOnOrderProgress implements IndexChangeOnOrderProgress {
     TResult Function(String brandId)? fetchBrandProducts,
     TResult Function()? fetchCoupons,
     TResult Function(bool value)? isPromoCodeAvailable,
+    TResult Function(int index)? changeIndexEvent,
     required TResult orElse(),
   }) {
     if (indexChangeOnOrderProgress != null) {
@@ -12947,6 +13800,7 @@ class _$IndexChangeOnOrderProgress implements IndexChangeOnOrderProgress {
     required TResult Function(FetchOrdersbyFilterEvent value)
         fetchOrdersbyFilterEvent,
     required TResult Function(CancelOrder value) cancelOrder,
+    required TResult Function(ReturnOrder value) returnOrder,
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
@@ -12983,6 +13837,7 @@ class _$IndexChangeOnOrderProgress implements IndexChangeOnOrderProgress {
     required TResult Function(FetchBrandProducts value) fetchBrandProducts,
     required TResult Function(FetchCoupons value) fetchCoupons,
     required TResult Function(IsPromoCodeAvailable value) isPromoCodeAvailable,
+    required TResult Function(ChangeIndexEvent value) changeIndexEvent,
   }) {
     return indexChangeOnOrderProgress(this);
   }
@@ -13009,6 +13864,7 @@ class _$IndexChangeOnOrderProgress implements IndexChangeOnOrderProgress {
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult? Function(CancelOrder value)? cancelOrder,
+    TResult? Function(ReturnOrder value)? returnOrder,
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
@@ -13040,6 +13896,7 @@ class _$IndexChangeOnOrderProgress implements IndexChangeOnOrderProgress {
     TResult? Function(FetchBrandProducts value)? fetchBrandProducts,
     TResult? Function(FetchCoupons value)? fetchCoupons,
     TResult? Function(IsPromoCodeAvailable value)? isPromoCodeAvailable,
+    TResult? Function(ChangeIndexEvent value)? changeIndexEvent,
   }) {
     return indexChangeOnOrderProgress?.call(this);
   }
@@ -13066,6 +13923,7 @@ class _$IndexChangeOnOrderProgress implements IndexChangeOnOrderProgress {
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult Function(CancelOrder value)? cancelOrder,
+    TResult Function(ReturnOrder value)? returnOrder,
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
@@ -13097,6 +13955,7 @@ class _$IndexChangeOnOrderProgress implements IndexChangeOnOrderProgress {
     TResult Function(FetchBrandProducts value)? fetchBrandProducts,
     TResult Function(FetchCoupons value)? fetchCoupons,
     TResult Function(IsPromoCodeAvailable value)? isPromoCodeAvailable,
+    TResult Function(ChangeIndexEvent value)? changeIndexEvent,
     required TResult orElse(),
   }) {
     if (indexChangeOnOrderProgress != null) {
@@ -13215,6 +14074,8 @@ class _$IndexChangeOnWomensCareBanner implements IndexChangeOnWomensCareBanner {
         fetchOrdersbyFilterEvent,
     required TResult Function(BuildContext context, int shiprockeId)
         cancelOrder,
+    required TResult Function(BuildContext context, int shiprockeId)
+        returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
     required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
@@ -13236,6 +14097,7 @@ class _$IndexChangeOnWomensCareBanner implements IndexChangeOnWomensCareBanner {
     required TResult Function(String brandId) fetchBrandProducts,
     required TResult Function() fetchCoupons,
     required TResult Function(bool value) isPromoCodeAvailable,
+    required TResult Function(int index) changeIndexEvent,
   }) {
     return indexChangeOnWomensCareBanner(index);
   }
@@ -13272,6 +14134,7 @@ class _$IndexChangeOnWomensCareBanner implements IndexChangeOnWomensCareBanner {
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
     TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
@@ -13293,6 +14156,7 @@ class _$IndexChangeOnWomensCareBanner implements IndexChangeOnWomensCareBanner {
     TResult? Function(String brandId)? fetchBrandProducts,
     TResult? Function()? fetchCoupons,
     TResult? Function(bool value)? isPromoCodeAvailable,
+    TResult? Function(int index)? changeIndexEvent,
   }) {
     return indexChangeOnWomensCareBanner?.call(index);
   }
@@ -13329,6 +14193,7 @@ class _$IndexChangeOnWomensCareBanner implements IndexChangeOnWomensCareBanner {
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
     TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
@@ -13350,6 +14215,7 @@ class _$IndexChangeOnWomensCareBanner implements IndexChangeOnWomensCareBanner {
     TResult Function(String brandId)? fetchBrandProducts,
     TResult Function()? fetchCoupons,
     TResult Function(bool value)? isPromoCodeAvailable,
+    TResult Function(int index)? changeIndexEvent,
     required TResult orElse(),
   }) {
     if (indexChangeOnWomensCareBanner != null) {
@@ -13383,6 +14249,7 @@ class _$IndexChangeOnWomensCareBanner implements IndexChangeOnWomensCareBanner {
     required TResult Function(FetchOrdersbyFilterEvent value)
         fetchOrdersbyFilterEvent,
     required TResult Function(CancelOrder value) cancelOrder,
+    required TResult Function(ReturnOrder value) returnOrder,
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
@@ -13419,6 +14286,7 @@ class _$IndexChangeOnWomensCareBanner implements IndexChangeOnWomensCareBanner {
     required TResult Function(FetchBrandProducts value) fetchBrandProducts,
     required TResult Function(FetchCoupons value) fetchCoupons,
     required TResult Function(IsPromoCodeAvailable value) isPromoCodeAvailable,
+    required TResult Function(ChangeIndexEvent value) changeIndexEvent,
   }) {
     return indexChangeOnWomensCareBanner(this);
   }
@@ -13445,6 +14313,7 @@ class _$IndexChangeOnWomensCareBanner implements IndexChangeOnWomensCareBanner {
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult? Function(CancelOrder value)? cancelOrder,
+    TResult? Function(ReturnOrder value)? returnOrder,
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
@@ -13476,6 +14345,7 @@ class _$IndexChangeOnWomensCareBanner implements IndexChangeOnWomensCareBanner {
     TResult? Function(FetchBrandProducts value)? fetchBrandProducts,
     TResult? Function(FetchCoupons value)? fetchCoupons,
     TResult? Function(IsPromoCodeAvailable value)? isPromoCodeAvailable,
+    TResult? Function(ChangeIndexEvent value)? changeIndexEvent,
   }) {
     return indexChangeOnWomensCareBanner?.call(this);
   }
@@ -13502,6 +14372,7 @@ class _$IndexChangeOnWomensCareBanner implements IndexChangeOnWomensCareBanner {
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult Function(CancelOrder value)? cancelOrder,
+    TResult Function(ReturnOrder value)? returnOrder,
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
@@ -13533,6 +14404,7 @@ class _$IndexChangeOnWomensCareBanner implements IndexChangeOnWomensCareBanner {
     TResult Function(FetchBrandProducts value)? fetchBrandProducts,
     TResult Function(FetchCoupons value)? fetchCoupons,
     TResult Function(IsPromoCodeAvailable value)? isPromoCodeAvailable,
+    TResult Function(ChangeIndexEvent value)? changeIndexEvent,
     required TResult orElse(),
   }) {
     if (indexChangeOnWomensCareBanner != null) {
@@ -13648,6 +14520,8 @@ class _$FetchShopAdBrandsById implements FetchShopAdBrandsById {
         fetchOrdersbyFilterEvent,
     required TResult Function(BuildContext context, int shiprockeId)
         cancelOrder,
+    required TResult Function(BuildContext context, int shiprockeId)
+        returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
     required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
@@ -13669,6 +14543,7 @@ class _$FetchShopAdBrandsById implements FetchShopAdBrandsById {
     required TResult Function(String brandId) fetchBrandProducts,
     required TResult Function() fetchCoupons,
     required TResult Function(bool value) isPromoCodeAvailable,
+    required TResult Function(int index) changeIndexEvent,
   }) {
     return fetchShopAdBrandsById(id);
   }
@@ -13705,6 +14580,7 @@ class _$FetchShopAdBrandsById implements FetchShopAdBrandsById {
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
     TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
@@ -13726,6 +14602,7 @@ class _$FetchShopAdBrandsById implements FetchShopAdBrandsById {
     TResult? Function(String brandId)? fetchBrandProducts,
     TResult? Function()? fetchCoupons,
     TResult? Function(bool value)? isPromoCodeAvailable,
+    TResult? Function(int index)? changeIndexEvent,
   }) {
     return fetchShopAdBrandsById?.call(id);
   }
@@ -13762,6 +14639,7 @@ class _$FetchShopAdBrandsById implements FetchShopAdBrandsById {
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
     TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
@@ -13783,6 +14661,7 @@ class _$FetchShopAdBrandsById implements FetchShopAdBrandsById {
     TResult Function(String brandId)? fetchBrandProducts,
     TResult Function()? fetchCoupons,
     TResult Function(bool value)? isPromoCodeAvailable,
+    TResult Function(int index)? changeIndexEvent,
     required TResult orElse(),
   }) {
     if (fetchShopAdBrandsById != null) {
@@ -13816,6 +14695,7 @@ class _$FetchShopAdBrandsById implements FetchShopAdBrandsById {
     required TResult Function(FetchOrdersbyFilterEvent value)
         fetchOrdersbyFilterEvent,
     required TResult Function(CancelOrder value) cancelOrder,
+    required TResult Function(ReturnOrder value) returnOrder,
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
@@ -13852,6 +14732,7 @@ class _$FetchShopAdBrandsById implements FetchShopAdBrandsById {
     required TResult Function(FetchBrandProducts value) fetchBrandProducts,
     required TResult Function(FetchCoupons value) fetchCoupons,
     required TResult Function(IsPromoCodeAvailable value) isPromoCodeAvailable,
+    required TResult Function(ChangeIndexEvent value) changeIndexEvent,
   }) {
     return fetchShopAdBrandsById(this);
   }
@@ -13878,6 +14759,7 @@ class _$FetchShopAdBrandsById implements FetchShopAdBrandsById {
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult? Function(CancelOrder value)? cancelOrder,
+    TResult? Function(ReturnOrder value)? returnOrder,
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
@@ -13909,6 +14791,7 @@ class _$FetchShopAdBrandsById implements FetchShopAdBrandsById {
     TResult? Function(FetchBrandProducts value)? fetchBrandProducts,
     TResult? Function(FetchCoupons value)? fetchCoupons,
     TResult? Function(IsPromoCodeAvailable value)? isPromoCodeAvailable,
+    TResult? Function(ChangeIndexEvent value)? changeIndexEvent,
   }) {
     return fetchShopAdBrandsById?.call(this);
   }
@@ -13935,6 +14818,7 @@ class _$FetchShopAdBrandsById implements FetchShopAdBrandsById {
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult Function(CancelOrder value)? cancelOrder,
+    TResult Function(ReturnOrder value)? returnOrder,
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
@@ -13966,6 +14850,7 @@ class _$FetchShopAdBrandsById implements FetchShopAdBrandsById {
     TResult Function(FetchBrandProducts value)? fetchBrandProducts,
     TResult Function(FetchCoupons value)? fetchCoupons,
     TResult Function(IsPromoCodeAvailable value)? isPromoCodeAvailable,
+    TResult Function(ChangeIndexEvent value)? changeIndexEvent,
     required TResult orElse(),
   }) {
     if (fetchShopAdBrandsById != null) {
@@ -14081,6 +14966,8 @@ class _$SavePaymentMethodType implements SavePaymentMethodType {
         fetchOrdersbyFilterEvent,
     required TResult Function(BuildContext context, int shiprockeId)
         cancelOrder,
+    required TResult Function(BuildContext context, int shiprockeId)
+        returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
     required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
@@ -14102,6 +14989,7 @@ class _$SavePaymentMethodType implements SavePaymentMethodType {
     required TResult Function(String brandId) fetchBrandProducts,
     required TResult Function() fetchCoupons,
     required TResult Function(bool value) isPromoCodeAvailable,
+    required TResult Function(int index) changeIndexEvent,
   }) {
     return savePaymentMethodType(index);
   }
@@ -14138,6 +15026,7 @@ class _$SavePaymentMethodType implements SavePaymentMethodType {
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
     TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
@@ -14159,6 +15048,7 @@ class _$SavePaymentMethodType implements SavePaymentMethodType {
     TResult? Function(String brandId)? fetchBrandProducts,
     TResult? Function()? fetchCoupons,
     TResult? Function(bool value)? isPromoCodeAvailable,
+    TResult? Function(int index)? changeIndexEvent,
   }) {
     return savePaymentMethodType?.call(index);
   }
@@ -14195,6 +15085,7 @@ class _$SavePaymentMethodType implements SavePaymentMethodType {
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
     TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
@@ -14216,6 +15107,7 @@ class _$SavePaymentMethodType implements SavePaymentMethodType {
     TResult Function(String brandId)? fetchBrandProducts,
     TResult Function()? fetchCoupons,
     TResult Function(bool value)? isPromoCodeAvailable,
+    TResult Function(int index)? changeIndexEvent,
     required TResult orElse(),
   }) {
     if (savePaymentMethodType != null) {
@@ -14249,6 +15141,7 @@ class _$SavePaymentMethodType implements SavePaymentMethodType {
     required TResult Function(FetchOrdersbyFilterEvent value)
         fetchOrdersbyFilterEvent,
     required TResult Function(CancelOrder value) cancelOrder,
+    required TResult Function(ReturnOrder value) returnOrder,
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
@@ -14285,6 +15178,7 @@ class _$SavePaymentMethodType implements SavePaymentMethodType {
     required TResult Function(FetchBrandProducts value) fetchBrandProducts,
     required TResult Function(FetchCoupons value) fetchCoupons,
     required TResult Function(IsPromoCodeAvailable value) isPromoCodeAvailable,
+    required TResult Function(ChangeIndexEvent value) changeIndexEvent,
   }) {
     return savePaymentMethodType(this);
   }
@@ -14311,6 +15205,7 @@ class _$SavePaymentMethodType implements SavePaymentMethodType {
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult? Function(CancelOrder value)? cancelOrder,
+    TResult? Function(ReturnOrder value)? returnOrder,
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
@@ -14342,6 +15237,7 @@ class _$SavePaymentMethodType implements SavePaymentMethodType {
     TResult? Function(FetchBrandProducts value)? fetchBrandProducts,
     TResult? Function(FetchCoupons value)? fetchCoupons,
     TResult? Function(IsPromoCodeAvailable value)? isPromoCodeAvailable,
+    TResult? Function(ChangeIndexEvent value)? changeIndexEvent,
   }) {
     return savePaymentMethodType?.call(this);
   }
@@ -14368,6 +15264,7 @@ class _$SavePaymentMethodType implements SavePaymentMethodType {
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult Function(CancelOrder value)? cancelOrder,
+    TResult Function(ReturnOrder value)? returnOrder,
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
@@ -14399,6 +15296,7 @@ class _$SavePaymentMethodType implements SavePaymentMethodType {
     TResult Function(FetchBrandProducts value)? fetchBrandProducts,
     TResult Function(FetchCoupons value)? fetchCoupons,
     TResult Function(IsPromoCodeAvailable value)? isPromoCodeAvailable,
+    TResult Function(ChangeIndexEvent value)? changeIndexEvent,
     required TResult orElse(),
   }) {
     if (savePaymentMethodType != null) {
@@ -14490,6 +15388,8 @@ class _$FetchProductItemsbyCategory implements FetchProductItemsbyCategory {
         fetchOrdersbyFilterEvent,
     required TResult Function(BuildContext context, int shiprockeId)
         cancelOrder,
+    required TResult Function(BuildContext context, int shiprockeId)
+        returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
     required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
@@ -14511,6 +15411,7 @@ class _$FetchProductItemsbyCategory implements FetchProductItemsbyCategory {
     required TResult Function(String brandId) fetchBrandProducts,
     required TResult Function() fetchCoupons,
     required TResult Function(bool value) isPromoCodeAvailable,
+    required TResult Function(int index) changeIndexEvent,
   }) {
     return fetchProductItemsbyCategory();
   }
@@ -14547,6 +15448,7 @@ class _$FetchProductItemsbyCategory implements FetchProductItemsbyCategory {
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
     TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
@@ -14568,6 +15470,7 @@ class _$FetchProductItemsbyCategory implements FetchProductItemsbyCategory {
     TResult? Function(String brandId)? fetchBrandProducts,
     TResult? Function()? fetchCoupons,
     TResult? Function(bool value)? isPromoCodeAvailable,
+    TResult? Function(int index)? changeIndexEvent,
   }) {
     return fetchProductItemsbyCategory?.call();
   }
@@ -14604,6 +15507,7 @@ class _$FetchProductItemsbyCategory implements FetchProductItemsbyCategory {
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
     TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
@@ -14625,6 +15529,7 @@ class _$FetchProductItemsbyCategory implements FetchProductItemsbyCategory {
     TResult Function(String brandId)? fetchBrandProducts,
     TResult Function()? fetchCoupons,
     TResult Function(bool value)? isPromoCodeAvailable,
+    TResult Function(int index)? changeIndexEvent,
     required TResult orElse(),
   }) {
     if (fetchProductItemsbyCategory != null) {
@@ -14658,6 +15563,7 @@ class _$FetchProductItemsbyCategory implements FetchProductItemsbyCategory {
     required TResult Function(FetchOrdersbyFilterEvent value)
         fetchOrdersbyFilterEvent,
     required TResult Function(CancelOrder value) cancelOrder,
+    required TResult Function(ReturnOrder value) returnOrder,
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
@@ -14694,6 +15600,7 @@ class _$FetchProductItemsbyCategory implements FetchProductItemsbyCategory {
     required TResult Function(FetchBrandProducts value) fetchBrandProducts,
     required TResult Function(FetchCoupons value) fetchCoupons,
     required TResult Function(IsPromoCodeAvailable value) isPromoCodeAvailable,
+    required TResult Function(ChangeIndexEvent value) changeIndexEvent,
   }) {
     return fetchProductItemsbyCategory(this);
   }
@@ -14720,6 +15627,7 @@ class _$FetchProductItemsbyCategory implements FetchProductItemsbyCategory {
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult? Function(CancelOrder value)? cancelOrder,
+    TResult? Function(ReturnOrder value)? returnOrder,
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
@@ -14751,6 +15659,7 @@ class _$FetchProductItemsbyCategory implements FetchProductItemsbyCategory {
     TResult? Function(FetchBrandProducts value)? fetchBrandProducts,
     TResult? Function(FetchCoupons value)? fetchCoupons,
     TResult? Function(IsPromoCodeAvailable value)? isPromoCodeAvailable,
+    TResult? Function(ChangeIndexEvent value)? changeIndexEvent,
   }) {
     return fetchProductItemsbyCategory?.call(this);
   }
@@ -14777,6 +15686,7 @@ class _$FetchProductItemsbyCategory implements FetchProductItemsbyCategory {
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult Function(CancelOrder value)? cancelOrder,
+    TResult Function(ReturnOrder value)? returnOrder,
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
@@ -14808,6 +15718,7 @@ class _$FetchProductItemsbyCategory implements FetchProductItemsbyCategory {
     TResult Function(FetchBrandProducts value)? fetchBrandProducts,
     TResult Function(FetchCoupons value)? fetchCoupons,
     TResult Function(IsPromoCodeAvailable value)? isPromoCodeAvailable,
+    TResult Function(ChangeIndexEvent value)? changeIndexEvent,
     required TResult orElse(),
   }) {
     if (fetchProductItemsbyCategory != null) {
@@ -14919,6 +15830,8 @@ class _$FetchSpecificCategeryItems implements FetchSpecificCategeryItems {
         fetchOrdersbyFilterEvent,
     required TResult Function(BuildContext context, int shiprockeId)
         cancelOrder,
+    required TResult Function(BuildContext context, int shiprockeId)
+        returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
     required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
@@ -14940,6 +15853,7 @@ class _$FetchSpecificCategeryItems implements FetchSpecificCategeryItems {
     required TResult Function(String brandId) fetchBrandProducts,
     required TResult Function() fetchCoupons,
     required TResult Function(bool value) isPromoCodeAvailable,
+    required TResult Function(int index) changeIndexEvent,
   }) {
     return fetchSpecificCategeryItems(slug);
   }
@@ -14976,6 +15890,7 @@ class _$FetchSpecificCategeryItems implements FetchSpecificCategeryItems {
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
     TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
@@ -14997,6 +15912,7 @@ class _$FetchSpecificCategeryItems implements FetchSpecificCategeryItems {
     TResult? Function(String brandId)? fetchBrandProducts,
     TResult? Function()? fetchCoupons,
     TResult? Function(bool value)? isPromoCodeAvailable,
+    TResult? Function(int index)? changeIndexEvent,
   }) {
     return fetchSpecificCategeryItems?.call(slug);
   }
@@ -15033,6 +15949,7 @@ class _$FetchSpecificCategeryItems implements FetchSpecificCategeryItems {
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
     TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
@@ -15054,6 +15971,7 @@ class _$FetchSpecificCategeryItems implements FetchSpecificCategeryItems {
     TResult Function(String brandId)? fetchBrandProducts,
     TResult Function()? fetchCoupons,
     TResult Function(bool value)? isPromoCodeAvailable,
+    TResult Function(int index)? changeIndexEvent,
     required TResult orElse(),
   }) {
     if (fetchSpecificCategeryItems != null) {
@@ -15087,6 +16005,7 @@ class _$FetchSpecificCategeryItems implements FetchSpecificCategeryItems {
     required TResult Function(FetchOrdersbyFilterEvent value)
         fetchOrdersbyFilterEvent,
     required TResult Function(CancelOrder value) cancelOrder,
+    required TResult Function(ReturnOrder value) returnOrder,
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
@@ -15123,6 +16042,7 @@ class _$FetchSpecificCategeryItems implements FetchSpecificCategeryItems {
     required TResult Function(FetchBrandProducts value) fetchBrandProducts,
     required TResult Function(FetchCoupons value) fetchCoupons,
     required TResult Function(IsPromoCodeAvailable value) isPromoCodeAvailable,
+    required TResult Function(ChangeIndexEvent value) changeIndexEvent,
   }) {
     return fetchSpecificCategeryItems(this);
   }
@@ -15149,6 +16069,7 @@ class _$FetchSpecificCategeryItems implements FetchSpecificCategeryItems {
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult? Function(CancelOrder value)? cancelOrder,
+    TResult? Function(ReturnOrder value)? returnOrder,
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
@@ -15180,6 +16101,7 @@ class _$FetchSpecificCategeryItems implements FetchSpecificCategeryItems {
     TResult? Function(FetchBrandProducts value)? fetchBrandProducts,
     TResult? Function(FetchCoupons value)? fetchCoupons,
     TResult? Function(IsPromoCodeAvailable value)? isPromoCodeAvailable,
+    TResult? Function(ChangeIndexEvent value)? changeIndexEvent,
   }) {
     return fetchSpecificCategeryItems?.call(this);
   }
@@ -15206,6 +16128,7 @@ class _$FetchSpecificCategeryItems implements FetchSpecificCategeryItems {
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult Function(CancelOrder value)? cancelOrder,
+    TResult Function(ReturnOrder value)? returnOrder,
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
@@ -15237,6 +16160,7 @@ class _$FetchSpecificCategeryItems implements FetchSpecificCategeryItems {
     TResult Function(FetchBrandProducts value)? fetchBrandProducts,
     TResult Function(FetchCoupons value)? fetchCoupons,
     TResult Function(IsPromoCodeAvailable value)? isPromoCodeAvailable,
+    TResult Function(ChangeIndexEvent value)? changeIndexEvent,
     required TResult orElse(),
   }) {
     if (fetchSpecificCategeryItems != null) {
@@ -15351,6 +16275,8 @@ class _$FetchProductsById implements FetchProductsById {
         fetchOrdersbyFilterEvent,
     required TResult Function(BuildContext context, int shiprockeId)
         cancelOrder,
+    required TResult Function(BuildContext context, int shiprockeId)
+        returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
     required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
@@ -15372,6 +16298,7 @@ class _$FetchProductsById implements FetchProductsById {
     required TResult Function(String brandId) fetchBrandProducts,
     required TResult Function() fetchCoupons,
     required TResult Function(bool value) isPromoCodeAvailable,
+    required TResult Function(int index) changeIndexEvent,
   }) {
     return fetchProductsById(id);
   }
@@ -15408,6 +16335,7 @@ class _$FetchProductsById implements FetchProductsById {
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
     TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
@@ -15429,6 +16357,7 @@ class _$FetchProductsById implements FetchProductsById {
     TResult? Function(String brandId)? fetchBrandProducts,
     TResult? Function()? fetchCoupons,
     TResult? Function(bool value)? isPromoCodeAvailable,
+    TResult? Function(int index)? changeIndexEvent,
   }) {
     return fetchProductsById?.call(id);
   }
@@ -15465,6 +16394,7 @@ class _$FetchProductsById implements FetchProductsById {
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
     TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
@@ -15486,6 +16416,7 @@ class _$FetchProductsById implements FetchProductsById {
     TResult Function(String brandId)? fetchBrandProducts,
     TResult Function()? fetchCoupons,
     TResult Function(bool value)? isPromoCodeAvailable,
+    TResult Function(int index)? changeIndexEvent,
     required TResult orElse(),
   }) {
     if (fetchProductsById != null) {
@@ -15519,6 +16450,7 @@ class _$FetchProductsById implements FetchProductsById {
     required TResult Function(FetchOrdersbyFilterEvent value)
         fetchOrdersbyFilterEvent,
     required TResult Function(CancelOrder value) cancelOrder,
+    required TResult Function(ReturnOrder value) returnOrder,
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
@@ -15555,6 +16487,7 @@ class _$FetchProductsById implements FetchProductsById {
     required TResult Function(FetchBrandProducts value) fetchBrandProducts,
     required TResult Function(FetchCoupons value) fetchCoupons,
     required TResult Function(IsPromoCodeAvailable value) isPromoCodeAvailable,
+    required TResult Function(ChangeIndexEvent value) changeIndexEvent,
   }) {
     return fetchProductsById(this);
   }
@@ -15581,6 +16514,7 @@ class _$FetchProductsById implements FetchProductsById {
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult? Function(CancelOrder value)? cancelOrder,
+    TResult? Function(ReturnOrder value)? returnOrder,
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
@@ -15612,6 +16546,7 @@ class _$FetchProductsById implements FetchProductsById {
     TResult? Function(FetchBrandProducts value)? fetchBrandProducts,
     TResult? Function(FetchCoupons value)? fetchCoupons,
     TResult? Function(IsPromoCodeAvailable value)? isPromoCodeAvailable,
+    TResult? Function(ChangeIndexEvent value)? changeIndexEvent,
   }) {
     return fetchProductsById?.call(this);
   }
@@ -15638,6 +16573,7 @@ class _$FetchProductsById implements FetchProductsById {
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult Function(CancelOrder value)? cancelOrder,
+    TResult Function(ReturnOrder value)? returnOrder,
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
@@ -15669,6 +16605,7 @@ class _$FetchProductsById implements FetchProductsById {
     TResult Function(FetchBrandProducts value)? fetchBrandProducts,
     TResult Function(FetchCoupons value)? fetchCoupons,
     TResult Function(IsPromoCodeAvailable value)? isPromoCodeAvailable,
+    TResult Function(ChangeIndexEvent value)? changeIndexEvent,
     required TResult orElse(),
   }) {
     if (fetchProductsById != null) {
@@ -15784,6 +16721,8 @@ class _$FetchBrandProducts implements FetchBrandProducts {
         fetchOrdersbyFilterEvent,
     required TResult Function(BuildContext context, int shiprockeId)
         cancelOrder,
+    required TResult Function(BuildContext context, int shiprockeId)
+        returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
     required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
@@ -15805,6 +16744,7 @@ class _$FetchBrandProducts implements FetchBrandProducts {
     required TResult Function(String brandId) fetchBrandProducts,
     required TResult Function() fetchCoupons,
     required TResult Function(bool value) isPromoCodeAvailable,
+    required TResult Function(int index) changeIndexEvent,
   }) {
     return fetchBrandProducts(brandId);
   }
@@ -15841,6 +16781,7 @@ class _$FetchBrandProducts implements FetchBrandProducts {
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
     TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
@@ -15862,6 +16803,7 @@ class _$FetchBrandProducts implements FetchBrandProducts {
     TResult? Function(String brandId)? fetchBrandProducts,
     TResult? Function()? fetchCoupons,
     TResult? Function(bool value)? isPromoCodeAvailable,
+    TResult? Function(int index)? changeIndexEvent,
   }) {
     return fetchBrandProducts?.call(brandId);
   }
@@ -15898,6 +16840,7 @@ class _$FetchBrandProducts implements FetchBrandProducts {
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
     TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
@@ -15919,6 +16862,7 @@ class _$FetchBrandProducts implements FetchBrandProducts {
     TResult Function(String brandId)? fetchBrandProducts,
     TResult Function()? fetchCoupons,
     TResult Function(bool value)? isPromoCodeAvailable,
+    TResult Function(int index)? changeIndexEvent,
     required TResult orElse(),
   }) {
     if (fetchBrandProducts != null) {
@@ -15952,6 +16896,7 @@ class _$FetchBrandProducts implements FetchBrandProducts {
     required TResult Function(FetchOrdersbyFilterEvent value)
         fetchOrdersbyFilterEvent,
     required TResult Function(CancelOrder value) cancelOrder,
+    required TResult Function(ReturnOrder value) returnOrder,
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
@@ -15988,6 +16933,7 @@ class _$FetchBrandProducts implements FetchBrandProducts {
     required TResult Function(FetchBrandProducts value) fetchBrandProducts,
     required TResult Function(FetchCoupons value) fetchCoupons,
     required TResult Function(IsPromoCodeAvailable value) isPromoCodeAvailable,
+    required TResult Function(ChangeIndexEvent value) changeIndexEvent,
   }) {
     return fetchBrandProducts(this);
   }
@@ -16014,6 +16960,7 @@ class _$FetchBrandProducts implements FetchBrandProducts {
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult? Function(CancelOrder value)? cancelOrder,
+    TResult? Function(ReturnOrder value)? returnOrder,
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
@@ -16045,6 +16992,7 @@ class _$FetchBrandProducts implements FetchBrandProducts {
     TResult? Function(FetchBrandProducts value)? fetchBrandProducts,
     TResult? Function(FetchCoupons value)? fetchCoupons,
     TResult? Function(IsPromoCodeAvailable value)? isPromoCodeAvailable,
+    TResult? Function(ChangeIndexEvent value)? changeIndexEvent,
   }) {
     return fetchBrandProducts?.call(this);
   }
@@ -16071,6 +17019,7 @@ class _$FetchBrandProducts implements FetchBrandProducts {
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult Function(CancelOrder value)? cancelOrder,
+    TResult Function(ReturnOrder value)? returnOrder,
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
@@ -16102,6 +17051,7 @@ class _$FetchBrandProducts implements FetchBrandProducts {
     TResult Function(FetchBrandProducts value)? fetchBrandProducts,
     TResult Function(FetchCoupons value)? fetchCoupons,
     TResult Function(IsPromoCodeAvailable value)? isPromoCodeAvailable,
+    TResult Function(ChangeIndexEvent value)? changeIndexEvent,
     required TResult orElse(),
   }) {
     if (fetchBrandProducts != null) {
@@ -16190,6 +17140,8 @@ class _$FetchCoupons implements FetchCoupons {
         fetchOrdersbyFilterEvent,
     required TResult Function(BuildContext context, int shiprockeId)
         cancelOrder,
+    required TResult Function(BuildContext context, int shiprockeId)
+        returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
     required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
@@ -16211,6 +17163,7 @@ class _$FetchCoupons implements FetchCoupons {
     required TResult Function(String brandId) fetchBrandProducts,
     required TResult Function() fetchCoupons,
     required TResult Function(bool value) isPromoCodeAvailable,
+    required TResult Function(int index) changeIndexEvent,
   }) {
     return fetchCoupons();
   }
@@ -16247,6 +17200,7 @@ class _$FetchCoupons implements FetchCoupons {
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
     TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
@@ -16268,6 +17222,7 @@ class _$FetchCoupons implements FetchCoupons {
     TResult? Function(String brandId)? fetchBrandProducts,
     TResult? Function()? fetchCoupons,
     TResult? Function(bool value)? isPromoCodeAvailable,
+    TResult? Function(int index)? changeIndexEvent,
   }) {
     return fetchCoupons?.call();
   }
@@ -16304,6 +17259,7 @@ class _$FetchCoupons implements FetchCoupons {
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
     TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
@@ -16325,6 +17281,7 @@ class _$FetchCoupons implements FetchCoupons {
     TResult Function(String brandId)? fetchBrandProducts,
     TResult Function()? fetchCoupons,
     TResult Function(bool value)? isPromoCodeAvailable,
+    TResult Function(int index)? changeIndexEvent,
     required TResult orElse(),
   }) {
     if (fetchCoupons != null) {
@@ -16358,6 +17315,7 @@ class _$FetchCoupons implements FetchCoupons {
     required TResult Function(FetchOrdersbyFilterEvent value)
         fetchOrdersbyFilterEvent,
     required TResult Function(CancelOrder value) cancelOrder,
+    required TResult Function(ReturnOrder value) returnOrder,
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
@@ -16394,6 +17352,7 @@ class _$FetchCoupons implements FetchCoupons {
     required TResult Function(FetchBrandProducts value) fetchBrandProducts,
     required TResult Function(FetchCoupons value) fetchCoupons,
     required TResult Function(IsPromoCodeAvailable value) isPromoCodeAvailable,
+    required TResult Function(ChangeIndexEvent value) changeIndexEvent,
   }) {
     return fetchCoupons(this);
   }
@@ -16420,6 +17379,7 @@ class _$FetchCoupons implements FetchCoupons {
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult? Function(CancelOrder value)? cancelOrder,
+    TResult? Function(ReturnOrder value)? returnOrder,
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
@@ -16451,6 +17411,7 @@ class _$FetchCoupons implements FetchCoupons {
     TResult? Function(FetchBrandProducts value)? fetchBrandProducts,
     TResult? Function(FetchCoupons value)? fetchCoupons,
     TResult? Function(IsPromoCodeAvailable value)? isPromoCodeAvailable,
+    TResult? Function(ChangeIndexEvent value)? changeIndexEvent,
   }) {
     return fetchCoupons?.call(this);
   }
@@ -16477,6 +17438,7 @@ class _$FetchCoupons implements FetchCoupons {
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult Function(CancelOrder value)? cancelOrder,
+    TResult Function(ReturnOrder value)? returnOrder,
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
@@ -16508,6 +17470,7 @@ class _$FetchCoupons implements FetchCoupons {
     TResult Function(FetchBrandProducts value)? fetchBrandProducts,
     TResult Function(FetchCoupons value)? fetchCoupons,
     TResult Function(IsPromoCodeAvailable value)? isPromoCodeAvailable,
+    TResult Function(ChangeIndexEvent value)? changeIndexEvent,
     required TResult orElse(),
   }) {
     if (fetchCoupons != null) {
@@ -16617,6 +17580,8 @@ class _$IsPromoCodeAvailable implements IsPromoCodeAvailable {
         fetchOrdersbyFilterEvent,
     required TResult Function(BuildContext context, int shiprockeId)
         cancelOrder,
+    required TResult Function(BuildContext context, int shiprockeId)
+        returnOrder,
     required TResult Function() fetchShopHomeBackgroundCard,
     required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
     required TResult Function() fetchShopHomeBackgroundCardSunnah,
@@ -16638,6 +17603,7 @@ class _$IsPromoCodeAvailable implements IsPromoCodeAvailable {
     required TResult Function(String brandId) fetchBrandProducts,
     required TResult Function() fetchCoupons,
     required TResult Function(bool value) isPromoCodeAvailable,
+    required TResult Function(int index) changeIndexEvent,
   }) {
     return isPromoCodeAvailable(value);
   }
@@ -16674,6 +17640,7 @@ class _$IsPromoCodeAvailable implements IsPromoCodeAvailable {
     TResult? Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult? Function()? fetchShopHomeBackgroundCard,
     TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult? Function()? fetchShopHomeBackgroundCardSunnah,
@@ -16695,6 +17662,7 @@ class _$IsPromoCodeAvailable implements IsPromoCodeAvailable {
     TResult? Function(String brandId)? fetchBrandProducts,
     TResult? Function()? fetchCoupons,
     TResult? Function(bool value)? isPromoCodeAvailable,
+    TResult? Function(int index)? changeIndexEvent,
   }) {
     return isPromoCodeAvailable?.call(value);
   }
@@ -16731,6 +17699,7 @@ class _$IsPromoCodeAvailable implements IsPromoCodeAvailable {
     TResult Function(BuildContext context, String filterName)?
         fetchOrdersbyFilterEvent,
     TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult Function(BuildContext context, int shiprockeId)? returnOrder,
     TResult Function()? fetchShopHomeBackgroundCard,
     TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
     TResult Function()? fetchShopHomeBackgroundCardSunnah,
@@ -16752,6 +17721,7 @@ class _$IsPromoCodeAvailable implements IsPromoCodeAvailable {
     TResult Function(String brandId)? fetchBrandProducts,
     TResult Function()? fetchCoupons,
     TResult Function(bool value)? isPromoCodeAvailable,
+    TResult Function(int index)? changeIndexEvent,
     required TResult orElse(),
   }) {
     if (isPromoCodeAvailable != null) {
@@ -16785,6 +17755,7 @@ class _$IsPromoCodeAvailable implements IsPromoCodeAvailable {
     required TResult Function(FetchOrdersbyFilterEvent value)
         fetchOrdersbyFilterEvent,
     required TResult Function(CancelOrder value) cancelOrder,
+    required TResult Function(ReturnOrder value) returnOrder,
     required TResult Function(FetchShopHomeBackgroundCard value)
         fetchShopHomeBackgroundCard,
     required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
@@ -16821,6 +17792,7 @@ class _$IsPromoCodeAvailable implements IsPromoCodeAvailable {
     required TResult Function(FetchBrandProducts value) fetchBrandProducts,
     required TResult Function(FetchCoupons value) fetchCoupons,
     required TResult Function(IsPromoCodeAvailable value) isPromoCodeAvailable,
+    required TResult Function(ChangeIndexEvent value) changeIndexEvent,
   }) {
     return isPromoCodeAvailable(this);
   }
@@ -16847,6 +17819,7 @@ class _$IsPromoCodeAvailable implements IsPromoCodeAvailable {
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult? Function(CancelOrder value)? cancelOrder,
+    TResult? Function(ReturnOrder value)? returnOrder,
     TResult? Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
@@ -16878,6 +17851,7 @@ class _$IsPromoCodeAvailable implements IsPromoCodeAvailable {
     TResult? Function(FetchBrandProducts value)? fetchBrandProducts,
     TResult? Function(FetchCoupons value)? fetchCoupons,
     TResult? Function(IsPromoCodeAvailable value)? isPromoCodeAvailable,
+    TResult? Function(ChangeIndexEvent value)? changeIndexEvent,
   }) {
     return isPromoCodeAvailable?.call(this);
   }
@@ -16904,6 +17878,7 @@ class _$IsPromoCodeAvailable implements IsPromoCodeAvailable {
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
     TResult Function(CancelOrder value)? cancelOrder,
+    TResult Function(ReturnOrder value)? returnOrder,
     TResult Function(FetchShopHomeBackgroundCard value)?
         fetchShopHomeBackgroundCard,
     TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
@@ -16935,6 +17910,7 @@ class _$IsPromoCodeAvailable implements IsPromoCodeAvailable {
     TResult Function(FetchBrandProducts value)? fetchBrandProducts,
     TResult Function(FetchCoupons value)? fetchCoupons,
     TResult Function(IsPromoCodeAvailable value)? isPromoCodeAvailable,
+    TResult Function(ChangeIndexEvent value)? changeIndexEvent,
     required TResult orElse(),
   }) {
     if (isPromoCodeAvailable != null) {
@@ -16951,6 +17927,451 @@ abstract class IsPromoCodeAvailable implements ShopProductsEvent {
   bool get value;
   @JsonKey(ignore: true)
   _$$IsPromoCodeAvailableCopyWith<_$IsPromoCodeAvailable> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ChangeIndexEventCopyWith<$Res> {
+  factory _$$ChangeIndexEventCopyWith(
+          _$ChangeIndexEvent value, $Res Function(_$ChangeIndexEvent) then) =
+      __$$ChangeIndexEventCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int index});
+}
+
+/// @nodoc
+class __$$ChangeIndexEventCopyWithImpl<$Res>
+    extends _$ShopProductsEventCopyWithImpl<$Res, _$ChangeIndexEvent>
+    implements _$$ChangeIndexEventCopyWith<$Res> {
+  __$$ChangeIndexEventCopyWithImpl(
+      _$ChangeIndexEvent _value, $Res Function(_$ChangeIndexEvent) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? index = null,
+  }) {
+    return _then(_$ChangeIndexEvent(
+      index: null == index
+          ? _value.index
+          : index // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ChangeIndexEvent implements ChangeIndexEvent {
+  const _$ChangeIndexEvent({required this.index});
+
+  @override
+  final int index;
+
+  @override
+  String toString() {
+    return 'ShopProductsEvent.changeIndexEvent(index: $index)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ChangeIndexEvent &&
+            (identical(other.index, index) || other.index == index));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, index);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ChangeIndexEventCopyWith<_$ChangeIndexEvent> get copyWith =>
+      __$$ChangeIndexEventCopyWithImpl<_$ChangeIndexEvent>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String endPointSlug) fetchFlashSaleProducts,
+    required TResult Function(String endPointSlug) fetchPopularProducts,
+    required TResult Function() fetchRecentProductProducts,
+    required TResult Function() fetchHomeBanners,
+    required TResult Function() fetchShopBanners,
+    required TResult Function(String searchQuery) fetchArticles,
+    required TResult Function() fetchShopByBrand,
+    required TResult Function(BuildContext context) fetchWishList,
+    required TResult Function(String query) searchProduct,
+    required TResult Function(String productId, BuildContext context)
+        addWishListEvent,
+    required TResult Function(String productId, BuildContext context)
+        removeWishlistEvent,
+    required TResult Function(String brandName) fetchShopByBrandProducts,
+    required TResult Function(int index) tabIndexChangeEvent,
+    required TResult Function(
+            BuildContext context,
+            int totalPrice,
+            String pickupLocation,
+            int quantity,
+            int totalDiscount,
+            int shippingCharges,
+            int weight,
+            String id)
+        postOrders,
+    required TResult Function(BuildContext context) fetchOrders,
+    required TResult Function(BuildContext context, int id) fetchOrdersById,
+    required TResult Function(BuildContext context, String filterName)
+        fetchOrdersbyFilterEvent,
+    required TResult Function(BuildContext context, int shiprockeId)
+        cancelOrder,
+    required TResult Function(BuildContext context, int shiprockeId)
+        returnOrder,
+    required TResult Function() fetchShopHomeBackgroundCard,
+    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
+    required TResult Function() fetchShopHomeBackgroundCardSunnah,
+    required TResult Function() fetchShopAdBrands,
+    required TResult Function() fetchTopBrands,
+    required TResult Function() fetchProductItemsSubcategorySunnah,
+    required TResult Function() fetchProductItemsSubcategoryHealth,
+    required TResult Function() fetchProductItemsSubcategoryWomen,
+    required TResult Function(int index) changeShopBannerIndex,
+    required TResult Function(int index) changeBrandBannerIndex,
+    required TResult Function() showOrderProgressEvent,
+    required TResult Function(int index) indexChangeOnOrderProgress,
+    required TResult Function(int index) indexChangeOnWomensCareBanner,
+    required TResult Function(String id) fetchShopAdBrandsById,
+    required TResult Function(int index) savePaymentMethodType,
+    required TResult Function() fetchProductItemsbyCategory,
+    required TResult Function(String slug) fetchSpecificCategeryItems,
+    required TResult Function(String id) fetchProductsById,
+    required TResult Function(String brandId) fetchBrandProducts,
+    required TResult Function() fetchCoupons,
+    required TResult Function(bool value) isPromoCodeAvailable,
+    required TResult Function(int index) changeIndexEvent,
+  }) {
+    return changeIndexEvent(index);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String endPointSlug)? fetchFlashSaleProducts,
+    TResult? Function(String endPointSlug)? fetchPopularProducts,
+    TResult? Function()? fetchRecentProductProducts,
+    TResult? Function()? fetchHomeBanners,
+    TResult? Function()? fetchShopBanners,
+    TResult? Function(String searchQuery)? fetchArticles,
+    TResult? Function()? fetchShopByBrand,
+    TResult? Function(BuildContext context)? fetchWishList,
+    TResult? Function(String query)? searchProduct,
+    TResult? Function(String productId, BuildContext context)? addWishListEvent,
+    TResult? Function(String productId, BuildContext context)?
+        removeWishlistEvent,
+    TResult? Function(String brandName)? fetchShopByBrandProducts,
+    TResult? Function(int index)? tabIndexChangeEvent,
+    TResult? Function(
+            BuildContext context,
+            int totalPrice,
+            String pickupLocation,
+            int quantity,
+            int totalDiscount,
+            int shippingCharges,
+            int weight,
+            String id)?
+        postOrders,
+    TResult? Function(BuildContext context)? fetchOrders,
+    TResult? Function(BuildContext context, int id)? fetchOrdersById,
+    TResult? Function(BuildContext context, String filterName)?
+        fetchOrdersbyFilterEvent,
+    TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
+    TResult? Function()? fetchShopHomeBackgroundCard,
+    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
+    TResult? Function()? fetchShopHomeBackgroundCardSunnah,
+    TResult? Function()? fetchShopAdBrands,
+    TResult? Function()? fetchTopBrands,
+    TResult? Function()? fetchProductItemsSubcategorySunnah,
+    TResult? Function()? fetchProductItemsSubcategoryHealth,
+    TResult? Function()? fetchProductItemsSubcategoryWomen,
+    TResult? Function(int index)? changeShopBannerIndex,
+    TResult? Function(int index)? changeBrandBannerIndex,
+    TResult? Function()? showOrderProgressEvent,
+    TResult? Function(int index)? indexChangeOnOrderProgress,
+    TResult? Function(int index)? indexChangeOnWomensCareBanner,
+    TResult? Function(String id)? fetchShopAdBrandsById,
+    TResult? Function(int index)? savePaymentMethodType,
+    TResult? Function()? fetchProductItemsbyCategory,
+    TResult? Function(String slug)? fetchSpecificCategeryItems,
+    TResult? Function(String id)? fetchProductsById,
+    TResult? Function(String brandId)? fetchBrandProducts,
+    TResult? Function()? fetchCoupons,
+    TResult? Function(bool value)? isPromoCodeAvailable,
+    TResult? Function(int index)? changeIndexEvent,
+  }) {
+    return changeIndexEvent?.call(index);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String endPointSlug)? fetchFlashSaleProducts,
+    TResult Function(String endPointSlug)? fetchPopularProducts,
+    TResult Function()? fetchRecentProductProducts,
+    TResult Function()? fetchHomeBanners,
+    TResult Function()? fetchShopBanners,
+    TResult Function(String searchQuery)? fetchArticles,
+    TResult Function()? fetchShopByBrand,
+    TResult Function(BuildContext context)? fetchWishList,
+    TResult Function(String query)? searchProduct,
+    TResult Function(String productId, BuildContext context)? addWishListEvent,
+    TResult Function(String productId, BuildContext context)?
+        removeWishlistEvent,
+    TResult Function(String brandName)? fetchShopByBrandProducts,
+    TResult Function(int index)? tabIndexChangeEvent,
+    TResult Function(
+            BuildContext context,
+            int totalPrice,
+            String pickupLocation,
+            int quantity,
+            int totalDiscount,
+            int shippingCharges,
+            int weight,
+            String id)?
+        postOrders,
+    TResult Function(BuildContext context)? fetchOrders,
+    TResult Function(BuildContext context, int id)? fetchOrdersById,
+    TResult Function(BuildContext context, String filterName)?
+        fetchOrdersbyFilterEvent,
+    TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult Function(BuildContext context, int shiprockeId)? returnOrder,
+    TResult Function()? fetchShopHomeBackgroundCard,
+    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
+    TResult Function()? fetchShopHomeBackgroundCardSunnah,
+    TResult Function()? fetchShopAdBrands,
+    TResult Function()? fetchTopBrands,
+    TResult Function()? fetchProductItemsSubcategorySunnah,
+    TResult Function()? fetchProductItemsSubcategoryHealth,
+    TResult Function()? fetchProductItemsSubcategoryWomen,
+    TResult Function(int index)? changeShopBannerIndex,
+    TResult Function(int index)? changeBrandBannerIndex,
+    TResult Function()? showOrderProgressEvent,
+    TResult Function(int index)? indexChangeOnOrderProgress,
+    TResult Function(int index)? indexChangeOnWomensCareBanner,
+    TResult Function(String id)? fetchShopAdBrandsById,
+    TResult Function(int index)? savePaymentMethodType,
+    TResult Function()? fetchProductItemsbyCategory,
+    TResult Function(String slug)? fetchSpecificCategeryItems,
+    TResult Function(String id)? fetchProductsById,
+    TResult Function(String brandId)? fetchBrandProducts,
+    TResult Function()? fetchCoupons,
+    TResult Function(bool value)? isPromoCodeAvailable,
+    TResult Function(int index)? changeIndexEvent,
+    required TResult orElse(),
+  }) {
+    if (changeIndexEvent != null) {
+      return changeIndexEvent(index);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FetchFlashSaleProducts value)
+        fetchFlashSaleProducts,
+    required TResult Function(FetchPopularProducts value) fetchPopularProducts,
+    required TResult Function(FetchRecentProductProducts value)
+        fetchRecentProductProducts,
+    required TResult Function(FetchHomeBanners value) fetchHomeBanners,
+    required TResult Function(FetchShopBanners value) fetchShopBanners,
+    required TResult Function(FetchArticles value) fetchArticles,
+    required TResult Function(FetchShopByBrand value) fetchShopByBrand,
+    required TResult Function(FetchWishList value) fetchWishList,
+    required TResult Function(SearchProduct value) searchProduct,
+    required TResult Function(AddWishListEvent value) addWishListEvent,
+    required TResult Function(RemoveWishlistEvent value) removeWishlistEvent,
+    required TResult Function(FetchShopByBrandProducts value)
+        fetchShopByBrandProducts,
+    required TResult Function(TabIndexChangeEvent value) tabIndexChangeEvent,
+    required TResult Function(PostOrders value) postOrders,
+    required TResult Function(FetchOrders value) fetchOrders,
+    required TResult Function(FetchOrdersById value) fetchOrdersById,
+    required TResult Function(FetchOrdersbyFilterEvent value)
+        fetchOrdersbyFilterEvent,
+    required TResult Function(CancelOrder value) cancelOrder,
+    required TResult Function(ReturnOrder value) returnOrder,
+    required TResult Function(FetchShopHomeBackgroundCard value)
+        fetchShopHomeBackgroundCard,
+    required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
+        fetchShopHomeBackgroundCardHelthyDiet,
+    required TResult Function(FetchShopHomeBackgroundCardSunnah value)
+        fetchShopHomeBackgroundCardSunnah,
+    required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
+    required TResult Function(FetchTopBrands value) fetchTopBrands,
+    required TResult Function(FetchProductItemsSubcategorySunnah value)
+        fetchProductItemsSubcategorySunnah,
+    required TResult Function(FetchProductItemsSubcategoryHealth value)
+        fetchProductItemsSubcategoryHealth,
+    required TResult Function(FetchProductItemsSubcategoryWomen value)
+        fetchProductItemsSubcategoryWomen,
+    required TResult Function(ChangeShopBannerIndex value)
+        changeShopBannerIndex,
+    required TResult Function(ChangeBrandBannerIndex value)
+        changeBrandBannerIndex,
+    required TResult Function(ShowOrderProgressEvent value)
+        showOrderProgressEvent,
+    required TResult Function(IndexChangeOnOrderProgress value)
+        indexChangeOnOrderProgress,
+    required TResult Function(IndexChangeOnWomensCareBanner value)
+        indexChangeOnWomensCareBanner,
+    required TResult Function(FetchShopAdBrandsById value)
+        fetchShopAdBrandsById,
+    required TResult Function(SavePaymentMethodType value)
+        savePaymentMethodType,
+    required TResult Function(FetchProductItemsbyCategory value)
+        fetchProductItemsbyCategory,
+    required TResult Function(FetchSpecificCategeryItems value)
+        fetchSpecificCategeryItems,
+    required TResult Function(FetchProductsById value) fetchProductsById,
+    required TResult Function(FetchBrandProducts value) fetchBrandProducts,
+    required TResult Function(FetchCoupons value) fetchCoupons,
+    required TResult Function(IsPromoCodeAvailable value) isPromoCodeAvailable,
+    required TResult Function(ChangeIndexEvent value) changeIndexEvent,
+  }) {
+    return changeIndexEvent(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(FetchFlashSaleProducts value)? fetchFlashSaleProducts,
+    TResult? Function(FetchPopularProducts value)? fetchPopularProducts,
+    TResult? Function(FetchRecentProductProducts value)?
+        fetchRecentProductProducts,
+    TResult? Function(FetchHomeBanners value)? fetchHomeBanners,
+    TResult? Function(FetchShopBanners value)? fetchShopBanners,
+    TResult? Function(FetchArticles value)? fetchArticles,
+    TResult? Function(FetchShopByBrand value)? fetchShopByBrand,
+    TResult? Function(FetchWishList value)? fetchWishList,
+    TResult? Function(SearchProduct value)? searchProduct,
+    TResult? Function(AddWishListEvent value)? addWishListEvent,
+    TResult? Function(RemoveWishlistEvent value)? removeWishlistEvent,
+    TResult? Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
+    TResult? Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
+    TResult? Function(PostOrders value)? postOrders,
+    TResult? Function(FetchOrders value)? fetchOrders,
+    TResult? Function(FetchOrdersById value)? fetchOrdersById,
+    TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
+    TResult? Function(CancelOrder value)? cancelOrder,
+    TResult? Function(ReturnOrder value)? returnOrder,
+    TResult? Function(FetchShopHomeBackgroundCard value)?
+        fetchShopHomeBackgroundCard,
+    TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
+        fetchShopHomeBackgroundCardHelthyDiet,
+    TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
+        fetchShopHomeBackgroundCardSunnah,
+    TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
+    TResult? Function(FetchTopBrands value)? fetchTopBrands,
+    TResult? Function(FetchProductItemsSubcategorySunnah value)?
+        fetchProductItemsSubcategorySunnah,
+    TResult? Function(FetchProductItemsSubcategoryHealth value)?
+        fetchProductItemsSubcategoryHealth,
+    TResult? Function(FetchProductItemsSubcategoryWomen value)?
+        fetchProductItemsSubcategoryWomen,
+    TResult? Function(ChangeShopBannerIndex value)? changeShopBannerIndex,
+    TResult? Function(ChangeBrandBannerIndex value)? changeBrandBannerIndex,
+    TResult? Function(ShowOrderProgressEvent value)? showOrderProgressEvent,
+    TResult? Function(IndexChangeOnOrderProgress value)?
+        indexChangeOnOrderProgress,
+    TResult? Function(IndexChangeOnWomensCareBanner value)?
+        indexChangeOnWomensCareBanner,
+    TResult? Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
+    TResult? Function(SavePaymentMethodType value)? savePaymentMethodType,
+    TResult? Function(FetchProductItemsbyCategory value)?
+        fetchProductItemsbyCategory,
+    TResult? Function(FetchSpecificCategeryItems value)?
+        fetchSpecificCategeryItems,
+    TResult? Function(FetchProductsById value)? fetchProductsById,
+    TResult? Function(FetchBrandProducts value)? fetchBrandProducts,
+    TResult? Function(FetchCoupons value)? fetchCoupons,
+    TResult? Function(IsPromoCodeAvailable value)? isPromoCodeAvailable,
+    TResult? Function(ChangeIndexEvent value)? changeIndexEvent,
+  }) {
+    return changeIndexEvent?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FetchFlashSaleProducts value)? fetchFlashSaleProducts,
+    TResult Function(FetchPopularProducts value)? fetchPopularProducts,
+    TResult Function(FetchRecentProductProducts value)?
+        fetchRecentProductProducts,
+    TResult Function(FetchHomeBanners value)? fetchHomeBanners,
+    TResult Function(FetchShopBanners value)? fetchShopBanners,
+    TResult Function(FetchArticles value)? fetchArticles,
+    TResult Function(FetchShopByBrand value)? fetchShopByBrand,
+    TResult Function(FetchWishList value)? fetchWishList,
+    TResult Function(SearchProduct value)? searchProduct,
+    TResult Function(AddWishListEvent value)? addWishListEvent,
+    TResult Function(RemoveWishlistEvent value)? removeWishlistEvent,
+    TResult Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
+    TResult Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
+    TResult Function(PostOrders value)? postOrders,
+    TResult Function(FetchOrders value)? fetchOrders,
+    TResult Function(FetchOrdersById value)? fetchOrdersById,
+    TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
+    TResult Function(CancelOrder value)? cancelOrder,
+    TResult Function(ReturnOrder value)? returnOrder,
+    TResult Function(FetchShopHomeBackgroundCard value)?
+        fetchShopHomeBackgroundCard,
+    TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
+        fetchShopHomeBackgroundCardHelthyDiet,
+    TResult Function(FetchShopHomeBackgroundCardSunnah value)?
+        fetchShopHomeBackgroundCardSunnah,
+    TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
+    TResult Function(FetchTopBrands value)? fetchTopBrands,
+    TResult Function(FetchProductItemsSubcategorySunnah value)?
+        fetchProductItemsSubcategorySunnah,
+    TResult Function(FetchProductItemsSubcategoryHealth value)?
+        fetchProductItemsSubcategoryHealth,
+    TResult Function(FetchProductItemsSubcategoryWomen value)?
+        fetchProductItemsSubcategoryWomen,
+    TResult Function(ChangeShopBannerIndex value)? changeShopBannerIndex,
+    TResult Function(ChangeBrandBannerIndex value)? changeBrandBannerIndex,
+    TResult Function(ShowOrderProgressEvent value)? showOrderProgressEvent,
+    TResult Function(IndexChangeOnOrderProgress value)?
+        indexChangeOnOrderProgress,
+    TResult Function(IndexChangeOnWomensCareBanner value)?
+        indexChangeOnWomensCareBanner,
+    TResult Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
+    TResult Function(SavePaymentMethodType value)? savePaymentMethodType,
+    TResult Function(FetchProductItemsbyCategory value)?
+        fetchProductItemsbyCategory,
+    TResult Function(FetchSpecificCategeryItems value)?
+        fetchSpecificCategeryItems,
+    TResult Function(FetchProductsById value)? fetchProductsById,
+    TResult Function(FetchBrandProducts value)? fetchBrandProducts,
+    TResult Function(FetchCoupons value)? fetchCoupons,
+    TResult Function(IsPromoCodeAvailable value)? isPromoCodeAvailable,
+    TResult Function(ChangeIndexEvent value)? changeIndexEvent,
+    required TResult orElse(),
+  }) {
+    if (changeIndexEvent != null) {
+      return changeIndexEvent(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ChangeIndexEvent implements ShopProductsEvent {
+  const factory ChangeIndexEvent({required final int index}) =
+      _$ChangeIndexEvent;
+
+  int get index;
+  @JsonKey(ignore: true)
+  _$$ChangeIndexEventCopyWith<_$ChangeIndexEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -17010,6 +18431,7 @@ mixin _$ShopProductsState {
   ProductModel? get brandProductsModel => throw _privateConstructorUsedError;
   CouponModel? get couponModel => throw _privateConstructorUsedError;
   bool get isPromoCodeAvailable => throw _privateConstructorUsedError;
+  int get indexVal => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ShopProductsStateCopyWith<ShopProductsState> get copyWith =>
@@ -17068,7 +18490,8 @@ abstract class $ShopProductsStateCopyWith<$Res> {
       ProductByIdModel? productByIdModel,
       ProductModel? brandProductsModel,
       CouponModel? couponModel,
-      bool isPromoCodeAvailable});
+      bool isPromoCodeAvailable,
+      int indexVal});
 
   $ShopProductsCopyWith<$Res>? get flashSaleproducts;
   $ShopProductsCopyWith<$Res>? get popularProducts;
@@ -17160,6 +18583,7 @@ class _$ShopProductsStateCopyWithImpl<$Res, $Val extends ShopProductsState>
     Object? brandProductsModel = freezed,
     Object? couponModel = freezed,
     Object? isPromoCodeAvailable = null,
+    Object? indexVal = null,
   }) {
     return _then(_value.copyWith(
       flashSaleproducts: freezed == flashSaleproducts
@@ -17348,6 +18772,10 @@ class _$ShopProductsStateCopyWithImpl<$Res, $Val extends ShopProductsState>
           ? _value.isPromoCodeAvailable
           : isPromoCodeAvailable // ignore: cast_nullable_to_non_nullable
               as bool,
+      indexVal: null == indexVal
+          ? _value.indexVal
+          : indexVal // ignore: cast_nullable_to_non_nullable
+              as int,
     ) as $Val);
   }
 
@@ -17713,7 +19141,8 @@ abstract class _$$_InitialCopyWith<$Res>
       ProductByIdModel? productByIdModel,
       ProductModel? brandProductsModel,
       CouponModel? couponModel,
-      bool isPromoCodeAvailable});
+      bool isPromoCodeAvailable,
+      int indexVal});
 
   @override
   $ShopProductsCopyWith<$Res>? get flashSaleproducts;
@@ -17826,6 +19255,7 @@ class __$$_InitialCopyWithImpl<$Res>
     Object? brandProductsModel = freezed,
     Object? couponModel = freezed,
     Object? isPromoCodeAvailable = null,
+    Object? indexVal = null,
   }) {
     return _then(_$_Initial(
       flashSaleproducts: freezed == flashSaleproducts
@@ -18014,6 +19444,10 @@ class __$$_InitialCopyWithImpl<$Res>
           ? _value.isPromoCodeAvailable
           : isPromoCodeAvailable // ignore: cast_nullable_to_non_nullable
               as bool,
+      indexVal: null == indexVal
+          ? _value.indexVal
+          : indexVal // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -18066,7 +19500,8 @@ class _$_Initial implements _Initial {
       required this.productByIdModel,
       required this.brandProductsModel,
       required this.couponModel,
-      required this.isPromoCodeAvailable})
+      required this.isPromoCodeAvailable,
+      required this.indexVal})
       : _articles = articles,
         _wishListItems = wishListItems;
 
@@ -18177,10 +19612,12 @@ class _$_Initial implements _Initial {
   final CouponModel? couponModel;
   @override
   final bool isPromoCodeAvailable;
+  @override
+  final int indexVal;
 
   @override
   String toString() {
-    return 'ShopProductsState(flashSaleproducts: $flashSaleproducts, flashSaleLoading: $flashSaleLoading, popularProducts: $popularProducts, popularProductLoading: $popularProductLoading, recentProducts: $recentProducts, recentProductLoading: $recentProductLoading, homeBanner: $homeBanner, bannersLoading: $bannersLoading, shopBanner: $shopBanner, shopBannerLoading: $shopBannerLoading, articles: $articles, articleLoading: $articleLoading, isLoading: $isLoading, shopBrandModel: $shopBrandModel, wishList: $wishList, wishListMessage: $wishListMessage, wishListItems: $wishListItems, searchProducts: $searchProducts, brandProduct: $brandProduct, index: $index, isWishListed: $isWishListed, orderModel: $orderModel, ordersByIdModel: $ordersByIdModel, orderId: $orderId, errorMessage: $errorMessage, shopHomeBackgroundCardModelWomens: $shopHomeBackgroundCardModelWomens, shopHomeBackgroundCardModelHealthyDiet: $shopHomeBackgroundCardModelHealthyDiet, shopHomeBackgroundCardModelSunnah: $shopHomeBackgroundCardModelSunnah, shopAdBrands: $shopAdBrands, shopAdBrandsById: $shopAdBrandsById, topBrandsModel: $topBrandsModel, productItemsSubCategorySunnahModel: $productItemsSubCategorySunnahModel, productItemsSubCategoryHealthModel: $productItemsSubCategoryHealthModel, productItemsSubCategoryWomenModel: $productItemsSubCategoryWomenModel, shopBannerIndex: $shopBannerIndex, showProgress: $showProgress, brandBannerIndex: $brandBannerIndex, ordereProgressIndex: $ordereProgressIndex, womensCareBannerIndex: $womensCareBannerIndex, paymentMethod: $paymentMethod, specificCategoryModel: $specificCategoryModel, productByIdModel: $productByIdModel, brandProductsModel: $brandProductsModel, couponModel: $couponModel, isPromoCodeAvailable: $isPromoCodeAvailable)';
+    return 'ShopProductsState(flashSaleproducts: $flashSaleproducts, flashSaleLoading: $flashSaleLoading, popularProducts: $popularProducts, popularProductLoading: $popularProductLoading, recentProducts: $recentProducts, recentProductLoading: $recentProductLoading, homeBanner: $homeBanner, bannersLoading: $bannersLoading, shopBanner: $shopBanner, shopBannerLoading: $shopBannerLoading, articles: $articles, articleLoading: $articleLoading, isLoading: $isLoading, shopBrandModel: $shopBrandModel, wishList: $wishList, wishListMessage: $wishListMessage, wishListItems: $wishListItems, searchProducts: $searchProducts, brandProduct: $brandProduct, index: $index, isWishListed: $isWishListed, orderModel: $orderModel, ordersByIdModel: $ordersByIdModel, orderId: $orderId, errorMessage: $errorMessage, shopHomeBackgroundCardModelWomens: $shopHomeBackgroundCardModelWomens, shopHomeBackgroundCardModelHealthyDiet: $shopHomeBackgroundCardModelHealthyDiet, shopHomeBackgroundCardModelSunnah: $shopHomeBackgroundCardModelSunnah, shopAdBrands: $shopAdBrands, shopAdBrandsById: $shopAdBrandsById, topBrandsModel: $topBrandsModel, productItemsSubCategorySunnahModel: $productItemsSubCategorySunnahModel, productItemsSubCategoryHealthModel: $productItemsSubCategoryHealthModel, productItemsSubCategoryWomenModel: $productItemsSubCategoryWomenModel, shopBannerIndex: $shopBannerIndex, showProgress: $showProgress, brandBannerIndex: $brandBannerIndex, ordereProgressIndex: $ordereProgressIndex, womensCareBannerIndex: $womensCareBannerIndex, paymentMethod: $paymentMethod, specificCategoryModel: $specificCategoryModel, productByIdModel: $productByIdModel, brandProductsModel: $brandProductsModel, couponModel: $couponModel, isPromoCodeAvailable: $isPromoCodeAvailable, indexVal: $indexVal)';
   }
 
   @override
@@ -18271,7 +19708,8 @@ class _$_Initial implements _Initial {
             (identical(other.productByIdModel, productByIdModel) || other.productByIdModel == productByIdModel) &&
             (identical(other.brandProductsModel, brandProductsModel) || other.brandProductsModel == brandProductsModel) &&
             (identical(other.couponModel, couponModel) || other.couponModel == couponModel) &&
-            (identical(other.isPromoCodeAvailable, isPromoCodeAvailable) || other.isPromoCodeAvailable == isPromoCodeAvailable));
+            (identical(other.isPromoCodeAvailable, isPromoCodeAvailable) || other.isPromoCodeAvailable == isPromoCodeAvailable) &&
+            (identical(other.indexVal, indexVal) || other.indexVal == indexVal));
   }
 
   @override
@@ -18321,7 +19759,8 @@ class _$_Initial implements _Initial {
         productByIdModel,
         brandProductsModel,
         couponModel,
-        isPromoCodeAvailable
+        isPromoCodeAvailable,
+        indexVal
       ]);
 
   @JsonKey(ignore: true)
@@ -18383,7 +19822,8 @@ abstract class _Initial implements ShopProductsState {
       required final ProductByIdModel? productByIdModel,
       required final ProductModel? brandProductsModel,
       required final CouponModel? couponModel,
-      required final bool isPromoCodeAvailable}) = _$_Initial;
+      required final bool isPromoCodeAvailable,
+      required final int indexVal}) = _$_Initial;
 
   @override
   ShopProducts? get flashSaleproducts;
@@ -18476,6 +19916,8 @@ abstract class _Initial implements ShopProductsState {
   CouponModel? get couponModel;
   @override
   bool get isPromoCodeAvailable;
+  @override
+  int get indexVal;
   @override
   @JsonKey(ignore: true)
   _$$_InitialCopyWith<_$_Initial> get copyWith =>

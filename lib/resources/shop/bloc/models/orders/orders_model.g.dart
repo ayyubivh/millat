@@ -56,16 +56,16 @@ _$_OrderProduct _$$_OrderProductFromJson(Map<String, dynamic> json) =>
           ? null
           : Product.fromJson(json['productId'] as Map<String, dynamic>),
       quantity: json['quantity'] as int?,
-      sellingPrice: json['selling_price'] as int?,
+      sellingPrice: (json['selling_price'] as num?)?.toDouble(),
       discount: json['discount'] as int?,
       tax: json['tax'] as int?,
       size: json['size'] as String?,
       color: json['color'] as String?,
-      subTotal: json['sub_total'] as int?,
+      subTotal: (json['sub_total'] as num?)?.toDouble(),
       orderDate: json['order_date'] as String?,
       shippingStatus: json['shipping_status'] as String?,
       paymentMethod: json['payment_method'] as String?,
-      shippingCharges: json['shipping_charges'] as int?,
+      shippingCharges: (json['shipping_charges'] as num?)?.toDouble(),
       paymentStatus: json['payment_status'] as String?,
       address: json['address'] == null
           ? null
@@ -106,7 +106,7 @@ _$_Brand _$$_BrandFromJson(Map<String, dynamic> json) => _$_Brand(
       email: json['email'] as String?,
       password: json['password'] as String?,
       isActive: json['isActive'] as bool?,
-      phoneNumber: json['phoneNumber'] as int?,
+      phoneNumber: json['phoneNumber'] as String?,
       logo: json['logo'] as String?,
       coverImage: json['coverImage'] as String?,
       description: json['description'] as String?,
@@ -120,9 +120,9 @@ _$_Brand _$$_BrandFromJson(Map<String, dynamic> json) => _$_Brand(
           ?.map((e) => e as String)
           .toList(),
       GST: json['GST'] as String?,
+      role: json['role'] as String?,
       createdAt: json['createdAt'] as String?,
       updatedAt: json['updatedAt'] as String?,
-      role: json['role'] as String?,
     );
 
 Map<String, dynamic> _$$_BrandToJson(_$_Brand instance) => <String, dynamic>{
@@ -143,9 +143,9 @@ Map<String, dynamic> _$$_BrandToJson(_$_Brand instance) => <String, dynamic>{
       'category': instance.category,
       'subCategory': instance.subCategory,
       'GST': instance.GST,
+      'role': instance.role,
       'createdAt': instance.createdAt,
       'updatedAt': instance.updatedAt,
-      'role': instance.role,
     };
 
 _$_Product _$$_ProductFromJson(Map<String, dynamic> json) => _$_Product(
@@ -159,8 +159,8 @@ _$_Product _$$_ProductFromJson(Map<String, dynamic> json) => _$_Product(
       itemType: json['itemType'] as String?,
       pickupAddress: json['pickupAddress'] as String?,
       description: json['description'] as String?,
-      regularPrice: json['regularPrice'] as int?,
-      salePrice: json['salePrice'] as int?,
+      regularPrice: (json['regularPrice'] as num?)?.toDouble(),
+      salePrice: (json['salePrice'] as num?)?.toDouble(),
       discount: json['discount'] as int?,
       color: json['color'] as String?,
       images:
@@ -220,7 +220,7 @@ Map<String, dynamic> _$$_CategoryToJson(_$_Category instance) =>
 _$_Size _$$_SizeFromJson(Map<String, dynamic> json) => _$_Size(
       size: json['size'] as String?,
       stock: json['stock'] as int?,
-      price: json['price'] as int?,
+      price: (json['price'] as num?)?.toDouble(),
       sku: json['sku'] as String?,
       width: json['width'] as String?,
       height: json['height'] as String?,

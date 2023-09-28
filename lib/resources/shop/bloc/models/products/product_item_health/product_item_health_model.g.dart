@@ -14,7 +14,7 @@ _$_ProductItemsSubCategoryHealthModel
           error: json['error'] as String?,
           result: json['result'] == null
               ? null
-              : CategoryResult.fromJson(json['result'] as Map<String, dynamic>),
+              : Result.fromJson(json['result'] as Map<String, dynamic>),
         );
 
 Map<String, dynamic> _$$_ProductItemsSubCategoryHealthModelToJson(
@@ -26,35 +26,52 @@ Map<String, dynamic> _$$_ProductItemsSubCategoryHealthModelToJson(
       'result': instance.result,
     };
 
-_$_CategoryResult _$$_CategoryResultFromJson(Map<String, dynamic> json) =>
-    _$_CategoryResult(
-      items: (json['items'] as List<dynamic>?)
-          ?.map((e) => CategoryItem.fromJson(e as Map<String, dynamic>))
-          .toList(),
+_$_Result _$$_ResultFromJson(Map<String, dynamic> json) => _$_Result(
+      data: json['data'] == null
+          ? null
+          : ItemData.fromJson(json['data'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$_CategoryResultToJson(_$_CategoryResult instance) =>
-    <String, dynamic>{
-      'items': instance.items,
+Map<String, dynamic> _$$_ResultToJson(_$_Result instance) => <String, dynamic>{
+      'data': instance.data,
     };
 
-_$_CategoryItem _$$_CategoryItemFromJson(Map<String, dynamic> json) =>
-    _$_CategoryItem(
+_$_ItemData _$$_ItemDataFromJson(Map<String, dynamic> json) => _$_ItemData(
+      id: json['_id'] as String?,
+      slug: json['slug'] as String?,
+      createdAt: json['createdAt'] as String?,
+      itemList: (json['itemList'] as List<dynamic>?)
+          ?.map((e) => ItemList.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      updatedAt: json['updatedAt'] as String?,
+    );
+
+Map<String, dynamic> _$$_ItemDataToJson(_$_ItemData instance) =>
+    <String, dynamic>{
+      '_id': instance.id,
+      'slug': instance.slug,
+      'createdAt': instance.createdAt,
+      'itemList': instance.itemList,
+      'updatedAt': instance.updatedAt,
+    };
+
+_$_ItemList _$$_ItemListFromJson(Map<String, dynamic> json) => _$_ItemList(
       id: json['_id'] as String?,
       categoryId: json['categoryId'] == null
           ? null
-          : CategoryInfo.fromJson(json['categoryId'] as Map<String, dynamic>),
+          : CategoryId.fromJson(json['categoryId'] as Map<String, dynamic>),
       subCategoryId: json['subCategoryId'] == null
           ? null
-          : CategoryInfo.fromJson(
+          : SubCategoryId.fromJson(
               json['subCategoryId'] as Map<String, dynamic>),
       title: json['title'] as String?,
       image: json['image'] as String?,
       createdAt: json['createdAt'] as String?,
       updatedAt: json['updatedAt'] as String?,
+      brandId: json['brandId'] as String?,
     );
 
-Map<String, dynamic> _$$_CategoryItemToJson(_$_CategoryItem instance) =>
+Map<String, dynamic> _$$_ItemListToJson(_$_ItemList instance) =>
     <String, dynamic>{
       '_id': instance.id,
       'categoryId': instance.categoryId,
@@ -63,10 +80,11 @@ Map<String, dynamic> _$$_CategoryItemToJson(_$_CategoryItem instance) =>
       'image': instance.image,
       'createdAt': instance.createdAt,
       'updatedAt': instance.updatedAt,
+      'brandId': instance.brandId,
     };
 
-_$_CategoryInfo _$$_CategoryInfoFromJson(Map<String, dynamic> json) =>
-    _$_CategoryInfo(
+_$_CategoryId _$$_CategoryIdFromJson(Map<String, dynamic> json) =>
+    _$_CategoryId(
       id: json['_id'] as String?,
       title: json['title'] as String?,
       image: json['image'] as String?,
@@ -74,9 +92,29 @@ _$_CategoryInfo _$$_CategoryInfoFromJson(Map<String, dynamic> json) =>
       updatedAt: json['updatedAt'] as String?,
     );
 
-Map<String, dynamic> _$$_CategoryInfoToJson(_$_CategoryInfo instance) =>
+Map<String, dynamic> _$$_CategoryIdToJson(_$_CategoryId instance) =>
     <String, dynamic>{
       '_id': instance.id,
+      'title': instance.title,
+      'image': instance.image,
+      'createdAt': instance.createdAt,
+      'updatedAt': instance.updatedAt,
+    };
+
+_$_SubCategoryId _$$_SubCategoryIdFromJson(Map<String, dynamic> json) =>
+    _$_SubCategoryId(
+      id: json['_id'] as String?,
+      categoryId: json['categoryId'] as String?,
+      title: json['title'] as String?,
+      image: json['image'] as String?,
+      createdAt: json['createdAt'] as String?,
+      updatedAt: json['updatedAt'] as String?,
+    );
+
+Map<String, dynamic> _$$_SubCategoryIdToJson(_$_SubCategoryId instance) =>
+    <String, dynamic>{
+      '_id': instance.id,
+      'categoryId': instance.categoryId,
       'title': instance.title,
       'image': instance.image,
       'createdAt': instance.createdAt,

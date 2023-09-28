@@ -4,6 +4,7 @@ import 'package:millat/components/buttons/main_button.dart';
 import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/shop/bloc/models/products/products_model.dart';
 import 'package:millat/resources/shop/view/products/single_product_view.dart';
+import 'package:millat/resources/shop/view/search/search_view.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/loader.dart';
@@ -19,12 +20,14 @@ class CategoriesProductView extends StatefulWidget {
   final String? category;
   final String? subCategory;
   final String? itemId;
+  final String? itemName;
   const CategoriesProductView(
       {super.key,
       required this.category,
       required this.subCategory,
       required this.type,
-      this.itemId});
+      this.itemId,
+      this.itemName});
   final FilterType type;
 
   @override
@@ -38,7 +41,8 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
   String selectedFilter = '';
   @override
   void initState() {
-    print("category ${widget.category}------subCategory ${widget.subCategory}");
+    print(
+        "category ${widget.category}------subCategory ${widget.subCategory} ----item ==== ${widget.itemName}");
     BlocProvider.of<ShopProductsBloc>(context).add(const FetchShopBanners());
     BlocProvider.of<CategoryBloc>(context).add(const FetchSubcategories());
     widget.type == FilterType.specificCategory
@@ -61,15 +65,25 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
           backgroundColor: Colors.transparent,
           elevation: 0,
           centerTitle: false,
-          title: Text(widget.subCategory.toString(),
+          title: Text(
+              widget.type == FilterType.category
+                  ? widget.subCategory.toString()
+                  : widget.itemName ?? "",
               style: TextStyle(
                   color: ColorManager.blackColor, fontWeight: FontWeight.w700)),
-          actions: const [
-            ImageIcon(
-              AssetImage(
-                'assets/icons/search.png',
+          actions: [
+            GestureDetector(
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => const SearchView(),
+                ));
+              },
+              child: const ImageIcon(
+                AssetImage(
+                  'assets/icons/search.png',
+                ),
+                color: Colors.black,
               ),
-              color: Colors.black,
             ),
             kWidth20,
           ],
@@ -204,30 +218,35 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
                               itemBuilder: (context, index) {
                                 final datas =
                                     state.product?.result?.products?[index];
-                                return GestureDetector(
-                                  onTap: () {
-                                    Navigator.of(context).push(
-                                      MaterialPageRoute(
-                                        builder: (context) => SingleProductView(
-                                          id: datas.id ?? "",
+                                return datas == null
+                                    ? const Loader()
+                                    : GestureDetector(
+                                        onTap: () {
+                                          Navigator.of(context).push(
+                                            MaterialPageRoute(
+                                              builder: (context) =>
+                                                  SingleProductView(
+                                                id: datas.id ?? "",
+                                              ),
+                                            ),
+                                          );
+                                        },
+                                        child: ShopProductWidget(
+                                          color: datas.color ?? "",
+                                          size: datas.size?[0].size ?? "",
+                                          brandId: datas.brand!.id,
+                                          isWishlisted: false,
+                                          brand: datas.brand!.name.toString(),
+                                          productId: datas.id,
+                                          title: datas.title,
+                                          image: datas.images![0],
+                                          discountPrice:
+                                              datas.salePrice!.toInt(),
+                                          actualPrice:
+                                              datas.regularPrice!.toInt(),
+                                          discount: datas.discount!.toInt(),
                                         ),
-                                      ),
-                                    );
-                                  },
-                                  child: ShopProductWidget(
-                                    color: datas?.color ?? "",
-                                    size: datas?.size?[0].size ?? "",
-                                    brandId: datas?.brand!.id,
-                                    isWishlisted: false,
-                                    brand: datas?.brand!.name.toString(),
-                                    productId: datas?.id,
-                                    title: datas?.title,
-                                    image: datas?.images![0],
-                                    discountPrice: datas!.salePrice!.toInt(),
-                                    actualPrice: datas.regularPrice!.toInt(),
-                                    discount: datas.discount!.toInt(),
-                                  ),
-                                );
+                                      );
                               },
                             ),
                           )

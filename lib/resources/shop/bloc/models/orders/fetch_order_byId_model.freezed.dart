@@ -1124,7 +1124,7 @@ mixin _$Brand {
   @JsonKey(name: 'isActive')
   bool? get isActive => throw _privateConstructorUsedError;
   @JsonKey(name: 'phoneNumber')
-  int? get phoneNumber => throw _privateConstructorUsedError;
+  String? get phoneNumber => throw _privateConstructorUsedError;
   @JsonKey(name: 'logo')
   String? get logo => throw _privateConstructorUsedError;
   @JsonKey(name: 'coverImage')
@@ -1170,7 +1170,7 @@ abstract class $BrandCopyWith<$Res> {
       @JsonKey(name: 'email') String? email,
       @JsonKey(name: 'password') String? password,
       @JsonKey(name: 'isActive') bool? isActive,
-      @JsonKey(name: 'phoneNumber') int? phoneNumber,
+      @JsonKey(name: 'phoneNumber') String? phoneNumber,
       @JsonKey(name: 'logo') String? logo,
       @JsonKey(name: 'coverImage') String? coverImage,
       @JsonKey(name: 'description') String? description,
@@ -1245,7 +1245,7 @@ class _$BrandCopyWithImpl<$Res, $Val extends Brand>
       phoneNumber: freezed == phoneNumber
           ? _value.phoneNumber
           : phoneNumber // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as String?,
       logo: freezed == logo
           ? _value.logo
           : logo // ignore: cast_nullable_to_non_nullable
@@ -1318,7 +1318,7 @@ abstract class _$$_BrandCopyWith<$Res> implements $BrandCopyWith<$Res> {
       @JsonKey(name: 'email') String? email,
       @JsonKey(name: 'password') String? password,
       @JsonKey(name: 'isActive') bool? isActive,
-      @JsonKey(name: 'phoneNumber') int? phoneNumber,
+      @JsonKey(name: 'phoneNumber') String? phoneNumber,
       @JsonKey(name: 'logo') String? logo,
       @JsonKey(name: 'coverImage') String? coverImage,
       @JsonKey(name: 'description') String? description,
@@ -1389,7 +1389,7 @@ class __$$_BrandCopyWithImpl<$Res> extends _$BrandCopyWithImpl<$Res, _$_Brand>
       phoneNumber: freezed == phoneNumber
           ? _value.phoneNumber
           : phoneNumber // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as String?,
       logo: freezed == logo
           ? _value.logo
           : logo // ignore: cast_nullable_to_non_nullable
@@ -1497,7 +1497,7 @@ class _$_Brand implements _Brand {
   final bool? isActive;
   @override
   @JsonKey(name: 'phoneNumber')
-  final int? phoneNumber;
+  final String? phoneNumber;
   @override
   @JsonKey(name: 'logo')
   final String? logo;
@@ -1643,7 +1643,7 @@ abstract class _Brand implements Brand {
       @JsonKey(name: 'email') required final String? email,
       @JsonKey(name: 'password') required final String? password,
       @JsonKey(name: 'isActive') required final bool? isActive,
-      @JsonKey(name: 'phoneNumber') required final int? phoneNumber,
+      @JsonKey(name: 'phoneNumber') required final String? phoneNumber,
       @JsonKey(name: 'logo') required final String? logo,
       @JsonKey(name: 'coverImage') required final String? coverImage,
       @JsonKey(name: 'description') required final String? description,
@@ -1679,7 +1679,7 @@ abstract class _Brand implements Brand {
   bool? get isActive;
   @override
   @JsonKey(name: 'phoneNumber')
-  int? get phoneNumber;
+  String? get phoneNumber;
   @override
   @JsonKey(name: 'logo')
   String? get logo;
@@ -1738,7 +1738,7 @@ mixin _$Product {
   String? get id => throw _privateConstructorUsedError;
   @JsonKey(name: 'title')
   String? get title => throw _privateConstructorUsedError;
-  @JsonKey(name: 'brand')
+  @JsonKey(name: 'brandId')
   String? get brandId => throw _privateConstructorUsedError;
   @JsonKey(name: 'category')
   String? get category => throw _privateConstructorUsedError;
@@ -1751,11 +1751,11 @@ mixin _$Product {
   @JsonKey(name: 'description')
   String? get description => throw _privateConstructorUsedError;
   @JsonKey(name: 'regularPrice')
-  int? get regularPrice => throw _privateConstructorUsedError;
+  double? get regularPrice => throw _privateConstructorUsedError;
   @JsonKey(name: 'salePrice')
-  int? get salePrice => throw _privateConstructorUsedError;
+  double? get salePrice => throw _privateConstructorUsedError;
   @JsonKey(name: 'discount')
-  int? get discount => throw _privateConstructorUsedError;
+  double? get discount => throw _privateConstructorUsedError;
   @JsonKey(name: 'color')
   String? get color => throw _privateConstructorUsedError;
   @JsonKey(name: 'images')
@@ -1786,15 +1786,15 @@ abstract class $ProductCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: '_id') String? id,
       @JsonKey(name: 'title') String? title,
-      @JsonKey(name: 'brand') String? brandId,
+      @JsonKey(name: 'brandId') String? brandId,
       @JsonKey(name: 'category') String? category,
       @JsonKey(name: 'subcategory') String? subcategory,
       @JsonKey(name: 'itemType') String? itemType,
       @JsonKey(name: 'pickupAddress') String? pickupAddress,
       @JsonKey(name: 'description') String? description,
-      @JsonKey(name: 'regularPrice') int? regularPrice,
-      @JsonKey(name: 'salePrice') int? salePrice,
-      @JsonKey(name: 'discount') int? discount,
+      @JsonKey(name: 'regularPrice') double? regularPrice,
+      @JsonKey(name: 'salePrice') double? salePrice,
+      @JsonKey(name: 'discount') double? discount,
       @JsonKey(name: 'color') String? color,
       @JsonKey(name: 'images') List<String>? images,
       @JsonKey(name: 'size') List<Size>? size,
@@ -1874,15 +1874,15 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
       regularPrice: freezed == regularPrice
           ? _value.regularPrice
           : regularPrice // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double?,
       salePrice: freezed == salePrice
           ? _value.salePrice
           : salePrice // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double?,
       discount: freezed == discount
           ? _value.discount
           : discount // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double?,
       color: freezed == color
           ? _value.color
           : color // ignore: cast_nullable_to_non_nullable
@@ -1929,15 +1929,15 @@ abstract class _$$_ProductCopyWith<$Res> implements $ProductCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: '_id') String? id,
       @JsonKey(name: 'title') String? title,
-      @JsonKey(name: 'brand') String? brandId,
+      @JsonKey(name: 'brandId') String? brandId,
       @JsonKey(name: 'category') String? category,
       @JsonKey(name: 'subcategory') String? subcategory,
       @JsonKey(name: 'itemType') String? itemType,
       @JsonKey(name: 'pickupAddress') String? pickupAddress,
       @JsonKey(name: 'description') String? description,
-      @JsonKey(name: 'regularPrice') int? regularPrice,
-      @JsonKey(name: 'salePrice') int? salePrice,
-      @JsonKey(name: 'discount') int? discount,
+      @JsonKey(name: 'regularPrice') double? regularPrice,
+      @JsonKey(name: 'salePrice') double? salePrice,
+      @JsonKey(name: 'discount') double? discount,
       @JsonKey(name: 'color') String? color,
       @JsonKey(name: 'images') List<String>? images,
       @JsonKey(name: 'size') List<Size>? size,
@@ -2014,15 +2014,15 @@ class __$$_ProductCopyWithImpl<$Res>
       regularPrice: freezed == regularPrice
           ? _value.regularPrice
           : regularPrice // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double?,
       salePrice: freezed == salePrice
           ? _value.salePrice
           : salePrice // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double?,
       discount: freezed == discount
           ? _value.discount
           : discount // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double?,
       color: freezed == color
           ? _value.color
           : color // ignore: cast_nullable_to_non_nullable
@@ -2065,7 +2065,7 @@ class _$_Product implements _Product {
   const _$_Product(
       {@JsonKey(name: '_id') required this.id,
       @JsonKey(name: 'title') required this.title,
-      @JsonKey(name: 'brand') required this.brandId,
+      @JsonKey(name: 'brandId') required this.brandId,
       @JsonKey(name: 'category') required this.category,
       @JsonKey(name: 'subcategory') required this.subcategory,
       @JsonKey(name: 'itemType') required this.itemType,
@@ -2096,7 +2096,7 @@ class _$_Product implements _Product {
   @JsonKey(name: 'title')
   final String? title;
   @override
-  @JsonKey(name: 'brand')
+  @JsonKey(name: 'brandId')
   final String? brandId;
   @override
   @JsonKey(name: 'category')
@@ -2115,13 +2115,13 @@ class _$_Product implements _Product {
   final String? description;
   @override
   @JsonKey(name: 'regularPrice')
-  final int? regularPrice;
+  final double? regularPrice;
   @override
   @JsonKey(name: 'salePrice')
-  final int? salePrice;
+  final double? salePrice;
   @override
   @JsonKey(name: 'discount')
-  final int? discount;
+  final double? discount;
   @override
   @JsonKey(name: 'color')
   final String? color;
@@ -2257,15 +2257,15 @@ abstract class _Product implements Product {
   const factory _Product(
       {@JsonKey(name: '_id') required final String? id,
       @JsonKey(name: 'title') required final String? title,
-      @JsonKey(name: 'brand') required final String? brandId,
+      @JsonKey(name: 'brandId') required final String? brandId,
       @JsonKey(name: 'category') required final String? category,
       @JsonKey(name: 'subcategory') required final String? subcategory,
       @JsonKey(name: 'itemType') required final String? itemType,
       @JsonKey(name: 'pickupAddress') required final String? pickupAddress,
       @JsonKey(name: 'description') required final String? description,
-      @JsonKey(name: 'regularPrice') required final int? regularPrice,
-      @JsonKey(name: 'salePrice') required final int? salePrice,
-      @JsonKey(name: 'discount') required final int? discount,
+      @JsonKey(name: 'regularPrice') required final double? regularPrice,
+      @JsonKey(name: 'salePrice') required final double? salePrice,
+      @JsonKey(name: 'discount') required final double? discount,
       @JsonKey(name: 'color') required final String? color,
       @JsonKey(name: 'images') required final List<String>? images,
       @JsonKey(name: 'size') required final List<Size>? size,
@@ -2285,7 +2285,7 @@ abstract class _Product implements Product {
   @JsonKey(name: 'title')
   String? get title;
   @override
-  @JsonKey(name: 'brand')
+  @JsonKey(name: 'brandId')
   String? get brandId;
   @override
   @JsonKey(name: 'category')
@@ -2304,13 +2304,13 @@ abstract class _Product implements Product {
   String? get description;
   @override
   @JsonKey(name: 'regularPrice')
-  int? get regularPrice;
+  double? get regularPrice;
   @override
   @JsonKey(name: 'salePrice')
-  int? get salePrice;
+  double? get salePrice;
   @override
   @JsonKey(name: 'discount')
-  int? get discount;
+  double? get discount;
   @override
   @JsonKey(name: 'color')
   String? get color;
@@ -2352,7 +2352,7 @@ mixin _$Size {
   @JsonKey(name: 'stock')
   int? get stock => throw _privateConstructorUsedError;
   @JsonKey(name: 'price')
-  int? get price => throw _privateConstructorUsedError;
+  double? get price => throw _privateConstructorUsedError;
   @JsonKey(name: 'sku')
   String? get sku => throw _privateConstructorUsedError;
   @JsonKey(name: 'width')
@@ -2375,7 +2375,7 @@ abstract class $SizeCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: 'size') String? size,
       @JsonKey(name: 'stock') int? stock,
-      @JsonKey(name: 'price') int? price,
+      @JsonKey(name: 'price') double? price,
       @JsonKey(name: 'sku') String? sku,
       @JsonKey(name: 'width') String? width,
       @JsonKey(name: 'height') String? height,
@@ -2415,7 +2415,7 @@ class _$SizeCopyWithImpl<$Res, $Val extends Size>
       price: freezed == price
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double?,
       sku: freezed == sku
           ? _value.sku
           : sku // ignore: cast_nullable_to_non_nullable
@@ -2445,7 +2445,7 @@ abstract class _$$_SizeCopyWith<$Res> implements $SizeCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: 'size') String? size,
       @JsonKey(name: 'stock') int? stock,
-      @JsonKey(name: 'price') int? price,
+      @JsonKey(name: 'price') double? price,
       @JsonKey(name: 'sku') String? sku,
       @JsonKey(name: 'width') String? width,
       @JsonKey(name: 'height') String? height,
@@ -2481,7 +2481,7 @@ class __$$_SizeCopyWithImpl<$Res> extends _$SizeCopyWithImpl<$Res, _$_Size>
       price: freezed == price
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double?,
       sku: freezed == sku
           ? _value.sku
           : sku // ignore: cast_nullable_to_non_nullable
@@ -2524,7 +2524,7 @@ class _$_Size implements _Size {
   final int? stock;
   @override
   @JsonKey(name: 'price')
-  final int? price;
+  final double? price;
   @override
   @JsonKey(name: 'sku')
   final String? sku;
@@ -2580,7 +2580,7 @@ abstract class _Size implements Size {
   const factory _Size(
       {@JsonKey(name: 'size') required final String? size,
       @JsonKey(name: 'stock') required final int? stock,
-      @JsonKey(name: 'price') required final int? price,
+      @JsonKey(name: 'price') required final double? price,
       @JsonKey(name: 'sku') required final String? sku,
       @JsonKey(name: 'width') required final String? width,
       @JsonKey(name: 'height') required final String? height,
@@ -2596,7 +2596,7 @@ abstract class _Size implements Size {
   int? get stock;
   @override
   @JsonKey(name: 'price')
-  int? get price;
+  double? get price;
   @override
   @JsonKey(name: 'sku')
   String? get sku;

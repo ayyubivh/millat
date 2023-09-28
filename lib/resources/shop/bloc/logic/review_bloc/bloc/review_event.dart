@@ -19,4 +19,5 @@ class ReviewEvent with _$ReviewEvent {
     required double rating,
     required String comment,
   }) = UpdateReiview;
+  const factory ReviewEvent.expandReviewList() = ExpandReviewList;
 }

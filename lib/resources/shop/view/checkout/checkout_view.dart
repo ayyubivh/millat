@@ -176,7 +176,7 @@ class CheckoutView extends StatelessWidget {
     required BuildContext context,
   }) {
     return Container(
-      height: 200,
+      // height: 200,
       width: SizeUtility(context).width,
       padding: const EdgeInsets.all(15),
       decoration: BoxDecoration(

@@ -53,6 +53,10 @@ class ShopProductsState with _$ShopProductsState {
     required CouponModel? couponModel,
     required bool isPromoCodeAvailable,
     required int indexVal,
+    required BrandItemsModel? brandItemsModel,
+    required BrandModels? brandModels,
+    required ReasonModel? reasonModel,
+    required ArticleModelById? articleModelById,
   }) = _Initial;
 
   factory ShopProductsState.initial() => const ShopProductsState(
@@ -102,5 +106,9 @@ class ShopProductsState with _$ShopProductsState {
         brandProductsModel: null,
         couponModel: null,
         isPromoCodeAvailable: false,
+        brandItemsModel: null,
+        brandModels: null,
+        reasonModel: null,
+        articleModelById: null,
       );
 }

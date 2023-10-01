@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/resources/authentication/bloc/logic/database_bloc/database_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
 import 'package:millat/resources/shop/bloc/models/cart/cart_models.dart';
+import 'package:millat/resources/shop/view/orders/cancel_order_view.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/size_utility.dart';
@@ -14,7 +15,7 @@ import '../../../../utils/assets_paths.dart';
 import '../../bloc/logic/address_bloc/address_bloc.dart';
 import '../../bloc/logic/cart_bloc/cart_bloc.dart';
 import '../checkout/widgets/order_product_card.dart';
-import '../orders/widgets/order_return_view.dart';
+import '../orders/order_return_view.dart';
 import '../products/single_product_view.dart';
 
 class OrdetailsView extends StatelessWidget {
@@ -581,65 +582,45 @@ class OrdetailsView extends StatelessWidget {
                     color: ColorManager.greyB8,
                   ),
                 ),
-                child: Row(
-                  children: [
-                    kWidht10,
-                    orderStatus == "Delivered"
-                        ? Text(
-                            Appstrings.returnOrder,
-                            style: TextStyle(
-                              fontSize: 17,
-                              fontWeight: FontWeight.w600,
-                              color: ColorManager.redColor,
-                            ),
-                          )
-                        : Text(
-                            Appstrings.cancelOrder,
-                            style: TextStyle(
-                              fontSize: 17,
-                              fontWeight: FontWeight.w600,
-                              color: ColorManager.redColor,
-                            ),
-                          ),
-                    const Spacer(),
+                child: GestureDetector(
+                  onTap: () {
                     orderStatus == "To Ship"
-                        ? GestureDetector(
-                            onTap: () {
-                              final id = context
-                                  .read<ShopProductsBloc>()
-                                  .state
-                                  .ordersByIdModel!
-                                  .result!
-                                  .order!
-                                  .shiprocketOrderId;
-
-                              context.read<ShopProductsBloc>().add(CancelOrder(
-                                  context: context,
-                                  shiprockeId: int.parse(id!)));
-
-                              Navigator.of(context).pop();
-                              Navigator.of(context).pop();
-                            },
-                            child: Icon(
-                              Icons.arrow_forward_ios,
-                              color: ColorManager.redColor,
-                              size: 18,
+                        ? Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const CancelView(),
+                          ))
+                        : Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const OrderReturnView(),
+                          ));
+                  },
+                  child: Row(
+                    children: [
+                      kWidht10,
+                      orderStatus == "Delivered"
+                          ? Text(
+                              Appstrings.returnOrder,
+                              style: TextStyle(
+                                fontSize: 17,
+                                fontWeight: FontWeight.w600,
+                                color: ColorManager.redColor,
+                              ),
+                            )
+                          : Text(
+                              Appstrings.cancelOrder,
+                              style: TextStyle(
+                                fontSize: 17,
+                                fontWeight: FontWeight.w600,
+                                color: ColorManager.redColor,
+                              ),
                             ),
-                          )
-                        : GestureDetector(
-                            onTap: () {
-                              Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => const OrderReturnView(),
-                              ));
-                            },
-                            child: Icon(
-                              Icons.arrow_forward_ios,
-                              color: ColorManager.redColor,
-                              size: 18,
-                            ),
-                          ),
-                    kWidht10
-                  ],
+                      const Spacer(),
+                      Icon(
+                        Icons.arrow_forward_ios,
+                        color: ColorManager.redColor,
+                        size: 18,
+                      ),
+                      kWidht10
+                    ],
+                  ),
                 ),
               ),
             ],

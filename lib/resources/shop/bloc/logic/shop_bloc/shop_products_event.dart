@@ -104,4 +104,16 @@ class ShopProductsEvent with _$ShopProductsEvent {
   }) = IsPromoCodeAvailable;
   const factory ShopProductsEvent.changeIndexEvent({required int index}) =
       ChangeIndexEvent;
+  const factory ShopProductsEvent.fetchBrandItemsbyId({required String id}) =
+      FetchBrandItemsbyId;
+  const factory ShopProductsEvent.fetchAllBrandsEvent() = FetchAllBrandsEvent;
+  const factory ShopProductsEvent.fetchOrderReasons({
+    required String endpoint,
+  }) = FetchOrderReasons;
+  const factory ShopProductsEvent.addReasons({
+    required String endpoint,
+    required String text,
+  }) = AddReasons;
+  const factory ShopProductsEvent.fetchArticlesbyId({required String id}) =
+      FetchArticlesbyId;
 }

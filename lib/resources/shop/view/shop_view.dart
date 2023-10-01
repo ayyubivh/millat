@@ -6,7 +6,6 @@ import 'package:millat/components/common_widgets/build_categories_widget.dart';
 import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/shop/bloc/logic/category_bloc/category_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
-import 'package:millat/resources/shop/bloc/service/review_service.dart';
 import 'package:millat/resources/shop/view/article/articles_view.dart';
 import 'package:millat/resources/shop/view/article/single_article_view.dart';
 import 'package:millat/resources/shop/view/brand/shop_brand_view.dart';
@@ -52,10 +51,9 @@ class _ShopViewState extends State<ShopView> {
       ..add(const ShopProductsEvent.fetchProductItemsSubcategoryWomen())
       ..add(const ShopProductsEvent.fetchProductItemsSubcategoryHealth())
       ..add(ShopProductsEvent.fetchWishList(context))
-      ..add(const ShopProductsEvent.fetchCoupons());
+      ..add(const ShopProductsEvent.fetchCoupons())
+      ..add(const ShopProductsEvent.fetchAllBrandsEvent());
     cartBloc.add(FetchCartEvent(context));
-
-    BlocProvider.of<ShopProductsBloc>(context).add(const FetchTopBrands());
 
     super.initState();
   }
@@ -277,7 +275,8 @@ class _ShopViewState extends State<ShopView> {
             onTap: () {
               isSunnah
                   ? Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const ArticlesView()))
+                      builder: (context) => SingleArticleView(id: getId(index)),
+                    ))
                   : Navigator.of(context).push(MaterialPageRoute(
                       builder: (context) => CategoriesProductView(
                         itemId: getId(index),
@@ -324,15 +323,15 @@ class _ShopViewState extends State<ShopView> {
   Widget _brandsWidget() {
     return BlocBuilder<ShopProductsBloc, ShopProductsState>(
       builder: (context, state) {
-        return state.topBrandsModel?.result?.data == null
+        return state.brandModels?.result?.data == null
             ? const SizedBox()
             : SizedBox(
                 height: 100,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
-                  itemCount: state.topBrandsModel!.result!.data!.length,
+                  itemCount: state.brandModels!.result!.data!.length,
                   itemBuilder: (BuildContext context, int index) {
-                    final data = state.topBrandsModel?.result?.data?[index];
+                    final data = state.brandModels?.result?.data?[index];
                     return GestureDetector(
                       onTap: () {
                         Navigator.of(context).push(MaterialPageRoute(

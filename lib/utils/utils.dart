@@ -122,36 +122,6 @@ class Utilities {
 
     return false;
   }
-  // static bool isNamazTimeAfterOnCalendar(DateTime currentTime, String namazTime) {
-  //   List<String> timeParts = namazTime.split(':');
-
-  //   if (timeParts.length == 2) {
-  //     int hour = int.tryParse(timeParts[0]) ?? 0;
-  //     int minute = int.tryParse(timeParts[1]) ?? 0;
-  //     DateTime namazDateTime = DateTime(
-  //         currentTime.year, currentTime.month, currentTime.day, hour, minute);
-
-  //     return namazDateTime.isAfter(currentTime);
-  //   }
-
-  //   return false;
-  // }
-  // static buildCachedNetworkImage(
-  //     {String? imageUrl,
-  //     double? height,
-  //     BoxFit boxFit = BoxFit.contain,
-  //     double? width}) {
-  //   return CachedNetworkImage(
-  //     imageUrl: imageUrl!,
-  //     height: height,
-  //     width: width,
-  //     fit: boxFit,
-  //     placeholder: (context, url) => const SizedBox(),
-  //     errorWidget: (context, url, error) => const Icon(
-  //       Icons.error_outline,
-  //     ),
-  //   );
-  // }
 
   Widget buildCachedNetworkImage({
     String? imageUrl,
@@ -194,6 +164,19 @@ class Utilities {
         );
       },
     );
+  }
+
+  static Color getColorFromApiString(String apiColor) {
+    switch (apiColor.toLowerCase()) {
+      case "red":
+        return Colors.red;
+      case "blue":
+        return Colors.blue;
+      case "black":
+        return Colors.black;
+      default:
+        return Colors.black;
+    }
   }
 }
 

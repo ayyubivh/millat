@@ -5,11 +5,14 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:millat/resources/shop/bloc/models/articles/articles_model.dart';
 import 'package:millat/resources/shop/bloc/models/category/specific_category_model.dart';
 import 'package:millat/resources/shop/bloc/models/coupon_model/coupen_model.dart';
+import 'package:millat/resources/shop/bloc/models/orders/reason_model.dart';
 import 'package:millat/resources/shop/bloc/models/products/product_by_id_model.dart';
 import 'package:millat/resources/shop/bloc/models/products/products_model.dart';
 import 'package:millat/resources/shop/bloc/models/recent_products/recent_products_model.dart';
+import 'package:millat/resources/shop/bloc/models/shop_by_brand/brand_model.dart';
 import 'package:millat/resources/shop/bloc/service/orders_service.dart';
 import 'package:millat/resources/shop/bloc/service/shop_services.dart';
+import '../../models/articles/article_by_id_model.dart';
 import '../../models/banners/banners_model.dart';
 import '../../models/home_sub_category_card/home_sub_category_card_model.dart';
 import '../../models/home_sub_category_card/home_sub_category_healthy_diet.dart';
@@ -23,6 +26,7 @@ import '../../models/shop_by_brand/shop_ad_brand_by_id.dart';
 import '../../models/shop_by_brand/shop_ad_brand_model.dart';
 import '../../models/shop_by_brand/shop_by_brand_models.dart';
 import '../../models/shop_by_brand/shop_by_brand_products.dart';
+import '../../models/shop_by_brand/top_brands/brand_items_by_id_model.dart';
 import '../../models/shop_by_brand/top_brands/top_brands_model.dart';
 import '../../models/shop_products/shop_products_model.dart';
 import '../../models/wishlist/wishllist_models.dart';
@@ -76,6 +80,11 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
     on<IsPromoCodeAvailable>(_isPromoCodeAvailable);
     on<ChangeIndexEvent>(_changeIndex);
     on<ReturnOrder>(_returnOrder);
+    on<FetchBrandItemsbyId>(_fetchbrandItemsById);
+    on<FetchAllBrandsEvent>(_fetchAllBrandsEvent);
+    on<FetchOrderReasons>(_fetchOrderReasons);
+    on<AddReasons>(_addReasons);
+    on<FetchArticlesbyId>(_fetchArticlesById);
   }
 
   FutureOr<void> _fetchFlashSaleProducts(
@@ -583,5 +592,65 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
 
   _changeIndex(ChangeIndexEvent event, Emitter<ShopProductsState> emit) {
     emit(state.copyWith(indexVal: event.index));
+  }
+
+  _fetchbrandItemsById(
+      FetchBrandItemsbyId event, Emitter<ShopProductsState> emit) async {
+    emit(state.copyWith(isLoading: true));
+    try {
+      final data = await shopService.fetchBrandItemsById(id: event.id);
+      emit(state.copyWith(brandItemsModel: data, isLoading: false));
+    } catch (e) {
+      emit(state.copyWith(isLoading: false));
+    }
+  }
+
+  _fetchAllBrandsEvent(
+      FetchAllBrandsEvent event, Emitter<ShopProductsState> emit) async {
+    emit(state.copyWith(isLoading: true));
+    try {
+      final data = await shopService.fetchBrands();
+
+      emit(state.copyWith(brandModels: data, isLoading: false));
+    } catch (e) {
+      emit(state.copyWith(isLoading: false));
+    }
+  }
+
+  _fetchOrderReasons(
+      FetchOrderReasons event, Emitter<ShopProductsState> emit) async {
+    emit(state.copyWith(isLoading: true));
+    try {
+      final data = await ordersService.fetchReasons(event.endpoint);
+
+      emit(state.copyWith(reasonModel: data, isLoading: false));
+    } catch (e) {
+      emit(state.copyWith(isLoading: false));
+    }
+  }
+
+  _addReasons(AddReasons event, Emitter<ShopProductsState> emit) async {
+    emit(state.copyWith(isLoading: true));
+    try {
+      final data = await ordersService.addReason(
+          text: event.text, endPoint: event.endpoint);
+      print(data);
+      emit(state.copyWith(isLoading: false));
+    } catch (e) {
+      emit(state.copyWith(isLoading: false));
+      throw Exception(e);
+    }
+  }
+
+  _fetchArticlesById(
+      FetchArticlesbyId event, Emitter<ShopProductsState> emit) async {
+    emit(state.copyWith(isLoading: true));
+    try {
+      final data = await shopService.fetchArticleById(event.id);
+
+      emit(state.copyWith(articleModelById: data, isLoading: false));
+    } catch (e) {
+      emit(state.copyWith(isLoading: false));
+    }
   }
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
+import 'package:millat/resources/shop/bloc/models/shop_by_brand/brand_model.dart';
 import 'package:millat/resources/shop/bloc/models/shop_by_brand/top_brands/top_brands_model.dart';
 import 'package:millat/resources/shop/view/brand/single_brand_view.dart';
 import 'package:millat/utils/assets_paths.dart';
@@ -16,7 +17,9 @@ class ShopBrandView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    WidgetsBinding.instance.addPostFrameCallback((_) {});
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      BlocProvider.of<ShopProductsBloc>(context).add(const FetchTopBrands());
+    });
     return Scaffold(
       body: SingleChildScrollView(
         physics: const ClampingScrollPhysics(),
@@ -44,7 +47,7 @@ class ShopBrandView extends StatelessWidget {
   Widget _brandsListPart() {
     return BlocBuilder<ShopProductsBloc, ShopProductsState>(
       builder: (context, state) {
-        if (state.topBrandsModel?.result?.data == null) {
+        if (state.brandModels?.result?.data == null) {
           return const SizedBox();
         }
         return Column(
@@ -52,9 +55,9 @@ class ShopBrandView extends StatelessWidget {
             ListView.builder(
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
-              itemCount: state.topBrandsModel!.result?.data?.length,
+              itemCount: state.brandModels!.result?.data?.length,
               itemBuilder: (context, index) {
-                final data = state.topBrandsModel!.result?.data?[index];
+                final data = state.brandModels!.result?.data?[index];
 
                 return GestureDetector(
                   onTap: () {
@@ -62,8 +65,7 @@ class ShopBrandView extends StatelessWidget {
                       builder: (context) => SingleBrandView(passValue: data),
                     ));
                   },
-                  child: brandTileContainer(
-                      context, state.topBrandsModel!.result!.data![index]),
+                  child: brandTileContainer(context, data),
                 );
               },
             ),
@@ -103,16 +105,17 @@ class ShopBrandView extends StatelessWidget {
                 return const Loader();
               }
               return GridView.builder(
-                itemCount: state.topBrandsModel!.result?.data?.length,
+                itemCount:
+                    state.topBrandsModel!.result?.data?.topBrands?.length,
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 4,
                   mainAxisSpacing: 4,
                 ),
                 itemBuilder: (context, index) {
-                  final data = state.topBrandsModel?.result?.data?[index];
+                  final data =
+                      state.topBrandsModel?.result?.data?.topBrands?[index];
                   return GestureDetector(
                     onTap: () {
-                      print("here is the id ${data?.subCategory?[0]}");
                       Navigator.of(context).push(MaterialPageRoute(
                         builder: (context) => SingleBrandView(passValue: data),
                       ));
@@ -174,80 +177,91 @@ class ShopBrandView extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           BackButton(color: ColorManager.whiteColor),
-          Align(
-            alignment: Alignment.center,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Text(
-                  Appstrings.thousandBrands,
-                  style: TextStyle(
-                    fontSize: 31,
-                    fontWeight: FontWeight.w700,
-                    color: ColorManager.whiteColor,
-                  ),
-                  textAlign: TextAlign.center,
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text(
+                Appstrings.thousandBrands,
+                style: TextStyle(
+                  fontSize: 31,
+                  fontWeight: FontWeight.w700,
+                  color: ColorManager.whiteColor,
                 ),
-                kHeight8,
-                Text(
-                  Appstrings.brandDescription,
-                  style: TextStyle(
-                    fontSize: 15,
-                    fontWeight: FontWeight.w600,
-                    color: ColorManager.whiteColor,
-                    height: 1.2,
-                  ),
-                  textAlign: TextAlign.center,
+                textAlign: TextAlign.center,
+              ),
+              kHeight8,
+              Text(
+                Appstrings.brandDescription,
+                style: TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.w600,
+                  color: ColorManager.whiteColor,
+                  height: 1.2,
                 ),
-                kHeight15,
-                SizedBox(
-                  width: SizeUtility(context).width,
-                  child: Stack(
-                    children: [
-                      Image.asset(
-                        'assets/dummy/huda.png',
+                textAlign: TextAlign.center,
+              ),
+              kHeight15,
+              SizedBox(
+                width: SizeUtility(context).width,
+                child: Stack(
+                  children: [
+                    Image.asset(
+                      'assets/dummy/huda.png',
+                      height: 90,
+                    ),
+                    Positioned(
+                      left: 70,
+                      child: Image.asset(
+                        'assets/dummy/kazima.png',
                         height: 90,
                       ),
-                      Positioned(
-                        left: 70,
-                        child: Image.asset(
-                          'assets/dummy/kazima.png',
-                          height: 90,
-                        ),
+                    ),
+                    Positioned(
+                      left: 135,
+                      child: Image.asset(
+                        'assets/dummy/two_brothers.png',
+                        height: 90,
                       ),
-                      Positioned(
-                        left: 135,
-                        child: Image.asset(
-                          'assets/dummy/two_brothers.png',
-                          height: 90,
-                        ),
+                    ),
+                    Positioned(
+                      left: 210,
+                      child: Image.asset(
+                        'assets/dummy/isak.png',
+                        height: 90,
                       ),
-                      Positioned(
-                        left: 210,
-                        child: Image.asset(
-                          'assets/dummy/isak.png',
-                          height: 90,
-                        ),
+                    ),
+                    Positioned(
+                      left: 280,
+                      child: Image.asset(
+                        'assets/dummy/farsali_2.png',
+                        height: 90,
                       ),
-                      Positioned(
-                        left: 280,
-                        child: Image.asset(
-                          'assets/dummy/farsali_2.png',
-                          height: 90,
-                        ),
+                    ),
+                    Positioned(
+                      left: 355,
+                      child: Image.asset(
+                        'assets/dummy/kazima.png',
+                        height: 90,
                       ),
-                    ],
-                  ),
+                    ),
+                    // Positioned(
+                    //   left: 380,
+                    //   child: Image.asset(
+                    //     'assets/dummy/two_brothers.png',
+                    //     height: 90,
+                    //   ),
+                    // ),
+                  ],
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ],
       ),
     );
   }
 
-  Widget brandTileContainer(BuildContext context, Data data) {
+  Widget brandTileContainer(BuildContext context, BrandData? data) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 10),
       child: Column(
@@ -262,7 +276,7 @@ class ShopBrandView extends StatelessWidget {
               borderRadius: BorderRadius.circular(21),
               child: Stack(
                 children: [
-                  data.coverImage == null || data.coverImage!.isEmpty
+                  data == null || data.coverImage!.isEmpty
                       ? Container(
                           height: 209,
                           width: double.infinity,
@@ -300,7 +314,7 @@ class ShopBrandView extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            data.brandName ?? "",
+                            data?.brandName ?? "",
                             style: TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.w600,
@@ -343,10 +357,10 @@ class ShopBrandView extends StatelessWidget {
                           shape: BoxShape.circle),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(30),
-                        child: data.logo == null
+                        child: data?.logo == null
                             ? const Icon(Icons.image_not_supported_outlined)
                             : Utilities()
-                                .buildCachedNetworkImage(imageUrl: data.logo),
+                                .buildCachedNetworkImage(imageUrl: data?.logo),
                       ),
                     ),
                   )
@@ -356,7 +370,7 @@ class ShopBrandView extends StatelessWidget {
           ),
           kHeight10,
           Text(
-            data.description ?? "Empty",
+            data?.description ?? "Empty",
             style: const TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.bold,

@@ -275,7 +275,7 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
                                         crossAxisCount: 2,
                                         crossAxisSpacing: 20,
                                         mainAxisSpacing: 20,
-                                        mainAxisExtent: 250,
+                                        mainAxisExtent: 260,
                                       ),
                                       itemCount: filteredProducts.length,
                                       itemBuilder: (context, index) {

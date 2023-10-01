@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/shop/bloc/logic/address_bloc/address_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
 import 'package:millat/resources/shop/view/orders/widgets/order_returned_succesfully.dart';
@@ -313,7 +314,8 @@ class OrderRetunDetailView extends StatelessWidget {
               context.read<ShopProductsBloc>().add(
                   ReturnOrder(context: context, shiprockeId: int.parse(id!)));
               Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => const OrderReturnSuccessView(),
+                builder: (context) => const OrderReturnSuccessView(
+                    orderType: OrderType.returnOrder),
               ));
             },
           ),

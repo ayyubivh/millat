@@ -148,7 +148,7 @@ class ArticlesView extends StatelessWidget {
                         onTap: () {
                           Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) => SingleArticleView(
-                              passValue: data,
+                              id: data.id,
                             ),
                           ));
                         },

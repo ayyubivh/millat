@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
 import 'package:millat/resources/shop/view/tabs/shop_tabs_vilew.dart';
 import 'package:millat/utils/assets_paths.dart';
@@ -11,7 +12,8 @@ import 'package:millat/utils/string_constants.dart';
 import '../../../../../components/buttons/main_button.dart';
 
 class OrderReturnSuccessView extends StatelessWidget {
-  const OrderReturnSuccessView({super.key});
+  final OrderType orderType;
+  const OrderReturnSuccessView({super.key, required this.orderType});
 
   @override
   Widget build(BuildContext context) {
@@ -25,23 +27,27 @@ class OrderReturnSuccessView extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Image.asset(AppAssetsStrings.orderSuccessImg),
-                    const Text(
-                      'Returned Successfully',
-                      style: TextStyle(
+                    Text(
+                      orderType == OrderType.returnOrder
+                          ? 'Returned Successfully'
+                          : 'Cancel Successfully',
+                      style: const TextStyle(
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                     kHeight16,
-                    Text(
-                      'Your return request is sent successfully, Estimated date for return is by 18th August',
-                      style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w500,
-                        color: ColorManager.lightBlackColor,
-                      ),
-                      textAlign: TextAlign.center,
-                    )
+                    orderType == OrderType.returnOrder
+                        ? Text(
+                            'Your return request is sent successfully, Estimated date for return is by 18th August',
+                            style: TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w500,
+                              color: ColorManager.lightBlackColor,
+                            ),
+                            textAlign: TextAlign.center,
+                          )
+                        : const SizedBox()
                   ],
                 ),
               ),

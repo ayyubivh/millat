@@ -57,6 +57,7 @@ class ShopProductsState with _$ShopProductsState {
     required BrandModels? brandModels,
     required ReasonModel? reasonModel,
     required ArticleModelById? articleModelById,
+    required ProductModel? productModel,
   }) = _Initial;
 
   factory ShopProductsState.initial() => const ShopProductsState(
@@ -83,6 +84,7 @@ class ShopProductsState with _$ShopProductsState {
         brandProduct: null,
         index: 0,
         ordersByIdModel: null,
+        productModel: null,
         orderModel: null,
         isWishListed: false,
         isLoading: false,

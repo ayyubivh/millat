@@ -25,8 +25,7 @@ class SingleProductView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      context.read<ShopProductsBloc>().add(const FetchFlashSaleProducts(
-          endPointSlug: "shop_product_category?slug=flash_sales"));
+      context.read<ShopProductsBloc>().add(const FetchProducts());
       BlocProvider.of<ShopProductsBloc>(context).add(FetchProductsById(id: id));
       BlocProvider.of<ReviewBloc>(context)
           .add(ReviewEvent.fetchRatingEvent(id: id, context: context));
@@ -129,23 +128,23 @@ class SingleProductView extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          data?.title ?? "",
+                          data.title ?? "",
                           style: const TextStyle(
                             fontSize: 22,
                             fontWeight: FontWeight.w600,
                             height: 2,
                           ),
                         ),
-                        Text('${data?.regularPrice} ₹',
+                        Text('${data.regularPrice} ₹',
                             style: const TextStyle(
                                 color: black60,
                                 fontSize: 17,
                                 decoration: TextDecoration.lineThrough,
                                 height: 1.5)),
-                        Text(data?.brand?.name ?? 'null',
+                        Text(data.brand?.name ?? 'null',
                             style: const TextStyle(
                                 color: black60, fontSize: 17, height: 1.5)),
-                        Text('${data?.salePrice} ₹',
+                        Text('${data.salePrice} ₹',
                             style: TextStyle(
                                 color: ColorManager.greenColor1,
                                 fontSize: 22,
@@ -373,13 +372,13 @@ class SingleProductView extends StatelessWidget {
                         ),
                         kHeight20,
                         Text(
-                          data?.description ?? "",
+                          data.description ?? "",
                           style: TextStyle(
                               fontSize: 16, color: ColorManager.textGrey99),
                         ),
                         kHeight20,
                         Text(
-                          'Made of: ${data?.madeFrom ?? ""}',
+                          'Made of: ${data.madeFrom ?? ""}',
                           style: TextStyle(
                               fontWeight: FontWeight.w600,
                               fontSize: 17,
@@ -387,7 +386,7 @@ class SingleProductView extends StatelessWidget {
                         ),
                         kHeight20,
                         Text(
-                          'Care: ${data?.productCareInfo ?? ""}',
+                          'Care: ${data.productCareInfo ?? ""}',
                           style: TextStyle(
                               fontWeight: FontWeight.w600,
                               fontSize: 17,
@@ -413,7 +412,7 @@ class SingleProductView extends StatelessWidget {
                         ),
                         kHeight20,
                         Text(
-                          data?.brand?.name ?? "",
+                          data.brand?.name ?? "",
                           style: TextStyle(
                               fontSize: 16, color: ColorManager.textGrey99),
                         ),
@@ -430,20 +429,17 @@ class SingleProductView extends StatelessWidget {
                         kHeight10,
                         BlocBuilder<ShopProductsBloc, ShopProductsState>(
                           builder: (context, state) {
-                            if (state.popularProducts?.result
-                                    ?.shopProductCategory?.products ==
-                                null) {
+                            if (state.productModel?.result?.products == null) {
                               return const SizedBox();
                             }
                             return SizedBox(
                               height: 310,
                               child: ListView.builder(
-                                itemCount: state.popularProducts?.result
-                                    ?.shopProductCategory?.products!.length,
+                                itemCount: 10,
                                 scrollDirection: Axis.horizontal,
                                 itemBuilder: (context, index) {
-                                  final data = state.popularProducts?.result
-                                      ?.shopProductCategory!.products![index];
+                                  final data = state
+                                      .productModel?.result!.products![index];
                                   return GestureDetector(
                                       onTap: () {
                                         Navigator.of(context)
@@ -617,7 +613,7 @@ class SingleProductView extends StatelessWidget {
                       ],
                     ),
 
-                    kHeight10,
+                    kHeight16,
                     const Text(
                       'Size',
                       style:

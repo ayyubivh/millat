@@ -78,7 +78,7 @@ class _HomeViewState extends State<HomeView> {
       ..add(const FetchHadithOfTheDay())
       ..add(const FetchEventOfTheMonth())
       ..add(const ChangeIndexofAllaysaysBg());
-
+    ShopService().fetchProducts();
     super.initState();
   }
 

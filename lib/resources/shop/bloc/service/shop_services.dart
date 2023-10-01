@@ -100,6 +100,28 @@ class ShopService extends HttpServices {
     }
   }
 
+  //fetching  Products
+  Future<ProductModel> fetchProducts() async {
+    const endPoint = "product";
+    final response = await get(endPoint: endPoint);
+
+    if (response.statusCode == 200) {
+      try {
+        final Map<String, dynamic> data = json.decode(response.body);
+        final result = ProductModel.fromJson(data);
+        print('jsone here on products$result');
+
+        return result;
+      } catch (e) {
+        print('error on  product: ${e.toString()}');
+        throw Exception('Failed to parse response');
+      }
+    } else {
+      throw Exception(
+          'API request failed with status code: ${response.statusCode}');
+    }
+  }
+
   // Fetching Home banners
   Future<BannersModel> fetchHomeBanners() async {
     final response = await get(endPoint: banner);

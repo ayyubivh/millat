@@ -85,6 +85,7 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
     on<FetchOrderReasons>(_fetchOrderReasons);
     on<AddReasons>(_addReasons);
     on<FetchArticlesbyId>(_fetchArticlesById);
+    on<FetchProducts>(_fetchProducts);
   }
 
   FutureOr<void> _fetchFlashSaleProducts(
@@ -649,6 +650,17 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
       final data = await shopService.fetchArticleById(event.id);
 
       emit(state.copyWith(articleModelById: data, isLoading: false));
+    } catch (e) {
+      emit(state.copyWith(isLoading: false));
+    }
+  }
+
+  _fetchProducts(FetchProducts event, Emitter<ShopProductsState> emit) async {
+    emit(state.copyWith(isLoading: true));
+    try {
+      final data = await shopService.fetchProducts();
+
+      emit(state.copyWith(productModel: data, isLoading: false));
     } catch (e) {
       emit(state.copyWith(isLoading: false));
     }

@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:http/http.dart' as http;
+import 'package:millat/components/shimmers/shimmer_widget.dart';
 import 'package:millat/resources/shop/bloc/service/orders_service.dart';
 import 'package:millat/resources/shop/bloc/service/shop_services.dart';
 
@@ -705,7 +706,7 @@ class _HomeViewState extends State<HomeView> {
     );
   }
 
-  Container _largeDiscountWidget(BuildContext context) {
+  Widget _largeDiscountWidget(BuildContext context) {
     return Container(
       height: 212,
       width: SizeUtility(context).width,
@@ -739,21 +740,29 @@ class _HomeViewState extends State<HomeView> {
           kHeight15,
           BlocBuilder<HomeBloc, HomeState>(
             builder: (context, state) {
-              if (state.isLoading ||
-                  state.largeDiscountModel?.result?.banners == null) {
-                return const Loader();
-              }
+              // if (state.isLoading ||
+              //     state.largeDiscountModel?.result?.banners == null) {
+
+              // }
 
               return SizedBox(
                 height: 90,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
-                  itemCount: state.largeDiscountModel!.result!.banners.length,
+                  itemCount:
+                      state.largeDiscountModel?.result?.banners.length ?? 6,
                   itemBuilder: (context, index) {
+                    if (state.largeDiscountModel?.result?.banners == null) {
+                      return const ShimmersWidget(
+                        height: 90,
+                        width: 80,
+                        borderRadius: 12,
+                      );
+                    }
                     final banner =
-                        state.largeDiscountModel!.result!.banners[index];
-                    final subCategoryIdTitle = banner.subCategoryId?.title;
-                    final subCategoryName = banner.subCategoryName;
+                        state.largeDiscountModel?.result?.banners[index];
+                    final subCategoryIdTitle = banner?.subCategoryId?.title;
+                    final subCategoryName = banner?.subCategoryName;
                     return GestureDetector(
                       onTap: () {
                         Navigator.of(context).push(MaterialPageRoute(
@@ -765,7 +774,7 @@ class _HomeViewState extends State<HomeView> {
                         ));
                       },
                       child: Utilities().buildCachedNetworkImage(
-                        imageUrl: banner.image!,
+                        imageUrl: banner!.image,
                         height: 70,
                         width: 90,
                       ),
@@ -1149,11 +1158,15 @@ class _HomeViewState extends State<HomeView> {
     }
   }
 
-  BlocBuilder<ShopProductsBloc, ShopProductsState> _bannerWidget() {
+  Widget _bannerWidget() {
     return BlocBuilder<ShopProductsBloc, ShopProductsState>(
       builder: (context, state) {
         if (state.homeBanner == null) {
-          return const SizedBox();
+          return ShimmersWidget(
+            height: 150,
+            width: SizeUtility(context).width,
+            borderRadius: 16,
+          );
         }
 
         final banners = state.homeBanner?.result!.banners;

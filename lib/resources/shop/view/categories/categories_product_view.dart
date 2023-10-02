@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/components/buttons/main_button.dart';
+import 'package:millat/components/shimmers/shimmers_widget_products.dart';
 import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/shop/bloc/models/products/products_model.dart';
 import 'package:millat/resources/shop/view/products/single_product_view.dart';
@@ -214,12 +215,12 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
                                 mainAxisExtent: 350,
                               ),
                               itemCount:
-                                  state.product?.result?.products?.length,
+                                  state.product?.result?.products?.length ?? 10,
                               itemBuilder: (context, index) {
                                 final datas =
                                     state.product?.result?.products?[index];
                                 return datas == null
-                                    ? const Loader()
+                                    ? const ShimmersWidgetProduct()
                                     : GestureDetector(
                                         onTap: () {
                                           Navigator.of(context).push(
@@ -251,66 +252,58 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
                             ),
                           )
                         : state.productLoading
-                            ? const Loader()
-                            : filteredProducts.isEmpty
-                                ? Padding(
-                                    padding: EdgeInsets.only(
-                                        top: SizeUtility(context).height / 3),
-                                    child: Center(
-                                      child: Text(
-                                        'No result found',
-                                        style: TextStyle(
-                                          fontSize: 20,
-                                          color: ColorManager.textGrey,
-                                        ),
-                                      ),
-                                    ),
-                                  )
-                                : SizedBox(
-                                    height: SizeUtility(context).height,
-                                    child: GridView.builder(
-                                      physics: const BouncingScrollPhysics(),
-                                      gridDelegate:
-                                          const SliverGridDelegateWithFixedCrossAxisCount(
-                                        crossAxisCount: 2,
-                                        crossAxisSpacing: 20,
-                                        mainAxisSpacing: 20,
-                                        mainAxisExtent: 260,
-                                      ),
-                                      itemCount: filteredProducts.length,
-                                      itemBuilder: (context, index) {
-                                        final data = filteredProducts[index];
-                                        return GestureDetector(
-                                          onTap: () {
-                                            // print(data.id);
-                                            Navigator.of(context).push(
-                                              MaterialPageRoute(
-                                                builder: (context) =>
-                                                    SingleProductView(
-                                                  id: data.id ?? "",
+                            ? const ShimmersWidgetProduct()
+                            : SizedBox(
+                                height: SizeUtility(context).height,
+                                child: GridView.builder(
+                                  physics: const BouncingScrollPhysics(),
+                                  gridDelegate:
+                                      const SliverGridDelegateWithFixedCrossAxisCount(
+                                    crossAxisCount: 2,
+                                    crossAxisSpacing: 20,
+                                    mainAxisSpacing: 20,
+                                    mainAxisExtent: 260,
+                                  ),
+                                  itemCount:
+                                      state.product?.result?.products?.length ??
+                                          10,
+                                  itemBuilder: (context, index) {
+                                    final data =
+                                        state.product?.result?.products?[index];
+                                    return data == null
+                                        ? const ShimmersWidgetProduct()
+                                        : GestureDetector(
+                                            onTap: () {
+                                              // print(data.id);
+                                              Navigator.of(context).push(
+                                                MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      SingleProductView(
+                                                    id: data.id ?? "",
+                                                  ),
                                                 ),
-                                              ),
-                                            );
-                                          },
-                                          child: ShopProductWidget(
-                                            color: data.color ?? "",
-                                            size: data.size?[0].size ?? "",
-                                            brandId: data.brand!.id,
-                                            isWishlisted: false,
-                                            brand: data.brand!.name.toString(),
-                                            productId: data.id,
-                                            title: data.title,
-                                            image: data.images![0],
-                                            discountPrice:
-                                                data.salePrice!.toInt(),
-                                            actualPrice:
-                                                data.regularPrice!.toInt(),
-                                            discount: data.discount!.toInt(),
-                                          ),
-                                        );
-                                      },
-                                    ),
-                                  );
+                                              );
+                                            },
+                                            child: ShopProductWidget(
+                                              color: data.color ?? "",
+                                              size: data.size?[0].size ?? "",
+                                              brandId: data.brand!.id,
+                                              isWishlisted: false,
+                                              brand:
+                                                  data.brand!.name.toString(),
+                                              productId: data.id,
+                                              title: data.title,
+                                              image: data.images![0],
+                                              discountPrice:
+                                                  data.salePrice!.toInt(),
+                                              actualPrice:
+                                                  data.regularPrice!.toInt(),
+                                              discount: data.discount!.toInt(),
+                                            ),
+                                          );
+                                  },
+                                ),
+                              );
                   },
                 ),
               ],

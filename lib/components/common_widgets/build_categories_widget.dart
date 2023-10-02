@@ -5,7 +5,7 @@ import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/utils.dart';
 
 class BuildCategoryWidget extends StatelessWidget {
-  final String image;
+  final String? image;
   final String text;
   const BuildCategoryWidget(
       {super.key, required this.image, required this.text});

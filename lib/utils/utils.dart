@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:html/parser.dart';
 import 'package:intl/intl.dart';
+import 'package:millat/components/shimmers/shimmer_widget.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -139,29 +140,12 @@ class Utilities {
         if (loadingProgress == null) {
           return child;
         } else {
-          return Container(
-            width: width,
-            height: height,
-            color: ColorManager.grey08,
-            child: Center(
-              child: CircularProgressIndicator(
-                color: ColorManager.primary,
-                value: loadingProgress.expectedTotalBytes != null
-                    ? loadingProgress.cumulativeBytesLoaded /
-                        loadingProgress.expectedTotalBytes!
-                    : null,
-              ),
-            ),
-          );
+          return ShimmersWidget(width: width ?? 0, height: height ?? 0);
         }
       },
       errorBuilder:
           (BuildContext context, Object error, StackTrace? stackTrace) {
-        return Icon(
-          Icons.error_outline,
-          size: 40,
-          color: ColorManager.redColor,
-        );
+        return ShimmersWidget(width: width ?? 0, height: height ?? 0);
       },
     );
   }

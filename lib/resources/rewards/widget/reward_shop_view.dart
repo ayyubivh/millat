@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:millat/resources/rewards/bloc/logic/bloc/rewards_bloc_bloc.dart';
 import 'package:millat/resources/rewards/widget/reward_cart_view.dart';
 import 'package:millat/resources/rewards/widget/rewards_single_shop_view.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
+import 'package:millat/utils/loader.dart';
 import 'package:millat/utils/string_constants.dart';
 
 class RewardShopView extends StatelessWidget {
@@ -11,6 +14,10 @@ class RewardShopView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      BlocProvider.of<RewardsBloc>(context)
+          .add(const RewardsEvent.fetchRewardProducts());
+    });
     return Scaffold(
       backgroundColor: ColorManager.whiteColor,
       appBar: AppBar(
@@ -40,131 +47,139 @@ class RewardShopView extends StatelessWidget {
         ],
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 30),
-        child: GridView.builder(
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            mainAxisExtent: 360,
-          ),
-          itemCount: 4,
-          itemBuilder: (context, index) {
-            return _itemWidget(context);
-          },
-        ),
-      ),
+          padding: const EdgeInsets.symmetric(horizontal: 30),
+          child: _itemWidget(context)),
     );
   }
 
   Widget _itemWidget(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 6.0),
-      child: GestureDetector(
-        onTap: () {
-          Navigator.of(context).push(MaterialPageRoute(
-            builder: (context) => const RewardsSingleShopView(),
-          ));
-        },
-        child: SizedBox(
-          height: 320,
-          width: 156,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Image.asset(
-                "assets/dummy/rewards_dummy.png",
-                width: 156,
-                height: 180,
-                fit: BoxFit.contain,
-              ),
-              kHeight5,
-              Row(
-                children: [
-                  Image.asset(
-                    AppAssetsStrings.shop2,
-                    height: 12,
-                  ),
-                  kWidth5,
-                  Text(
-                    Appstrings.islamicStore,
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w600,
-                      color: ColorManager.black79,
-                    ),
-                  ),
-                ],
-              ),
-              kHeight16,
-              Text(
-                "KitchDeco Chenille Anti-Skid Jainama...",
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w600,
-                  color: ColorManager.blackColor,
-                  height: 1.2,
-                ),
-              ),
-              kHeight10,
-              Row(
-                children: [
-                  Text(
-                    "₹299",
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w700,
-                      color: ColorManager.blackColor,
-                    ),
-                  ),
-                  kWidth5,
-                  Text(
-                    "₹599",
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w700,
-                      color: ColorManager.blackColor,
-                      decoration: TextDecoration.lineThrough,
-                    ),
-                  ),
-                  kWidth3,
-                  Text(
-                    "50% off",
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w700,
-                      color: ColorManager.primary,
-                    ),
-                  ),
-                ],
-              ),
-              kHeight10,
-              Container(
-                height: 23,
-                width: 116,
-                color: ColorManager.orangeClrFA,
-                child: Center(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      ImageIcon(
-                        const AssetImage(AppAssetsStrings.clock),
-                        size: 12,
-                        color: ColorManager.whiteColor,
-                      ),
-                      Text(
-                        " Offer ends at 5 PM",
-                        style: TextStyle(
-                          fontSize: 10,
-                          color: ColorManager.whiteColor,
+    return BlocBuilder<RewardsBloc, RewardsState>(
+      builder: (context, state) {
+        final data = state.rewardsProductsModel?.result.products;
+        if (data == null) {
+          return const Loader();
+        }
+
+        return GridView.builder(
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              mainAxisExtent: 360,
+            ),
+            itemCount: state.rewardsProductsModel?.result.products.length,
+            itemBuilder: (context, index) => Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 6.0),
+                  child: GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) =>
+                              RewardsSingleShopView(id: data[index].id),
+                        ));
+                      },
+                      child: SizedBox(
+                        height: 320,
+                        width: 156,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Image.network(
+                              data[index].productId.images[0],
+                              width: 156,
+                              height: 180,
+                              fit: BoxFit.contain,
+                            ),
+                            kHeight5,
+                            Row(
+                              children: [
+                                Image.asset(
+                                  AppAssetsStrings.shop2,
+                                  height: 12,
+                                ),
+                                kWidth5,
+                                Text(
+                                  Appstrings.islamicStore,
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w600,
+                                    color: ColorManager.black79,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            kHeight16,
+                            Text(
+                              data[index].productId.title,
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.w600,
+                                color: ColorManager.blackColor,
+                                height: 1.2,
+                              ),
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                            kHeight10,
+                            Row(
+                              children: [
+                                Text(
+                                  data[index].offerPrice.toString(),
+                                  style: TextStyle(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w700,
+                                    color: ColorManager.blackColor,
+                                  ),
+                                ),
+                                kWidth5,
+                                Text(
+                                  data[index].productId.salePrice.toString(),
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w700,
+                                    color: ColorManager.blackColor,
+                                    decoration: TextDecoration.lineThrough,
+                                  ),
+                                ),
+                                kWidth3,
+                                Text(
+                                  "${data[index].productId.discount}% off",
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w700,
+                                    color: ColorManager.primary,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            kHeight10,
+                            Container(
+                              height: 23,
+                              width: 116,
+                              color: ColorManager.orangeClrFA,
+                              child: Center(
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
+                                  children: [
+                                    ImageIcon(
+                                      const AssetImage(AppAssetsStrings.clock),
+                                      size: 12,
+                                      color: ColorManager.whiteColor,
+                                    ),
+                                    Text(
+                                      " Offer ends at 5 PM",
+                                      style: TextStyle(
+                                        fontSize: 10,
+                                        color: ColorManager.whiteColor,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            )
+                          ],
                         ),
-                      ),
-                    ],
-                  ),
-                ),
-              )
-            ],
-          ),
-        ),
-      ),
+                      )),
+                ));
+      },
     );
   }
 }

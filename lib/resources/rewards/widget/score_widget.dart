@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:millat/resources/rewards/bloc/logic/bloc/rewards_bloc_bloc.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
@@ -45,12 +47,15 @@ class ScoreWidget extends StatelessWidget {
                 child: Row(
                   children: [
                     kWidth5,
-                    Text(
-                      " 12,482",
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w700,
-                        color: ColorManager.whiteColor,
+                    BlocBuilder<RewardsBloc, RewardsState>(
+                      builder: (context, state) => Text(
+                        state.rewardsModel?.result?.reward?.coins.toString() ??
+                            "0",
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w700,
+                          color: ColorManager.whiteColor,
+                        ),
                       ),
                     ),
                     const Spacer(),

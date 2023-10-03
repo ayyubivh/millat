@@ -2,10 +2,15 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/components/buttons/main_button.dart';
+import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/rewards/bloc/logic/bloc/rewards_bloc_bloc.dart';
 import 'package:millat/resources/rewards/widget/reward_cart_view.dart';
 import 'package:millat/resources/rewards/widget/score_widget.dart';
+import 'package:millat/resources/shop/bloc/logic/address_bloc/address_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/cart_bloc/cart_bloc.dart';
+import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
+import 'package:millat/resources/shop/view/checkout/checkout_details.dart';
+import 'package:millat/resources/shop/view/checkout/checkout_view.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
@@ -32,330 +37,291 @@ class _RewardsSingleShopViewState extends State<RewardsSingleShopView> {
           .add(RewardsEvent.fetchRewardProductsById(id: widget.id));
     });
     return Scaffold(
-      backgroundColor: ColorManager.whiteColor,
-      appBar: AppBar(
-        foregroundColor: ColorManager.blackColor,
         backgroundColor: ColorManager.whiteColor,
-        elevation: 0,
-        centerTitle: true,
-        title: const ScoreWidget(),
-        actions: [
-          GestureDetector(
-            onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => const RewardCartView(),
-              ));
-            },
-            child: const ImageIcon(AssetImage(
-              AppAssetsStrings.addCart,
-            )),
-          ),
-          kWidth20,
-        ],
-      ),
-      body: Padding(
-        padding: const EdgeInsets.only(top: 14.0),
-        child: SingleChildScrollView(
-          child: BlocBuilder<RewardsBloc, RewardsState>(
-            builder: (context, state) {
-              final data = state.rewardsProductByIdModel?.result?.product;
-              if (data == null) {
-                return const Loader();
-              }
-              return Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  CarouselSlider(
-                    options: CarouselOptions(
-                      height: SizeUtility(context).height * 30 / 100,
-                      viewportFraction: 1,
-                      autoPlayAnimationDuration:
-                          const Duration(milliseconds: 800),
-                      onPageChanged: (index, reason) {
-                        context
-                            .read<RewardsBloc>()
-                            .add(ChangeCarousselImageIndex(index));
-                      },
-                    ),
-                    items: data.productId?.images?.map((imageUrl) {
-                          return Image.network(imageUrl);
-                        }).toList() ??
-                        [],
-                  ),
-                  kHeight10,
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: data.productId!.images!.map((banner) {
-                      int index = data.productId!.images!.indexOf(banner);
-                      return Container(
-                        width: state.carouselImageIndex == index ? 24 : 6,
-                        height: 6,
-                        margin: const EdgeInsets.symmetric(horizontal: 4),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(30),
-                          color: state.carouselImageIndex == index
-                              ? ColorManager.primary
-                              : ColorManager.textGrey,
-                        ),
-                      );
-                    }).toList(),
-                  ),
-                  kHeight16,
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 30),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
-                          children: [
-                            Image.asset(
-                              AppAssetsStrings.shop2,
-                              height: 12,
-                            ),
-                            kWidth5,
-                            Text(
-                              Appstrings.islamicStore,
-                              style: TextStyle(
-                                fontSize: 12,
-                                fontWeight: FontWeight.w600,
-                                color: ColorManager.black79,
-                              ),
-                            ),
-                          ],
-                        ),
-                        kHeight16,
-                        Text(
-                          data.productId?.title ?? "",
-                          style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w600,
-                            color: ColorManager.blackColor,
-                            height: 1.2,
-                          ),
-                          maxLines: 2,
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                        kHeight10,
-                        Row(
-                          children: [
-                            Text(
-                              data.offerPrice.toString(),
-                              style: TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.w700,
-                                color: ColorManager.blackColor,
-                              ),
-                            ),
-                            kWidth5,
-                            Text(
-                              data.productId!.salePrice.toString(),
-                              style: TextStyle(
-                                fontSize: 12,
-                                fontWeight: FontWeight.w700,
-                                color: ColorManager.blackColor,
-                                decoration: TextDecoration.lineThrough,
-                              ),
-                            ),
-                            kWidth3,
-                            Text(
-                              "${data.productId!.discount}% off",
-                              style: TextStyle(
-                                fontSize: 12,
-                                fontWeight: FontWeight.w700,
-                                color: ColorManager.primary,
-                              ),
-                            ),
-                          ],
-                        ),
-                        kHeight16,
-                        Row(
-                          children: [
-                            Text(
-                              "By using",
-                              style: TextStyle(
-                                fontSize: 12,
-                                fontWeight: FontWeight.w500,
-                                color: ColorManager.greyB4,
-                              ),
-                            ),
-                            kWidth8,
-                            Container(
-                              height: 16,
-                              width: 55,
-                              decoration: BoxDecoration(
-                                color: ColorManager.greyEB,
-                                borderRadius: BorderRadius.circular(50),
-                              ),
-                              padding: const EdgeInsets.only(right: 4),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Image.asset(
-                                    AppAssetsStrings.score,
-                                    height: 16,
-                                    width: 16,
-                                    fit: BoxFit.cover,
-                                  ),
-                                  Text(
-                                    context
-                                            .read<RewardsBloc>()
-                                            .state
-                                            .rewardsModel
-                                            ?.result
-                                            ?.reward
-                                            ?.coins
-                                            .toString() ??
-                                        "",
-                                    style: TextStyle(
-                                      fontSize: 12,
-                                      color: ColorManager.black4F,
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                                  )
-                                ],
-                              ),
-                            ),
-                            kWidth3,
-                            const Icon(
-                              Icons.info_outline,
-                              size: 16,
-                            ),
-                          ],
-                        ),
-                        kWidth5,
-                      ],
-                    ),
-                  ),
-                  kHeight20,
-                  Container(
-                    width: SizeUtility(context).width,
-                    height: 10,
-                    color: ColorManager.scaffolBgColor,
-                  ),
-                  kHeight25,
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 30),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        Text(
-                          data.productId!.description ?? "",
-                          style: TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.w500,
-                            color: ColorManager.textGrey99,
-                          ),
-                        ),
-                        kHeight10,
-                      ],
-                    ),
-                  ),
-                  kHeight15,
-                  lastWidget(text: Appstrings.composition),
-                  lastWidget(text: Appstrings.howToUse),
-                  kHeight16,
-                  imgStackWidget(context),
-                  kHeight16,
-                  GestureDetector(
-                    onTap: () {
-                      cancellationPolicyPopup(context);
-                    },
-                    child: lastWidget(
-                        text: Appstrings.cancellationPolicy,
-                        showDivider: false,
-                        icon: Icons.navigate_next_outlined),
-                  ),
-                  lastWidget(
-                      text: Appstrings.nonReturnalbe,
-                      icon: Icons.navigate_next_outlined),
-                  kHeight100,
-                ],
-              );
-            },
-          ),
+        appBar: AppBar(
+          foregroundColor: ColorManager.blackColor,
+          backgroundColor: ColorManager.whiteColor,
+          elevation: 0,
+          centerTitle: true,
+          actions: const [
+            ScoreWidget(),
+            kWidth20,
+          ],
         ),
-      ),
-      bottomSheet: BlocBuilder<RewardsBloc, RewardsState>(
-        builder: (context, state) {
-          final data =
-              state.rewardsProductByIdModel!.result!.product!.productId;
-          return SizedBox(
-            height: 60,
-            child: Row(
-              children: [
-                Expanded(
-                  child: GestureDetector(
-                    onTap: () {
-                      showModalBottomSheet(
-                        context: context,
-                        isScrollControlled: true,
-                        backgroundColor: Colors.transparent,
-                        builder: (context) => buildShowModelSheet(
-                          color: data?.color ?? "",
-                          size: data!.size!
-                              .map((e) => e.size.toString())
-                              .toList(),
-                          context,
-                          selectedSize,
-                          quantity,
-                          brandId: data.brand.toString(),
-                          productId: widget.id,
-                          image: data.images![0],
-                          regularPrice: data.regularPrice!.toInt(),
-                          salePrice: data.salePrice!.toInt(),
-                        ),
-                      );
-                    },
-                    child: Container(
-                      height: 60,
-                      color: ColorManager.scaffolBgColor,
-                      child: Center(
-                        child: Text(
-                          Appstrings.addToCart,
-                          style: TextStyle(
-                            fontSize: 15,
-                            fontWeight: FontWeight.w600,
-                            color: ColorManager.primary,
-                          ),
-                        ),
+        body: Padding(
+          padding: const EdgeInsets.only(top: 14.0),
+          child: SingleChildScrollView(
+            child: BlocBuilder<RewardsBloc, RewardsState>(
+              builder: (context, state) {
+                final data = state.rewardsProductByIdModel?.result?.product;
+                if (data == null) {
+                  return const Loader();
+                }
+                return Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    CarouselSlider(
+                      options: CarouselOptions(
+                        height: SizeUtility(context).height * 30 / 100,
+                        viewportFraction: 1,
+                        autoPlayAnimationDuration:
+                            const Duration(milliseconds: 800),
+                        onPageChanged: (index, reason) {
+                          context
+                              .read<RewardsBloc>()
+                              .add(ChangeCarousselImageIndex(index));
+                        },
                       ),
+                      items: data.productId?.images?.map((imageUrl) {
+                            return Image.network(imageUrl);
+                          }).toList() ??
+                          [],
                     ),
-                  ),
-                ),
-                Expanded(
-                  child: Container(
-                    height: 60,
-                    color: ColorManager.primary,
-                    child: Center(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
+                    kHeight10,
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: data.productId!.images!.map((banner) {
+                        int index = data.productId!.images!.indexOf(banner);
+                        return Container(
+                          width: state.carouselImageIndex == index ? 24 : 6,
+                          height: 6,
+                          margin: const EdgeInsets.symmetric(horizontal: 4),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(30),
+                            color: state.carouselImageIndex == index
+                                ? ColorManager.primary
+                                : ColorManager.textGrey,
+                          ),
+                        );
+                      }).toList(),
+                    ),
+                    kHeight16,
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 30),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
+                          Row(
+                            children: [
+                              Image.asset(
+                                AppAssetsStrings.shop2,
+                                height: 12,
+                              ),
+                              kWidth5,
+                              Text(
+                                Appstrings.islamicStore,
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w600,
+                                  color: ColorManager.black79,
+                                ),
+                              ),
+                            ],
+                          ),
+                          kHeight16,
                           Text(
-                            Appstrings.buyNow,
+                            data.productId?.title ?? "",
                             style: TextStyle(
-                              fontSize: 15,
+                              fontSize: 16,
                               fontWeight: FontWeight.w600,
-                              color: ColorManager.whiteColor,
+                              color: ColorManager.blackColor,
+                              height: 1.2,
                             ),
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
                           ),
-                          kWidth3,
-                          Icon(
-                            Icons.navigate_next,
-                            color: ColorManager.whiteColor,
-                            size: 24,
+                          kHeight10,
+                          Row(
+                            children: [
+                              Text(
+                                data.offerPrice.toString(),
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w700,
+                                  color: ColorManager.blackColor,
+                                ),
+                              ),
+                              kWidth5,
+                              Text(
+                                data.productId!.salePrice.toString(),
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w700,
+                                  color: ColorManager.blackColor,
+                                  decoration: TextDecoration.lineThrough,
+                                ),
+                              ),
+                              kWidth3,
+                              Text(
+                                "${data.productId!.discount}% off",
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w700,
+                                  color: ColorManager.primary,
+                                ),
+                              ),
+                            ],
                           ),
+                          kHeight16,
+                          Row(
+                            children: [
+                              Text(
+                                "By using",
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w500,
+                                  color: ColorManager.greyB4,
+                                ),
+                              ),
+                              kWidth8,
+                              Container(
+                                height: 16,
+                                width: 55,
+                                decoration: BoxDecoration(
+                                  color: ColorManager.greyEB,
+                                  borderRadius: BorderRadius.circular(50),
+                                ),
+                                padding: const EdgeInsets.only(right: 4),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Image.asset(
+                                      AppAssetsStrings.score,
+                                      height: 16,
+                                      width: 16,
+                                      fit: BoxFit.cover,
+                                    ),
+                                    Text(
+                                      context
+                                              .read<RewardsBloc>()
+                                              .state
+                                              .rewardsModel
+                                              ?.result
+                                              ?.reward
+                                              ?.coins
+                                              .toString() ??
+                                          "",
+                                      style: TextStyle(
+                                        fontSize: 12,
+                                        color: ColorManager.black4F,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                              kWidth3,
+                              const Icon(
+                                Icons.info_outline,
+                                size: 16,
+                              ),
+                            ],
+                          ),
+                          kWidth5,
                         ],
                       ),
                     ),
-                  ),
-                )
-              ],
+                    kHeight20,
+                    Container(
+                      width: SizeUtility(context).width,
+                      height: 10,
+                      color: ColorManager.scaffolBgColor,
+                    ),
+                    kHeight25,
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 30),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          Text(
+                            data.productId!.description ?? "",
+                            style: TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w500,
+                              color: ColorManager.textGrey99,
+                            ),
+                          ),
+                          kHeight10,
+                        ],
+                      ),
+                    ),
+                    kHeight15,
+                    lastWidget(text: Appstrings.composition),
+                    lastWidget(text: Appstrings.howToUse),
+                    kHeight16,
+                    imgStackWidget(context),
+                    kHeight16,
+                    GestureDetector(
+                      onTap: () {
+                        cancellationPolicyPopup(context);
+                      },
+                      child: lastWidget(
+                          text: Appstrings.cancellationPolicy,
+                          showDivider: false,
+                          icon: Icons.navigate_next_outlined),
+                    ),
+                    lastWidget(
+                        text: Appstrings.nonReturnalbe,
+                        icon: Icons.navigate_next_outlined),
+                    kHeight100,
+                  ],
+                );
+              },
             ),
-          );
-        },
-      ),
-    );
+          ),
+        ),
+        bottomSheet: BlocBuilder<AddressBloc, AddressState>(
+          builder: (context, state) => GestureDetector(
+            onTap: () {
+              // context.read<ShopProductsBloc>().add(PostOrders(
+              //     context: context,
+              //     totalPrice: totalPrice,
+              //     pickupLocation: pickupLocation,
+              //     quantity: quantity,
+              //     totalDiscount: totalDiscount,
+              //     shippingCharges: shippingCharges,
+              //     weight: weight,
+              //     id: id));
+              if (state.addressModel.result.addresses.isEmpty) {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => const CheckoutDetails(
+                    type: AddressNavType.checkout,
+                  ),
+                ));
+              } else {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => const CheckoutView(),
+                ));
+              }
+            },
+            child: Container(
+              color: ColorManager.primary,
+              margin: const EdgeInsets.symmetric(horizontal: 20),
+              height: 60,
+              width: SizeUtility(context).width,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    Appstrings.buyNow,
+                    style: TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.w600,
+                      color: ColorManager.whiteColor,
+                    ),
+                  ),
+                  kWidth3,
+                  Icon(
+                    Icons.navigate_next,
+                    color: ColorManager.whiteColor,
+                    size: 24,
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ));
   }
 
   Future<dynamic> cancellationPolicyPopup(BuildContext context) {

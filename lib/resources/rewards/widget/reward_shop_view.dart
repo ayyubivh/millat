@@ -32,19 +32,6 @@ class RewardShopView extends StatelessWidget {
             fontWeight: FontWeight.w600,
           ),
         ),
-        actions: [
-          GestureDetector(
-            onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => const RewardCartView(),
-              ));
-            },
-            child: const ImageIcon(AssetImage(
-              AppAssetsStrings.addCart,
-            )),
-          ),
-          kWidth20,
-        ],
       ),
       body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 30),

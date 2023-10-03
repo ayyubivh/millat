@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/components/buttons/green_gradient_button.dart';
 import 'package:millat/components/common_widgets/build_categories_widget.dart';
+import 'package:millat/components/shimmers/shimmer_widget.dart';
+import 'package:millat/components/shimmers/shimmers_widget_rounded.dart';
 import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/shop/bloc/logic/category_bloc/category_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
@@ -92,12 +94,6 @@ class _ShopViewState extends State<ShopView> {
                   kHeight15,
                   BlocBuilder<ShopProductsBloc, ShopProductsState>(
                     builder: (context, state) {
-                      // if (state
-                      //         .shopHomeBackgroundCardModelWomens?.result.data ==
-                      //     null) {
-                      //   return const Loader();
-                      // }
-
                       final womenData =
                           state.shopHomeBackgroundCardModelWomens?.result.data;
                       final womenSubCategoryData = state
@@ -143,7 +139,10 @@ class _ShopViewState extends State<ShopView> {
                             ],
                             textColor: womenData?.design.color ?? "",
                             child: womenSubCategoryData == null
-                                ? const SizedBox()
+                                ? ShimmersWidget(
+                                    height: 60,
+                                    width: SizeUtility(context).width,
+                                  )
                                 : shopCardSubcategoryWidget(
                                     getId: (index) =>
                                         womenSubCategoryData[index].id ?? "",
@@ -179,7 +178,10 @@ class _ShopViewState extends State<ShopView> {
                             ],
                             textColor: healthyDietData?.design.color ?? "",
                             child: healthyDietSubCategoryData == null
-                                ? const SizedBox()
+                                ? ShimmersWidget(
+                                    height: 60,
+                                    width: SizeUtility(context).width,
+                                  )
                                 : shopCardSubcategoryWidget(
                                     getId: (index) =>
                                         healthyDietSubCategoryData[index].id ??
@@ -220,7 +222,10 @@ class _ShopViewState extends State<ShopView> {
                             ],
                             textColor: sunnahData?.design?.color ?? "",
                             child: sunnahSubCategoryData == null
-                                ? const SizedBox()
+                                ? ShimmersWidget(
+                                    height: 60,
+                                    width: SizeUtility(context).width,
+                                  )
                                 : shopCardSubcategoryWidget(
                                     data: sunnahSubCategoryData,
                                     getId: (index) =>
@@ -323,16 +328,19 @@ class _ShopViewState extends State<ShopView> {
   Widget _brandsWidget() {
     return BlocBuilder<ShopProductsBloc, ShopProductsState>(
       builder: (context, state) {
-        return state.brandModels?.result?.data == null
-            ? const SizedBox()
-            : SizedBox(
-                height: 100,
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: state.brandModels!.result!.data!.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    final data = state.brandModels?.result?.data?[index];
-                    return GestureDetector(
+        return SizedBox(
+          height: 100,
+          child: ListView.builder(
+            scrollDirection: Axis.horizontal,
+            itemCount: state.brandModels?.result?.data?.length ?? 6,
+            itemBuilder: (BuildContext context, int index) {
+              final data = state.brandModels?.result?.data?[index];
+              return state.brandModels?.result?.data == null
+                  ? const ShimmersRounded(
+                      height: 10,
+                      width: 10,
+                    )
+                  : GestureDetector(
                       onTap: () {
                         Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) =>
@@ -340,9 +348,9 @@ class _ShopViewState extends State<ShopView> {
                       },
                       child: buildShopbyBrand(data?.logo, data?.name ?? ""),
                     );
-                  },
-                ),
-              );
+            },
+          ),
+        );
       },
     );
   }
@@ -351,7 +359,11 @@ class _ShopViewState extends State<ShopView> {
     return BlocBuilder<ShopProductsBloc, ShopProductsState>(
       builder: (context, state) {
         if (state.shopAdBrands?.result?.data == null) {
-          return const SizedBox();
+          return ShimmersWidget(
+            width: SizeUtility(context).width,
+            height: 150,
+            borderRadius: 12,
+          );
         }
         final banners = state.shopAdBrands!.result?.data;
         return Column(
@@ -486,7 +498,14 @@ class _ShopViewState extends State<ShopView> {
     return BlocBuilder<ShopProductsBloc, ShopProductsState>(
       builder: (context, state) {
         if (state.shopBanner == null) {
-          return const SizedBox();
+          return Padding(
+            padding: const EdgeInsets.only(top: 18.0),
+            child: ShimmersWidget(
+              width: SizeUtility(context).width,
+              height: 150,
+              borderRadius: 12,
+            ),
+          );
         }
 
         final banners = state.shopBanner?.result!.banners;
@@ -650,7 +669,10 @@ class _ShopViewState extends State<ShopView> {
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) {
                     if (state.category?.result?.category == null) {
-                      return const SizedBox();
+                      return const ShimmersRounded(
+                        height: 30,
+                        width: 30,
+                      );
                     }
 
                     return BuildCategoryWidget(

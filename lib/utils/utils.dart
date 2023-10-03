@@ -1,7 +1,8 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:html/parser.dart';
 import 'package:intl/intl.dart';
-import 'package:millat/utils/color_manager.dart';
+import 'package:millat/components/shimmers/shimmer_widget.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Utilities {
@@ -129,40 +130,16 @@ class Utilities {
     BoxFit boxFit = BoxFit.contain,
     double? width,
   }) {
-    return Image.network(
-      imageUrl!,
+    return CachedNetworkImage(
+      imageUrl: imageUrl ?? '',
       height: height,
       width: width,
       fit: boxFit,
-      loadingBuilder: (BuildContext context, Widget child,
-          ImageChunkEvent? loadingProgress) {
-        if (loadingProgress == null) {
-          return child;
-        } else {
-          return Container(
-            width: width,
-            height: height,
-            color: ColorManager.grey08,
-            child: Center(
-              child: CircularProgressIndicator(
-                color: ColorManager.primary,
-                value: loadingProgress.expectedTotalBytes != null
-                    ? loadingProgress.cumulativeBytesLoaded /
-                        loadingProgress.expectedTotalBytes!
-                    : null,
-              ),
-            ),
-          );
-        }
-      },
-      errorBuilder:
-          (BuildContext context, Object error, StackTrace? stackTrace) {
-        return Icon(
-          Icons.error_outline,
-          size: 40,
-          color: ColorManager.redColor,
-        );
-      },
+      placeholder: (context, url) => ShimmersWidget(
+        width: width ?? 0,
+        height: height ?? 0,
+      ),
+      errorWidget: (context, url, error) => const SizedBox(),
     );
   }
 

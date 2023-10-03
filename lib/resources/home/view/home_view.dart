@@ -753,10 +753,13 @@ class _HomeViewState extends State<HomeView> {
                       state.largeDiscountModel?.result?.banners.length ?? 6,
                   itemBuilder: (context, index) {
                     if (state.largeDiscountModel?.result?.banners == null) {
-                      return const ShimmersWidget(
-                        height: 90,
-                        width: 80,
-                        borderRadius: 12,
+                      return const Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 8.0),
+                        child: ShimmersWidget(
+                          height: 90,
+                          width: 80,
+                          borderRadius: 12,
+                        ),
                       );
                     }
                     final banner =

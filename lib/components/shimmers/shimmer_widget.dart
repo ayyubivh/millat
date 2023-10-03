@@ -23,7 +23,7 @@ class ShimmersWidget extends StatelessWidget {
           borderRadius: BorderRadius.circular(borderRadius ?? 0.0),
           color: ColorManager.whiteColor,
         ),
-        margin: const EdgeInsets.only(right: 15),
+        // margin: const EdgeInsets.only(right: 15),
         width: width,
         height: height,
       ),

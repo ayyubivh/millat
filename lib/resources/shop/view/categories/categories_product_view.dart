@@ -35,10 +35,6 @@ class CategoriesProductView extends StatefulWidget {
 }
 
 class _CategoriesProductViewState extends State<CategoriesProductView> {
-  int _currentIndex = 0;
-  var filterOptions = <String>[];
-  RangeValues priceRange = const RangeValues(20, 80);
-  String selectedFilter = '';
   @override
   void initState() {
     print(
@@ -65,12 +61,17 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
           backgroundColor: Colors.transparent,
           elevation: 0,
           centerTitle: false,
-          title: Text(
-              widget.type == FilterType.category
-                  ? widget.subCategory.toString()
-                  : widget.itemName ?? "",
-              style: TextStyle(
-                  color: ColorManager.blackColor, fontWeight: FontWeight.w700)),
+          title: BlocBuilder<CategoryBloc, CategoryState>(
+            builder: (context, state) => Text(
+                widget.type == FilterType.category
+                    ? state.filterVal == ""
+                        ? widget.subCategory.toString()
+                        : state.filterVal
+                    : widget.itemName ?? "",
+                style: TextStyle(
+                    color: ColorManager.blackColor,
+                    fontWeight: FontWeight.w700)),
+          ),
           actions: [
             GestureDetector(
               onTap: () {
@@ -167,90 +168,41 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
                 kHeight30,
                 BlocBuilder<CategoryBloc, CategoryState>(
                   builder: (context, state) {
-                    List<Product> filteredProducts = [];
-                    if (widget.type == FilterType.brand) {
-                      filteredProducts =
-                          state.product!.result!.products!.where((product) {
-                        if (state.priceRangeIndex == 0) {
-                          return product.salePrice! <= 500;
-                        } else if (state.priceRangeIndex == 1) {
-                          return product.salePrice! >= 500 &&
-                              product.salePrice! <= 1000;
-                        } else if (state.priceRangeIndex == 2) {
-                          return product.salePrice! >= 1000 &&
-                              product.salePrice! <= 1500;
-                        } else if (state.priceRangeIndex == 3) {
-                          return product.salePrice! > 1500;
-                        }
-                        return product.subcategory!.title ==
-                                widget.subCategory &&
-                            product.brand?.name == state.filterBrand;
-                      }).toList();
-                    }
-                    if (state.product != null &&
-                        state.product!.result != null &&
-                        widget.type == FilterType.category) {
-                      if (state.selectedFilter.isNotEmpty) {
-                        filteredProducts = state.product!.result!.products!
-                            .where((product) =>
-                                product.subcategory?.title ==
-                                state.selectedFilter)
-                            .toList();
-                      } else {
-                        filteredProducts = state.product!.result!.products!;
-                      }
-                    }
+                    // List<Product> filteredProducts = [];
+                    // if (widget.type == FilterType.brand) {
+                    //   filteredProducts =
+                    //       state.product!.result!.products!.where((product) {
+                    //     if (state.priceRangeIndex == 0) {
+                    //       return product.salePrice! <= 500;
+                    //     } else if (state.priceRangeIndex == 1) {
+                    //       return product.salePrice! >= 500 &&
+                    //           product.salePrice! <= 1000;
+                    //     } else if (state.priceRangeIndex == 2) {
+                    //       return product.salePrice! >= 1000 &&
+                    //           product.salePrice! <= 1500;
+                    //     } else if (state.priceRangeIndex == 3) {
+                    //       return product.salePrice! > 1500;
+                    //     }
+                    //     return product.subcategory!.title ==
+                    //             widget.subCategory &&
+                    //         product.brand?.name == state.filterBrand;
+                    //   }).toList();
+                    // }
+                    // if (state.product != null &&
+                    //     state.product!.result != null &&
+                    //     widget.type == FilterType.category) {
+                    //   if (state.filterVal.isNotEmpty) {
+                    //     filteredProducts = state.product!.result!.products!
+                    //         .where((product) =>
+                    //             product.subcategory?.title == state.filterVal)
+                    //         .toList();
+                    //   } else {
+                    //     filteredProducts = state.product!.result!.products!;
+                    //   }
+                    // }
 
-                    return widget.type == FilterType.specificCategory
-                        ? SizedBox(
-                            height: SizeUtility(context).height,
-                            child: GridView.builder(
-                              physics: const BouncingScrollPhysics(),
-                              gridDelegate:
-                                  const SliverGridDelegateWithFixedCrossAxisCount(
-                                crossAxisCount: 2,
-                                crossAxisSpacing: 20,
-                                mainAxisSpacing: 20,
-                                mainAxisExtent: 350,
-                              ),
-                              itemCount:
-                                  state.product?.result?.products?.length ?? 10,
-                              itemBuilder: (context, index) {
-                                final datas =
-                                    state.product?.result?.products?[index];
-                                return datas == null
-                                    ? const ShimmersWidgetProduct()
-                                    : GestureDetector(
-                                        onTap: () {
-                                          Navigator.of(context).push(
-                                            MaterialPageRoute(
-                                              builder: (context) =>
-                                                  SingleProductView(
-                                                id: datas.id ?? "",
-                                              ),
-                                            ),
-                                          );
-                                        },
-                                        child: ShopProductWidget(
-                                          color: datas.color ?? "",
-                                          size: datas.size?[0].size ?? "",
-                                          brandId: datas.brand!.id,
-                                          isWishlisted: false,
-                                          brand: datas.brand!.name.toString(),
-                                          productId: datas.id,
-                                          title: datas.title,
-                                          image: datas.images![0],
-                                          discountPrice:
-                                              datas.salePrice!.toInt(),
-                                          actualPrice:
-                                              datas.regularPrice!.toInt(),
-                                          discount: datas.discount!.toInt(),
-                                        ),
-                                      );
-                              },
-                            ),
-                          )
-                        : state.productLoading
+                    return widget.type == FilterType.category
+                        ? state.productLoading
                             ? const ShimmersWidgetProduct()
                             : SizedBox(
                                 height: SizeUtility(context).height,
@@ -302,7 +254,55 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
                                           );
                                   },
                                 ),
-                              );
+                              )
+                        : SizedBox(
+                            height: SizeUtility(context).height,
+                            child: GridView.builder(
+                              physics: const BouncingScrollPhysics(),
+                              gridDelegate:
+                                  const SliverGridDelegateWithFixedCrossAxisCount(
+                                crossAxisCount: 2,
+                                crossAxisSpacing: 20,
+                                mainAxisSpacing: 20,
+                                mainAxisExtent: 350,
+                              ),
+                              itemCount:
+                                  state.product?.result?.products?.length ?? 10,
+                              itemBuilder: (context, index) {
+                                final datas =
+                                    state.product?.result?.products?[index];
+                                return datas == null
+                                    ? const ShimmersWidgetProduct()
+                                    : GestureDetector(
+                                        onTap: () {
+                                          Navigator.of(context).push(
+                                            MaterialPageRoute(
+                                              builder: (context) =>
+                                                  SingleProductView(
+                                                id: datas.id ?? "",
+                                              ),
+                                            ),
+                                          );
+                                        },
+                                        child: ShopProductWidget(
+                                          color: datas.color ?? "",
+                                          size: datas.size?[0].size ?? "",
+                                          brandId: datas.brand!.id,
+                                          isWishlisted: false,
+                                          brand: datas.brand!.name.toString(),
+                                          productId: datas.id,
+                                          title: datas.title,
+                                          image: datas.images![0],
+                                          discountPrice:
+                                              datas.salePrice!.toInt(),
+                                          actualPrice:
+                                              datas.regularPrice!.toInt(),
+                                          discount: datas.discount!.toInt(),
+                                        ),
+                                      );
+                              },
+                            ),
+                          );
                   },
                 ),
               ],
@@ -321,176 +321,180 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
           builder: (context) {
             return StatefulBuilder(
               builder: (context, setState) {
-                return Container(
-                  height: SizeUtility(context).height / 1.5,
-                  width: SizeUtility(context).width,
-                  padding:
-                      const EdgeInsets.all(15).copyWith(left: 30, right: 30),
-                  decoration: BoxDecoration(
-                    borderRadius: const BorderRadius.vertical(
-                      top: Radius.circular(20),
+                return SingleChildScrollView(
+                  child: Container(
+                    // height: SizeUtility(context).height / 1.2,
+                    width: SizeUtility(context).width,
+                    padding:
+                        const EdgeInsets.all(15).copyWith(left: 30, right: 30),
+                    decoration: BoxDecoration(
+                      borderRadius: const BorderRadius.vertical(
+                        top: Radius.circular(20),
+                      ),
+                      color: ColorManager.whiteColor,
                     ),
-                    color: ColorManager.whiteColor,
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      kHeight25,
-                      Align(
-                        alignment: Alignment.center,
-                        child: _filterTitleText(Appstrings.filters),
-                      ),
-                      kHeight20,
-                      const Divider(),
-                      kHeight16,
-                      _filterTitleText(
-                        Appstrings.priceRange,
-                      ),
-                      SliderTheme(
-                        data: SliderThemeData(
-                          thumbColor: ColorManager.primary,
-                          activeTrackColor: ColorManager.yellowTanClr,
-                          inactiveTrackColor: ColorManager.lightGrey,
-                          trackHeight: 1,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        kHeight25,
+                        Align(
+                          alignment: Alignment.center,
+                          child: _filterTitleText(Appstrings.filters),
                         ),
-                        child: RangeSlider(
-                          values: priceRange,
-                          min: 0,
-                          max: 100,
-                          onChanged: (newRange) {
-                            setState(() {
-                              priceRange = newRange;
-                            });
-                          },
+                        kHeight20,
+                        const Divider(),
+                        kHeight16,
+                        _filterTitleText(
+                          Appstrings.priceRange,
                         ),
-                      ),
-                      kHeight16,
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            "₹${priceRange.start.toStringAsFixed(0)}",
-                            style: TextStyle(
-                              fontSize: 14,
-                              fontWeight: FontWeight.w600,
-                              color: ColorManager.textGrey,
+                        SliderTheme(
+                          data: SliderThemeData(
+                            thumbColor: ColorManager.primary,
+                            activeTrackColor: ColorManager.yellowTanClr,
+                            inactiveTrackColor: ColorManager.lightGrey,
+                            trackHeight: 1,
+                          ),
+                          child: BlocBuilder<CategoryBloc, CategoryState>(
+                            builder: (context, state) => RangeSlider(
+                              values: state.rangeValues,
+                              min: 1,
+                              max: 5000,
+                              onChanged: (newRange) {
+                                print(newRange);
+                                context.read<CategoryBloc>().add(SavePriceRange(
+                                    rangeValues: newRange,
+                                    minPrice: newRange.start,
+                                    maxPrice: newRange.end));
+                              },
                             ),
                           ),
-                          Text("₹${priceRange.end.toStringAsFixed(0)}",
-                              style: TextStyle(
-                                fontSize: 14,
-                                fontWeight: FontWeight.w600,
-                                color: ColorManager.textGrey,
-                              )),
-                        ],
-                      ),
-                      kHeight20,
-                      _filterTitleText(Appstrings.sizes),
-                      kHeight20,
-                      SizedBox(
-                        height: 48,
-                        child: ListView.builder(
-                          itemCount: 5,
-                          scrollDirection: Axis.horizontal,
-                          itemExtent: 70,
-                          itemBuilder: (context, index) {
-                            final text = [
-                              Appstrings.xs,
-                              Appstrings.s,
-                              Appstrings.l,
-                              Appstrings.xl,
-                              Appstrings.xxl,
-                            ];
-                            return Container(
-                              margin: const EdgeInsets.only(right: 15),
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: 14, vertical: 16),
-                              height: 48,
-                              width: 48,
-                              decoration: BoxDecoration(
-                                color: ColorManager.lightYellow,
-                                borderRadius: BorderRadius.circular(12),
-                              ),
-                              child: Center(
-                                  child: Text(
-                                text[index],
-                                style: const TextStyle(
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              )),
-                            );
-                          },
                         ),
-                      ),
-                      kHeight20,
-                      kHeight20,
-                      Row(
-                        children: [
-                          FilterChip(
-                            label: const Text(Appstrings.all),
-                            selected: selectedFilter == Appstrings.all,
-                            onSelected: (isSelected) {
-                              setState(() {
-                                selectedFilter =
-                                    isSelected ? Appstrings.all : '';
-                              });
+                        kHeight16,
+                        BlocBuilder<CategoryBloc, CategoryState>(
+                          builder: (context, state) => Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                "₹${state.minPrice.toInt()}",
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w600,
+                                  color: ColorManager.textGrey,
+                                ),
+                              ),
+                              Text("₹${state.maxPrice.toInt()}",
+                                  style: TextStyle(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w600,
+                                    color: ColorManager.textGrey,
+                                  )),
+                            ],
+                          ),
+                        ),
+                        kHeight20,
+                        _filterTitleText(Appstrings.sizes),
+                        kHeight20,
+                        SizedBox(
+                          height: 48,
+                          child: ListView.builder(
+                            itemCount: 5,
+                            scrollDirection: Axis.horizontal,
+                            itemExtent: 70,
+                            itemBuilder: (context, index) {
+                              final text = [
+                                Appstrings.xs,
+                                Appstrings.s,
+                                Appstrings.l,
+                                Appstrings.xl,
+                                Appstrings.xxl,
+                              ];
+                              return Container(
+                                margin: const EdgeInsets.only(right: 15),
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 14, vertical: 16),
+                                height: 48,
+                                width: 48,
+                                decoration: BoxDecoration(
+                                  color: ColorManager.lightYellow,
+                                  borderRadius: BorderRadius.circular(12),
+                                ),
+                                child: Center(
+                                    child: Text(
+                                  text[index],
+                                  style: const TextStyle(
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                )),
+                              );
                             },
                           ),
-                          kWidht10,
-                          FilterChip(
-                            label: const Text(Appstrings.women),
-                            selected: selectedFilter == Appstrings.women,
-                            onSelected: (isSelected) {
-                              setState(() {
-                                selectedFilter =
-                                    isSelected ? Appstrings.women : '';
-                              });
+                        ),
+                        kHeight16,
+                        const Divider(),
+                        BlocBuilder<CategoryBloc, CategoryState>(
+                          builder: (context, state) => GridView.builder(
+                            shrinkWrap: true,
+                            physics: const NeverScrollableScrollPhysics(),
+                            gridDelegate:
+                                const SliverGridDelegateWithFixedCrossAxisCount(
+                                    crossAxisCount: 3, mainAxisExtent: 40),
+                            itemCount: state.subcategoryByCategoryIdModel
+                                ?.result?.subCategory?.length,
+                            itemBuilder: (context, index) {
+                              final data = state.subcategoryByCategoryIdModel
+                                  ?.result?.subCategory;
+                              return Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 10),
+                                  child: FilterChip(
+                                    labelStyle: TextStyle(
+                                      color:
+                                          state.filterVal == data?[index].title
+                                              ? ColorManager.whiteColor
+                                              : ColorManager.blackColor,
+                                    ),
+                                    disabledColor: ColorManager.pinkButtonColor,
+                                    backgroundColor: ColorManager.lightYellow,
+                                    selectedColor: ColorManager.primary,
+                                    // padding: const EdgeInsets.symmetric(
+                                    //     horizontal: 6, vertical: 10),
+                                    selected:
+                                        state.filterVal == data?[index].title,
+                                    label: Text(data?[index].title ?? ""),
+                                    onSelected: (isSelected) {
+                                      context.read<CategoryBloc>().add(
+                                          SaveCategoryFilterVal(
+                                              filterVal: isSelected
+                                                  ? data![index]
+                                                      .title
+                                                      .toString()
+                                                  : ""));
+                                    },
+                                  ));
                             },
                           ),
-                          kWidht10,
-                          FilterChip(
-                            label: const Text(Appstrings.men),
-                            selected: selectedFilter == Appstrings.men,
-                            onSelected: (isSelected) {
-                              setState(() {
-                                selectedFilter =
-                                    isSelected ? Appstrings.men : '';
-                              });
+                        ),
+                        const Divider(),
+                        kHeight25,
+                        BlocBuilder<CategoryBloc, CategoryState>(
+                          builder: (context, state) => MainButton(
+                            title: Appstrings.apply,
+                            onPressed: () {
+                              context.read<CategoryBloc>().add(
+                                  FetchFilteredByPriceProducts(
+                                      minPrice: state.minPrice,
+                                      maxPrice: state.maxPrice,
+                                      category: widget.category,
+                                      subCategory: state.filterVal == ""
+                                          ? widget.subCategory
+                                          : state.filterVal));
+                              Navigator.of(context).pop();
                             },
                           ),
-                          kWidht10,
-                          FilterChip(
-                            label: const Text(Appstrings.boys),
-                            selected: selectedFilter == Appstrings.boys,
-                            onSelected: (isSelected) {
-                              setState(() {
-                                selectedFilter =
-                                    isSelected ? Appstrings.boys : '';
-                              });
-                            },
-                          ),
-                          kWidht10,
-                          FilterChip(
-                            label: const Text(Appstrings.girls),
-                            selected: selectedFilter == Appstrings.girls,
-                            onSelected: (isSelected) {
-                              setState(() {
-                                selectedFilter =
-                                    isSelected ? Appstrings.girls : '';
-                              });
-                            },
-                          ),
-                        ],
-                      ),
-                      kHeight20,
-                      Divider(),
-                      kHeight25,
-                      MainButton(
-                        title: Appstrings.apply,
-                        onPressed: () {},
-                      )
-                    ],
+                        )
+                      ],
+                    ),
                   ),
                 );
               },
@@ -560,52 +564,64 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
                       ),
                       kHeight20,
                       Expanded(
-                        child: ListView.separated(
-                          itemCount: 5,
-                          itemBuilder: (context, index) {
-                            final texts = [
-                              Appstrings.popular,
-                              Appstrings.newest,
-                              Appstrings.customerReview,
-                              Appstrings.priceLowtoHigh,
-                              Appstrings.priceHighToLow,
-                            ];
-                            return Container(
-                              color: index == _currentIndex
-                                  ? ColorManager.lightGreen
-                                  : null,
-                              child: ListTile(
-                                title: Text(
-                                  texts[index],
-                                  style: const TextStyle(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w600,
+                        child: BlocBuilder<CategoryBloc, CategoryState>(
+                          builder: (context, state) => ListView.separated(
+                            itemCount: 5,
+                            itemBuilder: (context, index) {
+                              final texts = [
+                                Appstrings.popular,
+                                Appstrings.newest,
+                                Appstrings.customerReview,
+                                Appstrings.priceLowtoHigh,
+                                Appstrings.priceHighToLow,
+                              ];
+                              return Container(
+                                color: index == state.sortListIndex
+                                    ? ColorManager.lightGreen
+                                    : null,
+                                child: ListTile(
+                                  title: Text(
+                                    texts[index],
+                                    style: const TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                  trailing: Radio(
+                                    value: index == state.sortListIndex,
+                                    groupValue: true,
+                                    onChanged: (value) {
+                                      context.read<CategoryBloc>().add(
+                                          ChangeSortListIndex(index: index));
+                                    },
+                                    fillColor: MaterialStatePropertyAll(
+                                        ColorManager.primary),
                                   ),
                                 ),
-                                trailing: Radio(
-                                  value: index == _currentIndex,
-                                  groupValue: true,
-                                  onChanged: (value) {
-                                    setState(
-                                      () {
-                                        _currentIndex = index;
-                                      },
-                                    );
-                                  },
-                                  fillColor: MaterialStatePropertyAll(
-                                      ColorManager.primary),
-                                ),
-                              ),
-                            );
-                          },
-                          separatorBuilder: (context, index) {
-                            return const Divider();
-                          },
+                              );
+                            },
+                            separatorBuilder: (context, index) {
+                              return const Divider();
+                            },
+                          ),
                         ),
                       ),
-                      MainButton(
-                        title: "Apply",
-                        onPressed: () {},
+                      BlocBuilder<CategoryBloc, CategoryState>(
+                        builder: (context, state) => MainButton(
+                          title: "Apply",
+                          onPressed: () {
+                            state.sortListIndex == 3
+                                ? context.read<CategoryBloc>().add(
+                                    const FetchProductSortByPrice(
+                                        order: "asec"))
+                                : state.sortListIndex == 4
+                                    ? context.read<CategoryBloc>().add(
+                                        const FetchProductSortByPrice(
+                                            order: "desc"))
+                                    : null;
+                            Navigator.of(context).pop();
+                          },
+                        ),
                       )
                     ],
                   ),

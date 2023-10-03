@@ -1,6 +1,8 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:millat/resources/shop/bloc/models/category/categories._model.dart';
 import 'package:millat/resources/shop/bloc/models/category/subcategories_by_category_id.dart';
@@ -24,6 +26,11 @@ class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
     on<FilterBrandPickEvent>(_filterBrandPickEvent);
     on<PriceRangeEvent>(_priceRangeEvent);
     on<FetchSubCategoriesByCategoryId>(_fetchSubCategoriesByCategoryId);
+    on<SaveCategoryFilterVal>(_saveCategoryFilterVal);
+    on<FetchFilteredByPriceProducts>(_fetchFilteredByPriceProducts);
+    on<SavePriceRange>(_savePriceRagne);
+    on<FetchProductSortByPrice>(_fetchProductSortByEvent);
+    on<ChangeSortListIndex>(_changeSortListIndex);
   }
 
   FutureOr<void> _fetchFilterProducts(
@@ -105,5 +112,71 @@ class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
       emit(state.copyWith(
           errorMessage: "An error occurred", subCategoryLoading: false));
     }
+  }
+
+  _saveCategoryFilterVal(
+      SaveCategoryFilterVal event, Emitter<CategoryState> emit) {
+    emit(state.copyWith(filterVal: event.filterVal));
+  }
+
+  Future<void> _fetchFilteredByPriceProducts(
+    FetchFilteredByPriceProducts event,
+    Emitter<CategoryState> emit,
+  ) async {
+    emit(state.copyWith(productLoading: true));
+
+    try {
+      final List<Product> filteredProducts =
+          state.product?.result?.products?.where((product) {
+                final salePrice = product.salePrice ?? 0;
+                return salePrice >= event.minPrice &&
+                    salePrice <= event.maxPrice;
+              }).toList() ??
+              [];
+      print("filtereded products with the price $filteredProducts");
+      emit(state.copyWith(
+        product: state.product?.copyWith(
+          result: state.product?.result?.copyWith(
+            products: filteredProducts,
+          ),
+        ),
+        productLoading: false,
+      ));
+    } catch (e) {
+      emit(state.copyWith(
+        errorMessage: "An error occurred",
+        productLoading: false,
+      ));
+    }
+  }
+
+  _savePriceRagne(SavePriceRange event, Emitter<CategoryState> emit) {
+    emit(state.copyWith(
+        minPrice: event.minPrice,
+        maxPrice: event.maxPrice,
+        rangeValues: event.rangeValues));
+    print(state.rangeValues);
+  }
+
+  _fetchProductSortByEvent(
+      FetchProductSortByPrice event, Emitter<CategoryState> emit) async {
+    emit(state.copyWith(productLoading: true));
+
+    try {
+      final data =
+          await _categoryService.fetchProductSortByPrice(order: event.order);
+      print("filtered products $data");
+      emit(state.copyWith(
+        product: data,
+        productLoading: false,
+      ));
+    } catch (e) {
+      emit(state.copyWith(
+          errorMessage: "An error occurred", productLoading: false));
+    }
+  }
+
+  _changeSortListIndex(ChangeSortListIndex event, Emitter<CategoryState> emit) {
+    emit(state.copyWith(sortListIndex: event.index));
   }
 }

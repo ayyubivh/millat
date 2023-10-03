@@ -20,4 +20,23 @@ class CategoryEvent with _$CategoryEvent {
   const factory CategoryEvent.fetchSubCategoriesByCategoryId({
     required String categoryId,
   }) = FetchSubCategoriesByCategoryId;
+  const factory CategoryEvent.saveCategoryFilterVal(
+      {required String filterVal}) = SaveCategoryFilterVal;
+  const factory CategoryEvent.fetchFilteredByPriceProducts({
+    required double minPrice,
+    required double maxPrice,
+    required String? category,
+    required String? subCategory,
+  }) = FetchFilteredByPriceProducts;
+  const factory CategoryEvent.savePriceRange({
+    required double minPrice,
+    required double maxPrice,
+    required RangeValues rangeValues,
+  }) = SavePriceRange;
+  const factory CategoryEvent.fetchProductSortByPrice({
+    required String order,
+  }) = FetchProductSortByPrice;
+  const factory CategoryEvent.changeSortListIndex({
+    required int index,
+  }) = ChangeSortListIndex;
 }

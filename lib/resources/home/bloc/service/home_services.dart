@@ -71,6 +71,7 @@ class HomeServices extends HttpServices {
         final result = BrandOftheDayModel.fromJson(data);
         return result;
       } catch (e) {
+        print("error on $e");
         throw Exception('Failed to parse response');
       }
     } else {

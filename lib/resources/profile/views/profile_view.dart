@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/resources/profile/views/edit_profile_view.dart';
 import 'package:millat/resources/profile/views/manage_address.dart';
 import 'package:millat/resources/profile/views/order_history_view.dart';
+import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
 import 'package:millat/resources/shop/view/wishlist/wishlist_view.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/color_manager.dart';
@@ -27,141 +28,148 @@ class ProfileView extends StatelessWidget {
         context.read<DatabaseBloc>().add(FetchAuthUser(context: context));
         return const Loader();
       }
-      return Scaffold(
-        body: Column(
-          children: [
-            Stack(
-              children: [
-                ClipRRect(
-                  borderRadius:
-                      const BorderRadius.vertical(bottom: Radius.circular(30)),
-                  child: BlocBuilder<DatabaseBloc, DatabaseState>(
-                    builder: (context, state) => SizedBox(
-                      height: 280,
-                      width: SizeUtility(context).width,
-                      child: Image.asset(
-                        state.coverImage,
-                        fit: BoxFit.fill,
-                      ),
-                    ),
-                  ),
-                ),
-                Align(
-                  alignment: Alignment.center,
-                  child: Column(
-                    children: [
-                      kHeight20,
-                      Align(
-                          alignment: Alignment.topLeft,
-                          child: BackButton(color: ColorManager.whiteColor)),
-                      CircleAvatar(
-                        radius: 45,
-                        backgroundColor: ColorManager.whiteColor,
-                        child: CircleAvatar(
-                          radius: 40,
-                          backgroundColor: ColorManager.dotGrey,
+      return BlocBuilder<ShopProductsBloc, ShopProductsState>(
+        builder: (context, state) => state.isLoading
+            ? const Loader()
+            : Scaffold(
+                body: Column(
+                  children: [
+                    Stack(
+                      children: [
+                        ClipRRect(
+                          borderRadius: const BorderRadius.vertical(
+                              bottom: Radius.circular(30)),
                           child: BlocBuilder<DatabaseBloc, DatabaseState>(
-                            builder: (context, state) {
-                              final userPictureUrl =
-                                  state.authUserModel?.result?.user?.picture;
-                              return userPictureUrl == null
-                                  ? Icon(
-                                      Icons.person_2_outlined,
-                                      size: 60,
-                                      color: ColorManager.black4A,
-                                    )
-                                  : ClipOval(
-                                      child:
-                                          Utilities().buildCachedNetworkImage(
-                                        imageUrl: userPictureUrl,
-                                        width: 80,
-                                        height: 80,
-                                        boxFit: BoxFit.cover,
-                                      ),
-                                    );
-                            },
+                            builder: (context, state) => SizedBox(
+                              height: 280,
+                              width: SizeUtility(context).width,
+                              child: Image.asset(
+                                state.coverImage,
+                                fit: BoxFit.fill,
+                              ),
+                            ),
                           ),
                         ),
-                      ),
-                      kHeight16,
-                      BlocBuilder<DatabaseBloc, DatabaseState>(
-                        builder: (context, state) {
-                          final data = state.authUserModel?.result?.user;
-                          return Column(
+                        Align(
+                          alignment: Alignment.center,
+                          child: Column(
                             children: [
-                              Text(
-                                data?.name ?? "",
-                                style: TextStyle(
-                                  color: ColorManager.whiteColor,
-                                  fontSize: 22,
-                                  fontWeight: FontWeight.w600,
+                              kHeight20,
+                              Align(
+                                  alignment: Alignment.topLeft,
+                                  child: BackButton(
+                                      color: ColorManager.whiteColor)),
+                              CircleAvatar(
+                                radius: 45,
+                                backgroundColor: ColorManager.whiteColor,
+                                child: CircleAvatar(
+                                  radius: 40,
+                                  backgroundColor: ColorManager.dotGrey,
+                                  child:
+                                      BlocBuilder<DatabaseBloc, DatabaseState>(
+                                    builder: (context, state) {
+                                      final userPictureUrl = state
+                                          .authUserModel?.result?.user?.picture;
+                                      return userPictureUrl == null
+                                          ? Icon(
+                                              Icons.person_2_outlined,
+                                              size: 60,
+                                              color: ColorManager.black4A,
+                                            )
+                                          : ClipOval(
+                                              child: Utilities()
+                                                  .buildCachedNetworkImage(
+                                                imageUrl: userPictureUrl,
+                                                width: 80,
+                                                height: 80,
+                                                boxFit: BoxFit.cover,
+                                              ),
+                                            );
+                                    },
+                                  ),
                                 ),
                               ),
-                              const SizedBox(
-                                height: 10,
+                              kHeight16,
+                              BlocBuilder<DatabaseBloc, DatabaseState>(
+                                builder: (context, state) {
+                                  final data =
+                                      state.authUserModel?.result?.user;
+                                  return Column(
+                                    children: [
+                                      Text(
+                                        data?.name ?? "",
+                                        style: TextStyle(
+                                          color: ColorManager.whiteColor,
+                                          fontSize: 22,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                      ),
+                                      const SizedBox(
+                                        height: 10,
+                                      ),
+                                      Text(
+                                        data?.email ?? "",
+                                        style: TextStyle(
+                                            color: ColorManager.textGrey99,
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.w600),
+                                      )
+                                    ],
+                                  );
+                                },
                               ),
-                              Text(
-                                data?.email ?? "",
-                                style: TextStyle(
-                                    color: ColorManager.textGrey99,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w600),
-                              )
                             ],
-                          );
-                        },
-                      ),
-                    ],
-                  ),
-                )
-              ],
-            ),
-            Column(
-              children: [
-                kHeight30,
-                _buildTile(
-                  text: Appstrings.personalInfo,
-                  icon: AppAssetsStrings.peronalInfo,
-                  onTap: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const EditProfileView(),
-                    ));
-                  },
+                          ),
+                        )
+                      ],
+                    ),
+                    Column(
+                      children: [
+                        kHeight30,
+                        _buildTile(
+                          text: Appstrings.personalInfo,
+                          icon: AppAssetsStrings.peronalInfo,
+                          onTap: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => const EditProfileView(),
+                            ));
+                          },
+                        ),
+                        kHeight20,
+                        _buildTile(
+                          text: Appstrings.addressBook,
+                          icon: AppAssetsStrings.addressBookIcon,
+                          onTap: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => const ManageAddress(),
+                            ));
+                          },
+                        ),
+                        kHeight20,
+                        _buildTile(
+                          text: Appstrings.orderHistory,
+                          icon: AppAssetsStrings.orderHistory,
+                          onTap: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => const OrderHistoryView(),
+                            ));
+                          },
+                        ),
+                        kHeight20,
+                        _buildTile(
+                          text: Appstrings.wishList,
+                          icon: AppAssetsStrings.wishList,
+                          onTap: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => const WishListView(),
+                            ));
+                          },
+                        )
+                      ],
+                    ),
+                  ],
                 ),
-                kHeight20,
-                _buildTile(
-                  text: Appstrings.addressBook,
-                  icon: AppAssetsStrings.addressBookIcon,
-                  onTap: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const ManageAddress(),
-                    ));
-                  },
-                ),
-                kHeight20,
-                _buildTile(
-                  text: Appstrings.orderHistory,
-                  icon: AppAssetsStrings.orderHistory,
-                  onTap: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const OrderHistoryView(),
-                    ));
-                  },
-                ),
-                kHeight20,
-                _buildTile(
-                  text: Appstrings.wishList,
-                  icon: AppAssetsStrings.wishList,
-                  onTap: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const WishListView(),
-                    ));
-                  },
-                )
-              ],
-            ),
-          ],
-        ),
+              ),
       );
     });
   }

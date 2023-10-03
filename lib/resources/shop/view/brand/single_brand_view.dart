@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/components/common_widgets/shop_products_widget.dart';
 import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
+import 'package:millat/resources/shop/view/categories/categories_product_view.dart';
 import 'package:millat/resources/shop/view/products/single_product_view.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
@@ -27,6 +28,8 @@ class SingleBrandView extends StatelessWidget {
       BlocProvider.of<ShopProductsBloc>(context)
           .add(FetchBrandProducts(brandId: passValue.id));
       BlocProvider.of<ShopProductsBloc>(context).add(const FetchShopAdBrands());
+      BlocProvider.of<ShopProductsBloc>(context)
+          .add(FetchBrandItemsbyId(id: passValue.id));
     });
     var textStyle = TextStyle(
         fontSize: 16,
@@ -184,6 +187,65 @@ class SingleBrandView extends StatelessWidget {
               ],
             ),
             kHeight20,
+            BlocBuilder<ShopProductsBloc, ShopProductsState>(
+              builder: (context, state) {
+                final data = state.brandItemsModel?.result?.data?.itemList;
+                if (data == null) {
+                  return const Loader();
+                }
+                return Container(
+                  height: 110,
+                  margin: const EdgeInsets.symmetric(horizontal: 20),
+                  child: ListView.builder(
+                    itemCount: data.length,
+                    scrollDirection: Axis.horizontal,
+                    itemExtent: 100,
+                    itemBuilder: (context, index) {
+                      final itemData = data[index];
+                      return GestureDetector(
+                        onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => CategoriesProductView(
+                                  category: itemData.categoryId?.title,
+                                  subCategory: itemData.subCategoryId?.title,
+                                  type: FilterType.category)));
+                        },
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Container(
+                              height: 60,
+                              width: 60,
+                              padding: const EdgeInsets.all(8),
+                              // margin: const EdgeInsets.only(right: 10),
+                              decoration: BoxDecoration(
+                                color: ColorManager.lightGreen,
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(12),
+                                child: Utilities().buildCachedNetworkImage(
+                                    imageUrl: itemData.image ?? ""),
+                              ),
+                            ),
+                            kHeight10,
+                            Text(
+                              itemData.title ?? "",
+                              style: const TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.w600,
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
+                          ],
+                        ),
+                      );
+                    },
+                  ),
+                );
+              },
+            ),
+            kHeight16,
             brandViewType == BrandViewType.brandOftheDay
                 ? kHeight16
                 : BlocBuilder<ShopProductsBloc, ShopProductsState>(
@@ -315,7 +377,7 @@ class SingleBrandView extends StatelessWidget {
                                     borderRadius: BorderRadius.circular(30),
                                     color: state.brandBannerIndex == index
                                         ? ColorManager.primary
-                                        : ColorManager.textGrey,
+                                        : ColorManager.grey08,
                                   ),
                                 );
                               }).toList(),
@@ -363,8 +425,8 @@ class SingleBrandView extends StatelessWidget {
                   physics: const NeverScrollableScrollPhysics(),
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
-                    crossAxisSpacing: 20,
-                    mainAxisExtent: 250,
+                    crossAxisSpacing: 2,
+                    mainAxisExtent: 260,
                   ),
                   itemCount: state.brandProductsModel?.result?.products?.length,
                   itemBuilder: (context, index) {

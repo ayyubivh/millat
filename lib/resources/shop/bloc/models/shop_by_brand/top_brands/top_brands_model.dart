@@ -19,7 +19,9 @@ class TopBrandsModel with _$TopBrandsModel {
 @freezed
 class Result with _$Result {
   const factory Result({
-    required List<Data>? data,
+    required Data? data,
+    required String? createdAt,
+    required String? updatedAt,
   }) = _Result;
 
   factory Result.fromJson(Map<String, dynamic> json) => _$ResultFromJson(json);
@@ -29,28 +31,39 @@ class Result with _$Result {
 class Data with _$Data {
   const factory Data({
     @JsonKey(name: "_id") required String? id,
-    required String? role,
-    required String? name,
-    required String? email,
-    required String? password,
-    @JsonKey(name: "isActive") required bool? active,
-    required String? phoneNumber,
-    required String? logo,
-    required String? coverImage,
-    required String? description,
-    @JsonKey(name: "cityName") required String? cityName,
-    @JsonKey(name: "brandName") required String? brandName,
-    @JsonKey(name: "companyName") required String? companyName,
-    @JsonKey(name: "companyRegYear") required String? companyRegYear,
-    @JsonKey(name: "revenueOfLastThreeMonths")
-    required int? revenueOfLastThreeMonths,
-    required String? category,
-    @JsonKey(name: "subCategory") required List<String>? subCategory,
-    required String? GST,
-    required String? otp,
+    required List<TopBrand>? topBrands,
     required String? createdAt,
     required String? updatedAt,
   }) = _Data;
 
   factory Data.fromJson(Map<String, dynamic> json) => _$DataFromJson(json);
+}
+
+@freezed
+class TopBrand with _$TopBrand {
+  const factory TopBrand({
+    @JsonKey(name: "_id") required String? id,
+    required String? name,
+    required String? email,
+    required String? password,
+    required bool? isActive,
+    required String? phoneNumber,
+    required String? logo,
+    required String? coverImage,
+    required String? description,
+    required String? cityName,
+    required String? brandName,
+    required String? companyName,
+    required String? companyRegYear,
+    required int? revenueOfLastThreeMonths,
+    required String? category,
+    required List<String>? subCategory,
+    @JsonKey(name: "GST") required String? gst,
+    required String? role,
+    required String? createdAt,
+    required String? updatedAt,
+  }) = _TopBrand;
+
+  factory TopBrand.fromJson(Map<String, dynamic> json) =>
+      _$TopBrandFromJson(json);
 }

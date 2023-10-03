@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:http/http.dart' as http;
+import 'package:millat/resources/shop/bloc/models/articles/article_by_id_model.dart';
 import 'package:millat/resources/shop/bloc/models/articles/articles_model.dart'
     as Articles;
 import 'package:millat/resources/shop/bloc/models/banners/banners_model.dart';
@@ -11,7 +12,9 @@ import 'package:millat/resources/shop/bloc/models/coupon_model/coupen_model.dart
 import 'package:millat/resources/shop/bloc/models/products/product_by_id_model.dart';
 import 'package:millat/resources/shop/bloc/models/products/product_item_women/products_item_women_model.dart';
 import 'package:millat/resources/shop/bloc/models/recent_products/recent_products_model.dart';
+import 'package:millat/resources/shop/bloc/models/shop_by_brand/brand_model.dart';
 import 'package:millat/resources/shop/bloc/models/shop_by_brand/shop_by_brand_models.dart';
+import 'package:millat/resources/shop/bloc/models/shop_by_brand/top_brands/brand_items_by_id_model.dart';
 import 'package:millat/resources/shop/bloc/models/wishlist/wishllist_models.dart';
 import 'package:millat/services/http_services.dart';
 import 'package:millat/utils/string_constants.dart';
@@ -36,6 +39,7 @@ class ShopService extends HttpServices {
   final banner = 'banner?slug=home_banner';
   final shopBanner = 'banner?slug=shop_banner';
   final article = 'article';
+  final articleById = 'article/';
 
   // Fetching all flash sale products
   Future<ShopProducts?> fetchFlashSaleProducts(String endPointSlug) async {
@@ -96,6 +100,28 @@ class ShopService extends HttpServices {
     }
   }
 
+  //fetching  Products
+  Future<ProductModel> fetchProducts() async {
+    const endPoint = "product";
+    final response = await get(endPoint: endPoint);
+
+    if (response.statusCode == 200) {
+      try {
+        final Map<String, dynamic> data = json.decode(response.body);
+        final result = ProductModel.fromJson(data);
+        print('jsone here on products$result');
+
+        return result;
+      } catch (e) {
+        print('error on  product: ${e.toString()}');
+        throw Exception('Failed to parse response');
+      }
+    } else {
+      throw Exception(
+          'API request failed with status code: ${response.statusCode}');
+    }
+  }
+
   // Fetching Home banners
   Future<BannersModel> fetchHomeBanners() async {
     final response = await get(endPoint: banner);
@@ -129,7 +155,7 @@ class ShopService extends HttpServices {
         print(result);
         return result;
       } catch (e) {
-        print('error on Article API fetch: ${e.toString()}');
+        print('error on produc API fetch: ${e.toString()}');
         throw Exception('Failed to parse response');
       }
     } else {
@@ -178,6 +204,26 @@ class ShopService extends HttpServices {
     }
   }
 
+//Fetching Articles
+  Future<ArticleModelById> fetchArticleById(String id) async {
+    final response = await get(endPoint: "$articleById$id");
+
+    if (response.statusCode == 200) {
+      try {
+        final Map<String, dynamic> data = json.decode(response.body);
+        final result = ArticleModelById.fromJson(data);
+
+        return result;
+      } catch (e) {
+        print('error on Article by id API fetch: ${e.toString()}');
+        throw Exception('Failed to parse response');
+      }
+    } else {
+      throw Exception(
+          'API request failed with status code: ${response.statusCode}');
+    }
+  }
+
   // Fetching shop by brands
   Future<ShopBrandModel> fetchShopByBrand() async {
     const endPoint = "admin/users";
@@ -188,6 +234,27 @@ class ShopService extends HttpServices {
         final Map<String, dynamic> data = json.decode(response.body);
         final result = ShopBrandModel.fromJson(data['result']);
 
+        return result;
+      } catch (e) {
+        print('error on fetchin all brands: ${e.toString()}');
+        throw Exception('Failed to parse response');
+      }
+    } else {
+      throw Exception(
+          'API request failed with status code: ${response.statusCode}');
+    }
+  }
+
+  // Fetching shop by brands
+  Future<BrandItemsModel> fetchBrandItemsById({required String id}) async {
+    final endPoint = "brand_item_list/$id";
+    final response = await get(endPoint: endPoint);
+
+    if (response.statusCode == 200) {
+      try {
+        final Map<String, dynamic> data = json.decode(response.body);
+        final result = BrandItemsModel.fromJson(data);
+        print(result);
         return result;
       } catch (e) {
         print('error on fetchin all brands: ${e.toString()}');
@@ -512,7 +579,7 @@ class ShopService extends HttpServices {
   }
 
   Future<TopBrandsModel> fetchTopBrands() async {
-    const endPoint = "seller";
+    const endPoint = "top_brand";
     final response = await get(endPoint: endPoint);
 
     if (response.statusCode == 200) {
@@ -531,16 +598,35 @@ class ShopService extends HttpServices {
     }
   }
 
+  Future<BrandModels> fetchBrands() async {
+    const endPoint = "seller";
+    final response = await get(endPoint: endPoint);
+
+    if (response.statusCode == 200) {
+      try {
+        final Map<String, dynamic> data = json.decode(response.body);
+        final result = BrandModels.fromJson(data);
+        print(result);
+        return result;
+      } catch (e) {
+        print('error on shop Top brands api: ${e.toString()}');
+        throw Exception('Failed to parse response');
+      }
+    } else {
+      throw Exception(
+          'API request failed with status code: ${response.statusCode}');
+    }
+  }
+
   Future<ProductItemsSubCategoryWomenModel>
       fetchProductItemsSubcategoryWomen() async {
-    const endPoint = "item?subcategory=Women";
+    const endPoint = "specific_category/item/data?slug=women_card_item";
     final response = await get(endPoint: endPoint);
 
     if (response.statusCode == 200) {
       try {
         final Map<String, dynamic> data = json.decode(response.body);
         final result = ProductItemsSubCategoryWomenModel.fromJson(data);
-
         return result;
       } catch (e) {
         print('item subcategory women: ${e.toString()}');
@@ -596,7 +682,7 @@ class ShopService extends HttpServices {
 
   Future<ProductItemsSubCategorySunnahModel>
       fetchProductItemsSubcategorySunnah() async {
-    const endPoint = "item?subcategory=sunnah";
+    const endPoint = "specific_category/item/data?slug=sunnah_card_item";
     final response = await get(endPoint: endPoint);
 
     if (response.statusCode == 200) {
@@ -617,7 +703,7 @@ class ShopService extends HttpServices {
 
   Future<ProductItemsSubCategoryHealthModel>
       fetchProductItemsSubcategoryHealth() async {
-    const endPoint = "item?subcategory=health";
+    const endPoint = "specific_category/item/data?slug=healthy_diet_card_item";
     final response = await get(endPoint: endPoint);
 
     if (response.statusCode == 200) {

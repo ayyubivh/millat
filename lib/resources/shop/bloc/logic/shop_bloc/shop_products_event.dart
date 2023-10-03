@@ -53,6 +53,10 @@ class ShopProductsEvent with _$ShopProductsEvent {
     required BuildContext context,
     required int shiprockeId,
   }) = CancelOrder;
+  const factory ShopProductsEvent.returnOrder({
+    required BuildContext context,
+    required int shiprockeId,
+  }) = ReturnOrder;
   const factory ShopProductsEvent.fetchShopHomeBackgroundCard() =
       FetchShopHomeBackgroundCard;
   const factory ShopProductsEvent.fetchShopHomeBackgroundCardHelthyDiet() =
@@ -98,4 +102,19 @@ class ShopProductsEvent with _$ShopProductsEvent {
   const factory ShopProductsEvent.isPromoCodeAvailable({
     required bool value,
   }) = IsPromoCodeAvailable;
+  const factory ShopProductsEvent.changeIndexEvent({required int index}) =
+      ChangeIndexEvent;
+  const factory ShopProductsEvent.fetchBrandItemsbyId({required String id}) =
+      FetchBrandItemsbyId;
+  const factory ShopProductsEvent.fetchAllBrandsEvent() = FetchAllBrandsEvent;
+  const factory ShopProductsEvent.fetchOrderReasons({
+    required String endpoint,
+  }) = FetchOrderReasons;
+  const factory ShopProductsEvent.addReasons({
+    required String endpoint,
+    required String text,
+  }) = AddReasons;
+  const factory ShopProductsEvent.fetchArticlesbyId({required String id}) =
+      FetchArticlesbyId;
+  const factory ShopProductsEvent.fetchProducts() = FetchProducts;
 }

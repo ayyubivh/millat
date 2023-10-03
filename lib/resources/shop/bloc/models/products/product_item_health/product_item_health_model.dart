@@ -10,7 +10,7 @@ class ProductItemsSubCategoryHealthModel
     required int? status,
     required String? message,
     required String? error,
-    required CategoryResult? result,
+    required Result? result,
   }) = _ProductItemsSubCategoryHealthModel;
 
   factory ProductItemsSubCategoryHealthModel.fromJson(
@@ -19,41 +19,70 @@ class ProductItemsSubCategoryHealthModel
 }
 
 @freezed
-class CategoryResult with _$CategoryResult {
-  const factory CategoryResult({
-    required List<CategoryItem>? items,
-  }) = _CategoryResult;
+class Result with _$Result {
+  const factory Result({
+    required ItemData? data,
+  }) = _Result;
 
-  factory CategoryResult.fromJson(Map<String, dynamic> json) =>
-      _$CategoryResultFromJson(json);
+  factory Result.fromJson(Map<String, dynamic> json) => _$ResultFromJson(json);
 }
 
 @freezed
-class CategoryItem with _$CategoryItem {
-  const factory CategoryItem({
-    @JsonKey(name: "_id") required String? id,
-    required CategoryInfo? categoryId,
-    required CategoryInfo? subCategoryId,
-    required String? title,
-    required String? image,
-    required String? createdAt,
-    required String? updatedAt,
-  }) = _CategoryItem;
+class ItemData with _$ItemData {
+  const factory ItemData({
+    @JsonKey(name: '_id') String? id,
+    String? slug,
+    String? createdAt,
+    List<ItemList>? itemList,
+    String? updatedAt,
+  }) = _ItemData;
 
-  factory CategoryItem.fromJson(Map<String, dynamic> json) =>
-      _$CategoryItemFromJson(json);
+  factory ItemData.fromJson(Map<String, dynamic> json) =>
+      _$ItemDataFromJson(json);
 }
 
 @freezed
-class CategoryInfo with _$CategoryInfo {
-  const factory CategoryInfo({
-    @JsonKey(name: "_id") required String? id,
-    required String? title,
-    required String? image,
-    required String? createdAt,
-    required String? updatedAt,
-  }) = _CategoryInfo;
+class ItemList with _$ItemList {
+  const factory ItemList({
+    @JsonKey(name: '_id') String? id,
+    CategoryId? categoryId,
+    SubCategoryId? subCategoryId,
+    String? title,
+    String? image,
+    String? createdAt,
+    String? updatedAt,
+    String? brandId,
+  }) = _ItemList;
 
-  factory CategoryInfo.fromJson(Map<String, dynamic> json) =>
-      _$CategoryInfoFromJson(json);
+  factory ItemList.fromJson(Map<String, dynamic> json) =>
+      _$ItemListFromJson(json);
+}
+
+@freezed
+class CategoryId with _$CategoryId {
+  const factory CategoryId({
+    @JsonKey(name: '_id') String? id,
+    String? title,
+    String? image,
+    String? createdAt,
+    String? updatedAt,
+  }) = _CategoryId;
+
+  factory CategoryId.fromJson(Map<String, dynamic> json) =>
+      _$CategoryIdFromJson(json);
+}
+
+@freezed
+class SubCategoryId with _$SubCategoryId {
+  const factory SubCategoryId({
+    @JsonKey(name: '_id') String? id,
+    @JsonKey(name: 'categoryId') String? categoryId,
+    String? title,
+    String? image,
+    String? createdAt,
+    String? updatedAt,
+  }) = _SubCategoryId;
+
+  factory SubCategoryId.fromJson(Map<String, dynamic> json) =>
+      _$SubCategoryIdFromJson(json);
 }

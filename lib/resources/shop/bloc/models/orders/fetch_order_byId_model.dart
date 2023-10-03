@@ -1,6 +1,7 @@
 // ignore_for_file: invalid_annotation_target
 
 import 'package:freezed_annotation/freezed_annotation.dart';
+
 part 'fetch_order_byId_model.g.dart';
 part 'fetch_order_byId_model.freezed.dart';
 
@@ -65,7 +66,7 @@ class Brand with _$Brand {
     @JsonKey(name: 'email') required String? email,
     @JsonKey(name: 'password') required String? password,
     @JsonKey(name: 'isActive') required bool? isActive,
-    @JsonKey(name: 'phoneNumber') required int? phoneNumber,
+    @JsonKey(name: 'phoneNumber') required String? phoneNumber,
     @JsonKey(name: 'logo') required String? logo,
     @JsonKey(name: 'coverImage') required String? coverImage,
     @JsonKey(name: 'description') required String? description,
@@ -91,15 +92,15 @@ class Product with _$Product {
   const factory Product({
     @JsonKey(name: '_id') required String? id,
     @JsonKey(name: 'title') required String? title,
-    @JsonKey(name: 'brand') required String? brandId,
+    @JsonKey(name: 'brandId') required String? brandId,
     @JsonKey(name: 'category') required String? category,
     @JsonKey(name: 'subcategory') required String? subcategory,
     @JsonKey(name: 'itemType') required String? itemType,
     @JsonKey(name: 'pickupAddress') required String? pickupAddress,
     @JsonKey(name: 'description') required String? description,
-    @JsonKey(name: 'regularPrice') required int? regularPrice,
-    @JsonKey(name: 'salePrice') required int? salePrice,
-    @JsonKey(name: 'discount') required int? discount,
+    @JsonKey(name: 'regularPrice') required double? regularPrice,
+    @JsonKey(name: 'salePrice') required double? salePrice,
+    @JsonKey(name: 'discount') required double? discount,
     @JsonKey(name: 'color') required String? color,
     @JsonKey(name: 'images') required List<String>? images,
     @JsonKey(name: 'size') required List<Size>? size,
@@ -119,7 +120,7 @@ class Size with _$Size {
   const factory Size({
     @JsonKey(name: 'size') required String? size,
     @JsonKey(name: 'stock') required int? stock,
-    @JsonKey(name: 'price') required int? price,
+    @JsonKey(name: 'price') required double? price,
     @JsonKey(name: 'sku') required String? sku,
     @JsonKey(name: 'width') required String? width,
     @JsonKey(name: 'height') required String? height,

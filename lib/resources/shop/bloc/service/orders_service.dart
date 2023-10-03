@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/cupertino.dart';
+import 'package:millat/resources/shop/bloc/models/orders/reason_model.dart';
 import '../../../../services/http_services.dart';
 import '../../../../utils/string_constants.dart';
 import '../../../authentication/bloc/logic/database_bloc/database_bloc.dart';
@@ -67,7 +68,7 @@ class OrdersService extends HttpServices {
     if (response.statusCode == 200) {
       try {
         final Map<String, dynamic> data = json.decode(response.body);
-
+        print(response.body);
         final result = OrderModel.fromJson(data);
         return result;
       } catch (e) {
@@ -159,6 +160,84 @@ class OrdersService extends HttpServices {
 
     final response = await http.post(Uri.parse(kBaseUrl + endPoint),
         headers: headers, body: jsonEncode(body));
+
+    try {
+      if (response.statusCode == 200) {
+        final Map<String, dynamic> data = json.decode(response.body);
+        print('Response data in the postOrder function: $data');
+        return data;
+      } else {
+        throw Exception(
+            'API request failed with status code: ${response.statusCode}');
+      }
+    } catch (e) {
+      print('Error on API fetch: ${e.toString()}');
+    }
+  }
+
+  //Return Order
+  returnOrder({
+    required BuildContext context,
+    required int shiprocketId,
+  }) async {
+    const endPoint = 'order/return';
+
+    final databaseState = context.read<DatabaseBloc>().state;
+    final token = databaseState.token;
+
+    final headers = {
+      'Content-Type': 'application/json; charset=utf-8',
+      'Authorization': 'Bearer $token',
+    };
+
+    final body = {
+      "shiprocket_order_id": shiprocketId,
+    };
+
+    final response = await http.post(Uri.parse(kBaseUrl + endPoint),
+        headers: headers, body: jsonEncode(body));
+
+    try {
+      if (response.statusCode == 200) {
+        final Map<String, dynamic> data = json.decode(response.body);
+        print('Response data in the postOrder function: $data');
+        return data;
+      } else {
+        throw Exception(
+            'API request failed with status code: ${response.statusCode}');
+      }
+    } catch (e) {
+      print('Error on API fetch: ${e.toString()}');
+    }
+  }
+
+  Future<ReasonModel> fetchReasons(String apiEndPoint) async {
+    final response = await get(endPoint: apiEndPoint);
+
+    if (response.statusCode == 200) {
+      try {
+        final Map<String, dynamic> data = json.decode(response.body);
+        final result = ReasonModel.fromJson(data);
+        print(result);
+        return result;
+      } catch (e) {
+        print('error on shop Top brands api: ${e.toString()}');
+        throw Exception('Failed to parse response');
+      }
+    } else {
+      throw Exception(
+          'API request failed with status code: ${response.statusCode}');
+    }
+  }
+
+//Add reason
+  addReason({required String text, required String endPoint}) async {
+    final body = {
+      "text": text,
+    };
+
+    final response =
+        await http.put(Uri.parse(kBaseUrl + endPoint), body: jsonEncode(body));
 
     try {
       if (response.statusCode == 200) {

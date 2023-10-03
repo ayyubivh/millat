@@ -16,6 +16,7 @@ class ReviewBloc extends Bloc<ReviewEvent, ReviewState> {
     on<FetchRatingEvent>(_fetchRatingEvent);
     on<AddReview>(_addReview);
     on<UpdateReiview>(_updateReview);
+    on<ExpandReviewList>(_expandReviewList);
   }
 
   _fetchRatingEvent(FetchRatingEvent event, Emitter<ReviewState> emit) async {
@@ -51,5 +52,9 @@ class ReviewBloc extends Bloc<ReviewEvent, ReviewState> {
     } catch (e) {
       throw Exception(e);
     }
+  }
+
+  _expandReviewList(ExpandReviewList event, Emitter<ReviewState> emit) {
+    emit(state.copyWith(isExpandedReview: !state.isExpandedReview));
   }
 }

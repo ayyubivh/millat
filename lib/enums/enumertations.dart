@@ -71,3 +71,8 @@ enum BrandViewType {
   brandOftheDay,
   mainBrand,
 }
+
+enum OrderType {
+  returnOrder,
+  cancelOrder,
+}

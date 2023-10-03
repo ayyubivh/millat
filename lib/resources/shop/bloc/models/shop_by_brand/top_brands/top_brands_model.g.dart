@@ -25,22 +25,41 @@ Map<String, dynamic> _$$_TopBrandsModelToJson(_$_TopBrandsModel instance) =>
     };
 
 _$_Result _$$_ResultFromJson(Map<String, dynamic> json) => _$_Result(
-      data: (json['data'] as List<dynamic>?)
-          ?.map((e) => Data.fromJson(e as Map<String, dynamic>))
-          .toList(),
+      data: json['data'] == null
+          ? null
+          : Data.fromJson(json['data'] as Map<String, dynamic>),
+      createdAt: json['createdAt'] as String?,
+      updatedAt: json['updatedAt'] as String?,
     );
 
 Map<String, dynamic> _$$_ResultToJson(_$_Result instance) => <String, dynamic>{
       'data': instance.data,
+      'createdAt': instance.createdAt,
+      'updatedAt': instance.updatedAt,
     };
 
 _$_Data _$$_DataFromJson(Map<String, dynamic> json) => _$_Data(
       id: json['_id'] as String?,
-      role: json['role'] as String?,
+      topBrands: (json['topBrands'] as List<dynamic>?)
+          ?.map((e) => TopBrand.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      createdAt: json['createdAt'] as String?,
+      updatedAt: json['updatedAt'] as String?,
+    );
+
+Map<String, dynamic> _$$_DataToJson(_$_Data instance) => <String, dynamic>{
+      '_id': instance.id,
+      'topBrands': instance.topBrands,
+      'createdAt': instance.createdAt,
+      'updatedAt': instance.updatedAt,
+    };
+
+_$_TopBrand _$$_TopBrandFromJson(Map<String, dynamic> json) => _$_TopBrand(
+      id: json['_id'] as String?,
       name: json['name'] as String?,
       email: json['email'] as String?,
       password: json['password'] as String?,
-      active: json['isActive'] as bool?,
+      isActive: json['isActive'] as bool?,
       phoneNumber: json['phoneNumber'] as String?,
       logo: json['logo'] as String?,
       coverImage: json['coverImage'] as String?,
@@ -54,19 +73,19 @@ _$_Data _$$_DataFromJson(Map<String, dynamic> json) => _$_Data(
       subCategory: (json['subCategory'] as List<dynamic>?)
           ?.map((e) => e as String)
           .toList(),
-      GST: json['GST'] as String?,
-      otp: json['otp'] as String?,
+      gst: json['GST'] as String?,
+      role: json['role'] as String?,
       createdAt: json['createdAt'] as String?,
       updatedAt: json['updatedAt'] as String?,
     );
 
-Map<String, dynamic> _$$_DataToJson(_$_Data instance) => <String, dynamic>{
+Map<String, dynamic> _$$_TopBrandToJson(_$_TopBrand instance) =>
+    <String, dynamic>{
       '_id': instance.id,
-      'role': instance.role,
       'name': instance.name,
       'email': instance.email,
       'password': instance.password,
-      'isActive': instance.active,
+      'isActive': instance.isActive,
       'phoneNumber': instance.phoneNumber,
       'logo': instance.logo,
       'coverImage': instance.coverImage,
@@ -78,8 +97,8 @@ Map<String, dynamic> _$$_DataToJson(_$_Data instance) => <String, dynamic>{
       'revenueOfLastThreeMonths': instance.revenueOfLastThreeMonths,
       'category': instance.category,
       'subCategory': instance.subCategory,
-      'GST': instance.GST,
-      'otp': instance.otp,
+      'GST': instance.gst,
+      'role': instance.role,
       'createdAt': instance.createdAt,
       'updatedAt': instance.updatedAt,
     };

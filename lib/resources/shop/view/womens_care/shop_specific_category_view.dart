@@ -4,7 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/shop/view/categories/categories_product_view.dart';
 import 'package:millat/resources/shop/view/womens_care/shop_specific_category_banner_view.dart';
-import 'package:millat/resources/shop/view/womens_care/shop_specific_category_subcategory_view.dart';
 import 'package:millat/utils/loader.dart';
 import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/string_constants.dart';
@@ -264,17 +263,21 @@ class ShopSpecificCategoryView extends StatelessWidget {
                         List<dynamic>? productItems;
 
                         if (categoryItemType == CategoryItemType.womens) {
-                          productItems = state
-                              .productItemsSubCategoryWomenModel?.result.items;
+                          productItems = state.productItemsSubCategoryWomenModel
+                              ?.result?.data?.itemList;
                         } else if (categoryItemType ==
                             CategoryItemType.sunnah) {
                           productItems = state
-                              .productItemsSubCategorySunnahModel?.result.items;
+                              .productItemsSubCategorySunnahModel
+                              ?.result
+                              ?.data
+                              ?.articleList;
                         } else {
                           productItems = state
                               .productItemsSubCategoryHealthModel
                               ?.result!
-                              .items;
+                              .data
+                              ?.itemList;
                         }
 
                         return SizedBox(

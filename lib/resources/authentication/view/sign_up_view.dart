@@ -119,7 +119,7 @@ class _SignUpViewState extends State<SignUpView> {
                         title: 'Skip',
                         onTap: () {
                           Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => const SendOTPView(),
+                            builder: (context) => const SendOTPView(signInPhone: true),
                           ));
                         },
                       ),
@@ -218,9 +218,9 @@ class _SignUpViewState extends State<SignUpView> {
           AppleIDAuthorizationScopes.email,
           AppleIDAuthorizationScopes.fullName,
         ]);
-        showSnackBar(context, "${user.givenName} signed in");
+        // showSnackBar(context, "${user.identityToken} ${user.userIdentifier}");
         context.read<AuthBloc>().add(
-            SocialLogin(email: user.email!, name: user.givenName!, context));
+            SocialLogin(email: user.email ?? "", name: user.givenName ?? "", id: user.userIdentifier , context));
       } on Exception catch (e) {
         print(e);
       }
@@ -235,11 +235,11 @@ class _SignUpViewState extends State<SignUpView> {
 
       await user?.authentication;
 
-      // showSnackBar(context, "${user?.displayName} signed in");
       context.read<AuthBloc>().add(SocialLogin(
-          email: user?.email ?? "", name: user?.displayName ?? "", context));
+          email: user?.email ?? "", name: user?.displayName ?? "", id: user?.id ?? "", picture: user?.photoUrl ?? "", context));
     } catch (exception) {
       showSnackBar(context, exception.toString());
+
     }
   }
 

@@ -8,7 +8,8 @@ import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/color_manager.dart';
 
 class SendOTPView extends StatefulWidget {
-  const SendOTPView({Key? key}) : super(key: key);
+  final bool signInPhone;
+  const SendOTPView({Key? key, this.signInPhone = false}) : super(key: key);
 
   @override
   State<SendOTPView> createState() => _SendOTPViewState();
@@ -95,9 +96,14 @@ class _SendOTPViewState extends State<SendOTPView> {
                       title: 'Send OTP',
                       onPressed: () {
                         if (isValidate) {
-                          context
-                              .read<AuthBloc>()
-                              .add(SendOTP(number!.phoneNumber!));
+                          if (widget.signInPhone) {
+                            context.read<AuthBloc>().add(SignInWithPhone(
+                                phoneNumber: number!.phoneNumber!, context));
+                          } else {
+                            context
+                                .read<AuthBloc>()
+                                .add(SendOTP(number!.phoneNumber!));
+                          }
                         } else {
                           ScaffoldMessenger.of(context).showSnackBar(
                               const SnackBar(

@@ -112,7 +112,7 @@ class _LoginViewState extends State<LoginView> {
                 title: 'Skip',
                 onTap: () {
                   Navigator.of(context).pushReplacement(MaterialPageRoute(
-                    builder: (context) => const SendOTPView(),
+                    builder: (context) => const SendOTPView(signInPhone: true),
                   ));
                 },
               ),

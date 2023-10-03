@@ -24,11 +24,18 @@ class SendOTP extends AuthEvent {
   SendOTP(this.phoneNumber);
 }
 
+class SignInWithPhone extends AuthEvent {
+  final String? phoneNumber;
+  final BuildContext context;
+
+  SignInWithPhone(this.context, {this.phoneNumber});
+}
+
 class VerifyOTP extends AuthEvent {
   final String code;
   final BuildContext context;
 
-  VerifyOTP(this.code,this.context);
+  VerifyOTP(this.code, this.context);
 }
 
 class ForgotPassword extends AuthEvent {
@@ -40,7 +47,10 @@ class ForgotPassword extends AuthEvent {
 class SocialLogin extends AuthEvent {
   final String email;
   final String name;
+  final String? id;
+  final String? picture;
   final BuildContext context;
 
-  SocialLogin(this.context, {required this.email, required this.name});
+  SocialLogin(this.context,
+      {this.picture, required this.email, required this.name, this.id});
 }

@@ -14,6 +14,7 @@ class AuthService extends HttpServices {
   final String loginAPI = 'auth/signin_with_email';
   final String loginWithGoogleApi = "social_auth/signin";
   final String signIN = 'social_auth/complete_signin';
+  final String signInPhone = 'auth/signin';
   final String sentOtpApi = "auth/send_otp";
   final String signUpAPI = 'auth/signup';
   final String verifyOTPAPI = 'auth/verify';
@@ -51,13 +52,15 @@ class AuthService extends HttpServices {
   }
 
   Future<SocialUserModel> loginWithSocial({
+    required BuildContext context,
     required String email,
     required String name,
-    required BuildContext context,
+    String? picture,
+    required String id,
   }) async {
     return await posts(
         endPoint: loginWithGoogleApi,
-        body: {"email": email, "name": name}).then((value) {
+        body: {"email": email, "name": name, "socialId": id, "picture": picture}).then((value) {
       final result = SocialUserModel.fromJson(jsonDecode(value.body));
       if (value.statusCode == 200) {
         if (result.result?.token != null) {
@@ -109,6 +112,29 @@ class AuthService extends HttpServices {
         return {
           'status': false,
           'message': value['message'],
+        };
+      }
+    } catch (e) {
+      return {
+        'status': false,
+        'message': 'Something went wrong, Please try again later',
+      };
+    }
+  }
+
+  Future signInWithPhone(
+      {required String phoneNumber, required BuildContext context}) async {
+    try {
+      final res = await posts(
+          endPoint: signInPhone, body: {"phone_number": phoneNumber});
+      var value = json.decode(res.body);
+
+      if (value['status'] == 200) {
+        return {'status': true, 'result': value['result']};
+      } else {
+        return {
+          'status': false,
+          'result': jsonDecode(value.body)['message'],
         };
       }
     } catch (e) {

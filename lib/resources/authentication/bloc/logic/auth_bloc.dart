@@ -44,6 +44,17 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
             emit(AuthError(res['message']));
           }
         }
+      } else if (event is SignInWithPhone) {
+        if (event.phoneNumber != null) {
+          final res = await _authService.signInWithPhone(
+              phoneNumber: event.phoneNumber!, context: event.context);
+          if (res['status'] == true) {
+            emit(AuthLoaded(event.phoneNumber!));
+            emit(AuthPhoneNumber(phoneNumber: event.phoneNumber!));
+          } else {
+            emit(AuthError(res['message']));
+          }
+        }
       } else if (event is SendOTP) {
         final currentState = state;
         if (currentState is AuthSocialLoginNewUser) {
@@ -68,8 +79,9 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
                 userId != null &&
                 currentState.phoneNumber!.isNotEmpty) {
               final result = await _authService.signIn(
-                context: event.context,
-                  phoneNumber: currentState.phoneNumber!, userId: userId!);
+                  context: event.context,
+                  phoneNumber: currentState.phoneNumber!,
+                  userId: userId!);
 
               if (result['status'] == true) {
                 emit(AuthLoaded(currentState.phoneNumber!));
@@ -80,12 +92,27 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
               showSnackBar(event.context, "Invalid OTP");
             }
           }
+        } else if (currentState is AuthPhoneNumber) {
+          final result = await _authService.verifyOTP(
+              context: event.context,
+              phoneNumber: currentState.phoneNumber,
+              otp: event.code);
+          if (result['status'] == true) {
+            emit(AuthLoaded(currentState.phoneNumber));
+          } else {
+            emit(AuthError(result['message']));
+          }
         }
       } else if (event is SocialLogin) {
         emit(AuthLoading());
         emit(AuthloadingSocialLogin());
         final result = await _authService.loginWithSocial(
-            email: event.email, name: event.name, context: event.context);
+          context: event.context,
+          email: event.email,
+          name: event.name,
+          picture : event.picture ?? "",
+          id: event.id ?? "",
+        );
         print("result of social login $result");
         if (result.status == 200) {
           final token = result.result?.token;

@@ -640,7 +640,7 @@ mixin _$BrandId {
   String? get email => throw _privateConstructorUsedError;
   String? get password => throw _privateConstructorUsedError;
   bool? get isActive => throw _privateConstructorUsedError;
-  int? get phoneNumber => throw _privateConstructorUsedError;
+  String? get phoneNumber => throw _privateConstructorUsedError;
   String? get logo => throw _privateConstructorUsedError;
   String? get coverImage => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
@@ -648,8 +648,7 @@ mixin _$BrandId {
   String? get brandName => throw _privateConstructorUsedError;
   String? get companyName => throw _privateConstructorUsedError;
   String? get companyRegYear => throw _privateConstructorUsedError;
-  int? get revenueOfLastThreeMonths =>
-      throw _privateConstructorUsedError; // Change to int
+  int? get revenueOfLastThreeMonths => throw _privateConstructorUsedError;
   String? get category => throw _privateConstructorUsedError;
   List<String>? get subCategory => throw _privateConstructorUsedError;
   @JsonKey(name: "GST")
@@ -675,7 +674,7 @@ abstract class $BrandIdCopyWith<$Res> {
       String? email,
       String? password,
       bool? isActive,
-      int? phoneNumber,
+      String? phoneNumber,
       String? logo,
       String? coverImage,
       String? description,
@@ -755,7 +754,7 @@ class _$BrandIdCopyWithImpl<$Res, $Val extends BrandId>
       phoneNumber: freezed == phoneNumber
           ? _value.phoneNumber
           : phoneNumber // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as String?,
       logo: freezed == logo
           ? _value.logo
           : logo // ignore: cast_nullable_to_non_nullable
@@ -830,7 +829,7 @@ abstract class _$$_BrandIdCopyWith<$Res> implements $BrandIdCopyWith<$Res> {
       String? email,
       String? password,
       bool? isActive,
-      int? phoneNumber,
+      String? phoneNumber,
       String? logo,
       String? coverImage,
       String? description,
@@ -907,7 +906,7 @@ class __$$_BrandIdCopyWithImpl<$Res>
       phoneNumber: freezed == phoneNumber
           ? _value.phoneNumber
           : phoneNumber // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as String?,
       logo: freezed == logo
           ? _value.logo
           : logo // ignore: cast_nullable_to_non_nullable
@@ -1012,7 +1011,7 @@ class _$_BrandId implements _BrandId {
   @override
   final bool? isActive;
   @override
-  final int? phoneNumber;
+  final String? phoneNumber;
   @override
   final String? logo;
   @override
@@ -1029,7 +1028,6 @@ class _$_BrandId implements _BrandId {
   final String? companyRegYear;
   @override
   final int? revenueOfLastThreeMonths;
-// Change to int
   @override
   final String? category;
   final List<String>? _subCategory;
@@ -1149,7 +1147,7 @@ abstract class _BrandId implements BrandId {
       final String? email,
       final String? password,
       final bool? isActive,
-      final int? phoneNumber,
+      final String? phoneNumber,
       final String? logo,
       final String? coverImage,
       final String? description,
@@ -1181,7 +1179,7 @@ abstract class _BrandId implements BrandId {
   @override
   bool? get isActive;
   @override
-  int? get phoneNumber;
+  String? get phoneNumber;
   @override
   String? get logo;
   @override
@@ -1198,7 +1196,7 @@ abstract class _BrandId implements BrandId {
   String? get companyRegYear;
   @override
   int? get revenueOfLastThreeMonths;
-  @override // Change to int
+  @override
   String? get category;
   @override
   List<String>? get subCategory;

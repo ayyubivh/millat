@@ -52,7 +52,7 @@ class BrandId with _$BrandId {
     String? email,
     String? password,
     bool? isActive,
-    int? phoneNumber,
+    String? phoneNumber,
     String? logo,
     String? coverImage,
     String? description,
@@ -60,7 +60,7 @@ class BrandId with _$BrandId {
     String? brandName,
     String? companyName,
     String? companyRegYear,
-    int? revenueOfLastThreeMonths, // Change to int
+    int? revenueOfLastThreeMonths,
     String? category,
     List<String>? subCategory,
     @JsonKey(name: "GST") String? gst,

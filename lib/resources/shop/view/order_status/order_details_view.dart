@@ -517,6 +517,8 @@ class OrdetailsView extends StatelessWidget {
                                   fontSize: 17,
                                   fontWeight: FontWeight.bold,
                                 ),
+                                maxLines: 2,
+                                overflow: TextOverflow.ellipsis,
                               ),
                             ),
                             kHeight8,

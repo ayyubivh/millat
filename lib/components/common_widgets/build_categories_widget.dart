@@ -7,15 +7,21 @@ import 'package:millat/utils/utils.dart';
 class BuildCategoryWidget extends StatelessWidget {
   final String? image;
   final String text;
+  final String categoryId;
   const BuildCategoryWidget(
-      {super.key, required this.image, required this.text});
+      {super.key,
+      required this.image,
+      required this.text,
+      required this.categoryId});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
         Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => CategoryView(category: text),
+          builder: (context) => CategoryView(
+              category: text.toString().replaceAll(" ", "_"),
+              categoryId: categoryId),
         ));
       },
       child: Column(

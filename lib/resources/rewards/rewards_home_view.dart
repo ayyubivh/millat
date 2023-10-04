@@ -10,6 +10,7 @@ import 'package:millat/resources/rewards/widget/score_widget.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
+import 'package:millat/utils/loader.dart';
 import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/string_constants.dart';
 
@@ -19,6 +20,10 @@ class RewardsHomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     WidgetsBinding.instance.addPostFrameCallback((_) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        BlocProvider.of<RewardsBloc>(context)
+            .add(const RewardsEvent.fetchRewardProducts());
+      });
       BlocProvider.of<RewardsBloc>(context)
           .add(RewardsEvent.fetchRewards(context: context));
     });
@@ -257,7 +262,6 @@ class RewardsHomeView extends StatelessWidget {
         ));
       },
       child: Container(
-          height: 180,
           width: SizeUtility(context).width,
           decoration: BoxDecoration(
               color: ColorManager.primary,
@@ -299,42 +303,51 @@ class RewardsHomeView extends StatelessWidget {
               kHeight10,
               SizedBox(
                 height: 106,
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: 5,
-                  itemBuilder: (context, index) {
-                    return Container(
-                      height: 106,
-                      width: 93,
-                      decoration: BoxDecoration(
-                        color: ColorManager.whiteColor,
-                        borderRadius: BorderRadius.circular(6),
-                      ),
-                      margin: const EdgeInsets.only(right: 10),
-                      padding: const EdgeInsets.symmetric(
-                        vertical: 5,
-                        horizontal: 5,
-                      ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Image.asset(
-                            AppAssetsStrings.quranBookmrark2,
-                            height: 73,
-                            width: 106,
-                            fit: BoxFit.fill,
+                child: BlocBuilder<RewardsBloc, RewardsState>(
+                  builder: (context, state) {
+                    final data = state.rewardsProductsModel?.result.products;
+                    if (data == null) {
+                      return const Loader();
+                    }
+
+                    return ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: data.length,
+                      itemBuilder: (context, index) {
+                        return Container(
+                          height: 106,
+                          width: 93,
+                          decoration: BoxDecoration(
+                            color: ColorManager.whiteColor,
+                            borderRadius: BorderRadius.circular(6),
                           ),
-                          kHeight3,
-                          Text(
-                            "₹307.80",
-                            style: TextStyle(
-                              fontSize: 13,
-                              fontWeight: FontWeight.w600,
-                              color: ColorManager.primary,
-                            ),
-                          )
-                        ],
-                      ),
+                          margin: const EdgeInsets.only(right: 10),
+                          padding: const EdgeInsets.symmetric(
+                            vertical: 5,
+                            horizontal: 5,
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Image.network(
+                                data[index].productId.images[0],
+                                height: 73,
+                                width: 106,
+                                fit: BoxFit.fill,
+                              ),
+                              kHeight3,
+                              Text(
+                                data[index].productId.salePrice.toString(),
+                                style: TextStyle(
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.w600,
+                                  color: ColorManager.primary,
+                                ),
+                              )
+                            ],
+                          ),
+                        );
+                      },
                     );
                   },
                 ),

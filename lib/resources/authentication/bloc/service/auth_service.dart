@@ -332,4 +332,37 @@ class AuthService extends HttpServices {
       };
     }
   }
+
+  Future<String> deleteAccount({
+    required BuildContext context,
+  }) async {
+    const endPoint = 'auth/delete';
+    final databaseState = context.read<DatabaseBloc>().state;
+    final token = databaseState.token;
+    final headers = {
+      'Content-Type': 'application/json; charset=utf-8',
+      'Authorization': 'Bearer $token',
+    };
+
+    final response = await http.delete(
+      Uri.parse(kBaseUrl + endPoint),
+      headers: headers,
+    );
+
+    if (response.statusCode == 200) {
+      try {
+        final Map<String, dynamic> responseData = json.decode(response.body);
+        final String message = responseData["message"];
+
+        return message;
+      } catch (e) {
+        print('Error parsing response: ${e.toString()}');
+        throw Exception('Failed to parse response');
+      }
+    } else {
+      print('API request failed with status code: ${response.statusCode}');
+      throw Exception(
+          'API request failed with status code: ${response.statusCode}');
+    }
+  }
 }

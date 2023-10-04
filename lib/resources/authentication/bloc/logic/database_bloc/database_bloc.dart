@@ -132,6 +132,19 @@ class DatabaseBloc extends Bloc<DatabaseEvent, DatabaseState> {
           nullVal: state.coverImage);
       emit(state.copyWith(coverImage: img));
     });
+    on<DeleteAccount>((event, emit) async {
+      emit(state.copyWith(failedMessage: "", succesMessage: ""));
+      final data = await authService.deleteAccount(
+        context: event.context,
+      );
+      if (data == "Please remove your order") {
+        emit(state.copyWith(failedMessage: data));
+        print("succes ${state.succesMessage} failure ${state.failedMessage}");
+      } else {
+        print("succes ${state.succesMessage} failure ${state.failedMessage}");
+        emit(state.copyWith(succesMessage: data));
+      }
+    });
   }
   Future<File?> pickImage(ImageSource source) async {
     final ImagePicker imagePicker = ImagePicker();

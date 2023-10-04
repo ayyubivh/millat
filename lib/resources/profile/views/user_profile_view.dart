@@ -16,7 +16,6 @@ import 'package:millat/utils/utils.dart';
 import '../../../utils/assets_paths.dart';
 import '../../../utils/size_utility.dart';
 import '../../authentication/bloc/logic/database_bloc/database_bloc.dart';
-import '../../authentication/class/google_signin.dart';
 
 class UserProfileView extends StatelessWidget {
   const UserProfileView({super.key});
@@ -27,7 +26,18 @@ class UserProfileView extends StatelessWidget {
       BlocProvider.of<DatabaseBloc>(context)
           .add(FetchAuthUser(context: context));
     });
-    return BlocBuilder<DatabaseBloc, DatabaseState>(
+    return BlocConsumer<DatabaseBloc, DatabaseState>(
+      listener: (context, state) {
+        if (state.failedMessage != "") {
+          showSnackBar(context, state.failedMessage);
+        } else if (state.succesMessage != "") {
+          context.read<DatabaseBloc>().add(const RemoveTokenEvent());
+          showSnackBar(context, state.failedMessage);
+          Navigator.of(context).pushReplacement(MaterialPageRoute(
+            builder: (context) => const SignUpView(),
+          ));
+        }
+      },
       builder: (context, state) {
         if (state.isLoading || state.editIsloading) {
           context.read<DatabaseBloc>().add(FetchAuthUser(context: context));
@@ -343,43 +353,47 @@ class UserProfileView extends StatelessWidget {
                   kHeight20,
                   GestureDetector(
                     onTap: () {
-                      logoutPopUp(context);
+                      logoutPopUp(
+                        context,
+                        Appstrings.logout,
+                        () {
+                          context
+                              .read<DatabaseBloc>()
+                              .add(const RemoveTokenEvent());
+                          context
+                              .read<HomeBloc>()
+                              .add(const ChangeHomeTabIndexEvent(newIndex: 0));
+                          // await GoogleSignInService.logout();
+                          Navigator.of(context)
+                              .pushReplacement(MaterialPageRoute(
+                            builder: (context) => const SignUpView(),
+                          ));
+                        },
+                      );
                     },
-                    child: Container(
-                      height: 60,
-                      width: SizeUtility(context).width / 1.18,
-                      decoration: BoxDecoration(
-                        color: ColorManager.whiteColor,
-                        boxShadow: [
-                          BoxShadow(
-                            color: ColorManager.grey83.withOpacity(0.3),
-                            blurRadius: 3,
-                            spreadRadius: 1,
-                            offset: const Offset(0, 2),
-                          ),
-                        ],
-                      ),
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image.asset(
-                            AppAssetsStrings.logout,
-                            height: 23,
-                            width: 24,
-                          ),
-                          kWidth8,
-                          Text(
-                            Appstrings.logout.replaceAll("?", ""),
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                              color: ColorManager.redColor,
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
+                    child: logAndDelWidget(
+                        context: context,
+                        image: AppAssetsStrings.logout,
+                        text: Appstrings.logout.replaceAll("?", "")),
+                  ),
+                  kHeight10,
+                  GestureDetector(
+                    onTap: () {
+                      logoutPopUp(
+                        context,
+                        "Delete?",
+                        () {
+                          context
+                              .read<DatabaseBloc>()
+                              .add(DeleteAccount(context: context));
+                          Navigator.of(context).pop();
+                        },
+                      );
+                    },
+                    child: logAndDelWidget(
+                        context: context,
+                        image: AppAssetsStrings.delete,
+                        text: Appstrings.deleteAcccount),
                   ),
                   kHeight20,
                   Text(
@@ -414,6 +428,48 @@ class UserProfileView extends StatelessWidget {
           ),
         );
       },
+    );
+  }
+
+  Widget logAndDelWidget(
+      {required BuildContext context,
+      required String image,
+      required String text}) {
+    return Container(
+      height: 60,
+      width: SizeUtility(context).width / 1.18,
+      decoration: BoxDecoration(
+        color: ColorManager.whiteColor,
+        boxShadow: [
+          BoxShadow(
+            color: ColorManager.grey83.withOpacity(0.3),
+            blurRadius: 3,
+            spreadRadius: 1,
+            offset: const Offset(0, 2),
+          ),
+        ],
+      ),
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Image.asset(
+            image,
+            height: 23,
+            width: 24,
+            color: ColorManager.redColor,
+          ),
+          kWidth8,
+          Text(
+            text,
+            style: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+              color: ColorManager.redColor,
+            ),
+          )
+        ],
+      ),
     );
   }
 
@@ -454,7 +510,8 @@ class UserProfileView extends StatelessWidget {
   }
 }
 
-Future<dynamic> logoutPopUp(BuildContext context) {
+Future<dynamic> logoutPopUp(
+    BuildContext context, String text, VoidCallback ontap) {
   return showDialog(
     context: context,
     builder: (context) {
@@ -469,10 +526,10 @@ Future<dynamic> logoutPopUp(BuildContext context) {
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const Padding(
+              Padding(
                 padding: EdgeInsets.all(20),
                 child: Text(
-                  Appstrings.logoutdialoge,
+                  "Are you sure want to $text",
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.w600,
@@ -510,18 +567,7 @@ Future<dynamic> logoutPopUp(BuildContext context) {
                   ),
                   Expanded(
                     child: GestureDetector(
-                      onTap: () async {
-                        context
-                            .read<DatabaseBloc>()
-                            .add(const RemoveTokenEvent());
-                        context
-                            .read<HomeBloc>()
-                            .add(const ChangeHomeTabIndexEvent(newIndex: 0));
-                        // await GoogleSignInService.logout();
-                        Navigator.of(context).pushReplacement(MaterialPageRoute(
-                          builder: (context) => const SignUpView(),
-                        ));
-                      },
+                      onTap: ontap,
                       child: Container(
                         decoration: BoxDecoration(
                           borderRadius: const BorderRadius.only(
@@ -531,7 +577,7 @@ Future<dynamic> logoutPopUp(BuildContext context) {
                         height: 62,
                         child: Center(
                           child: Text(
-                            Appstrings.logout,
+                            text,
                             style: TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.w500,

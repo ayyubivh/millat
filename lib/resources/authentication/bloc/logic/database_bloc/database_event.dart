@@ -32,4 +32,7 @@ class DatabaseEvent with _$DatabaseEvent {
     required String image,
   }) = SaveCoverImage;
   const factory DatabaseEvent.fetchCoverImage() = FetchCoverImage;
+  const factory DatabaseEvent.deleteAccount({
+    required BuildContext context,
+  }) = DeleteAccount;
 }

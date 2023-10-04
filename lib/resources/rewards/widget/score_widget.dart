@@ -46,7 +46,7 @@ class ScoreWidget extends StatelessWidget {
               child: Center(
                 child: Row(
                   children: [
-                    kWidth5,
+                    kWidht10,
                     BlocBuilder<RewardsBloc, RewardsState>(
                       builder: (context, state) => Text(
                         state.rewardsModel?.result?.reward?.coins.toString() ??

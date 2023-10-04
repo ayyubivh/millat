@@ -14,6 +14,7 @@ import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/loader.dart';
 import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/string_constants.dart';
+import 'package:millat/utils/utils.dart';
 import '../../bloc/logic/cart_bloc/cart_bloc.dart';
 
 class CheckoutConfirmation extends StatefulWidget {
@@ -174,7 +175,8 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
                                     subTitle: data.productId!.description,
                                     size: data.size,
                                     image: data.productId?.images![0],
-                                    price: data.productId?.salePrice?.toInt() ?? 0,
+                                    price:
+                                        data.productId?.salePrice?.toInt() ?? 0,
                                     actualPrice:
                                         data.productId?.regularPrice.toString(),
                                     jsonColor: data.color,
@@ -449,32 +451,43 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
 
                         print(
                             "here is the address ${context.read<AddressBloc>().state.addressIdModel!.result.address.addressLine}");
-                        final coins = context
-                            .read<RewardsBloc>()
-                            .state
-                            .rewardsModel
-                            ?.result
-                            ?.reward
-                            ?.coins;
+                        final userCoins = context
+                                .read<RewardsBloc>()
+                                .state
+                                .rewardsModel
+                                ?.result
+                                ?.reward
+                                ?.coins ??
+                            0;
+                        final productCoin = state
+                                .rewardsProductByIdModel?.result?.product?.coins
+                                ?.toInt() ??
+                            0;
                         print('here is the address id ${pickUpaddress.id}');
                         final data = state.rewardsProductByIdModel?.result
                             ?.product?.productId;
-                        context.read<ShopProductsBloc>().add(PostOrdersRewards(
-                            context: context,
-                            price: data?.salePrice?.toInt() ?? 0,
-                            coins: coins!,
-                            addressId: pickUpaddress.id,
-                            totalQuantity: 1,
-                            productId: data?.id ?? "",
-                            brandId: data?.brand ?? "",
-                            size: data?.size![0].size ?? "",
-                            color: data?.color ?? ""));
+                        if (userCoins >= productCoin) {
+                          context.read<ShopProductsBloc>().add(
+                              PostOrdersRewards(
+                                  context: context,
+                                  price: data?.salePrice?.toInt() ?? 0,
+                                  coins: productCoin,
+                                  addressId: pickUpaddress.id,
+                                  totalQuantity: 1,
+                                  productId: data?.id ?? "",
+                                  brandId: data?.brand ?? "",
+                                  size: data?.size![0].size ?? "",
+                                  color: data?.color ?? ""));
 
-                        Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => PaymentSuccessful(
-                              subTotal: data?.salePrice?.toInt() ?? 0,
-                              delivery: 27),
-                        ));
+                          Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => PaymentSuccessful(
+                                subTotal: data?.salePrice?.toInt() ?? 0,
+                                delivery: 27),
+                          ));
+                        } else {
+                          showSnackBar(
+                              context, "Not enough coins to buy product!");
+                        }
                       },
                     ),
                   )
@@ -491,36 +504,40 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
                       print(
                           "here is the address ${context.read<AddressBloc>().state.addressIdModel!.result.address.addressLine}");
 
-                print('here is the address id ${pickUpaddress.id}');
-                final isPromo =
-                    context.read<ShopProductsBloc>().state.isPromoCodeAvailable;
-                final discount = context
-                    .read<ShopProductsBloc>()
-                    .state
-                    .couponModel
-                    ?.result
-                    .data?[0]
-                    .discount;
-                context.read<ShopProductsBloc>().add(PostOrders(
-                      id: pickUpaddress.id,
-                      shippingCharges: shippingFee,
-                      totalDiscount: 0,
-                      weight: 0,
-                      pickupLocation: pickUpaddress.addressLine,
-                      quantity: state.cartLength,
-                      totalPrice:
-                          isPromo ? total - discount!.toInt() : total.toInt(),
-                      context: context,
-                    ));
+                      print('here is the address id ${pickUpaddress.id}');
+                      final isPromo = context
+                          .read<ShopProductsBloc>()
+                          .state
+                          .isPromoCodeAvailable;
+                      final discount = context
+                          .read<ShopProductsBloc>()
+                          .state
+                          .couponModel
+                          ?.result
+                          .data?[0]
+                          .discount;
+                      context.read<ShopProductsBloc>().add(PostOrders(
+                            id: pickUpaddress.id,
+                            shippingCharges: shippingFee,
+                            totalDiscount: 0,
+                            weight: 0,
+                            pickupLocation: pickUpaddress.addressLine,
+                            quantity: state.cartLength,
+                            totalPrice: isPromo
+                                ? total - discount!.toInt()
+                                : total.toInt(),
+                            context: context,
+                          ));
 
-                Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => PaymentSuccessful(
-                      subTotal:
-                          isPromo ? total - discount!.toInt() : total.toInt(),
-                      delivery: shippingFee),
-                ));
-              },
-            );
+                      Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => PaymentSuccessful(
+                            subTotal: isPromo
+                                ? total - discount!.toInt()
+                                : total.toInt(),
+                            delivery: shippingFee),
+                      ));
+                    },
+                  );
           },
         ),
       ),

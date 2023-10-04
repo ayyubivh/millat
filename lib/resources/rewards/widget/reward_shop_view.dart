@@ -14,10 +14,6 @@ class RewardShopView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      BlocProvider.of<RewardsBloc>(context)
-          .add(const RewardsEvent.fetchRewardProducts());
-    });
     return Scaffold(
       backgroundColor: ColorManager.whiteColor,
       appBar: AppBar(

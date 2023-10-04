@@ -198,15 +198,7 @@ class _RewardsSingleShopViewState extends State<RewardsSingleShopView> {
                                       fit: BoxFit.cover,
                                     ),
                                     Text(
-                                      context
-                                              .read<RewardsBloc>()
-                                              .state
-                                              .rewardsModel
-                                              ?.result
-                                              ?.reward
-                                              ?.coins
-                                              .toString() ??
-                                          "",
+                                      data.coins.toString(),
                                       style: TextStyle(
                                         fontSize: 12,
                                         color: ColorManager.black4F,

@@ -6,9 +6,6 @@ import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/shop/bloc/logic/category_bloc/category_bloc.dart';
 import 'package:millat/resources/shop/view/categories/categories_product_view.dart';
 import 'package:millat/utils/color_manager.dart';
-import 'package:millat/utils/loader.dart';
-
-import 'package:millat/utils/size_utility.dart';
 
 class CategoriesFilter extends StatefulWidget {
   const CategoriesFilter({Key? key}) : super(key: key);

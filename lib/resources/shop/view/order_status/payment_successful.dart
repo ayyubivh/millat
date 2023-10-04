@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/components/buttons/main_button.dart';
 import 'package:millat/resources/authentication/bloc/logic/database_bloc/database_bloc.dart';
+import 'package:millat/resources/home/view/home_view.dart';
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
 import 'package:millat/resources/shop/view/order_status/order_details_view.dart';
 import 'package:millat/resources/shop/view/tabs/shop_tabs_vilew.dart';
+import 'package:millat/resources/tabs/view/tabs_view.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/loader.dart';
@@ -195,7 +197,7 @@ class PaymentSuccessful extends StatelessWidget {
                         onPressed: () {
                           Navigator.of(context).pushAndRemoveUntil(
                             MaterialPageRoute(
-                              builder: (context) => const ShopTabsView(),
+                              builder: (context) => const TabsView(),
                             ),
                             (route) => false,
                           );

@@ -674,11 +674,12 @@ class _ShopViewState extends State<ShopView> {
                         width: 30,
                       );
                     }
+                    final data = state.category!.result!.category![index];
 
                     return BuildCategoryWidget(
-                        image: state.category!.result!.category![index].image!,
-                        text: state.category!.result!.category![index].title
-                            .toString());
+                        categoryId: data.id!,
+                        image: data.image!,
+                        text: data.title.toString());
                   },
                 ),
               );

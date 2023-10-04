@@ -16,7 +16,9 @@ import 'package:millat/utils/utils.dart';
 
 class CategoryView extends StatefulWidget {
   final String category;
-  const CategoryView({super.key, required this.category});
+  final String categoryId;
+  const CategoryView(
+      {super.key, required this.category, required this.categoryId});
 
   @override
   State<CategoryView> createState() => _CategoryViewState();
@@ -25,6 +27,7 @@ class CategoryView extends StatefulWidget {
 class _CategoryViewState extends State<CategoryView> {
   @override
   void initState() {
+    print("here is the category ${widget.category}");
     BlocProvider.of<ShopProductsBloc>(context)
       ..add(ShopProductsEvent.fetchFlashSaleProducts(
           endPointSlug:
@@ -34,8 +37,8 @@ class _CategoryViewState extends State<CategoryView> {
               "shop_product_category?slug=${widget.category}_popular_products"))
       ..add(
           ShopProductsEvent.fetchSpecificCategeryItems(slug: widget.category));
-
-    BlocProvider.of<CategoryBloc>(context).add(const FetchSubcategories());
+    BlocProvider.of<CategoryBloc>(context)
+        .add(FetchSubCategoriesByCategoryId(categoryId: widget.categoryId));
     super.initState();
   }
 
@@ -141,13 +144,15 @@ class _CategoryViewState extends State<CategoryView> {
                       return SizedBox(
                         height: 110,
                         child: ListView.builder(
-                          itemCount:
-                              state.subCategory?.result?.subCategory?.length,
+                          itemCount: state.subcategoryByCategoryIdModel?.result
+                              ?.subCategory?.length,
                           scrollDirection: Axis.horizontal,
                           itemExtent: 100,
                           itemBuilder: (context, index) {
-                            final subCategoryData =
-                                state.subCategory?.result?.subCategory?[index];
+                            final subCategoryData = state
+                                .subcategoryByCategoryIdModel
+                                ?.result
+                                ?.subCategory![index];
                             return GestureDetector(
                               onTap: () {
                                 Navigator.of(context).push(MaterialPageRoute(

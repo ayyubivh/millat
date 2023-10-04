@@ -31,11 +31,16 @@ class _RewardsSingleShopViewState extends State<RewardsSingleShopView> {
   int selectedSize = 0;
   int quantity = 1;
   @override
+  void initState() {
+    BlocProvider.of<AddressBloc>(context)
+        .add(FetchAddressEvent(context: context));
+    BlocProvider.of<RewardsBloc>(context)
+        .add(RewardsEvent.fetchRewardProductsById(id: widget.id));
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      BlocProvider.of<RewardsBloc>(context)
-          .add(RewardsEvent.fetchRewardProductsById(id: widget.id));
-    });
     return Scaffold(
         backgroundColor: ColorManager.whiteColor,
         appBar: AppBar(
@@ -283,7 +288,7 @@ class _RewardsSingleShopViewState extends State<RewardsSingleShopView> {
               //     shippingCharges: shippingCharges,
               //     weight: weight,
               //     id: id));
-              if (state.addressModel.result.addresses.isEmpty) {
+              if (state.addressModel!.result.addresses.isEmpty) {
                 Navigator.of(context).push(MaterialPageRoute(
                   builder: (context) => const CheckoutDetails(
                     type: AddressNavType.checkout,
@@ -291,7 +296,8 @@ class _RewardsSingleShopViewState extends State<RewardsSingleShopView> {
                 ));
               } else {
                 Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => const CheckoutView(),
+                  builder: (context) =>
+                      const CheckoutView(checkoutType: CheckoutType.rewards),
                 ));
               }
             },

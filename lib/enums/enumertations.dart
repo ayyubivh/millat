@@ -70,3 +70,8 @@ enum BrandViewType {
   brandOftheDay,
   mainBrand,
 }
+
+enum CheckoutType {
+  rewards,
+  shop,
+}

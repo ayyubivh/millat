@@ -47,6 +47,7 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
     on<TabIndexChangeEvent>(_tabIndexChangeEvent);
     on<FetchOrders>(_fetchOrders);
     on<PostOrders>(_postOrders);
+    on<PostOrdersRewards>(_postOrderRewards);
     on<FetchOrdersById>(_fetchOrdersById);
     on<FetchOrdersbyFilterEvent>(_fetchOrdersbyFilterEvent);
     on<CancelOrder>(_cancelOrder);
@@ -507,5 +508,31 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
   _saveMethodType(
       SavePaymentMethodType event, Emitter<ShopProductsState> emit) {
     emit(state.copyWith(paymentMethod: event.index));
+  }
+
+  _postOrderRewards(
+      PostOrdersRewards event, Emitter<ShopProductsState> emit) async {
+    emit(state.copyWith(errorMessage: "", isLoading: true));
+    try {
+      final data = await ordersService.postOrderRewards(
+        context: event.context,
+        price: event.price,
+        addressId: event.addressId,
+        totalQuantity: event.totalQuantity,
+        productId: event.productId,
+        brandId: event.brandId,
+        coins: event.coins,
+        color: event.color,
+        size: event.size,
+      );
+
+      final orderIds = data["result"]["orderIds"][0];
+      print('here orderid $orderIds');
+
+      emit(state.copyWith(isLoading: false, orderId: orderIds));
+      print('here is the order id in the bloc ${state.orderId}');
+    } catch (e) {
+      emit(state.copyWith(errorMessage: e.toString(), isLoading: false));
+    }
   }
 }

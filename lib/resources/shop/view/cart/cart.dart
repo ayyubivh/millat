@@ -247,6 +247,7 @@ class _CartViewState extends State<CartView> {
             return null;
           }
           return CartProductWidget(
+            showQuantity: true,
             id: data.productId?.id,
             title: data.productId?.title,
             subTitle: data.productId?.description,

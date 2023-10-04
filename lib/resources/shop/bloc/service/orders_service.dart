@@ -52,6 +52,60 @@ class OrdersService extends HttpServices {
     }
   }
 
+//For adding the orders
+  Future<Map<String, dynamic>> postOrderRewards({
+    required BuildContext context,
+    required int price,
+    required int coins,
+    required String addressId,
+    required int totalQuantity,
+    required String productId,
+    required String brandId,
+    required String size,
+    required String color,
+  }) async {
+    const endPoint = 'order/payment/coin';
+
+    final databaseState = context.read<DatabaseBloc>().state;
+    final token = databaseState.token;
+
+    final headers = {
+      'Content-Type': 'application/json; charset=utf-8',
+      'Authorization': 'Bearer $token',
+    };
+
+    final body = {
+      "coins": coins,
+      "price": price,
+      "productId": productId,
+      "address": addressId,
+      "details": {
+        "brandId": brandId,
+        "quantity": totalQuantity,
+        "size": size,
+        "color": color
+      }
+    };
+
+    final response = await http.post(Uri.parse(kBaseUrl + endPoint),
+        headers: headers, body: jsonEncode(body));
+
+    try {
+      if (response.statusCode == 200) {
+        final Map<String, dynamic> data = json.decode(response.body);
+        print('Response data in the postOrder function: $data');
+        return data;
+      } else {
+        print("error on the reward order api");
+        throw Exception(
+            'API request failed with status code: ${response.statusCode}');
+      }
+    } catch (e) {
+      print('Error on API fetch: ${e.toString()}');
+      throw e; // Re-throw the exception to propagate it to the caller.
+    }
+  }
+
   //For Getting Orders
   Future<OrderModel> fetchOrders(BuildContext context) async {
     const endPoint = "order";

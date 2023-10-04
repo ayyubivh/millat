@@ -18,6 +18,7 @@ class CartProductWidget extends StatelessWidget {
   final int quantity;
   final String? productId;
   final String? actualPrice;
+  final bool showQuantity;
   const CartProductWidget(
       {super.key,
       required this.id,
@@ -30,7 +31,8 @@ class CartProductWidget extends StatelessWidget {
       required this.colorName,
       required this.quantity,
       required this.productId,
-      required this.actualPrice});
+      required this.actualPrice,
+      required this.showQuantity});
 
   @override
   Widget build(BuildContext context) {
@@ -79,6 +81,8 @@ class CartProductWidget extends StatelessWidget {
                                   fontSize: 16,
                                   fontWeight: FontWeight.w600,
                                 ),
+                                maxLines: 2,
+                                overflow: TextOverflow.ellipsis,
                               ),
                             ),
                             Column(
@@ -117,93 +121,95 @@ class CartProductWidget extends StatelessWidget {
                           ),
                         ),
                         kHeight10,
-                        Row(
-                          children: [
-                            InkWell(
-                              onTap: () {
-                                if (quantity == 1) {
-                                  return;
-                                }
-                                context.read<CartBloc>().add(
-                                      UpdateCartEventWithSub(
-                                        context: context,
-                                        productId: productId.toString(),
-                                        quantity: quantity - 1,
+                        showQuantity == false
+                            ? const SizedBox()
+                            : Row(
+                                children: [
+                                  InkWell(
+                                    onTap: () {
+                                      if (quantity == 1) {
+                                        return;
+                                      }
+                                      context.read<CartBloc>().add(
+                                            UpdateCartEventWithSub(
+                                              context: context,
+                                              productId: productId.toString(),
+                                              quantity: quantity - 1,
+                                            ),
+                                          );
+                                    },
+                                    child: Container(
+                                      alignment: Alignment.center,
+                                      height: 25,
+                                      width: 25,
+                                      margin: const EdgeInsets.only(right: 15),
+                                      decoration: BoxDecoration(
+                                        border: Border.all(
+                                          color: ColorManager.black4F
+                                              .withOpacity(0.7),
+                                        ),
+                                        borderRadius: BorderRadius.circular(5),
                                       ),
-                                    );
-                              },
-                              child: Container(
-                                alignment: Alignment.center,
-                                height: 25,
-                                width: 25,
-                                margin: const EdgeInsets.only(right: 15),
-                                decoration: BoxDecoration(
-                                  border: Border.all(
-                                    color:
-                                        ColorManager.black4F.withOpacity(0.7),
-                                  ),
-                                  borderRadius: BorderRadius.circular(5),
-                                ),
-                                child: const Icon(
-                                  Icons.remove,
-                                  size: 15,
-                                ),
-                              ),
-                            ),
-                            Text(
-                              quantity.toString(),
-                              style: TextStyle(
-                                fontSize: 17,
-                                color: ColorManager.primary,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            InkWell(
-                              onTap: () {
-                                context.read<CartBloc>().add(
-                                      UpdateCartEventWithAdd(
-                                        context: context,
-                                        productId: productId.toString(),
-                                        quantity: quantity + 1,
+                                      child: const Icon(
+                                        Icons.remove,
+                                        size: 15,
                                       ),
-                                    );
-                              },
-                              child: Container(
-                                alignment: Alignment.center,
-                                height: 25,
-                                width: 25,
-                                margin:
-                                    const EdgeInsets.symmetric(horizontal: 15),
-                                decoration: BoxDecoration(
-                                  border: Border.all(
-                                    color: ColorManager.primary,
-                                    width: 1.5,
+                                    ),
                                   ),
-                                  borderRadius: BorderRadius.circular(5),
-                                ),
-                                child: Center(
-                                  child: Icon(
-                                    Icons.add,
-                                    size: 16,
-                                    color: ColorManager.primary,
+                                  Text(
+                                    quantity.toString(),
+                                    style: TextStyle(
+                                      fontSize: 17,
+                                      color: ColorManager.primary,
+                                      fontWeight: FontWeight.bold,
+                                    ),
                                   ),
-                                ),
+                                  InkWell(
+                                    onTap: () {
+                                      context.read<CartBloc>().add(
+                                            UpdateCartEventWithAdd(
+                                              context: context,
+                                              productId: productId.toString(),
+                                              quantity: quantity + 1,
+                                            ),
+                                          );
+                                    },
+                                    child: Container(
+                                      alignment: Alignment.center,
+                                      height: 25,
+                                      width: 25,
+                                      margin: const EdgeInsets.symmetric(
+                                          horizontal: 15),
+                                      decoration: BoxDecoration(
+                                        border: Border.all(
+                                          color: ColorManager.primary,
+                                          width: 1.5,
+                                        ),
+                                        borderRadius: BorderRadius.circular(5),
+                                      ),
+                                      child: Center(
+                                        child: Icon(
+                                          Icons.add,
+                                          size: 16,
+                                          color: ColorManager.primary,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  const Spacer(),
+                                  InkWell(
+                                      onTap: () {
+                                        context.read<CartBloc>().add(
+                                            RemoveCartItemEvent(
+                                                context: context,
+                                                productId: id.toString()));
+                                      },
+                                      child: const ImageIcon(
+                                        AssetImage(AppAssetsStrings.delete),
+                                        size: 20,
+                                      )),
+                                ],
                               ),
-                            ),
-                            const Spacer(),
-                            InkWell(
-                                onTap: () {
-                                  context.read<CartBloc>().add(
-                                      RemoveCartItemEvent(
-                                          context: context,
-                                          productId: id.toString()));
-                                },
-                                child: const ImageIcon(
-                                  AssetImage(AppAssetsStrings.delete),
-                                  size: 20,
-                                )),
-                          ],
-                        ),
                       ],
                     ),
                   ),

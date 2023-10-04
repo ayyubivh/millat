@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/components/buttons/main_button.dart';
+import 'package:millat/resources/profile/bloc/logic/terms_and_condtions_bloc/terms_and_condtions_bloc.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
@@ -11,6 +13,12 @@ class SupportHelpView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final TextEditingController nameController = TextEditingController();
+    final TextEditingController emailController = TextEditingController();
+    final TextEditingController phoneNumberController = TextEditingController();
+    final TextEditingController messageController = TextEditingController();
+
+    final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
     return Scaffold(
       backgroundColor: ColorManager.scaffolBgColor,
       appBar: AppBar(
@@ -29,37 +37,41 @@ class SupportHelpView extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
         child: SingleChildScrollView(
-          child: Column(
-            children: [
-              Center(
-                child: Image.asset(
-                  AppAssetsStrings.supportAndHelp,
-                  height: 140,
-                  width: 144,
+          child: Form(
+            key: _formKey,
+            child: Column(
+              children: [
+                Center(
+                  child: Image.asset(
+                    AppAssetsStrings.supportAndHelp,
+                    height: 140,
+                    width: 144,
+                  ),
                 ),
-              ),
-              kHeight30,
-              _textField(
-                controller: nameController,
-                labelText: Appstrings.fullName,
-              ),
-              kHeight20,
-              _textField(
-                controller: nameController,
-                labelText: Appstrings.email,
-              ),
-              kHeight20,
-              _textField(
-                controller: nameController,
-                labelText: Appstrings.mobileNumber,
-              ),
-              kHeight20,
-              _textField(
-                controller: nameController,
-                labelText: Appstrings.yourMessage,
-                maxLines: 7,
-              ),
-            ],
+                kHeight30,
+                _textField(
+                  controller: nameController,
+                  labelText: Appstrings.fullName,
+                ),
+                kHeight20,
+                _textField(
+                  controller: emailController,
+                  labelText: Appstrings.email,
+                ),
+                kHeight20,
+                _textField(
+                  validate: false,
+                  controller: phoneNumberController,
+                  labelText: Appstrings.mobileNumber,
+                ),
+                kHeight20,
+                _textField(
+                  controller: messageController,
+                  labelText: Appstrings.yourMessage,
+                  maxLines: 7,
+                ),
+              ],
+            ),
           ),
         ),
       ),
@@ -70,7 +82,20 @@ class SupportHelpView extends StatelessWidget {
         ),
         child: MainButton(
           title: Appstrings.submit,
-          onPressed: () {},
+          onPressed: () {
+            final email = emailController.text;
+            final name = nameController.text;
+            final phone = phoneNumberController.text;
+            final message = messageController.text;
+            if (_formKey.currentState!.validate()) {
+              context.read<TermsAndCondtionsBloc>().add(PostHelpAndSupport(
+                  email: email,
+                  name: name,
+                  phoneNumber: phone,
+                  message: message));
+              Navigator.of(context).pop();
+            }
+          },
         ),
       ),
     );
@@ -82,6 +107,7 @@ class SupportHelpView extends StatelessWidget {
     int? maxLength,
     int? maxLines,
     TextInputType? textInputType,
+    bool validate = true,
   }) {
     TextSpan text = TextSpan(
       text: labelText,
@@ -128,13 +154,16 @@ class SupportHelpView extends StatelessWidget {
         fillColor: black247,
       ),
       validator: (value) {
-        if (value == null || value.isEmpty) {
-          return 'Please enter the $labelText';
+        if (validate) {
+          if (value == null || value.isEmpty) {
+            return 'Please enter the $labelText';
+          }
+
+          if (maxLength != null && value.length != maxLength) {
+            return 'Please provide $maxLength digits';
+          }
         }
 
-        if (maxLength != null && value.length != maxLength) {
-          return 'Please provide $maxLength digits';
-        }
         return null;
       },
     );

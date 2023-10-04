@@ -16,20 +16,28 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$TermsAndCondtionsEvent {
-  String get slug => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String slug) fetchTermsAndConditionsEvent,
+    required TResult Function(
+            String email, String name, String? phoneNumber, String message)
+        postHelpAndSupport,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String slug)? fetchTermsAndConditionsEvent,
+    TResult? Function(
+            String email, String name, String? phoneNumber, String message)?
+        postHelpAndSupport,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String slug)? fetchTermsAndConditionsEvent,
+    TResult Function(
+            String email, String name, String? phoneNumber, String message)?
+        postHelpAndSupport,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -37,24 +45,23 @@ mixin _$TermsAndCondtionsEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(FetchTermsAndConditionsEvent value)
         fetchTermsAndConditionsEvent,
+    required TResult Function(PostHelpAndSupport value) postHelpAndSupport,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(FetchTermsAndConditionsEvent value)?
         fetchTermsAndConditionsEvent,
+    TResult? Function(PostHelpAndSupport value)? postHelpAndSupport,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(FetchTermsAndConditionsEvent value)?
         fetchTermsAndConditionsEvent,
+    TResult Function(PostHelpAndSupport value)? postHelpAndSupport,
     required TResult orElse(),
   }) =>
-      throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $TermsAndCondtionsEventCopyWith<TermsAndCondtionsEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -63,8 +70,6 @@ abstract class $TermsAndCondtionsEventCopyWith<$Res> {
   factory $TermsAndCondtionsEventCopyWith(TermsAndCondtionsEvent value,
           $Res Function(TermsAndCondtionsEvent) then) =
       _$TermsAndCondtionsEventCopyWithImpl<$Res, TermsAndCondtionsEvent>;
-  @useResult
-  $Res call({String slug});
 }
 
 /// @nodoc
@@ -77,29 +82,14 @@ class _$TermsAndCondtionsEventCopyWithImpl<$Res,
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? slug = null,
-  }) {
-    return _then(_value.copyWith(
-      slug: null == slug
-          ? _value.slug
-          : slug // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
 }
 
 /// @nodoc
-abstract class _$$FetchTermsAndConditionsEventCopyWith<$Res>
-    implements $TermsAndCondtionsEventCopyWith<$Res> {
+abstract class _$$FetchTermsAndConditionsEventCopyWith<$Res> {
   factory _$$FetchTermsAndConditionsEventCopyWith(
           _$FetchTermsAndConditionsEvent value,
           $Res Function(_$FetchTermsAndConditionsEvent) then) =
       __$$FetchTermsAndConditionsEventCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call({String slug});
 }
@@ -163,6 +153,9 @@ class _$FetchTermsAndConditionsEvent implements FetchTermsAndConditionsEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String slug) fetchTermsAndConditionsEvent,
+    required TResult Function(
+            String email, String name, String? phoneNumber, String message)
+        postHelpAndSupport,
   }) {
     return fetchTermsAndConditionsEvent(slug);
   }
@@ -171,6 +164,9 @@ class _$FetchTermsAndConditionsEvent implements FetchTermsAndConditionsEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String slug)? fetchTermsAndConditionsEvent,
+    TResult? Function(
+            String email, String name, String? phoneNumber, String message)?
+        postHelpAndSupport,
   }) {
     return fetchTermsAndConditionsEvent?.call(slug);
   }
@@ -179,6 +175,9 @@ class _$FetchTermsAndConditionsEvent implements FetchTermsAndConditionsEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String slug)? fetchTermsAndConditionsEvent,
+    TResult Function(
+            String email, String name, String? phoneNumber, String message)?
+        postHelpAndSupport,
     required TResult orElse(),
   }) {
     if (fetchTermsAndConditionsEvent != null) {
@@ -192,6 +191,7 @@ class _$FetchTermsAndConditionsEvent implements FetchTermsAndConditionsEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(FetchTermsAndConditionsEvent value)
         fetchTermsAndConditionsEvent,
+    required TResult Function(PostHelpAndSupport value) postHelpAndSupport,
   }) {
     return fetchTermsAndConditionsEvent(this);
   }
@@ -201,6 +201,7 @@ class _$FetchTermsAndConditionsEvent implements FetchTermsAndConditionsEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(FetchTermsAndConditionsEvent value)?
         fetchTermsAndConditionsEvent,
+    TResult? Function(PostHelpAndSupport value)? postHelpAndSupport,
   }) {
     return fetchTermsAndConditionsEvent?.call(this);
   }
@@ -210,6 +211,7 @@ class _$FetchTermsAndConditionsEvent implements FetchTermsAndConditionsEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(FetchTermsAndConditionsEvent value)?
         fetchTermsAndConditionsEvent,
+    TResult Function(PostHelpAndSupport value)? postHelpAndSupport,
     required TResult orElse(),
   }) {
     if (fetchTermsAndConditionsEvent != null) {
@@ -223,12 +225,190 @@ abstract class FetchTermsAndConditionsEvent implements TermsAndCondtionsEvent {
   const factory FetchTermsAndConditionsEvent({required final String slug}) =
       _$FetchTermsAndConditionsEvent;
 
-  @override
   String get slug;
-  @override
   @JsonKey(ignore: true)
   _$$FetchTermsAndConditionsEventCopyWith<_$FetchTermsAndConditionsEvent>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$PostHelpAndSupportCopyWith<$Res> {
+  factory _$$PostHelpAndSupportCopyWith(_$PostHelpAndSupport value,
+          $Res Function(_$PostHelpAndSupport) then) =
+      __$$PostHelpAndSupportCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String email, String name, String? phoneNumber, String message});
+}
+
+/// @nodoc
+class __$$PostHelpAndSupportCopyWithImpl<$Res>
+    extends _$TermsAndCondtionsEventCopyWithImpl<$Res, _$PostHelpAndSupport>
+    implements _$$PostHelpAndSupportCopyWith<$Res> {
+  __$$PostHelpAndSupportCopyWithImpl(
+      _$PostHelpAndSupport _value, $Res Function(_$PostHelpAndSupport) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? email = null,
+    Object? name = null,
+    Object? phoneNumber = freezed,
+    Object? message = null,
+  }) {
+    return _then(_$PostHelpAndSupport(
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      phoneNumber: freezed == phoneNumber
+          ? _value.phoneNumber
+          : phoneNumber // ignore: cast_nullable_to_non_nullable
+              as String?,
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$PostHelpAndSupport implements PostHelpAndSupport {
+  const _$PostHelpAndSupport(
+      {required this.email,
+      required this.name,
+      required this.phoneNumber,
+      required this.message});
+
+  @override
+  final String email;
+  @override
+  final String name;
+  @override
+  final String? phoneNumber;
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'TermsAndCondtionsEvent.postHelpAndSupport(email: $email, name: $name, phoneNumber: $phoneNumber, message: $message)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$PostHelpAndSupport &&
+            (identical(other.email, email) || other.email == email) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.phoneNumber, phoneNumber) ||
+                other.phoneNumber == phoneNumber) &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, email, name, phoneNumber, message);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$PostHelpAndSupportCopyWith<_$PostHelpAndSupport> get copyWith =>
+      __$$PostHelpAndSupportCopyWithImpl<_$PostHelpAndSupport>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String slug) fetchTermsAndConditionsEvent,
+    required TResult Function(
+            String email, String name, String? phoneNumber, String message)
+        postHelpAndSupport,
+  }) {
+    return postHelpAndSupport(email, name, phoneNumber, message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String slug)? fetchTermsAndConditionsEvent,
+    TResult? Function(
+            String email, String name, String? phoneNumber, String message)?
+        postHelpAndSupport,
+  }) {
+    return postHelpAndSupport?.call(email, name, phoneNumber, message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String slug)? fetchTermsAndConditionsEvent,
+    TResult Function(
+            String email, String name, String? phoneNumber, String message)?
+        postHelpAndSupport,
+    required TResult orElse(),
+  }) {
+    if (postHelpAndSupport != null) {
+      return postHelpAndSupport(email, name, phoneNumber, message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FetchTermsAndConditionsEvent value)
+        fetchTermsAndConditionsEvent,
+    required TResult Function(PostHelpAndSupport value) postHelpAndSupport,
+  }) {
+    return postHelpAndSupport(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(FetchTermsAndConditionsEvent value)?
+        fetchTermsAndConditionsEvent,
+    TResult? Function(PostHelpAndSupport value)? postHelpAndSupport,
+  }) {
+    return postHelpAndSupport?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FetchTermsAndConditionsEvent value)?
+        fetchTermsAndConditionsEvent,
+    TResult Function(PostHelpAndSupport value)? postHelpAndSupport,
+    required TResult orElse(),
+  }) {
+    if (postHelpAndSupport != null) {
+      return postHelpAndSupport(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class PostHelpAndSupport implements TermsAndCondtionsEvent {
+  const factory PostHelpAndSupport(
+      {required final String email,
+      required final String name,
+      required final String? phoneNumber,
+      required final String message}) = _$PostHelpAndSupport;
+
+  String get email;
+  String get name;
+  String? get phoneNumber;
+  String get message;
+  @JsonKey(ignore: true)
+  _$$PostHelpAndSupportCopyWith<_$PostHelpAndSupport> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc

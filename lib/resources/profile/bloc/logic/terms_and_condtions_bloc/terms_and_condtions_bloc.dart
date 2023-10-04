@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:millat/resources/profile/bloc/models/terms_and_conditions_model.dart';
@@ -13,6 +15,7 @@ class TermsAndCondtionsBloc
       TermsAndconditionsServces();
   TermsAndCondtionsBloc() : super(TermsAndCondtionsState.initial()) {
     on<FetchTermsAndConditionsEvent>(_fetchTermsAndConditionsEvent);
+    on<PostHelpAndSupport>(_postHelpAndSupport);
   }
 
   _fetchTermsAndConditionsEvent(FetchTermsAndConditionsEvent event,
@@ -24,6 +27,19 @@ class TermsAndCondtionsBloc
       emit(state.copyWith(termsConditionsModel: result, isLoading: false));
     } catch (e) {
       emit(state.copyWith(isLoading: false));
+    }
+  }
+
+  _postHelpAndSupport(
+      PostHelpAndSupport event, Emitter<TermsAndCondtionsState> emit) async {
+    try {
+      termsAndconditionsServces.postHelpAndSupport(
+          phoneNumber: event.phoneNumber,
+          email: event.email,
+          name: event.name,
+          message: event.message);
+    } catch (e) {
+      throw Exception(e);
     }
   }
 }

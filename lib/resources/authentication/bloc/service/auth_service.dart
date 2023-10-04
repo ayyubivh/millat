@@ -58,9 +58,12 @@ class AuthService extends HttpServices {
     String? picture,
     required String id,
   }) async {
-    return await posts(
-        endPoint: loginWithGoogleApi,
-        body: {"email": email, "name": name, "socialId": id, "picture": picture}).then((value) {
+    return await posts(endPoint: loginWithGoogleApi, body: {
+      "email": email,
+      "name": name,
+      "socialId": id,
+      "picture": picture
+    }).then((value) {
       final result = SocialUserModel.fromJson(jsonDecode(value.body));
       if (value.statusCode == 200) {
         if (result.result?.token != null) {

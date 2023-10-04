@@ -95,8 +95,6 @@ class CartServices extends HttpServices {
     required String productId,
     required int quantity,
   }) async {
-    const String webBaseUrl = 'http://35.172.93.164:8000/';
-
     const endPoint = 'cart/update/quantity';
     final databaseState = context.read<DatabaseBloc>().state;
     final token = databaseState.token;
@@ -109,7 +107,7 @@ class CartServices extends HttpServices {
       "quantity": quantity,
     };
 
-    final response = await http.put(Uri.parse(webBaseUrl + endPoint),
+    final response = await http.put(Uri.parse(kBaseUrl + endPoint),
         headers: headers, body: jsonEncode(body));
 
     if (response.statusCode == 200) {
@@ -137,8 +135,6 @@ class CartServices extends HttpServices {
     required BuildContext context,
     required String productId,
   }) async {
-    const String webBaseUrl = 'http://35.172.93.164:8000/';
-
     const endPoint = 'cart/remove';
     final databaseState = context.read<DatabaseBloc>().state;
     final token = databaseState.token;
@@ -150,7 +146,7 @@ class CartServices extends HttpServices {
       "productId": productId,
     };
 
-    final response = await http.put(Uri.parse(webBaseUrl + endPoint),
+    final response = await http.put(Uri.parse(kBaseUrl + endPoint),
         headers: headers, body: jsonEncode(body));
 
     if (response.statusCode == 200) {

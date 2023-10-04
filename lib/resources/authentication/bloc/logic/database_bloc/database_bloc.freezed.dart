@@ -36,6 +36,7 @@ mixin _$DatabaseEvent {
     required TResult Function() fetchContactEvent,
     required TResult Function(String image) saveCoverImage,
     required TResult Function() fetchCoverImage,
+    required TResult Function(BuildContext context) deleteAccount,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -58,6 +59,7 @@ mixin _$DatabaseEvent {
     TResult? Function()? fetchContactEvent,
     TResult? Function(String image)? saveCoverImage,
     TResult? Function()? fetchCoverImage,
+    TResult? Function(BuildContext context)? deleteAccount,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -80,6 +82,7 @@ mixin _$DatabaseEvent {
     TResult Function()? fetchContactEvent,
     TResult Function(String image)? saveCoverImage,
     TResult Function()? fetchCoverImage,
+    TResult Function(BuildContext context)? deleteAccount,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -94,6 +97,7 @@ mixin _$DatabaseEvent {
     required TResult Function(FetchContactEvent value) fetchContactEvent,
     required TResult Function(SaveCoverImage value) saveCoverImage,
     required TResult Function(FetchCoverImage value) fetchCoverImage,
+    required TResult Function(DeleteAccount value) deleteAccount,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -107,6 +111,7 @@ mixin _$DatabaseEvent {
     TResult? Function(FetchContactEvent value)? fetchContactEvent,
     TResult? Function(SaveCoverImage value)? saveCoverImage,
     TResult? Function(FetchCoverImage value)? fetchCoverImage,
+    TResult? Function(DeleteAccount value)? deleteAccount,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -120,6 +125,7 @@ mixin _$DatabaseEvent {
     TResult Function(FetchContactEvent value)? fetchContactEvent,
     TResult Function(SaveCoverImage value)? saveCoverImage,
     TResult Function(FetchCoverImage value)? fetchCoverImage,
+    TResult Function(DeleteAccount value)? deleteAccount,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -225,6 +231,7 @@ class _$StoreTokenEvent implements StoreTokenEvent {
     required TResult Function() fetchContactEvent,
     required TResult Function(String image) saveCoverImage,
     required TResult Function() fetchCoverImage,
+    required TResult Function(BuildContext context) deleteAccount,
   }) {
     return storeTokenEvent(token);
   }
@@ -250,6 +257,7 @@ class _$StoreTokenEvent implements StoreTokenEvent {
     TResult? Function()? fetchContactEvent,
     TResult? Function(String image)? saveCoverImage,
     TResult? Function()? fetchCoverImage,
+    TResult? Function(BuildContext context)? deleteAccount,
   }) {
     return storeTokenEvent?.call(token);
   }
@@ -275,6 +283,7 @@ class _$StoreTokenEvent implements StoreTokenEvent {
     TResult Function()? fetchContactEvent,
     TResult Function(String image)? saveCoverImage,
     TResult Function()? fetchCoverImage,
+    TResult Function(BuildContext context)? deleteAccount,
     required TResult orElse(),
   }) {
     if (storeTokenEvent != null) {
@@ -295,6 +304,7 @@ class _$StoreTokenEvent implements StoreTokenEvent {
     required TResult Function(FetchContactEvent value) fetchContactEvent,
     required TResult Function(SaveCoverImage value) saveCoverImage,
     required TResult Function(FetchCoverImage value) fetchCoverImage,
+    required TResult Function(DeleteAccount value) deleteAccount,
   }) {
     return storeTokenEvent(this);
   }
@@ -311,6 +321,7 @@ class _$StoreTokenEvent implements StoreTokenEvent {
     TResult? Function(FetchContactEvent value)? fetchContactEvent,
     TResult? Function(SaveCoverImage value)? saveCoverImage,
     TResult? Function(FetchCoverImage value)? fetchCoverImage,
+    TResult? Function(DeleteAccount value)? deleteAccount,
   }) {
     return storeTokenEvent?.call(this);
   }
@@ -327,6 +338,7 @@ class _$StoreTokenEvent implements StoreTokenEvent {
     TResult Function(FetchContactEvent value)? fetchContactEvent,
     TResult Function(SaveCoverImage value)? saveCoverImage,
     TResult Function(FetchCoverImage value)? fetchCoverImage,
+    TResult Function(DeleteAccount value)? deleteAccount,
     required TResult orElse(),
   }) {
     if (storeTokenEvent != null) {
@@ -402,6 +414,7 @@ class _$FetchToken implements FetchToken {
     required TResult Function() fetchContactEvent,
     required TResult Function(String image) saveCoverImage,
     required TResult Function() fetchCoverImage,
+    required TResult Function(BuildContext context) deleteAccount,
   }) {
     return fetchToken();
   }
@@ -427,6 +440,7 @@ class _$FetchToken implements FetchToken {
     TResult? Function()? fetchContactEvent,
     TResult? Function(String image)? saveCoverImage,
     TResult? Function()? fetchCoverImage,
+    TResult? Function(BuildContext context)? deleteAccount,
   }) {
     return fetchToken?.call();
   }
@@ -452,6 +466,7 @@ class _$FetchToken implements FetchToken {
     TResult Function()? fetchContactEvent,
     TResult Function(String image)? saveCoverImage,
     TResult Function()? fetchCoverImage,
+    TResult Function(BuildContext context)? deleteAccount,
     required TResult orElse(),
   }) {
     if (fetchToken != null) {
@@ -472,6 +487,7 @@ class _$FetchToken implements FetchToken {
     required TResult Function(FetchContactEvent value) fetchContactEvent,
     required TResult Function(SaveCoverImage value) saveCoverImage,
     required TResult Function(FetchCoverImage value) fetchCoverImage,
+    required TResult Function(DeleteAccount value) deleteAccount,
   }) {
     return fetchToken(this);
   }
@@ -488,6 +504,7 @@ class _$FetchToken implements FetchToken {
     TResult? Function(FetchContactEvent value)? fetchContactEvent,
     TResult? Function(SaveCoverImage value)? saveCoverImage,
     TResult? Function(FetchCoverImage value)? fetchCoverImage,
+    TResult? Function(DeleteAccount value)? deleteAccount,
   }) {
     return fetchToken?.call(this);
   }
@@ -504,6 +521,7 @@ class _$FetchToken implements FetchToken {
     TResult Function(FetchContactEvent value)? fetchContactEvent,
     TResult Function(SaveCoverImage value)? saveCoverImage,
     TResult Function(FetchCoverImage value)? fetchCoverImage,
+    TResult Function(DeleteAccount value)? deleteAccount,
     required TResult orElse(),
   }) {
     if (fetchToken != null) {
@@ -599,6 +617,7 @@ class _$FetchAuthUser implements FetchAuthUser {
     required TResult Function() fetchContactEvent,
     required TResult Function(String image) saveCoverImage,
     required TResult Function() fetchCoverImage,
+    required TResult Function(BuildContext context) deleteAccount,
   }) {
     return fetchAuthUser(context);
   }
@@ -624,6 +643,7 @@ class _$FetchAuthUser implements FetchAuthUser {
     TResult? Function()? fetchContactEvent,
     TResult? Function(String image)? saveCoverImage,
     TResult? Function()? fetchCoverImage,
+    TResult? Function(BuildContext context)? deleteAccount,
   }) {
     return fetchAuthUser?.call(context);
   }
@@ -649,6 +669,7 @@ class _$FetchAuthUser implements FetchAuthUser {
     TResult Function()? fetchContactEvent,
     TResult Function(String image)? saveCoverImage,
     TResult Function()? fetchCoverImage,
+    TResult Function(BuildContext context)? deleteAccount,
     required TResult orElse(),
   }) {
     if (fetchAuthUser != null) {
@@ -669,6 +690,7 @@ class _$FetchAuthUser implements FetchAuthUser {
     required TResult Function(FetchContactEvent value) fetchContactEvent,
     required TResult Function(SaveCoverImage value) saveCoverImage,
     required TResult Function(FetchCoverImage value) fetchCoverImage,
+    required TResult Function(DeleteAccount value) deleteAccount,
   }) {
     return fetchAuthUser(this);
   }
@@ -685,6 +707,7 @@ class _$FetchAuthUser implements FetchAuthUser {
     TResult? Function(FetchContactEvent value)? fetchContactEvent,
     TResult? Function(SaveCoverImage value)? saveCoverImage,
     TResult? Function(FetchCoverImage value)? fetchCoverImage,
+    TResult? Function(DeleteAccount value)? deleteAccount,
   }) {
     return fetchAuthUser?.call(this);
   }
@@ -701,6 +724,7 @@ class _$FetchAuthUser implements FetchAuthUser {
     TResult Function(FetchContactEvent value)? fetchContactEvent,
     TResult Function(SaveCoverImage value)? saveCoverImage,
     TResult Function(FetchCoverImage value)? fetchCoverImage,
+    TResult Function(DeleteAccount value)? deleteAccount,
     required TResult orElse(),
   }) {
     if (fetchAuthUser != null) {
@@ -878,6 +902,7 @@ class _$EditAuthUser implements EditAuthUser {
     required TResult Function() fetchContactEvent,
     required TResult Function(String image) saveCoverImage,
     required TResult Function() fetchCoverImage,
+    required TResult Function(BuildContext context) deleteAccount,
   }) {
     return editAuthUser(
         name, email, userName, institution, dob, profession, image, context);
@@ -904,6 +929,7 @@ class _$EditAuthUser implements EditAuthUser {
     TResult? Function()? fetchContactEvent,
     TResult? Function(String image)? saveCoverImage,
     TResult? Function()? fetchCoverImage,
+    TResult? Function(BuildContext context)? deleteAccount,
   }) {
     return editAuthUser?.call(
         name, email, userName, institution, dob, profession, image, context);
@@ -930,6 +956,7 @@ class _$EditAuthUser implements EditAuthUser {
     TResult Function()? fetchContactEvent,
     TResult Function(String image)? saveCoverImage,
     TResult Function()? fetchCoverImage,
+    TResult Function(BuildContext context)? deleteAccount,
     required TResult orElse(),
   }) {
     if (editAuthUser != null) {
@@ -951,6 +978,7 @@ class _$EditAuthUser implements EditAuthUser {
     required TResult Function(FetchContactEvent value) fetchContactEvent,
     required TResult Function(SaveCoverImage value) saveCoverImage,
     required TResult Function(FetchCoverImage value) fetchCoverImage,
+    required TResult Function(DeleteAccount value) deleteAccount,
   }) {
     return editAuthUser(this);
   }
@@ -967,6 +995,7 @@ class _$EditAuthUser implements EditAuthUser {
     TResult? Function(FetchContactEvent value)? fetchContactEvent,
     TResult? Function(SaveCoverImage value)? saveCoverImage,
     TResult? Function(FetchCoverImage value)? fetchCoverImage,
+    TResult? Function(DeleteAccount value)? deleteAccount,
   }) {
     return editAuthUser?.call(this);
   }
@@ -983,6 +1012,7 @@ class _$EditAuthUser implements EditAuthUser {
     TResult Function(FetchContactEvent value)? fetchContactEvent,
     TResult Function(SaveCoverImage value)? saveCoverImage,
     TResult Function(FetchCoverImage value)? fetchCoverImage,
+    TResult Function(DeleteAccount value)? deleteAccount,
     required TResult orElse(),
   }) {
     if (editAuthUser != null) {
@@ -1072,6 +1102,7 @@ class _$RemoveTokenEvent implements RemoveTokenEvent {
     required TResult Function() fetchContactEvent,
     required TResult Function(String image) saveCoverImage,
     required TResult Function() fetchCoverImage,
+    required TResult Function(BuildContext context) deleteAccount,
   }) {
     return removeTokenEvent();
   }
@@ -1097,6 +1128,7 @@ class _$RemoveTokenEvent implements RemoveTokenEvent {
     TResult? Function()? fetchContactEvent,
     TResult? Function(String image)? saveCoverImage,
     TResult? Function()? fetchCoverImage,
+    TResult? Function(BuildContext context)? deleteAccount,
   }) {
     return removeTokenEvent?.call();
   }
@@ -1122,6 +1154,7 @@ class _$RemoveTokenEvent implements RemoveTokenEvent {
     TResult Function()? fetchContactEvent,
     TResult Function(String image)? saveCoverImage,
     TResult Function()? fetchCoverImage,
+    TResult Function(BuildContext context)? deleteAccount,
     required TResult orElse(),
   }) {
     if (removeTokenEvent != null) {
@@ -1142,6 +1175,7 @@ class _$RemoveTokenEvent implements RemoveTokenEvent {
     required TResult Function(FetchContactEvent value) fetchContactEvent,
     required TResult Function(SaveCoverImage value) saveCoverImage,
     required TResult Function(FetchCoverImage value) fetchCoverImage,
+    required TResult Function(DeleteAccount value) deleteAccount,
   }) {
     return removeTokenEvent(this);
   }
@@ -1158,6 +1192,7 @@ class _$RemoveTokenEvent implements RemoveTokenEvent {
     TResult? Function(FetchContactEvent value)? fetchContactEvent,
     TResult? Function(SaveCoverImage value)? saveCoverImage,
     TResult? Function(FetchCoverImage value)? fetchCoverImage,
+    TResult? Function(DeleteAccount value)? deleteAccount,
   }) {
     return removeTokenEvent?.call(this);
   }
@@ -1174,6 +1209,7 @@ class _$RemoveTokenEvent implements RemoveTokenEvent {
     TResult Function(FetchContactEvent value)? fetchContactEvent,
     TResult Function(SaveCoverImage value)? saveCoverImage,
     TResult Function(FetchCoverImage value)? fetchCoverImage,
+    TResult Function(DeleteAccount value)? deleteAccount,
     required TResult orElse(),
   }) {
     if (removeTokenEvent != null) {
@@ -1269,6 +1305,7 @@ class _$UploadImageEvent implements UploadImageEvent {
     required TResult Function() fetchContactEvent,
     required TResult Function(String image) saveCoverImage,
     required TResult Function() fetchCoverImage,
+    required TResult Function(BuildContext context) deleteAccount,
   }) {
     return uploadImageEvent(source);
   }
@@ -1294,6 +1331,7 @@ class _$UploadImageEvent implements UploadImageEvent {
     TResult? Function()? fetchContactEvent,
     TResult? Function(String image)? saveCoverImage,
     TResult? Function()? fetchCoverImage,
+    TResult? Function(BuildContext context)? deleteAccount,
   }) {
     return uploadImageEvent?.call(source);
   }
@@ -1319,6 +1357,7 @@ class _$UploadImageEvent implements UploadImageEvent {
     TResult Function()? fetchContactEvent,
     TResult Function(String image)? saveCoverImage,
     TResult Function()? fetchCoverImage,
+    TResult Function(BuildContext context)? deleteAccount,
     required TResult orElse(),
   }) {
     if (uploadImageEvent != null) {
@@ -1339,6 +1378,7 @@ class _$UploadImageEvent implements UploadImageEvent {
     required TResult Function(FetchContactEvent value) fetchContactEvent,
     required TResult Function(SaveCoverImage value) saveCoverImage,
     required TResult Function(FetchCoverImage value) fetchCoverImage,
+    required TResult Function(DeleteAccount value) deleteAccount,
   }) {
     return uploadImageEvent(this);
   }
@@ -1355,6 +1395,7 @@ class _$UploadImageEvent implements UploadImageEvent {
     TResult? Function(FetchContactEvent value)? fetchContactEvent,
     TResult? Function(SaveCoverImage value)? saveCoverImage,
     TResult? Function(FetchCoverImage value)? fetchCoverImage,
+    TResult? Function(DeleteAccount value)? deleteAccount,
   }) {
     return uploadImageEvent?.call(this);
   }
@@ -1371,6 +1412,7 @@ class _$UploadImageEvent implements UploadImageEvent {
     TResult Function(FetchContactEvent value)? fetchContactEvent,
     TResult Function(SaveCoverImage value)? saveCoverImage,
     TResult Function(FetchCoverImage value)? fetchCoverImage,
+    TResult Function(DeleteAccount value)? deleteAccount,
     required TResult orElse(),
   }) {
     if (uploadImageEvent != null) {
@@ -1446,6 +1488,7 @@ class _$FetchContactEvent implements FetchContactEvent {
     required TResult Function() fetchContactEvent,
     required TResult Function(String image) saveCoverImage,
     required TResult Function() fetchCoverImage,
+    required TResult Function(BuildContext context) deleteAccount,
   }) {
     return fetchContactEvent();
   }
@@ -1471,6 +1514,7 @@ class _$FetchContactEvent implements FetchContactEvent {
     TResult? Function()? fetchContactEvent,
     TResult? Function(String image)? saveCoverImage,
     TResult? Function()? fetchCoverImage,
+    TResult? Function(BuildContext context)? deleteAccount,
   }) {
     return fetchContactEvent?.call();
   }
@@ -1496,6 +1540,7 @@ class _$FetchContactEvent implements FetchContactEvent {
     TResult Function()? fetchContactEvent,
     TResult Function(String image)? saveCoverImage,
     TResult Function()? fetchCoverImage,
+    TResult Function(BuildContext context)? deleteAccount,
     required TResult orElse(),
   }) {
     if (fetchContactEvent != null) {
@@ -1516,6 +1561,7 @@ class _$FetchContactEvent implements FetchContactEvent {
     required TResult Function(FetchContactEvent value) fetchContactEvent,
     required TResult Function(SaveCoverImage value) saveCoverImage,
     required TResult Function(FetchCoverImage value) fetchCoverImage,
+    required TResult Function(DeleteAccount value) deleteAccount,
   }) {
     return fetchContactEvent(this);
   }
@@ -1532,6 +1578,7 @@ class _$FetchContactEvent implements FetchContactEvent {
     TResult? Function(FetchContactEvent value)? fetchContactEvent,
     TResult? Function(SaveCoverImage value)? saveCoverImage,
     TResult? Function(FetchCoverImage value)? fetchCoverImage,
+    TResult? Function(DeleteAccount value)? deleteAccount,
   }) {
     return fetchContactEvent?.call(this);
   }
@@ -1548,6 +1595,7 @@ class _$FetchContactEvent implements FetchContactEvent {
     TResult Function(FetchContactEvent value)? fetchContactEvent,
     TResult Function(SaveCoverImage value)? saveCoverImage,
     TResult Function(FetchCoverImage value)? fetchCoverImage,
+    TResult Function(DeleteAccount value)? deleteAccount,
     required TResult orElse(),
   }) {
     if (fetchContactEvent != null) {
@@ -1643,6 +1691,7 @@ class _$SaveCoverImage implements SaveCoverImage {
     required TResult Function() fetchContactEvent,
     required TResult Function(String image) saveCoverImage,
     required TResult Function() fetchCoverImage,
+    required TResult Function(BuildContext context) deleteAccount,
   }) {
     return saveCoverImage(image);
   }
@@ -1668,6 +1717,7 @@ class _$SaveCoverImage implements SaveCoverImage {
     TResult? Function()? fetchContactEvent,
     TResult? Function(String image)? saveCoverImage,
     TResult? Function()? fetchCoverImage,
+    TResult? Function(BuildContext context)? deleteAccount,
   }) {
     return saveCoverImage?.call(image);
   }
@@ -1693,6 +1743,7 @@ class _$SaveCoverImage implements SaveCoverImage {
     TResult Function()? fetchContactEvent,
     TResult Function(String image)? saveCoverImage,
     TResult Function()? fetchCoverImage,
+    TResult Function(BuildContext context)? deleteAccount,
     required TResult orElse(),
   }) {
     if (saveCoverImage != null) {
@@ -1713,6 +1764,7 @@ class _$SaveCoverImage implements SaveCoverImage {
     required TResult Function(FetchContactEvent value) fetchContactEvent,
     required TResult Function(SaveCoverImage value) saveCoverImage,
     required TResult Function(FetchCoverImage value) fetchCoverImage,
+    required TResult Function(DeleteAccount value) deleteAccount,
   }) {
     return saveCoverImage(this);
   }
@@ -1729,6 +1781,7 @@ class _$SaveCoverImage implements SaveCoverImage {
     TResult? Function(FetchContactEvent value)? fetchContactEvent,
     TResult? Function(SaveCoverImage value)? saveCoverImage,
     TResult? Function(FetchCoverImage value)? fetchCoverImage,
+    TResult? Function(DeleteAccount value)? deleteAccount,
   }) {
     return saveCoverImage?.call(this);
   }
@@ -1745,6 +1798,7 @@ class _$SaveCoverImage implements SaveCoverImage {
     TResult Function(FetchContactEvent value)? fetchContactEvent,
     TResult Function(SaveCoverImage value)? saveCoverImage,
     TResult Function(FetchCoverImage value)? fetchCoverImage,
+    TResult Function(DeleteAccount value)? deleteAccount,
     required TResult orElse(),
   }) {
     if (saveCoverImage != null) {
@@ -1820,6 +1874,7 @@ class _$FetchCoverImage implements FetchCoverImage {
     required TResult Function() fetchContactEvent,
     required TResult Function(String image) saveCoverImage,
     required TResult Function() fetchCoverImage,
+    required TResult Function(BuildContext context) deleteAccount,
   }) {
     return fetchCoverImage();
   }
@@ -1845,6 +1900,7 @@ class _$FetchCoverImage implements FetchCoverImage {
     TResult? Function()? fetchContactEvent,
     TResult? Function(String image)? saveCoverImage,
     TResult? Function()? fetchCoverImage,
+    TResult? Function(BuildContext context)? deleteAccount,
   }) {
     return fetchCoverImage?.call();
   }
@@ -1870,6 +1926,7 @@ class _$FetchCoverImage implements FetchCoverImage {
     TResult Function()? fetchContactEvent,
     TResult Function(String image)? saveCoverImage,
     TResult Function()? fetchCoverImage,
+    TResult Function(BuildContext context)? deleteAccount,
     required TResult orElse(),
   }) {
     if (fetchCoverImage != null) {
@@ -1890,6 +1947,7 @@ class _$FetchCoverImage implements FetchCoverImage {
     required TResult Function(FetchContactEvent value) fetchContactEvent,
     required TResult Function(SaveCoverImage value) saveCoverImage,
     required TResult Function(FetchCoverImage value) fetchCoverImage,
+    required TResult Function(DeleteAccount value) deleteAccount,
   }) {
     return fetchCoverImage(this);
   }
@@ -1906,6 +1964,7 @@ class _$FetchCoverImage implements FetchCoverImage {
     TResult? Function(FetchContactEvent value)? fetchContactEvent,
     TResult? Function(SaveCoverImage value)? saveCoverImage,
     TResult? Function(FetchCoverImage value)? fetchCoverImage,
+    TResult? Function(DeleteAccount value)? deleteAccount,
   }) {
     return fetchCoverImage?.call(this);
   }
@@ -1922,6 +1981,7 @@ class _$FetchCoverImage implements FetchCoverImage {
     TResult Function(FetchContactEvent value)? fetchContactEvent,
     TResult Function(SaveCoverImage value)? saveCoverImage,
     TResult Function(FetchCoverImage value)? fetchCoverImage,
+    TResult Function(DeleteAccount value)? deleteAccount,
     required TResult orElse(),
   }) {
     if (fetchCoverImage != null) {
@@ -1933,6 +1993,215 @@ class _$FetchCoverImage implements FetchCoverImage {
 
 abstract class FetchCoverImage implements DatabaseEvent {
   const factory FetchCoverImage() = _$FetchCoverImage;
+}
+
+/// @nodoc
+abstract class _$$DeleteAccountCopyWith<$Res> {
+  factory _$$DeleteAccountCopyWith(
+          _$DeleteAccount value, $Res Function(_$DeleteAccount) then) =
+      __$$DeleteAccountCopyWithImpl<$Res>;
+  @useResult
+  $Res call({BuildContext context});
+}
+
+/// @nodoc
+class __$$DeleteAccountCopyWithImpl<$Res>
+    extends _$DatabaseEventCopyWithImpl<$Res, _$DeleteAccount>
+    implements _$$DeleteAccountCopyWith<$Res> {
+  __$$DeleteAccountCopyWithImpl(
+      _$DeleteAccount _value, $Res Function(_$DeleteAccount) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? context = null,
+  }) {
+    return _then(_$DeleteAccount(
+      context: null == context
+          ? _value.context
+          : context // ignore: cast_nullable_to_non_nullable
+              as BuildContext,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$DeleteAccount implements DeleteAccount {
+  const _$DeleteAccount({required this.context});
+
+  @override
+  final BuildContext context;
+
+  @override
+  String toString() {
+    return 'DatabaseEvent.deleteAccount(context: $context)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DeleteAccount &&
+            (identical(other.context, context) || other.context == context));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, context);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DeleteAccountCopyWith<_$DeleteAccount> get copyWith =>
+      __$$DeleteAccountCopyWithImpl<_$DeleteAccount>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String token) storeTokenEvent,
+    required TResult Function() fetchToken,
+    required TResult Function(BuildContext context) fetchAuthUser,
+    required TResult Function(
+            String name,
+            String? email,
+            String userName,
+            String institution,
+            String dob,
+            String profession,
+            String image,
+            BuildContext context)
+        editAuthUser,
+    required TResult Function() removeTokenEvent,
+    required TResult Function(ImageSource source) uploadImageEvent,
+    required TResult Function() fetchContactEvent,
+    required TResult Function(String image) saveCoverImage,
+    required TResult Function() fetchCoverImage,
+    required TResult Function(BuildContext context) deleteAccount,
+  }) {
+    return deleteAccount(context);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String token)? storeTokenEvent,
+    TResult? Function()? fetchToken,
+    TResult? Function(BuildContext context)? fetchAuthUser,
+    TResult? Function(
+            String name,
+            String? email,
+            String userName,
+            String institution,
+            String dob,
+            String profession,
+            String image,
+            BuildContext context)?
+        editAuthUser,
+    TResult? Function()? removeTokenEvent,
+    TResult? Function(ImageSource source)? uploadImageEvent,
+    TResult? Function()? fetchContactEvent,
+    TResult? Function(String image)? saveCoverImage,
+    TResult? Function()? fetchCoverImage,
+    TResult? Function(BuildContext context)? deleteAccount,
+  }) {
+    return deleteAccount?.call(context);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String token)? storeTokenEvent,
+    TResult Function()? fetchToken,
+    TResult Function(BuildContext context)? fetchAuthUser,
+    TResult Function(
+            String name,
+            String? email,
+            String userName,
+            String institution,
+            String dob,
+            String profession,
+            String image,
+            BuildContext context)?
+        editAuthUser,
+    TResult Function()? removeTokenEvent,
+    TResult Function(ImageSource source)? uploadImageEvent,
+    TResult Function()? fetchContactEvent,
+    TResult Function(String image)? saveCoverImage,
+    TResult Function()? fetchCoverImage,
+    TResult Function(BuildContext context)? deleteAccount,
+    required TResult orElse(),
+  }) {
+    if (deleteAccount != null) {
+      return deleteAccount(context);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(StoreTokenEvent value) storeTokenEvent,
+    required TResult Function(FetchToken value) fetchToken,
+    required TResult Function(FetchAuthUser value) fetchAuthUser,
+    required TResult Function(EditAuthUser value) editAuthUser,
+    required TResult Function(RemoveTokenEvent value) removeTokenEvent,
+    required TResult Function(UploadImageEvent value) uploadImageEvent,
+    required TResult Function(FetchContactEvent value) fetchContactEvent,
+    required TResult Function(SaveCoverImage value) saveCoverImage,
+    required TResult Function(FetchCoverImage value) fetchCoverImage,
+    required TResult Function(DeleteAccount value) deleteAccount,
+  }) {
+    return deleteAccount(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(StoreTokenEvent value)? storeTokenEvent,
+    TResult? Function(FetchToken value)? fetchToken,
+    TResult? Function(FetchAuthUser value)? fetchAuthUser,
+    TResult? Function(EditAuthUser value)? editAuthUser,
+    TResult? Function(RemoveTokenEvent value)? removeTokenEvent,
+    TResult? Function(UploadImageEvent value)? uploadImageEvent,
+    TResult? Function(FetchContactEvent value)? fetchContactEvent,
+    TResult? Function(SaveCoverImage value)? saveCoverImage,
+    TResult? Function(FetchCoverImage value)? fetchCoverImage,
+    TResult? Function(DeleteAccount value)? deleteAccount,
+  }) {
+    return deleteAccount?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(StoreTokenEvent value)? storeTokenEvent,
+    TResult Function(FetchToken value)? fetchToken,
+    TResult Function(FetchAuthUser value)? fetchAuthUser,
+    TResult Function(EditAuthUser value)? editAuthUser,
+    TResult Function(RemoveTokenEvent value)? removeTokenEvent,
+    TResult Function(UploadImageEvent value)? uploadImageEvent,
+    TResult Function(FetchContactEvent value)? fetchContactEvent,
+    TResult Function(SaveCoverImage value)? saveCoverImage,
+    TResult Function(FetchCoverImage value)? fetchCoverImage,
+    TResult Function(DeleteAccount value)? deleteAccount,
+    required TResult orElse(),
+  }) {
+    if (deleteAccount != null) {
+      return deleteAccount(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class DeleteAccount implements DatabaseEvent {
+  const factory DeleteAccount({required final BuildContext context}) =
+      _$DeleteAccount;
+
+  BuildContext get context;
+  @JsonKey(ignore: true)
+  _$$DeleteAccountCopyWith<_$DeleteAccount> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc

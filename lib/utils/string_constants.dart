@@ -55,6 +55,7 @@ class Appstrings {
   static const String tasbihLastRead = "Tasbhi last read";
   static const String subhanallah = "Subhan'Allah";
   static const String logout = "Logout?";
+  static const String deleteAcccount = "Delete Account";
   static const String cancel = "Cancel";
   static const String logoutdialoge = "Are you sure want to logout?";
   static const String fullName = "Full Name";
@@ -306,9 +307,10 @@ class Appstrings {
   static const String understood = "Understood";
   static const String youSaved = "You Just saved ₹300!";
   static const String missDeal = "You're missing a great deal";
-  static const String areYouSureRemove = "Are you sure you want to remove this product from the cart?";
+  static const String areYouSureRemove =
+      "Are you sure you want to remove this product from the cart?";
   static const String remove = "Remove";
-  static const  String keepIt = "Keep It";
+  static const String keepIt = "Keep It";
 }
 
 String authToken = 'authToken';

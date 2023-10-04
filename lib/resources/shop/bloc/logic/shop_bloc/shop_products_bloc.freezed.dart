@@ -43,6 +43,17 @@ mixin _$ShopProductsEvent {
             int weight,
             String id)
         postOrders,
+    required TResult Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)
+        postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
@@ -107,6 +118,17 @@ mixin _$ShopProductsEvent {
             int weight,
             String id)?
         postOrders,
+    TResult? Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)?
+        postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
@@ -169,6 +191,17 @@ mixin _$ShopProductsEvent {
             int weight,
             String id)?
         postOrders,
+    TResult Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)?
+        postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
@@ -225,6 +258,7 @@ mixin _$ShopProductsEvent {
         fetchShopByBrandProducts,
     required TResult Function(TabIndexChangeEvent value) tabIndexChangeEvent,
     required TResult Function(PostOrders value) postOrders,
+    required TResult Function(PostOrdersRewards value) postOrdersRewards,
     required TResult Function(FetchOrders value) fetchOrders,
     required TResult Function(FetchOrdersById value) fetchOrdersById,
     required TResult Function(FetchOrdersbyFilterEvent value)
@@ -293,6 +327,7 @@ mixin _$ShopProductsEvent {
     TResult? Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult? Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
     TResult? Function(PostOrders value)? postOrders,
+    TResult? Function(PostOrdersRewards value)? postOrdersRewards,
     TResult? Function(FetchOrders value)? fetchOrders,
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
@@ -355,6 +390,7 @@ mixin _$ShopProductsEvent {
     TResult Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
     TResult Function(PostOrders value)? postOrders,
+    TResult Function(PostOrdersRewards value)? postOrdersRewards,
     TResult Function(FetchOrders value)? fetchOrders,
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
@@ -512,6 +548,17 @@ class _$FetchFlashSaleProducts implements FetchFlashSaleProducts {
             int weight,
             String id)
         postOrders,
+    required TResult Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)
+        postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
@@ -579,6 +626,17 @@ class _$FetchFlashSaleProducts implements FetchFlashSaleProducts {
             int weight,
             String id)?
         postOrders,
+    TResult? Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)?
+        postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
@@ -644,6 +702,17 @@ class _$FetchFlashSaleProducts implements FetchFlashSaleProducts {
             int weight,
             String id)?
         postOrders,
+    TResult Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)?
+        postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
@@ -706,6 +775,7 @@ class _$FetchFlashSaleProducts implements FetchFlashSaleProducts {
         fetchShopByBrandProducts,
     required TResult Function(TabIndexChangeEvent value) tabIndexChangeEvent,
     required TResult Function(PostOrders value) postOrders,
+    required TResult Function(PostOrdersRewards value) postOrdersRewards,
     required TResult Function(FetchOrders value) fetchOrders,
     required TResult Function(FetchOrdersById value) fetchOrdersById,
     required TResult Function(FetchOrdersbyFilterEvent value)
@@ -777,6 +847,7 @@ class _$FetchFlashSaleProducts implements FetchFlashSaleProducts {
     TResult? Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult? Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
     TResult? Function(PostOrders value)? postOrders,
+    TResult? Function(PostOrdersRewards value)? postOrdersRewards,
     TResult? Function(FetchOrders value)? fetchOrders,
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
@@ -842,6 +913,7 @@ class _$FetchFlashSaleProducts implements FetchFlashSaleProducts {
     TResult Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
     TResult Function(PostOrders value)? postOrders,
+    TResult Function(PostOrdersRewards value)? postOrdersRewards,
     TResult Function(FetchOrders value)? fetchOrders,
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
@@ -995,6 +1067,17 @@ class _$FetchPopularProducts implements FetchPopularProducts {
             int weight,
             String id)
         postOrders,
+    required TResult Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)
+        postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
@@ -1062,6 +1145,17 @@ class _$FetchPopularProducts implements FetchPopularProducts {
             int weight,
             String id)?
         postOrders,
+    TResult? Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)?
+        postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
@@ -1127,6 +1221,17 @@ class _$FetchPopularProducts implements FetchPopularProducts {
             int weight,
             String id)?
         postOrders,
+    TResult Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)?
+        postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
@@ -1189,6 +1294,7 @@ class _$FetchPopularProducts implements FetchPopularProducts {
         fetchShopByBrandProducts,
     required TResult Function(TabIndexChangeEvent value) tabIndexChangeEvent,
     required TResult Function(PostOrders value) postOrders,
+    required TResult Function(PostOrdersRewards value) postOrdersRewards,
     required TResult Function(FetchOrders value) fetchOrders,
     required TResult Function(FetchOrdersById value) fetchOrdersById,
     required TResult Function(FetchOrdersbyFilterEvent value)
@@ -1260,6 +1366,7 @@ class _$FetchPopularProducts implements FetchPopularProducts {
     TResult? Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult? Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
     TResult? Function(PostOrders value)? postOrders,
+    TResult? Function(PostOrdersRewards value)? postOrdersRewards,
     TResult? Function(FetchOrders value)? fetchOrders,
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
@@ -1325,6 +1432,7 @@ class _$FetchPopularProducts implements FetchPopularProducts {
     TResult Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
     TResult Function(PostOrders value)? postOrders,
+    TResult Function(PostOrdersRewards value)? postOrdersRewards,
     TResult Function(FetchOrders value)? fetchOrders,
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
@@ -1453,6 +1561,17 @@ class _$FetchRecentProductProducts implements FetchRecentProductProducts {
             int weight,
             String id)
         postOrders,
+    required TResult Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)
+        postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
@@ -1520,6 +1639,17 @@ class _$FetchRecentProductProducts implements FetchRecentProductProducts {
             int weight,
             String id)?
         postOrders,
+    TResult? Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)?
+        postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
@@ -1585,6 +1715,17 @@ class _$FetchRecentProductProducts implements FetchRecentProductProducts {
             int weight,
             String id)?
         postOrders,
+    TResult Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)?
+        postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
@@ -1647,6 +1788,7 @@ class _$FetchRecentProductProducts implements FetchRecentProductProducts {
         fetchShopByBrandProducts,
     required TResult Function(TabIndexChangeEvent value) tabIndexChangeEvent,
     required TResult Function(PostOrders value) postOrders,
+    required TResult Function(PostOrdersRewards value) postOrdersRewards,
     required TResult Function(FetchOrders value) fetchOrders,
     required TResult Function(FetchOrdersById value) fetchOrdersById,
     required TResult Function(FetchOrdersbyFilterEvent value)
@@ -1718,6 +1860,7 @@ class _$FetchRecentProductProducts implements FetchRecentProductProducts {
     TResult? Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult? Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
     TResult? Function(PostOrders value)? postOrders,
+    TResult? Function(PostOrdersRewards value)? postOrdersRewards,
     TResult? Function(FetchOrders value)? fetchOrders,
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
@@ -1783,6 +1926,7 @@ class _$FetchRecentProductProducts implements FetchRecentProductProducts {
     TResult Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
     TResult Function(PostOrders value)? postOrders,
+    TResult Function(PostOrdersRewards value)? postOrdersRewards,
     TResult Function(FetchOrders value)? fetchOrders,
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
@@ -1902,6 +2046,17 @@ class _$FetchHomeBanners implements FetchHomeBanners {
             int weight,
             String id)
         postOrders,
+    required TResult Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)
+        postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
@@ -1969,6 +2124,17 @@ class _$FetchHomeBanners implements FetchHomeBanners {
             int weight,
             String id)?
         postOrders,
+    TResult? Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)?
+        postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
@@ -2034,6 +2200,17 @@ class _$FetchHomeBanners implements FetchHomeBanners {
             int weight,
             String id)?
         postOrders,
+    TResult Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)?
+        postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
@@ -2096,6 +2273,7 @@ class _$FetchHomeBanners implements FetchHomeBanners {
         fetchShopByBrandProducts,
     required TResult Function(TabIndexChangeEvent value) tabIndexChangeEvent,
     required TResult Function(PostOrders value) postOrders,
+    required TResult Function(PostOrdersRewards value) postOrdersRewards,
     required TResult Function(FetchOrders value) fetchOrders,
     required TResult Function(FetchOrdersById value) fetchOrdersById,
     required TResult Function(FetchOrdersbyFilterEvent value)
@@ -2167,6 +2345,7 @@ class _$FetchHomeBanners implements FetchHomeBanners {
     TResult? Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult? Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
     TResult? Function(PostOrders value)? postOrders,
+    TResult? Function(PostOrdersRewards value)? postOrdersRewards,
     TResult? Function(FetchOrders value)? fetchOrders,
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
@@ -2232,6 +2411,7 @@ class _$FetchHomeBanners implements FetchHomeBanners {
     TResult Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
     TResult Function(PostOrders value)? postOrders,
+    TResult Function(PostOrdersRewards value)? postOrdersRewards,
     TResult Function(FetchOrders value)? fetchOrders,
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
@@ -2351,6 +2531,17 @@ class _$FetchShopBanners implements FetchShopBanners {
             int weight,
             String id)
         postOrders,
+    required TResult Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)
+        postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
@@ -2418,6 +2609,17 @@ class _$FetchShopBanners implements FetchShopBanners {
             int weight,
             String id)?
         postOrders,
+    TResult? Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)?
+        postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
@@ -2483,6 +2685,17 @@ class _$FetchShopBanners implements FetchShopBanners {
             int weight,
             String id)?
         postOrders,
+    TResult Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)?
+        postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
@@ -2545,6 +2758,7 @@ class _$FetchShopBanners implements FetchShopBanners {
         fetchShopByBrandProducts,
     required TResult Function(TabIndexChangeEvent value) tabIndexChangeEvent,
     required TResult Function(PostOrders value) postOrders,
+    required TResult Function(PostOrdersRewards value) postOrdersRewards,
     required TResult Function(FetchOrders value) fetchOrders,
     required TResult Function(FetchOrdersById value) fetchOrdersById,
     required TResult Function(FetchOrdersbyFilterEvent value)
@@ -2616,6 +2830,7 @@ class _$FetchShopBanners implements FetchShopBanners {
     TResult? Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult? Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
     TResult? Function(PostOrders value)? postOrders,
+    TResult? Function(PostOrdersRewards value)? postOrdersRewards,
     TResult? Function(FetchOrders value)? fetchOrders,
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
@@ -2681,6 +2896,7 @@ class _$FetchShopBanners implements FetchShopBanners {
     TResult Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
     TResult Function(PostOrders value)? postOrders,
+    TResult Function(PostOrdersRewards value)? postOrdersRewards,
     TResult Function(FetchOrders value)? fetchOrders,
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
@@ -2827,6 +3043,17 @@ class _$FetchArticles implements FetchArticles {
             int weight,
             String id)
         postOrders,
+    required TResult Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)
+        postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
@@ -2894,6 +3121,17 @@ class _$FetchArticles implements FetchArticles {
             int weight,
             String id)?
         postOrders,
+    TResult? Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)?
+        postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
@@ -2959,6 +3197,17 @@ class _$FetchArticles implements FetchArticles {
             int weight,
             String id)?
         postOrders,
+    TResult Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)?
+        postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
@@ -3021,6 +3270,7 @@ class _$FetchArticles implements FetchArticles {
         fetchShopByBrandProducts,
     required TResult Function(TabIndexChangeEvent value) tabIndexChangeEvent,
     required TResult Function(PostOrders value) postOrders,
+    required TResult Function(PostOrdersRewards value) postOrdersRewards,
     required TResult Function(FetchOrders value) fetchOrders,
     required TResult Function(FetchOrdersById value) fetchOrdersById,
     required TResult Function(FetchOrdersbyFilterEvent value)
@@ -3092,6 +3342,7 @@ class _$FetchArticles implements FetchArticles {
     TResult? Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult? Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
     TResult? Function(PostOrders value)? postOrders,
+    TResult? Function(PostOrdersRewards value)? postOrdersRewards,
     TResult? Function(FetchOrders value)? fetchOrders,
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
@@ -3157,6 +3408,7 @@ class _$FetchArticles implements FetchArticles {
     TResult Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
     TResult Function(PostOrders value)? postOrders,
+    TResult Function(PostOrdersRewards value)? postOrdersRewards,
     TResult Function(FetchOrders value)? fetchOrders,
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
@@ -3282,6 +3534,17 @@ class _$FetchShopByBrand implements FetchShopByBrand {
             int weight,
             String id)
         postOrders,
+    required TResult Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)
+        postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
@@ -3349,6 +3612,17 @@ class _$FetchShopByBrand implements FetchShopByBrand {
             int weight,
             String id)?
         postOrders,
+    TResult? Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)?
+        postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
@@ -3414,6 +3688,17 @@ class _$FetchShopByBrand implements FetchShopByBrand {
             int weight,
             String id)?
         postOrders,
+    TResult Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)?
+        postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
@@ -3476,6 +3761,7 @@ class _$FetchShopByBrand implements FetchShopByBrand {
         fetchShopByBrandProducts,
     required TResult Function(TabIndexChangeEvent value) tabIndexChangeEvent,
     required TResult Function(PostOrders value) postOrders,
+    required TResult Function(PostOrdersRewards value) postOrdersRewards,
     required TResult Function(FetchOrders value) fetchOrders,
     required TResult Function(FetchOrdersById value) fetchOrdersById,
     required TResult Function(FetchOrdersbyFilterEvent value)
@@ -3547,6 +3833,7 @@ class _$FetchShopByBrand implements FetchShopByBrand {
     TResult? Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult? Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
     TResult? Function(PostOrders value)? postOrders,
+    TResult? Function(PostOrdersRewards value)? postOrdersRewards,
     TResult? Function(FetchOrders value)? fetchOrders,
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
@@ -3612,6 +3899,7 @@ class _$FetchShopByBrand implements FetchShopByBrand {
     TResult Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
     TResult Function(PostOrders value)? postOrders,
+    TResult Function(PostOrdersRewards value)? postOrdersRewards,
     TResult Function(FetchOrders value)? fetchOrders,
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
@@ -3757,6 +4045,17 @@ class _$FetchWishList implements FetchWishList {
             int weight,
             String id)
         postOrders,
+    required TResult Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)
+        postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
@@ -3824,6 +4123,17 @@ class _$FetchWishList implements FetchWishList {
             int weight,
             String id)?
         postOrders,
+    TResult? Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)?
+        postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
@@ -3889,6 +4199,17 @@ class _$FetchWishList implements FetchWishList {
             int weight,
             String id)?
         postOrders,
+    TResult Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)?
+        postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
@@ -3951,6 +4272,7 @@ class _$FetchWishList implements FetchWishList {
         fetchShopByBrandProducts,
     required TResult Function(TabIndexChangeEvent value) tabIndexChangeEvent,
     required TResult Function(PostOrders value) postOrders,
+    required TResult Function(PostOrdersRewards value) postOrdersRewards,
     required TResult Function(FetchOrders value) fetchOrders,
     required TResult Function(FetchOrdersById value) fetchOrdersById,
     required TResult Function(FetchOrdersbyFilterEvent value)
@@ -4022,6 +4344,7 @@ class _$FetchWishList implements FetchWishList {
     TResult? Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult? Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
     TResult? Function(PostOrders value)? postOrders,
+    TResult? Function(PostOrdersRewards value)? postOrdersRewards,
     TResult? Function(FetchOrders value)? fetchOrders,
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
@@ -4087,6 +4410,7 @@ class _$FetchWishList implements FetchWishList {
     TResult Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
     TResult Function(PostOrders value)? postOrders,
+    TResult Function(PostOrdersRewards value)? postOrdersRewards,
     TResult Function(FetchOrders value)? fetchOrders,
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
@@ -4237,6 +4561,17 @@ class _$SearchProduct implements SearchProduct {
             int weight,
             String id)
         postOrders,
+    required TResult Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)
+        postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
@@ -4304,6 +4639,17 @@ class _$SearchProduct implements SearchProduct {
             int weight,
             String id)?
         postOrders,
+    TResult? Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)?
+        postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
@@ -4369,6 +4715,17 @@ class _$SearchProduct implements SearchProduct {
             int weight,
             String id)?
         postOrders,
+    TResult Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)?
+        postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
@@ -4431,6 +4788,7 @@ class _$SearchProduct implements SearchProduct {
         fetchShopByBrandProducts,
     required TResult Function(TabIndexChangeEvent value) tabIndexChangeEvent,
     required TResult Function(PostOrders value) postOrders,
+    required TResult Function(PostOrdersRewards value) postOrdersRewards,
     required TResult Function(FetchOrders value) fetchOrders,
     required TResult Function(FetchOrdersById value) fetchOrdersById,
     required TResult Function(FetchOrdersbyFilterEvent value)
@@ -4502,6 +4860,7 @@ class _$SearchProduct implements SearchProduct {
     TResult? Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult? Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
     TResult? Function(PostOrders value)? postOrders,
+    TResult? Function(PostOrdersRewards value)? postOrdersRewards,
     TResult? Function(FetchOrders value)? fetchOrders,
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
@@ -4567,6 +4926,7 @@ class _$SearchProduct implements SearchProduct {
     TResult Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
     TResult Function(PostOrders value)? postOrders,
+    TResult Function(PostOrdersRewards value)? postOrdersRewards,
     TResult Function(FetchOrders value)? fetchOrders,
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
@@ -4726,6 +5086,17 @@ class _$AddWishListEvent implements AddWishListEvent {
             int weight,
             String id)
         postOrders,
+    required TResult Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)
+        postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
@@ -4793,6 +5164,17 @@ class _$AddWishListEvent implements AddWishListEvent {
             int weight,
             String id)?
         postOrders,
+    TResult? Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)?
+        postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
@@ -4858,6 +5240,17 @@ class _$AddWishListEvent implements AddWishListEvent {
             int weight,
             String id)?
         postOrders,
+    TResult Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)?
+        postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
@@ -4920,6 +5313,7 @@ class _$AddWishListEvent implements AddWishListEvent {
         fetchShopByBrandProducts,
     required TResult Function(TabIndexChangeEvent value) tabIndexChangeEvent,
     required TResult Function(PostOrders value) postOrders,
+    required TResult Function(PostOrdersRewards value) postOrdersRewards,
     required TResult Function(FetchOrders value) fetchOrders,
     required TResult Function(FetchOrdersById value) fetchOrdersById,
     required TResult Function(FetchOrdersbyFilterEvent value)
@@ -4991,6 +5385,7 @@ class _$AddWishListEvent implements AddWishListEvent {
     TResult? Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult? Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
     TResult? Function(PostOrders value)? postOrders,
+    TResult? Function(PostOrdersRewards value)? postOrdersRewards,
     TResult? Function(FetchOrders value)? fetchOrders,
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
@@ -5056,6 +5451,7 @@ class _$AddWishListEvent implements AddWishListEvent {
     TResult Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
     TResult Function(PostOrders value)? postOrders,
+    TResult Function(PostOrdersRewards value)? postOrdersRewards,
     TResult Function(FetchOrders value)? fetchOrders,
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
@@ -5219,6 +5615,17 @@ class _$RemoveWishlistEvent implements RemoveWishlistEvent {
             int weight,
             String id)
         postOrders,
+    required TResult Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)
+        postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
@@ -5286,6 +5693,17 @@ class _$RemoveWishlistEvent implements RemoveWishlistEvent {
             int weight,
             String id)?
         postOrders,
+    TResult? Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)?
+        postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
@@ -5351,6 +5769,17 @@ class _$RemoveWishlistEvent implements RemoveWishlistEvent {
             int weight,
             String id)?
         postOrders,
+    TResult Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)?
+        postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
@@ -5413,6 +5842,7 @@ class _$RemoveWishlistEvent implements RemoveWishlistEvent {
         fetchShopByBrandProducts,
     required TResult Function(TabIndexChangeEvent value) tabIndexChangeEvent,
     required TResult Function(PostOrders value) postOrders,
+    required TResult Function(PostOrdersRewards value) postOrdersRewards,
     required TResult Function(FetchOrders value) fetchOrders,
     required TResult Function(FetchOrdersById value) fetchOrdersById,
     required TResult Function(FetchOrdersbyFilterEvent value)
@@ -5484,6 +5914,7 @@ class _$RemoveWishlistEvent implements RemoveWishlistEvent {
     TResult? Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult? Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
     TResult? Function(PostOrders value)? postOrders,
+    TResult? Function(PostOrdersRewards value)? postOrdersRewards,
     TResult? Function(FetchOrders value)? fetchOrders,
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
@@ -5549,6 +5980,7 @@ class _$RemoveWishlistEvent implements RemoveWishlistEvent {
     TResult Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
     TResult Function(PostOrders value)? postOrders,
+    TResult Function(PostOrdersRewards value)? postOrdersRewards,
     TResult Function(FetchOrders value)? fetchOrders,
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
@@ -5705,6 +6137,17 @@ class _$FetchShopByBrandProducts implements FetchShopByBrandProducts {
             int weight,
             String id)
         postOrders,
+    required TResult Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)
+        postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
@@ -5772,6 +6215,17 @@ class _$FetchShopByBrandProducts implements FetchShopByBrandProducts {
             int weight,
             String id)?
         postOrders,
+    TResult? Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)?
+        postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
@@ -5837,6 +6291,17 @@ class _$FetchShopByBrandProducts implements FetchShopByBrandProducts {
             int weight,
             String id)?
         postOrders,
+    TResult Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)?
+        postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
@@ -5899,6 +6364,7 @@ class _$FetchShopByBrandProducts implements FetchShopByBrandProducts {
         fetchShopByBrandProducts,
     required TResult Function(TabIndexChangeEvent value) tabIndexChangeEvent,
     required TResult Function(PostOrders value) postOrders,
+    required TResult Function(PostOrdersRewards value) postOrdersRewards,
     required TResult Function(FetchOrders value) fetchOrders,
     required TResult Function(FetchOrdersById value) fetchOrdersById,
     required TResult Function(FetchOrdersbyFilterEvent value)
@@ -5970,6 +6436,7 @@ class _$FetchShopByBrandProducts implements FetchShopByBrandProducts {
     TResult? Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult? Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
     TResult? Function(PostOrders value)? postOrders,
+    TResult? Function(PostOrdersRewards value)? postOrdersRewards,
     TResult? Function(FetchOrders value)? fetchOrders,
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
@@ -6035,6 +6502,7 @@ class _$FetchShopByBrandProducts implements FetchShopByBrandProducts {
     TResult Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
     TResult Function(PostOrders value)? postOrders,
+    TResult Function(PostOrdersRewards value)? postOrdersRewards,
     TResult Function(FetchOrders value)? fetchOrders,
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
@@ -6187,6 +6655,17 @@ class _$TabIndexChangeEvent implements TabIndexChangeEvent {
             int weight,
             String id)
         postOrders,
+    required TResult Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)
+        postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
@@ -6254,6 +6733,17 @@ class _$TabIndexChangeEvent implements TabIndexChangeEvent {
             int weight,
             String id)?
         postOrders,
+    TResult? Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)?
+        postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
@@ -6319,6 +6809,17 @@ class _$TabIndexChangeEvent implements TabIndexChangeEvent {
             int weight,
             String id)?
         postOrders,
+    TResult Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)?
+        postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
@@ -6381,6 +6882,7 @@ class _$TabIndexChangeEvent implements TabIndexChangeEvent {
         fetchShopByBrandProducts,
     required TResult Function(TabIndexChangeEvent value) tabIndexChangeEvent,
     required TResult Function(PostOrders value) postOrders,
+    required TResult Function(PostOrdersRewards value) postOrdersRewards,
     required TResult Function(FetchOrders value) fetchOrders,
     required TResult Function(FetchOrdersById value) fetchOrdersById,
     required TResult Function(FetchOrdersbyFilterEvent value)
@@ -6452,6 +6954,7 @@ class _$TabIndexChangeEvent implements TabIndexChangeEvent {
     TResult? Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult? Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
     TResult? Function(PostOrders value)? postOrders,
+    TResult? Function(PostOrdersRewards value)? postOrdersRewards,
     TResult? Function(FetchOrders value)? fetchOrders,
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
@@ -6517,6 +7020,7 @@ class _$TabIndexChangeEvent implements TabIndexChangeEvent {
     TResult Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
     TResult Function(PostOrders value)? postOrders,
+    TResult Function(PostOrdersRewards value)? postOrdersRewards,
     TResult Function(FetchOrders value)? fetchOrders,
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
@@ -6746,6 +7250,17 @@ class _$PostOrders implements PostOrders {
             int weight,
             String id)
         postOrders,
+    required TResult Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)
+        postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
@@ -6814,6 +7329,17 @@ class _$PostOrders implements PostOrders {
             int weight,
             String id)?
         postOrders,
+    TResult? Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)?
+        postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
@@ -6880,6 +7406,17 @@ class _$PostOrders implements PostOrders {
             int weight,
             String id)?
         postOrders,
+    TResult Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)?
+        postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
@@ -6943,6 +7480,7 @@ class _$PostOrders implements PostOrders {
         fetchShopByBrandProducts,
     required TResult Function(TabIndexChangeEvent value) tabIndexChangeEvent,
     required TResult Function(PostOrders value) postOrders,
+    required TResult Function(PostOrdersRewards value) postOrdersRewards,
     required TResult Function(FetchOrders value) fetchOrders,
     required TResult Function(FetchOrdersById value) fetchOrdersById,
     required TResult Function(FetchOrdersbyFilterEvent value)
@@ -7014,6 +7552,7 @@ class _$PostOrders implements PostOrders {
     TResult? Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult? Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
     TResult? Function(PostOrders value)? postOrders,
+    TResult? Function(PostOrdersRewards value)? postOrdersRewards,
     TResult? Function(FetchOrders value)? fetchOrders,
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
@@ -7079,6 +7618,7 @@ class _$PostOrders implements PostOrders {
     TResult Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
     TResult Function(PostOrders value)? postOrders,
+    TResult Function(PostOrdersRewards value)? postOrdersRewards,
     TResult Function(FetchOrders value)? fetchOrders,
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
@@ -7152,6 +7692,546 @@ abstract class PostOrders implements ShopProductsEvent {
   String get id;
   @JsonKey(ignore: true)
   _$$PostOrdersCopyWith<_$PostOrders> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$PostOrdersRewardsCopyWith<$Res> {
+  factory _$$PostOrdersRewardsCopyWith(
+          _$PostOrdersRewards value, $Res Function(_$PostOrdersRewards) then) =
+      __$$PostOrdersRewardsCopyWithImpl<$Res>;
+  @useResult
+  $Res call(
+      {BuildContext context,
+      int price,
+      int coins,
+      String addressId,
+      int totalQuantity,
+      String productId,
+      String brandId,
+      String size,
+      String color});
+}
+
+/// @nodoc
+class __$$PostOrdersRewardsCopyWithImpl<$Res>
+    extends _$ShopProductsEventCopyWithImpl<$Res, _$PostOrdersRewards>
+    implements _$$PostOrdersRewardsCopyWith<$Res> {
+  __$$PostOrdersRewardsCopyWithImpl(
+      _$PostOrdersRewards _value, $Res Function(_$PostOrdersRewards) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? context = null,
+    Object? price = null,
+    Object? coins = null,
+    Object? addressId = null,
+    Object? totalQuantity = null,
+    Object? productId = null,
+    Object? brandId = null,
+    Object? size = null,
+    Object? color = null,
+  }) {
+    return _then(_$PostOrdersRewards(
+      context: null == context
+          ? _value.context
+          : context // ignore: cast_nullable_to_non_nullable
+              as BuildContext,
+      price: null == price
+          ? _value.price
+          : price // ignore: cast_nullable_to_non_nullable
+              as int,
+      coins: null == coins
+          ? _value.coins
+          : coins // ignore: cast_nullable_to_non_nullable
+              as int,
+      addressId: null == addressId
+          ? _value.addressId
+          : addressId // ignore: cast_nullable_to_non_nullable
+              as String,
+      totalQuantity: null == totalQuantity
+          ? _value.totalQuantity
+          : totalQuantity // ignore: cast_nullable_to_non_nullable
+              as int,
+      productId: null == productId
+          ? _value.productId
+          : productId // ignore: cast_nullable_to_non_nullable
+              as String,
+      brandId: null == brandId
+          ? _value.brandId
+          : brandId // ignore: cast_nullable_to_non_nullable
+              as String,
+      size: null == size
+          ? _value.size
+          : size // ignore: cast_nullable_to_non_nullable
+              as String,
+      color: null == color
+          ? _value.color
+          : color // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$PostOrdersRewards implements PostOrdersRewards {
+  const _$PostOrdersRewards(
+      {required this.context,
+      required this.price,
+      required this.coins,
+      required this.addressId,
+      required this.totalQuantity,
+      required this.productId,
+      required this.brandId,
+      required this.size,
+      required this.color});
+
+  @override
+  final BuildContext context;
+  @override
+  final int price;
+  @override
+  final int coins;
+  @override
+  final String addressId;
+  @override
+  final int totalQuantity;
+  @override
+  final String productId;
+  @override
+  final String brandId;
+  @override
+  final String size;
+  @override
+  final String color;
+
+  @override
+  String toString() {
+    return 'ShopProductsEvent.postOrdersRewards(context: $context, price: $price, coins: $coins, addressId: $addressId, totalQuantity: $totalQuantity, productId: $productId, brandId: $brandId, size: $size, color: $color)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$PostOrdersRewards &&
+            (identical(other.context, context) || other.context == context) &&
+            (identical(other.price, price) || other.price == price) &&
+            (identical(other.coins, coins) || other.coins == coins) &&
+            (identical(other.addressId, addressId) ||
+                other.addressId == addressId) &&
+            (identical(other.totalQuantity, totalQuantity) ||
+                other.totalQuantity == totalQuantity) &&
+            (identical(other.productId, productId) ||
+                other.productId == productId) &&
+            (identical(other.brandId, brandId) || other.brandId == brandId) &&
+            (identical(other.size, size) || other.size == size) &&
+            (identical(other.color, color) || other.color == color));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, context, price, coins, addressId,
+      totalQuantity, productId, brandId, size, color);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$PostOrdersRewardsCopyWith<_$PostOrdersRewards> get copyWith =>
+      __$$PostOrdersRewardsCopyWithImpl<_$PostOrdersRewards>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String endPointSlug) fetchFlashSaleProducts,
+    required TResult Function(String endPointSlug) fetchPopularProducts,
+    required TResult Function() fetchRecentProductProducts,
+    required TResult Function() fetchHomeBanners,
+    required TResult Function() fetchShopBanners,
+    required TResult Function(String searchQuery) fetchArticles,
+    required TResult Function() fetchShopByBrand,
+    required TResult Function(BuildContext context) fetchWishList,
+    required TResult Function(String query) searchProduct,
+    required TResult Function(String productId, BuildContext context)
+        addWishListEvent,
+    required TResult Function(String productId, BuildContext context)
+        removeWishlistEvent,
+    required TResult Function(String brandName) fetchShopByBrandProducts,
+    required TResult Function(int index) tabIndexChangeEvent,
+    required TResult Function(
+            BuildContext context,
+            int totalPrice,
+            String pickupLocation,
+            int quantity,
+            int totalDiscount,
+            int shippingCharges,
+            int weight,
+            String id)
+        postOrders,
+    required TResult Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)
+        postOrdersRewards,
+    required TResult Function(BuildContext context) fetchOrders,
+    required TResult Function(BuildContext context, int id) fetchOrdersById,
+    required TResult Function(BuildContext context, String filterName)
+        fetchOrdersbyFilterEvent,
+    required TResult Function(BuildContext context, int shiprockeId)
+        cancelOrder,
+    required TResult Function() fetchShopHomeBackgroundCard,
+    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
+    required TResult Function() fetchShopHomeBackgroundCardSunnah,
+    required TResult Function() fetchShopAdBrands,
+    required TResult Function() fetchTopBrands,
+    required TResult Function() fetchProductItemsSubcategorySunnah,
+    required TResult Function() fetchProductItemsSubcategoryHealth,
+    required TResult Function() fetchProductItemsSubcategoryWomen,
+    required TResult Function(int index) changeShopBannerIndex,
+    required TResult Function(int index) changeBrandBannerIndex,
+    required TResult Function() showOrderProgressEvent,
+    required TResult Function(int index) indexChangeOnOrderProgress,
+    required TResult Function(int index) indexChangeOnWomensCareBanner,
+    required TResult Function(String id) fetchShopAdBrandsById,
+    required TResult Function(int index) savePaymentMethodType,
+    required TResult Function() fetchProductItemsbyCategory,
+  }) {
+    return postOrdersRewards(context, price, coins, addressId, totalQuantity,
+        productId, brandId, size, color);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String endPointSlug)? fetchFlashSaleProducts,
+    TResult? Function(String endPointSlug)? fetchPopularProducts,
+    TResult? Function()? fetchRecentProductProducts,
+    TResult? Function()? fetchHomeBanners,
+    TResult? Function()? fetchShopBanners,
+    TResult? Function(String searchQuery)? fetchArticles,
+    TResult? Function()? fetchShopByBrand,
+    TResult? Function(BuildContext context)? fetchWishList,
+    TResult? Function(String query)? searchProduct,
+    TResult? Function(String productId, BuildContext context)? addWishListEvent,
+    TResult? Function(String productId, BuildContext context)?
+        removeWishlistEvent,
+    TResult? Function(String brandName)? fetchShopByBrandProducts,
+    TResult? Function(int index)? tabIndexChangeEvent,
+    TResult? Function(
+            BuildContext context,
+            int totalPrice,
+            String pickupLocation,
+            int quantity,
+            int totalDiscount,
+            int shippingCharges,
+            int weight,
+            String id)?
+        postOrders,
+    TResult? Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)?
+        postOrdersRewards,
+    TResult? Function(BuildContext context)? fetchOrders,
+    TResult? Function(BuildContext context, int id)? fetchOrdersById,
+    TResult? Function(BuildContext context, String filterName)?
+        fetchOrdersbyFilterEvent,
+    TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult? Function()? fetchShopHomeBackgroundCard,
+    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
+    TResult? Function()? fetchShopHomeBackgroundCardSunnah,
+    TResult? Function()? fetchShopAdBrands,
+    TResult? Function()? fetchTopBrands,
+    TResult? Function()? fetchProductItemsSubcategorySunnah,
+    TResult? Function()? fetchProductItemsSubcategoryHealth,
+    TResult? Function()? fetchProductItemsSubcategoryWomen,
+    TResult? Function(int index)? changeShopBannerIndex,
+    TResult? Function(int index)? changeBrandBannerIndex,
+    TResult? Function()? showOrderProgressEvent,
+    TResult? Function(int index)? indexChangeOnOrderProgress,
+    TResult? Function(int index)? indexChangeOnWomensCareBanner,
+    TResult? Function(String id)? fetchShopAdBrandsById,
+    TResult? Function(int index)? savePaymentMethodType,
+    TResult? Function()? fetchProductItemsbyCategory,
+  }) {
+    return postOrdersRewards?.call(context, price, coins, addressId,
+        totalQuantity, productId, brandId, size, color);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String endPointSlug)? fetchFlashSaleProducts,
+    TResult Function(String endPointSlug)? fetchPopularProducts,
+    TResult Function()? fetchRecentProductProducts,
+    TResult Function()? fetchHomeBanners,
+    TResult Function()? fetchShopBanners,
+    TResult Function(String searchQuery)? fetchArticles,
+    TResult Function()? fetchShopByBrand,
+    TResult Function(BuildContext context)? fetchWishList,
+    TResult Function(String query)? searchProduct,
+    TResult Function(String productId, BuildContext context)? addWishListEvent,
+    TResult Function(String productId, BuildContext context)?
+        removeWishlistEvent,
+    TResult Function(String brandName)? fetchShopByBrandProducts,
+    TResult Function(int index)? tabIndexChangeEvent,
+    TResult Function(
+            BuildContext context,
+            int totalPrice,
+            String pickupLocation,
+            int quantity,
+            int totalDiscount,
+            int shippingCharges,
+            int weight,
+            String id)?
+        postOrders,
+    TResult Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)?
+        postOrdersRewards,
+    TResult Function(BuildContext context)? fetchOrders,
+    TResult Function(BuildContext context, int id)? fetchOrdersById,
+    TResult Function(BuildContext context, String filterName)?
+        fetchOrdersbyFilterEvent,
+    TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult Function()? fetchShopHomeBackgroundCard,
+    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
+    TResult Function()? fetchShopHomeBackgroundCardSunnah,
+    TResult Function()? fetchShopAdBrands,
+    TResult Function()? fetchTopBrands,
+    TResult Function()? fetchProductItemsSubcategorySunnah,
+    TResult Function()? fetchProductItemsSubcategoryHealth,
+    TResult Function()? fetchProductItemsSubcategoryWomen,
+    TResult Function(int index)? changeShopBannerIndex,
+    TResult Function(int index)? changeBrandBannerIndex,
+    TResult Function()? showOrderProgressEvent,
+    TResult Function(int index)? indexChangeOnOrderProgress,
+    TResult Function(int index)? indexChangeOnWomensCareBanner,
+    TResult Function(String id)? fetchShopAdBrandsById,
+    TResult Function(int index)? savePaymentMethodType,
+    TResult Function()? fetchProductItemsbyCategory,
+    required TResult orElse(),
+  }) {
+    if (postOrdersRewards != null) {
+      return postOrdersRewards(context, price, coins, addressId, totalQuantity,
+          productId, brandId, size, color);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FetchFlashSaleProducts value)
+        fetchFlashSaleProducts,
+    required TResult Function(FetchPopularProducts value) fetchPopularProducts,
+    required TResult Function(FetchRecentProductProducts value)
+        fetchRecentProductProducts,
+    required TResult Function(FetchHomeBanners value) fetchHomeBanners,
+    required TResult Function(FetchShopBanners value) fetchShopBanners,
+    required TResult Function(FetchArticles value) fetchArticles,
+    required TResult Function(FetchShopByBrand value) fetchShopByBrand,
+    required TResult Function(FetchWishList value) fetchWishList,
+    required TResult Function(SearchProduct value) searchProduct,
+    required TResult Function(AddWishListEvent value) addWishListEvent,
+    required TResult Function(RemoveWishlistEvent value) removeWishlistEvent,
+    required TResult Function(FetchShopByBrandProducts value)
+        fetchShopByBrandProducts,
+    required TResult Function(TabIndexChangeEvent value) tabIndexChangeEvent,
+    required TResult Function(PostOrders value) postOrders,
+    required TResult Function(PostOrdersRewards value) postOrdersRewards,
+    required TResult Function(FetchOrders value) fetchOrders,
+    required TResult Function(FetchOrdersById value) fetchOrdersById,
+    required TResult Function(FetchOrdersbyFilterEvent value)
+        fetchOrdersbyFilterEvent,
+    required TResult Function(CancelOrder value) cancelOrder,
+    required TResult Function(FetchShopHomeBackgroundCard value)
+        fetchShopHomeBackgroundCard,
+    required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
+        fetchShopHomeBackgroundCardHelthyDiet,
+    required TResult Function(FetchShopHomeBackgroundCardSunnah value)
+        fetchShopHomeBackgroundCardSunnah,
+    required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
+    required TResult Function(FetchTopBrands value) fetchTopBrands,
+    required TResult Function(FetchProductItemsSubcategorySunnah value)
+        fetchProductItemsSubcategorySunnah,
+    required TResult Function(FetchProductItemsSubcategoryHealth value)
+        fetchProductItemsSubcategoryHealth,
+    required TResult Function(FetchProductItemsSubcategoryWomen value)
+        fetchProductItemsSubcategoryWomen,
+    required TResult Function(ChangeShopBannerIndex value)
+        changeShopBannerIndex,
+    required TResult Function(ChangeBrandBannerIndex value)
+        changeBrandBannerIndex,
+    required TResult Function(ShowOrderProgressEvent value)
+        showOrderProgressEvent,
+    required TResult Function(IndexChangeOnOrderProgress value)
+        indexChangeOnOrderProgress,
+    required TResult Function(IndexChangeOnWomensCareBanner value)
+        indexChangeOnWomensCareBanner,
+    required TResult Function(FetchShopAdBrandsById value)
+        fetchShopAdBrandsById,
+    required TResult Function(SavePaymentMethodType value)
+        savePaymentMethodType,
+    required TResult Function(FetchProductItemsbyCategory value)
+        fetchProductItemsbyCategory,
+  }) {
+    return postOrdersRewards(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(FetchFlashSaleProducts value)? fetchFlashSaleProducts,
+    TResult? Function(FetchPopularProducts value)? fetchPopularProducts,
+    TResult? Function(FetchRecentProductProducts value)?
+        fetchRecentProductProducts,
+    TResult? Function(FetchHomeBanners value)? fetchHomeBanners,
+    TResult? Function(FetchShopBanners value)? fetchShopBanners,
+    TResult? Function(FetchArticles value)? fetchArticles,
+    TResult? Function(FetchShopByBrand value)? fetchShopByBrand,
+    TResult? Function(FetchWishList value)? fetchWishList,
+    TResult? Function(SearchProduct value)? searchProduct,
+    TResult? Function(AddWishListEvent value)? addWishListEvent,
+    TResult? Function(RemoveWishlistEvent value)? removeWishlistEvent,
+    TResult? Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
+    TResult? Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
+    TResult? Function(PostOrders value)? postOrders,
+    TResult? Function(PostOrdersRewards value)? postOrdersRewards,
+    TResult? Function(FetchOrders value)? fetchOrders,
+    TResult? Function(FetchOrdersById value)? fetchOrdersById,
+    TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
+    TResult? Function(CancelOrder value)? cancelOrder,
+    TResult? Function(FetchShopHomeBackgroundCard value)?
+        fetchShopHomeBackgroundCard,
+    TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
+        fetchShopHomeBackgroundCardHelthyDiet,
+    TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
+        fetchShopHomeBackgroundCardSunnah,
+    TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
+    TResult? Function(FetchTopBrands value)? fetchTopBrands,
+    TResult? Function(FetchProductItemsSubcategorySunnah value)?
+        fetchProductItemsSubcategorySunnah,
+    TResult? Function(FetchProductItemsSubcategoryHealth value)?
+        fetchProductItemsSubcategoryHealth,
+    TResult? Function(FetchProductItemsSubcategoryWomen value)?
+        fetchProductItemsSubcategoryWomen,
+    TResult? Function(ChangeShopBannerIndex value)? changeShopBannerIndex,
+    TResult? Function(ChangeBrandBannerIndex value)? changeBrandBannerIndex,
+    TResult? Function(ShowOrderProgressEvent value)? showOrderProgressEvent,
+    TResult? Function(IndexChangeOnOrderProgress value)?
+        indexChangeOnOrderProgress,
+    TResult? Function(IndexChangeOnWomensCareBanner value)?
+        indexChangeOnWomensCareBanner,
+    TResult? Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
+    TResult? Function(SavePaymentMethodType value)? savePaymentMethodType,
+    TResult? Function(FetchProductItemsbyCategory value)?
+        fetchProductItemsbyCategory,
+  }) {
+    return postOrdersRewards?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FetchFlashSaleProducts value)? fetchFlashSaleProducts,
+    TResult Function(FetchPopularProducts value)? fetchPopularProducts,
+    TResult Function(FetchRecentProductProducts value)?
+        fetchRecentProductProducts,
+    TResult Function(FetchHomeBanners value)? fetchHomeBanners,
+    TResult Function(FetchShopBanners value)? fetchShopBanners,
+    TResult Function(FetchArticles value)? fetchArticles,
+    TResult Function(FetchShopByBrand value)? fetchShopByBrand,
+    TResult Function(FetchWishList value)? fetchWishList,
+    TResult Function(SearchProduct value)? searchProduct,
+    TResult Function(AddWishListEvent value)? addWishListEvent,
+    TResult Function(RemoveWishlistEvent value)? removeWishlistEvent,
+    TResult Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
+    TResult Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
+    TResult Function(PostOrders value)? postOrders,
+    TResult Function(PostOrdersRewards value)? postOrdersRewards,
+    TResult Function(FetchOrders value)? fetchOrders,
+    TResult Function(FetchOrdersById value)? fetchOrdersById,
+    TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
+    TResult Function(CancelOrder value)? cancelOrder,
+    TResult Function(FetchShopHomeBackgroundCard value)?
+        fetchShopHomeBackgroundCard,
+    TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
+        fetchShopHomeBackgroundCardHelthyDiet,
+    TResult Function(FetchShopHomeBackgroundCardSunnah value)?
+        fetchShopHomeBackgroundCardSunnah,
+    TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
+    TResult Function(FetchTopBrands value)? fetchTopBrands,
+    TResult Function(FetchProductItemsSubcategorySunnah value)?
+        fetchProductItemsSubcategorySunnah,
+    TResult Function(FetchProductItemsSubcategoryHealth value)?
+        fetchProductItemsSubcategoryHealth,
+    TResult Function(FetchProductItemsSubcategoryWomen value)?
+        fetchProductItemsSubcategoryWomen,
+    TResult Function(ChangeShopBannerIndex value)? changeShopBannerIndex,
+    TResult Function(ChangeBrandBannerIndex value)? changeBrandBannerIndex,
+    TResult Function(ShowOrderProgressEvent value)? showOrderProgressEvent,
+    TResult Function(IndexChangeOnOrderProgress value)?
+        indexChangeOnOrderProgress,
+    TResult Function(IndexChangeOnWomensCareBanner value)?
+        indexChangeOnWomensCareBanner,
+    TResult Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
+    TResult Function(SavePaymentMethodType value)? savePaymentMethodType,
+    TResult Function(FetchProductItemsbyCategory value)?
+        fetchProductItemsbyCategory,
+    required TResult orElse(),
+  }) {
+    if (postOrdersRewards != null) {
+      return postOrdersRewards(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class PostOrdersRewards implements ShopProductsEvent {
+  const factory PostOrdersRewards(
+      {required final BuildContext context,
+      required final int price,
+      required final int coins,
+      required final String addressId,
+      required final int totalQuantity,
+      required final String productId,
+      required final String brandId,
+      required final String size,
+      required final String color}) = _$PostOrdersRewards;
+
+  BuildContext get context;
+  int get price;
+  int get coins;
+  String get addressId;
+  int get totalQuantity;
+  String get productId;
+  String get brandId;
+  String get size;
+  String get color;
+  @JsonKey(ignore: true)
+  _$$PostOrdersRewardsCopyWith<_$PostOrdersRewards> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -7244,6 +8324,17 @@ class _$FetchOrders implements FetchOrders {
             int weight,
             String id)
         postOrders,
+    required TResult Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)
+        postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
@@ -7311,6 +8402,17 @@ class _$FetchOrders implements FetchOrders {
             int weight,
             String id)?
         postOrders,
+    TResult? Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)?
+        postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
@@ -7376,6 +8478,17 @@ class _$FetchOrders implements FetchOrders {
             int weight,
             String id)?
         postOrders,
+    TResult Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)?
+        postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
@@ -7438,6 +8551,7 @@ class _$FetchOrders implements FetchOrders {
         fetchShopByBrandProducts,
     required TResult Function(TabIndexChangeEvent value) tabIndexChangeEvent,
     required TResult Function(PostOrders value) postOrders,
+    required TResult Function(PostOrdersRewards value) postOrdersRewards,
     required TResult Function(FetchOrders value) fetchOrders,
     required TResult Function(FetchOrdersById value) fetchOrdersById,
     required TResult Function(FetchOrdersbyFilterEvent value)
@@ -7509,6 +8623,7 @@ class _$FetchOrders implements FetchOrders {
     TResult? Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult? Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
     TResult? Function(PostOrders value)? postOrders,
+    TResult? Function(PostOrdersRewards value)? postOrdersRewards,
     TResult? Function(FetchOrders value)? fetchOrders,
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
@@ -7574,6 +8689,7 @@ class _$FetchOrders implements FetchOrders {
     TResult Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
     TResult Function(PostOrders value)? postOrders,
+    TResult Function(PostOrdersRewards value)? postOrdersRewards,
     TResult Function(FetchOrders value)? fetchOrders,
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
@@ -7732,6 +8848,17 @@ class _$FetchOrdersById implements FetchOrdersById {
             int weight,
             String id)
         postOrders,
+    required TResult Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)
+        postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
@@ -7799,6 +8926,17 @@ class _$FetchOrdersById implements FetchOrdersById {
             int weight,
             String id)?
         postOrders,
+    TResult? Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)?
+        postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
@@ -7864,6 +9002,17 @@ class _$FetchOrdersById implements FetchOrdersById {
             int weight,
             String id)?
         postOrders,
+    TResult Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)?
+        postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
@@ -7926,6 +9075,7 @@ class _$FetchOrdersById implements FetchOrdersById {
         fetchShopByBrandProducts,
     required TResult Function(TabIndexChangeEvent value) tabIndexChangeEvent,
     required TResult Function(PostOrders value) postOrders,
+    required TResult Function(PostOrdersRewards value) postOrdersRewards,
     required TResult Function(FetchOrders value) fetchOrders,
     required TResult Function(FetchOrdersById value) fetchOrdersById,
     required TResult Function(FetchOrdersbyFilterEvent value)
@@ -7997,6 +9147,7 @@ class _$FetchOrdersById implements FetchOrdersById {
     TResult? Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult? Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
     TResult? Function(PostOrders value)? postOrders,
+    TResult? Function(PostOrdersRewards value)? postOrdersRewards,
     TResult? Function(FetchOrders value)? fetchOrders,
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
@@ -8062,6 +9213,7 @@ class _$FetchOrdersById implements FetchOrdersById {
     TResult Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
     TResult Function(PostOrders value)? postOrders,
+    TResult Function(PostOrdersRewards value)? postOrdersRewards,
     TResult Function(FetchOrders value)? fetchOrders,
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
@@ -8226,6 +9378,17 @@ class _$FetchOrdersbyFilterEvent implements FetchOrdersbyFilterEvent {
             int weight,
             String id)
         postOrders,
+    required TResult Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)
+        postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
@@ -8293,6 +9456,17 @@ class _$FetchOrdersbyFilterEvent implements FetchOrdersbyFilterEvent {
             int weight,
             String id)?
         postOrders,
+    TResult? Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)?
+        postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
@@ -8358,6 +9532,17 @@ class _$FetchOrdersbyFilterEvent implements FetchOrdersbyFilterEvent {
             int weight,
             String id)?
         postOrders,
+    TResult Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)?
+        postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
@@ -8420,6 +9605,7 @@ class _$FetchOrdersbyFilterEvent implements FetchOrdersbyFilterEvent {
         fetchShopByBrandProducts,
     required TResult Function(TabIndexChangeEvent value) tabIndexChangeEvent,
     required TResult Function(PostOrders value) postOrders,
+    required TResult Function(PostOrdersRewards value) postOrdersRewards,
     required TResult Function(FetchOrders value) fetchOrders,
     required TResult Function(FetchOrdersById value) fetchOrdersById,
     required TResult Function(FetchOrdersbyFilterEvent value)
@@ -8491,6 +9677,7 @@ class _$FetchOrdersbyFilterEvent implements FetchOrdersbyFilterEvent {
     TResult? Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult? Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
     TResult? Function(PostOrders value)? postOrders,
+    TResult? Function(PostOrdersRewards value)? postOrdersRewards,
     TResult? Function(FetchOrders value)? fetchOrders,
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
@@ -8556,6 +9743,7 @@ class _$FetchOrdersbyFilterEvent implements FetchOrdersbyFilterEvent {
     TResult Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
     TResult Function(PostOrders value)? postOrders,
+    TResult Function(PostOrdersRewards value)? postOrdersRewards,
     TResult Function(FetchOrders value)? fetchOrders,
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
@@ -8718,6 +9906,17 @@ class _$CancelOrder implements CancelOrder {
             int weight,
             String id)
         postOrders,
+    required TResult Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)
+        postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
@@ -8785,6 +9984,17 @@ class _$CancelOrder implements CancelOrder {
             int weight,
             String id)?
         postOrders,
+    TResult? Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)?
+        postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
@@ -8850,6 +10060,17 @@ class _$CancelOrder implements CancelOrder {
             int weight,
             String id)?
         postOrders,
+    TResult Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)?
+        postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
@@ -8912,6 +10133,7 @@ class _$CancelOrder implements CancelOrder {
         fetchShopByBrandProducts,
     required TResult Function(TabIndexChangeEvent value) tabIndexChangeEvent,
     required TResult Function(PostOrders value) postOrders,
+    required TResult Function(PostOrdersRewards value) postOrdersRewards,
     required TResult Function(FetchOrders value) fetchOrders,
     required TResult Function(FetchOrdersById value) fetchOrdersById,
     required TResult Function(FetchOrdersbyFilterEvent value)
@@ -8983,6 +10205,7 @@ class _$CancelOrder implements CancelOrder {
     TResult? Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult? Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
     TResult? Function(PostOrders value)? postOrders,
+    TResult? Function(PostOrdersRewards value)? postOrdersRewards,
     TResult? Function(FetchOrders value)? fetchOrders,
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
@@ -9048,6 +10271,7 @@ class _$CancelOrder implements CancelOrder {
     TResult Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
     TResult Function(PostOrders value)? postOrders,
+    TResult Function(PostOrdersRewards value)? postOrdersRewards,
     TResult Function(FetchOrders value)? fetchOrders,
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
@@ -9670,6 +10894,17 @@ class _$FetchShopHomeBackgroundCard implements FetchShopHomeBackgroundCard {
             int weight,
             String id)
         postOrders,
+    required TResult Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)
+        postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
@@ -9737,6 +10972,17 @@ class _$FetchShopHomeBackgroundCard implements FetchShopHomeBackgroundCard {
             int weight,
             String id)?
         postOrders,
+    TResult? Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)?
+        postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
@@ -9802,6 +11048,17 @@ class _$FetchShopHomeBackgroundCard implements FetchShopHomeBackgroundCard {
             int weight,
             String id)?
         postOrders,
+    TResult Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)?
+        postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
@@ -9864,6 +11121,7 @@ class _$FetchShopHomeBackgroundCard implements FetchShopHomeBackgroundCard {
         fetchShopByBrandProducts,
     required TResult Function(TabIndexChangeEvent value) tabIndexChangeEvent,
     required TResult Function(PostOrders value) postOrders,
+    required TResult Function(PostOrdersRewards value) postOrdersRewards,
     required TResult Function(FetchOrders value) fetchOrders,
     required TResult Function(FetchOrdersById value) fetchOrdersById,
     required TResult Function(FetchOrdersbyFilterEvent value)
@@ -9935,6 +11193,7 @@ class _$FetchShopHomeBackgroundCard implements FetchShopHomeBackgroundCard {
     TResult? Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult? Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
     TResult? Function(PostOrders value)? postOrders,
+    TResult? Function(PostOrdersRewards value)? postOrdersRewards,
     TResult? Function(FetchOrders value)? fetchOrders,
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
@@ -10000,6 +11259,7 @@ class _$FetchShopHomeBackgroundCard implements FetchShopHomeBackgroundCard {
     TResult Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
     TResult Function(PostOrders value)? postOrders,
+    TResult Function(PostOrdersRewards value)? postOrdersRewards,
     TResult Function(FetchOrders value)? fetchOrders,
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
@@ -10124,6 +11384,17 @@ class _$FetchShopHomeBackgroundCardHelthyDiet
             int weight,
             String id)
         postOrders,
+    required TResult Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)
+        postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
@@ -10191,6 +11462,17 @@ class _$FetchShopHomeBackgroundCardHelthyDiet
             int weight,
             String id)?
         postOrders,
+    TResult? Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)?
+        postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
@@ -10256,6 +11538,17 @@ class _$FetchShopHomeBackgroundCardHelthyDiet
             int weight,
             String id)?
         postOrders,
+    TResult Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)?
+        postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
@@ -10318,6 +11611,7 @@ class _$FetchShopHomeBackgroundCardHelthyDiet
         fetchShopByBrandProducts,
     required TResult Function(TabIndexChangeEvent value) tabIndexChangeEvent,
     required TResult Function(PostOrders value) postOrders,
+    required TResult Function(PostOrdersRewards value) postOrdersRewards,
     required TResult Function(FetchOrders value) fetchOrders,
     required TResult Function(FetchOrdersById value) fetchOrdersById,
     required TResult Function(FetchOrdersbyFilterEvent value)
@@ -10389,6 +11683,7 @@ class _$FetchShopHomeBackgroundCardHelthyDiet
     TResult? Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult? Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
     TResult? Function(PostOrders value)? postOrders,
+    TResult? Function(PostOrdersRewards value)? postOrdersRewards,
     TResult? Function(FetchOrders value)? fetchOrders,
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
@@ -10454,6 +11749,7 @@ class _$FetchShopHomeBackgroundCardHelthyDiet
     TResult Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
     TResult Function(PostOrders value)? postOrders,
+    TResult Function(PostOrdersRewards value)? postOrdersRewards,
     TResult Function(FetchOrders value)? fetchOrders,
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
@@ -10580,6 +11876,17 @@ class _$FetchShopHomeBackgroundCardSunnah
             int weight,
             String id)
         postOrders,
+    required TResult Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)
+        postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
@@ -10647,6 +11954,17 @@ class _$FetchShopHomeBackgroundCardSunnah
             int weight,
             String id)?
         postOrders,
+    TResult? Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)?
+        postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
@@ -10712,6 +12030,17 @@ class _$FetchShopHomeBackgroundCardSunnah
             int weight,
             String id)?
         postOrders,
+    TResult Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)?
+        postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
@@ -10774,6 +12103,7 @@ class _$FetchShopHomeBackgroundCardSunnah
         fetchShopByBrandProducts,
     required TResult Function(TabIndexChangeEvent value) tabIndexChangeEvent,
     required TResult Function(PostOrders value) postOrders,
+    required TResult Function(PostOrdersRewards value) postOrdersRewards,
     required TResult Function(FetchOrders value) fetchOrders,
     required TResult Function(FetchOrdersById value) fetchOrdersById,
     required TResult Function(FetchOrdersbyFilterEvent value)
@@ -10845,6 +12175,7 @@ class _$FetchShopHomeBackgroundCardSunnah
     TResult? Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult? Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
     TResult? Function(PostOrders value)? postOrders,
+    TResult? Function(PostOrdersRewards value)? postOrdersRewards,
     TResult? Function(FetchOrders value)? fetchOrders,
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
@@ -10910,6 +12241,7 @@ class _$FetchShopHomeBackgroundCardSunnah
     TResult Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
     TResult Function(PostOrders value)? postOrders,
+    TResult Function(PostOrdersRewards value)? postOrdersRewards,
     TResult Function(FetchOrders value)? fetchOrders,
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
@@ -11030,6 +12362,17 @@ class _$FetchShopAdBrands implements FetchShopAdBrands {
             int weight,
             String id)
         postOrders,
+    required TResult Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)
+        postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
@@ -11097,6 +12440,17 @@ class _$FetchShopAdBrands implements FetchShopAdBrands {
             int weight,
             String id)?
         postOrders,
+    TResult? Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)?
+        postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
@@ -11162,6 +12516,17 @@ class _$FetchShopAdBrands implements FetchShopAdBrands {
             int weight,
             String id)?
         postOrders,
+    TResult Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)?
+        postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
@@ -11224,6 +12589,7 @@ class _$FetchShopAdBrands implements FetchShopAdBrands {
         fetchShopByBrandProducts,
     required TResult Function(TabIndexChangeEvent value) tabIndexChangeEvent,
     required TResult Function(PostOrders value) postOrders,
+    required TResult Function(PostOrdersRewards value) postOrdersRewards,
     required TResult Function(FetchOrders value) fetchOrders,
     required TResult Function(FetchOrdersById value) fetchOrdersById,
     required TResult Function(FetchOrdersbyFilterEvent value)
@@ -11295,6 +12661,7 @@ class _$FetchShopAdBrands implements FetchShopAdBrands {
     TResult? Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult? Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
     TResult? Function(PostOrders value)? postOrders,
+    TResult? Function(PostOrdersRewards value)? postOrdersRewards,
     TResult? Function(FetchOrders value)? fetchOrders,
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
@@ -11360,6 +12727,7 @@ class _$FetchShopAdBrands implements FetchShopAdBrands {
     TResult Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
     TResult Function(PostOrders value)? postOrders,
+    TResult Function(PostOrdersRewards value)? postOrdersRewards,
     TResult Function(FetchOrders value)? fetchOrders,
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
@@ -11479,6 +12847,17 @@ class _$FetchTopBrands implements FetchTopBrands {
             int weight,
             String id)
         postOrders,
+    required TResult Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)
+        postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
@@ -11546,6 +12925,17 @@ class _$FetchTopBrands implements FetchTopBrands {
             int weight,
             String id)?
         postOrders,
+    TResult? Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)?
+        postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
@@ -11611,6 +13001,17 @@ class _$FetchTopBrands implements FetchTopBrands {
             int weight,
             String id)?
         postOrders,
+    TResult Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)?
+        postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
@@ -11673,6 +13074,7 @@ class _$FetchTopBrands implements FetchTopBrands {
         fetchShopByBrandProducts,
     required TResult Function(TabIndexChangeEvent value) tabIndexChangeEvent,
     required TResult Function(PostOrders value) postOrders,
+    required TResult Function(PostOrdersRewards value) postOrdersRewards,
     required TResult Function(FetchOrders value) fetchOrders,
     required TResult Function(FetchOrdersById value) fetchOrdersById,
     required TResult Function(FetchOrdersbyFilterEvent value)
@@ -11744,6 +13146,7 @@ class _$FetchTopBrands implements FetchTopBrands {
     TResult? Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult? Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
     TResult? Function(PostOrders value)? postOrders,
+    TResult? Function(PostOrdersRewards value)? postOrdersRewards,
     TResult? Function(FetchOrders value)? fetchOrders,
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
@@ -11809,6 +13212,7 @@ class _$FetchTopBrands implements FetchTopBrands {
     TResult Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
     TResult Function(PostOrders value)? postOrders,
+    TResult Function(PostOrdersRewards value)? postOrdersRewards,
     TResult Function(FetchOrders value)? fetchOrders,
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
@@ -11933,6 +13337,17 @@ class _$FetchProductItemsSubcategorySunnah
             int weight,
             String id)
         postOrders,
+    required TResult Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)
+        postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
@@ -12000,6 +13415,17 @@ class _$FetchProductItemsSubcategorySunnah
             int weight,
             String id)?
         postOrders,
+    TResult? Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)?
+        postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
@@ -12065,6 +13491,17 @@ class _$FetchProductItemsSubcategorySunnah
             int weight,
             String id)?
         postOrders,
+    TResult Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)?
+        postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
@@ -12127,6 +13564,7 @@ class _$FetchProductItemsSubcategorySunnah
         fetchShopByBrandProducts,
     required TResult Function(TabIndexChangeEvent value) tabIndexChangeEvent,
     required TResult Function(PostOrders value) postOrders,
+    required TResult Function(PostOrdersRewards value) postOrdersRewards,
     required TResult Function(FetchOrders value) fetchOrders,
     required TResult Function(FetchOrdersById value) fetchOrdersById,
     required TResult Function(FetchOrdersbyFilterEvent value)
@@ -12198,6 +13636,7 @@ class _$FetchProductItemsSubcategorySunnah
     TResult? Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult? Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
     TResult? Function(PostOrders value)? postOrders,
+    TResult? Function(PostOrdersRewards value)? postOrdersRewards,
     TResult? Function(FetchOrders value)? fetchOrders,
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
@@ -12263,6 +13702,7 @@ class _$FetchProductItemsSubcategorySunnah
     TResult Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
     TResult Function(PostOrders value)? postOrders,
+    TResult Function(PostOrdersRewards value)? postOrdersRewards,
     TResult Function(FetchOrders value)? fetchOrders,
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
@@ -12388,6 +13828,17 @@ class _$FetchProductItemsSubcategoryHealth
             int weight,
             String id)
         postOrders,
+    required TResult Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)
+        postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
@@ -12455,6 +13906,17 @@ class _$FetchProductItemsSubcategoryHealth
             int weight,
             String id)?
         postOrders,
+    TResult? Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)?
+        postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
@@ -12520,6 +13982,17 @@ class _$FetchProductItemsSubcategoryHealth
             int weight,
             String id)?
         postOrders,
+    TResult Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)?
+        postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
@@ -12582,6 +14055,7 @@ class _$FetchProductItemsSubcategoryHealth
         fetchShopByBrandProducts,
     required TResult Function(TabIndexChangeEvent value) tabIndexChangeEvent,
     required TResult Function(PostOrders value) postOrders,
+    required TResult Function(PostOrdersRewards value) postOrdersRewards,
     required TResult Function(FetchOrders value) fetchOrders,
     required TResult Function(FetchOrdersById value) fetchOrdersById,
     required TResult Function(FetchOrdersbyFilterEvent value)
@@ -12653,6 +14127,7 @@ class _$FetchProductItemsSubcategoryHealth
     TResult? Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult? Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
     TResult? Function(PostOrders value)? postOrders,
+    TResult? Function(PostOrdersRewards value)? postOrdersRewards,
     TResult? Function(FetchOrders value)? fetchOrders,
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
@@ -12718,6 +14193,7 @@ class _$FetchProductItemsSubcategoryHealth
     TResult Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
     TResult Function(PostOrders value)? postOrders,
+    TResult Function(PostOrdersRewards value)? postOrdersRewards,
     TResult Function(FetchOrders value)? fetchOrders,
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
@@ -12843,6 +14319,17 @@ class _$FetchProductItemsSubcategoryWomen
             int weight,
             String id)
         postOrders,
+    required TResult Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)
+        postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
@@ -12910,6 +14397,17 @@ class _$FetchProductItemsSubcategoryWomen
             int weight,
             String id)?
         postOrders,
+    TResult? Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)?
+        postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
@@ -12975,6 +14473,17 @@ class _$FetchProductItemsSubcategoryWomen
             int weight,
             String id)?
         postOrders,
+    TResult Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)?
+        postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
@@ -13037,6 +14546,7 @@ class _$FetchProductItemsSubcategoryWomen
         fetchShopByBrandProducts,
     required TResult Function(TabIndexChangeEvent value) tabIndexChangeEvent,
     required TResult Function(PostOrders value) postOrders,
+    required TResult Function(PostOrdersRewards value) postOrdersRewards,
     required TResult Function(FetchOrders value) fetchOrders,
     required TResult Function(FetchOrdersById value) fetchOrdersById,
     required TResult Function(FetchOrdersbyFilterEvent value)
@@ -13108,6 +14618,7 @@ class _$FetchProductItemsSubcategoryWomen
     TResult? Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult? Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
     TResult? Function(PostOrders value)? postOrders,
+    TResult? Function(PostOrdersRewards value)? postOrdersRewards,
     TResult? Function(FetchOrders value)? fetchOrders,
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
@@ -13173,6 +14684,7 @@ class _$FetchProductItemsSubcategoryWomen
     TResult Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
     TResult Function(PostOrders value)? postOrders,
+    TResult Function(PostOrdersRewards value)? postOrdersRewards,
     TResult Function(FetchOrders value)? fetchOrders,
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
@@ -13320,6 +14832,17 @@ class _$ChangeShopBannerIndex implements ChangeShopBannerIndex {
             int weight,
             String id)
         postOrders,
+    required TResult Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)
+        postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
@@ -13387,6 +14910,17 @@ class _$ChangeShopBannerIndex implements ChangeShopBannerIndex {
             int weight,
             String id)?
         postOrders,
+    TResult? Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)?
+        postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
@@ -13452,6 +14986,17 @@ class _$ChangeShopBannerIndex implements ChangeShopBannerIndex {
             int weight,
             String id)?
         postOrders,
+    TResult Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)?
+        postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
@@ -13514,6 +15059,7 @@ class _$ChangeShopBannerIndex implements ChangeShopBannerIndex {
         fetchShopByBrandProducts,
     required TResult Function(TabIndexChangeEvent value) tabIndexChangeEvent,
     required TResult Function(PostOrders value) postOrders,
+    required TResult Function(PostOrdersRewards value) postOrdersRewards,
     required TResult Function(FetchOrders value) fetchOrders,
     required TResult Function(FetchOrdersById value) fetchOrdersById,
     required TResult Function(FetchOrdersbyFilterEvent value)
@@ -13585,6 +15131,7 @@ class _$ChangeShopBannerIndex implements ChangeShopBannerIndex {
     TResult? Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult? Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
     TResult? Function(PostOrders value)? postOrders,
+    TResult? Function(PostOrdersRewards value)? postOrdersRewards,
     TResult? Function(FetchOrders value)? fetchOrders,
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
@@ -13650,6 +15197,7 @@ class _$ChangeShopBannerIndex implements ChangeShopBannerIndex {
     TResult Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
     TResult Function(PostOrders value)? postOrders,
+    TResult Function(PostOrdersRewards value)? postOrdersRewards,
     TResult Function(FetchOrders value)? fetchOrders,
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
@@ -13802,6 +15350,17 @@ class _$ChangeBrandBannerIndex implements ChangeBrandBannerIndex {
             int weight,
             String id)
         postOrders,
+    required TResult Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)
+        postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
@@ -13869,6 +15428,17 @@ class _$ChangeBrandBannerIndex implements ChangeBrandBannerIndex {
             int weight,
             String id)?
         postOrders,
+    TResult? Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)?
+        postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
@@ -13934,6 +15504,17 @@ class _$ChangeBrandBannerIndex implements ChangeBrandBannerIndex {
             int weight,
             String id)?
         postOrders,
+    TResult Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)?
+        postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
@@ -13996,6 +15577,7 @@ class _$ChangeBrandBannerIndex implements ChangeBrandBannerIndex {
         fetchShopByBrandProducts,
     required TResult Function(TabIndexChangeEvent value) tabIndexChangeEvent,
     required TResult Function(PostOrders value) postOrders,
+    required TResult Function(PostOrdersRewards value) postOrdersRewards,
     required TResult Function(FetchOrders value) fetchOrders,
     required TResult Function(FetchOrdersById value) fetchOrdersById,
     required TResult Function(FetchOrdersbyFilterEvent value)
@@ -14067,6 +15649,7 @@ class _$ChangeBrandBannerIndex implements ChangeBrandBannerIndex {
     TResult? Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult? Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
     TResult? Function(PostOrders value)? postOrders,
+    TResult? Function(PostOrdersRewards value)? postOrdersRewards,
     TResult? Function(FetchOrders value)? fetchOrders,
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
@@ -14132,6 +15715,7 @@ class _$ChangeBrandBannerIndex implements ChangeBrandBannerIndex {
     TResult Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
     TResult Function(PostOrders value)? postOrders,
+    TResult Function(PostOrdersRewards value)? postOrdersRewards,
     TResult Function(FetchOrders value)? fetchOrders,
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
@@ -14257,6 +15841,17 @@ class _$ShowOrderProgressEvent implements ShowOrderProgressEvent {
             int weight,
             String id)
         postOrders,
+    required TResult Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)
+        postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
@@ -14324,6 +15919,17 @@ class _$ShowOrderProgressEvent implements ShowOrderProgressEvent {
             int weight,
             String id)?
         postOrders,
+    TResult? Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)?
+        postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
@@ -14389,6 +15995,17 @@ class _$ShowOrderProgressEvent implements ShowOrderProgressEvent {
             int weight,
             String id)?
         postOrders,
+    TResult Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)?
+        postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
@@ -14451,6 +16068,7 @@ class _$ShowOrderProgressEvent implements ShowOrderProgressEvent {
         fetchShopByBrandProducts,
     required TResult Function(TabIndexChangeEvent value) tabIndexChangeEvent,
     required TResult Function(PostOrders value) postOrders,
+    required TResult Function(PostOrdersRewards value) postOrdersRewards,
     required TResult Function(FetchOrders value) fetchOrders,
     required TResult Function(FetchOrdersById value) fetchOrdersById,
     required TResult Function(FetchOrdersbyFilterEvent value)
@@ -14522,6 +16140,7 @@ class _$ShowOrderProgressEvent implements ShowOrderProgressEvent {
     TResult? Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult? Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
     TResult? Function(PostOrders value)? postOrders,
+    TResult? Function(PostOrdersRewards value)? postOrdersRewards,
     TResult? Function(FetchOrders value)? fetchOrders,
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
@@ -14587,6 +16206,7 @@ class _$ShowOrderProgressEvent implements ShowOrderProgressEvent {
     TResult Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
     TResult Function(PostOrders value)? postOrders,
+    TResult Function(PostOrdersRewards value)? postOrdersRewards,
     TResult Function(FetchOrders value)? fetchOrders,
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
@@ -14735,6 +16355,17 @@ class _$IndexChangeOnOrderProgress implements IndexChangeOnOrderProgress {
             int weight,
             String id)
         postOrders,
+    required TResult Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)
+        postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
@@ -14802,6 +16433,17 @@ class _$IndexChangeOnOrderProgress implements IndexChangeOnOrderProgress {
             int weight,
             String id)?
         postOrders,
+    TResult? Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)?
+        postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
@@ -14867,6 +16509,17 @@ class _$IndexChangeOnOrderProgress implements IndexChangeOnOrderProgress {
             int weight,
             String id)?
         postOrders,
+    TResult Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)?
+        postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
@@ -14929,6 +16582,7 @@ class _$IndexChangeOnOrderProgress implements IndexChangeOnOrderProgress {
         fetchShopByBrandProducts,
     required TResult Function(TabIndexChangeEvent value) tabIndexChangeEvent,
     required TResult Function(PostOrders value) postOrders,
+    required TResult Function(PostOrdersRewards value) postOrdersRewards,
     required TResult Function(FetchOrders value) fetchOrders,
     required TResult Function(FetchOrdersById value) fetchOrdersById,
     required TResult Function(FetchOrdersbyFilterEvent value)
@@ -15000,6 +16654,7 @@ class _$IndexChangeOnOrderProgress implements IndexChangeOnOrderProgress {
     TResult? Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult? Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
     TResult? Function(PostOrders value)? postOrders,
+    TResult? Function(PostOrdersRewards value)? postOrdersRewards,
     TResult? Function(FetchOrders value)? fetchOrders,
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
@@ -15065,6 +16720,7 @@ class _$IndexChangeOnOrderProgress implements IndexChangeOnOrderProgress {
     TResult Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
     TResult Function(PostOrders value)? postOrders,
+    TResult Function(PostOrdersRewards value)? postOrdersRewards,
     TResult Function(FetchOrders value)? fetchOrders,
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
@@ -15220,6 +16876,17 @@ class _$IndexChangeOnWomensCareBanner implements IndexChangeOnWomensCareBanner {
             int weight,
             String id)
         postOrders,
+    required TResult Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)
+        postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
@@ -15287,6 +16954,17 @@ class _$IndexChangeOnWomensCareBanner implements IndexChangeOnWomensCareBanner {
             int weight,
             String id)?
         postOrders,
+    TResult? Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)?
+        postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
@@ -15352,6 +17030,17 @@ class _$IndexChangeOnWomensCareBanner implements IndexChangeOnWomensCareBanner {
             int weight,
             String id)?
         postOrders,
+    TResult Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)?
+        postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
@@ -15414,6 +17103,7 @@ class _$IndexChangeOnWomensCareBanner implements IndexChangeOnWomensCareBanner {
         fetchShopByBrandProducts,
     required TResult Function(TabIndexChangeEvent value) tabIndexChangeEvent,
     required TResult Function(PostOrders value) postOrders,
+    required TResult Function(PostOrdersRewards value) postOrdersRewards,
     required TResult Function(FetchOrders value) fetchOrders,
     required TResult Function(FetchOrdersById value) fetchOrdersById,
     required TResult Function(FetchOrdersbyFilterEvent value)
@@ -15485,6 +17175,7 @@ class _$IndexChangeOnWomensCareBanner implements IndexChangeOnWomensCareBanner {
     TResult? Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult? Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
     TResult? Function(PostOrders value)? postOrders,
+    TResult? Function(PostOrdersRewards value)? postOrdersRewards,
     TResult? Function(FetchOrders value)? fetchOrders,
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
@@ -15550,6 +17241,7 @@ class _$IndexChangeOnWomensCareBanner implements IndexChangeOnWomensCareBanner {
     TResult Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
     TResult Function(PostOrders value)? postOrders,
+    TResult Function(PostOrdersRewards value)? postOrdersRewards,
     TResult Function(FetchOrders value)? fetchOrders,
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
@@ -15702,6 +17394,17 @@ class _$FetchShopAdBrandsById implements FetchShopAdBrandsById {
             int weight,
             String id)
         postOrders,
+    required TResult Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)
+        postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
@@ -15769,6 +17472,17 @@ class _$FetchShopAdBrandsById implements FetchShopAdBrandsById {
             int weight,
             String id)?
         postOrders,
+    TResult? Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)?
+        postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
@@ -15834,6 +17548,17 @@ class _$FetchShopAdBrandsById implements FetchShopAdBrandsById {
             int weight,
             String id)?
         postOrders,
+    TResult Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)?
+        postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
@@ -15896,6 +17621,7 @@ class _$FetchShopAdBrandsById implements FetchShopAdBrandsById {
         fetchShopByBrandProducts,
     required TResult Function(TabIndexChangeEvent value) tabIndexChangeEvent,
     required TResult Function(PostOrders value) postOrders,
+    required TResult Function(PostOrdersRewards value) postOrdersRewards,
     required TResult Function(FetchOrders value) fetchOrders,
     required TResult Function(FetchOrdersById value) fetchOrdersById,
     required TResult Function(FetchOrdersbyFilterEvent value)
@@ -15967,6 +17693,7 @@ class _$FetchShopAdBrandsById implements FetchShopAdBrandsById {
     TResult? Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult? Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
     TResult? Function(PostOrders value)? postOrders,
+    TResult? Function(PostOrdersRewards value)? postOrdersRewards,
     TResult? Function(FetchOrders value)? fetchOrders,
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
@@ -16032,6 +17759,7 @@ class _$FetchShopAdBrandsById implements FetchShopAdBrandsById {
     TResult Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
     TResult Function(PostOrders value)? postOrders,
+    TResult Function(PostOrdersRewards value)? postOrdersRewards,
     TResult Function(FetchOrders value)? fetchOrders,
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
@@ -16184,6 +17912,17 @@ class _$SavePaymentMethodType implements SavePaymentMethodType {
             int weight,
             String id)
         postOrders,
+    required TResult Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)
+        postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
@@ -16251,6 +17990,17 @@ class _$SavePaymentMethodType implements SavePaymentMethodType {
             int weight,
             String id)?
         postOrders,
+    TResult? Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)?
+        postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
@@ -16316,6 +18066,17 @@ class _$SavePaymentMethodType implements SavePaymentMethodType {
             int weight,
             String id)?
         postOrders,
+    TResult Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)?
+        postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
@@ -16378,6 +18139,7 @@ class _$SavePaymentMethodType implements SavePaymentMethodType {
         fetchShopByBrandProducts,
     required TResult Function(TabIndexChangeEvent value) tabIndexChangeEvent,
     required TResult Function(PostOrders value) postOrders,
+    required TResult Function(PostOrdersRewards value) postOrdersRewards,
     required TResult Function(FetchOrders value) fetchOrders,
     required TResult Function(FetchOrdersById value) fetchOrdersById,
     required TResult Function(FetchOrdersbyFilterEvent value)
@@ -16449,6 +18211,7 @@ class _$SavePaymentMethodType implements SavePaymentMethodType {
     TResult? Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult? Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
     TResult? Function(PostOrders value)? postOrders,
+    TResult? Function(PostOrdersRewards value)? postOrdersRewards,
     TResult? Function(FetchOrders value)? fetchOrders,
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
@@ -16514,6 +18277,7 @@ class _$SavePaymentMethodType implements SavePaymentMethodType {
     TResult Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
     TResult Function(PostOrders value)? postOrders,
+    TResult Function(PostOrdersRewards value)? postOrdersRewards,
     TResult Function(FetchOrders value)? fetchOrders,
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
@@ -16642,6 +18406,17 @@ class _$FetchProductItemsbyCategory implements FetchProductItemsbyCategory {
             int weight,
             String id)
         postOrders,
+    required TResult Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)
+        postOrdersRewards,
     required TResult Function(BuildContext context) fetchOrders,
     required TResult Function(BuildContext context, int id) fetchOrdersById,
     required TResult Function(BuildContext context, String filterName)
@@ -16709,6 +18484,17 @@ class _$FetchProductItemsbyCategory implements FetchProductItemsbyCategory {
             int weight,
             String id)?
         postOrders,
+    TResult? Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)?
+        postOrdersRewards,
     TResult? Function(BuildContext context)? fetchOrders,
     TResult? Function(BuildContext context, int id)? fetchOrdersById,
     TResult? Function(BuildContext context, String filterName)?
@@ -16774,6 +18560,17 @@ class _$FetchProductItemsbyCategory implements FetchProductItemsbyCategory {
             int weight,
             String id)?
         postOrders,
+    TResult Function(
+            BuildContext context,
+            int price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)?
+        postOrdersRewards,
     TResult Function(BuildContext context)? fetchOrders,
     TResult Function(BuildContext context, int id)? fetchOrdersById,
     TResult Function(BuildContext context, String filterName)?
@@ -16836,6 +18633,7 @@ class _$FetchProductItemsbyCategory implements FetchProductItemsbyCategory {
         fetchShopByBrandProducts,
     required TResult Function(TabIndexChangeEvent value) tabIndexChangeEvent,
     required TResult Function(PostOrders value) postOrders,
+    required TResult Function(PostOrdersRewards value) postOrdersRewards,
     required TResult Function(FetchOrders value) fetchOrders,
     required TResult Function(FetchOrdersById value) fetchOrdersById,
     required TResult Function(FetchOrdersbyFilterEvent value)
@@ -16907,6 +18705,7 @@ class _$FetchProductItemsbyCategory implements FetchProductItemsbyCategory {
     TResult? Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult? Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
     TResult? Function(PostOrders value)? postOrders,
+    TResult? Function(PostOrdersRewards value)? postOrdersRewards,
     TResult? Function(FetchOrders value)? fetchOrders,
     TResult? Function(FetchOrdersById value)? fetchOrdersById,
     TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
@@ -16972,6 +18771,7 @@ class _$FetchProductItemsbyCategory implements FetchProductItemsbyCategory {
     TResult Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
     TResult Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
     TResult Function(PostOrders value)? postOrders,
+    TResult Function(PostOrdersRewards value)? postOrdersRewards,
     TResult Function(FetchOrders value)? fetchOrders,
     TResult Function(FetchOrdersById value)? fetchOrdersById,
     TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/components/buttons/main_button.dart';
+import 'package:millat/enums/enumertations.dart';
+import 'package:millat/resources/rewards/bloc/logic/bloc/rewards_bloc_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/address_bloc/address_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
 import 'package:millat/resources/shop/view/cart/widgets/cart_product_widget.dart';
@@ -16,7 +18,9 @@ import '../../bloc/logic/cart_bloc/cart_bloc.dart';
 
 class CheckoutConfirmation extends StatefulWidget {
   final int paymentType;
-  const CheckoutConfirmation({Key? key, required this.paymentType})
+  final CheckoutType? checkoutType;
+  const CheckoutConfirmation(
+      {Key? key, required this.paymentType, this.checkoutType})
       : super(key: key);
 
   @override
@@ -102,52 +106,88 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
                     fontWeight: FontWeight.w700),
               ),
               kHeight20,
-              BlocBuilder<CartBloc, CartState>(
-                builder: (context, state) {
-                  if (state.cartLoading) {
-                    return const Loader();
-                  } else if (state.cartModel?.result?.cartProducts?.cartItems ==
-                      null) {
-                    return const Center(
-                      child: Text('Cart is Empty'),
-                    );
-                  }
+              widget.checkoutType == CheckoutType.rewards
+                  ? BlocBuilder<RewardsBloc, RewardsState>(
+                      builder: (context, state) {
+                        if (state.isLoading) {
+                          return const Loader();
+                        } else if (state
+                                .rewardsProductByIdModel?.result?.product ==
+                            null) {
+                          return const SizedBox();
+                        }
 
-                  final cartItems =
-                      state.cartModel?.result?.cartProducts?.cartItems;
-                  final itemCount = cartItems?.length ?? 0;
-                  final itemsToShow =
-                      state.showMore ? itemCount : maxItemsToShow;
+                        final data = state.rewardsProductByIdModel?.result
+                            ?.product?.productId;
 
-                  return Column(
-                    children: [
-                      if (itemCount > 0)
-                        ListView.builder(
-                          physics: const BouncingScrollPhysics(),
-                          itemCount: itemCount == 1 ? 1 : itemsToShow,
-                          shrinkWrap: true,
-                          itemBuilder: (context, index) {
-                            final data = cartItems![index];
-                            return CartProductWidget(
-                              id: data.productId!.id,
-                              title: data.productId!.title,
-                              subTitle: data.productId!.description,
-                              size: data.size,
-                              image: data.productId?.images![0],
-                              price: data.productId?.salePrice?.toInt() ?? 0,
-                              actualPrice:
-                                  data.productId?.regularPrice.toString(),
-                              jsonColor: data.color,
-                              colorName: data.color,
-                              quantity: data.quantity!.toInt(),
-                              productId: data.productId?.id,
-                            );
-                          },
-                        ),
-                    ],
-                  );
-                },
-              ),
+                        return Column(
+                          children: [
+                            CartProductWidget(
+                              showQuantity: false,
+                              id: data?.id,
+                              title: data?.title,
+                              subTitle: data?.description,
+                              size: data?.size?[0].size,
+                              image: data?.images?[0],
+                              price: data?.salePrice?.toInt() ?? 0,
+                              actualPrice: data?.regularPrice.toString(),
+                              jsonColor: data?.color,
+                              colorName: data?.color,
+                              quantity: 1,
+                              productId: data?.id,
+                            )
+                          ],
+                        );
+                      },
+                    )
+                  : BlocBuilder<CartBloc, CartState>(
+                      builder: (context, state) {
+                        if (state.cartLoading) {
+                          return const Loader();
+                        } else if (state
+                                .cartModel?.result?.cartProducts?.cartItems ==
+                            null) {
+                          return const Center(
+                            child: Text(''),
+                          );
+                        }
+
+                        final cartItems =
+                            state.cartModel?.result?.cartProducts?.cartItems;
+                        final itemCount = cartItems?.length ?? 0;
+                        final itemsToShow =
+                            state.showMore ? itemCount : maxItemsToShow;
+
+                        return Column(
+                          children: [
+                            if (itemCount > 0)
+                              ListView.builder(
+                                physics: const BouncingScrollPhysics(),
+                                itemCount: itemCount == 1 ? 1 : itemsToShow,
+                                shrinkWrap: true,
+                                itemBuilder: (context, index) {
+                                  final data = cartItems![index];
+                                  return CartProductWidget(
+                                    showQuantity: false,
+                                    id: data.productId!.id,
+                                    title: data.productId!.title,
+                                    subTitle: data.productId!.description,
+                                    size: data.size,
+                                    image: data.productId?.images![0],
+                                    price: data.productId?.salePrice?.toInt() ?? 0,
+                                    actualPrice:
+                                        data.productId?.regularPrice.toString(),
+                                    jsonColor: data.color,
+                                    colorName: data.color,
+                                    quantity: data.quantity!.toInt(),
+                                    productId: data.productId?.id,
+                                  );
+                                },
+                              ),
+                          ],
+                        );
+                      },
+                    ),
               kHeight10,
               Container(
                 height: 80,
@@ -395,18 +435,61 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
             const shippingFee = 27;
             const estimatingTax = 0;
             final total = subTotal + shippingFee + estimatingTax;
-            return MainButton(
-              title: Appstrings.placeOrder,
-              onPressed: () {
-                final pickUpaddress = context
-                    .read<AddressBloc>()
-                    .state
-                    .addressIdModel!
-                    .result
-                    .address;
+            return widget.checkoutType == CheckoutType.rewards
+                ? BlocBuilder<RewardsBloc, RewardsState>(
+                    builder: (context, state) => MainButton(
+                      title: Appstrings.placeOrder,
+                      onPressed: () {
+                        final pickUpaddress = context
+                            .read<AddressBloc>()
+                            .state
+                            .addressIdModel!
+                            .result
+                            .address;
 
-                print(
-                    "here is the address ${context.read<AddressBloc>().state.addressIdModel!.result.address.addressLine}");
+                        print(
+                            "here is the address ${context.read<AddressBloc>().state.addressIdModel!.result.address.addressLine}");
+                        final coins = context
+                            .read<RewardsBloc>()
+                            .state
+                            .rewardsModel
+                            ?.result
+                            ?.reward
+                            ?.coins;
+                        print('here is the address id ${pickUpaddress.id}');
+                        final data = state.rewardsProductByIdModel?.result
+                            ?.product?.productId;
+                        context.read<ShopProductsBloc>().add(PostOrdersRewards(
+                            context: context,
+                            price: data?.salePrice?.toInt() ?? 0,
+                            coins: coins!,
+                            addressId: pickUpaddress.id,
+                            totalQuantity: 1,
+                            productId: data?.id ?? "",
+                            brandId: data?.brand ?? "",
+                            size: data?.size![0].size ?? "",
+                            color: data?.color ?? ""));
+
+                        Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => PaymentSuccessful(
+                              subTotal: data?.salePrice?.toInt() ?? 0,
+                              delivery: 27),
+                        ));
+                      },
+                    ),
+                  )
+                : MainButton(
+                    title: Appstrings.placeOrder,
+                    onPressed: () {
+                      final pickUpaddress = context
+                          .read<AddressBloc>()
+                          .state
+                          .addressIdModel!
+                          .result
+                          .address;
+
+                      print(
+                          "here is the address ${context.read<AddressBloc>().state.addressIdModel!.result.address.addressLine}");
 
                 print('here is the address id ${pickUpaddress.id}');
                 final isPromo =

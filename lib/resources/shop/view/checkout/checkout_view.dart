@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/components/buttons/main_button.dart';
 import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/authentication/bloc/logic/database_bloc/database_bloc.dart';
+import 'package:millat/resources/shop/view/checkout/checkout_confirmation.dart';
 import 'package:millat/resources/shop/view/checkout/checkout_details.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
@@ -13,7 +14,8 @@ import '../../bloc/logic/address_bloc/address_bloc.dart';
 import 'checkout_payment.dart';
 
 class CheckoutView extends StatelessWidget {
-  const CheckoutView({Key? key}) : super(key: key);
+  final CheckoutType? checkoutType;
+  const CheckoutView({Key? key, this.checkoutType}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -156,11 +158,16 @@ class CheckoutView extends StatelessWidget {
                   showSnackBar(context, 'select the address');
                   return;
                 }
-                Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) {
-                    return const CheckoutPayment();
-                  },
-                ));
+                checkoutType == CheckoutType.rewards
+                    ? Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const CheckoutConfirmation(
+                            paymentType: 0, checkoutType: CheckoutType.rewards),
+                      ))
+                    : Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) {
+                          return const CheckoutPayment();
+                        },
+                      ));
               },
             )));
   }

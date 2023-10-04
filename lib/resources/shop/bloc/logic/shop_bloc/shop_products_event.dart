@@ -38,6 +38,17 @@ class ShopProductsEvent with _$ShopProductsEvent {
     required int weight,
     required String id,
   }) = PostOrders;
+  const factory ShopProductsEvent.postOrdersRewards({
+    required BuildContext context,
+    required int price,
+    required int coins,
+    required String addressId,
+    required int totalQuantity,
+    required String productId,
+    required String brandId,
+    required String size,
+    required String color,
+  }) = PostOrdersRewards;
   const factory ShopProductsEvent.fetchOrders(
     BuildContext context,
   ) = FetchOrders;

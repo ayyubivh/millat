@@ -102,6 +102,7 @@ class Appstrings {
   static const String follow = "Follow";
   static const String viewBrands = "View Brands";
   static const String yourCart = "Your Cart";
+  static const String addToCart = "Add to Cart";
   static const String yourCartIsEmpty = "Your cart is empty";
   static const String cartTextBody =
       "Customer network effects freemium. Advisor android paradigm shift product management. ";
@@ -159,6 +160,9 @@ class Appstrings {
   static const String priceLowtoHigh = "Price:lowest to high";
   static const String priceHighToLow = "Price:highest to low";
   static const String priceRange = "Price Range";
+  static const String totalPrice = "Total Price";
+  static const String discountOnTotalPrice = "Discount on total price";
+  static const String totalPayableAmount = "Total Payable Amount";
   static const String sizes = "Sizes";
   static const String xs = "XS";
   static const String s = "S";
@@ -197,10 +201,13 @@ class Appstrings {
   static const String sunnah = "Sunnah";
   static const String hadith = "Hadith";
   static const String noProductsFound = "No products found!";
+  static const String buyNow = "Buy Now";
+
 //Profile
   static const String referFriendEarn = "Reffer Friends, Get 100 coins Each ";
   static const String toName = "To:Name,Phone, or Email";
   static const String contact = "CONTACT";
+
   //hadith
   static const String bookmarks = "Bookmarks";
   static const String books = "books";
@@ -230,9 +237,82 @@ class Appstrings {
       "previously, as a guide for people, and ˹also˺ revealed the Standard ˹to distinguish between right and wrong";
   static const String tempAyaMeaning4 =
       "Do not entrust the incapable ˹among your dependants˺ with your wealth which Allah has made a means of support for you—but feed and clothe them from it, and speak to them kindly.";
+//rewards
+  static const String sponsoredBy = "Sponsored By";
+  static const String shopWithCoins = "Shop With Coins";
+  static const String dailyCoins = "Daily Coins";
+  static const String text500 = "500!";
+  static const String coins = "Coins";
+  static const String earnFreeConins = "Earn free coins everyday";
+  static const String collect = "Collect";
+  static const String howEarn = "How to \nEarn ?";
+  static const String howRedeem = "How to \nRedeem?";
+  static const String howToEarn = "How to earn";
+  static const String howToRedeem = "How to Redeem";
+  static const String referYourFriend = "Refer your friends";
+  static const String earn1000Points = "Earn 1000 Points";
+  static const String yourReferalLink = "Your Referral Link";
+  static const String completeTask = "Complete the tasks and earn coins";
+  static const String welcome = "Welcome";
+  static const String birthday = "Birthday";
+  static const String firstOrder = "First Order";
+  static const String quranAya = "Quran Aya";
+  static const String dailyRecite = "Daily Recite";
+  static const String prayNamaz = "Pray Namaz";
+  static const String fifthOrder = "5th Order";
+  static const String readDua = "Read Dua";
+  static const String readTasbih = "Read Tasbih";
+  static const String fiveHundred = "500 Points";
+  static const String thousandPoints = "1000 Points";
+  static const String fourHundredPoints = "400 Points";
+  static const String hundredPoints = "100 Points";
+  static const String eightHundredPoints = "800 Points";
+  static const String redeemText1 = "Earn coins by completing the tasks";
+  static const String redeemText2 =
+      "Use coins in shop and get discount on products";
+  static const String redeemText3 =
+      "Once you redeem you will get email regarding the same";
+  static const String frequentlyAsked = "Frequently asked Questions";
+  static const String frequentlyAskedQuestions1 = "Cancellation Policy";
+  static const String frequentlyAskedQuestions2 = "Non-Returnable";
+  static const String frequentlyAskedQuestions3 = "What is refer and earn?";
+  static const String frequentlyAskedQuestions4 = "How to earn more coins?";
+  static const String frequentlyAskedQuestions5 =
+      "Can i use coins on all products?";
+  static const String frequentlyAskedQuestions6 = "How to refer friends";
+  static const String frequentlyAskedQuestions7 = "How many coins i can earn?";
+  static const String redeemRewards = "Redeem Rewards";
+  static const String hajjAndUmmrah = "Hajj & Ummrah";
+  static const String ummrahAndHajjPackage = "Ummrah & Hajj Package";
+  static const String hadithSettings = "Hadith Settings";
+  static const String loremIpsumText =
+      "Lorem ipsum dolor sit amet consectetur. Sed ut placerat ac mauris urna lectus vestibulum. Ut hendrerit id nisl ridiculus proin feugiat sem feugiat. Nulla laoreet leo libero dolor consequat in massa ornare. Sed est curabitur maecenas risus amet.";
+  static const String redeemNow = "Redeem Now";
+  static const String mashaAllah = "Masha'allah";
+  static const String redeemedSuccessfully = "Redeemed Successfully";
+  static const String claimShopReward = "Claim Shop Rewards";
+  static const String incredibleSteals = "Incredible Steals";
+  static const String islamicStore = "Islamic \nStore";
+  static const String aboutTheProduct = "About the Product";
+  static const String aboutTheProductDummy =
+      "We have something exciting for you to fall in love with if you are looking for something good in terms of fragrance and without alcohol. Attar Rose is a wonderful attar for both men and women. Attar Rose is ideal for both parties and everyday use. Indulge in the world of aroma with this incredible perfume, which is designed to blend with the body's natural scent. The bottle is compact and lightweight for easy handling. It lasts up to 24 hours and leaves a floral fragrance trail wherever you go. It's easy to carry and has a sweet floral effect with the best aromatic notes. We have a variety of attar to choose from that will keep you fresh and odour-free all day long. Experience the floral aroma of oud agarwood.";
+  static const String composition = "Compostion";
+  static const String howToUse = "How to Use";
+  static const String cancellationPolicy = "Cancellation Policy";
+  static const String nonReturnalbe = "Non-Returnable";
+  static const String islamincStore = "Islamic Store";
+  static const String cancellationPolicyDesc =
+      "Once the payment for your order is complete, the order cannot be cancelled";
+  static const String understood = "Understood";
+  static const String youSaved = "You Just saved ₹300!";
+  static const String missDeal = "You're missing a great deal";
+  static const String areYouSureRemove = "Are you sure you want to remove this product from the cart?";
+  static const String remove = "Remove";
+  static const  String keepIt = "Keep It";
 }
 
 String authToken = 'authToken';
+
 String emailKey = 'email';
 String nameKey = 'name';
 String bookmarkDb = "Bookmark-db";

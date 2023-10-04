@@ -76,3 +76,8 @@ enum OrderType {
   returnOrder,
   cancelOrder,
 }
+
+enum CheckoutType {
+  rewards,
+  shop,
+}

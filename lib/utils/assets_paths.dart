@@ -7,7 +7,8 @@ const String dummyPath = "assets/dummy";
 
 class AppAssetsStrings {
   //Home
-
+  static const String homeTab = "$iconsPath/home.png";
+  static const String shopTabIcon = "$iconsPath/store.png";
   static const String homeQuranIcon = "$iconsPath/quran.png";
   static const String homeTasbihIcon = "$iconsPath/tasbih.png";
   static const String homeDuaIcon = "$iconsPath/dua.png";
@@ -19,6 +20,9 @@ class AppAssetsStrings {
   static const String haditOfTheDayBg =
       "$backgroundsPath/hadit_of_the_day_bg.png";
   static const homeBgDesign = "$backgroundsPath/home_background_design.png";
+  static const rewardsTab = "$iconsPath/rewards_tab.png";
+  static const millatLogo = "$logosPath/Icon only.png";
+  static const copyIcon = "$iconsPath/copy.png";
 
   //tasbih
 
@@ -69,6 +73,7 @@ class AppAssetsStrings {
   static const String logout = "$iconsPath/logout.png";
   static const String instagramIcon = "$iconsPath/instagram.png";
   static const String twitterIcon = "$iconsPath/twitter.png";
+  static const String addCart = "$iconsPath/add_cart.png";
   //icons
   static const String brandItems = "$iconsPath/brand_items.png";
   static const String searchIcon = "$iconsPath/search.png";
@@ -99,6 +104,8 @@ class AppAssetsStrings {
   static const String womensCareTabs = "$iconsPath/women_care_tabs.png";
   static const String share = "$iconsPath/share.png";
   static const String addFriend = "$iconsPath/add_friend.png";
+  static const String shop2 = "$iconsPath/shop_2.png";
+  static const String clock = "$iconsPath/clock.png";
   //images
   static const String hadikBookimg1 = "$imagesPath/hadith_book_1.png";
   static const String largeDiscountImg1 =
@@ -112,6 +119,29 @@ class AppAssetsStrings {
   static const String homeBanner1 = "$imagesPath/home_quran_banner_1.png";
   static const String homeBanner2 = "$imagesPath/home_quran_banner_2.png";
   static const String profileCoverImg = "$imagesPath/profile_cover.png";
+  static const String quranBookmrark2 = "$imagesPath/quran_bookmark_2.png";
+  //rewards
+  static const String redeemYoucoinBg = "$imagesPath/redeem_your_coin_img.png";
+  static const String redeemYourCoinText = "$imagesPath/redeem_your_coin.png";
+  static const String superSaleAd = "$imagesPath/super_sale_ad.png";
+  static const String arrrowRight = "$iconsPath/arrow-right.png";
+  static const String score = "$imagesPath/score.png";
+
+  static const String rewardMoney = "$imagesPath/reward_money.png";
+  static const String rewardCoinBackground =
+      "$backgroundsPath/rewards_coins.png";
+  static const String rewardCoinsBg = "$backgroundsPath/rewards_coin_bg.png";
+  static const String howToEarn = "$iconsPath/how_to_earn.png";
+  static const String howToRedeem = "$iconsPath/how_to_redeem.png";
+  static const String shirt = "$imagesPath/shirt.png";
+  static const String email = "$imagesPath/email.png";
+  static const String rewardsKahbaImg = "$imagesPath/rewards_kahba.png";
+  static const String rewardSuccesBg = "$backgroundsPath/reward_success_bg.png";
+  static const String rewardsSuccesimg = "$imagesPath/rewards_success.png";
+  static const String rewardsSuccesDecorimg =
+      "$imagesPath/rewards_success_decor.png";
+  static const String rewardsQuranImg = "$imagesPath/rewards_quran_img.png";
+  static const String discountAlert = "$imagesPath/discount_alert.png";
 }
 
 const String splashBackgroundPath = '$backgroundsPath/splash_background.png';

@@ -112,7 +112,6 @@ class _HomeViewState extends State<HomeView> {
           listener: (context, state) {
             if (state.currentLocaion.isNotEmpty &&
                 state.weatherConditionName.isEmpty) {
-              print("location bloc");
               context
                   .read<NamazTimingBloc>()
                   .add(FetchPrayerTiming(context: context));

@@ -75,7 +75,9 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
           await Utilities.getStringFromSharedPreferences(
               Appstrings.currenLocationKey);
       if (currentLocationFromPrefs.isNotEmpty) {
-        emit(state.copyWith(currentLocaion: currentLocationFromPrefs));
+        emit(state.copyWith(
+          currentLocaion: currentLocationFromPrefs,
+        ));
         debugPrint("Location from the local storage $currentLocationFromPrefs");
       }
       PermissionStatus permissionStatus = await Permission.location.request();

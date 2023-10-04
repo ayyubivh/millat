@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/resources/home/bloc/logic/home_bloc/home_bloc.dart';
 import 'package:millat/resources/home/view/home_view.dart';
-import 'package:millat/resources/home/view/namaz_timing/namaz_timing_view.dart';
+import 'package:millat/resources/rewards/rewards_home_view.dart';
 import 'package:millat/resources/shop/view/tabs/shop_tabs_vilew.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/color_manager.dart';
@@ -23,7 +23,7 @@ class _TabsViewState extends State<TabsView> {
   List screens = [
     const HomeView(),
     const ShopTabsView(),
-    const NamazTimingView(),
+    const RewardsHomeView(),
     const UserProfileView(),
   ];
   DateTime? currentBackPressTime;
@@ -92,19 +92,19 @@ class _TabsViewState extends State<TabsView> {
                 BottomNavigationBarItem(
                     label: '',
                     icon: ImageIcon(
-                      AssetImage('assets/icons/home.png'),
+                      AssetImage(AppAssetsStrings.homeTab),
                       size: 22,
                     )),
                 BottomNavigationBarItem(
                     label: '',
                     icon: ImageIcon(
-                      AssetImage('assets/icons/store.png'),
+                      AssetImage(AppAssetsStrings.shopTabIcon),
                       size: 22,
                     )),
                 BottomNavigationBarItem(
                     label: '',
                     icon: ImageIcon(
-                      AssetImage(AppAssetsStrings.starHome),
+                      AssetImage(AppAssetsStrings.rewardsTab),
                       size: 22,
                     )),
                 BottomNavigationBarItem(

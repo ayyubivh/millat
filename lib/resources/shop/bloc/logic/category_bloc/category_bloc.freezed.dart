@@ -30,14 +30,16 @@ mixin _$CategoryEvent {
     required TResult Function(int index) priceRangeEvent,
     required TResult Function(String categoryId) fetchSubCategoriesByCategoryId,
     required TResult Function(String filterVal) saveCategoryFilterVal,
-    required TResult Function(double minPrice, double maxPrice,
-            String? category, String? subCategory)
-        fetchFilteredByPriceProducts,
     required TResult Function(
-            double minPrice, double maxPrice, RangeValues rangeValues)
+            String minPrice, String maxPrice, RangeValues rangeValues)
         savePriceRange,
-    required TResult Function(String order) fetchProductSortByPrice,
+    required TResult Function(
+            String order, String? category, String? subCategory)
+        fetchProductSortByPrice,
     required TResult Function(int index) changeSortListIndex,
+    required TResult Function(String minPrice, String maxPrice, String category,
+            String subCategory)
+        fetchProductsByFilterPricerange,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -52,14 +54,15 @@ mixin _$CategoryEvent {
     TResult? Function(int index)? priceRangeEvent,
     TResult? Function(String categoryId)? fetchSubCategoriesByCategoryId,
     TResult? Function(String filterVal)? saveCategoryFilterVal,
-    TResult? Function(double minPrice, double maxPrice, String? category,
-            String? subCategory)?
-        fetchFilteredByPriceProducts,
     TResult? Function(
-            double minPrice, double maxPrice, RangeValues rangeValues)?
+            String minPrice, String maxPrice, RangeValues rangeValues)?
         savePriceRange,
-    TResult? Function(String order)? fetchProductSortByPrice,
+    TResult? Function(String order, String? category, String? subCategory)?
+        fetchProductSortByPrice,
     TResult? Function(int index)? changeSortListIndex,
+    TResult? Function(String minPrice, String maxPrice, String category,
+            String subCategory)?
+        fetchProductsByFilterPricerange,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -74,13 +77,14 @@ mixin _$CategoryEvent {
     TResult Function(int index)? priceRangeEvent,
     TResult Function(String categoryId)? fetchSubCategoriesByCategoryId,
     TResult Function(String filterVal)? saveCategoryFilterVal,
-    TResult Function(double minPrice, double maxPrice, String? category,
-            String? subCategory)?
-        fetchFilteredByPriceProducts,
-    TResult Function(double minPrice, double maxPrice, RangeValues rangeValues)?
+    TResult Function(String minPrice, String maxPrice, RangeValues rangeValues)?
         savePriceRange,
-    TResult Function(String order)? fetchProductSortByPrice,
+    TResult Function(String order, String? category, String? subCategory)?
+        fetchProductSortByPrice,
     TResult Function(int index)? changeSortListIndex,
+    TResult Function(String minPrice, String maxPrice, String category,
+            String subCategory)?
+        fetchProductsByFilterPricerange,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -97,12 +101,12 @@ mixin _$CategoryEvent {
         fetchSubCategoriesByCategoryId,
     required TResult Function(SaveCategoryFilterVal value)
         saveCategoryFilterVal,
-    required TResult Function(FetchFilteredByPriceProducts value)
-        fetchFilteredByPriceProducts,
     required TResult Function(SavePriceRange value) savePriceRange,
     required TResult Function(FetchProductSortByPrice value)
         fetchProductSortByPrice,
     required TResult Function(ChangeSortListIndex value) changeSortListIndex,
+    required TResult Function(FetchProductsByFilterPricerange value)
+        fetchProductsByFilterPricerange,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -117,11 +121,11 @@ mixin _$CategoryEvent {
     TResult? Function(FetchSubCategoriesByCategoryId value)?
         fetchSubCategoriesByCategoryId,
     TResult? Function(SaveCategoryFilterVal value)? saveCategoryFilterVal,
-    TResult? Function(FetchFilteredByPriceProducts value)?
-        fetchFilteredByPriceProducts,
     TResult? Function(SavePriceRange value)? savePriceRange,
     TResult? Function(FetchProductSortByPrice value)? fetchProductSortByPrice,
     TResult? Function(ChangeSortListIndex value)? changeSortListIndex,
+    TResult? Function(FetchProductsByFilterPricerange value)?
+        fetchProductsByFilterPricerange,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -136,11 +140,11 @@ mixin _$CategoryEvent {
     TResult Function(FetchSubCategoriesByCategoryId value)?
         fetchSubCategoriesByCategoryId,
     TResult Function(SaveCategoryFilterVal value)? saveCategoryFilterVal,
-    TResult Function(FetchFilteredByPriceProducts value)?
-        fetchFilteredByPriceProducts,
     TResult Function(SavePriceRange value)? savePriceRange,
     TResult Function(FetchProductSortByPrice value)? fetchProductSortByPrice,
     TResult Function(ChangeSortListIndex value)? changeSortListIndex,
+    TResult Function(FetchProductsByFilterPricerange value)?
+        fetchProductsByFilterPricerange,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -272,14 +276,16 @@ class _$FetchFilterProducts
     required TResult Function(int index) priceRangeEvent,
     required TResult Function(String categoryId) fetchSubCategoriesByCategoryId,
     required TResult Function(String filterVal) saveCategoryFilterVal,
-    required TResult Function(double minPrice, double maxPrice,
-            String? category, String? subCategory)
-        fetchFilteredByPriceProducts,
     required TResult Function(
-            double minPrice, double maxPrice, RangeValues rangeValues)
+            String minPrice, String maxPrice, RangeValues rangeValues)
         savePriceRange,
-    required TResult Function(String order) fetchProductSortByPrice,
+    required TResult Function(
+            String order, String? category, String? subCategory)
+        fetchProductSortByPrice,
     required TResult Function(int index) changeSortListIndex,
+    required TResult Function(String minPrice, String maxPrice, String category,
+            String subCategory)
+        fetchProductsByFilterPricerange,
   }) {
     return fetchFilterProducts(category, subCategory, itemId);
   }
@@ -297,14 +303,15 @@ class _$FetchFilterProducts
     TResult? Function(int index)? priceRangeEvent,
     TResult? Function(String categoryId)? fetchSubCategoriesByCategoryId,
     TResult? Function(String filterVal)? saveCategoryFilterVal,
-    TResult? Function(double minPrice, double maxPrice, String? category,
-            String? subCategory)?
-        fetchFilteredByPriceProducts,
     TResult? Function(
-            double minPrice, double maxPrice, RangeValues rangeValues)?
+            String minPrice, String maxPrice, RangeValues rangeValues)?
         savePriceRange,
-    TResult? Function(String order)? fetchProductSortByPrice,
+    TResult? Function(String order, String? category, String? subCategory)?
+        fetchProductSortByPrice,
     TResult? Function(int index)? changeSortListIndex,
+    TResult? Function(String minPrice, String maxPrice, String category,
+            String subCategory)?
+        fetchProductsByFilterPricerange,
   }) {
     return fetchFilterProducts?.call(category, subCategory, itemId);
   }
@@ -322,13 +329,14 @@ class _$FetchFilterProducts
     TResult Function(int index)? priceRangeEvent,
     TResult Function(String categoryId)? fetchSubCategoriesByCategoryId,
     TResult Function(String filterVal)? saveCategoryFilterVal,
-    TResult Function(double minPrice, double maxPrice, String? category,
-            String? subCategory)?
-        fetchFilteredByPriceProducts,
-    TResult Function(double minPrice, double maxPrice, RangeValues rangeValues)?
+    TResult Function(String minPrice, String maxPrice, RangeValues rangeValues)?
         savePriceRange,
-    TResult Function(String order)? fetchProductSortByPrice,
+    TResult Function(String order, String? category, String? subCategory)?
+        fetchProductSortByPrice,
     TResult Function(int index)? changeSortListIndex,
+    TResult Function(String minPrice, String maxPrice, String category,
+            String subCategory)?
+        fetchProductsByFilterPricerange,
     required TResult orElse(),
   }) {
     if (fetchFilterProducts != null) {
@@ -351,12 +359,12 @@ class _$FetchFilterProducts
         fetchSubCategoriesByCategoryId,
     required TResult Function(SaveCategoryFilterVal value)
         saveCategoryFilterVal,
-    required TResult Function(FetchFilteredByPriceProducts value)
-        fetchFilteredByPriceProducts,
     required TResult Function(SavePriceRange value) savePriceRange,
     required TResult Function(FetchProductSortByPrice value)
         fetchProductSortByPrice,
     required TResult Function(ChangeSortListIndex value) changeSortListIndex,
+    required TResult Function(FetchProductsByFilterPricerange value)
+        fetchProductsByFilterPricerange,
   }) {
     return fetchFilterProducts(this);
   }
@@ -374,11 +382,11 @@ class _$FetchFilterProducts
     TResult? Function(FetchSubCategoriesByCategoryId value)?
         fetchSubCategoriesByCategoryId,
     TResult? Function(SaveCategoryFilterVal value)? saveCategoryFilterVal,
-    TResult? Function(FetchFilteredByPriceProducts value)?
-        fetchFilteredByPriceProducts,
     TResult? Function(SavePriceRange value)? savePriceRange,
     TResult? Function(FetchProductSortByPrice value)? fetchProductSortByPrice,
     TResult? Function(ChangeSortListIndex value)? changeSortListIndex,
+    TResult? Function(FetchProductsByFilterPricerange value)?
+        fetchProductsByFilterPricerange,
   }) {
     return fetchFilterProducts?.call(this);
   }
@@ -396,11 +404,11 @@ class _$FetchFilterProducts
     TResult Function(FetchSubCategoriesByCategoryId value)?
         fetchSubCategoriesByCategoryId,
     TResult Function(SaveCategoryFilterVal value)? saveCategoryFilterVal,
-    TResult Function(FetchFilteredByPriceProducts value)?
-        fetchFilteredByPriceProducts,
     TResult Function(SavePriceRange value)? savePriceRange,
     TResult Function(FetchProductSortByPrice value)? fetchProductSortByPrice,
     TResult Function(ChangeSortListIndex value)? changeSortListIndex,
+    TResult Function(FetchProductsByFilterPricerange value)?
+        fetchProductsByFilterPricerange,
     required TResult orElse(),
   }) {
     if (fetchFilterProducts != null) {
@@ -483,14 +491,16 @@ class _$FetchCategories
     required TResult Function(int index) priceRangeEvent,
     required TResult Function(String categoryId) fetchSubCategoriesByCategoryId,
     required TResult Function(String filterVal) saveCategoryFilterVal,
-    required TResult Function(double minPrice, double maxPrice,
-            String? category, String? subCategory)
-        fetchFilteredByPriceProducts,
     required TResult Function(
-            double minPrice, double maxPrice, RangeValues rangeValues)
+            String minPrice, String maxPrice, RangeValues rangeValues)
         savePriceRange,
-    required TResult Function(String order) fetchProductSortByPrice,
+    required TResult Function(
+            String order, String? category, String? subCategory)
+        fetchProductSortByPrice,
     required TResult Function(int index) changeSortListIndex,
+    required TResult Function(String minPrice, String maxPrice, String category,
+            String subCategory)
+        fetchProductsByFilterPricerange,
   }) {
     return fetchCategories();
   }
@@ -508,14 +518,15 @@ class _$FetchCategories
     TResult? Function(int index)? priceRangeEvent,
     TResult? Function(String categoryId)? fetchSubCategoriesByCategoryId,
     TResult? Function(String filterVal)? saveCategoryFilterVal,
-    TResult? Function(double minPrice, double maxPrice, String? category,
-            String? subCategory)?
-        fetchFilteredByPriceProducts,
     TResult? Function(
-            double minPrice, double maxPrice, RangeValues rangeValues)?
+            String minPrice, String maxPrice, RangeValues rangeValues)?
         savePriceRange,
-    TResult? Function(String order)? fetchProductSortByPrice,
+    TResult? Function(String order, String? category, String? subCategory)?
+        fetchProductSortByPrice,
     TResult? Function(int index)? changeSortListIndex,
+    TResult? Function(String minPrice, String maxPrice, String category,
+            String subCategory)?
+        fetchProductsByFilterPricerange,
   }) {
     return fetchCategories?.call();
   }
@@ -533,13 +544,14 @@ class _$FetchCategories
     TResult Function(int index)? priceRangeEvent,
     TResult Function(String categoryId)? fetchSubCategoriesByCategoryId,
     TResult Function(String filterVal)? saveCategoryFilterVal,
-    TResult Function(double minPrice, double maxPrice, String? category,
-            String? subCategory)?
-        fetchFilteredByPriceProducts,
-    TResult Function(double minPrice, double maxPrice, RangeValues rangeValues)?
+    TResult Function(String minPrice, String maxPrice, RangeValues rangeValues)?
         savePriceRange,
-    TResult Function(String order)? fetchProductSortByPrice,
+    TResult Function(String order, String? category, String? subCategory)?
+        fetchProductSortByPrice,
     TResult Function(int index)? changeSortListIndex,
+    TResult Function(String minPrice, String maxPrice, String category,
+            String subCategory)?
+        fetchProductsByFilterPricerange,
     required TResult orElse(),
   }) {
     if (fetchCategories != null) {
@@ -562,12 +574,12 @@ class _$FetchCategories
         fetchSubCategoriesByCategoryId,
     required TResult Function(SaveCategoryFilterVal value)
         saveCategoryFilterVal,
-    required TResult Function(FetchFilteredByPriceProducts value)
-        fetchFilteredByPriceProducts,
     required TResult Function(SavePriceRange value) savePriceRange,
     required TResult Function(FetchProductSortByPrice value)
         fetchProductSortByPrice,
     required TResult Function(ChangeSortListIndex value) changeSortListIndex,
+    required TResult Function(FetchProductsByFilterPricerange value)
+        fetchProductsByFilterPricerange,
   }) {
     return fetchCategories(this);
   }
@@ -585,11 +597,11 @@ class _$FetchCategories
     TResult? Function(FetchSubCategoriesByCategoryId value)?
         fetchSubCategoriesByCategoryId,
     TResult? Function(SaveCategoryFilterVal value)? saveCategoryFilterVal,
-    TResult? Function(FetchFilteredByPriceProducts value)?
-        fetchFilteredByPriceProducts,
     TResult? Function(SavePriceRange value)? savePriceRange,
     TResult? Function(FetchProductSortByPrice value)? fetchProductSortByPrice,
     TResult? Function(ChangeSortListIndex value)? changeSortListIndex,
+    TResult? Function(FetchProductsByFilterPricerange value)?
+        fetchProductsByFilterPricerange,
   }) {
     return fetchCategories?.call(this);
   }
@@ -607,11 +619,11 @@ class _$FetchCategories
     TResult Function(FetchSubCategoriesByCategoryId value)?
         fetchSubCategoriesByCategoryId,
     TResult Function(SaveCategoryFilterVal value)? saveCategoryFilterVal,
-    TResult Function(FetchFilteredByPriceProducts value)?
-        fetchFilteredByPriceProducts,
     TResult Function(SavePriceRange value)? savePriceRange,
     TResult Function(FetchProductSortByPrice value)? fetchProductSortByPrice,
     TResult Function(ChangeSortListIndex value)? changeSortListIndex,
+    TResult Function(FetchProductsByFilterPricerange value)?
+        fetchProductsByFilterPricerange,
     required TResult orElse(),
   }) {
     if (fetchCategories != null) {
@@ -684,14 +696,16 @@ class _$FetchSubcategories
     required TResult Function(int index) priceRangeEvent,
     required TResult Function(String categoryId) fetchSubCategoriesByCategoryId,
     required TResult Function(String filterVal) saveCategoryFilterVal,
-    required TResult Function(double minPrice, double maxPrice,
-            String? category, String? subCategory)
-        fetchFilteredByPriceProducts,
     required TResult Function(
-            double minPrice, double maxPrice, RangeValues rangeValues)
+            String minPrice, String maxPrice, RangeValues rangeValues)
         savePriceRange,
-    required TResult Function(String order) fetchProductSortByPrice,
+    required TResult Function(
+            String order, String? category, String? subCategory)
+        fetchProductSortByPrice,
     required TResult Function(int index) changeSortListIndex,
+    required TResult Function(String minPrice, String maxPrice, String category,
+            String subCategory)
+        fetchProductsByFilterPricerange,
   }) {
     return fetchSubcategories();
   }
@@ -709,14 +723,15 @@ class _$FetchSubcategories
     TResult? Function(int index)? priceRangeEvent,
     TResult? Function(String categoryId)? fetchSubCategoriesByCategoryId,
     TResult? Function(String filterVal)? saveCategoryFilterVal,
-    TResult? Function(double minPrice, double maxPrice, String? category,
-            String? subCategory)?
-        fetchFilteredByPriceProducts,
     TResult? Function(
-            double minPrice, double maxPrice, RangeValues rangeValues)?
+            String minPrice, String maxPrice, RangeValues rangeValues)?
         savePriceRange,
-    TResult? Function(String order)? fetchProductSortByPrice,
+    TResult? Function(String order, String? category, String? subCategory)?
+        fetchProductSortByPrice,
     TResult? Function(int index)? changeSortListIndex,
+    TResult? Function(String minPrice, String maxPrice, String category,
+            String subCategory)?
+        fetchProductsByFilterPricerange,
   }) {
     return fetchSubcategories?.call();
   }
@@ -734,13 +749,14 @@ class _$FetchSubcategories
     TResult Function(int index)? priceRangeEvent,
     TResult Function(String categoryId)? fetchSubCategoriesByCategoryId,
     TResult Function(String filterVal)? saveCategoryFilterVal,
-    TResult Function(double minPrice, double maxPrice, String? category,
-            String? subCategory)?
-        fetchFilteredByPriceProducts,
-    TResult Function(double minPrice, double maxPrice, RangeValues rangeValues)?
+    TResult Function(String minPrice, String maxPrice, RangeValues rangeValues)?
         savePriceRange,
-    TResult Function(String order)? fetchProductSortByPrice,
+    TResult Function(String order, String? category, String? subCategory)?
+        fetchProductSortByPrice,
     TResult Function(int index)? changeSortListIndex,
+    TResult Function(String minPrice, String maxPrice, String category,
+            String subCategory)?
+        fetchProductsByFilterPricerange,
     required TResult orElse(),
   }) {
     if (fetchSubcategories != null) {
@@ -763,12 +779,12 @@ class _$FetchSubcategories
         fetchSubCategoriesByCategoryId,
     required TResult Function(SaveCategoryFilterVal value)
         saveCategoryFilterVal,
-    required TResult Function(FetchFilteredByPriceProducts value)
-        fetchFilteredByPriceProducts,
     required TResult Function(SavePriceRange value) savePriceRange,
     required TResult Function(FetchProductSortByPrice value)
         fetchProductSortByPrice,
     required TResult Function(ChangeSortListIndex value) changeSortListIndex,
+    required TResult Function(FetchProductsByFilterPricerange value)
+        fetchProductsByFilterPricerange,
   }) {
     return fetchSubcategories(this);
   }
@@ -786,11 +802,11 @@ class _$FetchSubcategories
     TResult? Function(FetchSubCategoriesByCategoryId value)?
         fetchSubCategoriesByCategoryId,
     TResult? Function(SaveCategoryFilterVal value)? saveCategoryFilterVal,
-    TResult? Function(FetchFilteredByPriceProducts value)?
-        fetchFilteredByPriceProducts,
     TResult? Function(SavePriceRange value)? savePriceRange,
     TResult? Function(FetchProductSortByPrice value)? fetchProductSortByPrice,
     TResult? Function(ChangeSortListIndex value)? changeSortListIndex,
+    TResult? Function(FetchProductsByFilterPricerange value)?
+        fetchProductsByFilterPricerange,
   }) {
     return fetchSubcategories?.call(this);
   }
@@ -808,11 +824,11 @@ class _$FetchSubcategories
     TResult Function(FetchSubCategoriesByCategoryId value)?
         fetchSubCategoriesByCategoryId,
     TResult Function(SaveCategoryFilterVal value)? saveCategoryFilterVal,
-    TResult Function(FetchFilteredByPriceProducts value)?
-        fetchFilteredByPriceProducts,
     TResult Function(SavePriceRange value)? savePriceRange,
     TResult Function(FetchProductSortByPrice value)? fetchProductSortByPrice,
     TResult Function(ChangeSortListIndex value)? changeSortListIndex,
+    TResult Function(FetchProductsByFilterPricerange value)?
+        fetchProductsByFilterPricerange,
     required TResult orElse(),
   }) {
     if (fetchSubcategories != null) {
@@ -910,14 +926,16 @@ class _$OnSelectFilter with DiagnosticableTreeMixin implements OnSelectFilter {
     required TResult Function(int index) priceRangeEvent,
     required TResult Function(String categoryId) fetchSubCategoriesByCategoryId,
     required TResult Function(String filterVal) saveCategoryFilterVal,
-    required TResult Function(double minPrice, double maxPrice,
-            String? category, String? subCategory)
-        fetchFilteredByPriceProducts,
     required TResult Function(
-            double minPrice, double maxPrice, RangeValues rangeValues)
+            String minPrice, String maxPrice, RangeValues rangeValues)
         savePriceRange,
-    required TResult Function(String order) fetchProductSortByPrice,
+    required TResult Function(
+            String order, String? category, String? subCategory)
+        fetchProductSortByPrice,
     required TResult Function(int index) changeSortListIndex,
+    required TResult Function(String minPrice, String maxPrice, String category,
+            String subCategory)
+        fetchProductsByFilterPricerange,
   }) {
     return onSelectFilter(value);
   }
@@ -935,14 +953,15 @@ class _$OnSelectFilter with DiagnosticableTreeMixin implements OnSelectFilter {
     TResult? Function(int index)? priceRangeEvent,
     TResult? Function(String categoryId)? fetchSubCategoriesByCategoryId,
     TResult? Function(String filterVal)? saveCategoryFilterVal,
-    TResult? Function(double minPrice, double maxPrice, String? category,
-            String? subCategory)?
-        fetchFilteredByPriceProducts,
     TResult? Function(
-            double minPrice, double maxPrice, RangeValues rangeValues)?
+            String minPrice, String maxPrice, RangeValues rangeValues)?
         savePriceRange,
-    TResult? Function(String order)? fetchProductSortByPrice,
+    TResult? Function(String order, String? category, String? subCategory)?
+        fetchProductSortByPrice,
     TResult? Function(int index)? changeSortListIndex,
+    TResult? Function(String minPrice, String maxPrice, String category,
+            String subCategory)?
+        fetchProductsByFilterPricerange,
   }) {
     return onSelectFilter?.call(value);
   }
@@ -960,13 +979,14 @@ class _$OnSelectFilter with DiagnosticableTreeMixin implements OnSelectFilter {
     TResult Function(int index)? priceRangeEvent,
     TResult Function(String categoryId)? fetchSubCategoriesByCategoryId,
     TResult Function(String filterVal)? saveCategoryFilterVal,
-    TResult Function(double minPrice, double maxPrice, String? category,
-            String? subCategory)?
-        fetchFilteredByPriceProducts,
-    TResult Function(double minPrice, double maxPrice, RangeValues rangeValues)?
+    TResult Function(String minPrice, String maxPrice, RangeValues rangeValues)?
         savePriceRange,
-    TResult Function(String order)? fetchProductSortByPrice,
+    TResult Function(String order, String? category, String? subCategory)?
+        fetchProductSortByPrice,
     TResult Function(int index)? changeSortListIndex,
+    TResult Function(String minPrice, String maxPrice, String category,
+            String subCategory)?
+        fetchProductsByFilterPricerange,
     required TResult orElse(),
   }) {
     if (onSelectFilter != null) {
@@ -989,12 +1009,12 @@ class _$OnSelectFilter with DiagnosticableTreeMixin implements OnSelectFilter {
         fetchSubCategoriesByCategoryId,
     required TResult Function(SaveCategoryFilterVal value)
         saveCategoryFilterVal,
-    required TResult Function(FetchFilteredByPriceProducts value)
-        fetchFilteredByPriceProducts,
     required TResult Function(SavePriceRange value) savePriceRange,
     required TResult Function(FetchProductSortByPrice value)
         fetchProductSortByPrice,
     required TResult Function(ChangeSortListIndex value) changeSortListIndex,
+    required TResult Function(FetchProductsByFilterPricerange value)
+        fetchProductsByFilterPricerange,
   }) {
     return onSelectFilter(this);
   }
@@ -1012,11 +1032,11 @@ class _$OnSelectFilter with DiagnosticableTreeMixin implements OnSelectFilter {
     TResult? Function(FetchSubCategoriesByCategoryId value)?
         fetchSubCategoriesByCategoryId,
     TResult? Function(SaveCategoryFilterVal value)? saveCategoryFilterVal,
-    TResult? Function(FetchFilteredByPriceProducts value)?
-        fetchFilteredByPriceProducts,
     TResult? Function(SavePriceRange value)? savePriceRange,
     TResult? Function(FetchProductSortByPrice value)? fetchProductSortByPrice,
     TResult? Function(ChangeSortListIndex value)? changeSortListIndex,
+    TResult? Function(FetchProductsByFilterPricerange value)?
+        fetchProductsByFilterPricerange,
   }) {
     return onSelectFilter?.call(this);
   }
@@ -1034,11 +1054,11 @@ class _$OnSelectFilter with DiagnosticableTreeMixin implements OnSelectFilter {
     TResult Function(FetchSubCategoriesByCategoryId value)?
         fetchSubCategoriesByCategoryId,
     TResult Function(SaveCategoryFilterVal value)? saveCategoryFilterVal,
-    TResult Function(FetchFilteredByPriceProducts value)?
-        fetchFilteredByPriceProducts,
     TResult Function(SavePriceRange value)? savePriceRange,
     TResult Function(FetchProductSortByPrice value)? fetchProductSortByPrice,
     TResult Function(ChangeSortListIndex value)? changeSortListIndex,
+    TResult Function(FetchProductsByFilterPricerange value)?
+        fetchProductsByFilterPricerange,
     required TResult orElse(),
   }) {
     if (onSelectFilter != null) {
@@ -1153,14 +1173,16 @@ class _$FilterEvent with DiagnosticableTreeMixin implements FilterEvent {
     required TResult Function(int index) priceRangeEvent,
     required TResult Function(String categoryId) fetchSubCategoriesByCategoryId,
     required TResult Function(String filterVal) saveCategoryFilterVal,
-    required TResult Function(double minPrice, double maxPrice,
-            String? category, String? subCategory)
-        fetchFilteredByPriceProducts,
     required TResult Function(
-            double minPrice, double maxPrice, RangeValues rangeValues)
+            String minPrice, String maxPrice, RangeValues rangeValues)
         savePriceRange,
-    required TResult Function(String order) fetchProductSortByPrice,
+    required TResult Function(
+            String order, String? category, String? subCategory)
+        fetchProductSortByPrice,
     required TResult Function(int index) changeSortListIndex,
+    required TResult Function(String minPrice, String maxPrice, String category,
+            String subCategory)
+        fetchProductsByFilterPricerange,
   }) {
     return filterEvent(category, subCategory);
   }
@@ -1178,14 +1200,15 @@ class _$FilterEvent with DiagnosticableTreeMixin implements FilterEvent {
     TResult? Function(int index)? priceRangeEvent,
     TResult? Function(String categoryId)? fetchSubCategoriesByCategoryId,
     TResult? Function(String filterVal)? saveCategoryFilterVal,
-    TResult? Function(double minPrice, double maxPrice, String? category,
-            String? subCategory)?
-        fetchFilteredByPriceProducts,
     TResult? Function(
-            double minPrice, double maxPrice, RangeValues rangeValues)?
+            String minPrice, String maxPrice, RangeValues rangeValues)?
         savePriceRange,
-    TResult? Function(String order)? fetchProductSortByPrice,
+    TResult? Function(String order, String? category, String? subCategory)?
+        fetchProductSortByPrice,
     TResult? Function(int index)? changeSortListIndex,
+    TResult? Function(String minPrice, String maxPrice, String category,
+            String subCategory)?
+        fetchProductsByFilterPricerange,
   }) {
     return filterEvent?.call(category, subCategory);
   }
@@ -1203,13 +1226,14 @@ class _$FilterEvent with DiagnosticableTreeMixin implements FilterEvent {
     TResult Function(int index)? priceRangeEvent,
     TResult Function(String categoryId)? fetchSubCategoriesByCategoryId,
     TResult Function(String filterVal)? saveCategoryFilterVal,
-    TResult Function(double minPrice, double maxPrice, String? category,
-            String? subCategory)?
-        fetchFilteredByPriceProducts,
-    TResult Function(double minPrice, double maxPrice, RangeValues rangeValues)?
+    TResult Function(String minPrice, String maxPrice, RangeValues rangeValues)?
         savePriceRange,
-    TResult Function(String order)? fetchProductSortByPrice,
+    TResult Function(String order, String? category, String? subCategory)?
+        fetchProductSortByPrice,
     TResult Function(int index)? changeSortListIndex,
+    TResult Function(String minPrice, String maxPrice, String category,
+            String subCategory)?
+        fetchProductsByFilterPricerange,
     required TResult orElse(),
   }) {
     if (filterEvent != null) {
@@ -1232,12 +1256,12 @@ class _$FilterEvent with DiagnosticableTreeMixin implements FilterEvent {
         fetchSubCategoriesByCategoryId,
     required TResult Function(SaveCategoryFilterVal value)
         saveCategoryFilterVal,
-    required TResult Function(FetchFilteredByPriceProducts value)
-        fetchFilteredByPriceProducts,
     required TResult Function(SavePriceRange value) savePriceRange,
     required TResult Function(FetchProductSortByPrice value)
         fetchProductSortByPrice,
     required TResult Function(ChangeSortListIndex value) changeSortListIndex,
+    required TResult Function(FetchProductsByFilterPricerange value)
+        fetchProductsByFilterPricerange,
   }) {
     return filterEvent(this);
   }
@@ -1255,11 +1279,11 @@ class _$FilterEvent with DiagnosticableTreeMixin implements FilterEvent {
     TResult? Function(FetchSubCategoriesByCategoryId value)?
         fetchSubCategoriesByCategoryId,
     TResult? Function(SaveCategoryFilterVal value)? saveCategoryFilterVal,
-    TResult? Function(FetchFilteredByPriceProducts value)?
-        fetchFilteredByPriceProducts,
     TResult? Function(SavePriceRange value)? savePriceRange,
     TResult? Function(FetchProductSortByPrice value)? fetchProductSortByPrice,
     TResult? Function(ChangeSortListIndex value)? changeSortListIndex,
+    TResult? Function(FetchProductsByFilterPricerange value)?
+        fetchProductsByFilterPricerange,
   }) {
     return filterEvent?.call(this);
   }
@@ -1277,11 +1301,11 @@ class _$FilterEvent with DiagnosticableTreeMixin implements FilterEvent {
     TResult Function(FetchSubCategoriesByCategoryId value)?
         fetchSubCategoriesByCategoryId,
     TResult Function(SaveCategoryFilterVal value)? saveCategoryFilterVal,
-    TResult Function(FetchFilteredByPriceProducts value)?
-        fetchFilteredByPriceProducts,
     TResult Function(SavePriceRange value)? savePriceRange,
     TResult Function(FetchProductSortByPrice value)? fetchProductSortByPrice,
     TResult Function(ChangeSortListIndex value)? changeSortListIndex,
+    TResult Function(FetchProductsByFilterPricerange value)?
+        fetchProductsByFilterPricerange,
     required TResult orElse(),
   }) {
     if (filterEvent != null) {
@@ -1390,14 +1414,16 @@ class _$FilterBrandPickEvent
     required TResult Function(int index) priceRangeEvent,
     required TResult Function(String categoryId) fetchSubCategoriesByCategoryId,
     required TResult Function(String filterVal) saveCategoryFilterVal,
-    required TResult Function(double minPrice, double maxPrice,
-            String? category, String? subCategory)
-        fetchFilteredByPriceProducts,
     required TResult Function(
-            double minPrice, double maxPrice, RangeValues rangeValues)
+            String minPrice, String maxPrice, RangeValues rangeValues)
         savePriceRange,
-    required TResult Function(String order) fetchProductSortByPrice,
+    required TResult Function(
+            String order, String? category, String? subCategory)
+        fetchProductSortByPrice,
     required TResult Function(int index) changeSortListIndex,
+    required TResult Function(String minPrice, String maxPrice, String category,
+            String subCategory)
+        fetchProductsByFilterPricerange,
   }) {
     return filterBrandPickEvent(brand);
   }
@@ -1415,14 +1441,15 @@ class _$FilterBrandPickEvent
     TResult? Function(int index)? priceRangeEvent,
     TResult? Function(String categoryId)? fetchSubCategoriesByCategoryId,
     TResult? Function(String filterVal)? saveCategoryFilterVal,
-    TResult? Function(double minPrice, double maxPrice, String? category,
-            String? subCategory)?
-        fetchFilteredByPriceProducts,
     TResult? Function(
-            double minPrice, double maxPrice, RangeValues rangeValues)?
+            String minPrice, String maxPrice, RangeValues rangeValues)?
         savePriceRange,
-    TResult? Function(String order)? fetchProductSortByPrice,
+    TResult? Function(String order, String? category, String? subCategory)?
+        fetchProductSortByPrice,
     TResult? Function(int index)? changeSortListIndex,
+    TResult? Function(String minPrice, String maxPrice, String category,
+            String subCategory)?
+        fetchProductsByFilterPricerange,
   }) {
     return filterBrandPickEvent?.call(brand);
   }
@@ -1440,13 +1467,14 @@ class _$FilterBrandPickEvent
     TResult Function(int index)? priceRangeEvent,
     TResult Function(String categoryId)? fetchSubCategoriesByCategoryId,
     TResult Function(String filterVal)? saveCategoryFilterVal,
-    TResult Function(double minPrice, double maxPrice, String? category,
-            String? subCategory)?
-        fetchFilteredByPriceProducts,
-    TResult Function(double minPrice, double maxPrice, RangeValues rangeValues)?
+    TResult Function(String minPrice, String maxPrice, RangeValues rangeValues)?
         savePriceRange,
-    TResult Function(String order)? fetchProductSortByPrice,
+    TResult Function(String order, String? category, String? subCategory)?
+        fetchProductSortByPrice,
     TResult Function(int index)? changeSortListIndex,
+    TResult Function(String minPrice, String maxPrice, String category,
+            String subCategory)?
+        fetchProductsByFilterPricerange,
     required TResult orElse(),
   }) {
     if (filterBrandPickEvent != null) {
@@ -1469,12 +1497,12 @@ class _$FilterBrandPickEvent
         fetchSubCategoriesByCategoryId,
     required TResult Function(SaveCategoryFilterVal value)
         saveCategoryFilterVal,
-    required TResult Function(FetchFilteredByPriceProducts value)
-        fetchFilteredByPriceProducts,
     required TResult Function(SavePriceRange value) savePriceRange,
     required TResult Function(FetchProductSortByPrice value)
         fetchProductSortByPrice,
     required TResult Function(ChangeSortListIndex value) changeSortListIndex,
+    required TResult Function(FetchProductsByFilterPricerange value)
+        fetchProductsByFilterPricerange,
   }) {
     return filterBrandPickEvent(this);
   }
@@ -1492,11 +1520,11 @@ class _$FilterBrandPickEvent
     TResult? Function(FetchSubCategoriesByCategoryId value)?
         fetchSubCategoriesByCategoryId,
     TResult? Function(SaveCategoryFilterVal value)? saveCategoryFilterVal,
-    TResult? Function(FetchFilteredByPriceProducts value)?
-        fetchFilteredByPriceProducts,
     TResult? Function(SavePriceRange value)? savePriceRange,
     TResult? Function(FetchProductSortByPrice value)? fetchProductSortByPrice,
     TResult? Function(ChangeSortListIndex value)? changeSortListIndex,
+    TResult? Function(FetchProductsByFilterPricerange value)?
+        fetchProductsByFilterPricerange,
   }) {
     return filterBrandPickEvent?.call(this);
   }
@@ -1514,11 +1542,11 @@ class _$FilterBrandPickEvent
     TResult Function(FetchSubCategoriesByCategoryId value)?
         fetchSubCategoriesByCategoryId,
     TResult Function(SaveCategoryFilterVal value)? saveCategoryFilterVal,
-    TResult Function(FetchFilteredByPriceProducts value)?
-        fetchFilteredByPriceProducts,
     TResult Function(SavePriceRange value)? savePriceRange,
     TResult Function(FetchProductSortByPrice value)? fetchProductSortByPrice,
     TResult Function(ChangeSortListIndex value)? changeSortListIndex,
+    TResult Function(FetchProductsByFilterPricerange value)?
+        fetchProductsByFilterPricerange,
     required TResult orElse(),
   }) {
     if (filterBrandPickEvent != null) {
@@ -1624,14 +1652,16 @@ class _$PriceRangeEvent
     required TResult Function(int index) priceRangeEvent,
     required TResult Function(String categoryId) fetchSubCategoriesByCategoryId,
     required TResult Function(String filterVal) saveCategoryFilterVal,
-    required TResult Function(double minPrice, double maxPrice,
-            String? category, String? subCategory)
-        fetchFilteredByPriceProducts,
     required TResult Function(
-            double minPrice, double maxPrice, RangeValues rangeValues)
+            String minPrice, String maxPrice, RangeValues rangeValues)
         savePriceRange,
-    required TResult Function(String order) fetchProductSortByPrice,
+    required TResult Function(
+            String order, String? category, String? subCategory)
+        fetchProductSortByPrice,
     required TResult Function(int index) changeSortListIndex,
+    required TResult Function(String minPrice, String maxPrice, String category,
+            String subCategory)
+        fetchProductsByFilterPricerange,
   }) {
     return priceRangeEvent(index);
   }
@@ -1649,14 +1679,15 @@ class _$PriceRangeEvent
     TResult? Function(int index)? priceRangeEvent,
     TResult? Function(String categoryId)? fetchSubCategoriesByCategoryId,
     TResult? Function(String filterVal)? saveCategoryFilterVal,
-    TResult? Function(double minPrice, double maxPrice, String? category,
-            String? subCategory)?
-        fetchFilteredByPriceProducts,
     TResult? Function(
-            double minPrice, double maxPrice, RangeValues rangeValues)?
+            String minPrice, String maxPrice, RangeValues rangeValues)?
         savePriceRange,
-    TResult? Function(String order)? fetchProductSortByPrice,
+    TResult? Function(String order, String? category, String? subCategory)?
+        fetchProductSortByPrice,
     TResult? Function(int index)? changeSortListIndex,
+    TResult? Function(String minPrice, String maxPrice, String category,
+            String subCategory)?
+        fetchProductsByFilterPricerange,
   }) {
     return priceRangeEvent?.call(index);
   }
@@ -1674,13 +1705,14 @@ class _$PriceRangeEvent
     TResult Function(int index)? priceRangeEvent,
     TResult Function(String categoryId)? fetchSubCategoriesByCategoryId,
     TResult Function(String filterVal)? saveCategoryFilterVal,
-    TResult Function(double minPrice, double maxPrice, String? category,
-            String? subCategory)?
-        fetchFilteredByPriceProducts,
-    TResult Function(double minPrice, double maxPrice, RangeValues rangeValues)?
+    TResult Function(String minPrice, String maxPrice, RangeValues rangeValues)?
         savePriceRange,
-    TResult Function(String order)? fetchProductSortByPrice,
+    TResult Function(String order, String? category, String? subCategory)?
+        fetchProductSortByPrice,
     TResult Function(int index)? changeSortListIndex,
+    TResult Function(String minPrice, String maxPrice, String category,
+            String subCategory)?
+        fetchProductsByFilterPricerange,
     required TResult orElse(),
   }) {
     if (priceRangeEvent != null) {
@@ -1703,12 +1735,12 @@ class _$PriceRangeEvent
         fetchSubCategoriesByCategoryId,
     required TResult Function(SaveCategoryFilterVal value)
         saveCategoryFilterVal,
-    required TResult Function(FetchFilteredByPriceProducts value)
-        fetchFilteredByPriceProducts,
     required TResult Function(SavePriceRange value) savePriceRange,
     required TResult Function(FetchProductSortByPrice value)
         fetchProductSortByPrice,
     required TResult Function(ChangeSortListIndex value) changeSortListIndex,
+    required TResult Function(FetchProductsByFilterPricerange value)
+        fetchProductsByFilterPricerange,
   }) {
     return priceRangeEvent(this);
   }
@@ -1726,11 +1758,11 @@ class _$PriceRangeEvent
     TResult? Function(FetchSubCategoriesByCategoryId value)?
         fetchSubCategoriesByCategoryId,
     TResult? Function(SaveCategoryFilterVal value)? saveCategoryFilterVal,
-    TResult? Function(FetchFilteredByPriceProducts value)?
-        fetchFilteredByPriceProducts,
     TResult? Function(SavePriceRange value)? savePriceRange,
     TResult? Function(FetchProductSortByPrice value)? fetchProductSortByPrice,
     TResult? Function(ChangeSortListIndex value)? changeSortListIndex,
+    TResult? Function(FetchProductsByFilterPricerange value)?
+        fetchProductsByFilterPricerange,
   }) {
     return priceRangeEvent?.call(this);
   }
@@ -1748,11 +1780,11 @@ class _$PriceRangeEvent
     TResult Function(FetchSubCategoriesByCategoryId value)?
         fetchSubCategoriesByCategoryId,
     TResult Function(SaveCategoryFilterVal value)? saveCategoryFilterVal,
-    TResult Function(FetchFilteredByPriceProducts value)?
-        fetchFilteredByPriceProducts,
     TResult Function(SavePriceRange value)? savePriceRange,
     TResult Function(FetchProductSortByPrice value)? fetchProductSortByPrice,
     TResult Function(ChangeSortListIndex value)? changeSortListIndex,
+    TResult Function(FetchProductsByFilterPricerange value)?
+        fetchProductsByFilterPricerange,
     required TResult orElse(),
   }) {
     if (priceRangeEvent != null) {
@@ -1862,14 +1894,16 @@ class _$FetchSubCategoriesByCategoryId
     required TResult Function(int index) priceRangeEvent,
     required TResult Function(String categoryId) fetchSubCategoriesByCategoryId,
     required TResult Function(String filterVal) saveCategoryFilterVal,
-    required TResult Function(double minPrice, double maxPrice,
-            String? category, String? subCategory)
-        fetchFilteredByPriceProducts,
     required TResult Function(
-            double minPrice, double maxPrice, RangeValues rangeValues)
+            String minPrice, String maxPrice, RangeValues rangeValues)
         savePriceRange,
-    required TResult Function(String order) fetchProductSortByPrice,
+    required TResult Function(
+            String order, String? category, String? subCategory)
+        fetchProductSortByPrice,
     required TResult Function(int index) changeSortListIndex,
+    required TResult Function(String minPrice, String maxPrice, String category,
+            String subCategory)
+        fetchProductsByFilterPricerange,
   }) {
     return fetchSubCategoriesByCategoryId(categoryId);
   }
@@ -1887,14 +1921,15 @@ class _$FetchSubCategoriesByCategoryId
     TResult? Function(int index)? priceRangeEvent,
     TResult? Function(String categoryId)? fetchSubCategoriesByCategoryId,
     TResult? Function(String filterVal)? saveCategoryFilterVal,
-    TResult? Function(double minPrice, double maxPrice, String? category,
-            String? subCategory)?
-        fetchFilteredByPriceProducts,
     TResult? Function(
-            double minPrice, double maxPrice, RangeValues rangeValues)?
+            String minPrice, String maxPrice, RangeValues rangeValues)?
         savePriceRange,
-    TResult? Function(String order)? fetchProductSortByPrice,
+    TResult? Function(String order, String? category, String? subCategory)?
+        fetchProductSortByPrice,
     TResult? Function(int index)? changeSortListIndex,
+    TResult? Function(String minPrice, String maxPrice, String category,
+            String subCategory)?
+        fetchProductsByFilterPricerange,
   }) {
     return fetchSubCategoriesByCategoryId?.call(categoryId);
   }
@@ -1912,13 +1947,14 @@ class _$FetchSubCategoriesByCategoryId
     TResult Function(int index)? priceRangeEvent,
     TResult Function(String categoryId)? fetchSubCategoriesByCategoryId,
     TResult Function(String filterVal)? saveCategoryFilterVal,
-    TResult Function(double minPrice, double maxPrice, String? category,
-            String? subCategory)?
-        fetchFilteredByPriceProducts,
-    TResult Function(double minPrice, double maxPrice, RangeValues rangeValues)?
+    TResult Function(String minPrice, String maxPrice, RangeValues rangeValues)?
         savePriceRange,
-    TResult Function(String order)? fetchProductSortByPrice,
+    TResult Function(String order, String? category, String? subCategory)?
+        fetchProductSortByPrice,
     TResult Function(int index)? changeSortListIndex,
+    TResult Function(String minPrice, String maxPrice, String category,
+            String subCategory)?
+        fetchProductsByFilterPricerange,
     required TResult orElse(),
   }) {
     if (fetchSubCategoriesByCategoryId != null) {
@@ -1941,12 +1977,12 @@ class _$FetchSubCategoriesByCategoryId
         fetchSubCategoriesByCategoryId,
     required TResult Function(SaveCategoryFilterVal value)
         saveCategoryFilterVal,
-    required TResult Function(FetchFilteredByPriceProducts value)
-        fetchFilteredByPriceProducts,
     required TResult Function(SavePriceRange value) savePriceRange,
     required TResult Function(FetchProductSortByPrice value)
         fetchProductSortByPrice,
     required TResult Function(ChangeSortListIndex value) changeSortListIndex,
+    required TResult Function(FetchProductsByFilterPricerange value)
+        fetchProductsByFilterPricerange,
   }) {
     return fetchSubCategoriesByCategoryId(this);
   }
@@ -1964,11 +2000,11 @@ class _$FetchSubCategoriesByCategoryId
     TResult? Function(FetchSubCategoriesByCategoryId value)?
         fetchSubCategoriesByCategoryId,
     TResult? Function(SaveCategoryFilterVal value)? saveCategoryFilterVal,
-    TResult? Function(FetchFilteredByPriceProducts value)?
-        fetchFilteredByPriceProducts,
     TResult? Function(SavePriceRange value)? savePriceRange,
     TResult? Function(FetchProductSortByPrice value)? fetchProductSortByPrice,
     TResult? Function(ChangeSortListIndex value)? changeSortListIndex,
+    TResult? Function(FetchProductsByFilterPricerange value)?
+        fetchProductsByFilterPricerange,
   }) {
     return fetchSubCategoriesByCategoryId?.call(this);
   }
@@ -1986,11 +2022,11 @@ class _$FetchSubCategoriesByCategoryId
     TResult Function(FetchSubCategoriesByCategoryId value)?
         fetchSubCategoriesByCategoryId,
     TResult Function(SaveCategoryFilterVal value)? saveCategoryFilterVal,
-    TResult Function(FetchFilteredByPriceProducts value)?
-        fetchFilteredByPriceProducts,
     TResult Function(SavePriceRange value)? savePriceRange,
     TResult Function(FetchProductSortByPrice value)? fetchProductSortByPrice,
     TResult Function(ChangeSortListIndex value)? changeSortListIndex,
+    TResult Function(FetchProductsByFilterPricerange value)?
+        fetchProductsByFilterPricerange,
     required TResult orElse(),
   }) {
     if (fetchSubCategoriesByCategoryId != null) {
@@ -2098,14 +2134,16 @@ class _$SaveCategoryFilterVal
     required TResult Function(int index) priceRangeEvent,
     required TResult Function(String categoryId) fetchSubCategoriesByCategoryId,
     required TResult Function(String filterVal) saveCategoryFilterVal,
-    required TResult Function(double minPrice, double maxPrice,
-            String? category, String? subCategory)
-        fetchFilteredByPriceProducts,
     required TResult Function(
-            double minPrice, double maxPrice, RangeValues rangeValues)
+            String minPrice, String maxPrice, RangeValues rangeValues)
         savePriceRange,
-    required TResult Function(String order) fetchProductSortByPrice,
+    required TResult Function(
+            String order, String? category, String? subCategory)
+        fetchProductSortByPrice,
     required TResult Function(int index) changeSortListIndex,
+    required TResult Function(String minPrice, String maxPrice, String category,
+            String subCategory)
+        fetchProductsByFilterPricerange,
   }) {
     return saveCategoryFilterVal(filterVal);
   }
@@ -2123,14 +2161,15 @@ class _$SaveCategoryFilterVal
     TResult? Function(int index)? priceRangeEvent,
     TResult? Function(String categoryId)? fetchSubCategoriesByCategoryId,
     TResult? Function(String filterVal)? saveCategoryFilterVal,
-    TResult? Function(double minPrice, double maxPrice, String? category,
-            String? subCategory)?
-        fetchFilteredByPriceProducts,
     TResult? Function(
-            double minPrice, double maxPrice, RangeValues rangeValues)?
+            String minPrice, String maxPrice, RangeValues rangeValues)?
         savePriceRange,
-    TResult? Function(String order)? fetchProductSortByPrice,
+    TResult? Function(String order, String? category, String? subCategory)?
+        fetchProductSortByPrice,
     TResult? Function(int index)? changeSortListIndex,
+    TResult? Function(String minPrice, String maxPrice, String category,
+            String subCategory)?
+        fetchProductsByFilterPricerange,
   }) {
     return saveCategoryFilterVal?.call(filterVal);
   }
@@ -2148,13 +2187,14 @@ class _$SaveCategoryFilterVal
     TResult Function(int index)? priceRangeEvent,
     TResult Function(String categoryId)? fetchSubCategoriesByCategoryId,
     TResult Function(String filterVal)? saveCategoryFilterVal,
-    TResult Function(double minPrice, double maxPrice, String? category,
-            String? subCategory)?
-        fetchFilteredByPriceProducts,
-    TResult Function(double minPrice, double maxPrice, RangeValues rangeValues)?
+    TResult Function(String minPrice, String maxPrice, RangeValues rangeValues)?
         savePriceRange,
-    TResult Function(String order)? fetchProductSortByPrice,
+    TResult Function(String order, String? category, String? subCategory)?
+        fetchProductSortByPrice,
     TResult Function(int index)? changeSortListIndex,
+    TResult Function(String minPrice, String maxPrice, String category,
+            String subCategory)?
+        fetchProductsByFilterPricerange,
     required TResult orElse(),
   }) {
     if (saveCategoryFilterVal != null) {
@@ -2177,12 +2217,12 @@ class _$SaveCategoryFilterVal
         fetchSubCategoriesByCategoryId,
     required TResult Function(SaveCategoryFilterVal value)
         saveCategoryFilterVal,
-    required TResult Function(FetchFilteredByPriceProducts value)
-        fetchFilteredByPriceProducts,
     required TResult Function(SavePriceRange value) savePriceRange,
     required TResult Function(FetchProductSortByPrice value)
         fetchProductSortByPrice,
     required TResult Function(ChangeSortListIndex value) changeSortListIndex,
+    required TResult Function(FetchProductsByFilterPricerange value)
+        fetchProductsByFilterPricerange,
   }) {
     return saveCategoryFilterVal(this);
   }
@@ -2200,11 +2240,11 @@ class _$SaveCategoryFilterVal
     TResult? Function(FetchSubCategoriesByCategoryId value)?
         fetchSubCategoriesByCategoryId,
     TResult? Function(SaveCategoryFilterVal value)? saveCategoryFilterVal,
-    TResult? Function(FetchFilteredByPriceProducts value)?
-        fetchFilteredByPriceProducts,
     TResult? Function(SavePriceRange value)? savePriceRange,
     TResult? Function(FetchProductSortByPrice value)? fetchProductSortByPrice,
     TResult? Function(ChangeSortListIndex value)? changeSortListIndex,
+    TResult? Function(FetchProductsByFilterPricerange value)?
+        fetchProductsByFilterPricerange,
   }) {
     return saveCategoryFilterVal?.call(this);
   }
@@ -2222,11 +2262,11 @@ class _$SaveCategoryFilterVal
     TResult Function(FetchSubCategoriesByCategoryId value)?
         fetchSubCategoriesByCategoryId,
     TResult Function(SaveCategoryFilterVal value)? saveCategoryFilterVal,
-    TResult Function(FetchFilteredByPriceProducts value)?
-        fetchFilteredByPriceProducts,
     TResult Function(SavePriceRange value)? savePriceRange,
     TResult Function(FetchProductSortByPrice value)? fetchProductSortByPrice,
     TResult Function(ChangeSortListIndex value)? changeSortListIndex,
+    TResult Function(FetchProductsByFilterPricerange value)?
+        fetchProductsByFilterPricerange,
     required TResult orElse(),
   }) {
     if (saveCategoryFilterVal != null) {
@@ -2247,299 +2287,12 @@ abstract class SaveCategoryFilterVal implements CategoryEvent {
 }
 
 /// @nodoc
-abstract class _$$FetchFilteredByPriceProductsCopyWith<$Res> {
-  factory _$$FetchFilteredByPriceProductsCopyWith(
-          _$FetchFilteredByPriceProducts value,
-          $Res Function(_$FetchFilteredByPriceProducts) then) =
-      __$$FetchFilteredByPriceProductsCopyWithImpl<$Res>;
-  @useResult
-  $Res call(
-      {double minPrice,
-      double maxPrice,
-      String? category,
-      String? subCategory});
-}
-
-/// @nodoc
-class __$$FetchFilteredByPriceProductsCopyWithImpl<$Res>
-    extends _$CategoryEventCopyWithImpl<$Res, _$FetchFilteredByPriceProducts>
-    implements _$$FetchFilteredByPriceProductsCopyWith<$Res> {
-  __$$FetchFilteredByPriceProductsCopyWithImpl(
-      _$FetchFilteredByPriceProducts _value,
-      $Res Function(_$FetchFilteredByPriceProducts) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? minPrice = null,
-    Object? maxPrice = null,
-    Object? category = freezed,
-    Object? subCategory = freezed,
-  }) {
-    return _then(_$FetchFilteredByPriceProducts(
-      minPrice: null == minPrice
-          ? _value.minPrice
-          : minPrice // ignore: cast_nullable_to_non_nullable
-              as double,
-      maxPrice: null == maxPrice
-          ? _value.maxPrice
-          : maxPrice // ignore: cast_nullable_to_non_nullable
-              as double,
-      category: freezed == category
-          ? _value.category
-          : category // ignore: cast_nullable_to_non_nullable
-              as String?,
-      subCategory: freezed == subCategory
-          ? _value.subCategory
-          : subCategory // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$FetchFilteredByPriceProducts
-    with DiagnosticableTreeMixin
-    implements FetchFilteredByPriceProducts {
-  const _$FetchFilteredByPriceProducts(
-      {required this.minPrice,
-      required this.maxPrice,
-      required this.category,
-      required this.subCategory});
-
-  @override
-  final double minPrice;
-  @override
-  final double maxPrice;
-  @override
-  final String? category;
-  @override
-  final String? subCategory;
-
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'CategoryEvent.fetchFilteredByPriceProducts(minPrice: $minPrice, maxPrice: $maxPrice, category: $category, subCategory: $subCategory)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty(
-          'type', 'CategoryEvent.fetchFilteredByPriceProducts'))
-      ..add(DiagnosticsProperty('minPrice', minPrice))
-      ..add(DiagnosticsProperty('maxPrice', maxPrice))
-      ..add(DiagnosticsProperty('category', category))
-      ..add(DiagnosticsProperty('subCategory', subCategory));
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$FetchFilteredByPriceProducts &&
-            (identical(other.minPrice, minPrice) ||
-                other.minPrice == minPrice) &&
-            (identical(other.maxPrice, maxPrice) ||
-                other.maxPrice == maxPrice) &&
-            (identical(other.category, category) ||
-                other.category == category) &&
-            (identical(other.subCategory, subCategory) ||
-                other.subCategory == subCategory));
-  }
-
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, minPrice, maxPrice, category, subCategory);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$FetchFilteredByPriceProductsCopyWith<_$FetchFilteredByPriceProducts>
-      get copyWith => __$$FetchFilteredByPriceProductsCopyWithImpl<
-          _$FetchFilteredByPriceProducts>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(
-            String? category, String? subCategory, String? itemId)
-        fetchFilterProducts,
-    required TResult Function() fetchCategories,
-    required TResult Function() fetchSubcategories,
-    required TResult Function(String value) onSelectFilter,
-    required TResult Function(String? category, String? subCategory)
-        filterEvent,
-    required TResult Function(String brand) filterBrandPickEvent,
-    required TResult Function(int index) priceRangeEvent,
-    required TResult Function(String categoryId) fetchSubCategoriesByCategoryId,
-    required TResult Function(String filterVal) saveCategoryFilterVal,
-    required TResult Function(double minPrice, double maxPrice,
-            String? category, String? subCategory)
-        fetchFilteredByPriceProducts,
-    required TResult Function(
-            double minPrice, double maxPrice, RangeValues rangeValues)
-        savePriceRange,
-    required TResult Function(String order) fetchProductSortByPrice,
-    required TResult Function(int index) changeSortListIndex,
-  }) {
-    return fetchFilteredByPriceProducts(
-        minPrice, maxPrice, category, subCategory);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String? category, String? subCategory, String? itemId)?
-        fetchFilterProducts,
-    TResult? Function()? fetchCategories,
-    TResult? Function()? fetchSubcategories,
-    TResult? Function(String value)? onSelectFilter,
-    TResult? Function(String? category, String? subCategory)? filterEvent,
-    TResult? Function(String brand)? filterBrandPickEvent,
-    TResult? Function(int index)? priceRangeEvent,
-    TResult? Function(String categoryId)? fetchSubCategoriesByCategoryId,
-    TResult? Function(String filterVal)? saveCategoryFilterVal,
-    TResult? Function(double minPrice, double maxPrice, String? category,
-            String? subCategory)?
-        fetchFilteredByPriceProducts,
-    TResult? Function(
-            double minPrice, double maxPrice, RangeValues rangeValues)?
-        savePriceRange,
-    TResult? Function(String order)? fetchProductSortByPrice,
-    TResult? Function(int index)? changeSortListIndex,
-  }) {
-    return fetchFilteredByPriceProducts?.call(
-        minPrice, maxPrice, category, subCategory);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String? category, String? subCategory, String? itemId)?
-        fetchFilterProducts,
-    TResult Function()? fetchCategories,
-    TResult Function()? fetchSubcategories,
-    TResult Function(String value)? onSelectFilter,
-    TResult Function(String? category, String? subCategory)? filterEvent,
-    TResult Function(String brand)? filterBrandPickEvent,
-    TResult Function(int index)? priceRangeEvent,
-    TResult Function(String categoryId)? fetchSubCategoriesByCategoryId,
-    TResult Function(String filterVal)? saveCategoryFilterVal,
-    TResult Function(double minPrice, double maxPrice, String? category,
-            String? subCategory)?
-        fetchFilteredByPriceProducts,
-    TResult Function(double minPrice, double maxPrice, RangeValues rangeValues)?
-        savePriceRange,
-    TResult Function(String order)? fetchProductSortByPrice,
-    TResult Function(int index)? changeSortListIndex,
-    required TResult orElse(),
-  }) {
-    if (fetchFilteredByPriceProducts != null) {
-      return fetchFilteredByPriceProducts(
-          minPrice, maxPrice, category, subCategory);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(FetchFilterProducts value) fetchFilterProducts,
-    required TResult Function(FetchCategories value) fetchCategories,
-    required TResult Function(FetchSubcategories value) fetchSubcategories,
-    required TResult Function(OnSelectFilter value) onSelectFilter,
-    required TResult Function(FilterEvent value) filterEvent,
-    required TResult Function(FilterBrandPickEvent value) filterBrandPickEvent,
-    required TResult Function(PriceRangeEvent value) priceRangeEvent,
-    required TResult Function(FetchSubCategoriesByCategoryId value)
-        fetchSubCategoriesByCategoryId,
-    required TResult Function(SaveCategoryFilterVal value)
-        saveCategoryFilterVal,
-    required TResult Function(FetchFilteredByPriceProducts value)
-        fetchFilteredByPriceProducts,
-    required TResult Function(SavePriceRange value) savePriceRange,
-    required TResult Function(FetchProductSortByPrice value)
-        fetchProductSortByPrice,
-    required TResult Function(ChangeSortListIndex value) changeSortListIndex,
-  }) {
-    return fetchFilteredByPriceProducts(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(FetchFilterProducts value)? fetchFilterProducts,
-    TResult? Function(FetchCategories value)? fetchCategories,
-    TResult? Function(FetchSubcategories value)? fetchSubcategories,
-    TResult? Function(OnSelectFilter value)? onSelectFilter,
-    TResult? Function(FilterEvent value)? filterEvent,
-    TResult? Function(FilterBrandPickEvent value)? filterBrandPickEvent,
-    TResult? Function(PriceRangeEvent value)? priceRangeEvent,
-    TResult? Function(FetchSubCategoriesByCategoryId value)?
-        fetchSubCategoriesByCategoryId,
-    TResult? Function(SaveCategoryFilterVal value)? saveCategoryFilterVal,
-    TResult? Function(FetchFilteredByPriceProducts value)?
-        fetchFilteredByPriceProducts,
-    TResult? Function(SavePriceRange value)? savePriceRange,
-    TResult? Function(FetchProductSortByPrice value)? fetchProductSortByPrice,
-    TResult? Function(ChangeSortListIndex value)? changeSortListIndex,
-  }) {
-    return fetchFilteredByPriceProducts?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(FetchFilterProducts value)? fetchFilterProducts,
-    TResult Function(FetchCategories value)? fetchCategories,
-    TResult Function(FetchSubcategories value)? fetchSubcategories,
-    TResult Function(OnSelectFilter value)? onSelectFilter,
-    TResult Function(FilterEvent value)? filterEvent,
-    TResult Function(FilterBrandPickEvent value)? filterBrandPickEvent,
-    TResult Function(PriceRangeEvent value)? priceRangeEvent,
-    TResult Function(FetchSubCategoriesByCategoryId value)?
-        fetchSubCategoriesByCategoryId,
-    TResult Function(SaveCategoryFilterVal value)? saveCategoryFilterVal,
-    TResult Function(FetchFilteredByPriceProducts value)?
-        fetchFilteredByPriceProducts,
-    TResult Function(SavePriceRange value)? savePriceRange,
-    TResult Function(FetchProductSortByPrice value)? fetchProductSortByPrice,
-    TResult Function(ChangeSortListIndex value)? changeSortListIndex,
-    required TResult orElse(),
-  }) {
-    if (fetchFilteredByPriceProducts != null) {
-      return fetchFilteredByPriceProducts(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class FetchFilteredByPriceProducts implements CategoryEvent {
-  const factory FetchFilteredByPriceProducts(
-      {required final double minPrice,
-      required final double maxPrice,
-      required final String? category,
-      required final String? subCategory}) = _$FetchFilteredByPriceProducts;
-
-  double get minPrice;
-  double get maxPrice;
-  String? get category;
-  String? get subCategory;
-  @JsonKey(ignore: true)
-  _$$FetchFilteredByPriceProductsCopyWith<_$FetchFilteredByPriceProducts>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
 abstract class _$$SavePriceRangeCopyWith<$Res> {
   factory _$$SavePriceRangeCopyWith(
           _$SavePriceRange value, $Res Function(_$SavePriceRange) then) =
       __$$SavePriceRangeCopyWithImpl<$Res>;
   @useResult
-  $Res call({double minPrice, double maxPrice, RangeValues rangeValues});
+  $Res call({String minPrice, String maxPrice, RangeValues rangeValues});
 }
 
 /// @nodoc
@@ -2561,11 +2314,11 @@ class __$$SavePriceRangeCopyWithImpl<$Res>
       minPrice: null == minPrice
           ? _value.minPrice
           : minPrice // ignore: cast_nullable_to_non_nullable
-              as double,
+              as String,
       maxPrice: null == maxPrice
           ? _value.maxPrice
           : maxPrice // ignore: cast_nullable_to_non_nullable
-              as double,
+              as String,
       rangeValues: null == rangeValues
           ? _value.rangeValues
           : rangeValues // ignore: cast_nullable_to_non_nullable
@@ -2583,9 +2336,9 @@ class _$SavePriceRange with DiagnosticableTreeMixin implements SavePriceRange {
       required this.rangeValues});
 
   @override
-  final double minPrice;
+  final String minPrice;
   @override
-  final double maxPrice;
+  final String maxPrice;
   @override
   final RangeValues rangeValues;
 
@@ -2641,14 +2394,16 @@ class _$SavePriceRange with DiagnosticableTreeMixin implements SavePriceRange {
     required TResult Function(int index) priceRangeEvent,
     required TResult Function(String categoryId) fetchSubCategoriesByCategoryId,
     required TResult Function(String filterVal) saveCategoryFilterVal,
-    required TResult Function(double minPrice, double maxPrice,
-            String? category, String? subCategory)
-        fetchFilteredByPriceProducts,
     required TResult Function(
-            double minPrice, double maxPrice, RangeValues rangeValues)
+            String minPrice, String maxPrice, RangeValues rangeValues)
         savePriceRange,
-    required TResult Function(String order) fetchProductSortByPrice,
+    required TResult Function(
+            String order, String? category, String? subCategory)
+        fetchProductSortByPrice,
     required TResult Function(int index) changeSortListIndex,
+    required TResult Function(String minPrice, String maxPrice, String category,
+            String subCategory)
+        fetchProductsByFilterPricerange,
   }) {
     return savePriceRange(minPrice, maxPrice, rangeValues);
   }
@@ -2666,14 +2421,15 @@ class _$SavePriceRange with DiagnosticableTreeMixin implements SavePriceRange {
     TResult? Function(int index)? priceRangeEvent,
     TResult? Function(String categoryId)? fetchSubCategoriesByCategoryId,
     TResult? Function(String filterVal)? saveCategoryFilterVal,
-    TResult? Function(double minPrice, double maxPrice, String? category,
-            String? subCategory)?
-        fetchFilteredByPriceProducts,
     TResult? Function(
-            double minPrice, double maxPrice, RangeValues rangeValues)?
+            String minPrice, String maxPrice, RangeValues rangeValues)?
         savePriceRange,
-    TResult? Function(String order)? fetchProductSortByPrice,
+    TResult? Function(String order, String? category, String? subCategory)?
+        fetchProductSortByPrice,
     TResult? Function(int index)? changeSortListIndex,
+    TResult? Function(String minPrice, String maxPrice, String category,
+            String subCategory)?
+        fetchProductsByFilterPricerange,
   }) {
     return savePriceRange?.call(minPrice, maxPrice, rangeValues);
   }
@@ -2691,13 +2447,14 @@ class _$SavePriceRange with DiagnosticableTreeMixin implements SavePriceRange {
     TResult Function(int index)? priceRangeEvent,
     TResult Function(String categoryId)? fetchSubCategoriesByCategoryId,
     TResult Function(String filterVal)? saveCategoryFilterVal,
-    TResult Function(double minPrice, double maxPrice, String? category,
-            String? subCategory)?
-        fetchFilteredByPriceProducts,
-    TResult Function(double minPrice, double maxPrice, RangeValues rangeValues)?
+    TResult Function(String minPrice, String maxPrice, RangeValues rangeValues)?
         savePriceRange,
-    TResult Function(String order)? fetchProductSortByPrice,
+    TResult Function(String order, String? category, String? subCategory)?
+        fetchProductSortByPrice,
     TResult Function(int index)? changeSortListIndex,
+    TResult Function(String minPrice, String maxPrice, String category,
+            String subCategory)?
+        fetchProductsByFilterPricerange,
     required TResult orElse(),
   }) {
     if (savePriceRange != null) {
@@ -2720,12 +2477,12 @@ class _$SavePriceRange with DiagnosticableTreeMixin implements SavePriceRange {
         fetchSubCategoriesByCategoryId,
     required TResult Function(SaveCategoryFilterVal value)
         saveCategoryFilterVal,
-    required TResult Function(FetchFilteredByPriceProducts value)
-        fetchFilteredByPriceProducts,
     required TResult Function(SavePriceRange value) savePriceRange,
     required TResult Function(FetchProductSortByPrice value)
         fetchProductSortByPrice,
     required TResult Function(ChangeSortListIndex value) changeSortListIndex,
+    required TResult Function(FetchProductsByFilterPricerange value)
+        fetchProductsByFilterPricerange,
   }) {
     return savePriceRange(this);
   }
@@ -2743,11 +2500,11 @@ class _$SavePriceRange with DiagnosticableTreeMixin implements SavePriceRange {
     TResult? Function(FetchSubCategoriesByCategoryId value)?
         fetchSubCategoriesByCategoryId,
     TResult? Function(SaveCategoryFilterVal value)? saveCategoryFilterVal,
-    TResult? Function(FetchFilteredByPriceProducts value)?
-        fetchFilteredByPriceProducts,
     TResult? Function(SavePriceRange value)? savePriceRange,
     TResult? Function(FetchProductSortByPrice value)? fetchProductSortByPrice,
     TResult? Function(ChangeSortListIndex value)? changeSortListIndex,
+    TResult? Function(FetchProductsByFilterPricerange value)?
+        fetchProductsByFilterPricerange,
   }) {
     return savePriceRange?.call(this);
   }
@@ -2765,11 +2522,11 @@ class _$SavePriceRange with DiagnosticableTreeMixin implements SavePriceRange {
     TResult Function(FetchSubCategoriesByCategoryId value)?
         fetchSubCategoriesByCategoryId,
     TResult Function(SaveCategoryFilterVal value)? saveCategoryFilterVal,
-    TResult Function(FetchFilteredByPriceProducts value)?
-        fetchFilteredByPriceProducts,
     TResult Function(SavePriceRange value)? savePriceRange,
     TResult Function(FetchProductSortByPrice value)? fetchProductSortByPrice,
     TResult Function(ChangeSortListIndex value)? changeSortListIndex,
+    TResult Function(FetchProductsByFilterPricerange value)?
+        fetchProductsByFilterPricerange,
     required TResult orElse(),
   }) {
     if (savePriceRange != null) {
@@ -2781,12 +2538,12 @@ class _$SavePriceRange with DiagnosticableTreeMixin implements SavePriceRange {
 
 abstract class SavePriceRange implements CategoryEvent {
   const factory SavePriceRange(
-      {required final double minPrice,
-      required final double maxPrice,
+      {required final String minPrice,
+      required final String maxPrice,
       required final RangeValues rangeValues}) = _$SavePriceRange;
 
-  double get minPrice;
-  double get maxPrice;
+  String get minPrice;
+  String get maxPrice;
   RangeValues get rangeValues;
   @JsonKey(ignore: true)
   _$$SavePriceRangeCopyWith<_$SavePriceRange> get copyWith =>
@@ -2799,7 +2556,7 @@ abstract class _$$FetchProductSortByPriceCopyWith<$Res> {
           $Res Function(_$FetchProductSortByPrice) then) =
       __$$FetchProductSortByPriceCopyWithImpl<$Res>;
   @useResult
-  $Res call({String order});
+  $Res call({String order, String? category, String? subCategory});
 }
 
 /// @nodoc
@@ -2814,12 +2571,22 @@ class __$$FetchProductSortByPriceCopyWithImpl<$Res>
   @override
   $Res call({
     Object? order = null,
+    Object? category = freezed,
+    Object? subCategory = freezed,
   }) {
     return _then(_$FetchProductSortByPrice(
       order: null == order
           ? _value.order
           : order // ignore: cast_nullable_to_non_nullable
               as String,
+      category: freezed == category
+          ? _value.category
+          : category // ignore: cast_nullable_to_non_nullable
+              as String?,
+      subCategory: freezed == subCategory
+          ? _value.subCategory
+          : subCategory // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -2829,14 +2596,19 @@ class __$$FetchProductSortByPriceCopyWithImpl<$Res>
 class _$FetchProductSortByPrice
     with DiagnosticableTreeMixin
     implements FetchProductSortByPrice {
-  const _$FetchProductSortByPrice({required this.order});
+  const _$FetchProductSortByPrice(
+      {required this.order, required this.category, required this.subCategory});
 
   @override
   final String order;
+  @override
+  final String? category;
+  @override
+  final String? subCategory;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'CategoryEvent.fetchProductSortByPrice(order: $order)';
+    return 'CategoryEvent.fetchProductSortByPrice(order: $order, category: $category, subCategory: $subCategory)';
   }
 
   @override
@@ -2845,7 +2617,9 @@ class _$FetchProductSortByPrice
     properties
       ..add(
           DiagnosticsProperty('type', 'CategoryEvent.fetchProductSortByPrice'))
-      ..add(DiagnosticsProperty('order', order));
+      ..add(DiagnosticsProperty('order', order))
+      ..add(DiagnosticsProperty('category', category))
+      ..add(DiagnosticsProperty('subCategory', subCategory));
   }
 
   @override
@@ -2853,11 +2627,15 @@ class _$FetchProductSortByPrice
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FetchProductSortByPrice &&
-            (identical(other.order, order) || other.order == order));
+            (identical(other.order, order) || other.order == order) &&
+            (identical(other.category, category) ||
+                other.category == category) &&
+            (identical(other.subCategory, subCategory) ||
+                other.subCategory == subCategory));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, order);
+  int get hashCode => Object.hash(runtimeType, order, category, subCategory);
 
   @JsonKey(ignore: true)
   @override
@@ -2881,16 +2659,18 @@ class _$FetchProductSortByPrice
     required TResult Function(int index) priceRangeEvent,
     required TResult Function(String categoryId) fetchSubCategoriesByCategoryId,
     required TResult Function(String filterVal) saveCategoryFilterVal,
-    required TResult Function(double minPrice, double maxPrice,
-            String? category, String? subCategory)
-        fetchFilteredByPriceProducts,
     required TResult Function(
-            double minPrice, double maxPrice, RangeValues rangeValues)
+            String minPrice, String maxPrice, RangeValues rangeValues)
         savePriceRange,
-    required TResult Function(String order) fetchProductSortByPrice,
+    required TResult Function(
+            String order, String? category, String? subCategory)
+        fetchProductSortByPrice,
     required TResult Function(int index) changeSortListIndex,
+    required TResult Function(String minPrice, String maxPrice, String category,
+            String subCategory)
+        fetchProductsByFilterPricerange,
   }) {
-    return fetchProductSortByPrice(order);
+    return fetchProductSortByPrice(order, category, subCategory);
   }
 
   @override
@@ -2906,16 +2686,17 @@ class _$FetchProductSortByPrice
     TResult? Function(int index)? priceRangeEvent,
     TResult? Function(String categoryId)? fetchSubCategoriesByCategoryId,
     TResult? Function(String filterVal)? saveCategoryFilterVal,
-    TResult? Function(double minPrice, double maxPrice, String? category,
-            String? subCategory)?
-        fetchFilteredByPriceProducts,
     TResult? Function(
-            double minPrice, double maxPrice, RangeValues rangeValues)?
+            String minPrice, String maxPrice, RangeValues rangeValues)?
         savePriceRange,
-    TResult? Function(String order)? fetchProductSortByPrice,
+    TResult? Function(String order, String? category, String? subCategory)?
+        fetchProductSortByPrice,
     TResult? Function(int index)? changeSortListIndex,
+    TResult? Function(String minPrice, String maxPrice, String category,
+            String subCategory)?
+        fetchProductsByFilterPricerange,
   }) {
-    return fetchProductSortByPrice?.call(order);
+    return fetchProductSortByPrice?.call(order, category, subCategory);
   }
 
   @override
@@ -2931,17 +2712,18 @@ class _$FetchProductSortByPrice
     TResult Function(int index)? priceRangeEvent,
     TResult Function(String categoryId)? fetchSubCategoriesByCategoryId,
     TResult Function(String filterVal)? saveCategoryFilterVal,
-    TResult Function(double minPrice, double maxPrice, String? category,
-            String? subCategory)?
-        fetchFilteredByPriceProducts,
-    TResult Function(double minPrice, double maxPrice, RangeValues rangeValues)?
+    TResult Function(String minPrice, String maxPrice, RangeValues rangeValues)?
         savePriceRange,
-    TResult Function(String order)? fetchProductSortByPrice,
+    TResult Function(String order, String? category, String? subCategory)?
+        fetchProductSortByPrice,
     TResult Function(int index)? changeSortListIndex,
+    TResult Function(String minPrice, String maxPrice, String category,
+            String subCategory)?
+        fetchProductsByFilterPricerange,
     required TResult orElse(),
   }) {
     if (fetchProductSortByPrice != null) {
-      return fetchProductSortByPrice(order);
+      return fetchProductSortByPrice(order, category, subCategory);
     }
     return orElse();
   }
@@ -2960,12 +2742,12 @@ class _$FetchProductSortByPrice
         fetchSubCategoriesByCategoryId,
     required TResult Function(SaveCategoryFilterVal value)
         saveCategoryFilterVal,
-    required TResult Function(FetchFilteredByPriceProducts value)
-        fetchFilteredByPriceProducts,
     required TResult Function(SavePriceRange value) savePriceRange,
     required TResult Function(FetchProductSortByPrice value)
         fetchProductSortByPrice,
     required TResult Function(ChangeSortListIndex value) changeSortListIndex,
+    required TResult Function(FetchProductsByFilterPricerange value)
+        fetchProductsByFilterPricerange,
   }) {
     return fetchProductSortByPrice(this);
   }
@@ -2983,11 +2765,11 @@ class _$FetchProductSortByPrice
     TResult? Function(FetchSubCategoriesByCategoryId value)?
         fetchSubCategoriesByCategoryId,
     TResult? Function(SaveCategoryFilterVal value)? saveCategoryFilterVal,
-    TResult? Function(FetchFilteredByPriceProducts value)?
-        fetchFilteredByPriceProducts,
     TResult? Function(SavePriceRange value)? savePriceRange,
     TResult? Function(FetchProductSortByPrice value)? fetchProductSortByPrice,
     TResult? Function(ChangeSortListIndex value)? changeSortListIndex,
+    TResult? Function(FetchProductsByFilterPricerange value)?
+        fetchProductsByFilterPricerange,
   }) {
     return fetchProductSortByPrice?.call(this);
   }
@@ -3005,11 +2787,11 @@ class _$FetchProductSortByPrice
     TResult Function(FetchSubCategoriesByCategoryId value)?
         fetchSubCategoriesByCategoryId,
     TResult Function(SaveCategoryFilterVal value)? saveCategoryFilterVal,
-    TResult Function(FetchFilteredByPriceProducts value)?
-        fetchFilteredByPriceProducts,
     TResult Function(SavePriceRange value)? savePriceRange,
     TResult Function(FetchProductSortByPrice value)? fetchProductSortByPrice,
     TResult Function(ChangeSortListIndex value)? changeSortListIndex,
+    TResult Function(FetchProductsByFilterPricerange value)?
+        fetchProductsByFilterPricerange,
     required TResult orElse(),
   }) {
     if (fetchProductSortByPrice != null) {
@@ -3020,10 +2802,14 @@ class _$FetchProductSortByPrice
 }
 
 abstract class FetchProductSortByPrice implements CategoryEvent {
-  const factory FetchProductSortByPrice({required final String order}) =
-      _$FetchProductSortByPrice;
+  const factory FetchProductSortByPrice(
+      {required final String order,
+      required final String? category,
+      required final String? subCategory}) = _$FetchProductSortByPrice;
 
   String get order;
+  String? get category;
+  String? get subCategory;
   @JsonKey(ignore: true)
   _$$FetchProductSortByPriceCopyWith<_$FetchProductSortByPrice> get copyWith =>
       throw _privateConstructorUsedError;
@@ -3116,14 +2902,16 @@ class _$ChangeSortListIndex
     required TResult Function(int index) priceRangeEvent,
     required TResult Function(String categoryId) fetchSubCategoriesByCategoryId,
     required TResult Function(String filterVal) saveCategoryFilterVal,
-    required TResult Function(double minPrice, double maxPrice,
-            String? category, String? subCategory)
-        fetchFilteredByPriceProducts,
     required TResult Function(
-            double minPrice, double maxPrice, RangeValues rangeValues)
+            String minPrice, String maxPrice, RangeValues rangeValues)
         savePriceRange,
-    required TResult Function(String order) fetchProductSortByPrice,
+    required TResult Function(
+            String order, String? category, String? subCategory)
+        fetchProductSortByPrice,
     required TResult Function(int index) changeSortListIndex,
+    required TResult Function(String minPrice, String maxPrice, String category,
+            String subCategory)
+        fetchProductsByFilterPricerange,
   }) {
     return changeSortListIndex(index);
   }
@@ -3141,14 +2929,15 @@ class _$ChangeSortListIndex
     TResult? Function(int index)? priceRangeEvent,
     TResult? Function(String categoryId)? fetchSubCategoriesByCategoryId,
     TResult? Function(String filterVal)? saveCategoryFilterVal,
-    TResult? Function(double minPrice, double maxPrice, String? category,
-            String? subCategory)?
-        fetchFilteredByPriceProducts,
     TResult? Function(
-            double minPrice, double maxPrice, RangeValues rangeValues)?
+            String minPrice, String maxPrice, RangeValues rangeValues)?
         savePriceRange,
-    TResult? Function(String order)? fetchProductSortByPrice,
+    TResult? Function(String order, String? category, String? subCategory)?
+        fetchProductSortByPrice,
     TResult? Function(int index)? changeSortListIndex,
+    TResult? Function(String minPrice, String maxPrice, String category,
+            String subCategory)?
+        fetchProductsByFilterPricerange,
   }) {
     return changeSortListIndex?.call(index);
   }
@@ -3166,13 +2955,14 @@ class _$ChangeSortListIndex
     TResult Function(int index)? priceRangeEvent,
     TResult Function(String categoryId)? fetchSubCategoriesByCategoryId,
     TResult Function(String filterVal)? saveCategoryFilterVal,
-    TResult Function(double minPrice, double maxPrice, String? category,
-            String? subCategory)?
-        fetchFilteredByPriceProducts,
-    TResult Function(double minPrice, double maxPrice, RangeValues rangeValues)?
+    TResult Function(String minPrice, String maxPrice, RangeValues rangeValues)?
         savePriceRange,
-    TResult Function(String order)? fetchProductSortByPrice,
+    TResult Function(String order, String? category, String? subCategory)?
+        fetchProductSortByPrice,
     TResult Function(int index)? changeSortListIndex,
+    TResult Function(String minPrice, String maxPrice, String category,
+            String subCategory)?
+        fetchProductsByFilterPricerange,
     required TResult orElse(),
   }) {
     if (changeSortListIndex != null) {
@@ -3195,12 +2985,12 @@ class _$ChangeSortListIndex
         fetchSubCategoriesByCategoryId,
     required TResult Function(SaveCategoryFilterVal value)
         saveCategoryFilterVal,
-    required TResult Function(FetchFilteredByPriceProducts value)
-        fetchFilteredByPriceProducts,
     required TResult Function(SavePriceRange value) savePriceRange,
     required TResult Function(FetchProductSortByPrice value)
         fetchProductSortByPrice,
     required TResult Function(ChangeSortListIndex value) changeSortListIndex,
+    required TResult Function(FetchProductsByFilterPricerange value)
+        fetchProductsByFilterPricerange,
   }) {
     return changeSortListIndex(this);
   }
@@ -3218,11 +3008,11 @@ class _$ChangeSortListIndex
     TResult? Function(FetchSubCategoriesByCategoryId value)?
         fetchSubCategoriesByCategoryId,
     TResult? Function(SaveCategoryFilterVal value)? saveCategoryFilterVal,
-    TResult? Function(FetchFilteredByPriceProducts value)?
-        fetchFilteredByPriceProducts,
     TResult? Function(SavePriceRange value)? savePriceRange,
     TResult? Function(FetchProductSortByPrice value)? fetchProductSortByPrice,
     TResult? Function(ChangeSortListIndex value)? changeSortListIndex,
+    TResult? Function(FetchProductsByFilterPricerange value)?
+        fetchProductsByFilterPricerange,
   }) {
     return changeSortListIndex?.call(this);
   }
@@ -3240,11 +3030,11 @@ class _$ChangeSortListIndex
     TResult Function(FetchSubCategoriesByCategoryId value)?
         fetchSubCategoriesByCategoryId,
     TResult Function(SaveCategoryFilterVal value)? saveCategoryFilterVal,
-    TResult Function(FetchFilteredByPriceProducts value)?
-        fetchFilteredByPriceProducts,
     TResult Function(SavePriceRange value)? savePriceRange,
     TResult Function(FetchProductSortByPrice value)? fetchProductSortByPrice,
     TResult Function(ChangeSortListIndex value)? changeSortListIndex,
+    TResult Function(FetchProductsByFilterPricerange value)?
+        fetchProductsByFilterPricerange,
     required TResult orElse(),
   }) {
     if (changeSortListIndex != null) {
@@ -3265,6 +3055,294 @@ abstract class ChangeSortListIndex implements CategoryEvent {
 }
 
 /// @nodoc
+abstract class _$$FetchProductsByFilterPricerangeCopyWith<$Res> {
+  factory _$$FetchProductsByFilterPricerangeCopyWith(
+          _$FetchProductsByFilterPricerange value,
+          $Res Function(_$FetchProductsByFilterPricerange) then) =
+      __$$FetchProductsByFilterPricerangeCopyWithImpl<$Res>;
+  @useResult
+  $Res call(
+      {String minPrice, String maxPrice, String category, String subCategory});
+}
+
+/// @nodoc
+class __$$FetchProductsByFilterPricerangeCopyWithImpl<$Res>
+    extends _$CategoryEventCopyWithImpl<$Res, _$FetchProductsByFilterPricerange>
+    implements _$$FetchProductsByFilterPricerangeCopyWith<$Res> {
+  __$$FetchProductsByFilterPricerangeCopyWithImpl(
+      _$FetchProductsByFilterPricerange _value,
+      $Res Function(_$FetchProductsByFilterPricerange) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? minPrice = null,
+    Object? maxPrice = null,
+    Object? category = null,
+    Object? subCategory = null,
+  }) {
+    return _then(_$FetchProductsByFilterPricerange(
+      minPrice: null == minPrice
+          ? _value.minPrice
+          : minPrice // ignore: cast_nullable_to_non_nullable
+              as String,
+      maxPrice: null == maxPrice
+          ? _value.maxPrice
+          : maxPrice // ignore: cast_nullable_to_non_nullable
+              as String,
+      category: null == category
+          ? _value.category
+          : category // ignore: cast_nullable_to_non_nullable
+              as String,
+      subCategory: null == subCategory
+          ? _value.subCategory
+          : subCategory // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$FetchProductsByFilterPricerange
+    with DiagnosticableTreeMixin
+    implements FetchProductsByFilterPricerange {
+  const _$FetchProductsByFilterPricerange(
+      {required this.minPrice,
+      required this.maxPrice,
+      required this.category,
+      required this.subCategory});
+
+  @override
+  final String minPrice;
+  @override
+  final String maxPrice;
+  @override
+  final String category;
+  @override
+  final String subCategory;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'CategoryEvent.fetchProductsByFilterPricerange(minPrice: $minPrice, maxPrice: $maxPrice, category: $category, subCategory: $subCategory)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty(
+          'type', 'CategoryEvent.fetchProductsByFilterPricerange'))
+      ..add(DiagnosticsProperty('minPrice', minPrice))
+      ..add(DiagnosticsProperty('maxPrice', maxPrice))
+      ..add(DiagnosticsProperty('category', category))
+      ..add(DiagnosticsProperty('subCategory', subCategory));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$FetchProductsByFilterPricerange &&
+            (identical(other.minPrice, minPrice) ||
+                other.minPrice == minPrice) &&
+            (identical(other.maxPrice, maxPrice) ||
+                other.maxPrice == maxPrice) &&
+            (identical(other.category, category) ||
+                other.category == category) &&
+            (identical(other.subCategory, subCategory) ||
+                other.subCategory == subCategory));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, minPrice, maxPrice, category, subCategory);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$FetchProductsByFilterPricerangeCopyWith<_$FetchProductsByFilterPricerange>
+      get copyWith => __$$FetchProductsByFilterPricerangeCopyWithImpl<
+          _$FetchProductsByFilterPricerange>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            String? category, String? subCategory, String? itemId)
+        fetchFilterProducts,
+    required TResult Function() fetchCategories,
+    required TResult Function() fetchSubcategories,
+    required TResult Function(String value) onSelectFilter,
+    required TResult Function(String? category, String? subCategory)
+        filterEvent,
+    required TResult Function(String brand) filterBrandPickEvent,
+    required TResult Function(int index) priceRangeEvent,
+    required TResult Function(String categoryId) fetchSubCategoriesByCategoryId,
+    required TResult Function(String filterVal) saveCategoryFilterVal,
+    required TResult Function(
+            String minPrice, String maxPrice, RangeValues rangeValues)
+        savePriceRange,
+    required TResult Function(
+            String order, String? category, String? subCategory)
+        fetchProductSortByPrice,
+    required TResult Function(int index) changeSortListIndex,
+    required TResult Function(String minPrice, String maxPrice, String category,
+            String subCategory)
+        fetchProductsByFilterPricerange,
+  }) {
+    return fetchProductsByFilterPricerange(
+        minPrice, maxPrice, category, subCategory);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String? category, String? subCategory, String? itemId)?
+        fetchFilterProducts,
+    TResult? Function()? fetchCategories,
+    TResult? Function()? fetchSubcategories,
+    TResult? Function(String value)? onSelectFilter,
+    TResult? Function(String? category, String? subCategory)? filterEvent,
+    TResult? Function(String brand)? filterBrandPickEvent,
+    TResult? Function(int index)? priceRangeEvent,
+    TResult? Function(String categoryId)? fetchSubCategoriesByCategoryId,
+    TResult? Function(String filterVal)? saveCategoryFilterVal,
+    TResult? Function(
+            String minPrice, String maxPrice, RangeValues rangeValues)?
+        savePriceRange,
+    TResult? Function(String order, String? category, String? subCategory)?
+        fetchProductSortByPrice,
+    TResult? Function(int index)? changeSortListIndex,
+    TResult? Function(String minPrice, String maxPrice, String category,
+            String subCategory)?
+        fetchProductsByFilterPricerange,
+  }) {
+    return fetchProductsByFilterPricerange?.call(
+        minPrice, maxPrice, category, subCategory);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String? category, String? subCategory, String? itemId)?
+        fetchFilterProducts,
+    TResult Function()? fetchCategories,
+    TResult Function()? fetchSubcategories,
+    TResult Function(String value)? onSelectFilter,
+    TResult Function(String? category, String? subCategory)? filterEvent,
+    TResult Function(String brand)? filterBrandPickEvent,
+    TResult Function(int index)? priceRangeEvent,
+    TResult Function(String categoryId)? fetchSubCategoriesByCategoryId,
+    TResult Function(String filterVal)? saveCategoryFilterVal,
+    TResult Function(String minPrice, String maxPrice, RangeValues rangeValues)?
+        savePriceRange,
+    TResult Function(String order, String? category, String? subCategory)?
+        fetchProductSortByPrice,
+    TResult Function(int index)? changeSortListIndex,
+    TResult Function(String minPrice, String maxPrice, String category,
+            String subCategory)?
+        fetchProductsByFilterPricerange,
+    required TResult orElse(),
+  }) {
+    if (fetchProductsByFilterPricerange != null) {
+      return fetchProductsByFilterPricerange(
+          minPrice, maxPrice, category, subCategory);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FetchFilterProducts value) fetchFilterProducts,
+    required TResult Function(FetchCategories value) fetchCategories,
+    required TResult Function(FetchSubcategories value) fetchSubcategories,
+    required TResult Function(OnSelectFilter value) onSelectFilter,
+    required TResult Function(FilterEvent value) filterEvent,
+    required TResult Function(FilterBrandPickEvent value) filterBrandPickEvent,
+    required TResult Function(PriceRangeEvent value) priceRangeEvent,
+    required TResult Function(FetchSubCategoriesByCategoryId value)
+        fetchSubCategoriesByCategoryId,
+    required TResult Function(SaveCategoryFilterVal value)
+        saveCategoryFilterVal,
+    required TResult Function(SavePriceRange value) savePriceRange,
+    required TResult Function(FetchProductSortByPrice value)
+        fetchProductSortByPrice,
+    required TResult Function(ChangeSortListIndex value) changeSortListIndex,
+    required TResult Function(FetchProductsByFilterPricerange value)
+        fetchProductsByFilterPricerange,
+  }) {
+    return fetchProductsByFilterPricerange(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(FetchFilterProducts value)? fetchFilterProducts,
+    TResult? Function(FetchCategories value)? fetchCategories,
+    TResult? Function(FetchSubcategories value)? fetchSubcategories,
+    TResult? Function(OnSelectFilter value)? onSelectFilter,
+    TResult? Function(FilterEvent value)? filterEvent,
+    TResult? Function(FilterBrandPickEvent value)? filterBrandPickEvent,
+    TResult? Function(PriceRangeEvent value)? priceRangeEvent,
+    TResult? Function(FetchSubCategoriesByCategoryId value)?
+        fetchSubCategoriesByCategoryId,
+    TResult? Function(SaveCategoryFilterVal value)? saveCategoryFilterVal,
+    TResult? Function(SavePriceRange value)? savePriceRange,
+    TResult? Function(FetchProductSortByPrice value)? fetchProductSortByPrice,
+    TResult? Function(ChangeSortListIndex value)? changeSortListIndex,
+    TResult? Function(FetchProductsByFilterPricerange value)?
+        fetchProductsByFilterPricerange,
+  }) {
+    return fetchProductsByFilterPricerange?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FetchFilterProducts value)? fetchFilterProducts,
+    TResult Function(FetchCategories value)? fetchCategories,
+    TResult Function(FetchSubcategories value)? fetchSubcategories,
+    TResult Function(OnSelectFilter value)? onSelectFilter,
+    TResult Function(FilterEvent value)? filterEvent,
+    TResult Function(FilterBrandPickEvent value)? filterBrandPickEvent,
+    TResult Function(PriceRangeEvent value)? priceRangeEvent,
+    TResult Function(FetchSubCategoriesByCategoryId value)?
+        fetchSubCategoriesByCategoryId,
+    TResult Function(SaveCategoryFilterVal value)? saveCategoryFilterVal,
+    TResult Function(SavePriceRange value)? savePriceRange,
+    TResult Function(FetchProductSortByPrice value)? fetchProductSortByPrice,
+    TResult Function(ChangeSortListIndex value)? changeSortListIndex,
+    TResult Function(FetchProductsByFilterPricerange value)?
+        fetchProductsByFilterPricerange,
+    required TResult orElse(),
+  }) {
+    if (fetchProductsByFilterPricerange != null) {
+      return fetchProductsByFilterPricerange(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class FetchProductsByFilterPricerange implements CategoryEvent {
+  const factory FetchProductsByFilterPricerange(
+      {required final String minPrice,
+      required final String maxPrice,
+      required final String category,
+      required final String subCategory}) = _$FetchProductsByFilterPricerange;
+
+  String get minPrice;
+  String get maxPrice;
+  String get category;
+  String get subCategory;
+  @JsonKey(ignore: true)
+  _$$FetchProductsByFilterPricerangeCopyWith<_$FetchProductsByFilterPricerange>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$CategoryState {
   ProductModel? get product => throw _privateConstructorUsedError;
   bool get productLoading => throw _privateConstructorUsedError;
@@ -3281,8 +3359,8 @@ mixin _$CategoryState {
   SubcategoryByCategoryIdModel? get subcategoryByCategoryIdModel =>
       throw _privateConstructorUsedError;
   String get filterVal => throw _privateConstructorUsedError;
-  double get minPrice => throw _privateConstructorUsedError;
-  double get maxPrice => throw _privateConstructorUsedError;
+  String get minPrice => throw _privateConstructorUsedError;
+  String get maxPrice => throw _privateConstructorUsedError;
   int get sortListIndex => throw _privateConstructorUsedError;
   RangeValues get rangeValues => throw _privateConstructorUsedError;
 
@@ -3312,8 +3390,8 @@ abstract class $CategoryStateCopyWith<$Res> {
       int? priceRangeIndex,
       SubcategoryByCategoryIdModel? subcategoryByCategoryIdModel,
       String filterVal,
-      double minPrice,
-      double maxPrice,
+      String minPrice,
+      String maxPrice,
       int sortListIndex,
       RangeValues rangeValues});
 
@@ -3415,11 +3493,11 @@ class _$CategoryStateCopyWithImpl<$Res, $Val extends CategoryState>
       minPrice: null == minPrice
           ? _value.minPrice
           : minPrice // ignore: cast_nullable_to_non_nullable
-              as double,
+              as String,
       maxPrice: null == maxPrice
           ? _value.maxPrice
           : maxPrice // ignore: cast_nullable_to_non_nullable
-              as double,
+              as String,
       sortListIndex: null == sortListIndex
           ? _value.sortListIndex
           : sortListIndex // ignore: cast_nullable_to_non_nullable
@@ -3506,8 +3584,8 @@ abstract class _$$_CategoryStateCopyWith<$Res>
       int? priceRangeIndex,
       SubcategoryByCategoryIdModel? subcategoryByCategoryIdModel,
       String filterVal,
-      double minPrice,
-      double maxPrice,
+      String minPrice,
+      String maxPrice,
       int sortListIndex,
       RangeValues rangeValues});
 
@@ -3611,11 +3689,11 @@ class __$$_CategoryStateCopyWithImpl<$Res>
       minPrice: null == minPrice
           ? _value.minPrice
           : minPrice // ignore: cast_nullable_to_non_nullable
-              as double,
+              as String,
       maxPrice: null == maxPrice
           ? _value.maxPrice
           : maxPrice // ignore: cast_nullable_to_non_nullable
-              as double,
+              as String,
       sortListIndex: null == sortListIndex
           ? _value.sortListIndex
           : sortListIndex // ignore: cast_nullable_to_non_nullable
@@ -3680,9 +3758,9 @@ class _$_CategoryState with DiagnosticableTreeMixin implements _CategoryState {
   @override
   final String filterVal;
   @override
-  final double minPrice;
+  final String minPrice;
   @override
-  final double maxPrice;
+  final String maxPrice;
   @override
   final int sortListIndex;
   @override
@@ -3808,8 +3886,8 @@ abstract class _CategoryState implements CategoryState {
       required final int? priceRangeIndex,
       required final SubcategoryByCategoryIdModel? subcategoryByCategoryIdModel,
       required final String filterVal,
-      required final double minPrice,
-      required final double maxPrice,
+      required final String minPrice,
+      required final String maxPrice,
       required final int sortListIndex,
       required final RangeValues rangeValues}) = _$_CategoryState;
 
@@ -3842,9 +3920,9 @@ abstract class _CategoryState implements CategoryState {
   @override
   String get filterVal;
   @override
-  double get minPrice;
+  String get minPrice;
   @override
-  double get maxPrice;
+  String get maxPrice;
   @override
   int get sortListIndex;
   @override

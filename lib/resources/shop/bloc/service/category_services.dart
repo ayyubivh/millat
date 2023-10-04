@@ -100,12 +100,41 @@ class CategoryService extends HttpServices {
       throw Exception(
           'API request failed with status code: ${response.statusCode}');
     }
-  } //fetch product sort by
+  }
+  //fetch product sort by
 
-  Future<ProductModel> fetchProductSortByPrice({
-    required String order,
-  }) async {
-    final endpoint = "product/filter?sortby=price&order=$order";
+  Future<ProductModel> fetchProductSortByPrice(
+      {required String order,
+      required String category,
+      required String subCategory}) async {
+    final endpoint =
+        "product/filter?sortby=price&order=$order&cate=$category&subcate=$subCategory";
+    final response = await get(endPoint: endpoint);
+
+    if (response.statusCode == 200) {
+      try {
+        final Map<String, dynamic> data = json.decode(response.body);
+        final result = ProductModel.fromJson(data);
+        print(result);
+        return result;
+      } catch (e) {
+        print('error on Category API fetch: ${e.toString()}');
+        throw Exception('Failed to parse response');
+      }
+    } else {
+      throw Exception(
+          'API request failed with status code: ${response.statusCode}');
+    }
+  }
+  //fetch products by filter price range
+
+  Future<ProductModel> fetchProductsByFilterPriceRange(
+      {required String minPrice,
+      required String maxPrice,
+      required String category,
+      required String subCategory}) async {
+    final endpoint =
+        "product/filter?priceRange=$minPrice-$maxPrice&cate=$category&subcate=$subCategory";
     final response = await get(endPoint: endpoint);
 
     if (response.statusCode == 200) {

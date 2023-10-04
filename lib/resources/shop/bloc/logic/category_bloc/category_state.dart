@@ -17,8 +17,8 @@ class CategoryState with _$CategoryState {
       required int? priceRangeIndex,
       required SubcategoryByCategoryIdModel? subcategoryByCategoryIdModel,
       required String filterVal,
-      required double minPrice,
-      required double maxPrice,
+      required String minPrice,
+      required String maxPrice,
       required int sortListIndex,
       required RangeValues rangeValues}) = _CategoryState;
   factory CategoryState.initial() => const CategoryState(
@@ -36,8 +36,8 @@ class CategoryState with _$CategoryState {
       priceRangeIndex: null,
       subcategoryByCategoryIdModel: null,
       filterVal: "",
-      maxPrice: 0.0,
-      minPrice: 0.0,
+      maxPrice: "5000",
+      minPrice: "1",
       sortListIndex: 0,
       rangeValues: RangeValues(1, 5000));
 }

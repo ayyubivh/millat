@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/components/buttons/main_button.dart';
 import 'package:millat/components/shimmers/shimmers_widget_products.dart';
 import 'package:millat/enums/enumertations.dart';
-import 'package:millat/resources/shop/bloc/models/products/products_model.dart';
 import 'package:millat/resources/shop/view/products/single_product_view.dart';
 import 'package:millat/resources/shop/view/search/search_view.dart';
 import 'package:millat/utils/assets_paths.dart';
@@ -207,7 +206,8 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
                             : SizedBox(
                                 height: SizeUtility(context).height,
                                 child: GridView.builder(
-                                  physics: const BouncingScrollPhysics(),
+                                  // shrinkWrap: true,
+                                  // physics: const NeverScrollableScrollPhysics(),
                                   gridDelegate:
                                       const SliverGridDelegateWithFixedCrossAxisCount(
                                     crossAxisCount: 2,
@@ -363,8 +363,8 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
                                 print(newRange);
                                 context.read<CategoryBloc>().add(SavePriceRange(
                                     rangeValues: newRange,
-                                    minPrice: newRange.start,
-                                    maxPrice: newRange.end));
+                                    minPrice: newRange.start.toInt().toString(),
+                                    maxPrice: newRange.end.toInt().toString()));
                               },
                             ),
                           ),
@@ -375,14 +375,14 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
-                                "₹${state.minPrice.toInt()}",
+                                "₹${state.minPrice}",
                                 style: TextStyle(
                                   fontSize: 14,
                                   fontWeight: FontWeight.w600,
                                   color: ColorManager.textGrey,
                                 ),
                               ),
-                              Text("₹${state.maxPrice.toInt()}",
+                              Text("₹${state.maxPrice}",
                                   style: TextStyle(
                                     fontSize: 14,
                                     fontWeight: FontWeight.w600,
@@ -478,20 +478,32 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
                         const Divider(),
                         kHeight25,
                         BlocBuilder<CategoryBloc, CategoryState>(
-                          builder: (context, state) => MainButton(
-                            title: Appstrings.apply,
-                            onPressed: () {
-                              context.read<CategoryBloc>().add(
-                                  FetchFilteredByPriceProducts(
-                                      minPrice: state.minPrice,
-                                      maxPrice: state.maxPrice,
-                                      category: widget.category,
-                                      subCategory: state.filterVal == ""
-                                          ? widget.subCategory
-                                          : state.filterVal));
-                              Navigator.of(context).pop();
-                            },
-                          ),
+                          builder: (context, state) {
+                            print(
+                                "min price ${state.minPrice} max price${state.maxPrice}");
+                            return MainButton(
+                              title: Appstrings.apply,
+                              onPressed: () {
+                                // context.read<CategoryBloc>().add(
+                                //     FetchFilteredByPriceProducts(
+                                //         minPrice: state.minPrice.toInt(),
+                                //         maxPrice: state.maxPrice.toInt(),
+                                //         category: widget.category,
+                                //         subCategory: state.filterVal == ""
+                                //             ? widget.subCategory
+                                //             : state.filterVal));
+                                context.read<CategoryBloc>().add(
+                                    FetchProductsByFilterPricerange(
+                                        maxPrice: state.maxPrice.toString(),
+                                        minPrice: state.minPrice.toString(),
+                                        category: widget.category ?? "",
+                                        subCategory: state.filterVal == ""
+                                            ? widget.subCategory ?? ""
+                                            : state.filterVal));
+                                Navigator.of(context).pop();
+                              },
+                            );
+                          },
                         )
                       ],
                     ),
@@ -612,12 +624,20 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
                           onPressed: () {
                             state.sortListIndex == 3
                                 ? context.read<CategoryBloc>().add(
-                                    const FetchProductSortByPrice(
-                                        order: "asec"))
+                                    FetchProductSortByPrice(
+                                        order: "asec",
+                                        category: widget.category,
+                                        subCategory: state.filterVal == ""
+                                            ? widget.subCategory
+                                            : state.filterVal))
                                 : state.sortListIndex == 4
                                     ? context.read<CategoryBloc>().add(
-                                        const FetchProductSortByPrice(
-                                            order: "desc"))
+                                        FetchProductSortByPrice(
+                                            order: "desc",
+                                            category: widget.category,
+                                            subCategory: state.filterVal == ""
+                                                ? widget.subCategory
+                                                : state.filterVal))
                                     : null;
                             Navigator.of(context).pop();
                           },

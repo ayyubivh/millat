@@ -303,7 +303,6 @@ class _RewardsSingleShopViewState extends State<RewardsSingleShopView> {
             },
             child: Container(
               color: ColorManager.primary,
-              margin: const EdgeInsets.symmetric(horizontal: 20),
               height: 60,
               width: SizeUtility(context).width,
               child: Row(

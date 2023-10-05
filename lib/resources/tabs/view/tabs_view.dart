@@ -23,7 +23,7 @@ class _TabsViewState extends State<TabsView> {
   List screens = [
     const HomeView(),
     const ShopTabsView(),
-    const RewardsHomeView(),
+    // const RewardsHomeView(),
     const UserProfileView(),
   ];
   DateTime? currentBackPressTime;

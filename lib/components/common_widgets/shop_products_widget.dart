@@ -161,8 +161,6 @@ class ShopProductWidget extends StatelessWidget {
                   if (!isProductInCart) {
                     return GestureDetector(
                       onTap: () {
-                        print(
-                            "$productId\n$discountPrice\n$brandId \n$color \n $size");
                         context.read<CartBloc>().add(AddCartEvent(
                               productId: productId ?? "",
                               basePrice: discountPrice,
@@ -173,6 +171,7 @@ class ShopProductWidget extends StatelessWidget {
                               brandId: brandId ?? "",
                             ));
                         showSnackBar(context, "Product Added To Cart!");
+                        context.read<CartBloc>().add(FetchCartEvent(context));
                       },
                       child: Container(
                         height: 20,
@@ -198,6 +197,7 @@ class ShopProductWidget extends StatelessWidget {
                               productId: productId.toString(),
                             ));
                         showSnackBar(context, "Product Removed From Cart!");
+                        context.read<CartBloc>().add(FetchCartEvent(context));
                       },
                       child: Container(
                         height: 20,

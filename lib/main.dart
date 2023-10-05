@@ -78,9 +78,8 @@ void main() async {
       BlocProvider(create: (context) => HadithBloc()),
       BlocProvider(create: (context) => HomeBloc()),
       BlocProvider(create: (context) => TermsAndCondtionsBloc()),
-      BlocProvider(
-        create: (context) => RewardsBloc(),
-      )
+      BlocProvider(create: (context) => RewardsBloc()),
+      BlocProvider(create: (context) => ReviewBloc())
     ],
     child: MyApp(),
   ));

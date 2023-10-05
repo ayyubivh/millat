@@ -97,7 +97,6 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                kHeight25,
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -105,101 +104,9 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
                     sortByWidget(),
                   ],
                 ),
-                // BlocBuilder<ShopProductsBloc, ShopProductsState>(
-                //   builder: (context, state) {
-                //     if (state.shopBanner == null) {
-                //       return const SizedBox();
-                //     }
-
-                //     final banners = state.shopBanner?.result?.banners;
-                //     return Column(
-                //       children: [
-                //         CarouselSlider(
-                //           items: banners?.map((banner) {
-                //             return ClipRRect(
-                //               borderRadius: BorderRadius.circular(20),
-                //               child: Image.network(
-                //                 banner.image,
-                //                 fit: BoxFit.contain,
-                //               ),
-                //             );
-                //           }).toList(),
-                //           options: CarouselOptions(
-                //             height: 150,
-                //             viewportFraction: 1,
-                //             enlargeCenterPage: true,
-                //             autoPlay: true,
-                //             autoPlayCurve: Curves.fastOutSlowIn,
-                //             enableInfiniteScroll: true,
-                //             enlargeFactor: 0.3,
-                //             scrollDirection: Axis.horizontal,
-                //             autoPlayAnimationDuration:
-                //                 const Duration(milliseconds: 800),
-                //             onPageChanged: (index, reason) {
-                //               setState(() {
-                //                 _currentIndex = index;
-                //               });
-                //             },
-                //           ),
-                //         ),
-                //         const SizedBox(height: 10),
-                //         Row(
-                //           mainAxisAlignment: MainAxisAlignment.center,
-                //           children: banners!.map((banner) {
-                //             int index = banners.indexOf(banner);
-                //             return Container(
-                //               width: _currentIndex == index ? 24 : 6,
-                //               height: 6,
-                //               margin: const EdgeInsets.symmetric(horizontal: 4),
-                //               decoration: BoxDecoration(
-                //                 borderRadius: BorderRadius.circular(30),
-                //                 color: _currentIndex == index
-                //                     ? ColorManager.primary
-                //                     : Colors.grey,
-                //               ),
-                //             );
-                //           }).toList(),
-                //         ),
-                //       ],
-                //     );
-                //   },
-                // ),
-                kHeight30,
+                kHeight10,
                 BlocBuilder<CategoryBloc, CategoryState>(
                   builder: (context, state) {
-                    // List<Product> filteredProducts = [];
-                    // if (widget.type == FilterType.brand) {
-                    //   filteredProducts =
-                    //       state.product!.result!.products!.where((product) {
-                    //     if (state.priceRangeIndex == 0) {
-                    //       return product.salePrice! <= 500;
-                    //     } else if (state.priceRangeIndex == 1) {
-                    //       return product.salePrice! >= 500 &&
-                    //           product.salePrice! <= 1000;
-                    //     } else if (state.priceRangeIndex == 2) {
-                    //       return product.salePrice! >= 1000 &&
-                    //           product.salePrice! <= 1500;
-                    //     } else if (state.priceRangeIndex == 3) {
-                    //       return product.salePrice! > 1500;
-                    //     }
-                    //     return product.subcategory!.title ==
-                    //             widget.subCategory &&
-                    //         product.brand?.name == state.filterBrand;
-                    //   }).toList();
-                    // }
-                    // if (state.product != null &&
-                    //     state.product!.result != null &&
-                    //     widget.type == FilterType.category) {
-                    //   if (state.filterVal.isNotEmpty) {
-                    //     filteredProducts = state.product!.result!.products!
-                    //         .where((product) =>
-                    //             product.subcategory?.title == state.filterVal)
-                    //         .toList();
-                    //   } else {
-                    //     filteredProducts = state.product!.result!.products!;
-                    //   }
-                    // }
-
                     return widget.type == FilterType.category
                         ? state.productLoading
                             ? const ShimmersWidgetProduct()

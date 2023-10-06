@@ -69,6 +69,17 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
             emit(AuthError(res['message']));
           }
         }
+      } else if (event is ResendSendOTP) {
+        final currentState = state as AuthPhoneNumber;
+
+        final res =
+            await _authService.resendOTP(phoneNumber: currentState.phoneNumber);
+        if (res['status'] == true) {
+          debugPrint(res);
+          // emit(AuthLoaded(currentState.phoneNumber));
+        } else {
+          emit(AuthError(res['message']));
+        }
       } else if (event is VerifyOTP) {
         final currentState = state;
         if (currentState is AuthSocialLoginNewUser) {
@@ -101,6 +112,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
             emit(AuthLoaded(currentState.phoneNumber));
           } else {
             emit(AuthError(result['message']));
+            emit(AuthPhoneNumber(phoneNumber: currentState.phoneNumber));
           }
         }
       } else if (event is SocialLogin) {
@@ -110,7 +122,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
           context: event.context,
           email: event.email,
           name: event.name,
-          picture : event.picture ?? "",
+          picture: event.picture ?? "",
           id: event.id ?? "",
         );
         print("result of social login $result");

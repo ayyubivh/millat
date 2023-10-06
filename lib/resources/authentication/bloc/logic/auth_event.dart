@@ -24,6 +24,8 @@ class SendOTP extends AuthEvent {
   SendOTP(this.phoneNumber);
 }
 
+class ResendSendOTP extends AuthEvent {}
+
 class SignInWithPhone extends AuthEvent {
   final String? phoneNumber;
   final BuildContext context;

@@ -19,19 +19,25 @@ mixin _$PaymentEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(double amount) startPayment,
+    required TResult Function(
+            double amount, String description, String email, String phoneNumber)
+        startPayment,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(double amount)? startPayment,
+    TResult? Function(double amount, String description, String email,
+            String phoneNumber)?
+        startPayment,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(double amount)? startPayment,
+    TResult Function(double amount, String description, String email,
+            String phoneNumber)?
+        startPayment,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -113,7 +119,9 @@ class _$PaymentInitial implements PaymentInitial {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(double amount) startPayment,
+    required TResult Function(
+            double amount, String description, String email, String phoneNumber)
+        startPayment,
   }) {
     return initial();
   }
@@ -122,7 +130,9 @@ class _$PaymentInitial implements PaymentInitial {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(double amount)? startPayment,
+    TResult? Function(double amount, String description, String email,
+            String phoneNumber)?
+        startPayment,
   }) {
     return initial?.call();
   }
@@ -131,7 +141,9 @@ class _$PaymentInitial implements PaymentInitial {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(double amount)? startPayment,
+    TResult Function(double amount, String description, String email,
+            String phoneNumber)?
+        startPayment,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -182,7 +194,8 @@ abstract class _$$StartPaymentEventCopyWith<$Res> {
           _$StartPaymentEvent value, $Res Function(_$StartPaymentEvent) then) =
       __$$StartPaymentEventCopyWithImpl<$Res>;
   @useResult
-  $Res call({double amount});
+  $Res call(
+      {double amount, String description, String email, String phoneNumber});
 }
 
 /// @nodoc
@@ -197,12 +210,27 @@ class __$$StartPaymentEventCopyWithImpl<$Res>
   @override
   $Res call({
     Object? amount = null,
+    Object? description = null,
+    Object? email = null,
+    Object? phoneNumber = null,
   }) {
     return _then(_$StartPaymentEvent(
       amount: null == amount
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
               as double,
+      description: null == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
+      phoneNumber: null == phoneNumber
+          ? _value.phoneNumber
+          : phoneNumber // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -210,14 +238,24 @@ class __$$StartPaymentEventCopyWithImpl<$Res>
 /// @nodoc
 
 class _$StartPaymentEvent implements StartPaymentEvent {
-  const _$StartPaymentEvent({required this.amount});
+  const _$StartPaymentEvent(
+      {required this.amount,
+      required this.description,
+      required this.email,
+      required this.phoneNumber});
 
   @override
   final double amount;
+  @override
+  final String description;
+  @override
+  final String email;
+  @override
+  final String phoneNumber;
 
   @override
   String toString() {
-    return 'PaymentEvent.startPayment(amount: $amount)';
+    return 'PaymentEvent.startPayment(amount: $amount, description: $description, email: $email, phoneNumber: $phoneNumber)';
   }
 
   @override
@@ -225,11 +263,17 @@ class _$StartPaymentEvent implements StartPaymentEvent {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$StartPaymentEvent &&
-            (identical(other.amount, amount) || other.amount == amount));
+            (identical(other.amount, amount) || other.amount == amount) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
+            (identical(other.email, email) || other.email == email) &&
+            (identical(other.phoneNumber, phoneNumber) ||
+                other.phoneNumber == phoneNumber));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, amount);
+  int get hashCode =>
+      Object.hash(runtimeType, amount, description, email, phoneNumber);
 
   @JsonKey(ignore: true)
   @override
@@ -241,29 +285,35 @@ class _$StartPaymentEvent implements StartPaymentEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(double amount) startPayment,
+    required TResult Function(
+            double amount, String description, String email, String phoneNumber)
+        startPayment,
   }) {
-    return startPayment(amount);
+    return startPayment(amount, description, email, phoneNumber);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(double amount)? startPayment,
+    TResult? Function(double amount, String description, String email,
+            String phoneNumber)?
+        startPayment,
   }) {
-    return startPayment?.call(amount);
+    return startPayment?.call(amount, description, email, phoneNumber);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(double amount)? startPayment,
+    TResult Function(double amount, String description, String email,
+            String phoneNumber)?
+        startPayment,
     required TResult orElse(),
   }) {
     if (startPayment != null) {
-      return startPayment(amount);
+      return startPayment(amount, description, email, phoneNumber);
     }
     return orElse();
   }
@@ -301,10 +351,16 @@ class _$StartPaymentEvent implements StartPaymentEvent {
 }
 
 abstract class StartPaymentEvent implements PaymentEvent {
-  const factory StartPaymentEvent({required final double amount}) =
-      _$StartPaymentEvent;
+  const factory StartPaymentEvent(
+      {required final double amount,
+      required final String description,
+      required final String email,
+      required final String phoneNumber}) = _$StartPaymentEvent;
 
   double get amount;
+  String get description;
+  String get email;
+  String get phoneNumber;
   @JsonKey(ignore: true)
   _$$StartPaymentEventCopyWith<_$StartPaymentEvent> get copyWith =>
       throw _privateConstructorUsedError;

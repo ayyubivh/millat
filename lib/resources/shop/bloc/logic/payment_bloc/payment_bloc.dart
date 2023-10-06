@@ -45,13 +45,16 @@ class PaymentBloc extends Bloc<PaymentEvent, PaymentState> {
   void _startPayment(StartPaymentEvent event, Emitter<PaymentState> emit) {
     var options = {
       'key': 'rzp_test_JnlcTl0AWceeFY',
-      'amount': 100,
+      'amount': event.amount,
       'name': 'Millat',
-      'description': 'Fine T-Shirt',
+      'description': event.description,
       'retry': {'enabled': true, 'max_count': 1},
       'send_sms_hash': true,
       'timeout': 120,
-      'prefill': {'contact': '8888888888', 'email': 'test@razorpay.com'},
+      'prefill': {
+        'contact': event.phoneNumber,
+        'email': event.email,
+      },
       // 'external': {
       //   'wallets': ['paytm']
       // }

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/components/buttons/main_button.dart';
 import 'package:millat/enums/enumertations.dart';
+import 'package:millat/resources/authentication/bloc/logic/auth_bloc.dart';
+import 'package:millat/resources/authentication/bloc/logic/database_bloc/database_bloc.dart';
 import 'package:millat/resources/rewards/bloc/logic/bloc/rewards_bloc_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/address_bloc/address_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/payment_bloc/payment_bloc.dart';
@@ -539,11 +541,23 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
                               delivery: shippingFee),
                         ));
                       } else {
-                        // context
-                        //     .read<PaymentBloc>()
-                        //     .add(const );
-                        BlocProvider.of<PaymentBloc>(context)
-                            .add(PaymentEvent.startPayment(amount: 100));
+                        final cartItems =
+                            state.cartModel?.result?.cartProducts?.cartItems;
+                        final email = context
+                            .read<DatabaseBloc>()
+                            .state
+                            .authUserModel
+                            ?.result
+                            ?.user
+                            ?.email;
+
+                        BlocProvider.of<PaymentBloc>(context).add(
+                            PaymentEvent.startPayment(
+                                amount: total.toDouble(),
+                                description:
+                                    cartItems![0].productId!.title.toString(),
+                                email: email ?? "",
+                                phoneNumber: ""));
                       }
                     },
                   );

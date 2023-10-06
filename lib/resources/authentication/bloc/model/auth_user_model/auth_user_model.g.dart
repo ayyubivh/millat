@@ -45,6 +45,7 @@ _$_UserProfile _$$_UserProfileFromJson(Map<String, dynamic> json) =>
       updatedAt: json['updatedAt'] as String?,
       picture: json['picture'] as String?,
       profession: json['profession'] as String?,
+      pohneNumber: json['phone_number'] as String?,
       dob: json['DOB'] as String?,
     );
 
@@ -59,5 +60,6 @@ Map<String, dynamic> _$$_UserProfileToJson(_$_UserProfile instance) =>
       'updatedAt': instance.updatedAt,
       'picture': instance.picture,
       'profession': instance.profession,
+      'phone_number': instance.pohneNumber,
       'DOB': instance.dob,
     };

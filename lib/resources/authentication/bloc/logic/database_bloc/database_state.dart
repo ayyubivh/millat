@@ -12,8 +12,10 @@ class DatabaseState with _$DatabaseState {
     required String succesMessage,
     required File? imagebytes,
     required String failedMessage,
+    required String editFailedMessage,
     required List<Contact>? contacts,
     required String coverImage,
+    required String editSuccesMessage,
   }) = _Initial;
   factory DatabaseState.initial() => const DatabaseState(
         token: "",
@@ -27,5 +29,6 @@ class DatabaseState with _$DatabaseState {
         editIsloading: false,
         coverImage: AppAssetsStrings.profileCoverImg,
         contacts: [],
+        editFailedMessage: "", editSuccesMessage: "",
       );
 }

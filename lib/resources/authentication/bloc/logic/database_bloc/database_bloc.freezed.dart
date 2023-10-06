@@ -2215,8 +2215,10 @@ mixin _$DatabaseState {
   String get succesMessage => throw _privateConstructorUsedError;
   File? get imagebytes => throw _privateConstructorUsedError;
   String get failedMessage => throw _privateConstructorUsedError;
+  String get editFailedMessage => throw _privateConstructorUsedError;
   List<Contact>? get contacts => throw _privateConstructorUsedError;
   String get coverImage => throw _privateConstructorUsedError;
+  String get editSuccesMessage => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $DatabaseStateCopyWith<DatabaseState> get copyWith =>
@@ -2237,8 +2239,10 @@ abstract class $DatabaseStateCopyWith<$Res> {
       String succesMessage,
       File? imagebytes,
       String failedMessage,
+      String editFailedMessage,
       List<Contact>? contacts,
-      String coverImage});
+      String coverImage,
+      String editSuccesMessage});
 
   $AuthUserModelCopyWith<$Res>? get authUserModel;
 }
@@ -2263,8 +2267,10 @@ class _$DatabaseStateCopyWithImpl<$Res, $Val extends DatabaseState>
     Object? succesMessage = null,
     Object? imagebytes = freezed,
     Object? failedMessage = null,
+    Object? editFailedMessage = null,
     Object? contacts = freezed,
     Object? coverImage = null,
+    Object? editSuccesMessage = null,
   }) {
     return _then(_value.copyWith(
       token: null == token
@@ -2295,6 +2301,10 @@ class _$DatabaseStateCopyWithImpl<$Res, $Val extends DatabaseState>
           ? _value.failedMessage
           : failedMessage // ignore: cast_nullable_to_non_nullable
               as String,
+      editFailedMessage: null == editFailedMessage
+          ? _value.editFailedMessage
+          : editFailedMessage // ignore: cast_nullable_to_non_nullable
+              as String,
       contacts: freezed == contacts
           ? _value.contacts
           : contacts // ignore: cast_nullable_to_non_nullable
@@ -2302,6 +2312,10 @@ class _$DatabaseStateCopyWithImpl<$Res, $Val extends DatabaseState>
       coverImage: null == coverImage
           ? _value.coverImage
           : coverImage // ignore: cast_nullable_to_non_nullable
+              as String,
+      editSuccesMessage: null == editSuccesMessage
+          ? _value.editSuccesMessage
+          : editSuccesMessage // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
   }
@@ -2335,8 +2349,10 @@ abstract class _$$_InitialCopyWith<$Res>
       String succesMessage,
       File? imagebytes,
       String failedMessage,
+      String editFailedMessage,
       List<Contact>? contacts,
-      String coverImage});
+      String coverImage,
+      String editSuccesMessage});
 
   @override
   $AuthUserModelCopyWith<$Res>? get authUserModel;
@@ -2359,8 +2375,10 @@ class __$$_InitialCopyWithImpl<$Res>
     Object? succesMessage = null,
     Object? imagebytes = freezed,
     Object? failedMessage = null,
+    Object? editFailedMessage = null,
     Object? contacts = freezed,
     Object? coverImage = null,
+    Object? editSuccesMessage = null,
   }) {
     return _then(_$_Initial(
       token: null == token
@@ -2391,6 +2409,10 @@ class __$$_InitialCopyWithImpl<$Res>
           ? _value.failedMessage
           : failedMessage // ignore: cast_nullable_to_non_nullable
               as String,
+      editFailedMessage: null == editFailedMessage
+          ? _value.editFailedMessage
+          : editFailedMessage // ignore: cast_nullable_to_non_nullable
+              as String,
       contacts: freezed == contacts
           ? _value._contacts
           : contacts // ignore: cast_nullable_to_non_nullable
@@ -2398,6 +2420,10 @@ class __$$_InitialCopyWithImpl<$Res>
       coverImage: null == coverImage
           ? _value.coverImage
           : coverImage // ignore: cast_nullable_to_non_nullable
+              as String,
+      editSuccesMessage: null == editSuccesMessage
+          ? _value.editSuccesMessage
+          : editSuccesMessage // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -2414,8 +2440,10 @@ class _$_Initial implements _Initial {
       required this.succesMessage,
       required this.imagebytes,
       required this.failedMessage,
+      required this.editFailedMessage,
       required final List<Contact>? contacts,
-      required this.coverImage})
+      required this.coverImage,
+      required this.editSuccesMessage})
       : _contacts = contacts;
 
   @override
@@ -2434,6 +2462,8 @@ class _$_Initial implements _Initial {
   final File? imagebytes;
   @override
   final String failedMessage;
+  @override
+  final String editFailedMessage;
   final List<Contact>? _contacts;
   @override
   List<Contact>? get contacts {
@@ -2446,10 +2476,12 @@ class _$_Initial implements _Initial {
 
   @override
   final String coverImage;
+  @override
+  final String editSuccesMessage;
 
   @override
   String toString() {
-    return 'DatabaseState(token: $token, authUserModel: $authUserModel, isLoading: $isLoading, editIsloading: $editIsloading, succesMessage: $succesMessage, imagebytes: $imagebytes, failedMessage: $failedMessage, contacts: $contacts, coverImage: $coverImage)';
+    return 'DatabaseState(token: $token, authUserModel: $authUserModel, isLoading: $isLoading, editIsloading: $editIsloading, succesMessage: $succesMessage, imagebytes: $imagebytes, failedMessage: $failedMessage, editFailedMessage: $editFailedMessage, contacts: $contacts, coverImage: $coverImage, editSuccesMessage: $editSuccesMessage)';
   }
 
   @override
@@ -2470,9 +2502,13 @@ class _$_Initial implements _Initial {
                 other.imagebytes == imagebytes) &&
             (identical(other.failedMessage, failedMessage) ||
                 other.failedMessage == failedMessage) &&
+            (identical(other.editFailedMessage, editFailedMessage) ||
+                other.editFailedMessage == editFailedMessage) &&
             const DeepCollectionEquality().equals(other._contacts, _contacts) &&
             (identical(other.coverImage, coverImage) ||
-                other.coverImage == coverImage));
+                other.coverImage == coverImage) &&
+            (identical(other.editSuccesMessage, editSuccesMessage) ||
+                other.editSuccesMessage == editSuccesMessage));
   }
 
   @override
@@ -2485,8 +2521,10 @@ class _$_Initial implements _Initial {
       succesMessage,
       imagebytes,
       failedMessage,
+      editFailedMessage,
       const DeepCollectionEquality().hash(_contacts),
-      coverImage);
+      coverImage,
+      editSuccesMessage);
 
   @JsonKey(ignore: true)
   @override
@@ -2504,8 +2542,10 @@ abstract class _Initial implements DatabaseState {
       required final String succesMessage,
       required final File? imagebytes,
       required final String failedMessage,
+      required final String editFailedMessage,
       required final List<Contact>? contacts,
-      required final String coverImage}) = _$_Initial;
+      required final String coverImage,
+      required final String editSuccesMessage}) = _$_Initial;
 
   @override
   String get token;
@@ -2523,9 +2563,13 @@ abstract class _Initial implements DatabaseState {
   @override
   String get failedMessage;
   @override
+  String get editFailedMessage;
+  @override
   List<Contact>? get contacts;
   @override
   String get coverImage;
+  @override
+  String get editSuccesMessage;
   @override
   @JsonKey(ignore: true)
   _$$_InitialCopyWith<_$_Initial> get copyWith =>

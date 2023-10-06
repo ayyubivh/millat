@@ -89,10 +89,12 @@ class DatabaseBloc extends Bloc<DatabaseEvent, DatabaseState> {
       if (data['status'] == true) {
         print('data $data');
         emit(state.copyWith(
-            editIsloading: false, succesMessage: data['message'].toString()));
+            editIsloading: false,
+            editSuccesMessage: data['message'].toString()));
       } else {
         emit(state.copyWith(
-            editIsloading: false, failedMessage: data['message'].toString()));
+            editIsloading: false,
+            editFailedMessage: data['message'].toString()));
       }
     });
     on<UploadImageEvent>((event, emit) async {

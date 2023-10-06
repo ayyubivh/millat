@@ -386,6 +386,8 @@ mixin _$UserProfile {
   String? get updatedAt => throw _privateConstructorUsedError;
   String? get picture => throw _privateConstructorUsedError;
   String? get profession => throw _privateConstructorUsedError;
+  @JsonKey(name: "phone_number")
+  String? get pohneNumber => throw _privateConstructorUsedError;
   @JsonKey(name: "DOB")
   String? get dob => throw _privateConstructorUsedError;
 
@@ -411,6 +413,7 @@ abstract class $UserProfileCopyWith<$Res> {
       String? updatedAt,
       String? picture,
       String? profession,
+      @JsonKey(name: "phone_number") String? pohneNumber,
       @JsonKey(name: "DOB") String? dob});
 }
 
@@ -436,6 +439,7 @@ class _$UserProfileCopyWithImpl<$Res, $Val extends UserProfile>
     Object? updatedAt = freezed,
     Object? picture = freezed,
     Object? profession = freezed,
+    Object? pohneNumber = freezed,
     Object? dob = freezed,
   }) {
     return _then(_value.copyWith(
@@ -475,6 +479,10 @@ class _$UserProfileCopyWithImpl<$Res, $Val extends UserProfile>
           ? _value.profession
           : profession // ignore: cast_nullable_to_non_nullable
               as String?,
+      pohneNumber: freezed == pohneNumber
+          ? _value.pohneNumber
+          : pohneNumber // ignore: cast_nullable_to_non_nullable
+              as String?,
       dob: freezed == dob
           ? _value.dob
           : dob // ignore: cast_nullable_to_non_nullable
@@ -501,6 +509,7 @@ abstract class _$$_UserProfileCopyWith<$Res>
       String? updatedAt,
       String? picture,
       String? profession,
+      @JsonKey(name: "phone_number") String? pohneNumber,
       @JsonKey(name: "DOB") String? dob});
 }
 
@@ -524,6 +533,7 @@ class __$$_UserProfileCopyWithImpl<$Res>
     Object? updatedAt = freezed,
     Object? picture = freezed,
     Object? profession = freezed,
+    Object? pohneNumber = freezed,
     Object? dob = freezed,
   }) {
     return _then(_$_UserProfile(
@@ -563,6 +573,10 @@ class __$$_UserProfileCopyWithImpl<$Res>
           ? _value.profession
           : profession // ignore: cast_nullable_to_non_nullable
               as String?,
+      pohneNumber: freezed == pohneNumber
+          ? _value.pohneNumber
+          : pohneNumber // ignore: cast_nullable_to_non_nullable
+              as String?,
       dob: freezed == dob
           ? _value.dob
           : dob // ignore: cast_nullable_to_non_nullable
@@ -584,6 +598,7 @@ class _$_UserProfile implements _UserProfile {
       required this.updatedAt,
       required this.picture,
       required this.profession,
+      @JsonKey(name: "phone_number") required this.pohneNumber,
       @JsonKey(name: "DOB") required this.dob});
 
   factory _$_UserProfile.fromJson(Map<String, dynamic> json) =>
@@ -609,12 +624,15 @@ class _$_UserProfile implements _UserProfile {
   @override
   final String? profession;
   @override
+  @JsonKey(name: "phone_number")
+  final String? pohneNumber;
+  @override
   @JsonKey(name: "DOB")
   final String? dob;
 
   @override
   String toString() {
-    return 'UserProfile(id: $id, institution: $institution, username: $username, email: $email, name: $name, createdAt: $createdAt, updatedAt: $updatedAt, picture: $picture, profession: $profession, dob: $dob)';
+    return 'UserProfile(id: $id, institution: $institution, username: $username, email: $email, name: $name, createdAt: $createdAt, updatedAt: $updatedAt, picture: $picture, profession: $profession, pohneNumber: $pohneNumber, dob: $dob)';
   }
 
   @override
@@ -636,13 +654,15 @@ class _$_UserProfile implements _UserProfile {
             (identical(other.picture, picture) || other.picture == picture) &&
             (identical(other.profession, profession) ||
                 other.profession == profession) &&
+            (identical(other.pohneNumber, pohneNumber) ||
+                other.pohneNumber == pohneNumber) &&
             (identical(other.dob, dob) || other.dob == dob));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, id, institution, username, email,
-      name, createdAt, updatedAt, picture, profession, dob);
+      name, createdAt, updatedAt, picture, profession, pohneNumber, dob);
 
   @JsonKey(ignore: true)
   @override
@@ -669,6 +689,7 @@ abstract class _UserProfile implements UserProfile {
       required final String? updatedAt,
       required final String? picture,
       required final String? profession,
+      @JsonKey(name: "phone_number") required final String? pohneNumber,
       @JsonKey(name: "DOB") required final String? dob}) = _$_UserProfile;
 
   factory _UserProfile.fromJson(Map<String, dynamic> json) =
@@ -693,6 +714,9 @@ abstract class _UserProfile implements UserProfile {
   String? get picture;
   @override
   String? get profession;
+  @override
+  @JsonKey(name: "phone_number")
+  String? get pohneNumber;
   @override
   @JsonKey(name: "DOB")
   String? get dob;

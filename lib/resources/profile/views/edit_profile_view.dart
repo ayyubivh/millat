@@ -35,7 +35,7 @@ class _EditProfileViewState extends State<EditProfileView> {
     _dateofBirthcontroller.text = data?.dob ?? "";
     _companyController.text = data?.institution ?? "";
     _professionController.text = data?.profession ?? "";
-    _phoneController.text = "91${data?.pohneNumber ?? ""}";
+    _phoneController.text = data?.pohneNumber ?? "";
   }
 
   DateTime? _selectedDate;

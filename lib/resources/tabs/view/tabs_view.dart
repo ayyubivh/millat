@@ -106,7 +106,7 @@ class _TabsViewState extends State<TabsView> {
                 BottomNavigationBarItem(
                     label: '',
                     icon: ImageIcon(
-                      AssetImage(AppAssetsStrings.rewardsTab),
+                      AssetImage(AppAssetsStrings.starHome),
                       size: 22,
                     )),
                 BottomNavigationBarItem(

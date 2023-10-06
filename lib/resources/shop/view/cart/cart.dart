@@ -67,13 +67,16 @@ class _CartViewState extends State<CartView> {
       bottomSheet: BlocBuilder<CartBloc, CartState>(
         builder: (context, state) {
           final cartItems = state.cartModel?.result?.cartProducts?.cartItems;
+          final quantity = cartItems?.map((e) => e.quantity).toList();
+          final price =
+              cartItems?.map((e) => e.productId?.salePrice?.toInt()).toList();
+          final subTotal = _getTotalPrice(price, quantity);
 
-          final subTotal = _getTotalPrice(
-            cartItems?.map((e) => e.productId?.salePrice?.toInt()).toList(),
-            cartItems?.map((e) => e.quantity).toList(),
-          );
-
-          int shippingFee = cartItems?.length == 0 ? 0 : 27;
+          final shippingFee = cartItems!.length > 1
+              ? 180
+              : quantity![0]! > 1
+                  ? 180
+                  : 90;
 
           final total = subTotal + shippingFee;
           return state.cartModel?.result?.cartProducts?.cartItems?.isEmpty ??

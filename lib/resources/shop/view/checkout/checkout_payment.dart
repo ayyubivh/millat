@@ -79,15 +79,15 @@ class CheckoutPayment extends StatelessWidget {
                 ),
                 kHeight20,
 
-                Container(
-                  height: 96,
-                  width: SizeUtility(context).width,
-                  decoration: BoxDecoration(
-                    color: ColorManager.veryLightGreen,
-                    borderRadius: BorderRadius.circular(6),
-                  ),
-                  child: paymentOnlineWidget(),
-                ),
+                // Container(
+                //   height: 96,
+                //   width: SizeUtility(context).width,
+                //   decoration: BoxDecoration(
+                //     color: ColorManager.veryLightGreen,
+                //     borderRadius: BorderRadius.circular(6),
+                //   ),
+                //   child: paymentOnlineWidget(),
+                // ),
                 kHeight10,
                 Container(
                   height: 96,

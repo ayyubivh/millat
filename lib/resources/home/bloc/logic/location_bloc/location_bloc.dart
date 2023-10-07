@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:math';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -9,7 +8,6 @@ import 'package:millat/utils/string_constants.dart';
 import 'package:millat/utils/utils.dart';
 import 'package:weather/weather.dart';
 import 'package:permission_handler/permission_handler.dart' as perm;
-import 'package:permission_handler/permission_handler.dart';
 import '../../models/cities_models/cities_model.dart';
 import '../../service/location_service.dart';
 
@@ -19,6 +17,7 @@ part 'location_bloc.freezed.dart';
 
 class LocationBloc extends Bloc<LocationEvent, LocationState> {
   final LocationService locationService = LocationService();
+  bool isClickedOnLocationButton = false;
   LocationBloc() : super(LocationState.initial()) {
     on<FetchCurrentLocation>(_fetchCurrentLocation);
     on<FetchCities>(_fetchCities);
@@ -69,19 +68,19 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
     }
   }
 
-  Future<bool> handleLocationPermission(Emitter<LocationState> emit) async {
-    bool serviceEnabled;
+  onLocationButtonClicked() async {
     LocationPermission permission;
 
-    serviceEnabled = await Geolocator.isLocationServiceEnabled();
-    if (!serviceEnabled) {
-      PermissionStatus permissionStatus = await Permission.location.request();
-      debugPrint('here the permission status $permissionStatus');
-      emit(state.copyWith(
-          errorMessage:
-              'Location services are disabled. Please enable the services'));
-      return false;
+    permission = await Geolocator.checkPermission();
+
+    if (permission == LocationPermission.deniedForever) {
+      await Geolocator.openAppSettings();
     }
+  }
+
+  Future<bool> handleLocationPermission(Emitter<LocationState> emit) async {
+    LocationPermission permission;
+
     permission = await Geolocator.checkPermission();
     if (permission == LocationPermission.denied) {
       permission = await Geolocator.requestPermission();
@@ -91,6 +90,9 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
       }
     }
     if (permission == LocationPermission.deniedForever) {
+      if (isClickedOnLocationButton) {
+        Geolocator.openAppSettings();
+      }
       emit(state.copyWith(
           errorMessage:
               'Location permissions are permanently denied, we cannot request permissions.'));

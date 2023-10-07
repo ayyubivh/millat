@@ -1542,6 +1542,7 @@ class _HomeViewState extends State<HomeView> {
       width: SizeUtility(context).width / 2.8,
       child: ElevatedButton(
         onPressed: () {
+          context.read<LocationBloc>().isClickedOnLocationButton = true;
           context.read<LocationBloc>().add(const FetchCurrentLocation());
         },
         style: ElevatedButton.styleFrom(

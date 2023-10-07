@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:math';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -68,6 +69,36 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
     }
   }
 
+  Future<bool> handleLocationPermission(Emitter<LocationState> emit) async {
+    bool serviceEnabled;
+    LocationPermission permission;
+
+    serviceEnabled = await Geolocator.isLocationServiceEnabled();
+    if (!serviceEnabled) {
+      PermissionStatus permissionStatus = await Permission.location.request();
+      debugPrint('here the permission status $permissionStatus');
+      emit(state.copyWith(
+          errorMessage:
+              'Location services are disabled. Please enable the services'));
+      return false;
+    }
+    permission = await Geolocator.checkPermission();
+    if (permission == LocationPermission.denied) {
+      permission = await Geolocator.requestPermission();
+      if (permission == LocationPermission.denied) {
+        emit(state.copyWith(errorMessage: 'Location permissions are denied'));
+        return false;
+      }
+    }
+    if (permission == LocationPermission.deniedForever) {
+      emit(state.copyWith(
+          errorMessage:
+              'Location permissions are permanently denied, we cannot request permissions.'));
+      return false;
+    }
+    return true;
+  }
+
   Future<void> _fetchCurrentLocation(
       FetchCurrentLocation event, Emitter<LocationState> emit) async {
     try {
@@ -80,45 +111,66 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
         ));
         debugPrint("Location from the local storage $currentLocationFromPrefs");
       }
-      PermissionStatus permissionStatus = await Permission.location.request();
-      debugPrint('here the permission status $permissionStatus');
 
-      Position currentLocation;
+      final hasPermission = await handleLocationPermission(emit);
+      if (!hasPermission) return;
+      await Geolocator.getCurrentPosition(
+              desiredAccuracy: LocationAccuracy.high)
+          .then((Position position) async {
+        emit(state.copyWith(lanAndLong: position));
+        String currentAddress = await getAddress(
+          position.latitude,
+          position.longitude,
+        );
+        Utilities.saveStringToSharedPreferences(
+            Appstrings.currenLocationKey, currentAddress);
+        emit(state.copyWith(
+          currentLocaion: currentAddress,
+          location: currentAddress,
+        ));
+      }).catchError((e) {
+        debugPrint(e);
+      });
 
-      if (await perm.Permission.locationWhenInUse.isGranted ||
-          await perm.Permission.location.isGranted) {
-        await Geolocator.isLocationServiceEnabled();
+      // PermissionStatus permissionStatus = await Permission.location.request();
+      // debugPrint('here the permission status $permissionStatus');
 
-        permissionStatus = await perm.Permission.locationWhenInUse.status;
-        if (permissionStatus.isDenied || permissionStatus.isPermanentlyDenied) {
-          permissionStatus = await perm.Permission.locationWhenInUse.request();
-          if (permissionStatus.isPermanentlyDenied) {
-            debugPrint('denied');
-            emit(state.copyWith(errorMessage: 'Location permission denied'));
-            await perm.openAppSettings();
-            return;
-          }
-        }
+      // Position currentLocation;
 
-        if (permissionStatus.isGranted) {
-          currentLocation = await Geolocator.getCurrentPosition();
-          emit(state.copyWith(lanAndLong: currentLocation));
-          String currentAddress = await getAddress(
-            currentLocation.latitude,
-            currentLocation.longitude,
-          );
-          Utilities.saveStringToSharedPreferences(
-              Appstrings.currenLocationKey, currentAddress);
-          emit(state.copyWith(
-            currentLocaion: currentAddress,
-            location: currentAddress,
-          ));
-        }
-      } else {
-        emit(state.copyWith(errorMessage: 'Location permission denied'));
-        await perm.openAppSettings();
-        return;
-      }
+      // if (await perm.Permission.locationWhenInUse.isGranted ||
+      //     await perm.Permission.location.isGranted) {
+      //   await Geolocator.isLocationServiceEnabled();
+
+      //   permissionStatus = await perm.Permission.locationWhenInUse.status;
+      //   if (permissionStatus.isDenied || permissionStatus.isPermanentlyDenied) {
+      //     permissionStatus = await perm.Permission.locationWhenInUse.request();
+      //     if (permissionStatus.isPermanentlyDenied) {
+      //       debugPrint('denied');
+      //       emit(state.copyWith(errorMessage: 'Location permission denied'));
+      //       // await perm.openAppSettings();
+      //       return;
+      //     }
+      //   }
+
+      //   if (permissionStatus.isGranted) {
+      //     currentLocation = await Geolocator.getCurrentPosition();
+      //     emit(state.copyWith(lanAndLong: currentLocation));
+      //     String currentAddress = await getAddress(
+      //       currentLocation.latitude,
+      //       currentLocation.longitude,
+      //     );
+      //     Utilities.saveStringToSharedPreferences(
+      //         Appstrings.currenLocationKey, currentAddress);
+      //     emit(state.copyWith(
+      //       currentLocaion: currentAddress,
+      //       location: currentAddress,
+      //     ));
+      //   }
+      // } else {
+      //   emit(state.copyWith(errorMessage: 'Location permission denied'));
+      //   // await perm.openAppSettings();
+      //   return;
+      // }
     } catch (e) {
       emit(state.copyWith(errorMessage: 'Error fetching location'));
       debugPrint('Error fetching location: $e');

@@ -20,6 +20,7 @@ import 'package:millat/services/http_services.dart';
 import 'package:millat/utils/string_constants.dart';
 import '../../../authentication/bloc/logic/database_bloc/database_bloc.dart';
 
+import '../models/articles/article_category/article_categories_model.dart';
 import '../models/home_sub_category_card/home_sub_category_card_model.dart';
 import '../models/home_sub_category_card/home_sub_category_healthy_diet.dart';
 import '../models/home_sub_category_card/home_sub_category_sunnah_model.dart';
@@ -40,6 +41,7 @@ class ShopService extends HttpServices {
   final shopBanner = 'banner?slug=shop_banner';
   final article = 'article';
   final articleById = 'article/';
+  final articleCategory = 'article-category';
 
   // Fetching all flash sale products
   Future<ShopProducts?> fetchFlashSaleProducts(String endPointSlug) async {
@@ -142,7 +144,6 @@ class ShopService extends HttpServices {
     }
   }
 
-  //Fetching Articles
   Future<ProductByIdModel> fetchProductByid({
     required String id,
   }) async {
@@ -204,7 +205,7 @@ class ShopService extends HttpServices {
     }
   }
 
-//Fetching Articles
+//Fetching Articles by id
   Future<ArticleModelById> fetchArticleById(String id) async {
     final response = await get(endPoint: "$articleById$id");
 
@@ -216,6 +217,48 @@ class ShopService extends HttpServices {
         return result;
       } catch (e) {
         print('error on Article by id API fetch: ${e.toString()}');
+        throw Exception('Failed to parse response');
+      }
+    } else {
+      throw Exception(
+          'API request failed with status code: ${response.statusCode}');
+    }
+  }
+
+  //Fetching Article categories
+  Future<ArticleCategories> fetchingArticleCategory() async {
+    final response = await get(endPoint: articleCategory);
+
+    if (response.statusCode == 200) {
+      try {
+        final Map<String, dynamic> data = json.decode(response.body);
+        final result = ArticleCategories.fromJson(data);
+
+        return result;
+      } catch (e) {
+        print('error on Article API fetch: ${e.toString()}');
+        throw Exception('Failed to parse response');
+      }
+    } else {
+      throw Exception(
+          'API request failed with status code: ${response.statusCode}');
+    }
+  }
+
+  //Fetching Articles by category
+
+  Future<Articles.ArticleModel> fetchArticleByCategory(String category) async {
+    final endPoint = "article/filter?category=$category";
+    final response = await get(endPoint: endPoint);
+
+    if (response.statusCode == 200) {
+      try {
+        final Map<String, dynamic> data = json.decode(response.body);
+        final result = Articles.ArticleModel.fromJson(data);
+
+        return result;
+      } catch (e) {
+        print('error on Article API fetch: ${e.toString()}');
         throw Exception('Failed to parse response');
       }
     } else {

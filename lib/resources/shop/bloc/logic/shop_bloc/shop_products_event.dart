@@ -128,4 +128,10 @@ class ShopProductsEvent with _$ShopProductsEvent {
   const factory ShopProductsEvent.fetchArticlesbyId({required String id}) =
       FetchArticlesbyId;
   const factory ShopProductsEvent.fetchProducts() = FetchProducts;
+  const factory ShopProductsEvent.fetchArticlesCategory() =
+      FetchArticlesCategory;
+  const factory ShopProductsEvent.saveArticleCategoryFilterVal(
+      {required String filterVal}) = SaveArticleCategoryFilterVal;
+  const factory ShopProductsEvent.fetchArticlesByCategory(String category) =
+      FetchArticlesByCategory;
 }

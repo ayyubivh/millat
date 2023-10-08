@@ -100,17 +100,17 @@ class SingleProductView extends StatelessWidget {
                                   .add(ChangeShopBannerIndex(index));
                             },
                           ),
-                          items: data?.images?.map((imageUrl) {
-                                return Utilities().buildCachedNetworkImage(
-                                    imageUrl: imageUrl);
-                              }).toList() ??
-                              [],
+                          items: data.images?.map((imageUrl) {
+                            return Utilities().buildCachedNetworkImage(
+                                imageUrl: imageUrl,
+                                width: SizeUtility(context).width / 1.5);
+                          }).toList(),
                         ),
                         kHeight10,
                         BlocBuilder<ShopProductsBloc, ShopProductsState>(
                           builder: (context, state) => Row(
                             mainAxisAlignment: MainAxisAlignment.center,
-                            children: data!.images!.map((banner) {
+                            children: data.images!.map((banner) {
                               int index = data.images!.indexOf(banner);
                               return Container(
                                 width: state.shopBannerIndex == index ? 24 : 6,

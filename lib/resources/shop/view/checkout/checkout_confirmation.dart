@@ -439,9 +439,13 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
               : quantity![0]! > 1
                   ? shippingCharge * 2
                   : shippingCharge;
-          const taxRate = 18;
+          final taxRate = cartItems
+              .map((item) => item.productId?.tax)
+              .reduce((a, b) => a! + b!)!
+              .toDouble();
           final giftPrice = isGift ? 89 : 0;
-          final estimatingTax = (taxRate / 100) * subTotal;
+          final averageTax = (taxRate / cartItems.length);
+          final estimatingTax = (averageTax / 100) * subTotal;
           print("estimated tax $estimatingTax");
           final total = subTotal + shippingFee + estimatingTax + giftPrice;
           final isShow = state.showExapnd;
@@ -525,7 +529,7 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
                                       color: ColorManager.blackColor,
                                       fontSize: 15,
                                       fontWeight: FontWeight.bold)),
-                              Text("$estimatingTax",
+                              Text("$averageTax",
                                   style: TextStyle(
                                       color: ColorManager.blackColor,
                                       fontSize: 17,

@@ -77,12 +77,20 @@ class _CartViewState extends State<CartView> {
           //     : quantity![0]! > 1
           //         ? 180
           //         : 90;
-          final tax = (18 / 100) * subTotal;
-          final total = subTotal + tax;
+          final tax = cartItems
+              ?.map((item) => item.productId?.tax)
+              .reduce((a, b) => a! + b!)!
+              .toDouble();
+
+          final averageTax = (tax! / cartItems!.length);
+          final totalTax = (averageTax / 100) * subTotal;
+
+          final total = subTotal + totalTax;
           return state.cartModel?.result?.cartProducts?.cartItems?.isEmpty ??
                   true
               ? _emptyCartBottomContainer(context)
-              : _notEmptyContainer(subTotal, total, state.showExapnd, tax);
+              : _notEmptyContainer(
+                  subTotal, total, state.showExapnd, averageTax);
         },
       ),
     );

@@ -114,7 +114,7 @@ class CheckoutView extends StatelessWidget {
                               state.addressModel?.result.addresses[index];
                           final phoneNumber = '${data?.mobile.toString()}';
                           final String address =
-                              ' ${data!.addressLine} ${data.landmark} ${data.city} ${data.state} ${data.pincode}';
+                              ' ${data!.addressLine} ${data.city} ${data.state} ${data.pincode}';
                           return buildAddresses(
                             email: context
                                     .read<DatabaseBloc>()

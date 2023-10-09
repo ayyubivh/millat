@@ -111,7 +111,7 @@ class ManageAddress extends StatelessWidget {
                               final formatedMobile =
                                   '${data?.mobile.toString().substring(data.mobile.toString().length - 4)}';
                               final String address =
-                                  '$formatedMobile ${data!.addressLine} ${data.landmark} ${data.city}\n${data.state} ${data.pincode}';
+                                  '$formatedMobile ${data!.addressLine} ${data.city}\n${data.state} ${data.pincode}';
                               return Column(
                                 children: [
                                   buildAddresses(

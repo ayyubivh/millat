@@ -14,7 +14,7 @@ class OrdersService extends HttpServices {
   //For adding the orders
   postOrder({
     required BuildContext context,
-    required int totalPrice,
+    required double totalPrice,
     required String pickUpAddress,
     required int totalQuantity,
     required int totalDiscount,
@@ -56,7 +56,7 @@ class OrdersService extends HttpServices {
 //For adding the orders
   Future<Map<String, dynamic>> postOrderRewards({
     required BuildContext context,
-    required int price,
+    required double price,
     required int coins,
     required String addressId,
     required int totalQuantity,

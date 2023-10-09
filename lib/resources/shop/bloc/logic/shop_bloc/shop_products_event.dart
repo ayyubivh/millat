@@ -30,7 +30,7 @@ class ShopProductsEvent with _$ShopProductsEvent {
   }) = TabIndexChangeEvent;
   const factory ShopProductsEvent.postOrders({
     required BuildContext context,
-    required int totalPrice,
+    required double totalPrice,
     required String pickupLocation,
     required int quantity,
     required int totalDiscount,
@@ -40,7 +40,7 @@ class ShopProductsEvent with _$ShopProductsEvent {
   }) = PostOrders;
   const factory ShopProductsEvent.postOrdersRewards({
     required BuildContext context,
-    required int price,
+    required double price,
     required int coins,
     required String addressId,
     required int totalQuantity,

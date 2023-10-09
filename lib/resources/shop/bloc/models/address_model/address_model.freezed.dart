@@ -370,14 +370,13 @@ Address _$AddressFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Address {
-  @JsonKey(name: "_id")
+  @JsonKey(name: '_id')
   String get id => throw _privateConstructorUsedError;
   String get userId => throw _privateConstructorUsedError;
   String get addressType => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   int get mobile => throw _privateConstructorUsedError;
   int get pincode => throw _privateConstructorUsedError;
-  String get landmark => throw _privateConstructorUsedError;
   String get addressLine => throw _privateConstructorUsedError;
   String get city => throw _privateConstructorUsedError;
   String get state => throw _privateConstructorUsedError;
@@ -396,13 +395,12 @@ abstract class $AddressCopyWith<$Res> {
       _$AddressCopyWithImpl<$Res, Address>;
   @useResult
   $Res call(
-      {@JsonKey(name: "_id") String id,
+      {@JsonKey(name: '_id') String id,
       String userId,
       String addressType,
       String name,
       int mobile,
       int pincode,
-      String landmark,
       String addressLine,
       String city,
       String state,
@@ -430,7 +428,6 @@ class _$AddressCopyWithImpl<$Res, $Val extends Address>
     Object? name = null,
     Object? mobile = null,
     Object? pincode = null,
-    Object? landmark = null,
     Object? addressLine = null,
     Object? city = null,
     Object? state = null,
@@ -463,10 +460,6 @@ class _$AddressCopyWithImpl<$Res, $Val extends Address>
           ? _value.pincode
           : pincode // ignore: cast_nullable_to_non_nullable
               as int,
-      landmark: null == landmark
-          ? _value.landmark
-          : landmark // ignore: cast_nullable_to_non_nullable
-              as String,
       addressLine: null == addressLine
           ? _value.addressLine
           : addressLine // ignore: cast_nullable_to_non_nullable
@@ -503,13 +496,12 @@ abstract class _$$_AddressCopyWith<$Res> implements $AddressCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: "_id") String id,
+      {@JsonKey(name: '_id') String id,
       String userId,
       String addressType,
       String name,
       int mobile,
       int pincode,
-      String landmark,
       String addressLine,
       String city,
       String state,
@@ -534,7 +526,6 @@ class __$$_AddressCopyWithImpl<$Res>
     Object? name = null,
     Object? mobile = null,
     Object? pincode = null,
-    Object? landmark = null,
     Object? addressLine = null,
     Object? city = null,
     Object? state = null,
@@ -567,10 +558,6 @@ class __$$_AddressCopyWithImpl<$Res>
           ? _value.pincode
           : pincode // ignore: cast_nullable_to_non_nullable
               as int,
-      landmark: null == landmark
-          ? _value.landmark
-          : landmark // ignore: cast_nullable_to_non_nullable
-              as String,
       addressLine: null == addressLine
           ? _value.addressLine
           : addressLine // ignore: cast_nullable_to_non_nullable
@@ -603,13 +590,12 @@ class __$$_AddressCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Address implements _Address {
   const _$_Address(
-      {@JsonKey(name: "_id") required this.id,
+      {@JsonKey(name: '_id') required this.id,
       required this.userId,
       required this.addressType,
       required this.name,
       required this.mobile,
       required this.pincode,
-      required this.landmark,
       required this.addressLine,
       required this.city,
       required this.state,
@@ -621,7 +607,7 @@ class _$_Address implements _Address {
       _$$_AddressFromJson(json);
 
   @override
-  @JsonKey(name: "_id")
+  @JsonKey(name: '_id')
   final String id;
   @override
   final String userId;
@@ -633,8 +619,6 @@ class _$_Address implements _Address {
   final int mobile;
   @override
   final int pincode;
-  @override
-  final String landmark;
   @override
   final String addressLine;
   @override
@@ -650,7 +634,7 @@ class _$_Address implements _Address {
 
   @override
   String toString() {
-    return 'Address(id: $id, userId: $userId, addressType: $addressType, name: $name, mobile: $mobile, pincode: $pincode, landmark: $landmark, addressLine: $addressLine, city: $city, state: $state, country: $country, createdAt: $createdAt, updatedAt: $updatedAt)';
+    return 'Address(id: $id, userId: $userId, addressType: $addressType, name: $name, mobile: $mobile, pincode: $pincode, addressLine: $addressLine, city: $city, state: $state, country: $country, createdAt: $createdAt, updatedAt: $updatedAt)';
   }
 
   @override
@@ -665,8 +649,6 @@ class _$_Address implements _Address {
             (identical(other.name, name) || other.name == name) &&
             (identical(other.mobile, mobile) || other.mobile == mobile) &&
             (identical(other.pincode, pincode) || other.pincode == pincode) &&
-            (identical(other.landmark, landmark) ||
-                other.landmark == landmark) &&
             (identical(other.addressLine, addressLine) ||
                 other.addressLine == addressLine) &&
             (identical(other.city, city) || other.city == city) &&
@@ -680,21 +662,8 @@ class _$_Address implements _Address {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      id,
-      userId,
-      addressType,
-      name,
-      mobile,
-      pincode,
-      landmark,
-      addressLine,
-      city,
-      state,
-      country,
-      createdAt,
-      updatedAt);
+  int get hashCode => Object.hash(runtimeType, id, userId, addressType, name,
+      mobile, pincode, addressLine, city, state, country, createdAt, updatedAt);
 
   @JsonKey(ignore: true)
   @override
@@ -712,13 +681,12 @@ class _$_Address implements _Address {
 
 abstract class _Address implements Address {
   const factory _Address(
-      {@JsonKey(name: "_id") required final String id,
+      {@JsonKey(name: '_id') required final String id,
       required final String userId,
       required final String addressType,
       required final String name,
       required final int mobile,
       required final int pincode,
-      required final String landmark,
       required final String addressLine,
       required final String city,
       required final String state,
@@ -729,7 +697,7 @@ abstract class _Address implements Address {
   factory _Address.fromJson(Map<String, dynamic> json) = _$_Address.fromJson;
 
   @override
-  @JsonKey(name: "_id")
+  @JsonKey(name: '_id')
   String get id;
   @override
   String get userId;
@@ -741,8 +709,6 @@ abstract class _Address implements Address {
   int get mobile;
   @override
   int get pincode;
-  @override
-  String get landmark;
   @override
   String get addressLine;
   @override

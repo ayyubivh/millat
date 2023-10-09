@@ -39,7 +39,7 @@ _$_Address _$$_AddressFromJson(Map<String, dynamic> json) => _$_Address(
       name: json['name'] as String,
       mobile: json['mobile'] as int,
       pincode: json['pincode'] as int,
-      landmark: json['landmark'] as String,
+      landmark: json['landmark'] as String?,
       addressLine: json['addressLine'] as String,
       city: json['city'] as String,
       state: json['state'] as String,

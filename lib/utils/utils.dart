@@ -127,7 +127,7 @@ class Utilities {
   Widget buildCachedNetworkImage({
     String? imageUrl,
     double? height,
-    BoxFit boxFit = BoxFit.contain,
+    BoxFit boxFit = BoxFit.fill,
     double? width,
   }) {
     return CachedNetworkImage(

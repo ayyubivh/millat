@@ -138,11 +138,12 @@ class _CategoryViewState extends State<CategoryView> {
                   //             fontWeight: FontWeight.bold,
                   //             color: ColorManager.primary),
                   //       ),
-                  //     )),
+                  //     )),da
+                  kHeight20,
                   BlocBuilder<CategoryBloc, CategoryState>(
                     builder: (context, state) {
                       return SizedBox(
-                        height: 110,
+                        height: 100,
                         child: ListView.builder(
                           itemCount: state.subcategoryByCategoryIdModel?.result
                               ?.subCategory?.length,
@@ -199,7 +200,6 @@ class _CategoryViewState extends State<CategoryView> {
                   ),
                   kHeight20,
 
-                  kHeight10,
                   BlocBuilder<ShopProductsBloc, ShopProductsState>(
                     builder: (context, state) {
                       if (state.isLoading) {

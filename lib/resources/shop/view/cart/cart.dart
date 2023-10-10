@@ -247,7 +247,7 @@ class _CartViewState extends State<CartView> {
           final data = state.cartModel?.result?.cartProducts?.cartItems![index];
 
           if (data == null) {
-            return null;
+            return const SizedBox();
           }
           return CartProductWidget(
             showQuantity: true,

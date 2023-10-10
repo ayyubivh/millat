@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/components/buttons/main_button.dart';
 import 'package:millat/enums/enumertations.dart';
+import 'package:millat/resources/authentication/bloc/logic/auth_bloc.dart';
+import 'package:millat/resources/authentication/bloc/logic/database_bloc/database_bloc.dart';
 import 'package:millat/resources/rewards/bloc/logic/bloc/rewards_bloc_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/address_bloc/address_bloc.dart';
+import 'package:millat/resources/shop/bloc/logic/payment_bloc/payment_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
 import 'package:millat/resources/shop/view/cart/widgets/cart_product_widget.dart';
 import 'package:millat/resources/shop/view/checkout/checkout_payment.dart';
@@ -39,6 +42,7 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
         context: context,
         id: context.read<AddressBloc>().state.addressId.toString()));
     super.initState();
+    BlocProvider.of<PaymentBloc>(context).add(const PaymentEvent.initial());
   }
 
   // bool showMore = false;
@@ -654,6 +658,7 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
                               "here is the address ${context.read<AddressBloc>().state.addressIdModel!.result.address.addressLine}");
 
                           print('here is the address id ${pickUpaddress.id}');
+
                           final isPromo = context
                               .read<ShopProductsBloc>()
                               .state
@@ -665,26 +670,47 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
                               ?.result
                               .data?[0]
                               .discount;
-                          context.read<ShopProductsBloc>().add(PostOrders(
-                                id: pickUpaddress.id,
-                                shippingCharges: shippingFee,
-                                totalDiscount: 0,
-                                weight: 0,
-                                pickupLocation: pickUpaddress.addressLine,
-                                quantity: state.cartLength,
-                                totalPrice: isPromo
-                                    ? total - discount!.toDouble()
-                                    : total.toDouble(),
-                                context: context,
-                              ));
+                          if (widget.paymentType == 1) {
+                            context.read<ShopProductsBloc>().add(PostOrders(
+                                  id: pickUpaddress.id,
+                                  shippingCharges: shippingFee,
+                                  totalDiscount: 0,
+                                  weight: 0,
+                                  pickupLocation: pickUpaddress.addressLine,
+                                  quantity: state.cartLength,
+                                  totalPrice: isPromo
+                                      ? total - discount!.toDouble()
+                                      : total.toDouble(),
+                                  context: context,
+                                ));
+                            Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => PaymentSuccessful(
+                                  subTotal: isPromo
+                                      ? total - discount!.toDouble()
+                                      : total.toDouble(),
+                                  delivery: shippingFee),
+                            ));
+                          } else {
+                            final cartItems = state
+                                .cartModel?.result?.cartProducts?.cartItems;
+                            final email = context
+                                .read<DatabaseBloc>()
+                                .state
+                                .authUserModel
+                                ?.result
+                                ?.user
+                                ?.email;
 
-                          Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => PaymentSuccessful(
-                                subTotal: isPromo
-                                    ? total - discount!.toDouble()
-                                    : total.toDouble(),
-                                delivery: shippingFee),
-                          ));
+                            BlocProvider.of<PaymentBloc>(context).add(
+                                PaymentEvent.startPayment(
+                                    amount: total.toDouble(),
+                                    description: cartItems![0]
+                                        .productId!
+                                        .title
+                                        .toString(),
+                                    email: email ?? "",
+                                    phoneNumber: ""));
+                          }
                         },
                       ),
               ],

@@ -6,6 +6,7 @@ import 'package:millat/components/buttons/main_button.dart';
 import 'package:millat/resources/authentication/bloc/logic/auth_bloc.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/color_manager.dart';
+import 'package:millat/utils/constants.dart';
 import 'package:pinput/pinput.dart';
 
 import '../../tabs/view/tabs_view.dart';
@@ -42,6 +43,7 @@ class _VerifyOTPViewState extends State<VerifyOTPView> {
         } else {
           timer.cancel();
           isTimerRunning = false;
+          isResendTextGreen = true;
         }
       });
     });
@@ -115,16 +117,14 @@ class _VerifyOTPViewState extends State<VerifyOTPView> {
                           TextStyle(color: black133, fontSize: 16, height: 1.3),
                       textAlign: TextAlign.center,
                     ),
-                    const SizedBox(
-                      height: 30,
-                    ),
+                    kHeight30,
                     Text(formatTime(seconds),
                         style: const TextStyle(color: black133)),
                     const SizedBox(height: 30),
                     Pinput(
                       length: 4,
                       controller: otpController,
-                      enabled: isTimerRunning,
+                      // enabled: isTimerRunning,
                       defaultPinTheme: defaultPinTheme,
                       separator: const SizedBox(width: 16),
                       focusedPinTheme: defaultPinTheme.copyWith(
@@ -139,37 +139,36 @@ class _VerifyOTPViewState extends State<VerifyOTPView> {
                     const SizedBox(
                       height: 20,
                     ),
-                    RichText(
-                      text: TextSpan(children: [
-                        TextSpan(
-                          text: "Didn't receive a code? ",
-                          style: TextStyle(
-                            color: isResendTextGreen
-                                ? black133
-                                : ColorManager.mainColor.withOpacity(0.0),
-                            fontSize: 13,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                        if (isResendTextGreen)
-                          TextSpan(
-                            text: 'Resend',
-                            style: TextStyle(
-                              color: ColorManager.mainColor,
-                              fontSize: 13,
-                              fontWeight: FontWeight.w500,
+                    if (isResendTextGreen)
+                      GestureDetector(
+                        onTap: () {
+                          context.read<AuthBloc>().add(ResendSendOTP());
+                        },
+                        child: RichText(
+                          text: TextSpan(children: [
+                            const TextSpan(
+                              text: "Didn't receive a code? ",
+                              style: TextStyle(
+                                color: black133,
+                                fontSize: 13,
+                                fontWeight: FontWeight.w500,
+                              ),
                             ),
-                          ),
-                      ]),
-                    ),
-                    const SizedBox(
-                      height: 50,
-                    ),
+                            TextSpan(
+                              text: 'Resend',
+                              style: TextStyle(
+                                color: ColorManager.mainColor,
+                                fontSize: 13,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ]),
+                        ),
+                      ),
+                    kHeight50,
                     Image.asset('assets/images/human_in_front_of_phone.png',
                         height: 390),
-                    const SizedBox(
-                      height: 20,
-                    ),
+                    kHeight20,
                     MainButton(
                       title: 'Verify OTP',
                       onPressed: () {

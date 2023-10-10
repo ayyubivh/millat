@@ -195,10 +195,10 @@ class ShopSpecificCategoryView extends StatelessWidget {
                         items: sliderImages.map(
                           (e) {
                             return SizedBox(
-                              height: 340,
+                              // height: 340,
                               width: SizeUtility(context).width,
-                              child: Utilities()
-                                  .buildCachedNetworkImage(imageUrl: e),
+                              child: Utilities().buildCachedNetworkImage(
+                                  imageUrl: e, boxFit: BoxFit.fill),
                             );
                           },
                         ).toList(),

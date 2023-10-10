@@ -44,15 +44,6 @@ class ShopProductWidget extends StatelessWidget {
         children: [
           Column(
             children: [
-              // Container(
-              //   decoration: BoxDecoration(
-              //     image: DecorationImage(
-              //       image: NetworkImage(image.toString()),
-              //       fit: BoxFit.cover,
-              //     ),
-              //     borderRadius: BorderRadius.circular(6),
-              //   ),
-              // ),
               Align(
                 alignment: Alignment.center,
                 child: ClipRRect(
@@ -70,7 +61,9 @@ class ShopProductWidget extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Expanded(
+              SizedBox(
+                width: SizeUtility(context).width / 3,
+                height: 50,
                 child: Text(
                   title.toString(),
                   style: TextStyle(
@@ -154,13 +147,14 @@ class ShopProductWidget extends StatelessWidget {
                 builder: (context, state) {
                   final cartItems =
                       state.cartModel?.result?.cartProducts?.cartItems;
-                  final isProductInCart = cartItems?.any(
-                          (cartItem) => cartItem.productId?.id == productId) ??
+                  final isProductInCart = cartItems
+                          ?.map((item) => item.productId?.id)
+                          .contains(productId) ??
                       false;
 
-                  if (!isProductInCart) {
-                    return GestureDetector(
-                      onTap: () {
+                  return GestureDetector(
+                    onTap: () {
+                      if (!isProductInCart) {
                         context.read<CartBloc>().add(AddCartEvent(
                               productId: productId ?? "",
                               basePrice: discountPrice,
@@ -171,51 +165,32 @@ class ShopProductWidget extends StatelessWidget {
                               brandId: brandId ?? "",
                             ));
                         showSnackBar(context, "Product Added To Cart!");
-                        context.read<CartBloc>().add(FetchCartEvent(context));
-                      },
-                      child: Container(
-                        height: 20,
-                        width: 20,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: ColorManager.primary,
-                        ),
-                        child: Center(
-                          child: Icon(
-                            Icons.add,
-                            size: 17,
-                            color: ColorManager.whiteColor,
-                          ),
-                        ),
-                      ),
-                    );
-                  } else {
-                    return GestureDetector(
-                      onTap: () {
+                      } else {
                         context.read<CartBloc>().add(RemoveCartItemEvent(
                               context: context,
                               productId: productId.toString(),
                             ));
                         showSnackBar(context, "Product Removed From Cart!");
-                        context.read<CartBloc>().add(FetchCartEvent(context));
-                      },
-                      child: Container(
-                        height: 20,
-                        width: 20,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: ColorManager.redColor,
-                        ),
-                        child: Center(
-                          child: Icon(
-                            Icons.remove,
-                            size: 17,
-                            color: ColorManager.whiteColor,
-                          ),
+                      }
+                    },
+                    child: Container(
+                      height: 20,
+                      width: 20,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: isProductInCart
+                            ? ColorManager.redColor
+                            : ColorManager.primary,
+                      ),
+                      child: Center(
+                        child: Icon(
+                          isProductInCart ? Icons.remove : Icons.add,
+                          size: 17,
+                          color: ColorManager.whiteColor,
                         ),
                       ),
-                    );
-                  }
+                    ),
+                  );
                 },
               )
             ],

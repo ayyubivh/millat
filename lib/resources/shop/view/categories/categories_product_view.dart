@@ -462,7 +462,7 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
             return StatefulBuilder(
               builder: (context, setState) {
                 return Container(
-                  height: SizeUtility(context).height / 1.6,
+                  height: SizeUtility(context).height / 2.6,
                   width: SizeUtility(context).width,
                   padding: const EdgeInsets.all(15),
                   decoration: BoxDecoration(
@@ -485,12 +485,12 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
                       Expanded(
                         child: BlocBuilder<CategoryBloc, CategoryState>(
                           builder: (context, state) => ListView.separated(
-                            itemCount: 5,
+                            itemCount: 2,
                             itemBuilder: (context, index) {
                               final texts = [
-                                Appstrings.popular,
-                                Appstrings.newest,
-                                Appstrings.customerReview,
+                                // Appstrings.popular,
+                                // Appstrings.newest,
+                                // Appstrings.customerReview,
                                 Appstrings.priceLowtoHigh,
                                 Appstrings.priceHighToLow,
                               ];

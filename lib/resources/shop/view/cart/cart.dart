@@ -67,27 +67,37 @@ class _CartViewState extends State<CartView> {
       bottomSheet: BlocBuilder<CartBloc, CartState>(
         builder: (context, state) {
           final cartItems = state.cartModel?.result?.cartProducts?.cartItems;
+          final quantity = cartItems?.map((e) => e.quantity).toList();
+          final price =
+              cartItems?.map((e) => e.productId?.salePrice?.toInt()).toList();
+          final subTotal = _getTotalPrice(price, quantity);
 
-          final subTotal = _getTotalPrice(
-            cartItems?.map((e) => e.productId?.salePrice?.toInt()).toList(),
-            cartItems?.map((e) => e.quantity).toList(),
-          );
+          // final shippingFee = cartItems!.length > 1
+          //     ? 180
+          //     : quantity![0]! > 1
+          //         ? 180
+          //         : 90;
+          final tax = cartItems
+              ?.map((item) => item.productId?.tax)
+              .reduce((a, b) => a! + b!)!
+              .toDouble();
 
-          int shippingFee = cartItems?.length == 0 ? 0 : 27;
+          final averageTax = (tax! / cartItems!.length);
+          final totalTax = (averageTax / 100) * subTotal;
 
-          final total = subTotal + shippingFee;
+          final total = subTotal + totalTax;
           return state.cartModel?.result?.cartProducts?.cartItems?.isEmpty ??
                   true
               ? _emptyCartBottomContainer(context)
               : _notEmptyContainer(
-                  subTotal, shippingFee, total, state.showExapnd);
+                  subTotal, total, state.showExapnd, averageTax);
         },
       ),
     );
   }
 
   Widget _notEmptyContainer(
-      int subTotal, int shippingFee, int total, bool isShow) {
+      int subTotal, double total, bool isShow, double tax) {
     return Container(
         height: isShow ? 280 : 160,
         color: ColorManager.whiteColor,
@@ -141,12 +151,12 @@ class _CartViewState extends State<CartView> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text(Appstrings.deliveryCharge,
+                          Text(Appstrings.tax,
                               style: TextStyle(
                                   color: ColorManager.blackColor,
                                   fontSize: 15,
                                   fontWeight: FontWeight.bold)),
-                          Text('₹$shippingFee',
+                          Text('₹$tax',
                               style: TextStyle(
                                   color: ColorManager.blackColor,
                                   fontSize: 17,
@@ -244,7 +254,7 @@ class _CartViewState extends State<CartView> {
           final data = state.cartModel?.result?.cartProducts?.cartItems![index];
 
           if (data == null) {
-            return null;
+            return const SizedBox();
           }
           return CartProductWidget(
             showQuantity: true,

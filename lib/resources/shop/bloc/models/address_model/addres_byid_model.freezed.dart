@@ -382,7 +382,7 @@ mixin _$Address {
   String get name => throw _privateConstructorUsedError;
   int get mobile => throw _privateConstructorUsedError;
   int get pincode => throw _privateConstructorUsedError;
-  String get landmark => throw _privateConstructorUsedError;
+  String? get landmark => throw _privateConstructorUsedError;
   String get addressLine => throw _privateConstructorUsedError;
   String get city => throw _privateConstructorUsedError;
   String get state => throw _privateConstructorUsedError;
@@ -407,7 +407,7 @@ abstract class $AddressCopyWith<$Res> {
       String name,
       int mobile,
       int pincode,
-      String landmark,
+      String? landmark,
       String addressLine,
       String city,
       String state,
@@ -435,7 +435,7 @@ class _$AddressCopyWithImpl<$Res, $Val extends Address>
     Object? name = null,
     Object? mobile = null,
     Object? pincode = null,
-    Object? landmark = null,
+    Object? landmark = freezed,
     Object? addressLine = null,
     Object? city = null,
     Object? state = null,
@@ -468,10 +468,10 @@ class _$AddressCopyWithImpl<$Res, $Val extends Address>
           ? _value.pincode
           : pincode // ignore: cast_nullable_to_non_nullable
               as int,
-      landmark: null == landmark
+      landmark: freezed == landmark
           ? _value.landmark
           : landmark // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       addressLine: null == addressLine
           ? _value.addressLine
           : addressLine // ignore: cast_nullable_to_non_nullable
@@ -514,7 +514,7 @@ abstract class _$$_AddressCopyWith<$Res> implements $AddressCopyWith<$Res> {
       String name,
       int mobile,
       int pincode,
-      String landmark,
+      String? landmark,
       String addressLine,
       String city,
       String state,
@@ -539,7 +539,7 @@ class __$$_AddressCopyWithImpl<$Res>
     Object? name = null,
     Object? mobile = null,
     Object? pincode = null,
-    Object? landmark = null,
+    Object? landmark = freezed,
     Object? addressLine = null,
     Object? city = null,
     Object? state = null,
@@ -572,10 +572,10 @@ class __$$_AddressCopyWithImpl<$Res>
           ? _value.pincode
           : pincode // ignore: cast_nullable_to_non_nullable
               as int,
-      landmark: null == landmark
+      landmark: freezed == landmark
           ? _value.landmark
           : landmark // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       addressLine: null == addressLine
           ? _value.addressLine
           : addressLine // ignore: cast_nullable_to_non_nullable
@@ -639,7 +639,7 @@ class _$_Address implements _Address {
   @override
   final int pincode;
   @override
-  final String landmark;
+  final String? landmark;
   @override
   final String addressLine;
   @override
@@ -723,7 +723,7 @@ abstract class _Address implements Address {
       required final String name,
       required final int mobile,
       required final int pincode,
-      required final String landmark,
+      required final String? landmark,
       required final String addressLine,
       required final String city,
       required final String state,
@@ -747,7 +747,7 @@ abstract class _Address implements Address {
   @override
   int get pincode;
   @override
-  String get landmark;
+  String? get landmark;
   @override
   String get addressLine;
   @override

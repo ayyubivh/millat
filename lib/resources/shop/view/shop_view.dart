@@ -138,15 +138,15 @@ class _ShopViewState extends State<ShopView> {
                                     ));
                                   },
                                   width: 205,
-                                  title: womenData?.subCategoryId?.title ?? "",
-                                  imageUrl: womenData?.design.image ?? "",
-                                  text: womenData?.design.text ?? "",
+                                  title: womenData.subCategoryId?.title ?? "",
+                                  imageUrl: womenData.design.image,
+                                  text: womenData.design.text,
                                   buttonColor: ColorManager.pinkButtonColor,
                                   gradientColors: [
                                     ColorManager.pinkGradient2,
                                     ColorManager.pinkGradient1,
                                   ],
-                                  textColor: womenData?.design.color ?? "",
+                                  textColor: womenData.design.color,
                                   child: womenSubCategoryData == null
                                       ? ShimmersWidget(
                                           height: 60,
@@ -185,19 +185,17 @@ class _ShopViewState extends State<ShopView> {
                                                             .health)));
                                   },
                                   width: 155,
-                                  title:
-                                      healthyDietData?.subCategoryId?.title ??
-                                          "",
-                                  imageUrl: healthyDietData?.design.image ?? "",
-                                  text: healthyDietData?.design.text ?? "",
+                                  title: healthyDietData.subCategoryId?.title ??
+                                      "",
+                                  imageUrl: healthyDietData.design.image ?? "",
+                                  text: healthyDietData.design.text ?? "",
                                   buttonColor:
                                       ColorManager.healthyDietButtonClr,
                                   gradientColors: [
                                     ColorManager.helthyDietGradientClr2,
                                     ColorManager.helthyDietGradientClr1,
                                   ],
-                                  textColor:
-                                      healthyDietData?.design.color ?? "",
+                                  textColor: healthyDietData.design.color ?? "",
                                   child: healthyDietSubCategoryData == null
                                       ? ShimmersWidget(
                                           height: 60,
@@ -236,16 +234,16 @@ class _ShopViewState extends State<ShopView> {
                                     ));
                                   },
                                   cardType: ShopHomeCardtype.sunnah,
-                                  title: sunnahData?.subCategoryId?.title ?? "",
-                                  imageUrl: sunnahData?.design?.image ?? "",
-                                  text: sunnahData?.design?.text ?? "",
+                                  title: sunnahData.subCategoryId?.title ?? "",
+                                  imageUrl: sunnahData.design?.image ?? "",
+                                  text: sunnahData.design?.text ?? "",
                                   buttonColor: ColorManager.whiteColor,
                                   width: SizeUtility(context).width,
                                   gradientColors: [
                                     ColorManager.sunnahGreenClr2,
                                     ColorManager.sunnahGreenClr1,
                                   ],
-                                  textColor: sunnahData?.design?.color ?? "",
+                                  textColor: sunnahData.design?.color ?? "",
                                   child: sunnahSubCategoryData == null
                                       ? ShimmersWidget(
                                           height: 60,
@@ -552,8 +550,8 @@ class _ShopViewState extends State<ShopView> {
                   },
                   child: ClipRRect(
                       borderRadius: BorderRadius.circular(20),
-                      child: Utilities()
-                          .buildCachedNetworkImage(imageUrl: banner.image)),
+                      child: Utilities().buildCachedNetworkImage(
+                          imageUrl: banner.image, boxFit: BoxFit.fill)),
                 );
               }).toList(),
               options: CarouselOptions(

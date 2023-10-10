@@ -184,6 +184,7 @@ class AuthService extends HttpServices {
         endPoint: verifyOTPAPI,
         body: {"phone_number": phoneNumber, "otp": otp}).then((value) {
       if (value.statusCode == 200) {
+        print(value.body);
         final token = jsonDecode(value.body)['result']['token'];
         context
             .read<DatabaseBloc>()

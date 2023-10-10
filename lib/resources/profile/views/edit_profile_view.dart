@@ -35,7 +35,7 @@ class _EditProfileViewState extends State<EditProfileView> {
     _dateofBirthcontroller.text = data?.dob ?? "";
     _companyController.text = data?.institution ?? "";
     _professionController.text = data?.profession ?? "";
-    _phoneController.text = "91";
+    _phoneController.text = data?.pohneNumber ?? "";
   }
 
   DateTime? _selectedDate;
@@ -433,12 +433,12 @@ class _EditProfileViewState extends State<EditProfileView> {
                         textFieldName: Appstrings.profession,
                         hintName: Appstrings.profession,
                         textInputType: TextInputType.name,
-                        validator: (val) {
-                          if (val == null || val.isEmpty) {
-                            return "Profession is required";
-                          }
-                          return null;
-                        },
+                        // validator: (val) {
+                        //   if (val == null || val.isEmpty) {
+                        //     return "Profession is required";
+                        //   }
+                        //   return null;
+                        // },
                       ),
                       _textFieldWidget(
                         controller: _companyController,
@@ -481,6 +481,12 @@ class _EditProfileViewState extends State<EditProfileView> {
                       return showSnackBar(
                           context, "Please Select Date of Birth");
                     }
+
+                    if (_professionController.text.isEmpty) {
+                      return showSnackBar(
+                          context, "Please Select the Proffession");
+                    }
+
                     if (_formKey.currentState!.validate()) {
                       context.read<DatabaseBloc>().add(EditAuthUser(
                           context: context,

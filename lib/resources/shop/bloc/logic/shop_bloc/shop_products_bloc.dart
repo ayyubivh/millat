@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:millat/resources/shop/bloc/models/articles/article_category/article_categories_model.dart';
 import 'package:millat/resources/shop/bloc/models/articles/articles_model.dart';
 import 'package:millat/resources/shop/bloc/models/category/specific_category_model.dart';
 import 'package:millat/resources/shop/bloc/models/coupon_model/coupen_model.dart';
@@ -87,6 +88,9 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
     on<AddReasons>(_addReasons);
     on<FetchArticlesbyId>(_fetchArticlesById);
     on<FetchProducts>(_fetchProducts);
+    on<FetchArticlesCategory>(_fetchArticlesCategory);
+    on<SaveArticleCategoryFilterVal>(_saveArticleCategoryFilterVal);
+    on<FetchArticlesByCategory>(_fetchArticlesByCategory);
   }
 
   FutureOr<void> _fetchFlashSaleProducts(
@@ -154,7 +158,7 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
     }
   }
 
-  FutureOr<void> _fetchArticles(
+  _fetchArticles(
     FetchArticles event,
     Emitter<ShopProductsState> emit,
   ) async {
@@ -690,6 +694,41 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
       print('here is the order id in the bloc ${state.orderId}');
     } catch (e) {
       emit(state.copyWith(errorMessage: e.toString(), isLoading: false));
+    }
+  }
+
+  _fetchArticlesCategory(
+      FetchArticlesCategory event, Emitter<ShopProductsState> emit) async {
+    emit(state.copyWith(isLoading: true));
+    try {
+      final data = await shopService.fetchingArticleCategory();
+
+      emit(state.copyWith(articleCategories: data, isLoading: false));
+    } catch (e) {
+      emit(state.copyWith(isLoading: false));
+    }
+  }
+
+  _saveArticleCategoryFilterVal(
+      SaveArticleCategoryFilterVal event, Emitter<ShopProductsState> emit) {
+    emit(state.copyWith(filterVal: event.filterVal));
+  }
+
+  _fetchArticlesByCategory(
+      FetchArticlesByCategory event, Emitter<ShopProductsState> emit) async {
+    emit(state.copyWith(isLoading: true));
+    try {
+      if (state.filterVal == "") {
+        final data = await shopService.fetchArticles();
+
+        emit(state.copyWith(articles: data.result?.articles, isLoading: false));
+      } else {
+        final data = await shopService.fetchArticleByCategory(event.category);
+
+        emit(state.copyWith(articles: data.result?.articles, isLoading: false));
+      }
+    } catch (e) {
+      emit(state.copyWith(isLoading: false));
     }
   }
 }

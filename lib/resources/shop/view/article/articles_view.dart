@@ -23,6 +23,8 @@ class ArticlesView extends StatelessWidget {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       BlocProvider.of<ShopProductsBloc>(context)
           .add(const ShopProductsEvent.fetchArticles(searchQuery: ""));
+      BlocProvider.of<ShopProductsBloc>(context)
+          .add(const FetchArticlesCategory());
     });
     final TextEditingController searchController = TextEditingController();
     return Scaffold(
@@ -119,18 +121,43 @@ class ArticlesView extends StatelessWidget {
             ),
           ),
           kHeight15,
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30),
-              child: Row(
-                children: [
-                  articleFilterWidget("🔥 ${Appstrings.all}"),
-                  articleFilterWidget(Appstrings.popular),
-                  articleFilterWidget(Appstrings.newest),
-                  articleFilterWidget(Appstrings.sunnah),
-                  articleFilterWidget(Appstrings.hadith),
-                ],
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 30),
+            child: SizedBox(
+              height: 60,
+              child: BlocBuilder<ShopProductsBloc, ShopProductsState>(
+                builder: (context, state) => ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: state.articleCategories?.result?.category?.length,
+                  itemBuilder: (context, index) {
+                    final data =
+                        state.articleCategories?.result?.category?[index];
+                    return Padding(
+                      padding: const EdgeInsets.only(right: 10),
+                      child: FilterChip(
+                        labelStyle: TextStyle(
+                          color: state.filterVal == data?.title
+                              ? ColorManager.blackColor
+                              : ColorManager.blackColor.withOpacity(0.5),
+                          fontWeight: FontWeight.bold,
+                        ),
+                        disabledColor: ColorManager.pinkButtonColor,
+                        backgroundColor: ColorManager.lightGreen,
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 6, vertical: 10),
+                        selected: state.filterVal == data?.title,
+                        label: Text(data?.title ?? ""),
+                        onSelected: (isSelected) {
+                          context.read<ShopProductsBloc>()
+                            ..add(SaveArticleCategoryFilterVal(
+                                filterVal:
+                                    isSelected ? data!.title.toString() : ""))
+                            ..add(FetchArticlesByCategory(data!.title));
+                        },
+                      ),
+                    );
+                  },
+                ),
               ),
             ),
           ),

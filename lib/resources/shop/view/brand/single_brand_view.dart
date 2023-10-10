@@ -425,8 +425,8 @@ class SingleBrandView extends StatelessWidget {
                   physics: const NeverScrollableScrollPhysics(),
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
-                    crossAxisSpacing: 2,
-                    mainAxisExtent: 260,
+                    // crossAxisSpacing: 2,
+                    mainAxisExtent: 270,
                   ),
                   itemCount: state.brandProductsModel?.result?.products?.length,
                   itemBuilder: (context, index) {
@@ -443,7 +443,7 @@ class SingleBrandView extends StatelessWidget {
                         }));
                       },
                       child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 30),
+                        padding: const EdgeInsets.symmetric(horizontal: 0),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [

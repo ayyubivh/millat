@@ -48,7 +48,7 @@ class _CheckoutDetailsState extends State<CheckoutDetails> {
         context.read<AddressBloc>().state.addressIdModel?.result.address;
     deliveryToController.text = data!.name;
     addressLineController.text = data.addressLine;
-    landMarkController.text = data.landmark;
+    landMarkController.text = data.landmark ?? "";
     stateController.text = data.state;
     mobileNumberController.text = data.mobile.toString();
     contryController.text = data.country;

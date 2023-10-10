@@ -2,10 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/components/buttons/main_button.dart';
 import 'package:millat/resources/authentication/bloc/logic/database_bloc/database_bloc.dart';
-import 'package:millat/resources/home/view/home_view.dart';
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
 import 'package:millat/resources/shop/view/order_status/order_details_view.dart';
-import 'package:millat/resources/shop/view/tabs/shop_tabs_vilew.dart';
 import 'package:millat/resources/tabs/view/tabs_view.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
@@ -14,7 +12,7 @@ import 'package:millat/utils/string_constants.dart';
 import '../../../../utils/assets_paths.dart';
 
 class PaymentSuccessful extends StatelessWidget {
-  final int subTotal;
+  final double subTotal;
   final int delivery;
 
   const PaymentSuccessful(
@@ -23,7 +21,7 @@ class PaymentSuccessful extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    int total = subTotal + delivery;
+    final total = subTotal + delivery;
     WidgetsBinding.instance.addPostFrameCallback((_) {
       BlocProvider.of<ShopProductsBloc>(context).add(FetchOrdersById(
           context,

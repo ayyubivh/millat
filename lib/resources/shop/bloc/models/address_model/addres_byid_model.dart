@@ -37,7 +37,7 @@ class Address with _$Address {
     required String name,
     required int mobile,
     required int pincode,
-    required String landmark,
+    required String? landmark,
     required String addressLine,
     required String city,
     required String state,

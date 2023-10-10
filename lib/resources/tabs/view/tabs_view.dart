@@ -10,6 +10,7 @@ import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/size_utility.dart';
 import '../../authentication/bloc/logic/database_bloc/database_bloc.dart';
+import '../../home/view/namaz_timing/namaz_timing_view.dart';
 import '../../profile/views/user_profile_view.dart';
 
 class TabsView extends StatefulWidget {
@@ -24,6 +25,7 @@ class _TabsViewState extends State<TabsView> {
     const HomeView(),
     const ShopTabsView(),
     // const RewardsHomeView(),
+    const NamazTimingView(),
     const UserProfileView(),
   ];
   DateTime? currentBackPressTime;
@@ -104,7 +106,7 @@ class _TabsViewState extends State<TabsView> {
                 BottomNavigationBarItem(
                     label: '',
                     icon: ImageIcon(
-                      AssetImage(AppAssetsStrings.rewardsTab),
+                      AssetImage(AppAssetsStrings.starHome),
                       size: 22,
                     )),
                 BottomNavigationBarItem(

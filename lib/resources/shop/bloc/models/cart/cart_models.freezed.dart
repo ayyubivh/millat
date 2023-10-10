@@ -903,6 +903,7 @@ mixin _$ProductInfo {
   @JsonKey(name: '_id')
   String? get id => throw _privateConstructorUsedError;
   String? get title => throw _privateConstructorUsedError;
+  double? get tax => throw _privateConstructorUsedError;
   String? get brand => throw _privateConstructorUsedError;
   String? get category => throw _privateConstructorUsedError;
   String? get subcategory => throw _privateConstructorUsedError;
@@ -938,6 +939,7 @@ abstract class $ProductInfoCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: '_id') String? id,
       String? title,
+      double? tax,
       String? brand,
       String? category,
       String? subcategory,
@@ -972,6 +974,7 @@ class _$ProductInfoCopyWithImpl<$Res, $Val extends ProductInfo>
   $Res call({
     Object? id = freezed,
     Object? title = freezed,
+    Object? tax = freezed,
     Object? brand = freezed,
     Object? category = freezed,
     Object? subcategory = freezed,
@@ -999,6 +1002,10 @@ class _$ProductInfoCopyWithImpl<$Res, $Val extends ProductInfo>
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String?,
+      tax: freezed == tax
+          ? _value.tax
+          : tax // ignore: cast_nullable_to_non_nullable
+              as double?,
       brand: freezed == brand
           ? _value.brand
           : brand // ignore: cast_nullable_to_non_nullable
@@ -1082,6 +1089,7 @@ abstract class _$$_ProductInfoCopyWith<$Res>
   $Res call(
       {@JsonKey(name: '_id') String? id,
       String? title,
+      double? tax,
       String? brand,
       String? category,
       String? subcategory,
@@ -1114,6 +1122,7 @@ class __$$_ProductInfoCopyWithImpl<$Res>
   $Res call({
     Object? id = freezed,
     Object? title = freezed,
+    Object? tax = freezed,
     Object? brand = freezed,
     Object? category = freezed,
     Object? subcategory = freezed,
@@ -1141,6 +1150,10 @@ class __$$_ProductInfoCopyWithImpl<$Res>
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String?,
+      tax: freezed == tax
+          ? _value.tax
+          : tax // ignore: cast_nullable_to_non_nullable
+              as double?,
       brand: freezed == brand
           ? _value.brand
           : brand // ignore: cast_nullable_to_non_nullable
@@ -1219,6 +1232,7 @@ class _$_ProductInfo implements _ProductInfo {
   const _$_ProductInfo(
       {@JsonKey(name: '_id') this.id,
       this.title,
+      this.tax,
       this.brand,
       this.category,
       this.subcategory,
@@ -1248,6 +1262,8 @@ class _$_ProductInfo implements _ProductInfo {
   final String? id;
   @override
   final String? title;
+  @override
+  final double? tax;
   @override
   final String? brand;
   @override
@@ -1311,7 +1327,7 @@ class _$_ProductInfo implements _ProductInfo {
 
   @override
   String toString() {
-    return 'ProductInfo(id: $id, title: $title, brand: $brand, category: $category, subcategory: $subcategory, itemType: $itemType, pickupAddress: $pickupAddress, description: $description, regularPrice: $regularPrice, salePrice: $salePrice, discount: $discount, color: $color, images: $images, size: $size, keywords: $keywords, madeFrom: $madeFrom, productCareInfo: $productCareInfo, createdAt: $createdAt, updatedAt: $updatedAt)';
+    return 'ProductInfo(id: $id, title: $title, tax: $tax, brand: $brand, category: $category, subcategory: $subcategory, itemType: $itemType, pickupAddress: $pickupAddress, description: $description, regularPrice: $regularPrice, salePrice: $salePrice, discount: $discount, color: $color, images: $images, size: $size, keywords: $keywords, madeFrom: $madeFrom, productCareInfo: $productCareInfo, createdAt: $createdAt, updatedAt: $updatedAt)';
   }
 
   @override
@@ -1321,6 +1337,7 @@ class _$_ProductInfo implements _ProductInfo {
             other is _$_ProductInfo &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.title, title) || other.title == title) &&
+            (identical(other.tax, tax) || other.tax == tax) &&
             (identical(other.brand, brand) || other.brand == brand) &&
             (identical(other.category, category) ||
                 other.category == category) &&
@@ -1358,6 +1375,7 @@ class _$_ProductInfo implements _ProductInfo {
         runtimeType,
         id,
         title,
+        tax,
         brand,
         category,
         subcategory,
@@ -1395,6 +1413,7 @@ abstract class _ProductInfo implements ProductInfo {
   const factory _ProductInfo(
       {@JsonKey(name: '_id') final String? id,
       final String? title,
+      final double? tax,
       final String? brand,
       final String? category,
       final String? subcategory,
@@ -1421,6 +1440,8 @@ abstract class _ProductInfo implements ProductInfo {
   String? get id;
   @override
   String? get title;
+  @override
+  double? get tax;
   @override
   String? get brand;
   @override

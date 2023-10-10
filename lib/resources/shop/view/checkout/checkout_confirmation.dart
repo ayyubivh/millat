@@ -63,6 +63,7 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 30),
         child: SingleChildScrollView(
+          physics: const BouncingScrollPhysics(),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -422,124 +423,274 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
           ),
         ),
       ),
-      bottomNavigationBar: Container(
-        height: 65,
-        color: ColorManager.whiteColor,
-        padding: const EdgeInsets.symmetric(horizontal: 30).copyWith(bottom: 7),
-        child: BlocBuilder<CartBloc, CartState>(
-          builder: (context, state) {
-            final cartItems = state.cartModel?.result?.cartProducts?.cartItems;
+      bottomSheet: BlocBuilder<CartBloc, CartState>(
+        builder: (context, state) {
+          final cartItems = state.cartModel?.result?.cartProducts?.cartItems;
 
-            final subTotal = _getTotalPrice(
-              cartItems?.map((e) => e.sellingPrice).toList(),
-              cartItems?.map((e) => e.quantity).toList(),
-            );
-            const shippingFee = 27;
-            const estimatingTax = 0;
-            final total = subTotal + shippingFee + estimatingTax;
-            return widget.checkoutType == CheckoutType.rewards
-                ? BlocBuilder<RewardsBloc, RewardsState>(
-                    builder: (context, state) => MainButton(
-                      title: Appstrings.placeOrder,
-                      onPressed: () {
-                        final pickUpaddress = context
-                            .read<AddressBloc>()
-                            .state
-                            .addressIdModel!
-                            .result
-                            .address;
-
-                        print(
-                            "here is the address ${context.read<AddressBloc>().state.addressIdModel!.result.address.addressLine}");
-                        final userCoins = context
-                                .read<RewardsBloc>()
+          final subTotal = _getTotalPrice(
+            cartItems?.map((e) => e.sellingPrice).toList(),
+            cartItems?.map((e) => e.quantity).toList(),
+          );
+          // final tax = cartItems?[0].tax.toString();
+          final quantity = cartItems?.map((e) => e.quantity).toList();
+          final shippingCharge = widget.paymentType == 0 ? 45 : 90;
+          final shippingFee = cartItems!.length > 1
+              ? shippingCharge * 2
+              : quantity![0]! > 1
+                  ? shippingCharge * 2
+                  : shippingCharge;
+          final taxRate = cartItems
+              .map((item) => item.productId?.tax)
+              .reduce((a, b) => a! + b!)!
+              .toDouble();
+          final giftPrice = isGift ? 89 : 0;
+          final averageTax = (taxRate / cartItems.length);
+          final estimatingTax = (averageTax / 100) * subTotal;
+          print("estimated tax $estimatingTax");
+          final total = subTotal + shippingFee + estimatingTax + giftPrice;
+          final isShow = state.showExapnd;
+          return Container(
+            color: ColorManager.whiteColor,
+            padding:
+                const EdgeInsets.symmetric(horizontal: 30).copyWith(bottom: 7),
+            height: isShow ? 300 : 160,
+            child: Column(
+              children: [
+                isShow
+                    ? InkWell(
+                        onTap: () {
+                          context.read<CartBloc>().add(const ShowExpandEvent());
+                        },
+                        child: const Icon(
+                          Icons.expand_more,
+                          size: 30,
+                        ),
+                      )
+                    : InkWell(
+                        onTap: () {
+                          context.read<CartBloc>().add(const ShowExpandEvent());
+                        },
+                        child: const Icon(
+                          Icons.expand_less,
+                          size: 30,
+                        ),
+                      ),
+                kHeight15,
+                isShow
+                    ? Column(
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                Appstrings.subTotal,
+                                style: TextStyle(
+                                  color: ColorManager.blackColor,
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              Text(
+                                '₹$subTotal',
+                                style: TextStyle(
+                                    color: ColorManager.blackColor,
+                                    fontSize: 17,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ],
+                          ),
+                          kHeight16,
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                Appstrings.deliveryCharge,
+                                style: TextStyle(
+                                  color: ColorManager.blackColor,
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              Text(
+                                '₹$shippingFee',
+                                style: TextStyle(
+                                    color: ColorManager.blackColor,
+                                    fontSize: 17,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ],
+                          ),
+                          kHeight16,
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(Appstrings.tax,
+                                  style: TextStyle(
+                                      color: ColorManager.blackColor,
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.bold)),
+                              Text("$averageTax",
+                                  style: TextStyle(
+                                      color: ColorManager.blackColor,
+                                      fontSize: 17,
+                                      fontWeight: FontWeight.bold)),
+                            ],
+                          ),
+                          kHeight16,
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text('Total',
+                                  style: TextStyle(
+                                      color: ColorManager.blackColor,
+                                      fontSize: 19,
+                                      fontWeight: FontWeight.w700)),
+                              Text(
+                                '₹$total',
+                                style: TextStyle(
+                                    color: ColorManager.black4A,
+                                    fontSize: 19,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ],
+                          ),
+                          kHeight20,
+                        ],
+                      )
+                    : Column(
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text('Total',
+                                  style: TextStyle(
+                                      color: ColorManager.blackColor,
+                                      fontSize: 19,
+                                      fontWeight: FontWeight.w700)),
+                              const Text(
+                                ':',
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w900,
+                                  fontSize: 16,
+                                ),
+                              ),
+                              Text(
+                                '₹$total',
+                                style: TextStyle(
+                                    color: ColorManager.black4A,
+                                    fontSize: 19,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ],
+                          ),
+                          kHeight16,
+                        ],
+                      ),
+                widget.checkoutType == CheckoutType.rewards
+                    ? BlocBuilder<RewardsBloc, RewardsState>(
+                        builder: (context, state) => MainButton(
+                          title: Appstrings.placeOrder,
+                          onPressed: () {
+                            final pickUpaddress = context
+                                .read<AddressBloc>()
                                 .state
-                                .rewardsModel
-                                ?.result
-                                ?.reward
-                                ?.coins ??
-                            0;
-                        final productCoin = state
-                                .rewardsProductByIdModel?.result?.product?.coins
-                                ?.toInt() ??
-                            0;
-                        print('here is the address id ${pickUpaddress.id}');
-                        final data = state.rewardsProductByIdModel?.result
-                            ?.product?.productId;
-                        if (userCoins >= productCoin) {
-                          context.read<ShopProductsBloc>().add(
-                              PostOrdersRewards(
-                                  context: context,
-                                  price: data?.salePrice?.toInt() ?? 0,
-                                  coins: productCoin,
-                                  addressId: pickUpaddress.id,
-                                  totalQuantity: 1,
-                                  productId: data?.id ?? "",
-                                  brandId: data?.brand ?? "",
-                                  size: data?.size![0].size ?? "",
-                                  color: data?.color ?? ""));
+                                .addressIdModel!
+                                .result
+                                .address;
+
+                            print(
+                                "here is the address ${context.read<AddressBloc>().state.addressIdModel!.result.address.addressLine}");
+                            final userCoins = context
+                                    .read<RewardsBloc>()
+                                    .state
+                                    .rewardsModel
+                                    ?.result
+                                    ?.reward
+                                    ?.coins ??
+                                0;
+                            final productCoin = state.rewardsProductByIdModel
+                                    ?.result?.product?.coins
+                                    ?.toInt() ??
+                                0;
+                            print('here is the address id ${pickUpaddress.id}');
+                            final data = state.rewardsProductByIdModel?.result
+                                ?.product?.productId;
+                            if (userCoins >= productCoin) {
+                              context.read<ShopProductsBloc>().add(
+                                  PostOrdersRewards(
+                                      context: context,
+                                      price: data?.salePrice?.toDouble() ?? 0,
+                                      coins: productCoin,
+                                      addressId: pickUpaddress.id,
+                                      totalQuantity: 1,
+                                      productId: data?.id ?? "",
+                                      brandId: data?.brand ?? "",
+                                      size: data?.size![0].size ?? "",
+                                      color: data?.color ?? ""));
+
+                              Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => PaymentSuccessful(
+                                    subTotal: data?.salePrice?.toDouble() ?? 0,
+                                    delivery: 27),
+                              ));
+                            } else {
+                              showSnackBar(
+                                  context, "Not enough coins to buy product!");
+                            }
+                          },
+                        ),
+                      )
+                    : MainButton(
+                        title: Appstrings.placeOrder,
+                        onPressed: () {
+                          final pickUpaddress = context
+                              .read<AddressBloc>()
+                              .state
+                              .addressIdModel!
+                              .result
+                              .address;
+
+                          print(
+                              "here is the address ${context.read<AddressBloc>().state.addressIdModel!.result.address.addressLine}");
+
+                          print('here is the address id ${pickUpaddress.id}');
+                          final isPromo = context
+                              .read<ShopProductsBloc>()
+                              .state
+                              .isPromoCodeAvailable;
+                          final discount = context
+                              .read<ShopProductsBloc>()
+                              .state
+                              .couponModel
+                              ?.result
+                              .data?[0]
+                              .discount;
+                          context.read<ShopProductsBloc>().add(PostOrders(
+                                id: pickUpaddress.id,
+                                shippingCharges: shippingFee,
+                                totalDiscount: 0,
+                                weight: 0,
+                                pickupLocation: pickUpaddress.addressLine,
+                                quantity: state.cartLength,
+                                totalPrice: isPromo
+                                    ? total - discount!.toDouble()
+                                    : total.toDouble(),
+                                context: context,
+                              ));
 
                           Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) => PaymentSuccessful(
-                                subTotal: data?.salePrice?.toInt() ?? 0,
-                                delivery: 27),
+                                subTotal: isPromo
+                                    ? total - discount!.toDouble()
+                                    : total.toDouble(),
+                                delivery: shippingFee),
                           ));
-                        } else {
-                          showSnackBar(
-                              context, "Not enough coins to buy product!");
-                        }
-                      },
-                    ),
-                  )
-                : MainButton(
-                    title: Appstrings.placeOrder,
-                    onPressed: () {
-                      final pickUpaddress = context
-                          .read<AddressBloc>()
-                          .state
-                          .addressIdModel!
-                          .result
-                          .address;
-
-                      print(
-                          "here is the address ${context.read<AddressBloc>().state.addressIdModel!.result.address.addressLine}");
-
-                      print('here is the address id ${pickUpaddress.id}');
-                      final isPromo = context
-                          .read<ShopProductsBloc>()
-                          .state
-                          .isPromoCodeAvailable;
-                      final discount = context
-                          .read<ShopProductsBloc>()
-                          .state
-                          .couponModel
-                          ?.result
-                          .data?[0]
-                          .discount;
-                      context.read<ShopProductsBloc>().add(PostOrders(
-                            id: pickUpaddress.id,
-                            shippingCharges: shippingFee,
-                            totalDiscount: 0,
-                            weight: 0,
-                            pickupLocation: pickUpaddress.addressLine,
-                            quantity: state.cartLength,
-                            totalPrice: isPromo
-                                ? total - discount!.toInt()
-                                : total.toInt(),
-                            context: context,
-                          ));
-
-                      Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => PaymentSuccessful(
-                            subTotal: isPromo
-                                ? total - discount!.toInt()
-                                : total.toInt(),
-                            delivery: shippingFee),
-                      ));
-                    },
-                  );
-          },
-        ),
+                        },
+                      ),
+              ],
+            ),
+          );
+        },
       ),
     );
   }

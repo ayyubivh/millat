@@ -127,7 +127,6 @@ class AddressService extends HttpServices {
     if (response.statusCode == 200) {
       try {
         if (response.statusCode == 200) {
-          // print('address here fetxh ${response.body}');
           final Map<String, dynamic> data = json.decode(response.body);
           final result = AddressModel.fromJson(data);
 

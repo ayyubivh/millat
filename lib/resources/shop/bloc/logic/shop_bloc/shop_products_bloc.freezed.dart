@@ -35,7 +35,7 @@ mixin _$ShopProductsEvent {
     required TResult Function(int index) tabIndexChangeEvent,
     required TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -45,7 +45,7 @@ mixin _$ShopProductsEvent {
         postOrders,
     required TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -113,7 +113,7 @@ mixin _$ShopProductsEvent {
     TResult? Function(int index)? tabIndexChangeEvent,
     TResult? Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -123,7 +123,7 @@ mixin _$ShopProductsEvent {
         postOrders,
     TResult? Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -189,7 +189,7 @@ mixin _$ShopProductsEvent {
     TResult Function(int index)? tabIndexChangeEvent,
     TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -199,7 +199,7 @@ mixin _$ShopProductsEvent {
         postOrders,
     TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -563,7 +563,7 @@ class _$FetchFlashSaleProducts implements FetchFlashSaleProducts {
     required TResult Function(int index) tabIndexChangeEvent,
     required TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -573,7 +573,7 @@ class _$FetchFlashSaleProducts implements FetchFlashSaleProducts {
         postOrders,
     required TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -644,7 +644,7 @@ class _$FetchFlashSaleProducts implements FetchFlashSaleProducts {
     TResult? Function(int index)? tabIndexChangeEvent,
     TResult? Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -654,7 +654,7 @@ class _$FetchFlashSaleProducts implements FetchFlashSaleProducts {
         postOrders,
     TResult? Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -723,7 +723,7 @@ class _$FetchFlashSaleProducts implements FetchFlashSaleProducts {
     TResult Function(int index)? tabIndexChangeEvent,
     TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -733,7 +733,7 @@ class _$FetchFlashSaleProducts implements FetchFlashSaleProducts {
         postOrders,
     TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -1105,7 +1105,7 @@ class _$FetchPopularProducts implements FetchPopularProducts {
     required TResult Function(int index) tabIndexChangeEvent,
     required TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -1115,7 +1115,7 @@ class _$FetchPopularProducts implements FetchPopularProducts {
         postOrders,
     required TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -1186,7 +1186,7 @@ class _$FetchPopularProducts implements FetchPopularProducts {
     TResult? Function(int index)? tabIndexChangeEvent,
     TResult? Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -1196,7 +1196,7 @@ class _$FetchPopularProducts implements FetchPopularProducts {
         postOrders,
     TResult? Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -1265,7 +1265,7 @@ class _$FetchPopularProducts implements FetchPopularProducts {
     TResult Function(int index)? tabIndexChangeEvent,
     TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -1275,7 +1275,7 @@ class _$FetchPopularProducts implements FetchPopularProducts {
         postOrders,
     TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -1622,7 +1622,7 @@ class _$FetchRecentProductProducts implements FetchRecentProductProducts {
     required TResult Function(int index) tabIndexChangeEvent,
     required TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -1632,7 +1632,7 @@ class _$FetchRecentProductProducts implements FetchRecentProductProducts {
         postOrders,
     required TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -1703,7 +1703,7 @@ class _$FetchRecentProductProducts implements FetchRecentProductProducts {
     TResult? Function(int index)? tabIndexChangeEvent,
     TResult? Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -1713,7 +1713,7 @@ class _$FetchRecentProductProducts implements FetchRecentProductProducts {
         postOrders,
     TResult? Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -1782,7 +1782,7 @@ class _$FetchRecentProductProducts implements FetchRecentProductProducts {
     TResult Function(int index)? tabIndexChangeEvent,
     TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -1792,7 +1792,7 @@ class _$FetchRecentProductProducts implements FetchRecentProductProducts {
         postOrders,
     TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -2130,7 +2130,7 @@ class _$FetchHomeBanners implements FetchHomeBanners {
     required TResult Function(int index) tabIndexChangeEvent,
     required TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -2140,7 +2140,7 @@ class _$FetchHomeBanners implements FetchHomeBanners {
         postOrders,
     required TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -2211,7 +2211,7 @@ class _$FetchHomeBanners implements FetchHomeBanners {
     TResult? Function(int index)? tabIndexChangeEvent,
     TResult? Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -2221,7 +2221,7 @@ class _$FetchHomeBanners implements FetchHomeBanners {
         postOrders,
     TResult? Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -2290,7 +2290,7 @@ class _$FetchHomeBanners implements FetchHomeBanners {
     TResult Function(int index)? tabIndexChangeEvent,
     TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -2300,7 +2300,7 @@ class _$FetchHomeBanners implements FetchHomeBanners {
         postOrders,
     TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -2638,7 +2638,7 @@ class _$FetchShopBanners implements FetchShopBanners {
     required TResult Function(int index) tabIndexChangeEvent,
     required TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -2648,7 +2648,7 @@ class _$FetchShopBanners implements FetchShopBanners {
         postOrders,
     required TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -2719,7 +2719,7 @@ class _$FetchShopBanners implements FetchShopBanners {
     TResult? Function(int index)? tabIndexChangeEvent,
     TResult? Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -2729,7 +2729,7 @@ class _$FetchShopBanners implements FetchShopBanners {
         postOrders,
     TResult? Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -2798,7 +2798,7 @@ class _$FetchShopBanners implements FetchShopBanners {
     TResult Function(int index)? tabIndexChangeEvent,
     TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -2808,7 +2808,7 @@ class _$FetchShopBanners implements FetchShopBanners {
         postOrders,
     TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -3173,7 +3173,7 @@ class _$FetchArticles implements FetchArticles {
     required TResult Function(int index) tabIndexChangeEvent,
     required TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -3183,7 +3183,7 @@ class _$FetchArticles implements FetchArticles {
         postOrders,
     required TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -3254,7 +3254,7 @@ class _$FetchArticles implements FetchArticles {
     TResult? Function(int index)? tabIndexChangeEvent,
     TResult? Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -3264,7 +3264,7 @@ class _$FetchArticles implements FetchArticles {
         postOrders,
     TResult? Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -3333,7 +3333,7 @@ class _$FetchArticles implements FetchArticles {
     TResult Function(int index)? tabIndexChangeEvent,
     TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -3343,7 +3343,7 @@ class _$FetchArticles implements FetchArticles {
         postOrders,
     TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -3687,7 +3687,7 @@ class _$FetchShopByBrand implements FetchShopByBrand {
     required TResult Function(int index) tabIndexChangeEvent,
     required TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -3697,7 +3697,7 @@ class _$FetchShopByBrand implements FetchShopByBrand {
         postOrders,
     required TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -3768,7 +3768,7 @@ class _$FetchShopByBrand implements FetchShopByBrand {
     TResult? Function(int index)? tabIndexChangeEvent,
     TResult? Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -3778,7 +3778,7 @@ class _$FetchShopByBrand implements FetchShopByBrand {
         postOrders,
     TResult? Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -3847,7 +3847,7 @@ class _$FetchShopByBrand implements FetchShopByBrand {
     TResult Function(int index)? tabIndexChangeEvent,
     TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -3857,7 +3857,7 @@ class _$FetchShopByBrand implements FetchShopByBrand {
         postOrders,
     TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -4221,7 +4221,7 @@ class _$FetchWishList implements FetchWishList {
     required TResult Function(int index) tabIndexChangeEvent,
     required TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -4231,7 +4231,7 @@ class _$FetchWishList implements FetchWishList {
         postOrders,
     required TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -4302,7 +4302,7 @@ class _$FetchWishList implements FetchWishList {
     TResult? Function(int index)? tabIndexChangeEvent,
     TResult? Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -4312,7 +4312,7 @@ class _$FetchWishList implements FetchWishList {
         postOrders,
     TResult? Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -4381,7 +4381,7 @@ class _$FetchWishList implements FetchWishList {
     TResult Function(int index)? tabIndexChangeEvent,
     TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -4391,7 +4391,7 @@ class _$FetchWishList implements FetchWishList {
         postOrders,
     TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -4760,7 +4760,7 @@ class _$SearchProduct implements SearchProduct {
     required TResult Function(int index) tabIndexChangeEvent,
     required TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -4770,7 +4770,7 @@ class _$SearchProduct implements SearchProduct {
         postOrders,
     required TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -4841,7 +4841,7 @@ class _$SearchProduct implements SearchProduct {
     TResult? Function(int index)? tabIndexChangeEvent,
     TResult? Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -4851,7 +4851,7 @@ class _$SearchProduct implements SearchProduct {
         postOrders,
     TResult? Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -4920,7 +4920,7 @@ class _$SearchProduct implements SearchProduct {
     TResult Function(int index)? tabIndexChangeEvent,
     TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -4930,7 +4930,7 @@ class _$SearchProduct implements SearchProduct {
         postOrders,
     TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -5308,7 +5308,7 @@ class _$AddWishListEvent implements AddWishListEvent {
     required TResult Function(int index) tabIndexChangeEvent,
     required TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -5318,7 +5318,7 @@ class _$AddWishListEvent implements AddWishListEvent {
         postOrders,
     required TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -5389,7 +5389,7 @@ class _$AddWishListEvent implements AddWishListEvent {
     TResult? Function(int index)? tabIndexChangeEvent,
     TResult? Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -5399,7 +5399,7 @@ class _$AddWishListEvent implements AddWishListEvent {
         postOrders,
     TResult? Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -5468,7 +5468,7 @@ class _$AddWishListEvent implements AddWishListEvent {
     TResult Function(int index)? tabIndexChangeEvent,
     TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -5478,7 +5478,7 @@ class _$AddWishListEvent implements AddWishListEvent {
         postOrders,
     TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -5860,7 +5860,7 @@ class _$RemoveWishlistEvent implements RemoveWishlistEvent {
     required TResult Function(int index) tabIndexChangeEvent,
     required TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -5870,7 +5870,7 @@ class _$RemoveWishlistEvent implements RemoveWishlistEvent {
         postOrders,
     required TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -5941,7 +5941,7 @@ class _$RemoveWishlistEvent implements RemoveWishlistEvent {
     TResult? Function(int index)? tabIndexChangeEvent,
     TResult? Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -5951,7 +5951,7 @@ class _$RemoveWishlistEvent implements RemoveWishlistEvent {
         postOrders,
     TResult? Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -6020,7 +6020,7 @@ class _$RemoveWishlistEvent implements RemoveWishlistEvent {
     TResult Function(int index)? tabIndexChangeEvent,
     TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -6030,7 +6030,7 @@ class _$RemoveWishlistEvent implements RemoveWishlistEvent {
         postOrders,
     TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -6405,7 +6405,7 @@ class _$FetchShopByBrandProducts implements FetchShopByBrandProducts {
     required TResult Function(int index) tabIndexChangeEvent,
     required TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -6415,7 +6415,7 @@ class _$FetchShopByBrandProducts implements FetchShopByBrandProducts {
         postOrders,
     required TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -6486,7 +6486,7 @@ class _$FetchShopByBrandProducts implements FetchShopByBrandProducts {
     TResult? Function(int index)? tabIndexChangeEvent,
     TResult? Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -6496,7 +6496,7 @@ class _$FetchShopByBrandProducts implements FetchShopByBrandProducts {
         postOrders,
     TResult? Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -6565,7 +6565,7 @@ class _$FetchShopByBrandProducts implements FetchShopByBrandProducts {
     TResult Function(int index)? tabIndexChangeEvent,
     TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -6575,7 +6575,7 @@ class _$FetchShopByBrandProducts implements FetchShopByBrandProducts {
         postOrders,
     TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -6946,7 +6946,7 @@ class _$TabIndexChangeEvent implements TabIndexChangeEvent {
     required TResult Function(int index) tabIndexChangeEvent,
     required TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -6956,7 +6956,7 @@ class _$TabIndexChangeEvent implements TabIndexChangeEvent {
         postOrders,
     required TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -7027,7 +7027,7 @@ class _$TabIndexChangeEvent implements TabIndexChangeEvent {
     TResult? Function(int index)? tabIndexChangeEvent,
     TResult? Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -7037,7 +7037,7 @@ class _$TabIndexChangeEvent implements TabIndexChangeEvent {
         postOrders,
     TResult? Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -7106,7 +7106,7 @@ class _$TabIndexChangeEvent implements TabIndexChangeEvent {
     TResult Function(int index)? tabIndexChangeEvent,
     TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -7116,7 +7116,7 @@ class _$TabIndexChangeEvent implements TabIndexChangeEvent {
         postOrders,
     TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -7413,7 +7413,7 @@ abstract class _$$PostOrdersCopyWith<$Res> {
   @useResult
   $Res call(
       {BuildContext context,
-      int totalPrice,
+      double totalPrice,
       String pickupLocation,
       int quantity,
       int totalDiscount,
@@ -7450,7 +7450,7 @@ class __$$PostOrdersCopyWithImpl<$Res>
       totalPrice: null == totalPrice
           ? _value.totalPrice
           : totalPrice // ignore: cast_nullable_to_non_nullable
-              as int,
+              as double,
       pickupLocation: null == pickupLocation
           ? _value.pickupLocation
           : pickupLocation // ignore: cast_nullable_to_non_nullable
@@ -7495,7 +7495,7 @@ class _$PostOrders implements PostOrders {
   @override
   final BuildContext context;
   @override
-  final int totalPrice;
+  final double totalPrice;
   @override
   final String pickupLocation;
   @override
@@ -7564,7 +7564,7 @@ class _$PostOrders implements PostOrders {
     required TResult Function(int index) tabIndexChangeEvent,
     required TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -7574,7 +7574,7 @@ class _$PostOrders implements PostOrders {
         postOrders,
     required TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -7646,7 +7646,7 @@ class _$PostOrders implements PostOrders {
     TResult? Function(int index)? tabIndexChangeEvent,
     TResult? Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -7656,7 +7656,7 @@ class _$PostOrders implements PostOrders {
         postOrders,
     TResult? Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -7726,7 +7726,7 @@ class _$PostOrders implements PostOrders {
     TResult Function(int index)? tabIndexChangeEvent,
     TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -7736,7 +7736,7 @@ class _$PostOrders implements PostOrders {
         postOrders,
     TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -8019,7 +8019,7 @@ class _$PostOrders implements PostOrders {
 abstract class PostOrders implements ShopProductsEvent {
   const factory PostOrders(
       {required final BuildContext context,
-      required final int totalPrice,
+      required final double totalPrice,
       required final String pickupLocation,
       required final int quantity,
       required final int totalDiscount,
@@ -8028,7 +8028,7 @@ abstract class PostOrders implements ShopProductsEvent {
       required final String id}) = _$PostOrders;
 
   BuildContext get context;
-  int get totalPrice;
+  double get totalPrice;
   String get pickupLocation;
   int get quantity;
   int get totalDiscount;
@@ -8048,7 +8048,7 @@ abstract class _$$PostOrdersRewardsCopyWith<$Res> {
   @useResult
   $Res call(
       {BuildContext context,
-      int price,
+      double price,
       int coins,
       String addressId,
       int totalQuantity,
@@ -8087,7 +8087,7 @@ class __$$PostOrdersRewardsCopyWithImpl<$Res>
       price: null == price
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
-              as int,
+              as double,
       coins: null == coins
           ? _value.coins
           : coins // ignore: cast_nullable_to_non_nullable
@@ -8137,7 +8137,7 @@ class _$PostOrdersRewards implements PostOrdersRewards {
   @override
   final BuildContext context;
   @override
-  final int price;
+  final double price;
   @override
   final int coins;
   @override
@@ -8207,7 +8207,7 @@ class _$PostOrdersRewards implements PostOrdersRewards {
     required TResult Function(int index) tabIndexChangeEvent,
     required TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -8217,7 +8217,7 @@ class _$PostOrdersRewards implements PostOrdersRewards {
         postOrders,
     required TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -8289,7 +8289,7 @@ class _$PostOrdersRewards implements PostOrdersRewards {
     TResult? Function(int index)? tabIndexChangeEvent,
     TResult? Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -8299,7 +8299,7 @@ class _$PostOrdersRewards implements PostOrdersRewards {
         postOrders,
     TResult? Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -8369,7 +8369,7 @@ class _$PostOrdersRewards implements PostOrdersRewards {
     TResult Function(int index)? tabIndexChangeEvent,
     TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -8379,7 +8379,7 @@ class _$PostOrdersRewards implements PostOrdersRewards {
         postOrders,
     TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -8662,7 +8662,7 @@ class _$PostOrdersRewards implements PostOrdersRewards {
 abstract class PostOrdersRewards implements ShopProductsEvent {
   const factory PostOrdersRewards(
       {required final BuildContext context,
-      required final int price,
+      required final double price,
       required final int coins,
       required final String addressId,
       required final int totalQuantity,
@@ -8672,7 +8672,7 @@ abstract class PostOrdersRewards implements ShopProductsEvent {
       required final String color}) = _$PostOrdersRewards;
 
   BuildContext get context;
-  int get price;
+  double get price;
   int get coins;
   String get addressId;
   int get totalQuantity;
@@ -8766,7 +8766,7 @@ class _$FetchOrders implements FetchOrders {
     required TResult Function(int index) tabIndexChangeEvent,
     required TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -8776,7 +8776,7 @@ class _$FetchOrders implements FetchOrders {
         postOrders,
     required TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -8847,7 +8847,7 @@ class _$FetchOrders implements FetchOrders {
     TResult? Function(int index)? tabIndexChangeEvent,
     TResult? Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -8857,7 +8857,7 @@ class _$FetchOrders implements FetchOrders {
         postOrders,
     TResult? Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -8926,7 +8926,7 @@ class _$FetchOrders implements FetchOrders {
     TResult Function(int index)? tabIndexChangeEvent,
     TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -8936,7 +8936,7 @@ class _$FetchOrders implements FetchOrders {
         postOrders,
     TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -9313,7 +9313,7 @@ class _$FetchOrdersById implements FetchOrdersById {
     required TResult Function(int index) tabIndexChangeEvent,
     required TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -9323,7 +9323,7 @@ class _$FetchOrdersById implements FetchOrdersById {
         postOrders,
     required TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -9394,7 +9394,7 @@ class _$FetchOrdersById implements FetchOrdersById {
     TResult? Function(int index)? tabIndexChangeEvent,
     TResult? Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -9404,7 +9404,7 @@ class _$FetchOrdersById implements FetchOrdersById {
         postOrders,
     TResult? Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -9473,7 +9473,7 @@ class _$FetchOrdersById implements FetchOrdersById {
     TResult Function(int index)? tabIndexChangeEvent,
     TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -9483,7 +9483,7 @@ class _$FetchOrdersById implements FetchOrdersById {
         postOrders,
     TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -9866,7 +9866,7 @@ class _$FetchOrdersbyFilterEvent implements FetchOrdersbyFilterEvent {
     required TResult Function(int index) tabIndexChangeEvent,
     required TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -9876,7 +9876,7 @@ class _$FetchOrdersbyFilterEvent implements FetchOrdersbyFilterEvent {
         postOrders,
     required TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -9947,7 +9947,7 @@ class _$FetchOrdersbyFilterEvent implements FetchOrdersbyFilterEvent {
     TResult? Function(int index)? tabIndexChangeEvent,
     TResult? Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -9957,7 +9957,7 @@ class _$FetchOrdersbyFilterEvent implements FetchOrdersbyFilterEvent {
         postOrders,
     TResult? Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -10026,7 +10026,7 @@ class _$FetchOrdersbyFilterEvent implements FetchOrdersbyFilterEvent {
     TResult Function(int index)? tabIndexChangeEvent,
     TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -10036,7 +10036,7 @@ class _$FetchOrdersbyFilterEvent implements FetchOrdersbyFilterEvent {
         postOrders,
     TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -10417,7 +10417,7 @@ class _$CancelOrder implements CancelOrder {
     required TResult Function(int index) tabIndexChangeEvent,
     required TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -10427,7 +10427,7 @@ class _$CancelOrder implements CancelOrder {
         postOrders,
     required TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -10498,7 +10498,7 @@ class _$CancelOrder implements CancelOrder {
     TResult? Function(int index)? tabIndexChangeEvent,
     TResult? Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -10508,7 +10508,7 @@ class _$CancelOrder implements CancelOrder {
         postOrders,
     TResult? Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -10577,7 +10577,7 @@ class _$CancelOrder implements CancelOrder {
     TResult Function(int index)? tabIndexChangeEvent,
     TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -10587,7 +10587,7 @@ class _$CancelOrder implements CancelOrder {
         postOrders,
     TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -10968,7 +10968,7 @@ class _$ReturnOrder implements ReturnOrder {
     required TResult Function(int index) tabIndexChangeEvent,
     required TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -10978,7 +10978,7 @@ class _$ReturnOrder implements ReturnOrder {
         postOrders,
     required TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -11049,7 +11049,7 @@ class _$ReturnOrder implements ReturnOrder {
     TResult? Function(int index)? tabIndexChangeEvent,
     TResult? Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -11059,7 +11059,7 @@ class _$ReturnOrder implements ReturnOrder {
         postOrders,
     TResult? Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -11128,7 +11128,7 @@ class _$ReturnOrder implements ReturnOrder {
     TResult Function(int index)? tabIndexChangeEvent,
     TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -11138,7 +11138,7 @@ class _$ReturnOrder implements ReturnOrder {
         postOrders,
     TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -11487,7 +11487,7 @@ class _$FetchShopHomeBackgroundCard implements FetchShopHomeBackgroundCard {
     required TResult Function(int index) tabIndexChangeEvent,
     required TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -11497,7 +11497,7 @@ class _$FetchShopHomeBackgroundCard implements FetchShopHomeBackgroundCard {
         postOrders,
     required TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -11568,7 +11568,7 @@ class _$FetchShopHomeBackgroundCard implements FetchShopHomeBackgroundCard {
     TResult? Function(int index)? tabIndexChangeEvent,
     TResult? Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -11578,7 +11578,7 @@ class _$FetchShopHomeBackgroundCard implements FetchShopHomeBackgroundCard {
         postOrders,
     TResult? Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -11647,7 +11647,7 @@ class _$FetchShopHomeBackgroundCard implements FetchShopHomeBackgroundCard {
     TResult Function(int index)? tabIndexChangeEvent,
     TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -11657,7 +11657,7 @@ class _$FetchShopHomeBackgroundCard implements FetchShopHomeBackgroundCard {
         postOrders,
     TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -12000,7 +12000,7 @@ class _$FetchShopHomeBackgroundCardHelthyDiet
     required TResult Function(int index) tabIndexChangeEvent,
     required TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -12010,7 +12010,7 @@ class _$FetchShopHomeBackgroundCardHelthyDiet
         postOrders,
     required TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -12081,7 +12081,7 @@ class _$FetchShopHomeBackgroundCardHelthyDiet
     TResult? Function(int index)? tabIndexChangeEvent,
     TResult? Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -12091,7 +12091,7 @@ class _$FetchShopHomeBackgroundCardHelthyDiet
         postOrders,
     TResult? Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -12160,7 +12160,7 @@ class _$FetchShopHomeBackgroundCardHelthyDiet
     TResult Function(int index)? tabIndexChangeEvent,
     TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -12170,7 +12170,7 @@ class _$FetchShopHomeBackgroundCardHelthyDiet
         postOrders,
     TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -12515,7 +12515,7 @@ class _$FetchShopHomeBackgroundCardSunnah
     required TResult Function(int index) tabIndexChangeEvent,
     required TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -12525,7 +12525,7 @@ class _$FetchShopHomeBackgroundCardSunnah
         postOrders,
     required TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -12596,7 +12596,7 @@ class _$FetchShopHomeBackgroundCardSunnah
     TResult? Function(int index)? tabIndexChangeEvent,
     TResult? Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -12606,7 +12606,7 @@ class _$FetchShopHomeBackgroundCardSunnah
         postOrders,
     TResult? Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -12675,7 +12675,7 @@ class _$FetchShopHomeBackgroundCardSunnah
     TResult Function(int index)? tabIndexChangeEvent,
     TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -12685,7 +12685,7 @@ class _$FetchShopHomeBackgroundCardSunnah
         postOrders,
     TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -13024,7 +13024,7 @@ class _$FetchShopAdBrands implements FetchShopAdBrands {
     required TResult Function(int index) tabIndexChangeEvent,
     required TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -13034,7 +13034,7 @@ class _$FetchShopAdBrands implements FetchShopAdBrands {
         postOrders,
     required TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -13105,7 +13105,7 @@ class _$FetchShopAdBrands implements FetchShopAdBrands {
     TResult? Function(int index)? tabIndexChangeEvent,
     TResult? Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -13115,7 +13115,7 @@ class _$FetchShopAdBrands implements FetchShopAdBrands {
         postOrders,
     TResult? Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -13184,7 +13184,7 @@ class _$FetchShopAdBrands implements FetchShopAdBrands {
     TResult Function(int index)? tabIndexChangeEvent,
     TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -13194,7 +13194,7 @@ class _$FetchShopAdBrands implements FetchShopAdBrands {
         postOrders,
     TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -13532,7 +13532,7 @@ class _$FetchTopBrands implements FetchTopBrands {
     required TResult Function(int index) tabIndexChangeEvent,
     required TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -13542,7 +13542,7 @@ class _$FetchTopBrands implements FetchTopBrands {
         postOrders,
     required TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -13613,7 +13613,7 @@ class _$FetchTopBrands implements FetchTopBrands {
     TResult? Function(int index)? tabIndexChangeEvent,
     TResult? Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -13623,7 +13623,7 @@ class _$FetchTopBrands implements FetchTopBrands {
         postOrders,
     TResult? Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -13692,7 +13692,7 @@ class _$FetchTopBrands implements FetchTopBrands {
     TResult Function(int index)? tabIndexChangeEvent,
     TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -13702,7 +13702,7 @@ class _$FetchTopBrands implements FetchTopBrands {
         postOrders,
     TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -14045,7 +14045,7 @@ class _$FetchProductItemsSubcategorySunnah
     required TResult Function(int index) tabIndexChangeEvent,
     required TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -14055,7 +14055,7 @@ class _$FetchProductItemsSubcategorySunnah
         postOrders,
     required TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -14126,7 +14126,7 @@ class _$FetchProductItemsSubcategorySunnah
     TResult? Function(int index)? tabIndexChangeEvent,
     TResult? Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -14136,7 +14136,7 @@ class _$FetchProductItemsSubcategorySunnah
         postOrders,
     TResult? Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -14205,7 +14205,7 @@ class _$FetchProductItemsSubcategorySunnah
     TResult Function(int index)? tabIndexChangeEvent,
     TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -14215,7 +14215,7 @@ class _$FetchProductItemsSubcategorySunnah
         postOrders,
     TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -14559,7 +14559,7 @@ class _$FetchProductItemsSubcategoryHealth
     required TResult Function(int index) tabIndexChangeEvent,
     required TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -14569,7 +14569,7 @@ class _$FetchProductItemsSubcategoryHealth
         postOrders,
     required TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -14640,7 +14640,7 @@ class _$FetchProductItemsSubcategoryHealth
     TResult? Function(int index)? tabIndexChangeEvent,
     TResult? Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -14650,7 +14650,7 @@ class _$FetchProductItemsSubcategoryHealth
         postOrders,
     TResult? Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -14719,7 +14719,7 @@ class _$FetchProductItemsSubcategoryHealth
     TResult Function(int index)? tabIndexChangeEvent,
     TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -14729,7 +14729,7 @@ class _$FetchProductItemsSubcategoryHealth
         postOrders,
     TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -15073,7 +15073,7 @@ class _$FetchProductItemsSubcategoryWomen
     required TResult Function(int index) tabIndexChangeEvent,
     required TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -15083,7 +15083,7 @@ class _$FetchProductItemsSubcategoryWomen
         postOrders,
     required TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -15154,7 +15154,7 @@ class _$FetchProductItemsSubcategoryWomen
     TResult? Function(int index)? tabIndexChangeEvent,
     TResult? Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -15164,7 +15164,7 @@ class _$FetchProductItemsSubcategoryWomen
         postOrders,
     TResult? Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -15233,7 +15233,7 @@ class _$FetchProductItemsSubcategoryWomen
     TResult Function(int index)? tabIndexChangeEvent,
     TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -15243,7 +15243,7 @@ class _$FetchProductItemsSubcategoryWomen
         postOrders,
     TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -15609,7 +15609,7 @@ class _$ChangeShopBannerIndex implements ChangeShopBannerIndex {
     required TResult Function(int index) tabIndexChangeEvent,
     required TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -15619,7 +15619,7 @@ class _$ChangeShopBannerIndex implements ChangeShopBannerIndex {
         postOrders,
     required TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -15690,7 +15690,7 @@ class _$ChangeShopBannerIndex implements ChangeShopBannerIndex {
     TResult? Function(int index)? tabIndexChangeEvent,
     TResult? Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -15700,7 +15700,7 @@ class _$ChangeShopBannerIndex implements ChangeShopBannerIndex {
         postOrders,
     TResult? Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -15769,7 +15769,7 @@ class _$ChangeShopBannerIndex implements ChangeShopBannerIndex {
     TResult Function(int index)? tabIndexChangeEvent,
     TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -15779,7 +15779,7 @@ class _$ChangeShopBannerIndex implements ChangeShopBannerIndex {
         postOrders,
     TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -16150,7 +16150,7 @@ class _$ChangeBrandBannerIndex implements ChangeBrandBannerIndex {
     required TResult Function(int index) tabIndexChangeEvent,
     required TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -16160,7 +16160,7 @@ class _$ChangeBrandBannerIndex implements ChangeBrandBannerIndex {
         postOrders,
     required TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -16231,7 +16231,7 @@ class _$ChangeBrandBannerIndex implements ChangeBrandBannerIndex {
     TResult? Function(int index)? tabIndexChangeEvent,
     TResult? Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -16241,7 +16241,7 @@ class _$ChangeBrandBannerIndex implements ChangeBrandBannerIndex {
         postOrders,
     TResult? Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -16310,7 +16310,7 @@ class _$ChangeBrandBannerIndex implements ChangeBrandBannerIndex {
     TResult Function(int index)? tabIndexChangeEvent,
     TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -16320,7 +16320,7 @@ class _$ChangeBrandBannerIndex implements ChangeBrandBannerIndex {
         postOrders,
     TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -16664,7 +16664,7 @@ class _$ShowOrderProgressEvent implements ShowOrderProgressEvent {
     required TResult Function(int index) tabIndexChangeEvent,
     required TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -16674,7 +16674,7 @@ class _$ShowOrderProgressEvent implements ShowOrderProgressEvent {
         postOrders,
     required TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -16745,7 +16745,7 @@ class _$ShowOrderProgressEvent implements ShowOrderProgressEvent {
     TResult? Function(int index)? tabIndexChangeEvent,
     TResult? Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -16755,7 +16755,7 @@ class _$ShowOrderProgressEvent implements ShowOrderProgressEvent {
         postOrders,
     TResult? Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -16824,7 +16824,7 @@ class _$ShowOrderProgressEvent implements ShowOrderProgressEvent {
     TResult Function(int index)? tabIndexChangeEvent,
     TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -16834,7 +16834,7 @@ class _$ShowOrderProgressEvent implements ShowOrderProgressEvent {
         postOrders,
     TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -17201,7 +17201,7 @@ class _$IndexChangeOnOrderProgress implements IndexChangeOnOrderProgress {
     required TResult Function(int index) tabIndexChangeEvent,
     required TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -17211,7 +17211,7 @@ class _$IndexChangeOnOrderProgress implements IndexChangeOnOrderProgress {
         postOrders,
     required TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -17282,7 +17282,7 @@ class _$IndexChangeOnOrderProgress implements IndexChangeOnOrderProgress {
     TResult? Function(int index)? tabIndexChangeEvent,
     TResult? Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -17292,7 +17292,7 @@ class _$IndexChangeOnOrderProgress implements IndexChangeOnOrderProgress {
         postOrders,
     TResult? Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -17361,7 +17361,7 @@ class _$IndexChangeOnOrderProgress implements IndexChangeOnOrderProgress {
     TResult Function(int index)? tabIndexChangeEvent,
     TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -17371,7 +17371,7 @@ class _$IndexChangeOnOrderProgress implements IndexChangeOnOrderProgress {
         postOrders,
     TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -17745,7 +17745,7 @@ class _$IndexChangeOnWomensCareBanner implements IndexChangeOnWomensCareBanner {
     required TResult Function(int index) tabIndexChangeEvent,
     required TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -17755,7 +17755,7 @@ class _$IndexChangeOnWomensCareBanner implements IndexChangeOnWomensCareBanner {
         postOrders,
     required TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -17826,7 +17826,7 @@ class _$IndexChangeOnWomensCareBanner implements IndexChangeOnWomensCareBanner {
     TResult? Function(int index)? tabIndexChangeEvent,
     TResult? Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -17836,7 +17836,7 @@ class _$IndexChangeOnWomensCareBanner implements IndexChangeOnWomensCareBanner {
         postOrders,
     TResult? Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -17905,7 +17905,7 @@ class _$IndexChangeOnWomensCareBanner implements IndexChangeOnWomensCareBanner {
     TResult Function(int index)? tabIndexChangeEvent,
     TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -17915,7 +17915,7 @@ class _$IndexChangeOnWomensCareBanner implements IndexChangeOnWomensCareBanner {
         postOrders,
     TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -18286,7 +18286,7 @@ class _$FetchShopAdBrandsById implements FetchShopAdBrandsById {
     required TResult Function(int index) tabIndexChangeEvent,
     required TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -18296,7 +18296,7 @@ class _$FetchShopAdBrandsById implements FetchShopAdBrandsById {
         postOrders,
     required TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -18367,7 +18367,7 @@ class _$FetchShopAdBrandsById implements FetchShopAdBrandsById {
     TResult? Function(int index)? tabIndexChangeEvent,
     TResult? Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -18377,7 +18377,7 @@ class _$FetchShopAdBrandsById implements FetchShopAdBrandsById {
         postOrders,
     TResult? Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -18446,7 +18446,7 @@ class _$FetchShopAdBrandsById implements FetchShopAdBrandsById {
     TResult Function(int index)? tabIndexChangeEvent,
     TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -18456,7 +18456,7 @@ class _$FetchShopAdBrandsById implements FetchShopAdBrandsById {
         postOrders,
     TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -18827,7 +18827,7 @@ class _$SavePaymentMethodType implements SavePaymentMethodType {
     required TResult Function(int index) tabIndexChangeEvent,
     required TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -18837,7 +18837,7 @@ class _$SavePaymentMethodType implements SavePaymentMethodType {
         postOrders,
     required TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -18908,7 +18908,7 @@ class _$SavePaymentMethodType implements SavePaymentMethodType {
     TResult? Function(int index)? tabIndexChangeEvent,
     TResult? Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -18918,7 +18918,7 @@ class _$SavePaymentMethodType implements SavePaymentMethodType {
         postOrders,
     TResult? Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -18987,7 +18987,7 @@ class _$SavePaymentMethodType implements SavePaymentMethodType {
     TResult Function(int index)? tabIndexChangeEvent,
     TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -18997,7 +18997,7 @@ class _$SavePaymentMethodType implements SavePaymentMethodType {
         postOrders,
     TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -19344,7 +19344,7 @@ class _$FetchProductItemsbyCategory implements FetchProductItemsbyCategory {
     required TResult Function(int index) tabIndexChangeEvent,
     required TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -19354,7 +19354,7 @@ class _$FetchProductItemsbyCategory implements FetchProductItemsbyCategory {
         postOrders,
     required TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -19425,7 +19425,7 @@ class _$FetchProductItemsbyCategory implements FetchProductItemsbyCategory {
     TResult? Function(int index)? tabIndexChangeEvent,
     TResult? Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -19435,7 +19435,7 @@ class _$FetchProductItemsbyCategory implements FetchProductItemsbyCategory {
         postOrders,
     TResult? Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -19504,7 +19504,7 @@ class _$FetchProductItemsbyCategory implements FetchProductItemsbyCategory {
     TResult Function(int index)? tabIndexChangeEvent,
     TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -19514,7 +19514,7 @@ class _$FetchProductItemsbyCategory implements FetchProductItemsbyCategory {
         postOrders,
     TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -19881,7 +19881,7 @@ class _$FetchSpecificCategeryItems implements FetchSpecificCategeryItems {
     required TResult Function(int index) tabIndexChangeEvent,
     required TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -19891,7 +19891,7 @@ class _$FetchSpecificCategeryItems implements FetchSpecificCategeryItems {
         postOrders,
     required TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -19962,7 +19962,7 @@ class _$FetchSpecificCategeryItems implements FetchSpecificCategeryItems {
     TResult? Function(int index)? tabIndexChangeEvent,
     TResult? Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -19972,7 +19972,7 @@ class _$FetchSpecificCategeryItems implements FetchSpecificCategeryItems {
         postOrders,
     TResult? Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -20041,7 +20041,7 @@ class _$FetchSpecificCategeryItems implements FetchSpecificCategeryItems {
     TResult Function(int index)? tabIndexChangeEvent,
     TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -20051,7 +20051,7 @@ class _$FetchSpecificCategeryItems implements FetchSpecificCategeryItems {
         postOrders,
     TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -20421,7 +20421,7 @@ class _$FetchProductsById implements FetchProductsById {
     required TResult Function(int index) tabIndexChangeEvent,
     required TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -20431,7 +20431,7 @@ class _$FetchProductsById implements FetchProductsById {
         postOrders,
     required TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -20502,7 +20502,7 @@ class _$FetchProductsById implements FetchProductsById {
     TResult? Function(int index)? tabIndexChangeEvent,
     TResult? Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -20512,7 +20512,7 @@ class _$FetchProductsById implements FetchProductsById {
         postOrders,
     TResult? Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -20581,7 +20581,7 @@ class _$FetchProductsById implements FetchProductsById {
     TResult Function(int index)? tabIndexChangeEvent,
     TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -20591,7 +20591,7 @@ class _$FetchProductsById implements FetchProductsById {
         postOrders,
     TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -20962,7 +20962,7 @@ class _$FetchBrandProducts implements FetchBrandProducts {
     required TResult Function(int index) tabIndexChangeEvent,
     required TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -20972,7 +20972,7 @@ class _$FetchBrandProducts implements FetchBrandProducts {
         postOrders,
     required TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -21043,7 +21043,7 @@ class _$FetchBrandProducts implements FetchBrandProducts {
     TResult? Function(int index)? tabIndexChangeEvent,
     TResult? Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -21053,7 +21053,7 @@ class _$FetchBrandProducts implements FetchBrandProducts {
         postOrders,
     TResult? Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -21122,7 +21122,7 @@ class _$FetchBrandProducts implements FetchBrandProducts {
     TResult Function(int index)? tabIndexChangeEvent,
     TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -21132,7 +21132,7 @@ class _$FetchBrandProducts implements FetchBrandProducts {
         postOrders,
     TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -21476,7 +21476,7 @@ class _$FetchCoupons implements FetchCoupons {
     required TResult Function(int index) tabIndexChangeEvent,
     required TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -21486,7 +21486,7 @@ class _$FetchCoupons implements FetchCoupons {
         postOrders,
     required TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -21557,7 +21557,7 @@ class _$FetchCoupons implements FetchCoupons {
     TResult? Function(int index)? tabIndexChangeEvent,
     TResult? Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -21567,7 +21567,7 @@ class _$FetchCoupons implements FetchCoupons {
         postOrders,
     TResult? Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -21636,7 +21636,7 @@ class _$FetchCoupons implements FetchCoupons {
     TResult Function(int index)? tabIndexChangeEvent,
     TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -21646,7 +21646,7 @@ class _$FetchCoupons implements FetchCoupons {
         postOrders,
     TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -22011,7 +22011,7 @@ class _$IsPromoCodeAvailable implements IsPromoCodeAvailable {
     required TResult Function(int index) tabIndexChangeEvent,
     required TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -22021,7 +22021,7 @@ class _$IsPromoCodeAvailable implements IsPromoCodeAvailable {
         postOrders,
     required TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -22092,7 +22092,7 @@ class _$IsPromoCodeAvailable implements IsPromoCodeAvailable {
     TResult? Function(int index)? tabIndexChangeEvent,
     TResult? Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -22102,7 +22102,7 @@ class _$IsPromoCodeAvailable implements IsPromoCodeAvailable {
         postOrders,
     TResult? Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -22171,7 +22171,7 @@ class _$IsPromoCodeAvailable implements IsPromoCodeAvailable {
     TResult Function(int index)? tabIndexChangeEvent,
     TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -22181,7 +22181,7 @@ class _$IsPromoCodeAvailable implements IsPromoCodeAvailable {
         postOrders,
     TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -22551,7 +22551,7 @@ class _$ChangeIndexEvent implements ChangeIndexEvent {
     required TResult Function(int index) tabIndexChangeEvent,
     required TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -22561,7 +22561,7 @@ class _$ChangeIndexEvent implements ChangeIndexEvent {
         postOrders,
     required TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -22632,7 +22632,7 @@ class _$ChangeIndexEvent implements ChangeIndexEvent {
     TResult? Function(int index)? tabIndexChangeEvent,
     TResult? Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -22642,7 +22642,7 @@ class _$ChangeIndexEvent implements ChangeIndexEvent {
         postOrders,
     TResult? Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -22711,7 +22711,7 @@ class _$ChangeIndexEvent implements ChangeIndexEvent {
     TResult Function(int index)? tabIndexChangeEvent,
     TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -22721,7 +22721,7 @@ class _$ChangeIndexEvent implements ChangeIndexEvent {
         postOrders,
     TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -23092,7 +23092,7 @@ class _$FetchBrandItemsbyId implements FetchBrandItemsbyId {
     required TResult Function(int index) tabIndexChangeEvent,
     required TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -23102,7 +23102,7 @@ class _$FetchBrandItemsbyId implements FetchBrandItemsbyId {
         postOrders,
     required TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -23173,7 +23173,7 @@ class _$FetchBrandItemsbyId implements FetchBrandItemsbyId {
     TResult? Function(int index)? tabIndexChangeEvent,
     TResult? Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -23183,7 +23183,7 @@ class _$FetchBrandItemsbyId implements FetchBrandItemsbyId {
         postOrders,
     TResult? Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -23252,7 +23252,7 @@ class _$FetchBrandItemsbyId implements FetchBrandItemsbyId {
     TResult Function(int index)? tabIndexChangeEvent,
     TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -23262,7 +23262,7 @@ class _$FetchBrandItemsbyId implements FetchBrandItemsbyId {
         postOrders,
     TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -23606,7 +23606,7 @@ class _$FetchAllBrandsEvent implements FetchAllBrandsEvent {
     required TResult Function(int index) tabIndexChangeEvent,
     required TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -23616,7 +23616,7 @@ class _$FetchAllBrandsEvent implements FetchAllBrandsEvent {
         postOrders,
     required TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -23687,7 +23687,7 @@ class _$FetchAllBrandsEvent implements FetchAllBrandsEvent {
     TResult? Function(int index)? tabIndexChangeEvent,
     TResult? Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -23697,7 +23697,7 @@ class _$FetchAllBrandsEvent implements FetchAllBrandsEvent {
         postOrders,
     TResult? Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -23766,7 +23766,7 @@ class _$FetchAllBrandsEvent implements FetchAllBrandsEvent {
     TResult Function(int index)? tabIndexChangeEvent,
     TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -23776,7 +23776,7 @@ class _$FetchAllBrandsEvent implements FetchAllBrandsEvent {
         postOrders,
     TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -24141,7 +24141,7 @@ class _$FetchOrderReasons implements FetchOrderReasons {
     required TResult Function(int index) tabIndexChangeEvent,
     required TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -24151,7 +24151,7 @@ class _$FetchOrderReasons implements FetchOrderReasons {
         postOrders,
     required TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -24222,7 +24222,7 @@ class _$FetchOrderReasons implements FetchOrderReasons {
     TResult? Function(int index)? tabIndexChangeEvent,
     TResult? Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -24232,7 +24232,7 @@ class _$FetchOrderReasons implements FetchOrderReasons {
         postOrders,
     TResult? Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -24301,7 +24301,7 @@ class _$FetchOrderReasons implements FetchOrderReasons {
     TResult Function(int index)? tabIndexChangeEvent,
     TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -24311,7 +24311,7 @@ class _$FetchOrderReasons implements FetchOrderReasons {
         postOrders,
     TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -24690,7 +24690,7 @@ class _$AddReasons implements AddReasons {
     required TResult Function(int index) tabIndexChangeEvent,
     required TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -24700,7 +24700,7 @@ class _$AddReasons implements AddReasons {
         postOrders,
     required TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -24771,7 +24771,7 @@ class _$AddReasons implements AddReasons {
     TResult? Function(int index)? tabIndexChangeEvent,
     TResult? Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -24781,7 +24781,7 @@ class _$AddReasons implements AddReasons {
         postOrders,
     TResult? Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -24850,7 +24850,7 @@ class _$AddReasons implements AddReasons {
     TResult Function(int index)? tabIndexChangeEvent,
     TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -24860,7 +24860,7 @@ class _$AddReasons implements AddReasons {
         postOrders,
     TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -25232,7 +25232,7 @@ class _$FetchArticlesbyId implements FetchArticlesbyId {
     required TResult Function(int index) tabIndexChangeEvent,
     required TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -25242,7 +25242,7 @@ class _$FetchArticlesbyId implements FetchArticlesbyId {
         postOrders,
     required TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -25313,7 +25313,7 @@ class _$FetchArticlesbyId implements FetchArticlesbyId {
     TResult? Function(int index)? tabIndexChangeEvent,
     TResult? Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -25323,7 +25323,7 @@ class _$FetchArticlesbyId implements FetchArticlesbyId {
         postOrders,
     TResult? Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -25392,7 +25392,7 @@ class _$FetchArticlesbyId implements FetchArticlesbyId {
     TResult Function(int index)? tabIndexChangeEvent,
     TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -25402,7 +25402,7 @@ class _$FetchArticlesbyId implements FetchArticlesbyId {
         postOrders,
     TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -25746,7 +25746,7 @@ class _$FetchProducts implements FetchProducts {
     required TResult Function(int index) tabIndexChangeEvent,
     required TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -25756,7 +25756,7 @@ class _$FetchProducts implements FetchProducts {
         postOrders,
     required TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -25827,7 +25827,7 @@ class _$FetchProducts implements FetchProducts {
     TResult? Function(int index)? tabIndexChangeEvent,
     TResult? Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -25837,7 +25837,7 @@ class _$FetchProducts implements FetchProducts {
         postOrders,
     TResult? Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -25906,7 +25906,7 @@ class _$FetchProducts implements FetchProducts {
     TResult Function(int index)? tabIndexChangeEvent,
     TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -25916,7 +25916,7 @@ class _$FetchProducts implements FetchProducts {
         postOrders,
     TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -26254,7 +26254,7 @@ class _$FetchArticlesCategory implements FetchArticlesCategory {
     required TResult Function(int index) tabIndexChangeEvent,
     required TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -26264,7 +26264,7 @@ class _$FetchArticlesCategory implements FetchArticlesCategory {
         postOrders,
     required TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -26335,7 +26335,7 @@ class _$FetchArticlesCategory implements FetchArticlesCategory {
     TResult? Function(int index)? tabIndexChangeEvent,
     TResult? Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -26345,7 +26345,7 @@ class _$FetchArticlesCategory implements FetchArticlesCategory {
         postOrders,
     TResult? Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -26414,7 +26414,7 @@ class _$FetchArticlesCategory implements FetchArticlesCategory {
     TResult Function(int index)? tabIndexChangeEvent,
     TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -26424,7 +26424,7 @@ class _$FetchArticlesCategory implements FetchArticlesCategory {
         postOrders,
     TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -26793,7 +26793,7 @@ class _$SaveArticleCategoryFilterVal implements SaveArticleCategoryFilterVal {
     required TResult Function(int index) tabIndexChangeEvent,
     required TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -26803,7 +26803,7 @@ class _$SaveArticleCategoryFilterVal implements SaveArticleCategoryFilterVal {
         postOrders,
     required TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -26874,7 +26874,7 @@ class _$SaveArticleCategoryFilterVal implements SaveArticleCategoryFilterVal {
     TResult? Function(int index)? tabIndexChangeEvent,
     TResult? Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -26884,7 +26884,7 @@ class _$SaveArticleCategoryFilterVal implements SaveArticleCategoryFilterVal {
         postOrders,
     TResult? Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -26953,7 +26953,7 @@ class _$SaveArticleCategoryFilterVal implements SaveArticleCategoryFilterVal {
     TResult Function(int index)? tabIndexChangeEvent,
     TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -26963,7 +26963,7 @@ class _$SaveArticleCategoryFilterVal implements SaveArticleCategoryFilterVal {
         postOrders,
     TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -27335,7 +27335,7 @@ class _$FetchArticlesByCategory implements FetchArticlesByCategory {
     required TResult Function(int index) tabIndexChangeEvent,
     required TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -27345,7 +27345,7 @@ class _$FetchArticlesByCategory implements FetchArticlesByCategory {
         postOrders,
     required TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -27416,7 +27416,7 @@ class _$FetchArticlesByCategory implements FetchArticlesByCategory {
     TResult? Function(int index)? tabIndexChangeEvent,
     TResult? Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -27426,7 +27426,7 @@ class _$FetchArticlesByCategory implements FetchArticlesByCategory {
         postOrders,
     TResult? Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,
@@ -27495,7 +27495,7 @@ class _$FetchArticlesByCategory implements FetchArticlesByCategory {
     TResult Function(int index)? tabIndexChangeEvent,
     TResult Function(
             BuildContext context,
-            int totalPrice,
+            double totalPrice,
             String pickupLocation,
             int quantity,
             int totalDiscount,
@@ -27505,7 +27505,7 @@ class _$FetchArticlesByCategory implements FetchArticlesByCategory {
         postOrders,
     TResult Function(
             BuildContext context,
-            int price,
+            double price,
             int coins,
             String addressId,
             int totalQuantity,

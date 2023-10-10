@@ -139,14 +139,14 @@ class _ShopViewState extends State<ShopView> {
                                   },
                                   width: 205,
                                   title: womenData.subCategoryId?.title ?? "",
-                                  imageUrl: womenData.design.image ?? "",
-                                  text: womenData.design.text ?? "",
+                                  imageUrl: womenData.design.image,
+                                  text: womenData.design.text,
                                   buttonColor: ColorManager.pinkButtonColor,
                                   gradientColors: [
                                     ColorManager.pinkGradient2,
                                     ColorManager.pinkGradient1,
                                   ],
-                                  textColor: womenData.design.color ?? "",
+                                  textColor: womenData.design.color,
                                   child: womenSubCategoryData == null
                                       ? ShimmersWidget(
                                           height: 60,

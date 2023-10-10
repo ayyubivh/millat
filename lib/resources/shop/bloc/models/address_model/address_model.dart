@@ -1,8 +1,7 @@
-// ignore_for_file: invalid_annotation_target
-
 import 'package:freezed_annotation/freezed_annotation.dart';
-part 'address_model.g.dart';
+
 part 'address_model.freezed.dart';
+part 'address_model.g.dart';
 
 @freezed
 class AddressModel with _$AddressModel {
@@ -30,13 +29,12 @@ class AddressResult with _$AddressResult {
 @freezed
 class Address with _$Address {
   const factory Address({
-    @JsonKey(name: "_id") required String id,
+    @JsonKey(name: '_id') required String id,
     required String userId,
     required String addressType,
     required String name,
     required int mobile,
     required int pincode,
-    required String landmark,
     required String addressLine,
     required String city,
     required String state,

@@ -72,25 +72,32 @@ class _CartViewState extends State<CartView> {
               cartItems?.map((e) => e.productId?.salePrice?.toInt()).toList();
           final subTotal = _getTotalPrice(price, quantity);
 
-          final shippingFee = cartItems!.length > 1
-              ? 180
-              : quantity![0]! > 1
-                  ? 180
-                  : 90;
+          // final shippingFee = cartItems!.length > 1
+          //     ? 180
+          //     : quantity![0]! > 1
+          //         ? 180
+          //         : 90;
+          final tax = cartItems
+              ?.map((item) => item.productId?.tax)
+              .reduce((a, b) => a! + b!)!
+              .toDouble();
 
-          final total = subTotal + shippingFee;
+          final averageTax = (tax! / cartItems!.length);
+          final totalTax = (averageTax / 100) * subTotal;
+
+          final total = subTotal + totalTax;
           return state.cartModel?.result?.cartProducts?.cartItems?.isEmpty ??
                   true
               ? _emptyCartBottomContainer(context)
               : _notEmptyContainer(
-                  subTotal, shippingFee, total, state.showExapnd);
+                  subTotal, total, state.showExapnd, averageTax);
         },
       ),
     );
   }
 
   Widget _notEmptyContainer(
-      int subTotal, int shippingFee, int total, bool isShow) {
+      int subTotal, double total, bool isShow, double tax) {
     return Container(
         height: isShow ? 280 : 160,
         color: ColorManager.whiteColor,
@@ -144,12 +151,12 @@ class _CartViewState extends State<CartView> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text(Appstrings.deliveryCharge,
+                          Text(Appstrings.tax,
                               style: TextStyle(
                                   color: ColorManager.blackColor,
                                   fontSize: 15,
                                   fontWeight: FontWeight.bold)),
-                          Text('₹$shippingFee',
+                          Text('₹$tax',
                               style: TextStyle(
                                   color: ColorManager.blackColor,
                                   fontSize: 17,

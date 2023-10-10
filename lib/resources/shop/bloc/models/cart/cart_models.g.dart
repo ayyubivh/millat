@@ -82,6 +82,7 @@ _$_ProductInfo _$$_ProductInfoFromJson(Map<String, dynamic> json) =>
     _$_ProductInfo(
       id: json['_id'] as String?,
       title: json['title'] as String?,
+      tax: (json['tax'] as num?)?.toDouble(),
       brand: json['brand'] as String?,
       category: json['category'] as String?,
       subcategory: json['subcategory'] as String?,
@@ -110,6 +111,7 @@ Map<String, dynamic> _$$_ProductInfoToJson(_$_ProductInfo instance) =>
     <String, dynamic>{
       '_id': instance.id,
       'title': instance.title,
+      'tax': instance.tax,
       'brand': instance.brand,
       'category': instance.category,
       'subcategory': instance.subcategory,

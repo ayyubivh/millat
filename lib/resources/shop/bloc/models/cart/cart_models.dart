@@ -61,6 +61,7 @@ class ProductInfo with _$ProductInfo {
   const factory ProductInfo({
     @JsonKey(name: '_id') String? id,
     String? title,
+    double? tax,
     String? brand,
     String? category,
     String? subcategory,

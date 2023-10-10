@@ -225,7 +225,7 @@ class _CategoryViewState extends State<CategoryView> {
                               : const SizedBox(),
                           kHeight16,
                           SizedBox(
-                            height: 240,
+                            height: 260,
                             child: ListView.builder(
                               scrollDirection: Axis.horizontal,
                               itemCount: products.length,

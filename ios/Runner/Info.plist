@@ -60,13 +60,9 @@
 	<string>This app needs access to use camera to upload users profile photo</string>
 	<!-- Permission options for the `location` group -->
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Need location when in use</string>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Always and when in use!</string>
-	<key>NSLocationUsageDescription</key>
-	<string>Older devices need location.</string>
+	<string>We request location access to provide you with accurate Namaz (prayer) times based on your current location. Your privacy is important to us, and your location data will be used solely for this purpose.</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Can I have location always?</string>
+	<string>We request continuous location access to provide you with accurate and uninterrupted Namaz (prayer) times, ensuring a seamless experience for your religious practices. Your location data will be used solely for this purpose, and we are committed to safeguarding your privacy.</string>
 	<!-- Permission options for the `gallery` group -->
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>This app needs access to use photo library to upload users profile photo</string>

@@ -42,6 +42,7 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
         context: context,
         id: context.read<AddressBloc>().state.addressId.toString()));
     super.initState();
+    BlocProvider.of<PaymentBloc>(context).add(const PaymentEvent.initial());
   }
 
   // bool showMore = false;

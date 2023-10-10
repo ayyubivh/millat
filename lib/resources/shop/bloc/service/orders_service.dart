@@ -53,6 +53,85 @@ class OrdersService extends HttpServices {
     }
   }
 
+//For online orders
+  postOnlineOrder({
+    required BuildContext context,
+    required String razorpayOrderId,
+    required String razorpayPaymentId,
+    required String razorpaySignature,
+    required String addressId,
+  }) async {
+    const endPoint = 'order/payment/confirm';
+
+    final databaseState = context.read<DatabaseBloc>().state;
+    final token = databaseState.token;
+
+    final headers = {
+      'Content-Type': 'application/json; charset=utf-8',
+      'Authorization': 'Bearer $token',
+    };
+
+    final body = {
+      "address": addressId,
+      "razorpay_order_id": razorpayOrderId,
+      "razorpay_payment_id": razorpayPaymentId,
+      "razorpay_signature": razorpaySignature,
+    };
+
+    final response = await http.post(Uri.parse(kBaseUrl + endPoint),
+        headers: headers, body: jsonEncode(body));
+
+    try {
+      if (response.statusCode == 200) {
+        final Map<String, dynamic> data = json.decode(response.body);
+        print('Response data in the post Online Order function: ${data['id']}');
+        return data;
+      } else {
+        throw Exception(
+            'API request failed with status code: ${response.statusCode}');
+      }
+    } catch (e) {
+      print('Error on API fetch: ${e.toString()}');
+    }
+  }
+
+//Generate order id for online  payment
+  postOrderIdOnlinePayment({
+    required BuildContext context,
+    required double amount,
+  }) async {
+    const endPoint = "order/payment/online";
+
+    final databaseState = context.read<DatabaseBloc>().state;
+    final token = databaseState.token;
+
+    final headers = {
+      'Content-Type': 'application/json; charset=utf-8',
+      'Authorization': 'Bearer $token',
+    };
+
+    final body = {
+      "amount": amount,
+    };
+
+    final response = await http.post(Uri.parse(kBaseUrl + endPoint),
+        headers: headers, body: jsonEncode(body));
+
+    try {
+      if (response.statusCode == 200) {
+        final Map<String, dynamic> data = json.decode(response.body);
+        print(
+            'Response data in the postOrder id online function: ${data['data']['id']}');
+        return data['data']['id'];
+      } else {
+        throw Exception(
+            'API request failed with status code: ${response.statusCode}');
+      }
+    } catch (e) {
+      print('Error on API fetch: ${e.toString()}');
+    }
+  }
+
 //For adding the orders
   Future<Map<String, dynamic>> postOrderRewards({
     required BuildContext context,

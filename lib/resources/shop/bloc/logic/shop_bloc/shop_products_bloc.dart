@@ -55,6 +55,8 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
     on<TabIndexChangeEvent>(_tabIndexChangeEvent);
     on<FetchOrders>(_fetchOrders);
     on<PostOrders>(_postOrders);
+    on<PostOnlieOrders>(_postOnlieOrders);
+    on<PostOrderIdOnlinePayment>(_postOrderIdOnlinePayment);
     on<PostOrdersRewards>(_postOrderRewards);
     on<FetchOrdersById>(_fetchOrdersById);
     on<FetchOrdersbyFilterEvent>(_fetchOrdersbyFilterEvent);
@@ -334,7 +336,7 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
 
   FutureOr<void> _postOrders(
       PostOrders event, Emitter<ShopProductsState> emit) async {
-    emit(state.copyWith(errorMessage: "", isLoading: true));
+    emit(state.copyWith(errorMessage: "", isLoading: true, orderSucces: false));
     try {
       final data = await ordersService.postOrder(
         context: event.context,
@@ -350,10 +352,68 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
       final orderIds = data["result"]["orderIds"][0];
       print('here before $orderIds');
 
-      emit(state.copyWith(isLoading: false, orderId: orderIds));
+      emit(state.copyWith(
+        isLoading: false,
+        orderId: orderIds,
+        orderSucces: true,
+        totalAmount: event.totalPrice,
+      ));
       print('here is the order id in the bloc ${state.orderId}');
     } catch (e) {
-      emit(state.copyWith(errorMessage: e.toString(), isLoading: false));
+      emit(state.copyWith(
+        errorMessage: e.toString(),
+        isLoading: false,
+        orderSucces: false,
+      ));
+    }
+  }
+
+  _postOrderIdOnlinePayment(
+      PostOrderIdOnlinePayment event, Emitter<ShopProductsState> emit) async {
+    emit(state.copyWith(
+        errorMessage: "",
+        isLoading: true,
+        orderIdRazorPay: "",
+        orderSucces: false));
+
+    try {
+      final data = await ordersService.postOrderIdOnlinePayment(
+          context: event.context, amount: event.amount);
+      emit(state.copyWith(
+          orderIdRazorPay: data, totalAmount: event.amount, orderSucces: true));
+      print("order id   ${state.orderIdRazorPay}");
+    } catch (e) {
+      emit(state.copyWith(
+          errorMessage: e.toString(), isLoading: false, orderSucces: false));
+    }
+  }
+
+  FutureOr<void> _postOnlieOrders(
+      PostOnlieOrders event, Emitter<ShopProductsState> emit) async {
+    emit(state.copyWith(errorMessage: "", isLoading: true, orderSucces: false));
+    try {
+      final data = await ordersService.postOnlineOrder(
+          context: event.context,
+          razorpayOrderId: event.razorpayOrderId,
+          razorpayPaymentId: event.razorpayPaymentId,
+          razorpaySignature: event.razorpaySignature,
+          addressId: event.addressId);
+      print("online orders data $data");
+      final orderIds = data["result"]["orderIds"][0];
+      print('here before $orderIds');
+
+      emit(state.copyWith(
+          isLoading: false,
+          orderId: orderIds,
+          orderIdRazorPay: "",
+          orderSucces: true));
+      print('here is the order id in the bloc ${state.orderId}');
+    } catch (e) {
+      emit(state.copyWith(
+          errorMessage: e.toString(),
+          isLoading: false,
+          orderIdRazorPay: "",
+          orderSucces: false));
     }
   }
 
@@ -363,7 +423,11 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
     try {
       final data = await ordersService.fetchOrdersById(event.context, event.id);
       print('here ares the results of ordersy by id in the bloc $data');
-      emit(state.copyWith(ordersByIdModel: data, isLoading: false));
+      emit(state.copyWith(
+          ordersByIdModel: data,
+          isLoading: false,
+          orderId: null,
+          orderSucces: false));
     } catch (e) {
       emit(state.copyWith(errorMessage: e.toString(), isLoading: false));
     }
@@ -673,7 +737,7 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
 
   _postOrderRewards(
       PostOrdersRewards event, Emitter<ShopProductsState> emit) async {
-    emit(state.copyWith(errorMessage: "", isLoading: true));
+    emit(state.copyWith(errorMessage: "", isLoading: true, orderSucces: false));
     try {
       final data = await ordersService.postOrderRewards(
         context: event.context,
@@ -690,10 +754,12 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
       final orderIds = data["result"]["orderIds"][0];
       print('here orderid $orderIds');
 
-      emit(state.copyWith(isLoading: false, orderId: orderIds));
+      emit(state.copyWith(
+          isLoading: false, orderId: orderIds, orderSucces: true));
       print('here is the order id in the bloc ${state.orderId}');
     } catch (e) {
-      emit(state.copyWith(errorMessage: e.toString(), isLoading: false));
+      emit(state.copyWith(
+          errorMessage: e.toString(), isLoading: false, orderSucces: false));
     }
   }
 

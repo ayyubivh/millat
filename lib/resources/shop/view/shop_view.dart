@@ -14,6 +14,7 @@ import 'package:millat/resources/shop/view/brand/shop_brand_view.dart';
 import 'package:millat/resources/shop/view/brand/single_brand_view.dart';
 import 'package:millat/resources/shop/view/categories/categories_filter_view.dart';
 import 'package:millat/resources/shop/view/categories/categories_product_view.dart';
+import 'package:millat/resources/shop/view/categories/category_view.dart';
 import 'package:millat/resources/shop/view/search/search_view.dart';
 import 'package:millat/resources/shop/view/widgets/shop_home_subcategory_card_widget.dart';
 import 'package:millat/resources/shop/view/womens_care/shop_specific_category_view.dart';
@@ -131,10 +132,11 @@ class _ShopViewState extends State<ShopView> {
                                   onTap: () {
                                     Navigator.of(context)
                                         .push(MaterialPageRoute(
-                                      builder: (context) =>
-                                          const ShopSpecificCategoryView(
-                                              categoryItemType:
-                                                  CategoryItemType.womens),
+                                      builder: (context) => const CategoryView(
+                                          categoryType:
+                                              CategoryType.specificCategory,
+                                          category: "women",
+                                          categoryId: ""),
                                     ));
                                   },
                                   width: 205,
@@ -176,13 +178,14 @@ class _ShopViewState extends State<ShopView> {
                                 kHeight15,
                                 BackgroundContainer(
                                   onTap: () {
-                                    Navigator.of(context).push(
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                const ShopSpecificCategoryView(
-                                                    categoryItemType:
-                                                        CategoryItemType
-                                                            .health)));
+                                    Navigator.of(context)
+                                        .push(MaterialPageRoute(
+                                      builder: (context) => const CategoryView(
+                                          categoryType:
+                                              CategoryType.specificCategory,
+                                          category: "healthy_diet",
+                                          categoryId: ""),
+                                    ));
                                   },
                                   width: 155,
                                   title: healthyDietData.subCategoryId?.title ??

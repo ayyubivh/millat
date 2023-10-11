@@ -17,8 +17,12 @@ import 'package:millat/utils/utils.dart';
 class CategoryView extends StatefulWidget {
   final String category;
   final String categoryId;
+  final CategoryType? categoryType;
   const CategoryView(
-      {super.key, required this.category, required this.categoryId});
+      {super.key,
+      required this.category,
+      required this.categoryId,
+      this.categoryType});
 
   @override
   State<CategoryView> createState() => _CategoryViewState();
@@ -140,64 +144,156 @@ class _CategoryViewState extends State<CategoryView> {
                   //       ),
                   //     )),da
                   kHeight20,
-                  BlocBuilder<CategoryBloc, CategoryState>(
-                    builder: (context, state) {
-                      return SizedBox(
-                        height: 100,
-                        child: ListView.builder(
-                          itemCount: state.subcategoryByCategoryIdModel?.result
-                              ?.subCategory?.length,
-                          scrollDirection: Axis.horizontal,
-                          itemExtent: 100,
-                          itemBuilder: (context, index) {
-                            final subCategoryData = state
-                                .subcategoryByCategoryIdModel
-                                ?.result
-                                ?.subCategory![index];
-                            return GestureDetector(
-                              onTap: () {
-                                Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (context) => CategoriesProductView(
-                                        category: widget.category,
-                                        subCategory: subCategoryData?.title,
-                                        type: FilterType.category)));
-                              },
-                              child: Column(
-                                children: [
-                                  Container(
-                                    height: 60,
-                                    width: 60,
-                                    padding: const EdgeInsets.all(8),
-                                    margin: const EdgeInsets.only(right: 10),
-                                    decoration: BoxDecoration(
-                                      color: ColorManager.lightGreen,
-                                      borderRadius: BorderRadius.circular(12),
+                  widget.categoryType == CategoryType.specificCategory
+                      ? BlocBuilder<ShopProductsBloc, ShopProductsState>(
+                          builder: (context, state) {
+                            List<dynamic>? productItems;
+
+                            if (widget.category == "women") {
+                              productItems = state
+                                  .productItemsSubCategoryWomenModel
+                                  ?.result
+                                  ?.data
+                                  ?.itemList;
+                            } else {
+                              productItems = state
+                                  .productItemsSubCategoryHealthModel
+                                  ?.result!
+                                  .data
+                                  ?.itemList;
+                            }
+
+                            return SizedBox(
+                              height: 110,
+                              child: ListView.builder(
+                                itemCount: productItems?.length ?? 0,
+                                scrollDirection: Axis.horizontal,
+                                itemExtent: 100,
+                                itemBuilder: (context, index) {
+                                  final subCategoryData = productItems?[index];
+                                  return GestureDetector(
+                                    onTap: () {
+                                      print(
+                                          "item id ${productItems?[index].id}");
+                                      Navigator.of(context)
+                                          .push(MaterialPageRoute(
+                                        builder: (context) =>
+                                            CategoriesProductView(
+                                                itemId: productItems?[index].id,
+                                                category: "",
+                                                subCategory: "",
+                                                type: FilterType
+                                                    .specificCategory),
+                                      ));
+                                    },
+                                    child: Column(
+                                      children: [
+                                        Container(
+                                          height: 60,
+                                          width: 60,
+                                          padding: const EdgeInsets.all(8),
+                                          margin:
+                                              const EdgeInsets.only(right: 10),
+                                          decoration: BoxDecoration(
+                                            color: ColorManager.lightGreen,
+                                            borderRadius:
+                                                BorderRadius.circular(12),
+                                          ),
+                                          child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(12),
+                                            child: Utilities()
+                                                .buildCachedNetworkImage(
+                                                    imageUrl: subCategoryData
+                                                            ?.image ??
+                                                        ""),
+                                          ),
+                                        ),
+                                        kHeight10,
+                                        Text(
+                                          subCategoryData?.title ?? "",
+                                          style: const TextStyle(
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.w600,
+                                          ),
+                                          textAlign: TextAlign.center,
+                                        ),
+                                      ],
                                     ),
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(12),
-                                      child: Utilities()
-                                          .buildCachedNetworkImage(
-                                              imageUrl:
-                                                  subCategoryData?.image ?? ""),
+                                  );
+                                },
+                              ),
+                            );
+                          },
+                        )
+                      : BlocBuilder<CategoryBloc, CategoryState>(
+                          builder: (context, state) {
+                            return SizedBox(
+                              height: 100,
+                              child: ListView.builder(
+                                itemCount: state.subcategoryByCategoryIdModel
+                                        ?.result?.subCategory?.length ??
+                                    8,
+                                scrollDirection: Axis.horizontal,
+                                itemExtent: 100,
+                                itemBuilder: (context, index) {
+                                  final subCategoryData = state
+                                      .subcategoryByCategoryIdModel
+                                      ?.result
+                                      ?.subCategory![index];
+                                  return GestureDetector(
+                                    onTap: () {
+                                      Navigator.of(context).push(
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  CategoriesProductView(
+                                                      category: widget.category,
+                                                      subCategory:
+                                                          subCategoryData
+                                                              ?.title,
+                                                      type: FilterType
+                                                          .category)));
+                                    },
+                                    child: Column(
+                                      children: [
+                                        Container(
+                                          height: 60,
+                                          width: 60,
+                                          padding: const EdgeInsets.all(8),
+                                          margin:
+                                              const EdgeInsets.only(right: 10),
+                                          decoration: BoxDecoration(
+                                            color: ColorManager.lightGreen,
+                                            borderRadius:
+                                                BorderRadius.circular(12),
+                                          ),
+                                          child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(12),
+                                            child: Utilities()
+                                                .buildCachedNetworkImage(
+                                                    imageUrl: subCategoryData
+                                                            ?.image ??
+                                                        ""),
+                                          ),
+                                        ),
+                                        kHeight10,
+                                        Text(
+                                          subCategoryData?.title ?? "",
+                                          style: const TextStyle(
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.w600,
+                                          ),
+                                          textAlign: TextAlign.center,
+                                        ),
+                                      ],
                                     ),
-                                  ),
-                                  kHeight10,
-                                  Text(
-                                    subCategoryData?.title ?? "",
-                                    style: const TextStyle(
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w600,
-                                    ),
-                                    textAlign: TextAlign.center,
-                                  ),
-                                ],
+                                  );
+                                },
                               ),
                             );
                           },
                         ),
-                      );
-                    },
-                  ),
                   kHeight20,
 
                   BlocBuilder<ShopProductsBloc, ShopProductsState>(

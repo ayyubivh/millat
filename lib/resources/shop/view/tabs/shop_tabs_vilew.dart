@@ -25,7 +25,7 @@ class ShopTabsView extends StatelessWidget {
       const ShopView(),
       const ArticlesView(),
       // const CategoriesFilter(),
-      const ShopSpecificCategoryView(categoryItemType: CategoryItemType.womens),
+      // const ShopSpecificCategoryView(categoryItemType: CategoryItemType.womens),
       const ProfileView(),
     ];
 

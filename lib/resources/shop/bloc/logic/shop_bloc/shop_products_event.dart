@@ -38,6 +38,17 @@ class ShopProductsEvent with _$ShopProductsEvent {
     required int weight,
     required String id,
   }) = PostOrders;
+  const factory ShopProductsEvent.postOnlieOrders({
+    required BuildContext context,
+    required String razorpayOrderId,
+    required String razorpayPaymentId,
+    required String razorpaySignature,
+    required String addressId,
+  }) = PostOnlieOrders;
+  const factory ShopProductsEvent.postOrderIdOnlinePayment({
+    required BuildContext context,
+    required double amount,
+  }) = PostOrderIdOnlinePayment;
   const factory ShopProductsEvent.postOrdersRewards({
     required BuildContext context,
     required double price,

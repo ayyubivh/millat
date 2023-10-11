@@ -14,7 +14,7 @@ import '../../../../utils/color_manager.dart';
 import '../../bloc/logic/category_bloc/category_bloc.dart';
 import '../../bloc/logic/shop_bloc/shop_products_bloc.dart';
 
-class CategoriesProductView extends StatefulWidget {
+class CategoriesProductView extends StatelessWidget {
   static const String routeName = "category-view";
   final String? category;
   final String? subCategory;
@@ -30,31 +30,22 @@ class CategoriesProductView extends StatefulWidget {
   final FilterType type;
 
   @override
-  State<CategoriesProductView> createState() => _CategoriesProductViewState();
-}
-
-class _CategoriesProductViewState extends State<CategoriesProductView> {
-  @override
-  void initState() {
-    print(
-        "category ${widget.category}------subCategory ${widget.subCategory} ----item ==== ${widget.itemName}");
-    BlocProvider.of<ShopProductsBloc>(context).add(const FetchShopBanners());
-    BlocProvider.of<CategoryBloc>(context).add(const FetchSubcategories());
-    widget.type == FilterType.specificCategory
-        ? BlocProvider.of<CategoryBloc>(context).add(FetchFilterProducts(
-            category: widget.category,
-            subCategory: widget.subCategory,
-            itemId: widget.itemId))
-        : null;
-    widget.type == FilterType.category
-        ? BlocProvider.of<CategoryBloc>(context).add(FetchFilterProducts(
-            category: widget.category, subCategory: widget.subCategory))
-        : null;
-    super.initState();
-  }
-
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      print(
+          "category ${category}------subCategory ${subCategory} ----item ==== ${itemName}");
+      BlocProvider.of<ShopProductsBloc>(context).add(const FetchShopBanners());
+      BlocProvider.of<CategoryBloc>(context).add(const FetchSubcategories());
+      type == FilterType.specificCategory
+          ? BlocProvider.of<CategoryBloc>(context).add(FetchFilterProducts(
+              category: category, subCategory: subCategory, itemId: itemId))
+          : null;
+      type == FilterType.category
+          ? BlocProvider.of<CategoryBloc>(context).add(
+              FetchFilterProducts(category: category, subCategory: subCategory))
+          : null;
+    });
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.transparent,
@@ -62,11 +53,11 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
           centerTitle: false,
           title: BlocBuilder<CategoryBloc, CategoryState>(
             builder: (context, state) => Text(
-                widget.type == FilterType.category
+                type == FilterType.category
                     ? state.filterVal == ""
-                        ? widget.subCategory.toString()
+                        ? subCategory.toString()
                         : state.filterVal
-                    : widget.itemName ?? "",
+                    : itemName ?? "",
                 style: TextStyle(
                     color: ColorManager.blackColor,
                     fontWeight: FontWeight.w700)),
@@ -100,14 +91,14 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    filterWidget(),
-                    sortByWidget(),
+                    filterWidget(context),
+                    sortByWidget(context),
                   ],
                 ),
                 kHeight10,
                 BlocBuilder<CategoryBloc, CategoryState>(
                   builder: (context, state) {
-                    return widget.type == FilterType.category
+                    return type == FilterType.category
                         ? state.productLoading
                             ? const ShimmersWidgetProduct()
                             : SizedBox(
@@ -120,7 +111,7 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
                                     crossAxisCount: 2,
                                     crossAxisSpacing: 20,
                                     mainAxisSpacing: 20,
-                                    mainAxisExtent: 260,
+                                    mainAxisExtent: 280,
                                   ),
                                   itemCount:
                                       state.product?.result?.products?.length ??
@@ -218,7 +209,7 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
         ));
   }
 
-  Widget filterWidget() {
+  Widget filterWidget(BuildContext context) {
     return GestureDetector(
       onTap: () {
         showModalBottomSheet(
@@ -403,9 +394,9 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
                                     FetchProductsByFilterPricerange(
                                         maxPrice: state.maxPrice.toString(),
                                         minPrice: state.minPrice.toString(),
-                                        category: widget.category ?? "",
+                                        category: category ?? "",
                                         subCategory: state.filterVal == ""
-                                            ? widget.subCategory ?? ""
+                                            ? subCategory ?? ""
                                             : state.filterVal));
                                 Navigator.of(context).pop();
                               },
@@ -451,7 +442,7 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
     );
   }
 
-  Widget sortByWidget() {
+  Widget sortByWidget(BuildContext context) {
     return GestureDetector(
       onTap: () {
         showModalBottomSheet(
@@ -533,17 +524,17 @@ class _CategoriesProductViewState extends State<CategoriesProductView> {
                                 ? context.read<CategoryBloc>().add(
                                     FetchProductSortByPrice(
                                         order: "asec",
-                                        category: widget.category,
+                                        category: category,
                                         subCategory: state.filterVal == ""
-                                            ? widget.subCategory
+                                            ? subCategory
                                             : state.filterVal))
                                 : state.sortListIndex == 4
                                     ? context.read<CategoryBloc>().add(
                                         FetchProductSortByPrice(
                                             order: "desc",
-                                            category: widget.category,
+                                            category: category,
                                             subCategory: state.filterVal == ""
-                                                ? widget.subCategory
+                                                ? subCategory
                                                 : state.filterVal))
                                     : null;
                             Navigator.of(context).pop();

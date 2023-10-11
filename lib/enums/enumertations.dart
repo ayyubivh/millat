@@ -81,3 +81,8 @@ enum CheckoutType {
   rewards,
   shop,
 }
+
+enum CategoryType {
+  category,
+  specificCategory,
+}

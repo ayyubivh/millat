@@ -48,26 +48,30 @@ class BackgroundContainer extends StatelessWidget {
         ),
       ),
       padding: cardType == ShopHomeCardtype.sunnah
-          ? const EdgeInsets.only(left: 12, top: 8)
-          : const EdgeInsets.only(left: 12),
+          ? const EdgeInsets.only(left: 15, top: 1)
+          : const EdgeInsets.only(left: 15),
       child: Column(
         children: [
           Row(
             children: [
               Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    text,
-                    style: TextStyle(
-                      color: HexColor.fromHex(textColor),
-                      fontSize: 17,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
+                  cardType == ShopHomeCardtype.sunnah
+                      ? const SizedBox()
+                      : Text(
+                          text,
+                          style: TextStyle(
+                            color: HexColor.fromHex(textColor),
+                            fontSize: 17,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
                   kHeight5,
                   Text(
                     title,
-                    style: const TextStyle(
+                    style: TextStyle(
+                      color: ColorManager.whiteColor,
                       // color: HexColor.fromHex(textColor),
                       fontSize: 28,
                       fontWeight: FontWeight.bold,
@@ -90,15 +94,31 @@ class BackgroundContainer extends StatelessWidget {
             ],
           ),
           cardType == ShopHomeCardtype.sunnah
-              ? Container(
-                  height: 140,
-                  width: width,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: NetworkImage(imageUrl),
-                      fit: BoxFit.cover,
+              ? Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(
+                      width: SizeUtility(context).width / 2,
+                      child: Text(
+                        text,
+                        style: TextStyle(
+                          color: HexColor.fromHex(textColor),
+                          fontSize: 17,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                     ),
-                  ),
+                    Container(
+                      height: 140,
+                      width: width,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: NetworkImage(imageUrl),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                  ],
                 )
               : const SizedBox.shrink(),
           Align(

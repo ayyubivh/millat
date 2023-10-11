@@ -7,11 +7,13 @@ class CategoryFullView extends StatelessWidget {
   final String? iconImage;
   final String? categoryTitle;
   final bool isShowborder;
+  final Color? color;
   const CategoryFullView({
     Key? key,
     required this.iconImage,
     required this.categoryTitle,
     required this.isShowborder,
+    this.color,
   }) : super(key: key);
 
   @override
@@ -31,6 +33,7 @@ class CategoryFullView extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Utilities().buildCachedNetworkImage(
+            color: color,
             imageUrl: iconImage,
             width: 40,
             height: 40,

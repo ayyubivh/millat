@@ -109,9 +109,12 @@ class _CategoriesFilterState extends State<CategoriesFilter> {
                                   height: 98,
                                   width: 130,
                                   color: isSelected
-                                      ? ColorManager.categorySelectedGreen
+                                      ? ColorManager.mainColor
                                       : ColorManager.whiteColor,
                                   child: CategoryFullView(
+                                    color: isSelected
+                                        ? ColorManager.whiteColor
+                                        : ColorManager.black4A,
                                     isShowborder: true,
                                     iconImage: category.image.toString(),
                                     categoryTitle: category.title.toString(),

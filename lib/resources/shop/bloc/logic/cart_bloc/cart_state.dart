@@ -20,6 +20,6 @@ class CartState with _$CartState {
         showMore: false,
         cartLength: 0,
         statusCode: null,
-        showExapnd: true,
+        showExapnd: false,
       );
 }

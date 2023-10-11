@@ -60,6 +60,9 @@ class ShopProductsState with _$ShopProductsState {
     required ProductModel? productModel,
     required ArticleCategories? articleCategories,
     required String filterVal,
+    required String orderIdRazorPay,
+    required double totalAmount,
+    required bool orderSucces,
   }) = _Initial;
 
   factory ShopProductsState.initial() => const ShopProductsState(
@@ -115,5 +118,8 @@ class ShopProductsState with _$ShopProductsState {
       reasonModel: null,
       articleModelById: null,
       articleCategories: null,
-      filterVal: "");
+      filterVal: "",
+      orderIdRazorPay: "",
+      orderSucces: false,
+      totalAmount: 0.0);
 }

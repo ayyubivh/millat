@@ -14,9 +14,9 @@ import 'package:millat/resources/shop/view/brand/shop_brand_view.dart';
 import 'package:millat/resources/shop/view/brand/single_brand_view.dart';
 import 'package:millat/resources/shop/view/categories/categories_filter_view.dart';
 import 'package:millat/resources/shop/view/categories/categories_product_view.dart';
+import 'package:millat/resources/shop/view/categories/category_view.dart';
 import 'package:millat/resources/shop/view/search/search_view.dart';
 import 'package:millat/resources/shop/view/widgets/shop_home_subcategory_card_widget.dart';
-import 'package:millat/resources/shop/view/womens_care/shop_specific_category_view.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/size_utility.dart';
@@ -131,14 +131,16 @@ class _ShopViewState extends State<ShopView> {
                                   onTap: () {
                                     Navigator.of(context)
                                         .push(MaterialPageRoute(
-                                      builder: (context) =>
-                                          const ShopSpecificCategoryView(
-                                              categoryItemType:
-                                                  CategoryItemType.womens),
+                                      builder: (context) => const CategoryView(
+                                          categoryType:
+                                              CategoryType.specificCategory,
+                                          category: "women",
+                                          categoryId: ""),
                                     ));
                                   },
                                   width: 205,
-                                  title: womenData.subCategoryId?.title ?? "",
+                                  title:
+                                      womenData.subCategoryId?.title ?? "Women",
                                   imageUrl: womenData.design.image,
                                   text: womenData.design.text,
                                   buttonColor: ColorManager.pinkButtonColor,
@@ -176,17 +178,18 @@ class _ShopViewState extends State<ShopView> {
                                 kHeight15,
                                 BackgroundContainer(
                                   onTap: () {
-                                    Navigator.of(context).push(
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                const ShopSpecificCategoryView(
-                                                    categoryItemType:
-                                                        CategoryItemType
-                                                            .health)));
+                                    Navigator.of(context)
+                                        .push(MaterialPageRoute(
+                                      builder: (context) => const CategoryView(
+                                          categoryType:
+                                              CategoryType.specificCategory,
+                                          category: "healthy_diet",
+                                          categoryId: ""),
+                                    ));
                                   },
                                   width: 155,
                                   title: healthyDietData.subCategoryId?.title ??
-                                      "",
+                                      "Sunnah",
                                   imageUrl: healthyDietData.design.image ?? "",
                                   text: healthyDietData.design.text ?? "",
                                   buttonColor:
@@ -333,15 +336,19 @@ class _ShopViewState extends State<ShopView> {
                           imageUrl: getImageUrl(index), boxFit: BoxFit.cover)),
                 ),
                 kHeight10,
-                Text(
-                  getTitle(index),
-                  style: TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w600,
-                      color: isSunnah
-                          ? ColorManager.whiteColor
-                          : ColorManager.blackColor),
-                  textAlign: TextAlign.center,
+                SizedBox(
+                  width: 81,
+                  child: Text(
+                    getTitle(index),
+                    style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w600,
+                        color: isSunnah
+                            ? ColorManager.whiteColor
+                            : ColorManager.blackColor),
+                    textAlign: TextAlign.center,
+                    overflow: TextOverflow.ellipsis,
+                  ),
                 ),
               ],
             ),

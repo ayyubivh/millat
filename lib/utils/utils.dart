@@ -124,13 +124,14 @@ class Utilities {
     return false;
   }
 
-  Widget buildCachedNetworkImage({
-    String? imageUrl,
-    double? height,
-    BoxFit boxFit = BoxFit.fill,
-    double? width,
-  }) {
+  Widget buildCachedNetworkImage(
+      {String? imageUrl,
+      double? height,
+      BoxFit boxFit = BoxFit.fill,
+      double? width,
+      Color? color}) {
     return CachedNetworkImage(
+      color: color,
       imageUrl: imageUrl ?? '',
       height: height,
       width: width,

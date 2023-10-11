@@ -6,8 +6,8 @@ import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/home/bloc/logic/home_bloc/home_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
 import 'package:millat/resources/shop/view/article/articles_view.dart';
+import 'package:millat/resources/shop/view/categories/category_view.dart';
 import 'package:millat/resources/shop/view/shop_view.dart';
-import 'package:millat/resources/shop/view/womens_care/shop_specific_category_view.dart';
 import 'package:millat/resources/tabs/view/tabs_view.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/color_manager.dart';
@@ -19,13 +19,14 @@ class ShopTabsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    DateTime? currentBackPressTime;
-
     List screens = [
       const ShopView(),
       const ArticlesView(),
       // const CategoriesFilter(),
-      // const ShopSpecificCategoryView(categoryItemType: CategoryItemType.womens),
+      const CategoryView(
+          categoryType: CategoryType.specificCategory,
+          category: "women",
+          categoryId: ""),
       const ProfileView(),
     ];
 

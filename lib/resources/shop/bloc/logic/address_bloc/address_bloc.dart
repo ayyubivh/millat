@@ -81,10 +81,7 @@ class AddressBloc extends Bloc<AddressEvent, AddressState> {
     emit(state.copyWith(isLoading: true));
     try {
       final data = await _addressService.fetchAddress(event.context);
-      emit(state.copyWith(
-        addressModel: data,
-        isLoading: false,
-      ));
+      emit(state.copyWith(addressModel: data, isLoading: false));
     } catch (e) {
       emit(state.copyWith(isLoading: false));
 
@@ -97,7 +94,7 @@ class AddressBloc extends Bloc<AddressEvent, AddressState> {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     final value = prefs.getInt(Appstrings.addressDefaultIndex);
     emit(state.copyWith(
-        selectedIndex: value ?? 0,
+        selectedIndex: value,
         addressId: state.addressModel?.result.addresses[value ?? 0].id));
   }
 

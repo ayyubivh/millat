@@ -778,6 +778,7 @@ class _HomeViewState extends State<HomeView> {
                       },
                       child: Utilities().buildCachedNetworkImage(
                         imageUrl: banner!.image,
+                        boxFit: BoxFit.contain,
                         height: 70,
                         width: 90,
                       ),

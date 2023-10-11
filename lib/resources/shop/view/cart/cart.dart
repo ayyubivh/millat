@@ -67,30 +67,27 @@ class _CartViewState extends State<CartView> {
       bottomSheet: BlocBuilder<CartBloc, CartState>(
         builder: (context, state) {
           final cartItems = state.cartModel?.result?.cartProducts?.cartItems;
-          final quantity = cartItems?.map((e) => e.quantity).toList();
+          if (cartItems == null || cartItems.isEmpty) {
+            return _emptyCartBottomContainer(context);
+          }
+
+          final quantity = cartItems.map((e) => e.quantity).toList();
           final price =
-              cartItems?.map((e) => e.productId?.salePrice?.toInt()).toList();
+              cartItems.map((e) => e.productId?.salePrice?.toInt()).toList();
           final subTotal = _getTotalPrice(price, quantity);
 
-          // final shippingFee = cartItems!.length > 1
-          //     ? 180
-          //     : quantity![0]! > 1
-          //         ? 180
-          //         : 90;
           final tax = cartItems
-              ?.map((item) => item.productId?.tax)
-              .reduce((a, b) => a! + b!)!
-              .toDouble();
+                  .map((item) => item.productId?.tax)
+                  .reduce((a, b) => a ?? 0 + b!) ??
+              0.toDouble();
 
-          final averageTax = (tax! / cartItems!.length);
+          final averageTax = (tax / cartItems.length);
           final totalTax = (averageTax / 100) * subTotal;
 
           final total = subTotal + totalTax;
-          return state.cartModel?.result?.cartProducts?.cartItems?.isEmpty ??
-                  true
-              ? _emptyCartBottomContainer(context)
-              : _notEmptyContainer(
-                  subTotal, total, state.showExapnd, averageTax);
+
+          return _notEmptyContainer(
+              subTotal, total, state.showExapnd, averageTax);
         },
       ),
     );

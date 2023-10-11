@@ -10,6 +10,7 @@ class ProfieEditTextFormField extends StatelessWidget {
   final TextInputType textInputType;
   final String? Function(String? val)? validator;
   final Function()? onTap;
+  final bool? enabled;
 
   final Function(String)? onChanged;
   const ProfieEditTextFormField(
@@ -21,12 +22,15 @@ class ProfieEditTextFormField extends StatelessWidget {
       this.onTap,
       this.onChanged,
       this.textInputType = TextInputType.none,
-      this.maxLength});
+      this.maxLength,
+      this.enabled = true});
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      cursorColor: ColorManager.primary,
       onTap: onTap,
+      enabled: enabled,
       maxLength: maxLength,
       validator: validator,
       controller: controller,

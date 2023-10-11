@@ -236,12 +236,11 @@ class _CheckoutDetailsState extends State<CheckoutDetails> {
           padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
           child: ElevatedButton(
             style: ButtonStyle(
-              backgroundColor:
-                  MaterialStateProperty.all(ColorManager.greenColor1),
+              backgroundColor: MaterialStateProperty.all(ColorManager.primary),
               shape: MaterialStateProperty.all(
                 RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(30.0),
-                  side: BorderSide(color: ColorManager.greenColor1, width: 2.0),
+                  side: BorderSide(color: ColorManager.primary, width: 2.0),
                 ),
               ),
               elevation: MaterialStateProperty.all(0),

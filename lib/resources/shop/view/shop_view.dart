@@ -140,7 +140,8 @@ class _ShopViewState extends State<ShopView> {
                                     ));
                                   },
                                   width: 205,
-                                  title: womenData.subCategoryId?.title ?? "",
+                                  title:
+                                      womenData.subCategoryId?.title ?? "Women",
                                   imageUrl: womenData.design.image,
                                   text: womenData.design.text,
                                   buttonColor: ColorManager.pinkButtonColor,
@@ -189,7 +190,7 @@ class _ShopViewState extends State<ShopView> {
                                   },
                                   width: 155,
                                   title: healthyDietData.subCategoryId?.title ??
-                                      "",
+                                      "Sunnah",
                                   imageUrl: healthyDietData.design.image ?? "",
                                   text: healthyDietData.design.text ?? "",
                                   buttonColor:
@@ -336,15 +337,19 @@ class _ShopViewState extends State<ShopView> {
                           imageUrl: getImageUrl(index), boxFit: BoxFit.cover)),
                 ),
                 kHeight10,
-                Text(
-                  getTitle(index),
-                  style: TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w600,
-                      color: isSunnah
-                          ? ColorManager.whiteColor
-                          : ColorManager.blackColor),
-                  textAlign: TextAlign.center,
+                SizedBox(
+                  width: 81,
+                  child: Text(
+                    getTitle(index),
+                    style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w600,
+                        color: isSunnah
+                            ? ColorManager.whiteColor
+                            : ColorManager.blackColor),
+                    textAlign: TextAlign.center,
+                    overflow: TextOverflow.ellipsis,
+                  ),
                 ),
               ],
             ),

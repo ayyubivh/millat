@@ -93,9 +93,22 @@ class AddressBloc extends Bloc<AddressEvent, AddressState> {
       FetchAddressDefaultIndex event, Emitter<AddressState> emit) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     final value = prefs.getInt(Appstrings.addressDefaultIndex);
-    emit(state.copyWith(
-        selectedIndex: value,
-        addressId: state.addressModel?.result.addresses[value ?? 0].id));
+    if (state.addressModel?.result.addresses == null) {
+      print("addres is null ${state.addressModel?.result.addresses}");
+      emit(
+        state.copyWith(
+          selectedIndex: -1,
+        ),
+      );
+    } else {
+      print("addres not null ${state.addressModel?.result.addresses}");
+
+      emit(
+        state.copyWith(
+            selectedIndex: value,
+            addressId: state.addressModel?.result.addresses[value ?? 0].id),
+      );
+    }
   }
 
   _selectAddressEvent(SelectAddressEvent event, Emitter<AddressState> emit) {

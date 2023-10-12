@@ -6,6 +6,7 @@ import 'package:millat/components/common_widgets/build_categories_widget.dart';
 import 'package:millat/components/shimmers/shimmer_widget.dart';
 import 'package:millat/components/shimmers/shimmers_widget_rounded.dart';
 import 'package:millat/enums/enumertations.dart';
+import 'package:millat/resources/shop/bloc/logic/address_bloc/address_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/category_bloc/category_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
 import 'package:millat/resources/shop/view/article/articles_view.dart';
@@ -56,7 +57,7 @@ class _ShopViewState extends State<ShopView> {
       ..add(const ShopProductsEvent.fetchCoupons())
       ..add(const ShopProductsEvent.fetchAllBrandsEvent());
     cartBloc.add(FetchCartEvent(context));
-
+    BlocProvider.of<AddressBloc>(context).add(FetchAddressDefaultIndex());
     super.initState();
   }
 

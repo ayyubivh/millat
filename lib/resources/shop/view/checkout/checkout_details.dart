@@ -256,9 +256,14 @@ class _CheckoutDetailsState extends State<CheckoutDetails> {
                 });
               } else if (widget.type == AddressNavType.checkout &&
                   formkey.currentState!.validate()) {
-                Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => const CheckoutView(),
-                ));
+                context
+                    .read<AddressBloc>()
+                    .add(AddressEvent.fetchAddressEvent(context: context));
+                Future.delayed(const Duration(seconds: 2)).then((value) {
+                  Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => const CheckoutView(),
+                  ));
+                });
               } else if (widget.type == AddressNavType.editAddress &&
                   formkey.currentState!.validate()) {
                 final id = context.read<AddressBloc>().state.addressId;

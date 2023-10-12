@@ -236,12 +236,11 @@ class _CheckoutDetailsState extends State<CheckoutDetails> {
           padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
           child: ElevatedButton(
             style: ButtonStyle(
-              backgroundColor:
-                  MaterialStateProperty.all(ColorManager.greenColor1),
+              backgroundColor: MaterialStateProperty.all(ColorManager.primary),
               shape: MaterialStateProperty.all(
                 RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(30.0),
-                  side: BorderSide(color: ColorManager.greenColor1, width: 2.0),
+                  side: BorderSide(color: ColorManager.primary, width: 2.0),
                 ),
               ),
               elevation: MaterialStateProperty.all(0),
@@ -257,9 +256,14 @@ class _CheckoutDetailsState extends State<CheckoutDetails> {
                 });
               } else if (widget.type == AddressNavType.checkout &&
                   formkey.currentState!.validate()) {
-                Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => const CheckoutView(),
-                ));
+                context
+                    .read<AddressBloc>()
+                    .add(AddressEvent.fetchAddressEvent(context: context));
+                Future.delayed(const Duration(seconds: 2)).then((value) {
+                  Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => const CheckoutView(),
+                  ));
+                });
               } else if (widget.type == AddressNavType.editAddress &&
                   formkey.currentState!.validate()) {
                 final id = context.read<AddressBloc>().state.addressId;

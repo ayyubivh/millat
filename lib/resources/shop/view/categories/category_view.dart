@@ -91,9 +91,6 @@ class _CategoryViewState extends State<CategoryView> {
               fontWeight: FontWeight.bold,
             ),
           ),
-          expandedHeight: 80.0,
-          floating: false,
-          pinned: true,
           flexibleSpace: Container(
             decoration: const BoxDecoration(
               gradient: LinearGradient(
@@ -113,12 +110,6 @@ class _CategoryViewState extends State<CategoryView> {
             ),
           ],
         ),
-        // SliverToBoxAdapter(
-        //   child: Padding(
-        //     padding: EdgeInsets.only(right: 20.0),
-        //     child: timer(),
-        //   ),
-        // ),
         SliverToBoxAdapter(
           child: Column(
             children: [
@@ -377,38 +368,31 @@ class _CategoryViewState extends State<CategoryView> {
                         final products = state.flashSaleproducts?.result
                             ?.shopProductCategory?.products;
 
-                        // if (products == null || products.isEmpty) {
-                        //   return const SizedBox();
-                        // }
-                        return Column(
-                          children: [
-                            state.flashSaleproducts?.result?.shopProductCategory
-                                        ?.products !=
-                                    null
-                                ? _produtsTitleWidget(
+                        return products == null
+                            ? const SizedBox()
+                            : Column(
+                                children: [
+                                  _produtsTitleWidget(
                                     context: context,
                                     text: Appstrings.flashSale,
                                     isShowTimer: true,
-                                  )
-                                : const SizedBox(),
-                            kHeight16,
-                            SizedBox(
-                              height: 280,
-                              child: ListView.builder(
-                                scrollDirection: Axis.horizontal,
-                                itemCount: products?.length ?? 3,
-                                itemBuilder: (context, index) {
-                                  final data = products?[index];
+                                  ),
+                                  kHeight16,
+                                  SizedBox(
+                                    height: 280,
+                                    child: ListView.builder(
+                                      scrollDirection: Axis.horizontal,
+                                      itemCount: products.length,
+                                      itemBuilder: (context, index) {
+                                        final data = products[index];
 
-                                  return products == null
-                                      ? const ShimmersWidgetProduct()
-                                      : GestureDetector(
+                                        return GestureDetector(
                                           onTap: () {
                                             Navigator.of(context)
                                                 .push(MaterialPageRoute(
                                               builder: (context) =>
                                                   SingleProductView(
-                                                id: data!.id ?? "",
+                                                id: data.id ?? "",
                                               ),
                                             ));
                                           },
@@ -416,29 +400,29 @@ class _CategoryViewState extends State<CategoryView> {
                                             padding: const EdgeInsets.only(
                                                 right: 15),
                                             child: ShopProductWidget(
-                                              color: data?.color ?? "",
-                                              size: data?.size?[0].size ?? "",
-                                              brandId: data?.brand?.id,
+                                              color: data.color ?? "",
+                                              size: data.size?[0].size ?? "",
+                                              brandId: data.brand?.id,
                                               isWishlisted: state.isWishListed,
-                                              brand: data?.brand?.name ?? "",
-                                              productId: data?.id,
-                                              image: data?.images?[0] ?? "",
-                                              title: data?.title ?? "",
+                                              brand: data.brand?.name ?? "",
+                                              productId: data.id,
+                                              image: data.images?[0] ?? "",
+                                              title: data.title ?? "",
                                               actualPrice:
-                                                  data?.regularPrice?.toInt() ??
+                                                  data.regularPrice?.toInt() ??
                                                       0,
                                               discount:
-                                                  data?.discount?.toInt() ?? 0,
+                                                  data.discount?.toInt() ?? 0,
                                               discountPrice:
-                                                  data?.salePrice?.toInt() ?? 0,
+                                                  data.salePrice?.toInt() ?? 0,
                                             ),
                                           ),
                                         );
-                                },
-                              ),
-                            ),
-                          ],
-                        );
+                                      },
+                                    ),
+                                  ),
+                                ],
+                              );
                       },
                     ),
                     kHeight20,
@@ -493,29 +477,25 @@ class _CategoryViewState extends State<CategoryView> {
                         final products = state.popularProducts?.result
                             ?.shopProductCategory?.products;
 
-                        return Column(
-                          children: [
-                            state.popularProducts?.result?.shopProductCategory
-                                        ?.products !=
-                                    null
-                                ? _produtsTitleWidget(
+                        return products == null || products == []
+                            ? const SizedBox()
+                            : Column(
+                                children: [
+                                  _produtsTitleWidget(
                                     context: context,
                                     text: Appstrings.mostPopular,
                                     isShowTimer: false,
-                                  )
-                                : const SizedBox(),
-                            kHeight16,
-                            SizedBox(
-                              height: 280,
-                              child: ListView.builder(
-                                scrollDirection: Axis.horizontal,
-                                itemCount: products?.length,
-                                itemBuilder: (context, index) {
-                                  final data = products?[index];
+                                  ),
+                                  kHeight16,
+                                  SizedBox(
+                                    height: 280,
+                                    child: ListView.builder(
+                                      scrollDirection: Axis.horizontal,
+                                      itemCount: products.length,
+                                      itemBuilder: (context, index) {
+                                        final data = products[index];
 
-                                  return data == null
-                                      ? const ShimmersWidgetProduct()
-                                      : GestureDetector(
+                                        return GestureDetector(
                                           onTap: () {
                                             Navigator.of(context)
                                                 .push(MaterialPageRoute(
@@ -537,8 +517,7 @@ class _CategoryViewState extends State<CategoryView> {
                                               brand: data.brand?.name ?? "",
                                               productId: data.id,
                                               image: data.images?[0] ?? "",
-                                              title: data.title ??
-                                                  "", // Make title nullable.
+                                              title: data.title ?? "",
                                               actualPrice:
                                                   data.regularPrice?.toInt() ??
                                                       0,
@@ -549,11 +528,11 @@ class _CategoryViewState extends State<CategoryView> {
                                             ),
                                           ),
                                         );
-                                },
-                              ),
-                            ),
-                          ],
-                        );
+                                      },
+                                    ),
+                                  ),
+                                ],
+                              );
                       },
                     ),
                     kHeight10,

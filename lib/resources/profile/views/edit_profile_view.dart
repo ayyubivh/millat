@@ -46,12 +46,21 @@ class _EditProfileViewState extends State<EditProfileView> {
       initialDate: _selectedDate ?? DateTime.now(),
       firstDate: DateTime(1900),
       lastDate: DateTime.now(),
+      builder: (context, child) {
+        return Theme(
+            data: ThemeData.light().copyWith(
+              primaryColor: ColorManager.primary,
+              colorScheme: ColorScheme.light(
+                primary: ColorManager.primary,
+              ),
+            ),
+            child: child!);
+      },
     );
 
     if (picked != null && picked != _selectedDate) {
       setState(() {
         _selectedDate = picked;
-        print(_selectedDate);
 
         String formattedDate = DateFormat('MM-dd-yyyy').format(_selectedDate!);
         _dateofBirthcontroller.text = formattedDate;
@@ -352,6 +361,7 @@ class _EditProfileViewState extends State<EditProfileView> {
                         },
                       ),
                       _textFieldWidget(
+                        enabled: true,
                         controller: _dateofBirthcontroller,
                         textFieldName: Appstrings.dateOfBirth,
                         onTap: () {
@@ -508,22 +518,25 @@ class _EditProfileViewState extends State<EditProfileView> {
                       print("not validated");
                     }
                   },
-                )
+                ),
+                kHeight20,
               ],
             ),
           ),
         ));
   }
 
-  Widget _textFieldWidget(
-      {required String hintName,
-      required String textFieldName,
-      int? maxLength,
-      TextInputType? textInputType,
-      Function()? onTap,
-      required TextEditingController controller,
-      String? Function(String? val)? validator,
-      ImageIcon? icon}) {
+  Widget _textFieldWidget({
+    required String hintName,
+    required String textFieldName,
+    int? maxLength,
+    TextInputType? textInputType,
+    Function()? onTap,
+    required TextEditingController controller,
+    String? Function(String? val)? validator,
+    ImageIcon? icon,
+    bool? enabled,
+  }) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -536,6 +549,7 @@ class _EditProfileViewState extends State<EditProfileView> {
         ),
         kHeight10,
         ProfieEditTextFormField(
+          enabled: enabled,
           onTap: onTap,
           maxLength: maxLength,
           controller: controller,

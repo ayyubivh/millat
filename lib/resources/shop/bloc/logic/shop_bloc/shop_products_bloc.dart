@@ -115,6 +115,7 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
     try {
       final data = await shopService.fetchPopularProducts(event.endPointSlug);
       emit(state.copyWith(popularProducts: data, popularProductLoading: false));
+      print("popular products data ========================= $data");
     } catch (e) {
       emit(state.copyWith(
           errorMessage: "An error occurred", popularProductLoading: false));

@@ -74,6 +74,12 @@ class AppAssetsStrings {
   static const String instagramIcon = "$iconsPath/instagram.png";
   static const String twitterIcon = "$iconsPath/twitter.png";
   static const String addCart = "$iconsPath/add_cart.png";
+  static const String womensCareImg = "$imagesPath/womenscare_img.png";
+  static const String healhtyDietImg1 = "$imagesPath/healthy_diet_img1.png";
+  static const String healhtyDietImg2 = "$imagesPath/healthy_diet_img2.png";
+  static const String healhtyDietImg3 = "$imagesPath/healthy_diet_img3.png";
+  static const String sunnahImg1 = "$imagesPath/sunnah_img.png";
+
   //icons
   static const String brandItems = "$iconsPath/brand_items.png";
   static const String searchIcon = "$iconsPath/search.png";

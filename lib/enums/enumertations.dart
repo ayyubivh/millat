@@ -35,6 +35,7 @@ enum QuranFavbookMarkType {
 enum ShopHomeCardtype {
   sunnah,
   women,
+  health,
 }
 
 enum TasbihThemes {

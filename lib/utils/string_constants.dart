@@ -134,7 +134,8 @@ class Appstrings {
       "Please add an address for shipping and billing";
   static const String addNewAddress = "Add New Address";
   static const String toShip = "To Ship";
-  static const String cancelled = "Cancelled";
+  static const String cancelled = "CANCELLED";
+  static const String ordered = "ORDERED";
   static const String orderCancelled = "Order Cancelled";
   static const String delivered = "Delivered";
   static const String keepShopping = "Keep Shopping";
@@ -144,7 +145,7 @@ class Appstrings {
   static const String orderTotal = "Order Total";
   static const String downloadInvoice = "Download Invoice";
   static const String deliveryEstimate = "Delivery Estimate";
-  static const String processing = "Processing";
+  static const String processing = "PROCESSING";
   static const String paymentInformation = "Payment information";
   static const String paymentMethod = "Payment Method";
   static const String billingAddress = "Billing Address";

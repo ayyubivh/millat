@@ -73,7 +73,7 @@ class OrdersProfileWidget extends StatelessWidget {
                             child: Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: Image.asset(
-                                orderStatus == Appstrings.toShip
+                                orderStatus == Appstrings.processing
                                     ? AppAssetsStrings.processing
                                     : orderStatus == Appstrings.cancelled
                                         ? AppAssetsStrings.orderStatusCancel
@@ -244,7 +244,7 @@ class OrdersProfileWidget extends StatelessWidget {
                                           isShowDivider: true,
                                           isCancelled: orderStatus ==
                                               Appstrings.cancelled,
-                                          text: "Ordered",
+                                          text: Appstrings.ordered,
                                           onTap: () {},
                                           isProcessing: false,
                                           isOrdered: true,
@@ -253,7 +253,7 @@ class OrdersProfileWidget extends StatelessWidget {
                                           isShowDivider: true,
                                           isCancelled: orderStatus ==
                                               Appstrings.cancelled,
-                                          text: "Processing",
+                                          text: Appstrings.processing,
                                           onTap: () {},
                                           isProcessing: true,
                                           isOrdered: false,
@@ -263,7 +263,7 @@ class OrdersProfileWidget extends StatelessWidget {
                                               Appstrings.cancelled,
                                           isShowDivider: true,
                                           isCancelled: false,
-                                          text: "Packed",
+                                          text: "OUT FOR PICKUP",
                                           onTap: () {},
                                           isProcessing: false,
                                           isOrdered: false,
@@ -273,7 +273,7 @@ class OrdersProfileWidget extends StatelessWidget {
                                               Appstrings.cancelled,
                                           isShowDivider: true,
                                           isCancelled: false,
-                                          text: "Shipped",
+                                          text: "PICKED UP",
                                           onTap: () {},
                                           isProcessing: false,
                                           isOrdered: false,

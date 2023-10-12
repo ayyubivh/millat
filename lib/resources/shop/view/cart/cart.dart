@@ -153,7 +153,7 @@ class _CartViewState extends State<CartView> {
                                   color: ColorManager.blackColor,
                                   fontSize: 15,
                                   fontWeight: FontWeight.bold)),
-                          Text('₹$tax',
+                          Text('${tax.toInt()} %',
                               style: TextStyle(
                                   color: ColorManager.blackColor,
                                   fontSize: 17,

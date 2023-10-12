@@ -514,7 +514,6 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
           // final giftPrice = isGift ? 89 : 0;
           final averageTax = (taxRate / cartItems.length);
           final estimatingTax = (averageTax / 100) * subTotal;
-          print("estimated tax $estimatingTax");
           final total = subTotal + shippingFee + estimatingTax;
           final isShow = state.showExapnd;
           return Container(
@@ -597,7 +596,7 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
                                       color: ColorManager.blackColor,
                                       fontSize: 15,
                                       fontWeight: FontWeight.bold)),
-                              Text("$averageTax",
+                              Text("${averageTax.toInt()} %",
                                   style: TextStyle(
                                       color: ColorManager.blackColor,
                                       fontSize: 17,

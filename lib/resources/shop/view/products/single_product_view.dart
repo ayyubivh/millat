@@ -306,61 +306,57 @@ class SingleProductView extends StatelessWidget {
                         //   ],
                         // ),
 
-                        Container(
-                          padding: const EdgeInsets.symmetric(
-                              vertical: 20, horizontal: 0),
-                          child: Column(
-                            children: [
-                              divider,
-                              kHeight10,
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    'Select options',
-                                    style: TextStyle(
-                                        color: ColorManager.greenColor1,
-                                        fontSize: 20,
-                                        fontWeight: FontWeight.w700),
-                                  ),
-                                  GestureDetector(
-                                    onTap: () {
-                                      showModalBottomSheet(
-                                        backgroundColor: Colors.transparent,
-                                        context: context,
-                                        isScrollControlled: true,
-                                        builder: (context) =>
-                                            buildShowModelSheet(
-                                                color: data.color ?? "",
-                                                size: data.size!
-                                                    .map((e) =>
-                                                        e.size.toString())
-                                                    .toList(),
-                                                brandId: data.brand?.id ?? "",
-                                                productId: id,
-                                                image: data.images![0],
-                                                regularPrice:
-                                                    data.regularPrice!.toInt(),
-                                                salePrice:
-                                                    data.salePrice!.toInt(),
-                                                context,
-                                                selectedColor,
-                                                selectedSize,
-                                                quantity),
-                                      );
-                                    },
-                                    child: Icon(
+                        GestureDetector(
+                          onTap: () {
+                            showModalBottomSheet(
+                              backgroundColor: Colors.transparent,
+                              context: context,
+                              isScrollControlled: true,
+                              builder: (context) => buildShowModelSheet(
+                                  color: data.color ?? "",
+                                  size: data.size!
+                                      .map((e) => e.size.toString())
+                                      .toList(),
+                                  brandId: data.brand?.id ?? "",
+                                  productId: id,
+                                  image: data.images![0],
+                                  regularPrice: data.regularPrice!.toInt(),
+                                  salePrice: data.salePrice!.toInt(),
+                                  context,
+                                  selectedColor,
+                                  selectedSize,
+                                  quantity),
+                            );
+                          },
+                          child: Container(
+                            padding: const EdgeInsets.symmetric(
+                                vertical: 20, horizontal: 0),
+                            child: Column(
+                              children: [
+                                divider,
+                                kHeight10,
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(
+                                      'Select options',
+                                      style: TextStyle(
+                                          color: ColorManager.greenColor1,
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.w700),
+                                    ),
+                                    Icon(
                                       Icons.navigate_next_outlined,
                                       color: ColorManager.greenColor1,
                                       size: 30,
-                                    ),
-                                  )
-                                ],
-                              ),
-                              kHeight10,
-                              divider,
-                            ],
+                                    )
+                                  ],
+                                ),
+                                kHeight10,
+                                divider,
+                              ],
+                            ),
                           ),
                         ),
                         Text(
@@ -482,8 +478,8 @@ class SingleProductView extends StatelessWidget {
                 //   icon: Icon(Icons.favorite_border_outlined),
                 // ),
                 bottomSheet: Padding(
-                    padding:
-                        const EdgeInsets.only(bottom: 20, left: 30, right: 30),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 30, vertical: 10),
                     child: GestureDetector(
                       onTap: () {
                         showModalBottomSheet(

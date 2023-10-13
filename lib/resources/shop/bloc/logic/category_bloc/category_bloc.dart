@@ -5,6 +5,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:millat/resources/shop/bloc/models/category/categories._model.dart';
+import 'package:millat/resources/shop/bloc/models/category/category_items_model.dart';
 import 'package:millat/resources/shop/bloc/models/category/subcategories_by_category_id.dart';
 import 'package:millat/resources/shop/bloc/models/products/products_model.dart';
 import 'package:millat/resources/shop/bloc/service/category_services.dart';
@@ -31,6 +32,7 @@ class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
     on<FetchProductSortByPrice>(_fetchProductSortByEvent);
     on<ChangeSortListIndex>(_changeSortListIndex);
     on<FetchProductsByFilterPricerange>(_fetchProductsByFilterPricerange);
+    on<FetchItemsByCategory>(_fetchItemsByCategory);
   }
 
   FutureOr<void> _fetchFilterProducts(
@@ -169,6 +171,20 @@ class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
     } catch (e) {
       emit(state.copyWith(
           errorMessage: "An error occurred", productLoading: false));
+    }
+  }
+
+  _fetchItemsByCategory(
+      FetchItemsByCategory event, Emitter<CategoryState> emit) async {
+    emit(state.copyWith(categoryLoading: true));
+    try {
+      final data =
+          await _categoryService.fetchItemsByCategory(category: event.category);
+      emit(state.copyWith(categoryItemModel: data, categoryLoading: false));
+    } catch (e) {
+      emit(state.copyWith(categoryLoading: false));
+
+      throw Exception(e);
     }
   }
 }

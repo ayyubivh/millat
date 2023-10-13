@@ -19,9 +19,8 @@ class BuildCategoryWidget extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => CategoryView(
-              category: text.toString().replaceAll(" ", "_"),
-              categoryId: categoryId),
+          builder: (context) =>
+              CategoryView(category: text, categoryId: categoryId),
         ));
       },
       child: Column(

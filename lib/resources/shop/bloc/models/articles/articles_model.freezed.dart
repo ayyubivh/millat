@@ -377,6 +377,7 @@ mixin _$Article {
   Product? get product => throw _privateConstructorUsedError;
   String? get image => throw _privateConstructorUsedError;
   String? get date => throw _privateConstructorUsedError;
+  String? get category => throw _privateConstructorUsedError;
   String? get createdAt => throw _privateConstructorUsedError;
   String? get updatedAt => throw _privateConstructorUsedError;
 
@@ -399,6 +400,7 @@ abstract class $ArticleCopyWith<$Res> {
       Product? product,
       String? image,
       String? date,
+      String? category,
       String? createdAt,
       String? updatedAt});
 
@@ -426,6 +428,7 @@ class _$ArticleCopyWithImpl<$Res, $Val extends Article>
     Object? product = freezed,
     Object? image = freezed,
     Object? date = freezed,
+    Object? category = freezed,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
   }) {
@@ -461,6 +464,10 @@ class _$ArticleCopyWithImpl<$Res, $Val extends Article>
       date: freezed == date
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
+              as String?,
+      category: freezed == category
+          ? _value.category
+          : category // ignore: cast_nullable_to_non_nullable
               as String?,
       createdAt: freezed == createdAt
           ? _value.createdAt
@@ -502,6 +509,7 @@ abstract class _$$_ArticleCopyWith<$Res> implements $ArticleCopyWith<$Res> {
       Product? product,
       String? image,
       String? date,
+      String? category,
       String? createdAt,
       String? updatedAt});
 
@@ -527,6 +535,7 @@ class __$$_ArticleCopyWithImpl<$Res>
     Object? product = freezed,
     Object? image = freezed,
     Object? date = freezed,
+    Object? category = freezed,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
   }) {
@@ -563,6 +572,10 @@ class __$$_ArticleCopyWithImpl<$Res>
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
               as String?,
+      category: freezed == category
+          ? _value.category
+          : category // ignore: cast_nullable_to_non_nullable
+              as String?,
       createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -587,6 +600,7 @@ class _$_Article implements _Article {
       required this.product,
       required this.image,
       required this.date,
+      required this.category,
       required this.createdAt,
       required this.updatedAt});
 
@@ -611,13 +625,15 @@ class _$_Article implements _Article {
   @override
   final String? date;
   @override
+  final String? category;
+  @override
   final String? createdAt;
   @override
   final String? updatedAt;
 
   @override
   String toString() {
-    return 'Article(id: $id, title: $title, slug: $slug, content: $content, brand: $brand, product: $product, image: $image, date: $date, createdAt: $createdAt, updatedAt: $updatedAt)';
+    return 'Article(id: $id, title: $title, slug: $slug, content: $content, brand: $brand, product: $product, image: $image, date: $date, category: $category, createdAt: $createdAt, updatedAt: $updatedAt)';
   }
 
   @override
@@ -633,6 +649,8 @@ class _$_Article implements _Article {
             (identical(other.product, product) || other.product == product) &&
             (identical(other.image, image) || other.image == image) &&
             (identical(other.date, date) || other.date == date) &&
+            (identical(other.category, category) ||
+                other.category == category) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
             (identical(other.updatedAt, updatedAt) ||
@@ -642,7 +660,7 @@ class _$_Article implements _Article {
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, id, title, slug, content, brand,
-      product, image, date, createdAt, updatedAt);
+      product, image, date, category, createdAt, updatedAt);
 
   @JsonKey(ignore: true)
   @override
@@ -668,6 +686,7 @@ abstract class _Article implements Article {
       required final Product? product,
       required final String? image,
       required final String? date,
+      required final String? category,
       required final String? createdAt,
       required final String? updatedAt}) = _$_Article;
 
@@ -690,6 +709,8 @@ abstract class _Article implements Article {
   String? get image;
   @override
   String? get date;
+  @override
+  String? get category;
   @override
   String? get createdAt;
   @override

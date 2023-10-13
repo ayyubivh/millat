@@ -1,10 +1,10 @@
 import 'dart:convert';
 import 'package:millat/resources/shop/bloc/models/category/subcategories.dart';
 import 'package:millat/resources/shop/bloc/models/category/subcategories_by_category_id.dart';
-import 'package:millat/resources/shop/bloc/models/orders/fetch_order_byId_model.dart';
 import 'package:millat/resources/shop/bloc/models/products/products_model.dart';
 import '../../../../services/http_services.dart';
 import '../models/category/categories._model.dart';
+import '../models/category/category_items_model.dart';
 
 class CategoryService extends HttpServices {
   //Fetching Categories
@@ -91,6 +91,29 @@ class CategoryService extends HttpServices {
         final Map<String, dynamic> data = json.decode(response.body);
         final result = SubCategoryModel.fromJson(data);
 
+        return result;
+      } catch (e) {
+        print('error on SubCategory API fetch: ${e.toString()}');
+        throw Exception('Failed to parse response');
+      }
+    } else {
+      throw Exception(
+          'API request failed with status code: ${response.statusCode}');
+    }
+  }
+
+  //Fetch Items by Category
+  Future<CategoryItemModel> fetchItemsByCategory({
+    required String category,
+  }) async {
+    final endPoint = "item?category=$category";
+    final response = await get(endPoint: endPoint);
+
+    if (response.statusCode == 200) {
+      try {
+        final Map<String, dynamic> data = json.decode(response.body);
+        final result = CategoryItemModel.fromJson(data);
+        print("results of the category items $result");
         return result;
       } catch (e) {
         print('error on SubCategory API fetch: ${e.toString()}');

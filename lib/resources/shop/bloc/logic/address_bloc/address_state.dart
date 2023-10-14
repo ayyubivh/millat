@@ -10,6 +10,7 @@ class AddressState with _$AddressState {
     required String? addressId,
     required AddressIdModel? addressIdModel,
     required bool isLoading,
+    required PincodeAddressModel? pincodeAddressModel,
   }) = _Initial;
   factory AddressState.initial() => const AddressState(
       successMessage: "",
@@ -18,5 +19,6 @@ class AddressState with _$AddressState {
       selectedIndex: 0,
       addressId: null,
       addressIdModel: null,
-      isLoading: false);
+      isLoading: false,
+      pincodeAddressModel: null);
 }

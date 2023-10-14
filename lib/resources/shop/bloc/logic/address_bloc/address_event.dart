@@ -25,6 +25,8 @@ class AddressEvent with _$AddressEvent {
   const factory AddressEvent.fetchAddressByIdEvent(
       {required BuildContext context,
       required String id}) = FetchAddressByIdEvent;
+  const factory AddressEvent.fetchPincodeAddres({required String pincode}) =
+      FetchPincodeAddres;
   const factory AddressEvent.deleteAddressEvent(
       {required BuildContext context, required String id}) = DeleteAddressEvent;
   const factory AddressEvent.fetchAddressDefaultIndex() =

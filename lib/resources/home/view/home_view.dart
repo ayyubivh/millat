@@ -9,6 +9,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:http/http.dart' as http;
 import 'package:millat/components/shimmers/shimmer_widget.dart';
 import 'package:millat/resources/home/view/al_quran/widgets/verses_view.dart';
+import 'package:millat/resources/shop/bloc/logic/address_bloc/address_bloc.dart';
+import 'package:millat/resources/shop/bloc/service/address_service.dart';
 import 'package:millat/resources/shop/bloc/service/category_services.dart';
 import 'package:millat/resources/shop/bloc/service/orders_service.dart';
 import 'package:millat/resources/shop/bloc/service/shop_services.dart';
@@ -1126,7 +1128,6 @@ class _HomeViewState extends State<HomeView> {
                         const Spacer(),
                         GestureDetector(
                           onTap: () {
-                            print("verskey $verskey  }");
                             final quranState = context.read<QuranBloc>().state;
 
                             final _verskey = verskey;
@@ -1191,7 +1192,7 @@ class _HomeViewState extends State<HomeView> {
         Share.shareFiles([imagePath]);
       }
     } catch (e) {
-      print('Error downloading or sharing image: $e');
+      throw Exception(e);
     }
   }
 

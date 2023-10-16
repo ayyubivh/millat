@@ -35,6 +35,7 @@ mixin _$AddressEvent {
     required TResult Function(String addressId) saveAddressId,
     required TResult Function(BuildContext context, String id)
         fetchAddressByIdEvent,
+    required TResult Function(String pincode) fetchPincodeAddres,
     required TResult Function(BuildContext context, String id)
         deleteAddressEvent,
     required TResult Function() fetchAddressDefaultIndex,
@@ -71,6 +72,7 @@ mixin _$AddressEvent {
     TResult? Function(int selectedIndex)? selectAddressEvent,
     TResult? Function(String addressId)? saveAddressId,
     TResult? Function(BuildContext context, String id)? fetchAddressByIdEvent,
+    TResult? Function(String pincode)? fetchPincodeAddres,
     TResult? Function(BuildContext context, String id)? deleteAddressEvent,
     TResult? Function()? fetchAddressDefaultIndex,
     TResult? Function(
@@ -106,6 +108,7 @@ mixin _$AddressEvent {
     TResult Function(int selectedIndex)? selectAddressEvent,
     TResult Function(String addressId)? saveAddressId,
     TResult Function(BuildContext context, String id)? fetchAddressByIdEvent,
+    TResult Function(String pincode)? fetchPincodeAddres,
     TResult Function(BuildContext context, String id)? deleteAddressEvent,
     TResult Function()? fetchAddressDefaultIndex,
     TResult Function(
@@ -132,6 +135,7 @@ mixin _$AddressEvent {
     required TResult Function(SaveAddressId value) saveAddressId,
     required TResult Function(FetchAddressByIdEvent value)
         fetchAddressByIdEvent,
+    required TResult Function(FetchPincodeAddres value) fetchPincodeAddres,
     required TResult Function(DeleteAddressEvent value) deleteAddressEvent,
     required TResult Function(FetchAddressDefaultIndex value)
         fetchAddressDefaultIndex,
@@ -145,6 +149,7 @@ mixin _$AddressEvent {
     TResult? Function(SelectAddressEvent value)? selectAddressEvent,
     TResult? Function(SaveAddressId value)? saveAddressId,
     TResult? Function(FetchAddressByIdEvent value)? fetchAddressByIdEvent,
+    TResult? Function(FetchPincodeAddres value)? fetchPincodeAddres,
     TResult? Function(DeleteAddressEvent value)? deleteAddressEvent,
     TResult? Function(FetchAddressDefaultIndex value)? fetchAddressDefaultIndex,
     TResult? Function(UpdateAddress value)? updateAddress,
@@ -157,6 +162,7 @@ mixin _$AddressEvent {
     TResult Function(SelectAddressEvent value)? selectAddressEvent,
     TResult Function(SaveAddressId value)? saveAddressId,
     TResult Function(FetchAddressByIdEvent value)? fetchAddressByIdEvent,
+    TResult Function(FetchPincodeAddres value)? fetchPincodeAddres,
     TResult Function(DeleteAddressEvent value)? deleteAddressEvent,
     TResult Function(FetchAddressDefaultIndex value)? fetchAddressDefaultIndex,
     TResult Function(UpdateAddress value)? updateAddress,
@@ -360,6 +366,7 @@ class _$AddAddress implements AddAddress {
     required TResult Function(String addressId) saveAddressId,
     required TResult Function(BuildContext context, String id)
         fetchAddressByIdEvent,
+    required TResult Function(String pincode) fetchPincodeAddres,
     required TResult Function(BuildContext context, String id)
         deleteAddressEvent,
     required TResult Function() fetchAddressDefaultIndex,
@@ -400,6 +407,7 @@ class _$AddAddress implements AddAddress {
     TResult? Function(int selectedIndex)? selectAddressEvent,
     TResult? Function(String addressId)? saveAddressId,
     TResult? Function(BuildContext context, String id)? fetchAddressByIdEvent,
+    TResult? Function(String pincode)? fetchPincodeAddres,
     TResult? Function(BuildContext context, String id)? deleteAddressEvent,
     TResult? Function()? fetchAddressDefaultIndex,
     TResult? Function(
@@ -439,6 +447,7 @@ class _$AddAddress implements AddAddress {
     TResult Function(int selectedIndex)? selectAddressEvent,
     TResult Function(String addressId)? saveAddressId,
     TResult Function(BuildContext context, String id)? fetchAddressByIdEvent,
+    TResult Function(String pincode)? fetchPincodeAddres,
     TResult Function(BuildContext context, String id)? deleteAddressEvent,
     TResult Function()? fetchAddressDefaultIndex,
     TResult Function(
@@ -472,6 +481,7 @@ class _$AddAddress implements AddAddress {
     required TResult Function(SaveAddressId value) saveAddressId,
     required TResult Function(FetchAddressByIdEvent value)
         fetchAddressByIdEvent,
+    required TResult Function(FetchPincodeAddres value) fetchPincodeAddres,
     required TResult Function(DeleteAddressEvent value) deleteAddressEvent,
     required TResult Function(FetchAddressDefaultIndex value)
         fetchAddressDefaultIndex,
@@ -488,6 +498,7 @@ class _$AddAddress implements AddAddress {
     TResult? Function(SelectAddressEvent value)? selectAddressEvent,
     TResult? Function(SaveAddressId value)? saveAddressId,
     TResult? Function(FetchAddressByIdEvent value)? fetchAddressByIdEvent,
+    TResult? Function(FetchPincodeAddres value)? fetchPincodeAddres,
     TResult? Function(DeleteAddressEvent value)? deleteAddressEvent,
     TResult? Function(FetchAddressDefaultIndex value)? fetchAddressDefaultIndex,
     TResult? Function(UpdateAddress value)? updateAddress,
@@ -503,6 +514,7 @@ class _$AddAddress implements AddAddress {
     TResult Function(SelectAddressEvent value)? selectAddressEvent,
     TResult Function(SaveAddressId value)? saveAddressId,
     TResult Function(FetchAddressByIdEvent value)? fetchAddressByIdEvent,
+    TResult Function(FetchPincodeAddres value)? fetchPincodeAddres,
     TResult Function(DeleteAddressEvent value)? deleteAddressEvent,
     TResult Function(FetchAddressDefaultIndex value)? fetchAddressDefaultIndex,
     TResult Function(UpdateAddress value)? updateAddress,
@@ -624,6 +636,7 @@ class _$FetchAddressEvent implements FetchAddressEvent {
     required TResult Function(String addressId) saveAddressId,
     required TResult Function(BuildContext context, String id)
         fetchAddressByIdEvent,
+    required TResult Function(String pincode) fetchPincodeAddres,
     required TResult Function(BuildContext context, String id)
         deleteAddressEvent,
     required TResult Function() fetchAddressDefaultIndex,
@@ -663,6 +676,7 @@ class _$FetchAddressEvent implements FetchAddressEvent {
     TResult? Function(int selectedIndex)? selectAddressEvent,
     TResult? Function(String addressId)? saveAddressId,
     TResult? Function(BuildContext context, String id)? fetchAddressByIdEvent,
+    TResult? Function(String pincode)? fetchPincodeAddres,
     TResult? Function(BuildContext context, String id)? deleteAddressEvent,
     TResult? Function()? fetchAddressDefaultIndex,
     TResult? Function(
@@ -701,6 +715,7 @@ class _$FetchAddressEvent implements FetchAddressEvent {
     TResult Function(int selectedIndex)? selectAddressEvent,
     TResult Function(String addressId)? saveAddressId,
     TResult Function(BuildContext context, String id)? fetchAddressByIdEvent,
+    TResult Function(String pincode)? fetchPincodeAddres,
     TResult Function(BuildContext context, String id)? deleteAddressEvent,
     TResult Function()? fetchAddressDefaultIndex,
     TResult Function(
@@ -733,6 +748,7 @@ class _$FetchAddressEvent implements FetchAddressEvent {
     required TResult Function(SaveAddressId value) saveAddressId,
     required TResult Function(FetchAddressByIdEvent value)
         fetchAddressByIdEvent,
+    required TResult Function(FetchPincodeAddres value) fetchPincodeAddres,
     required TResult Function(DeleteAddressEvent value) deleteAddressEvent,
     required TResult Function(FetchAddressDefaultIndex value)
         fetchAddressDefaultIndex,
@@ -749,6 +765,7 @@ class _$FetchAddressEvent implements FetchAddressEvent {
     TResult? Function(SelectAddressEvent value)? selectAddressEvent,
     TResult? Function(SaveAddressId value)? saveAddressId,
     TResult? Function(FetchAddressByIdEvent value)? fetchAddressByIdEvent,
+    TResult? Function(FetchPincodeAddres value)? fetchPincodeAddres,
     TResult? Function(DeleteAddressEvent value)? deleteAddressEvent,
     TResult? Function(FetchAddressDefaultIndex value)? fetchAddressDefaultIndex,
     TResult? Function(UpdateAddress value)? updateAddress,
@@ -764,6 +781,7 @@ class _$FetchAddressEvent implements FetchAddressEvent {
     TResult Function(SelectAddressEvent value)? selectAddressEvent,
     TResult Function(SaveAddressId value)? saveAddressId,
     TResult Function(FetchAddressByIdEvent value)? fetchAddressByIdEvent,
+    TResult Function(FetchPincodeAddres value)? fetchPincodeAddres,
     TResult Function(DeleteAddressEvent value)? deleteAddressEvent,
     TResult Function(FetchAddressDefaultIndex value)? fetchAddressDefaultIndex,
     TResult Function(UpdateAddress value)? updateAddress,
@@ -869,6 +887,7 @@ class _$SelectAddressEvent implements SelectAddressEvent {
     required TResult Function(String addressId) saveAddressId,
     required TResult Function(BuildContext context, String id)
         fetchAddressByIdEvent,
+    required TResult Function(String pincode) fetchPincodeAddres,
     required TResult Function(BuildContext context, String id)
         deleteAddressEvent,
     required TResult Function() fetchAddressDefaultIndex,
@@ -908,6 +927,7 @@ class _$SelectAddressEvent implements SelectAddressEvent {
     TResult? Function(int selectedIndex)? selectAddressEvent,
     TResult? Function(String addressId)? saveAddressId,
     TResult? Function(BuildContext context, String id)? fetchAddressByIdEvent,
+    TResult? Function(String pincode)? fetchPincodeAddres,
     TResult? Function(BuildContext context, String id)? deleteAddressEvent,
     TResult? Function()? fetchAddressDefaultIndex,
     TResult? Function(
@@ -946,6 +966,7 @@ class _$SelectAddressEvent implements SelectAddressEvent {
     TResult Function(int selectedIndex)? selectAddressEvent,
     TResult Function(String addressId)? saveAddressId,
     TResult Function(BuildContext context, String id)? fetchAddressByIdEvent,
+    TResult Function(String pincode)? fetchPincodeAddres,
     TResult Function(BuildContext context, String id)? deleteAddressEvent,
     TResult Function()? fetchAddressDefaultIndex,
     TResult Function(
@@ -978,6 +999,7 @@ class _$SelectAddressEvent implements SelectAddressEvent {
     required TResult Function(SaveAddressId value) saveAddressId,
     required TResult Function(FetchAddressByIdEvent value)
         fetchAddressByIdEvent,
+    required TResult Function(FetchPincodeAddres value) fetchPincodeAddres,
     required TResult Function(DeleteAddressEvent value) deleteAddressEvent,
     required TResult Function(FetchAddressDefaultIndex value)
         fetchAddressDefaultIndex,
@@ -994,6 +1016,7 @@ class _$SelectAddressEvent implements SelectAddressEvent {
     TResult? Function(SelectAddressEvent value)? selectAddressEvent,
     TResult? Function(SaveAddressId value)? saveAddressId,
     TResult? Function(FetchAddressByIdEvent value)? fetchAddressByIdEvent,
+    TResult? Function(FetchPincodeAddres value)? fetchPincodeAddres,
     TResult? Function(DeleteAddressEvent value)? deleteAddressEvent,
     TResult? Function(FetchAddressDefaultIndex value)? fetchAddressDefaultIndex,
     TResult? Function(UpdateAddress value)? updateAddress,
@@ -1009,6 +1032,7 @@ class _$SelectAddressEvent implements SelectAddressEvent {
     TResult Function(SelectAddressEvent value)? selectAddressEvent,
     TResult Function(SaveAddressId value)? saveAddressId,
     TResult Function(FetchAddressByIdEvent value)? fetchAddressByIdEvent,
+    TResult Function(FetchPincodeAddres value)? fetchPincodeAddres,
     TResult Function(DeleteAddressEvent value)? deleteAddressEvent,
     TResult Function(FetchAddressDefaultIndex value)? fetchAddressDefaultIndex,
     TResult Function(UpdateAddress value)? updateAddress,
@@ -1113,6 +1137,7 @@ class _$SaveAddressId implements SaveAddressId {
     required TResult Function(String addressId) saveAddressId,
     required TResult Function(BuildContext context, String id)
         fetchAddressByIdEvent,
+    required TResult Function(String pincode) fetchPincodeAddres,
     required TResult Function(BuildContext context, String id)
         deleteAddressEvent,
     required TResult Function() fetchAddressDefaultIndex,
@@ -1152,6 +1177,7 @@ class _$SaveAddressId implements SaveAddressId {
     TResult? Function(int selectedIndex)? selectAddressEvent,
     TResult? Function(String addressId)? saveAddressId,
     TResult? Function(BuildContext context, String id)? fetchAddressByIdEvent,
+    TResult? Function(String pincode)? fetchPincodeAddres,
     TResult? Function(BuildContext context, String id)? deleteAddressEvent,
     TResult? Function()? fetchAddressDefaultIndex,
     TResult? Function(
@@ -1190,6 +1216,7 @@ class _$SaveAddressId implements SaveAddressId {
     TResult Function(int selectedIndex)? selectAddressEvent,
     TResult Function(String addressId)? saveAddressId,
     TResult Function(BuildContext context, String id)? fetchAddressByIdEvent,
+    TResult Function(String pincode)? fetchPincodeAddres,
     TResult Function(BuildContext context, String id)? deleteAddressEvent,
     TResult Function()? fetchAddressDefaultIndex,
     TResult Function(
@@ -1222,6 +1249,7 @@ class _$SaveAddressId implements SaveAddressId {
     required TResult Function(SaveAddressId value) saveAddressId,
     required TResult Function(FetchAddressByIdEvent value)
         fetchAddressByIdEvent,
+    required TResult Function(FetchPincodeAddres value) fetchPincodeAddres,
     required TResult Function(DeleteAddressEvent value) deleteAddressEvent,
     required TResult Function(FetchAddressDefaultIndex value)
         fetchAddressDefaultIndex,
@@ -1238,6 +1266,7 @@ class _$SaveAddressId implements SaveAddressId {
     TResult? Function(SelectAddressEvent value)? selectAddressEvent,
     TResult? Function(SaveAddressId value)? saveAddressId,
     TResult? Function(FetchAddressByIdEvent value)? fetchAddressByIdEvent,
+    TResult? Function(FetchPincodeAddres value)? fetchPincodeAddres,
     TResult? Function(DeleteAddressEvent value)? deleteAddressEvent,
     TResult? Function(FetchAddressDefaultIndex value)? fetchAddressDefaultIndex,
     TResult? Function(UpdateAddress value)? updateAddress,
@@ -1253,6 +1282,7 @@ class _$SaveAddressId implements SaveAddressId {
     TResult Function(SelectAddressEvent value)? selectAddressEvent,
     TResult Function(SaveAddressId value)? saveAddressId,
     TResult Function(FetchAddressByIdEvent value)? fetchAddressByIdEvent,
+    TResult Function(FetchPincodeAddres value)? fetchPincodeAddres,
     TResult Function(DeleteAddressEvent value)? deleteAddressEvent,
     TResult Function(FetchAddressDefaultIndex value)? fetchAddressDefaultIndex,
     TResult Function(UpdateAddress value)? updateAddress,
@@ -1364,6 +1394,7 @@ class _$FetchAddressByIdEvent implements FetchAddressByIdEvent {
     required TResult Function(String addressId) saveAddressId,
     required TResult Function(BuildContext context, String id)
         fetchAddressByIdEvent,
+    required TResult Function(String pincode) fetchPincodeAddres,
     required TResult Function(BuildContext context, String id)
         deleteAddressEvent,
     required TResult Function() fetchAddressDefaultIndex,
@@ -1403,6 +1434,7 @@ class _$FetchAddressByIdEvent implements FetchAddressByIdEvent {
     TResult? Function(int selectedIndex)? selectAddressEvent,
     TResult? Function(String addressId)? saveAddressId,
     TResult? Function(BuildContext context, String id)? fetchAddressByIdEvent,
+    TResult? Function(String pincode)? fetchPincodeAddres,
     TResult? Function(BuildContext context, String id)? deleteAddressEvent,
     TResult? Function()? fetchAddressDefaultIndex,
     TResult? Function(
@@ -1441,6 +1473,7 @@ class _$FetchAddressByIdEvent implements FetchAddressByIdEvent {
     TResult Function(int selectedIndex)? selectAddressEvent,
     TResult Function(String addressId)? saveAddressId,
     TResult Function(BuildContext context, String id)? fetchAddressByIdEvent,
+    TResult Function(String pincode)? fetchPincodeAddres,
     TResult Function(BuildContext context, String id)? deleteAddressEvent,
     TResult Function()? fetchAddressDefaultIndex,
     TResult Function(
@@ -1473,6 +1506,7 @@ class _$FetchAddressByIdEvent implements FetchAddressByIdEvent {
     required TResult Function(SaveAddressId value) saveAddressId,
     required TResult Function(FetchAddressByIdEvent value)
         fetchAddressByIdEvent,
+    required TResult Function(FetchPincodeAddres value) fetchPincodeAddres,
     required TResult Function(DeleteAddressEvent value) deleteAddressEvent,
     required TResult Function(FetchAddressDefaultIndex value)
         fetchAddressDefaultIndex,
@@ -1489,6 +1523,7 @@ class _$FetchAddressByIdEvent implements FetchAddressByIdEvent {
     TResult? Function(SelectAddressEvent value)? selectAddressEvent,
     TResult? Function(SaveAddressId value)? saveAddressId,
     TResult? Function(FetchAddressByIdEvent value)? fetchAddressByIdEvent,
+    TResult? Function(FetchPincodeAddres value)? fetchPincodeAddres,
     TResult? Function(DeleteAddressEvent value)? deleteAddressEvent,
     TResult? Function(FetchAddressDefaultIndex value)? fetchAddressDefaultIndex,
     TResult? Function(UpdateAddress value)? updateAddress,
@@ -1504,6 +1539,7 @@ class _$FetchAddressByIdEvent implements FetchAddressByIdEvent {
     TResult Function(SelectAddressEvent value)? selectAddressEvent,
     TResult Function(SaveAddressId value)? saveAddressId,
     TResult Function(FetchAddressByIdEvent value)? fetchAddressByIdEvent,
+    TResult Function(FetchPincodeAddres value)? fetchPincodeAddres,
     TResult Function(DeleteAddressEvent value)? deleteAddressEvent,
     TResult Function(FetchAddressDefaultIndex value)? fetchAddressDefaultIndex,
     TResult Function(UpdateAddress value)? updateAddress,
@@ -1525,6 +1561,256 @@ abstract class FetchAddressByIdEvent implements AddressEvent {
   String get id;
   @JsonKey(ignore: true)
   _$$FetchAddressByIdEventCopyWith<_$FetchAddressByIdEvent> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$FetchPincodeAddresCopyWith<$Res> {
+  factory _$$FetchPincodeAddresCopyWith(_$FetchPincodeAddres value,
+          $Res Function(_$FetchPincodeAddres) then) =
+      __$$FetchPincodeAddresCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String pincode});
+}
+
+/// @nodoc
+class __$$FetchPincodeAddresCopyWithImpl<$Res>
+    extends _$AddressEventCopyWithImpl<$Res, _$FetchPincodeAddres>
+    implements _$$FetchPincodeAddresCopyWith<$Res> {
+  __$$FetchPincodeAddresCopyWithImpl(
+      _$FetchPincodeAddres _value, $Res Function(_$FetchPincodeAddres) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? pincode = null,
+  }) {
+    return _then(_$FetchPincodeAddres(
+      pincode: null == pincode
+          ? _value.pincode
+          : pincode // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$FetchPincodeAddres implements FetchPincodeAddres {
+  const _$FetchPincodeAddres({required this.pincode});
+
+  @override
+  final String pincode;
+
+  @override
+  String toString() {
+    return 'AddressEvent.fetchPincodeAddres(pincode: $pincode)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$FetchPincodeAddres &&
+            (identical(other.pincode, pincode) || other.pincode == pincode));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, pincode);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$FetchPincodeAddresCopyWith<_$FetchPincodeAddres> get copyWith =>
+      __$$FetchPincodeAddresCopyWithImpl<_$FetchPincodeAddres>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            BuildContext context,
+            String addressType,
+            String name,
+            int mobile,
+            int pincode,
+            String landmark,
+            String addressLine,
+            String city,
+            String state,
+            String country)
+        addAddress,
+    required TResult Function(BuildContext context) fetchAddressEvent,
+    required TResult Function(int selectedIndex) selectAddressEvent,
+    required TResult Function(String addressId) saveAddressId,
+    required TResult Function(BuildContext context, String id)
+        fetchAddressByIdEvent,
+    required TResult Function(String pincode) fetchPincodeAddres,
+    required TResult Function(BuildContext context, String id)
+        deleteAddressEvent,
+    required TResult Function() fetchAddressDefaultIndex,
+    required TResult Function(
+            BuildContext context,
+            String addressType,
+            String name,
+            int mobile,
+            int pincode,
+            String landmark,
+            String addressLine,
+            String city,
+            String state,
+            String country,
+            String id)
+        updateAddress,
+  }) {
+    return fetchPincodeAddres(pincode);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(
+            BuildContext context,
+            String addressType,
+            String name,
+            int mobile,
+            int pincode,
+            String landmark,
+            String addressLine,
+            String city,
+            String state,
+            String country)?
+        addAddress,
+    TResult? Function(BuildContext context)? fetchAddressEvent,
+    TResult? Function(int selectedIndex)? selectAddressEvent,
+    TResult? Function(String addressId)? saveAddressId,
+    TResult? Function(BuildContext context, String id)? fetchAddressByIdEvent,
+    TResult? Function(String pincode)? fetchPincodeAddres,
+    TResult? Function(BuildContext context, String id)? deleteAddressEvent,
+    TResult? Function()? fetchAddressDefaultIndex,
+    TResult? Function(
+            BuildContext context,
+            String addressType,
+            String name,
+            int mobile,
+            int pincode,
+            String landmark,
+            String addressLine,
+            String city,
+            String state,
+            String country,
+            String id)?
+        updateAddress,
+  }) {
+    return fetchPincodeAddres?.call(pincode);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            BuildContext context,
+            String addressType,
+            String name,
+            int mobile,
+            int pincode,
+            String landmark,
+            String addressLine,
+            String city,
+            String state,
+            String country)?
+        addAddress,
+    TResult Function(BuildContext context)? fetchAddressEvent,
+    TResult Function(int selectedIndex)? selectAddressEvent,
+    TResult Function(String addressId)? saveAddressId,
+    TResult Function(BuildContext context, String id)? fetchAddressByIdEvent,
+    TResult Function(String pincode)? fetchPincodeAddres,
+    TResult Function(BuildContext context, String id)? deleteAddressEvent,
+    TResult Function()? fetchAddressDefaultIndex,
+    TResult Function(
+            BuildContext context,
+            String addressType,
+            String name,
+            int mobile,
+            int pincode,
+            String landmark,
+            String addressLine,
+            String city,
+            String state,
+            String country,
+            String id)?
+        updateAddress,
+    required TResult orElse(),
+  }) {
+    if (fetchPincodeAddres != null) {
+      return fetchPincodeAddres(pincode);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(AddAddress value) addAddress,
+    required TResult Function(FetchAddressEvent value) fetchAddressEvent,
+    required TResult Function(SelectAddressEvent value) selectAddressEvent,
+    required TResult Function(SaveAddressId value) saveAddressId,
+    required TResult Function(FetchAddressByIdEvent value)
+        fetchAddressByIdEvent,
+    required TResult Function(FetchPincodeAddres value) fetchPincodeAddres,
+    required TResult Function(DeleteAddressEvent value) deleteAddressEvent,
+    required TResult Function(FetchAddressDefaultIndex value)
+        fetchAddressDefaultIndex,
+    required TResult Function(UpdateAddress value) updateAddress,
+  }) {
+    return fetchPincodeAddres(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(AddAddress value)? addAddress,
+    TResult? Function(FetchAddressEvent value)? fetchAddressEvent,
+    TResult? Function(SelectAddressEvent value)? selectAddressEvent,
+    TResult? Function(SaveAddressId value)? saveAddressId,
+    TResult? Function(FetchAddressByIdEvent value)? fetchAddressByIdEvent,
+    TResult? Function(FetchPincodeAddres value)? fetchPincodeAddres,
+    TResult? Function(DeleteAddressEvent value)? deleteAddressEvent,
+    TResult? Function(FetchAddressDefaultIndex value)? fetchAddressDefaultIndex,
+    TResult? Function(UpdateAddress value)? updateAddress,
+  }) {
+    return fetchPincodeAddres?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AddAddress value)? addAddress,
+    TResult Function(FetchAddressEvent value)? fetchAddressEvent,
+    TResult Function(SelectAddressEvent value)? selectAddressEvent,
+    TResult Function(SaveAddressId value)? saveAddressId,
+    TResult Function(FetchAddressByIdEvent value)? fetchAddressByIdEvent,
+    TResult Function(FetchPincodeAddres value)? fetchPincodeAddres,
+    TResult Function(DeleteAddressEvent value)? deleteAddressEvent,
+    TResult Function(FetchAddressDefaultIndex value)? fetchAddressDefaultIndex,
+    TResult Function(UpdateAddress value)? updateAddress,
+    required TResult orElse(),
+  }) {
+    if (fetchPincodeAddres != null) {
+      return fetchPincodeAddres(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class FetchPincodeAddres implements AddressEvent {
+  const factory FetchPincodeAddres({required final String pincode}) =
+      _$FetchPincodeAddres;
+
+  String get pincode;
+  @JsonKey(ignore: true)
+  _$$FetchPincodeAddresCopyWith<_$FetchPincodeAddres> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1618,6 +1904,7 @@ class _$DeleteAddressEvent implements DeleteAddressEvent {
     required TResult Function(String addressId) saveAddressId,
     required TResult Function(BuildContext context, String id)
         fetchAddressByIdEvent,
+    required TResult Function(String pincode) fetchPincodeAddres,
     required TResult Function(BuildContext context, String id)
         deleteAddressEvent,
     required TResult Function() fetchAddressDefaultIndex,
@@ -1657,6 +1944,7 @@ class _$DeleteAddressEvent implements DeleteAddressEvent {
     TResult? Function(int selectedIndex)? selectAddressEvent,
     TResult? Function(String addressId)? saveAddressId,
     TResult? Function(BuildContext context, String id)? fetchAddressByIdEvent,
+    TResult? Function(String pincode)? fetchPincodeAddres,
     TResult? Function(BuildContext context, String id)? deleteAddressEvent,
     TResult? Function()? fetchAddressDefaultIndex,
     TResult? Function(
@@ -1695,6 +1983,7 @@ class _$DeleteAddressEvent implements DeleteAddressEvent {
     TResult Function(int selectedIndex)? selectAddressEvent,
     TResult Function(String addressId)? saveAddressId,
     TResult Function(BuildContext context, String id)? fetchAddressByIdEvent,
+    TResult Function(String pincode)? fetchPincodeAddres,
     TResult Function(BuildContext context, String id)? deleteAddressEvent,
     TResult Function()? fetchAddressDefaultIndex,
     TResult Function(
@@ -1727,6 +2016,7 @@ class _$DeleteAddressEvent implements DeleteAddressEvent {
     required TResult Function(SaveAddressId value) saveAddressId,
     required TResult Function(FetchAddressByIdEvent value)
         fetchAddressByIdEvent,
+    required TResult Function(FetchPincodeAddres value) fetchPincodeAddres,
     required TResult Function(DeleteAddressEvent value) deleteAddressEvent,
     required TResult Function(FetchAddressDefaultIndex value)
         fetchAddressDefaultIndex,
@@ -1743,6 +2033,7 @@ class _$DeleteAddressEvent implements DeleteAddressEvent {
     TResult? Function(SelectAddressEvent value)? selectAddressEvent,
     TResult? Function(SaveAddressId value)? saveAddressId,
     TResult? Function(FetchAddressByIdEvent value)? fetchAddressByIdEvent,
+    TResult? Function(FetchPincodeAddres value)? fetchPincodeAddres,
     TResult? Function(DeleteAddressEvent value)? deleteAddressEvent,
     TResult? Function(FetchAddressDefaultIndex value)? fetchAddressDefaultIndex,
     TResult? Function(UpdateAddress value)? updateAddress,
@@ -1758,6 +2049,7 @@ class _$DeleteAddressEvent implements DeleteAddressEvent {
     TResult Function(SelectAddressEvent value)? selectAddressEvent,
     TResult Function(SaveAddressId value)? saveAddressId,
     TResult Function(FetchAddressByIdEvent value)? fetchAddressByIdEvent,
+    TResult Function(FetchPincodeAddres value)? fetchPincodeAddres,
     TResult Function(DeleteAddressEvent value)? deleteAddressEvent,
     TResult Function(FetchAddressDefaultIndex value)? fetchAddressDefaultIndex,
     TResult Function(UpdateAddress value)? updateAddress,
@@ -1838,6 +2130,7 @@ class _$FetchAddressDefaultIndex implements FetchAddressDefaultIndex {
     required TResult Function(String addressId) saveAddressId,
     required TResult Function(BuildContext context, String id)
         fetchAddressByIdEvent,
+    required TResult Function(String pincode) fetchPincodeAddres,
     required TResult Function(BuildContext context, String id)
         deleteAddressEvent,
     required TResult Function() fetchAddressDefaultIndex,
@@ -1877,6 +2170,7 @@ class _$FetchAddressDefaultIndex implements FetchAddressDefaultIndex {
     TResult? Function(int selectedIndex)? selectAddressEvent,
     TResult? Function(String addressId)? saveAddressId,
     TResult? Function(BuildContext context, String id)? fetchAddressByIdEvent,
+    TResult? Function(String pincode)? fetchPincodeAddres,
     TResult? Function(BuildContext context, String id)? deleteAddressEvent,
     TResult? Function()? fetchAddressDefaultIndex,
     TResult? Function(
@@ -1915,6 +2209,7 @@ class _$FetchAddressDefaultIndex implements FetchAddressDefaultIndex {
     TResult Function(int selectedIndex)? selectAddressEvent,
     TResult Function(String addressId)? saveAddressId,
     TResult Function(BuildContext context, String id)? fetchAddressByIdEvent,
+    TResult Function(String pincode)? fetchPincodeAddres,
     TResult Function(BuildContext context, String id)? deleteAddressEvent,
     TResult Function()? fetchAddressDefaultIndex,
     TResult Function(
@@ -1947,6 +2242,7 @@ class _$FetchAddressDefaultIndex implements FetchAddressDefaultIndex {
     required TResult Function(SaveAddressId value) saveAddressId,
     required TResult Function(FetchAddressByIdEvent value)
         fetchAddressByIdEvent,
+    required TResult Function(FetchPincodeAddres value) fetchPincodeAddres,
     required TResult Function(DeleteAddressEvent value) deleteAddressEvent,
     required TResult Function(FetchAddressDefaultIndex value)
         fetchAddressDefaultIndex,
@@ -1963,6 +2259,7 @@ class _$FetchAddressDefaultIndex implements FetchAddressDefaultIndex {
     TResult? Function(SelectAddressEvent value)? selectAddressEvent,
     TResult? Function(SaveAddressId value)? saveAddressId,
     TResult? Function(FetchAddressByIdEvent value)? fetchAddressByIdEvent,
+    TResult? Function(FetchPincodeAddres value)? fetchPincodeAddres,
     TResult? Function(DeleteAddressEvent value)? deleteAddressEvent,
     TResult? Function(FetchAddressDefaultIndex value)? fetchAddressDefaultIndex,
     TResult? Function(UpdateAddress value)? updateAddress,
@@ -1978,6 +2275,7 @@ class _$FetchAddressDefaultIndex implements FetchAddressDefaultIndex {
     TResult Function(SelectAddressEvent value)? selectAddressEvent,
     TResult Function(SaveAddressId value)? saveAddressId,
     TResult Function(FetchAddressByIdEvent value)? fetchAddressByIdEvent,
+    TResult Function(FetchPincodeAddres value)? fetchPincodeAddres,
     TResult Function(DeleteAddressEvent value)? deleteAddressEvent,
     TResult Function(FetchAddressDefaultIndex value)? fetchAddressDefaultIndex,
     TResult Function(UpdateAddress value)? updateAddress,
@@ -2181,6 +2479,7 @@ class _$UpdateAddress implements UpdateAddress {
     required TResult Function(String addressId) saveAddressId,
     required TResult Function(BuildContext context, String id)
         fetchAddressByIdEvent,
+    required TResult Function(String pincode) fetchPincodeAddres,
     required TResult Function(BuildContext context, String id)
         deleteAddressEvent,
     required TResult Function() fetchAddressDefaultIndex,
@@ -2221,6 +2520,7 @@ class _$UpdateAddress implements UpdateAddress {
     TResult? Function(int selectedIndex)? selectAddressEvent,
     TResult? Function(String addressId)? saveAddressId,
     TResult? Function(BuildContext context, String id)? fetchAddressByIdEvent,
+    TResult? Function(String pincode)? fetchPincodeAddres,
     TResult? Function(BuildContext context, String id)? deleteAddressEvent,
     TResult? Function()? fetchAddressDefaultIndex,
     TResult? Function(
@@ -2260,6 +2560,7 @@ class _$UpdateAddress implements UpdateAddress {
     TResult Function(int selectedIndex)? selectAddressEvent,
     TResult Function(String addressId)? saveAddressId,
     TResult Function(BuildContext context, String id)? fetchAddressByIdEvent,
+    TResult Function(String pincode)? fetchPincodeAddres,
     TResult Function(BuildContext context, String id)? deleteAddressEvent,
     TResult Function()? fetchAddressDefaultIndex,
     TResult Function(
@@ -2293,6 +2594,7 @@ class _$UpdateAddress implements UpdateAddress {
     required TResult Function(SaveAddressId value) saveAddressId,
     required TResult Function(FetchAddressByIdEvent value)
         fetchAddressByIdEvent,
+    required TResult Function(FetchPincodeAddres value) fetchPincodeAddres,
     required TResult Function(DeleteAddressEvent value) deleteAddressEvent,
     required TResult Function(FetchAddressDefaultIndex value)
         fetchAddressDefaultIndex,
@@ -2309,6 +2611,7 @@ class _$UpdateAddress implements UpdateAddress {
     TResult? Function(SelectAddressEvent value)? selectAddressEvent,
     TResult? Function(SaveAddressId value)? saveAddressId,
     TResult? Function(FetchAddressByIdEvent value)? fetchAddressByIdEvent,
+    TResult? Function(FetchPincodeAddres value)? fetchPincodeAddres,
     TResult? Function(DeleteAddressEvent value)? deleteAddressEvent,
     TResult? Function(FetchAddressDefaultIndex value)? fetchAddressDefaultIndex,
     TResult? Function(UpdateAddress value)? updateAddress,
@@ -2324,6 +2627,7 @@ class _$UpdateAddress implements UpdateAddress {
     TResult Function(SelectAddressEvent value)? selectAddressEvent,
     TResult Function(SaveAddressId value)? saveAddressId,
     TResult Function(FetchAddressByIdEvent value)? fetchAddressByIdEvent,
+    TResult Function(FetchPincodeAddres value)? fetchPincodeAddres,
     TResult Function(DeleteAddressEvent value)? deleteAddressEvent,
     TResult Function(FetchAddressDefaultIndex value)? fetchAddressDefaultIndex,
     TResult Function(UpdateAddress value)? updateAddress,
@@ -2375,6 +2679,8 @@ mixin _$AddressState {
   String? get addressId => throw _privateConstructorUsedError;
   AddressIdModel? get addressIdModel => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
+  PincodeAddressModel? get pincodeAddressModel =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AddressStateCopyWith<AddressState> get copyWith =>
@@ -2394,10 +2700,12 @@ abstract class $AddressStateCopyWith<$Res> {
       int? selectedIndex,
       String? addressId,
       AddressIdModel? addressIdModel,
-      bool isLoading});
+      bool isLoading,
+      PincodeAddressModel? pincodeAddressModel});
 
   $AddressModelCopyWith<$Res>? get addressModel;
   $AddressIdModelCopyWith<$Res>? get addressIdModel;
+  $PincodeAddressModelCopyWith<$Res>? get pincodeAddressModel;
 }
 
 /// @nodoc
@@ -2420,6 +2728,7 @@ class _$AddressStateCopyWithImpl<$Res, $Val extends AddressState>
     Object? addressId = freezed,
     Object? addressIdModel = freezed,
     Object? isLoading = null,
+    Object? pincodeAddressModel = freezed,
   }) {
     return _then(_value.copyWith(
       successMessage: freezed == successMessage
@@ -2450,6 +2759,10 @@ class _$AddressStateCopyWithImpl<$Res, $Val extends AddressState>
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
+      pincodeAddressModel: freezed == pincodeAddressModel
+          ? _value.pincodeAddressModel
+          : pincodeAddressModel // ignore: cast_nullable_to_non_nullable
+              as PincodeAddressModel?,
     ) as $Val);
   }
 
@@ -2476,6 +2789,19 @@ class _$AddressStateCopyWithImpl<$Res, $Val extends AddressState>
       return _then(_value.copyWith(addressIdModel: value) as $Val);
     });
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $PincodeAddressModelCopyWith<$Res>? get pincodeAddressModel {
+    if (_value.pincodeAddressModel == null) {
+      return null;
+    }
+
+    return $PincodeAddressModelCopyWith<$Res>(_value.pincodeAddressModel!,
+        (value) {
+      return _then(_value.copyWith(pincodeAddressModel: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -2493,12 +2819,15 @@ abstract class _$$_InitialCopyWith<$Res>
       int? selectedIndex,
       String? addressId,
       AddressIdModel? addressIdModel,
-      bool isLoading});
+      bool isLoading,
+      PincodeAddressModel? pincodeAddressModel});
 
   @override
   $AddressModelCopyWith<$Res>? get addressModel;
   @override
   $AddressIdModelCopyWith<$Res>? get addressIdModel;
+  @override
+  $PincodeAddressModelCopyWith<$Res>? get pincodeAddressModel;
 }
 
 /// @nodoc
@@ -2518,6 +2847,7 @@ class __$$_InitialCopyWithImpl<$Res>
     Object? addressId = freezed,
     Object? addressIdModel = freezed,
     Object? isLoading = null,
+    Object? pincodeAddressModel = freezed,
   }) {
     return _then(_$_Initial(
       successMessage: freezed == successMessage
@@ -2548,6 +2878,10 @@ class __$$_InitialCopyWithImpl<$Res>
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
+      pincodeAddressModel: freezed == pincodeAddressModel
+          ? _value.pincodeAddressModel
+          : pincodeAddressModel // ignore: cast_nullable_to_non_nullable
+              as PincodeAddressModel?,
     ));
   }
 }
@@ -2562,7 +2896,8 @@ class _$_Initial implements _Initial {
       required this.selectedIndex,
       required this.addressId,
       required this.addressIdModel,
-      required this.isLoading});
+      required this.isLoading,
+      required this.pincodeAddressModel});
 
   @override
   final String? successMessage;
@@ -2578,10 +2913,12 @@ class _$_Initial implements _Initial {
   final AddressIdModel? addressIdModel;
   @override
   final bool isLoading;
+  @override
+  final PincodeAddressModel? pincodeAddressModel;
 
   @override
   String toString() {
-    return 'AddressState(successMessage: $successMessage, failMessage: $failMessage, addressModel: $addressModel, selectedIndex: $selectedIndex, addressId: $addressId, addressIdModel: $addressIdModel, isLoading: $isLoading)';
+    return 'AddressState(successMessage: $successMessage, failMessage: $failMessage, addressModel: $addressModel, selectedIndex: $selectedIndex, addressId: $addressId, addressIdModel: $addressIdModel, isLoading: $isLoading, pincodeAddressModel: $pincodeAddressModel)';
   }
 
   @override
@@ -2602,12 +2939,22 @@ class _$_Initial implements _Initial {
             (identical(other.addressIdModel, addressIdModel) ||
                 other.addressIdModel == addressIdModel) &&
             (identical(other.isLoading, isLoading) ||
-                other.isLoading == isLoading));
+                other.isLoading == isLoading) &&
+            (identical(other.pincodeAddressModel, pincodeAddressModel) ||
+                other.pincodeAddressModel == pincodeAddressModel));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, successMessage, failMessage,
-      addressModel, selectedIndex, addressId, addressIdModel, isLoading);
+  int get hashCode => Object.hash(
+      runtimeType,
+      successMessage,
+      failMessage,
+      addressModel,
+      selectedIndex,
+      addressId,
+      addressIdModel,
+      isLoading,
+      pincodeAddressModel);
 
   @JsonKey(ignore: true)
   @override
@@ -2624,7 +2971,8 @@ abstract class _Initial implements AddressState {
       required final int? selectedIndex,
       required final String? addressId,
       required final AddressIdModel? addressIdModel,
-      required final bool isLoading}) = _$_Initial;
+      required final bool isLoading,
+      required final PincodeAddressModel? pincodeAddressModel}) = _$_Initial;
 
   @override
   String? get successMessage;
@@ -2640,6 +2988,8 @@ abstract class _Initial implements AddressState {
   AddressIdModel? get addressIdModel;
   @override
   bool get isLoading;
+  @override
+  PincodeAddressModel? get pincodeAddressModel;
   @override
   @JsonKey(ignore: true)
   _$$_InitialCopyWith<_$_Initial> get copyWith =>

@@ -508,6 +508,7 @@ class ShopService extends HttpServices {
       try {
         final Map<String, dynamic> data = json.decode(response.body);
         final result = SpecificCategoryModel.fromJson(data);
+        print("product banners $result");
         return result;
       } catch (e) {
         throw Exception('Failed to parse response');

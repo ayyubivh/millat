@@ -2,11 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/components/buttons/main_button.dart';
 import 'package:millat/enums/enumertations.dart';
-import 'package:millat/resources/authentication/bloc/logic/auth_bloc.dart';
 import 'package:millat/resources/authentication/bloc/logic/database_bloc/database_bloc.dart';
 import 'package:millat/resources/rewards/bloc/logic/bloc/rewards_bloc_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/address_bloc/address_bloc.dart';
-import 'package:millat/resources/shop/bloc/logic/payment_bloc/payment_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
 import 'package:millat/resources/shop/view/cart/widgets/cart_product_widget.dart';
 import 'package:millat/resources/shop/view/checkout/checkout_payment.dart';
@@ -19,7 +17,6 @@ import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/string_constants.dart';
 import 'package:millat/utils/utils.dart';
 import 'package:razorpay_flutter/razorpay_flutter.dart';
-import '../../../authentication/bloc/logic/database_bloc/database_bloc.dart';
 import '../../bloc/logic/cart_bloc/cart_bloc.dart';
 
 class CheckoutConfirmation extends StatefulWidget {
@@ -49,7 +46,6 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
     _razorpay.on(Razorpay.EVENT_PAYMENT_ERROR, _onPaymentError);
     _razorpay.on(Razorpay.EVENT_EXTERNAL_WALLET, _onExternalWallet);
     super.initState();
-    BlocProvider.of<PaymentBloc>(context).add(const PaymentEvent.initial());
   }
 
   // bool showMore = false;
@@ -520,8 +516,8 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
             color: ColorManager.whiteColor,
             padding:
                 const EdgeInsets.symmetric(horizontal: 30).copyWith(bottom: 7),
-            height: isShow ? 300 : 160,
             child: Column(
+              mainAxisSize: MainAxisSize.min,
               children: [
                 isShow
                     ? InkWell(

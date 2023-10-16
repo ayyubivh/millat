@@ -45,6 +45,7 @@ _$_Article _$$_ArticleFromJson(Map<String, dynamic> json) => _$_Article(
           : Product.fromJson(json['product'] as Map<String, dynamic>),
       image: json['image'] as String?,
       date: json['date'] as String?,
+      category: json['category'] as String?,
       createdAt: json['createdAt'] as String?,
       updatedAt: json['updatedAt'] as String?,
     );
@@ -59,6 +60,7 @@ Map<String, dynamic> _$$_ArticleToJson(_$_Article instance) =>
       'product': instance.product,
       'image': instance.image,
       'date': instance.date,
+      'category': instance.category,
       'createdAt': instance.createdAt,
       'updatedAt': instance.updatedAt,
     };

@@ -8,6 +8,9 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:http/http.dart' as http;
 import 'package:millat/components/shimmers/shimmer_widget.dart';
+import 'package:millat/resources/home/view/al_quran/widgets/verses_view.dart';
+import 'package:millat/resources/shop/bloc/logic/address_bloc/address_bloc.dart';
+import 'package:millat/resources/shop/bloc/service/address_service.dart';
 import 'package:millat/resources/shop/bloc/service/category_services.dart';
 import 'package:millat/resources/shop/bloc/service/orders_service.dart';
 import 'package:millat/resources/shop/bloc/service/shop_services.dart';
@@ -675,8 +678,8 @@ class _HomeViewState extends State<HomeView> {
                   kHeight10,
                   GestureDetector(
                     onTap: () async {
-                      _downloadAndShareImage(state
-                          .eventOfTheMonthModel!.result!.event![0].images![0]);
+                      _downloadAndShareImage(state.eventOfTheMonthModel!.result!
+                          .event![_currentIndex].images![0]);
                     },
                     child: Row(
                       children: [
@@ -1123,10 +1126,41 @@ class _HomeViewState extends State<HomeView> {
                         ),
                         kHeight5,
                         const Spacer(),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
+                        GestureDetector(
+                          onTap: () {
+                            final quranState = context.read<QuranBloc>().state;
+
+                            final _verskey = verskey;
+                            final parts = _verskey.split(":");
+                            final firstPart = parts[0];
+                            context.read<QuranBloc>().add(
+                                FetchChaperVersesEvent(
+                                    id: int.parse(firstPart)));
+                            context.read<QuranBloc>().add(
+                                FetchChapterVersesbyTextName(
+                                    id: int.parse(firstPart)));
+                            context.read<QuranBloc>().add(
+                                FetchTranslationChapterTexts(
+                                    translationId:
+                                        quranState.globalTransilationId,
+                                    chapterId: int.parse(firstPart)));
+                            context.read<QuranBloc>().add(
+                                FetchChapterAudioFiles(
+                                    id: int.parse(firstPart),
+                                    recitorId: quranState.recitorId));
+                            context
+                                .read<QuranBloc>()
+                                .add(SaveLastReadEvent(value: verskey));
+                            Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => VersesView(
+                                  scrollType: VersesScroll.home,
+                                  type: Qurantype.sura,
+                                  chapterid: int.parse(firstPart)),
+                            ));
+                          },
+                          child: Align(
+                            alignment: Alignment.topLeft,
+                            child: Text(
                               Appstrings.learnMore,
                               style: TextStyle(
                                 fontSize: 15,
@@ -1134,7 +1168,7 @@ class _HomeViewState extends State<HomeView> {
                                 color: ColorManager.primary,
                               ),
                             ),
-                          ],
+                          ),
                         )
                       ],
                     );
@@ -1158,7 +1192,7 @@ class _HomeViewState extends State<HomeView> {
         Share.shareFiles([imagePath]);
       }
     } catch (e) {
-      print('Error downloading or sharing image: $e');
+      throw Exception(e);
     }
   }
 

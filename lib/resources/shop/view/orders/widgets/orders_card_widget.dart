@@ -58,7 +58,7 @@ class OrdersProfileWidget extends StatelessWidget {
               return SizedBox(
                 height:
                     state.showProgress && state.ordereProgressIndex == isIndex
-                        ? 356
+                        ? 386
                         : 275,
                 child: Padding(
                   padding: const EdgeInsets.all(15.0),
@@ -231,7 +231,7 @@ class OrdersProfileWidget extends StatelessWidget {
                                   color: ColorManager.scaffolBgColor,
                                   padding: const EdgeInsets.all(10),
                                   child: Container(
-                                    height: 60,
+                                    height: 80,
                                     width: SizeUtility(context).width,
                                     decoration: BoxDecoration(
                                         color: ColorManager.whiteColor,
@@ -245,7 +245,6 @@ class OrdersProfileWidget extends StatelessWidget {
                                           isCancelled: orderStatus ==
                                               Appstrings.cancelled,
                                           text: Appstrings.ordered,
-                                          onTap: () {},
                                           isProcessing: false,
                                           isOrdered: true,
                                         ),
@@ -254,7 +253,6 @@ class OrdersProfileWidget extends StatelessWidget {
                                           isCancelled: orderStatus ==
                                               Appstrings.cancelled,
                                           text: Appstrings.processing,
-                                          onTap: () {},
                                           isProcessing: true,
                                           isOrdered: false,
                                         ),
@@ -264,7 +262,6 @@ class OrdersProfileWidget extends StatelessWidget {
                                           isShowDivider: true,
                                           isCancelled: false,
                                           text: "OUT FOR PICKUP",
-                                          onTap: () {},
                                           isProcessing: false,
                                           isOrdered: false,
                                         ),
@@ -274,7 +271,18 @@ class OrdersProfileWidget extends StatelessWidget {
                                           isShowDivider: true,
                                           isCancelled: false,
                                           text: "PICKED UP",
-                                          onTap: () {},
+                                          isProcessing: false,
+                                          isOrdered: false,
+                                        ),
+                                        progressWidget(
+                                          cancelled2: orderStatus ==
+                                              Appstrings.cancelled,
+                                          isShowDivider: true,
+                                          isCancelled: false,
+                                          text: orderStatus ==
+                                                  Appstrings.cancelled
+                                              ? Appstrings.cancelled
+                                              : "DEPARTED",
                                           isProcessing: false,
                                           isOrdered: false,
                                         ),
@@ -282,11 +290,7 @@ class OrdersProfileWidget extends StatelessWidget {
                                           isShowDivider: false,
                                           isCancelled: orderStatus ==
                                               Appstrings.cancelled,
-                                          text: orderStatus ==
-                                                  Appstrings.cancelled
-                                              ? "Cancelled"
-                                              : "Delivered",
-                                          onTap: () {},
+                                          text: "DELIVERED",
                                           isProcessing: false,
                                           isOrdered: false,
                                         ),
@@ -393,7 +397,6 @@ class OrdersProfileWidget extends StatelessWidget {
 Widget progressWidget({
   required String text,
   required bool isOrdered,
-  required VoidCallback onTap,
   required bool isProcessing,
   required bool isCancelled,
   required bool isShowDivider,
@@ -403,74 +406,78 @@ Widget progressWidget({
     crossAxisAlignment: CrossAxisAlignment.start,
     mainAxisAlignment: MainAxisAlignment.center,
     children: [
-      Text(
-        text,
-        style: TextStyle(
-          fontSize: 11,
-          fontWeight: FontWeight.w600,
-          color: ColorManager.blackColor,
+      Container(
+        padding: const EdgeInsets.only(right: 2),
+        height: 30,
+        width: 60,
+        child: Text(
+          text,
+          style: TextStyle(
+            fontSize: 11,
+            fontWeight: FontWeight.w600,
+            color: ColorManager.blackColor,
+          ),
+          maxLines: 2,
+          // overflow: TextOverflow.fade,
         ),
       ),
       kHeight5,
-      GestureDetector(
-        onTap: onTap,
-        child: SizedBox(
-          height: 28,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              isOrdered == true
-                  ? CircleAvatar(
-                      backgroundColor: ColorManager.primary,
-                      radius: 11,
-                      child: Icon(
-                        Icons.check,
-                        size: 18,
-                        color: ColorManager.whiteColor,
-                      ),
-                    )
-                  : isProcessing == true
-                      ? Image.asset(AppAssetsStrings.processingLoading)
-                      : isCancelled == true
-                          ? Container(
-                              height: 26,
-                              width: 26,
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: ColorManager.redColor,
-                              ),
-                              padding: const EdgeInsets.all(1),
-                              child: Icon(
-                                Icons.close,
-                                color: ColorManager.whiteColor,
-                                size: 16,
-                              ),
-                            )
-                          : CircleAvatar(
-                              radius: 10,
-                              backgroundColor: cancelled2 == true
-                                  ? ColorManager.redColor
-                                  : ColorManager.greyD1,
-                              child: CircleAvatar(
-                                radius: 4,
-                                backgroundColor: cancelled2 == true
-                                    ? ColorManager.whiteColor
-                                    : ColorManager.whiteColor,
-                              ),
+      SizedBox(
+        height: 28,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            isOrdered == true
+                ? CircleAvatar(
+                    backgroundColor: ColorManager.primary,
+                    radius: 11,
+                    child: Icon(
+                      Icons.check,
+                      size: 18,
+                      color: ColorManager.whiteColor,
+                    ),
+                  )
+                : isProcessing == true
+                    ? Image.asset(AppAssetsStrings.processingLoading)
+                    : isCancelled == true
+                        ? Container(
+                            height: 26,
+                            width: 26,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: ColorManager.redColor,
                             ),
-              isShowDivider == true
-                  ? Container(
-                      width: 40,
-                      height: 2,
-                      color: isProcessing == true || isOrdered == true
-                          ? ColorManager.primary
-                          : cancelled2 == true || isCancelled == true
-                              ? ColorManager.redColor
-                              : ColorManager.greyD9,
-                    )
-                  : const SizedBox(),
-            ],
-          ),
+                            padding: const EdgeInsets.all(1),
+                            child: Icon(
+                              Icons.close,
+                              color: ColorManager.whiteColor,
+                              size: 16,
+                            ),
+                          )
+                        : CircleAvatar(
+                            radius: 10,
+                            backgroundColor: cancelled2 == true
+                                ? ColorManager.redColor
+                                : ColorManager.greyD1,
+                            child: CircleAvatar(
+                              radius: 4,
+                              backgroundColor: cancelled2 == true
+                                  ? ColorManager.whiteColor
+                                  : ColorManager.whiteColor,
+                            ),
+                          ),
+            isShowDivider == true
+                ? Container(
+                    width: 40,
+                    height: 2,
+                    color: isProcessing == true || isOrdered == true
+                        ? ColorManager.primary
+                        : cancelled2 == true || isCancelled == true
+                            ? ColorManager.redColor
+                            : ColorManager.greyD9,
+                  )
+                : const SizedBox(),
+          ],
         ),
       ),
       kHeight8,

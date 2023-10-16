@@ -586,13 +586,15 @@ class OrdetailsView extends StatelessWidget {
                 ),
                 child: GestureDetector(
                   onTap: () {
-                    orderStatus == "To Ship"
+                    orderStatus == Appstrings.processing
                         ? Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) => const CancelView(),
                           ))
-                        : Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => const OrderReturnView(),
-                          ));
+                        : orderStatus == Appstrings.cancelled
+                            ? null
+                            : Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => const OrderReturnView(),
+                              ));
                   },
                   child: Row(
                     children: [
@@ -606,20 +608,31 @@ class OrdetailsView extends StatelessWidget {
                                 color: ColorManager.redColor,
                               ),
                             )
-                          : Text(
-                              Appstrings.cancelOrder,
-                              style: TextStyle(
-                                fontSize: 17,
-                                fontWeight: FontWeight.w600,
-                                color: ColorManager.redColor,
-                              ),
-                            ),
+                          : orderStatus == Appstrings.cancelled
+                              ? Text(
+                                  Appstrings.cancelled,
+                                  style: TextStyle(
+                                    fontSize: 17,
+                                    fontWeight: FontWeight.w600,
+                                    color: ColorManager.redColor,
+                                  ),
+                                )
+                              : Text(
+                                  Appstrings.cancelOrder,
+                                  style: TextStyle(
+                                    fontSize: 17,
+                                    fontWeight: FontWeight.w600,
+                                    color: ColorManager.redColor,
+                                  ),
+                                ),
                       const Spacer(),
-                      Icon(
-                        Icons.arrow_forward_ios,
-                        color: ColorManager.redColor,
-                        size: 18,
-                      ),
+                      orderStatus == Appstrings.cancelled
+                          ? const SizedBox()
+                          : Icon(
+                              Icons.arrow_forward_ios,
+                              color: ColorManager.redColor,
+                              size: 18,
+                            ),
                       kWidht10
                     ],
                   ),

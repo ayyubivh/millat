@@ -84,127 +84,118 @@ class CategoriesProductView extends StatelessWidget {
         ),
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 30.0),
-          child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    filterWidget(context),
-                    sortByWidget(context),
-                  ],
-                ),
-                kHeight10,
-                BlocBuilder<CategoryBloc, CategoryState>(
-                  builder: (context, state) {
-                    return type == FilterType.category
-                        ? state.productLoading
-                            ? const ShimmersWidgetProduct()
-                            : SizedBox(
-                                height: SizeUtility(context).height,
-                                child: GridView.builder(
-                                  // shrinkWrap: true,
-                                  // physics: const NeverScrollableScrollPhysics(),
-                                  gridDelegate:
-                                      const SliverGridDelegateWithFixedCrossAxisCount(
-                                    crossAxisCount: 2,
-                                    crossAxisSpacing: 20,
-                                    mainAxisSpacing: 20,
-                                    mainAxisExtent: 280,
-                                  ),
-                                  itemCount:
-                                      state.product?.result?.products?.length ??
-                                          10,
-                                  itemBuilder: (context, index) {
-                                    final data =
-                                        state.product?.result?.products?[index];
-                                    return data == null
-                                        ? const ShimmersWidgetProduct()
-                                        : GestureDetector(
-                                            onTap: () {
-                                              // print(data.id);
-                                              Navigator.of(context).push(
-                                                MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      SingleProductView(
-                                                    id: data.id ?? "",
-                                                  ),
-                                                ),
-                                              );
-                                            },
-                                            child: ShopProductWidget(
-                                              color: data.color ?? "",
-                                              size: data.size?[0].size ?? "",
-                                              brandId: data.brand!.id,
-                                              isWishlisted: false,
-                                              brand:
-                                                  data.brand!.name.toString(),
-                                              productId: data.id,
-                                              title: data.title,
-                                              image: data.images![0],
-                                              discountPrice:
-                                                  data.salePrice!.toInt(),
-                                              actualPrice:
-                                                  data.regularPrice!.toInt(),
-                                              discount: data.discount!.toInt(),
-                                            ),
-                                          );
-                                  },
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  filterWidget(context),
+                  sortByWidget(context),
+                ],
+              ),
+              kHeight10,
+              BlocBuilder<CategoryBloc, CategoryState>(
+                builder: (context, state) {
+                  return type == FilterType.category
+                      ? state.productLoading
+                          ? const ShimmersWidgetProduct()
+                          : Expanded(
+                              child: GridView.builder(
+                                gridDelegate:
+                                    const SliverGridDelegateWithFixedCrossAxisCount(
+                                  crossAxisCount: 2,
+                                  crossAxisSpacing: 20,
+                                  mainAxisSpacing: 20,
+                                  mainAxisExtent: 280,
                                 ),
-                              )
-                        : SizedBox(
-                            height: SizeUtility(context).height,
-                            child: GridView.builder(
-                              physics: const BouncingScrollPhysics(),
-                              gridDelegate:
-                                  const SliverGridDelegateWithFixedCrossAxisCount(
-                                crossAxisCount: 2,
-                                crossAxisSpacing: 20,
-                                mainAxisSpacing: 20,
-                                mainAxisExtent: 350,
-                              ),
-                              itemCount:
-                                  state.product?.result?.products?.length ?? 10,
-                              itemBuilder: (context, index) {
-                                final datas =
-                                    state.product?.result?.products?[index];
-                                return datas == null
-                                    ? const ShimmersWidgetProduct()
-                                    : GestureDetector(
-                                        onTap: () {
-                                          Navigator.of(context).push(
-                                            MaterialPageRoute(
-                                              builder: (context) =>
-                                                  SingleProductView(
-                                                id: datas.id ?? "",
+                                itemCount:
+                                    state.product?.result?.products?.length ??
+                                        10,
+                                itemBuilder: (context, index) {
+                                  final data =
+                                      state.product?.result?.products?[index];
+                                  return data == null
+                                      ? const ShimmersWidgetProduct()
+                                      : GestureDetector(
+                                          onTap: () {
+                                            // print(data.id);
+                                            Navigator.of(context).push(
+                                              MaterialPageRoute(
+                                                builder: (context) =>
+                                                    SingleProductView(
+                                                  id: data.id ?? "",
+                                                ),
                                               ),
-                                            ),
-                                          );
-                                        },
-                                        child: ShopProductWidget(
-                                          color: datas.color ?? "",
-                                          size: datas.size?[0].size ?? "",
-                                          brandId: datas.brand!.id,
-                                          isWishlisted: false,
-                                          brand: datas.brand!.name.toString(),
-                                          productId: datas.id,
-                                          title: datas.title,
-                                          image: datas.images![0],
-                                          discountPrice:
-                                              datas.salePrice!.toInt(),
-                                          actualPrice:
-                                              datas.regularPrice!.toInt(),
-                                          discount: datas.discount!.toInt(),
-                                        ),
-                                      );
-                              },
+                                            );
+                                          },
+                                          child: ShopProductWidget(
+                                            color: data.color ?? "",
+                                            size: data.size?[0].size ?? "",
+                                            brandId: data.brand!.id,
+                                            isWishlisted: false,
+                                            brand: data.brand!.name.toString(),
+                                            productId: data.id,
+                                            title: data.title,
+                                            image: data.images![0],
+                                            discountPrice:
+                                                data.salePrice!.toInt(),
+                                            actualPrice:
+                                                data.regularPrice!.toInt(),
+                                            discount: data.discount!.toInt(),
+                                          ),
+                                        );
+                                },
+                              ),
+                            )
+                      : Expanded(
+                          child: GridView.builder(
+                            gridDelegate:
+                                const SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 2,
+                              crossAxisSpacing: 20,
+                              mainAxisSpacing: 20,
+                              mainAxisExtent: 350,
                             ),
-                          );
-                  },
-                ),
-              ],
-            ),
+                            itemCount:
+                                state.product?.result?.products?.length ?? 10,
+                            itemBuilder: (context, index) {
+                              final datas =
+                                  state.product?.result?.products?[index];
+                              return datas == null
+                                  ? const ShimmersWidgetProduct()
+                                  : GestureDetector(
+                                      onTap: () {
+                                        Navigator.of(context).push(
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                SingleProductView(
+                                              id: datas.id ?? "",
+                                            ),
+                                          ),
+                                        );
+                                      },
+                                      child: ShopProductWidget(
+                                        color: datas.color ?? "",
+                                        size: datas.size?[0].size ?? "",
+                                        brandId: datas.brand!.id,
+                                        isWishlisted: false,
+                                        brand: datas.brand!.name.toString(),
+                                        productId: datas.id,
+                                        title: datas.title,
+                                        image: datas.images![0],
+                                        discountPrice: datas.salePrice!.toInt(),
+                                        actualPrice:
+                                            datas.regularPrice!.toInt(),
+                                        discount: datas.discount!.toInt(),
+                                      ),
+                                    );
+                            },
+                          ),
+                        );
+                },
+              ),
+            ],
           ),
         ));
   }

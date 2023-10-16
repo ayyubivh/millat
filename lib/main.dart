@@ -23,7 +23,6 @@ import 'package:millat/resources/rewards/bloc/logic/bloc/rewards_bloc_bloc.dart'
 import 'package:millat/resources/shop/bloc/logic/address_bloc/address_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/cart_bloc/cart_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/category_bloc/category_bloc.dart';
-import 'package:millat/resources/shop/bloc/logic/payment_bloc/payment_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/review_bloc/bloc/review_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
 import 'package:millat/resources/shop/view/products/products_view.dart';
@@ -81,9 +80,6 @@ void main() async {
       BlocProvider(create: (context) => TermsAndCondtionsBloc()),
       BlocProvider(create: (context) => RewardsBloc()),
       BlocProvider(create: (context) => ReviewBloc()),
-      BlocProvider(
-        create: (context) => PaymentBloc(),
-      )
     ],
     child: MyApp(),
   ));

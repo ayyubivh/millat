@@ -16,24 +16,16 @@ import 'package:millat/utils/string_constants.dart';
 
 import '../../../../components/buttons/main_button.dart';
 
-class CartView extends StatefulWidget {
+class CartView extends StatelessWidget {
   const CartView({Key? key}) : super(key: key);
 
   @override
-  State<CartView> createState() => _CartViewState();
-}
-
-class _CartViewState extends State<CartView> {
-  @override
-  void initState() {
-    BlocProvider.of<CartBloc>(context).add(FetchCartEvent(context));
-    BlocProvider.of<AddressBloc>(context)
-        .add(FetchAddressEvent(context: context));
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      BlocProvider.of<CartBloc>(context).add(FetchCartEvent(context));
+      BlocProvider.of<AddressBloc>(context)
+          .add(FetchAddressEvent(context: context));
+    });
     return Scaffold(
       backgroundColor: ColorManager.scaffolBgColor,
       appBar: AppBar(
@@ -45,24 +37,43 @@ class _CartViewState extends State<CartView> {
         elevation: 0,
         backgroundColor: ColorManager.whiteColor,
       ),
-      body: Column(
-        children: [
-          BlocBuilder<CartBloc, CartState>(
-            builder: (context, state) {
-              if (state.cartLoading) {
-                return Padding(
-                    padding:
-                        EdgeInsets.only(top: SizeUtility(context).height / 3),
-                    child: const Loader());
-              } else if (state
-                      .cartModel?.result?.cartProducts?.cartItems?.isEmpty ??
-                  true) {
-                return _buildEmptyCartWidget();
+      body: BlocBuilder<CartBloc, CartState>(
+        builder: (context, state) {
+          if (state.cartLoading) {
+            return Padding(
+                padding: EdgeInsets.only(top: SizeUtility(context).height / 3),
+                child: const Loader());
+          } else if (state
+                  .cartModel?.result?.cartProducts?.cartItems?.isEmpty ??
+              true) {
+            return _buildEmptyCartWidget(context);
+          }
+          return ListView.builder(
+            itemCount: state.cartModel?.result?.cartProducts?.cartItems?.length,
+            itemBuilder: (context, index) {
+              final data =
+                  state.cartModel?.result?.cartProducts?.cartItems![index];
+
+              if (data == null) {
+                return const SizedBox();
               }
-              return _buildCartItemsWidget(state);
+              return CartProductWidget(
+                showQuantity: true,
+                id: data.productId?.id,
+                title: data.productId?.title,
+                subTitle: data.productId?.description,
+                size: data.size ?? "",
+                image: data.productId?.images?[0],
+                price: data.productId?.salePrice?.toInt() ?? 0,
+                actualPrice: data.productId?.regularPrice.toString(),
+                jsonColor: data.color,
+                colorName: data.color,
+                quantity: data.quantity!.toInt(),
+                productId: data.productId?.id,
+              );
             },
-          )
-        ],
+          );
+        },
       ),
       bottomSheet: BlocBuilder<CartBloc, CartState>(
         builder: (context, state) {
@@ -87,19 +98,19 @@ class _CartViewState extends State<CartView> {
           final total = subTotal + totalTax;
 
           return _notEmptyContainer(
-              subTotal, total, state.showExapnd, averageTax);
+              context, subTotal, total, state.showExapnd, averageTax);
         },
       ),
     );
   }
 
-  Widget _notEmptyContainer(
-      int subTotal, double total, bool isShow, double tax) {
+  Widget _notEmptyContainer(BuildContext context, int subTotal, double total,
+      bool isShow, double tax) {
     return Container(
-        height: isShow ? 280 : 160,
         color: ColorManager.whiteColor,
         padding: const EdgeInsets.symmetric(horizontal: 30),
         child: Column(
+          mainAxisSize: MainAxisSize.min,
           children: [
             isShow
                 ? InkWell(
@@ -241,37 +252,6 @@ class _CartViewState extends State<CartView> {
         ));
   }
 
-  Widget _buildCartItemsWidget(CartState state) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-      child: ListView.builder(
-        itemCount: state.cartModel?.result?.cartProducts?.cartItems?.length,
-        shrinkWrap: true,
-        itemBuilder: (context, index) {
-          final data = state.cartModel?.result?.cartProducts?.cartItems![index];
-
-          if (data == null) {
-            return const SizedBox();
-          }
-          return CartProductWidget(
-            showQuantity: true,
-            id: data.productId?.id,
-            title: data.productId?.title,
-            subTitle: data.productId?.description,
-            size: data.size ?? "",
-            image: data.productId?.images?[0],
-            price: data.productId?.salePrice?.toInt() ?? 0,
-            actualPrice: data.productId?.regularPrice.toString(),
-            jsonColor: data.color,
-            colorName: data.color,
-            quantity: data.quantity!.toInt(),
-            productId: data.productId?.id,
-          );
-        },
-      ),
-    );
-  }
-
   Widget _emptyCartBottomContainer(
     BuildContext context,
   ) {
@@ -290,7 +270,7 @@ class _CartViewState extends State<CartView> {
     );
   }
 
-  Widget _buildEmptyCartWidget() {
+  Widget _buildEmptyCartWidget(BuildContext context) {
     return Container(
       color: ColorManager.whiteColor,
       height: SizeUtility(context).height / 1.2,

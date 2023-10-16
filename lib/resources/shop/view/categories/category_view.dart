@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/components/common_widgets/shop_products_widget.dart';
 import 'package:millat/components/shimmers/shimmer_widget.dart';
-import 'package:millat/components/shimmers/shimmers_widget_products.dart';
 import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/shop/bloc/logic/category_bloc/category_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
@@ -42,44 +41,16 @@ class _CategoryViewState extends State<CategoryView> {
       ..add(ShopProductsEvent.fetchPopularProducts(
           endPointSlug:
               "shop_product_category?slug=${widget.category}_popular_products"))
-      ..add(
-          ShopProductsEvent.fetchSpecificCategeryItems(slug: widget.category));
+      ..add(ShopProductsEvent.fetchSpecificCategeryItems(
+          slug: widget.category.toString().replaceAll(" ", "_")));
     BlocProvider.of<CategoryBloc>(context)
-        .add(FetchSubCategoriesByCategoryId(categoryId: widget.categoryId));
+        .add(FetchItemsByCategory(category: widget.category));
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        // appBar: AppBar(
-        //   elevation: 0,
-        //   title: const Text(
-        //     "Super Flash sale 50% off",
-        //     style: TextStyle(
-        //       fontSize: 14,
-        //       fontWeight: FontWeight.bold,
-        //     ),
-        //   ),
-        //   actions: const [
-        //     Padding(
-        //       padding: EdgeInsets.only(right: 20.0),
-        //       child: timer(),
-        //     )
-        //   ],
-        //   flexibleSpace: Container(
-        //     decoration: const BoxDecoration(
-        //       gradient: LinearGradient(
-        //         colors: [
-        //           Color(0xFFBCFEB1),
-        //           Color(0xFF00A05B),
-        //         ],
-        //         begin: Alignment.topCenter,
-        //         end: Alignment.bottomCenter,
-        //       ),
-        //     ),
-        //   ),
-        // ),
         body: CustomScrollView(
       slivers: [
         SliverAppBar(
@@ -126,15 +97,12 @@ class _CategoryViewState extends State<CategoryView> {
                               items: sliderImage.map(
                                 (e) {
                                   return SizedBox(
-                                    // height: 340,
-                                    // width: SizeUtility(context).width,
                                     child: Utilities()
                                         .buildCachedNetworkImage(imageUrl: e),
                                   );
                                 },
                               ).toList(),
                               options: CarouselOptions(
-                                // height: 226,
                                 viewportFraction: 1,
                                 enlargeCenterPage: false,
                                 autoPlay: true,
@@ -185,24 +153,6 @@ class _CategoryViewState extends State<CategoryView> {
                 padding: const EdgeInsets.symmetric(horizontal: 30),
                 child: Column(
                   children: [
-                    // Align(
-                    //     alignment: Alignment.topRight,
-                    //     child: GestureDetector(
-                    //       onTap: () {
-                    //         Navigator.of(context).push(MaterialPageRoute(
-                    //             builder: (context) => CategoriesProductView(
-                    //                 category: widget.category,
-                    //                 subCategory: '',
-                    //                 type: FilterType.category)));
-                    //       },
-                    //       child: Text(
-                    //         Appstrings.viewAll,
-                    //         style: TextStyle(
-                    //             fontSize: 14,
-                    //             fontWeight: FontWeight.bold,
-                    //             color: ColorManager.primary),
-                    //       ),
-                    //     )),da
                     kHeight20,
                     widget.categoryType == CategoryType.specificCategory
                         ? BlocBuilder<ShopProductsBloc, ShopProductsState>(
@@ -293,29 +243,28 @@ class _CategoryViewState extends State<CategoryView> {
                               return SizedBox(
                                 height: 100,
                                 child: ListView.builder(
-                                  itemCount: state.subcategoryByCategoryIdModel
-                                          ?.result?.subCategory?.length ??
+                                  itemCount: state.categoryItemModel?.result
+                                          ?.items?.length ??
                                       8,
                                   scrollDirection: Axis.horizontal,
                                   itemExtent: 100,
                                   itemBuilder: (context, index) {
-                                    final subCategoryData = state
-                                        .subcategoryByCategoryIdModel
-                                        ?.result
-                                        ?.subCategory![index];
+                                    final data = state.categoryItemModel?.result
+                                        ?.items?[index];
+
                                     return GestureDetector(
                                       onTap: () {
-                                        Navigator.of(context).push(
-                                            MaterialPageRoute(
-                                                builder: (context) =>
-                                                    CategoriesProductView(
-                                                        category:
-                                                            widget.category,
-                                                        subCategory:
-                                                            subCategoryData
-                                                                ?.title,
-                                                        type: FilterType
-                                                            .category)));
+                                        Navigator.of(context)
+                                            .push(MaterialPageRoute(
+                                          builder: (context) =>
+                                              CategoriesProductView(
+                                                  itemName: data?.title,
+                                                  itemId: data?.id,
+                                                  category: "",
+                                                  subCategory: "",
+                                                  type: FilterType
+                                                      .specificCategory),
+                                        ));
                                       },
                                       child: Column(
                                         children: [
@@ -335,14 +284,13 @@ class _CategoryViewState extends State<CategoryView> {
                                                   BorderRadius.circular(12),
                                               child: Utilities()
                                                   .buildCachedNetworkImage(
-                                                      imageUrl: subCategoryData
-                                                              ?.image ??
-                                                          ""),
+                                                      imageUrl:
+                                                          data?.image ?? ""),
                                             ),
                                           ),
                                           kHeight10,
                                           Text(
-                                            subCategoryData?.title ?? "",
+                                            data?.title ?? "",
                                             style: const TextStyle(
                                               fontSize: 14,
                                               fontWeight: FontWeight.w600,
@@ -358,7 +306,6 @@ class _CategoryViewState extends State<CategoryView> {
                             },
                           ),
                     kHeight20,
-
                     BlocBuilder<ShopProductsBloc, ShopProductsState>(
                       builder: (context, state) {
                         if (state.isLoading) {
@@ -368,7 +315,7 @@ class _CategoryViewState extends State<CategoryView> {
                         final products = state.flashSaleproducts?.result
                             ?.shopProductCategory?.products;
 
-                        return products == null
+                        return products == null || products.isEmpty
                             ? const SizedBox()
                             : Column(
                                 children: [
@@ -466,7 +413,6 @@ class _CategoryViewState extends State<CategoryView> {
                               );
                       },
                     ),
-
                     kHeight20,
                     BlocBuilder<ShopProductsBloc, ShopProductsState>(
                       builder: (context, state) {
@@ -477,7 +423,7 @@ class _CategoryViewState extends State<CategoryView> {
                         final products = state.popularProducts?.result
                             ?.shopProductCategory?.products;
 
-                        return products == null || products == []
+                        return products == null || products.isEmpty
                             ? const SizedBox()
                             : Column(
                                 children: [

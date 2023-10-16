@@ -75,160 +75,180 @@ class _CheckoutDetailsState extends State<CheckoutDetails> {
           elevation: 0,
           backgroundColor: Colors.transparent,
         ),
-        body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 30),
-          child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                // widget.type == AddressNavType.profile
-                //     ? const SizedBox()
-                //     : Slider(
-                //         activeColor: ColorManager.greenColor1,
-                //         inactiveColor: black195,
-                //         max: 10,
-                //         min: 0,
-                //         divisions: 2,
-                //         value: 0,
-                //         onChanged: (value) {},
-                //       ),
-                // widget.type == AddressNavType.profile
-                //     ? const SizedBox()
-                //     :
-                // Row(
-                //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                //   children: [
-                //     Text(
-                //       Appstrings.personalInfo,
-                //       style: TextStyle(
-                //           fontWeight: FontWeight.w700,
-                //           color: ColorManager.greenColor1),
-                //     ),
-                //     Text(
-                //       Appstrings.payment,
-                //       style: TextStyle(
-                //           fontWeight: FontWeight.w600,
-                //           color: ColorManager.blackColor),
-                //     ),
-                //     Text(
-                //       Appstrings.confirmation,
-                //       style: TextStyle(
-                //           fontWeight: FontWeight.w600,
-                //           color: ColorManager.blackColor),
-                //     ),
-                //   ],
-                // ),
+        body: BlocConsumer<AddressBloc, AddressState>(
+          listener: (context, state) {
+            final data = state.pincodeAddressModel?.postOffice;
+            if (data != null) {
+              cityController.text = data.first.name ?? "";
+              stateController.text = data.first.state ?? "";
+              contryController.text = data.first.country ?? "";
+            } else {
+              cityController.text = "";
+              stateController.text = "";
+              contryController.text = "India";
+            }
+          },
+          builder: (context, state) => Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 30),
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  // widget.type == AddressNavType.profile
+                  //     ? const SizedBox()
+                  //     : Slider(
+                  //         activeColor: ColorManager.greenColor1,
+                  //         inactiveColor: black195,
+                  //         max: 10,
+                  //         min: 0,
+                  //         divisions: 2,
+                  //         value: 0,
+                  //         onChanged: (value) {},
+                  //       ),
+                  // widget.type == AddressNavType.profile
+                  //     ? const SizedBox()
+                  //     :
+                  // Row(
+                  //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  //   children: [
+                  //     Text(
+                  //       Appstrings.personalInfo,
+                  //       style: TextStyle(
+                  //           fontWeight: FontWeight.w700,
+                  //           color: ColorManager.greenColor1),
+                  //     ),
+                  //     Text(
+                  //       Appstrings.payment,
+                  //       style: TextStyle(
+                  //           fontWeight: FontWeight.w600,
+                  //           color: ColorManager.blackColor),
+                  //     ),
+                  //     Text(
+                  //       Appstrings.confirmation,
+                  //       style: TextStyle(
+                  //           fontWeight: FontWeight.w600,
+                  //           color: ColorManager.blackColor),
+                  //     ),
+                  //   ],
+                  // ),
 
-                kHeight30,
-                Form(
-                  key: formkey,
-                  child: Column(
-                    children: [
-                      _addressTextfeld(
-                          controller: deliveryToController,
-                          labelText: 'Deliver to'),
-                      kHeight30,
-                      _addressTextfeld(
-                          controller: addressLineController,
-                          labelText: 'Address Line'),
-                      kHeight30,
-                      _addressTextfeld(
-                          controller: landMarkController,
-                          labelText: 'Landmark'),
-                      kHeight30,
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          SizedBox(
-                              width: SizeUtility(context).width * 50 / 100,
+                  kHeight30,
+                  Form(
+                    key: formkey,
+                    child: Column(
+                      children: [
+                        _addressTextfeld(
+                            controller: deliveryToController,
+                            labelText: 'Deliver to'),
+                        kHeight30,
+                        _addressTextfeld(
+                            controller: addressLineController,
+                            labelText: 'Address Line'),
+                        kHeight30,
+                        _addressTextfeld(
+                            controller: landMarkController,
+                            labelText: 'Landmark'),
+                        kHeight30,
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            SizedBox(
+                              width: SizeUtility(context).width * 30 / 100,
                               child: _addressTextfeld(
-                                  controller: cityController,
-                                  labelText: 'City')),
-                          kHeight10,
-                          SizedBox(
-                            width: SizeUtility(context).width * 30 / 100,
-                            child: _addressTextfeld(
-                              controller: pinCodecontroller,
-                              labelText: "Pincode",
-                              textInputType: TextInputType.number,
+                                maxLength: 6,
+                                controller: pinCodecontroller,
+                                labelText: "Pincode",
+                                textInputType: TextInputType.number,
+                                onChanged: (value) {
+                                  context
+                                      .read<AddressBloc>()
+                                      .add(FetchPincodeAddres(pincode: value));
+                                },
+                              ),
                             ),
-                          ),
-                        ],
+                            SizedBox(
+                                width: SizeUtility(context).width * 50 / 100,
+                                child: _addressTextfeld(
+                                    controller: cityController,
+                                    labelText: 'City')),
+                            kHeight10,
+                          ],
+                        ),
+                        kHeight30,
+                        _addressTextfeld(
+                            controller: stateController,
+                            labelText: 'Select State'),
+                        kHeight30,
+                        _addressTextfeld(
+                            controller: contryController, labelText: 'Country'),
+                        kHeight30,
+                        _addressTextfeld(
+                          controller: mobileNumberController,
+                          labelText: 'Mobile Number',
+                          maxLength: 10,
+                          textInputType: TextInputType.phone,
+                        ),
+                        kHeight30,
+                      ],
+                    ),
+                  ),
+                  // _addressTextfeld(),
+                  kHeight10,
+                  Text(
+                    'For all delivery related communication',
+                    style: TextStyle(color: ColorManager.textGrey7A),
+                  ),
+
+                  kHeight30,
+                  Text(
+                    'Address Type',
+                    style: TextStyle(
+                        color: ColorManager.blackColor,
+                        fontSize: 17,
+                        fontWeight: FontWeight.w700),
+                  ),
+                  kHeight20,
+                  Row(
+                    children: [
+                      FilterChip(
+                        label: const Text('Home'),
+                        selected: selectedFilter == 'Home',
+                        onSelected: (isSelected) {
+                          setState(() {
+                            selectedFilter = isSelected ? 'Home' : '';
+                            addressType = 'Home';
+                          });
+                        },
                       ),
-                      kHeight30,
-                      _addressTextfeld(
-                          controller: stateController,
-                          labelText: 'Select State'),
-                      kHeight30,
-                      _addressTextfeld(
-                          controller: contryController, labelText: 'Country'),
-                      kHeight30,
-                      _addressTextfeld(
-                        controller: mobileNumberController,
-                        labelText: 'Mobile Number',
-                        maxLength: 10,
-                        textInputType: TextInputType.phone,
+                      kWidht10,
+                      FilterChip(
+                        label: const Text('Work'),
+                        selected: selectedFilter == 'Work',
+                        onSelected: (isSelected) {
+                          setState(() {
+                            selectedFilter = isSelected ? 'Work' : '';
+                            addressType = 'Work';
+                          });
+                        },
                       ),
-                      kHeight30,
+                      kWidht10,
+                      FilterChip(
+                        label: const Text('Other'),
+                        selected: selectedFilter == 'Other',
+                        onSelected: (isSelected) {
+                          setState(() {
+                            selectedFilter = isSelected ? 'Other' : '';
+                            addressType = 'Other';
+                          });
+                        },
+                      ),
                     ],
                   ),
-                ),
-                // _addressTextfeld(),
-                kHeight10,
-                Text(
-                  'For all delivery related communication',
-                  style: TextStyle(color: ColorManager.textGrey7A),
-                ),
-
-                kHeight30,
-                Text(
-                  'Address Type',
-                  style: TextStyle(
-                      color: ColorManager.blackColor,
-                      fontSize: 17,
-                      fontWeight: FontWeight.w700),
-                ),
-                kHeight20,
-                Row(
-                  children: [
-                    FilterChip(
-                      label: const Text('Home'),
-                      selected: selectedFilter == 'Home',
-                      onSelected: (isSelected) {
-                        setState(() {
-                          selectedFilter = isSelected ? 'Home' : '';
-                          addressType = 'Home';
-                        });
-                      },
-                    ),
-                    kWidht10,
-                    FilterChip(
-                      label: const Text('Work'),
-                      selected: selectedFilter == 'Work',
-                      onSelected: (isSelected) {
-                        setState(() {
-                          selectedFilter = isSelected ? 'Work' : '';
-                          addressType = 'Work';
-                        });
-                      },
-                    ),
-                    kWidht10,
-                    FilterChip(
-                      label: const Text('Other'),
-                      selected: selectedFilter == 'Other',
-                      onSelected: (isSelected) {
-                        setState(() {
-                          selectedFilter = isSelected ? 'Other' : '';
-                          addressType = 'Other';
-                        });
-                      },
-                    ),
-                  ],
-                ),
-                const SizedBox(
-                  height: 100,
-                )
-              ],
+                  const SizedBox(
+                    height: 100,
+                  )
+                ],
+              ),
             ),
           ),
         ),
@@ -324,11 +344,13 @@ class _CheckoutDetailsState extends State<CheckoutDetails> {
       {required TextEditingController controller,
       required String labelText,
       int? maxLength,
+      Function(String)? onChanged,
       TextInputType? textInputType}) {
     return TextFormField(
       controller: controller,
       maxLength: maxLength,
       keyboardType: textInputType,
+      cursorColor: ColorManager.primary,
       decoration: InputDecoration(
         floatingLabelBehavior: FloatingLabelBehavior.always,
         border: OutlineInputBorder(
@@ -354,6 +376,7 @@ class _CheckoutDetailsState extends State<CheckoutDetails> {
           fontWeight: FontWeight.bold,
         ),
       ),
+      onChanged: onChanged,
       validator: (value) {
         if (value == null || value.isEmpty) {
           return 'Please enter the $labelText';

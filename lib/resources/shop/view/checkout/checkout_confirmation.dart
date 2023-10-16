@@ -516,8 +516,8 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
             color: ColorManager.whiteColor,
             padding:
                 const EdgeInsets.symmetric(horizontal: 30).copyWith(bottom: 7),
-            height: isShow ? 300 : 160,
             child: Column(
+              mainAxisSize: MainAxisSize.min,
               children: [
                 isShow
                     ? InkWell(

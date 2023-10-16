@@ -315,7 +315,7 @@ class _CategoryViewState extends State<CategoryView> {
                         final products = state.flashSaleproducts?.result
                             ?.shopProductCategory?.products;
 
-                        return products == null
+                        return products == null || products.isEmpty
                             ? const SizedBox()
                             : Column(
                                 children: [
@@ -423,7 +423,7 @@ class _CategoryViewState extends State<CategoryView> {
                         final products = state.popularProducts?.result
                             ?.shopProductCategory?.products;
 
-                        return products == null || products == []
+                        return products == null || products.isEmpty
                             ? const SizedBox()
                             : Column(
                                 children: [

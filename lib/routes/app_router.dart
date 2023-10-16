@@ -5,7 +5,7 @@ import 'package:millat/resources/on_boarding/view/on_boarding_view.dart';
 import 'package:millat/resources/tabs/view/tabs_view.dart';
 import 'package:millat/routes/app_router_constants.dart';
 
-class NyAppRouter {
+class MyAppRouter {
   static GoRouter returnRouter(bool isAuth) {
     GoRouter router = GoRouter(
       routes: [
@@ -27,15 +27,17 @@ class NyAppRouter {
           name: MyAppRouteConstants.homeRouteName,
           path: '/home',
           pageBuilder: (context, state) {
-            return const MaterialPage(child: HomeView());
+            return const MaterialPage(
+              child: HomeView(),
+            );
           },
         ),
       ],
       redirect: (state, context) {
         if (isAuth) {
-          return MyAppRouteConstants.homeTabsRouteName;
+          return context.namedLocation(MyAppRouteConstants.homeTabsRouteName);
         } else {
-          return MyAppRouteConstants.onBoardingRouteName;
+          return context.namedLocation(MyAppRouteConstants.onBoardingRouteName);
         }
       },
     );

@@ -86,7 +86,7 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
 
             var options = {
               'order_id': state.orderIdRazorPay,
-              'key': 'rzp_test_JnlcTl0AWceeFY',
+              'key': 'rzp_live_CPvXnR4zHHC8cD',
               'amount': state.totalAmount * 100,
               'name': 'Millat',
               'description': cartItems![0].productId?.title,

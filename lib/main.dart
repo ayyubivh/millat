@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:go_router/go_router.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:millat/resources/authentication/bloc/logic/auth_bloc.dart';
 import 'package:millat/resources/authentication/bloc/logic/database_bloc/database_bloc.dart';
@@ -97,11 +98,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final GoRouter router = MyAppRouter.returnRouter(_getInitialScreen());
+
     return MaterialApp.router(
-      routeInformationParser:
-          NyAppRouter.returnRouter(_getInitialScreen()).routeInformationParser,
-      routerDelegate:
-          NyAppRouter.returnRouter(_getInitialScreen()).routerDelegate,
+      routerConfig: router,
       debugShowCheckedModeBanner: false,
       title: 'Millat',
       builder: (context, child) => ResponsiveWrapper.builder(

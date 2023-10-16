@@ -49,7 +49,6 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
   }
 
   // bool showMore = false;
-  int maxItemsToShow = 2;
   bool isGift = false;
 
   @override
@@ -58,12 +57,12 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
       backgroundColor: ColorManager.whiteColor,
       appBar: AppBar(
         title: Text(
-          Appstrings.confirmation,
+          Appstrings.reviewOrder,
           style: TextStyle(
               color: ColorManager.blackColor, fontWeight: FontWeight.w800),
         ),
         centerTitle: true,
-        leading: const BackButton(color: Colors.black),
+        iconTheme: const IconThemeData(color: Colors.black),
         elevation: 0,
         backgroundColor: ColorManager.whiteColor,
       ),
@@ -82,7 +81,7 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
 
             var options = {
               'order_id': state.orderIdRazorPay,
-              'key': 'rzp_test_JnlcTl0AWceeFY',
+              'key': 'rzp_live_CPvXnR4zHHC8cD',
               'amount': state.totalAmount * 100,
               'name': 'Millat',
               'description': cartItems![0].productId?.title,
@@ -107,385 +106,80 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
         },
         builder: (context, state) => state.isLoading
             ? const Loader()
-            : Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 30),
-                child: SingleChildScrollView(
-                  physics: const BouncingScrollPhysics(),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      // Slider(
-                      //   activeColor: ColorManager.greenColor1,
-                      //   inactiveColor: black195,
-                      //   max: 10,
-                      //   min: 0,
-                      //   divisions: 2,
-                      //   value: 10,
-                      //   onChanged: (value) {},
-                      // ),
-                      // Row(
-                      //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      //   children: [
-                      //     Text(
-                      //       Appstrings.personalInfo,
-                      //       style: TextStyle(
-                      //           fontWeight: FontWeight.w700,
-                      //           color: ColorManager.greenColor1),
-                      //     ),
-                      //     Text(
-                      //       Appstrings.payment,
-                      //       style: TextStyle(
-                      //           fontWeight: FontWeight.w600,
-                      //           color: ColorManager.greenColor1),
-                      //     ),
-                      //     Text(
-                      //       Appstrings.confirmation,
-                      //       style: TextStyle(
-                      //           fontWeight: FontWeight.w600,
-                      //           color: ColorManager.greenColor1),
-                      //     ),
-                      //   ],
-                      // ),
-                      kHeight30,
-                      Text(
-                        Appstrings.reviewOrder,
-                        style: TextStyle(
-                            color: ColorManager.blackColor,
-                            fontSize: 17,
-                            fontWeight: FontWeight.w700),
-                      ),
-                      kHeight20,
-                      widget.checkoutType == CheckoutType.rewards
-                          ? BlocBuilder<RewardsBloc, RewardsState>(
-                              builder: (context, state) {
-                                if (state.isLoading) {
-                                  return const Loader();
-                                } else if (state.rewardsProductByIdModel?.result
-                                        ?.product ==
-                                    null) {
-                                  return const SizedBox();
-                                }
+            : widget.checkoutType == CheckoutType.rewards
+                ? BlocBuilder<RewardsBloc, RewardsState>(
+                    builder: (context, state) {
+                      if (state.isLoading) {
+                        return const Loader();
+                      } else if (state
+                              .rewardsProductByIdModel?.result?.product ==
+                          null) {
+                        return const SizedBox();
+                      }
 
-                                final data = state.rewardsProductByIdModel
-                                    ?.result?.product?.productId;
+                      final data = state
+                          .rewardsProductByIdModel?.result?.product?.productId;
 
-                                return Column(
-                                  children: [
-                                    CartProductWidget(
-                                      showQuantity: false,
-                                      id: data?.id,
-                                      title: data?.title,
-                                      subTitle: data?.description,
-                                      size: data?.size?[0].size,
-                                      image: data?.images?[0],
-                                      price: data?.salePrice?.toInt() ?? 0,
-                                      actualPrice:
-                                          data?.regularPrice.toString(),
-                                      jsonColor: data?.color,
-                                      colorName: data?.color,
-                                      quantity: 1,
-                                      productId: data?.id,
-                                    )
-                                  ],
-                                );
-                              },
-                            )
-                          : BlocBuilder<CartBloc, CartState>(
-                              builder: (context, state) {
-                                if (state.cartLoading) {
-                                  return const Loader();
-                                } else if (state.cartModel?.result?.cartProducts
-                                        ?.cartItems ==
-                                    null) {
-                                  return const Center(
-                                    child: Text(''),
-                                  );
-                                }
+                      return CartProductWidget(
+                        showQuantity: false,
+                        id: data?.id,
+                        title: data?.title,
+                        subTitle: data?.description,
+                        size: data?.size?[0].size,
+                        image: data?.images?[0],
+                        price: data?.salePrice?.toInt() ?? 0,
+                        actualPrice: data?.regularPrice.toString(),
+                        jsonColor: data?.color,
+                        colorName: data?.color,
+                        quantity: 1,
+                        productId: data?.id,
+                      );
+                    },
+                  )
+                : BlocBuilder<CartBloc, CartState>(
+                    builder: (context, state) {
+                      if (state.cartLoading) {
+                        return const Loader();
+                      } else if (state
+                              .cartModel?.result?.cartProducts?.cartItems ==
+                          null) {
+                        return const Center(
+                          child: Text(''),
+                        );
+                      }
 
-                                final cartItems = state
-                                    .cartModel?.result?.cartProducts?.cartItems;
-                                final itemCount = cartItems?.length ?? 0;
-                                final itemsToShow =
-                                    state.showMore ? itemCount : maxItemsToShow;
+                      final cartItems =
+                          state.cartModel?.result?.cartProducts?.cartItems;
+                      final itemCount = cartItems?.length ?? 0;
 
-                                return Column(
-                                  children: [
-                                    if (itemCount > 0)
-                                      ListView.builder(
-                                        physics: const BouncingScrollPhysics(),
-                                        itemCount:
-                                            itemCount == 1 ? 1 : itemsToShow,
-                                        shrinkWrap: true,
-                                        itemBuilder: (context, index) {
-                                          final data = cartItems![index];
-                                          return CartProductWidget(
-                                            showQuantity: false,
-                                            id: data.productId!.id,
-                                            title: data.productId!.title,
-                                            subTitle:
-                                                data.productId!.description,
-                                            size: data.size,
-                                            image: data.productId?.images![0],
-                                            price: data.productId?.salePrice
-                                                    ?.toInt() ??
-                                                0,
-                                            actualPrice: data
-                                                .productId?.regularPrice
-                                                .toString(),
-                                            jsonColor: data.color,
-                                            colorName: data.color,
-                                            quantity: data.quantity!.toInt(),
-                                            productId: data.productId?.id,
-                                          );
-                                        },
-                                      ),
-                                  ],
-                                );
-                              },
-                            ),
-                      kHeight10,
-                      Container(
-                        height: 80,
-                        width: SizeUtility(context).width,
-                        padding: const EdgeInsets.all(8).copyWith(left: 12),
-                        decoration: BoxDecoration(
-                          color: ColorManager.whiteColor,
-                          border: Border.all(
-                            color: ColorManager.greyD1,
-                          ),
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                        child: Row(
-                          children: [
-                            Container(
-                              height: 48,
-                              width: 48,
-                              padding: const EdgeInsets.all(10),
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(12),
-                                color: ColorManager.primary,
-                              ),
-                              child: Image.asset(
-                                AppAssetsStrings.gift,
-                              ),
-                            ),
-                            kWidth15,
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                const Text(
-                                  Appstrings.makeGift,
-                                  style: TextStyle(
-                                    fontSize: 13,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                                kHeight5,
-                                Text(
-                                  Appstrings.giftSubTitle,
-                                  style: TextStyle(
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.w500,
-                                      color: ColorManager.lightBlackColor),
-                                ),
-                              ],
-                            ),
-                            const Spacer(),
-                            Switch(
-                              activeColor: ColorManager.primary,
-                              value: isGift,
-                              onChanged: (value) {
-                                setState(() {
-                                  isGift = !isGift;
-                                });
-                              },
-                            )
-                          ],
-                        ),
-                      ),
-                      kHeight25,
-                      Container(
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            color: ColorManager.whiteColor,
-                            boxShadow: [
-                              BoxShadow(
-                                spreadRadius: 4,
-                                blurRadius: 2,
-                                color: ColorManager.grey08,
-                              ),
-                            ]),
-                        child: Padding(
-                          padding: const EdgeInsets.all(15.0),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                Appstrings.promoCode,
-                                style: TextStyle(
-                                  color: ColorManager.blackColor,
-                                  fontSize: 17,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                              Row(
-                                children: [
-                                  SizedBox(
-                                    width:
-                                        SizeUtility(context).width * 50 / 100,
-                                    child: TextField(
-                                      controller: promocodeController,
-                                      cursorColor: ColorManager.primary,
-                                      decoration: const InputDecoration(
-                                        focusedBorder: UnderlineInputBorder(),
-                                      ),
-                                    ),
-                                  ),
-                                  const Spacer(),
-                                  GestureDetector(
-                                    onTap: () {
-                                      final isPromocode = context
-                                          .read<ShopProductsBloc>()
-                                          .state
-                                          .couponModel
-                                          ?.result
-                                          .data
-                                          ?.any((e) =>
-                                              e.couponCode ==
-                                              promocodeController.text);
-                                      context.read<ShopProductsBloc>().add(
-                                          ShopProductsEvent
-                                              .isPromoCodeAvailable(
-                                                  value: isPromocode ?? false));
-                                    },
-                                    child: Container(
-                                        height: 45,
-                                        width: 85,
-                                        decoration: BoxDecoration(
-                                          color: ColorManager.primary,
-                                          borderRadius:
-                                              BorderRadius.circular(10),
-                                        ),
-                                        child: Center(
-                                          child: Text(
-                                            Appstrings.apply,
-                                            style: TextStyle(
-                                              fontSize: 15,
-                                              fontWeight: FontWeight.bold,
-                                              color: ColorManager.whiteColor,
-                                            ),
-                                          ),
-                                        )),
-                                  )
-                                ],
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
-                      kHeight20,
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            Appstrings.paymentMethod,
-                            style: TextStyle(
-                                color: ColorManager.blackColor,
-                                fontSize: 17,
-                                fontWeight: FontWeight.w700),
-                          ),
-                          GestureDetector(
-                            onTap: () {
-                              Navigator.of(context).pop();
-                            },
-                            child: const Icon(
-                              Icons.arrow_forward_ios,
-                              size: 18,
-                            ),
-                          )
-                        ],
-                      ),
-                      kHeight20,
-                      widget.paymentType == 1
-                          ? _codPaymentWidget(context)
-                          : _onlinePayment(context),
-                      kHeight20,
-                      RichText(
-                        text: TextSpan(
-                          children: [
-                            TextSpan(
-                              text:
-                                  'By placing an order, you acknowledge that you have read the ',
-                              style: TextStyle(
-                                color: ColorManager
-                                    .textGrey, // Color for the regular text
-                                fontSize: 14, fontWeight: FontWeight.w400,
-                                height: 1.3,
-                              ),
-                            ),
-                            TextSpan(
-                              text: 'Terms of Service',
-                              style: TextStyle(
-                                color: ColorManager
-                                    .primary, // Color for "Terms of Service"
-                                fontSize: 14, fontWeight: FontWeight.w400,
-                                height: 1.3,
-                              ),
-                            ),
-                            TextSpan(
-                              text: ' and ',
-                              style: TextStyle(
-                                color: ColorManager
-                                    .textGrey, // Color for the regular text
-                                fontSize: 14, fontWeight: FontWeight.w400,
-                                height: 1.3,
-                              ),
-                            ),
-                            TextSpan(
-                              text: 'Privacy Policy',
-                              style: TextStyle(
-                                color: ColorManager
-                                    .primary, // Color for "Privacy Policy"
-                                fontSize: 14, fontWeight: FontWeight.w400,
-                                height: 1.3,
-                              ),
-                            ),
-                            TextSpan(
-                              text:
-                                  ' of Linger Shop. Payment will be processed separately by PIPO ',
-                              style: TextStyle(
-                                color: ColorManager
-                                    .textGrey, // Color for the regular text
-                                fontSize: 14, fontWeight: FontWeight.w400,
-                                height: 1.3,
-                              ),
-                            ),
-                            TextSpan(
-                              text: ' according to ',
-                              style: TextStyle(
-                                color: ColorManager
-                                    .textGrey, // Color for the regular text
-                                fontSize: 14, fontWeight: FontWeight.w400,
-                                height: 1.3,
-                              ),
-                            ),
-                            TextSpan(
-                              text: 'PIPO Privacy Policy.',
-                              style: TextStyle(
-                                color: ColorManager
-                                    .primary, // Color for "PIPO Privacy Policy"
-                                fontSize: 14, fontWeight: FontWeight.w400,
-                                height: 1.3,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
+                      return ListView.builder(
+                        padding: EdgeInsets.only(
+                            top: 20,
+                            bottom: state.showExapnd
+                                ? SizeUtility(context).height * 0.53
+                                : SizeUtility(context).height * 0.41),
+                        itemCount: itemCount,
+                        itemBuilder: (context, index) {
+                          final data = cartItems![index];
+                          return CartProductWidget(
+                            showQuantity: true,
+                            id: data.productId!.id,
+                            title: data.productId!.title,
+                            subTitle: data.productId!.description,
+                            size: data.size,
+                            image: data.productId?.images![0],
+                            price: data.productId?.salePrice?.toInt() ?? 0,
+                            actualPrice:
+                                data.productId?.regularPrice.toString(),
+                            jsonColor: data.color,
+                            colorName: data.color,
+                            quantity: data.quantity!.toInt(),
+                            productId: data.productId?.id,
+                          );
+                        },
+                      );
+                    },
                   ),
-                ),
-              ),
       ),
       bottomSheet: BlocBuilder<CartBloc, CartState>(
         builder: (context, state) {
@@ -515,10 +209,12 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
           return Container(
             color: ColorManager.whiteColor,
             padding:
-                const EdgeInsets.symmetric(horizontal: 30).copyWith(bottom: 7),
+                const EdgeInsets.symmetric(horizontal: 30).copyWith(bottom: 20),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
+                kHeight10,
+                paymentMethod(context),
                 isShow
                     ? InkWell(
                         onTap: () {
@@ -592,7 +288,7 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
                                       color: ColorManager.blackColor,
                                       fontSize: 15,
                                       fontWeight: FontWeight.bold)),
-                              Text("${averageTax.toInt()} %",
+                              Text(estimatingTax.toStringAsFixed(2),
                                   style: TextStyle(
                                       color: ColorManager.blackColor,
                                       fontSize: 17,
@@ -713,10 +409,10 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
                               .result
                               .address;
 
-                          print(
-                              "here is the address ${context.read<AddressBloc>().state.addressIdModel!.result.address.addressLine}");
+                          // print(
+                          //     "here is the address ${context.read<AddressBloc>().state.addressIdModel!.result.address.addressLine}");
 
-                          print('here is the address id ${pickUpaddress.id}');
+                          // print('here is the address id ${pickUpaddress.id}');
                           // final isPromo = context
                           //     .read<ShopProductsBloc>()
                           //     .state
@@ -749,6 +445,167 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
             ),
           );
         },
+      ),
+    );
+  }
+
+  paymentMethod(BuildContext context) {
+    return Column(
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              Appstrings.paymentMethod,
+              style: TextStyle(
+                  color: ColorManager.blackColor,
+                  fontSize: 17,
+                  fontWeight: FontWeight.w700),
+            ),
+            GestureDetector(
+              onTap: () {
+                Navigator.of(context).pop();
+              },
+              child: const Icon(
+                Icons.arrow_forward_ios,
+                size: 18,
+              ),
+            )
+          ],
+        ),
+        kHeight20,
+        widget.paymentType == 1
+            ? _codPaymentWidget(context)
+            : _onlinePayment(context),
+        kHeight20,
+        RichText(
+          text: TextSpan(
+            children: [
+              TextSpan(
+                text:
+                    'By placing an order, you acknowledge that you have read the ',
+                style: TextStyle(
+                  color: ColorManager.textGrey, // Color for the regular text
+                  fontSize: 14, fontWeight: FontWeight.w400,
+                  height: 1.3,
+                ),
+              ),
+              TextSpan(
+                text: 'Terms of Service',
+                style: TextStyle(
+                  color: ColorManager.primary, // Color for "Terms of Service"
+                  fontSize: 14, fontWeight: FontWeight.w400,
+                  height: 1.3,
+                ),
+              ),
+              TextSpan(
+                text: ' and ',
+                style: TextStyle(
+                  color: ColorManager.textGrey, // Color for the regular text
+                  fontSize: 14, fontWeight: FontWeight.w400,
+                  height: 1.3,
+                ),
+              ),
+              TextSpan(
+                text: 'Privacy Policy',
+                style: TextStyle(
+                  color: ColorManager.primary, // Color for "Privacy Policy"
+                  fontSize: 14, fontWeight: FontWeight.w400,
+                  height: 1.3,
+                ),
+              ),
+              TextSpan(
+                text:
+                    ' of Linger Shop. Payment will be processed separately by PIPO ',
+                style: TextStyle(
+                  color: ColorManager.textGrey, // Color for the regular text
+                  fontSize: 14, fontWeight: FontWeight.w400,
+                  height: 1.3,
+                ),
+              ),
+              TextSpan(
+                text: ' according to ',
+                style: TextStyle(
+                  color: ColorManager.textGrey, // Color for the regular text
+                  fontSize: 14, fontWeight: FontWeight.w400,
+                  height: 1.3,
+                ),
+              ),
+              TextSpan(
+                text: 'PIPO Privacy Policy.',
+                style: TextStyle(
+                  color:
+                      ColorManager.primary, // Color for "PIPO Privacy Policy"
+                  fontSize: 14, fontWeight: FontWeight.w400,
+                  height: 1.3,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget makeaGift(BuildContext context) {
+    return Container(
+      height: 80,
+      width: SizeUtility(context).width,
+      padding: const EdgeInsets.all(8).copyWith(left: 12),
+      decoration: BoxDecoration(
+        color: ColorManager.whiteColor,
+        border: Border.all(
+          color: ColorManager.greyD1,
+        ),
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: Row(
+        children: [
+          Container(
+            height: 48,
+            width: 48,
+            padding: const EdgeInsets.all(10),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(12),
+              color: ColorManager.primary,
+            ),
+            child: Image.asset(
+              AppAssetsStrings.gift,
+            ),
+          ),
+          kWidth15,
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Text(
+                Appstrings.makeGift,
+                style: TextStyle(
+                  fontSize: 13,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              kHeight5,
+              Text(
+                Appstrings.giftSubTitle,
+                style: TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.w500,
+                    color: ColorManager.lightBlackColor),
+              ),
+            ],
+          ),
+          const Spacer(),
+          Switch(
+            activeColor: ColorManager.primary,
+            value: isGift,
+            onChanged: (value) {
+              setState(() {
+                isGift = !isGift;
+              });
+            },
+          )
+        ],
       ),
     );
   }
@@ -898,5 +755,92 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
     }
 
     return total;
+  }
+}
+
+class PromoCode extends StatelessWidget {
+  const PromoCode({
+    super.key,
+    required this.promocodeController,
+  });
+
+  final TextEditingController promocodeController;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          color: ColorManager.whiteColor,
+          boxShadow: [
+            BoxShadow(
+              spreadRadius: 4,
+              blurRadius: 2,
+              color: ColorManager.grey08,
+            ),
+          ]),
+      child: Padding(
+        padding: const EdgeInsets.all(15.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              Appstrings.promoCode,
+              style: TextStyle(
+                color: ColorManager.blackColor,
+                fontSize: 17,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            Row(
+              children: [
+                SizedBox(
+                  width: SizeUtility(context).width * 50 / 100,
+                  child: TextField(
+                    controller: promocodeController,
+                    cursorColor: ColorManager.primary,
+                    decoration: const InputDecoration(
+                      focusedBorder: UnderlineInputBorder(),
+                    ),
+                  ),
+                ),
+                const Spacer(),
+                GestureDetector(
+                  onTap: () {
+                    final isPromocode = context
+                        .read<ShopProductsBloc>()
+                        .state
+                        .couponModel
+                        ?.result
+                        .data
+                        ?.any((e) => e.couponCode == promocodeController.text);
+                    context.read<ShopProductsBloc>().add(
+                        ShopProductsEvent.isPromoCodeAvailable(
+                            value: isPromocode ?? false));
+                  },
+                  child: Container(
+                      height: 45,
+                      width: 85,
+                      decoration: BoxDecoration(
+                        color: ColorManager.primary,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Center(
+                        child: Text(
+                          Appstrings.apply,
+                          style: TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold,
+                            color: ColorManager.whiteColor,
+                          ),
+                        ),
+                      )),
+                )
+              ],
+            )
+          ],
+        ),
+      ),
+    );
   }
 }

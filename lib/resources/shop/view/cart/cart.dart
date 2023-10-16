@@ -40,15 +40,14 @@ class CartView extends StatelessWidget {
       body: BlocBuilder<CartBloc, CartState>(
         builder: (context, state) {
           if (state.cartLoading) {
-            return Padding(
-                padding: EdgeInsets.only(top: SizeUtility(context).height / 3),
-                child: const Loader());
+            return const Loader();
           } else if (state
                   .cartModel?.result?.cartProducts?.cartItems?.isEmpty ??
               true) {
             return _buildEmptyCartWidget(context);
           }
           return ListView.builder(
+            padding: const EdgeInsets.only(bottom: 200, top: 20),
             itemCount: state.cartModel?.result?.cartProducts?.cartItems?.length,
             itemBuilder: (context, index) {
               final data =
@@ -108,7 +107,8 @@ class CartView extends StatelessWidget {
       bool isShow, double tax) {
     return Container(
         color: ColorManager.whiteColor,
-        padding: const EdgeInsets.symmetric(horizontal: 30),
+        padding:
+            const EdgeInsets.symmetric(horizontal: 30).copyWith(bottom: 20),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [

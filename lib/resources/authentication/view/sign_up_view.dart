@@ -236,7 +236,7 @@ class _SignUpViewState extends State<SignUpView> {
       await user?.authentication;
 
       context.read<AuthBloc>().add(SocialLogin(
-          email: user?.email ?? "", name: user?.displayName ?? "", id: user?.id ?? "", picture: user?.photoUrl ?? "", context));
+          email: user?.email ?? "", name: user?.displayName ?? "", picture: user?.photoUrl ?? "", context));
     } catch (exception) {
       showSnackBar(context, exception.toString());
 

@@ -118,24 +118,28 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       } else if (event is SocialLogin) {
         emit(AuthLoading());
         emit(AuthloadingSocialLogin());
-        final result = await _authService.loginWithSocial(
-          context: event.context,
-          email: event.email,
-          name: event.name,
-          picture: event.picture ?? "",
-          id: event.id ?? "",
-        );
-        print("result of social login $result");
-        if (result.status == 200) {
-          final token = result.result?.token;
-          if (token == "" || token == null) {
-            userId = result.result?.user?.id!;
-            emit(AuthSocialLoginNewUser(userId: result.result?.user?.id!));
+        try {
+          final result = await _authService.loginWithSocial(
+            context: event.context,
+            email: event.email,
+            name: event.name,
+            picture: event.picture ?? "",
+            id: event.id ?? "",
+          );
+          print("result of social login $result");
+          if (result.status == 200) {
+            final token = result.result?.token;
+            if (token == "" || token == null) {
+              userId = result.result?.user?.id!;
+              emit(AuthSocialLoginNewUser(userId: result.result?.user?.id!));
+            } else {
+              emit(AuthLoadedSocialLogin());
+            }
           } else {
-            emit(AuthLoadedSocialLogin());
+            emit(AuthError(result.error ?? ""));
           }
-        } else {
-          emit(AuthError(result.error ?? ""));
+        } on Exception catch (e) {
+          emit(AuthError(e.toString()));
         }
       }
     });

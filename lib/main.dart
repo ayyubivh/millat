@@ -29,6 +29,7 @@ import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.da
 import 'package:millat/resources/shop/view/products/products_view.dart';
 import 'package:millat/resources/shop/view/search/search_view.dart';
 import 'package:millat/resources/tabs/view/tabs_view.dart';
+import 'package:millat/routes/app_router.dart';
 import 'package:millat/utils/string_constants.dart';
 import 'package:responsive_framework/responsive_wrapper.dart';
 import 'package:responsive_framework/utils/scroll_behavior.dart';
@@ -96,7 +97,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
+      routeInformationParser:
+          NyAppRouter.returnRouter(_getInitialScreen()).routeInformationParser,
+      routerDelegate:
+          NyAppRouter.returnRouter(_getInitialScreen()).routerDelegate,
       debugShowCheckedModeBanner: false,
       title: 'Millat',
       builder: (context, child) => ResponsiveWrapper.builder(
@@ -118,39 +123,39 @@ class MyApp extends StatelessWidget {
         fontFamily: 'SofiaPro',
         primarySwatch: Colors.blue,
       ),
-      routes: {
-        CategoriesProductView.routeName: (context) {
-          final args = ModalRoute.of(context)!.settings.arguments
-              as Map<String, dynamic>;
-          final category = args["category"];
-          final subCategory = args["subCategory"];
-          final type = args["type"];
-          return CategoriesProductView(
-              category: category, subCategory: subCategory, type: type);
-        },
-        NamazTimingView.routeName: (context) => const NamazTimingView(),
-        ManageAddress.routeName: (context) => const ManageAddress(),
-        SearchView.routeName: (context) => const SearchView(),
-        ProductsView.routeName: (context) {
-          final args = ModalRoute.of(context)!.settings.arguments
-              as Map<String, dynamic>;
-          final appBarTitle = args['appBarTitle'];
-          final passValue = args['passValue'];
-          return ProductsView(appBarTitle: appBarTitle, passValue: passValue);
-        },
-      },
-      home: _getInitialScreen(),
+      // routes: {
+      //   CategoriesProductView.routeName: (context) {
+      //     final args = ModalRoute.of(context)!.settings.arguments
+      //         as Map<String, dynamic>;
+      //     final category = args["category"];
+      //     final subCategory = args["subCategory"];
+      //     final type = args["type"];
+      //     return CategoriesProductView(
+      //         category: category, subCategory: subCategory, type: type);
+      //   },
+      //   NamazTimingView.routeName: (context) => const NamazTimingView(),
+      //   ManageAddress.routeName: (context) => const ManageAddress(),
+      //   SearchView.routeName: (context) => const SearchView(),
+      //   ProductsView.routeName: (context) {
+      //     final args = ModalRoute.of(context)!.settings.arguments
+      //         as Map<String, dynamic>;
+      //     final appBarTitle = args['appBarTitle'];
+      //     final passValue = args['passValue'];
+      //     return ProductsView(appBarTitle: appBarTitle, passValue: passValue);
+      //   },
+      // },
+      // home: _getInitialScreen(),
     );
   }
 
-  Widget _getInitialScreen() {
+  bool _getInitialScreen() {
     final String? token = _tokenBox.get(authToken);
 
     if (token != null) {
       print('on main token $token');
-      return const TabsView();
+      return true;
     } else {
-      return const OnBoardingView();
+      return false;
     }
   }
 }

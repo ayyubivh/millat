@@ -267,7 +267,6 @@ class ShopBrandView extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            height: 209,
             width: SizeUtility(context).width,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(21),
@@ -306,7 +305,7 @@ class ShopBrandView extends StatelessWidget {
                   Positioned(
                     bottom: 0,
                     child: Container(
-                      height: 49,
+                      // height: 49,
                       width: SizeUtility(context).width,
                       margin: const EdgeInsets.only(
                           left: 12, bottom: 12, right: 12),

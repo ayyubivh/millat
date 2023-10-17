@@ -373,7 +373,6 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
       PostOrderIdOnlinePayment event, Emitter<ShopProductsState> emit) async {
     emit(state.copyWith(
         errorMessage: "",
-        isLoading: true,
         orderIdRazorPay: "",
         orderSucces: false));
 
@@ -384,8 +383,7 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
           orderIdRazorPay: data, totalAmount: event.amount, orderSucces: true));
       print("order id   ${state.orderIdRazorPay}");
     } catch (e) {
-      emit(state.copyWith(
-          errorMessage: e.toString(), isLoading: false, orderSucces: false));
+      emit(state.copyWith(errorMessage: e.toString(), orderSucces: false));
     }
   }
 

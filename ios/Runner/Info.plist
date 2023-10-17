@@ -69,5 +69,13 @@
 	<!-- Permission options for the `music` group -->
 	<key>NSAppleMusicUsageDescription</key>
 	<string>This is to play religious audio files only on the foreground</string>
+	
+	<!-- opeing apps for UPI Payments -->
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+	<string>tez</string>
+    <string>phonepe</string>
+    <string>paytmmp</string>
+</array>
 </dict>
 </plist>

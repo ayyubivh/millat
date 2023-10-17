@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:millat/components/buttons/main_button.dart';
 import 'package:millat/components/textFields/custom_text_field.dart';
 import 'package:millat/resources/authentication/bloc/logic/auth_bloc.dart';
@@ -25,9 +26,7 @@ class _ForgotPasswordViewState extends State<ForgotPasswordView> {
           buildError(state.errorMessage);
         } else if (state is AuthLoaded) {
           clearDate();
-          Navigator.of(context).pushReplacement(MaterialPageRoute(
-            builder: (context) => const LoginView(),
-          ));
+          context.pop();
         }
       },
       builder: (context, state) {

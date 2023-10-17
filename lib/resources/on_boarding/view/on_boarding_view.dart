@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:millat/components/buttons/main_button.dart';
 import 'package:millat/components/buttons/main_text_button.dart';
-import 'package:millat/resources/authentication/view/verify_otp_view.dart';
+import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/resources/authentication/view/sign_up_view.dart';
@@ -33,10 +34,10 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                       'Muslim consumers to access a range of halal products and services conveniently. making it easier for them to shop for halal products and services without compromising their faith.',
                   titleWidget: RichText(
                       text: TextSpan(children: [
-                    const TextSpan(
+                    TextSpan(
                         text: 'Trusted Source for ',
                         style: TextStyle(
-                            color: Colors.black,
+                            color: ColorManager.blackColor,
                             fontSize: 23,
                             fontWeight: FontWeight.w500)),
                     TextSpan(
@@ -45,10 +46,10 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                             color: ColorManager.mainColor,
                             fontSize: 23,
                             fontWeight: FontWeight.w500)),
-                    const TextSpan(
+                    TextSpan(
                         text: ' Products and Services',
                         style: TextStyle(
-                            color: Colors.black,
+                            color: ColorManager.blackColor,
                             fontSize: 23,
                             fontWeight: FontWeight.w500))
                   ])),
@@ -59,10 +60,10 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                       'Muslim consumers to access a range of halal products and services conveniently. making it easier for them to shop for halal products and services without compromising their faith.',
                   titleWidget: RichText(
                       text: TextSpan(children: [
-                    const TextSpan(
+                    TextSpan(
                         text: 'Empowering the ',
                         style: TextStyle(
-                            color: Colors.black,
+                            color: ColorManager.blackColor,
                             fontSize: 23,
                             fontWeight: FontWeight.w500)),
                     TextSpan(
@@ -71,10 +72,10 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                             color: ColorManager.mainColor,
                             fontSize: 23,
                             fontWeight: FontWeight.w500)),
-                    const TextSpan(
+                    TextSpan(
                         text: ' with Linger',
                         style: TextStyle(
-                            color: Colors.black,
+                            color: ColorManager.blackColor,
                             fontSize: 23,
                             fontWeight: FontWeight.w500))
                   ])),
@@ -85,10 +86,10 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                       'Namaz Time is an essential mobile app for Muslims around the world who want to stay connected to their faith by ensuring they never miss a prayer.',
                   titleWidget: RichText(
                       text: TextSpan(children: [
-                    const TextSpan(
+                    TextSpan(
                         text: 'Your Ultimate Companion for Accurate ',
                         style: TextStyle(
-                            color: Colors.black,
+                            color: ColorManager.blackColor,
                             fontSize: 24,
                             fontWeight: FontWeight.w500)),
                     TextSpan(
@@ -105,11 +106,11 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                   ),
                   titleWidget: RichText(
                       text: TextSpan(children: [
-                    const TextSpan(
+                    TextSpan(
                         text:
                             'Your Ultimate Guide to Reading and Understanding the ',
                         style: TextStyle(
-                            color: Colors.black,
+                            color: ColorManager.blackColor,
                             fontSize: 24,
                             fontWeight: FontWeight.w500)),
                     TextSpan(
@@ -144,9 +145,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                     title: 'Next',
                     onPressed: () {
                       if (_pageController.page == 3) {
-                        Navigator.of(context).pushReplacement(MaterialPageRoute(
-                          builder: (context) => const SignUpView(),
-                        ));
+                        context.goNamed(MyAppRouteConstants.signUpRouteName);
                       } else {
                         _pageController.nextPage(
                             duration: const Duration(milliseconds: 500),
@@ -156,9 +155,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                 MainTextButton(
                   title: 'Skip',
                   onTap: () {
-                    Navigator.of(context).pushReplacement(MaterialPageRoute(
-                      builder: (context) => const SignUpView(),
-                    ));
+                    context.goNamed(MyAppRouteConstants.signUpRouteName);
                   },
                 )
               ],

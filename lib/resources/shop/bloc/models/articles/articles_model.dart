@@ -36,6 +36,7 @@ class Article with _$Article {
     required Product? product,
     required String? image,
     required String? date,
+    required String? category,
     required String? createdAt,
     required String? updatedAt,
   }) = _Article;

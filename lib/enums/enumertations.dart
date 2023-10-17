@@ -60,6 +60,7 @@ enum CompassTheme {
 enum VersesScroll {
   scroll,
   notScroll,
+  home,
 }
 
 enum CategoryItemType {

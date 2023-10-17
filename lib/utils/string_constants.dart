@@ -154,7 +154,7 @@ class Appstrings {
   static const String postPacking = "Postage & Packing";
   static const String totalbfTax = "Total before Tax";
   static const String total = "Total";
-  static const String tax = "Tax";
+  static const String tax = "Tax (GST 18%)";
   static const String youMaylike = "You May Also Like";
   static const String noResultFound = "No result found";
   static const String newest = "Newest";

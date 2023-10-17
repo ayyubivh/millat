@@ -6,6 +6,7 @@ import 'package:millat/resources/shop/bloc/models/address_model/address_model.da
 import 'package:millat/services/http_services.dart';
 import 'package:http/http.dart' as http;
 import '../../../authentication/bloc/logic/database_bloc/database_bloc.dart';
+import '../models/address_model/pincode_address_details_model.dart';
 
 class AddressService extends HttpServices {
   // for adding the address
@@ -209,6 +210,38 @@ class AddressService extends HttpServices {
       }
     } else {
       throw Exception('Token not available');
+    }
+  }
+
+  // fetch pincode address details
+  Future<PincodeAddressModel?> fetchPincodeAddres(String pincode) async {
+    final endPoint = 'https://api.postalpincode.in/pincode/$pincode';
+
+    final response = await http.get(Uri.parse(endPoint));
+
+    if (response.statusCode == 200) {
+      try {
+        final List<dynamic> data = json.decode(response.body);
+
+        if (data.isNotEmpty) {
+          final Map<String, dynamic> json = data.first;
+
+          final result = PincodeAddressModel.fromJson(json);
+          print('API address by id  $result');
+          return result;
+        } else {
+          // Handle the case when the response is an empty array
+          print('API response is empty.');
+          return null;
+        }
+      } catch (e) {
+        print('Error on address API fetch: ${e.toString()}');
+        throw Exception('Failed to parse response');
+      }
+    } else {
+      print('API request failed with status code: ${response.statusCode}');
+      throw Exception(
+          'API request failed with status code: ${response.statusCode}');
     }
   }
 }

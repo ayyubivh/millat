@@ -4,6 +4,8 @@
         "Geolocator",
         "hadit",
         "Namaz",
+        "paytm",
+        "Razorpay",
         "tasbih"
     ]
 }

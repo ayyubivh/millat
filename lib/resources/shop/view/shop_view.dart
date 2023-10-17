@@ -57,7 +57,7 @@ class _ShopViewState extends State<ShopView> {
       ..add(const ShopProductsEvent.fetchCoupons())
       ..add(const ShopProductsEvent.fetchAllBrandsEvent());
     cartBloc.add(FetchCartEvent(context));
-    BlocProvider.of<AddressBloc>(context).add(FetchAddressDefaultIndex());
+    BlocProvider.of<AddressBloc>(context).add(const FetchAddressDefaultIndex());
     super.initState();
   }
 
@@ -81,7 +81,7 @@ class _ShopViewState extends State<ShopView> {
                   _brandCarouselSliderWidget(),
                   kHeight20,
                   _brandsWidget(),
-                  kHeight10,
+                  kHeight16,
                   LighGreenGradienButton(
                     text: Appstrings.viewBrands,
                     onTap: () {
@@ -90,9 +90,9 @@ class _ShopViewState extends State<ShopView> {
                       ));
                     },
                   ),
-                  kHeight15,
+                  kHeight40,
                   _titleWidget(text: Appstrings.womensCare),
-                  kHeight15,
+                  kHeight16,
                   BlocBuilder<ShopProductsBloc, ShopProductsState>(
                     builder: (context, state) {
                       // final womenData =
@@ -158,9 +158,9 @@ class _ShopViewState extends State<ShopView> {
                                         womenSubCategoryData[index].image ?? "",
                                   ),
                           ),
-                          kHeight15,
+                          kHeight20,
                           _titleWidget(text: Appstrings.healthyDiet),
-                          kHeight15,
+                          kHeight20,
                           BackgroundContainer(
                             cardType: ShopHomeCardtype.health,
                             onTap: () {
@@ -207,9 +207,9 @@ class _ShopViewState extends State<ShopView> {
                                         "",
                                   ),
                           ),
-                          kHeight15,
+                          kHeight20,
                           _titleWidget(text: Appstrings.followSunnah),
-                          kHeight15,
+                          kHeight20,
                           BackgroundContainer(
                             onTap: () {
                               Navigator.of(context).push(MaterialPageRoute(
@@ -255,9 +255,7 @@ class _ShopViewState extends State<ShopView> {
                 ],
               ),
             ),
-            const SizedBox(
-              height: 120,
-            ),
+            kHeight100,
           ],
         ),
       ),
@@ -760,6 +758,8 @@ Widget buildShopbyBrand(String? image, String? name) {
             fontSize: 14,
           ),
           textAlign: TextAlign.center,
+          maxLines: 2,
+          overflow: TextOverflow.ellipsis,
         ),
       ],
     ),

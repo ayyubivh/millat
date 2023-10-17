@@ -11,7 +11,6 @@ import 'package:millat/resources/home/view/al_quran/widgets/quran_tabbar_widget.
 import 'package:millat/resources/home/view/al_quran/widgets/verses_view.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/color_manager.dart';
-import 'package:millat/utils/size_utility.dart';
 
 class AlQuranView extends StatelessWidget {
   const AlQuranView({super.key});
@@ -173,57 +172,57 @@ class AlQuranView extends StatelessWidget {
   //   );
   // }
 
-  Widget _gradienContainer(BuildContext context, String image, String mainText,
-      String subText, String? lineText) {
-    return gradientContainer(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    mainText,
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.bold,
-                      color: ColorManager.whiteColor,
-                    ),
-                  ),
-                  const SizedBox(height: 5),
-                  Text(
-                    lineText ?? "",
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w400,
-                      color: ColorManager.whiteColor,
-                    ),
-                  ),
-                  const SizedBox(height: 10),
-                  Text(
-                    subText,
-                    style: TextStyle(
-                        color: ColorManager.whiteColor,
-                        fontWeight: FontWeight.w400,
-                        fontSize: 10),
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: 32,
-                width: 32,
-                child: Image.asset(image),
-              )
-            ],
-          ),
-        ],
-      ),
-      width: SizeUtility(context).width / 2.38,
-      height: 95,
-      padding: const EdgeInsets.all(15),
-    );
-  }
+  // Widget _gradienContainer(BuildContext context, String image, String mainText,
+  //     String subText, String? lineText) {
+  //   return gradientContainer(
+  //     child: Column(
+  //       crossAxisAlignment: CrossAxisAlignment.start,
+  //       children: [
+  //         Row(
+  //           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+  //           children: [
+  //             Column(
+  //               crossAxisAlignment: CrossAxisAlignment.start,
+  //               children: [
+  //                 Text(
+  //                   mainText,
+  //                   style: TextStyle(
+  //                     fontSize: 12,
+  //                     fontWeight: FontWeight.bold,
+  //                     color: ColorManager.whiteColor,
+  //                   ),
+  //                 ),
+  //                 const SizedBox(height: 5),
+  //                 Text(
+  //                   lineText ?? "",
+  //                   style: TextStyle(
+  //                     fontSize: 12,
+  //                     fontWeight: FontWeight.w400,
+  //                     color: ColorManager.whiteColor,
+  //                   ),
+  //                 ),
+  //                 const SizedBox(height: 10),
+  //                 Text(
+  //                   subText,
+  //                   style: TextStyle(
+  //                       color: ColorManager.whiteColor,
+  //                       fontWeight: FontWeight.w400,
+  //                       fontSize: 10),
+  //                 ),
+  //               ],
+  //             ),
+  //             SizedBox(
+  //               height: 32,
+  //               width: 32,
+  //               child: Image.asset(image),
+  //             )
+  //           ],
+  //         ),
+  //       ],
+  //     ),
+  //     width: SizeUtility(context).width / 2.38,
+  //     height: 95,
+  //     padding: const EdgeInsets.all(15),
+  //   );
+  // }
 }

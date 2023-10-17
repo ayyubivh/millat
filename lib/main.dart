@@ -16,26 +16,18 @@ import 'package:millat/resources/home/bloc/logic/quran_bloc/quran_bloc.dart';
 import 'package:millat/resources/home/bloc/logic/tasbih_bloc/tasbih_bloc.dart';
 import 'package:millat/resources/home/bloc/models/book_mark_hive_model/book_mark_hive_model.dart';
 import 'package:millat/resources/home/bloc/service/notification_service.dart';
-import 'package:millat/resources/home/view/namaz_timing/namaz_timing_view.dart';
-import 'package:millat/resources/on_boarding/view/on_boarding_view.dart';
 import 'package:millat/resources/profile/bloc/logic/terms_and_condtions_bloc/terms_and_condtions_bloc.dart';
-import 'package:millat/resources/profile/views/manage_address.dart';
 import 'package:millat/resources/rewards/bloc/logic/bloc/rewards_bloc_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/address_bloc/address_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/cart_bloc/cart_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/category_bloc/category_bloc.dart';
-import 'package:millat/resources/shop/bloc/logic/payment_bloc/payment_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/review_bloc/bloc/review_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
-import 'package:millat/resources/shop/view/products/products_view.dart';
-import 'package:millat/resources/shop/view/search/search_view.dart';
-import 'package:millat/resources/tabs/view/tabs_view.dart';
 import 'package:millat/routes/app_router.dart';
 import 'package:millat/utils/string_constants.dart';
 import 'package:responsive_framework/responsive_wrapper.dart';
 import 'package:responsive_framework/utils/scroll_behavior.dart';
 import 'package:timezone/data/latest.dart' as tz;
-import 'resources/shop/view/categories/categories_product_view.dart';
 
 void main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
@@ -83,9 +75,6 @@ void main() async {
       BlocProvider(create: (context) => TermsAndCondtionsBloc()),
       BlocProvider(create: (context) => RewardsBloc()),
       BlocProvider(create: (context) => ReviewBloc()),
-      BlocProvider(
-        create: (context) => PaymentBloc(),
-      )
     ],
     child: MyApp(),
   ));

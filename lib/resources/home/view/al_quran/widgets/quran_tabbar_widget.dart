@@ -39,7 +39,6 @@ class _QuranTabBarWidgetState extends State<QuranTabBarWidget>
     super.dispose();
   }
 
-  int _expandedIndex = -1;
   @override
   Widget build(BuildContext context) {
     return Expanded(

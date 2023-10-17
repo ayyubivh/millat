@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:millat/components/buttons/main_button.dart';
 import 'package:millat/components/buttons/main_text_button.dart';
 import 'package:millat/components/textFields/custom_text_field.dart';
@@ -9,6 +10,7 @@ import 'package:millat/resources/authentication/bloc/logic/auth_bloc.dart';
 import 'package:millat/resources/authentication/view/login_view.dart';
 import 'package:millat/resources/authentication/view/send_otp_view.dart';
 import 'package:millat/resources/tabs/view/tabs_view.dart';
+import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/validators.dart';
@@ -42,17 +44,13 @@ class _SignUpViewState extends State<SignUpView> {
             buildError(state.errorMessage);
           } else if (state is AuthLoaded) {
             clearDate();
-            Navigator.of(context).pushReplacement(MaterialPageRoute(
-              builder: (context) => const LoginView(),
-            ));
+
+            context.goNamed(MyAppRouteConstants.loginRouteName);
           } else if (state is AuthLoadedSocialLogin) {
-            Navigator.of(context).pushReplacement(MaterialPageRoute(
-              builder: (context) => const TabsView(),
-            ));
+            context.pushReplacementNamed(MyAppRouteConstants.homeTabsRouteName);
           } else if (state is AuthSocialLoginNewUser) {
-            Navigator.of(context).pushReplacement(MaterialPageRoute(
-              builder: (context) => const SendOTPView(),
-            ));
+            context.goNamed(MyAppRouteConstants.sendOtpRouteName,
+                pathParameters: {'isSignIn': 'false'});
           }
         },
         builder: (context, state) {
@@ -118,9 +116,8 @@ class _SignUpViewState extends State<SignUpView> {
                       MainTextButton(
                         title: 'Skip',
                         onTap: () {
-                          Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => const SendOTPView(signInPhone: true),
-                          ));
+                          context.goNamed(MyAppRouteConstants.sendOtpRouteName,
+                              pathParameters: {'isSignIn': 'true'});
                         },
                       ),
                       MainButton(
@@ -148,9 +145,7 @@ class _SignUpViewState extends State<SignUpView> {
                       ),
                       GestureDetector(
                         onTap: () {
-                          Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => const LoginView(),
-                          ));
+                          context.goNamed(MyAppRouteConstants.loginRouteName);
                         },
                         child: RichText(
                             text: TextSpan(children: [
@@ -219,8 +214,11 @@ class _SignUpViewState extends State<SignUpView> {
           AppleIDAuthorizationScopes.fullName,
         ]);
         // showSnackBar(context, "${user.identityToken} ${user.userIdentifier}");
-        context.read<AuthBloc>().add(
-            SocialLogin(email: user.email ?? "", name: user.givenName ?? "", id: user.userIdentifier , context));
+        context.read<AuthBloc>().add(SocialLogin(
+            email: user.email ?? "",
+            name: user.givenName ?? "",
+            id: user.userIdentifier,
+            context));
       } on Exception catch (e) {
         print(e);
       }
@@ -236,10 +234,12 @@ class _SignUpViewState extends State<SignUpView> {
       await user?.authentication;
 
       context.read<AuthBloc>().add(SocialLogin(
-          email: user?.email ?? "", name: user?.displayName ?? "", id: user?.id ?? "", picture: user?.photoUrl ?? "", context));
+          email: user?.email ?? "",
+          name: user?.displayName ?? "",
+          picture: user?.photoUrl ?? "",
+          context));
     } catch (exception) {
       showSnackBar(context, exception.toString());
-
     }
   }
 

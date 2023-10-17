@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
-import 'package:millat/resources/shop/bloc/models/articles/articles_model.dart';
 import 'package:millat/resources/shop/view/products/single_product_view.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
@@ -33,17 +32,6 @@ class SingleArticleView extends StatelessWidget {
           style: TextStyle(
               color: ColorManager.blackColor, fontWeight: FontWeight.w700),
         ),
-        actions: [
-          // Padding(
-          //   padding: const EdgeInsets.only(right: 40),
-          //   child: ImageIcon(
-          //     const AssetImage(
-          //       AppAssetsStrings.searchIcon,
-          //     ),
-          //     color: ColorManager.blackColor,
-          //   ),
-          // ),
-        ],
         leading: BackButton(
           color: ColorManager.blackColor,
         ),
@@ -124,7 +112,7 @@ class SingleArticleView extends StatelessWidget {
                               imageUrl: data.image!,
                               height: 202,
                               width: double.infinity,
-                              boxFit: BoxFit.cover,
+                              boxFit: BoxFit.fill,
                             ),
                           ),
                         ),
@@ -176,7 +164,7 @@ class SingleArticleView extends StatelessWidget {
                     child: ClipRRect(
                         borderRadius: BorderRadius.circular(10),
                         child: Utilities().buildCachedNetworkImage(
-                          imageUrl: data?.product?.images?[0],
+                          imageUrl: data.product?.images?[0],
                           boxFit: BoxFit.cover,
                           height: 56,
                           width: 56,
@@ -190,7 +178,7 @@ class SingleArticleView extends StatelessWidget {
                       SizedBox(
                         width: 144,
                         child: Text(
-                          data!.product?.title ?? "",
+                          data.product?.title ?? "",
                           style: TextStyle(
                             color: ColorManager.whiteColor,
                             fontSize: 15,
@@ -202,7 +190,7 @@ class SingleArticleView extends StatelessWidget {
                       ),
                       kHeight10,
                       Text(
-                        data!.product?.salePrice.toString() ?? "0",
+                        data.product?.salePrice.toString() ?? "0",
                         style: TextStyle(
                             color: ColorManager.whiteColor,
                             fontSize: 15,

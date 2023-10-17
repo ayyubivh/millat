@@ -51,21 +51,21 @@ class AuthService extends HttpServices {
     });
   }
 
-  Future<SocialUserModel> loginWithSocial({
+  Future loginWithSocial({
     required BuildContext context,
     required String email,
     required String name,
     String? picture,
-    required String id,
+    String? id,
   }) async {
     return await posts(endPoint: loginWithGoogleApi, body: {
       "email": email,
       "name": name,
-      "socialId": id,
+      "socialId": id ?? '',
       "picture": picture
     }).then((value) {
-      final result = SocialUserModel.fromJson(jsonDecode(value.body));
       if (value.statusCode == 200) {
+        final result = SocialUserModel.fromJson(jsonDecode(value.body));
         if (result.result?.token != null) {
           context
               .read<DatabaseBloc>()
@@ -73,7 +73,7 @@ class AuthService extends HttpServices {
         }
         return result;
       } else {
-        return result;
+        throw Exception(jsonDecode(value.body)['message']);
       }
     }).catchError((error) {
       throw Exception(error);

@@ -53,7 +53,11 @@ class _VersesViewState extends State<VersesView> {
             String secondPart = parts[1];
             itemScrollController.jumpTo(index: int.parse(secondPart));
           })
-        : null;
+        : widget.scrollType == VersesScroll.home
+            ? WidgetsBinding.instance.addPostFrameCallback((_) {
+                itemScrollController.jumpTo(index: widget.chapterid ?? 0);
+              })
+            : null;
 
     super.initState();
   }

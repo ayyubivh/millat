@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:millat/resources/shop/bloc/models/address_model/pincode_address_details_model.dart';
 import 'package:millat/resources/shop/bloc/service/address_service.dart';
 import 'package:millat/utils/string_constants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -25,6 +26,7 @@ class AddressBloc extends Bloc<AddressEvent, AddressState> {
     on<DeleteAddressEvent>(_deleteAddressEvent);
     on<UpdateAddress>(_updateAddress);
     on<FetchAddressDefaultIndex>(_fetchAddressDefaultIndex);
+    on<FetchPincodeAddres>(_fetchPincodeAddress);
   }
 
   _addAddress(AddAddress event, Emitter<AddressState> emit) async {
@@ -161,5 +163,22 @@ class AddressBloc extends Bloc<AddressEvent, AddressState> {
   Future<void> _saveIndexToSharedPreferences(String key, int value) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     await prefs.setInt(key, value);
+  }
+
+  _fetchPincodeAddress(
+      FetchPincodeAddres event, Emitter<AddressState> emit) async {
+    emit(state.copyWith(isLoading: true));
+    if (event.pincode != "") {
+      try {
+        final data = await _addressService.fetchPincodeAddres(event.pincode);
+        emit(state.copyWith(pincodeAddressModel: data, isLoading: false));
+      } catch (e) {
+        emit(state.copyWith(isLoading: false));
+
+        throw Exception();
+      }
+    } else {
+      emit(state.copyWith(pincodeAddressModel: null));
+    }
   }
 }

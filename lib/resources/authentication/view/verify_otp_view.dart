@@ -2,8 +2,10 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:millat/components/buttons/main_button.dart';
 import 'package:millat/resources/authentication/bloc/logic/auth_bloc.dart';
+import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
@@ -88,9 +90,7 @@ class _VerifyOTPViewState extends State<VerifyOTPView> {
             buildError(state.errorMessage);
           } else if (state is AuthLoaded) {
             clearData();
-            Navigator.of(context).pushReplacement(MaterialPageRoute(
-              builder: (context) => const TabsView(),
-            ));
+            context.pushReplacementNamed(MyAppRouteConstants.homeTabsRouteName);
           }
         },
         builder: (context, state) {

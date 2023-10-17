@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/size_utility.dart';
-import 'package:millat/utils/string_constants.dart';
 import 'package:millat/utils/utils.dart';
-
 import '../../../../../utils/color_manager.dart';
 
 class ArticleBuilWidget extends StatelessWidget {
@@ -12,20 +10,22 @@ class ArticleBuilWidget extends StatelessWidget {
   final String date;
   final String title;
   final String content;
+  final String category;
   const ArticleBuilWidget(
       {super.key,
       required this.image,
       required this.brand,
       required this.date,
       required this.title,
-      required this.content});
+      required this.content,
+      required this.category});
 
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(Appstrings.popular,
+        Text(category,
             style: TextStyle(
               fontSize: 13,
               color: ColorManager.greenColor1,
@@ -73,7 +73,7 @@ class ArticleBuilWidget extends StatelessWidget {
                 imageUrl: image,
                 height: 80,
                 width: 80,
-                boxFit: BoxFit.contain,
+                boxFit: BoxFit.cover,
               ),
             ),
           ],

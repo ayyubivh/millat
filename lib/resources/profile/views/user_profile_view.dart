@@ -35,9 +35,7 @@ class UserProfileView extends StatelessWidget {
         } else if (state.succesMessage != "") {
           context.read<DatabaseBloc>().add(const RemoveTokenEvent());
           showSnackBar(context, state.failedMessage);
-          Navigator.of(context).pushReplacement(MaterialPageRoute(
-            builder: (context) => const SignUpView(),
-          ));
+          context.pushReplacementNamed(MyAppRouteConstants.signUpRouteName);
         }
       },
       builder: (context, state) {
@@ -182,7 +180,8 @@ class UserProfileView extends StatelessWidget {
                   kHeight15,
                   GestureDetector(
                     onTap: () {
-                      context.goNamed(MyAppRouteConstants.editProfileRouteName);
+                      context
+                          .pushNamed(MyAppRouteConstants.editProfileRouteName);
                     },
                     child: Container(
                       height: 42,
@@ -227,7 +226,7 @@ class UserProfileView extends StatelessWidget {
                   GestureDetector(
                     onTap: () {
                       context
-                          .goNamed(MyAppRouteConstants.inviteFreindRouteName);
+                          .pushNamed(MyAppRouteConstants.inviteFreindRouteName);
                     },
                     child: Container(
                       height: 60,
@@ -320,20 +319,20 @@ class UserProfileView extends StatelessWidget {
                         ];
                         final navigations = [
                           () {
-                            context.goNamed(MyAppRouteConstants
+                            context.pushNamed(MyAppRouteConstants
                                 .termsAndConditionsRouteName);
                           },
                           () {
-                            context.goNamed(
+                            context.pushNamed(
                                 MyAppRouteConstants.supportHelpRouteName);
                           },
                           () {
-                            context.goNamed(
+                            context.pushNamed(
                                 MyAppRouteConstants.privacyPolicyRouteName);
                           },
                           () {
-                            context
-                                .goNamed(MyAppRouteConstants.aboutUsRouteName);
+                            context.pushNamed(
+                                MyAppRouteConstants.aboutUsRouteName);
                           },
                         ];
                         return _buildItemRow(
@@ -359,10 +358,9 @@ class UserProfileView extends StatelessWidget {
                               .read<HomeBloc>()
                               .add(const ChangeHomeTabIndexEvent(newIndex: 0));
                           // await GoogleSignInService.logout();
-                          Navigator.of(context)
-                              .pushReplacement(MaterialPageRoute(
-                            builder: (context) => const SignUpView(),
-                          ));
+                          context.pop();
+                          context.pushReplacementNamed(
+                              MyAppRouteConstants.signUpRouteName);
                         },
                       );
                     },

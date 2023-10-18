@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:millat/resources/home/bloc/logic/tasbih_bloc/tasbih_bloc.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
@@ -44,7 +45,7 @@ class ChooseDhikrView extends StatelessWidget {
                     translate: data.meaning!,
                     id: data.id!));
                 print('here id ${data.id}');
-                Navigator.of(context).pop();
+                context.pop();
               },
               child: Container(
                   padding:

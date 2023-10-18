@@ -14,8 +14,10 @@ class _PaymentMethodsState extends State<PaymentMethods> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Payment Methods',
-            style: TextStyle(color: Colors.black, fontWeight: FontWeight.w700)),
+        title: const Text(
+          'Payment Methods',
+          style: TextStyle(color: Colors.black, fontWeight: FontWeight.w700),
+        ),
         centerTitle: false,
         leading: const BackButton(color: Colors.black),
         elevation: 0,

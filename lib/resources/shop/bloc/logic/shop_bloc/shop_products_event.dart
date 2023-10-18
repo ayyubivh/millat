@@ -145,4 +145,6 @@ class ShopProductsEvent with _$ShopProductsEvent {
       {required String filterVal}) = SaveArticleCategoryFilterVal;
   const factory ShopProductsEvent.fetchArticlesByCategory(String category) =
       FetchArticlesByCategory;
+  const factory ShopProductsEvent.fetchBrandProductsItemCount(
+      {required List<String>? ids}) = FetchBrandProductsItemCount;
 }

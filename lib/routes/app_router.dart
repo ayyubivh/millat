@@ -5,10 +5,37 @@ import 'package:millat/resources/authentication/view/login_view.dart';
 import 'package:millat/resources/authentication/view/send_otp_view.dart';
 import 'package:millat/resources/authentication/view/sign_up_view.dart';
 import 'package:millat/resources/authentication/view/verify_otp_view.dart';
+import 'package:millat/resources/home/view/al_quran/al_quran_view.dart';
+import 'package:millat/resources/home/view/al_quran/widgets/addnew_collection_view.dart';
+import 'package:millat/resources/home/view/al_quran/widgets/al_quran_settings.dart';
+import 'package:millat/resources/home/view/al_quran/widgets/audio_recitors_view.dart';
+import 'package:millat/resources/home/view/al_quran/widgets/text_setting_view.dart';
+import 'package:millat/resources/home/view/al_quran/widgets/verses_view.dart';
+import 'package:millat/resources/home/view/dua/dua_view.dart';
+import 'package:millat/resources/home/view/dua/widgets/dua_bookmar_view.dart';
+import 'package:millat/resources/home/view/dua/widgets/dua_category_view.dart';
+import 'package:millat/resources/home/view/dua/widgets/inside_dua_view.dart';
 import 'package:millat/resources/home/view/home_view.dart';
+import 'package:millat/resources/home/view/qibla/qibla_view.dart';
+import 'package:millat/resources/home/view/tasbih/tasbih_view.dart';
+import 'package:millat/resources/home/view/tasbih/widgets/choose_dhikr_view.dart';
+import 'package:millat/resources/home/view/widgets/about_us_view.dart';
+import 'package:millat/resources/home/view/widgets/notification_view.dart';
+import 'package:millat/resources/home/view/widgets/privacy_policy_view.dart';
+import 'package:millat/resources/home/view/widgets/support_help_view.dart';
+import 'package:millat/resources/home/view/widgets/terms_conditions_view.dart';
 import 'package:millat/resources/on_boarding/view/on_boarding_view.dart';
+import 'package:millat/resources/profile/views/edit_profile_view.dart';
+import 'package:millat/resources/profile/views/invite_friend_view.dart';
+import 'package:millat/resources/profile/views/user_profile_view.dart';
+import 'package:millat/resources/shop/view/tabs/shop_tabs_vilew.dart';
 import 'package:millat/resources/tabs/view/tabs_view.dart';
 import 'package:millat/routes/app_router_constants.dart';
+
+import '../enums/enumertations.dart';
+import '../resources/home/view/al_quran/bookmark_view.dart';
+import '../resources/home/view/al_quran/widgets/add_sura_search_view.dart';
+import '../resources/home/view/al_quran/widgets/bookmark_collection_view.dart';
 
 class MyAppRouter {
   static GoRouter returnRouter(bool isAuth) {
@@ -25,12 +52,223 @@ class MyAppRouter {
           },
         ),
         GoRoute(
-          name: MyAppRouteConstants.homeTabsRouteName,
-          path: '/',
-          pageBuilder: (context, state) {
-            return const MaterialPage(child: TabsView());
-          },
-        ),
+            name: MyAppRouteConstants.homeTabsRouteName,
+            path: '/',
+            pageBuilder: (context, state) {
+              return const MaterialPage(child: TabsView());
+            },
+            routes: [
+              GoRoute(
+                name: MyAppRouteConstants.shopTabsRouteName,
+                path: 'shop_tabs',
+                pageBuilder: (context, state) {
+                  return const MaterialPage(child: ShopTabsView());
+                },
+              ),
+              GoRoute(
+                name: MyAppRouteConstants.notificationRouteName,
+                path: 'notication',
+                pageBuilder: (context, state) {
+                  return const MaterialPage(child: NotificationView());
+                },
+              ),
+              GoRoute(
+                  name: MyAppRouteConstants.quranRouteName,
+                  path: 'quran',
+                  pageBuilder: (context, state) {
+                    return const MaterialPage(child: AlQuranView());
+                  },
+                  routes: [
+                    GoRoute(
+                      name: MyAppRouteConstants.quranVersesRoutename,
+                      path: 'quran_verse',
+                      builder: (context, state) {
+                        Map data = state.extra as Map;
+
+                        return VersesView(
+                          type: data['type'],
+                          scrollType: data['scrollType'],
+                          chapterid: data['chapterId'],
+                        );
+                      },
+                    ),
+                    GoRoute(
+                        name: MyAppRouteConstants.quranSettingsRouteName,
+                        path: MyAppRouteConstants.quranSettingsRouteName,
+                        pageBuilder: (context, state) {
+                          return const MaterialPage(child: AlQuranSettings());
+                        },
+                        routes: [
+                          GoRoute(
+                            name: MyAppRouteConstants.quranTextSettingRouteName,
+                            path: MyAppRouteConstants.quranTextSettingRouteName,
+                            pageBuilder: (context, state) {
+                              return const MaterialPage(
+                                child: TextSettingsView(),
+                              );
+                            },
+                          ),
+                          GoRoute(
+                            name: MyAppRouteConstants.audioRecitorsRouteName,
+                            path: MyAppRouteConstants.audioRecitorsRouteName,
+                            pageBuilder: (context, state) {
+                              return const MaterialPage(
+                                child: AudioRecitorsView(),
+                              );
+                            },
+                          ),
+                        ]),
+                    GoRoute(
+                        name: MyAppRouteConstants.quranBookmarkRouteName,
+                        path: 'quran_bookmark',
+                        pageBuilder: (context, state) {
+                          return const MaterialPage(child: BookmarkView());
+                        },
+                        routes: [
+                          GoRoute(
+                            name: MyAppRouteConstants
+                                .addNewQuranBookmarkRouteName,
+                            path: MyAppRouteConstants
+                                .addNewQuranBookmarkRouteName,
+                            pageBuilder: (context, state) {
+                              Map data = state.extra as Map;
+                              return MaterialPage(
+                                child: AddNewBookMarkCollection(
+                                  passvalue: data['passvalue'],
+                                  type: data['type'],
+                                  verseKeys: data['verseKeys'],
+                                ),
+                              );
+                            },
+                          ),
+                          GoRoute(
+                            name: MyAppRouteConstants
+                                .quranBookmarkCollectionRouteName,
+                            path: MyAppRouteConstants
+                                .quranBookmarkCollectionRouteName,
+                            pageBuilder: (context, state) {
+                              Map data = state.extra as Map;
+                              return MaterialPage(
+                                child: BookmarkCollectionView(
+                                  passvalue: data['passvalue'],
+                                ),
+                              );
+                            },
+                          ),
+                          GoRoute(
+                            name: MyAppRouteConstants.addSuraSearchRouteName,
+                            path: MyAppRouteConstants.addSuraSearchRouteName,
+                            pageBuilder: (context, state) {
+                              return const MaterialPage(
+                                child: AddSuraSearchView(),
+                              );
+                            },
+                          ),
+                        ]),
+                  ]),
+              GoRoute(
+                name: MyAppRouteConstants.compassRouteName,
+                path: 'compass',
+                pageBuilder: (context, state) {
+                  return const MaterialPage(child: QiblahScreen());
+                },
+              ),
+              GoRoute(
+                  name: MyAppRouteConstants.tasbihRouteName,
+                  path: 'tasbih',
+                  pageBuilder: (context, state) {
+                    return const MaterialPage(child: TasbihView());
+                  },
+                  routes: [
+                    GoRoute(
+                      name: MyAppRouteConstants.chooseDhikrRouteName,
+                      path: 'choose_dhikr',
+                      pageBuilder: (context, state) {
+                        return const MaterialPage(child: ChooseDhikrView());
+                      },
+                    ),
+                  ]),
+              GoRoute(
+                  name: MyAppRouteConstants.duaRouteName,
+                  path: 'dua',
+                  pageBuilder: (context, state) {
+                    return const MaterialPage(child: DuaView());
+                  },
+                  routes: [
+                    GoRoute(
+                      name: MyAppRouteConstants.duaBookmarRouteName,
+                      path: MyAppRouteConstants.duaBookmarRouteName,
+                      pageBuilder: (context, state) {
+                        return const MaterialPage(child: DuaBookMarkView());
+                      },
+                    ),
+                    GoRoute(
+                        name: MyAppRouteConstants.duaCategoryRouteName,
+                        path: MyAppRouteConstants.duaCategoryRouteName,
+                        pageBuilder: (context, state) {
+                          return const MaterialPage(child: DuaCategoryView());
+                        },
+                        routes: [
+                          GoRoute(
+                            name: MyAppRouteConstants.insideDuaRouteName,
+                            path: MyAppRouteConstants.insideDuaRouteName,
+                            pageBuilder: (context, state) {
+                              return const MaterialPage(child: InsideDuaView());
+                            },
+                          ),
+                        ]),
+                  ]),
+              GoRoute(
+                  name: MyAppRouteConstants.userProfileRoutename,
+                  path: MyAppRouteConstants.userProfileRoutename,
+                  pageBuilder: (context, state) {
+                    return const MaterialPage(child: UserProfileView());
+                  },
+                  routes: [
+                    GoRoute(
+                      name: MyAppRouteConstants.editProfileRouteName,
+                      path: MyAppRouteConstants.editProfileRouteName,
+                      pageBuilder: (context, state) {
+                        return const MaterialPage(child: EditProfileView());
+                      },
+                    ),
+                    GoRoute(
+                      name: MyAppRouteConstants.inviteFreindRouteName,
+                      path: MyAppRouteConstants.inviteFreindRouteName,
+                      pageBuilder: (context, state) {
+                        return const MaterialPage(child: InviteFriendView());
+                      },
+                    ),
+                    GoRoute(
+                      name: MyAppRouteConstants.termsAndConditionsRouteName,
+                      path: MyAppRouteConstants.termsAndConditionsRouteName,
+                      pageBuilder: (context, state) {
+                        return const MaterialPage(child: TermsConditionsView());
+                      },
+                    ),
+                    GoRoute(
+                      name: MyAppRouteConstants.supportHelpRouteName,
+                      path: MyAppRouteConstants.supportHelpRouteName,
+                      pageBuilder: (context, state) {
+                        return const MaterialPage(child: SupportHelpView());
+                      },
+                    ),
+                    GoRoute(
+                      name: MyAppRouteConstants.privacyPolicyRouteName,
+                      path: MyAppRouteConstants.privacyPolicyRouteName,
+                      pageBuilder: (context, state) {
+                        return const MaterialPage(child: PrivacyPolicyView());
+                      },
+                    ),
+                    GoRoute(
+                      name: MyAppRouteConstants.aboutUsRouteName,
+                      path: MyAppRouteConstants.aboutUsRouteName,
+                      pageBuilder: (context, state) {
+                        return const MaterialPage(child: AboutUsView());
+                      },
+                    ),
+                  ]),
+            ]),
         GoRoute(
           name: MyAppRouteConstants.homeRouteName,
           path: '/home',

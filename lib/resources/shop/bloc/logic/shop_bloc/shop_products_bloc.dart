@@ -93,6 +93,7 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
     on<FetchArticlesCategory>(_fetchArticlesCategory);
     on<SaveArticleCategoryFilterVal>(_saveArticleCategoryFilterVal);
     on<FetchArticlesByCategory>(_fetchArticlesByCategory);
+    on<FetchBrandProductsItemCount>(_fetchBrandProductsItemCount);
   }
 
   FutureOr<void> _fetchFlashSaleProducts(
@@ -372,9 +373,7 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
   _postOrderIdOnlinePayment(
       PostOrderIdOnlinePayment event, Emitter<ShopProductsState> emit) async {
     emit(state.copyWith(
-        errorMessage: "",
-        orderIdRazorPay: "",
-        orderSucces: false));
+        errorMessage: "", orderIdRazorPay: "", orderSucces: false));
 
     try {
       final data = await ordersService.postOrderIdOnlinePayment(
@@ -792,6 +791,20 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
 
         emit(state.copyWith(articles: data.result?.articles, isLoading: false));
       }
+    } catch (e) {
+      emit(state.copyWith(isLoading: false));
+    }
+  }
+
+  _fetchBrandProductsItemCount(FetchBrandProductsItemCount event,
+      Emitter<ShopProductsState> emit) async {
+    emit(state.copyWith(isLoading: true));
+    try {
+      final data =
+          await shopService.fetchBrandProductsItemsCount(productIds: event.ids);
+
+      emit(state.copyWith(brandProductsItemCount: data, isLoading: false));
+    
     } catch (e) {
       emit(state.copyWith(isLoading: false));
     }

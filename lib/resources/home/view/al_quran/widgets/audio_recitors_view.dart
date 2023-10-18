@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:millat/resources/home/bloc/logic/quran_bloc/quran_bloc.dart';
 import 'package:millat/resources/home/view/al_quran/widgets/al_quran_appbar.dart';
 import 'package:millat/utils/color_manager.dart';
@@ -18,7 +19,6 @@ class AudioRecitorsView extends StatelessWidget {
         backgroundColor: ColorManager.whiteColor,
         appBar: alQuranAppbar(
           context: context,
-          onTap: () {},
           text: "Audio Recitors",
           color: ColorManager.appBarColor,
         ),
@@ -44,7 +44,7 @@ class AudioRecitorsView extends StatelessWidget {
                       onTap: () {
                         context.read<QuranBloc>().add(SaveRecitorNameAndId(
                             recitorId: data.id, recitorName: data.recitorName));
-                        Navigator.of(context).pop();
+                        context.pop();
                       },
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,

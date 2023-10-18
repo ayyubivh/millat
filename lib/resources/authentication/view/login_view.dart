@@ -7,18 +7,13 @@ import 'package:millat/components/buttons/main_button.dart';
 import 'package:millat/components/buttons/main_text_button.dart';
 import 'package:millat/components/textFields/custom_text_field.dart';
 import 'package:millat/resources/authentication/bloc/logic/auth_bloc.dart';
-import 'package:millat/resources/authentication/class/google_signin.dart';
-import 'package:millat/resources/authentication/view/forgot_password_view.dart';
-import 'package:millat/resources/authentication/view/send_otp_view.dart';
-import 'package:millat/resources/authentication/view/sign_up_view.dart';
-import 'package:millat/resources/tabs/view/tabs_view.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/validators.dart';
 import 'package:sign_in_with_apple/sign_in_with_apple.dart';
-
 import '../../../routes/app_router_constants.dart';
 import '../../../utils/color_manager.dart';
 import '../../../utils/utils.dart';
+import '../class/google_signin.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({Key? key}) : super(key: key);

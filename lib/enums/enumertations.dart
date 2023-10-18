@@ -1,3 +1,7 @@
+class Baseclass {}
+
+final Baseclass baseclass = Baseclass();
+
 enum AddressNavType {
   checkout,
   profile,

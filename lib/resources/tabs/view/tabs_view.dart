@@ -2,69 +2,44 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+import 'package:millat/resources/authentication/bloc/logic/database_bloc/database_bloc.dart';
 import 'package:millat/resources/home/bloc/logic/home_bloc/home_bloc.dart';
 import 'package:millat/resources/home/view/home_view.dart';
-import 'package:millat/resources/rewards/rewards_home_view.dart';
 import 'package:millat/resources/shop/view/tabs/shop_tabs_vilew.dart';
+import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/size_utility.dart';
-import '../../authentication/bloc/logic/database_bloc/database_bloc.dart';
 import '../../home/view/namaz_timing/namaz_timing_view.dart';
 import '../../profile/views/user_profile_view.dart';
 
-class TabsView extends StatefulWidget {
+class TabsView extends StatelessWidget {
   const TabsView({Key? key}) : super(key: key);
 
   @override
-  State<TabsView> createState() => _TabsViewState();
-}
+  Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      context.read<DatabaseBloc>().add(const FetchToken());
+    });
+    List screens = [
+      const HomeView(),
+      const ShopTabsView(),
+      const NamazTimingView(),
+      const UserProfileView(),
+    ];
 
-class _TabsViewState extends State<TabsView> {
-  List screens = [
-    const HomeView(),
-    const ShopTabsView(),
-    // const RewardsHomeView(),
-    const NamazTimingView(),
-    const UserProfileView(),
-  ];
-  DateTime? currentBackPressTime;
-  void onTap(int index) {
-    setState(() {
+    void onTap(int index) {
       if (index == 1) {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => const ShopTabsView()),
-        );
+        context.goNamed(MyAppRouteConstants.shopTabsRouteName);
       }
       context.read<HomeBloc>().add(ChangeHomeTabIndexEvent(newIndex: index));
-    });
-  }
+    }
 
-  @override
-  void initState() {
-    // BlocProvider.of<NamazTimingBloc>(context)
-    //     .add(FetchPrayerTiming(context: context));
-
-    context.read<DatabaseBloc>().add(const FetchToken());
-    super.initState();
-  }
-
-  @override
-  Widget build(BuildContext context) {
     return BlocBuilder<HomeBloc, HomeState>(
       builder: (context, state) => WillPopScope(
         onWillPop: () {
           if (state.homeTabIndex == 0) {
-            // DateTime now = DateTime.now();
-            // if (currentBackPressTime == null ||
-            //     now.difference(currentBackPressTime!) >
-            //         const Duration(seconds: 2)) {
-            //   currentBackPressTime = now;
-
-            //   return Future.value(false);
-            // }
-            // return Future.value(true);
             return onBackPress(context);
           } else {
             context

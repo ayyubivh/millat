@@ -4,7 +4,6 @@ import 'package:go_router/go_router.dart';
 import 'package:millat/components/buttons/main_button.dart';
 import 'package:millat/components/textFields/custom_text_field.dart';
 import 'package:millat/resources/authentication/bloc/logic/auth_bloc.dart';
-import 'package:millat/resources/authentication/view/login_view.dart';
 import 'package:millat/utils/color_manager.dart';
 
 class ForgotPasswordView extends StatefulWidget {

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:millat/routes/app_router_constants.dart';
 
 import '../../../../../enums/enumertations.dart';
 import '../../../../../utils/color_manager.dart';
@@ -38,13 +40,13 @@ class BookmarkNewCollectionWidget extends StatelessWidget {
         kWidht10,
         InkWell(
           onTap: () {
-            Navigator.of(context).push(MaterialPageRoute(
-              builder: (context) => AddNewBookMarkCollection(
-                  verseKeys: verseKeys,
-                  type: type == null
+            context.goNamed(MyAppRouteConstants.addNewQuranBookmarkRouteName,
+                extra: {
+                  'type': type == null
                       ? BookMarkCollectionType.add
-                      : BookMarkCollectionType.addSpecificOne),
-            ));
+                      : BookMarkCollectionType.addSpecificOne,
+                  'versKeys': verseKeys
+                });
           },
           child: Icon(
             Icons.add_circle_outline,

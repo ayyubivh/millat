@@ -11,8 +11,6 @@ import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:pinput/pinput.dart';
 
-import '../../tabs/view/tabs_view.dart';
-
 class VerifyOTPView extends StatefulWidget {
   const VerifyOTPView({
     Key? key,

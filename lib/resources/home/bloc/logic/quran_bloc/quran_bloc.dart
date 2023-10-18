@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -249,7 +247,6 @@ class QuranBloc extends Bloc<QuranEvent, QuranState> {
       final data = await quranServices.fetchAllChapterTranslationTexts(
           chapterId: event.chapterId, translationId: event.translationId);
       emit(state.copyWith(chapterTranslationText: data, isLoading: false));
-      print('here is the audion files in the bloc ${data}');
     } catch (e) {
       emit(state.copyWith(isLoading: false));
       debugPrint("error fetch quran bloc $e");
@@ -338,8 +335,8 @@ class QuranBloc extends Bloc<QuranEvent, QuranState> {
         }
       }
     } catch (e) {
-      print("Error during audio playback: $e");
       emit(state.copyWith(audioPlaying: false));
+      throw Exception(e);
     }
   }
 

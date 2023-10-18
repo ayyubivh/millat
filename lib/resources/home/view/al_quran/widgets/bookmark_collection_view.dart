@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:millat/resources/home/bloc/db/db_functions.dart';
 import 'package:millat/resources/home/bloc/logic/bookmark_bloc/bookmark_bloc.dart';
 import 'package:millat/resources/home/bloc/logic/quran_bloc/quran_bloc.dart';
@@ -7,6 +8,7 @@ import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/loader.dart';
 import 'package:millat/utils/size_utility.dart';
 import '../../../../../enums/enumertations.dart';
+import '../../../../../routes/app_router_constants.dart';
 import '../../../../../utils/color_manager.dart';
 import '../../../bloc/models/book_mark_hive_model/book_mark_hive_model.dart';
 import 'addnew_collection_view.dart';
@@ -188,7 +190,7 @@ class BookmarkCollectionView extends StatelessWidget {
             alignment: Alignment.topRight,
             child: IconButton(
               onPressed: () {
-                Navigator.of(context).pop();
+                context.pop();
               },
               icon: Icon(
                 Icons.close,
@@ -204,7 +206,7 @@ class BookmarkCollectionView extends StatelessWidget {
               }
               BookMarkDB.instance.removeCollection(passvalue.id!);
               context.read<BookmarkBloc>().add(const FetchCollectionItem());
-              Navigator.of(context).pop();
+              context.pop();
             },
             child: Text(
               'Delete',
@@ -220,7 +222,7 @@ class BookmarkCollectionView extends StatelessWidget {
           kHeight10,
           InkWell(
             onTap: () {
-              Navigator.of(context).pop();
+              context.pop();
             },
             child: Text(
               'Cancel',
@@ -272,10 +274,11 @@ class BookmarkCollectionView extends StatelessWidget {
       )),
       child: TextButton.icon(
         onPressed: () {
-          Navigator.of(context).push(MaterialPageRoute(
-            builder: (context) => AddNewBookMarkCollection(
-                passvalue: passvalue, type: BookMarkCollectionType.edit),
-          ));
+          context.goNamed(MyAppRouteConstants.addNewQuranBookmarkRouteName,
+              extra: {
+                'passvalue': passvalue,
+                'type': BookMarkCollectionType.edit
+              });
         },
         icon: ImageIcon(
           const AssetImage("assets/icons/edit_2.png"),

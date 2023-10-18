@@ -332,6 +332,39 @@ class ShopService extends HttpServices {
     }
   }
 
+//fetching brand products items count
+  Future<List<double>> fetchBrandProductsItemsCount({
+    required List<String>? productIds,
+  }) async {
+    final productCounts = <double>[];
+
+    for (var productId in productIds ?? []) {
+      try {
+        final response =
+            await get(endPoint: "product/seller/product_count/$productId");
+
+        if (response.statusCode == 200) {
+          final Map<String, dynamic> data = json.decode(response.body);
+          final result = data['result'] as Map<String, dynamic>;
+          final productCount = result['totalProducts']?.toDouble();
+
+          if (productCount != null) {
+            productCounts.add(productCount);
+          } else {
+            print(
+                'Invalid response format: totalProducts is missing or not a number.');
+          }
+        } else {
+          print('API request failed with status code: ${response.statusCode}');
+        }
+      } catch (e) {
+        print('An error occurred: $e');
+      }
+    }
+
+    return productCounts;
+  }
+
   // Adding products to wish  list
   addWishList({
     required BuildContext context,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:millat/components/buttons/main_button.dart';
 import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/authentication/bloc/logic/database_bloc/database_bloc.dart';
@@ -8,7 +9,7 @@ import 'package:millat/resources/shop/bloc/logic/address_bloc/address_bloc.dart'
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
 import 'package:millat/resources/shop/view/cart/widgets/cart_product_widget.dart';
 import 'package:millat/resources/shop/view/checkout/checkout_payment.dart';
-import 'package:millat/resources/shop/view/order_status/payment_successful.dart';
+import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
@@ -98,10 +99,8 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
             };
             _razorpay.open(options);
           } else if (state.orderId != null && state.orderSucces) {
-            Navigator.of(context).push(MaterialPageRoute(
-              builder: (context) =>
-                  PaymentSuccessful(subTotal: state.totalAmount, delivery: 90),
-            ));
+            context.pushNamed(MyAppRouteConstants.paymentSuccessfullRouteName,
+                extra: {'subTotal': state.totalAmount, 'delivery': 90});
           }
         },
         builder: (context, state) => state.isLoading
@@ -464,7 +463,7 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
             ),
             GestureDetector(
               onTap: () {
-                Navigator.of(context).pop();
+                context.pop();
               },
               child: const Icon(
                 Icons.arrow_forward_ios,

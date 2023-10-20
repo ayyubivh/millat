@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
 import 'package:millat/resources/shop/view/tabs/shop_tabs_vilew.dart';
+import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
@@ -57,12 +59,8 @@ class OrderReturnSuccessView extends StatelessWidget {
                   child: MainButton(
                     title: Appstrings.keepShopping,
                     onPressed: () {
-                      Navigator.of(context).pushAndRemoveUntil(
-                        MaterialPageRoute(
-                          builder: (context) => const ShopTabsView(),
-                        ),
-                        (route) => false,
-                      );
+                      context.pushReplacementNamed(
+                          MyAppRouteConstants.shopTabsRouteName);
                     },
                   ))),
     );

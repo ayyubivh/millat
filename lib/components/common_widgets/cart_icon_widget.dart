@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:millat/routes/app_router_constants.dart';
 import '../../resources/shop/view/cart/cart.dart';
 import '../../utils/color_manager.dart';
 
@@ -15,9 +17,7 @@ class CartIconWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return IconButton(
       onPressed: () {
-        Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => const CartView(),
-        ));
+        context.pushNamed(MyAppRouteConstants.cartRouteName);
       },
       icon: Stack(
         children: [

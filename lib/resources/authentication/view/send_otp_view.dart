@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 import 'package:millat/components/buttons/main_button.dart';
 import 'package:millat/resources/authentication/bloc/logic/auth_bloc.dart';
-import 'package:millat/resources/authentication/view/verify_otp_view.dart';
+import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/color_manager.dart';
 
 class SendOTPView extends StatefulWidget {
-  final bool signInPhone;
+  final bool? signInPhone;
   const SendOTPView({Key? key, this.signInPhone = false}) : super(key: key);
 
   @override
@@ -28,9 +29,7 @@ class _SendOTPViewState extends State<SendOTPView> {
           buildError(state.errorMessage);
         } else if (state is AuthLoaded) {
           clearDate();
-          Navigator.of(context).push(MaterialPageRoute(
-            builder: (context) => const VerifyOTPView(),
-          ));
+          context.pushNamed(MyAppRouteConstants.verifyOtpRouteName);
         }
       },
       builder: (context, state) {
@@ -96,7 +95,7 @@ class _SendOTPViewState extends State<SendOTPView> {
                       title: 'Send OTP',
                       onPressed: () {
                         if (isValidate) {
-                          if (widget.signInPhone) {
+                          if (widget.signInPhone ?? false) {
                             context.read<AuthBloc>().add(SignInWithPhone(
                                 phoneNumber: number!.phoneNumber!, context));
                           } else {
@@ -107,7 +106,7 @@ class _SendOTPViewState extends State<SendOTPView> {
                         } else {
                           ScaffoldMessenger.of(context).showSnackBar(
                               const SnackBar(
-                                  content: Text("Please entre phone number")));
+                                  content: Text("Please enter phone number")));
                         }
                       }),
                 ],

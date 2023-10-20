@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:millat/components/buttons/main_button.dart';
 import 'package:millat/components/common_widgets/shop_products_widget.dart';
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
@@ -8,6 +9,8 @@ import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/loader.dart';
 import 'package:millat/utils/size_utility.dart';
+
+import '../../../../routes/app_router_constants.dart';
 
 class WishListView extends StatelessWidget {
   const WishListView({super.key});
@@ -28,7 +31,7 @@ class WishListView extends StatelessWidget {
           icon: const Icon(Icons.arrow_back),
           color: ColorManager.blackColor,
           onPressed: () {
-            Navigator.of(context).pop();
+            context.pop();
           },
         ),
       ),
@@ -75,7 +78,7 @@ class WishListView extends StatelessWidget {
                           const SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 2,
                         crossAxisSpacing: 20,
-                        mainAxisExtent: 260,
+                        mainAxisExtent: 270,
                       ),
                       itemCount:
                           state.wishList?.result?.wishlist?.products!.length,
@@ -84,12 +87,9 @@ class WishListView extends StatelessWidget {
                             state.wishList?.result?.wishlist?.products?[index];
                         return GestureDetector(
                           onTap: () {
-                            Navigator.of(context)
-                                .push(MaterialPageRoute(builder: (context) {
-                              return SingleProductView(
-                                id: data!.id.toString(),
-                              );
-                            }));
+                            context.pushNamed(
+                                MyAppRouteConstants.singleProductRouteName,
+                                pathParameters: {"id": data!.id.toString()});
                           },
                           child: Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 15),
@@ -143,7 +143,7 @@ class WishListView extends StatelessWidget {
                       MainButton(
                         title: 'Start Exploring',
                         onPressed: () {
-                          Navigator.of(context).pop();
+                          context.pop();
                         },
                       )
                     ],

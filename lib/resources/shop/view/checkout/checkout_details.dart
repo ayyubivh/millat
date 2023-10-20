@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:millat/enums/enumertations.dart';
-import 'package:millat/resources/profile/views/manage_address.dart';
+import 'package:millat/resources/profile/views/address_book_view.dart';
 import 'package:millat/resources/shop/bloc/logic/address_bloc/address_bloc.dart';
 import 'package:millat/resources/shop/view/checkout/checkout_view.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/size_utility.dart';
 
+import '../../../../routes/app_router_constants.dart';
 import '../../../../utils/string_constants.dart';
 
 class CheckoutDetails extends StatefulWidget {
@@ -271,8 +273,7 @@ class _CheckoutDetailsState extends State<CheckoutDetails> {
               if (widget.type == AddressNavType.profile &&
                   formkey.currentState!.validate()) {
                 Future.delayed(const Duration(seconds: 2)).then((value) {
-                  Navigator.of(context)
-                      .pushReplacementNamed(ManageAddress.routeName);
+                  context.pushNamed(MyAppRouteConstants.addressBookRouteName);
                 });
               } else if (widget.type == AddressNavType.checkout &&
                   formkey.currentState!.validate()) {
@@ -300,8 +301,7 @@ class _CheckoutDetailsState extends State<CheckoutDetails> {
                     country: contryController.text,
                     id: id.toString()));
                 Future.delayed(const Duration(seconds: 2)).then((value) {
-                  Navigator.of(context)
-                      .pushReplacementNamed(ManageAddress.routeName);
+                  context.pushNamed(MyAppRouteConstants.addressBookRouteName);
                 });
               }
               if (formkey.currentState!.validate() &&

@@ -102,6 +102,7 @@ mixin _$ShopProductsEvent {
     required TResult Function() fetchArticlesCategory,
     required TResult Function(String filterVal) saveArticleCategoryFilterVal,
     required TResult Function(String category) fetchArticlesByCategory,
+    required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -187,6 +188,7 @@ mixin _$ShopProductsEvent {
     TResult? Function()? fetchArticlesCategory,
     TResult? Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult? Function(String category)? fetchArticlesByCategory,
+    TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -272,6 +274,7 @@ mixin _$ShopProductsEvent {
     TResult Function()? fetchArticlesCategory,
     TResult Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult Function(String category)? fetchArticlesByCategory,
+    TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -353,6 +356,8 @@ mixin _$ShopProductsEvent {
         saveArticleCategoryFilterVal,
     required TResult Function(FetchArticlesByCategory value)
         fetchArticlesByCategory,
+    required TResult Function(FetchBrandProductsItemCount value)
+        fetchBrandProductsItemCount,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -422,6 +427,8 @@ mixin _$ShopProductsEvent {
     TResult? Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult? Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult? Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -491,6 +498,8 @@ mixin _$ShopProductsEvent {
     TResult Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -664,6 +673,7 @@ class _$FetchFlashSaleProducts implements FetchFlashSaleProducts {
     required TResult Function() fetchArticlesCategory,
     required TResult Function(String filterVal) saveArticleCategoryFilterVal,
     required TResult Function(String category) fetchArticlesByCategory,
+    required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
   }) {
     return fetchFlashSaleProducts(endPointSlug);
   }
@@ -752,6 +762,7 @@ class _$FetchFlashSaleProducts implements FetchFlashSaleProducts {
     TResult? Function()? fetchArticlesCategory,
     TResult? Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult? Function(String category)? fetchArticlesByCategory,
+    TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
   }) {
     return fetchFlashSaleProducts?.call(endPointSlug);
   }
@@ -840,6 +851,7 @@ class _$FetchFlashSaleProducts implements FetchFlashSaleProducts {
     TResult Function()? fetchArticlesCategory,
     TResult Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult Function(String category)? fetchArticlesByCategory,
+    TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (fetchFlashSaleProducts != null) {
@@ -927,6 +939,8 @@ class _$FetchFlashSaleProducts implements FetchFlashSaleProducts {
         saveArticleCategoryFilterVal,
     required TResult Function(FetchArticlesByCategory value)
         fetchArticlesByCategory,
+    required TResult Function(FetchBrandProductsItemCount value)
+        fetchBrandProductsItemCount,
   }) {
     return fetchFlashSaleProducts(this);
   }
@@ -999,6 +1013,8 @@ class _$FetchFlashSaleProducts implements FetchFlashSaleProducts {
     TResult? Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult? Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult? Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
   }) {
     return fetchFlashSaleProducts?.call(this);
   }
@@ -1071,6 +1087,8 @@ class _$FetchFlashSaleProducts implements FetchFlashSaleProducts {
     TResult Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (fetchFlashSaleProducts != null) {
@@ -1240,6 +1258,7 @@ class _$FetchPopularProducts implements FetchPopularProducts {
     required TResult Function() fetchArticlesCategory,
     required TResult Function(String filterVal) saveArticleCategoryFilterVal,
     required TResult Function(String category) fetchArticlesByCategory,
+    required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
   }) {
     return fetchPopularProducts(endPointSlug);
   }
@@ -1328,6 +1347,7 @@ class _$FetchPopularProducts implements FetchPopularProducts {
     TResult? Function()? fetchArticlesCategory,
     TResult? Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult? Function(String category)? fetchArticlesByCategory,
+    TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
   }) {
     return fetchPopularProducts?.call(endPointSlug);
   }
@@ -1416,6 +1436,7 @@ class _$FetchPopularProducts implements FetchPopularProducts {
     TResult Function()? fetchArticlesCategory,
     TResult Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult Function(String category)? fetchArticlesByCategory,
+    TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (fetchPopularProducts != null) {
@@ -1503,6 +1524,8 @@ class _$FetchPopularProducts implements FetchPopularProducts {
         saveArticleCategoryFilterVal,
     required TResult Function(FetchArticlesByCategory value)
         fetchArticlesByCategory,
+    required TResult Function(FetchBrandProductsItemCount value)
+        fetchBrandProductsItemCount,
   }) {
     return fetchPopularProducts(this);
   }
@@ -1575,6 +1598,8 @@ class _$FetchPopularProducts implements FetchPopularProducts {
     TResult? Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult? Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult? Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
   }) {
     return fetchPopularProducts?.call(this);
   }
@@ -1647,6 +1672,8 @@ class _$FetchPopularProducts implements FetchPopularProducts {
     TResult Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (fetchPopularProducts != null) {
@@ -1791,6 +1818,7 @@ class _$FetchRecentProductProducts implements FetchRecentProductProducts {
     required TResult Function() fetchArticlesCategory,
     required TResult Function(String filterVal) saveArticleCategoryFilterVal,
     required TResult Function(String category) fetchArticlesByCategory,
+    required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
   }) {
     return fetchRecentProductProducts();
   }
@@ -1879,6 +1907,7 @@ class _$FetchRecentProductProducts implements FetchRecentProductProducts {
     TResult? Function()? fetchArticlesCategory,
     TResult? Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult? Function(String category)? fetchArticlesByCategory,
+    TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
   }) {
     return fetchRecentProductProducts?.call();
   }
@@ -1967,6 +1996,7 @@ class _$FetchRecentProductProducts implements FetchRecentProductProducts {
     TResult Function()? fetchArticlesCategory,
     TResult Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult Function(String category)? fetchArticlesByCategory,
+    TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (fetchRecentProductProducts != null) {
@@ -2054,6 +2084,8 @@ class _$FetchRecentProductProducts implements FetchRecentProductProducts {
         saveArticleCategoryFilterVal,
     required TResult Function(FetchArticlesByCategory value)
         fetchArticlesByCategory,
+    required TResult Function(FetchBrandProductsItemCount value)
+        fetchBrandProductsItemCount,
   }) {
     return fetchRecentProductProducts(this);
   }
@@ -2126,6 +2158,8 @@ class _$FetchRecentProductProducts implements FetchRecentProductProducts {
     TResult? Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult? Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult? Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
   }) {
     return fetchRecentProductProducts?.call(this);
   }
@@ -2198,6 +2232,8 @@ class _$FetchRecentProductProducts implements FetchRecentProductProducts {
     TResult Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (fetchRecentProductProducts != null) {
@@ -2333,6 +2369,7 @@ class _$FetchHomeBanners implements FetchHomeBanners {
     required TResult Function() fetchArticlesCategory,
     required TResult Function(String filterVal) saveArticleCategoryFilterVal,
     required TResult Function(String category) fetchArticlesByCategory,
+    required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
   }) {
     return fetchHomeBanners();
   }
@@ -2421,6 +2458,7 @@ class _$FetchHomeBanners implements FetchHomeBanners {
     TResult? Function()? fetchArticlesCategory,
     TResult? Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult? Function(String category)? fetchArticlesByCategory,
+    TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
   }) {
     return fetchHomeBanners?.call();
   }
@@ -2509,6 +2547,7 @@ class _$FetchHomeBanners implements FetchHomeBanners {
     TResult Function()? fetchArticlesCategory,
     TResult Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult Function(String category)? fetchArticlesByCategory,
+    TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (fetchHomeBanners != null) {
@@ -2596,6 +2635,8 @@ class _$FetchHomeBanners implements FetchHomeBanners {
         saveArticleCategoryFilterVal,
     required TResult Function(FetchArticlesByCategory value)
         fetchArticlesByCategory,
+    required TResult Function(FetchBrandProductsItemCount value)
+        fetchBrandProductsItemCount,
   }) {
     return fetchHomeBanners(this);
   }
@@ -2668,6 +2709,8 @@ class _$FetchHomeBanners implements FetchHomeBanners {
     TResult? Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult? Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult? Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
   }) {
     return fetchHomeBanners?.call(this);
   }
@@ -2740,6 +2783,8 @@ class _$FetchHomeBanners implements FetchHomeBanners {
     TResult Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (fetchHomeBanners != null) {
@@ -2875,6 +2920,7 @@ class _$FetchShopBanners implements FetchShopBanners {
     required TResult Function() fetchArticlesCategory,
     required TResult Function(String filterVal) saveArticleCategoryFilterVal,
     required TResult Function(String category) fetchArticlesByCategory,
+    required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
   }) {
     return fetchShopBanners();
   }
@@ -2963,6 +3009,7 @@ class _$FetchShopBanners implements FetchShopBanners {
     TResult? Function()? fetchArticlesCategory,
     TResult? Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult? Function(String category)? fetchArticlesByCategory,
+    TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
   }) {
     return fetchShopBanners?.call();
   }
@@ -3051,6 +3098,7 @@ class _$FetchShopBanners implements FetchShopBanners {
     TResult Function()? fetchArticlesCategory,
     TResult Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult Function(String category)? fetchArticlesByCategory,
+    TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (fetchShopBanners != null) {
@@ -3138,6 +3186,8 @@ class _$FetchShopBanners implements FetchShopBanners {
         saveArticleCategoryFilterVal,
     required TResult Function(FetchArticlesByCategory value)
         fetchArticlesByCategory,
+    required TResult Function(FetchBrandProductsItemCount value)
+        fetchBrandProductsItemCount,
   }) {
     return fetchShopBanners(this);
   }
@@ -3210,6 +3260,8 @@ class _$FetchShopBanners implements FetchShopBanners {
     TResult? Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult? Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult? Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
   }) {
     return fetchShopBanners?.call(this);
   }
@@ -3282,6 +3334,8 @@ class _$FetchShopBanners implements FetchShopBanners {
     TResult Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (fetchShopBanners != null) {
@@ -3444,6 +3498,7 @@ class _$FetchArticles implements FetchArticles {
     required TResult Function() fetchArticlesCategory,
     required TResult Function(String filterVal) saveArticleCategoryFilterVal,
     required TResult Function(String category) fetchArticlesByCategory,
+    required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
   }) {
     return fetchArticles(searchQuery);
   }
@@ -3532,6 +3587,7 @@ class _$FetchArticles implements FetchArticles {
     TResult? Function()? fetchArticlesCategory,
     TResult? Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult? Function(String category)? fetchArticlesByCategory,
+    TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
   }) {
     return fetchArticles?.call(searchQuery);
   }
@@ -3620,6 +3676,7 @@ class _$FetchArticles implements FetchArticles {
     TResult Function()? fetchArticlesCategory,
     TResult Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult Function(String category)? fetchArticlesByCategory,
+    TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (fetchArticles != null) {
@@ -3707,6 +3764,8 @@ class _$FetchArticles implements FetchArticles {
         saveArticleCategoryFilterVal,
     required TResult Function(FetchArticlesByCategory value)
         fetchArticlesByCategory,
+    required TResult Function(FetchBrandProductsItemCount value)
+        fetchBrandProductsItemCount,
   }) {
     return fetchArticles(this);
   }
@@ -3779,6 +3838,8 @@ class _$FetchArticles implements FetchArticles {
     TResult? Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult? Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult? Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
   }) {
     return fetchArticles?.call(this);
   }
@@ -3851,6 +3912,8 @@ class _$FetchArticles implements FetchArticles {
     TResult Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (fetchArticles != null) {
@@ -3992,6 +4055,7 @@ class _$FetchShopByBrand implements FetchShopByBrand {
     required TResult Function() fetchArticlesCategory,
     required TResult Function(String filterVal) saveArticleCategoryFilterVal,
     required TResult Function(String category) fetchArticlesByCategory,
+    required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
   }) {
     return fetchShopByBrand();
   }
@@ -4080,6 +4144,7 @@ class _$FetchShopByBrand implements FetchShopByBrand {
     TResult? Function()? fetchArticlesCategory,
     TResult? Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult? Function(String category)? fetchArticlesByCategory,
+    TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
   }) {
     return fetchShopByBrand?.call();
   }
@@ -4168,6 +4233,7 @@ class _$FetchShopByBrand implements FetchShopByBrand {
     TResult Function()? fetchArticlesCategory,
     TResult Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult Function(String category)? fetchArticlesByCategory,
+    TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (fetchShopByBrand != null) {
@@ -4255,6 +4321,8 @@ class _$FetchShopByBrand implements FetchShopByBrand {
         saveArticleCategoryFilterVal,
     required TResult Function(FetchArticlesByCategory value)
         fetchArticlesByCategory,
+    required TResult Function(FetchBrandProductsItemCount value)
+        fetchBrandProductsItemCount,
   }) {
     return fetchShopByBrand(this);
   }
@@ -4327,6 +4395,8 @@ class _$FetchShopByBrand implements FetchShopByBrand {
     TResult? Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult? Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult? Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
   }) {
     return fetchShopByBrand?.call(this);
   }
@@ -4399,6 +4469,8 @@ class _$FetchShopByBrand implements FetchShopByBrand {
     TResult Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (fetchShopByBrand != null) {
@@ -4560,6 +4632,7 @@ class _$FetchWishList implements FetchWishList {
     required TResult Function() fetchArticlesCategory,
     required TResult Function(String filterVal) saveArticleCategoryFilterVal,
     required TResult Function(String category) fetchArticlesByCategory,
+    required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
   }) {
     return fetchWishList(context);
   }
@@ -4648,6 +4721,7 @@ class _$FetchWishList implements FetchWishList {
     TResult? Function()? fetchArticlesCategory,
     TResult? Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult? Function(String category)? fetchArticlesByCategory,
+    TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
   }) {
     return fetchWishList?.call(context);
   }
@@ -4736,6 +4810,7 @@ class _$FetchWishList implements FetchWishList {
     TResult Function()? fetchArticlesCategory,
     TResult Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult Function(String category)? fetchArticlesByCategory,
+    TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (fetchWishList != null) {
@@ -4823,6 +4898,8 @@ class _$FetchWishList implements FetchWishList {
         saveArticleCategoryFilterVal,
     required TResult Function(FetchArticlesByCategory value)
         fetchArticlesByCategory,
+    required TResult Function(FetchBrandProductsItemCount value)
+        fetchBrandProductsItemCount,
   }) {
     return fetchWishList(this);
   }
@@ -4895,6 +4972,8 @@ class _$FetchWishList implements FetchWishList {
     TResult? Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult? Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult? Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
   }) {
     return fetchWishList?.call(this);
   }
@@ -4967,6 +5046,8 @@ class _$FetchWishList implements FetchWishList {
     TResult Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (fetchWishList != null) {
@@ -5133,6 +5214,7 @@ class _$SearchProduct implements SearchProduct {
     required TResult Function() fetchArticlesCategory,
     required TResult Function(String filterVal) saveArticleCategoryFilterVal,
     required TResult Function(String category) fetchArticlesByCategory,
+    required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
   }) {
     return searchProduct(query);
   }
@@ -5221,6 +5303,7 @@ class _$SearchProduct implements SearchProduct {
     TResult? Function()? fetchArticlesCategory,
     TResult? Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult? Function(String category)? fetchArticlesByCategory,
+    TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
   }) {
     return searchProduct?.call(query);
   }
@@ -5309,6 +5392,7 @@ class _$SearchProduct implements SearchProduct {
     TResult Function()? fetchArticlesCategory,
     TResult Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult Function(String category)? fetchArticlesByCategory,
+    TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (searchProduct != null) {
@@ -5396,6 +5480,8 @@ class _$SearchProduct implements SearchProduct {
         saveArticleCategoryFilterVal,
     required TResult Function(FetchArticlesByCategory value)
         fetchArticlesByCategory,
+    required TResult Function(FetchBrandProductsItemCount value)
+        fetchBrandProductsItemCount,
   }) {
     return searchProduct(this);
   }
@@ -5468,6 +5554,8 @@ class _$SearchProduct implements SearchProduct {
     TResult? Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult? Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult? Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
   }) {
     return searchProduct?.call(this);
   }
@@ -5540,6 +5628,8 @@ class _$SearchProduct implements SearchProduct {
     TResult Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (searchProduct != null) {
@@ -5715,6 +5805,7 @@ class _$AddWishListEvent implements AddWishListEvent {
     required TResult Function() fetchArticlesCategory,
     required TResult Function(String filterVal) saveArticleCategoryFilterVal,
     required TResult Function(String category) fetchArticlesByCategory,
+    required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
   }) {
     return addWishListEvent(productId, context);
   }
@@ -5803,6 +5894,7 @@ class _$AddWishListEvent implements AddWishListEvent {
     TResult? Function()? fetchArticlesCategory,
     TResult? Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult? Function(String category)? fetchArticlesByCategory,
+    TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
   }) {
     return addWishListEvent?.call(productId, context);
   }
@@ -5891,6 +5983,7 @@ class _$AddWishListEvent implements AddWishListEvent {
     TResult Function()? fetchArticlesCategory,
     TResult Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult Function(String category)? fetchArticlesByCategory,
+    TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (addWishListEvent != null) {
@@ -5978,6 +6071,8 @@ class _$AddWishListEvent implements AddWishListEvent {
         saveArticleCategoryFilterVal,
     required TResult Function(FetchArticlesByCategory value)
         fetchArticlesByCategory,
+    required TResult Function(FetchBrandProductsItemCount value)
+        fetchBrandProductsItemCount,
   }) {
     return addWishListEvent(this);
   }
@@ -6050,6 +6145,8 @@ class _$AddWishListEvent implements AddWishListEvent {
     TResult? Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult? Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult? Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
   }) {
     return addWishListEvent?.call(this);
   }
@@ -6122,6 +6219,8 @@ class _$AddWishListEvent implements AddWishListEvent {
     TResult Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (addWishListEvent != null) {
@@ -6301,6 +6400,7 @@ class _$RemoveWishlistEvent implements RemoveWishlistEvent {
     required TResult Function() fetchArticlesCategory,
     required TResult Function(String filterVal) saveArticleCategoryFilterVal,
     required TResult Function(String category) fetchArticlesByCategory,
+    required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
   }) {
     return removeWishlistEvent(productId, context);
   }
@@ -6389,6 +6489,7 @@ class _$RemoveWishlistEvent implements RemoveWishlistEvent {
     TResult? Function()? fetchArticlesCategory,
     TResult? Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult? Function(String category)? fetchArticlesByCategory,
+    TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
   }) {
     return removeWishlistEvent?.call(productId, context);
   }
@@ -6477,6 +6578,7 @@ class _$RemoveWishlistEvent implements RemoveWishlistEvent {
     TResult Function()? fetchArticlesCategory,
     TResult Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult Function(String category)? fetchArticlesByCategory,
+    TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (removeWishlistEvent != null) {
@@ -6564,6 +6666,8 @@ class _$RemoveWishlistEvent implements RemoveWishlistEvent {
         saveArticleCategoryFilterVal,
     required TResult Function(FetchArticlesByCategory value)
         fetchArticlesByCategory,
+    required TResult Function(FetchBrandProductsItemCount value)
+        fetchBrandProductsItemCount,
   }) {
     return removeWishlistEvent(this);
   }
@@ -6636,6 +6740,8 @@ class _$RemoveWishlistEvent implements RemoveWishlistEvent {
     TResult? Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult? Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult? Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
   }) {
     return removeWishlistEvent?.call(this);
   }
@@ -6708,6 +6814,8 @@ class _$RemoveWishlistEvent implements RemoveWishlistEvent {
     TResult Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (removeWishlistEvent != null) {
@@ -6880,6 +6988,7 @@ class _$FetchShopByBrandProducts implements FetchShopByBrandProducts {
     required TResult Function() fetchArticlesCategory,
     required TResult Function(String filterVal) saveArticleCategoryFilterVal,
     required TResult Function(String category) fetchArticlesByCategory,
+    required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
   }) {
     return fetchShopByBrandProducts(brandName);
   }
@@ -6968,6 +7077,7 @@ class _$FetchShopByBrandProducts implements FetchShopByBrandProducts {
     TResult? Function()? fetchArticlesCategory,
     TResult? Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult? Function(String category)? fetchArticlesByCategory,
+    TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
   }) {
     return fetchShopByBrandProducts?.call(brandName);
   }
@@ -7056,6 +7166,7 @@ class _$FetchShopByBrandProducts implements FetchShopByBrandProducts {
     TResult Function()? fetchArticlesCategory,
     TResult Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult Function(String category)? fetchArticlesByCategory,
+    TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (fetchShopByBrandProducts != null) {
@@ -7143,6 +7254,8 @@ class _$FetchShopByBrandProducts implements FetchShopByBrandProducts {
         saveArticleCategoryFilterVal,
     required TResult Function(FetchArticlesByCategory value)
         fetchArticlesByCategory,
+    required TResult Function(FetchBrandProductsItemCount value)
+        fetchBrandProductsItemCount,
   }) {
     return fetchShopByBrandProducts(this);
   }
@@ -7215,6 +7328,8 @@ class _$FetchShopByBrandProducts implements FetchShopByBrandProducts {
     TResult? Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult? Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult? Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
   }) {
     return fetchShopByBrandProducts?.call(this);
   }
@@ -7287,6 +7402,8 @@ class _$FetchShopByBrandProducts implements FetchShopByBrandProducts {
     TResult Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (fetchShopByBrandProducts != null) {
@@ -7455,6 +7572,7 @@ class _$TabIndexChangeEvent implements TabIndexChangeEvent {
     required TResult Function() fetchArticlesCategory,
     required TResult Function(String filterVal) saveArticleCategoryFilterVal,
     required TResult Function(String category) fetchArticlesByCategory,
+    required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
   }) {
     return tabIndexChangeEvent(index);
   }
@@ -7543,6 +7661,7 @@ class _$TabIndexChangeEvent implements TabIndexChangeEvent {
     TResult? Function()? fetchArticlesCategory,
     TResult? Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult? Function(String category)? fetchArticlesByCategory,
+    TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
   }) {
     return tabIndexChangeEvent?.call(index);
   }
@@ -7631,6 +7750,7 @@ class _$TabIndexChangeEvent implements TabIndexChangeEvent {
     TResult Function()? fetchArticlesCategory,
     TResult Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult Function(String category)? fetchArticlesByCategory,
+    TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (tabIndexChangeEvent != null) {
@@ -7718,6 +7838,8 @@ class _$TabIndexChangeEvent implements TabIndexChangeEvent {
         saveArticleCategoryFilterVal,
     required TResult Function(FetchArticlesByCategory value)
         fetchArticlesByCategory,
+    required TResult Function(FetchBrandProductsItemCount value)
+        fetchBrandProductsItemCount,
   }) {
     return tabIndexChangeEvent(this);
   }
@@ -7790,6 +7912,8 @@ class _$TabIndexChangeEvent implements TabIndexChangeEvent {
     TResult? Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult? Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult? Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
   }) {
     return tabIndexChangeEvent?.call(this);
   }
@@ -7862,6 +7986,8 @@ class _$TabIndexChangeEvent implements TabIndexChangeEvent {
     TResult Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (tabIndexChangeEvent != null) {
@@ -8107,6 +8233,7 @@ class _$PostOrders implements PostOrders {
     required TResult Function() fetchArticlesCategory,
     required TResult Function(String filterVal) saveArticleCategoryFilterVal,
     required TResult Function(String category) fetchArticlesByCategory,
+    required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
   }) {
     return postOrders(context, totalPrice, pickupLocation, quantity,
         totalDiscount, shippingCharges, weight, id);
@@ -8196,6 +8323,7 @@ class _$PostOrders implements PostOrders {
     TResult? Function()? fetchArticlesCategory,
     TResult? Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult? Function(String category)? fetchArticlesByCategory,
+    TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
   }) {
     return postOrders?.call(context, totalPrice, pickupLocation, quantity,
         totalDiscount, shippingCharges, weight, id);
@@ -8285,6 +8413,7 @@ class _$PostOrders implements PostOrders {
     TResult Function()? fetchArticlesCategory,
     TResult Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult Function(String category)? fetchArticlesByCategory,
+    TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (postOrders != null) {
@@ -8373,6 +8502,8 @@ class _$PostOrders implements PostOrders {
         saveArticleCategoryFilterVal,
     required TResult Function(FetchArticlesByCategory value)
         fetchArticlesByCategory,
+    required TResult Function(FetchBrandProductsItemCount value)
+        fetchBrandProductsItemCount,
   }) {
     return postOrders(this);
   }
@@ -8445,6 +8576,8 @@ class _$PostOrders implements PostOrders {
     TResult? Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult? Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult? Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
   }) {
     return postOrders?.call(this);
   }
@@ -8517,6 +8650,8 @@ class _$PostOrders implements PostOrders {
     TResult Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (postOrders != null) {
@@ -8745,6 +8880,7 @@ class _$PostOnlieOrders implements PostOnlieOrders {
     required TResult Function() fetchArticlesCategory,
     required TResult Function(String filterVal) saveArticleCategoryFilterVal,
     required TResult Function(String category) fetchArticlesByCategory,
+    required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
   }) {
     return postOnlieOrders(context, razorpayOrderId, razorpayPaymentId,
         razorpaySignature, addressId);
@@ -8834,6 +8970,7 @@ class _$PostOnlieOrders implements PostOnlieOrders {
     TResult? Function()? fetchArticlesCategory,
     TResult? Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult? Function(String category)? fetchArticlesByCategory,
+    TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
   }) {
     return postOnlieOrders?.call(context, razorpayOrderId, razorpayPaymentId,
         razorpaySignature, addressId);
@@ -8923,6 +9060,7 @@ class _$PostOnlieOrders implements PostOnlieOrders {
     TResult Function()? fetchArticlesCategory,
     TResult Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult Function(String category)? fetchArticlesByCategory,
+    TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (postOnlieOrders != null) {
@@ -9011,6 +9149,8 @@ class _$PostOnlieOrders implements PostOnlieOrders {
         saveArticleCategoryFilterVal,
     required TResult Function(FetchArticlesByCategory value)
         fetchArticlesByCategory,
+    required TResult Function(FetchBrandProductsItemCount value)
+        fetchBrandProductsItemCount,
   }) {
     return postOnlieOrders(this);
   }
@@ -9083,6 +9223,8 @@ class _$PostOnlieOrders implements PostOnlieOrders {
     TResult? Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult? Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult? Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
   }) {
     return postOnlieOrders?.call(this);
   }
@@ -9155,6 +9297,8 @@ class _$PostOnlieOrders implements PostOnlieOrders {
     TResult Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (postOnlieOrders != null) {
@@ -9341,6 +9485,7 @@ class _$PostOrderIdOnlinePayment implements PostOrderIdOnlinePayment {
     required TResult Function() fetchArticlesCategory,
     required TResult Function(String filterVal) saveArticleCategoryFilterVal,
     required TResult Function(String category) fetchArticlesByCategory,
+    required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
   }) {
     return postOrderIdOnlinePayment(context, amount);
   }
@@ -9429,6 +9574,7 @@ class _$PostOrderIdOnlinePayment implements PostOrderIdOnlinePayment {
     TResult? Function()? fetchArticlesCategory,
     TResult? Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult? Function(String category)? fetchArticlesByCategory,
+    TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
   }) {
     return postOrderIdOnlinePayment?.call(context, amount);
   }
@@ -9517,6 +9663,7 @@ class _$PostOrderIdOnlinePayment implements PostOrderIdOnlinePayment {
     TResult Function()? fetchArticlesCategory,
     TResult Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult Function(String category)? fetchArticlesByCategory,
+    TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (postOrderIdOnlinePayment != null) {
@@ -9604,6 +9751,8 @@ class _$PostOrderIdOnlinePayment implements PostOrderIdOnlinePayment {
         saveArticleCategoryFilterVal,
     required TResult Function(FetchArticlesByCategory value)
         fetchArticlesByCategory,
+    required TResult Function(FetchBrandProductsItemCount value)
+        fetchBrandProductsItemCount,
   }) {
     return postOrderIdOnlinePayment(this);
   }
@@ -9676,6 +9825,8 @@ class _$PostOrderIdOnlinePayment implements PostOrderIdOnlinePayment {
     TResult? Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult? Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult? Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
   }) {
     return postOrderIdOnlinePayment?.call(this);
   }
@@ -9748,6 +9899,8 @@ class _$PostOrderIdOnlinePayment implements PostOrderIdOnlinePayment {
     TResult Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (postOrderIdOnlinePayment != null) {
@@ -10003,6 +10156,7 @@ class _$PostOrdersRewards implements PostOrdersRewards {
     required TResult Function() fetchArticlesCategory,
     required TResult Function(String filterVal) saveArticleCategoryFilterVal,
     required TResult Function(String category) fetchArticlesByCategory,
+    required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
   }) {
     return postOrdersRewards(context, price, coins, addressId, totalQuantity,
         productId, brandId, size, color);
@@ -10092,6 +10246,7 @@ class _$PostOrdersRewards implements PostOrdersRewards {
     TResult? Function()? fetchArticlesCategory,
     TResult? Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult? Function(String category)? fetchArticlesByCategory,
+    TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
   }) {
     return postOrdersRewards?.call(context, price, coins, addressId,
         totalQuantity, productId, brandId, size, color);
@@ -10181,6 +10336,7 @@ class _$PostOrdersRewards implements PostOrdersRewards {
     TResult Function()? fetchArticlesCategory,
     TResult Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult Function(String category)? fetchArticlesByCategory,
+    TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (postOrdersRewards != null) {
@@ -10269,6 +10425,8 @@ class _$PostOrdersRewards implements PostOrdersRewards {
         saveArticleCategoryFilterVal,
     required TResult Function(FetchArticlesByCategory value)
         fetchArticlesByCategory,
+    required TResult Function(FetchBrandProductsItemCount value)
+        fetchBrandProductsItemCount,
   }) {
     return postOrdersRewards(this);
   }
@@ -10341,6 +10499,8 @@ class _$PostOrdersRewards implements PostOrdersRewards {
     TResult? Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult? Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult? Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
   }) {
     return postOrdersRewards?.call(this);
   }
@@ -10413,6 +10573,8 @@ class _$PostOrdersRewards implements PostOrdersRewards {
     TResult Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (postOrdersRewards != null) {
@@ -10596,6 +10758,7 @@ class _$FetchOrders implements FetchOrders {
     required TResult Function() fetchArticlesCategory,
     required TResult Function(String filterVal) saveArticleCategoryFilterVal,
     required TResult Function(String category) fetchArticlesByCategory,
+    required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
   }) {
     return fetchOrders(context);
   }
@@ -10684,6 +10847,7 @@ class _$FetchOrders implements FetchOrders {
     TResult? Function()? fetchArticlesCategory,
     TResult? Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult? Function(String category)? fetchArticlesByCategory,
+    TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
   }) {
     return fetchOrders?.call(context);
   }
@@ -10772,6 +10936,7 @@ class _$FetchOrders implements FetchOrders {
     TResult Function()? fetchArticlesCategory,
     TResult Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult Function(String category)? fetchArticlesByCategory,
+    TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (fetchOrders != null) {
@@ -10859,6 +11024,8 @@ class _$FetchOrders implements FetchOrders {
         saveArticleCategoryFilterVal,
     required TResult Function(FetchArticlesByCategory value)
         fetchArticlesByCategory,
+    required TResult Function(FetchBrandProductsItemCount value)
+        fetchBrandProductsItemCount,
   }) {
     return fetchOrders(this);
   }
@@ -10931,6 +11098,8 @@ class _$FetchOrders implements FetchOrders {
     TResult? Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult? Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult? Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
   }) {
     return fetchOrders?.call(this);
   }
@@ -11003,6 +11172,8 @@ class _$FetchOrders implements FetchOrders {
     TResult Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (fetchOrders != null) {
@@ -11177,6 +11348,7 @@ class _$FetchOrdersById implements FetchOrdersById {
     required TResult Function() fetchArticlesCategory,
     required TResult Function(String filterVal) saveArticleCategoryFilterVal,
     required TResult Function(String category) fetchArticlesByCategory,
+    required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
   }) {
     return fetchOrdersById(context, id);
   }
@@ -11265,6 +11437,7 @@ class _$FetchOrdersById implements FetchOrdersById {
     TResult? Function()? fetchArticlesCategory,
     TResult? Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult? Function(String category)? fetchArticlesByCategory,
+    TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
   }) {
     return fetchOrdersById?.call(context, id);
   }
@@ -11353,6 +11526,7 @@ class _$FetchOrdersById implements FetchOrdersById {
     TResult Function()? fetchArticlesCategory,
     TResult Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult Function(String category)? fetchArticlesByCategory,
+    TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (fetchOrdersById != null) {
@@ -11440,6 +11614,8 @@ class _$FetchOrdersById implements FetchOrdersById {
         saveArticleCategoryFilterVal,
     required TResult Function(FetchArticlesByCategory value)
         fetchArticlesByCategory,
+    required TResult Function(FetchBrandProductsItemCount value)
+        fetchBrandProductsItemCount,
   }) {
     return fetchOrdersById(this);
   }
@@ -11512,6 +11688,8 @@ class _$FetchOrdersById implements FetchOrdersById {
     TResult? Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult? Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult? Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
   }) {
     return fetchOrdersById?.call(this);
   }
@@ -11584,6 +11762,8 @@ class _$FetchOrdersById implements FetchOrdersById {
     TResult Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (fetchOrdersById != null) {
@@ -11764,6 +11944,7 @@ class _$FetchOrdersbyFilterEvent implements FetchOrdersbyFilterEvent {
     required TResult Function() fetchArticlesCategory,
     required TResult Function(String filterVal) saveArticleCategoryFilterVal,
     required TResult Function(String category) fetchArticlesByCategory,
+    required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
   }) {
     return fetchOrdersbyFilterEvent(context, filterName);
   }
@@ -11852,6 +12033,7 @@ class _$FetchOrdersbyFilterEvent implements FetchOrdersbyFilterEvent {
     TResult? Function()? fetchArticlesCategory,
     TResult? Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult? Function(String category)? fetchArticlesByCategory,
+    TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
   }) {
     return fetchOrdersbyFilterEvent?.call(context, filterName);
   }
@@ -11940,6 +12122,7 @@ class _$FetchOrdersbyFilterEvent implements FetchOrdersbyFilterEvent {
     TResult Function()? fetchArticlesCategory,
     TResult Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult Function(String category)? fetchArticlesByCategory,
+    TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (fetchOrdersbyFilterEvent != null) {
@@ -12027,6 +12210,8 @@ class _$FetchOrdersbyFilterEvent implements FetchOrdersbyFilterEvent {
         saveArticleCategoryFilterVal,
     required TResult Function(FetchArticlesByCategory value)
         fetchArticlesByCategory,
+    required TResult Function(FetchBrandProductsItemCount value)
+        fetchBrandProductsItemCount,
   }) {
     return fetchOrdersbyFilterEvent(this);
   }
@@ -12099,6 +12284,8 @@ class _$FetchOrdersbyFilterEvent implements FetchOrdersbyFilterEvent {
     TResult? Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult? Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult? Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
   }) {
     return fetchOrdersbyFilterEvent?.call(this);
   }
@@ -12171,6 +12358,8 @@ class _$FetchOrdersbyFilterEvent implements FetchOrdersbyFilterEvent {
     TResult Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (fetchOrdersbyFilterEvent != null) {
@@ -12349,6 +12538,7 @@ class _$CancelOrder implements CancelOrder {
     required TResult Function() fetchArticlesCategory,
     required TResult Function(String filterVal) saveArticleCategoryFilterVal,
     required TResult Function(String category) fetchArticlesByCategory,
+    required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
   }) {
     return cancelOrder(context, shiprockeId);
   }
@@ -12437,6 +12627,7 @@ class _$CancelOrder implements CancelOrder {
     TResult? Function()? fetchArticlesCategory,
     TResult? Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult? Function(String category)? fetchArticlesByCategory,
+    TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
   }) {
     return cancelOrder?.call(context, shiprockeId);
   }
@@ -12525,6 +12716,7 @@ class _$CancelOrder implements CancelOrder {
     TResult Function()? fetchArticlesCategory,
     TResult Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult Function(String category)? fetchArticlesByCategory,
+    TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (cancelOrder != null) {
@@ -12612,6 +12804,8 @@ class _$CancelOrder implements CancelOrder {
         saveArticleCategoryFilterVal,
     required TResult Function(FetchArticlesByCategory value)
         fetchArticlesByCategory,
+    required TResult Function(FetchBrandProductsItemCount value)
+        fetchBrandProductsItemCount,
   }) {
     return cancelOrder(this);
   }
@@ -12684,6 +12878,8 @@ class _$CancelOrder implements CancelOrder {
     TResult? Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult? Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult? Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
   }) {
     return cancelOrder?.call(this);
   }
@@ -12756,6 +12952,8 @@ class _$CancelOrder implements CancelOrder {
     TResult Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (cancelOrder != null) {
@@ -12934,6 +13132,7 @@ class _$ReturnOrder implements ReturnOrder {
     required TResult Function() fetchArticlesCategory,
     required TResult Function(String filterVal) saveArticleCategoryFilterVal,
     required TResult Function(String category) fetchArticlesByCategory,
+    required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
   }) {
     return returnOrder(context, shiprockeId);
   }
@@ -13022,6 +13221,7 @@ class _$ReturnOrder implements ReturnOrder {
     TResult? Function()? fetchArticlesCategory,
     TResult? Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult? Function(String category)? fetchArticlesByCategory,
+    TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
   }) {
     return returnOrder?.call(context, shiprockeId);
   }
@@ -13110,6 +13310,7 @@ class _$ReturnOrder implements ReturnOrder {
     TResult Function()? fetchArticlesCategory,
     TResult Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult Function(String category)? fetchArticlesByCategory,
+    TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (returnOrder != null) {
@@ -13197,6 +13398,8 @@ class _$ReturnOrder implements ReturnOrder {
         saveArticleCategoryFilterVal,
     required TResult Function(FetchArticlesByCategory value)
         fetchArticlesByCategory,
+    required TResult Function(FetchBrandProductsItemCount value)
+        fetchBrandProductsItemCount,
   }) {
     return returnOrder(this);
   }
@@ -13269,6 +13472,8 @@ class _$ReturnOrder implements ReturnOrder {
     TResult? Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult? Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult? Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
   }) {
     return returnOrder?.call(this);
   }
@@ -13341,6 +13546,8 @@ class _$ReturnOrder implements ReturnOrder {
     TResult Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (returnOrder != null) {
@@ -13487,6 +13694,7 @@ class _$FetchShopHomeBackgroundCard implements FetchShopHomeBackgroundCard {
     required TResult Function() fetchArticlesCategory,
     required TResult Function(String filterVal) saveArticleCategoryFilterVal,
     required TResult Function(String category) fetchArticlesByCategory,
+    required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
   }) {
     return fetchShopHomeBackgroundCard();
   }
@@ -13575,6 +13783,7 @@ class _$FetchShopHomeBackgroundCard implements FetchShopHomeBackgroundCard {
     TResult? Function()? fetchArticlesCategory,
     TResult? Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult? Function(String category)? fetchArticlesByCategory,
+    TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
   }) {
     return fetchShopHomeBackgroundCard?.call();
   }
@@ -13663,6 +13872,7 @@ class _$FetchShopHomeBackgroundCard implements FetchShopHomeBackgroundCard {
     TResult Function()? fetchArticlesCategory,
     TResult Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult Function(String category)? fetchArticlesByCategory,
+    TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (fetchShopHomeBackgroundCard != null) {
@@ -13750,6 +13960,8 @@ class _$FetchShopHomeBackgroundCard implements FetchShopHomeBackgroundCard {
         saveArticleCategoryFilterVal,
     required TResult Function(FetchArticlesByCategory value)
         fetchArticlesByCategory,
+    required TResult Function(FetchBrandProductsItemCount value)
+        fetchBrandProductsItemCount,
   }) {
     return fetchShopHomeBackgroundCard(this);
   }
@@ -13822,6 +14034,8 @@ class _$FetchShopHomeBackgroundCard implements FetchShopHomeBackgroundCard {
     TResult? Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult? Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult? Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
   }) {
     return fetchShopHomeBackgroundCard?.call(this);
   }
@@ -13894,6 +14108,8 @@ class _$FetchShopHomeBackgroundCard implements FetchShopHomeBackgroundCard {
     TResult Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (fetchShopHomeBackgroundCard != null) {
@@ -14034,6 +14250,7 @@ class _$FetchShopHomeBackgroundCardHelthyDiet
     required TResult Function() fetchArticlesCategory,
     required TResult Function(String filterVal) saveArticleCategoryFilterVal,
     required TResult Function(String category) fetchArticlesByCategory,
+    required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
   }) {
     return fetchShopHomeBackgroundCardHelthyDiet();
   }
@@ -14122,6 +14339,7 @@ class _$FetchShopHomeBackgroundCardHelthyDiet
     TResult? Function()? fetchArticlesCategory,
     TResult? Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult? Function(String category)? fetchArticlesByCategory,
+    TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
   }) {
     return fetchShopHomeBackgroundCardHelthyDiet?.call();
   }
@@ -14210,6 +14428,7 @@ class _$FetchShopHomeBackgroundCardHelthyDiet
     TResult Function()? fetchArticlesCategory,
     TResult Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult Function(String category)? fetchArticlesByCategory,
+    TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (fetchShopHomeBackgroundCardHelthyDiet != null) {
@@ -14297,6 +14516,8 @@ class _$FetchShopHomeBackgroundCardHelthyDiet
         saveArticleCategoryFilterVal,
     required TResult Function(FetchArticlesByCategory value)
         fetchArticlesByCategory,
+    required TResult Function(FetchBrandProductsItemCount value)
+        fetchBrandProductsItemCount,
   }) {
     return fetchShopHomeBackgroundCardHelthyDiet(this);
   }
@@ -14369,6 +14590,8 @@ class _$FetchShopHomeBackgroundCardHelthyDiet
     TResult? Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult? Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult? Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
   }) {
     return fetchShopHomeBackgroundCardHelthyDiet?.call(this);
   }
@@ -14441,6 +14664,8 @@ class _$FetchShopHomeBackgroundCardHelthyDiet
     TResult Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (fetchShopHomeBackgroundCardHelthyDiet != null) {
@@ -14583,6 +14808,7 @@ class _$FetchShopHomeBackgroundCardSunnah
     required TResult Function() fetchArticlesCategory,
     required TResult Function(String filterVal) saveArticleCategoryFilterVal,
     required TResult Function(String category) fetchArticlesByCategory,
+    required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
   }) {
     return fetchShopHomeBackgroundCardSunnah();
   }
@@ -14671,6 +14897,7 @@ class _$FetchShopHomeBackgroundCardSunnah
     TResult? Function()? fetchArticlesCategory,
     TResult? Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult? Function(String category)? fetchArticlesByCategory,
+    TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
   }) {
     return fetchShopHomeBackgroundCardSunnah?.call();
   }
@@ -14759,6 +14986,7 @@ class _$FetchShopHomeBackgroundCardSunnah
     TResult Function()? fetchArticlesCategory,
     TResult Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult Function(String category)? fetchArticlesByCategory,
+    TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (fetchShopHomeBackgroundCardSunnah != null) {
@@ -14846,6 +15074,8 @@ class _$FetchShopHomeBackgroundCardSunnah
         saveArticleCategoryFilterVal,
     required TResult Function(FetchArticlesByCategory value)
         fetchArticlesByCategory,
+    required TResult Function(FetchBrandProductsItemCount value)
+        fetchBrandProductsItemCount,
   }) {
     return fetchShopHomeBackgroundCardSunnah(this);
   }
@@ -14918,6 +15148,8 @@ class _$FetchShopHomeBackgroundCardSunnah
     TResult? Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult? Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult? Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
   }) {
     return fetchShopHomeBackgroundCardSunnah?.call(this);
   }
@@ -14990,6 +15222,8 @@ class _$FetchShopHomeBackgroundCardSunnah
     TResult Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (fetchShopHomeBackgroundCardSunnah != null) {
@@ -15126,6 +15360,7 @@ class _$FetchShopAdBrands implements FetchShopAdBrands {
     required TResult Function() fetchArticlesCategory,
     required TResult Function(String filterVal) saveArticleCategoryFilterVal,
     required TResult Function(String category) fetchArticlesByCategory,
+    required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
   }) {
     return fetchShopAdBrands();
   }
@@ -15214,6 +15449,7 @@ class _$FetchShopAdBrands implements FetchShopAdBrands {
     TResult? Function()? fetchArticlesCategory,
     TResult? Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult? Function(String category)? fetchArticlesByCategory,
+    TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
   }) {
     return fetchShopAdBrands?.call();
   }
@@ -15302,6 +15538,7 @@ class _$FetchShopAdBrands implements FetchShopAdBrands {
     TResult Function()? fetchArticlesCategory,
     TResult Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult Function(String category)? fetchArticlesByCategory,
+    TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (fetchShopAdBrands != null) {
@@ -15389,6 +15626,8 @@ class _$FetchShopAdBrands implements FetchShopAdBrands {
         saveArticleCategoryFilterVal,
     required TResult Function(FetchArticlesByCategory value)
         fetchArticlesByCategory,
+    required TResult Function(FetchBrandProductsItemCount value)
+        fetchBrandProductsItemCount,
   }) {
     return fetchShopAdBrands(this);
   }
@@ -15461,6 +15700,8 @@ class _$FetchShopAdBrands implements FetchShopAdBrands {
     TResult? Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult? Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult? Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
   }) {
     return fetchShopAdBrands?.call(this);
   }
@@ -15533,6 +15774,8 @@ class _$FetchShopAdBrands implements FetchShopAdBrands {
     TResult Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (fetchShopAdBrands != null) {
@@ -15668,6 +15911,7 @@ class _$FetchTopBrands implements FetchTopBrands {
     required TResult Function() fetchArticlesCategory,
     required TResult Function(String filterVal) saveArticleCategoryFilterVal,
     required TResult Function(String category) fetchArticlesByCategory,
+    required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
   }) {
     return fetchTopBrands();
   }
@@ -15756,6 +16000,7 @@ class _$FetchTopBrands implements FetchTopBrands {
     TResult? Function()? fetchArticlesCategory,
     TResult? Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult? Function(String category)? fetchArticlesByCategory,
+    TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
   }) {
     return fetchTopBrands?.call();
   }
@@ -15844,6 +16089,7 @@ class _$FetchTopBrands implements FetchTopBrands {
     TResult Function()? fetchArticlesCategory,
     TResult Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult Function(String category)? fetchArticlesByCategory,
+    TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (fetchTopBrands != null) {
@@ -15931,6 +16177,8 @@ class _$FetchTopBrands implements FetchTopBrands {
         saveArticleCategoryFilterVal,
     required TResult Function(FetchArticlesByCategory value)
         fetchArticlesByCategory,
+    required TResult Function(FetchBrandProductsItemCount value)
+        fetchBrandProductsItemCount,
   }) {
     return fetchTopBrands(this);
   }
@@ -16003,6 +16251,8 @@ class _$FetchTopBrands implements FetchTopBrands {
     TResult? Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult? Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult? Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
   }) {
     return fetchTopBrands?.call(this);
   }
@@ -16075,6 +16325,8 @@ class _$FetchTopBrands implements FetchTopBrands {
     TResult Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (fetchTopBrands != null) {
@@ -16215,6 +16467,7 @@ class _$FetchProductItemsSubcategorySunnah
     required TResult Function() fetchArticlesCategory,
     required TResult Function(String filterVal) saveArticleCategoryFilterVal,
     required TResult Function(String category) fetchArticlesByCategory,
+    required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
   }) {
     return fetchProductItemsSubcategorySunnah();
   }
@@ -16303,6 +16556,7 @@ class _$FetchProductItemsSubcategorySunnah
     TResult? Function()? fetchArticlesCategory,
     TResult? Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult? Function(String category)? fetchArticlesByCategory,
+    TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
   }) {
     return fetchProductItemsSubcategorySunnah?.call();
   }
@@ -16391,6 +16645,7 @@ class _$FetchProductItemsSubcategorySunnah
     TResult Function()? fetchArticlesCategory,
     TResult Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult Function(String category)? fetchArticlesByCategory,
+    TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (fetchProductItemsSubcategorySunnah != null) {
@@ -16478,6 +16733,8 @@ class _$FetchProductItemsSubcategorySunnah
         saveArticleCategoryFilterVal,
     required TResult Function(FetchArticlesByCategory value)
         fetchArticlesByCategory,
+    required TResult Function(FetchBrandProductsItemCount value)
+        fetchBrandProductsItemCount,
   }) {
     return fetchProductItemsSubcategorySunnah(this);
   }
@@ -16550,6 +16807,8 @@ class _$FetchProductItemsSubcategorySunnah
     TResult? Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult? Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult? Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
   }) {
     return fetchProductItemsSubcategorySunnah?.call(this);
   }
@@ -16622,6 +16881,8 @@ class _$FetchProductItemsSubcategorySunnah
     TResult Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (fetchProductItemsSubcategorySunnah != null) {
@@ -16763,6 +17024,7 @@ class _$FetchProductItemsSubcategoryHealth
     required TResult Function() fetchArticlesCategory,
     required TResult Function(String filterVal) saveArticleCategoryFilterVal,
     required TResult Function(String category) fetchArticlesByCategory,
+    required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
   }) {
     return fetchProductItemsSubcategoryHealth();
   }
@@ -16851,6 +17113,7 @@ class _$FetchProductItemsSubcategoryHealth
     TResult? Function()? fetchArticlesCategory,
     TResult? Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult? Function(String category)? fetchArticlesByCategory,
+    TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
   }) {
     return fetchProductItemsSubcategoryHealth?.call();
   }
@@ -16939,6 +17202,7 @@ class _$FetchProductItemsSubcategoryHealth
     TResult Function()? fetchArticlesCategory,
     TResult Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult Function(String category)? fetchArticlesByCategory,
+    TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (fetchProductItemsSubcategoryHealth != null) {
@@ -17026,6 +17290,8 @@ class _$FetchProductItemsSubcategoryHealth
         saveArticleCategoryFilterVal,
     required TResult Function(FetchArticlesByCategory value)
         fetchArticlesByCategory,
+    required TResult Function(FetchBrandProductsItemCount value)
+        fetchBrandProductsItemCount,
   }) {
     return fetchProductItemsSubcategoryHealth(this);
   }
@@ -17098,6 +17364,8 @@ class _$FetchProductItemsSubcategoryHealth
     TResult? Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult? Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult? Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
   }) {
     return fetchProductItemsSubcategoryHealth?.call(this);
   }
@@ -17170,6 +17438,8 @@ class _$FetchProductItemsSubcategoryHealth
     TResult Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (fetchProductItemsSubcategoryHealth != null) {
@@ -17311,6 +17581,7 @@ class _$FetchProductItemsSubcategoryWomen
     required TResult Function() fetchArticlesCategory,
     required TResult Function(String filterVal) saveArticleCategoryFilterVal,
     required TResult Function(String category) fetchArticlesByCategory,
+    required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
   }) {
     return fetchProductItemsSubcategoryWomen();
   }
@@ -17399,6 +17670,7 @@ class _$FetchProductItemsSubcategoryWomen
     TResult? Function()? fetchArticlesCategory,
     TResult? Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult? Function(String category)? fetchArticlesByCategory,
+    TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
   }) {
     return fetchProductItemsSubcategoryWomen?.call();
   }
@@ -17487,6 +17759,7 @@ class _$FetchProductItemsSubcategoryWomen
     TResult Function()? fetchArticlesCategory,
     TResult Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult Function(String category)? fetchArticlesByCategory,
+    TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (fetchProductItemsSubcategoryWomen != null) {
@@ -17574,6 +17847,8 @@ class _$FetchProductItemsSubcategoryWomen
         saveArticleCategoryFilterVal,
     required TResult Function(FetchArticlesByCategory value)
         fetchArticlesByCategory,
+    required TResult Function(FetchBrandProductsItemCount value)
+        fetchBrandProductsItemCount,
   }) {
     return fetchProductItemsSubcategoryWomen(this);
   }
@@ -17646,6 +17921,8 @@ class _$FetchProductItemsSubcategoryWomen
     TResult? Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult? Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult? Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
   }) {
     return fetchProductItemsSubcategoryWomen?.call(this);
   }
@@ -17718,6 +17995,8 @@ class _$FetchProductItemsSubcategoryWomen
     TResult Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (fetchProductItemsSubcategoryWomen != null) {
@@ -17881,6 +18160,7 @@ class _$ChangeShopBannerIndex implements ChangeShopBannerIndex {
     required TResult Function() fetchArticlesCategory,
     required TResult Function(String filterVal) saveArticleCategoryFilterVal,
     required TResult Function(String category) fetchArticlesByCategory,
+    required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
   }) {
     return changeShopBannerIndex(index);
   }
@@ -17969,6 +18249,7 @@ class _$ChangeShopBannerIndex implements ChangeShopBannerIndex {
     TResult? Function()? fetchArticlesCategory,
     TResult? Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult? Function(String category)? fetchArticlesByCategory,
+    TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
   }) {
     return changeShopBannerIndex?.call(index);
   }
@@ -18057,6 +18338,7 @@ class _$ChangeShopBannerIndex implements ChangeShopBannerIndex {
     TResult Function()? fetchArticlesCategory,
     TResult Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult Function(String category)? fetchArticlesByCategory,
+    TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (changeShopBannerIndex != null) {
@@ -18144,6 +18426,8 @@ class _$ChangeShopBannerIndex implements ChangeShopBannerIndex {
         saveArticleCategoryFilterVal,
     required TResult Function(FetchArticlesByCategory value)
         fetchArticlesByCategory,
+    required TResult Function(FetchBrandProductsItemCount value)
+        fetchBrandProductsItemCount,
   }) {
     return changeShopBannerIndex(this);
   }
@@ -18216,6 +18500,8 @@ class _$ChangeShopBannerIndex implements ChangeShopBannerIndex {
     TResult? Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult? Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult? Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
   }) {
     return changeShopBannerIndex?.call(this);
   }
@@ -18288,6 +18574,8 @@ class _$ChangeShopBannerIndex implements ChangeShopBannerIndex {
     TResult Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (changeShopBannerIndex != null) {
@@ -18456,6 +18744,7 @@ class _$ChangeBrandBannerIndex implements ChangeBrandBannerIndex {
     required TResult Function() fetchArticlesCategory,
     required TResult Function(String filterVal) saveArticleCategoryFilterVal,
     required TResult Function(String category) fetchArticlesByCategory,
+    required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
   }) {
     return changeBrandBannerIndex(index);
   }
@@ -18544,6 +18833,7 @@ class _$ChangeBrandBannerIndex implements ChangeBrandBannerIndex {
     TResult? Function()? fetchArticlesCategory,
     TResult? Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult? Function(String category)? fetchArticlesByCategory,
+    TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
   }) {
     return changeBrandBannerIndex?.call(index);
   }
@@ -18632,6 +18922,7 @@ class _$ChangeBrandBannerIndex implements ChangeBrandBannerIndex {
     TResult Function()? fetchArticlesCategory,
     TResult Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult Function(String category)? fetchArticlesByCategory,
+    TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (changeBrandBannerIndex != null) {
@@ -18719,6 +19010,8 @@ class _$ChangeBrandBannerIndex implements ChangeBrandBannerIndex {
         saveArticleCategoryFilterVal,
     required TResult Function(FetchArticlesByCategory value)
         fetchArticlesByCategory,
+    required TResult Function(FetchBrandProductsItemCount value)
+        fetchBrandProductsItemCount,
   }) {
     return changeBrandBannerIndex(this);
   }
@@ -18791,6 +19084,8 @@ class _$ChangeBrandBannerIndex implements ChangeBrandBannerIndex {
     TResult? Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult? Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult? Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
   }) {
     return changeBrandBannerIndex?.call(this);
   }
@@ -18863,6 +19158,8 @@ class _$ChangeBrandBannerIndex implements ChangeBrandBannerIndex {
     TResult Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (changeBrandBannerIndex != null) {
@@ -19004,6 +19301,7 @@ class _$ShowOrderProgressEvent implements ShowOrderProgressEvent {
     required TResult Function() fetchArticlesCategory,
     required TResult Function(String filterVal) saveArticleCategoryFilterVal,
     required TResult Function(String category) fetchArticlesByCategory,
+    required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
   }) {
     return showOrderProgressEvent();
   }
@@ -19092,6 +19390,7 @@ class _$ShowOrderProgressEvent implements ShowOrderProgressEvent {
     TResult? Function()? fetchArticlesCategory,
     TResult? Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult? Function(String category)? fetchArticlesByCategory,
+    TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
   }) {
     return showOrderProgressEvent?.call();
   }
@@ -19180,6 +19479,7 @@ class _$ShowOrderProgressEvent implements ShowOrderProgressEvent {
     TResult Function()? fetchArticlesCategory,
     TResult Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult Function(String category)? fetchArticlesByCategory,
+    TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (showOrderProgressEvent != null) {
@@ -19267,6 +19567,8 @@ class _$ShowOrderProgressEvent implements ShowOrderProgressEvent {
         saveArticleCategoryFilterVal,
     required TResult Function(FetchArticlesByCategory value)
         fetchArticlesByCategory,
+    required TResult Function(FetchBrandProductsItemCount value)
+        fetchBrandProductsItemCount,
   }) {
     return showOrderProgressEvent(this);
   }
@@ -19339,6 +19641,8 @@ class _$ShowOrderProgressEvent implements ShowOrderProgressEvent {
     TResult? Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult? Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult? Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
   }) {
     return showOrderProgressEvent?.call(this);
   }
@@ -19411,6 +19715,8 @@ class _$ShowOrderProgressEvent implements ShowOrderProgressEvent {
     TResult Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (showOrderProgressEvent != null) {
@@ -19575,6 +19881,7 @@ class _$IndexChangeOnOrderProgress implements IndexChangeOnOrderProgress {
     required TResult Function() fetchArticlesCategory,
     required TResult Function(String filterVal) saveArticleCategoryFilterVal,
     required TResult Function(String category) fetchArticlesByCategory,
+    required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
   }) {
     return indexChangeOnOrderProgress(index);
   }
@@ -19663,6 +19970,7 @@ class _$IndexChangeOnOrderProgress implements IndexChangeOnOrderProgress {
     TResult? Function()? fetchArticlesCategory,
     TResult? Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult? Function(String category)? fetchArticlesByCategory,
+    TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
   }) {
     return indexChangeOnOrderProgress?.call(index);
   }
@@ -19751,6 +20059,7 @@ class _$IndexChangeOnOrderProgress implements IndexChangeOnOrderProgress {
     TResult Function()? fetchArticlesCategory,
     TResult Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult Function(String category)? fetchArticlesByCategory,
+    TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (indexChangeOnOrderProgress != null) {
@@ -19838,6 +20147,8 @@ class _$IndexChangeOnOrderProgress implements IndexChangeOnOrderProgress {
         saveArticleCategoryFilterVal,
     required TResult Function(FetchArticlesByCategory value)
         fetchArticlesByCategory,
+    required TResult Function(FetchBrandProductsItemCount value)
+        fetchBrandProductsItemCount,
   }) {
     return indexChangeOnOrderProgress(this);
   }
@@ -19910,6 +20221,8 @@ class _$IndexChangeOnOrderProgress implements IndexChangeOnOrderProgress {
     TResult? Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult? Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult? Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
   }) {
     return indexChangeOnOrderProgress?.call(this);
   }
@@ -19982,6 +20295,8 @@ class _$IndexChangeOnOrderProgress implements IndexChangeOnOrderProgress {
     TResult Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (indexChangeOnOrderProgress != null) {
@@ -20153,6 +20468,7 @@ class _$IndexChangeOnWomensCareBanner implements IndexChangeOnWomensCareBanner {
     required TResult Function() fetchArticlesCategory,
     required TResult Function(String filterVal) saveArticleCategoryFilterVal,
     required TResult Function(String category) fetchArticlesByCategory,
+    required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
   }) {
     return indexChangeOnWomensCareBanner(index);
   }
@@ -20241,6 +20557,7 @@ class _$IndexChangeOnWomensCareBanner implements IndexChangeOnWomensCareBanner {
     TResult? Function()? fetchArticlesCategory,
     TResult? Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult? Function(String category)? fetchArticlesByCategory,
+    TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
   }) {
     return indexChangeOnWomensCareBanner?.call(index);
   }
@@ -20329,6 +20646,7 @@ class _$IndexChangeOnWomensCareBanner implements IndexChangeOnWomensCareBanner {
     TResult Function()? fetchArticlesCategory,
     TResult Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult Function(String category)? fetchArticlesByCategory,
+    TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (indexChangeOnWomensCareBanner != null) {
@@ -20416,6 +20734,8 @@ class _$IndexChangeOnWomensCareBanner implements IndexChangeOnWomensCareBanner {
         saveArticleCategoryFilterVal,
     required TResult Function(FetchArticlesByCategory value)
         fetchArticlesByCategory,
+    required TResult Function(FetchBrandProductsItemCount value)
+        fetchBrandProductsItemCount,
   }) {
     return indexChangeOnWomensCareBanner(this);
   }
@@ -20488,6 +20808,8 @@ class _$IndexChangeOnWomensCareBanner implements IndexChangeOnWomensCareBanner {
     TResult? Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult? Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult? Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
   }) {
     return indexChangeOnWomensCareBanner?.call(this);
   }
@@ -20560,6 +20882,8 @@ class _$IndexChangeOnWomensCareBanner implements IndexChangeOnWomensCareBanner {
     TResult Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (indexChangeOnWomensCareBanner != null) {
@@ -20728,6 +21052,7 @@ class _$FetchShopAdBrandsById implements FetchShopAdBrandsById {
     required TResult Function() fetchArticlesCategory,
     required TResult Function(String filterVal) saveArticleCategoryFilterVal,
     required TResult Function(String category) fetchArticlesByCategory,
+    required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
   }) {
     return fetchShopAdBrandsById(id);
   }
@@ -20816,6 +21141,7 @@ class _$FetchShopAdBrandsById implements FetchShopAdBrandsById {
     TResult? Function()? fetchArticlesCategory,
     TResult? Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult? Function(String category)? fetchArticlesByCategory,
+    TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
   }) {
     return fetchShopAdBrandsById?.call(id);
   }
@@ -20904,6 +21230,7 @@ class _$FetchShopAdBrandsById implements FetchShopAdBrandsById {
     TResult Function()? fetchArticlesCategory,
     TResult Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult Function(String category)? fetchArticlesByCategory,
+    TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (fetchShopAdBrandsById != null) {
@@ -20991,6 +21318,8 @@ class _$FetchShopAdBrandsById implements FetchShopAdBrandsById {
         saveArticleCategoryFilterVal,
     required TResult Function(FetchArticlesByCategory value)
         fetchArticlesByCategory,
+    required TResult Function(FetchBrandProductsItemCount value)
+        fetchBrandProductsItemCount,
   }) {
     return fetchShopAdBrandsById(this);
   }
@@ -21063,6 +21392,8 @@ class _$FetchShopAdBrandsById implements FetchShopAdBrandsById {
     TResult? Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult? Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult? Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
   }) {
     return fetchShopAdBrandsById?.call(this);
   }
@@ -21135,6 +21466,8 @@ class _$FetchShopAdBrandsById implements FetchShopAdBrandsById {
     TResult Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (fetchShopAdBrandsById != null) {
@@ -21303,6 +21636,7 @@ class _$SavePaymentMethodType implements SavePaymentMethodType {
     required TResult Function() fetchArticlesCategory,
     required TResult Function(String filterVal) saveArticleCategoryFilterVal,
     required TResult Function(String category) fetchArticlesByCategory,
+    required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
   }) {
     return savePaymentMethodType(index);
   }
@@ -21391,6 +21725,7 @@ class _$SavePaymentMethodType implements SavePaymentMethodType {
     TResult? Function()? fetchArticlesCategory,
     TResult? Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult? Function(String category)? fetchArticlesByCategory,
+    TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
   }) {
     return savePaymentMethodType?.call(index);
   }
@@ -21479,6 +21814,7 @@ class _$SavePaymentMethodType implements SavePaymentMethodType {
     TResult Function()? fetchArticlesCategory,
     TResult Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult Function(String category)? fetchArticlesByCategory,
+    TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (savePaymentMethodType != null) {
@@ -21566,6 +21902,8 @@ class _$SavePaymentMethodType implements SavePaymentMethodType {
         saveArticleCategoryFilterVal,
     required TResult Function(FetchArticlesByCategory value)
         fetchArticlesByCategory,
+    required TResult Function(FetchBrandProductsItemCount value)
+        fetchBrandProductsItemCount,
   }) {
     return savePaymentMethodType(this);
   }
@@ -21638,6 +21976,8 @@ class _$SavePaymentMethodType implements SavePaymentMethodType {
     TResult? Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult? Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult? Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
   }) {
     return savePaymentMethodType?.call(this);
   }
@@ -21710,6 +22050,8 @@ class _$SavePaymentMethodType implements SavePaymentMethodType {
     TResult Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (savePaymentMethodType != null) {
@@ -21854,6 +22196,7 @@ class _$FetchProductItemsbyCategory implements FetchProductItemsbyCategory {
     required TResult Function() fetchArticlesCategory,
     required TResult Function(String filterVal) saveArticleCategoryFilterVal,
     required TResult Function(String category) fetchArticlesByCategory,
+    required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
   }) {
     return fetchProductItemsbyCategory();
   }
@@ -21942,6 +22285,7 @@ class _$FetchProductItemsbyCategory implements FetchProductItemsbyCategory {
     TResult? Function()? fetchArticlesCategory,
     TResult? Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult? Function(String category)? fetchArticlesByCategory,
+    TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
   }) {
     return fetchProductItemsbyCategory?.call();
   }
@@ -22030,6 +22374,7 @@ class _$FetchProductItemsbyCategory implements FetchProductItemsbyCategory {
     TResult Function()? fetchArticlesCategory,
     TResult Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult Function(String category)? fetchArticlesByCategory,
+    TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (fetchProductItemsbyCategory != null) {
@@ -22117,6 +22462,8 @@ class _$FetchProductItemsbyCategory implements FetchProductItemsbyCategory {
         saveArticleCategoryFilterVal,
     required TResult Function(FetchArticlesByCategory value)
         fetchArticlesByCategory,
+    required TResult Function(FetchBrandProductsItemCount value)
+        fetchBrandProductsItemCount,
   }) {
     return fetchProductItemsbyCategory(this);
   }
@@ -22189,6 +22536,8 @@ class _$FetchProductItemsbyCategory implements FetchProductItemsbyCategory {
     TResult? Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult? Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult? Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
   }) {
     return fetchProductItemsbyCategory?.call(this);
   }
@@ -22261,6 +22610,8 @@ class _$FetchProductItemsbyCategory implements FetchProductItemsbyCategory {
     TResult Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (fetchProductItemsbyCategory != null) {
@@ -22425,6 +22776,7 @@ class _$FetchSpecificCategeryItems implements FetchSpecificCategeryItems {
     required TResult Function() fetchArticlesCategory,
     required TResult Function(String filterVal) saveArticleCategoryFilterVal,
     required TResult Function(String category) fetchArticlesByCategory,
+    required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
   }) {
     return fetchSpecificCategeryItems(slug);
   }
@@ -22513,6 +22865,7 @@ class _$FetchSpecificCategeryItems implements FetchSpecificCategeryItems {
     TResult? Function()? fetchArticlesCategory,
     TResult? Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult? Function(String category)? fetchArticlesByCategory,
+    TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
   }) {
     return fetchSpecificCategeryItems?.call(slug);
   }
@@ -22601,6 +22954,7 @@ class _$FetchSpecificCategeryItems implements FetchSpecificCategeryItems {
     TResult Function()? fetchArticlesCategory,
     TResult Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult Function(String category)? fetchArticlesByCategory,
+    TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (fetchSpecificCategeryItems != null) {
@@ -22688,6 +23042,8 @@ class _$FetchSpecificCategeryItems implements FetchSpecificCategeryItems {
         saveArticleCategoryFilterVal,
     required TResult Function(FetchArticlesByCategory value)
         fetchArticlesByCategory,
+    required TResult Function(FetchBrandProductsItemCount value)
+        fetchBrandProductsItemCount,
   }) {
     return fetchSpecificCategeryItems(this);
   }
@@ -22760,6 +23116,8 @@ class _$FetchSpecificCategeryItems implements FetchSpecificCategeryItems {
     TResult? Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult? Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult? Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
   }) {
     return fetchSpecificCategeryItems?.call(this);
   }
@@ -22832,6 +23190,8 @@ class _$FetchSpecificCategeryItems implements FetchSpecificCategeryItems {
     TResult Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (fetchSpecificCategeryItems != null) {
@@ -22999,6 +23359,7 @@ class _$FetchProductsById implements FetchProductsById {
     required TResult Function() fetchArticlesCategory,
     required TResult Function(String filterVal) saveArticleCategoryFilterVal,
     required TResult Function(String category) fetchArticlesByCategory,
+    required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
   }) {
     return fetchProductsById(id);
   }
@@ -23087,6 +23448,7 @@ class _$FetchProductsById implements FetchProductsById {
     TResult? Function()? fetchArticlesCategory,
     TResult? Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult? Function(String category)? fetchArticlesByCategory,
+    TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
   }) {
     return fetchProductsById?.call(id);
   }
@@ -23175,6 +23537,7 @@ class _$FetchProductsById implements FetchProductsById {
     TResult Function()? fetchArticlesCategory,
     TResult Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult Function(String category)? fetchArticlesByCategory,
+    TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (fetchProductsById != null) {
@@ -23262,6 +23625,8 @@ class _$FetchProductsById implements FetchProductsById {
         saveArticleCategoryFilterVal,
     required TResult Function(FetchArticlesByCategory value)
         fetchArticlesByCategory,
+    required TResult Function(FetchBrandProductsItemCount value)
+        fetchBrandProductsItemCount,
   }) {
     return fetchProductsById(this);
   }
@@ -23334,6 +23699,8 @@ class _$FetchProductsById implements FetchProductsById {
     TResult? Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult? Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult? Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
   }) {
     return fetchProductsById?.call(this);
   }
@@ -23406,6 +23773,8 @@ class _$FetchProductsById implements FetchProductsById {
     TResult Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (fetchProductsById != null) {
@@ -23574,6 +23943,7 @@ class _$FetchBrandProducts implements FetchBrandProducts {
     required TResult Function() fetchArticlesCategory,
     required TResult Function(String filterVal) saveArticleCategoryFilterVal,
     required TResult Function(String category) fetchArticlesByCategory,
+    required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
   }) {
     return fetchBrandProducts(brandId);
   }
@@ -23662,6 +24032,7 @@ class _$FetchBrandProducts implements FetchBrandProducts {
     TResult? Function()? fetchArticlesCategory,
     TResult? Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult? Function(String category)? fetchArticlesByCategory,
+    TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
   }) {
     return fetchBrandProducts?.call(brandId);
   }
@@ -23750,6 +24121,7 @@ class _$FetchBrandProducts implements FetchBrandProducts {
     TResult Function()? fetchArticlesCategory,
     TResult Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult Function(String category)? fetchArticlesByCategory,
+    TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (fetchBrandProducts != null) {
@@ -23837,6 +24209,8 @@ class _$FetchBrandProducts implements FetchBrandProducts {
         saveArticleCategoryFilterVal,
     required TResult Function(FetchArticlesByCategory value)
         fetchArticlesByCategory,
+    required TResult Function(FetchBrandProductsItemCount value)
+        fetchBrandProductsItemCount,
   }) {
     return fetchBrandProducts(this);
   }
@@ -23909,6 +24283,8 @@ class _$FetchBrandProducts implements FetchBrandProducts {
     TResult? Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult? Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult? Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
   }) {
     return fetchBrandProducts?.call(this);
   }
@@ -23981,6 +24357,8 @@ class _$FetchBrandProducts implements FetchBrandProducts {
     TResult Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (fetchBrandProducts != null) {
@@ -24122,6 +24500,7 @@ class _$FetchCoupons implements FetchCoupons {
     required TResult Function() fetchArticlesCategory,
     required TResult Function(String filterVal) saveArticleCategoryFilterVal,
     required TResult Function(String category) fetchArticlesByCategory,
+    required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
   }) {
     return fetchCoupons();
   }
@@ -24210,6 +24589,7 @@ class _$FetchCoupons implements FetchCoupons {
     TResult? Function()? fetchArticlesCategory,
     TResult? Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult? Function(String category)? fetchArticlesByCategory,
+    TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
   }) {
     return fetchCoupons?.call();
   }
@@ -24298,6 +24678,7 @@ class _$FetchCoupons implements FetchCoupons {
     TResult Function()? fetchArticlesCategory,
     TResult Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult Function(String category)? fetchArticlesByCategory,
+    TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (fetchCoupons != null) {
@@ -24385,6 +24766,8 @@ class _$FetchCoupons implements FetchCoupons {
         saveArticleCategoryFilterVal,
     required TResult Function(FetchArticlesByCategory value)
         fetchArticlesByCategory,
+    required TResult Function(FetchBrandProductsItemCount value)
+        fetchBrandProductsItemCount,
   }) {
     return fetchCoupons(this);
   }
@@ -24457,6 +24840,8 @@ class _$FetchCoupons implements FetchCoupons {
     TResult? Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult? Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult? Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
   }) {
     return fetchCoupons?.call(this);
   }
@@ -24529,6 +24914,8 @@ class _$FetchCoupons implements FetchCoupons {
     TResult Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (fetchCoupons != null) {
@@ -24691,6 +25078,7 @@ class _$IsPromoCodeAvailable implements IsPromoCodeAvailable {
     required TResult Function() fetchArticlesCategory,
     required TResult Function(String filterVal) saveArticleCategoryFilterVal,
     required TResult Function(String category) fetchArticlesByCategory,
+    required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
   }) {
     return isPromoCodeAvailable(value);
   }
@@ -24779,6 +25167,7 @@ class _$IsPromoCodeAvailable implements IsPromoCodeAvailable {
     TResult? Function()? fetchArticlesCategory,
     TResult? Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult? Function(String category)? fetchArticlesByCategory,
+    TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
   }) {
     return isPromoCodeAvailable?.call(value);
   }
@@ -24867,6 +25256,7 @@ class _$IsPromoCodeAvailable implements IsPromoCodeAvailable {
     TResult Function()? fetchArticlesCategory,
     TResult Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult Function(String category)? fetchArticlesByCategory,
+    TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (isPromoCodeAvailable != null) {
@@ -24954,6 +25344,8 @@ class _$IsPromoCodeAvailable implements IsPromoCodeAvailable {
         saveArticleCategoryFilterVal,
     required TResult Function(FetchArticlesByCategory value)
         fetchArticlesByCategory,
+    required TResult Function(FetchBrandProductsItemCount value)
+        fetchBrandProductsItemCount,
   }) {
     return isPromoCodeAvailable(this);
   }
@@ -25026,6 +25418,8 @@ class _$IsPromoCodeAvailable implements IsPromoCodeAvailable {
     TResult? Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult? Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult? Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
   }) {
     return isPromoCodeAvailable?.call(this);
   }
@@ -25098,6 +25492,8 @@ class _$IsPromoCodeAvailable implements IsPromoCodeAvailable {
     TResult Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (isPromoCodeAvailable != null) {
@@ -25265,6 +25661,7 @@ class _$ChangeIndexEvent implements ChangeIndexEvent {
     required TResult Function() fetchArticlesCategory,
     required TResult Function(String filterVal) saveArticleCategoryFilterVal,
     required TResult Function(String category) fetchArticlesByCategory,
+    required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
   }) {
     return changeIndexEvent(index);
   }
@@ -25353,6 +25750,7 @@ class _$ChangeIndexEvent implements ChangeIndexEvent {
     TResult? Function()? fetchArticlesCategory,
     TResult? Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult? Function(String category)? fetchArticlesByCategory,
+    TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
   }) {
     return changeIndexEvent?.call(index);
   }
@@ -25441,6 +25839,7 @@ class _$ChangeIndexEvent implements ChangeIndexEvent {
     TResult Function()? fetchArticlesCategory,
     TResult Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult Function(String category)? fetchArticlesByCategory,
+    TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (changeIndexEvent != null) {
@@ -25528,6 +25927,8 @@ class _$ChangeIndexEvent implements ChangeIndexEvent {
         saveArticleCategoryFilterVal,
     required TResult Function(FetchArticlesByCategory value)
         fetchArticlesByCategory,
+    required TResult Function(FetchBrandProductsItemCount value)
+        fetchBrandProductsItemCount,
   }) {
     return changeIndexEvent(this);
   }
@@ -25600,6 +26001,8 @@ class _$ChangeIndexEvent implements ChangeIndexEvent {
     TResult? Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult? Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult? Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
   }) {
     return changeIndexEvent?.call(this);
   }
@@ -25672,6 +26075,8 @@ class _$ChangeIndexEvent implements ChangeIndexEvent {
     TResult Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (changeIndexEvent != null) {
@@ -25840,6 +26245,7 @@ class _$FetchBrandItemsbyId implements FetchBrandItemsbyId {
     required TResult Function() fetchArticlesCategory,
     required TResult Function(String filterVal) saveArticleCategoryFilterVal,
     required TResult Function(String category) fetchArticlesByCategory,
+    required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
   }) {
     return fetchBrandItemsbyId(id);
   }
@@ -25928,6 +26334,7 @@ class _$FetchBrandItemsbyId implements FetchBrandItemsbyId {
     TResult? Function()? fetchArticlesCategory,
     TResult? Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult? Function(String category)? fetchArticlesByCategory,
+    TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
   }) {
     return fetchBrandItemsbyId?.call(id);
   }
@@ -26016,6 +26423,7 @@ class _$FetchBrandItemsbyId implements FetchBrandItemsbyId {
     TResult Function()? fetchArticlesCategory,
     TResult Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult Function(String category)? fetchArticlesByCategory,
+    TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (fetchBrandItemsbyId != null) {
@@ -26103,6 +26511,8 @@ class _$FetchBrandItemsbyId implements FetchBrandItemsbyId {
         saveArticleCategoryFilterVal,
     required TResult Function(FetchArticlesByCategory value)
         fetchArticlesByCategory,
+    required TResult Function(FetchBrandProductsItemCount value)
+        fetchBrandProductsItemCount,
   }) {
     return fetchBrandItemsbyId(this);
   }
@@ -26175,6 +26585,8 @@ class _$FetchBrandItemsbyId implements FetchBrandItemsbyId {
     TResult? Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult? Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult? Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
   }) {
     return fetchBrandItemsbyId?.call(this);
   }
@@ -26247,6 +26659,8 @@ class _$FetchBrandItemsbyId implements FetchBrandItemsbyId {
     TResult Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (fetchBrandItemsbyId != null) {
@@ -26388,6 +26802,7 @@ class _$FetchAllBrandsEvent implements FetchAllBrandsEvent {
     required TResult Function() fetchArticlesCategory,
     required TResult Function(String filterVal) saveArticleCategoryFilterVal,
     required TResult Function(String category) fetchArticlesByCategory,
+    required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
   }) {
     return fetchAllBrandsEvent();
   }
@@ -26476,6 +26891,7 @@ class _$FetchAllBrandsEvent implements FetchAllBrandsEvent {
     TResult? Function()? fetchArticlesCategory,
     TResult? Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult? Function(String category)? fetchArticlesByCategory,
+    TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
   }) {
     return fetchAllBrandsEvent?.call();
   }
@@ -26564,6 +26980,7 @@ class _$FetchAllBrandsEvent implements FetchAllBrandsEvent {
     TResult Function()? fetchArticlesCategory,
     TResult Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult Function(String category)? fetchArticlesByCategory,
+    TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (fetchAllBrandsEvent != null) {
@@ -26651,6 +27068,8 @@ class _$FetchAllBrandsEvent implements FetchAllBrandsEvent {
         saveArticleCategoryFilterVal,
     required TResult Function(FetchArticlesByCategory value)
         fetchArticlesByCategory,
+    required TResult Function(FetchBrandProductsItemCount value)
+        fetchBrandProductsItemCount,
   }) {
     return fetchAllBrandsEvent(this);
   }
@@ -26723,6 +27142,8 @@ class _$FetchAllBrandsEvent implements FetchAllBrandsEvent {
     TResult? Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult? Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult? Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
   }) {
     return fetchAllBrandsEvent?.call(this);
   }
@@ -26795,6 +27216,8 @@ class _$FetchAllBrandsEvent implements FetchAllBrandsEvent {
     TResult Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (fetchAllBrandsEvent != null) {
@@ -26957,6 +27380,7 @@ class _$FetchOrderReasons implements FetchOrderReasons {
     required TResult Function() fetchArticlesCategory,
     required TResult Function(String filterVal) saveArticleCategoryFilterVal,
     required TResult Function(String category) fetchArticlesByCategory,
+    required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
   }) {
     return fetchOrderReasons(endpoint);
   }
@@ -27045,6 +27469,7 @@ class _$FetchOrderReasons implements FetchOrderReasons {
     TResult? Function()? fetchArticlesCategory,
     TResult? Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult? Function(String category)? fetchArticlesByCategory,
+    TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
   }) {
     return fetchOrderReasons?.call(endpoint);
   }
@@ -27133,6 +27558,7 @@ class _$FetchOrderReasons implements FetchOrderReasons {
     TResult Function()? fetchArticlesCategory,
     TResult Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult Function(String category)? fetchArticlesByCategory,
+    TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (fetchOrderReasons != null) {
@@ -27220,6 +27646,8 @@ class _$FetchOrderReasons implements FetchOrderReasons {
         saveArticleCategoryFilterVal,
     required TResult Function(FetchArticlesByCategory value)
         fetchArticlesByCategory,
+    required TResult Function(FetchBrandProductsItemCount value)
+        fetchBrandProductsItemCount,
   }) {
     return fetchOrderReasons(this);
   }
@@ -27292,6 +27720,8 @@ class _$FetchOrderReasons implements FetchOrderReasons {
     TResult? Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult? Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult? Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
   }) {
     return fetchOrderReasons?.call(this);
   }
@@ -27364,6 +27794,8 @@ class _$FetchOrderReasons implements FetchOrderReasons {
     TResult Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (fetchOrderReasons != null) {
@@ -27540,6 +27972,7 @@ class _$AddReasons implements AddReasons {
     required TResult Function() fetchArticlesCategory,
     required TResult Function(String filterVal) saveArticleCategoryFilterVal,
     required TResult Function(String category) fetchArticlesByCategory,
+    required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
   }) {
     return addReasons(endpoint, text);
   }
@@ -27628,6 +28061,7 @@ class _$AddReasons implements AddReasons {
     TResult? Function()? fetchArticlesCategory,
     TResult? Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult? Function(String category)? fetchArticlesByCategory,
+    TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
   }) {
     return addReasons?.call(endpoint, text);
   }
@@ -27716,6 +28150,7 @@ class _$AddReasons implements AddReasons {
     TResult Function()? fetchArticlesCategory,
     TResult Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult Function(String category)? fetchArticlesByCategory,
+    TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (addReasons != null) {
@@ -27803,6 +28238,8 @@ class _$AddReasons implements AddReasons {
         saveArticleCategoryFilterVal,
     required TResult Function(FetchArticlesByCategory value)
         fetchArticlesByCategory,
+    required TResult Function(FetchBrandProductsItemCount value)
+        fetchBrandProductsItemCount,
   }) {
     return addReasons(this);
   }
@@ -27875,6 +28312,8 @@ class _$AddReasons implements AddReasons {
     TResult? Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult? Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult? Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
   }) {
     return addReasons?.call(this);
   }
@@ -27947,6 +28386,8 @@ class _$AddReasons implements AddReasons {
     TResult Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (addReasons != null) {
@@ -28116,6 +28557,7 @@ class _$FetchArticlesbyId implements FetchArticlesbyId {
     required TResult Function() fetchArticlesCategory,
     required TResult Function(String filterVal) saveArticleCategoryFilterVal,
     required TResult Function(String category) fetchArticlesByCategory,
+    required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
   }) {
     return fetchArticlesbyId(id);
   }
@@ -28204,6 +28646,7 @@ class _$FetchArticlesbyId implements FetchArticlesbyId {
     TResult? Function()? fetchArticlesCategory,
     TResult? Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult? Function(String category)? fetchArticlesByCategory,
+    TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
   }) {
     return fetchArticlesbyId?.call(id);
   }
@@ -28292,6 +28735,7 @@ class _$FetchArticlesbyId implements FetchArticlesbyId {
     TResult Function()? fetchArticlesCategory,
     TResult Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult Function(String category)? fetchArticlesByCategory,
+    TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (fetchArticlesbyId != null) {
@@ -28379,6 +28823,8 @@ class _$FetchArticlesbyId implements FetchArticlesbyId {
         saveArticleCategoryFilterVal,
     required TResult Function(FetchArticlesByCategory value)
         fetchArticlesByCategory,
+    required TResult Function(FetchBrandProductsItemCount value)
+        fetchBrandProductsItemCount,
   }) {
     return fetchArticlesbyId(this);
   }
@@ -28451,6 +28897,8 @@ class _$FetchArticlesbyId implements FetchArticlesbyId {
     TResult? Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult? Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult? Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
   }) {
     return fetchArticlesbyId?.call(this);
   }
@@ -28523,6 +28971,8 @@ class _$FetchArticlesbyId implements FetchArticlesbyId {
     TResult Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (fetchArticlesbyId != null) {
@@ -28664,6 +29114,7 @@ class _$FetchProducts implements FetchProducts {
     required TResult Function() fetchArticlesCategory,
     required TResult Function(String filterVal) saveArticleCategoryFilterVal,
     required TResult Function(String category) fetchArticlesByCategory,
+    required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
   }) {
     return fetchProducts();
   }
@@ -28752,6 +29203,7 @@ class _$FetchProducts implements FetchProducts {
     TResult? Function()? fetchArticlesCategory,
     TResult? Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult? Function(String category)? fetchArticlesByCategory,
+    TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
   }) {
     return fetchProducts?.call();
   }
@@ -28840,6 +29292,7 @@ class _$FetchProducts implements FetchProducts {
     TResult Function()? fetchArticlesCategory,
     TResult Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult Function(String category)? fetchArticlesByCategory,
+    TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (fetchProducts != null) {
@@ -28927,6 +29380,8 @@ class _$FetchProducts implements FetchProducts {
         saveArticleCategoryFilterVal,
     required TResult Function(FetchArticlesByCategory value)
         fetchArticlesByCategory,
+    required TResult Function(FetchBrandProductsItemCount value)
+        fetchBrandProductsItemCount,
   }) {
     return fetchProducts(this);
   }
@@ -28999,6 +29454,8 @@ class _$FetchProducts implements FetchProducts {
     TResult? Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult? Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult? Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
   }) {
     return fetchProducts?.call(this);
   }
@@ -29071,6 +29528,8 @@ class _$FetchProducts implements FetchProducts {
     TResult Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (fetchProducts != null) {
@@ -29206,6 +29665,7 @@ class _$FetchArticlesCategory implements FetchArticlesCategory {
     required TResult Function() fetchArticlesCategory,
     required TResult Function(String filterVal) saveArticleCategoryFilterVal,
     required TResult Function(String category) fetchArticlesByCategory,
+    required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
   }) {
     return fetchArticlesCategory();
   }
@@ -29294,6 +29754,7 @@ class _$FetchArticlesCategory implements FetchArticlesCategory {
     TResult? Function()? fetchArticlesCategory,
     TResult? Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult? Function(String category)? fetchArticlesByCategory,
+    TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
   }) {
     return fetchArticlesCategory?.call();
   }
@@ -29382,6 +29843,7 @@ class _$FetchArticlesCategory implements FetchArticlesCategory {
     TResult Function()? fetchArticlesCategory,
     TResult Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult Function(String category)? fetchArticlesByCategory,
+    TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (fetchArticlesCategory != null) {
@@ -29469,6 +29931,8 @@ class _$FetchArticlesCategory implements FetchArticlesCategory {
         saveArticleCategoryFilterVal,
     required TResult Function(FetchArticlesByCategory value)
         fetchArticlesByCategory,
+    required TResult Function(FetchBrandProductsItemCount value)
+        fetchBrandProductsItemCount,
   }) {
     return fetchArticlesCategory(this);
   }
@@ -29541,6 +30005,8 @@ class _$FetchArticlesCategory implements FetchArticlesCategory {
     TResult? Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult? Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult? Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
   }) {
     return fetchArticlesCategory?.call(this);
   }
@@ -29613,6 +30079,8 @@ class _$FetchArticlesCategory implements FetchArticlesCategory {
     TResult Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (fetchArticlesCategory != null) {
@@ -29779,6 +30247,7 @@ class _$SaveArticleCategoryFilterVal implements SaveArticleCategoryFilterVal {
     required TResult Function() fetchArticlesCategory,
     required TResult Function(String filterVal) saveArticleCategoryFilterVal,
     required TResult Function(String category) fetchArticlesByCategory,
+    required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
   }) {
     return saveArticleCategoryFilterVal(filterVal);
   }
@@ -29867,6 +30336,7 @@ class _$SaveArticleCategoryFilterVal implements SaveArticleCategoryFilterVal {
     TResult? Function()? fetchArticlesCategory,
     TResult? Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult? Function(String category)? fetchArticlesByCategory,
+    TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
   }) {
     return saveArticleCategoryFilterVal?.call(filterVal);
   }
@@ -29955,6 +30425,7 @@ class _$SaveArticleCategoryFilterVal implements SaveArticleCategoryFilterVal {
     TResult Function()? fetchArticlesCategory,
     TResult Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult Function(String category)? fetchArticlesByCategory,
+    TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (saveArticleCategoryFilterVal != null) {
@@ -30042,6 +30513,8 @@ class _$SaveArticleCategoryFilterVal implements SaveArticleCategoryFilterVal {
         saveArticleCategoryFilterVal,
     required TResult Function(FetchArticlesByCategory value)
         fetchArticlesByCategory,
+    required TResult Function(FetchBrandProductsItemCount value)
+        fetchBrandProductsItemCount,
   }) {
     return saveArticleCategoryFilterVal(this);
   }
@@ -30114,6 +30587,8 @@ class _$SaveArticleCategoryFilterVal implements SaveArticleCategoryFilterVal {
     TResult? Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult? Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult? Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
   }) {
     return saveArticleCategoryFilterVal?.call(this);
   }
@@ -30186,6 +30661,8 @@ class _$SaveArticleCategoryFilterVal implements SaveArticleCategoryFilterVal {
     TResult Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (saveArticleCategoryFilterVal != null) {
@@ -30355,6 +30832,7 @@ class _$FetchArticlesByCategory implements FetchArticlesByCategory {
     required TResult Function() fetchArticlesCategory,
     required TResult Function(String filterVal) saveArticleCategoryFilterVal,
     required TResult Function(String category) fetchArticlesByCategory,
+    required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
   }) {
     return fetchArticlesByCategory(category);
   }
@@ -30443,6 +30921,7 @@ class _$FetchArticlesByCategory implements FetchArticlesByCategory {
     TResult? Function()? fetchArticlesCategory,
     TResult? Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult? Function(String category)? fetchArticlesByCategory,
+    TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
   }) {
     return fetchArticlesByCategory?.call(category);
   }
@@ -30531,6 +31010,7 @@ class _$FetchArticlesByCategory implements FetchArticlesByCategory {
     TResult Function()? fetchArticlesCategory,
     TResult Function(String filterVal)? saveArticleCategoryFilterVal,
     TResult Function(String category)? fetchArticlesByCategory,
+    TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (fetchArticlesByCategory != null) {
@@ -30618,6 +31098,8 @@ class _$FetchArticlesByCategory implements FetchArticlesByCategory {
         saveArticleCategoryFilterVal,
     required TResult Function(FetchArticlesByCategory value)
         fetchArticlesByCategory,
+    required TResult Function(FetchBrandProductsItemCount value)
+        fetchBrandProductsItemCount,
   }) {
     return fetchArticlesByCategory(this);
   }
@@ -30690,6 +31172,8 @@ class _$FetchArticlesByCategory implements FetchArticlesByCategory {
     TResult? Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult? Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult? Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
   }) {
     return fetchArticlesByCategory?.call(this);
   }
@@ -30762,6 +31246,8 @@ class _$FetchArticlesByCategory implements FetchArticlesByCategory {
     TResult Function(SaveArticleCategoryFilterVal value)?
         saveArticleCategoryFilterVal,
     TResult Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
     required TResult orElse(),
   }) {
     if (fetchArticlesByCategory != null) {
@@ -30779,6 +31265,601 @@ abstract class FetchArticlesByCategory implements ShopProductsEvent {
   @JsonKey(ignore: true)
   _$$FetchArticlesByCategoryCopyWith<_$FetchArticlesByCategory> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$FetchBrandProductsItemCountCopyWith<$Res> {
+  factory _$$FetchBrandProductsItemCountCopyWith(
+          _$FetchBrandProductsItemCount value,
+          $Res Function(_$FetchBrandProductsItemCount) then) =
+      __$$FetchBrandProductsItemCountCopyWithImpl<$Res>;
+  @useResult
+  $Res call({List<String>? ids});
+}
+
+/// @nodoc
+class __$$FetchBrandProductsItemCountCopyWithImpl<$Res>
+    extends _$ShopProductsEventCopyWithImpl<$Res, _$FetchBrandProductsItemCount>
+    implements _$$FetchBrandProductsItemCountCopyWith<$Res> {
+  __$$FetchBrandProductsItemCountCopyWithImpl(
+      _$FetchBrandProductsItemCount _value,
+      $Res Function(_$FetchBrandProductsItemCount) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? ids = freezed,
+  }) {
+    return _then(_$FetchBrandProductsItemCount(
+      ids: freezed == ids
+          ? _value._ids
+          : ids // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$FetchBrandProductsItemCount implements FetchBrandProductsItemCount {
+  const _$FetchBrandProductsItemCount({required final List<String>? ids})
+      : _ids = ids;
+
+  final List<String>? _ids;
+  @override
+  List<String>? get ids {
+    final value = _ids;
+    if (value == null) return null;
+    if (_ids is EqualUnmodifiableListView) return _ids;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  @override
+  String toString() {
+    return 'ShopProductsEvent.fetchBrandProductsItemCount(ids: $ids)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$FetchBrandProductsItemCount &&
+            const DeepCollectionEquality().equals(other._ids, _ids));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_ids));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$FetchBrandProductsItemCountCopyWith<_$FetchBrandProductsItemCount>
+      get copyWith => __$$FetchBrandProductsItemCountCopyWithImpl<
+          _$FetchBrandProductsItemCount>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String endPointSlug) fetchFlashSaleProducts,
+    required TResult Function(String endPointSlug) fetchPopularProducts,
+    required TResult Function() fetchRecentProductProducts,
+    required TResult Function() fetchHomeBanners,
+    required TResult Function() fetchShopBanners,
+    required TResult Function(String searchQuery) fetchArticles,
+    required TResult Function() fetchShopByBrand,
+    required TResult Function(BuildContext context) fetchWishList,
+    required TResult Function(String query) searchProduct,
+    required TResult Function(String productId, BuildContext context)
+        addWishListEvent,
+    required TResult Function(String productId, BuildContext context)
+        removeWishlistEvent,
+    required TResult Function(String brandName) fetchShopByBrandProducts,
+    required TResult Function(int index) tabIndexChangeEvent,
+    required TResult Function(
+            BuildContext context,
+            double totalPrice,
+            String pickupLocation,
+            int quantity,
+            int totalDiscount,
+            int shippingCharges,
+            int weight,
+            String id)
+        postOrders,
+    required TResult Function(
+            BuildContext context,
+            String razorpayOrderId,
+            String razorpayPaymentId,
+            String razorpaySignature,
+            String addressId)
+        postOnlieOrders,
+    required TResult Function(BuildContext context, double amount)
+        postOrderIdOnlinePayment,
+    required TResult Function(
+            BuildContext context,
+            double price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)
+        postOrdersRewards,
+    required TResult Function(BuildContext context) fetchOrders,
+    required TResult Function(BuildContext context, int id) fetchOrdersById,
+    required TResult Function(BuildContext context, String filterName)
+        fetchOrdersbyFilterEvent,
+    required TResult Function(BuildContext context, int shiprockeId)
+        cancelOrder,
+    required TResult Function(BuildContext context, int shiprockeId)
+        returnOrder,
+    required TResult Function() fetchShopHomeBackgroundCard,
+    required TResult Function() fetchShopHomeBackgroundCardHelthyDiet,
+    required TResult Function() fetchShopHomeBackgroundCardSunnah,
+    required TResult Function() fetchShopAdBrands,
+    required TResult Function() fetchTopBrands,
+    required TResult Function() fetchProductItemsSubcategorySunnah,
+    required TResult Function() fetchProductItemsSubcategoryHealth,
+    required TResult Function() fetchProductItemsSubcategoryWomen,
+    required TResult Function(int index) changeShopBannerIndex,
+    required TResult Function(int index) changeBrandBannerIndex,
+    required TResult Function() showOrderProgressEvent,
+    required TResult Function(int index) indexChangeOnOrderProgress,
+    required TResult Function(int index) indexChangeOnWomensCareBanner,
+    required TResult Function(String id) fetchShopAdBrandsById,
+    required TResult Function(int index) savePaymentMethodType,
+    required TResult Function() fetchProductItemsbyCategory,
+    required TResult Function(String slug) fetchSpecificCategeryItems,
+    required TResult Function(String id) fetchProductsById,
+    required TResult Function(String brandId) fetchBrandProducts,
+    required TResult Function() fetchCoupons,
+    required TResult Function(bool value) isPromoCodeAvailable,
+    required TResult Function(int index) changeIndexEvent,
+    required TResult Function(String id) fetchBrandItemsbyId,
+    required TResult Function() fetchAllBrandsEvent,
+    required TResult Function(String endpoint) fetchOrderReasons,
+    required TResult Function(String endpoint, String text) addReasons,
+    required TResult Function(String id) fetchArticlesbyId,
+    required TResult Function() fetchProducts,
+    required TResult Function() fetchArticlesCategory,
+    required TResult Function(String filterVal) saveArticleCategoryFilterVal,
+    required TResult Function(String category) fetchArticlesByCategory,
+    required TResult Function(List<String>? ids) fetchBrandProductsItemCount,
+  }) {
+    return fetchBrandProductsItemCount(ids);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String endPointSlug)? fetchFlashSaleProducts,
+    TResult? Function(String endPointSlug)? fetchPopularProducts,
+    TResult? Function()? fetchRecentProductProducts,
+    TResult? Function()? fetchHomeBanners,
+    TResult? Function()? fetchShopBanners,
+    TResult? Function(String searchQuery)? fetchArticles,
+    TResult? Function()? fetchShopByBrand,
+    TResult? Function(BuildContext context)? fetchWishList,
+    TResult? Function(String query)? searchProduct,
+    TResult? Function(String productId, BuildContext context)? addWishListEvent,
+    TResult? Function(String productId, BuildContext context)?
+        removeWishlistEvent,
+    TResult? Function(String brandName)? fetchShopByBrandProducts,
+    TResult? Function(int index)? tabIndexChangeEvent,
+    TResult? Function(
+            BuildContext context,
+            double totalPrice,
+            String pickupLocation,
+            int quantity,
+            int totalDiscount,
+            int shippingCharges,
+            int weight,
+            String id)?
+        postOrders,
+    TResult? Function(
+            BuildContext context,
+            String razorpayOrderId,
+            String razorpayPaymentId,
+            String razorpaySignature,
+            String addressId)?
+        postOnlieOrders,
+    TResult? Function(BuildContext context, double amount)?
+        postOrderIdOnlinePayment,
+    TResult? Function(
+            BuildContext context,
+            double price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)?
+        postOrdersRewards,
+    TResult? Function(BuildContext context)? fetchOrders,
+    TResult? Function(BuildContext context, int id)? fetchOrdersById,
+    TResult? Function(BuildContext context, String filterName)?
+        fetchOrdersbyFilterEvent,
+    TResult? Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult? Function(BuildContext context, int shiprockeId)? returnOrder,
+    TResult? Function()? fetchShopHomeBackgroundCard,
+    TResult? Function()? fetchShopHomeBackgroundCardHelthyDiet,
+    TResult? Function()? fetchShopHomeBackgroundCardSunnah,
+    TResult? Function()? fetchShopAdBrands,
+    TResult? Function()? fetchTopBrands,
+    TResult? Function()? fetchProductItemsSubcategorySunnah,
+    TResult? Function()? fetchProductItemsSubcategoryHealth,
+    TResult? Function()? fetchProductItemsSubcategoryWomen,
+    TResult? Function(int index)? changeShopBannerIndex,
+    TResult? Function(int index)? changeBrandBannerIndex,
+    TResult? Function()? showOrderProgressEvent,
+    TResult? Function(int index)? indexChangeOnOrderProgress,
+    TResult? Function(int index)? indexChangeOnWomensCareBanner,
+    TResult? Function(String id)? fetchShopAdBrandsById,
+    TResult? Function(int index)? savePaymentMethodType,
+    TResult? Function()? fetchProductItemsbyCategory,
+    TResult? Function(String slug)? fetchSpecificCategeryItems,
+    TResult? Function(String id)? fetchProductsById,
+    TResult? Function(String brandId)? fetchBrandProducts,
+    TResult? Function()? fetchCoupons,
+    TResult? Function(bool value)? isPromoCodeAvailable,
+    TResult? Function(int index)? changeIndexEvent,
+    TResult? Function(String id)? fetchBrandItemsbyId,
+    TResult? Function()? fetchAllBrandsEvent,
+    TResult? Function(String endpoint)? fetchOrderReasons,
+    TResult? Function(String endpoint, String text)? addReasons,
+    TResult? Function(String id)? fetchArticlesbyId,
+    TResult? Function()? fetchProducts,
+    TResult? Function()? fetchArticlesCategory,
+    TResult? Function(String filterVal)? saveArticleCategoryFilterVal,
+    TResult? Function(String category)? fetchArticlesByCategory,
+    TResult? Function(List<String>? ids)? fetchBrandProductsItemCount,
+  }) {
+    return fetchBrandProductsItemCount?.call(ids);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String endPointSlug)? fetchFlashSaleProducts,
+    TResult Function(String endPointSlug)? fetchPopularProducts,
+    TResult Function()? fetchRecentProductProducts,
+    TResult Function()? fetchHomeBanners,
+    TResult Function()? fetchShopBanners,
+    TResult Function(String searchQuery)? fetchArticles,
+    TResult Function()? fetchShopByBrand,
+    TResult Function(BuildContext context)? fetchWishList,
+    TResult Function(String query)? searchProduct,
+    TResult Function(String productId, BuildContext context)? addWishListEvent,
+    TResult Function(String productId, BuildContext context)?
+        removeWishlistEvent,
+    TResult Function(String brandName)? fetchShopByBrandProducts,
+    TResult Function(int index)? tabIndexChangeEvent,
+    TResult Function(
+            BuildContext context,
+            double totalPrice,
+            String pickupLocation,
+            int quantity,
+            int totalDiscount,
+            int shippingCharges,
+            int weight,
+            String id)?
+        postOrders,
+    TResult Function(
+            BuildContext context,
+            String razorpayOrderId,
+            String razorpayPaymentId,
+            String razorpaySignature,
+            String addressId)?
+        postOnlieOrders,
+    TResult Function(BuildContext context, double amount)?
+        postOrderIdOnlinePayment,
+    TResult Function(
+            BuildContext context,
+            double price,
+            int coins,
+            String addressId,
+            int totalQuantity,
+            String productId,
+            String brandId,
+            String size,
+            String color)?
+        postOrdersRewards,
+    TResult Function(BuildContext context)? fetchOrders,
+    TResult Function(BuildContext context, int id)? fetchOrdersById,
+    TResult Function(BuildContext context, String filterName)?
+        fetchOrdersbyFilterEvent,
+    TResult Function(BuildContext context, int shiprockeId)? cancelOrder,
+    TResult Function(BuildContext context, int shiprockeId)? returnOrder,
+    TResult Function()? fetchShopHomeBackgroundCard,
+    TResult Function()? fetchShopHomeBackgroundCardHelthyDiet,
+    TResult Function()? fetchShopHomeBackgroundCardSunnah,
+    TResult Function()? fetchShopAdBrands,
+    TResult Function()? fetchTopBrands,
+    TResult Function()? fetchProductItemsSubcategorySunnah,
+    TResult Function()? fetchProductItemsSubcategoryHealth,
+    TResult Function()? fetchProductItemsSubcategoryWomen,
+    TResult Function(int index)? changeShopBannerIndex,
+    TResult Function(int index)? changeBrandBannerIndex,
+    TResult Function()? showOrderProgressEvent,
+    TResult Function(int index)? indexChangeOnOrderProgress,
+    TResult Function(int index)? indexChangeOnWomensCareBanner,
+    TResult Function(String id)? fetchShopAdBrandsById,
+    TResult Function(int index)? savePaymentMethodType,
+    TResult Function()? fetchProductItemsbyCategory,
+    TResult Function(String slug)? fetchSpecificCategeryItems,
+    TResult Function(String id)? fetchProductsById,
+    TResult Function(String brandId)? fetchBrandProducts,
+    TResult Function()? fetchCoupons,
+    TResult Function(bool value)? isPromoCodeAvailable,
+    TResult Function(int index)? changeIndexEvent,
+    TResult Function(String id)? fetchBrandItemsbyId,
+    TResult Function()? fetchAllBrandsEvent,
+    TResult Function(String endpoint)? fetchOrderReasons,
+    TResult Function(String endpoint, String text)? addReasons,
+    TResult Function(String id)? fetchArticlesbyId,
+    TResult Function()? fetchProducts,
+    TResult Function()? fetchArticlesCategory,
+    TResult Function(String filterVal)? saveArticleCategoryFilterVal,
+    TResult Function(String category)? fetchArticlesByCategory,
+    TResult Function(List<String>? ids)? fetchBrandProductsItemCount,
+    required TResult orElse(),
+  }) {
+    if (fetchBrandProductsItemCount != null) {
+      return fetchBrandProductsItemCount(ids);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FetchFlashSaleProducts value)
+        fetchFlashSaleProducts,
+    required TResult Function(FetchPopularProducts value) fetchPopularProducts,
+    required TResult Function(FetchRecentProductProducts value)
+        fetchRecentProductProducts,
+    required TResult Function(FetchHomeBanners value) fetchHomeBanners,
+    required TResult Function(FetchShopBanners value) fetchShopBanners,
+    required TResult Function(FetchArticles value) fetchArticles,
+    required TResult Function(FetchShopByBrand value) fetchShopByBrand,
+    required TResult Function(FetchWishList value) fetchWishList,
+    required TResult Function(SearchProduct value) searchProduct,
+    required TResult Function(AddWishListEvent value) addWishListEvent,
+    required TResult Function(RemoveWishlistEvent value) removeWishlistEvent,
+    required TResult Function(FetchShopByBrandProducts value)
+        fetchShopByBrandProducts,
+    required TResult Function(TabIndexChangeEvent value) tabIndexChangeEvent,
+    required TResult Function(PostOrders value) postOrders,
+    required TResult Function(PostOnlieOrders value) postOnlieOrders,
+    required TResult Function(PostOrderIdOnlinePayment value)
+        postOrderIdOnlinePayment,
+    required TResult Function(PostOrdersRewards value) postOrdersRewards,
+    required TResult Function(FetchOrders value) fetchOrders,
+    required TResult Function(FetchOrdersById value) fetchOrdersById,
+    required TResult Function(FetchOrdersbyFilterEvent value)
+        fetchOrdersbyFilterEvent,
+    required TResult Function(CancelOrder value) cancelOrder,
+    required TResult Function(ReturnOrder value) returnOrder,
+    required TResult Function(FetchShopHomeBackgroundCard value)
+        fetchShopHomeBackgroundCard,
+    required TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)
+        fetchShopHomeBackgroundCardHelthyDiet,
+    required TResult Function(FetchShopHomeBackgroundCardSunnah value)
+        fetchShopHomeBackgroundCardSunnah,
+    required TResult Function(FetchShopAdBrands value) fetchShopAdBrands,
+    required TResult Function(FetchTopBrands value) fetchTopBrands,
+    required TResult Function(FetchProductItemsSubcategorySunnah value)
+        fetchProductItemsSubcategorySunnah,
+    required TResult Function(FetchProductItemsSubcategoryHealth value)
+        fetchProductItemsSubcategoryHealth,
+    required TResult Function(FetchProductItemsSubcategoryWomen value)
+        fetchProductItemsSubcategoryWomen,
+    required TResult Function(ChangeShopBannerIndex value)
+        changeShopBannerIndex,
+    required TResult Function(ChangeBrandBannerIndex value)
+        changeBrandBannerIndex,
+    required TResult Function(ShowOrderProgressEvent value)
+        showOrderProgressEvent,
+    required TResult Function(IndexChangeOnOrderProgress value)
+        indexChangeOnOrderProgress,
+    required TResult Function(IndexChangeOnWomensCareBanner value)
+        indexChangeOnWomensCareBanner,
+    required TResult Function(FetchShopAdBrandsById value)
+        fetchShopAdBrandsById,
+    required TResult Function(SavePaymentMethodType value)
+        savePaymentMethodType,
+    required TResult Function(FetchProductItemsbyCategory value)
+        fetchProductItemsbyCategory,
+    required TResult Function(FetchSpecificCategeryItems value)
+        fetchSpecificCategeryItems,
+    required TResult Function(FetchProductsById value) fetchProductsById,
+    required TResult Function(FetchBrandProducts value) fetchBrandProducts,
+    required TResult Function(FetchCoupons value) fetchCoupons,
+    required TResult Function(IsPromoCodeAvailable value) isPromoCodeAvailable,
+    required TResult Function(ChangeIndexEvent value) changeIndexEvent,
+    required TResult Function(FetchBrandItemsbyId value) fetchBrandItemsbyId,
+    required TResult Function(FetchAllBrandsEvent value) fetchAllBrandsEvent,
+    required TResult Function(FetchOrderReasons value) fetchOrderReasons,
+    required TResult Function(AddReasons value) addReasons,
+    required TResult Function(FetchArticlesbyId value) fetchArticlesbyId,
+    required TResult Function(FetchProducts value) fetchProducts,
+    required TResult Function(FetchArticlesCategory value)
+        fetchArticlesCategory,
+    required TResult Function(SaveArticleCategoryFilterVal value)
+        saveArticleCategoryFilterVal,
+    required TResult Function(FetchArticlesByCategory value)
+        fetchArticlesByCategory,
+    required TResult Function(FetchBrandProductsItemCount value)
+        fetchBrandProductsItemCount,
+  }) {
+    return fetchBrandProductsItemCount(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(FetchFlashSaleProducts value)? fetchFlashSaleProducts,
+    TResult? Function(FetchPopularProducts value)? fetchPopularProducts,
+    TResult? Function(FetchRecentProductProducts value)?
+        fetchRecentProductProducts,
+    TResult? Function(FetchHomeBanners value)? fetchHomeBanners,
+    TResult? Function(FetchShopBanners value)? fetchShopBanners,
+    TResult? Function(FetchArticles value)? fetchArticles,
+    TResult? Function(FetchShopByBrand value)? fetchShopByBrand,
+    TResult? Function(FetchWishList value)? fetchWishList,
+    TResult? Function(SearchProduct value)? searchProduct,
+    TResult? Function(AddWishListEvent value)? addWishListEvent,
+    TResult? Function(RemoveWishlistEvent value)? removeWishlistEvent,
+    TResult? Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
+    TResult? Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
+    TResult? Function(PostOrders value)? postOrders,
+    TResult? Function(PostOnlieOrders value)? postOnlieOrders,
+    TResult? Function(PostOrderIdOnlinePayment value)? postOrderIdOnlinePayment,
+    TResult? Function(PostOrdersRewards value)? postOrdersRewards,
+    TResult? Function(FetchOrders value)? fetchOrders,
+    TResult? Function(FetchOrdersById value)? fetchOrdersById,
+    TResult? Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
+    TResult? Function(CancelOrder value)? cancelOrder,
+    TResult? Function(ReturnOrder value)? returnOrder,
+    TResult? Function(FetchShopHomeBackgroundCard value)?
+        fetchShopHomeBackgroundCard,
+    TResult? Function(FetchShopHomeBackgroundCardHelthyDiet value)?
+        fetchShopHomeBackgroundCardHelthyDiet,
+    TResult? Function(FetchShopHomeBackgroundCardSunnah value)?
+        fetchShopHomeBackgroundCardSunnah,
+    TResult? Function(FetchShopAdBrands value)? fetchShopAdBrands,
+    TResult? Function(FetchTopBrands value)? fetchTopBrands,
+    TResult? Function(FetchProductItemsSubcategorySunnah value)?
+        fetchProductItemsSubcategorySunnah,
+    TResult? Function(FetchProductItemsSubcategoryHealth value)?
+        fetchProductItemsSubcategoryHealth,
+    TResult? Function(FetchProductItemsSubcategoryWomen value)?
+        fetchProductItemsSubcategoryWomen,
+    TResult? Function(ChangeShopBannerIndex value)? changeShopBannerIndex,
+    TResult? Function(ChangeBrandBannerIndex value)? changeBrandBannerIndex,
+    TResult? Function(ShowOrderProgressEvent value)? showOrderProgressEvent,
+    TResult? Function(IndexChangeOnOrderProgress value)?
+        indexChangeOnOrderProgress,
+    TResult? Function(IndexChangeOnWomensCareBanner value)?
+        indexChangeOnWomensCareBanner,
+    TResult? Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
+    TResult? Function(SavePaymentMethodType value)? savePaymentMethodType,
+    TResult? Function(FetchProductItemsbyCategory value)?
+        fetchProductItemsbyCategory,
+    TResult? Function(FetchSpecificCategeryItems value)?
+        fetchSpecificCategeryItems,
+    TResult? Function(FetchProductsById value)? fetchProductsById,
+    TResult? Function(FetchBrandProducts value)? fetchBrandProducts,
+    TResult? Function(FetchCoupons value)? fetchCoupons,
+    TResult? Function(IsPromoCodeAvailable value)? isPromoCodeAvailable,
+    TResult? Function(ChangeIndexEvent value)? changeIndexEvent,
+    TResult? Function(FetchBrandItemsbyId value)? fetchBrandItemsbyId,
+    TResult? Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
+    TResult? Function(FetchOrderReasons value)? fetchOrderReasons,
+    TResult? Function(AddReasons value)? addReasons,
+    TResult? Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult? Function(FetchProducts value)? fetchProducts,
+    TResult? Function(FetchArticlesCategory value)? fetchArticlesCategory,
+    TResult? Function(SaveArticleCategoryFilterVal value)?
+        saveArticleCategoryFilterVal,
+    TResult? Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult? Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
+  }) {
+    return fetchBrandProductsItemCount?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FetchFlashSaleProducts value)? fetchFlashSaleProducts,
+    TResult Function(FetchPopularProducts value)? fetchPopularProducts,
+    TResult Function(FetchRecentProductProducts value)?
+        fetchRecentProductProducts,
+    TResult Function(FetchHomeBanners value)? fetchHomeBanners,
+    TResult Function(FetchShopBanners value)? fetchShopBanners,
+    TResult Function(FetchArticles value)? fetchArticles,
+    TResult Function(FetchShopByBrand value)? fetchShopByBrand,
+    TResult Function(FetchWishList value)? fetchWishList,
+    TResult Function(SearchProduct value)? searchProduct,
+    TResult Function(AddWishListEvent value)? addWishListEvent,
+    TResult Function(RemoveWishlistEvent value)? removeWishlistEvent,
+    TResult Function(FetchShopByBrandProducts value)? fetchShopByBrandProducts,
+    TResult Function(TabIndexChangeEvent value)? tabIndexChangeEvent,
+    TResult Function(PostOrders value)? postOrders,
+    TResult Function(PostOnlieOrders value)? postOnlieOrders,
+    TResult Function(PostOrderIdOnlinePayment value)? postOrderIdOnlinePayment,
+    TResult Function(PostOrdersRewards value)? postOrdersRewards,
+    TResult Function(FetchOrders value)? fetchOrders,
+    TResult Function(FetchOrdersById value)? fetchOrdersById,
+    TResult Function(FetchOrdersbyFilterEvent value)? fetchOrdersbyFilterEvent,
+    TResult Function(CancelOrder value)? cancelOrder,
+    TResult Function(ReturnOrder value)? returnOrder,
+    TResult Function(FetchShopHomeBackgroundCard value)?
+        fetchShopHomeBackgroundCard,
+    TResult Function(FetchShopHomeBackgroundCardHelthyDiet value)?
+        fetchShopHomeBackgroundCardHelthyDiet,
+    TResult Function(FetchShopHomeBackgroundCardSunnah value)?
+        fetchShopHomeBackgroundCardSunnah,
+    TResult Function(FetchShopAdBrands value)? fetchShopAdBrands,
+    TResult Function(FetchTopBrands value)? fetchTopBrands,
+    TResult Function(FetchProductItemsSubcategorySunnah value)?
+        fetchProductItemsSubcategorySunnah,
+    TResult Function(FetchProductItemsSubcategoryHealth value)?
+        fetchProductItemsSubcategoryHealth,
+    TResult Function(FetchProductItemsSubcategoryWomen value)?
+        fetchProductItemsSubcategoryWomen,
+    TResult Function(ChangeShopBannerIndex value)? changeShopBannerIndex,
+    TResult Function(ChangeBrandBannerIndex value)? changeBrandBannerIndex,
+    TResult Function(ShowOrderProgressEvent value)? showOrderProgressEvent,
+    TResult Function(IndexChangeOnOrderProgress value)?
+        indexChangeOnOrderProgress,
+    TResult Function(IndexChangeOnWomensCareBanner value)?
+        indexChangeOnWomensCareBanner,
+    TResult Function(FetchShopAdBrandsById value)? fetchShopAdBrandsById,
+    TResult Function(SavePaymentMethodType value)? savePaymentMethodType,
+    TResult Function(FetchProductItemsbyCategory value)?
+        fetchProductItemsbyCategory,
+    TResult Function(FetchSpecificCategeryItems value)?
+        fetchSpecificCategeryItems,
+    TResult Function(FetchProductsById value)? fetchProductsById,
+    TResult Function(FetchBrandProducts value)? fetchBrandProducts,
+    TResult Function(FetchCoupons value)? fetchCoupons,
+    TResult Function(IsPromoCodeAvailable value)? isPromoCodeAvailable,
+    TResult Function(ChangeIndexEvent value)? changeIndexEvent,
+    TResult Function(FetchBrandItemsbyId value)? fetchBrandItemsbyId,
+    TResult Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
+    TResult Function(FetchOrderReasons value)? fetchOrderReasons,
+    TResult Function(AddReasons value)? addReasons,
+    TResult Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult Function(FetchProducts value)? fetchProducts,
+    TResult Function(FetchArticlesCategory value)? fetchArticlesCategory,
+    TResult Function(SaveArticleCategoryFilterVal value)?
+        saveArticleCategoryFilterVal,
+    TResult Function(FetchArticlesByCategory value)? fetchArticlesByCategory,
+    TResult Function(FetchBrandProductsItemCount value)?
+        fetchBrandProductsItemCount,
+    required TResult orElse(),
+  }) {
+    if (fetchBrandProductsItemCount != null) {
+      return fetchBrandProductsItemCount(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class FetchBrandProductsItemCount implements ShopProductsEvent {
+  const factory FetchBrandProductsItemCount(
+      {required final List<String>? ids}) = _$FetchBrandProductsItemCount;
+
+  List<String>? get ids;
+  @JsonKey(ignore: true)
+  _$$FetchBrandProductsItemCountCopyWith<_$FetchBrandProductsItemCount>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -30849,6 +31930,8 @@ mixin _$ShopProductsState {
   String get orderIdRazorPay => throw _privateConstructorUsedError;
   double get totalAmount => throw _privateConstructorUsedError;
   bool get orderSucces => throw _privateConstructorUsedError;
+  List<double>? get brandProductsItemCount =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ShopProductsStateCopyWith<ShopProductsState> get copyWith =>
@@ -30918,7 +32001,8 @@ abstract class $ShopProductsStateCopyWith<$Res> {
       String filterVal,
       String orderIdRazorPay,
       double totalAmount,
-      bool orderSucces});
+      bool orderSucces,
+      List<double>? brandProductsItemCount});
 
   $ShopProductsCopyWith<$Res>? get flashSaleproducts;
   $ShopProductsCopyWith<$Res>? get popularProducts;
@@ -31027,6 +32111,7 @@ class _$ShopProductsStateCopyWithImpl<$Res, $Val extends ShopProductsState>
     Object? orderIdRazorPay = null,
     Object? totalAmount = null,
     Object? orderSucces = null,
+    Object? brandProductsItemCount = freezed,
   }) {
     return _then(_value.copyWith(
       flashSaleproducts: freezed == flashSaleproducts
@@ -31259,6 +32344,10 @@ class _$ShopProductsStateCopyWithImpl<$Res, $Val extends ShopProductsState>
           ? _value.orderSucces
           : orderSucces // ignore: cast_nullable_to_non_nullable
               as bool,
+      brandProductsItemCount: freezed == brandProductsItemCount
+          ? _value.brandProductsItemCount
+          : brandProductsItemCount // ignore: cast_nullable_to_non_nullable
+              as List<double>?,
     ) as $Val);
   }
 
@@ -31707,7 +32796,8 @@ abstract class _$$_InitialCopyWith<$Res>
       String filterVal,
       String orderIdRazorPay,
       double totalAmount,
-      bool orderSucces});
+      bool orderSucces,
+      List<double>? brandProductsItemCount});
 
   @override
   $ShopProductsCopyWith<$Res>? get flashSaleproducts;
@@ -31843,6 +32933,7 @@ class __$$_InitialCopyWithImpl<$Res>
     Object? orderIdRazorPay = null,
     Object? totalAmount = null,
     Object? orderSucces = null,
+    Object? brandProductsItemCount = freezed,
   }) {
     return _then(_$_Initial(
       flashSaleproducts: freezed == flashSaleproducts
@@ -32075,6 +33166,10 @@ class __$$_InitialCopyWithImpl<$Res>
           ? _value.orderSucces
           : orderSucces // ignore: cast_nullable_to_non_nullable
               as bool,
+      brandProductsItemCount: freezed == brandProductsItemCount
+          ? _value._brandProductsItemCount
+          : brandProductsItemCount // ignore: cast_nullable_to_non_nullable
+              as List<double>?,
     ));
   }
 }
@@ -32138,9 +33233,11 @@ class _$_Initial implements _Initial {
       required this.filterVal,
       required this.orderIdRazorPay,
       required this.totalAmount,
-      required this.orderSucces})
+      required this.orderSucces,
+      required final List<double>? brandProductsItemCount})
       : _articles = articles,
-        _wishListItems = wishListItems;
+        _wishListItems = wishListItems,
+        _brandProductsItemCount = brandProductsItemCount;
 
   @override
   final ShopProducts? flashSaleproducts;
@@ -32271,10 +33368,20 @@ class _$_Initial implements _Initial {
   final double totalAmount;
   @override
   final bool orderSucces;
+  final List<double>? _brandProductsItemCount;
+  @override
+  List<double>? get brandProductsItemCount {
+    final value = _brandProductsItemCount;
+    if (value == null) return null;
+    if (_brandProductsItemCount is EqualUnmodifiableListView)
+      return _brandProductsItemCount;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
 
   @override
   String toString() {
-    return 'ShopProductsState(flashSaleproducts: $flashSaleproducts, flashSaleLoading: $flashSaleLoading, popularProducts: $popularProducts, popularProductLoading: $popularProductLoading, recentProducts: $recentProducts, recentProductLoading: $recentProductLoading, homeBanner: $homeBanner, bannersLoading: $bannersLoading, shopBanner: $shopBanner, shopBannerLoading: $shopBannerLoading, articles: $articles, articleLoading: $articleLoading, isLoading: $isLoading, shopBrandModel: $shopBrandModel, wishList: $wishList, wishListMessage: $wishListMessage, wishListItems: $wishListItems, searchProducts: $searchProducts, brandProduct: $brandProduct, index: $index, isWishListed: $isWishListed, orderModel: $orderModel, ordersByIdModel: $ordersByIdModel, orderId: $orderId, errorMessage: $errorMessage, shopHomeBackgroundCardModelWomens: $shopHomeBackgroundCardModelWomens, shopHomeBackgroundCardModelHealthyDiet: $shopHomeBackgroundCardModelHealthyDiet, shopHomeBackgroundCardModelSunnah: $shopHomeBackgroundCardModelSunnah, shopAdBrands: $shopAdBrands, shopAdBrandsById: $shopAdBrandsById, topBrandsModel: $topBrandsModel, productItemsSubCategorySunnahModel: $productItemsSubCategorySunnahModel, productItemsSubCategoryHealthModel: $productItemsSubCategoryHealthModel, productItemsSubCategoryWomenModel: $productItemsSubCategoryWomenModel, shopBannerIndex: $shopBannerIndex, showProgress: $showProgress, brandBannerIndex: $brandBannerIndex, ordereProgressIndex: $ordereProgressIndex, womensCareBannerIndex: $womensCareBannerIndex, paymentMethod: $paymentMethod, specificCategoryModel: $specificCategoryModel, productByIdModel: $productByIdModel, brandProductsModel: $brandProductsModel, couponModel: $couponModel, isPromoCodeAvailable: $isPromoCodeAvailable, indexVal: $indexVal, brandItemsModel: $brandItemsModel, brandModels: $brandModels, reasonModel: $reasonModel, articleModelById: $articleModelById, productModel: $productModel, articleCategories: $articleCategories, filterVal: $filterVal, orderIdRazorPay: $orderIdRazorPay, totalAmount: $totalAmount, orderSucces: $orderSucces)';
+    return 'ShopProductsState(flashSaleproducts: $flashSaleproducts, flashSaleLoading: $flashSaleLoading, popularProducts: $popularProducts, popularProductLoading: $popularProductLoading, recentProducts: $recentProducts, recentProductLoading: $recentProductLoading, homeBanner: $homeBanner, bannersLoading: $bannersLoading, shopBanner: $shopBanner, shopBannerLoading: $shopBannerLoading, articles: $articles, articleLoading: $articleLoading, isLoading: $isLoading, shopBrandModel: $shopBrandModel, wishList: $wishList, wishListMessage: $wishListMessage, wishListItems: $wishListItems, searchProducts: $searchProducts, brandProduct: $brandProduct, index: $index, isWishListed: $isWishListed, orderModel: $orderModel, ordersByIdModel: $ordersByIdModel, orderId: $orderId, errorMessage: $errorMessage, shopHomeBackgroundCardModelWomens: $shopHomeBackgroundCardModelWomens, shopHomeBackgroundCardModelHealthyDiet: $shopHomeBackgroundCardModelHealthyDiet, shopHomeBackgroundCardModelSunnah: $shopHomeBackgroundCardModelSunnah, shopAdBrands: $shopAdBrands, shopAdBrandsById: $shopAdBrandsById, topBrandsModel: $topBrandsModel, productItemsSubCategorySunnahModel: $productItemsSubCategorySunnahModel, productItemsSubCategoryHealthModel: $productItemsSubCategoryHealthModel, productItemsSubCategoryWomenModel: $productItemsSubCategoryWomenModel, shopBannerIndex: $shopBannerIndex, showProgress: $showProgress, brandBannerIndex: $brandBannerIndex, ordereProgressIndex: $ordereProgressIndex, womensCareBannerIndex: $womensCareBannerIndex, paymentMethod: $paymentMethod, specificCategoryModel: $specificCategoryModel, productByIdModel: $productByIdModel, brandProductsModel: $brandProductsModel, couponModel: $couponModel, isPromoCodeAvailable: $isPromoCodeAvailable, indexVal: $indexVal, brandItemsModel: $brandItemsModel, brandModels: $brandModels, reasonModel: $reasonModel, articleModelById: $articleModelById, productModel: $productModel, articleCategories: $articleCategories, filterVal: $filterVal, orderIdRazorPay: $orderIdRazorPay, totalAmount: $totalAmount, orderSucces: $orderSucces, brandProductsItemCount: $brandProductsItemCount)';
   }
 
   @override
@@ -32376,7 +33483,8 @@ class _$_Initial implements _Initial {
             (identical(other.filterVal, filterVal) || other.filterVal == filterVal) &&
             (identical(other.orderIdRazorPay, orderIdRazorPay) || other.orderIdRazorPay == orderIdRazorPay) &&
             (identical(other.totalAmount, totalAmount) || other.totalAmount == totalAmount) &&
-            (identical(other.orderSucces, orderSucces) || other.orderSucces == orderSucces));
+            (identical(other.orderSucces, orderSucces) || other.orderSucces == orderSucces) &&
+            const DeepCollectionEquality().equals(other._brandProductsItemCount, _brandProductsItemCount));
   }
 
   @override
@@ -32437,7 +33545,8 @@ class _$_Initial implements _Initial {
         filterVal,
         orderIdRazorPay,
         totalAmount,
-        orderSucces
+        orderSucces,
+        const DeepCollectionEquality().hash(_brandProductsItemCount)
       ]);
 
   @JsonKey(ignore: true)
@@ -32510,7 +33619,8 @@ abstract class _Initial implements ShopProductsState {
       required final String filterVal,
       required final String orderIdRazorPay,
       required final double totalAmount,
-      required final bool orderSucces}) = _$_Initial;
+      required final bool orderSucces,
+      required final List<double>? brandProductsItemCount}) = _$_Initial;
 
   @override
   ShopProducts? get flashSaleproducts;
@@ -32625,6 +33735,8 @@ abstract class _Initial implements ShopProductsState {
   double get totalAmount;
   @override
   bool get orderSucces;
+  @override
+  List<double>? get brandProductsItemCount;
   @override
   @JsonKey(ignore: true)
   _$$_InitialCopyWith<_$_Initial> get copyWith =>

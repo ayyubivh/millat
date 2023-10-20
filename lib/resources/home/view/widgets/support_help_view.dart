@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:millat/components/buttons/main_button.dart';
 import 'package:millat/resources/profile/bloc/logic/terms_and_condtions_bloc/terms_and_condtions_bloc.dart';
 import 'package:millat/utils/assets_paths.dart';
@@ -93,7 +94,7 @@ class SupportHelpView extends StatelessWidget {
                   name: name,
                   phoneNumber: phone,
                   message: message));
-              Navigator.of(context).pop();
+              context.pop();
             }
           },
         ),

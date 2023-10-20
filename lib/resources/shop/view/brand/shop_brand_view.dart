@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
 import 'package:millat/resources/shop/bloc/models/shop_by_brand/brand_model.dart';
-import 'package:millat/resources/shop/bloc/models/shop_by_brand/top_brands/top_brands_model.dart';
 import 'package:millat/resources/shop/view/brand/single_brand_view.dart';
+import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
@@ -18,7 +19,22 @@ class ShopBrandView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      BlocProvider.of<ShopProductsBloc>(context).add(const FetchTopBrands());
+      List<String>? ids = (context
+                  .read<ShopProductsBloc>()
+                  .state
+                  .brandModels
+                  ?.result
+                  ?.data
+                  ?.map((e) => e.id)
+                  .where((id) => id != null)
+                  .toList() ??
+              [])
+          .cast<String>();
+      if (ids.isNotEmpty) {
+        BlocProvider.of<ShopProductsBloc>(context)
+          ..add(const FetchTopBrands())
+          ..add(FetchBrandProductsItemCount(ids: ids));
+      }
     });
     return Scaffold(
       body: SingleChildScrollView(
@@ -58,14 +74,14 @@ class ShopBrandView extends StatelessWidget {
               itemCount: state.brandModels!.result?.data?.length,
               itemBuilder: (context, index) {
                 final data = state.brandModels!.result?.data?[index];
-
+                final itemCount = state.brandProductsItemCount;
                 return GestureDetector(
                   onTap: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => SingleBrandView(passValue: data),
-                    ));
+                    context.pushNamed(MyAppRouteConstants.singleBrandRouteName,
+                        extra: {'passValue': data});
                   },
-                  child: brandTileContainer(context, data),
+                  child: brandTileContainer(
+                      context, data, itemCount?[index].toInt() ?? 0),
                 );
               },
             ),
@@ -116,9 +132,9 @@ class ShopBrandView extends StatelessWidget {
                       state.topBrandsModel?.result?.data?.topBrands?[index];
                   return GestureDetector(
                     onTap: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => SingleBrandView(passValue: data),
-                      ));
+                      context.pushNamed(
+                          MyAppRouteConstants.singleBrandRouteName,
+                          extra: {'passValue': data});
                     },
                     child: Column(
                       children: [
@@ -261,7 +277,8 @@ class ShopBrandView extends StatelessWidget {
     );
   }
 
-  Widget brandTileContainer(BuildContext context, BrandData? data) {
+  Widget brandTileContainer(
+      BuildContext context, BrandData? data, int itemsCount) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 10),
       child: Column(
@@ -328,7 +345,7 @@ class ShopBrandView extends StatelessWidget {
                               ),
                               kWidht10,
                               Text(
-                                '1,234 Items',
+                                '$itemsCount Items',
                                 style: TextStyle(
                                     fontSize: 14,
                                     fontWeight: FontWeight.w600,

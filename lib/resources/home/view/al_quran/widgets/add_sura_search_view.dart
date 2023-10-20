@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:millat/components/common_widgets/book_mark_collection.dart';
 import 'package:millat/resources/home/bloc/logic/quran_bloc/quran_bloc.dart';
 
@@ -153,7 +154,7 @@ class AddSuraSearchView extends StatelessWidget {
                     children: [
                       GestureDetector(
                         onTap: () {
-                          Navigator.of(context).pop();
+                          context.pop();
                         },
                         child: Text(
                           "Cancel",
@@ -182,7 +183,7 @@ class AddSuraSearchView extends StatelessWidget {
                                   verseKey: state.verskey,
                                 ));
                             print('versekey ${state.verskey}');
-                            Navigator.of(context).pop();
+                            context.pop();
                           },
                           child: Text(
                             'Done',

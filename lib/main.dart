@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:go_router/go_router.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:millat/resources/authentication/bloc/logic/auth_bloc.dart';
 import 'package:millat/resources/authentication/bloc/logic/database_bloc/database_bloc.dart';
@@ -15,24 +16,18 @@ import 'package:millat/resources/home/bloc/logic/quran_bloc/quran_bloc.dart';
 import 'package:millat/resources/home/bloc/logic/tasbih_bloc/tasbih_bloc.dart';
 import 'package:millat/resources/home/bloc/models/book_mark_hive_model/book_mark_hive_model.dart';
 import 'package:millat/resources/home/bloc/service/notification_service.dart';
-import 'package:millat/resources/home/view/namaz_timing/namaz_timing_view.dart';
-import 'package:millat/resources/on_boarding/view/on_boarding_view.dart';
 import 'package:millat/resources/profile/bloc/logic/terms_and_condtions_bloc/terms_and_condtions_bloc.dart';
-import 'package:millat/resources/profile/views/manage_address.dart';
 import 'package:millat/resources/rewards/bloc/logic/bloc/rewards_bloc_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/address_bloc/address_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/cart_bloc/cart_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/category_bloc/category_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/review_bloc/bloc/review_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
-import 'package:millat/resources/shop/view/products/products_view.dart';
-import 'package:millat/resources/shop/view/search/search_view.dart';
-import 'package:millat/resources/tabs/view/tabs_view.dart';
+import 'package:millat/routes/app_router.dart';
 import 'package:millat/utils/string_constants.dart';
 import 'package:responsive_framework/responsive_wrapper.dart';
 import 'package:responsive_framework/utils/scroll_behavior.dart';
 import 'package:timezone/data/latest.dart' as tz;
-import 'resources/shop/view/categories/categories_product_view.dart';
 
 void main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
@@ -92,7 +87,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    final GoRouter router = MyAppRouter.returnRouter(_getInitialScreen());
+
+    return MaterialApp.router(
+      routerConfig: router,
       debugShowCheckedModeBanner: false,
       title: 'Millat',
       builder: (context, child) => ResponsiveWrapper.builder(
@@ -114,39 +112,39 @@ class MyApp extends StatelessWidget {
         fontFamily: 'SofiaPro',
         primarySwatch: Colors.blue,
       ),
-      routes: {
-        CategoriesProductView.routeName: (context) {
-          final args = ModalRoute.of(context)!.settings.arguments
-              as Map<String, dynamic>;
-          final category = args["category"];
-          final subCategory = args["subCategory"];
-          final type = args["type"];
-          return CategoriesProductView(
-              category: category, subCategory: subCategory, type: type);
-        },
-        NamazTimingView.routeName: (context) => const NamazTimingView(),
-        ManageAddress.routeName: (context) => const ManageAddress(),
-        SearchView.routeName: (context) => const SearchView(),
-        ProductsView.routeName: (context) {
-          final args = ModalRoute.of(context)!.settings.arguments
-              as Map<String, dynamic>;
-          final appBarTitle = args['appBarTitle'];
-          final passValue = args['passValue'];
-          return ProductsView(appBarTitle: appBarTitle, passValue: passValue);
-        },
-      },
-      home: _getInitialScreen(),
+      // routes: {
+      //   CategoriesProductView.routeName: (context) {
+      //     final args = ModalRoute.of(context)!.settings.arguments
+      //         as Map<String, dynamic>;
+      //     final category = args["category"];
+      //     final subCategory = args["subCategory"];
+      //     final type = args["type"];
+      //     return CategoriesProductView(
+      //         category: category, subCategory: subCategory, type: type);
+      //   },
+      //   NamazTimingView.routeName: (context) => const NamazTimingView(),
+      //   ManageAddress.routeName: (context) => const ManageAddress(),
+      //   SearchView.routeName: (context) => const SearchView(),
+      //   ProductsView.routeName: (context) {
+      //     final args = ModalRoute.of(context)!.settings.arguments
+      //         as Map<String, dynamic>;
+      //     final appBarTitle = args['appBarTitle'];
+      //     final passValue = args['passValue'];
+      //     return ProductsView(appBarTitle: appBarTitle, passValue: passValue);
+      //   },
+      // },
+      // home: _getInitialScreen(),
     );
   }
 
-  Widget _getInitialScreen() {
+  bool _getInitialScreen() {
     final String? token = _tokenBox.get(authToken);
 
     if (token != null) {
       print('on main token $token');
-      return const TabsView();
+      return true;
     } else {
-      return const OnBoardingView();
+      return false;
     }
   }
 }

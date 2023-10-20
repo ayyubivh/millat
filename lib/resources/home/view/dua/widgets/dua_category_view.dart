@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:millat/resources/home/bloc/logic/dua_bloc/dua_bloc.dart';
 import 'package:millat/resources/home/view/dua/widgets/inside_dua_view.dart';
+import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/loader.dart';
@@ -94,11 +96,8 @@ class DuaCategoryView extends StatelessWidget {
                                         FetchDuaBySubcategoryEvent(
                                             subCategoryId: data.id!),
                                       );
-                                  Navigator.of(context).push(
-                                    MaterialPageRoute(
-                                        builder: (context) =>
-                                            const InsideDuaView()),
-                                  );
+                                  context.goNamed(
+                                      MyAppRouteConstants.insideDuaRouteName);
                                 },
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -181,7 +180,7 @@ class DuaCategoryView extends StatelessWidget {
                           alignment: Alignment.topRight,
                           child: GestureDetector(
                             onTap: () {
-                              Navigator.of(context).pop;
+                              context.pop();
                             },
                             child: Text(
                               'Done',
@@ -215,7 +214,7 @@ class DuaCategoryView extends StatelessWidget {
                                         categoryId: data.id.toString()))
                                     ..add(ChangeSubcategoryNameEvent(
                                         newName: data.category!));
-                                  Navigator.of(context).pop();
+                                  context.pop();
                                 },
                                 child: Padding(
                                   padding: const EdgeInsets.all(14.0),

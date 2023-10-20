@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:millat/components/common_widgets/reusable_methods.dart';
 import 'package:millat/enums/enumertations.dart';
-import 'package:millat/resources/home/bloc/logic/bookmark_bloc/bookmark_bloc.dart';
 import 'package:millat/resources/home/bloc/logic/quran_bloc/quran_bloc.dart';
-import 'package:millat/resources/home/view/al_quran/bookmark_view.dart';
 import 'package:millat/resources/home/view/al_quran/widgets/al_quran_appbar.dart';
-import 'package:millat/resources/home/view/al_quran/widgets/creat_new_bookmark_widget.dart';
 import 'package:millat/resources/home/view/al_quran/widgets/quran_tabbar_widget.dart';
 import 'package:millat/resources/home/view/al_quran/widgets/verses_view.dart';
+import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/color_manager.dart';
 
@@ -23,22 +22,6 @@ class AlQuranView extends StatelessWidget {
         color: ColorManager.whiteColor,
         context: context,
         text: "Al-Quran",
-        onTap: () {
-          context.read<BookmarkBloc>().state.dbCollectionItems.isNotEmpty
-              ? Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => const BookmarkView()))
-              : showModalBottomSheet(
-                  context: context,
-                  backgroundColor: Colors.transparent,
-                  builder: (context) {
-                    return StatefulBuilder(
-                      builder: (context, setState) {
-                        return const CreateNewBookmarkWidget();
-                      },
-                    );
-                  },
-                );
-        },
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
@@ -83,12 +66,15 @@ class AlQuranView extends StatelessWidget {
             final lastRead = state.lastRead;
             final parts = lastRead.split(":");
             String secondPart = parts[0];
-            Navigator.of(context).push(MaterialPageRoute(
-              builder: (context) => VersesView(
-                  scrollType: VersesScroll.scroll,
-                  type: Qurantype.sura,
-                  chapterid: int.parse(secondPart)),
-            ));
+
+            context.goNamed(
+              MyAppRouteConstants.quranVersesRoutename,
+              extra: {
+                'type': Qurantype.sura,
+                'scrollType': VersesScroll.scroll,
+                'chapterId': int.parse(secondPart),
+              },
+            );
           },
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,

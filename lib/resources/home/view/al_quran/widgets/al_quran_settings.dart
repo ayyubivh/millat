@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:millat/resources/home/view/al_quran/widgets/al_quran_appbar.dart';
 import 'package:millat/resources/home/view/al_quran/widgets/audio_recitors_view.dart';
 import 'package:millat/resources/home/view/al_quran/widgets/text_setting_view.dart';
+import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/string_constants.dart';
 
@@ -28,7 +30,6 @@ class AlQuranSettings extends StatelessWidget {
           color: ColorManager.appBarColor,
           text: "Settings",
           context: context,
-          onTap: () {},
           iconColor: ColorManager.primary),
       body: Padding(
         padding: const EdgeInsets.all(30),
@@ -55,8 +56,8 @@ class AlQuranSettings extends StatelessWidget {
                           ? "no diacritics or symbols"
                           : state.quranTextTypeName,
                       onTap: () {
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => const TextSettingsView()));
+                        context.goNamed(
+                            MyAppRouteConstants.quranTextSettingRouteName);
                       },
                     ),
                   ),
@@ -90,9 +91,8 @@ class AlQuranSettings extends StatelessWidget {
                       title: 'Audio Recitation',
                       subTitle: state.recitorName.toString(),
                       onTap: () {
-                        Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => const AudioRecitorsView(),
-                        ));
+                        context.goNamed(
+                            MyAppRouteConstants.audioRecitorsRouteName);
                       },
                     ),
                   ),
@@ -202,7 +202,7 @@ class AlQuranSettings extends StatelessWidget {
                     children: [
                       GestureDetector(
                         onTap: () {
-                          Navigator.of(context).pop();
+                          context.pop();
                         },
                         child: const Icon(
                           Icons.arrow_back_ios,
@@ -218,7 +218,7 @@ class AlQuranSettings extends StatelessWidget {
                       ),
                       GestureDetector(
                         onTap: () {
-                          Navigator.of(context).pop();
+                          context.pop();
                         },
                         child: const Icon(
                           Icons.close,
@@ -265,7 +265,7 @@ class AlQuranSettings extends StatelessWidget {
                                           transilationId: data.id!.toInt(),
                                           translationName:
                                               "${data.languageName.toString()} (${data.authorName.toString()})"));
-                                  Navigator.of(context).pop();
+                                  context.pop();
                                 },
                                 title: Text(
                                   '${data!.languageName.toString()} ${data.id}',

@@ -6,16 +6,12 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:http/http.dart' as http;
 import 'package:millat/components/shimmers/shimmer_widget.dart';
 import 'package:millat/resources/home/view/al_quran/widgets/verses_view.dart';
-import 'package:millat/resources/shop/bloc/logic/address_bloc/address_bloc.dart';
-import 'package:millat/resources/shop/bloc/service/address_service.dart';
-import 'package:millat/resources/shop/bloc/service/category_services.dart';
-import 'package:millat/resources/shop/bloc/service/orders_service.dart';
-import 'package:millat/resources/shop/bloc/service/shop_services.dart';
-
 import 'package:millat/resources/shop/view/brand/single_brand_view.dart';
+import 'package:millat/routes/app_router_constants.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:millat/resources/home/bloc/logic/bookmark_bloc/bookmark_bloc.dart';
@@ -25,7 +21,6 @@ import 'package:millat/resources/home/bloc/logic/quran_bloc/quran_bloc.dart';
 import 'package:millat/resources/home/view/qibla/qibla_view.dart';
 import 'package:millat/resources/home/view/tasbih/tasbih_view.dart';
 import 'package:millat/resources/home/view/widgets/hadit_tinder_cards.dart';
-
 import 'package:millat/resources/home/view/widgets/notification_view.dart';
 import 'package:millat/resources/home/view/widgets/prayer_tracker_calendar_view.dart';
 import 'package:millat/resources/shop/view/categories/categories_product_view.dart';
@@ -106,7 +101,6 @@ class _HomeViewState extends State<HomeView> {
       body: BlocListener<DatabaseBloc, DatabaseState>(
         listener: (context, state) {
           if (state.token.isNotEmpty) {
-            print("database bloc");
             BlocProvider.of<HomeBloc>(context).add(FetchPrayerTrackerEvent(
                 context: context, date: DateTime.now()));
           }
@@ -157,36 +151,15 @@ class _HomeViewState extends State<HomeView> {
                                 : 180,
                         width: SizeUtility(context).width,
                         decoration:
-                            BoxDecoration(color: ColorManager.midGreenColor
-                                // color: Colors.transparent.withOpacity(0),
-                                // image: DecorationImage(
-                                //   image: AssetImage(
-                                //     scrollNotifier.value
-                                //         ? AppAssetsStrings.homeAppbar
-                                //         : AppAssetsStrings.namazTimingAppbar,
-                                //   ),
-                                //   fit: BoxFit.fill,
-                                // ),
-                                ),
+                            BoxDecoration(color: ColorManager.midGreenColor),
                         child: Padding(
                           padding: const EdgeInsets.symmetric(
                             horizontal: 30,
                           ).copyWith(top: Platform.isIOS ? 60 : 35),
                           child: Stack(
-                            // crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Row(
                                 children: [
-                                  // Text(
-                                  //           Appstrings.assalamuAlaikum,
-                                  //           key:
-                                  //               const ValueKey<String>('text1'),
-                                  //           style: TextStyle(
-                                  //             color: ColorManager.whiteColor,
-                                  //             fontSize: 16,
-                                  //             fontWeight: FontWeight.w500,
-                                  //           ),
-                                  //         ),
                                   AnimatedSwitcher(
                                     duration:
                                         const Duration(milliseconds: 1000),
@@ -212,17 +185,13 @@ class _HomeViewState extends State<HomeView> {
                                             ),
                                           ),
                                   ),
-
                                   const Spacer(),
                                   Padding(
                                     padding: const EdgeInsets.only(top: 5),
                                     child: GestureDetector(
                                       onTap: () {
-                                        Navigator.of(context)
-                                            .push(MaterialPageRoute(
-                                          builder: (context) =>
-                                              const NotificationView(),
-                                        ));
+                                        context.goNamed(MyAppRouteConstants
+                                            .notificationRouteName);
                                       },
                                       child: ImageIcon(
                                           const AssetImage(
@@ -231,16 +200,6 @@ class _HomeViewState extends State<HomeView> {
                                           size: 25),
                                     ),
                                   ),
-                                  // GestureDetector(
-                                  //   onTap: () {
-                                  //     Scaffold.of(context).openEndDrawer();
-                                  //   },
-                                  //   child: ImageIcon(
-                                  //       const AssetImage(
-                                  //           AppAssetsStrings.menuIcon),
-                                  //       color: ColorManager.whiteColor,
-                                  //       size: 25),
-                                  // ),
                                 ],
                               ),
                               BlocBuilder<DatabaseBloc, DatabaseState>(
@@ -327,11 +286,9 @@ class _HomeViewState extends State<HomeView> {
                                                   .homeQuranIcon,
                                               text: Appstrings.quran,
                                               onTap: () {
-                                                Navigator.of(context)
-                                                    .push(MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      const AlQuranView(),
-                                                ));
+                                                context.goNamed(
+                                                    MyAppRouteConstants
+                                                        .quranRouteName);
                                               },
                                             ),
                                             BlocBuilder<LocationBloc,
@@ -344,12 +301,9 @@ class _HomeViewState extends State<HomeView> {
                                                 onTap: () {
                                                   if (state.currentLocaion
                                                       .isNotEmpty) {
-                                                    Navigator.push(
-                                                        context,
-                                                        MaterialPageRoute(
-                                                          builder: (context) =>
-                                                              const QiblahScreen(),
-                                                        ));
+                                                    context.goNamed(
+                                                        MyAppRouteConstants
+                                                            .compassRouteName);
                                                   } else {
                                                     showSnackBar(
                                                       context,
@@ -364,10 +318,9 @@ class _HomeViewState extends State<HomeView> {
                                                   .homeTasbihIcon,
                                               text: Appstrings.tasbih,
                                               onTap: () {
-                                                Navigator.of(context).push(
-                                                    MaterialPageRoute(
-                                                        builder: (context) =>
-                                                            const TasbihView()));
+                                                context.goNamed(
+                                                    MyAppRouteConstants
+                                                        .tasbihRouteName);
                                               },
                                             ),
                                             buildIconWidget(
@@ -375,11 +328,9 @@ class _HomeViewState extends State<HomeView> {
                                                     .homeDuaIcon,
                                                 text: Appstrings.dua,
                                                 onTap: () {
-                                                  Navigator.of(context)
-                                                      .push(MaterialPageRoute(
-                                                    builder: (context) =>
-                                                        const DuaView(),
-                                                  ));
+                                                  context.goNamed(
+                                                      MyAppRouteConstants
+                                                          .duaRouteName);
                                                 })
                                           ],
                                         ),
@@ -462,11 +413,12 @@ class _HomeViewState extends State<HomeView> {
                       state.brandOftheDayModel!.result!.banners![index];
                   return GestureDetector(
                     onTap: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => SingleBrandView(
-                            passValue: data.brandId,
-                            brandViewType: BrandViewType.brandOftheDay),
-                      ));
+                      context.pushNamed(
+                          MyAppRouteConstants.singleBrandRouteName,
+                          extra: {
+                            'passValue': data.brandId,
+                            'brandViewType': BrandViewType.brandOftheDay,
+                          });
                     },
                     child: Padding(
                       padding: const EdgeInsets.only(right: 10),
@@ -566,12 +518,13 @@ class _HomeViewState extends State<HomeView> {
                   final data = state.topOffersModel?.result.banners[index];
                   return GestureDetector(
                     onTap: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => CategoriesProductView(
-                            category: data?.subCategoryId?.title,
-                            subCategory: data?.subCategoryName,
-                            type: FilterType.category),
-                      ));
+                      context.pushNamed(
+                          MyAppRouteConstants.categoriesProductsRouteName,
+                          extra: {
+                            'category': data?.subCategoryId?.title,
+                            'subCategory': data?.subCategoryName,
+                            'type': FilterType.category
+                          });
                     },
                     child: Column(
                       children: [
@@ -771,13 +724,13 @@ class _HomeViewState extends State<HomeView> {
                     final subCategoryName = banner?.subCategoryName;
                     return GestureDetector(
                       onTap: () {
-                        Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => CategoriesProductView(
-                            category: subCategoryIdTitle,
-                            subCategory: subCategoryName,
-                            type: FilterType.category,
-                          ),
-                        ));
+                        context.pushNamed(
+                            MyAppRouteConstants.categoriesProductsRouteName,
+                            extra: {
+                              'category': subCategoryIdTitle,
+                              'subCategory': subCategoryName,
+                              'type': FilterType.category
+                            });
                       },
                       child: Utilities().buildCachedNetworkImage(
                         imageUrl: banner!.image,
@@ -812,9 +765,8 @@ class _HomeViewState extends State<HomeView> {
             ),
             GestureDetector(
               onTap: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => const PrayerTrackerCalendarView(),
-                ));
+                context.goNamed(
+                    MyAppRouteConstants.prayerTrackerCalendarRouteName);
               },
               child: Text(
                 Appstrings.viewAll,
@@ -1151,12 +1103,14 @@ class _HomeViewState extends State<HomeView> {
                             context
                                 .read<QuranBloc>()
                                 .add(SaveLastReadEvent(value: verskey));
-                            Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => VersesView(
-                                  scrollType: VersesScroll.home,
-                                  type: Qurantype.sura,
-                                  chapterid: int.parse(firstPart)),
-                            ));
+
+                            context.pushNamed(
+                                MyAppRouteConstants.quranVersesRoutename,
+                                extra: {
+                                  'scrollType': VersesScroll.home,
+                                  'type': Qurantype.sura,
+                                  'chapterid': int.parse(firstPart)
+                                });
                           },
                           child: Align(
                             alignment: Alignment.topLeft,
@@ -1214,11 +1168,13 @@ class _HomeViewState extends State<HomeView> {
               items: banners?.map((banner) {
                 return GestureDetector(
                     onTap: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => const CategoriesProductView(
-                              category: "",
-                              subCategory: "",
-                              type: FilterType.category)));
+                      context.pushNamed(
+                          MyAppRouteConstants.categoriesProductsRouteName,
+                          extra: {
+                            'category': "",
+                            'subCategory': "",
+                            'type': FilterType.category
+                          });
                     },
                     child: ClipRRect(
                         borderRadius: BorderRadius.circular(20),
@@ -1485,7 +1441,7 @@ class _HomeViewState extends State<HomeView> {
             const Spacer(),
             TextButton.icon(
                 onPressed: () {
-                  Navigator.of(context).pushNamed(NamazTimingView.routeName);
+                  context.pushNamed(MyAppRouteConstants.namazTimingRouteName);
                 },
                 icon: const ImageIcon(
                   AssetImage('assets/icons/map-pin.png'),
@@ -1635,7 +1591,7 @@ class _HomeViewState extends State<HomeView> {
             const Spacer(),
             TextButton.icon(
                 onPressed: () {
-                  Navigator.of(context).pushNamed(NamazTimingView.routeName);
+                  context.pushNamed(MyAppRouteConstants.namazTimingRouteName);
                 },
                 icon: const ImageIcon(
                   AssetImage('assets/icons/bell.png'),

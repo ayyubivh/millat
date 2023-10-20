@@ -2,21 +2,18 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:millat/components/buttons/main_button.dart';
 import 'package:millat/components/buttons/main_text_button.dart';
 import 'package:millat/components/textFields/custom_text_field.dart';
 import 'package:millat/resources/authentication/bloc/logic/auth_bloc.dart';
-import 'package:millat/resources/authentication/class/google_signin.dart';
-import 'package:millat/resources/authentication/view/forgot_password_view.dart';
-import 'package:millat/resources/authentication/view/send_otp_view.dart';
-import 'package:millat/resources/authentication/view/sign_up_view.dart';
-import 'package:millat/resources/tabs/view/tabs_view.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/validators.dart';
 import 'package:sign_in_with_apple/sign_in_with_apple.dart';
-
+import '../../../routes/app_router_constants.dart';
 import '../../../utils/color_manager.dart';
 import '../../../utils/utils.dart';
+import '../class/google_signin.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({Key? key}) : super(key: key);
@@ -38,9 +35,7 @@ class _LoginViewState extends State<LoginView> {
           buildError(state.errorMessage);
         } else if (state is AuthLoaded) {
           clearDate();
-          Navigator.of(context).pushReplacement(MaterialPageRoute(
-            builder: (context) => const TabsView(),
-          ));
+          context.goNamed(MyAppRouteConstants.homeTabsRouteName);
         }
       },
       builder: (context, state) {
@@ -99,9 +94,8 @@ class _LoginViewState extends State<LoginView> {
                   child: const Text('Forgot Password?',
                       style: TextStyle(fontWeight: FontWeight.w500)),
                   onPressed: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const ForgotPasswordView(),
-                    ));
+                    context
+                        .goNamed(MyAppRouteConstants.forgotPassWordRouteName);
                   },
                 ),
               ),
@@ -111,9 +105,8 @@ class _LoginViewState extends State<LoginView> {
               MainTextButton(
                 title: 'Skip',
                 onTap: () {
-                  Navigator.of(context).pushReplacement(MaterialPageRoute(
-                    builder: (context) => const SendOTPView(signInPhone: true),
-                  ));
+                  context.goNamed(MyAppRouteConstants.sendOtpRouteName,
+                      pathParameters: {'isSignIn': 'true'});
                 },
               ),
               MainButton(
@@ -133,9 +126,7 @@ class _LoginViewState extends State<LoginView> {
               ),
               GestureDetector(
                 onTap: () {
-                  Navigator.of(context).pushReplacement(MaterialPageRoute(
-                    builder: (context) => const SignUpView(),
-                  ));
+                  context.pop();
                 },
                 child: RichText(
                     text: TextSpan(children: [

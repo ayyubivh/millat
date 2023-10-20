@@ -22,6 +22,7 @@ class CategoryState with _$CategoryState {
     required int sortListIndex,
     required RangeValues rangeValues,
     required CategoryItemModel? categoryItemModel,
+    required int categoryIndex,
   }) = _CategoryState;
   factory CategoryState.initial() => const CategoryState(
         product: null,
@@ -43,5 +44,6 @@ class CategoryState with _$CategoryState {
         sortListIndex: 0,
         rangeValues: RangeValues(1, 5000),
         categoryItemModel: null,
+        categoryIndex: 0,
       );
 }

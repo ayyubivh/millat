@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/home/bloc/logic/bookmark_bloc/bookmark_bloc.dart';
 import 'package:millat/resources/home/view/al_quran/widgets/creat_new_bookmark_widget.dart';
+import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/loader.dart';
 import '../../../../../utils/constants.dart';
 import '../../../../../utils/color_manager.dart';
@@ -97,18 +99,7 @@ class _QuranTabBarWidgetState extends State<QuranTabBarWidget>
               : Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    // kHeight20,
                     const BookmarkNewCollectionWidget(),
-                    // kHeight20,
-                    // BlocBuilder<BookmarkBloc, BookmarkState>(
-                    //   builder: (context, state) => state.dbCollectionItems
-                    //           .map((e) => e.id == "1")
-                    //           .isEmpty
-                    //       ? const SizedBox.shrink()
-                    //       : const QuranFavBookmarkCollectionWidget(
-                    //           type: QuranFavbookMarkType.view,
-                    //         ),
-                    // ),
                     kHeight20,
                     Expanded(
                       child: BlocBuilder<BookmarkBloc, BookmarkState>(
@@ -124,10 +115,10 @@ class _QuranTabBarWidgetState extends State<QuranTabBarWidget>
 
                               return InkWell(
                                 onTap: () {
-                                  Navigator.of(context).push(MaterialPageRoute(
-                                      builder: (context) =>
-                                          BookmarkCollectionView(
-                                              passvalue: data)));
+                                  context.goNamed(
+                                      MyAppRouteConstants
+                                          .quranBookmarkCollectionRouteName,
+                                      extra: {'passvalue': data});
                                 },
                                 child: buildCollectionContainer(
                                     passvalue: data,
@@ -238,12 +229,11 @@ class _QuranTabBarWidgetState extends State<QuranTabBarWidget>
                     .read<QuranBloc>()
                     .add(FetchParaAudios(id: id, recitorId: state.recitorId));
 
-                Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => VersesView(
-                    chapterid: id,
-                    type: Qurantype.para,
-                  ),
-                ));
+                context
+                    .goNamed(MyAppRouteConstants.quranVersesRoutename, extra: {
+                  'type': Qurantype.para,
+                  'chapterId': id,
+                });
               },
               leading: Stack(
                 children: [
@@ -340,12 +330,11 @@ class _QuranTabBarWidgetState extends State<QuranTabBarWidget>
             chapterId: chapter.id));
         context.read<QuranBloc>().add(FetchChapterAudioFiles(
             id: chapter.id, recitorId: quranState.recitorId));
-        Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => VersesView(
-            chapterid: chapter.id,
-            type: Qurantype.sura,
-          ),
-        ));
+
+        context.goNamed(MyAppRouteConstants.quranVersesRoutename, extra: {
+          'type': Qurantype.sura,
+          'chapterId': chapter.id,
+        });
       },
       leading: Stack(
         children: [

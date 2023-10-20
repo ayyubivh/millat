@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:millat/resources/home/bloc/logic/quran_bloc/quran_bloc.dart';
 import 'package:millat/resources/home/view/al_quran/widgets/al_quran_appbar.dart';
 import 'package:millat/utils/color_manager.dart';
-import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/string_constants.dart';
 
 class TextSettingsView extends StatelessWidget {
@@ -14,7 +14,6 @@ class TextSettingsView extends StatelessWidget {
     return Scaffold(
       appBar: alQuranAppbar(
         context: context,
-        onTap: () {},
         text: "Text Settings",
         color: ColorManager.appBarColor,
       ),
@@ -32,7 +31,7 @@ class TextSettingsView extends StatelessWidget {
               context
                   .read<QuranBloc>()
                   .add(SaveQuranTexttypeName(textName: texts[index]));
-              Navigator.of(context).pop();
+              context.pop();
             },
             child: Container(
               padding: const EdgeInsets.only(right: 30, top: 25),

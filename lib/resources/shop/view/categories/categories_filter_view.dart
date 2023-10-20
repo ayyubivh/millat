@@ -1,42 +1,34 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:millat/components/common_widgets/build_category_full_view.dart';
 import 'package:millat/components/shimmers/shimmer_widget.dart';
 import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/shop/bloc/logic/category_bloc/category_bloc.dart';
 import 'package:millat/resources/shop/view/categories/categories_product_view.dart';
+import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/color_manager.dart';
 
-class CategoriesFilter extends StatefulWidget {
-  const CategoriesFilter({Key? key}) : super(key: key);
-
-  @override
-  State<CategoriesFilter> createState() => _CategoriesFilterState();
-}
-
-class _CategoriesFilterState extends State<CategoriesFilter> {
-  int currentIndex = 0;
-  String subCategory = '';
-  @override
-  void initState() {
-    BlocProvider.of<CategoryBloc>(context).add(FetchSubCategoriesByCategoryId(
-        categoryId: context
-            .read<CategoryBloc>()
-            .state
-            .category!
-            .result!
-            .category!
-            .first
-            .id!));
-    BlocProvider.of<CategoryBloc>(context)
-        .add(const CategoryEvent.fetchCategories());
-    BlocProvider.of<CategoryBloc>(context)
-        .add(const CategoryEvent.fetchSubcategories());
-    super.initState();
-  }
+class CategoriesFilterView extends StatelessWidget {
+  const CategoriesFilterView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      BlocProvider.of<CategoryBloc>(context).add(FetchSubCategoriesByCategoryId(
+          categoryId: context
+              .read<CategoryBloc>()
+              .state
+              .category!
+              .result!
+              .category!
+              .first
+              .id!));
+      BlocProvider.of<CategoryBloc>(context)
+          .add(const CategoryEvent.fetchCategories());
+      BlocProvider.of<CategoryBloc>(context)
+          .add(const CategoryEvent.fetchSubcategories());
+    });
     return Scaffold(
         appBar: PreferredSize(
           preferredSize: const Size.fromHeight(70),
@@ -47,7 +39,7 @@ class _CategoriesFilterState extends State<CategoriesFilter> {
               padding: const EdgeInsets.only(top: 15.0),
               child: IconButton(
                 onPressed: () {
-                  Navigator.pop(context);
+                  context.pop();
                 },
                 icon: const Icon(Icons.arrow_back),
               ),
@@ -92,18 +84,18 @@ class _CategoriesFilterState extends State<CategoriesFilter> {
                             itemCount: state.category?.result?.category!.length,
                             shrinkWrap: true,
                             itemBuilder: (context, index) {
+                              final currentIndex = state.categoryIndex;
                               final category =
                                   state.category!.result!.category![index];
                               final isSelected = currentIndex == index;
 
                               return InkWell(
                                 onTap: () {
-                                  setState(() {
-                                    currentIndex = index;
-                                  });
-                                  context.read<CategoryBloc>().add(
-                                      FetchSubCategoriesByCategoryId(
-                                          categoryId: category.id ?? ""));
+                                  context.read<CategoryBloc>()
+                                    ..add(FetchSubCategoriesByCategoryId(
+                                        categoryId: category.id ?? ""))
+                                    ..add(
+                                        ChangeCategoryIndexEvent(index: index));
                                 },
                                 child: Container(
                                   height: 98,
@@ -112,9 +104,6 @@ class _CategoriesFilterState extends State<CategoriesFilter> {
                                       ? ColorManager.mainColor
                                       : ColorManager.whiteColor,
                                   child: CategoryFullView(
-                                    color: isSelected
-                                        ? ColorManager.whiteColor
-                                        : ColorManager.black4A,
                                     isShowborder: true,
                                     iconImage: category.image.toString(),
                                     categoryTitle: category.title.toString(),
@@ -156,13 +145,15 @@ class _CategoriesFilterState extends State<CategoriesFilter> {
                     }
                     return GestureDetector(
                       onTap: () {
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => CategoriesProductView(
-                                type: FilterType.category,
-                                subCategory: data[index].title,
-                                category: state.category?.result
-                                        ?.category?[currentIndex].title ??
-                                    "")));
+                        context.pushNamed(
+                            MyAppRouteConstants.categoriesProductsRouteName,
+                            extra: {
+                              'type': FilterType.category,
+                              'subCategory': data[index].title,
+                              'category': state.category?.result
+                                      ?.category?[state.categoryIndex].title ??
+                                  ""
+                            });
                       },
                       child: CategoryFullView(
                         isShowborder: false,

@@ -6,7 +6,6 @@ import 'package:flutter_qiblah/flutter_qiblah.dart';
 import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/home/bloc/logic/home_bloc/home_bloc.dart';
 import 'package:millat/resources/home/view/qibla/themes/compass_themes.dart';
-import 'package:millat/resources/home/view/tasbih/theme/tasbih_themes.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/size_utility.dart';

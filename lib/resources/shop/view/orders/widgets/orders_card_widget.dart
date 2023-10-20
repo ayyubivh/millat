@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:millat/resources/shop/view/tabs/shop_tabs_vilew.dart';
+import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/size_utility.dart';
@@ -338,10 +340,8 @@ class OrdersProfileWidget extends StatelessWidget {
                                 )
                               : GestureDetector(
                                   onTap: () {
-                                    Navigator.of(context).push(
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                const ShopTabsView()));
+                                    context.pushReplacementNamed(
+                                        MyAppRouteConstants.shopTabsRouteName);
                                     context.read<ShopProductsBloc>().add(
                                         const TabIndexChangeEvent(index: 0));
                                   },

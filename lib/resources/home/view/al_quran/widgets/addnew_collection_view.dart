@@ -2,12 +2,14 @@
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:millat/components/textFields/custom_text_field.dart';
 import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/home/bloc/logic/bookmark_bloc/bookmark_bloc.dart';
 import 'package:millat/resources/home/bloc/logic/quran_bloc/quran_bloc.dart';
 import 'package:millat/resources/home/view/al_quran/widgets/add_sura_search_view.dart';
 import 'package:millat/resources/home/view/al_quran/widgets/verses_view.dart';
+import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
 import '../../../../../components/buttons/main_button.dart';
@@ -192,9 +194,7 @@ class _AddNewBookMarkCollectionState extends State<AddNewBookMarkCollection> {
             MainButton(
               title: "Add Suras",
               onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => const AddSuraSearchView(),
-                ));
+                context.goNamed(MyAppRouteConstants.addSuraSearchRouteName);
               },
             ),
             kHeight25,
@@ -207,13 +207,9 @@ class _AddNewBookMarkCollectionState extends State<AddNewBookMarkCollection> {
                           itemCount: state.versesByKeyModel!.length,
                           itemBuilder: (context, index) => ListTile(
                             onTap: () {
-                              Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) {
-                                  return const VersesView(
-                                    type: Qurantype.verse,
-                                  );
-                                },
-                              ));
+                              context.goNamed(
+                                  MyAppRouteConstants.quranVersesRoutename,
+                                  extra: {"type": Qurantype.verse});
                             },
                             leading: ImageIcon(
                               const AssetImage("assets/images/folder_red.png"),
@@ -285,8 +281,7 @@ class _AddNewBookMarkCollectionState extends State<AddNewBookMarkCollection> {
                           ..add(const SaveQuranChapterId(id: []))
                           ..add(const EmptyVerseKeyEvent());
 
-                        Navigator.of(context).pop();
-                        Navigator.of(context).pop();
+                        context.pop();
                       },
                       child: Text(
                         "Cancel",
@@ -310,6 +305,7 @@ class _AddNewBookMarkCollectionState extends State<AddNewBookMarkCollection> {
                         onTap: () {
                           if (nameTextEditingController.text.isEmpty ||
                               descriptionTextEditingController.text.isEmpty) {
+                            context.pop();
                             return;
                           }
                           widget.type == BookMarkCollectionType.add
@@ -353,9 +349,7 @@ class _AddNewBookMarkCollectionState extends State<AddNewBookMarkCollection> {
                             ..add(const SaveQuranChapterId(id: []))
                             ..add(const FetchCollectionItem())
                             ..add(const EmptyVerseKeyEvent());
-
-                          Navigator.of(context).pop();
-                          Navigator.of(context).pop();
+                          context.pop();
                         },
                         child: Text(
                           'Done',
@@ -444,7 +438,7 @@ class _AddNewBookMarkCollectionState extends State<AddNewBookMarkCollection> {
               onTap: () {
                 context.read<BookmarkBloc>().add(SaveImageEvent(
                     img: "assets/images/bookmark_profile_${index + 1}.png"));
-                Navigator.of(context).pop();
+                context.pop();
               },
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(12),

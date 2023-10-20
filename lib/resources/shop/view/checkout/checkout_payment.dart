@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:millat/components/buttons/main_button.dart';
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
 import 'package:millat/resources/shop/view/checkout/checkout_confirmation.dart';
+import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
@@ -113,10 +115,9 @@ class CheckoutPayment extends StatelessWidget {
                   return;
                 }
 
-                Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) =>
-                      CheckoutConfirmation(paymentType: state.paymentMethod),
-                ));
+                context.pushNamed(
+                    MyAppRouteConstants.checkoutConfirmationRouteName,
+                    extra: {'paymentType': state.paymentMethod});
               },
             ),
           ),

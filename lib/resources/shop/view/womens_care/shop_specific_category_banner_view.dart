@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/loader.dart';
 import '../../../../components/common_widgets/shop_products_widget.dart';
-import '../../../../utils/color_manager.dart';
 import '../../../../utils/size_utility.dart';
 import '../../bloc/logic/category_bloc/category_bloc.dart';
 import '../products/single_product_view.dart';
@@ -59,13 +60,9 @@ class ShopSpecificCategoryBannerView extends StatelessWidget {
                                 state.product!.result!.products?[index];
                             return GestureDetector(
                               onTap: () {
-                                Navigator.of(context).push(
-                                  MaterialPageRoute(
-                                    builder: (context) => SingleProductView(
-                                      id: data?.id ?? "",
-                                    ),
-                                  ),
-                                );
+                                context.pushNamed(
+                                    MyAppRouteConstants.singleProductRouteName,
+                                    pathParameters: {'id': data?.id ?? ""});
                               },
                               child: ShopProductWidget(
                                 color: data?.color ?? "",

@@ -1,13 +1,14 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:millat/components/textfields/custom_text_field.dart';
 import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/home/bloc/logic/tasbih_bloc/tasbih_bloc.dart';
 import 'package:millat/resources/home/view/tasbih/theme/tasbih_themes.dart';
 import 'package:millat/resources/home/view/tasbih/widgets/choose_dhikr_view.dart';
+import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/size_utility.dart';
@@ -60,7 +61,7 @@ class TasbihViewState extends State<TasbihView>
                   context.read<TasbihBloc>().add(AddTasbihEvent(
                       buildContext: context, id: state.tasbihId));
                 }
-                Navigator.of(context).pop();
+                context.pop();
               },
             ),
           ),
@@ -389,8 +390,7 @@ class TasbihViewState extends State<TasbihView>
               alignment: Alignment.topLeft,
               child: GestureDetector(
                 onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const ChooseDhikrView()));
+                  context.goNamed(MyAppRouteConstants.chooseDhikrRouteName);
                 },
                 child: Text(
                   'View More',
@@ -408,11 +408,10 @@ class TasbihViewState extends State<TasbihView>
     );
   }
 
-  GestureDetector _chooseDikrButton(BuildContext context, TasbihState state) {
+  Widget _chooseDikrButton(BuildContext context, TasbihState state) {
     return GestureDetector(
       onTap: () {
-        Navigator.of(context).push(
-            MaterialPageRoute(builder: (context) => const ChooseDhikrView()));
+        context.goNamed(MyAppRouteConstants.chooseDhikrRouteName);
       },
       child: Container(
         margin: const EdgeInsets.symmetric(horizontal: 30),
@@ -501,7 +500,7 @@ class TasbihViewState extends State<TasbihView>
                         child: Center(
                           child: GestureDetector(
                             onTap: () {
-                              Navigator.of(context).pop();
+                              context.pop();
                             },
                             child: Text(
                               'Cancel',
@@ -530,7 +529,7 @@ class TasbihViewState extends State<TasbihView>
                                     ChangeTasbihGoalEvent(
                                         newValue:
                                             int.parse(numberController.text)));
-                                Navigator.of(context).pop();
+                                context.pop();
                               }
                             },
                             child: Text(
@@ -588,7 +587,7 @@ class TasbihViewState extends State<TasbihView>
                     Expanded(
                       child: GestureDetector(
                         onTap: () {
-                          Navigator.of(context).pop();
+                          context.pop();
                         },
                         child: Container(
                           height: 62,
@@ -612,7 +611,7 @@ class TasbihViewState extends State<TasbihView>
                     Expanded(
                       child: GestureDetector(
                         onTap: () {
-                          Navigator.of(context).pop();
+                          context.pop();
                           context
                               .read<TasbihBloc>()
                               .add(const ResetTashbihCounterEvent());

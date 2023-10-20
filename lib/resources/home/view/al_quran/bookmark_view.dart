@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/home/bloc/logic/bookmark_bloc/bookmark_bloc.dart';
 import 'package:millat/resources/home/view/al_quran/widgets/addnew_collection_view.dart';
 import 'package:millat/resources/home/view/al_quran/widgets/bookmark_collection_view.dart';
 import 'package:millat/resources/home/view/al_quran/widgets/new_collection_widget.dart';
 import 'package:millat/resources/home/view/al_quran/widgets/quran_fav_bookmark_collection_widget.dart';
+import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
 import '../../bloc/models/book_mark_hive_model/book_mark_hive_model.dart';
@@ -76,9 +78,10 @@ class BookmarkView extends StatelessWidget {
 
                       return InkWell(
                         onTap: () {
-                          Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) =>
-                                  BookmarkCollectionView(passvalue: data)));
+                          context.goNamed(
+                              MyAppRouteConstants
+                                  .quranBookmarkCollectionRouteName,
+                              extra: {"passvalue": data});
                         },
                         child: buildCollectionContainer(
                             passvalue: data,
@@ -136,11 +139,12 @@ Widget buildCollectionContainer({
                       const Spacer(),
                       GestureDetector(
                         onTap: () {
-                          Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => AddNewBookMarkCollection(
-                                passvalue: passvalue,
-                                type: BookMarkCollectionType.edit),
-                          ));
+                          context.goNamed(
+                              MyAppRouteConstants.quranVersesRoutename,
+                              extra: {
+                                "type": Qurantype.verse,
+                                "passvalue": passvalue
+                              });
                         },
                         child: ImageIcon(
                           const AssetImage("assets/icons/edit.png"),

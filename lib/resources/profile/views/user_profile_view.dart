@@ -1,13 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:millat/resources/authentication/view/sign_up_view.dart';
+import 'package:go_router/go_router.dart';
 import 'package:millat/resources/home/bloc/logic/home_bloc/home_bloc.dart';
-import 'package:millat/resources/home/view/widgets/about_us_view.dart';
-import 'package:millat/resources/home/view/widgets/privacy_policy_view.dart';
-import 'package:millat/resources/home/view/widgets/support_help_view.dart';
-import 'package:millat/resources/home/view/widgets/terms_conditions_view.dart';
-import 'package:millat/resources/profile/views/edit_profile_view.dart';
-import 'package:millat/resources/profile/views/invite_friend_view.dart';
+import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/loader.dart';
@@ -33,9 +28,7 @@ class UserProfileView extends StatelessWidget {
         } else if (state.succesMessage != "") {
           context.read<DatabaseBloc>().add(const RemoveTokenEvent());
           showSnackBar(context, state.failedMessage);
-          Navigator.of(context).pushReplacement(MaterialPageRoute(
-            builder: (context) => const SignUpView(),
-          ));
+          context.pushReplacementNamed(MyAppRouteConstants.signUpRouteName);
         }
       },
       builder: (context, state) {
@@ -180,9 +173,8 @@ class UserProfileView extends StatelessWidget {
                   kHeight15,
                   GestureDetector(
                     onTap: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => const EditProfileView(),
-                      ));
+                      context
+                          .pushNamed(MyAppRouteConstants.editProfileRouteName);
                     },
                     child: Container(
                       height: 42,
@@ -226,9 +218,8 @@ class UserProfileView extends StatelessWidget {
                   kHeight15,
                   GestureDetector(
                     onTap: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => const InviteFriendView(),
-                      ));
+                      context
+                          .pushNamed(MyAppRouteConstants.inviteFreindRouteName);
                     },
                     child: Container(
                       height: 60,
@@ -321,24 +312,20 @@ class UserProfileView extends StatelessWidget {
                         ];
                         final navigations = [
                           () {
-                            Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => const TermsConditionsView(),
-                            ));
+                            context.pushNamed(MyAppRouteConstants
+                                .termsAndConditionsRouteName);
                           },
                           () {
-                            Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => const SupportHelpView(),
-                            ));
+                            context.pushNamed(
+                                MyAppRouteConstants.supportHelpRouteName);
                           },
                           () {
-                            Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => const PrivacyPolicyView(),
-                            ));
+                            context.pushNamed(
+                                MyAppRouteConstants.privacyPolicyRouteName);
                           },
                           () {
-                            Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => const AboutUsView(),
-                            ));
+                            context.pushNamed(
+                                MyAppRouteConstants.aboutUsRouteName);
                           },
                         ];
                         return _buildItemRow(
@@ -364,10 +351,9 @@ class UserProfileView extends StatelessWidget {
                               .read<HomeBloc>()
                               .add(const ChangeHomeTabIndexEvent(newIndex: 0));
                           // await GoogleSignInService.logout();
-                          Navigator.of(context)
-                              .pushReplacement(MaterialPageRoute(
-                            builder: (context) => const SignUpView(),
-                          ));
+                          context.pop();
+                          context.pushReplacementNamed(
+                              MyAppRouteConstants.signUpRouteName);
                         },
                       );
                     },
@@ -386,7 +372,7 @@ class UserProfileView extends StatelessWidget {
                           context
                               .read<DatabaseBloc>()
                               .add(DeleteAccount(context: context));
-                          Navigator.of(context).pop();
+                          context.pop();
                         },
                       );
                     },
@@ -544,7 +530,7 @@ Future<dynamic> logoutPopUp(
                   Expanded(
                     child: GestureDetector(
                       onTap: () {
-                        Navigator.of(context).pop();
+                        context.pop();
                       },
                       child: Container(
                         height: 62,

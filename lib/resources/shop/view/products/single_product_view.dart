@@ -1,22 +1,21 @@
 import 'dart:async';
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:millat/utils/utils.dart';
+import 'package:go_router/go_router.dart';
+import 'package:millat/utils/loader.dart';
+import 'package:millat/utils/constants.dart';
+import 'package:millat/utils/size_utility.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:millat/utils/color_manager.dart';
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:millat/routes/app_router_constants.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:millat/components/buttons/main_button.dart';
 import 'package:millat/components/common_widgets/cart_icon_widget.dart';
+import '../../../../components/common_widgets/shop_products_widget.dart';
 import 'package:millat/resources/shop/bloc/logic/cart_bloc/cart_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/review_bloc/bloc/review_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
-import 'package:millat/resources/shop/view/cart/cart.dart';
-import 'package:millat/utils/color_manager.dart';
-import 'package:millat/utils/constants.dart';
-import 'package:millat/utils/loader.dart';
-import 'package:millat/utils/size_utility.dart';
-import 'package:millat/utils/utils.dart';
-
-import '../../../../components/common_widgets/shop_products_widget.dart';
-import '../search/search_view.dart';
 
 class SingleProductView extends StatelessWidget {
   final String id;
@@ -62,8 +61,8 @@ class SingleProductView extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.only(left: 10),
                       child: GestureDetector(
-                        onTap: () => Navigator.of(context)
-                            .pushNamed(SearchView.routeName),
+                        onTap: () => context
+                            .pushNamed(MyAppRouteConstants.shopSearchRouteName),
                         child: ImageIcon(
                           const AssetImage(
                             'assets/icons/search.png',
@@ -438,12 +437,12 @@ class SingleProductView extends StatelessWidget {
                                       .productModel?.result!.products![index];
                                   return GestureDetector(
                                       onTap: () {
-                                        Navigator.of(context)
-                                            .push(MaterialPageRoute(
-                                          builder: (context) =>
-                                              SingleProductView(
-                                                  id: data.id ?? ""),
-                                        ));
+                                        context.pushNamed(
+                                            MyAppRouteConstants
+                                                .singleProductRouteName,
+                                            pathParameters: {
+                                              "id": data.id.toString()
+                                            });
                                       },
                                       child: Padding(
                                         padding:
@@ -600,7 +599,7 @@ class SingleProductView extends StatelessWidget {
                         ),
                         IconButton(
                             onPressed: () {
-                              Navigator.of(context).pop();
+                              context.pop();
                             },
                             icon: Icon(
                               Icons.close,
@@ -735,7 +734,7 @@ class SingleProductView extends StatelessWidget {
                         BlocBuilder<CartBloc, CartState>(
                           builder: (context, state) => GestureDetector(
                             onTap: () {
-                              Navigator.of(context).pop();
+                              context.pop();
                               context.read<CartBloc>().add(AddCartEvent(
                                     productId: productId,
                                     basePrice: salePrice,
@@ -790,10 +789,8 @@ class SingleProductView extends StatelessWidget {
 
                                 Future.delayed(
                                     const Duration(milliseconds: 400), () {
-                                  Navigator.of(context).push(
-                                    MaterialPageRoute(
-                                        builder: (context) => const CartView()),
-                                  );
+                                  context.pushNamed(
+                                      MyAppRouteConstants.cartRouteName);
                                 });
                               },
                             ),

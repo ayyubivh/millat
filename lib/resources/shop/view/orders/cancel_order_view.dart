@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:millat/components/buttons/main_button.dart';
 import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
@@ -8,6 +9,7 @@ import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/string_constants.dart';
 
+import '../../../../routes/app_router_constants.dart';
 import '../../../../utils/assets_paths.dart';
 import '../../../../utils/constants.dart';
 
@@ -252,11 +254,9 @@ class CancelView extends StatelessWidget {
                   endpoint: Appstrings.addCancelReasonEnpoint,
                   text: data.reasonModel!.result!.data!.reasons![data.indexVal]
                       .toString()));
-            Navigator.of(context).push(MaterialPageRoute(
-              builder: (context) => const OrderReturnSuccessView(
-                orderType: OrderType.cancelOrder,
-              ),
-            ));
+
+            context.pushNamed(MyAppRouteConstants.orderReturnSuccesRouteName,
+                extra: {'orderType': OrderType.cancelOrder});
           },
         ),
       ),

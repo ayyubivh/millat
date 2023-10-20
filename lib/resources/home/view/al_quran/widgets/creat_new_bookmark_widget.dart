@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:millat/routes/app_router_constants.dart';
 import '../../../../../components/buttons/main_button.dart';
 import '../../../../../utils/color_manager.dart';
 import '../../../../../utils/constants.dart';
 import '../../../../../utils/size_utility.dart';
-import '../bookmark_view.dart';
 
 class CreateNewBookmarkWidget extends StatelessWidget {
   const CreateNewBookmarkWidget({super.key});
@@ -48,10 +49,7 @@ class CreateNewBookmarkWidget extends StatelessWidget {
           MainButton(
             title: "Create Now",
             onPressed: () {
-              Navigator.of(context).pop();
-              Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => const BookmarkView(),
-              ));
+              context.goNamed(MyAppRouteConstants.quranBookmarkRouteName);
             },
           ),
         ],

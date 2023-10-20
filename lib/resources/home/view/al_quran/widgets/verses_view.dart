@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/home/bloc/logic/bookmark_bloc/bookmark_bloc.dart';
 import 'package:millat/resources/home/bloc/logic/quran_bloc/quran_bloc.dart';
@@ -78,7 +79,7 @@ class _VersesViewState extends State<VersesView> {
                     value: "${widget.chapterid}:$firstVisibleItemIndex"));
               }
 
-              Navigator.pop(context);
+              context.pop();
             },
             child: const Icon(
               Icons.arrow_back,
@@ -811,7 +812,7 @@ class _VersesViewState extends State<VersesView> {
                           context
                               .read<BookmarkBloc>()
                               .add(const FetchCollectionItem());
-                          Navigator.of(context).pop();
+                          context.pop();
                         },
                         child: buildCollectionContainer(
                           passvalue: data,
@@ -1120,7 +1121,7 @@ class _VersesViewState extends State<VersesView> {
                     children: [
                       GestureDetector(
                         onTap: () {
-                          Navigator.of(context).pop();
+                          context.pop();
                         },
                         child: const Icon(
                           Icons.arrow_back_ios,
@@ -1136,7 +1137,7 @@ class _VersesViewState extends State<VersesView> {
                       ),
                       GestureDetector(
                         onTap: () {
-                          Navigator.of(context).pop();
+                          context.pop();
                         },
                         child: const Icon(
                           Icons.close,
@@ -1228,8 +1229,8 @@ class _VersesViewState extends State<VersesView> {
                                   state.translationsModel?.translations[index];
                               return ListTile(
                                 onTap: () {
-                                  Navigator.pop(context);
-                                  Navigator.pop(context);
+                                  context.pop();
+                                  context.pop();
                                   widget.type == Qurantype.sura
                                       ? context.read<QuranBloc>().add(
                                           FetchTranslationChapterTexts(
@@ -1358,7 +1359,7 @@ class _VersesViewState extends State<VersesView> {
                                 },
                               );
 
-                              Navigator.of(context).pop();
+                              context.pop();
                             },
                             child: Container(
                               color: isIndex

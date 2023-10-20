@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:millat/resources/home/bloc/logic/dua_bloc/dua_bloc.dart';
 import 'package:millat/resources/home/view/dua/widgets/dua_share_view.dart';
 import 'package:millat/resources/home/view/dua/widgets/settings_pop_up_widget.dart';
 import 'package:millat/resources/home/view/tasbih/tasbih_view.dart';
+import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/loader.dart';
 import 'package:millat/utils/utils.dart';
@@ -79,9 +81,9 @@ class InsideDuaView extends StatelessWidget {
                       }
                     },
                     onTapShare: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => DuaShareView(text: data.content!),
-                      ));
+                      // Navigator.of(context).push(MaterialPageRoute(
+                      //   builder: (context) => DuaShareView(text: data.content!),
+                      // ));
                     },
                   );
                 },
@@ -107,199 +109,189 @@ class InsideDuaView extends StatelessWidget {
       required VoidCallback onTapShare,
       required String translatedText,
       String? duaId}) {
-    return Container(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 18),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                  alignment: Alignment.topLeft,
-                  color: ColorManager.greyEE,
-                  height: 25,
-                  width: 25,
-                  child: Center(
-                    child: Text("${index + 1}"),
-                  ),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 18),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Container(
+                alignment: Alignment.topLeft,
+                color: ColorManager.greyEE,
+                height: 25,
+                width: 25,
+                child: Center(
+                  child: Text("${index + 1}"),
                 ),
-                Container(
-                  // color: Colors.amberAccent,
-                  child: Text(
-                    arabicText,
-                    style: TextStyle(
-                        fontSize: textSize - 1,
-                        fontWeight: FontWeight.w700,
-                        color: ColorManager.primary,
-                        fontFamily: "Hafs",
-                        overflow: TextOverflow.ellipsis),
-                    textDirection: TextDirection.rtl,
-                  ),
+              ),
+              Text(
+                arabicText,
+                style: TextStyle(
+                    fontSize: textSize - 1,
+                    fontWeight: FontWeight.w700,
+                    color: ColorManager.primary,
+                    fontFamily: "Hafs",
+                    overflow: TextOverflow.ellipsis),
+                textDirection: TextDirection.rtl,
+              ),
+            ],
+          ),
+          kHeight15,
+          Text(
+            translationText ?? '',
+            style: TextStyle(
+                fontSize: textSize - 3,
+                fontWeight: FontWeight.w400,
+                height: 1.2,
+                color: ColorManager.black4F),
+          ),
+          kHeight10,
+          Text(
+            resource ?? '',
+            style: TextStyle(
+              fontSize: textSize - 2,
+              fontWeight: FontWeight.w500,
+              height: 1.2,
+              color: ColorManager.textGrey,
+            ),
+          ),
+          kHeight15,
+          Container(
+            height: 45,
+            padding: const EdgeInsets.all(10),
+            decoration: BoxDecoration(
+              color: ColorManager.veryLightGreen,
+              borderRadius: BorderRadius.circular(12),
+            ),
+            child: Row(
+              children: [
+                Row(
+                  children: [
+                    const ImageIcon(
+                      AssetImage("assets/icons/dua_play.png"),
+                      size: 19,
+                    ),
+                    kWidht10,
+                    GestureDetector(
+                      onTap: () {
+                        context.read<TasbihBloc>().add(SelectDhikerEvent(
+                            dikr: arabicText,
+                            translate: translatedText,
+                            id: duaId!));
+                        context.pushNamed(MyAppRouteConstants.tasbihRouteName);
+                      },
+                      child: const ImageIcon(
+                        AssetImage("assets/icons/dua_tasbih.png"),
+                        size: 19,
+                      ),
+                    ),
+                    kWidht10,
+                    GestureDetector(
+                      onTap: () {
+                        showModalBottomSheet(
+                          context: context,
+                          isScrollControlled: true,
+                          builder: (context) {
+                            return BlocBuilder<DuaBloc, DuaState>(
+                                builder: (context, state) => SizedBox(
+                                      height: 160,
+                                      child: ListView.separated(
+                                          separatorBuilder: (context, index) =>
+                                              const Divider(thickness: 1),
+                                          itemCount: translateTexts.length,
+                                          itemBuilder: (context, index) =>
+                                              Padding(
+                                                padding:
+                                                    const EdgeInsets.symmetric(
+                                                            horizontal: 20,
+                                                            vertical: 10)
+                                                        .copyWith(top: 20),
+                                                child: InkWell(
+                                                  onTap: () {
+                                                    context.read<DuaBloc>().add(
+                                                        SelectTranslationText(
+                                                            value: index));
+                                                    context.pop();
+                                                  },
+                                                  child: Center(
+                                                      child: Text(
+                                                    translateTexts[index],
+                                                    style: const TextStyle(
+                                                      fontSize: 18,
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                    ),
+                                                  )),
+                                                ),
+                                              )),
+                                    ));
+                          },
+                        );
+                      },
+                      child: const ImageIcon(
+                        AssetImage("assets/icons/dua_gpay.png"),
+                        size: 19,
+                      ),
+                    ),
+                  ],
+                ),
+                const Spacer(),
+                Row(
+                  children: [
+                    // InkWell(
+                    //   onTap: onTapShare,
+                    //   child: const ImageIcon(
+                    //     AssetImage("assets/icons/send.png"),
+                    //   ),
+                    // ),
+                    kWidht10,
+                    InkWell(
+                      onTap: onTapCopyText,
+                      child: const ImageIcon(
+                        AssetImage("assets/icons/copy.png"),
+                        size: 19,
+                      ),
+                    ),
+                    kWidht10,
+                    BlocBuilder<DuaBloc, DuaState>(
+                      builder: (context, state) => state.bookmarkItems!
+                              .contains(duaId)
+                          ? GestureDetector(
+                              onTap: () {
+                                context.read<DuaBloc>().add(RemoveBookmark(
+                                    context: context, duaId: duaId!));
+                                context
+                                    .read<DuaBloc>()
+                                    .add(FetchDuaBookMarksEvent(context));
+                              },
+                              child: const ImageIcon(
+                                AssetImage('assets/icons/bookmark_filled.png'),
+                                size: 19,
+                              ),
+                            )
+                          : GestureDetector(
+                              onTap: () {
+                                context.read<DuaBloc>().add(AddBookmarkEvent(
+                                    context: context, duaId: duaId!));
+                                context
+                                    .read<DuaBloc>()
+                                    .add(FetchDuaBookMarksEvent(context));
+                              },
+                              child: const ImageIcon(
+                                AssetImage("assets/icons/bookmark.png"),
+                                size: 19,
+                              ),
+                            ),
+                    ),
+                  ],
                 ),
               ],
             ),
-            kHeight15,
-            Text(
-              translationText ?? '',
-              style: TextStyle(
-                  fontSize: textSize - 3,
-                  fontWeight: FontWeight.w400,
-                  height: 1.2,
-                  color: ColorManager.black4F),
-            ),
-            kHeight10,
-            Text(
-              resource ?? '',
-              style: TextStyle(
-                fontSize: textSize - 2,
-                fontWeight: FontWeight.w500,
-                height: 1.2,
-                color: ColorManager.textGrey,
-              ),
-            ),
-            kHeight15,
-            Container(
-              height: 45,
-              padding: const EdgeInsets.all(10),
-              decoration: BoxDecoration(
-                color: ColorManager.veryLightGreen,
-                borderRadius: BorderRadius.circular(12),
-              ),
-              child: Row(
-                children: [
-                  Row(
-                    children: [
-                      const ImageIcon(
-                        AssetImage("assets/icons/dua_play.png"),
-                        size: 19,
-                      ),
-                      kWidht10,
-                      GestureDetector(
-                        onTap: () {
-                          context.read<TasbihBloc>().add(SelectDhikerEvent(
-                              dikr: arabicText,
-                              translate: translatedText,
-                              id: duaId!));
-                          Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => const TasbihView(),
-                          ));
-                        },
-                        child: const ImageIcon(
-                          AssetImage("assets/icons/dua_tasbih.png"),
-                          size: 19,
-                        ),
-                      ),
-                      kWidht10,
-                      GestureDetector(
-                        onTap: () {
-                          showModalBottomSheet(
-                            context: context,
-                            isScrollControlled: true,
-                            builder: (context) {
-                              return BlocBuilder<DuaBloc, DuaState>(
-                                  builder: (context, state) => SizedBox(
-                                        height: 160,
-                                        child: ListView.separated(
-                                            separatorBuilder:
-                                                (context, index) =>
-                                                    const Divider(thickness: 1),
-                                            itemCount: translateTexts.length,
-                                            itemBuilder: (context, index) =>
-                                                Padding(
-                                                  padding: const EdgeInsets
-                                                          .symmetric(
-                                                          horizontal: 20,
-                                                          vertical: 10)
-                                                      .copyWith(top: 20),
-                                                  child: InkWell(
-                                                    onTap: () {
-                                                      context.read<DuaBloc>().add(
-                                                          SelectTranslationText(
-                                                              value: index));
-                                                      Navigator.of(context)
-                                                          .pop();
-                                                    },
-                                                    child: Center(
-                                                        child: Text(
-                                                      translateTexts[index],
-                                                      style: const TextStyle(
-                                                        fontSize: 18,
-                                                        fontWeight:
-                                                            FontWeight.w500,
-                                                      ),
-                                                    )),
-                                                  ),
-                                                )),
-                                      ));
-                            },
-                          );
-                        },
-                        child: const ImageIcon(
-                          AssetImage("assets/icons/dua_gpay.png"),
-                          size: 19,
-                        ),
-                      ),
-                    ],
-                  ),
-                  const Spacer(),
-                  Row(
-                    children: [
-                      // InkWell(
-                      //   onTap: onTapShare,
-                      //   child: const ImageIcon(
-                      //     AssetImage("assets/icons/send.png"),
-                      //   ),
-                      // ),
-                      kWidht10,
-                      InkWell(
-                        onTap: onTapCopyText,
-                        child: const ImageIcon(
-                          AssetImage("assets/icons/copy.png"),
-                          size: 19,
-                        ),
-                      ),
-                      kWidht10,
-                      BlocBuilder<DuaBloc, DuaState>(
-                        builder: (context, state) => state.bookmarkItems!
-                                .contains(duaId)
-                            ? GestureDetector(
-                                onTap: () {
-                                  context.read<DuaBloc>().add(RemoveBookmark(
-                                      context: context, duaId: duaId!));
-                                  context
-                                      .read<DuaBloc>()
-                                      .add(FetchDuaBookMarksEvent(context));
-                                },
-                                child: const ImageIcon(
-                                  AssetImage(
-                                      'assets/icons/bookmark_filled.png'),
-                                  size: 19,
-                                ),
-                              )
-                            : GestureDetector(
-                                onTap: () {
-                                  context.read<DuaBloc>().add(AddBookmarkEvent(
-                                      context: context, duaId: duaId!));
-                                  context
-                                      .read<DuaBloc>()
-                                      .add(FetchDuaBookMarksEvent(context));
-                                },
-                                child: const ImageIcon(
-                                  AssetImage("assets/icons/bookmark.png"),
-                                  size: 19,
-                                ),
-                              ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

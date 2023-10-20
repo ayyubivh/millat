@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:millat/components/common_widgets/shop_products_widget.dart';
 import 'package:millat/components/shimmers/shimmer_widget.dart';
 import 'package:millat/enums/enumertations.dart';
@@ -9,6 +10,7 @@ import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.da
 import 'package:millat/resources/shop/view/categories/categories_product_view.dart';
 import 'package:millat/resources/shop/view/products/single_product_view.dart';
 import 'package:millat/resources/shop/view/womens_care/shop_specific_category_banner_view.dart';
+import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/loader.dart';
@@ -186,17 +188,17 @@ class _CategoryViewState extends State<CategoryView> {
                                       onTap: () {
                                         print(
                                             "item id ${productItems?[index].id}");
-                                        Navigator.of(context)
-                                            .push(MaterialPageRoute(
-                                          builder: (context) =>
-                                              CategoriesProductView(
-                                                  itemId:
-                                                      productItems?[index].id,
-                                                  category: "",
-                                                  subCategory: "",
-                                                  type: FilterType
-                                                      .specificCategory),
-                                        ));
+
+                                        context.pushNamed(
+                                            MyAppRouteConstants
+                                                .categoriesProductsRouteName,
+                                            extra: {
+                                              'itemId': productItems?[index].id,
+                                              'category': "",
+                                              'subCategory': "",
+                                              'type':
+                                                  FilterType.specificCategory
+                                            });
                                       },
                                       child: Column(
                                         children: [
@@ -254,17 +256,17 @@ class _CategoryViewState extends State<CategoryView> {
 
                                     return GestureDetector(
                                       onTap: () {
-                                        Navigator.of(context)
-                                            .push(MaterialPageRoute(
-                                          builder: (context) =>
-                                              CategoriesProductView(
-                                                  itemName: data?.title,
-                                                  itemId: data?.id,
-                                                  category: "",
-                                                  subCategory: "",
-                                                  type: FilterType
-                                                      .specificCategory),
-                                        ));
+                                        context.pushNamed(
+                                            MyAppRouteConstants
+                                                .categoriesProductsRouteName,
+                                            extra: {
+                                              'itemName': data?.title,
+                                              'itemId': data?.id,
+                                              'category': "",
+                                              'subCategory': "",
+                                              'type':
+                                                  FilterType.specificCategory
+                                            });
                                       },
                                       child: Column(
                                         children: [
@@ -335,13 +337,12 @@ class _CategoryViewState extends State<CategoryView> {
 
                                         return GestureDetector(
                                           onTap: () {
-                                            Navigator.of(context)
-                                                .push(MaterialPageRoute(
-                                              builder: (context) =>
-                                                  SingleProductView(
-                                                id: data.id ?? "",
-                                              ),
-                                            ));
+                                            context.pushNamed(
+                                                MyAppRouteConstants
+                                                    .singleProductRouteName,
+                                                pathParameters: {
+                                                  "id": data.id.toString()
+                                                });
                                           },
                                           child: Padding(
                                             padding: const EdgeInsets.only(
@@ -393,13 +394,20 @@ class _CategoryViewState extends State<CategoryView> {
                                       i++)
                                     GestureDetector(
                                       onTap: () {
-                                        Navigator.of(context)
-                                            .push(MaterialPageRoute(
-                                          builder: (context) =>
-                                              ShopSpecificCategoryBannerView(
-                                                  imageUrl: img[i] ?? "",
-                                                  category: widget.category),
-                                        ));
+                                        // Navigator.of(context)
+                                        //     .push(MaterialPageRoute(
+                                        //   builder: (context) =>
+                                        //       ShopSpecificCategoryBannerView(
+                                        //           imageUrl: img[i] ?? "",
+                                        //           category: widget.category),
+                                        // ));
+                                        context.pushNamed(
+                                            MyAppRouteConstants
+                                                .shopSpecificCategoryBannerRouteName,
+                                            extra: {
+                                              'imageUrl': img[i],
+                                              'category': widget.category,
+                                            });
                                       },
                                       child: Padding(
                                         padding:
@@ -443,14 +451,12 @@ class _CategoryViewState extends State<CategoryView> {
 
                                         return GestureDetector(
                                           onTap: () {
-                                            Navigator.of(context)
-                                                .push(MaterialPageRoute(
-                                              builder: (context) {
-                                                return SingleProductView(
-                                                  id: data.id ?? "",
-                                                );
-                                              },
-                                            ));
+                                            context.pushNamed(
+                                                MyAppRouteConstants
+                                                    .singleProductRouteName,
+                                                pathParameters: {
+                                                  "id": data.id.toString()
+                                                });
                                           },
                                           child: Padding(
                                             padding: const EdgeInsets.only(
@@ -490,13 +496,13 @@ class _CategoryViewState extends State<CategoryView> {
                             ? const Loader()
                             : GestureDetector(
                                 onTap: () {
-                                  Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (context) =>
-                                        ShopSpecificCategoryBannerView(
-                                      imageUrl: bigBannerImageUrl,
-                                      category: widget.category,
-                                    ),
-                                  ));
+                                  context.pushNamed(
+                                      MyAppRouteConstants
+                                          .shopSpecificCategoryBannerRouteName,
+                                      extra: {
+                                        'imageUrl': bigBannerImageUrl,
+                                        'category': widget.category,
+                                      });
                                 },
                                 child: Utilities().buildCachedNetworkImage(
                                     imageUrl: bigBannerImageUrl),

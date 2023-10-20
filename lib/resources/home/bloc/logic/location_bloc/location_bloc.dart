@@ -7,7 +7,6 @@ import 'package:geolocator/geolocator.dart';
 import 'package:millat/utils/string_constants.dart';
 import 'package:millat/utils/utils.dart';
 import 'package:weather/weather.dart';
-import 'package:permission_handler/permission_handler.dart' as perm;
 import '../../models/cities_models/cities_model.dart';
 import '../../service/location_service.dart';
 
@@ -189,7 +188,7 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
         String subLocality = placemark.subLocality ?? '';
         String locality = placemark.locality ?? '';
         // String subAdministrativeArea = placemark.subAdministrativeArea ?? '';
-        String administrativeArea = placemark.administrativeArea ?? '';
+        // String administrativeArea = placemark.administrativeArea ?? '';
         // String country = placemark.country ?? '';
         // print(
         //     "=======$placemark address :::: $address===========\nlocality ::::: $locality=============\n subadminstrative area:::::$subAdministrativeArea========\n");

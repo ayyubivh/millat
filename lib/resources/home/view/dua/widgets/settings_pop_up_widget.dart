@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import '../../../../../utils/color_manager.dart';
 import '../../../../../utils/constants.dart';
 import '../../../../../utils/string_constants.dart';
@@ -14,7 +15,7 @@ class SettingsPopUpWidget extends StatelessWidget {
       height: 700,
       decoration: BoxDecoration(
         color: ColorManager.whiteColor,
-        borderRadius: BorderRadius.circular(30),
+        borderRadius: const BorderRadius.vertical(top: Radius.circular(30)),
       ),
       child: Column(
         children: [
@@ -34,17 +35,14 @@ class SettingsPopUpWidget extends StatelessWidget {
               ),
               Align(
                 alignment: Alignment.topRight,
-                child: GestureDetector(
-                  onTap: () {
-                    Navigator.of(context).pop;
-                  },
-                  child: IconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        Icons.close,
-                        size: 16,
-                      )),
-                ),
+                child: IconButton(
+                    onPressed: () {
+                      context.pop();
+                    },
+                    icon: const Icon(
+                      Icons.close,
+                      size: 16,
+                    )),
               ),
               kWidth15
             ],
@@ -275,7 +273,7 @@ class SettingsPopUpWidget extends StatelessWidget {
                                 context
                                     .read<DuaBloc>()
                                     .add(SelectTranslationText(value: index));
-                                Navigator.of(context).pop();
+                                context.pop();
                               },
                               child: Center(
                                   child: Text(

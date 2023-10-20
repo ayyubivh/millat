@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
 import 'package:millat/components/buttons/main_button.dart';
@@ -170,7 +171,7 @@ class _EditProfileViewState extends State<EditProfileView> {
                                                     .add(SaveCoverImage(
                                                         image:
                                                             "assets/images/cover_photo_${currentIndex + 1}.png"));
-                                                Navigator.of(context).pop();
+                                                context.pop();
                                               },
                                               child: Container(
                                                 margin:
@@ -213,7 +214,7 @@ class _EditProfileViewState extends State<EditProfileView> {
                                       kHeight25,
                                       GestureDetector(
                                         onTap: () {
-                                          Navigator.of(context).pop();
+                                          context.pop();
                                         },
                                         child: Container(
                                           alignment: Alignment.center,
@@ -513,7 +514,7 @@ class _EditProfileViewState extends State<EditProfileView> {
                       context
                           .read<DatabaseBloc>()
                           .add(FetchAuthUser(context: context));
-                      Navigator.of(context).pop();
+                      context.pop();
                     } else {
                       print("not validated");
                     }

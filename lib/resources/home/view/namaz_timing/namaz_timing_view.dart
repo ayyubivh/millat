@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:geocoding/geocoding.dart';
+import 'package:go_router/go_router.dart';
 import 'package:millat/resources/authentication/bloc/logic/database_bloc/database_bloc.dart';
+import 'package:millat/routes/app_router_constants.dart';
 import '../../../../utils/color_manager.dart';
 import '../../../../utils/constants.dart';
 import '../../../../utils/size_utility.dart';
 import '../../../../utils/utils.dart';
-import '../../../profile/views/user_profile_view.dart';
 import '../../bloc/logic/location_bloc/location_bloc.dart';
 import '../../bloc/logic/namaz_timing_bloc/namaz_timing_bloc.dart';
 
 class NamazTimingView extends StatefulWidget {
-  static const routeName = 'namaz-timing';
   const NamazTimingView({super.key});
 
   @override
@@ -64,8 +64,8 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                       children: [
                         GestureDetector(
                           onTap: () {
-                            Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => const UserProfileView()));
+                            context.goNamed(
+                                MyAppRouteConstants.userProfileRoutename);
                           },
                           child: CircleAvatar(
                             backgroundColor: ColorManager.whiteColor,
@@ -589,7 +589,7 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                                                                 //                                       children: [
                                                                 //                                         IconButton(
                                                                 //                                             onPressed: () {
-                                                                //                                               Navigator.of(context).pop();
+                                                                //                                               context.pop();
                                                                 //                                             },
                                                                 //                                             icon: const Icon(Icons.arrow_back_ios)),
                                                                 //                                         const Text(
@@ -601,7 +601,7 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                                                                 //                                         ),
                                                                 //                                         IconButton(
                                                                 //                                           onPressed: () {
-                                                                //                                             Navigator.of(context).pop();
+                                                                //                                             context.pop();
                                                                 //                                           },
                                                                 //                                           icon: const Icon(
                                                                 //                                             Icons.close,
@@ -1205,7 +1205,7 @@ class _NamazTimingViewState extends State<NamazTimingView> {
               children: [
                 IconButton(
                     onPressed: () {
-                      Navigator.of(context).pop();
+                      context.pop();
                     },
                     icon: const Icon(Icons.arrow_back_ios)),
                 const Text(
@@ -1217,7 +1217,7 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                 ),
                 IconButton(
                   onPressed: () {
-                    Navigator.of(context).pop();
+                    context.pop();
                   },
                   icon: const Icon(
                     Icons.close,
@@ -1344,7 +1344,7 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                 children: [
                   IconButton(
                       onPressed: () {
-                        Navigator.of(context).pop();
+                        context.pop();
                       },
                       icon: const Icon(Icons.arrow_back_ios)),
                   const Text(
@@ -1356,7 +1356,7 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                   ),
                   IconButton(
                     onPressed: () {
-                      Navigator.of(context).pop();
+                      context.pop();
                     },
                     icon: const Icon(
                       Icons.close,
@@ -1455,7 +1455,7 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                 children: [
                   IconButton(
                       onPressed: () {
-                        Navigator.of(context).pop();
+                        context.pop();
                       },
                       icon: const Icon(Icons.arrow_back_ios)),
                   const Text(
@@ -1467,7 +1467,7 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                   ),
                   IconButton(
                     onPressed: () {
-                      Navigator.of(context).pop();
+                      context.pop();
                     },
                     icon: const Icon(
                       Icons.close,
@@ -1597,7 +1597,7 @@ class _NamazTimingViewState extends State<NamazTimingView> {
               children: [
                 IconButton(
                     onPressed: () {
-                      Navigator.of(context).pop();
+                      context.pop();
                     },
                     icon: const Icon(Icons.arrow_back_ios)),
                 const Text(
@@ -1608,9 +1608,7 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                   ),
                 ),
                 IconButton(
-                  onPressed: () {
-                    // Navigator.of(context).pop();
-                  },
+                  onPressed: () {},
                   icon: const Icon(
                     Icons.my_location_rounded,
                     size: 25,
@@ -1689,7 +1687,7 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                                   context
                                       .read<NamazTimingBloc>()
                                       .add(FetchPrayerTiming(context: context));
-                                  Navigator.of(context).pop();
+                                  context.pop();
                                 },
                                 child: ListTile(
                                   title: Text(city),
@@ -1728,7 +1726,7 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                 children: [
                   IconButton(
                     onPressed: () {
-                      Navigator.of(context).pop();
+                      context.pop();
                     },
                     icon: const Icon(Icons.arrow_back_ios),
                   ),
@@ -1741,7 +1739,7 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                   ),
                   IconButton(
                     onPressed: () {
-                      Navigator.of(context).pop();
+                      context.pop();
                     },
                     icon: Icon(
                       Icons.close,

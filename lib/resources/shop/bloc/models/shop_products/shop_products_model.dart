@@ -33,8 +33,7 @@ class ShopProductCategory with _$ShopProductCategory {
     @JsonKey(name: '_id') required String? id,
     required String? title,
     required String? slug,
-    required List<Product>?
-        products, // Update to use 'Product' instead of 'Products'
+    required List<Product>? products,
     required String? createdAt,
     required String? updatedAt,
   }) = _ShopProductCategory;

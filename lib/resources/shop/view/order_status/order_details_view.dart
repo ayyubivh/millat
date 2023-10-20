@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:millat/resources/authentication/bloc/logic/database_bloc/database_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
 import 'package:millat/resources/shop/bloc/models/cart/cart_models.dart';
 import 'package:millat/resources/shop/view/orders/cancel_order_view.dart';
+import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/size_utility.dart';
@@ -192,10 +194,9 @@ class OrdetailsView extends StatelessWidget {
                         ?.shopProductCategory!.products![index];
                     return GestureDetector(
                         onTap: () {
-                          Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) =>
-                                SingleProductView(id: data.id ?? ""),
-                          ));
+                          context.pushNamed(
+                              MyAppRouteConstants.singleProductRouteName,
+                              pathParameters: {'id': data.id ?? ""});
                         },
                         child: Padding(
                           padding: const EdgeInsets.only(right: 15),
@@ -587,14 +588,12 @@ class OrdetailsView extends StatelessWidget {
                 child: GestureDetector(
                   onTap: () {
                     orderStatus == Appstrings.processing
-                        ? Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => const CancelView(),
-                          ))
+                        ? context
+                            .pushNamed(MyAppRouteConstants.orderCancelRouteName)
                         : orderStatus == Appstrings.cancelled
                             ? null
-                            : Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => const OrderReturnView(),
-                              ));
+                            : context.pushNamed(
+                                MyAppRouteConstants.orderReturnRouteName);
                   },
                   child: Row(
                     children: [

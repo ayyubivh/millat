@@ -385,12 +385,6 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
                                       brandId: data?.brand ?? "",
                                       size: data?.size![0].size ?? "",
                                       color: data?.color ?? ""));
-
-                              // Navigator.of(context).push(MaterialPageRoute(
-                              //   builder: (context) => PaymentSuccessful(
-                              //       subTotal: data?.salePrice?.toDouble() ?? 0,
-                              //       delivery: 27),
-                              // ));
                             } else {
                               showSnackBar(
                                   context, "Not enough coins to buy product!");

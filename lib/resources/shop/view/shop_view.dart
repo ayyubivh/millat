@@ -383,7 +383,7 @@ class _ShopViewState extends State<ShopView> {
                         extra: {'passValue': banner.brandId});
                   },
                   child: Container(
-                    height: 226,
+                    // height: 226,
                     width: SizeUtility(context).width,
                     decoration: BoxDecoration(
                       color: Colors.orange.withOpacity(0.65),
@@ -448,7 +448,6 @@ class _ShopViewState extends State<ShopView> {
                                     fontSize: 14,
                                     fontWeight: FontWeight.w600,
                                   ),
-                                  overflow: TextOverflow.ellipsis,
                                 ),
                               ),
                             ],

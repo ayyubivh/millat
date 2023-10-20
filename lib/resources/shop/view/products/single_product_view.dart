@@ -16,6 +16,15 @@ import '../../../../components/common_widgets/shop_products_widget.dart';
 import 'package:millat/resources/shop/bloc/logic/cart_bloc/cart_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/review_bloc/bloc/review_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
+import 'package:millat/resources/shop/bloc/models/products/product_by_id_model.dart';
+import 'package:millat/resources/shop/view/cart/cart.dart';
+import 'package:millat/utils/color_manager.dart';
+import 'package:millat/utils/constants.dart';
+import 'package:millat/utils/loader.dart';
+import 'package:millat/utils/size_utility.dart';
+import 'package:millat/utils/utils.dart';
+
+import '../../../../components/common_widgets/shop_products_widget.dart';
 
 class SingleProductView extends StatelessWidget {
   final String id;
@@ -81,51 +90,13 @@ class SingleProductView extends StatelessWidget {
                     )
                   ],
                 ),
-                body: Padding(
-                  padding: const EdgeInsets.all(25.0),
-                  child: SingleChildScrollView(
+                body: SingleChildScrollView(
+                  child: Padding(
+                    padding: const EdgeInsets.all(25),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        CarouselSlider(
-                          options: CarouselOptions(
-                            height: SizeUtility(context).height * 30 / 100,
-                            viewportFraction: 1,
-                            autoPlayAnimationDuration:
-                                const Duration(milliseconds: 800),
-                            onPageChanged: (index, reason) {
-                              context
-                                  .read<ShopProductsBloc>()
-                                  .add(ChangeShopBannerIndex(index));
-                            },
-                          ),
-                          items: data.images?.map((imageUrl) {
-                            return Utilities().buildCachedNetworkImage(
-                                imageUrl: imageUrl,
-                                width: SizeUtility(context).width / 1.5);
-                          }).toList(),
-                        ),
-                        kHeight10,
-                        BlocBuilder<ShopProductsBloc, ShopProductsState>(
-                          builder: (context, state) => Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: data.images!.map((banner) {
-                              int index = data.images!.indexOf(banner);
-                              return Container(
-                                width: state.shopBannerIndex == index ? 24 : 6,
-                                height: 6,
-                                margin:
-                                    const EdgeInsets.symmetric(horizontal: 4),
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(30),
-                                  color: state.shopBannerIndex == index
-                                      ? ColorManager.primary
-                                      : ColorManager.textGrey,
-                                ),
-                              );
-                            }).toList(),
-                          ),
-                        ),
+                        CarouselView(data: data),
                         Text(
                           data.title ?? "",
                           style: const TextStyle(
@@ -134,13 +105,13 @@ class SingleProductView extends StatelessWidget {
                             height: 2,
                           ),
                         ),
-                        Text('${data.regularPrice} ₹',
+                        Text('₹${data.regularPrice}',
                             style: const TextStyle(
                                 color: black60,
                                 fontSize: 17,
                                 decoration: TextDecoration.lineThrough,
                                 height: 1.5)),
-                        Text(data.brand?.name ?? 'null',
+                        Text(data.brand?.name ?? 'Millat',
                             style: const TextStyle(
                                 color: black60, fontSize: 17, height: 1.5)),
                         Text('${data.salePrice} ₹',
@@ -149,215 +120,9 @@ class SingleProductView extends StatelessWidget {
                                 fontSize: 22,
                                 height: 1.5)),
                         kHeight10,
-                        Container(
-                          padding: const EdgeInsets.symmetric(vertical: 10),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                'Reviews',
-                                style: TextStyle(
-                                    color: ColorManager.blackColor,
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.w700),
-                              ),
-                              kHeight10,
-                              BlocBuilder<ReviewBloc, ReviewState>(
-                                builder: (context, state) {
-                                  final data = state.reviewModel?.result;
-                                  return Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: [
-                                      Row(
-                                        children: [
-                                          RatingBar.builder(
-                                            itemSize: 20,
-                                            initialRating: state.reviewModel
-                                                    ?.result?.data?.avgRating ??
-                                                0,
-                                            minRating: 1,
-                                            direction: Axis.horizontal,
-                                            allowHalfRating: true,
-                                            itemCount: 5,
-                                            itemPadding:
-                                                const EdgeInsets.symmetric(
-                                                    horizontal: 4.0),
-                                            itemBuilder: (context, _) =>
-                                                const Icon(
-                                              Icons.star,
-                                              color: orange255,
-                                            ),
-                                            onRatingUpdate: (value) {},
-                                          ),
-                                          kWidht10,
-                                          Text(
-                                            '${data?.avgRating ?? 0}/5',
-                                            style: TextStyle(
-                                                color: ColorManager.blackColor,
-                                                fontWeight: FontWeight.w700,
-                                                fontSize: 15),
-                                          ),
-                                          kWidht10,
-                                          Text(
-                                            '(${data?.data?.count ?? 0} reviews)',
-                                            style: TextStyle(
-                                                color: ColorManager.textGrey99,
-                                                fontWeight: FontWeight.w700,
-                                                fontSize: 15),
-                                          ),
-                                        ],
-                                      ),
-                                      GestureDetector(
-                                        onTap: () {
-                                          context
-                                              .read<ReviewBloc>()
-                                              .add(const ExpandReviewList());
-                                        },
-                                        child: Icon(
-                                          state.isExpandedReview
-                                              ? Icons.expand_more_outlined
-                                              : Icons.navigate_next_outlined,
-                                          color: ColorManager.greenColor1,
-                                          size: 30,
-                                        ),
-                                      ),
-                                    ],
-                                  );
-                                },
-                              ),
-                              BlocBuilder<ReviewBloc, ReviewState>(
-                                builder: (context, state) => !state
-                                        .isExpandedReview
-                                    ? const SizedBox()
-                                    : ListView.builder(
-                                        itemCount: state.reviewModel?.result
-                                                ?.data?.ratings?.length ??
-                                            0,
-                                        shrinkWrap: true,
-                                        physics:
-                                            const NeverScrollableScrollPhysics(),
-                                        itemBuilder: (context, index) {
-                                          final data =
-                                              state.reviewModel?.result?.data;
-                                          return buildReviewItem(
-                                              comment: data?.ratings?[index]
-                                                      .comment ??
-                                                  "",
-                                              context: context,
-                                              name:
-                                                  data?.ratings?[index].name ??
-                                                      "",
-                                              rating: data?.ratings?[index]
-                                                      .rating ??
-                                                  0.0,
-                                              dob: data?.ratings?[index].user
-                                                      ?.dob ??
-                                                  "",
-                                              image: data?.ratings?[index].user
-                                                      ?.picture ??
-                                                  "");
-                                        },
-                                      ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        // Row(
-                        //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        //   crossAxisAlignment: CrossAxisAlignment.end,
-                        //   children: [
-                        //     Row(
-                        //       children: [
-                        //         const Icon(Icons.star,
-                        //             color: orange255, size: 20),
-                        //         const Icon(Icons.star,
-                        //             color: orange255, size: 20),
-                        //         const Icon(Icons.star,
-                        //             color: orange255, size: 20),
-                        //         const Icon(Icons.star,
-                        //             color: orange255, size: 20),
-                        //         const Icon(Icons.star,
-                        //             color: orange255, size: 20),
-                        //         kWidht10,
-                        //         BlocBuilder<ReviewBloc, ReviewState>(
-                        //           builder: (context, state) => Text(
-                        //             state.reviewModel?.result?.data?.ratings?[0]
-                        //                     .rating
-                        //                     .toString() ??
-                        //                 "0",
-                        //             style: TextStyle(
-                        //                 color: ColorManager.blackColor,
-                        //                 fontWeight: FontWeight.w700,
-                        //                 fontSize: 15),
-                        //           ),
-                        //         ),
-                        //       ],
-                        //     ),
-                        //     const ImageIcon(
-                        //       AssetImage(
-                        //         'assets/icons/heart.png',
-                        //       ),
-                        //       color: black60,
-                        //     )
-                        //   ],
-                        // ),
-
-                        GestureDetector(
-                          onTap: () {
-                            showModalBottomSheet(
-                              backgroundColor: Colors.transparent,
-                              context: context,
-                              isScrollControlled: true,
-                              builder: (context) => buildShowModelSheet(
-                                  color: data.color ?? "",
-                                  size: data.size!
-                                      .map((e) => e.size.toString())
-                                      .toList(),
-                                  brandId: data.brand?.id ?? "",
-                                  productId: id,
-                                  image: data.images![0],
-                                  regularPrice: data.regularPrice!.toInt(),
-                                  salePrice: data.salePrice!.toInt(),
-                                  context,
-                                  selectedColor,
-                                  selectedSize,
-                                  quantity),
-                            );
-                          },
-                          child: Container(
-                            padding: const EdgeInsets.symmetric(
-                                vertical: 20, horizontal: 0),
-                            child: Column(
-                              children: [
-                                divider,
-                                kHeight10,
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text(
-                                      'Select options',
-                                      style: TextStyle(
-                                          color: ColorManager.greenColor1,
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.w700),
-                                    ),
-                                    Icon(
-                                      Icons.navigate_next_outlined,
-                                      color: ColorManager.greenColor1,
-                                      size: 30,
-                                    )
-                                  ],
-                                ),
-                                kHeight10,
-                                divider,
-                              ],
-                            ),
-                          ),
-                        ),
+                        reviews(),
+                        selectOptions(context, data, selectedColor,
+                            selectedSize, quantity, divider),
                         Text(
                           'Product Description',
                           style: TextStyle(
@@ -533,6 +298,157 @@ class SingleProductView extends StatelessWidget {
                     )),
               );
       },
+    );
+  }
+
+  Container reviews() {
+    return Container(
+      padding: const EdgeInsets.symmetric(vertical: 10),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'Reviews',
+            style: TextStyle(
+                color: ColorManager.blackColor,
+                fontSize: 18,
+                fontWeight: FontWeight.w700),
+          ),
+          kHeight10,
+          BlocBuilder<ReviewBloc, ReviewState>(
+            builder: (context, state) {
+              final data = state.reviewModel?.result;
+              return Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Row(
+                    children: [
+                      RatingBar.builder(
+                        itemSize: 20,
+                        initialRating:
+                            state.reviewModel?.result?.data?.avgRating ?? 0,
+                        minRating: 1,
+                        direction: Axis.horizontal,
+                        allowHalfRating: true,
+                        itemCount: 5,
+                        itemPadding:
+                            const EdgeInsets.symmetric(horizontal: 4.0),
+                        itemBuilder: (context, _) => const Icon(
+                          Icons.star,
+                          color: orange255,
+                        ),
+                        onRatingUpdate: (value) {},
+                      ),
+                      kWidht10,
+                      Text(
+                        '${data?.avgRating ?? 0}/5',
+                        style: TextStyle(
+                            color: ColorManager.blackColor,
+                            fontWeight: FontWeight.w700,
+                            fontSize: 15),
+                      ),
+                      kWidht10,
+                      Text(
+                        '(${data?.data?.count ?? 0} reviews)',
+                        style: TextStyle(
+                            color: ColorManager.textGrey99,
+                            fontWeight: FontWeight.w700,
+                            fontSize: 15),
+                      ),
+                    ],
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      context.read<ReviewBloc>().add(const ExpandReviewList());
+                    },
+                    child: Icon(
+                      state.isExpandedReview
+                          ? Icons.expand_more_outlined
+                          : Icons.navigate_next_outlined,
+                      color: ColorManager.greenColor1,
+                      size: 30,
+                    ),
+                  ),
+                ],
+              );
+            },
+          ),
+          BlocBuilder<ReviewBloc, ReviewState>(
+            builder: (context, state) => !state.isExpandedReview
+                ? const SizedBox()
+                : ListView.builder(
+                    itemCount:
+                        state.reviewModel?.result?.data?.ratings?.length ?? 0,
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    itemBuilder: (context, index) {
+                      final data = state.reviewModel?.result?.data;
+                      return buildReviewItem(
+                          comment: data?.ratings?[index].comment ?? "",
+                          context: context,
+                          name: data?.ratings?[index].name ?? "",
+                          rating: data?.ratings?[index].rating ?? 0.0,
+                          dob: data?.ratings?[index].user?.dob ?? "",
+                          image: data?.ratings?[index].user?.picture ?? "");
+                    },
+                  ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  GestureDetector selectOptions(BuildContext context, Product data,
+      int selectedColor, int selectedSize, int quantity, Divider divider) {
+    return GestureDetector(
+      onTap: () {
+        showModalBottomSheet(
+          backgroundColor: Colors.transparent,
+          context: context,
+          isScrollControlled: true,
+          builder: (context) => buildShowModelSheet(
+              color: data.color ?? "",
+              size: data.size!.map((e) => e.size.toString()).toList(),
+              brandId: data.brand?.id ?? "",
+              productId: id,
+              image: data.images![0],
+              regularPrice: data.regularPrice!.toInt(),
+              salePrice: data.salePrice!.toInt(),
+              context,
+              selectedColor,
+              selectedSize,
+              quantity),
+        );
+      },
+      child: Container(
+        padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 0),
+        child: Column(
+          children: [
+            divider,
+            kHeight10,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'Select options',
+                  style: TextStyle(
+                      color: ColorManager.greenColor1,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w700),
+                ),
+                Icon(
+                  Icons.navigate_next_outlined,
+                  color: ColorManager.greenColor1,
+                  size: 30,
+                )
+              ],
+            ),
+            kHeight10,
+            divider,
+          ],
+        ),
+      ),
     );
   }
 
@@ -877,6 +793,59 @@ class SingleProductView extends StatelessWidget {
           )
         ],
       ),
+    );
+  }
+}
+
+class CarouselView extends StatelessWidget {
+  const CarouselView({
+    super.key,
+    required this.data,
+  });
+
+  final Product? data;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        CarouselSlider(
+          options: CarouselOptions(
+            height: SizeUtility(context).height * 30 / 100,
+            viewportFraction: 1,
+            autoPlayAnimationDuration: const Duration(milliseconds: 800),
+            onPageChanged: (index, reason) {
+              context
+                  .read<ShopProductsBloc>()
+                  .add(ChangeShopBannerIndex(index));
+            },
+          ),
+          items: data!.images?.map((imageUrl) {
+            return Utilities().buildCachedNetworkImage(
+                imageUrl: imageUrl, width: SizeUtility(context).width / 1.5);
+          }).toList(),
+        ),
+        kHeight10,
+        BlocBuilder<ShopProductsBloc, ShopProductsState>(
+          builder: (context, state) => Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: data!.images!.map((banner) {
+              int index = data!.images!.indexOf(banner);
+              return Container(
+                width: state.shopBannerIndex == index ? 24 : 6,
+                height: 6,
+                margin: const EdgeInsets.symmetric(horizontal: 4),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(30),
+                  color: state.shopBannerIndex == index
+                      ? ColorManager.primary
+                      : ColorManager.textGrey,
+                ),
+              );
+            }).toList(),
+          ),
+        ),
+      ],
     );
   }
 }

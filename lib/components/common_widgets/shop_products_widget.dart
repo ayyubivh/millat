@@ -42,35 +42,24 @@ class ShopProductWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Column(
-            children: [
-              Align(
-                alignment: Alignment.center,
-                child: ClipRRect(
-                    borderRadius: BorderRadius.circular(12),
-                    child: Utilities().buildCachedNetworkImage(
-                      width: SizeUtility(context).width / 2.6,
-                      imageUrl: image,
-                      height: 136,
-                      boxFit: BoxFit.cover,
-                    )),
-              )
-            ],
-          ),
+          ClipRRect(
+              borderRadius: BorderRadius.circular(12),
+              child: Utilities().buildCachedNetworkImage(
+                imageUrl: image,
+                height: SizeUtility(context).height * 0.15,
+                width: SizeUtility(context).width,
+              )),
           kHeight5,
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              SizedBox(
-                width: SizeUtility(context).width / 3,
-                height: 50,
+              Expanded(
                 child: Text(
-                  title.toString(),
+                  "$title",
                   style: TextStyle(
                     color: ColorManager.blackColor,
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
-                    height: 1.3,
                   ),
                   overflow: TextOverflow.ellipsis,
                   maxLines: 2,
@@ -112,16 +101,18 @@ class ShopProductWidget extends StatelessWidget {
             ],
           ),
           kHeight10,
-          Text(
-            brand.toString(),
-            style: TextStyle(
-              color: ColorManager.grey83,
-              fontSize: 13,
-              fontWeight: FontWeight.w600,
+          FittedBox(
+            child: Text(
+              brand.toString(),
+              style: TextStyle(
+                color: ColorManager.grey83,
+                fontSize: 13,
+                fontWeight: FontWeight.w600,
+              ),
+              maxLines: 1,
             ),
-            maxLines: 1,
           ),
-          const SizedBox(height: 15),
+          kHeight10,
           Row(
             children: [
               Text(
@@ -141,6 +132,7 @@ class ShopProductWidget extends StatelessWidget {
                   fontWeight: FontWeight.w600,
                   decoration: TextDecoration.lineThrough,
                 ),
+                maxLines: 2,
               ),
               const Spacer(),
               BlocBuilder<CartBloc, CartState>(

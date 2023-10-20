@@ -136,6 +136,7 @@ class Utilities {
       height: height,
       width: width,
       fit: boxFit,
+      
       placeholder: (context, url) => ShimmersWidget(
         width: width ?? 0,
         height: height ?? 0,

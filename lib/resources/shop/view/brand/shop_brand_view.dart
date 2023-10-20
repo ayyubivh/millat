@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
 import 'package:millat/resources/shop/bloc/models/shop_by_brand/brand_model.dart';
-import 'package:millat/resources/shop/view/brand/single_brand_view.dart';
 import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/color_manager.dart';
@@ -36,26 +35,73 @@ class ShopBrandView extends StatelessWidget {
           ..add(FetchBrandProductsItemCount(ids: ids));
       }
     });
+    List brandsImages = [
+      'assets/dummy/huda.png',
+      'assets/dummy/kazima.png',
+      'assets/dummy/two_brothers.png',
+      'assets/dummy/isak.png',
+      'assets/dummy/farsali_2.png',
+      'assets/dummy/kazima.png',
+    ];
     return Scaffold(
-      body: SingleChildScrollView(
-        physics: const ClampingScrollPhysics(),
-        child: Column(
-          children: [
-            _stackContainerPart(context),
-            kHeight15,
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30),
-              child: Column(
+      body: CustomScrollView(
+        slivers: [
+          SliverAppBar(
+            backgroundColor: Colors.transparent,
+            elevation: 0,
+            expandedHeight: SizeUtility(context).height / 3,
+            centerTitle: true,
+            stretch: true,
+            flexibleSpace: FlexibleSpaceBar(
+              centerTitle: true,
+              background: const HeaderBackgroundImage(),
+              title: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                // mainAxisSize: MainAxisSize.min,
                 children: [
-                  _topBrandsPart(),
+                  Flexible(
+                    child: Text(
+                      Appstrings.thousandBrands,
+                      style: TextStyle(
+                        fontWeight: FontWeight.w700,
+                        color: ColorManager.whiteColor,
+                      ),
+                    ),
+                  ),
+                  kHeight8,
+                  const Flexible(
+                    child: Text(
+                      Appstrings.brandDescription,
+                      textAlign: TextAlign.center,
+                      style: TextStyle(fontSize: 12),
+                    ),
+                  ),
                   kHeight15,
-                  // _filterRow(),
-                  _brandsListPart(),
+                  BrandImages(brandsImages: brandsImages),
                 ],
               ),
             ),
-          ],
-        ),
+          ),
+          SliverToBoxAdapter(
+            child: Column(
+              children: [
+                // _stackContainerPart(context),
+                kHeight15,
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 30),
+                  child: Column(
+                    children: [
+                      _topBrandsPart(),
+                      kHeight15,
+                      // _filterRow(),
+                      _brandsListPart(),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -104,9 +150,6 @@ class ShopBrandView extends StatelessWidget {
         kHeight10,
         Container(
           width: double.infinity,
-          height: 240,
-
-          // margin: const EdgeInsets.all(25),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(12),
             image: const DecorationImage(
@@ -114,59 +157,59 @@ class ShopBrandView extends StatelessWidget {
               fit: BoxFit.fill,
             ),
           ),
-          padding: const EdgeInsets.all(1),
           child: BlocBuilder<ShopProductsBloc, ShopProductsState>(
             builder: (context, state) {
               if (state.topBrandsModel?.result?.data == null) {
                 return const Loader();
               }
-              return GridView.builder(
-                itemCount:
-                    state.topBrandsModel!.result?.data?.topBrands?.length,
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 4,
-                  mainAxisSpacing: 4,
-                ),
-                itemBuilder: (context, index) {
-                  final data =
-                      state.topBrandsModel?.result?.data?.topBrands?[index];
-                  return GestureDetector(
-                    onTap: () {
-                      context.pushNamed(
-                          MyAppRouteConstants.singleBrandRouteName,
-                          extra: {'passValue': data});
-                    },
-                    child: Column(
-                      children: [
-                        Container(
-                            height: 67,
-                            width: 67,
-                            padding: const EdgeInsets.all(12),
-                            margin: const EdgeInsets.only(bottom: 3.5),
-                            decoration: BoxDecoration(
-                              color: ColorManager.whiteColor,
-                              borderRadius: BorderRadius.circular(8),
-                            ),
-                            child: data?.logo != null
-                                ? Utilities().buildCachedNetworkImage(
-                                    imageUrl: data!.logo!)
-                                : const Icon(
-                                    Icons.image_not_supported_outlined)),
-                        kHeight10,
-                        Text(
-                          data?.name ?? "",
-                          style: const TextStyle(
-                            fontSize: 13,
-                            fontWeight: FontWeight.w600,
+              return Padding(
+                padding: const EdgeInsets.all(12.0),
+                child: GridView.builder(
+                  shrinkWrap: true,
+                  padding: EdgeInsets.zero,
+                  itemCount:
+                      state.topBrandsModel!.result!.data!.topBrands!.length <= 8
+                          ? state
+                              .topBrandsModel!.result!.data!.topBrands!.length
+                          : 8,
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 4, mainAxisSpacing: 10),
+                  itemBuilder: (context, index) {
+                    final data =
+                        state.topBrandsModel?.result?.data?.topBrands?[index];
+                    return GestureDetector(
+                      onTap: () {
+                        context.pushNamed(
+                            MyAppRouteConstants.singleBrandRouteName,
+                            extra: {'passValue': data});
+                      },
+                      child: Column(
+                        children: [
+                          Expanded(
+                            child: ClipRRect(
+                                borderRadius: BorderRadius.circular(8),
+                                child: data?.logo != null
+                                    ? Utilities().buildCachedNetworkImage(
+                                        imageUrl: data!.logo!)
+                                    : const Icon(
+                                        Icons.image_not_supported_outlined)),
                           ),
-                          textAlign: TextAlign.center,
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                        )
-                      ],
-                    ),
-                  );
-                },
+                          kHeight10,
+                          Text(
+                            data?.name ?? "",
+                            style: const TextStyle(
+                              fontSize: 13,
+                              fontWeight: FontWeight.w600,
+                            ),
+                            textAlign: TextAlign.center,
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                          )
+                        ],
+                      ),
+                    );
+                  },
+                ),
               );
             },
           ),
@@ -177,7 +220,6 @@ class ShopBrandView extends StatelessWidget {
 
   Widget _stackContainerPart(BuildContext context) {
     return Container(
-      height: 270,
       decoration: BoxDecoration(
           image: const DecorationImage(
             image: AssetImage(AppAssetsStrings.brands),
@@ -187,12 +229,12 @@ class ShopBrandView extends StatelessWidget {
             ColorManager.greenColor1,
             ColorManager.primary,
           ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
-      width: SizeUtility(context).width,
+      // width: SizeUtility(context).width,
       padding: const EdgeInsets.only(top: 30),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          BackButton(color: ColorManager.whiteColor),
+          // BackButton(color: ColorManager.whiteColor),
           Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -302,8 +344,19 @@ class ShopBrandView extends StatelessWidget {
                             size: 200,
                           ),
                         )
-                      : Utilities().buildCachedNetworkImage(
-                          imageUrl: data.coverImage!, boxFit: BoxFit.cover),
+                      : ShaderMask(
+                          blendMode: BlendMode.darken,
+                          shaderCallback: (bounds) => LinearGradient(
+                            colors: [
+                              Colors.black.withOpacity(0.5),
+                              Colors.transparent
+                            ],
+                            begin: Alignment.bottomCenter,
+                            end: Alignment.topCenter,
+                          ).createShader(bounds),
+                          child: Utilities().buildCachedNetworkImage(
+                              imageUrl: data.coverImage!, boxFit: BoxFit.cover),
+                        ),
                   Positioned.fill(
                     child: DecoratedBox(
                       decoration: BoxDecoration(
@@ -462,6 +515,61 @@ class ShopBrandView extends StatelessWidget {
           )
         ],
       ),
+    );
+  }
+}
+
+class BrandImages extends StatelessWidget {
+  const BrandImages({
+    super.key,
+    required this.brandsImages,
+  });
+
+  final List brandsImages;
+
+  @override
+  Widget build(BuildContext context) {
+    return Flexible(
+      child: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        // physics: const NeverScrollableScrollPhysics(),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            for (int i = 0; i < 2; i++)
+              for (int i = 0; i < brandsImages.length; i++)
+                Align(
+                  widthFactor: 0.8,
+                  child: CircleAvatar(
+                    radius: 40,
+                    child: Image.asset(brandsImages[i]),
+                  ),
+                )
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class HeaderBackgroundImage extends StatelessWidget {
+  const HeaderBackgroundImage({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+          image: const DecorationImage(
+            image: AssetImage(AppAssetsStrings.brands),
+            fit: BoxFit.fill,
+          ),
+          gradient: LinearGradient(colors: [
+            ColorManager.greenColor1,
+            ColorManager.primary,
+          ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
     );
   }
 }

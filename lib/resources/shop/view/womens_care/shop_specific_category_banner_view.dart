@@ -5,6 +5,7 @@ import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/loader.dart';
 import '../../../../components/common_widgets/shop_products_widget.dart';
 import '../../../../utils/size_utility.dart';
+import '../../../../utils/utils.dart';
 import '../../bloc/logic/category_bloc/category_bloc.dart';
 import '../products/single_product_view.dart';
 
@@ -16,43 +17,42 @@ class ShopSpecificCategoryBannerView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      BlocProvider.of<CategoryBloc>(context)
-          .add(FetchFilterProducts(category: "", subCategory: category));
-    });
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Image.network(imageUrl),
-            Container(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 30,
-              ).copyWith(top: 30),
-              child: const Text(
-                "Discount Products",
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
+      body: BlocProvider(
+        create: (context) => CategoryBloc()
+          ..add(FetchFilterProducts(category: "", subCategory: category)),
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Utilities().buildCachedNetworkImage(imageUrl: imageUrl),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20)
+                    .copyWith(top: 20),
+                child: const Text(
+                  "Discount Products",
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
-            ),
-            BlocBuilder<CategoryBloc, CategoryState>(
-              builder: (context, state) {
-                return state.productLoading ||
-                        state.product?.result?.products == null
-                    ? const Loader()
-                    : Container(
-                        margin: const EdgeInsets.symmetric(horizontal: 30),
-                        height: SizeUtility(context).height,
-                        width: SizeUtility(context).width,
-                        child: GridView.builder(
+              BlocBuilder<CategoryBloc, CategoryState>(
+                builder: (context, state) {
+                  return state.productLoading ||
+                          state.product?.result?.products == null
+                      ? const Loader()
+                      : GridView.builder(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 30, vertical: 20),
+                          shrinkWrap: true,
+                          physics: const NeverScrollableScrollPhysics(),
                           gridDelegate:
                               const SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisCount: 2,
                             crossAxisSpacing: 20,
-                            mainAxisExtent: 250,
+                            mainAxisExtent: 275,
+                            mainAxisSpacing: 20,
                           ),
                           itemCount: state.product!.result!.products?.length,
                           itemBuilder: (context, index) {
@@ -79,11 +79,11 @@ class ShopSpecificCategoryBannerView extends StatelessWidget {
                               ),
                             );
                           },
-                        ),
-                      );
-              },
-            ),
-          ],
+                        );
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );

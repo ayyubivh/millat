@@ -156,8 +156,7 @@ class _NamazTimingViewState extends State<NamazTimingView> {
                                                     ),
                                                     IconButton(
                                                       onPressed: () {
-                                                        Navigator.of(context)
-                                                            .pop();
+                                                        context.pop();
                                                       },
                                                       icon: Icon(
                                                         Icons.close,

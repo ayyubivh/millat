@@ -3,9 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:millat/resources/home/bloc/logic/dua_bloc/dua_bloc.dart';
-import 'package:millat/resources/home/view/dua/widgets/dua_share_view.dart';
 import 'package:millat/resources/home/view/dua/widgets/settings_pop_up_widget.dart';
-import 'package:millat/resources/home/view/tasbih/tasbih_view.dart';
 import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/loader.dart';
@@ -80,11 +78,7 @@ class InsideDuaView extends StatelessWidget {
                         showSnackBar(context, "Text Copied!");
                       }
                     },
-                    onTapShare: () {
-                      // Navigator.of(context).push(MaterialPageRoute(
-                      //   builder: (context) => DuaShareView(text: data.content!),
-                      // ));
-                    },
+                    onTapShare: () {},
                   );
                 },
                 separatorBuilder: (context, index) {

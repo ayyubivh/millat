@@ -25,6 +25,7 @@ mixin _$CategoryEvent {
     required TResult Function() fetchSubcategories,
     required TResult Function(String value) onSelectFilter,
     required TResult Function(String category) fetchItemsByCategory,
+    required TResult Function(int index) changeCategoryIndexEvent,
     required TResult Function(String? category, String? subCategory)
         filterEvent,
     required TResult Function(String brand) filterBrandPickEvent,
@@ -51,6 +52,7 @@ mixin _$CategoryEvent {
     TResult? Function()? fetchSubcategories,
     TResult? Function(String value)? onSelectFilter,
     TResult? Function(String category)? fetchItemsByCategory,
+    TResult? Function(int index)? changeCategoryIndexEvent,
     TResult? Function(String? category, String? subCategory)? filterEvent,
     TResult? Function(String brand)? filterBrandPickEvent,
     TResult? Function(int index)? priceRangeEvent,
@@ -75,6 +77,7 @@ mixin _$CategoryEvent {
     TResult Function()? fetchSubcategories,
     TResult Function(String value)? onSelectFilter,
     TResult Function(String category)? fetchItemsByCategory,
+    TResult Function(int index)? changeCategoryIndexEvent,
     TResult Function(String? category, String? subCategory)? filterEvent,
     TResult Function(String brand)? filterBrandPickEvent,
     TResult Function(int index)? priceRangeEvent,
@@ -98,6 +101,8 @@ mixin _$CategoryEvent {
     required TResult Function(FetchSubcategories value) fetchSubcategories,
     required TResult Function(OnSelectFilter value) onSelectFilter,
     required TResult Function(FetchItemsByCategory value) fetchItemsByCategory,
+    required TResult Function(ChangeCategoryIndexEvent value)
+        changeCategoryIndexEvent,
     required TResult Function(FilterEvent value) filterEvent,
     required TResult Function(FilterBrandPickEvent value) filterBrandPickEvent,
     required TResult Function(PriceRangeEvent value) priceRangeEvent,
@@ -120,6 +125,7 @@ mixin _$CategoryEvent {
     TResult? Function(FetchSubcategories value)? fetchSubcategories,
     TResult? Function(OnSelectFilter value)? onSelectFilter,
     TResult? Function(FetchItemsByCategory value)? fetchItemsByCategory,
+    TResult? Function(ChangeCategoryIndexEvent value)? changeCategoryIndexEvent,
     TResult? Function(FilterEvent value)? filterEvent,
     TResult? Function(FilterBrandPickEvent value)? filterBrandPickEvent,
     TResult? Function(PriceRangeEvent value)? priceRangeEvent,
@@ -140,6 +146,7 @@ mixin _$CategoryEvent {
     TResult Function(FetchSubcategories value)? fetchSubcategories,
     TResult Function(OnSelectFilter value)? onSelectFilter,
     TResult Function(FetchItemsByCategory value)? fetchItemsByCategory,
+    TResult Function(ChangeCategoryIndexEvent value)? changeCategoryIndexEvent,
     TResult Function(FilterEvent value)? filterEvent,
     TResult Function(FilterBrandPickEvent value)? filterBrandPickEvent,
     TResult Function(PriceRangeEvent value)? priceRangeEvent,
@@ -277,6 +284,7 @@ class _$FetchFilterProducts
     required TResult Function() fetchSubcategories,
     required TResult Function(String value) onSelectFilter,
     required TResult Function(String category) fetchItemsByCategory,
+    required TResult Function(int index) changeCategoryIndexEvent,
     required TResult Function(String? category, String? subCategory)
         filterEvent,
     required TResult Function(String brand) filterBrandPickEvent,
@@ -306,6 +314,7 @@ class _$FetchFilterProducts
     TResult? Function()? fetchSubcategories,
     TResult? Function(String value)? onSelectFilter,
     TResult? Function(String category)? fetchItemsByCategory,
+    TResult? Function(int index)? changeCategoryIndexEvent,
     TResult? Function(String? category, String? subCategory)? filterEvent,
     TResult? Function(String brand)? filterBrandPickEvent,
     TResult? Function(int index)? priceRangeEvent,
@@ -333,6 +342,7 @@ class _$FetchFilterProducts
     TResult Function()? fetchSubcategories,
     TResult Function(String value)? onSelectFilter,
     TResult Function(String category)? fetchItemsByCategory,
+    TResult Function(int index)? changeCategoryIndexEvent,
     TResult Function(String? category, String? subCategory)? filterEvent,
     TResult Function(String brand)? filterBrandPickEvent,
     TResult Function(int index)? priceRangeEvent,
@@ -362,6 +372,8 @@ class _$FetchFilterProducts
     required TResult Function(FetchSubcategories value) fetchSubcategories,
     required TResult Function(OnSelectFilter value) onSelectFilter,
     required TResult Function(FetchItemsByCategory value) fetchItemsByCategory,
+    required TResult Function(ChangeCategoryIndexEvent value)
+        changeCategoryIndexEvent,
     required TResult Function(FilterEvent value) filterEvent,
     required TResult Function(FilterBrandPickEvent value) filterBrandPickEvent,
     required TResult Function(PriceRangeEvent value) priceRangeEvent,
@@ -387,6 +399,7 @@ class _$FetchFilterProducts
     TResult? Function(FetchSubcategories value)? fetchSubcategories,
     TResult? Function(OnSelectFilter value)? onSelectFilter,
     TResult? Function(FetchItemsByCategory value)? fetchItemsByCategory,
+    TResult? Function(ChangeCategoryIndexEvent value)? changeCategoryIndexEvent,
     TResult? Function(FilterEvent value)? filterEvent,
     TResult? Function(FilterBrandPickEvent value)? filterBrandPickEvent,
     TResult? Function(PriceRangeEvent value)? priceRangeEvent,
@@ -410,6 +423,7 @@ class _$FetchFilterProducts
     TResult Function(FetchSubcategories value)? fetchSubcategories,
     TResult Function(OnSelectFilter value)? onSelectFilter,
     TResult Function(FetchItemsByCategory value)? fetchItemsByCategory,
+    TResult Function(ChangeCategoryIndexEvent value)? changeCategoryIndexEvent,
     TResult Function(FilterEvent value)? filterEvent,
     TResult Function(FilterBrandPickEvent value)? filterBrandPickEvent,
     TResult Function(PriceRangeEvent value)? priceRangeEvent,
@@ -498,6 +512,7 @@ class _$FetchCategories
     required TResult Function() fetchSubcategories,
     required TResult Function(String value) onSelectFilter,
     required TResult Function(String category) fetchItemsByCategory,
+    required TResult Function(int index) changeCategoryIndexEvent,
     required TResult Function(String? category, String? subCategory)
         filterEvent,
     required TResult Function(String brand) filterBrandPickEvent,
@@ -527,6 +542,7 @@ class _$FetchCategories
     TResult? Function()? fetchSubcategories,
     TResult? Function(String value)? onSelectFilter,
     TResult? Function(String category)? fetchItemsByCategory,
+    TResult? Function(int index)? changeCategoryIndexEvent,
     TResult? Function(String? category, String? subCategory)? filterEvent,
     TResult? Function(String brand)? filterBrandPickEvent,
     TResult? Function(int index)? priceRangeEvent,
@@ -554,6 +570,7 @@ class _$FetchCategories
     TResult Function()? fetchSubcategories,
     TResult Function(String value)? onSelectFilter,
     TResult Function(String category)? fetchItemsByCategory,
+    TResult Function(int index)? changeCategoryIndexEvent,
     TResult Function(String? category, String? subCategory)? filterEvent,
     TResult Function(String brand)? filterBrandPickEvent,
     TResult Function(int index)? priceRangeEvent,
@@ -583,6 +600,8 @@ class _$FetchCategories
     required TResult Function(FetchSubcategories value) fetchSubcategories,
     required TResult Function(OnSelectFilter value) onSelectFilter,
     required TResult Function(FetchItemsByCategory value) fetchItemsByCategory,
+    required TResult Function(ChangeCategoryIndexEvent value)
+        changeCategoryIndexEvent,
     required TResult Function(FilterEvent value) filterEvent,
     required TResult Function(FilterBrandPickEvent value) filterBrandPickEvent,
     required TResult Function(PriceRangeEvent value) priceRangeEvent,
@@ -608,6 +627,7 @@ class _$FetchCategories
     TResult? Function(FetchSubcategories value)? fetchSubcategories,
     TResult? Function(OnSelectFilter value)? onSelectFilter,
     TResult? Function(FetchItemsByCategory value)? fetchItemsByCategory,
+    TResult? Function(ChangeCategoryIndexEvent value)? changeCategoryIndexEvent,
     TResult? Function(FilterEvent value)? filterEvent,
     TResult? Function(FilterBrandPickEvent value)? filterBrandPickEvent,
     TResult? Function(PriceRangeEvent value)? priceRangeEvent,
@@ -631,6 +651,7 @@ class _$FetchCategories
     TResult Function(FetchSubcategories value)? fetchSubcategories,
     TResult Function(OnSelectFilter value)? onSelectFilter,
     TResult Function(FetchItemsByCategory value)? fetchItemsByCategory,
+    TResult Function(ChangeCategoryIndexEvent value)? changeCategoryIndexEvent,
     TResult Function(FilterEvent value)? filterEvent,
     TResult Function(FilterBrandPickEvent value)? filterBrandPickEvent,
     TResult Function(PriceRangeEvent value)? priceRangeEvent,
@@ -709,6 +730,7 @@ class _$FetchSubcategories
     required TResult Function() fetchSubcategories,
     required TResult Function(String value) onSelectFilter,
     required TResult Function(String category) fetchItemsByCategory,
+    required TResult Function(int index) changeCategoryIndexEvent,
     required TResult Function(String? category, String? subCategory)
         filterEvent,
     required TResult Function(String brand) filterBrandPickEvent,
@@ -738,6 +760,7 @@ class _$FetchSubcategories
     TResult? Function()? fetchSubcategories,
     TResult? Function(String value)? onSelectFilter,
     TResult? Function(String category)? fetchItemsByCategory,
+    TResult? Function(int index)? changeCategoryIndexEvent,
     TResult? Function(String? category, String? subCategory)? filterEvent,
     TResult? Function(String brand)? filterBrandPickEvent,
     TResult? Function(int index)? priceRangeEvent,
@@ -765,6 +788,7 @@ class _$FetchSubcategories
     TResult Function()? fetchSubcategories,
     TResult Function(String value)? onSelectFilter,
     TResult Function(String category)? fetchItemsByCategory,
+    TResult Function(int index)? changeCategoryIndexEvent,
     TResult Function(String? category, String? subCategory)? filterEvent,
     TResult Function(String brand)? filterBrandPickEvent,
     TResult Function(int index)? priceRangeEvent,
@@ -794,6 +818,8 @@ class _$FetchSubcategories
     required TResult Function(FetchSubcategories value) fetchSubcategories,
     required TResult Function(OnSelectFilter value) onSelectFilter,
     required TResult Function(FetchItemsByCategory value) fetchItemsByCategory,
+    required TResult Function(ChangeCategoryIndexEvent value)
+        changeCategoryIndexEvent,
     required TResult Function(FilterEvent value) filterEvent,
     required TResult Function(FilterBrandPickEvent value) filterBrandPickEvent,
     required TResult Function(PriceRangeEvent value) priceRangeEvent,
@@ -819,6 +845,7 @@ class _$FetchSubcategories
     TResult? Function(FetchSubcategories value)? fetchSubcategories,
     TResult? Function(OnSelectFilter value)? onSelectFilter,
     TResult? Function(FetchItemsByCategory value)? fetchItemsByCategory,
+    TResult? Function(ChangeCategoryIndexEvent value)? changeCategoryIndexEvent,
     TResult? Function(FilterEvent value)? filterEvent,
     TResult? Function(FilterBrandPickEvent value)? filterBrandPickEvent,
     TResult? Function(PriceRangeEvent value)? priceRangeEvent,
@@ -842,6 +869,7 @@ class _$FetchSubcategories
     TResult Function(FetchSubcategories value)? fetchSubcategories,
     TResult Function(OnSelectFilter value)? onSelectFilter,
     TResult Function(FetchItemsByCategory value)? fetchItemsByCategory,
+    TResult Function(ChangeCategoryIndexEvent value)? changeCategoryIndexEvent,
     TResult Function(FilterEvent value)? filterEvent,
     TResult Function(FilterBrandPickEvent value)? filterBrandPickEvent,
     TResult Function(PriceRangeEvent value)? priceRangeEvent,
@@ -945,6 +973,7 @@ class _$OnSelectFilter with DiagnosticableTreeMixin implements OnSelectFilter {
     required TResult Function() fetchSubcategories,
     required TResult Function(String value) onSelectFilter,
     required TResult Function(String category) fetchItemsByCategory,
+    required TResult Function(int index) changeCategoryIndexEvent,
     required TResult Function(String? category, String? subCategory)
         filterEvent,
     required TResult Function(String brand) filterBrandPickEvent,
@@ -974,6 +1003,7 @@ class _$OnSelectFilter with DiagnosticableTreeMixin implements OnSelectFilter {
     TResult? Function()? fetchSubcategories,
     TResult? Function(String value)? onSelectFilter,
     TResult? Function(String category)? fetchItemsByCategory,
+    TResult? Function(int index)? changeCategoryIndexEvent,
     TResult? Function(String? category, String? subCategory)? filterEvent,
     TResult? Function(String brand)? filterBrandPickEvent,
     TResult? Function(int index)? priceRangeEvent,
@@ -1001,6 +1031,7 @@ class _$OnSelectFilter with DiagnosticableTreeMixin implements OnSelectFilter {
     TResult Function()? fetchSubcategories,
     TResult Function(String value)? onSelectFilter,
     TResult Function(String category)? fetchItemsByCategory,
+    TResult Function(int index)? changeCategoryIndexEvent,
     TResult Function(String? category, String? subCategory)? filterEvent,
     TResult Function(String brand)? filterBrandPickEvent,
     TResult Function(int index)? priceRangeEvent,
@@ -1030,6 +1061,8 @@ class _$OnSelectFilter with DiagnosticableTreeMixin implements OnSelectFilter {
     required TResult Function(FetchSubcategories value) fetchSubcategories,
     required TResult Function(OnSelectFilter value) onSelectFilter,
     required TResult Function(FetchItemsByCategory value) fetchItemsByCategory,
+    required TResult Function(ChangeCategoryIndexEvent value)
+        changeCategoryIndexEvent,
     required TResult Function(FilterEvent value) filterEvent,
     required TResult Function(FilterBrandPickEvent value) filterBrandPickEvent,
     required TResult Function(PriceRangeEvent value) priceRangeEvent,
@@ -1055,6 +1088,7 @@ class _$OnSelectFilter with DiagnosticableTreeMixin implements OnSelectFilter {
     TResult? Function(FetchSubcategories value)? fetchSubcategories,
     TResult? Function(OnSelectFilter value)? onSelectFilter,
     TResult? Function(FetchItemsByCategory value)? fetchItemsByCategory,
+    TResult? Function(ChangeCategoryIndexEvent value)? changeCategoryIndexEvent,
     TResult? Function(FilterEvent value)? filterEvent,
     TResult? Function(FilterBrandPickEvent value)? filterBrandPickEvent,
     TResult? Function(PriceRangeEvent value)? priceRangeEvent,
@@ -1078,6 +1112,7 @@ class _$OnSelectFilter with DiagnosticableTreeMixin implements OnSelectFilter {
     TResult Function(FetchSubcategories value)? fetchSubcategories,
     TResult Function(OnSelectFilter value)? onSelectFilter,
     TResult Function(FetchItemsByCategory value)? fetchItemsByCategory,
+    TResult Function(ChangeCategoryIndexEvent value)? changeCategoryIndexEvent,
     TResult Function(FilterEvent value)? filterEvent,
     TResult Function(FilterBrandPickEvent value)? filterBrandPickEvent,
     TResult Function(PriceRangeEvent value)? priceRangeEvent,
@@ -1191,6 +1226,7 @@ class _$FetchItemsByCategory
     required TResult Function() fetchSubcategories,
     required TResult Function(String value) onSelectFilter,
     required TResult Function(String category) fetchItemsByCategory,
+    required TResult Function(int index) changeCategoryIndexEvent,
     required TResult Function(String? category, String? subCategory)
         filterEvent,
     required TResult Function(String brand) filterBrandPickEvent,
@@ -1220,6 +1256,7 @@ class _$FetchItemsByCategory
     TResult? Function()? fetchSubcategories,
     TResult? Function(String value)? onSelectFilter,
     TResult? Function(String category)? fetchItemsByCategory,
+    TResult? Function(int index)? changeCategoryIndexEvent,
     TResult? Function(String? category, String? subCategory)? filterEvent,
     TResult? Function(String brand)? filterBrandPickEvent,
     TResult? Function(int index)? priceRangeEvent,
@@ -1247,6 +1284,7 @@ class _$FetchItemsByCategory
     TResult Function()? fetchSubcategories,
     TResult Function(String value)? onSelectFilter,
     TResult Function(String category)? fetchItemsByCategory,
+    TResult Function(int index)? changeCategoryIndexEvent,
     TResult Function(String? category, String? subCategory)? filterEvent,
     TResult Function(String brand)? filterBrandPickEvent,
     TResult Function(int index)? priceRangeEvent,
@@ -1276,6 +1314,8 @@ class _$FetchItemsByCategory
     required TResult Function(FetchSubcategories value) fetchSubcategories,
     required TResult Function(OnSelectFilter value) onSelectFilter,
     required TResult Function(FetchItemsByCategory value) fetchItemsByCategory,
+    required TResult Function(ChangeCategoryIndexEvent value)
+        changeCategoryIndexEvent,
     required TResult Function(FilterEvent value) filterEvent,
     required TResult Function(FilterBrandPickEvent value) filterBrandPickEvent,
     required TResult Function(PriceRangeEvent value) priceRangeEvent,
@@ -1301,6 +1341,7 @@ class _$FetchItemsByCategory
     TResult? Function(FetchSubcategories value)? fetchSubcategories,
     TResult? Function(OnSelectFilter value)? onSelectFilter,
     TResult? Function(FetchItemsByCategory value)? fetchItemsByCategory,
+    TResult? Function(ChangeCategoryIndexEvent value)? changeCategoryIndexEvent,
     TResult? Function(FilterEvent value)? filterEvent,
     TResult? Function(FilterBrandPickEvent value)? filterBrandPickEvent,
     TResult? Function(PriceRangeEvent value)? priceRangeEvent,
@@ -1324,6 +1365,7 @@ class _$FetchItemsByCategory
     TResult Function(FetchSubcategories value)? fetchSubcategories,
     TResult Function(OnSelectFilter value)? onSelectFilter,
     TResult Function(FetchItemsByCategory value)? fetchItemsByCategory,
+    TResult Function(ChangeCategoryIndexEvent value)? changeCategoryIndexEvent,
     TResult Function(FilterEvent value)? filterEvent,
     TResult Function(FilterBrandPickEvent value)? filterBrandPickEvent,
     TResult Function(PriceRangeEvent value)? priceRangeEvent,
@@ -1352,6 +1394,260 @@ abstract class FetchItemsByCategory implements CategoryEvent {
   @JsonKey(ignore: true)
   _$$FetchItemsByCategoryCopyWith<_$FetchItemsByCategory> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ChangeCategoryIndexEventCopyWith<$Res> {
+  factory _$$ChangeCategoryIndexEventCopyWith(_$ChangeCategoryIndexEvent value,
+          $Res Function(_$ChangeCategoryIndexEvent) then) =
+      __$$ChangeCategoryIndexEventCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int index});
+}
+
+/// @nodoc
+class __$$ChangeCategoryIndexEventCopyWithImpl<$Res>
+    extends _$CategoryEventCopyWithImpl<$Res, _$ChangeCategoryIndexEvent>
+    implements _$$ChangeCategoryIndexEventCopyWith<$Res> {
+  __$$ChangeCategoryIndexEventCopyWithImpl(_$ChangeCategoryIndexEvent _value,
+      $Res Function(_$ChangeCategoryIndexEvent) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? index = null,
+  }) {
+    return _then(_$ChangeCategoryIndexEvent(
+      index: null == index
+          ? _value.index
+          : index // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ChangeCategoryIndexEvent
+    with DiagnosticableTreeMixin
+    implements ChangeCategoryIndexEvent {
+  const _$ChangeCategoryIndexEvent({required this.index});
+
+  @override
+  final int index;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'CategoryEvent.changeCategoryIndexEvent(index: $index)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(
+          DiagnosticsProperty('type', 'CategoryEvent.changeCategoryIndexEvent'))
+      ..add(DiagnosticsProperty('index', index));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ChangeCategoryIndexEvent &&
+            (identical(other.index, index) || other.index == index));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, index);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ChangeCategoryIndexEventCopyWith<_$ChangeCategoryIndexEvent>
+      get copyWith =>
+          __$$ChangeCategoryIndexEventCopyWithImpl<_$ChangeCategoryIndexEvent>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            String? category, String? subCategory, String? itemId)
+        fetchFilterProducts,
+    required TResult Function() fetchCategories,
+    required TResult Function() fetchSubcategories,
+    required TResult Function(String value) onSelectFilter,
+    required TResult Function(String category) fetchItemsByCategory,
+    required TResult Function(int index) changeCategoryIndexEvent,
+    required TResult Function(String? category, String? subCategory)
+        filterEvent,
+    required TResult Function(String brand) filterBrandPickEvent,
+    required TResult Function(int index) priceRangeEvent,
+    required TResult Function(String categoryId) fetchSubCategoriesByCategoryId,
+    required TResult Function(String filterVal) saveCategoryFilterVal,
+    required TResult Function(
+            String minPrice, String maxPrice, RangeValues rangeValues)
+        savePriceRange,
+    required TResult Function(
+            String order, String? category, String? subCategory)
+        fetchProductSortByPrice,
+    required TResult Function(int index) changeSortListIndex,
+    required TResult Function(String minPrice, String maxPrice, String category,
+            String subCategory)
+        fetchProductsByFilterPricerange,
+  }) {
+    return changeCategoryIndexEvent(index);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String? category, String? subCategory, String? itemId)?
+        fetchFilterProducts,
+    TResult? Function()? fetchCategories,
+    TResult? Function()? fetchSubcategories,
+    TResult? Function(String value)? onSelectFilter,
+    TResult? Function(String category)? fetchItemsByCategory,
+    TResult? Function(int index)? changeCategoryIndexEvent,
+    TResult? Function(String? category, String? subCategory)? filterEvent,
+    TResult? Function(String brand)? filterBrandPickEvent,
+    TResult? Function(int index)? priceRangeEvent,
+    TResult? Function(String categoryId)? fetchSubCategoriesByCategoryId,
+    TResult? Function(String filterVal)? saveCategoryFilterVal,
+    TResult? Function(
+            String minPrice, String maxPrice, RangeValues rangeValues)?
+        savePriceRange,
+    TResult? Function(String order, String? category, String? subCategory)?
+        fetchProductSortByPrice,
+    TResult? Function(int index)? changeSortListIndex,
+    TResult? Function(String minPrice, String maxPrice, String category,
+            String subCategory)?
+        fetchProductsByFilterPricerange,
+  }) {
+    return changeCategoryIndexEvent?.call(index);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String? category, String? subCategory, String? itemId)?
+        fetchFilterProducts,
+    TResult Function()? fetchCategories,
+    TResult Function()? fetchSubcategories,
+    TResult Function(String value)? onSelectFilter,
+    TResult Function(String category)? fetchItemsByCategory,
+    TResult Function(int index)? changeCategoryIndexEvent,
+    TResult Function(String? category, String? subCategory)? filterEvent,
+    TResult Function(String brand)? filterBrandPickEvent,
+    TResult Function(int index)? priceRangeEvent,
+    TResult Function(String categoryId)? fetchSubCategoriesByCategoryId,
+    TResult Function(String filterVal)? saveCategoryFilterVal,
+    TResult Function(String minPrice, String maxPrice, RangeValues rangeValues)?
+        savePriceRange,
+    TResult Function(String order, String? category, String? subCategory)?
+        fetchProductSortByPrice,
+    TResult Function(int index)? changeSortListIndex,
+    TResult Function(String minPrice, String maxPrice, String category,
+            String subCategory)?
+        fetchProductsByFilterPricerange,
+    required TResult orElse(),
+  }) {
+    if (changeCategoryIndexEvent != null) {
+      return changeCategoryIndexEvent(index);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FetchFilterProducts value) fetchFilterProducts,
+    required TResult Function(FetchCategories value) fetchCategories,
+    required TResult Function(FetchSubcategories value) fetchSubcategories,
+    required TResult Function(OnSelectFilter value) onSelectFilter,
+    required TResult Function(FetchItemsByCategory value) fetchItemsByCategory,
+    required TResult Function(ChangeCategoryIndexEvent value)
+        changeCategoryIndexEvent,
+    required TResult Function(FilterEvent value) filterEvent,
+    required TResult Function(FilterBrandPickEvent value) filterBrandPickEvent,
+    required TResult Function(PriceRangeEvent value) priceRangeEvent,
+    required TResult Function(FetchSubCategoriesByCategoryId value)
+        fetchSubCategoriesByCategoryId,
+    required TResult Function(SaveCategoryFilterVal value)
+        saveCategoryFilterVal,
+    required TResult Function(SavePriceRange value) savePriceRange,
+    required TResult Function(FetchProductSortByPrice value)
+        fetchProductSortByPrice,
+    required TResult Function(ChangeSortListIndex value) changeSortListIndex,
+    required TResult Function(FetchProductsByFilterPricerange value)
+        fetchProductsByFilterPricerange,
+  }) {
+    return changeCategoryIndexEvent(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(FetchFilterProducts value)? fetchFilterProducts,
+    TResult? Function(FetchCategories value)? fetchCategories,
+    TResult? Function(FetchSubcategories value)? fetchSubcategories,
+    TResult? Function(OnSelectFilter value)? onSelectFilter,
+    TResult? Function(FetchItemsByCategory value)? fetchItemsByCategory,
+    TResult? Function(ChangeCategoryIndexEvent value)? changeCategoryIndexEvent,
+    TResult? Function(FilterEvent value)? filterEvent,
+    TResult? Function(FilterBrandPickEvent value)? filterBrandPickEvent,
+    TResult? Function(PriceRangeEvent value)? priceRangeEvent,
+    TResult? Function(FetchSubCategoriesByCategoryId value)?
+        fetchSubCategoriesByCategoryId,
+    TResult? Function(SaveCategoryFilterVal value)? saveCategoryFilterVal,
+    TResult? Function(SavePriceRange value)? savePriceRange,
+    TResult? Function(FetchProductSortByPrice value)? fetchProductSortByPrice,
+    TResult? Function(ChangeSortListIndex value)? changeSortListIndex,
+    TResult? Function(FetchProductsByFilterPricerange value)?
+        fetchProductsByFilterPricerange,
+  }) {
+    return changeCategoryIndexEvent?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FetchFilterProducts value)? fetchFilterProducts,
+    TResult Function(FetchCategories value)? fetchCategories,
+    TResult Function(FetchSubcategories value)? fetchSubcategories,
+    TResult Function(OnSelectFilter value)? onSelectFilter,
+    TResult Function(FetchItemsByCategory value)? fetchItemsByCategory,
+    TResult Function(ChangeCategoryIndexEvent value)? changeCategoryIndexEvent,
+    TResult Function(FilterEvent value)? filterEvent,
+    TResult Function(FilterBrandPickEvent value)? filterBrandPickEvent,
+    TResult Function(PriceRangeEvent value)? priceRangeEvent,
+    TResult Function(FetchSubCategoriesByCategoryId value)?
+        fetchSubCategoriesByCategoryId,
+    TResult Function(SaveCategoryFilterVal value)? saveCategoryFilterVal,
+    TResult Function(SavePriceRange value)? savePriceRange,
+    TResult Function(FetchProductSortByPrice value)? fetchProductSortByPrice,
+    TResult Function(ChangeSortListIndex value)? changeSortListIndex,
+    TResult Function(FetchProductsByFilterPricerange value)?
+        fetchProductsByFilterPricerange,
+    required TResult orElse(),
+  }) {
+    if (changeCategoryIndexEvent != null) {
+      return changeCategoryIndexEvent(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ChangeCategoryIndexEvent implements CategoryEvent {
+  const factory ChangeCategoryIndexEvent({required final int index}) =
+      _$ChangeCategoryIndexEvent;
+
+  int get index;
+  @JsonKey(ignore: true)
+  _$$ChangeCategoryIndexEventCopyWith<_$ChangeCategoryIndexEvent>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1444,6 +1740,7 @@ class _$FilterEvent with DiagnosticableTreeMixin implements FilterEvent {
     required TResult Function() fetchSubcategories,
     required TResult Function(String value) onSelectFilter,
     required TResult Function(String category) fetchItemsByCategory,
+    required TResult Function(int index) changeCategoryIndexEvent,
     required TResult Function(String? category, String? subCategory)
         filterEvent,
     required TResult Function(String brand) filterBrandPickEvent,
@@ -1473,6 +1770,7 @@ class _$FilterEvent with DiagnosticableTreeMixin implements FilterEvent {
     TResult? Function()? fetchSubcategories,
     TResult? Function(String value)? onSelectFilter,
     TResult? Function(String category)? fetchItemsByCategory,
+    TResult? Function(int index)? changeCategoryIndexEvent,
     TResult? Function(String? category, String? subCategory)? filterEvent,
     TResult? Function(String brand)? filterBrandPickEvent,
     TResult? Function(int index)? priceRangeEvent,
@@ -1500,6 +1798,7 @@ class _$FilterEvent with DiagnosticableTreeMixin implements FilterEvent {
     TResult Function()? fetchSubcategories,
     TResult Function(String value)? onSelectFilter,
     TResult Function(String category)? fetchItemsByCategory,
+    TResult Function(int index)? changeCategoryIndexEvent,
     TResult Function(String? category, String? subCategory)? filterEvent,
     TResult Function(String brand)? filterBrandPickEvent,
     TResult Function(int index)? priceRangeEvent,
@@ -1529,6 +1828,8 @@ class _$FilterEvent with DiagnosticableTreeMixin implements FilterEvent {
     required TResult Function(FetchSubcategories value) fetchSubcategories,
     required TResult Function(OnSelectFilter value) onSelectFilter,
     required TResult Function(FetchItemsByCategory value) fetchItemsByCategory,
+    required TResult Function(ChangeCategoryIndexEvent value)
+        changeCategoryIndexEvent,
     required TResult Function(FilterEvent value) filterEvent,
     required TResult Function(FilterBrandPickEvent value) filterBrandPickEvent,
     required TResult Function(PriceRangeEvent value) priceRangeEvent,
@@ -1554,6 +1855,7 @@ class _$FilterEvent with DiagnosticableTreeMixin implements FilterEvent {
     TResult? Function(FetchSubcategories value)? fetchSubcategories,
     TResult? Function(OnSelectFilter value)? onSelectFilter,
     TResult? Function(FetchItemsByCategory value)? fetchItemsByCategory,
+    TResult? Function(ChangeCategoryIndexEvent value)? changeCategoryIndexEvent,
     TResult? Function(FilterEvent value)? filterEvent,
     TResult? Function(FilterBrandPickEvent value)? filterBrandPickEvent,
     TResult? Function(PriceRangeEvent value)? priceRangeEvent,
@@ -1577,6 +1879,7 @@ class _$FilterEvent with DiagnosticableTreeMixin implements FilterEvent {
     TResult Function(FetchSubcategories value)? fetchSubcategories,
     TResult Function(OnSelectFilter value)? onSelectFilter,
     TResult Function(FetchItemsByCategory value)? fetchItemsByCategory,
+    TResult Function(ChangeCategoryIndexEvent value)? changeCategoryIndexEvent,
     TResult Function(FilterEvent value)? filterEvent,
     TResult Function(FilterBrandPickEvent value)? filterBrandPickEvent,
     TResult Function(PriceRangeEvent value)? priceRangeEvent,
@@ -1691,6 +1994,7 @@ class _$FilterBrandPickEvent
     required TResult Function() fetchSubcategories,
     required TResult Function(String value) onSelectFilter,
     required TResult Function(String category) fetchItemsByCategory,
+    required TResult Function(int index) changeCategoryIndexEvent,
     required TResult Function(String? category, String? subCategory)
         filterEvent,
     required TResult Function(String brand) filterBrandPickEvent,
@@ -1720,6 +2024,7 @@ class _$FilterBrandPickEvent
     TResult? Function()? fetchSubcategories,
     TResult? Function(String value)? onSelectFilter,
     TResult? Function(String category)? fetchItemsByCategory,
+    TResult? Function(int index)? changeCategoryIndexEvent,
     TResult? Function(String? category, String? subCategory)? filterEvent,
     TResult? Function(String brand)? filterBrandPickEvent,
     TResult? Function(int index)? priceRangeEvent,
@@ -1747,6 +2052,7 @@ class _$FilterBrandPickEvent
     TResult Function()? fetchSubcategories,
     TResult Function(String value)? onSelectFilter,
     TResult Function(String category)? fetchItemsByCategory,
+    TResult Function(int index)? changeCategoryIndexEvent,
     TResult Function(String? category, String? subCategory)? filterEvent,
     TResult Function(String brand)? filterBrandPickEvent,
     TResult Function(int index)? priceRangeEvent,
@@ -1776,6 +2082,8 @@ class _$FilterBrandPickEvent
     required TResult Function(FetchSubcategories value) fetchSubcategories,
     required TResult Function(OnSelectFilter value) onSelectFilter,
     required TResult Function(FetchItemsByCategory value) fetchItemsByCategory,
+    required TResult Function(ChangeCategoryIndexEvent value)
+        changeCategoryIndexEvent,
     required TResult Function(FilterEvent value) filterEvent,
     required TResult Function(FilterBrandPickEvent value) filterBrandPickEvent,
     required TResult Function(PriceRangeEvent value) priceRangeEvent,
@@ -1801,6 +2109,7 @@ class _$FilterBrandPickEvent
     TResult? Function(FetchSubcategories value)? fetchSubcategories,
     TResult? Function(OnSelectFilter value)? onSelectFilter,
     TResult? Function(FetchItemsByCategory value)? fetchItemsByCategory,
+    TResult? Function(ChangeCategoryIndexEvent value)? changeCategoryIndexEvent,
     TResult? Function(FilterEvent value)? filterEvent,
     TResult? Function(FilterBrandPickEvent value)? filterBrandPickEvent,
     TResult? Function(PriceRangeEvent value)? priceRangeEvent,
@@ -1824,6 +2133,7 @@ class _$FilterBrandPickEvent
     TResult Function(FetchSubcategories value)? fetchSubcategories,
     TResult Function(OnSelectFilter value)? onSelectFilter,
     TResult Function(FetchItemsByCategory value)? fetchItemsByCategory,
+    TResult Function(ChangeCategoryIndexEvent value)? changeCategoryIndexEvent,
     TResult Function(FilterEvent value)? filterEvent,
     TResult Function(FilterBrandPickEvent value)? filterBrandPickEvent,
     TResult Function(PriceRangeEvent value)? priceRangeEvent,
@@ -1935,6 +2245,7 @@ class _$PriceRangeEvent
     required TResult Function() fetchSubcategories,
     required TResult Function(String value) onSelectFilter,
     required TResult Function(String category) fetchItemsByCategory,
+    required TResult Function(int index) changeCategoryIndexEvent,
     required TResult Function(String? category, String? subCategory)
         filterEvent,
     required TResult Function(String brand) filterBrandPickEvent,
@@ -1964,6 +2275,7 @@ class _$PriceRangeEvent
     TResult? Function()? fetchSubcategories,
     TResult? Function(String value)? onSelectFilter,
     TResult? Function(String category)? fetchItemsByCategory,
+    TResult? Function(int index)? changeCategoryIndexEvent,
     TResult? Function(String? category, String? subCategory)? filterEvent,
     TResult? Function(String brand)? filterBrandPickEvent,
     TResult? Function(int index)? priceRangeEvent,
@@ -1991,6 +2303,7 @@ class _$PriceRangeEvent
     TResult Function()? fetchSubcategories,
     TResult Function(String value)? onSelectFilter,
     TResult Function(String category)? fetchItemsByCategory,
+    TResult Function(int index)? changeCategoryIndexEvent,
     TResult Function(String? category, String? subCategory)? filterEvent,
     TResult Function(String brand)? filterBrandPickEvent,
     TResult Function(int index)? priceRangeEvent,
@@ -2020,6 +2333,8 @@ class _$PriceRangeEvent
     required TResult Function(FetchSubcategories value) fetchSubcategories,
     required TResult Function(OnSelectFilter value) onSelectFilter,
     required TResult Function(FetchItemsByCategory value) fetchItemsByCategory,
+    required TResult Function(ChangeCategoryIndexEvent value)
+        changeCategoryIndexEvent,
     required TResult Function(FilterEvent value) filterEvent,
     required TResult Function(FilterBrandPickEvent value) filterBrandPickEvent,
     required TResult Function(PriceRangeEvent value) priceRangeEvent,
@@ -2045,6 +2360,7 @@ class _$PriceRangeEvent
     TResult? Function(FetchSubcategories value)? fetchSubcategories,
     TResult? Function(OnSelectFilter value)? onSelectFilter,
     TResult? Function(FetchItemsByCategory value)? fetchItemsByCategory,
+    TResult? Function(ChangeCategoryIndexEvent value)? changeCategoryIndexEvent,
     TResult? Function(FilterEvent value)? filterEvent,
     TResult? Function(FilterBrandPickEvent value)? filterBrandPickEvent,
     TResult? Function(PriceRangeEvent value)? priceRangeEvent,
@@ -2068,6 +2384,7 @@ class _$PriceRangeEvent
     TResult Function(FetchSubcategories value)? fetchSubcategories,
     TResult Function(OnSelectFilter value)? onSelectFilter,
     TResult Function(FetchItemsByCategory value)? fetchItemsByCategory,
+    TResult Function(ChangeCategoryIndexEvent value)? changeCategoryIndexEvent,
     TResult Function(FilterEvent value)? filterEvent,
     TResult Function(FilterBrandPickEvent value)? filterBrandPickEvent,
     TResult Function(PriceRangeEvent value)? priceRangeEvent,
@@ -2183,6 +2500,7 @@ class _$FetchSubCategoriesByCategoryId
     required TResult Function() fetchSubcategories,
     required TResult Function(String value) onSelectFilter,
     required TResult Function(String category) fetchItemsByCategory,
+    required TResult Function(int index) changeCategoryIndexEvent,
     required TResult Function(String? category, String? subCategory)
         filterEvent,
     required TResult Function(String brand) filterBrandPickEvent,
@@ -2212,6 +2530,7 @@ class _$FetchSubCategoriesByCategoryId
     TResult? Function()? fetchSubcategories,
     TResult? Function(String value)? onSelectFilter,
     TResult? Function(String category)? fetchItemsByCategory,
+    TResult? Function(int index)? changeCategoryIndexEvent,
     TResult? Function(String? category, String? subCategory)? filterEvent,
     TResult? Function(String brand)? filterBrandPickEvent,
     TResult? Function(int index)? priceRangeEvent,
@@ -2239,6 +2558,7 @@ class _$FetchSubCategoriesByCategoryId
     TResult Function()? fetchSubcategories,
     TResult Function(String value)? onSelectFilter,
     TResult Function(String category)? fetchItemsByCategory,
+    TResult Function(int index)? changeCategoryIndexEvent,
     TResult Function(String? category, String? subCategory)? filterEvent,
     TResult Function(String brand)? filterBrandPickEvent,
     TResult Function(int index)? priceRangeEvent,
@@ -2268,6 +2588,8 @@ class _$FetchSubCategoriesByCategoryId
     required TResult Function(FetchSubcategories value) fetchSubcategories,
     required TResult Function(OnSelectFilter value) onSelectFilter,
     required TResult Function(FetchItemsByCategory value) fetchItemsByCategory,
+    required TResult Function(ChangeCategoryIndexEvent value)
+        changeCategoryIndexEvent,
     required TResult Function(FilterEvent value) filterEvent,
     required TResult Function(FilterBrandPickEvent value) filterBrandPickEvent,
     required TResult Function(PriceRangeEvent value) priceRangeEvent,
@@ -2293,6 +2615,7 @@ class _$FetchSubCategoriesByCategoryId
     TResult? Function(FetchSubcategories value)? fetchSubcategories,
     TResult? Function(OnSelectFilter value)? onSelectFilter,
     TResult? Function(FetchItemsByCategory value)? fetchItemsByCategory,
+    TResult? Function(ChangeCategoryIndexEvent value)? changeCategoryIndexEvent,
     TResult? Function(FilterEvent value)? filterEvent,
     TResult? Function(FilterBrandPickEvent value)? filterBrandPickEvent,
     TResult? Function(PriceRangeEvent value)? priceRangeEvent,
@@ -2316,6 +2639,7 @@ class _$FetchSubCategoriesByCategoryId
     TResult Function(FetchSubcategories value)? fetchSubcategories,
     TResult Function(OnSelectFilter value)? onSelectFilter,
     TResult Function(FetchItemsByCategory value)? fetchItemsByCategory,
+    TResult Function(ChangeCategoryIndexEvent value)? changeCategoryIndexEvent,
     TResult Function(FilterEvent value)? filterEvent,
     TResult Function(FilterBrandPickEvent value)? filterBrandPickEvent,
     TResult Function(PriceRangeEvent value)? priceRangeEvent,
@@ -2429,6 +2753,7 @@ class _$SaveCategoryFilterVal
     required TResult Function() fetchSubcategories,
     required TResult Function(String value) onSelectFilter,
     required TResult Function(String category) fetchItemsByCategory,
+    required TResult Function(int index) changeCategoryIndexEvent,
     required TResult Function(String? category, String? subCategory)
         filterEvent,
     required TResult Function(String brand) filterBrandPickEvent,
@@ -2458,6 +2783,7 @@ class _$SaveCategoryFilterVal
     TResult? Function()? fetchSubcategories,
     TResult? Function(String value)? onSelectFilter,
     TResult? Function(String category)? fetchItemsByCategory,
+    TResult? Function(int index)? changeCategoryIndexEvent,
     TResult? Function(String? category, String? subCategory)? filterEvent,
     TResult? Function(String brand)? filterBrandPickEvent,
     TResult? Function(int index)? priceRangeEvent,
@@ -2485,6 +2811,7 @@ class _$SaveCategoryFilterVal
     TResult Function()? fetchSubcategories,
     TResult Function(String value)? onSelectFilter,
     TResult Function(String category)? fetchItemsByCategory,
+    TResult Function(int index)? changeCategoryIndexEvent,
     TResult Function(String? category, String? subCategory)? filterEvent,
     TResult Function(String brand)? filterBrandPickEvent,
     TResult Function(int index)? priceRangeEvent,
@@ -2514,6 +2841,8 @@ class _$SaveCategoryFilterVal
     required TResult Function(FetchSubcategories value) fetchSubcategories,
     required TResult Function(OnSelectFilter value) onSelectFilter,
     required TResult Function(FetchItemsByCategory value) fetchItemsByCategory,
+    required TResult Function(ChangeCategoryIndexEvent value)
+        changeCategoryIndexEvent,
     required TResult Function(FilterEvent value) filterEvent,
     required TResult Function(FilterBrandPickEvent value) filterBrandPickEvent,
     required TResult Function(PriceRangeEvent value) priceRangeEvent,
@@ -2539,6 +2868,7 @@ class _$SaveCategoryFilterVal
     TResult? Function(FetchSubcategories value)? fetchSubcategories,
     TResult? Function(OnSelectFilter value)? onSelectFilter,
     TResult? Function(FetchItemsByCategory value)? fetchItemsByCategory,
+    TResult? Function(ChangeCategoryIndexEvent value)? changeCategoryIndexEvent,
     TResult? Function(FilterEvent value)? filterEvent,
     TResult? Function(FilterBrandPickEvent value)? filterBrandPickEvent,
     TResult? Function(PriceRangeEvent value)? priceRangeEvent,
@@ -2562,6 +2892,7 @@ class _$SaveCategoryFilterVal
     TResult Function(FetchSubcategories value)? fetchSubcategories,
     TResult Function(OnSelectFilter value)? onSelectFilter,
     TResult Function(FetchItemsByCategory value)? fetchItemsByCategory,
+    TResult Function(ChangeCategoryIndexEvent value)? changeCategoryIndexEvent,
     TResult Function(FilterEvent value)? filterEvent,
     TResult Function(FilterBrandPickEvent value)? filterBrandPickEvent,
     TResult Function(PriceRangeEvent value)? priceRangeEvent,
@@ -2695,6 +3026,7 @@ class _$SavePriceRange with DiagnosticableTreeMixin implements SavePriceRange {
     required TResult Function() fetchSubcategories,
     required TResult Function(String value) onSelectFilter,
     required TResult Function(String category) fetchItemsByCategory,
+    required TResult Function(int index) changeCategoryIndexEvent,
     required TResult Function(String? category, String? subCategory)
         filterEvent,
     required TResult Function(String brand) filterBrandPickEvent,
@@ -2724,6 +3056,7 @@ class _$SavePriceRange with DiagnosticableTreeMixin implements SavePriceRange {
     TResult? Function()? fetchSubcategories,
     TResult? Function(String value)? onSelectFilter,
     TResult? Function(String category)? fetchItemsByCategory,
+    TResult? Function(int index)? changeCategoryIndexEvent,
     TResult? Function(String? category, String? subCategory)? filterEvent,
     TResult? Function(String brand)? filterBrandPickEvent,
     TResult? Function(int index)? priceRangeEvent,
@@ -2751,6 +3084,7 @@ class _$SavePriceRange with DiagnosticableTreeMixin implements SavePriceRange {
     TResult Function()? fetchSubcategories,
     TResult Function(String value)? onSelectFilter,
     TResult Function(String category)? fetchItemsByCategory,
+    TResult Function(int index)? changeCategoryIndexEvent,
     TResult Function(String? category, String? subCategory)? filterEvent,
     TResult Function(String brand)? filterBrandPickEvent,
     TResult Function(int index)? priceRangeEvent,
@@ -2780,6 +3114,8 @@ class _$SavePriceRange with DiagnosticableTreeMixin implements SavePriceRange {
     required TResult Function(FetchSubcategories value) fetchSubcategories,
     required TResult Function(OnSelectFilter value) onSelectFilter,
     required TResult Function(FetchItemsByCategory value) fetchItemsByCategory,
+    required TResult Function(ChangeCategoryIndexEvent value)
+        changeCategoryIndexEvent,
     required TResult Function(FilterEvent value) filterEvent,
     required TResult Function(FilterBrandPickEvent value) filterBrandPickEvent,
     required TResult Function(PriceRangeEvent value) priceRangeEvent,
@@ -2805,6 +3141,7 @@ class _$SavePriceRange with DiagnosticableTreeMixin implements SavePriceRange {
     TResult? Function(FetchSubcategories value)? fetchSubcategories,
     TResult? Function(OnSelectFilter value)? onSelectFilter,
     TResult? Function(FetchItemsByCategory value)? fetchItemsByCategory,
+    TResult? Function(ChangeCategoryIndexEvent value)? changeCategoryIndexEvent,
     TResult? Function(FilterEvent value)? filterEvent,
     TResult? Function(FilterBrandPickEvent value)? filterBrandPickEvent,
     TResult? Function(PriceRangeEvent value)? priceRangeEvent,
@@ -2828,6 +3165,7 @@ class _$SavePriceRange with DiagnosticableTreeMixin implements SavePriceRange {
     TResult Function(FetchSubcategories value)? fetchSubcategories,
     TResult Function(OnSelectFilter value)? onSelectFilter,
     TResult Function(FetchItemsByCategory value)? fetchItemsByCategory,
+    TResult Function(ChangeCategoryIndexEvent value)? changeCategoryIndexEvent,
     TResult Function(FilterEvent value)? filterEvent,
     TResult Function(FilterBrandPickEvent value)? filterBrandPickEvent,
     TResult Function(PriceRangeEvent value)? priceRangeEvent,
@@ -2966,6 +3304,7 @@ class _$FetchProductSortByPrice
     required TResult Function() fetchSubcategories,
     required TResult Function(String value) onSelectFilter,
     required TResult Function(String category) fetchItemsByCategory,
+    required TResult Function(int index) changeCategoryIndexEvent,
     required TResult Function(String? category, String? subCategory)
         filterEvent,
     required TResult Function(String brand) filterBrandPickEvent,
@@ -2995,6 +3334,7 @@ class _$FetchProductSortByPrice
     TResult? Function()? fetchSubcategories,
     TResult? Function(String value)? onSelectFilter,
     TResult? Function(String category)? fetchItemsByCategory,
+    TResult? Function(int index)? changeCategoryIndexEvent,
     TResult? Function(String? category, String? subCategory)? filterEvent,
     TResult? Function(String brand)? filterBrandPickEvent,
     TResult? Function(int index)? priceRangeEvent,
@@ -3022,6 +3362,7 @@ class _$FetchProductSortByPrice
     TResult Function()? fetchSubcategories,
     TResult Function(String value)? onSelectFilter,
     TResult Function(String category)? fetchItemsByCategory,
+    TResult Function(int index)? changeCategoryIndexEvent,
     TResult Function(String? category, String? subCategory)? filterEvent,
     TResult Function(String brand)? filterBrandPickEvent,
     TResult Function(int index)? priceRangeEvent,
@@ -3051,6 +3392,8 @@ class _$FetchProductSortByPrice
     required TResult Function(FetchSubcategories value) fetchSubcategories,
     required TResult Function(OnSelectFilter value) onSelectFilter,
     required TResult Function(FetchItemsByCategory value) fetchItemsByCategory,
+    required TResult Function(ChangeCategoryIndexEvent value)
+        changeCategoryIndexEvent,
     required TResult Function(FilterEvent value) filterEvent,
     required TResult Function(FilterBrandPickEvent value) filterBrandPickEvent,
     required TResult Function(PriceRangeEvent value) priceRangeEvent,
@@ -3076,6 +3419,7 @@ class _$FetchProductSortByPrice
     TResult? Function(FetchSubcategories value)? fetchSubcategories,
     TResult? Function(OnSelectFilter value)? onSelectFilter,
     TResult? Function(FetchItemsByCategory value)? fetchItemsByCategory,
+    TResult? Function(ChangeCategoryIndexEvent value)? changeCategoryIndexEvent,
     TResult? Function(FilterEvent value)? filterEvent,
     TResult? Function(FilterBrandPickEvent value)? filterBrandPickEvent,
     TResult? Function(PriceRangeEvent value)? priceRangeEvent,
@@ -3099,6 +3443,7 @@ class _$FetchProductSortByPrice
     TResult Function(FetchSubcategories value)? fetchSubcategories,
     TResult Function(OnSelectFilter value)? onSelectFilter,
     TResult Function(FetchItemsByCategory value)? fetchItemsByCategory,
+    TResult Function(ChangeCategoryIndexEvent value)? changeCategoryIndexEvent,
     TResult Function(FilterEvent value)? filterEvent,
     TResult Function(FilterBrandPickEvent value)? filterBrandPickEvent,
     TResult Function(PriceRangeEvent value)? priceRangeEvent,
@@ -3215,6 +3560,7 @@ class _$ChangeSortListIndex
     required TResult Function() fetchSubcategories,
     required TResult Function(String value) onSelectFilter,
     required TResult Function(String category) fetchItemsByCategory,
+    required TResult Function(int index) changeCategoryIndexEvent,
     required TResult Function(String? category, String? subCategory)
         filterEvent,
     required TResult Function(String brand) filterBrandPickEvent,
@@ -3244,6 +3590,7 @@ class _$ChangeSortListIndex
     TResult? Function()? fetchSubcategories,
     TResult? Function(String value)? onSelectFilter,
     TResult? Function(String category)? fetchItemsByCategory,
+    TResult? Function(int index)? changeCategoryIndexEvent,
     TResult? Function(String? category, String? subCategory)? filterEvent,
     TResult? Function(String brand)? filterBrandPickEvent,
     TResult? Function(int index)? priceRangeEvent,
@@ -3271,6 +3618,7 @@ class _$ChangeSortListIndex
     TResult Function()? fetchSubcategories,
     TResult Function(String value)? onSelectFilter,
     TResult Function(String category)? fetchItemsByCategory,
+    TResult Function(int index)? changeCategoryIndexEvent,
     TResult Function(String? category, String? subCategory)? filterEvent,
     TResult Function(String brand)? filterBrandPickEvent,
     TResult Function(int index)? priceRangeEvent,
@@ -3300,6 +3648,8 @@ class _$ChangeSortListIndex
     required TResult Function(FetchSubcategories value) fetchSubcategories,
     required TResult Function(OnSelectFilter value) onSelectFilter,
     required TResult Function(FetchItemsByCategory value) fetchItemsByCategory,
+    required TResult Function(ChangeCategoryIndexEvent value)
+        changeCategoryIndexEvent,
     required TResult Function(FilterEvent value) filterEvent,
     required TResult Function(FilterBrandPickEvent value) filterBrandPickEvent,
     required TResult Function(PriceRangeEvent value) priceRangeEvent,
@@ -3325,6 +3675,7 @@ class _$ChangeSortListIndex
     TResult? Function(FetchSubcategories value)? fetchSubcategories,
     TResult? Function(OnSelectFilter value)? onSelectFilter,
     TResult? Function(FetchItemsByCategory value)? fetchItemsByCategory,
+    TResult? Function(ChangeCategoryIndexEvent value)? changeCategoryIndexEvent,
     TResult? Function(FilterEvent value)? filterEvent,
     TResult? Function(FilterBrandPickEvent value)? filterBrandPickEvent,
     TResult? Function(PriceRangeEvent value)? priceRangeEvent,
@@ -3348,6 +3699,7 @@ class _$ChangeSortListIndex
     TResult Function(FetchSubcategories value)? fetchSubcategories,
     TResult Function(OnSelectFilter value)? onSelectFilter,
     TResult Function(FetchItemsByCategory value)? fetchItemsByCategory,
+    TResult Function(ChangeCategoryIndexEvent value)? changeCategoryIndexEvent,
     TResult Function(FilterEvent value)? filterEvent,
     TResult Function(FilterBrandPickEvent value)? filterBrandPickEvent,
     TResult Function(PriceRangeEvent value)? priceRangeEvent,
@@ -3500,6 +3852,7 @@ class _$FetchProductsByFilterPricerange
     required TResult Function() fetchSubcategories,
     required TResult Function(String value) onSelectFilter,
     required TResult Function(String category) fetchItemsByCategory,
+    required TResult Function(int index) changeCategoryIndexEvent,
     required TResult Function(String? category, String? subCategory)
         filterEvent,
     required TResult Function(String brand) filterBrandPickEvent,
@@ -3530,6 +3883,7 @@ class _$FetchProductsByFilterPricerange
     TResult? Function()? fetchSubcategories,
     TResult? Function(String value)? onSelectFilter,
     TResult? Function(String category)? fetchItemsByCategory,
+    TResult? Function(int index)? changeCategoryIndexEvent,
     TResult? Function(String? category, String? subCategory)? filterEvent,
     TResult? Function(String brand)? filterBrandPickEvent,
     TResult? Function(int index)? priceRangeEvent,
@@ -3558,6 +3912,7 @@ class _$FetchProductsByFilterPricerange
     TResult Function()? fetchSubcategories,
     TResult Function(String value)? onSelectFilter,
     TResult Function(String category)? fetchItemsByCategory,
+    TResult Function(int index)? changeCategoryIndexEvent,
     TResult Function(String? category, String? subCategory)? filterEvent,
     TResult Function(String brand)? filterBrandPickEvent,
     TResult Function(int index)? priceRangeEvent,
@@ -3588,6 +3943,8 @@ class _$FetchProductsByFilterPricerange
     required TResult Function(FetchSubcategories value) fetchSubcategories,
     required TResult Function(OnSelectFilter value) onSelectFilter,
     required TResult Function(FetchItemsByCategory value) fetchItemsByCategory,
+    required TResult Function(ChangeCategoryIndexEvent value)
+        changeCategoryIndexEvent,
     required TResult Function(FilterEvent value) filterEvent,
     required TResult Function(FilterBrandPickEvent value) filterBrandPickEvent,
     required TResult Function(PriceRangeEvent value) priceRangeEvent,
@@ -3613,6 +3970,7 @@ class _$FetchProductsByFilterPricerange
     TResult? Function(FetchSubcategories value)? fetchSubcategories,
     TResult? Function(OnSelectFilter value)? onSelectFilter,
     TResult? Function(FetchItemsByCategory value)? fetchItemsByCategory,
+    TResult? Function(ChangeCategoryIndexEvent value)? changeCategoryIndexEvent,
     TResult? Function(FilterEvent value)? filterEvent,
     TResult? Function(FilterBrandPickEvent value)? filterBrandPickEvent,
     TResult? Function(PriceRangeEvent value)? priceRangeEvent,
@@ -3636,6 +3994,7 @@ class _$FetchProductsByFilterPricerange
     TResult Function(FetchSubcategories value)? fetchSubcategories,
     TResult Function(OnSelectFilter value)? onSelectFilter,
     TResult Function(FetchItemsByCategory value)? fetchItemsByCategory,
+    TResult Function(ChangeCategoryIndexEvent value)? changeCategoryIndexEvent,
     TResult Function(FilterEvent value)? filterEvent,
     TResult Function(FilterBrandPickEvent value)? filterBrandPickEvent,
     TResult Function(PriceRangeEvent value)? priceRangeEvent,
@@ -3695,6 +4054,7 @@ mixin _$CategoryState {
   RangeValues get rangeValues => throw _privateConstructorUsedError;
   CategoryItemModel? get categoryItemModel =>
       throw _privateConstructorUsedError;
+  int get categoryIndex => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $CategoryStateCopyWith<CategoryState> get copyWith =>
@@ -3726,7 +4086,8 @@ abstract class $CategoryStateCopyWith<$Res> {
       String maxPrice,
       int sortListIndex,
       RangeValues rangeValues,
-      CategoryItemModel? categoryItemModel});
+      CategoryItemModel? categoryItemModel,
+      int categoryIndex});
 
   $ProductModelCopyWith<$Res>? get product;
   $CategoryModelCopyWith<$Res>? get category;
@@ -3767,6 +4128,7 @@ class _$CategoryStateCopyWithImpl<$Res, $Val extends CategoryState>
     Object? sortListIndex = null,
     Object? rangeValues = null,
     Object? categoryItemModel = freezed,
+    Object? categoryIndex = null,
   }) {
     return _then(_value.copyWith(
       product: freezed == product
@@ -3845,6 +4207,10 @@ class _$CategoryStateCopyWithImpl<$Res, $Val extends CategoryState>
           ? _value.categoryItemModel
           : categoryItemModel // ignore: cast_nullable_to_non_nullable
               as CategoryItemModel?,
+      categoryIndex: null == categoryIndex
+          ? _value.categoryIndex
+          : categoryIndex // ignore: cast_nullable_to_non_nullable
+              as int,
     ) as $Val);
   }
 
@@ -3939,7 +4305,8 @@ abstract class _$$_CategoryStateCopyWith<$Res>
       String maxPrice,
       int sortListIndex,
       RangeValues rangeValues,
-      CategoryItemModel? categoryItemModel});
+      CategoryItemModel? categoryItemModel,
+      int categoryIndex});
 
   @override
   $ProductModelCopyWith<$Res>? get product;
@@ -3983,6 +4350,7 @@ class __$$_CategoryStateCopyWithImpl<$Res>
     Object? sortListIndex = null,
     Object? rangeValues = null,
     Object? categoryItemModel = freezed,
+    Object? categoryIndex = null,
   }) {
     return _then(_$_CategoryState(
       product: freezed == product
@@ -4061,6 +4429,10 @@ class __$$_CategoryStateCopyWithImpl<$Res>
           ? _value.categoryItemModel
           : categoryItemModel // ignore: cast_nullable_to_non_nullable
               as CategoryItemModel?,
+      categoryIndex: null == categoryIndex
+          ? _value.categoryIndex
+          : categoryIndex // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -4087,7 +4459,8 @@ class _$_CategoryState with DiagnosticableTreeMixin implements _CategoryState {
       required this.maxPrice,
       required this.sortListIndex,
       required this.rangeValues,
-      required this.categoryItemModel});
+      required this.categoryItemModel,
+      required this.categoryIndex});
 
   @override
   final ProductModel? product;
@@ -4127,10 +4500,12 @@ class _$_CategoryState with DiagnosticableTreeMixin implements _CategoryState {
   final RangeValues rangeValues;
   @override
   final CategoryItemModel? categoryItemModel;
+  @override
+  final int categoryIndex;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'CategoryState(product: $product, productLoading: $productLoading, errorMessage: $errorMessage, category: $category, categoryLoading: $categoryLoading, subCategory: $subCategory, subCategoryLoading: $subCategoryLoading, selectedFilter: $selectedFilter, filterCategory: $filterCategory, filterSubCategory: $filterSubCategory, filterBrand: $filterBrand, priceRangeIndex: $priceRangeIndex, subcategoryByCategoryIdModel: $subcategoryByCategoryIdModel, filterVal: $filterVal, minPrice: $minPrice, maxPrice: $maxPrice, sortListIndex: $sortListIndex, rangeValues: $rangeValues, categoryItemModel: $categoryItemModel)';
+    return 'CategoryState(product: $product, productLoading: $productLoading, errorMessage: $errorMessage, category: $category, categoryLoading: $categoryLoading, subCategory: $subCategory, subCategoryLoading: $subCategoryLoading, selectedFilter: $selectedFilter, filterCategory: $filterCategory, filterSubCategory: $filterSubCategory, filterBrand: $filterBrand, priceRangeIndex: $priceRangeIndex, subcategoryByCategoryIdModel: $subcategoryByCategoryIdModel, filterVal: $filterVal, minPrice: $minPrice, maxPrice: $maxPrice, sortListIndex: $sortListIndex, rangeValues: $rangeValues, categoryItemModel: $categoryItemModel, categoryIndex: $categoryIndex)';
   }
 
   @override
@@ -4157,7 +4532,8 @@ class _$_CategoryState with DiagnosticableTreeMixin implements _CategoryState {
       ..add(DiagnosticsProperty('maxPrice', maxPrice))
       ..add(DiagnosticsProperty('sortListIndex', sortListIndex))
       ..add(DiagnosticsProperty('rangeValues', rangeValues))
-      ..add(DiagnosticsProperty('categoryItemModel', categoryItemModel));
+      ..add(DiagnosticsProperty('categoryItemModel', categoryItemModel))
+      ..add(DiagnosticsProperty('categoryIndex', categoryIndex));
   }
 
   @override
@@ -4203,7 +4579,9 @@ class _$_CategoryState with DiagnosticableTreeMixin implements _CategoryState {
             (identical(other.rangeValues, rangeValues) ||
                 other.rangeValues == rangeValues) &&
             (identical(other.categoryItemModel, categoryItemModel) ||
-                other.categoryItemModel == categoryItemModel));
+                other.categoryItemModel == categoryItemModel) &&
+            (identical(other.categoryIndex, categoryIndex) ||
+                other.categoryIndex == categoryIndex));
   }
 
   @override
@@ -4227,7 +4605,8 @@ class _$_CategoryState with DiagnosticableTreeMixin implements _CategoryState {
         maxPrice,
         sortListIndex,
         rangeValues,
-        categoryItemModel
+        categoryItemModel,
+        categoryIndex
       ]);
 
   @JsonKey(ignore: true)
@@ -4257,7 +4636,8 @@ abstract class _CategoryState implements CategoryState {
       required final String maxPrice,
       required final int sortListIndex,
       required final RangeValues rangeValues,
-      required final CategoryItemModel? categoryItemModel}) = _$_CategoryState;
+      required final CategoryItemModel? categoryItemModel,
+      required final int categoryIndex}) = _$_CategoryState;
 
   @override
   ProductModel? get product;
@@ -4297,6 +4677,8 @@ abstract class _CategoryState implements CategoryState {
   RangeValues get rangeValues;
   @override
   CategoryItemModel? get categoryItemModel;
+  @override
+  int get categoryIndex;
   @override
   @JsonKey(ignore: true)
   _$$_CategoryStateCopyWith<_$_CategoryState> get copyWith =>

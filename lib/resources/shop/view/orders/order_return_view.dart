@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:millat/components/buttons/main_button.dart';
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
 import 'package:millat/resources/shop/view/orders/widgets/return_detail_view.dart';
+import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/string_constants.dart';
@@ -247,9 +249,7 @@ class OrderReturnView extends StatelessWidget {
                 endpoint: Appstrings.addReturnReasonEnpoint,
                 text: data.reasonModel!.result!.data!.reasons![data.indexVal]
                     .toString()));
-            Navigator.of(context).push(MaterialPageRoute(
-              builder: (context) => const OrderRetunDetailView(),
-            ));
+            context.pushNamed(MyAppRouteConstants.orderReturnDetailRouteName);
           },
         ),
       ),

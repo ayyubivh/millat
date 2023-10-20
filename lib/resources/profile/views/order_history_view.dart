@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/string_constants.dart';
 
+import '../../../routes/app_router_constants.dart';
 import '../../../utils/loader.dart';
 import '../../../utils/size_utility.dart';
 import '../../shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
@@ -70,10 +72,9 @@ class OrderHistoryView extends StatelessWidget {
                   orderId: data.shiprocketOrderId,
                   isIndex: index,
                   onTap: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) =>
-                          OrdetailsView(orderStatus: data.shippingStatus),
-                    ));
+                    context.pushNamed(MyAppRouteConstants.orderDetailRouteName,
+                        extra: {'orderStatus': data.shippingStatus});
+
                     final id = data.orderId;
                     context
                         .read<ShopProductsBloc>()

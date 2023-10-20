@@ -8,12 +8,10 @@ import '../../../../utils/color_manager.dart';
 import '../../../../utils/constants.dart';
 import '../../../../utils/size_utility.dart';
 import '../../../../utils/utils.dart';
-import '../../../profile/views/user_profile_view.dart';
 import '../../bloc/logic/location_bloc/location_bloc.dart';
 import '../../bloc/logic/namaz_timing_bloc/namaz_timing_bloc.dart';
 
 class NamazTimingView extends StatefulWidget {
-  static const routeName = 'namaz-timing';
   const NamazTimingView({super.key});
 
   @override

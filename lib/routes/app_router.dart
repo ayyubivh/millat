@@ -16,26 +16,51 @@ import 'package:millat/resources/home/view/dua/widgets/dua_bookmar_view.dart';
 import 'package:millat/resources/home/view/dua/widgets/dua_category_view.dart';
 import 'package:millat/resources/home/view/dua/widgets/inside_dua_view.dart';
 import 'package:millat/resources/home/view/home_view.dart';
+import 'package:millat/resources/home/view/namaz_timing/namaz_timing_view.dart';
 import 'package:millat/resources/home/view/qibla/qibla_view.dart';
 import 'package:millat/resources/home/view/tasbih/tasbih_view.dart';
 import 'package:millat/resources/home/view/tasbih/widgets/choose_dhikr_view.dart';
 import 'package:millat/resources/home/view/widgets/about_us_view.dart';
 import 'package:millat/resources/home/view/widgets/notification_view.dart';
+import 'package:millat/resources/home/view/widgets/prayer_tracker_calendar_view.dart';
 import 'package:millat/resources/home/view/widgets/privacy_policy_view.dart';
 import 'package:millat/resources/home/view/widgets/support_help_view.dart';
 import 'package:millat/resources/home/view/widgets/terms_conditions_view.dart';
 import 'package:millat/resources/on_boarding/view/on_boarding_view.dart';
+import 'package:millat/resources/profile/views/address_book_view.dart';
 import 'package:millat/resources/profile/views/edit_profile_view.dart';
 import 'package:millat/resources/profile/views/invite_friend_view.dart';
+import 'package:millat/resources/profile/views/order_history_view.dart';
 import 'package:millat/resources/profile/views/user_profile_view.dart';
+import 'package:millat/resources/shop/view/article/articles_view.dart';
+import 'package:millat/resources/shop/view/article/single_article_view.dart';
+import 'package:millat/resources/shop/view/brand/shop_brand_view.dart';
+import 'package:millat/resources/shop/view/brand/single_brand_view.dart';
+import 'package:millat/resources/shop/view/cart/cart.dart';
+import 'package:millat/resources/shop/view/categories/categories_filter_view.dart';
+import 'package:millat/resources/shop/view/categories/categories_product_view.dart';
+import 'package:millat/resources/shop/view/categories/category_view.dart';
+import 'package:millat/resources/shop/view/checkout/checkout_confirmation.dart';
+import 'package:millat/resources/shop/view/checkout/checkout_details.dart';
+import 'package:millat/resources/shop/view/checkout/checkout_payment.dart';
+import 'package:millat/resources/shop/view/checkout/checkout_view.dart';
+import 'package:millat/resources/shop/view/order_status/payment_successful.dart';
+import 'package:millat/resources/shop/view/orders/cancel_order_view.dart';
+import 'package:millat/resources/shop/view/orders/order_return_view.dart';
+import 'package:millat/resources/shop/view/orders/widgets/order_returned_succesfully.dart';
+import 'package:millat/resources/shop/view/orders/widgets/return_detail_view.dart';
+import 'package:millat/resources/shop/view/products/single_product_view.dart';
+import 'package:millat/resources/shop/view/shop_view.dart';
 import 'package:millat/resources/shop/view/tabs/shop_tabs_vilew.dart';
+import 'package:millat/resources/shop/view/wishlist/wishlist_view.dart';
+import 'package:millat/resources/shop/view/womens_care/shop_specific_category_banner_view.dart';
 import 'package:millat/resources/tabs/view/tabs_view.dart';
 import 'package:millat/routes/app_router_constants.dart';
-
-import '../enums/enumertations.dart';
 import '../resources/home/view/al_quran/bookmark_view.dart';
 import '../resources/home/view/al_quran/widgets/add_sura_search_view.dart';
 import '../resources/home/view/al_quran/widgets/bookmark_collection_view.dart';
+import '../resources/shop/view/order_status/order_details_view.dart';
+import '../resources/shop/view/search/shop_search_view.dart';
 
 class MyAppRouter {
   static GoRouter returnRouter(bool isAuth) {
@@ -59,12 +84,287 @@ class MyAppRouter {
             },
             routes: [
               GoRoute(
-                name: MyAppRouteConstants.shopTabsRouteName,
-                path: 'shop_tabs',
+                name: MyAppRouteConstants.namazTimingRouteName,
+                path: MyAppRouteConstants.namazTimingRouteName,
                 pageBuilder: (context, state) {
-                  return const MaterialPage(child: ShopTabsView());
+                  return const MaterialPage(child: NamazTimingView());
                 },
               ),
+              GoRoute(
+                name: MyAppRouteConstants.prayerTrackerCalendarRouteName,
+                path: MyAppRouteConstants.prayerTrackerCalendarRouteName,
+                pageBuilder: (context, state) {
+                  return const MaterialPage(child: PrayerTrackerCalendarView());
+                },
+              ),
+              GoRoute(
+                  name: MyAppRouteConstants.shopTabsRouteName,
+                  path: 'shop_tabs',
+                  pageBuilder: (context, state) {
+                    return const MaterialPage(child: ShopTabsView());
+                  },
+                  routes: [
+                    GoRoute(
+                      name: MyAppRouteConstants.shopRouteName,
+                      path: MyAppRouteConstants.shopRouteName,
+                      pageBuilder: (context, state) {
+                        return const MaterialPage(child: ShopView());
+                      },
+                      routes: [
+                        GoRoute(
+                          name: MyAppRouteConstants.shopSearchRouteName,
+                          path: MyAppRouteConstants.shopSearchRouteName,
+                          pageBuilder: (context, state) {
+                            return const MaterialPage(child: ShopSearchView());
+                          },
+                        ),
+                        GoRoute(
+                            name: MyAppRouteConstants.cartRouteName,
+                            path: MyAppRouteConstants.cartRouteName,
+                            pageBuilder: (context, state) {
+                              return const MaterialPage(child: CartView());
+                            },
+                            routes: [
+                              GoRoute(
+                                name: MyAppRouteConstants.checkoutRouteName,
+                                path: MyAppRouteConstants.checkoutRouteName,
+                                pageBuilder: (context, state) {
+                                  return const MaterialPage(
+                                      child: CheckoutView());
+                                },
+                              ),
+                              GoRoute(
+                                  name: MyAppRouteConstants
+                                      .checkoutDetailRoutename,
+                                  path: MyAppRouteConstants
+                                      .checkoutDetailRoutename,
+                                  pageBuilder: (context, state) {
+                                    Map data = state.extra as Map;
+                                    return MaterialPage(
+                                        child: CheckoutDetails(
+                                      type: data['type'],
+                                    ));
+                                  },
+                                  routes: [
+                                    GoRoute(
+                                      name: MyAppRouteConstants
+                                          .checkoutPaymentRouteName,
+                                      path: MyAppRouteConstants
+                                          .checkoutPaymentRouteName,
+                                      pageBuilder: (context, state) {
+                                        return const MaterialPage(
+                                            child: CheckoutPayment());
+                                      },
+                                    ),
+                                    GoRoute(
+                                        name: MyAppRouteConstants
+                                            .checkoutConfirmationRouteName,
+                                        path: MyAppRouteConstants
+                                            .checkoutConfirmationRouteName,
+                                        pageBuilder: (context, state) {
+                                          Map data = state.extra as Map;
+                                          return MaterialPage(
+                                              child: CheckoutConfirmation(
+                                            paymentType: data['paymentType'],
+                                            checkoutType: data['checkoutType'],
+                                          ));
+                                        },
+                                        routes: [
+                                          GoRoute(
+                                            name: MyAppRouteConstants
+                                                .paymentSuccessfullRouteName,
+                                            path: MyAppRouteConstants
+                                                .paymentSuccessfullRouteName,
+                                            pageBuilder: (context, state) {
+                                              Map data = state.extra as Map;
+                                              return MaterialPage(
+                                                  child: PaymentSuccessful(
+                                                delivery: data['delivery'],
+                                                subTotal: data['subTotal'],
+                                              ));
+                                            },
+                                          ),
+                                        ]),
+                                  ]),
+                            ]),
+                        GoRoute(
+                          name: MyAppRouteConstants.addressBookRouteName,
+                          path: MyAppRouteConstants.addressBookRouteName,
+                          pageBuilder: (context, state) {
+                            return const MaterialPage(child: AddressBookView());
+                          },
+                        ),
+                        GoRoute(
+                          name: MyAppRouteConstants.orderHistoryRouteName,
+                          path: MyAppRouteConstants.orderHistoryRouteName,
+                          pageBuilder: (context, state) {
+                            return const MaterialPage(
+                                child: OrderHistoryView());
+                          },
+                        ),
+                        GoRoute(
+                            name: MyAppRouteConstants.orderDetailRouteName,
+                            path: MyAppRouteConstants.orderDetailRouteName,
+                            pageBuilder: (context, state) {
+                              Map data = state.extra as Map;
+                              return MaterialPage(
+                                  child: OrdetailsView(
+                                orderStatus: data['orderStatus'],
+                              ));
+                            },
+                            routes: [
+                              GoRoute(
+                                name: MyAppRouteConstants.orderReturnRouteName,
+                                path: MyAppRouteConstants.orderReturnRouteName,
+                                pageBuilder: (context, state) {
+                                  return const MaterialPage(
+                                      child: OrderReturnView());
+                                },
+                              ),
+                              GoRoute(
+                                name: MyAppRouteConstants.orderCancelRouteName,
+                                path: MyAppRouteConstants.orderCancelRouteName,
+                                pageBuilder: (context, state) {
+                                  return const MaterialPage(
+                                      child: CancelView());
+                                },
+                              ),
+                              GoRoute(
+                                name: MyAppRouteConstants
+                                    .orderReturnDetailRouteName,
+                                path: MyAppRouteConstants
+                                    .orderReturnDetailRouteName,
+                                pageBuilder: (context, state) {
+                                  return const MaterialPage(
+                                      child: OrderRetunDetailView());
+                                },
+                              ),
+                              GoRoute(
+                                name: MyAppRouteConstants
+                                    .orderReturnSuccesRouteName,
+                                path: MyAppRouteConstants
+                                    .orderReturnSuccesRouteName,
+                                pageBuilder: (context, state) {
+                                  Map data = state.extra as Map;
+                                  return MaterialPage(
+                                      child: OrderReturnSuccessView(
+                                    orderType: data['orderType'],
+                                  ));
+                                },
+                              ),
+                            ]),
+                        GoRoute(
+                          name: MyAppRouteConstants.wishlistRouteName,
+                          path: MyAppRouteConstants.wishlistRouteName,
+                          pageBuilder: (context, state) {
+                            return const MaterialPage(child: WishListView());
+                          },
+                        ),
+                        GoRoute(
+                          name: MyAppRouteConstants
+                              .shopSpecificCategoryBannerRouteName,
+                          path: MyAppRouteConstants
+                              .shopSpecificCategoryBannerRouteName,
+                          pageBuilder: (context, state) {
+                            Map data = state.extra as Map;
+                            return MaterialPage(
+                              child: ShopSpecificCategoryBannerView(
+                                category: data['category'],
+                                imageUrl: data['imageUrl'],
+                              ),
+                            );
+                          },
+                        ),
+                        GoRoute(
+                          name: MyAppRouteConstants.categoryRouteName,
+                          path: MyAppRouteConstants.categoryRouteName,
+                          pageBuilder: (context, state) {
+                            Map data = state.extra as Map;
+                            return MaterialPage(
+                              child: CategoryView(
+                                category: data['category'],
+                                categoryId: data['categoryId'],
+                                categoryType: data['categoryType'],
+                              ),
+                            );
+                          },
+                        ),
+                        GoRoute(
+                          name: MyAppRouteConstants.categoriesProductsRouteName,
+                          path: MyAppRouteConstants.categoriesProductsRouteName,
+                          pageBuilder: (context, state) {
+                            Map data = state.extra as Map;
+                            return MaterialPage(
+                              child: CategoriesProductView(
+                                category: data['category'],
+                                subCategory: data['subCategory'],
+                                type: data['type'],
+                                itemId: data['itemId'],
+                                itemName: data['itemName'],
+                              ),
+                            );
+                          },
+                        ),
+                      ],
+                    ),
+                    GoRoute(
+                      name: MyAppRouteConstants.categoriesFilterRouteName,
+                      path: MyAppRouteConstants.categoriesFilterRouteName,
+                      pageBuilder: (context, state) {
+                        return const MaterialPage(
+                            child: CategoriesFilterView());
+                      },
+                    ),
+                    GoRoute(
+                      name: MyAppRouteConstants.singleProductRouteName,
+                      path: "${MyAppRouteConstants.singleProductRouteName}/:id",
+                      pageBuilder: (context, state) {
+                        return MaterialPage(
+                            child: SingleProductView(
+                          id: state.pathParameters['id']!,
+                        ));
+                      },
+                    ),
+                    GoRoute(
+                      name: MyAppRouteConstants.shopBrandsRouteName,
+                      path: MyAppRouteConstants.shopBrandsRouteName,
+                      pageBuilder: (context, state) {
+                        return const MaterialPage(child: ShopBrandView());
+                      },
+                    ),
+                    GoRoute(
+                      name: MyAppRouteConstants.singleBrandRouteName,
+                      path: MyAppRouteConstants.singleBrandRouteName,
+                      pageBuilder: (context, state) {
+                        Map data = state.extra as Map;
+
+                        return MaterialPage(
+                            child: SingleBrandView(
+                          passValue: data['passValue'],
+                          brandViewType: data['brandViewType'],
+                        ));
+                      },
+                    ),
+                    GoRoute(
+                        name: MyAppRouteConstants.articleRouteName,
+                        path: MyAppRouteConstants.articleRouteName,
+                        pageBuilder: (context, state) {
+                          return const MaterialPage(child: ArticlesView());
+                        },
+                        routes: [
+                          GoRoute(
+                            name: MyAppRouteConstants.singleArticleRoutename,
+                            path:
+                                "${MyAppRouteConstants.singleArticleRoutename}/:id",
+                            pageBuilder: (context, state) {
+                              return MaterialPage(
+                                  child: SingleArticleView(
+                                id: state.pathParameters['id']!,
+                              ));
+                            },
+                          ),
+                        ]),
+                  ]),
               GoRoute(
                 name: MyAppRouteConstants.notificationRouteName,
                 path: 'notication',

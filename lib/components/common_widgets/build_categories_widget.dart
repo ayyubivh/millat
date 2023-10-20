@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:millat/resources/shop/view/categories/category_view.dart';
+import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/utils.dart';
@@ -18,10 +20,10 @@ class BuildCategoryWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) =>
-              CategoryView(category: text, categoryId: categoryId),
-        ));
+        context.pushNamed(
+          MyAppRouteConstants.categoryRouteName,
+          extra: {'category': text, 'categoryId': categoryId},
+        );
       },
       child: Column(
         children: [

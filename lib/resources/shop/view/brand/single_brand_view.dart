@@ -1,11 +1,13 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:millat/components/common_widgets/shop_products_widget.dart';
 import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
 import 'package:millat/resources/shop/view/categories/categories_product_view.dart';
 import 'package:millat/resources/shop/view/products/single_product_view.dart';
+import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/loader.dart';
@@ -204,11 +206,13 @@ class SingleBrandView extends StatelessWidget {
                       final itemData = data[index];
                       return GestureDetector(
                         onTap: () {
-                          Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => CategoriesProductView(
-                                  category: itemData.categoryId?.title,
-                                  subCategory: itemData.subCategoryId?.title,
-                                  type: FilterType.category)));
+                          context.pushNamed(
+                              MyAppRouteConstants.categoriesProductsRouteName,
+                              extra: {
+                                'category': itemData.categoryId?.title,
+                                'subCategory': itemData.subCategoryId?.title,
+                                'type': FilterType.category,
+                              });
                         },
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.center,
@@ -435,12 +439,9 @@ class SingleBrandView extends StatelessWidget {
 
                     return GestureDetector(
                       onTap: () {
-                        Navigator.of(context)
-                            .push(MaterialPageRoute(builder: (context) {
-                          return SingleProductView(
-                            id: data?.id ?? "",
-                          );
-                        }));
+                        context.pushNamed(
+                            MyAppRouteConstants.singleProductRouteName,
+                            pathParameters: {"id": data!.id ?? ""});
                       },
                       child: Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 0),

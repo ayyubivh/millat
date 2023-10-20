@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:millat/components/buttons/main_button.dart';
 import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/authentication/bloc/logic/database_bloc/database_bloc.dart';
 import 'package:millat/resources/shop/view/checkout/checkout_confirmation.dart';
 import 'package:millat/resources/shop/view/checkout/checkout_details.dart';
+import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/size_utility.dart';
@@ -85,11 +87,9 @@ class CheckoutView extends StatelessWidget {
                     ),
                     InkWell(
                       onTap: () {
-                        Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => const CheckoutDetails(
-                            type: AddressNavType.checkout,
-                          ),
-                        ));
+                        context.pushNamed(
+                            MyAppRouteConstants.checkoutDetailRoutename,
+                            extra: {'type': AddressNavType.checkout});
                       },
                       child: Text(
                         Appstrings.addaddress,
@@ -159,15 +159,14 @@ class CheckoutView extends StatelessWidget {
                   return;
                 }
                 checkoutType == CheckoutType.rewards
-                    ? Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => const CheckoutConfirmation(
-                            paymentType: 0, checkoutType: CheckoutType.rewards),
-                      ))
-                    : Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) {
-                          return const CheckoutPayment();
-                        },
-                      ));
+                    ? context.pushNamed(
+                        MyAppRouteConstants.checkoutConfirmationRouteName,
+                        extra: {
+                            'paymentType': 0,
+                            'checkoutType': CheckoutType.rewards
+                          })
+                    : context.pushNamed(
+                        MyAppRouteConstants.checkoutPaymentRouteName);
               },
             )));
   }

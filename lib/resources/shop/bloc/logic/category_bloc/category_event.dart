@@ -13,7 +13,9 @@ class CategoryEvent with _$CategoryEvent {
   const factory CategoryEvent.fetchItemsByCategory({
     required String category,
   }) = FetchItemsByCategory;
-
+  const factory CategoryEvent.changeCategoryIndexEvent({
+    required int index,
+  }) = ChangeCategoryIndexEvent;
   const factory CategoryEvent.filterEvent(
       {required String? category, required String? subCategory}) = FilterEvent;
   const factory CategoryEvent.filterBrandPickEvent({required String brand}) =

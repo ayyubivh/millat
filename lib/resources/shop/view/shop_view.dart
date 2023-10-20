@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:millat/components/buttons/green_gradient_button.dart';
 import 'package:millat/components/common_widgets/build_categories_widget.dart';
 import 'package:millat/components/shimmers/shimmer_widget.dart';
@@ -9,15 +10,13 @@ import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/shop/bloc/logic/address_bloc/address_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/category_bloc/category_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
-import 'package:millat/resources/shop/view/article/articles_view.dart';
 import 'package:millat/resources/shop/view/article/single_article_view.dart';
-import 'package:millat/resources/shop/view/brand/shop_brand_view.dart';
 import 'package:millat/resources/shop/view/brand/single_brand_view.dart';
-import 'package:millat/resources/shop/view/categories/categories_filter_view.dart';
 import 'package:millat/resources/shop/view/categories/categories_product_view.dart';
 import 'package:millat/resources/shop/view/categories/category_view.dart';
-import 'package:millat/resources/shop/view/search/search_view.dart';
+import 'package:millat/resources/shop/view/search/shop_search_view.dart';
 import 'package:millat/resources/shop/view/widgets/shop_home_subcategory_card_widget.dart';
+import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/size_utility.dart';
@@ -85,9 +84,7 @@ class _ShopViewState extends State<ShopView> {
                   LighGreenGradienButton(
                     text: Appstrings.viewBrands,
                     onTap: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => const ShopBrandView(),
-                      ));
+                      context.goNamed(MyAppRouteConstants.shopBrandsRouteName);
                     },
                   ),
                   kHeight40,
@@ -123,12 +120,14 @@ class _ShopViewState extends State<ShopView> {
                           BackgroundContainer(
                             cardType: ShopHomeCardtype.women,
                             onTap: () {
-                              Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => const CategoryView(
-                                    categoryType: CategoryType.specificCategory,
-                                    category: "women",
-                                    categoryId: ""),
-                              ));
+                              context.pushNamed(
+                                  MyAppRouteConstants.categoryRouteName,
+                                  extra: {
+                                    "categoryType":
+                                        CategoryType.specificCategory,
+                                    "category": "women",
+                                    "categoryId": "",
+                                  });
                             },
                             width: SizeUtility(context).width / 2,
                             title: "Women",
@@ -164,12 +163,14 @@ class _ShopViewState extends State<ShopView> {
                           BackgroundContainer(
                             cardType: ShopHomeCardtype.health,
                             onTap: () {
-                              Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => const CategoryView(
-                                    categoryType: CategoryType.specificCategory,
-                                    category: "healthy_diet",
-                                    categoryId: ""),
-                              ));
+                              context.pushNamed(
+                                  MyAppRouteConstants.categoryRouteName,
+                                  extra: {
+                                    "categoryType":
+                                        CategoryType.specificCategory,
+                                    "category": "healthy_diet",
+                                    "categoryId": "",
+                                  });
                             },
                             width: SizeUtility(context).width / 2,
                             title: "Healthy",
@@ -212,9 +213,8 @@ class _ShopViewState extends State<ShopView> {
                           kHeight20,
                           BackgroundContainer(
                             onTap: () {
-                              Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => const ArticlesView(),
-                              ));
+                              context.goNamed(
+                                  MyAppRouteConstants.articleRouteName);
                             },
                             cardType: ShopHomeCardtype.sunnah,
                             title: "",
@@ -282,18 +282,18 @@ class _ShopViewState extends State<ShopView> {
           return GestureDetector(
             onTap: () {
               isSunnah
-                  ? Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => SingleArticleView(id: getId(index)),
-                    ))
-                  : Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => CategoriesProductView(
-                        itemId: getId(index),
-                        subCategory: "",
-                        type: FilterType.specificCategory,
-                        category: '',
-                        itemName: getTitle(index),
-                      ),
-                    ));
+                  ? context.pushNamed(
+                      MyAppRouteConstants.singleArticleRoutename,
+                      pathParameters: {'id': getId(index)})
+                  : context.pushNamed(
+                      MyAppRouteConstants.categoriesProductsRouteName,
+                      extra: {
+                          'itemId': getId(index),
+                          'subCategory': "",
+                          'type': FilterType.specificCategory,
+                          'category': '',
+                          'itemName': getTitle(index),
+                        });
             },
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -349,9 +349,9 @@ class _ShopViewState extends State<ShopView> {
                     )
                   : GestureDetector(
                       onTap: () {
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) =>
-                                SingleBrandView(passValue: data)));
+                        context.goNamed(
+                            MyAppRouteConstants.singleBrandRouteName,
+                            extra: {'passValue': data});
                       },
                       child: buildShopbyBrand(data?.logo, data?.name ?? ""),
                     );
@@ -379,10 +379,8 @@ class _ShopViewState extends State<ShopView> {
               items: banners?.map((banner) {
                 return GestureDetector(
                   onTap: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) =>
-                          SingleBrandView(passValue: banner.brandId),
-                    ));
+                    context.goNamed(MyAppRouteConstants.singleBrandRouteName,
+                        extra: {'passValue': banner.brandId});
                   },
                   child: Container(
                     height: 226,
@@ -443,11 +441,14 @@ class _ShopViewState extends State<ShopView> {
                                 color: ColorManager.whiteColor,
                               ),
                               kWidth8,
-                              Text(
-                                banner.text ?? "",
-                                style: const TextStyle(
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w600,
+                              Expanded(
+                                child: Text(
+                                  banner.text ?? "",
+                                  style: const TextStyle(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                  overflow: TextOverflow.ellipsis,
                                 ),
                               ),
                             ],
@@ -523,11 +524,13 @@ class _ShopViewState extends State<ShopView> {
               items: banners?.map((banner) {
                 return GestureDetector(
                   onTap: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => const CategoriesProductView(
-                            category: "",
-                            subCategory: "",
-                            type: FilterType.category)));
+                    context.pushNamed(
+                        MyAppRouteConstants.categoriesProductsRouteName,
+                        extra: {
+                          'subCategory': "",
+                          'type': FilterType.category,
+                          'category': '',
+                        });
                   },
                   child: ClipRRect(
                       borderRadius: BorderRadius.circular(20),
@@ -604,9 +607,8 @@ class _ShopViewState extends State<ShopView> {
               const Spacer(),
               GestureDetector(
                 onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => const CategoriesFilter(),
-                  ));
+                  context
+                      .goNamed(MyAppRouteConstants.categoriesFilterRouteName);
                 },
                 child: ImageIcon(
                   const AssetImage(
@@ -629,7 +631,7 @@ class _ShopViewState extends State<ShopView> {
           kHeight15,
           GestureDetector(
             onTap: () {
-              Navigator.of(context).pushNamed(SearchView.routeName);
+              context.pushNamed(MyAppRouteConstants.shopSearchRouteName);
             },
             child: Container(
               width: double.infinity,

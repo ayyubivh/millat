@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:millat/resources/profile/views/edit_profile_view.dart';
-import 'package:millat/resources/profile/views/manage_address.dart';
+import 'package:millat/resources/profile/views/address_book_view.dart';
 import 'package:millat/resources/profile/views/order_history_view.dart';
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
 import 'package:millat/resources/shop/view/wishlist/wishlist_view.dart';
@@ -11,6 +12,7 @@ import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/string_constants.dart';
 import 'package:millat/utils/utils.dart';
+import '../../../routes/app_router_constants.dart';
 import '../../../utils/loader.dart';
 import '../../authentication/bloc/logic/database_bloc/database_bloc.dart';
 
@@ -130,9 +132,8 @@ class ProfileView extends StatelessWidget {
                           text: Appstrings.personalInfo,
                           icon: AppAssetsStrings.peronalInfo,
                           onTap: () {
-                            Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => const EditProfileView(),
-                            ));
+                            context.pushNamed(
+                                MyAppRouteConstants.editProfileRouteName);
                           },
                         ),
                         kHeight20,
@@ -140,9 +141,8 @@ class ProfileView extends StatelessWidget {
                           text: Appstrings.addressBook,
                           icon: AppAssetsStrings.addressBookIcon,
                           onTap: () {
-                            Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => const ManageAddress(),
-                            ));
+                            context.pushNamed(
+                                MyAppRouteConstants.addressBookRouteName);
                           },
                         ),
                         kHeight20,
@@ -150,9 +150,8 @@ class ProfileView extends StatelessWidget {
                           text: Appstrings.orderHistory,
                           icon: AppAssetsStrings.orderHistory,
                           onTap: () {
-                            Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => const OrderHistoryView(),
-                            ));
+                            context.pushNamed(
+                                MyAppRouteConstants.orderHistoryRouteName);
                           },
                         ),
                         kHeight20,
@@ -160,9 +159,8 @@ class ProfileView extends StatelessWidget {
                           text: Appstrings.wishList,
                           icon: AppAssetsStrings.wishList,
                           onTap: () {
-                            Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => const WishListView(),
-                            ));
+                            context.pushNamed(
+                                MyAppRouteConstants.wishlistRouteName);
                           },
                         )
                       ],

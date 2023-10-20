@@ -413,11 +413,12 @@ class _HomeViewState extends State<HomeView> {
                       state.brandOftheDayModel!.result!.banners![index];
                   return GestureDetector(
                     onTap: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => SingleBrandView(
-                            passValue: data.brandId,
-                            brandViewType: BrandViewType.brandOftheDay),
-                      ));
+                      context.pushNamed(
+                          MyAppRouteConstants.singleBrandRouteName,
+                          extra: {
+                            'passValue': data.brandId,
+                            'brandViewType': BrandViewType.brandOftheDay,
+                          });
                     },
                     child: Padding(
                       padding: const EdgeInsets.only(right: 10),
@@ -517,12 +518,13 @@ class _HomeViewState extends State<HomeView> {
                   final data = state.topOffersModel?.result.banners[index];
                   return GestureDetector(
                     onTap: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => CategoriesProductView(
-                            category: data?.subCategoryId?.title,
-                            subCategory: data?.subCategoryName,
-                            type: FilterType.category),
-                      ));
+                      context.pushNamed(
+                          MyAppRouteConstants.categoriesProductsRouteName,
+                          extra: {
+                            'category': data?.subCategoryId?.title,
+                            'subCategory': data?.subCategoryName,
+                            'type': FilterType.category
+                          });
                     },
                     child: Column(
                       children: [
@@ -722,13 +724,13 @@ class _HomeViewState extends State<HomeView> {
                     final subCategoryName = banner?.subCategoryName;
                     return GestureDetector(
                       onTap: () {
-                        Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => CategoriesProductView(
-                            category: subCategoryIdTitle,
-                            subCategory: subCategoryName,
-                            type: FilterType.category,
-                          ),
-                        ));
+                        context.pushNamed(
+                            MyAppRouteConstants.categoriesProductsRouteName,
+                            extra: {
+                              'category': subCategoryIdTitle,
+                              'subCategory': subCategoryName,
+                              'type': FilterType.category
+                            });
                       },
                       child: Utilities().buildCachedNetworkImage(
                         imageUrl: banner!.image,
@@ -763,9 +765,8 @@ class _HomeViewState extends State<HomeView> {
             ),
             GestureDetector(
               onTap: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => const PrayerTrackerCalendarView(),
-                ));
+                context.goNamed(
+                    MyAppRouteConstants.prayerTrackerCalendarRouteName);
               },
               child: Text(
                 Appstrings.viewAll,
@@ -1102,12 +1103,14 @@ class _HomeViewState extends State<HomeView> {
                             context
                                 .read<QuranBloc>()
                                 .add(SaveLastReadEvent(value: verskey));
-                            Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => VersesView(
-                                  scrollType: VersesScroll.home,
-                                  type: Qurantype.sura,
-                                  chapterid: int.parse(firstPart)),
-                            ));
+
+                            context.pushNamed(
+                                MyAppRouteConstants.quranVersesRoutename,
+                                extra: {
+                                  'scrollType': VersesScroll.home,
+                                  'type': Qurantype.sura,
+                                  'chapterid': int.parse(firstPart)
+                                });
                           },
                           child: Align(
                             alignment: Alignment.topLeft,
@@ -1165,11 +1168,13 @@ class _HomeViewState extends State<HomeView> {
               items: banners?.map((banner) {
                 return GestureDetector(
                     onTap: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => const CategoriesProductView(
-                              category: "",
-                              subCategory: "",
-                              type: FilterType.category)));
+                      context.pushNamed(
+                          MyAppRouteConstants.categoriesProductsRouteName,
+                          extra: {
+                            'category': "",
+                            'subCategory': "",
+                            'type': FilterType.category
+                          });
                     },
                     child: ClipRRect(
                         borderRadius: BorderRadius.circular(20),
@@ -1436,7 +1441,7 @@ class _HomeViewState extends State<HomeView> {
             const Spacer(),
             TextButton.icon(
                 onPressed: () {
-                  Navigator.of(context).pushNamed(NamazTimingView.routeName);
+                  context.pushNamed(MyAppRouteConstants.namazTimingRouteName);
                 },
                 icon: const ImageIcon(
                   AssetImage('assets/icons/map-pin.png'),
@@ -1586,7 +1591,7 @@ class _HomeViewState extends State<HomeView> {
             const Spacer(),
             TextButton.icon(
                 onPressed: () {
-                  Navigator.of(context).pushNamed(NamazTimingView.routeName);
+                  context.pushNamed(MyAppRouteConstants.namazTimingRouteName);
                 },
                 icon: const ImageIcon(
                   AssetImage('assets/icons/bell.png'),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:millat/resources/authentication/bloc/logic/database_bloc/database_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
 import 'package:millat/resources/shop/view/article/single_article_view.dart';
@@ -10,7 +11,8 @@ import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/loader.dart';
 import 'package:millat/utils/string_constants.dart';
 import 'package:millat/utils/utils.dart';
-import '../../../../utils/size_utility.dart';
+
+import '../../../../routes/app_router_constants.dart';
 
 class ArticlesView extends StatelessWidget {
   static const String routeName = '/articles-view';
@@ -173,11 +175,9 @@ class ArticlesView extends StatelessWidget {
                     final data = state.articles![index];
                     return GestureDetector(
                         onTap: () {
-                          Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => SingleArticleView(
-                              id: data.id,
-                            ),
-                          ));
+                          context.pushNamed(
+                              MyAppRouteConstants.singleArticleRoutename,
+                              pathParameters: {'id': data.id});
                         },
                         child: Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 30),

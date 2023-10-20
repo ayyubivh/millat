@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/size_utility.dart';
 
 class ShopHomeCardButton extends StatelessWidget {

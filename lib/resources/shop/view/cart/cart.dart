@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/shop/bloc/logic/address_bloc/address_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/cart_bloc/cart_bloc.dart';
@@ -7,6 +8,7 @@ import 'package:millat/resources/shop/view/cart/widgets/cart_product_widget.dart
 import 'package:millat/resources/shop/view/checkout/checkout_details.dart';
 import 'package:millat/resources/shop/view/checkout/checkout_view.dart';
 import 'package:millat/resources/shop/view/tabs/shop_tabs_vilew.dart';
+import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/color_manager.dart';
@@ -235,15 +237,11 @@ class CartView extends StatelessWidget {
                 title: Appstrings.proceed,
                 onPressed: () {
                   if (state.addressModel!.result.addresses.isEmpty) {
-                    Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const CheckoutDetails(
-                        type: AddressNavType.checkout,
-                      ),
-                    ));
+                    context.pushNamed(
+                        MyAppRouteConstants.checkoutDetailRoutename,
+                        extra: {'type': AddressNavType.checkout});
                   } else {
-                    Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const CheckoutView(),
-                    ));
+                    context.pushNamed(MyAppRouteConstants.checkoutRouteName);
                   }
                 },
               ),
@@ -261,9 +259,7 @@ class CartView extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 35),
       child: MainButton(
         onPressed: () {
-          Navigator.of(context).pushReplacement(MaterialPageRoute(
-            builder: (context) => const ShopTabsView(),
-          ));
+          context.pushReplacementNamed(MyAppRouteConstants.shopTabsRouteName);
         },
         title: 'Shop Now',
       ),

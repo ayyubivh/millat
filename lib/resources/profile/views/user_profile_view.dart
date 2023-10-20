@@ -1,14 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:millat/resources/authentication/view/sign_up_view.dart';
 import 'package:millat/resources/home/bloc/logic/home_bloc/home_bloc.dart';
-import 'package:millat/resources/home/view/widgets/about_us_view.dart';
-import 'package:millat/resources/home/view/widgets/privacy_policy_view.dart';
-import 'package:millat/resources/home/view/widgets/support_help_view.dart';
-import 'package:millat/resources/home/view/widgets/terms_conditions_view.dart';
-import 'package:millat/resources/profile/views/edit_profile_view.dart';
-import 'package:millat/resources/profile/views/invite_friend_view.dart';
 import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';

@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:millat/components/buttons/main_button.dart';
 import 'package:millat/components/shimmers/shimmers_widget_products.dart';
 import 'package:millat/enums/enumertations.dart';
-import 'package:millat/resources/shop/view/products/single_product_view.dart';
-import 'package:millat/resources/shop/view/search/search_view.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/string_constants.dart';
 import '../../../../components/common_widgets/shop_products_widget.dart';
+import '../../../../routes/app_router_constants.dart';
 import '../../../../utils/color_manager.dart';
 import '../../bloc/logic/category_bloc/category_bloc.dart';
 import '../../bloc/logic/shop_bloc/shop_products_bloc.dart';
@@ -65,15 +65,13 @@ class CategoriesProductView extends StatelessWidget {
           actions: [
             GestureDetector(
               onTap: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => const SearchView(),
-                ));
+                context.pushNamed(MyAppRouteConstants.shopSearchRouteName);
               },
-              child: const ImageIcon(
-                AssetImage(
+              child: ImageIcon(
+                const AssetImage(
                   'assets/icons/search.png',
                 ),
-                color: Colors.black,
+                color: ColorManager.blackColor,
               ),
             ),
             kWidth20,
@@ -120,14 +118,13 @@ class CategoriesProductView extends StatelessWidget {
                                       : GestureDetector(
                                           onTap: () {
                                             // print(data.id);
-                                            Navigator.of(context).push(
-                                              MaterialPageRoute(
-                                                builder: (context) =>
-                                                    SingleProductView(
-                                                  id: data.id ?? "",
-                                                ),
-                                              ),
-                                            );
+
+                                            context.pushNamed(
+                                                MyAppRouteConstants
+                                                    .singleProductRouteName,
+                                                pathParameters: {
+                                                  "id": data.id ?? ""
+                                                });
                                           },
                                           child: ShopProductWidget(
                                             color: data.color ?? "",
@@ -155,7 +152,7 @@ class CategoriesProductView extends StatelessWidget {
                               crossAxisCount: 2,
                               crossAxisSpacing: 20,
                               mainAxisSpacing: 20,
-                              mainAxisExtent: 350,
+                              mainAxisExtent: 280,
                             ),
                             itemCount:
                                 state.product?.result?.products?.length ?? 10,
@@ -166,14 +163,12 @@ class CategoriesProductView extends StatelessWidget {
                                   ? const ShimmersWidgetProduct()
                                   : GestureDetector(
                                       onTap: () {
-                                        Navigator.of(context).push(
-                                          MaterialPageRoute(
-                                            builder: (context) =>
-                                                SingleProductView(
-                                              id: datas.id ?? "",
-                                            ),
-                                          ),
-                                        );
+                                        context.pushNamed(
+                                            MyAppRouteConstants
+                                                .singleProductRouteName,
+                                            pathParameters: {
+                                              "id": datas.id ?? ""
+                                            });
                                       },
                                       child: ShopProductWidget(
                                         color: datas.color ?? "",
@@ -389,7 +384,7 @@ class CategoriesProductView extends StatelessWidget {
                                         subCategory: state.filterVal == ""
                                             ? subCategory ?? ""
                                             : state.filterVal));
-                                Navigator.of(context).pop();
+                                context.pop();
                               },
                             );
                           },
@@ -528,7 +523,7 @@ class CategoriesProductView extends StatelessWidget {
                                                 ? subCategory
                                                 : state.filterVal))
                                     : null;
-                            Navigator.of(context).pop();
+                            context.pop();
                           },
                         ),
                       )

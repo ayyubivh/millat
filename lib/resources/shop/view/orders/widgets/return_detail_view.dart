@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:millat/enums/enumertations.dart';
-import 'package:millat/resources/shop/bloc/logic/address_bloc/address_bloc.dart';
-import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
 import 'package:millat/resources/shop/view/orders/widgets/order_returned_succesfully.dart';
+import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/size_utility.dart';
 import '../../../../../components/buttons/main_button.dart';
 import '../../../../../utils/assets_paths.dart';
 import '../../../../../utils/color_manager.dart';
 import '../../../../../utils/string_constants.dart';
+import '../../../bloc/logic/shop_bloc/shop_products_bloc.dart';
 import 'orders_card_widget.dart';
 
 class OrderRetunDetailView extends StatelessWidget {
@@ -308,10 +309,9 @@ class OrderRetunDetailView extends StatelessWidget {
                   .shiprocketOrderId;
               context.read<ShopProductsBloc>().add(
                   ReturnOrder(context: context, shiprockeId: int.parse(id!)));
-              Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => const OrderReturnSuccessView(
-                    orderType: OrderType.returnOrder),
-              ));
+
+              context.pushNamed(MyAppRouteConstants.orderReturnSuccesRouteName,
+                  extra: {'orderType': OrderType.returnOrder});
             },
           ),
         ));

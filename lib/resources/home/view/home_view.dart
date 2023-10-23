@@ -42,14 +42,16 @@ class HomeView extends StatelessWidget {
   // List<String> getShuffledList() {
   @override
   Widget build(BuildContext context) {
+    // WidgetsBinding.instance.addPostFrameCallback((_) {
+    //   WidgetsBinding.instance.addPostFrameCallback((_) {
+    //     context.read<DatabaseBloc>().add(FetchAuthUser(context: context));
+    //   });
+    // });
     return Scaffold(
       extendBody: true,
       backgroundColor: ColorManager.whiteColor,
       body: MultiBlocProvider(
         providers: [
-          BlocProvider(
-              create: (context) =>
-                  QuranBloc()..add(FetchVersesByKey(verseKey: ['1:2']))),
           BlocProvider(
               create: (context) => LocationBloc()
                 ..add(LocationEvent.fetchCurrentLocation())
@@ -81,7 +83,10 @@ class HomeView extends StatelessWidget {
             create: (context) => DatabaseBloc()
               ..add(FetchAuthUser(context: context))
               ..add(FetchCoverImage()),
-          )
+          ),
+          BlocProvider(
+              create: (context) =>
+                  QuranBloc()..add(FetchVersesByKey(verseKey: ['1:2']))),
         ],
         child: BlocListener<DatabaseBloc, DatabaseState>(
           listener: (context, state) {

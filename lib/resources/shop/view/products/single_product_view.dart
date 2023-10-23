@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:millat/resources/authentication/bloc/logic/database_bloc/database_bloc.dart';
 import 'package:millat/utils/utils.dart';
 import 'package:go_router/go_router.dart';
 import 'package:millat/utils/loader.dart';
@@ -24,6 +25,14 @@ class SingleProductView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      context
+          .read<ShopProductsBloc>()
+          .add(ShopProductsEvent.fetchProductsById(id: id));
+      context
+          .read<ReviewBloc>()
+          .add(FetchRatingEvent(id: id, context: context));
+    });
     int selectedSize = 0;
     print(id);
 
@@ -296,7 +305,7 @@ class SingleProductView extends StatelessWidget {
     );
   }
 
-  Container reviews() {
+  Widget reviews() {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 10),
       child: Column(
@@ -333,7 +342,22 @@ class SingleProductView extends StatelessWidget {
                           Icons.star,
                           color: orange255,
                         ),
-                        onRatingUpdate: (value) {},
+                        onRatingUpdate: (value) {
+                          final name = context
+                                  .read<DatabaseBloc>()
+                                  .state
+                                  .authUserModel
+                                  ?.result
+                                  ?.user
+                                  ?.name ??
+                              "";
+                          context.read<ReviewBloc>().add(AddReview(
+                              context: context,
+                              productId: id,
+                              name: name,
+                              rating: value,
+                              comment: ""));
+                        },
                       ),
                       kWidth10,
                       Text(

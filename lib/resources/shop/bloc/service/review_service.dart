@@ -42,6 +42,37 @@ class ReviewServices extends HttpServices {
     }
   }
 
+  fetchTotalReviews(BuildContext context, String id) async {
+    final endPoint = 'review/total/product_id/$id';
+    final databaseState = context.read<DatabaseBloc>().state;
+    final token = databaseState.token;
+    final headers = {
+      'Content-Type': 'application/json; charset=utf-8',
+      'Authorization': 'Bearer $token',
+    };
+    final response = await get(endPoint: endPoint, headers: headers);
+    if (response.statusCode == 200) {
+      try {
+        if (response.statusCode == 200) {
+          print(response.body);
+          final Map<String, dynamic> data = json.decode(response.body);
+          final result = data[''];
+          print(result.result?.avgRating);
+          return result;
+        } else {
+          print('API request failed with status code: ${response.statusCode}');
+          throw Exception(
+              'API request failed with status code: ${response.statusCode}');
+        }
+      } catch (e) {
+        print('error on order API fetch: ${e.toString()}');
+        throw Exception('Failed to parse response');
+      }
+    } else {
+      throw Exception('Token not available');
+    }
+  }
+
   addReview({
     required BuildContext context,
     required String productId,

@@ -14,14 +14,9 @@ import 'package:millat/utils/size_utility.dart';
 import '../../home/view/namaz_timing/namaz_timing_view.dart';
 import '../../profile/views/user_profile_view.dart';
 
-class TabsView extends StatefulWidget {
+class TabsView extends StatelessWidget {
   const TabsView({Key? key}) : super(key: key);
 
-  @override
-  State<TabsView> createState() => _TabsViewState();
-}
-
-class _TabsViewState extends State<TabsView> {
   @override
   Widget build(BuildContext context) {
     List screens = [

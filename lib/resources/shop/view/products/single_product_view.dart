@@ -17,14 +17,6 @@ import 'package:millat/resources/shop/bloc/logic/cart_bloc/cart_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/review_bloc/bloc/review_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
 import 'package:millat/resources/shop/bloc/models/products/product_by_id_model.dart';
-import 'package:millat/resources/shop/view/cart/cart.dart';
-import 'package:millat/utils/color_manager.dart';
-import 'package:millat/utils/constants.dart';
-import 'package:millat/utils/loader.dart';
-import 'package:millat/utils/size_utility.dart';
-import 'package:millat/utils/utils.dart';
-
-import '../../../../components/common_widgets/shop_products_widget.dart';
 
 class SingleProductView extends StatelessWidget {
   final String id;
@@ -32,20 +24,6 @@ class SingleProductView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      context.read<ShopProductsBloc>().add(const FetchProducts());
-      BlocProvider.of<ShopProductsBloc>(context).add(FetchProductsById(id: id));
-      BlocProvider.of<ReviewBloc>(context)
-          .add(ReviewEvent.fetchRatingEvent(id: id, context: context));
-      context.read<ShopProductsBloc>().add(const ChangeShopBannerIndex(0));
-    });
-    // final colorMap = {
-    //   'Pink': Colors.pink,
-    //   'Green': Colors.green,
-    //   'Grey': Colors.grey,
-    //   'Red': Colors.red,
-    //   'Black': ColorManager.blackColor,
-    // };
     int selectedSize = 0;
     print(id);
 
@@ -90,150 +68,167 @@ class SingleProductView extends StatelessWidget {
                     )
                   ],
                 ),
-                body: SingleChildScrollView(
-                  child: Padding(
-                    padding: const EdgeInsets.all(25),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        CarouselView(data: data),
-                        Text(
-                          data.title ?? "",
-                          style: const TextStyle(
-                            fontSize: 22,
-                            fontWeight: FontWeight.w600,
-                            height: 2,
+                body: MultiBlocProvider(
+                  providers: [
+                    BlocProvider(
+                      create: (context) => ShopProductsBloc()
+                        ..add(ShopProductsEvent.fetchProductsById(id: id))
+                        ..add(const ShopProductsEvent.fetchProducts()),
+                    ),
+                    BlocProvider(
+                      create: (context) => ReviewBloc()
+                        ..add(ReviewEvent.fetchRatingEvent(
+                            id: id, context: context)),
+                    )
+                  ],
+                  child: SingleChildScrollView(
+                    child: Padding(
+                      padding: const EdgeInsets.all(25),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          CarouselView(data: data),
+                          Text(
+                            data.title ?? "",
+                            style: const TextStyle(
+                              fontSize: 22,
+                              fontWeight: FontWeight.w600,
+                              height: 2,
+                            ),
                           ),
-                        ),
-                        Text('₹${data.regularPrice}',
-                            style: const TextStyle(
-                                color: black60,
-                                fontSize: 17,
-                                decoration: TextDecoration.lineThrough,
-                                height: 1.5)),
-                        Text(data.brand?.name ?? 'Millat',
-                            style: const TextStyle(
-                                color: black60, fontSize: 17, height: 1.5)),
-                        Text('${data.salePrice} ₹',
+                          Text('₹${data.regularPrice}',
+                              style: const TextStyle(
+                                  color: black60,
+                                  fontSize: 17,
+                                  decoration: TextDecoration.lineThrough,
+                                  height: 1.5)),
+                          Text(data.brand?.name ?? 'Millat',
+                              style: const TextStyle(
+                                  color: black60, fontSize: 17, height: 1.5)),
+                          Text('${data.salePrice} ₹',
+                              style: TextStyle(
+                                  color: ColorManager.greenColor1,
+                                  fontSize: 22,
+                                  height: 1.5)),
+                          kHeight10,
+                          reviews(),
+                          selectOptions(context, data, selectedColor,
+                              selectedSize, quantity, divider),
+                          Text(
+                            'Product Description',
                             style: TextStyle(
-                                color: ColorManager.greenColor1,
-                                fontSize: 22,
-                                height: 1.5)),
-                        kHeight10,
-                        reviews(),
-                        selectOptions(context, data, selectedColor,
-                            selectedSize, quantity, divider),
-                        Text(
-                          'Product Description',
-                          style: TextStyle(
-                              fontWeight: FontWeight.w600,
-                              fontSize: 18,
-                              color: ColorManager.blackColor),
-                        ),
-                        kHeight20,
-                        Text(
-                          data.description ?? "",
-                          style: TextStyle(
-                              fontSize: 16, color: ColorManager.textGrey99),
-                        ),
-                        kHeight20,
-                        Text(
-                          'Made of: ${data.madeFrom ?? ""}',
-                          style: TextStyle(
-                              fontWeight: FontWeight.w600,
-                              fontSize: 17,
-                              color: ColorManager.blackColor),
-                        ),
-                        kHeight20,
-                        Text(
-                          'Care: ${data.productCareInfo ?? ""}',
-                          style: TextStyle(
-                              fontWeight: FontWeight.w600,
-                              fontSize: 17,
-                              color: ColorManager.blackColor),
-                        ),
-                        kHeight20,
-                        const Text(
-                          'Colors',
-                          style: TextStyle(
-                              fontSize: 18, fontWeight: FontWeight.w700),
-                        ),
-                        kHeight10,
-                        SizedBox(
-                          height: 30,
-                          child: Padding(
-                              padding: const EdgeInsets.only(right: 20),
-                              child: CircleAvatar(
-                                radius: 15,
-                                backgroundColor:
-                                    Utilities.getColorFromApiString(
-                                        data.color ?? ""),
-                              )),
-                        ),
-                        kHeight20,
-                        Text(
-                          data.brand?.name ?? "",
-                          style: TextStyle(
-                              fontSize: 16, color: ColorManager.textGrey99),
-                        ),
-                        kHeight16,
-                        divider,
-                        kHeight10,
-                        Text(
-                          'Recently Added',
-                          style: TextStyle(
-                              fontWeight: FontWeight.w600,
-                              fontSize: 18,
-                              color: ColorManager.blackColor),
-                        ),
-                        kHeight10,
-                        BlocBuilder<ShopProductsBloc, ShopProductsState>(
-                          builder: (context, state) {
-                            if (state.productModel?.result?.products == null) {
-                              return const SizedBox();
-                            }
-                            return SizedBox(
-                              height: 310,
-                              child: ListView.builder(
-                                itemCount: 10,
-                                scrollDirection: Axis.horizontal,
-                                itemBuilder: (context, index) {
-                                  final data = state
-                                      .productModel?.result!.products![index];
-                                  return GestureDetector(
-                                      onTap: () {
-                                        context.pushNamed(
-                                            MyAppRouteConstants
-                                                .singleProductRouteName,
-                                            pathParameters: {
-                                              "id": data.id.toString()
-                                            });
-                                      },
-                                      child: Padding(
-                                        padding:
-                                            const EdgeInsets.only(right: 15),
-                                        child: ShopProductWidget(
-                                            color: data?.color ?? "",
-                                            size: data?.size?[0].size ?? "",
-                                            brandId: data?.brand!.id,
-                                            isWishlisted: state.isWishListed,
-                                            brand: data!.brand!.name.toString(),
-                                            productId: data.id,
-                                            image: data.images?[0],
-                                            title: data.title,
-                                            actualPrice:
-                                                data.regularPrice?.toInt() ?? 0,
-                                            discount: data.discount!.toInt(),
-                                            discountPrice:
-                                                data.salePrice?.toInt() ?? 0),
-                                      ));
-                                },
-                              ),
-                            );
-                          },
-                        ),
-                        kHeight10,
-                      ],
+                                fontWeight: FontWeight.w600,
+                                fontSize: 18,
+                                color: ColorManager.blackColor),
+                          ),
+                          kHeight20,
+                          Text(
+                            data.description ?? "",
+                            style: TextStyle(
+                                fontSize: 16, color: ColorManager.textGrey99),
+                          ),
+                          kHeight20,
+                          Text(
+                            'Made of: ${data.madeFrom ?? ""}',
+                            style: TextStyle(
+                                fontWeight: FontWeight.w600,
+                                fontSize: 17,
+                                color: ColorManager.blackColor),
+                          ),
+                          kHeight20,
+                          Text(
+                            'Care: ${data.productCareInfo ?? ""}',
+                            style: TextStyle(
+                                fontWeight: FontWeight.w600,
+                                fontSize: 17,
+                                color: ColorManager.blackColor),
+                          ),
+                          kHeight20,
+                          const Text(
+                            'Colors',
+                            style: TextStyle(
+                                fontSize: 18, fontWeight: FontWeight.w700),
+                          ),
+                          kHeight10,
+                          SizedBox(
+                            height: 30,
+                            child: Padding(
+                                padding: const EdgeInsets.only(right: 20),
+                                child: CircleAvatar(
+                                  radius: 15,
+                                  backgroundColor:
+                                      Utilities.getColorFromApiString(
+                                          data.color ?? ""),
+                                )),
+                          ),
+                          kHeight20,
+                          Text(
+                            data.brand?.name ?? "",
+                            style: TextStyle(
+                                fontSize: 16, color: ColorManager.textGrey99),
+                          ),
+                          kHeight16,
+                          divider,
+                          kHeight10,
+                          Text(
+                            'Recently Added',
+                            style: TextStyle(
+                                fontWeight: FontWeight.w600,
+                                fontSize: 18,
+                                color: ColorManager.blackColor),
+                          ),
+                          kHeight10,
+                          BlocBuilder<ShopProductsBloc, ShopProductsState>(
+                            builder: (context, state) {
+                              if (state.productModel?.result?.products ==
+                                  null) {
+                                return const SizedBox();
+                              }
+                              return SizedBox(
+                                height: 310,
+                                child: ListView.builder(
+                                  itemCount: 10,
+                                  scrollDirection: Axis.horizontal,
+                                  itemBuilder: (context, index) {
+                                    final data = state
+                                        .productModel?.result!.products![index];
+                                    return GestureDetector(
+                                        onTap: () {
+                                          context.pushNamed(
+                                              MyAppRouteConstants
+                                                  .singleProductRouteName,
+                                              pathParameters: {
+                                                "id": data.id.toString()
+                                              });
+                                        },
+                                        child: Padding(
+                                          padding:
+                                              const EdgeInsets.only(right: 15),
+                                          child: ShopProductWidget(
+                                              color: data?.color ?? "",
+                                              size: data?.size?[0].size ?? "",
+                                              brandId: data?.brand!.id,
+                                              isWishlisted: state.isWishListed,
+                                              brand:
+                                                  data!.brand!.name.toString(),
+                                              productId: data.id,
+                                              image: data.images?[0],
+                                              title: data.title,
+                                              actualPrice:
+                                                  data.regularPrice?.toInt() ??
+                                                      0,
+                                              discount: data.discount!.toInt(),
+                                              discountPrice:
+                                                  data.salePrice?.toInt() ?? 0),
+                                        ));
+                                  },
+                                ),
+                              );
+                            },
+                          ),
+                          kHeight10,
+                        ],
+                      ),
                     ),
                   ),
                 ),
@@ -283,7 +278,7 @@ class SingleProductView extends StatelessWidget {
                               height: 21,
                               color: ColorManager.primary,
                             ),
-                            kWidht10,
+                            kWidth10,
                             Text(
                               "Add to cart",
                               style: TextStyle(
@@ -340,7 +335,7 @@ class SingleProductView extends StatelessWidget {
                         ),
                         onRatingUpdate: (value) {},
                       ),
-                      kWidht10,
+                      kWidth10,
                       Text(
                         '${data?.avgRating ?? 0}/5',
                         style: TextStyle(
@@ -348,7 +343,7 @@ class SingleProductView extends StatelessWidget {
                             fontWeight: FontWeight.w700,
                             fontSize: 15),
                       ),
-                      kWidht10,
+                      kWidth10,
                       Text(
                         '(${data?.data?.count ?? 0} reviews)',
                         style: TextStyle(

@@ -101,16 +101,14 @@ class ShopProductWidget extends StatelessWidget {
             ],
           ),
           kHeight10,
-          FittedBox(
-            child: Text(
-              brand.toString(),
-              style: TextStyle(
-                color: ColorManager.grey83,
-                fontSize: 13,
-                fontWeight: FontWeight.w600,
-              ),
-              maxLines: 1,
+          Text(
+            brand.toString(),
+            style: TextStyle(
+              color: ColorManager.grey83,
+              fontSize: 13,
+              fontWeight: FontWeight.w600,
             ),
+            maxLines: 1,
           ),
           kHeight10,
           Row(

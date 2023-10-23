@@ -19,7 +19,6 @@ import 'package:millat/resources/shop/bloc/models/wishlist/wishllist_models.dart
 import 'package:millat/services/http_services.dart';
 import 'package:millat/utils/string_constants.dart';
 import '../../../authentication/bloc/logic/database_bloc/database_bloc.dart';
-
 import '../models/articles/article_category/article_categories_model.dart';
 import '../models/home_sub_category_card/home_sub_category_card_model.dart';
 import '../models/home_sub_category_card/home_sub_category_healthy_diet.dart';
@@ -173,7 +172,7 @@ class ShopService extends HttpServices {
       try {
         final Map<String, dynamic> data = json.decode(response.body);
         final result = BannersModel.fromJson(data);
-
+        print('result');
         return result;
       } catch (e) {
         print('error on shopBanner API fetch: ${e.toString()}');

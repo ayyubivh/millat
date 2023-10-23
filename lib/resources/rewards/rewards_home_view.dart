@@ -391,7 +391,7 @@ class RewardsHomeView extends StatelessWidget {
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                kWidht10,
+                kWidth10,
                 Padding(
                   padding: const EdgeInsets.only(top: 14.0),
                   child: Column(
@@ -429,7 +429,7 @@ class RewardsHomeView extends StatelessWidget {
                   height: 123,
                   fit: BoxFit.fill,
                 ),
-                kWidht10,
+                kWidth10,
                 Padding(
                   padding: const EdgeInsets.only(top: 20),
                   child: Column(

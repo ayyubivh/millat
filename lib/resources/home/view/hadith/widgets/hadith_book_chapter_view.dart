@@ -43,7 +43,7 @@ class HadithBookChapterView extends StatelessWidget {
         ),
         actions: [
           const ImageIcon(AssetImage(AppAssetsStrings.linkIcon)),
-          kWidht10,
+          kWidth10,
           GestureDetector(
               onTap: () {},
               child:

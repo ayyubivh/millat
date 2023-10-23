@@ -89,7 +89,7 @@ class TasbihViewState extends State<TasbihView>
               },
               icon: const Icon(Icons.autorenew),
             ),
-            kWidht10,
+            kWidth10,
             BlocBuilder<TasbihBloc, TasbihState>(
                 builder: (context, state) => state.audioMute == false
                     ? GestureDetector(

@@ -131,7 +131,7 @@ class VersesCardWidget extends StatelessWidget {
                     color: ColorManager.primary,
                   ),
                 ),
-                kWidht10,
+                kWidth10,
                 BlocBuilder<QuranBloc, QuranState>(
                   builder: (context, state) => state.audioPlaying && isSelected
                       ? GestureDetector(
@@ -149,7 +149,7 @@ class VersesCardWidget extends StatelessWidget {
                           ),
                         ),
                 ),
-                kWidht10,
+                kWidth10,
                 BlocBuilder<BookmarkBloc, BookmarkState>(
                   builder: (context, state) => GestureDetector(
                     onTap: bookMarkOntap,

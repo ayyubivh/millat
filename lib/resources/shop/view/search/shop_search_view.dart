@@ -28,11 +28,6 @@ class _ShopSearchViewState extends State<ShopSearchView> {
 
   RangeValues priceRange = const RangeValues(20, 80);
 
-  @override
-  void initState() {
-    super.initState();
-  }
-
   TextEditingController searchController = TextEditingController();
   @override
   Widget build(BuildContext context) {
@@ -328,7 +323,7 @@ class _ShopSearchViewState extends State<ShopSearchView> {
                               });
                             },
                           ),
-                          kWidht10,
+                          kWidth10,
                           FilterChip(
                             label: const Text(Appstrings.women),
                             selected: selectedFilter == Appstrings.women,
@@ -339,7 +334,7 @@ class _ShopSearchViewState extends State<ShopSearchView> {
                               });
                             },
                           ),
-                          kWidht10,
+                          kWidth10,
                           FilterChip(
                             label: const Text(Appstrings.men),
                             selected: selectedFilter == Appstrings.men,
@@ -350,7 +345,7 @@ class _ShopSearchViewState extends State<ShopSearchView> {
                               });
                             },
                           ),
-                          kWidht10,
+                          kWidth10,
                           FilterChip(
                             label: const Text(Appstrings.boys),
                             selected: selectedFilter == Appstrings.boys,
@@ -361,7 +356,7 @@ class _ShopSearchViewState extends State<ShopSearchView> {
                               });
                             },
                           ),
-                          kWidht10,
+                          kWidth10,
                           FilterChip(
                             label: const Text(Appstrings.girls),
                             selected: selectedFilter == Appstrings.girls,

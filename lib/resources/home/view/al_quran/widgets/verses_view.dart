@@ -1386,7 +1386,7 @@ class _VersesViewState extends State<VersesView> {
                                             ? ColorManager.primary
                                             : ColorManager.blackColor),
                                   ),
-                                  kWidht10,
+                                  kWidth10,
                                   Text(
                                     chapters[index].nameSimple,
                                     style: TextStyle(

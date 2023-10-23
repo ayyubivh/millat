@@ -384,8 +384,7 @@ mixin _$ShopProductCategory {
   String? get id => throw _privateConstructorUsedError;
   String? get title => throw _privateConstructorUsedError;
   String? get slug => throw _privateConstructorUsedError;
-  List<Product>? get products =>
-      throw _privateConstructorUsedError; // Update to use 'Product' instead of 'Products'
+  List<Product>? get products => throw _privateConstructorUsedError;
   String? get createdAt => throw _privateConstructorUsedError;
   String? get updatedAt => throw _privateConstructorUsedError;
 
@@ -555,7 +554,6 @@ class _$_ShopProductCategory implements _ShopProductCategory {
     return EqualUnmodifiableListView(value);
   }
 
-// Update to use 'Product' instead of 'Products'
   @override
   final String? createdAt;
   @override
@@ -622,7 +620,7 @@ abstract class _ShopProductCategory implements ShopProductCategory {
   String? get slug;
   @override
   List<Product>? get products;
-  @override // Update to use 'Product' instead of 'Products'
+  @override
   String? get createdAt;
   @override
   String? get updatedAt;

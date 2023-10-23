@@ -37,7 +37,7 @@ class BookmarkNewCollectionWidget extends StatelessWidget {
             width: 23,
           ),
         ),
-        kWidht10,
+        kWidth10,
         InkWell(
           onTap: () {
             context.goNamed(MyAppRouteConstants.addNewQuranBookmarkRouteName,

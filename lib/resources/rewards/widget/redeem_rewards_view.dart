@@ -50,9 +50,9 @@ class RewardsRedeemView extends StatelessWidget {
                     ),
                   ),
                 ),
-                kWidht10,
+                kWidth10,
                 _filterWidget(text: Appstrings.shop),
-                kWidht10,
+                kWidth10,
                 _filterWidget(text: Appstrings.hajjAndUmmrah),
               ],
             ),
@@ -323,7 +323,7 @@ class RewardsRedeemView extends StatelessWidget {
                     Row(
                       children: [
                         _roundedImgWidget(),
-                        kWidht10,
+                        kWidth10,
                         DottedLine(
                           direction: Axis.vertical,
                           alignment: WrapAlignment.center,
@@ -335,7 +335,7 @@ class RewardsRedeemView extends StatelessWidget {
                           dashGapLength: 4.0,
                           dashGapRadius: 0.0,
                         ),
-                        kWidht10,
+                        kWidth10,
                         SizedBox(
                           width: 160,
                           height: 100,

@@ -87,7 +87,7 @@ class MyAppRouter {
                 name: MyAppRouteConstants.namazTimingRouteName,
                 path: MyAppRouteConstants.namazTimingRouteName,
                 pageBuilder: (context, state) {
-                  return const MaterialPage(child: NamazTimingView());
+                  return MaterialPage(child: NamazTimingView());
                 },
               ),
               GoRoute(

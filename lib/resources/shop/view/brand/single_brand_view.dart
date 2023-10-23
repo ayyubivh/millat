@@ -6,8 +6,7 @@ import 'package:millat/components/common_widgets/shop_products_widget.dart';
 import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
 import 'package:millat/resources/shop/bloc/models/shop_by_brand/top_brands/brand_items_by_id_model.dart';
-import 'package:millat/resources/shop/view/categories/categories_product_view.dart';
-import 'package:millat/resources/shop/view/products/single_product_view.dart';
+
 import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';

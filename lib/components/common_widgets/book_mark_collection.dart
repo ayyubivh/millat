@@ -48,7 +48,7 @@ class BookMarkCollectionContainer extends StatelessWidget {
               )
             ],
           ),
-          kWidht10,
+          kWidth10,
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

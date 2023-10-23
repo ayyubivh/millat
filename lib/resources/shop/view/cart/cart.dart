@@ -5,9 +5,6 @@ import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/shop/bloc/logic/address_bloc/address_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/cart_bloc/cart_bloc.dart';
 import 'package:millat/resources/shop/view/cart/widgets/cart_product_widget.dart';
-import 'package:millat/resources/shop/view/checkout/checkout_details.dart';
-import 'package:millat/resources/shop/view/checkout/checkout_view.dart';
-import 'package:millat/resources/shop/view/tabs/shop_tabs_vilew.dart';
 import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/constants.dart';
@@ -39,42 +36,53 @@ class CartView extends StatelessWidget {
         elevation: 0,
         backgroundColor: ColorManager.whiteColor,
       ),
-      body: BlocBuilder<CartBloc, CartState>(
-        builder: (context, state) {
-          if (state.cartLoading) {
-            return const Loader();
-          } else if (state
-                  .cartModel?.result?.cartProducts?.cartItems?.isEmpty ??
-              true) {
-            return _buildEmptyCartWidget(context);
-          }
-          return ListView.builder(
-            padding: const EdgeInsets.only(bottom: 200, top: 20),
-            itemCount: state.cartModel?.result?.cartProducts?.cartItems?.length,
-            itemBuilder: (context, index) {
-              final data =
-                  state.cartModel?.result?.cartProducts?.cartItems![index];
+      body: MultiBlocProvider(
+        providers: [
+          BlocProvider(
+              create: (context) => CartBloc()..add(FetchCartEvent(context))),
+          BlocProvider(
+            create: (context) =>
+                AddressBloc()..add(FetchAddressEvent(context: context)),
+          )
+        ],
+        child: BlocBuilder<CartBloc, CartState>(
+          builder: (context, state) {
+            if (state.cartLoading) {
+              return const Loader();
+            } else if (state
+                    .cartModel?.result?.cartProducts?.cartItems?.isEmpty ??
+                true) {
+              return _buildEmptyCartWidget(context);
+            }
+            return ListView.builder(
+              padding: const EdgeInsets.only(bottom: 200, top: 20),
+              itemCount:
+                  state.cartModel?.result?.cartProducts?.cartItems?.length,
+              itemBuilder: (context, index) {
+                final data =
+                    state.cartModel?.result?.cartProducts?.cartItems![index];
 
-              if (data == null) {
-                return const SizedBox();
-              }
-              return CartProductWidget(
-                showQuantity: true,
-                id: data.productId?.id,
-                title: data.productId?.title,
-                subTitle: data.productId?.description,
-                size: data.size ?? "",
-                image: data.productId?.images?[0],
-                price: data.productId?.salePrice?.toInt() ?? 0,
-                actualPrice: data.productId?.regularPrice.toString(),
-                jsonColor: data.color,
-                colorName: data.color,
-                quantity: data.quantity!.toInt(),
-                productId: data.productId?.id,
-              );
-            },
-          );
-        },
+                if (data == null) {
+                  return const SizedBox();
+                }
+                return CartProductWidget(
+                  showQuantity: true,
+                  id: data.productId?.id,
+                  title: data.productId?.title,
+                  subTitle: data.productId?.description,
+                  size: data.size ?? "",
+                  image: data.productId?.images?[0],
+                  price: data.productId?.salePrice?.toInt() ?? 0,
+                  actualPrice: data.productId?.regularPrice.toString(),
+                  jsonColor: data.color,
+                  colorName: data.color,
+                  quantity: data.quantity!.toInt(),
+                  productId: data.productId?.id,
+                );
+              },
+            );
+          },
+        ),
       ),
       bottomSheet: BlocBuilder<CartBloc, CartState>(
         builder: (context, state) {

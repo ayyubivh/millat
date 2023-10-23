@@ -168,7 +168,7 @@ class InsideDuaView extends StatelessWidget {
                       AssetImage("assets/icons/dua_play.png"),
                       size: 19,
                     ),
-                    kWidht10,
+                    kWidth10,
                     GestureDetector(
                       onTap: () {
                         context.read<TasbihBloc>().add(SelectDhikerEvent(
@@ -182,7 +182,7 @@ class InsideDuaView extends StatelessWidget {
                         size: 19,
                       ),
                     ),
-                    kWidht10,
+                    kWidth10,
                     GestureDetector(
                       onTap: () {
                         showModalBottomSheet(
@@ -241,7 +241,7 @@ class InsideDuaView extends StatelessWidget {
                     //     AssetImage("assets/icons/send.png"),
                     //   ),
                     // ),
-                    kWidht10,
+                    kWidth10,
                     InkWell(
                       onTap: onTapCopyText,
                       child: const ImageIcon(
@@ -249,7 +249,7 @@ class InsideDuaView extends StatelessWidget {
                         size: 19,
                       ),
                     ),
-                    kWidht10,
+                    kWidth10,
                     BlocBuilder<DuaBloc, DuaState>(
                       builder: (context, state) => state.bookmarkItems!
                               .contains(duaId)

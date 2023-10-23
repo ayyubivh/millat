@@ -11,7 +11,6 @@ import '../../../../../enums/enumertations.dart';
 import '../../../../../routes/app_router_constants.dart';
 import '../../../../../utils/color_manager.dart';
 import '../../../bloc/models/book_mark_hive_model/book_mark_hive_model.dart';
-import 'addnew_collection_view.dart';
 
 class BookmarkCollectionView extends StatelessWidget {
   final BookMarktCollectionModel passvalue;
@@ -19,10 +18,6 @@ class BookmarkCollectionView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      BlocProvider.of<QuranBloc>(context)
-          .add(FetchVersesByKey(verseKey: passvalue.verseKey));
-    });
     return Scaffold(
       backgroundColor: ColorManager.whiteColor,
       appBar: AppBar(
@@ -39,98 +34,102 @@ class BookmarkCollectionView extends StatelessWidget {
           ),
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 30.0),
-        child: Column(
-          children: [
-            kHeight25,
-            Align(
-              alignment: Alignment.center,
-              child: Image.asset(
-                passvalue.image,
-                height: 150,
-                width: 155,
-                fit: BoxFit.fill,
-              ),
-            ),
-            kHeight25,
-            Row(
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      passvalue.name,
-                      style: const TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    kHeight10,
-                    Text(
-                      passvalue.name,
-                      style: const TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    )
-                  ],
+      body: BlocProvider(
+        create: (context) =>
+            QuranBloc()..add(FetchVersesByKey(verseKey: passvalue.verseKey)),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 30.0),
+          child: Column(
+            children: [
+              kHeight25,
+              Align(
+                alignment: Alignment.center,
+                child: Image.asset(
+                  passvalue.image,
+                  height: 150,
+                  width: 155,
+                  fit: BoxFit.fill,
                 ),
-                const Spacer(),
-                Row(
-                  children: [
-                    const ImageIcon(AssetImage("assets/icons/send.png")),
-                    kWidht10,
-                    InkWell(
-                        onTap: () {
-                          showModalBottomSheet(
-                            context: context,
-                            backgroundColor: Colors.transparent,
-                            builder: (context) => StatefulBuilder(
-                              builder: (context, setState) {
-                                return _buildPopUp(context);
-                              },
-                            ),
-                          );
-                        },
-                        child: const Icon(Icons.more_horiz))
-                  ],
-                )
-              ],
-            ),
-            kHeight20,
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                _editButton(context),
-                _playButton(context),
-              ],
-            ),
-            kHeight30,
-            Expanded(
-              child: BlocBuilder<QuranBloc, QuranState>(
-                builder: (context, state) {
-                  if (state.versesByKeyModel == null) {
-                    return const Loader();
-                  }
-                  final data = state.versesByKeyModel;
-
-                  return ListView.builder(
-                    itemCount: data!.length,
-                    itemBuilder: (context, index) {
-                      return Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: _buildSurahWidget(
-                            context: context,
-                            name: data[index].verses[0].textIndopak,
-                            versCount: data[index].verses[0].verseKey),
-                      );
-                    },
-                  );
-                },
               ),
-            )
-          ],
+              kHeight25,
+              Row(
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        passvalue.name,
+                        style: const TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      kHeight10,
+                      Text(
+                        passvalue.name,
+                        style: const TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      )
+                    ],
+                  ),
+                  const Spacer(),
+                  Row(
+                    children: [
+                      const ImageIcon(AssetImage("assets/icons/send.png")),
+                      kWidth10,
+                      InkWell(
+                          onTap: () {
+                            showModalBottomSheet(
+                              context: context,
+                              backgroundColor: Colors.transparent,
+                              builder: (context) => StatefulBuilder(
+                                builder: (context, setState) {
+                                  return _buildPopUp(context);
+                                },
+                              ),
+                            );
+                          },
+                          child: const Icon(Icons.more_horiz))
+                    ],
+                  )
+                ],
+              ),
+              kHeight20,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  _editButton(context),
+                  _playButton(context),
+                ],
+              ),
+              kHeight30,
+              Expanded(
+                child: BlocBuilder<QuranBloc, QuranState>(
+                  builder: (context, state) {
+                    if (state.versesByKeyModel == null) {
+                      return const Loader();
+                    }
+                    final data = state.versesByKeyModel;
+
+                    return ListView.builder(
+                      itemCount: data!.length,
+                      itemBuilder: (context, index) {
+                        return Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: _buildSurahWidget(
+                              context: context,
+                              name: data[index].verses[0].textIndopak,
+                              versCount: data[index].verses[0].verseKey),
+                        );
+                      },
+                    );
+                  },
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );

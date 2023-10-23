@@ -3,10 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/home/bloc/logic/bookmark_bloc/bookmark_bloc.dart';
-import 'package:millat/resources/home/view/al_quran/widgets/addnew_collection_view.dart';
-import 'package:millat/resources/home/view/al_quran/widgets/bookmark_collection_view.dart';
 import 'package:millat/resources/home/view/al_quran/widgets/new_collection_widget.dart';
-import 'package:millat/resources/home/view/al_quran/widgets/quran_fav_bookmark_collection_widget.dart';
 import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
@@ -17,9 +14,6 @@ class BookmarkView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      BlocProvider.of<BookmarkBloc>(context).add(const FetchCollectionItem());
-    });
     return Scaffold(
       appBar: AppBar(
         backgroundColor: ColorManager.whiteColor,
@@ -39,63 +33,66 @@ class BookmarkView extends StatelessWidget {
             const AssetImage("assets/icons/settings.png"),
             color: ColorManager.blackColor,
           ),
-          kWidht10,
+          kWidth10,
           ImageIcon(
             const AssetImage("assets/icons/search.png"),
             color: ColorManager.blackColor,
           ),
-          kWidht10,
+          kWidth10,
         ],
       ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 25),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            kHeight20,
-            const BookmarkNewCollectionWidget(),
-            kHeight20,
-            // BlocBuilder<BookmarkBloc, BookmarkState>(
-            //   builder: (context, state) =>
-            //       state.dbCollectionItems.map((e) => e.id == "1").isNotEmpty
-            //           ? const SizedBox.shrink()
-            //           : const QuranFavBookmarkCollectionWidget(
-            //               type: QuranFavbookMarkType.view,
-            //             ),
-            // ),
-            // kHeight20,
-            Expanded(
-              child: BlocBuilder<BookmarkBloc, BookmarkState>(
-                builder: (context, state) {
-                  if (state.dbCollectionItems.isEmpty) {
-                    return const SizedBox();
-                  }
-                  final value = state.dbCollectionItems;
-                  return ListView.builder(
-                    itemCount: value.length,
-                    itemBuilder: (context, index) {
-                      final data = value[index];
+      body: BlocProvider(
+        create: (context) => BookmarkBloc()..add(FetchCollectionItem()),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 25),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              kHeight20,
+              const BookmarkNewCollectionWidget(),
+              kHeight20,
+              // BlocBuilder<BookmarkBloc, BookmarkState>(
+              //   builder: (context, state) =>
+              //       state.dbCollectionItems.map((e) => e.id == "1").isNotEmpty
+              //           ? const SizedBox.shrink()
+              //           : const QuranFavBookmarkCollectionWidget(
+              //               type: QuranFavbookMarkType.view,
+              //             ),
+              // ),
+              // kHeight20,
+              Expanded(
+                child: BlocBuilder<BookmarkBloc, BookmarkState>(
+                  builder: (context, state) {
+                    if (state.dbCollectionItems.isEmpty) {
+                      return const SizedBox();
+                    }
+                    final value = state.dbCollectionItems;
+                    return ListView.builder(
+                      itemCount: value.length,
+                      itemBuilder: (context, index) {
+                        final data = value[index];
 
-                      return InkWell(
-                        onTap: () {
-                          context.goNamed(
-                              MyAppRouteConstants
-                                  .quranBookmarkCollectionRouteName,
-                              extra: {"passvalue": data});
-                        },
-                        child: buildCollectionContainer(
-                            passvalue: data,
-                            context: context,
-                            img: data.image,
-                            collectionName: data.name,
-                            userName: data.discription),
-                      );
-                    },
-                  );
-                },
+                        return InkWell(
+                          onTap: () {
+                            context.goNamed(
+                                MyAppRouteConstants
+                                    .quranBookmarkCollectionRouteName,
+                                extra: {"passvalue": data});
+                          },
+                          child: buildCollectionContainer(
+                              passvalue: data,
+                              context: context,
+                              img: data.image,
+                              collectionName: data.name,
+                              userName: data.discription),
+                        );
+                      },
+                    );
+                  },
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
@@ -121,7 +118,7 @@ Widget buildCollectionContainer({
               borderRadius: BorderRadius.circular(12),
               child: Image.asset(img),
             ),
-            kWidht10,
+            kWidth10,
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,

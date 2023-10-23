@@ -222,7 +222,7 @@ class _CheckoutDetailsState extends State<CheckoutDetails> {
                           });
                         },
                       ),
-                      kWidht10,
+                      kWidth10,
                       FilterChip(
                         label: const Text('Work'),
                         selected: selectedFilter == 'Work',
@@ -233,7 +233,7 @@ class _CheckoutDetailsState extends State<CheckoutDetails> {
                           });
                         },
                       ),
-                      kWidht10,
+                      kWidth10,
                       FilterChip(
                         label: const Text('Other'),
                         selected: selectedFilter == 'Other',
@@ -281,9 +281,7 @@ class _CheckoutDetailsState extends State<CheckoutDetails> {
                     .read<AddressBloc>()
                     .add(AddressEvent.fetchAddressEvent(context: context));
                 Future.delayed(const Duration(seconds: 2)).then((value) {
-                  Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => const CheckoutView(),
-                  ));
+                  context.pushNamed(MyAppRouteConstants.checkoutRouteName);
                 });
               } else if (widget.type == AddressNavType.editAddress &&
                   formkey.currentState!.validate()) {

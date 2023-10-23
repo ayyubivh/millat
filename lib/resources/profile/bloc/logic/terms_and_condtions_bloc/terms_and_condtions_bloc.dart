@@ -9,11 +9,11 @@ part 'terms_and_condtions_event.dart';
 part 'terms_and_condtions_state.dart';
 part 'terms_and_condtions_bloc.freezed.dart';
 
-class TermsAndCondtionsBloc
+class TermsAndConditionsBloc
     extends Bloc<TermsAndCondtionsEvent, TermsAndCondtionsState> {
   TermsAndconditionsServces termsAndconditionsServces =
       TermsAndconditionsServces();
-  TermsAndCondtionsBloc() : super(TermsAndCondtionsState.initial()) {
+  TermsAndConditionsBloc() : super(TermsAndCondtionsState.initial()) {
     on<FetchTermsAndConditionsEvent>(_fetchTermsAndConditionsEvent);
     on<PostHelpAndSupport>(_postHelpAndSupport);
   }

@@ -14,10 +14,6 @@ class NotificationView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      BlocProvider.of<HomeBloc>(context)
-          .add(FetchNotificationApi(context: context));
-    });
     return WillPopScope(
       onWillPop: () {
         final id =
@@ -41,81 +37,85 @@ class NotificationView extends StatelessWidget {
             ),
           ),
         ),
-        body: BlocBuilder<HomeBloc, HomeState>(
-          builder: (context, state) {
-            final data = state.notificationModel?.result?.data;
-            return ListView.builder(
-                itemCount: data?.length,
-                itemBuilder: (context, index) {
-                  final userId = context
-                      .read<DatabaseBloc>()
-                      .state
-                      .authUserModel
-                      ?.result
-                      ?.user
-                      ?.id;
+        body: BlocProvider(
+          create: (context) =>
+              HomeBloc()..add(FetchNotificationApi(context: context)),
+          child: BlocBuilder<HomeBloc, HomeState>(
+            builder: (context, state) {
+              final data = state.notificationModel?.result?.data;
+              return ListView.builder(
+                  itemCount: data?.length,
+                  itemBuilder: (context, index) {
+                    final userId = context
+                        .read<DatabaseBloc>()
+                        .state
+                        .authUserModel
+                        ?.result
+                        ?.user
+                        ?.id;
 
-                  final isRead = data?[index].isReadByUser?.contains(userId);
+                    final isRead = data?[index].isReadByUser?.contains(userId);
 
-                  return Column(
-                    children: [
-                      Container(
-                        color: isRead == true
-                            ? ColorManager.whiteColor
-                            : ColorManager.lightGreenD6,
-                        padding: const EdgeInsets.symmetric(
-                          vertical: 16,
-                          horizontal: 20,
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                isRead == false
-                                    ? CircleAvatar(
-                                        radius: 3,
-                                        backgroundColor: ColorManager.primary,
-                                      )
-                                    : const SizedBox(),
-                                kWidht10,
-                                SizedBox(
-                                  height: 40,
-                                  width: SizeUtility(context).width / 2,
-                                  child: Text(
-                                    data?[index].title ?? "",
-                                    style: const TextStyle(
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w600,
-                                      height: 1.2,
+                    return Column(
+                      children: [
+                        Container(
+                          color: isRead == true
+                              ? ColorManager.whiteColor
+                              : ColorManager.lightGreenD6,
+                          padding: const EdgeInsets.symmetric(
+                            vertical: 16,
+                            horizontal: 20,
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  isRead == false
+                                      ? CircleAvatar(
+                                          radius: 3,
+                                          backgroundColor: ColorManager.primary,
+                                        )
+                                      : const SizedBox(),
+                                  kWidth10,
+                                  SizedBox(
+                                    height: 40,
+                                    width: SizeUtility(context).width / 2,
+                                    child: Text(
+                                      data?[index].title ?? "",
+                                      style: const TextStyle(
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w600,
+                                        height: 1.2,
+                                      ),
                                     ),
                                   ),
-                                ),
-                                const Spacer(),
-                                Text(
-                                  Utilities.formatTimeAgo(
-                                      data?[index].sendAt ?? ""),
-                                  style: TextStyle(
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.w500,
-                                    color: ColorManager.black4F,
+                                  const Spacer(),
+                                  Text(
+                                    Utilities.formatTimeAgo(
+                                        data?[index].sendAt ?? ""),
+                                    style: TextStyle(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w500,
+                                      color: ColorManager.black4F,
+                                    ),
                                   ),
-                                ),
-                              ],
-                            ),
-                          ],
+                                ],
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
-                      Container(
-                        color: ColorManager.greyD1,
-                        height: 2,
-                        width: double.infinity,
-                      )
-                    ],
-                  );
-                });
-          },
+                        Container(
+                          color: ColorManager.greyD1,
+                          height: 2,
+                          width: double.infinity,
+                        )
+                      ],
+                    );
+                  });
+            },
+          ),
         ),
       ),
     );

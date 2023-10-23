@@ -32,20 +32,6 @@ class CategoriesProductView extends StatelessWidget {
   @override
   @override
   Widget build(BuildContext context) {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      print(
-          "category ${category}------subCategory ${subCategory} ----item ==== ${itemName}");
-      BlocProvider.of<ShopProductsBloc>(context).add(const FetchShopBanners());
-      BlocProvider.of<CategoryBloc>(context).add(const FetchSubcategories());
-      type == FilterType.specificCategory
-          ? BlocProvider.of<CategoryBloc>(context).add(FetchFilterProducts(
-              category: category, subCategory: subCategory, itemId: itemId))
-          : null;
-      type == FilterType.category
-          ? BlocProvider.of<CategoryBloc>(context).add(
-              FetchFilterProducts(category: category, subCategory: subCategory))
-          : null;
-    });
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.transparent,
@@ -80,117 +66,135 @@ class CategoriesProductView extends StatelessWidget {
             color: ColorManager.blackColor,
           ),
         ),
-        body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 30.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  filterWidget(context),
-                  sortByWidget(context),
-                ],
-              ),
-              kHeight10,
-              BlocBuilder<CategoryBloc, CategoryState>(
-                builder: (context, state) {
-                  return type == FilterType.category
-                      ? state.productLoading
-                          ? const ShimmersWidgetProduct()
-                          : Expanded(
-                              child: GridView.builder(
-                                gridDelegate:
-                                    const SliverGridDelegateWithFixedCrossAxisCount(
-                                  crossAxisCount: 2,
-                                  crossAxisSpacing: 20,
-                                  mainAxisSpacing: 20,
-                                  mainAxisExtent: 280,
-                                ),
-                                itemCount:
-                                    state.product?.result?.products?.length ??
-                                        10,
-                                itemBuilder: (context, index) {
-                                  final data =
-                                      state.product?.result?.products?[index];
-                                  return data == null
-                                      ? const ShimmersWidgetProduct()
-                                      : GestureDetector(
-                                          onTap: () {
-                                            // print(data.id);
+        body: MultiBlocProvider(
+          providers: [
+            BlocProvider(
+                create: (context) =>
+                    ShopProductsBloc()..add(const FetchShopBanners())),
+            BlocProvider(
+                create: (context) => CategoryBloc()
+                  ..add(type == FilterType.specificCategory
+                      ? FetchFilterProducts(
+                          category: category,
+                          subCategory: subCategory,
+                          itemId: itemId)
+                      : FetchFilterProducts(
+                          category: category, subCategory: subCategory))),
+          ],
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 30.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    filterWidget(context),
+                    sortByWidget(context),
+                  ],
+                ),
+                kHeight10,
+                BlocBuilder<CategoryBloc, CategoryState>(
+                  builder: (context, state) {
+                    return type == FilterType.category
+                        ? state.productLoading
+                            ? const ShimmersWidgetProduct()
+                            : Expanded(
+                                child: GridView.builder(
+                                  gridDelegate:
+                                      const SliverGridDelegateWithFixedCrossAxisCount(
+                                    crossAxisCount: 2,
+                                    crossAxisSpacing: 20,
+                                    mainAxisSpacing: 20,
+                                    mainAxisExtent: 280,
+                                  ),
+                                  itemCount:
+                                      state.product?.result?.products?.length ??
+                                          10,
+                                  itemBuilder: (context, index) {
+                                    final data =
+                                        state.product?.result?.products?[index];
+                                    return data == null
+                                        ? const ShimmersWidgetProduct()
+                                        : GestureDetector(
+                                            onTap: () {
+                                              // print(data.id);
 
-                                            context.pushNamed(
-                                                MyAppRouteConstants
-                                                    .singleProductRouteName,
-                                                pathParameters: {
-                                                  "id": data.id ?? ""
-                                                });
-                                          },
-                                          child: ShopProductWidget(
-                                            color: data.color ?? "",
-                                            size: data.size?[0].size ?? "",
-                                            brandId: data.brand!.id,
-                                            isWishlisted: false,
-                                            brand: data.brand!.name.toString(),
-                                            productId: data.id,
-                                            title: data.title,
-                                            image: data.images![0],
-                                            discountPrice:
-                                                data.salePrice!.toInt(),
-                                            actualPrice:
-                                                data.regularPrice!.toInt(),
-                                            discount: data.discount!.toInt(),
-                                          ),
-                                        );
-                                },
+                                              context.pushNamed(
+                                                  MyAppRouteConstants
+                                                      .singleProductRouteName,
+                                                  pathParameters: {
+                                                    "id": data.id ?? ""
+                                                  });
+                                            },
+                                            child: ShopProductWidget(
+                                              color: data.color ?? "",
+                                              size: data.size?[0].size ?? "",
+                                              brandId: data.brand!.id,
+                                              isWishlisted: false,
+                                              brand:
+                                                  data.brand!.name.toString(),
+                                              productId: data.id,
+                                              title: data.title,
+                                              image: data.images![0],
+                                              discountPrice:
+                                                  data.salePrice!.toInt(),
+                                              actualPrice:
+                                                  data.regularPrice!.toInt(),
+                                              discount: data.discount!.toInt(),
+                                            ),
+                                          );
+                                  },
+                                ),
+                              )
+                        : Expanded(
+                            child: GridView.builder(
+                              gridDelegate:
+                                  const SliverGridDelegateWithFixedCrossAxisCount(
+                                crossAxisCount: 2,
+                                crossAxisSpacing: 20,
+                                mainAxisSpacing: 20,
+                                mainAxisExtent: 280,
                               ),
-                            )
-                      : Expanded(
-                          child: GridView.builder(
-                            gridDelegate:
-                                const SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: 2,
-                              crossAxisSpacing: 20,
-                              mainAxisSpacing: 20,
-                              mainAxisExtent: 280,
+                              itemCount:
+                                  state.product?.result?.products?.length ?? 10,
+                              itemBuilder: (context, index) {
+                                final datas =
+                                    state.product?.result?.products?[index];
+                                return datas == null
+                                    ? const ShimmersWidgetProduct()
+                                    : GestureDetector(
+                                        onTap: () {
+                                          context.pushNamed(
+                                              MyAppRouteConstants
+                                                  .singleProductRouteName,
+                                              pathParameters: {
+                                                "id": datas.id ?? ""
+                                              });
+                                        },
+                                        child: ShopProductWidget(
+                                          color: datas.color ?? "",
+                                          size: datas.size?[0].size ?? "",
+                                          brandId: datas.brand!.id,
+                                          isWishlisted: false,
+                                          brand: datas.brand!.name.toString(),
+                                          productId: datas.id,
+                                          title: datas.title,
+                                          image: datas.images![0],
+                                          discountPrice:
+                                              datas.salePrice!.toInt(),
+                                          actualPrice:
+                                              datas.regularPrice!.toInt(),
+                                          discount: datas.discount!.toInt(),
+                                        ),
+                                      );
+                              },
                             ),
-                            itemCount:
-                                state.product?.result?.products?.length ?? 10,
-                            itemBuilder: (context, index) {
-                              final datas =
-                                  state.product?.result?.products?[index];
-                              return datas == null
-                                  ? const ShimmersWidgetProduct()
-                                  : GestureDetector(
-                                      onTap: () {
-                                        context.pushNamed(
-                                            MyAppRouteConstants
-                                                .singleProductRouteName,
-                                            pathParameters: {
-                                              "id": datas.id ?? ""
-                                            });
-                                      },
-                                      child: ShopProductWidget(
-                                        color: datas.color ?? "",
-                                        size: datas.size?[0].size ?? "",
-                                        brandId: datas.brand!.id,
-                                        isWishlisted: false,
-                                        brand: datas.brand!.name.toString(),
-                                        productId: datas.id,
-                                        title: datas.title,
-                                        image: datas.images![0],
-                                        discountPrice: datas.salePrice!.toInt(),
-                                        actualPrice:
-                                            datas.regularPrice!.toInt(),
-                                        discount: datas.discount!.toInt(),
-                                      ),
-                                    );
-                            },
-                          ),
-                        );
-                },
-              ),
-            ],
+                          );
+                  },
+                ),
+              ],
+            ),
           ),
         ));
   }

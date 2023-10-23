@@ -23,130 +23,135 @@ class PaymentSuccessful extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final total = subTotal + delivery;
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      BlocProvider.of<ShopProductsBloc>(context).add(FetchOrdersById(
-          context,
-          int.parse(
-              context.read<ShopProductsBloc>().state.orderId.toString())));
-    });
+
     return Scaffold(
         // appBar: AppBar(
         //     elevation: 0, backgroundColor: ColorManager.whiteColor),
-        body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 30),
-          child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Image.asset(
-                  AppAssetsStrings.paymentSuccess,
-                  // width: SizeUtility(context).width * 80 / 100,
-                ),
-                kHeight25,
-                Text(
-                  Appstrings.thanksForOrder,
-                  style: TextStyle(
-                    color: ColorManager.blackColor,
-                    fontSize: 22,
-                    fontWeight: FontWeight.bold,
+        body: BlocProvider(
+          create: (context) => ShopProductsBloc()
+            ..add(FetchOrdersById(
+                context,
+                int.parse(context
+                    .read<ShopProductsBloc>()
+                    .state
+                    .orderId
+                    .toString()))),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 30),
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Image.asset(
+                    AppAssetsStrings.paymentSuccess,
+                    // width: SizeUtility(context).width * 80 / 100,
                   ),
-                ),
-                kHeight10,
-                Text.rich(TextSpan(children: [
-                  TextSpan(
-                    text: "You'll receive on email at ",
-                    style: TextStyle(
-                      color: ColorManager.textGrey99,
-                      fontSize: 15,
-                      fontWeight: FontWeight.w500,
-                      height: 1.2,
-                    ),
-                  ),
-                  TextSpan(
-                    text: context
-                            .read<DatabaseBloc>()
-                            .state
-                            .authUserModel
-                            ?.result
-                            ?.user
-                            ?.email ??
-                        "",
+                  kHeight25,
+                  Text(
+                    Appstrings.thanksForOrder,
                     style: TextStyle(
                       color: ColorManager.blackColor,
-                      fontSize: 15,
+                      fontSize: 22,
                       fontWeight: FontWeight.bold,
-                      height: 1.2,
                     ),
                   ),
-                  TextSpan(
-                    text: " once your order is confirmed",
-                    style: TextStyle(
-                      color: ColorManager.textGrey99,
-                      fontSize: 15,
-                      fontWeight: FontWeight.w500,
-                      height: 1.2,
+                  kHeight10,
+                  Text.rich(TextSpan(children: [
+                    TextSpan(
+                      text: "You'll receive on email at ",
+                      style: TextStyle(
+                        color: ColorManager.textGrey99,
+                        fontSize: 15,
+                        fontWeight: FontWeight.w500,
+                        height: 1.2,
+                      ),
                     ),
-                  ),
-                ])),
-                kHeight20,
-                BlocBuilder<ShopProductsBloc, ShopProductsState>(
-                  builder: (context, state) => Container(
-                    // height: 138,
-                    padding: const EdgeInsets.all(14),
-                    decoration: BoxDecoration(
-                        border: Border.all(
-                          color: ColorManager.dotGrey,
-                        ),
-                        borderRadius: BorderRadius.circular(8)),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Text(
-                          Appstrings.orderDetails,
-                          style: TextStyle(
-                            fontSize: 15,
-                            fontWeight: FontWeight.w600,
+                    TextSpan(
+                      text: context
+                              .read<DatabaseBloc>()
+                              .state
+                              .authUserModel
+                              ?.result
+                              ?.user
+                              ?.email ??
+                          "",
+                      style: TextStyle(
+                        color: ColorManager.blackColor,
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                        height: 1.2,
+                      ),
+                    ),
+                    TextSpan(
+                      text: " once your order is confirmed",
+                      style: TextStyle(
+                        color: ColorManager.textGrey99,
+                        fontSize: 15,
+                        fontWeight: FontWeight.w500,
+                        height: 1.2,
+                      ),
+                    ),
+                  ])),
+                  kHeight20,
+                  BlocBuilder<ShopProductsBloc, ShopProductsState>(
+                    builder: (context, state) => Container(
+                      // height: 138,
+                      padding: const EdgeInsets.all(14),
+                      decoration: BoxDecoration(
+                          border: Border.all(
+                            color: ColorManager.dotGrey,
                           ),
-                        ),
-                        kHeight16,
-                        _orderDetailWidget(
-                            text: Appstrings.subTotal,
-                            amount: subTotal.toString()),
-                        kHeight10,
-                        _orderDetailWidget(
-                            text: Appstrings.deliveryCharge,
-                            amount: delivery.toString()),
-                        kHeight10,
-                        Row(
-                          children: [
-                            Text(
-                              "Amount Paid",
-                              style: TextStyle(
-                                color: ColorManager.textGrey99,
-                                fontSize: 15,
-                                fontWeight: FontWeight.w500,
-                                height: 1.2,
-                              ),
-                              textAlign: TextAlign.center,
+                          borderRadius: BorderRadius.circular(8)),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Text(
+                            Appstrings.orderDetails,
+                            style: TextStyle(
+                              fontSize: 15,
+                              fontWeight: FontWeight.w600,
                             ),
-                            const Spacer(),
-                            Text(
-                              "Rs ${total.toString()}",
-                              style: TextStyle(
-                                fontSize: 15,
-                                color: ColorManager.primary,
-                                fontWeight: FontWeight.w900,
+                          ),
+                          kHeight16,
+                          _orderDetailWidget(
+                              text: Appstrings.subTotal,
+                              amount: subTotal.toString()),
+                          kHeight10,
+                          _orderDetailWidget(
+                              text: Appstrings.deliveryCharge,
+                              amount: delivery.toString()),
+                          kHeight10,
+                          Row(
+                            children: [
+                              Text(
+                                "Amount Paid",
+                                style: TextStyle(
+                                  color: ColorManager.textGrey99,
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.w500,
+                                  height: 1.2,
+                                ),
+                                textAlign: TextAlign.center,
                               ),
-                            )
-                          ],
-                        )
-                      ],
+                              const Spacer(),
+                              Text(
+                                "Rs ${total.toString()}",
+                                style: TextStyle(
+                                  fontSize: 15,
+                                  color: ColorManager.primary,
+                                  fontWeight: FontWeight.w900,
+                                ),
+                              )
+                            ],
+                          )
+                        ],
+                      ),
                     ),
                   ),
-                ),
-                // kHeight100,
-                // kHeight100,
-              ],
+                  // kHeight100,
+                  // kHeight100,
+                ],
+              ),
             ),
           ),
         ),

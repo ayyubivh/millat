@@ -15,121 +15,128 @@ class AddSuraSearchView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      BlocProvider.of<QuranBloc>(context)
-          .add(const SearchChapterEvent(query: ""));
-      BlocProvider.of<BookmarkBloc>(context).add(const ClearIndexEvent());
-      context.read<BookmarkBloc>().add(const EmptyIndexEvent());
-    });
-
     return Scaffold(
       appBar: _appBar(context),
       backgroundColor: ColorManager.whiteColor,
-      body: BlocBuilder<QuranBloc, QuranState>(
-        builder: (context, state) {
-          final chapters = state.searchChapters;
-          if (chapters == null) {
-            return const Loader();
-          }
+      body: MultiBlocProvider(
+        providers: [
+          BlocProvider(
+              create: (context) => BookmarkBloc()
+                ..add(const ClearIndexEvent())
+                ..add(const EmptyIndexEvent())),
+          BlocProvider(
+            create: (context) =>
+                QuranBloc()..add(const SearchChapterEvent(query: "")),
+          )
+        ],
+        child: BlocBuilder<QuranBloc, QuranState>(
+          builder: (context, state) {
+            final chapters = state.searchChapters;
+            if (chapters == null) {
+              return const Loader();
+            }
 
-          return SingleChildScrollView(
-            child: Column(
-              children: [
-                ListView.separated(
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  itemCount: chapters.length,
-                  itemBuilder: (context, index) {
-                    return InkWell(
-                      onTap: () {
-                        context
-                            .read<BookmarkBloc>()
-                            .add(const EmptyIndexEvent());
-                        context
-                            .read<BookmarkBloc>()
-                            .add(ChangeIndexEvent(index));
-
-                        if (state.isExpand &&
-                            context.read<BookmarkBloc>().state.index == index) {
-                          context.read<QuranBloc>().add(
-                              const IsExpandonSearchEvent(isExpand: false));
-                        } else {
+            return SingleChildScrollView(
+              child: Column(
+                children: [
+                  ListView.separated(
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    itemCount: chapters.length,
+                    itemBuilder: (context, index) {
+                      return InkWell(
+                        onTap: () {
                           context
                               .read<BookmarkBloc>()
-                              .add(SaveIndexEvent(indexList: index));
-                          context
-                              .read<QuranBloc>()
-                              .add(FechtChapterbyId(id: [index + 1]));
-                          context
-                              .read<QuranBloc>()
-                              .add(const IsExpandonSearchEvent(isExpand: true));
+                              .add(const EmptyIndexEvent());
                           context
                               .read<BookmarkBloc>()
-                              .add(SaveQuranChapterId(id: [index + 1]));
-                        }
-                      },
-                      child: Column(
-                        children: [
-                          BlocBuilder<BookmarkBloc, BookmarkState>(
-                            builder: (context, state) {
-                              return BookMarkCollectionContainer(
-                                isSelected: state.indexList.contains(index),
-                                versesName: chapters[index].nameSimple,
-                                versesCount: chapters[index].versesCount,
-                                arabicName: chapters[index].nameArabic,
-                                isIndex: state.index == index,
-                              );
-                            },
-                          ),
+                              .add(ChangeIndexEvent(index));
+
                           if (state.isExpand &&
-                              context.read<BookmarkBloc>().state.index == index)
-                            ListView.builder(
-                              shrinkWrap: true,
-                              physics: const NeverScrollableScrollPhysics(),
-                              itemCount: state.chapterByIdModel?.length ?? 0,
-                              itemBuilder: (context, index) {
-                                final chapter =
-                                    state.chapterByIdModel?[index].chapter;
-                                return BlocBuilder<BookmarkBloc, BookmarkState>(
-                                  builder: (context, state) => Column(
-                                    children: List.generate(
-                                      chapter?.versesCount ?? 0,
-                                      (verseIndex) {
-                                        final ayah = verseIndex + 1;
-                                        return bookMarkVersesTile(
-                                          isSelected: state.versesIndexList
-                                              .contains(verseIndex),
-                                          text: 'Aya $ayah',
-                                          index: ayah,
-                                          onTap: () {
-                                            context.read<BookmarkBloc>().add(
-                                                SaveVerseKeyEvent(
-                                                    "${chapter?.id}:$ayah"));
-                                            context.read<BookmarkBloc>().add(
-                                                SaveVersesIndexEvent(
-                                                    versesIndexList:
-                                                        verseIndex));
-
-                                            print(
-                                                'here is the chapter ${chapter?.id ?? ''} and the aya is here $ayah');
-                                          },
-                                        );
-                                      },
-                                    ),
-                                  ),
+                              context.read<BookmarkBloc>().state.index ==
+                                  index) {
+                            context.read<QuranBloc>().add(
+                                const IsExpandonSearchEvent(isExpand: false));
+                          } else {
+                            context
+                                .read<BookmarkBloc>()
+                                .add(SaveIndexEvent(indexList: index));
+                            context
+                                .read<QuranBloc>()
+                                .add(FechtChapterbyId(id: [index + 1]));
+                            context.read<QuranBloc>().add(
+                                const IsExpandonSearchEvent(isExpand: true));
+                            context
+                                .read<BookmarkBloc>()
+                                .add(SaveQuranChapterId(id: [index + 1]));
+                          }
+                        },
+                        child: Column(
+                          children: [
+                            BlocBuilder<BookmarkBloc, BookmarkState>(
+                              builder: (context, state) {
+                                return BookMarkCollectionContainer(
+                                  isSelected: state.indexList.contains(index),
+                                  versesName: chapters[index].nameSimple,
+                                  versesCount: chapters[index].versesCount,
+                                  arabicName: chapters[index].nameArabic,
+                                  isIndex: state.index == index,
                                 );
                               },
                             ),
-                        ],
-                      ),
-                    );
-                  },
-                  separatorBuilder: (context, index) => const Divider(),
-                ),
-              ],
-            ),
-          );
-        },
+                            if (state.isExpand &&
+                                context.read<BookmarkBloc>().state.index ==
+                                    index)
+                              ListView.builder(
+                                shrinkWrap: true,
+                                physics: const NeverScrollableScrollPhysics(),
+                                itemCount: state.chapterByIdModel?.length ?? 0,
+                                itemBuilder: (context, index) {
+                                  final chapter =
+                                      state.chapterByIdModel?[index].chapter;
+                                  return BlocBuilder<BookmarkBloc,
+                                      BookmarkState>(
+                                    builder: (context, state) => Column(
+                                      children: List.generate(
+                                        chapter?.versesCount ?? 0,
+                                        (verseIndex) {
+                                          final ayah = verseIndex + 1;
+                                          return bookMarkVersesTile(
+                                            isSelected: state.versesIndexList
+                                                .contains(verseIndex),
+                                            text: 'Aya $ayah',
+                                            index: ayah,
+                                            onTap: () {
+                                              context.read<BookmarkBloc>().add(
+                                                  SaveVerseKeyEvent(
+                                                      "${chapter?.id}:$ayah"));
+                                              context.read<BookmarkBloc>().add(
+                                                  SaveVersesIndexEvent(
+                                                      versesIndexList:
+                                                          verseIndex));
+
+                                              print(
+                                                  'here is the chapter ${chapter?.id ?? ''} and the aya is here $ayah');
+                                            },
+                                          );
+                                        },
+                                      ),
+                                    ),
+                                  );
+                                },
+                              ),
+                          ],
+                        ),
+                      );
+                    },
+                    separatorBuilder: (context, index) => const Divider(),
+                  ),
+                ],
+              ),
+            );
+          },
+        ),
       ),
     );
   }

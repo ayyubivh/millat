@@ -74,7 +74,7 @@ class AppAssetsStrings {
   static const String instagramIcon = "$iconsPath/instagram.png";
   static const String twitterIcon = "$iconsPath/twitter.png";
   static const String addCart = "$iconsPath/add_cart.png";
-  static const String womensCareImg = "$imagesPath/womenscare_img.png";
+  static const String womenCareImg = "$imagesPath/womenscare_img.png";
   static const String healhtyDietImg1 = "$imagesPath/healthy_diet_img1.png";
   static const String healhtyDietImg2 = "$imagesPath/healthy_diet_img2.png";
   static const String healhtyDietImg3 = "$imagesPath/healthy_diet_img3.png";
@@ -91,7 +91,7 @@ class AppAssetsStrings {
   static const String bellIcon = "$iconsPath/bell.png";
   static const String menuIcon = "$iconsPath/menu.png";
   static const String homeHaditQuranIcon = "$iconsPath/quran_2.png";
-  static const String termsAndCondtions = "$iconsPath/terms_and_condtion.png";
+  static const String termsAndConditions = "$iconsPath/terms_and_condtion.png";
   static const String support = "$iconsPath/support.png";
   static const String travel = "$iconsPath/travel.png";
   static const String privacyPolicy = "$iconsPath/privacy_policy.png";

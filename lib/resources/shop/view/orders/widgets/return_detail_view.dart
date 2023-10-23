@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:millat/enums/enumertations.dart';
-import 'package:millat/resources/shop/view/orders/widgets/order_returned_succesfully.dart';
 import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/size_utility.dart';
@@ -226,7 +225,7 @@ class OrderRetunDetailView extends StatelessWidget {
                                   ),
                                 ],
                               ),
-                              kWidht10,
+                              kWidth10,
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [

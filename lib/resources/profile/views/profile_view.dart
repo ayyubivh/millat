@@ -21,10 +21,6 @@ class ProfileView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      BlocProvider.of<DatabaseBloc>(context)
-          .add(FetchAuthUser(context: context));
-    });
     return BlocBuilder<DatabaseBloc, DatabaseState>(builder: (context, state) {
       if (state.isLoading || state.editIsloading) {
         context.read<DatabaseBloc>().add(FetchAuthUser(context: context));

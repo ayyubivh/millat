@@ -4,7 +4,6 @@ import 'package:go_router/go_router.dart';
 import 'package:millat/components/buttons/main_button.dart';
 import 'package:millat/components/common_widgets/shop_products_widget.dart';
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
-import 'package:millat/resources/shop/view/products/single_product_view.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/loader.dart';
@@ -17,9 +16,6 @@ class WishListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      BlocProvider.of<ShopProductsBloc>(context).add(FetchWishList(context));
-    });
     return Scaffold(
       appBar: AppBar(
         backgroundColor: ColorManager.appBarColor,
@@ -35,88 +31,86 @@ class WishListView extends StatelessWidget {
           },
         ),
       ),
-      body: BlocBuilder<ShopProductsBloc, ShopProductsState>(
-        builder: (context, state) {
-          return state.isLoading
-              ? const Loader()
-              : state.wishList?.result?.wishlist?.products == null
-                  ? Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 30),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          kHeight10,
-                          Text(
-                            'Oops!!',
-                            style: TextStyle(
-                              color: ColorManager.redColor,
-                              fontSize: 24,
-                              fontWeight: FontWeight.w500,
+      body: BlocProvider(
+        create: (context) => ShopProductsBloc()..add(FetchWishList(context)),
+        child: BlocBuilder<ShopProductsBloc, ShopProductsState>(
+          builder: (context, state) {
+            return state.isLoading
+                ? const Loader()
+                : state.wishList?.result?.wishlist?.products?.length == 0
+                    ? Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 30),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            kHeight10,
+                            Text(
+                              'Oops!!',
+                              style: TextStyle(
+                                color: ColorManager.redColor,
+                                fontSize: 24,
+                                fontWeight: FontWeight.w500,
+                              ),
                             ),
-                          ),
-                          kHeight10,
-                          Text(
-                            'Your Wishlist is Empty',
-                            style: TextStyle(
-                              color: ColorManager.blackColor,
-                              fontSize: 24,
-                              fontWeight: FontWeight.w500,
+                            kHeight10,
+                            Text(
+                              'Your Wishlist is Empty',
+                              style: TextStyle(
+                                color: ColorManager.blackColor,
+                                fontSize: 24,
+                                fontWeight: FontWeight.w500,
+                              ),
                             ),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.only(
-                              top: SizeUtility(context).height / 8,
+                            Padding(
+                              padding: EdgeInsets.only(
+                                top: SizeUtility(context).height / 8,
+                              ),
+                              child: Image.asset(
+                                  "assets/images/wishlist_empty.png"),
                             ),
-                            child:
-                                Image.asset("assets/images/wishlist_empty.png"),
-                          ),
-                        ],
-                      ),
-                    )
-                  : GridView.builder(
-                      gridDelegate:
-                          const SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 2,
-                        crossAxisSpacing: 20,
-                        mainAxisExtent: 270,
-                      ),
-                      itemCount:
-                          state.wishList?.result?.wishlist?.products!.length,
-                      itemBuilder: (context, index) {
-                        final data =
-                            state.wishList?.result?.wishlist?.products?[index];
-                        return GestureDetector(
-                          onTap: () {
-                            context.pushNamed(
-                                MyAppRouteConstants.singleProductRouteName,
-                                pathParameters: {"id": data!.id.toString()});
-                          },
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 15),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                const SizedBox(height: 15),
-                                ShopProductWidget(
-                                  color: data?.color ?? "",
-                                  size: data?.size?[0].size ?? "",
-                                  brandId: data?.id,
-                                  isWishlisted: state.isWishListed,
-                                  brand: "",
-                                  productId: data?.id ?? 'null',
-                                  title: data?.title,
-                                  image: data?.images?[0] ?? 'null',
-                                  discountPrice: data?.salePrice?.toInt() ?? 0,
-                                  actualPrice: data?.regularPrice?.toInt() ?? 0,
-                                  discount: data?.discount?.toInt() ?? 0,
-                                ),
-                              ],
+                          ],
+                        ),
+                      )
+                    : GridView.builder(
+                        gridDelegate:
+                            const SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2,
+                          crossAxisSpacing: 20,
+                          mainAxisExtent: 270,
+                        ),
+                        itemCount:
+                            state.wishList?.result?.wishlist?.products!.length,
+                        itemBuilder: (context, index) {
+                          final data = state
+                              .wishList?.result?.wishlist?.products?[index];
+                          return GestureDetector(
+                            onTap: () {
+                              context.pushNamed(
+                                  MyAppRouteConstants.singleProductRouteName,
+                                  pathParameters: {"id": data!.id.toString()});
+                            },
+                            child: Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 15),
+                              child: ShopProductWidget(
+                                color: data?.color ?? "",
+                                size: data?.size?[0].size ?? "",
+                                brandId: data?.id,
+                                isWishlisted: state.isWishListed,
+                                brand: "",
+                                productId: data?.id ?? 'null',
+                                title: data?.title,
+                                image: data?.images?[0] ?? 'null',
+                                discountPrice: data?.salePrice?.toInt() ?? 0,
+                                actualPrice: data?.regularPrice?.toInt() ?? 0,
+                                discount: data?.discount?.toInt() ?? 0,
+                              ),
                             ),
-                          ),
-                        );
-                      },
-                    );
-        },
+                          );
+                        },
+                      );
+          },
+        ),
       ),
       bottomSheet: BlocBuilder<ShopProductsBloc, ShopProductsState>(
         builder: (context, state) {

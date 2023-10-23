@@ -286,7 +286,7 @@ class _PrayerTrackerCalendarViewState extends State<PrayerTrackerCalendarView> {
                               backgroundColor: Colors.grey,
                               progressColor: ColorManager.mainColor,
                             ),
-                            kWidht10,
+                            kWidth10,
                             const Text(
                               "You have Performed",
                               style: TextStyle(

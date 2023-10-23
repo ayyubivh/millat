@@ -17,10 +17,6 @@ class UserProfileView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      BlocProvider.of<DatabaseBloc>(context)
-          .add(FetchAuthUser(context: context));
-    });
     return BlocConsumer<DatabaseBloc, DatabaseState>(
       listener: (context, state) {
         if (state.failedMessage != "") {
@@ -299,7 +295,7 @@ class UserProfileView extends StatelessWidget {
                       itemCount: 4,
                       itemBuilder: (context, index) {
                         final images = [
-                          AppAssetsStrings.termsAndCondtions,
+                          AppAssetsStrings.termsAndConditions,
                           AppAssetsStrings.support,
                           AppAssetsStrings.privacyPolicy,
                           AppAssetsStrings.aboutUs,
@@ -399,7 +395,7 @@ class UserProfileView extends StatelessWidget {
                         width: 24,
                         height: 20,
                       ),
-                      kWidht10,
+                      kWidth10,
                       Image.asset(
                         AppAssetsStrings.instagramIcon,
                         width: 24,

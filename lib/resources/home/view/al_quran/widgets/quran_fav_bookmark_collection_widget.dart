@@ -42,7 +42,7 @@ class QuranFavBookmarkCollectionWidget extends StatelessWidget {
                 borderRadius: BorderRadius.circular(12),
                 child: Image.asset("assets/images/quran_bookmark_2.png"),
               ),
-              kWidht10,
+              kWidth10,
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,

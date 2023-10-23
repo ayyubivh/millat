@@ -1,5 +1,6 @@
 // ignore_for_file: unused_local_variable
 
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:carousel_slider/carousel_slider.dart';
@@ -9,8 +10,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:http/http.dart' as http;
 import 'package:millat/components/shimmers/shimmer_widget.dart';
-import 'package:millat/resources/home/view/al_quran/widgets/verses_view.dart';
-import 'package:millat/resources/shop/view/brand/single_brand_view.dart';
+
 import 'package:millat/routes/app_router_constants.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:share_plus/share_plus.dart';
@@ -18,12 +18,9 @@ import 'package:millat/resources/home/bloc/logic/bookmark_bloc/bookmark_bloc.dar
 import 'package:millat/resources/home/bloc/logic/home_bloc/home_bloc.dart';
 import 'package:millat/resources/home/bloc/logic/namaz_timing_bloc/namaz_timing_bloc.dart';
 import 'package:millat/resources/home/bloc/logic/quran_bloc/quran_bloc.dart';
-import 'package:millat/resources/home/view/qibla/qibla_view.dart';
-import 'package:millat/resources/home/view/tasbih/tasbih_view.dart';
+
 import 'package:millat/resources/home/view/widgets/hadit_tinder_cards.dart';
-import 'package:millat/resources/home/view/widgets/notification_view.dart';
-import 'package:millat/resources/home/view/widgets/prayer_tracker_calendar_view.dart';
-import 'package:millat/resources/shop/view/categories/categories_product_view.dart';
+
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/loader.dart';
 import '../../../enums/enumertations.dart';
@@ -35,348 +32,340 @@ import '../../../utils/utils.dart';
 import '../../authentication/bloc/logic/database_bloc/database_bloc.dart';
 import '../../shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
 import '../bloc/logic/location_bloc/location_bloc.dart';
-import 'al_quran/al_quran_view.dart';
-import 'dua/dua_view.dart';
-import 'namaz_timing/namaz_timing_view.dart';
 
 ValueNotifier<bool> scrollNotifier = ValueNotifier(true);
+String verskey = "";
 
-class HomeView extends StatefulWidget {
+class HomeView extends StatelessWidget {
   const HomeView({super.key});
 
-  @override
-  State<HomeView> createState() => _HomeViewState();
-}
-
-class _HomeViewState extends State<HomeView> {
-  int _currentIndex = 0;
-  String verskey = "";
-
-  @override
-  void initState() {
-    BlocProvider.of<QuranBloc>(context)
-        .add(FetchVersesByKey(verseKey: getShuffledList()));
-
-    BlocProvider.of<BookmarkBloc>(context).add(const FetchCollectionItem());
-    BlocProvider.of<LocationBloc>(context).add(const FetchCurrentLocation());
-    BlocProvider.of<DatabaseBloc>(context)
-      // ..add(const FetchUserDetails())
-      ..add(FetchAuthUser(context: context))
-      ..add(const FetchCoverImage());
-    BlocProvider.of<LocationBloc>(context).add(const FetchCities());
-    BlocProvider.of<ShopProductsBloc>(context).add(const FetchHomeBanners());
-    BlocProvider.of<ShopProductsBloc>(context).add(FetchOrders(context));
-    BlocProvider.of<NamazTimingBloc>(context)
-      ..add(const GetCalculationMethodFromStorage())
-      ..add(const GetAsrCalculationMethodFromStorage())
-      ..add(const GetHighLatitudeMethodsToLocalStorage());
-
-    BlocProvider.of<HomeBloc>(context)
-      ..add(const FetchLargeDisountsBanner())
-      ..add(const FetchTopOffersBanner())
-      ..add(const FetchBrandofTheDay())
-      ..add(const FetchHadithOfTheDay())
-      ..add(const FetchEventOfTheMonth())
-      ..add(const ChangeIndexofAllaysaysBg());
-
-    super.initState();
-  }
-
-  List<String> getShuffledList() {
-    final shuffledList = List.from(context.read<QuranBloc>().state.tempListAya)
-      ..shuffle();
-    final selectedAya = shuffledList.first;
-    setState(() {
-      verskey = selectedAya;
-    });
-    return [selectedAya];
-  }
-
+  // List<String> getShuffledList() {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       extendBody: true,
-      // endDrawer: const HomeDrawyerWidget(),
       backgroundColor: ColorManager.whiteColor,
-      body: BlocListener<DatabaseBloc, DatabaseState>(
-        listener: (context, state) {
-          if (state.token.isNotEmpty) {
-            BlocProvider.of<HomeBloc>(context).add(FetchPrayerTrackerEvent(
-                context: context, date: DateTime.now()));
-          }
-        },
-        child: BlocListener<LocationBloc, LocationState>(
+      body: MultiBlocProvider(
+        providers: [
+          BlocProvider(
+              create: (context) =>
+                  QuranBloc()..add(FetchVersesByKey(verseKey: ['1:2']))),
+          BlocProvider(
+              create: (context) => LocationBloc()
+                ..add(LocationEvent.fetchCurrentLocation())
+                ..add(const LocationEvent.fetchCities())),
+          BlocProvider(
+              create: (context) => HomeBloc()
+                ..add(const FetchLargeDiscountsBanner())
+                ..add(const FetchTopOffersBanner())
+                ..add(const FetchBrandofTheDay())
+                ..add(const FetchHadithOfTheDay())
+                ..add(const FetchEventOfTheMonth())
+                ..add(
+                  const ChangeIndexofAllaysaysBg(),
+                )),
+          BlocProvider(
+              create: (context) => BookmarkBloc()..add(FetchCollectionItem())),
+          BlocProvider(
+            create: (context) => ShopProductsBloc()
+              ..add(FetchHomeBanners())
+              ..add(FetchOrders(context)),
+          ),
+          BlocProvider(
+            create: (context) => NamazTimingBloc()
+              ..add(const GetCalculationMethodFromStorage())
+              ..add(const GetAsrCalculationMethodFromStorage())
+              ..add(const GetHighLatitudeMethodsToLocalStorage()),
+          ),
+          BlocProvider(
+            create: (context) => DatabaseBloc()
+              ..add(FetchAuthUser(context: context))
+              ..add(FetchCoverImage()),
+          )
+        ],
+        child: BlocListener<DatabaseBloc, DatabaseState>(
           listener: (context, state) {
-            if (state.currentLocaion.isNotEmpty &&
-                state.weatherConditionName.isEmpty) {
-              context
-                  .read<NamazTimingBloc>()
-                  .add(FetchPrayerTiming(context: context));
-              context.read<LocationBloc>().add(const FetchWeatherEvent());
+            if (state.token.isNotEmpty) {
+              BlocProvider.of<HomeBloc>(context).add(FetchPrayerTrackerEvent(
+                  context: context, date: DateTime.now()));
             }
           },
-          child: BlocListener<NamazTimingBloc, NamazTimingState>(
+          child: BlocListener<LocationBloc, LocationState>(
             listener: (context, state) {
-              if (state.prayerModel != null) {
-                context.read<NamazTimingBloc>().add(const PrayerTimingEvent());
+              if (state.currentLocaion.isNotEmpty &&
+                  state.weatherConditionName.isEmpty) {
+                context
+                    .read<NamazTimingBloc>()
+                    .add(FetchPrayerTiming(context: context));
+                context.read<LocationBloc>().add(const FetchWeatherEvent());
               }
             },
-            child: ValueListenableBuilder(
-              valueListenable: scrollNotifier,
-              builder: (context, value, child) {
-                return NotificationListener<UserScrollNotification>(
-                  onNotification: (notification) {
-                    final ScrollDirection direction = notification.direction;
-                    final double scrollPosition = notification.metrics.pixels;
-                    const double epsilon = 25.0;
+            child: BlocListener<NamazTimingBloc, NamazTimingState>(
+              listener: (context, state) {
+                if (state.prayerModel != null) {
+                  context
+                      .read<NamazTimingBloc>()
+                      .add(const PrayerTimingEvent());
+                }
+              },
+              child: ValueListenableBuilder(
+                valueListenable: scrollNotifier,
+                builder: (context, value, child) {
+                  return NotificationListener<UserScrollNotification>(
+                    onNotification: (notification) {
+                      final ScrollDirection direction = notification.direction;
+                      final double scrollPosition = notification.metrics.pixels;
+                      const double epsilon = 25.0;
 
-                    if (direction == ScrollDirection.reverse) {
-                      scrollNotifier.value = false;
-                    } else if (scrollPosition <= 10) {
-                      scrollNotifier.value = true;
-                    }
-                    return true;
-                  },
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      AnimatedContainer(
-                        duration: const Duration(milliseconds: 1000),
-                        height: scrollNotifier.value == true
-                            ? Platform.isIOS
-                                ? 310
-                                : 280
-                            : Platform.isIOS
-                                ? 210
-                                : 180,
-                        width: SizeUtility(context).width,
-                        decoration:
-                            BoxDecoration(color: ColorManager.midGreenColor),
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 30,
-                          ).copyWith(top: Platform.isIOS ? 60 : 35),
-                          child: Stack(
-                            children: [
-                              Row(
-                                children: [
-                                  AnimatedSwitcher(
-                                    duration:
-                                        const Duration(milliseconds: 1000),
-                                    child: scrollNotifier.value == false
-                                        ? Text(
-                                            Appstrings.assalamuAlaikum,
-                                            key:
-                                                const ValueKey<String>('text1'),
-                                            style: TextStyle(
-                                              color: ColorManager.whiteColor,
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.w500,
-                                            ),
-                                          )
-                                        : Text(
-                                            Appstrings.assalamuAlaikum,
-                                            key:
-                                                const ValueKey<String>('text2'),
-                                            style: TextStyle(
-                                              color: ColorManager.whiteColor,
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.w500,
-                                            ),
-                                          ),
-                                  ),
-                                  const Spacer(),
-                                  Padding(
-                                    padding: const EdgeInsets.only(top: 5),
-                                    child: GestureDetector(
-                                      onTap: () {
-                                        context.goNamed(MyAppRouteConstants
-                                            .notificationRouteName);
-                                      },
-                                      child: ImageIcon(
-                                          const AssetImage(
-                                              AppAssetsStrings.bellIcon),
-                                          color: ColorManager.whiteColor,
-                                          size: 25),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              BlocBuilder<DatabaseBloc, DatabaseState>(
-                                builder: (context, state) => Padding(
-                                  padding: EdgeInsets.only(
-                                      top: scrollNotifier.value == true
-                                          ? 28
-                                          : 24),
-                                  child: AnimatedSwitcher(
-                                    duration:
-                                        const Duration(milliseconds: 1000),
-                                    child: scrollNotifier.value == false
-                                        ? Text(
-                                            state.authUserModel?.result?.user
-                                                    ?.name ??
-                                                "",
-                                            key:
-                                                const ValueKey<String>('text1'),
-                                            style: TextStyle(
-                                              color: ColorManager.whiteColor,
-                                              fontSize: 15,
-                                              fontWeight: FontWeight.w500,
-                                            ))
-                                        : Text(
-                                            state.authUserModel?.result?.user
-                                                    ?.name ??
-                                                "",
-                                            key:
-                                                const ValueKey<String>('text2'),
-                                            style: TextStyle(
-                                              color: ColorManager.whiteColor,
-                                              fontSize: 15,
-                                              fontWeight: FontWeight.w500,
-                                            )),
-                                  ),
-                                ),
-                              ),
-                              AnimatedContainer(
-                                curve: Curves.linear,
-                                duration: const Duration(milliseconds: 1000),
-                                padding: EdgeInsets.only(
-                                  left: scrollNotifier.value ? 115 : 150,
-                                  top: scrollNotifier.value == true ? 0 : 5,
-                                ),
-                                child: Image.asset(
-                                  AppAssetsStrings.homeBgDesign,
-                                  height: scrollNotifier.value ? 80 : 70,
-                                  // width: SizeUtility(context).width / 2,
-                                  // fit: BoxFit.cover,
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.only(
-                                  top: 60,
-                                  // bottom: 15,
-                                ),
-                                child: scrollNotifier.value
-                                    ? animatedContainerWidget1(context)
-                                    : animatedContainerWidget2(context),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      Expanded(
-                        child: SingleChildScrollView(
-                          child: Column(
-                            children: [
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  kHeight16,
-                                  Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 30),
-                                    child: Column(
-                                      children: [
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            buildIconWidget(
-                                              image: AppAssetsStrings
-                                                  .homeQuranIcon,
-                                              text: Appstrings.quran,
-                                              onTap: () {
-                                                context.goNamed(
-                                                    MyAppRouteConstants
-                                                        .quranRouteName);
-                                              },
-                                            ),
-                                            BlocBuilder<LocationBloc,
-                                                LocationState>(
-                                              builder: (context, state) =>
-                                                  buildIconWidget(
-                                                image: AppAssetsStrings
-                                                    .homeCompassIcon,
-                                                text: Appstrings.compass,
-                                                onTap: () {
-                                                  if (state.currentLocaion
-                                                      .isNotEmpty) {
-                                                    context.goNamed(
-                                                        MyAppRouteConstants
-                                                            .compassRouteName);
-                                                  } else {
-                                                    showSnackBar(
-                                                      context,
-                                                      Appstrings.turnOnLocation,
-                                                    );
-                                                  }
-                                                },
+                      if (direction == ScrollDirection.reverse) {
+                        scrollNotifier.value = false;
+                      } else if (scrollPosition <= 10) {
+                        scrollNotifier.value = true;
+                      }
+                      return true;
+                    },
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        AnimatedContainer(
+                          duration: const Duration(milliseconds: 1000),
+                          height: scrollNotifier.value == true
+                              ? Platform.isIOS
+                                  ? 310
+                                  : 280
+                              : Platform.isIOS
+                                  ? 210
+                                  : 180,
+                          width: SizeUtility(context).width,
+                          decoration:
+                              BoxDecoration(color: ColorManager.midGreenColor),
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 30,
+                            ).copyWith(top: Platform.isIOS ? 60 : 35),
+                            child: Stack(
+                              children: [
+                                Row(
+                                  children: [
+                                    AnimatedSwitcher(
+                                      duration:
+                                          const Duration(milliseconds: 1000),
+                                      child: scrollNotifier.value == false
+                                          ? Text(
+                                              Appstrings.assalamuAlaikum,
+                                              key: const ValueKey<String>(
+                                                  'text1'),
+                                              style: TextStyle(
+                                                color: ColorManager.whiteColor,
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.w500,
+                                              ),
+                                            )
+                                          : Text(
+                                              Appstrings.assalamuAlaikum,
+                                              key: const ValueKey<String>(
+                                                  'text2'),
+                                              style: TextStyle(
+                                                color: ColorManager.whiteColor,
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.w500,
                                               ),
                                             ),
-                                            buildIconWidget(
-                                              image: AppAssetsStrings
-                                                  .homeTasbihIcon,
-                                              text: Appstrings.tasbih,
-                                              onTap: () {
-                                                context.goNamed(
-                                                    MyAppRouteConstants
-                                                        .tasbihRouteName);
-                                              },
-                                            ),
-                                            buildIconWidget(
+                                    ),
+                                    const Spacer(),
+                                    Padding(
+                                      padding: const EdgeInsets.only(top: 5),
+                                      child: GestureDetector(
+                                        onTap: () {
+                                          context.goNamed(MyAppRouteConstants
+                                              .notificationRouteName);
+                                        },
+                                        child: ImageIcon(
+                                            const AssetImage(
+                                                AppAssetsStrings.bellIcon),
+                                            color: ColorManager.whiteColor,
+                                            size: 25),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                BlocBuilder<DatabaseBloc, DatabaseState>(
+                                  builder: (context, state) => Padding(
+                                    padding: EdgeInsets.only(
+                                        top: scrollNotifier.value == true
+                                            ? 28
+                                            : 24),
+                                    child: AnimatedSwitcher(
+                                      duration:
+                                          const Duration(milliseconds: 1000),
+                                      child: scrollNotifier.value == false
+                                          ? Text(
+                                              state.authUserModel?.result?.user
+                                                      ?.name ??
+                                                  "",
+                                              key: const ValueKey<String>(
+                                                  'text1'),
+                                              style: TextStyle(
+                                                color: ColorManager.whiteColor,
+                                                fontSize: 15,
+                                                fontWeight: FontWeight.w500,
+                                              ))
+                                          : Text(
+                                              state.authUserModel?.result?.user
+                                                      ?.name ??
+                                                  "",
+                                              key: const ValueKey<String>(
+                                                  'text2'),
+                                              style: TextStyle(
+                                                color: ColorManager.whiteColor,
+                                                fontSize: 15,
+                                                fontWeight: FontWeight.w500,
+                                              )),
+                                    ),
+                                  ),
+                                ),
+                                AnimatedContainer(
+                                  curve: Curves.linear,
+                                  duration: const Duration(milliseconds: 1000),
+                                  padding: EdgeInsets.only(
+                                    left: scrollNotifier.value ? 115 : 150,
+                                    top: scrollNotifier.value == true ? 0 : 5,
+                                  ),
+                                  child: Image.asset(
+                                    AppAssetsStrings.homeBgDesign,
+                                    height: scrollNotifier.value ? 80 : 70,
+                                    // width: SizeUtility(context).width / 2,
+                                    // fit: BoxFit.cover,
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(
+                                    top: 60,
+                                    // bottom: 15,
+                                  ),
+                                  child: scrollNotifier.value
+                                      ? animatedContainerWidget1(context)
+                                      : animatedContainerWidget2(context),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        Expanded(
+                          child: SingleChildScrollView(
+                            child: Column(
+                              children: [
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    kHeight16,
+                                    Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 30),
+                                      child: Column(
+                                        children: [
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              buildIconWidget(
                                                 image: AppAssetsStrings
-                                                    .homeDuaIcon,
-                                                text: Appstrings.dua,
+                                                    .homeQuranIcon,
+                                                text: Appstrings.quran,
                                                 onTap: () {
                                                   context.goNamed(
                                                       MyAppRouteConstants
-                                                          .duaRouteName);
-                                                })
-                                          ],
-                                        ),
-                                        kHeight20,
-                                        _bannerWidget(),
-                                        kHeight15,
-                                        _quranAyaWidget(context),
-                                        _dailyPrayerTracker(context),
-                                        const SizedBox(
-                                          height: 340,
-                                          child: HaditTinkerCards(),
-                                        )
-                                      ],
+                                                          .quranRouteName);
+                                                },
+                                              ),
+                                              BlocBuilder<LocationBloc,
+                                                  LocationState>(
+                                                builder: (context, state) =>
+                                                    buildIconWidget(
+                                                  image: AppAssetsStrings
+                                                      .homeCompassIcon,
+                                                  text: Appstrings.compass,
+                                                  onTap: () {
+                                                    if (state.currentLocaion
+                                                        .isNotEmpty) {
+                                                      context.goNamed(
+                                                          MyAppRouteConstants
+                                                              .compassRouteName);
+                                                    } else {
+                                                      showSnackBar(
+                                                        context,
+                                                        Appstrings
+                                                            .turnOnLocation,
+                                                      );
+                                                    }
+                                                  },
+                                                ),
+                                              ),
+                                              buildIconWidget(
+                                                image: AppAssetsStrings
+                                                    .homeTasbihIcon,
+                                                text: Appstrings.tasbih,
+                                                onTap: () {
+                                                  context.goNamed(
+                                                      MyAppRouteConstants
+                                                          .tasbihRouteName);
+                                                },
+                                              ),
+                                              buildIconWidget(
+                                                  image: AppAssetsStrings
+                                                      .homeDuaIcon,
+                                                  text: Appstrings.dua,
+                                                  onTap: () {
+                                                    context.goNamed(
+                                                        MyAppRouteConstants
+                                                            .duaRouteName);
+                                                  })
+                                            ],
+                                          ),
+                                          kHeight20,
+                                          _bannerWidget(),
+                                          kHeight15,
+                                          _quranAyaWidget(context),
+                                          _dailyPrayerTracker(context),
+                                          const SizedBox(
+                                            height: 340,
+                                            child: HaditTinkerCards(),
+                                          )
+                                        ],
+                                      ),
                                     ),
-                                  ),
-                                  kHeight25,
-                                  _largeDiscountWidget(context),
-                                  _eventOfTheMonthWidget(context),
-                                  kHeight20,
-                                  Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 30),
-                                    child: Column(
-                                      children: [
-                                        _topOffersWidget(),
-                                        kHeight25,
-                                      ],
+                                    kHeight25,
+                                    _largeDiscountWidget(context),
+                                    _eventOfTheMonthWidget(context),
+                                    kHeight20,
+                                    Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 30),
+                                      child: Column(
+                                        children: [
+                                          _topOffersWidget(),
+                                          kHeight25,
+                                        ],
+                                      ),
                                     ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 30),
-                                    child: _brandOftheDayWidget(),
-                                  ),
-                                  kHeight50,
-                                  kHeight50,
-                                ],
-                              ),
-                            ],
+                                    Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 30),
+                                      child: _brandOftheDayWidget(),
+                                    ),
+                                    kHeight50,
+                                    kHeight50,
+                                  ],
+                                ),
+                              ],
+                            ),
                           ),
                         ),
-                      ),
-                    ],
-                  ),
-                );
-              },
+                      ],
+                    ),
+                  );
+                },
+              ),
             ),
           ),
         ),
@@ -604,53 +593,57 @@ class _HomeViewState extends State<HomeView> {
                       autoPlayAnimationDuration:
                           const Duration(milliseconds: 800),
                       onPageChanged: (index, reason) {
-                        setState(() {
-                          _currentIndex = index;
-                        });
+                        context
+                            .read<HomeBloc>()
+                            .add(ChangeHomeBannerIndex(index: index));
                       },
                     ),
                   ),
                   kHeight10,
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: banners!.map((banner) {
-                      int index = banners.indexOf(banner);
-                      return Container(
-                        width: 8,
-                        height: 8,
-                        margin: const EdgeInsets.symmetric(horizontal: 4),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(30),
-                          color: _currentIndex == index
-                              ? ColorManager.primary
-                              : ColorManager.greyD1,
-                        ),
-                      );
-                    }).toList(),
+                  BlocBuilder<HomeBloc, HomeState>(
+                    builder: (context, state) => Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: banners!.map((banner) {
+                        int index = banners.indexOf(banner);
+                        return Container(
+                          width: 8,
+                          height: 8,
+                          margin: const EdgeInsets.symmetric(horizontal: 4),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(30),
+                            color: state.homeBannerIndex == index
+                                ? ColorManager.primary
+                                : ColorManager.greyD1,
+                          ),
+                        );
+                      }).toList(),
+                    ),
                   ),
                   kHeight10,
-                  GestureDetector(
-                    onTap: () async {
-                      _downloadAndShareImage(state.eventOfTheMonthModel!.result!
-                          .event![_currentIndex].images![0]);
-                    },
-                    child: Row(
-                      children: [
-                        Icon(
-                          Icons.share_outlined,
-                          color: ColorManager.grey70,
-                          size: 20,
-                        ),
-                        kWidht10,
-                        Text(
-                          Appstrings.share,
-                          style: TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.w500,
+                  BlocBuilder<HomeBloc, HomeState>(
+                    builder: (context, state) => GestureDetector(
+                      onTap: () async {
+                        _downloadAndShareImage(state.eventOfTheMonthModel!
+                            .result!.event![state.homeBannerIndex].images![0]);
+                      },
+                      child: Row(
+                        children: [
+                          Icon(
+                            Icons.share_outlined,
                             color: ColorManager.grey70,
+                            size: 20,
                           ),
-                        ),
-                      ],
+                          kWidth10,
+                          Text(
+                            Appstrings.share,
+                            style: TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w500,
+                              color: ColorManager.grey70,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ],
@@ -1193,29 +1186,31 @@ class _HomeViewState extends State<HomeView> {
                 scrollDirection: Axis.horizontal,
                 autoPlayAnimationDuration: const Duration(milliseconds: 800),
                 onPageChanged: (index, reason) {
-                  setState(() {
-                    _currentIndex = index;
-                  });
+                  context
+                      .read<HomeBloc>()
+                      .add(ChangeHomeBannerIndex(index: index));
                 },
               ),
             ),
             kHeight10,
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: banners!.map((banner) {
-                int index = banners.indexOf(banner);
-                return Container(
-                  width: 8,
-                  height: 8,
-                  margin: const EdgeInsets.symmetric(horizontal: 4),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(30),
-                    color: _currentIndex == index
-                        ? ColorManager.primary
-                        : ColorManager.greyD1,
-                  ),
-                );
-              }).toList(),
+            BlocBuilder<HomeBloc, HomeState>(
+              builder: (context, state) => Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: banners!.map((banner) {
+                  int index = banners.indexOf(banner);
+                  return Container(
+                    width: 8,
+                    height: 8,
+                    margin: const EdgeInsets.symmetric(horizontal: 4),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(30),
+                      color: state.homeBannerIndex == index
+                          ? ColorManager.primary
+                          : ColorManager.greyD1,
+                    ),
+                  );
+                }).toList(),
+              ),
             ),
           ],
         );
@@ -1416,7 +1411,7 @@ class _HomeViewState extends State<HomeView> {
               color: ColorManager.mainColor,
               size: 24,
             ),
-            kWidht10,
+            kWidth10,
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -1562,7 +1557,7 @@ class _HomeViewState extends State<HomeView> {
               color: ColorManager.mainColor,
               size: 24,
             ),
-            kWidht10,
+            kWidth10,
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -1631,7 +1626,7 @@ class _HomeViewState extends State<HomeView> {
                           currentNamazName,
                           style: _currentNamazTextstyle(),
                         ),
-                        kWidht10,
+                        kWidth10,
                         Text(
                           currentNamazTime,
                           style: TextStyle(
@@ -1668,7 +1663,7 @@ class _HomeViewState extends State<HomeView> {
                       children: [
                         Text(upcomingNamazName,
                             style: _currentNamazTextstyle()),
-                        kWidht10,
+                        kWidth10,
                         Text(
                           upcomingNamazTime,
                           style: TextStyle(

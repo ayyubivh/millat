@@ -23,5 +23,5 @@ const kWidth3 = SizedBox(width: 3);
 const kWidth15 = SizedBox(width: 15);
 const kWidth5 = SizedBox(width: 5);
 const kWidth8 = SizedBox(width: 8);
-const kWidht10 = SizedBox(width: 10);
+const kWidth10 = SizedBox(width: 10);
 const kWidth20 = SizedBox(width: 20);

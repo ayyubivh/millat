@@ -72,7 +72,7 @@ void main() async {
       BlocProvider(create: (context) => TasbihBloc()),
       BlocProvider(create: (context) => HadithBloc()),
       BlocProvider(create: (context) => HomeBloc()),
-      BlocProvider(create: (context) => TermsAndCondtionsBloc()),
+      BlocProvider(create: (context) => TermsAndConditionsBloc()),
       BlocProvider(create: (context) => RewardsBloc()),
       BlocProvider(create: (context) => ReviewBloc()),
     ],

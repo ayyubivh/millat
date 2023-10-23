@@ -164,7 +164,7 @@ class RewardCartView extends StatelessWidget {
                   height: 121,
                   fit: BoxFit.cover,
                 ),
-                kWidht10,
+                kWidth10,
                 SizedBox(
                   width: SizeUtility(context).width / 2.2,
                   child: Column(
@@ -302,7 +302,7 @@ class RewardCartView extends StatelessWidget {
             height: 180,
             fit: BoxFit.contain,
           ),
-          kWidht10,
+          kWidth10,
           SizedBox(
             width: SizeUtility(context).width / 2.2,
             height: 180,

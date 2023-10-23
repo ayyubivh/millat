@@ -64,6 +64,7 @@ class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
         category: data,
         categoryLoading: false,
       ));
+      print(state.category!.result!.category!.first.id);
     } catch (e) {
       emit(state.copyWith(
           errorMessage: "An error occurred", categoryLoading: false));

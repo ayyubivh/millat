@@ -13,10 +13,6 @@ class TermsConditionsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      BlocProvider.of<TermsAndCondtionsBloc>(context)
-          .add(const FetchTermsAndConditionsEvent(slug: "terms_conditions"));
-    });
     return Scaffold(
       appBar: AppBar(
         foregroundColor: ColorManager.blackColor,
@@ -31,44 +27,48 @@ class TermsConditionsView extends StatelessWidget {
           ),
         ),
       ),
-      body: BlocBuilder<TermsAndCondtionsBloc, TermsAndCondtionsState>(
-        builder: (context, state) {
-          final data = state.termsConditionsModel?.result.data.content;
-          return state.isLoading
-              ? const Loader()
-              : Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 30)
-                      .copyWith(bottom: 10),
-                  child: ListView.builder(
-                    itemCount: data?.length,
-                    itemBuilder: (context, index) {
-                      return Column(
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [
-                          kHeight20,
-                          Text(
-                            data?[index].title ?? "",
-                            style: const TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.w700,
+      body: BlocProvider(
+        create: (context) => TermsAndConditionsBloc()
+          ..add(const FetchTermsAndConditionsEvent(slug: "terms_conditions")),
+        child: BlocBuilder<TermsAndConditionsBloc, TermsAndCondtionsState>(
+          builder: (context, state) {
+            final data = state.termsConditionsModel?.result.data.content;
+            return state.isLoading
+                ? const Loader()
+                : Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 30)
+                        .copyWith(bottom: 10),
+                    child: ListView.builder(
+                      itemCount: data?.length,
+                      itemBuilder: (context, index) {
+                        return Column(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            kHeight20,
+                            Text(
+                              data?[index].title ?? "",
+                              style: const TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.w700,
+                              ),
                             ),
-                          ),
-                          kHeight20,
-                          Text(
-                            Utilities.removeFootnotesFromMeaning(
-                                data?[index].html ?? ""),
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w500,
-                              color: ColorManager.black4F,
-                              height: 1.2,
+                            kHeight20,
+                            Text(
+                              Utilities.removeFootnotesFromMeaning(
+                                  data?[index].html ?? ""),
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500,
+                                color: ColorManager.black4F,
+                                height: 1.2,
+                              ),
                             ),
-                          ),
-                        ],
-                      );
-                    },
-                  ));
-        },
+                          ],
+                        );
+                      },
+                    ));
+          },
+        ),
       ),
       // bottomSheet: Padding(
       //     padding: const EdgeInsets.symmetric(

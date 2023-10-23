@@ -4,7 +4,6 @@ import 'package:go_router/go_router.dart';
 import 'package:millat/components/buttons/main_button.dart';
 import 'package:millat/enums/enumertations.dart';
 import 'package:millat/resources/authentication/bloc/logic/database_bloc/database_bloc.dart';
-import 'package:millat/resources/shop/view/checkout/checkout_details.dart';
 import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/color_manager.dart';
@@ -20,10 +19,6 @@ class AddressBookView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      BlocProvider.of<AddressBloc>(context)
-          .add(FetchAddressEvent(context: context));
-    });
     return Scaffold(
       backgroundColor: ColorManager.scaffolBgColor,
       appBar: AppBar(
@@ -35,19 +30,23 @@ class AddressBookView extends StatelessWidget {
           ),
         ),
         centerTitle: true,
-        leading: const BackButton(color: Colors.black),
+        leading: BackButton(color: ColorManager.blackColor),
         elevation: 0,
         backgroundColor: ColorManager.whiteColor,
       ),
-      body: BlocBuilder<AddressBloc, AddressState>(
-        builder: (context, state) {
-          if (state.addressModel?.result == null) {
-            return const Loader();
-          }
-          return state.addressModel!.result.addresses.isNotEmpty
-              ? _addressContainerWidget(context)
-              : _emptyAddressWidget(context);
-        },
+      body: BlocProvider(
+        create: (context) =>
+            AddressBloc()..add(FetchAddressEvent(context: context)),
+        child: BlocBuilder<AddressBloc, AddressState>(
+          builder: (context, state) {
+            if (state.addressModel?.result == null) {
+              return const Loader();
+            }
+            return state.addressModel!.result.addresses.isNotEmpty
+                ? _addressContainerWidget(context)
+                : _emptyAddressWidget(context);
+          },
+        ),
       ),
     );
   }

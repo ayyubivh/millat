@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -22,7 +24,7 @@ part 'home_bloc.freezed.dart';
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
   HomeServices homeServices = HomeServices();
   HomeBloc() : super(HomeState.initial()) {
-    on<FetchLargeDisountsBanner>(_fetchLargeDisountsBanner);
+    on<FetchLargeDiscountsBanner>(_fetchLargeDisountsBanner);
     on<FetchTopOffersBanner>(_fetchTopOffersBanner);
     on<FetchBrandofTheDay>(_fetchBrandofTheDay);
     on<FetchHadithOfTheDay>(_fetchHadithOfTheDay);
@@ -37,10 +39,11 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     on<ChangeCompassThemeIndex>(_changeCompassThemeIndex);
     on<FetchNotificationApi>(_fetchNotificationApi);
     on<AddMarkReadNotificationEvent>(_addMarkReadEvent);
+    on<ChangeHomeBannerIndex>(_changeHomeBannerIndex);
   }
 
   _fetchLargeDisountsBanner(
-      FetchLargeDisountsBanner event, Emitter<HomeState> emit) async {
+      FetchLargeDiscountsBanner event, Emitter<HomeState> emit) async {
     emit(state.copyWith(isLoading: true));
 
     try {
@@ -247,5 +250,9 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     } catch (e) {
       throw Exception(e);
     }
+  }
+
+  _changeHomeBannerIndex(ChangeHomeBannerIndex event, Emitter<HomeState> emit) {
+    emit(state.copyWith(homeBannerIndex: event.index));
   }
 }

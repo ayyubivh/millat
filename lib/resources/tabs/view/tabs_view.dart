@@ -14,18 +14,20 @@ import 'package:millat/utils/size_utility.dart';
 import '../../home/view/namaz_timing/namaz_timing_view.dart';
 import '../../profile/views/user_profile_view.dart';
 
-class TabsView extends StatelessWidget {
+class TabsView extends StatefulWidget {
   const TabsView({Key? key}) : super(key: key);
 
   @override
+  State<TabsView> createState() => _TabsViewState();
+}
+
+class _TabsViewState extends State<TabsView> {
+  @override
   Widget build(BuildContext context) {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      context.read<DatabaseBloc>().add(const FetchToken());
-    });
     List screens = [
       const HomeView(),
       const ShopTabsView(),
-      const NamazTimingView(),
+      NamazTimingView(),
       const UserProfileView(),
     ];
 
@@ -93,7 +95,10 @@ class TabsView extends StatelessWidget {
               ],
             ),
           ),
-          body: screens[state.homeTabIndex],
+          body: BlocProvider(
+            create: (context) => DatabaseBloc()..add(const FetchToken()),
+            child: screens[state.homeTabIndex],
+          ),
         ),
       ),
     );

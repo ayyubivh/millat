@@ -89,7 +89,7 @@ class SupportHelpView extends StatelessWidget {
             final phone = phoneNumberController.text;
             final message = messageController.text;
             if (_formKey.currentState!.validate()) {
-              context.read<TermsAndCondtionsBloc>().add(PostHelpAndSupport(
+              context.read<TermsAndConditionsBloc>().add(PostHelpAndSupport(
                   email: email,
                   name: name,
                   phoneNumber: phone,

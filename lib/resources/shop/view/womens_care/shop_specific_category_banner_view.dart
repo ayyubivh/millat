@@ -4,10 +4,8 @@ import 'package:go_router/go_router.dart';
 import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/loader.dart';
 import '../../../../components/common_widgets/shop_products_widget.dart';
-import '../../../../utils/size_utility.dart';
 import '../../../../utils/utils.dart';
 import '../../bloc/logic/category_bloc/category_bloc.dart';
-import '../products/single_product_view.dart';
 
 class ShopSpecificCategoryBannerView extends StatelessWidget {
   final String imageUrl;

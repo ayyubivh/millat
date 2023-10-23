@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:millat/components/buttons/main_button.dart';
 import 'package:millat/components/buttons/main_text_button.dart';
 import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/color_manager.dart';
-import 'package:millat/resources/authentication/view/sign_up_view.dart';
 import 'package:millat/utils/constants.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class OnBoardingView extends StatefulWidget {
   const OnBoardingView({Key? key}) : super(key: key);

@@ -38,6 +38,7 @@ mixin _$HomeEvent {
     required TResult Function(BuildContext context) fetchNotificationApi,
     required TResult Function(String id, BuildContext context)
         addMarkReadNotificationEvent,
+    required TResult Function(int index) changeHomeBannerIndex,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -61,6 +62,7 @@ mixin _$HomeEvent {
     TResult? Function(BuildContext context)? fetchNotificationApi,
     TResult? Function(String id, BuildContext context)?
         addMarkReadNotificationEvent,
+    TResult? Function(int index)? changeHomeBannerIndex,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -84,12 +86,13 @@ mixin _$HomeEvent {
     TResult Function(BuildContext context)? fetchNotificationApi,
     TResult Function(String id, BuildContext context)?
         addMarkReadNotificationEvent,
+    TResult Function(int index)? changeHomeBannerIndex,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(FetchLargeDisountsBanner value)
+    required TResult Function(FetchLargeDiscountsBanner value)
         fetchLargeDisountsBanner,
     required TResult Function(FetchTopOffersBanner value) fetchTopOffersBanner,
     required TResult Function(FetchBrandofTheDay value) fetchBrandofTheDay,
@@ -114,11 +117,14 @@ mixin _$HomeEvent {
     required TResult Function(FetchNotificationApi value) fetchNotificationApi,
     required TResult Function(AddMarkReadNotificationEvent value)
         addMarkReadNotificationEvent,
+    required TResult Function(ChangeHomeBannerIndex value)
+        changeHomeBannerIndex,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(FetchLargeDisountsBanner value)? fetchLargeDisountsBanner,
+    TResult? Function(FetchLargeDiscountsBanner value)?
+        fetchLargeDisountsBanner,
     TResult? Function(FetchTopOffersBanner value)? fetchTopOffersBanner,
     TResult? Function(FetchBrandofTheDay value)? fetchBrandofTheDay,
     TResult? Function(FetchHadithOfTheDay value)? fetchHadithOfTheDay,
@@ -136,11 +142,12 @@ mixin _$HomeEvent {
     TResult? Function(FetchNotificationApi value)? fetchNotificationApi,
     TResult? Function(AddMarkReadNotificationEvent value)?
         addMarkReadNotificationEvent,
+    TResult? Function(ChangeHomeBannerIndex value)? changeHomeBannerIndex,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(FetchLargeDisountsBanner value)? fetchLargeDisountsBanner,
+    TResult Function(FetchLargeDiscountsBanner value)? fetchLargeDisountsBanner,
     TResult Function(FetchTopOffersBanner value)? fetchTopOffersBanner,
     TResult Function(FetchBrandofTheDay value)? fetchBrandofTheDay,
     TResult Function(FetchHadithOfTheDay value)? fetchHadithOfTheDay,
@@ -158,6 +165,7 @@ mixin _$HomeEvent {
     TResult Function(FetchNotificationApi value)? fetchNotificationApi,
     TResult Function(AddMarkReadNotificationEvent value)?
         addMarkReadNotificationEvent,
+    TResult Function(ChangeHomeBannerIndex value)? changeHomeBannerIndex,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -181,25 +189,26 @@ class _$HomeEventCopyWithImpl<$Res, $Val extends HomeEvent>
 }
 
 /// @nodoc
-abstract class _$$FetchLargeDisountsBannerCopyWith<$Res> {
-  factory _$$FetchLargeDisountsBannerCopyWith(_$FetchLargeDisountsBanner value,
-          $Res Function(_$FetchLargeDisountsBanner) then) =
-      __$$FetchLargeDisountsBannerCopyWithImpl<$Res>;
+abstract class _$$FetchLargeDiscountsBannerCopyWith<$Res> {
+  factory _$$FetchLargeDiscountsBannerCopyWith(
+          _$FetchLargeDiscountsBanner value,
+          $Res Function(_$FetchLargeDiscountsBanner) then) =
+      __$$FetchLargeDiscountsBannerCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$FetchLargeDisountsBannerCopyWithImpl<$Res>
-    extends _$HomeEventCopyWithImpl<$Res, _$FetchLargeDisountsBanner>
-    implements _$$FetchLargeDisountsBannerCopyWith<$Res> {
-  __$$FetchLargeDisountsBannerCopyWithImpl(_$FetchLargeDisountsBanner _value,
-      $Res Function(_$FetchLargeDisountsBanner) _then)
+class __$$FetchLargeDiscountsBannerCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$FetchLargeDiscountsBanner>
+    implements _$$FetchLargeDiscountsBannerCopyWith<$Res> {
+  __$$FetchLargeDiscountsBannerCopyWithImpl(_$FetchLargeDiscountsBanner _value,
+      $Res Function(_$FetchLargeDiscountsBanner) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$FetchLargeDisountsBanner implements FetchLargeDisountsBanner {
-  const _$FetchLargeDisountsBanner();
+class _$FetchLargeDiscountsBanner implements FetchLargeDiscountsBanner {
+  const _$FetchLargeDiscountsBanner();
 
   @override
   String toString() {
@@ -210,7 +219,7 @@ class _$FetchLargeDisountsBanner implements FetchLargeDisountsBanner {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FetchLargeDisountsBanner);
+            other is _$FetchLargeDiscountsBanner);
   }
 
   @override
@@ -239,6 +248,7 @@ class _$FetchLargeDisountsBanner implements FetchLargeDisountsBanner {
     required TResult Function(BuildContext context) fetchNotificationApi,
     required TResult Function(String id, BuildContext context)
         addMarkReadNotificationEvent,
+    required TResult Function(int index) changeHomeBannerIndex,
   }) {
     return fetchLargeDisountsBanner();
   }
@@ -265,6 +275,7 @@ class _$FetchLargeDisountsBanner implements FetchLargeDisountsBanner {
     TResult? Function(BuildContext context)? fetchNotificationApi,
     TResult? Function(String id, BuildContext context)?
         addMarkReadNotificationEvent,
+    TResult? Function(int index)? changeHomeBannerIndex,
   }) {
     return fetchLargeDisountsBanner?.call();
   }
@@ -291,6 +302,7 @@ class _$FetchLargeDisountsBanner implements FetchLargeDisountsBanner {
     TResult Function(BuildContext context)? fetchNotificationApi,
     TResult Function(String id, BuildContext context)?
         addMarkReadNotificationEvent,
+    TResult Function(int index)? changeHomeBannerIndex,
     required TResult orElse(),
   }) {
     if (fetchLargeDisountsBanner != null) {
@@ -302,7 +314,7 @@ class _$FetchLargeDisountsBanner implements FetchLargeDisountsBanner {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(FetchLargeDisountsBanner value)
+    required TResult Function(FetchLargeDiscountsBanner value)
         fetchLargeDisountsBanner,
     required TResult Function(FetchTopOffersBanner value) fetchTopOffersBanner,
     required TResult Function(FetchBrandofTheDay value) fetchBrandofTheDay,
@@ -327,6 +339,8 @@ class _$FetchLargeDisountsBanner implements FetchLargeDisountsBanner {
     required TResult Function(FetchNotificationApi value) fetchNotificationApi,
     required TResult Function(AddMarkReadNotificationEvent value)
         addMarkReadNotificationEvent,
+    required TResult Function(ChangeHomeBannerIndex value)
+        changeHomeBannerIndex,
   }) {
     return fetchLargeDisountsBanner(this);
   }
@@ -334,7 +348,8 @@ class _$FetchLargeDisountsBanner implements FetchLargeDisountsBanner {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(FetchLargeDisountsBanner value)? fetchLargeDisountsBanner,
+    TResult? Function(FetchLargeDiscountsBanner value)?
+        fetchLargeDisountsBanner,
     TResult? Function(FetchTopOffersBanner value)? fetchTopOffersBanner,
     TResult? Function(FetchBrandofTheDay value)? fetchBrandofTheDay,
     TResult? Function(FetchHadithOfTheDay value)? fetchHadithOfTheDay,
@@ -352,6 +367,7 @@ class _$FetchLargeDisountsBanner implements FetchLargeDisountsBanner {
     TResult? Function(FetchNotificationApi value)? fetchNotificationApi,
     TResult? Function(AddMarkReadNotificationEvent value)?
         addMarkReadNotificationEvent,
+    TResult? Function(ChangeHomeBannerIndex value)? changeHomeBannerIndex,
   }) {
     return fetchLargeDisountsBanner?.call(this);
   }
@@ -359,7 +375,7 @@ class _$FetchLargeDisountsBanner implements FetchLargeDisountsBanner {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(FetchLargeDisountsBanner value)? fetchLargeDisountsBanner,
+    TResult Function(FetchLargeDiscountsBanner value)? fetchLargeDisountsBanner,
     TResult Function(FetchTopOffersBanner value)? fetchTopOffersBanner,
     TResult Function(FetchBrandofTheDay value)? fetchBrandofTheDay,
     TResult Function(FetchHadithOfTheDay value)? fetchHadithOfTheDay,
@@ -377,6 +393,7 @@ class _$FetchLargeDisountsBanner implements FetchLargeDisountsBanner {
     TResult Function(FetchNotificationApi value)? fetchNotificationApi,
     TResult Function(AddMarkReadNotificationEvent value)?
         addMarkReadNotificationEvent,
+    TResult Function(ChangeHomeBannerIndex value)? changeHomeBannerIndex,
     required TResult orElse(),
   }) {
     if (fetchLargeDisountsBanner != null) {
@@ -386,8 +403,8 @@ class _$FetchLargeDisountsBanner implements FetchLargeDisountsBanner {
   }
 }
 
-abstract class FetchLargeDisountsBanner implements HomeEvent {
-  const factory FetchLargeDisountsBanner() = _$FetchLargeDisountsBanner;
+abstract class FetchLargeDiscountsBanner implements HomeEvent {
+  const factory FetchLargeDiscountsBanner() = _$FetchLargeDiscountsBanner;
 }
 
 /// @nodoc
@@ -448,6 +465,7 @@ class _$FetchTopOffersBanner implements FetchTopOffersBanner {
     required TResult Function(BuildContext context) fetchNotificationApi,
     required TResult Function(String id, BuildContext context)
         addMarkReadNotificationEvent,
+    required TResult Function(int index) changeHomeBannerIndex,
   }) {
     return fetchTopOffersBanner();
   }
@@ -474,6 +492,7 @@ class _$FetchTopOffersBanner implements FetchTopOffersBanner {
     TResult? Function(BuildContext context)? fetchNotificationApi,
     TResult? Function(String id, BuildContext context)?
         addMarkReadNotificationEvent,
+    TResult? Function(int index)? changeHomeBannerIndex,
   }) {
     return fetchTopOffersBanner?.call();
   }
@@ -500,6 +519,7 @@ class _$FetchTopOffersBanner implements FetchTopOffersBanner {
     TResult Function(BuildContext context)? fetchNotificationApi,
     TResult Function(String id, BuildContext context)?
         addMarkReadNotificationEvent,
+    TResult Function(int index)? changeHomeBannerIndex,
     required TResult orElse(),
   }) {
     if (fetchTopOffersBanner != null) {
@@ -511,7 +531,7 @@ class _$FetchTopOffersBanner implements FetchTopOffersBanner {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(FetchLargeDisountsBanner value)
+    required TResult Function(FetchLargeDiscountsBanner value)
         fetchLargeDisountsBanner,
     required TResult Function(FetchTopOffersBanner value) fetchTopOffersBanner,
     required TResult Function(FetchBrandofTheDay value) fetchBrandofTheDay,
@@ -536,6 +556,8 @@ class _$FetchTopOffersBanner implements FetchTopOffersBanner {
     required TResult Function(FetchNotificationApi value) fetchNotificationApi,
     required TResult Function(AddMarkReadNotificationEvent value)
         addMarkReadNotificationEvent,
+    required TResult Function(ChangeHomeBannerIndex value)
+        changeHomeBannerIndex,
   }) {
     return fetchTopOffersBanner(this);
   }
@@ -543,7 +565,8 @@ class _$FetchTopOffersBanner implements FetchTopOffersBanner {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(FetchLargeDisountsBanner value)? fetchLargeDisountsBanner,
+    TResult? Function(FetchLargeDiscountsBanner value)?
+        fetchLargeDisountsBanner,
     TResult? Function(FetchTopOffersBanner value)? fetchTopOffersBanner,
     TResult? Function(FetchBrandofTheDay value)? fetchBrandofTheDay,
     TResult? Function(FetchHadithOfTheDay value)? fetchHadithOfTheDay,
@@ -561,6 +584,7 @@ class _$FetchTopOffersBanner implements FetchTopOffersBanner {
     TResult? Function(FetchNotificationApi value)? fetchNotificationApi,
     TResult? Function(AddMarkReadNotificationEvent value)?
         addMarkReadNotificationEvent,
+    TResult? Function(ChangeHomeBannerIndex value)? changeHomeBannerIndex,
   }) {
     return fetchTopOffersBanner?.call(this);
   }
@@ -568,7 +592,7 @@ class _$FetchTopOffersBanner implements FetchTopOffersBanner {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(FetchLargeDisountsBanner value)? fetchLargeDisountsBanner,
+    TResult Function(FetchLargeDiscountsBanner value)? fetchLargeDisountsBanner,
     TResult Function(FetchTopOffersBanner value)? fetchTopOffersBanner,
     TResult Function(FetchBrandofTheDay value)? fetchBrandofTheDay,
     TResult Function(FetchHadithOfTheDay value)? fetchHadithOfTheDay,
@@ -586,6 +610,7 @@ class _$FetchTopOffersBanner implements FetchTopOffersBanner {
     TResult Function(FetchNotificationApi value)? fetchNotificationApi,
     TResult Function(AddMarkReadNotificationEvent value)?
         addMarkReadNotificationEvent,
+    TResult Function(ChangeHomeBannerIndex value)? changeHomeBannerIndex,
     required TResult orElse(),
   }) {
     if (fetchTopOffersBanner != null) {
@@ -657,6 +682,7 @@ class _$FetchBrandofTheDay implements FetchBrandofTheDay {
     required TResult Function(BuildContext context) fetchNotificationApi,
     required TResult Function(String id, BuildContext context)
         addMarkReadNotificationEvent,
+    required TResult Function(int index) changeHomeBannerIndex,
   }) {
     return fetchBrandofTheDay();
   }
@@ -683,6 +709,7 @@ class _$FetchBrandofTheDay implements FetchBrandofTheDay {
     TResult? Function(BuildContext context)? fetchNotificationApi,
     TResult? Function(String id, BuildContext context)?
         addMarkReadNotificationEvent,
+    TResult? Function(int index)? changeHomeBannerIndex,
   }) {
     return fetchBrandofTheDay?.call();
   }
@@ -709,6 +736,7 @@ class _$FetchBrandofTheDay implements FetchBrandofTheDay {
     TResult Function(BuildContext context)? fetchNotificationApi,
     TResult Function(String id, BuildContext context)?
         addMarkReadNotificationEvent,
+    TResult Function(int index)? changeHomeBannerIndex,
     required TResult orElse(),
   }) {
     if (fetchBrandofTheDay != null) {
@@ -720,7 +748,7 @@ class _$FetchBrandofTheDay implements FetchBrandofTheDay {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(FetchLargeDisountsBanner value)
+    required TResult Function(FetchLargeDiscountsBanner value)
         fetchLargeDisountsBanner,
     required TResult Function(FetchTopOffersBanner value) fetchTopOffersBanner,
     required TResult Function(FetchBrandofTheDay value) fetchBrandofTheDay,
@@ -745,6 +773,8 @@ class _$FetchBrandofTheDay implements FetchBrandofTheDay {
     required TResult Function(FetchNotificationApi value) fetchNotificationApi,
     required TResult Function(AddMarkReadNotificationEvent value)
         addMarkReadNotificationEvent,
+    required TResult Function(ChangeHomeBannerIndex value)
+        changeHomeBannerIndex,
   }) {
     return fetchBrandofTheDay(this);
   }
@@ -752,7 +782,8 @@ class _$FetchBrandofTheDay implements FetchBrandofTheDay {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(FetchLargeDisountsBanner value)? fetchLargeDisountsBanner,
+    TResult? Function(FetchLargeDiscountsBanner value)?
+        fetchLargeDisountsBanner,
     TResult? Function(FetchTopOffersBanner value)? fetchTopOffersBanner,
     TResult? Function(FetchBrandofTheDay value)? fetchBrandofTheDay,
     TResult? Function(FetchHadithOfTheDay value)? fetchHadithOfTheDay,
@@ -770,6 +801,7 @@ class _$FetchBrandofTheDay implements FetchBrandofTheDay {
     TResult? Function(FetchNotificationApi value)? fetchNotificationApi,
     TResult? Function(AddMarkReadNotificationEvent value)?
         addMarkReadNotificationEvent,
+    TResult? Function(ChangeHomeBannerIndex value)? changeHomeBannerIndex,
   }) {
     return fetchBrandofTheDay?.call(this);
   }
@@ -777,7 +809,7 @@ class _$FetchBrandofTheDay implements FetchBrandofTheDay {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(FetchLargeDisountsBanner value)? fetchLargeDisountsBanner,
+    TResult Function(FetchLargeDiscountsBanner value)? fetchLargeDisountsBanner,
     TResult Function(FetchTopOffersBanner value)? fetchTopOffersBanner,
     TResult Function(FetchBrandofTheDay value)? fetchBrandofTheDay,
     TResult Function(FetchHadithOfTheDay value)? fetchHadithOfTheDay,
@@ -795,6 +827,7 @@ class _$FetchBrandofTheDay implements FetchBrandofTheDay {
     TResult Function(FetchNotificationApi value)? fetchNotificationApi,
     TResult Function(AddMarkReadNotificationEvent value)?
         addMarkReadNotificationEvent,
+    TResult Function(ChangeHomeBannerIndex value)? changeHomeBannerIndex,
     required TResult orElse(),
   }) {
     if (fetchBrandofTheDay != null) {
@@ -866,6 +899,7 @@ class _$FetchHadithOfTheDay implements FetchHadithOfTheDay {
     required TResult Function(BuildContext context) fetchNotificationApi,
     required TResult Function(String id, BuildContext context)
         addMarkReadNotificationEvent,
+    required TResult Function(int index) changeHomeBannerIndex,
   }) {
     return fetchHadithOfTheDay();
   }
@@ -892,6 +926,7 @@ class _$FetchHadithOfTheDay implements FetchHadithOfTheDay {
     TResult? Function(BuildContext context)? fetchNotificationApi,
     TResult? Function(String id, BuildContext context)?
         addMarkReadNotificationEvent,
+    TResult? Function(int index)? changeHomeBannerIndex,
   }) {
     return fetchHadithOfTheDay?.call();
   }
@@ -918,6 +953,7 @@ class _$FetchHadithOfTheDay implements FetchHadithOfTheDay {
     TResult Function(BuildContext context)? fetchNotificationApi,
     TResult Function(String id, BuildContext context)?
         addMarkReadNotificationEvent,
+    TResult Function(int index)? changeHomeBannerIndex,
     required TResult orElse(),
   }) {
     if (fetchHadithOfTheDay != null) {
@@ -929,7 +965,7 @@ class _$FetchHadithOfTheDay implements FetchHadithOfTheDay {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(FetchLargeDisountsBanner value)
+    required TResult Function(FetchLargeDiscountsBanner value)
         fetchLargeDisountsBanner,
     required TResult Function(FetchTopOffersBanner value) fetchTopOffersBanner,
     required TResult Function(FetchBrandofTheDay value) fetchBrandofTheDay,
@@ -954,6 +990,8 @@ class _$FetchHadithOfTheDay implements FetchHadithOfTheDay {
     required TResult Function(FetchNotificationApi value) fetchNotificationApi,
     required TResult Function(AddMarkReadNotificationEvent value)
         addMarkReadNotificationEvent,
+    required TResult Function(ChangeHomeBannerIndex value)
+        changeHomeBannerIndex,
   }) {
     return fetchHadithOfTheDay(this);
   }
@@ -961,7 +999,8 @@ class _$FetchHadithOfTheDay implements FetchHadithOfTheDay {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(FetchLargeDisountsBanner value)? fetchLargeDisountsBanner,
+    TResult? Function(FetchLargeDiscountsBanner value)?
+        fetchLargeDisountsBanner,
     TResult? Function(FetchTopOffersBanner value)? fetchTopOffersBanner,
     TResult? Function(FetchBrandofTheDay value)? fetchBrandofTheDay,
     TResult? Function(FetchHadithOfTheDay value)? fetchHadithOfTheDay,
@@ -979,6 +1018,7 @@ class _$FetchHadithOfTheDay implements FetchHadithOfTheDay {
     TResult? Function(FetchNotificationApi value)? fetchNotificationApi,
     TResult? Function(AddMarkReadNotificationEvent value)?
         addMarkReadNotificationEvent,
+    TResult? Function(ChangeHomeBannerIndex value)? changeHomeBannerIndex,
   }) {
     return fetchHadithOfTheDay?.call(this);
   }
@@ -986,7 +1026,7 @@ class _$FetchHadithOfTheDay implements FetchHadithOfTheDay {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(FetchLargeDisountsBanner value)? fetchLargeDisountsBanner,
+    TResult Function(FetchLargeDiscountsBanner value)? fetchLargeDisountsBanner,
     TResult Function(FetchTopOffersBanner value)? fetchTopOffersBanner,
     TResult Function(FetchBrandofTheDay value)? fetchBrandofTheDay,
     TResult Function(FetchHadithOfTheDay value)? fetchHadithOfTheDay,
@@ -1004,6 +1044,7 @@ class _$FetchHadithOfTheDay implements FetchHadithOfTheDay {
     TResult Function(FetchNotificationApi value)? fetchNotificationApi,
     TResult Function(AddMarkReadNotificationEvent value)?
         addMarkReadNotificationEvent,
+    TResult Function(ChangeHomeBannerIndex value)? changeHomeBannerIndex,
     required TResult orElse(),
   }) {
     if (fetchHadithOfTheDay != null) {
@@ -1075,6 +1116,7 @@ class _$FetchEventOfTheMonth implements FetchEventOfTheMonth {
     required TResult Function(BuildContext context) fetchNotificationApi,
     required TResult Function(String id, BuildContext context)
         addMarkReadNotificationEvent,
+    required TResult Function(int index) changeHomeBannerIndex,
   }) {
     return fetchEventOfTheMonth();
   }
@@ -1101,6 +1143,7 @@ class _$FetchEventOfTheMonth implements FetchEventOfTheMonth {
     TResult? Function(BuildContext context)? fetchNotificationApi,
     TResult? Function(String id, BuildContext context)?
         addMarkReadNotificationEvent,
+    TResult? Function(int index)? changeHomeBannerIndex,
   }) {
     return fetchEventOfTheMonth?.call();
   }
@@ -1127,6 +1170,7 @@ class _$FetchEventOfTheMonth implements FetchEventOfTheMonth {
     TResult Function(BuildContext context)? fetchNotificationApi,
     TResult Function(String id, BuildContext context)?
         addMarkReadNotificationEvent,
+    TResult Function(int index)? changeHomeBannerIndex,
     required TResult orElse(),
   }) {
     if (fetchEventOfTheMonth != null) {
@@ -1138,7 +1182,7 @@ class _$FetchEventOfTheMonth implements FetchEventOfTheMonth {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(FetchLargeDisountsBanner value)
+    required TResult Function(FetchLargeDiscountsBanner value)
         fetchLargeDisountsBanner,
     required TResult Function(FetchTopOffersBanner value) fetchTopOffersBanner,
     required TResult Function(FetchBrandofTheDay value) fetchBrandofTheDay,
@@ -1163,6 +1207,8 @@ class _$FetchEventOfTheMonth implements FetchEventOfTheMonth {
     required TResult Function(FetchNotificationApi value) fetchNotificationApi,
     required TResult Function(AddMarkReadNotificationEvent value)
         addMarkReadNotificationEvent,
+    required TResult Function(ChangeHomeBannerIndex value)
+        changeHomeBannerIndex,
   }) {
     return fetchEventOfTheMonth(this);
   }
@@ -1170,7 +1216,8 @@ class _$FetchEventOfTheMonth implements FetchEventOfTheMonth {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(FetchLargeDisountsBanner value)? fetchLargeDisountsBanner,
+    TResult? Function(FetchLargeDiscountsBanner value)?
+        fetchLargeDisountsBanner,
     TResult? Function(FetchTopOffersBanner value)? fetchTopOffersBanner,
     TResult? Function(FetchBrandofTheDay value)? fetchBrandofTheDay,
     TResult? Function(FetchHadithOfTheDay value)? fetchHadithOfTheDay,
@@ -1188,6 +1235,7 @@ class _$FetchEventOfTheMonth implements FetchEventOfTheMonth {
     TResult? Function(FetchNotificationApi value)? fetchNotificationApi,
     TResult? Function(AddMarkReadNotificationEvent value)?
         addMarkReadNotificationEvent,
+    TResult? Function(ChangeHomeBannerIndex value)? changeHomeBannerIndex,
   }) {
     return fetchEventOfTheMonth?.call(this);
   }
@@ -1195,7 +1243,7 @@ class _$FetchEventOfTheMonth implements FetchEventOfTheMonth {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(FetchLargeDisountsBanner value)? fetchLargeDisountsBanner,
+    TResult Function(FetchLargeDiscountsBanner value)? fetchLargeDisountsBanner,
     TResult Function(FetchTopOffersBanner value)? fetchTopOffersBanner,
     TResult Function(FetchBrandofTheDay value)? fetchBrandofTheDay,
     TResult Function(FetchHadithOfTheDay value)? fetchHadithOfTheDay,
@@ -1213,6 +1261,7 @@ class _$FetchEventOfTheMonth implements FetchEventOfTheMonth {
     TResult Function(FetchNotificationApi value)? fetchNotificationApi,
     TResult Function(AddMarkReadNotificationEvent value)?
         addMarkReadNotificationEvent,
+    TResult Function(ChangeHomeBannerIndex value)? changeHomeBannerIndex,
     required TResult orElse(),
   }) {
     if (fetchEventOfTheMonth != null) {
@@ -1319,6 +1368,7 @@ class _$FetchPrayerTrackerEvent implements FetchPrayerTrackerEvent {
     required TResult Function(BuildContext context) fetchNotificationApi,
     required TResult Function(String id, BuildContext context)
         addMarkReadNotificationEvent,
+    required TResult Function(int index) changeHomeBannerIndex,
   }) {
     return fetchPrayerTrackerEvent(date, context);
   }
@@ -1345,6 +1395,7 @@ class _$FetchPrayerTrackerEvent implements FetchPrayerTrackerEvent {
     TResult? Function(BuildContext context)? fetchNotificationApi,
     TResult? Function(String id, BuildContext context)?
         addMarkReadNotificationEvent,
+    TResult? Function(int index)? changeHomeBannerIndex,
   }) {
     return fetchPrayerTrackerEvent?.call(date, context);
   }
@@ -1371,6 +1422,7 @@ class _$FetchPrayerTrackerEvent implements FetchPrayerTrackerEvent {
     TResult Function(BuildContext context)? fetchNotificationApi,
     TResult Function(String id, BuildContext context)?
         addMarkReadNotificationEvent,
+    TResult Function(int index)? changeHomeBannerIndex,
     required TResult orElse(),
   }) {
     if (fetchPrayerTrackerEvent != null) {
@@ -1382,7 +1434,7 @@ class _$FetchPrayerTrackerEvent implements FetchPrayerTrackerEvent {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(FetchLargeDisountsBanner value)
+    required TResult Function(FetchLargeDiscountsBanner value)
         fetchLargeDisountsBanner,
     required TResult Function(FetchTopOffersBanner value) fetchTopOffersBanner,
     required TResult Function(FetchBrandofTheDay value) fetchBrandofTheDay,
@@ -1407,6 +1459,8 @@ class _$FetchPrayerTrackerEvent implements FetchPrayerTrackerEvent {
     required TResult Function(FetchNotificationApi value) fetchNotificationApi,
     required TResult Function(AddMarkReadNotificationEvent value)
         addMarkReadNotificationEvent,
+    required TResult Function(ChangeHomeBannerIndex value)
+        changeHomeBannerIndex,
   }) {
     return fetchPrayerTrackerEvent(this);
   }
@@ -1414,7 +1468,8 @@ class _$FetchPrayerTrackerEvent implements FetchPrayerTrackerEvent {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(FetchLargeDisountsBanner value)? fetchLargeDisountsBanner,
+    TResult? Function(FetchLargeDiscountsBanner value)?
+        fetchLargeDisountsBanner,
     TResult? Function(FetchTopOffersBanner value)? fetchTopOffersBanner,
     TResult? Function(FetchBrandofTheDay value)? fetchBrandofTheDay,
     TResult? Function(FetchHadithOfTheDay value)? fetchHadithOfTheDay,
@@ -1432,6 +1487,7 @@ class _$FetchPrayerTrackerEvent implements FetchPrayerTrackerEvent {
     TResult? Function(FetchNotificationApi value)? fetchNotificationApi,
     TResult? Function(AddMarkReadNotificationEvent value)?
         addMarkReadNotificationEvent,
+    TResult? Function(ChangeHomeBannerIndex value)? changeHomeBannerIndex,
   }) {
     return fetchPrayerTrackerEvent?.call(this);
   }
@@ -1439,7 +1495,7 @@ class _$FetchPrayerTrackerEvent implements FetchPrayerTrackerEvent {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(FetchLargeDisountsBanner value)? fetchLargeDisountsBanner,
+    TResult Function(FetchLargeDiscountsBanner value)? fetchLargeDisountsBanner,
     TResult Function(FetchTopOffersBanner value)? fetchTopOffersBanner,
     TResult Function(FetchBrandofTheDay value)? fetchBrandofTheDay,
     TResult Function(FetchHadithOfTheDay value)? fetchHadithOfTheDay,
@@ -1457,6 +1513,7 @@ class _$FetchPrayerTrackerEvent implements FetchPrayerTrackerEvent {
     TResult Function(FetchNotificationApi value)? fetchNotificationApi,
     TResult Function(AddMarkReadNotificationEvent value)?
         addMarkReadNotificationEvent,
+    TResult Function(ChangeHomeBannerIndex value)? changeHomeBannerIndex,
     required TResult orElse(),
   }) {
     if (fetchPrayerTrackerEvent != null) {
@@ -1574,6 +1631,7 @@ class _$AddPrayerToPrayerTracker implements AddPrayerToPrayerTracker {
     required TResult Function(BuildContext context) fetchNotificationApi,
     required TResult Function(String id, BuildContext context)
         addMarkReadNotificationEvent,
+    required TResult Function(int index) changeHomeBannerIndex,
   }) {
     return addPrayerToPrayerTracker(namazName, context);
   }
@@ -1600,6 +1658,7 @@ class _$AddPrayerToPrayerTracker implements AddPrayerToPrayerTracker {
     TResult? Function(BuildContext context)? fetchNotificationApi,
     TResult? Function(String id, BuildContext context)?
         addMarkReadNotificationEvent,
+    TResult? Function(int index)? changeHomeBannerIndex,
   }) {
     return addPrayerToPrayerTracker?.call(namazName, context);
   }
@@ -1626,6 +1685,7 @@ class _$AddPrayerToPrayerTracker implements AddPrayerToPrayerTracker {
     TResult Function(BuildContext context)? fetchNotificationApi,
     TResult Function(String id, BuildContext context)?
         addMarkReadNotificationEvent,
+    TResult Function(int index)? changeHomeBannerIndex,
     required TResult orElse(),
   }) {
     if (addPrayerToPrayerTracker != null) {
@@ -1637,7 +1697,7 @@ class _$AddPrayerToPrayerTracker implements AddPrayerToPrayerTracker {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(FetchLargeDisountsBanner value)
+    required TResult Function(FetchLargeDiscountsBanner value)
         fetchLargeDisountsBanner,
     required TResult Function(FetchTopOffersBanner value) fetchTopOffersBanner,
     required TResult Function(FetchBrandofTheDay value) fetchBrandofTheDay,
@@ -1662,6 +1722,8 @@ class _$AddPrayerToPrayerTracker implements AddPrayerToPrayerTracker {
     required TResult Function(FetchNotificationApi value) fetchNotificationApi,
     required TResult Function(AddMarkReadNotificationEvent value)
         addMarkReadNotificationEvent,
+    required TResult Function(ChangeHomeBannerIndex value)
+        changeHomeBannerIndex,
   }) {
     return addPrayerToPrayerTracker(this);
   }
@@ -1669,7 +1731,8 @@ class _$AddPrayerToPrayerTracker implements AddPrayerToPrayerTracker {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(FetchLargeDisountsBanner value)? fetchLargeDisountsBanner,
+    TResult? Function(FetchLargeDiscountsBanner value)?
+        fetchLargeDisountsBanner,
     TResult? Function(FetchTopOffersBanner value)? fetchTopOffersBanner,
     TResult? Function(FetchBrandofTheDay value)? fetchBrandofTheDay,
     TResult? Function(FetchHadithOfTheDay value)? fetchHadithOfTheDay,
@@ -1687,6 +1750,7 @@ class _$AddPrayerToPrayerTracker implements AddPrayerToPrayerTracker {
     TResult? Function(FetchNotificationApi value)? fetchNotificationApi,
     TResult? Function(AddMarkReadNotificationEvent value)?
         addMarkReadNotificationEvent,
+    TResult? Function(ChangeHomeBannerIndex value)? changeHomeBannerIndex,
   }) {
     return addPrayerToPrayerTracker?.call(this);
   }
@@ -1694,7 +1758,7 @@ class _$AddPrayerToPrayerTracker implements AddPrayerToPrayerTracker {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(FetchLargeDisountsBanner value)? fetchLargeDisountsBanner,
+    TResult Function(FetchLargeDiscountsBanner value)? fetchLargeDisountsBanner,
     TResult Function(FetchTopOffersBanner value)? fetchTopOffersBanner,
     TResult Function(FetchBrandofTheDay value)? fetchBrandofTheDay,
     TResult Function(FetchHadithOfTheDay value)? fetchHadithOfTheDay,
@@ -1712,6 +1776,7 @@ class _$AddPrayerToPrayerTracker implements AddPrayerToPrayerTracker {
     TResult Function(FetchNotificationApi value)? fetchNotificationApi,
     TResult Function(AddMarkReadNotificationEvent value)?
         addMarkReadNotificationEvent,
+    TResult Function(ChangeHomeBannerIndex value)? changeHomeBannerIndex,
     required TResult orElse(),
   }) {
     if (addPrayerToPrayerTracker != null) {
@@ -1792,6 +1857,7 @@ class _$ChangeIndexofAllaysaysBg implements ChangeIndexofAllaysaysBg {
     required TResult Function(BuildContext context) fetchNotificationApi,
     required TResult Function(String id, BuildContext context)
         addMarkReadNotificationEvent,
+    required TResult Function(int index) changeHomeBannerIndex,
   }) {
     return changeIndexofAllaysaysBg();
   }
@@ -1818,6 +1884,7 @@ class _$ChangeIndexofAllaysaysBg implements ChangeIndexofAllaysaysBg {
     TResult? Function(BuildContext context)? fetchNotificationApi,
     TResult? Function(String id, BuildContext context)?
         addMarkReadNotificationEvent,
+    TResult? Function(int index)? changeHomeBannerIndex,
   }) {
     return changeIndexofAllaysaysBg?.call();
   }
@@ -1844,6 +1911,7 @@ class _$ChangeIndexofAllaysaysBg implements ChangeIndexofAllaysaysBg {
     TResult Function(BuildContext context)? fetchNotificationApi,
     TResult Function(String id, BuildContext context)?
         addMarkReadNotificationEvent,
+    TResult Function(int index)? changeHomeBannerIndex,
     required TResult orElse(),
   }) {
     if (changeIndexofAllaysaysBg != null) {
@@ -1855,7 +1923,7 @@ class _$ChangeIndexofAllaysaysBg implements ChangeIndexofAllaysaysBg {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(FetchLargeDisountsBanner value)
+    required TResult Function(FetchLargeDiscountsBanner value)
         fetchLargeDisountsBanner,
     required TResult Function(FetchTopOffersBanner value) fetchTopOffersBanner,
     required TResult Function(FetchBrandofTheDay value) fetchBrandofTheDay,
@@ -1880,6 +1948,8 @@ class _$ChangeIndexofAllaysaysBg implements ChangeIndexofAllaysaysBg {
     required TResult Function(FetchNotificationApi value) fetchNotificationApi,
     required TResult Function(AddMarkReadNotificationEvent value)
         addMarkReadNotificationEvent,
+    required TResult Function(ChangeHomeBannerIndex value)
+        changeHomeBannerIndex,
   }) {
     return changeIndexofAllaysaysBg(this);
   }
@@ -1887,7 +1957,8 @@ class _$ChangeIndexofAllaysaysBg implements ChangeIndexofAllaysaysBg {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(FetchLargeDisountsBanner value)? fetchLargeDisountsBanner,
+    TResult? Function(FetchLargeDiscountsBanner value)?
+        fetchLargeDisountsBanner,
     TResult? Function(FetchTopOffersBanner value)? fetchTopOffersBanner,
     TResult? Function(FetchBrandofTheDay value)? fetchBrandofTheDay,
     TResult? Function(FetchHadithOfTheDay value)? fetchHadithOfTheDay,
@@ -1905,6 +1976,7 @@ class _$ChangeIndexofAllaysaysBg implements ChangeIndexofAllaysaysBg {
     TResult? Function(FetchNotificationApi value)? fetchNotificationApi,
     TResult? Function(AddMarkReadNotificationEvent value)?
         addMarkReadNotificationEvent,
+    TResult? Function(ChangeHomeBannerIndex value)? changeHomeBannerIndex,
   }) {
     return changeIndexofAllaysaysBg?.call(this);
   }
@@ -1912,7 +1984,7 @@ class _$ChangeIndexofAllaysaysBg implements ChangeIndexofAllaysaysBg {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(FetchLargeDisountsBanner value)? fetchLargeDisountsBanner,
+    TResult Function(FetchLargeDiscountsBanner value)? fetchLargeDisountsBanner,
     TResult Function(FetchTopOffersBanner value)? fetchTopOffersBanner,
     TResult Function(FetchBrandofTheDay value)? fetchBrandofTheDay,
     TResult Function(FetchHadithOfTheDay value)? fetchHadithOfTheDay,
@@ -1930,6 +2002,7 @@ class _$ChangeIndexofAllaysaysBg implements ChangeIndexofAllaysaysBg {
     TResult Function(FetchNotificationApi value)? fetchNotificationApi,
     TResult Function(AddMarkReadNotificationEvent value)?
         addMarkReadNotificationEvent,
+    TResult Function(ChangeHomeBannerIndex value)? changeHomeBannerIndex,
     required TResult orElse(),
   }) {
     if (changeIndexofAllaysaysBg != null) {
@@ -2029,6 +2102,7 @@ class _$ChangeHomeTabIndexEvent implements ChangeHomeTabIndexEvent {
     required TResult Function(BuildContext context) fetchNotificationApi,
     required TResult Function(String id, BuildContext context)
         addMarkReadNotificationEvent,
+    required TResult Function(int index) changeHomeBannerIndex,
   }) {
     return changeHomeTabIndexEvent(newIndex);
   }
@@ -2055,6 +2129,7 @@ class _$ChangeHomeTabIndexEvent implements ChangeHomeTabIndexEvent {
     TResult? Function(BuildContext context)? fetchNotificationApi,
     TResult? Function(String id, BuildContext context)?
         addMarkReadNotificationEvent,
+    TResult? Function(int index)? changeHomeBannerIndex,
   }) {
     return changeHomeTabIndexEvent?.call(newIndex);
   }
@@ -2081,6 +2156,7 @@ class _$ChangeHomeTabIndexEvent implements ChangeHomeTabIndexEvent {
     TResult Function(BuildContext context)? fetchNotificationApi,
     TResult Function(String id, BuildContext context)?
         addMarkReadNotificationEvent,
+    TResult Function(int index)? changeHomeBannerIndex,
     required TResult orElse(),
   }) {
     if (changeHomeTabIndexEvent != null) {
@@ -2092,7 +2168,7 @@ class _$ChangeHomeTabIndexEvent implements ChangeHomeTabIndexEvent {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(FetchLargeDisountsBanner value)
+    required TResult Function(FetchLargeDiscountsBanner value)
         fetchLargeDisountsBanner,
     required TResult Function(FetchTopOffersBanner value) fetchTopOffersBanner,
     required TResult Function(FetchBrandofTheDay value) fetchBrandofTheDay,
@@ -2117,6 +2193,8 @@ class _$ChangeHomeTabIndexEvent implements ChangeHomeTabIndexEvent {
     required TResult Function(FetchNotificationApi value) fetchNotificationApi,
     required TResult Function(AddMarkReadNotificationEvent value)
         addMarkReadNotificationEvent,
+    required TResult Function(ChangeHomeBannerIndex value)
+        changeHomeBannerIndex,
   }) {
     return changeHomeTabIndexEvent(this);
   }
@@ -2124,7 +2202,8 @@ class _$ChangeHomeTabIndexEvent implements ChangeHomeTabIndexEvent {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(FetchLargeDisountsBanner value)? fetchLargeDisountsBanner,
+    TResult? Function(FetchLargeDiscountsBanner value)?
+        fetchLargeDisountsBanner,
     TResult? Function(FetchTopOffersBanner value)? fetchTopOffersBanner,
     TResult? Function(FetchBrandofTheDay value)? fetchBrandofTheDay,
     TResult? Function(FetchHadithOfTheDay value)? fetchHadithOfTheDay,
@@ -2142,6 +2221,7 @@ class _$ChangeHomeTabIndexEvent implements ChangeHomeTabIndexEvent {
     TResult? Function(FetchNotificationApi value)? fetchNotificationApi,
     TResult? Function(AddMarkReadNotificationEvent value)?
         addMarkReadNotificationEvent,
+    TResult? Function(ChangeHomeBannerIndex value)? changeHomeBannerIndex,
   }) {
     return changeHomeTabIndexEvent?.call(this);
   }
@@ -2149,7 +2229,7 @@ class _$ChangeHomeTabIndexEvent implements ChangeHomeTabIndexEvent {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(FetchLargeDisountsBanner value)? fetchLargeDisountsBanner,
+    TResult Function(FetchLargeDiscountsBanner value)? fetchLargeDisountsBanner,
     TResult Function(FetchTopOffersBanner value)? fetchTopOffersBanner,
     TResult Function(FetchBrandofTheDay value)? fetchBrandofTheDay,
     TResult Function(FetchHadithOfTheDay value)? fetchHadithOfTheDay,
@@ -2167,6 +2247,7 @@ class _$ChangeHomeTabIndexEvent implements ChangeHomeTabIndexEvent {
     TResult Function(FetchNotificationApi value)? fetchNotificationApi,
     TResult Function(AddMarkReadNotificationEvent value)?
         addMarkReadNotificationEvent,
+    TResult Function(ChangeHomeBannerIndex value)? changeHomeBannerIndex,
     required TResult orElse(),
   }) {
     if (changeHomeTabIndexEvent != null) {
@@ -2283,6 +2364,7 @@ class _$RemoveDailyPrayerTrackerNamaz implements RemoveDailyPrayerTrackerNamaz {
     required TResult Function(BuildContext context) fetchNotificationApi,
     required TResult Function(String id, BuildContext context)
         addMarkReadNotificationEvent,
+    required TResult Function(int index) changeHomeBannerIndex,
   }) {
     return removeDailyPrayerTrackerNamaz(namazName, context);
   }
@@ -2309,6 +2391,7 @@ class _$RemoveDailyPrayerTrackerNamaz implements RemoveDailyPrayerTrackerNamaz {
     TResult? Function(BuildContext context)? fetchNotificationApi,
     TResult? Function(String id, BuildContext context)?
         addMarkReadNotificationEvent,
+    TResult? Function(int index)? changeHomeBannerIndex,
   }) {
     return removeDailyPrayerTrackerNamaz?.call(namazName, context);
   }
@@ -2335,6 +2418,7 @@ class _$RemoveDailyPrayerTrackerNamaz implements RemoveDailyPrayerTrackerNamaz {
     TResult Function(BuildContext context)? fetchNotificationApi,
     TResult Function(String id, BuildContext context)?
         addMarkReadNotificationEvent,
+    TResult Function(int index)? changeHomeBannerIndex,
     required TResult orElse(),
   }) {
     if (removeDailyPrayerTrackerNamaz != null) {
@@ -2346,7 +2430,7 @@ class _$RemoveDailyPrayerTrackerNamaz implements RemoveDailyPrayerTrackerNamaz {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(FetchLargeDisountsBanner value)
+    required TResult Function(FetchLargeDiscountsBanner value)
         fetchLargeDisountsBanner,
     required TResult Function(FetchTopOffersBanner value) fetchTopOffersBanner,
     required TResult Function(FetchBrandofTheDay value) fetchBrandofTheDay,
@@ -2371,6 +2455,8 @@ class _$RemoveDailyPrayerTrackerNamaz implements RemoveDailyPrayerTrackerNamaz {
     required TResult Function(FetchNotificationApi value) fetchNotificationApi,
     required TResult Function(AddMarkReadNotificationEvent value)
         addMarkReadNotificationEvent,
+    required TResult Function(ChangeHomeBannerIndex value)
+        changeHomeBannerIndex,
   }) {
     return removeDailyPrayerTrackerNamaz(this);
   }
@@ -2378,7 +2464,8 @@ class _$RemoveDailyPrayerTrackerNamaz implements RemoveDailyPrayerTrackerNamaz {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(FetchLargeDisountsBanner value)? fetchLargeDisountsBanner,
+    TResult? Function(FetchLargeDiscountsBanner value)?
+        fetchLargeDisountsBanner,
     TResult? Function(FetchTopOffersBanner value)? fetchTopOffersBanner,
     TResult? Function(FetchBrandofTheDay value)? fetchBrandofTheDay,
     TResult? Function(FetchHadithOfTheDay value)? fetchHadithOfTheDay,
@@ -2396,6 +2483,7 @@ class _$RemoveDailyPrayerTrackerNamaz implements RemoveDailyPrayerTrackerNamaz {
     TResult? Function(FetchNotificationApi value)? fetchNotificationApi,
     TResult? Function(AddMarkReadNotificationEvent value)?
         addMarkReadNotificationEvent,
+    TResult? Function(ChangeHomeBannerIndex value)? changeHomeBannerIndex,
   }) {
     return removeDailyPrayerTrackerNamaz?.call(this);
   }
@@ -2403,7 +2491,7 @@ class _$RemoveDailyPrayerTrackerNamaz implements RemoveDailyPrayerTrackerNamaz {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(FetchLargeDisountsBanner value)? fetchLargeDisountsBanner,
+    TResult Function(FetchLargeDiscountsBanner value)? fetchLargeDisountsBanner,
     TResult Function(FetchTopOffersBanner value)? fetchTopOffersBanner,
     TResult Function(FetchBrandofTheDay value)? fetchBrandofTheDay,
     TResult Function(FetchHadithOfTheDay value)? fetchHadithOfTheDay,
@@ -2421,6 +2509,7 @@ class _$RemoveDailyPrayerTrackerNamaz implements RemoveDailyPrayerTrackerNamaz {
     TResult Function(FetchNotificationApi value)? fetchNotificationApi,
     TResult Function(AddMarkReadNotificationEvent value)?
         addMarkReadNotificationEvent,
+    TResult Function(ChangeHomeBannerIndex value)? changeHomeBannerIndex,
     required TResult orElse(),
   }) {
     if (removeDailyPrayerTrackerNamaz != null) {
@@ -2529,6 +2618,7 @@ class _$ChangeTinterCardSwipeOption implements ChangeTinterCardSwipeOption {
     required TResult Function(BuildContext context) fetchNotificationApi,
     required TResult Function(String id, BuildContext context)
         addMarkReadNotificationEvent,
+    required TResult Function(int index) changeHomeBannerIndex,
   }) {
     return changeTinterCardSwipeOption(value);
   }
@@ -2555,6 +2645,7 @@ class _$ChangeTinterCardSwipeOption implements ChangeTinterCardSwipeOption {
     TResult? Function(BuildContext context)? fetchNotificationApi,
     TResult? Function(String id, BuildContext context)?
         addMarkReadNotificationEvent,
+    TResult? Function(int index)? changeHomeBannerIndex,
   }) {
     return changeTinterCardSwipeOption?.call(value);
   }
@@ -2581,6 +2672,7 @@ class _$ChangeTinterCardSwipeOption implements ChangeTinterCardSwipeOption {
     TResult Function(BuildContext context)? fetchNotificationApi,
     TResult Function(String id, BuildContext context)?
         addMarkReadNotificationEvent,
+    TResult Function(int index)? changeHomeBannerIndex,
     required TResult orElse(),
   }) {
     if (changeTinterCardSwipeOption != null) {
@@ -2592,7 +2684,7 @@ class _$ChangeTinterCardSwipeOption implements ChangeTinterCardSwipeOption {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(FetchLargeDisountsBanner value)
+    required TResult Function(FetchLargeDiscountsBanner value)
         fetchLargeDisountsBanner,
     required TResult Function(FetchTopOffersBanner value) fetchTopOffersBanner,
     required TResult Function(FetchBrandofTheDay value) fetchBrandofTheDay,
@@ -2617,6 +2709,8 @@ class _$ChangeTinterCardSwipeOption implements ChangeTinterCardSwipeOption {
     required TResult Function(FetchNotificationApi value) fetchNotificationApi,
     required TResult Function(AddMarkReadNotificationEvent value)
         addMarkReadNotificationEvent,
+    required TResult Function(ChangeHomeBannerIndex value)
+        changeHomeBannerIndex,
   }) {
     return changeTinterCardSwipeOption(this);
   }
@@ -2624,7 +2718,8 @@ class _$ChangeTinterCardSwipeOption implements ChangeTinterCardSwipeOption {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(FetchLargeDisountsBanner value)? fetchLargeDisountsBanner,
+    TResult? Function(FetchLargeDiscountsBanner value)?
+        fetchLargeDisountsBanner,
     TResult? Function(FetchTopOffersBanner value)? fetchTopOffersBanner,
     TResult? Function(FetchBrandofTheDay value)? fetchBrandofTheDay,
     TResult? Function(FetchHadithOfTheDay value)? fetchHadithOfTheDay,
@@ -2642,6 +2737,7 @@ class _$ChangeTinterCardSwipeOption implements ChangeTinterCardSwipeOption {
     TResult? Function(FetchNotificationApi value)? fetchNotificationApi,
     TResult? Function(AddMarkReadNotificationEvent value)?
         addMarkReadNotificationEvent,
+    TResult? Function(ChangeHomeBannerIndex value)? changeHomeBannerIndex,
   }) {
     return changeTinterCardSwipeOption?.call(this);
   }
@@ -2649,7 +2745,7 @@ class _$ChangeTinterCardSwipeOption implements ChangeTinterCardSwipeOption {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(FetchLargeDisountsBanner value)? fetchLargeDisountsBanner,
+    TResult Function(FetchLargeDiscountsBanner value)? fetchLargeDisountsBanner,
     TResult Function(FetchTopOffersBanner value)? fetchTopOffersBanner,
     TResult Function(FetchBrandofTheDay value)? fetchBrandofTheDay,
     TResult Function(FetchHadithOfTheDay value)? fetchHadithOfTheDay,
@@ -2667,6 +2763,7 @@ class _$ChangeTinterCardSwipeOption implements ChangeTinterCardSwipeOption {
     TResult Function(FetchNotificationApi value)? fetchNotificationApi,
     TResult Function(AddMarkReadNotificationEvent value)?
         addMarkReadNotificationEvent,
+    TResult Function(ChangeHomeBannerIndex value)? changeHomeBannerIndex,
     required TResult orElse(),
   }) {
     if (changeTinterCardSwipeOption != null) {
@@ -2772,6 +2869,7 @@ class _$ChangeCompassThemeEvent implements ChangeCompassThemeEvent {
     required TResult Function(BuildContext context) fetchNotificationApi,
     required TResult Function(String id, BuildContext context)
         addMarkReadNotificationEvent,
+    required TResult Function(int index) changeHomeBannerIndex,
   }) {
     return changeCompassThemeEvent(compassTheme);
   }
@@ -2798,6 +2896,7 @@ class _$ChangeCompassThemeEvent implements ChangeCompassThemeEvent {
     TResult? Function(BuildContext context)? fetchNotificationApi,
     TResult? Function(String id, BuildContext context)?
         addMarkReadNotificationEvent,
+    TResult? Function(int index)? changeHomeBannerIndex,
   }) {
     return changeCompassThemeEvent?.call(compassTheme);
   }
@@ -2824,6 +2923,7 @@ class _$ChangeCompassThemeEvent implements ChangeCompassThemeEvent {
     TResult Function(BuildContext context)? fetchNotificationApi,
     TResult Function(String id, BuildContext context)?
         addMarkReadNotificationEvent,
+    TResult Function(int index)? changeHomeBannerIndex,
     required TResult orElse(),
   }) {
     if (changeCompassThemeEvent != null) {
@@ -2835,7 +2935,7 @@ class _$ChangeCompassThemeEvent implements ChangeCompassThemeEvent {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(FetchLargeDisountsBanner value)
+    required TResult Function(FetchLargeDiscountsBanner value)
         fetchLargeDisountsBanner,
     required TResult Function(FetchTopOffersBanner value) fetchTopOffersBanner,
     required TResult Function(FetchBrandofTheDay value) fetchBrandofTheDay,
@@ -2860,6 +2960,8 @@ class _$ChangeCompassThemeEvent implements ChangeCompassThemeEvent {
     required TResult Function(FetchNotificationApi value) fetchNotificationApi,
     required TResult Function(AddMarkReadNotificationEvent value)
         addMarkReadNotificationEvent,
+    required TResult Function(ChangeHomeBannerIndex value)
+        changeHomeBannerIndex,
   }) {
     return changeCompassThemeEvent(this);
   }
@@ -2867,7 +2969,8 @@ class _$ChangeCompassThemeEvent implements ChangeCompassThemeEvent {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(FetchLargeDisountsBanner value)? fetchLargeDisountsBanner,
+    TResult? Function(FetchLargeDiscountsBanner value)?
+        fetchLargeDisountsBanner,
     TResult? Function(FetchTopOffersBanner value)? fetchTopOffersBanner,
     TResult? Function(FetchBrandofTheDay value)? fetchBrandofTheDay,
     TResult? Function(FetchHadithOfTheDay value)? fetchHadithOfTheDay,
@@ -2885,6 +2988,7 @@ class _$ChangeCompassThemeEvent implements ChangeCompassThemeEvent {
     TResult? Function(FetchNotificationApi value)? fetchNotificationApi,
     TResult? Function(AddMarkReadNotificationEvent value)?
         addMarkReadNotificationEvent,
+    TResult? Function(ChangeHomeBannerIndex value)? changeHomeBannerIndex,
   }) {
     return changeCompassThemeEvent?.call(this);
   }
@@ -2892,7 +2996,7 @@ class _$ChangeCompassThemeEvent implements ChangeCompassThemeEvent {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(FetchLargeDisountsBanner value)? fetchLargeDisountsBanner,
+    TResult Function(FetchLargeDiscountsBanner value)? fetchLargeDisountsBanner,
     TResult Function(FetchTopOffersBanner value)? fetchTopOffersBanner,
     TResult Function(FetchBrandofTheDay value)? fetchBrandofTheDay,
     TResult Function(FetchHadithOfTheDay value)? fetchHadithOfTheDay,
@@ -2910,6 +3014,7 @@ class _$ChangeCompassThemeEvent implements ChangeCompassThemeEvent {
     TResult Function(FetchNotificationApi value)? fetchNotificationApi,
     TResult Function(AddMarkReadNotificationEvent value)?
         addMarkReadNotificationEvent,
+    TResult Function(ChangeHomeBannerIndex value)? changeHomeBannerIndex,
     required TResult orElse(),
   }) {
     if (changeCompassThemeEvent != null) {
@@ -3014,6 +3119,7 @@ class _$ChangeCompassThemeIndex implements ChangeCompassThemeIndex {
     required TResult Function(BuildContext context) fetchNotificationApi,
     required TResult Function(String id, BuildContext context)
         addMarkReadNotificationEvent,
+    required TResult Function(int index) changeHomeBannerIndex,
   }) {
     return changeCompassThemeIndex(index);
   }
@@ -3040,6 +3146,7 @@ class _$ChangeCompassThemeIndex implements ChangeCompassThemeIndex {
     TResult? Function(BuildContext context)? fetchNotificationApi,
     TResult? Function(String id, BuildContext context)?
         addMarkReadNotificationEvent,
+    TResult? Function(int index)? changeHomeBannerIndex,
   }) {
     return changeCompassThemeIndex?.call(index);
   }
@@ -3066,6 +3173,7 @@ class _$ChangeCompassThemeIndex implements ChangeCompassThemeIndex {
     TResult Function(BuildContext context)? fetchNotificationApi,
     TResult Function(String id, BuildContext context)?
         addMarkReadNotificationEvent,
+    TResult Function(int index)? changeHomeBannerIndex,
     required TResult orElse(),
   }) {
     if (changeCompassThemeIndex != null) {
@@ -3077,7 +3185,7 @@ class _$ChangeCompassThemeIndex implements ChangeCompassThemeIndex {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(FetchLargeDisountsBanner value)
+    required TResult Function(FetchLargeDiscountsBanner value)
         fetchLargeDisountsBanner,
     required TResult Function(FetchTopOffersBanner value) fetchTopOffersBanner,
     required TResult Function(FetchBrandofTheDay value) fetchBrandofTheDay,
@@ -3102,6 +3210,8 @@ class _$ChangeCompassThemeIndex implements ChangeCompassThemeIndex {
     required TResult Function(FetchNotificationApi value) fetchNotificationApi,
     required TResult Function(AddMarkReadNotificationEvent value)
         addMarkReadNotificationEvent,
+    required TResult Function(ChangeHomeBannerIndex value)
+        changeHomeBannerIndex,
   }) {
     return changeCompassThemeIndex(this);
   }
@@ -3109,7 +3219,8 @@ class _$ChangeCompassThemeIndex implements ChangeCompassThemeIndex {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(FetchLargeDisountsBanner value)? fetchLargeDisountsBanner,
+    TResult? Function(FetchLargeDiscountsBanner value)?
+        fetchLargeDisountsBanner,
     TResult? Function(FetchTopOffersBanner value)? fetchTopOffersBanner,
     TResult? Function(FetchBrandofTheDay value)? fetchBrandofTheDay,
     TResult? Function(FetchHadithOfTheDay value)? fetchHadithOfTheDay,
@@ -3127,6 +3238,7 @@ class _$ChangeCompassThemeIndex implements ChangeCompassThemeIndex {
     TResult? Function(FetchNotificationApi value)? fetchNotificationApi,
     TResult? Function(AddMarkReadNotificationEvent value)?
         addMarkReadNotificationEvent,
+    TResult? Function(ChangeHomeBannerIndex value)? changeHomeBannerIndex,
   }) {
     return changeCompassThemeIndex?.call(this);
   }
@@ -3134,7 +3246,7 @@ class _$ChangeCompassThemeIndex implements ChangeCompassThemeIndex {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(FetchLargeDisountsBanner value)? fetchLargeDisountsBanner,
+    TResult Function(FetchLargeDiscountsBanner value)? fetchLargeDisountsBanner,
     TResult Function(FetchTopOffersBanner value)? fetchTopOffersBanner,
     TResult Function(FetchBrandofTheDay value)? fetchBrandofTheDay,
     TResult Function(FetchHadithOfTheDay value)? fetchHadithOfTheDay,
@@ -3152,6 +3264,7 @@ class _$ChangeCompassThemeIndex implements ChangeCompassThemeIndex {
     TResult Function(FetchNotificationApi value)? fetchNotificationApi,
     TResult Function(AddMarkReadNotificationEvent value)?
         addMarkReadNotificationEvent,
+    TResult Function(ChangeHomeBannerIndex value)? changeHomeBannerIndex,
     required TResult orElse(),
   }) {
     if (changeCompassThemeIndex != null) {
@@ -3256,6 +3369,7 @@ class _$FetchNotificationApi implements FetchNotificationApi {
     required TResult Function(BuildContext context) fetchNotificationApi,
     required TResult Function(String id, BuildContext context)
         addMarkReadNotificationEvent,
+    required TResult Function(int index) changeHomeBannerIndex,
   }) {
     return fetchNotificationApi(context);
   }
@@ -3282,6 +3396,7 @@ class _$FetchNotificationApi implements FetchNotificationApi {
     TResult? Function(BuildContext context)? fetchNotificationApi,
     TResult? Function(String id, BuildContext context)?
         addMarkReadNotificationEvent,
+    TResult? Function(int index)? changeHomeBannerIndex,
   }) {
     return fetchNotificationApi?.call(context);
   }
@@ -3308,6 +3423,7 @@ class _$FetchNotificationApi implements FetchNotificationApi {
     TResult Function(BuildContext context)? fetchNotificationApi,
     TResult Function(String id, BuildContext context)?
         addMarkReadNotificationEvent,
+    TResult Function(int index)? changeHomeBannerIndex,
     required TResult orElse(),
   }) {
     if (fetchNotificationApi != null) {
@@ -3319,7 +3435,7 @@ class _$FetchNotificationApi implements FetchNotificationApi {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(FetchLargeDisountsBanner value)
+    required TResult Function(FetchLargeDiscountsBanner value)
         fetchLargeDisountsBanner,
     required TResult Function(FetchTopOffersBanner value) fetchTopOffersBanner,
     required TResult Function(FetchBrandofTheDay value) fetchBrandofTheDay,
@@ -3344,6 +3460,8 @@ class _$FetchNotificationApi implements FetchNotificationApi {
     required TResult Function(FetchNotificationApi value) fetchNotificationApi,
     required TResult Function(AddMarkReadNotificationEvent value)
         addMarkReadNotificationEvent,
+    required TResult Function(ChangeHomeBannerIndex value)
+        changeHomeBannerIndex,
   }) {
     return fetchNotificationApi(this);
   }
@@ -3351,7 +3469,8 @@ class _$FetchNotificationApi implements FetchNotificationApi {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(FetchLargeDisountsBanner value)? fetchLargeDisountsBanner,
+    TResult? Function(FetchLargeDiscountsBanner value)?
+        fetchLargeDisountsBanner,
     TResult? Function(FetchTopOffersBanner value)? fetchTopOffersBanner,
     TResult? Function(FetchBrandofTheDay value)? fetchBrandofTheDay,
     TResult? Function(FetchHadithOfTheDay value)? fetchHadithOfTheDay,
@@ -3369,6 +3488,7 @@ class _$FetchNotificationApi implements FetchNotificationApi {
     TResult? Function(FetchNotificationApi value)? fetchNotificationApi,
     TResult? Function(AddMarkReadNotificationEvent value)?
         addMarkReadNotificationEvent,
+    TResult? Function(ChangeHomeBannerIndex value)? changeHomeBannerIndex,
   }) {
     return fetchNotificationApi?.call(this);
   }
@@ -3376,7 +3496,7 @@ class _$FetchNotificationApi implements FetchNotificationApi {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(FetchLargeDisountsBanner value)? fetchLargeDisountsBanner,
+    TResult Function(FetchLargeDiscountsBanner value)? fetchLargeDisountsBanner,
     TResult Function(FetchTopOffersBanner value)? fetchTopOffersBanner,
     TResult Function(FetchBrandofTheDay value)? fetchBrandofTheDay,
     TResult Function(FetchHadithOfTheDay value)? fetchHadithOfTheDay,
@@ -3394,6 +3514,7 @@ class _$FetchNotificationApi implements FetchNotificationApi {
     TResult Function(FetchNotificationApi value)? fetchNotificationApi,
     TResult Function(AddMarkReadNotificationEvent value)?
         addMarkReadNotificationEvent,
+    TResult Function(ChangeHomeBannerIndex value)? changeHomeBannerIndex,
     required TResult orElse(),
   }) {
     if (fetchNotificationApi != null) {
@@ -3509,6 +3630,7 @@ class _$AddMarkReadNotificationEvent implements AddMarkReadNotificationEvent {
     required TResult Function(BuildContext context) fetchNotificationApi,
     required TResult Function(String id, BuildContext context)
         addMarkReadNotificationEvent,
+    required TResult Function(int index) changeHomeBannerIndex,
   }) {
     return addMarkReadNotificationEvent(id, context);
   }
@@ -3535,6 +3657,7 @@ class _$AddMarkReadNotificationEvent implements AddMarkReadNotificationEvent {
     TResult? Function(BuildContext context)? fetchNotificationApi,
     TResult? Function(String id, BuildContext context)?
         addMarkReadNotificationEvent,
+    TResult? Function(int index)? changeHomeBannerIndex,
   }) {
     return addMarkReadNotificationEvent?.call(id, context);
   }
@@ -3561,6 +3684,7 @@ class _$AddMarkReadNotificationEvent implements AddMarkReadNotificationEvent {
     TResult Function(BuildContext context)? fetchNotificationApi,
     TResult Function(String id, BuildContext context)?
         addMarkReadNotificationEvent,
+    TResult Function(int index)? changeHomeBannerIndex,
     required TResult orElse(),
   }) {
     if (addMarkReadNotificationEvent != null) {
@@ -3572,7 +3696,7 @@ class _$AddMarkReadNotificationEvent implements AddMarkReadNotificationEvent {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(FetchLargeDisountsBanner value)
+    required TResult Function(FetchLargeDiscountsBanner value)
         fetchLargeDisountsBanner,
     required TResult Function(FetchTopOffersBanner value) fetchTopOffersBanner,
     required TResult Function(FetchBrandofTheDay value) fetchBrandofTheDay,
@@ -3597,6 +3721,8 @@ class _$AddMarkReadNotificationEvent implements AddMarkReadNotificationEvent {
     required TResult Function(FetchNotificationApi value) fetchNotificationApi,
     required TResult Function(AddMarkReadNotificationEvent value)
         addMarkReadNotificationEvent,
+    required TResult Function(ChangeHomeBannerIndex value)
+        changeHomeBannerIndex,
   }) {
     return addMarkReadNotificationEvent(this);
   }
@@ -3604,7 +3730,8 @@ class _$AddMarkReadNotificationEvent implements AddMarkReadNotificationEvent {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(FetchLargeDisountsBanner value)? fetchLargeDisountsBanner,
+    TResult? Function(FetchLargeDiscountsBanner value)?
+        fetchLargeDisountsBanner,
     TResult? Function(FetchTopOffersBanner value)? fetchTopOffersBanner,
     TResult? Function(FetchBrandofTheDay value)? fetchBrandofTheDay,
     TResult? Function(FetchHadithOfTheDay value)? fetchHadithOfTheDay,
@@ -3622,6 +3749,7 @@ class _$AddMarkReadNotificationEvent implements AddMarkReadNotificationEvent {
     TResult? Function(FetchNotificationApi value)? fetchNotificationApi,
     TResult? Function(AddMarkReadNotificationEvent value)?
         addMarkReadNotificationEvent,
+    TResult? Function(ChangeHomeBannerIndex value)? changeHomeBannerIndex,
   }) {
     return addMarkReadNotificationEvent?.call(this);
   }
@@ -3629,7 +3757,7 @@ class _$AddMarkReadNotificationEvent implements AddMarkReadNotificationEvent {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(FetchLargeDisountsBanner value)? fetchLargeDisountsBanner,
+    TResult Function(FetchLargeDiscountsBanner value)? fetchLargeDisountsBanner,
     TResult Function(FetchTopOffersBanner value)? fetchTopOffersBanner,
     TResult Function(FetchBrandofTheDay value)? fetchBrandofTheDay,
     TResult Function(FetchHadithOfTheDay value)? fetchHadithOfTheDay,
@@ -3647,6 +3775,7 @@ class _$AddMarkReadNotificationEvent implements AddMarkReadNotificationEvent {
     TResult Function(FetchNotificationApi value)? fetchNotificationApi,
     TResult Function(AddMarkReadNotificationEvent value)?
         addMarkReadNotificationEvent,
+    TResult Function(ChangeHomeBannerIndex value)? changeHomeBannerIndex,
     required TResult orElse(),
   }) {
     if (addMarkReadNotificationEvent != null) {
@@ -3666,6 +3795,256 @@ abstract class AddMarkReadNotificationEvent implements HomeEvent {
   @JsonKey(ignore: true)
   _$$AddMarkReadNotificationEventCopyWith<_$AddMarkReadNotificationEvent>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ChangeHomeBannerIndexCopyWith<$Res> {
+  factory _$$ChangeHomeBannerIndexCopyWith(_$ChangeHomeBannerIndex value,
+          $Res Function(_$ChangeHomeBannerIndex) then) =
+      __$$ChangeHomeBannerIndexCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int index});
+}
+
+/// @nodoc
+class __$$ChangeHomeBannerIndexCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$ChangeHomeBannerIndex>
+    implements _$$ChangeHomeBannerIndexCopyWith<$Res> {
+  __$$ChangeHomeBannerIndexCopyWithImpl(_$ChangeHomeBannerIndex _value,
+      $Res Function(_$ChangeHomeBannerIndex) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? index = null,
+  }) {
+    return _then(_$ChangeHomeBannerIndex(
+      index: null == index
+          ? _value.index
+          : index // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ChangeHomeBannerIndex implements ChangeHomeBannerIndex {
+  const _$ChangeHomeBannerIndex({required this.index});
+
+  @override
+  final int index;
+
+  @override
+  String toString() {
+    return 'HomeEvent.changeHomeBannerIndex(index: $index)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ChangeHomeBannerIndex &&
+            (identical(other.index, index) || other.index == index));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, index);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ChangeHomeBannerIndexCopyWith<_$ChangeHomeBannerIndex> get copyWith =>
+      __$$ChangeHomeBannerIndexCopyWithImpl<_$ChangeHomeBannerIndex>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() fetchLargeDisountsBanner,
+    required TResult Function() fetchTopOffersBanner,
+    required TResult Function() fetchBrandofTheDay,
+    required TResult Function() fetchHadithOfTheDay,
+    required TResult Function() fetchEventOfTheMonth,
+    required TResult Function(DateTime date, BuildContext context)
+        fetchPrayerTrackerEvent,
+    required TResult Function(String namazName, BuildContext context)
+        addPrayerToPrayerTracker,
+    required TResult Function() changeIndexofAllaysaysBg,
+    required TResult Function(int newIndex) changeHomeTabIndexEvent,
+    required TResult Function(String namazName, BuildContext context)
+        removeDailyPrayerTrackerNamaz,
+    required TResult Function(bool value) changeTinterCardSwipeOption,
+    required TResult Function(CompassTheme compassTheme)
+        changeCompassThemeEvent,
+    required TResult Function(int index) changeCompassThemeIndex,
+    required TResult Function(BuildContext context) fetchNotificationApi,
+    required TResult Function(String id, BuildContext context)
+        addMarkReadNotificationEvent,
+    required TResult Function(int index) changeHomeBannerIndex,
+  }) {
+    return changeHomeBannerIndex(index);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? fetchLargeDisountsBanner,
+    TResult? Function()? fetchTopOffersBanner,
+    TResult? Function()? fetchBrandofTheDay,
+    TResult? Function()? fetchHadithOfTheDay,
+    TResult? Function()? fetchEventOfTheMonth,
+    TResult? Function(DateTime date, BuildContext context)?
+        fetchPrayerTrackerEvent,
+    TResult? Function(String namazName, BuildContext context)?
+        addPrayerToPrayerTracker,
+    TResult? Function()? changeIndexofAllaysaysBg,
+    TResult? Function(int newIndex)? changeHomeTabIndexEvent,
+    TResult? Function(String namazName, BuildContext context)?
+        removeDailyPrayerTrackerNamaz,
+    TResult? Function(bool value)? changeTinterCardSwipeOption,
+    TResult? Function(CompassTheme compassTheme)? changeCompassThemeEvent,
+    TResult? Function(int index)? changeCompassThemeIndex,
+    TResult? Function(BuildContext context)? fetchNotificationApi,
+    TResult? Function(String id, BuildContext context)?
+        addMarkReadNotificationEvent,
+    TResult? Function(int index)? changeHomeBannerIndex,
+  }) {
+    return changeHomeBannerIndex?.call(index);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? fetchLargeDisountsBanner,
+    TResult Function()? fetchTopOffersBanner,
+    TResult Function()? fetchBrandofTheDay,
+    TResult Function()? fetchHadithOfTheDay,
+    TResult Function()? fetchEventOfTheMonth,
+    TResult Function(DateTime date, BuildContext context)?
+        fetchPrayerTrackerEvent,
+    TResult Function(String namazName, BuildContext context)?
+        addPrayerToPrayerTracker,
+    TResult Function()? changeIndexofAllaysaysBg,
+    TResult Function(int newIndex)? changeHomeTabIndexEvent,
+    TResult Function(String namazName, BuildContext context)?
+        removeDailyPrayerTrackerNamaz,
+    TResult Function(bool value)? changeTinterCardSwipeOption,
+    TResult Function(CompassTheme compassTheme)? changeCompassThemeEvent,
+    TResult Function(int index)? changeCompassThemeIndex,
+    TResult Function(BuildContext context)? fetchNotificationApi,
+    TResult Function(String id, BuildContext context)?
+        addMarkReadNotificationEvent,
+    TResult Function(int index)? changeHomeBannerIndex,
+    required TResult orElse(),
+  }) {
+    if (changeHomeBannerIndex != null) {
+      return changeHomeBannerIndex(index);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FetchLargeDiscountsBanner value)
+        fetchLargeDisountsBanner,
+    required TResult Function(FetchTopOffersBanner value) fetchTopOffersBanner,
+    required TResult Function(FetchBrandofTheDay value) fetchBrandofTheDay,
+    required TResult Function(FetchHadithOfTheDay value) fetchHadithOfTheDay,
+    required TResult Function(FetchEventOfTheMonth value) fetchEventOfTheMonth,
+    required TResult Function(FetchPrayerTrackerEvent value)
+        fetchPrayerTrackerEvent,
+    required TResult Function(AddPrayerToPrayerTracker value)
+        addPrayerToPrayerTracker,
+    required TResult Function(ChangeIndexofAllaysaysBg value)
+        changeIndexofAllaysaysBg,
+    required TResult Function(ChangeHomeTabIndexEvent value)
+        changeHomeTabIndexEvent,
+    required TResult Function(RemoveDailyPrayerTrackerNamaz value)
+        removeDailyPrayerTrackerNamaz,
+    required TResult Function(ChangeTinterCardSwipeOption value)
+        changeTinterCardSwipeOption,
+    required TResult Function(ChangeCompassThemeEvent value)
+        changeCompassThemeEvent,
+    required TResult Function(ChangeCompassThemeIndex value)
+        changeCompassThemeIndex,
+    required TResult Function(FetchNotificationApi value) fetchNotificationApi,
+    required TResult Function(AddMarkReadNotificationEvent value)
+        addMarkReadNotificationEvent,
+    required TResult Function(ChangeHomeBannerIndex value)
+        changeHomeBannerIndex,
+  }) {
+    return changeHomeBannerIndex(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(FetchLargeDiscountsBanner value)?
+        fetchLargeDisountsBanner,
+    TResult? Function(FetchTopOffersBanner value)? fetchTopOffersBanner,
+    TResult? Function(FetchBrandofTheDay value)? fetchBrandofTheDay,
+    TResult? Function(FetchHadithOfTheDay value)? fetchHadithOfTheDay,
+    TResult? Function(FetchEventOfTheMonth value)? fetchEventOfTheMonth,
+    TResult? Function(FetchPrayerTrackerEvent value)? fetchPrayerTrackerEvent,
+    TResult? Function(AddPrayerToPrayerTracker value)? addPrayerToPrayerTracker,
+    TResult? Function(ChangeIndexofAllaysaysBg value)? changeIndexofAllaysaysBg,
+    TResult? Function(ChangeHomeTabIndexEvent value)? changeHomeTabIndexEvent,
+    TResult? Function(RemoveDailyPrayerTrackerNamaz value)?
+        removeDailyPrayerTrackerNamaz,
+    TResult? Function(ChangeTinterCardSwipeOption value)?
+        changeTinterCardSwipeOption,
+    TResult? Function(ChangeCompassThemeEvent value)? changeCompassThemeEvent,
+    TResult? Function(ChangeCompassThemeIndex value)? changeCompassThemeIndex,
+    TResult? Function(FetchNotificationApi value)? fetchNotificationApi,
+    TResult? Function(AddMarkReadNotificationEvent value)?
+        addMarkReadNotificationEvent,
+    TResult? Function(ChangeHomeBannerIndex value)? changeHomeBannerIndex,
+  }) {
+    return changeHomeBannerIndex?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FetchLargeDiscountsBanner value)? fetchLargeDisountsBanner,
+    TResult Function(FetchTopOffersBanner value)? fetchTopOffersBanner,
+    TResult Function(FetchBrandofTheDay value)? fetchBrandofTheDay,
+    TResult Function(FetchHadithOfTheDay value)? fetchHadithOfTheDay,
+    TResult Function(FetchEventOfTheMonth value)? fetchEventOfTheMonth,
+    TResult Function(FetchPrayerTrackerEvent value)? fetchPrayerTrackerEvent,
+    TResult Function(AddPrayerToPrayerTracker value)? addPrayerToPrayerTracker,
+    TResult Function(ChangeIndexofAllaysaysBg value)? changeIndexofAllaysaysBg,
+    TResult Function(ChangeHomeTabIndexEvent value)? changeHomeTabIndexEvent,
+    TResult Function(RemoveDailyPrayerTrackerNamaz value)?
+        removeDailyPrayerTrackerNamaz,
+    TResult Function(ChangeTinterCardSwipeOption value)?
+        changeTinterCardSwipeOption,
+    TResult Function(ChangeCompassThemeEvent value)? changeCompassThemeEvent,
+    TResult Function(ChangeCompassThemeIndex value)? changeCompassThemeIndex,
+    TResult Function(FetchNotificationApi value)? fetchNotificationApi,
+    TResult Function(AddMarkReadNotificationEvent value)?
+        addMarkReadNotificationEvent,
+    TResult Function(ChangeHomeBannerIndex value)? changeHomeBannerIndex,
+    required TResult orElse(),
+  }) {
+    if (changeHomeBannerIndex != null) {
+      return changeHomeBannerIndex(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ChangeHomeBannerIndex implements HomeEvent {
+  const factory ChangeHomeBannerIndex({required final int index}) =
+      _$ChangeHomeBannerIndex;
+
+  int get index;
+  @JsonKey(ignore: true)
+  _$$ChangeHomeBannerIndexCopyWith<_$ChangeHomeBannerIndex> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -3695,6 +4074,7 @@ mixin _$HomeState {
   int get compassThemeIndex => throw _privateConstructorUsedError;
   NotificationModel? get notificationModel =>
       throw _privateConstructorUsedError;
+  int get homeBannerIndex => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $HomeStateCopyWith<HomeState> get copyWith =>
@@ -3726,7 +4106,8 @@ abstract class $HomeStateCopyWith<$Res> {
       bool tinderCardSwipVal,
       CompassTheme compassTheme,
       int compassThemeIndex,
-      NotificationModel? notificationModel});
+      NotificationModel? notificationModel,
+      int homeBannerIndex});
 
   $LargeDiscountModelCopyWith<$Res>? get largeDiscountModel;
   $TopOffersModelCopyWith<$Res>? get topOffersModel;
@@ -3770,6 +4151,7 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
     Object? compassTheme = null,
     Object? compassThemeIndex = null,
     Object? notificationModel = freezed,
+    Object? homeBannerIndex = null,
   }) {
     return _then(_value.copyWith(
       isLoading: null == isLoading
@@ -3852,6 +4234,10 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
           ? _value.notificationModel
           : notificationModel // ignore: cast_nullable_to_non_nullable
               as NotificationModel?,
+      homeBannerIndex: null == homeBannerIndex
+          ? _value.homeBannerIndex
+          : homeBannerIndex // ignore: cast_nullable_to_non_nullable
+              as int,
     ) as $Val);
   }
 
@@ -3971,7 +4357,8 @@ abstract class _$$_HomeStateCopyWith<$Res> implements $HomeStateCopyWith<$Res> {
       bool tinderCardSwipVal,
       CompassTheme compassTheme,
       int compassThemeIndex,
-      NotificationModel? notificationModel});
+      NotificationModel? notificationModel,
+      int homeBannerIndex});
 
   @override
   $LargeDiscountModelCopyWith<$Res>? get largeDiscountModel;
@@ -4020,6 +4407,7 @@ class __$$_HomeStateCopyWithImpl<$Res>
     Object? compassTheme = null,
     Object? compassThemeIndex = null,
     Object? notificationModel = freezed,
+    Object? homeBannerIndex = null,
   }) {
     return _then(_$_HomeState(
       isLoading: null == isLoading
@@ -4102,6 +4490,10 @@ class __$$_HomeStateCopyWithImpl<$Res>
           ? _value.notificationModel
           : notificationModel // ignore: cast_nullable_to_non_nullable
               as NotificationModel?,
+      homeBannerIndex: null == homeBannerIndex
+          ? _value.homeBannerIndex
+          : homeBannerIndex // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -4129,7 +4521,8 @@ class _$_HomeState implements _HomeState {
       required this.tinderCardSwipVal,
       required this.compassTheme,
       required this.compassThemeIndex,
-      required this.notificationModel});
+      required this.notificationModel,
+      required this.homeBannerIndex});
 
   @override
   final bool isLoading;
@@ -4171,10 +4564,12 @@ class _$_HomeState implements _HomeState {
   final int compassThemeIndex;
   @override
   final NotificationModel? notificationModel;
+  @override
+  final int homeBannerIndex;
 
   @override
   String toString() {
-    return 'HomeState(isLoading: $isLoading, largeDiscountModel: $largeDiscountModel, topOffersModel: $topOffersModel, brandOftheDayModel: $brandOftheDayModel, haditOfTheDayModel: $haditOfTheDayModel, eventOfTheMonthModel: $eventOfTheMonthModel, prayerTrackerFajr: $prayerTrackerFajr, prayerTrackerDhuhr: $prayerTrackerDhuhr, prayerTrackerAsr: $prayerTrackerAsr, prayerTrackerMagrib: $prayerTrackerMagrib, prayerTrackerIsha: $prayerTrackerIsha, prayerTracker: $prayerTracker, namazCompletedCount: $namazCompletedCount, dailyPrayerTrackerDate: $dailyPrayerTrackerDate, allaysBgindex: $allaysBgindex, homeTabIndex: $homeTabIndex, tinderCardSwipVal: $tinderCardSwipVal, compassTheme: $compassTheme, compassThemeIndex: $compassThemeIndex, notificationModel: $notificationModel)';
+    return 'HomeState(isLoading: $isLoading, largeDiscountModel: $largeDiscountModel, topOffersModel: $topOffersModel, brandOftheDayModel: $brandOftheDayModel, haditOfTheDayModel: $haditOfTheDayModel, eventOfTheMonthModel: $eventOfTheMonthModel, prayerTrackerFajr: $prayerTrackerFajr, prayerTrackerDhuhr: $prayerTrackerDhuhr, prayerTrackerAsr: $prayerTrackerAsr, prayerTrackerMagrib: $prayerTrackerMagrib, prayerTrackerIsha: $prayerTrackerIsha, prayerTracker: $prayerTracker, namazCompletedCount: $namazCompletedCount, dailyPrayerTrackerDate: $dailyPrayerTrackerDate, allaysBgindex: $allaysBgindex, homeTabIndex: $homeTabIndex, tinderCardSwipVal: $tinderCardSwipVal, compassTheme: $compassTheme, compassThemeIndex: $compassThemeIndex, notificationModel: $notificationModel, homeBannerIndex: $homeBannerIndex)';
   }
 
   @override
@@ -4221,7 +4616,9 @@ class _$_HomeState implements _HomeState {
             (identical(other.compassThemeIndex, compassThemeIndex) ||
                 other.compassThemeIndex == compassThemeIndex) &&
             (identical(other.notificationModel, notificationModel) ||
-                other.notificationModel == notificationModel));
+                other.notificationModel == notificationModel) &&
+            (identical(other.homeBannerIndex, homeBannerIndex) ||
+                other.homeBannerIndex == homeBannerIndex));
   }
 
   @override
@@ -4246,7 +4643,8 @@ class _$_HomeState implements _HomeState {
         tinderCardSwipVal,
         compassTheme,
         compassThemeIndex,
-        notificationModel
+        notificationModel,
+        homeBannerIndex
       ]);
 
   @JsonKey(ignore: true)
@@ -4277,7 +4675,8 @@ abstract class _HomeState implements HomeState {
       required final bool tinderCardSwipVal,
       required final CompassTheme compassTheme,
       required final int compassThemeIndex,
-      required final NotificationModel? notificationModel}) = _$_HomeState;
+      required final NotificationModel? notificationModel,
+      required final int homeBannerIndex}) = _$_HomeState;
 
   @override
   bool get isLoading;
@@ -4319,6 +4718,8 @@ abstract class _HomeState implements HomeState {
   int get compassThemeIndex;
   @override
   NotificationModel? get notificationModel;
+  @override
+  int get homeBannerIndex;
   @override
   @JsonKey(ignore: true)
   _$$_HomeStateCopyWith<_$_HomeState> get copyWith =>

@@ -2,7 +2,8 @@ part of 'home_bloc.dart';
 
 @freezed
 class HomeEvent with _$HomeEvent {
-  const factory HomeEvent.fetchLargeDisountsBanner() = FetchLargeDisountsBanner;
+  const factory HomeEvent.fetchLargeDisountsBanner() =
+      FetchLargeDiscountsBanner;
   const factory HomeEvent.fetchTopOffersBanner() = FetchTopOffersBanner;
   const factory HomeEvent.fetchBrandofTheDay() = FetchBrandofTheDay;
   const factory HomeEvent.fetchHadithOfTheDay() = FetchHadithOfTheDay;
@@ -38,4 +39,7 @@ class HomeEvent with _$HomeEvent {
     required String id,
     required BuildContext context,
   }) = AddMarkReadNotificationEvent;
+  const factory HomeEvent.changeHomeBannerIndex({
+    required int index,
+  }) = ChangeHomeBannerIndex;
 }

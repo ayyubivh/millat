@@ -2,12 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:millat/resources/home/view/al_quran/widgets/al_quran_appbar.dart';
-import 'package:millat/resources/home/view/al_quran/widgets/audio_recitors_view.dart';
-import 'package:millat/resources/home/view/al_quran/widgets/text_setting_view.dart';
 import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/string_constants.dart';
-
 import '../../../../../utils/color_manager.dart';
 import '../../../../../utils/loader.dart';
 import '../../../../../utils/size_utility.dart';
@@ -18,12 +15,6 @@ class AlQuranSettings extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      BlocProvider.of<QuranBloc>(context)
-          .add(const FetchAllTranslationsEvent());
-
-      BlocProvider.of<QuranBloc>(context).add(const FetchAllRecitors());
-    });
     return Scaffold(
       backgroundColor: ColorManager.whiteColor,
       appBar: alQuranAppbar(
@@ -31,105 +22,110 @@ class AlQuranSettings extends StatelessWidget {
           text: "Settings",
           context: context,
           iconColor: ColorManager.primary),
-      body: Padding(
-        padding: const EdgeInsets.all(30),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            kHeight10,
-            const Text(
-              'Reading',
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.w500,
-              ),
-            ),
-            kHeight10,
-            _containerWidget(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  BlocBuilder<QuranBloc, QuranState>(
-                    builder: (context, state) => _buildListTile(
-                      title: "Arabic Text",
-                      subTitle: state.quranTextTypeName == nosymbol
-                          ? "no diacritics or symbols"
-                          : state.quranTextTypeName,
-                      onTap: () {
-                        context.goNamed(
-                            MyAppRouteConstants.quranTextSettingRouteName);
-                      },
-                    ),
-                  ),
-                  const Divider(thickness: 1),
-                  BlocBuilder<QuranBloc, QuranState>(
-                    builder: (context, state) => _buildListTile(
-                      title: 'Translation',
-                      subTitle: state.transilationName,
-                      onTap: () {
-                        transilationPopUp(context);
-                      },
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            kHeight15,
-            const Text(
-              'Audio',
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.w500,
-              ),
-            ),
-            kHeight15,
-            _containerWidget(
-              child: Column(
-                children: [
-                  BlocBuilder<QuranBloc, QuranState>(
-                    builder: (context, state) => _buildListTile(
-                      title: 'Audio Recitation',
-                      subTitle: state.recitorName.toString(),
-                      onTap: () {
-                        context.goNamed(
-                            MyAppRouteConstants.audioRecitorsRouteName);
-                      },
-                    ),
-                  ),
-                  const Divider(thickness: 1),
-                  _buildListTile(
-                    title: 'Player Next/Previous Changes',
-                    subTitle: 'Sura',
-                    onTap: () {},
-                  ),
-                ],
-              ),
-            ),
-            kHeight15,
-            const Text(
-              'Daily Verse',
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.w500,
-              ),
-            ),
-            kHeight15,
-            Container(
-              width: double.infinity,
-              decoration: BoxDecoration(
-                color: ColorManager.veryLightGreen,
-                borderRadius: BorderRadius.circular(6),
-              ),
-              padding: const EdgeInsets.all(12),
-              child: const Text(
-                "Mark All Quotes As Read",
+      body: BlocProvider(
+        create: (context) => QuranBloc()
+          ..add(const FetchAllRecitors())
+          ..add(const FetchAllTranslationsEvent()),
+        child: Padding(
+          padding: const EdgeInsets.all(30),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              kHeight10,
+              const Text(
+                'Reading',
                 style: TextStyle(
-                  fontSize: 17,
-                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500,
                 ),
               ),
-            )
-          ],
+              kHeight10,
+              _containerWidget(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    BlocBuilder<QuranBloc, QuranState>(
+                      builder: (context, state) => _buildListTile(
+                        title: "Arabic Text",
+                        subTitle: state.quranTextTypeName == nosymbol
+                            ? "no diacritics or symbols"
+                            : state.quranTextTypeName,
+                        onTap: () {
+                          context.goNamed(
+                              MyAppRouteConstants.quranTextSettingRouteName);
+                        },
+                      ),
+                    ),
+                    const Divider(thickness: 1),
+                    BlocBuilder<QuranBloc, QuranState>(
+                      builder: (context, state) => _buildListTile(
+                        title: 'Translation',
+                        subTitle: state.transilationName,
+                        onTap: () {
+                          transilationPopUp(context);
+                        },
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              kHeight15,
+              const Text(
+                'Audio',
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+              kHeight15,
+              _containerWidget(
+                child: Column(
+                  children: [
+                    BlocBuilder<QuranBloc, QuranState>(
+                      builder: (context, state) => _buildListTile(
+                        title: 'Audio Recitation',
+                        subTitle: state.recitorName.toString(),
+                        onTap: () {
+                          context.goNamed(
+                              MyAppRouteConstants.audioRecitorsRouteName);
+                        },
+                      ),
+                    ),
+                    const Divider(thickness: 1),
+                    _buildListTile(
+                      title: 'Player Next/Previous Changes',
+                      subTitle: 'Sura',
+                      onTap: () {},
+                    ),
+                  ],
+                ),
+              ),
+              kHeight15,
+              const Text(
+                'Daily Verse',
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+              kHeight15,
+              Container(
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  color: ColorManager.veryLightGreen,
+                  borderRadius: BorderRadius.circular(6),
+                ),
+                padding: const EdgeInsets.all(12),
+                child: const Text(
+                  "Mark All Quotes As Read",
+                  style: TextStyle(
+                    fontSize: 17,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );

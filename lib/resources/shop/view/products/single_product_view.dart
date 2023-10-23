@@ -25,14 +25,14 @@ class SingleProductView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      context
-          .read<ShopProductsBloc>()
-          .add(ShopProductsEvent.fetchProductsById(id: id));
-      context
-          .read<ReviewBloc>()
-          .add(FetchRatingEvent(id: id, context: context));
-    });
+    // WidgetsBinding.instance.addPostFrameCallback((_) {
+    //   context
+    //       .read<ShopProductsBloc>()
+    //       .add(ShopProductsEvent.fetchProductsById(id: id));
+    //   context
+    //       .read<ReviewBloc>()
+    //       .add(FetchRatingEvent(id: id, context: context));
+    // });
     int selectedSize = 0;
     print(id);
 

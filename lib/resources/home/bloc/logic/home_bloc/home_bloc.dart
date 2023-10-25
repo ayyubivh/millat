@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -49,9 +47,9 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     try {
       final data = await homeServices.fetchLargeDiscountsBanner();
       emit(state.copyWith(largeDiscountModel: data, isLoading: false));
-      print("here large disocunt banner $data");
     } catch (e) {
       emit(state.copyWith(isLoading: false));
+      throw Exception(e);
     }
   }
 

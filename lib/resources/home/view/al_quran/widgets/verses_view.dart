@@ -15,7 +15,6 @@ import 'package:share_plus/share_plus.dart';
 import '../../../../../utils/constants.dart';
 import '../../../bloc/db/db_functions.dart';
 import '../../../bloc/models/book_mark_hive_model/book_mark_hive_model.dart';
-import 'package:html/parser.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 import '../bookmark_view.dart';
 import 'new_collection_widget.dart';
@@ -66,7 +65,7 @@ class _VersesViewState extends State<VersesView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: scaffoldBgColor,
+      backgroundColor: ColorManager.scaffolBgColor,
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(70),
         child: AppBar(
@@ -129,8 +128,9 @@ class _VersesViewState extends State<VersesView> {
         ),
       ),
       body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 20)
-              .copyWith(bottom: 70),
+          padding: const EdgeInsets.symmetric(
+            horizontal: 25,
+          ),
           child: widget.type == Qurantype.sura
               ? BlocBuilder<QuranBloc, QuranState>(
                   builder: (context, state) {
@@ -631,8 +631,9 @@ class _VersesViewState extends State<VersesView> {
         builder: (context, state) => state.isShowMusicbar
             ? Container(
                 margin: const EdgeInsets.symmetric(horizontal: 35),
-                padding: const EdgeInsets.symmetric(horizontal: 12),
-                height: 70,
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 12,
+                ).copyWith(bottom: 10),
                 decoration: BoxDecoration(
                     color: ColorManager.primary,
                     borderRadius: const BorderRadius.only(
@@ -640,6 +641,7 @@ class _VersesViewState extends State<VersesView> {
                       topRight: Radius.circular(12),
                     )),
                 child: Column(
+                  mainAxisSize: MainAxisSize.min,
                   children: [
                     InkWell(
                       onTap: () {
@@ -742,16 +744,18 @@ class _VersesViewState extends State<VersesView> {
                   ],
                 ),
               )
-            : Container(
-                alignment: Alignment.center,
-                padding: const EdgeInsets.only(bottom: 10),
-                height: 40,
-                child: IconButton(
-                  onPressed: () {
-                    context.read<QuranBloc>().add(const ShowMusicbar());
-                  },
-                  icon: const Icon(Icons.expand_less),
-                  color: ColorManager.blackColor,
+            : GestureDetector(
+                onTap: () {
+                  context.read<QuranBloc>().add(const ShowMusicbar());
+                },
+                child: Container(
+                  alignment: Alignment.center,
+                  padding: const EdgeInsets.only(bottom: 15),
+                  height: 30,
+                  child: Icon(
+                    Icons.expand_less,
+                    color: ColorManager.blackColor,
+                  ),
                 ),
               ),
       ),

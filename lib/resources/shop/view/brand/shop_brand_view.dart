@@ -17,6 +17,22 @@ class ShopBrandView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      BlocProvider.of<ShopProductsBloc>(context)
+        ..add(const ShopProductsEvent.fetchTopBrands())
+        ..add(ShopProductsEvent.fetchBrandProductsItemCount(
+            ids: (context
+                        .read<ShopProductsBloc>()
+                        .state
+                        .brandModels
+                        ?.result
+                        ?.data
+                        ?.map((e) => e.id)
+                        .where((id) => id != null)
+                        .toList() ??
+                    [])
+                .cast<String>()));
+    });
     List brandsImages = [
       'assets/dummy/huda.png',
       'assets/dummy/kazima.png',
@@ -26,80 +42,64 @@ class ShopBrandView extends StatelessWidget {
       'assets/dummy/kazima.png',
     ];
     return Scaffold(
-      body: BlocProvider(
-        create: (context) => ShopProductsBloc()
-          ..add(const ShopProductsEvent.fetchTopBrands())
-          ..add(ShopProductsEvent.fetchBrandProductsItemCount(
-              ids: (context
-                          .read<ShopProductsBloc>()
-                          .state
-                          .brandModels
-                          ?.result
-                          ?.data
-                          ?.map((e) => e.id)
-                          .where((id) => id != null)
-                          .toList() ??
-                      [])
-                  .cast<String>())),
-        child: CustomScrollView(
-          slivers: [
-            SliverAppBar(
-              backgroundColor: Colors.transparent,
-              elevation: 0,
-              expandedHeight: SizeUtility(context).height / 3,
+      body: CustomScrollView(
+        slivers: [
+          SliverAppBar(
+            backgroundColor: Colors.transparent,
+            elevation: 0,
+            expandedHeight: SizeUtility(context).height / 3,
+            centerTitle: true,
+            stretch: true,
+            flexibleSpace: FlexibleSpaceBar(
               centerTitle: true,
-              stretch: true,
-              flexibleSpace: FlexibleSpaceBar(
-                centerTitle: true,
-                background: const HeaderBackgroundImage(),
-                title: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  // mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Flexible(
-                      child: Text(
-                        Appstrings.thousandBrands,
-                        style: TextStyle(
-                          fontWeight: FontWeight.w700,
-                          color: ColorManager.whiteColor,
-                        ),
-                      ),
-                    ),
-                    kHeight8,
-                    const Flexible(
-                      child: Text(
-                        Appstrings.brandDescription,
-                        textAlign: TextAlign.center,
-                        style: TextStyle(fontSize: 12),
-                      ),
-                    ),
-                    kHeight15,
-                    BrandImages(brandsImages: brandsImages),
-                  ],
-                ),
-              ),
-            ),
-            SliverToBoxAdapter(
-              child: Column(
+              background: const HeaderBackgroundImage(),
+              title: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                // mainAxisSize: MainAxisSize.min,
                 children: [
-                  // _stackContainerPart(context),
-                  kHeight15,
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 30),
-                    child: Column(
-                      children: [
-                        _topBrandsPart(),
-                        kHeight15,
-                        // _filterRow(),
-                        _brandsListPart(),
-                      ],
+                  Flexible(
+                    child: Text(
+                      Appstrings.thousandBrands,
+                      style: TextStyle(
+                        fontWeight: FontWeight.w700,
+                        color: ColorManager.whiteColor,
+                      ),
                     ),
                   ),
+                  kHeight8,
+                  const Flexible(
+                    child: Text(
+                      Appstrings.brandDescription,
+                      textAlign: TextAlign.center,
+                      style: TextStyle(fontSize: 12),
+                    ),
+                  ),
+                  kHeight15,
+                  BrandImages(brandsImages: brandsImages),
                 ],
               ),
             ),
-          ],
-        ),
+          ),
+          SliverToBoxAdapter(
+            child: Column(
+              children: [
+                // _stackContainerPart(context),
+                kHeight15,
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 30),
+                  child: Column(
+                    children: [
+                      _topBrandsPart(),
+                      kHeight15,
+                      // _filterRow(),
+                      _brandsListPart(),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }

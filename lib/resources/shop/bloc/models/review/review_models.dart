@@ -30,45 +30,9 @@ class Result with _$Result {
 class Data with _$Data {
   const factory Data({
     @JsonKey(name: '_id') String? id,
-    int? count,
-    List<Rating>? ratings,
-    required double? avgRating,
+    required double? averageRating,
+    required int? totalUsers,
   }) = _Data;
 
   factory Data.fromJson(Map<String, dynamic> json) => _$DataFromJson(json);
-}
-
-@freezed
-class Rating with _$Rating {
-  const factory Rating({
-    @JsonKey(name: '_id') String? id,
-    String? name,
-    double? rating,
-    String? comment,
-    String? userId,
-    String? productId,
-    String? createdAt,
-    String? updatedAt,
-    User? user,
-  }) = _Rating;
-
-  factory Rating.fromJson(Map<String, dynamic> json) => _$RatingFromJson(json);
-}
-
-@freezed
-class User with _$User {
-  const factory User({
-    @JsonKey(name: '_id') String? id,
-    String? name,
-    String? username,
-    String? email,
-    String? password,
-    @JsonKey(name: 'DOB') String? dob,
-    String? institution,
-    String? picture,
-    String? profession,
-    String? uuid,
-  }) = _User;
-
-  factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
 }

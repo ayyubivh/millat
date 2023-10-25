@@ -22,13 +22,13 @@ class TabsView extends StatelessWidget {
     List screens = [
       const HomeView(),
       const ShopTabsView(),
-      NamazTimingView(),
+      const NamazTimingView(),
       const UserProfileView(),
     ];
 
     void onTap(int index) {
       if (index == 1) {
-        context.goNamed(MyAppRouteConstants.shopTabsRouteName);
+        context.pushNamed(MyAppRouteConstants.shopTabsRouteName);
       }
       context.read<HomeBloc>().add(ChangeHomeTabIndexEvent(newIndex: index));
     }

@@ -13,21 +13,21 @@ class CategoriesFilterView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // WidgetsBinding.instance.addPostFrameCallback((_) {
-    //   BlocProvider.of<CategoryBloc>(context).add(FetchSubCategoriesByCategoryId(
-    //       categoryId: context
-    //           .read<CategoryBloc>()
-    //           .state
-    //           .category!
-    //           .result!
-    //           .category!
-    //           .first
-    //           .id!));
-    //   BlocProvider.of<CategoryBloc>(context)
-    //       .add(const CategoryEvent.fetchCategories());
-    //   BlocProvider.of<CategoryBloc>(context)
-    //       .add(const CategoryEvent.fetchSubcategories());
-    // });
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      BlocProvider.of<CategoryBloc>(context).add(FetchSubCategoriesByCategoryId(
+          categoryId: context
+              .read<CategoryBloc>()
+              .state
+              .category!
+              .result!
+              .category!
+              .first
+              .id!));
+      BlocProvider.of<CategoryBloc>(context)
+          .add(const CategoryEvent.fetchCategories());
+      BlocProvider.of<CategoryBloc>(context)
+          .add(const CategoryEvent.fetchSubcategories());
+    });
     return Scaffold(
         appBar: PreferredSize(
           preferredSize: const Size.fromHeight(70),
@@ -64,128 +64,110 @@ class CategoriesFilterView extends StatelessWidget {
             ),
           ),
         ),
-        body: BlocProvider(
-          create: (context) => CategoryBloc()
-            ..add(FetchSubCategoriesByCategoryId(
-                categoryId: context
-                    .read<CategoryBloc>()
-                    .state
-                    .category!
-                    .result!
-                    .category!
-                    .first
-                    .id!))
-            ..add(const CategoryEvent.fetchSubcategories()),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Container(
-                color: black247,
-                child: SingleChildScrollView(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      BlocBuilder<CategoryBloc, CategoryState>(
-                        builder: (context, state) {
-                          return SizedBox(
-                            width: 130,
-                            // height: 98,
-                            child: ListView.builder(
-                              physics: const NeverScrollableScrollPhysics(),
-                              itemCount:
-                                  state.category?.result?.category!.length,
-                              shrinkWrap: true,
-                              itemBuilder: (context, index) {
-                                final currentIndex = state.categoryIndex;
-                                final category =
-                                    state.category?.result?.category?[index];
-                                final isSelected = currentIndex == index;
+        body: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              color: black247,
+              child: SingleChildScrollView(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    BlocBuilder<CategoryBloc, CategoryState>(
+                      builder: (context, state) {
+                        return SizedBox(
+                          width: 130,
+                          // height: 98,
+                          child: ListView.builder(
+                            physics: const NeverScrollableScrollPhysics(),
+                            itemCount: state.category?.result?.category!.length,
+                            shrinkWrap: true,
+                            itemBuilder: (context, index) {
+                              final currentIndex = state.categoryIndex;
+                              final category =
+                                  state.category?.result?.category?[index];
+                              final isSelected = currentIndex == index;
 
-                                return InkWell(
-                                  onTap: () {
-                                    context.read<CategoryBloc>()
-                                      ..add(FetchSubCategoriesByCategoryId(
-                                          categoryId: category?.id ?? ""))
-                                      ..add(ChangeCategoryIndexEvent(
-                                          index: index));
-                                  },
-                                  child: Container(
-                                    height: 98,
-                                    width: 130,
-                                    color: isSelected
-                                        ? ColorManager.mainColor
-                                        : ColorManager.whiteColor,
-                                    child: CategoryFullView(
-                                      isShowborder: true,
-                                      iconImage: category?.image.toString(),
-                                      categoryTitle: category?.title.toString(),
-                                    ),
+                              return InkWell(
+                                onTap: () {
+                                  context.read<CategoryBloc>()
+                                    ..add(FetchSubCategoriesByCategoryId(
+                                        categoryId: category?.id ?? ""))
+                                    ..add(
+                                        ChangeCategoryIndexEvent(index: index));
+                                },
+                                child: Container(
+                                  height: 98,
+                                  width: 130,
+                                  color: isSelected
+                                      ? ColorManager.mainColor
+                                      : ColorManager.whiteColor,
+                                  child: CategoryFullView(
+                                    isShowborder: true,
+                                    iconImage: category?.image.toString(),
+                                    categoryTitle: category?.title.toString(),
                                   ),
-                                );
-                              },
-                            ),
-                          );
-                        },
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              BlocBuilder<CategoryBloc, CategoryState>(
-                builder: (context, state) {
-                  return Expanded(
-                      child: GridView.builder(
-                    gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 3,
-                      crossAxisSpacing: 30,
-                      mainAxisSpacing: 0,
-                      childAspectRatio: 0.7,
-                    ),
-                    padding: EdgeInsets.zero,
-                    itemBuilder: (context, index) {
-                      final data = state
-                          .subcategoryByCategoryIdModel?.result?.subCategory;
-                      if (data == null) {
-                        return const Padding(
-                          padding: EdgeInsets.all(8.0),
-                          child: ShimmersWidget(
-                            width: 40,
-                            height: 40,
-                            borderRadius: 12,
+                                ),
+                              );
+                            },
                           ),
                         );
-                      }
-                      return GestureDetector(
-                        onTap: () {
-                          context.pushNamed(
-                              MyAppRouteConstants.categoriesProductsRouteName,
-                              extra: {
-                                'type': FilterType.category,
-                                'subCategory': data[index].title,
-                                'category': state
-                                        .category
-                                        ?.result
-                                        ?.category?[state.categoryIndex]
-                                        .title ??
-                                    ""
-                              });
-                        },
-                        child: CategoryFullView(
-                          isShowborder: false,
-                          iconImage: data[index].image,
-                          categoryTitle: data[index].title,
+                      },
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            BlocBuilder<CategoryBloc, CategoryState>(
+              builder: (context, state) {
+                return Expanded(
+                    child: GridView.builder(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 3,
+                    crossAxisSpacing: 30,
+                    mainAxisSpacing: 0,
+                    childAspectRatio: 0.7,
+                  ),
+                  padding: EdgeInsets.zero,
+                  itemBuilder: (context, index) {
+                    final data =
+                        state.subcategoryByCategoryIdModel?.result?.subCategory;
+                    if (data == null) {
+                      return const Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: ShimmersWidget(
+                          width: 40,
+                          height: 40,
+                          borderRadius: 12,
                         ),
                       );
-                    },
-                    itemCount: state.subcategoryByCategoryIdModel?.result
-                            ?.subCategory?.length ??
-                        20,
-                  ));
-                },
-              )
-            ],
-          ),
+                    }
+                    return GestureDetector(
+                      onTap: () {
+                        context.pushNamed(
+                            MyAppRouteConstants.categoriesProductsRouteName,
+                            extra: {
+                              'type': FilterType.category,
+                              'subCategory': data[index].title,
+                              'category': state.category?.result
+                                      ?.category?[state.categoryIndex].title ??
+                                  ""
+                            });
+                      },
+                      child: CategoryFullView(
+                        isShowborder: false,
+                        iconImage: data[index].image,
+                        categoryTitle: data[index].title,
+                      ),
+                    );
+                  },
+                  itemCount: state.subcategoryByCategoryIdModel?.result
+                          ?.subCategory?.length ??
+                      20,
+                ));
+              },
+            )
+          ],
         ));
   }
 }

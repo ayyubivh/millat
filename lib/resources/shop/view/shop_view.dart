@@ -7,6 +7,7 @@ import 'package:millat/components/common_widgets/build_categories_widget.dart';
 import 'package:millat/components/shimmers/shimmer_widget.dart';
 import 'package:millat/components/shimmers/shimmers_widget_rounded.dart';
 import 'package:millat/enums/enumertations.dart';
+import 'package:millat/resources/authentication/bloc/logic/database_bloc/database_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/address_bloc/address_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/category_bloc/category_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
@@ -26,239 +27,224 @@ class ShopView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // WidgetsBinding.instance.addPostFrameCallback((_) {
-    //   BlocProvider.of<CategoryBloc>(context).add(const FetchCategories());
-    //   BlocProvider.of<ShopProductsBloc>(context)
-    //       .add(const FetchAllBrandsEvent());
-    // });
+    final shopProductsBloc = BlocProvider.of<ShopProductsBloc>(context);
+    final cartBloc = BlocProvider.of<CartBloc>(context);
+    final categoryBloc = BlocProvider.of<CategoryBloc>(context);
+
+    categoryBloc.add(const CategoryEvent.fetchCategories());
+    shopProductsBloc
+      // ..add(const ShopProductsEvent.fetchRecentProductProducts())
+      ..add(const ShopProductsEvent.fetchShopByBrand())
+      ..add(const ShopProductsEvent.fetchShopBanners())
+      ..add(const ShopProductsEvent.fetchShopHomeBackgroundCard())
+      ..add(const ShopProductsEvent.fetchShopHomeBackgroundCardSunnah())
+      ..add(const ShopProductsEvent.fetchShopHomeBackgroundCardHelthyDiet())
+      ..add(const ShopProductsEvent.fetchShopAdBrands())
+      ..add(const ShopProductsEvent.fetchProductItemsSubcategorySunnah())
+      ..add(const ShopProductsEvent.fetchProductItemsSubcategoryWomen())
+      ..add(const ShopProductsEvent.fetchProductItemsSubcategoryHealth())
+      ..add(ShopProductsEvent.fetchWishList(context))
+      ..add(const ShopProductsEvent.fetchCoupons())
+      ..add(const ShopProductsEvent.fetchAllBrandsEvent());
+    cartBloc.add(FetchCartEvent(context));
+    BlocProvider.of<AddressBloc>(context).add(const FetchAddressDefaultIndex());
+    context.read<DatabaseBloc>().add(FetchAuthUser(context: context));
+
     return Scaffold(
       backgroundColor: ColorManager.whiteColor,
-      body: MultiBlocProvider(
-        providers: [
-          BlocProvider(
-            create: (context) => ShopProductsBloc()
-              ..add(const ShopProductsEvent.fetchShopByBrand())
-              ..add(const ShopProductsEvent.fetchShopBanners())
-              ..add(const ShopProductsEvent.fetchShopHomeBackgroundCard())
-              ..add(const ShopProductsEvent.fetchShopHomeBackgroundCardSunnah())
-              ..add(const ShopProductsEvent
-                  .fetchShopHomeBackgroundCardHelthyDiet())
-              ..add(const ShopProductsEvent.fetchShopAdBrands())
-              ..add(
-                  const ShopProductsEvent.fetchProductItemsSubcategorySunnah())
-              ..add(const ShopProductsEvent.fetchProductItemsSubcategoryWomen())
-              ..add(
-                  const ShopProductsEvent.fetchProductItemsSubcategoryHealth())
-              ..add(ShopProductsEvent.fetchWishList(context))
-              ..add(const ShopProductsEvent.fetchCoupons())
-              ..add(const ShopProductsEvent.fetchAllBrandsEvent()),
-          ),
-          BlocProvider(
-              create: (context) =>
-                  CategoryBloc()..add(const CategoryEvent.fetchCategories())),
-          BlocProvider(
-              create: (context) =>
-                  AddressBloc()..add(const FetchAddressDefaultIndex()))
-        ],
-        child: SingleChildScrollView(
-          physics: const ClampingScrollPhysics(),
-          child: Column(
-            children: [
-              _categorySections(context),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 30),
-                child: Column(
-                  children: [
-                    _shopCarouselSliderWidget(),
-                    kHeight20,
-                    _titleWidget(text: Appstrings.brand),
-                    kHeight10,
-                    _brandCarouselSliderWidget(),
-                    kHeight20,
-                    _brandsWidget(),
-                    kHeight16,
-                    LighGreenGradienButton(
-                      text: Appstrings.viewBrands,
-                      onTap: () {
-                        context
-                            .goNamed(MyAppRouteConstants.shopBrandsRouteName);
-                      },
-                    ),
-                    kHeight40,
-                    _titleWidget(text: Appstrings.womensCare),
-                    kHeight16,
-                    BlocBuilder<ShopProductsBloc, ShopProductsState>(
-                      builder: (context, state) {
-                        // final womenData =
-                        //     state.shopHomeBackgroundCardModelWomens?.result.data;
-                        final womenSubCategoryData = state
-                            .productItemsSubCategoryWomenModel
-                            ?.result
-                            ?.data
-                            ?.itemList;
-                        // final healthyDietData = state
-                        //     .shopHomeBackgroundCardModelHealthyDiet?.result.data;
+      body: SingleChildScrollView(
+        physics: const ClampingScrollPhysics(),
+        child: Column(
+          children: [
+            _categorySections(context),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 30),
+              child: Column(
+                children: [
+                  _shopCarouselSliderWidget(),
+                  kHeight20,
+                  _titleWidget(text: Appstrings.brand),
+                  kHeight10,
+                  _brandCarouselSliderWidget(),
+                  kHeight20,
+                  _brandsWidget(),
+                  kHeight16,
+                  LighGreenGradienButton(
+                    text: Appstrings.viewBrands,
+                    onTap: () {
+                      context.goNamed(MyAppRouteConstants.shopBrandsRouteName);
+                    },
+                  ),
+                  kHeight40,
+                  _titleWidget(text: Appstrings.womensCare),
+                  kHeight16,
+                  BlocBuilder<ShopProductsBloc, ShopProductsState>(
+                    builder: (context, state) {
+                      // final womenData =
+                      //     state.shopHomeBackgroundCardModelWomens?.result.data;
+                      final womenSubCategoryData = state
+                          .productItemsSubCategoryWomenModel
+                          ?.result
+                          ?.data
+                          ?.itemList;
+                      // final healthyDietData = state
+                      //     .shopHomeBackgroundCardModelHealthyDiet?.result.data;
 
-                        final healthyDietSubCategoryData = state
-                            .productItemsSubCategoryHealthModel
-                            ?.result
-                            ?.data
-                            ?.itemList;
-                        // final sunnahData =
-                        //     state.shopHomeBackgroundCardModelSunnah?.result?.data;
-                        final sunnahSubCategoryData = state
-                            .productItemsSubCategorySunnahModel
-                            ?.result
-                            ?.data
-                            ?.articleList;
+                      final healthyDietSubCategoryData = state
+                          .productItemsSubCategoryHealthModel
+                          ?.result
+                          ?.data
+                          ?.itemList;
+                      // final sunnahData =
+                      //     state.shopHomeBackgroundCardModelSunnah?.result?.data;
+                      final sunnahSubCategoryData = state
+                          .productItemsSubCategorySunnahModel
+                          ?.result
+                          ?.data
+                          ?.articleList;
 
-                        return Column(
-                          children: [
-                            BackgroundContainer(
-                              cardType: ShopHomeCardtype.women,
-                              onTap: () {
-                                context.pushNamed(
-                                    MyAppRouteConstants.categoryRouteName,
-                                    extra: {
-                                      "categoryType":
-                                          CategoryType.specificCategory,
-                                      "category": "women",
-                                      "categoryId": "",
-                                    });
-                              },
-                              width: SizeUtility(context).width / 2,
-                              title: "Women",
-                              imageUrl: AppAssetsStrings.womenCareImg,
-                              text: "Because we care \nfor ",
-                              buttonColor: ColorManager.pinkButtonColor,
-                              gradientColors: [
-                                ColorManager.pinkGradient2,
-                                ColorManager.pinkGradient1,
-                              ],
-                              textColor: ColorManager.whiteColor,
-                              child: womenSubCategoryData == null
-                                  ? ShimmersWidget(
-                                      height: 60,
-                                      width: SizeUtility(context).width,
-                                    )
-                                  : shopCardSubcategoryWidget(
-                                      getId: (index) =>
-                                          womenSubCategoryData[index].id ?? "",
-                                      state: state,
-                                      height: 126,
-                                      color: ColorManager.lightPinkClr,
-                                      itemCount: womenSubCategoryData.length,
-                                      getTitle: (index) =>
-                                          womenSubCategoryData[index].title ??
-                                          "",
-                                      getImageUrl: (index) =>
-                                          womenSubCategoryData[index].image ??
-                                          "",
-                                    ),
-                            ),
-                            kHeight20,
-                            _titleWidget(text: Appstrings.healthyDiet),
-                            kHeight20,
-                            BackgroundContainer(
-                              cardType: ShopHomeCardtype.health,
-                              onTap: () {
-                                context.pushNamed(
-                                    MyAppRouteConstants.categoryRouteName,
-                                    extra: {
-                                      "categoryType":
-                                          CategoryType.specificCategory,
-                                      "category": "healthy_diet",
-                                      "categoryId": "",
-                                    });
-                              },
-                              width: SizeUtility(context).width / 2,
-                              title: "Healthy",
-                              title2: "Sunnah",
-                              imageUrl: AppAssetsStrings.healhtyDietImg1,
-                              text: "your ",
-                              text2: "Lifestyle By Following",
-                              buttonColor: ColorManager.healthyDietButtonClr,
-                              gradientColors: [
-                                ColorManager.helthyDietGradientClr2,
-                                ColorManager.helthyDietGradientClr1,
-                              ],
-                              textColor: ColorManager.blackColor,
-                              child: healthyDietSubCategoryData == null
-                                  ? ShimmersWidget(
-                                      height: 60,
-                                      width: SizeUtility(context).width,
-                                    )
-                                  : shopCardSubcategoryWidget(
-                                      getId: (index) =>
-                                          healthyDietSubCategoryData[index]
-                                              .id ??
-                                          "",
-                                      state: state,
-                                      height: 126,
-                                      color:
-                                          ColorManager.helthyDietGradientClr2,
-                                      itemCount:
-                                          healthyDietSubCategoryData.length,
-                                      getTitle: (index) =>
-                                          healthyDietSubCategoryData[index]
-                                              .title ??
-                                          '',
-                                      getImageUrl: (index) =>
-                                          healthyDietSubCategoryData[index]
-                                              .image ??
-                                          "",
-                                    ),
-                            ),
-                            kHeight20,
-                            _titleWidget(text: Appstrings.followSunnah),
-                            kHeight20,
-                            BackgroundContainer(
-                              onTap: () {
-                                context.goNamed(
-                                    MyAppRouteConstants.articleRouteName);
-                              },
-                              cardType: ShopHomeCardtype.sunnah,
-                              title: "",
-                              imageUrl: AppAssetsStrings.sunnahImg1,
-                              text: "Read articles and learn more about",
-                              buttonColor: ColorManager.whiteColor,
-                              width: SizeUtility(context).width / 1.5,
-                              gradientColors: [
-                                ColorManager.sunnahGreenClr2,
-                                ColorManager.sunnahGreenClr1,
-                              ],
-                              textColor: ColorManager.whiteColor,
-                              child: sunnahSubCategoryData == null
-                                  ? ShimmersWidget(
-                                      height: 60,
-                                      width: SizeUtility(context).width,
-                                    )
-                                  : shopCardSubcategoryWidget(
-                                      data: sunnahSubCategoryData,
-                                      getId: (index) =>
-                                          sunnahSubCategoryData[index].id ?? "",
-                                      state: state,
-                                      height: 126,
-                                      color: ColorManager.whiteColor,
-                                      itemCount: sunnahSubCategoryData.length,
-                                      getTitle: (index) =>
-                                          sunnahSubCategoryData[index].title ??
-                                          "",
-                                      getImageUrl: (index) =>
-                                          sunnahSubCategoryData[index].image!,
-                                      isSunnah: true),
-                            ),
-                          ],
-                        );
-                      },
-                    ),
-                    kHeight15,
-                  ],
-                ),
+                      return Column(
+                        children: [
+                          BackgroundContainer(
+                            cardType: ShopHomeCardtype.women,
+                            onTap: () {
+                              context.pushNamed(
+                                  MyAppRouteConstants.categoryRouteName,
+                                  extra: {
+                                    "categoryType":
+                                        CategoryType.specificCategory,
+                                    "category": "women",
+                                    "categoryId": "",
+                                  });
+                            },
+                            width: SizeUtility(context).width / 2,
+                            title: "Women",
+                            imageUrl: AppAssetsStrings.womenCareImg,
+                            text: "Because we care \nfor ",
+                            buttonColor: ColorManager.pinkButtonColor,
+                            gradientColors: [
+                              ColorManager.pinkGradient2,
+                              ColorManager.pinkGradient1,
+                            ],
+                            textColor: ColorManager.whiteColor,
+                            child: womenSubCategoryData == null
+                                ? ShimmersWidget(
+                                    height: 60,
+                                    width: SizeUtility(context).width,
+                                  )
+                                : shopCardSubcategoryWidget(
+                                    getId: (index) =>
+                                        womenSubCategoryData[index].id ?? "",
+                                    state: state,
+                                    height: 126,
+                                    color: ColorManager.lightPinkClr,
+                                    itemCount: womenSubCategoryData.length,
+                                    getTitle: (index) =>
+                                        womenSubCategoryData[index].title ?? "",
+                                    getImageUrl: (index) =>
+                                        womenSubCategoryData[index].image ?? "",
+                                  ),
+                          ),
+                          kHeight20,
+                          _titleWidget(text: Appstrings.healthyDiet),
+                          kHeight20,
+                          BackgroundContainer(
+                            cardType: ShopHomeCardtype.health,
+                            onTap: () {
+                              context.pushNamed(
+                                  MyAppRouteConstants.categoryRouteName,
+                                  extra: {
+                                    "categoryType":
+                                        CategoryType.specificCategory,
+                                    "category": "healthy_diet",
+                                    "categoryId": "",
+                                  });
+                            },
+                            width: SizeUtility(context).width / 2,
+                            title: "Healthy",
+                            title2: "Sunnah",
+                            imageUrl: AppAssetsStrings.healhtyDietImg1,
+                            text: "your ",
+                            text2: "Lifestyle By Following",
+                            buttonColor: ColorManager.healthyDietButtonClr,
+                            gradientColors: [
+                              ColorManager.helthyDietGradientClr2,
+                              ColorManager.helthyDietGradientClr1,
+                            ],
+                            textColor: ColorManager.blackColor,
+                            child: healthyDietSubCategoryData == null
+                                ? ShimmersWidget(
+                                    height: 60,
+                                    width: SizeUtility(context).width,
+                                  )
+                                : shopCardSubcategoryWidget(
+                                    getId: (index) =>
+                                        healthyDietSubCategoryData[index].id ??
+                                        "",
+                                    state: state,
+                                    height: 126,
+                                    color: ColorManager.helthyDietGradientClr2,
+                                    itemCount:
+                                        healthyDietSubCategoryData.length,
+                                    getTitle: (index) =>
+                                        healthyDietSubCategoryData[index]
+                                            .title ??
+                                        '',
+                                    getImageUrl: (index) =>
+                                        healthyDietSubCategoryData[index]
+                                            .image ??
+                                        "",
+                                  ),
+                          ),
+                          kHeight20,
+                          _titleWidget(text: Appstrings.followSunnah),
+                          kHeight20,
+                          BackgroundContainer(
+                            onTap: () {
+                              context.goNamed(
+                                  MyAppRouteConstants.articleRouteName);
+                            },
+                            cardType: ShopHomeCardtype.sunnah,
+                            title: "",
+                            imageUrl: AppAssetsStrings.sunnahImg1,
+                            text: "Read articles and learn more about",
+                            buttonColor: ColorManager.whiteColor,
+                            width: SizeUtility(context).width / 1.5,
+                            gradientColors: [
+                              ColorManager.sunnahGreenClr2,
+                              ColorManager.sunnahGreenClr1,
+                            ],
+                            textColor: ColorManager.whiteColor,
+                            child: sunnahSubCategoryData == null
+                                ? ShimmersWidget(
+                                    height: 60,
+                                    width: SizeUtility(context).width,
+                                  )
+                                : shopCardSubcategoryWidget(
+                                    data: sunnahSubCategoryData,
+                                    getId: (index) =>
+                                        sunnahSubCategoryData[index].id ?? "",
+                                    state: state,
+                                    height: 126,
+                                    color: ColorManager.whiteColor,
+                                    itemCount: sunnahSubCategoryData.length,
+                                    getTitle: (index) =>
+                                        sunnahSubCategoryData[index].title ??
+                                        "",
+                                    getImageUrl: (index) =>
+                                        sunnahSubCategoryData[index].image!,
+                                    isSunnah: true),
+                          ),
+                        ],
+                      );
+                    },
+                  ),
+                  kHeight15,
+                ],
               ),
-              kHeight100,
-            ],
-          ),
+            ),
+            kHeight100,
+          ],
         ),
       ),
     );

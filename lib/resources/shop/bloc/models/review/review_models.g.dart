@@ -28,12 +28,10 @@ _$_Result _$$_ResultFromJson(Map<String, dynamic> json) => _$_Result(
       data: json['data'] == null
           ? null
           : Data.fromJson(json['data'] as Map<String, dynamic>),
-      avgRating: (json['avgRating'] as num?)?.toDouble(),
     );
 
 Map<String, dynamic> _$$_ResultToJson(_$_Result instance) => <String, dynamic>{
       'data': instance.data,
-      'avgRating': instance.avgRating,
     };
 
 _$_Data _$$_DataFromJson(Map<String, dynamic> json) => _$_Data(

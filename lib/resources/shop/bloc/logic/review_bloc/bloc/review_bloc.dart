@@ -1,8 +1,10 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:millat/resources/shop/bloc/models/review/review_comments_model.dart';
 import 'package:millat/resources/shop/bloc/models/review/review_models.dart';
 import 'package:millat/resources/shop/bloc/service/review_service.dart';
 
@@ -15,8 +17,9 @@ class ReviewBloc extends Bloc<ReviewEvent, ReviewState> {
   ReviewBloc() : super(ReviewState.initial()) {
     on<FetchRatingEvent>(_fetchRatingEvent);
     on<AddReview>(_addReview);
-    on<UpdateReiview>(_updateReview);
+    on<UpdateReview>(_updateReview);
     on<ExpandReviewList>(_expandReviewList);
+    on<FetchReviewComments>(_fetchReviewComments);
   }
 
   _fetchRatingEvent(FetchRatingEvent event, Emitter<ReviewState> emit) async {
@@ -42,7 +45,7 @@ class ReviewBloc extends Bloc<ReviewEvent, ReviewState> {
     }
   }
 
-  _updateReview(UpdateReiview event, Emitter<ReviewState> emit) {
+  _updateReview(UpdateReview event, Emitter<ReviewState> emit) {
     try {
       reviewServices.updateReview(
           context: event.context,
@@ -56,5 +59,17 @@ class ReviewBloc extends Bloc<ReviewEvent, ReviewState> {
 
   _expandReviewList(ExpandReviewList event, Emitter<ReviewState> emit) {
     emit(state.copyWith(isExpandedReview: !state.isExpandedReview));
+  }
+
+  _fetchReviewComments(
+      FetchReviewComments event, Emitter<ReviewState> emit) async {
+    emit(state.copyWith(isLoading: true));
+    try {
+      final data =
+          await reviewServices.fetchReviewComments(event.context, event.id);
+      emit(state.copyWith(reviewCommentsModel: data, isLoading: false));
+    } catch (e) {
+      emit(state.copyWith(isLoading: false));
+    }
   }
 }

@@ -231,7 +231,6 @@ Result _$ResultFromJson(Map<String, dynamic> json) {
 mixin _$Result {
   @JsonKey(name: 'data')
   Data? get data => throw _privateConstructorUsedError;
-  double? get avgRating => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -243,7 +242,7 @@ abstract class $ResultCopyWith<$Res> {
   factory $ResultCopyWith(Result value, $Res Function(Result) then) =
       _$ResultCopyWithImpl<$Res, Result>;
   @useResult
-  $Res call({@JsonKey(name: 'data') Data? data, double? avgRating});
+  $Res call({@JsonKey(name: 'data') Data? data});
 
   $DataCopyWith<$Res>? get data;
 }
@@ -262,17 +261,12 @@ class _$ResultCopyWithImpl<$Res, $Val extends Result>
   @override
   $Res call({
     Object? data = freezed,
-    Object? avgRating = freezed,
   }) {
     return _then(_value.copyWith(
       data: freezed == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as Data?,
-      avgRating: freezed == avgRating
-          ? _value.avgRating
-          : avgRating // ignore: cast_nullable_to_non_nullable
-              as double?,
     ) as $Val);
   }
 
@@ -295,7 +289,7 @@ abstract class _$$_ResultCopyWith<$Res> implements $ResultCopyWith<$Res> {
       __$$_ResultCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@JsonKey(name: 'data') Data? data, double? avgRating});
+  $Res call({@JsonKey(name: 'data') Data? data});
 
   @override
   $DataCopyWith<$Res>? get data;
@@ -312,17 +306,12 @@ class __$$_ResultCopyWithImpl<$Res>
   @override
   $Res call({
     Object? data = freezed,
-    Object? avgRating = freezed,
   }) {
     return _then(_$_Result(
       data: freezed == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as Data?,
-      avgRating: freezed == avgRating
-          ? _value.avgRating
-          : avgRating // ignore: cast_nullable_to_non_nullable
-              as double?,
     ));
   }
 }
@@ -330,7 +319,7 @@ class __$$_ResultCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Result implements _Result {
-  const _$_Result({@JsonKey(name: 'data') this.data, required this.avgRating});
+  const _$_Result({@JsonKey(name: 'data') this.data});
 
   factory _$_Result.fromJson(Map<String, dynamic> json) =>
       _$$_ResultFromJson(json);
@@ -338,12 +327,10 @@ class _$_Result implements _Result {
   @override
   @JsonKey(name: 'data')
   final Data? data;
-  @override
-  final double? avgRating;
 
   @override
   String toString() {
-    return 'Result(data: $data, avgRating: $avgRating)';
+    return 'Result(data: $data)';
   }
 
   @override
@@ -351,14 +338,12 @@ class _$_Result implements _Result {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Result &&
-            (identical(other.data, data) || other.data == data) &&
-            (identical(other.avgRating, avgRating) ||
-                other.avgRating == avgRating));
+            (identical(other.data, data) || other.data == data));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, data, avgRating);
+  int get hashCode => Object.hash(runtimeType, data);
 
   @JsonKey(ignore: true)
   @override
@@ -375,17 +360,13 @@ class _$_Result implements _Result {
 }
 
 abstract class _Result implements Result {
-  const factory _Result(
-      {@JsonKey(name: 'data') final Data? data,
-      required final double? avgRating}) = _$_Result;
+  const factory _Result({@JsonKey(name: 'data') final Data? data}) = _$_Result;
 
   factory _Result.fromJson(Map<String, dynamic> json) = _$_Result.fromJson;
 
   @override
   @JsonKey(name: 'data')
   Data? get data;
-  @override
-  double? get avgRating;
   @override
   @JsonKey(ignore: true)
   _$$_ResultCopyWith<_$_Result> get copyWith =>

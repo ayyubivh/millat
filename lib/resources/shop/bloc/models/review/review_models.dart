@@ -20,7 +20,6 @@ class ReviewModel with _$ReviewModel {
 class Result with _$Result {
   const factory Result({
     @JsonKey(name: 'data') Data? data,
-    required double? avgRating,
   }) = _Result;
 
   factory Result.fromJson(Map<String, dynamic> json) => _$ResultFromJson(json);

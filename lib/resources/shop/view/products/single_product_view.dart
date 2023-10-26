@@ -29,9 +29,9 @@ class SingleProductView extends StatelessWidget {
       context
           .read<ShopProductsBloc>()
           .add(ShopProductsEvent.fetchProductsById(id: id));
-      context
-          .read<ReviewBloc>()
-          .add(FetchRatingEvent(id: id, context: context));
+      context.read<ReviewBloc>()
+        ..add(ReviewEvent.fetchRatingEvent(id: id, context: context))
+        ..add(ReviewEvent.fetchReviewComments(id: id, context: context));
     });
     int selectedSize = 0;
     print(id);
@@ -344,7 +344,7 @@ class SingleProductView extends StatelessWidget {
                       ),
                       kWidth10,
                       Text(
-                        '${data?.avgRating ?? 0}/5',
+                        '${data?.data?.averageRating ?? 0}/5',
                         style: TextStyle(
                             color: ColorManager.blackColor,
                             fontWeight: FontWeight.w700,
@@ -376,26 +376,29 @@ class SingleProductView extends StatelessWidget {
               );
             },
           ),
-          // BlocBuilder<ReviewBloc, ReviewState>(
-          //   builder: (context, state) => !state.isExpandedReview
-          //       ? const SizedBox()
-          //       : ListView.builder(
-          //           itemCount:
-          //               state.reviewModel?.result?.data?.ratings?.length ?? 0,
-          //           shrinkWrap: true,
-          //           physics: const NeverScrollableScrollPhysics(),
-          //           itemBuilder: (context, index) {
-          //             final data = state.reviewModel?.result?.data;
-          //             return buildReviewItem(
-          //                 comment: data?.ratings?[index].comment ?? "",
-          //                 context: context,
-          //                 name: data?.ratings?[index].name ?? "",
-          //                 rating: data?.ratings?[index].rating ?? 0.0,
-          //                 dob: data?.ratings?[index].user?.dob ?? "",
-          //                 image: data?.ratings?[index].user?.picture ?? "");
-          //           },
-          //         ),
-          // ),
+          BlocBuilder<ReviewBloc, ReviewState>(
+            builder: (context, state) {
+              return !state.isExpandedReview
+                  ? const SizedBox()
+                  : ListView.builder(
+                      itemCount: state.reviewCommentsModel?.result?.data
+                          ?.reviewComments?.length,
+                      shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      itemBuilder: (context, index) {
+                        final data = state.reviewCommentsModel?.result?.data
+                            ?.reviewComments?[index];
+                        return buildReviewItem(
+                            comment: data?.comment ?? "",
+                            context: context,
+                            name: data?.name ?? "",
+                            rating: data?.rating ?? 0.0,
+                            dob: data?.userId?.dateOfBirth ?? "",
+                            image: data?.userId?.picture ?? "");
+                      },
+                    );
+            },
+          ),
         ],
       ),
     );

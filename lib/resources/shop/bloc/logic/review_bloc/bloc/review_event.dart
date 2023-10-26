@@ -6,6 +6,10 @@ class ReviewEvent with _$ReviewEvent {
     required String id,
     required BuildContext context,
   }) = FetchRatingEvent;
+  const factory ReviewEvent.fetchReviewComments({
+    required String id,
+    required BuildContext context,
+  }) = FetchReviewComments;
   const factory ReviewEvent.addReview({
     required BuildContext context,
     required String productId,
@@ -13,11 +17,11 @@ class ReviewEvent with _$ReviewEvent {
     required double rating,
     required String comment,
   }) = AddReview;
-  const factory ReviewEvent.updateReiview({
+  const factory ReviewEvent.updateReview({
     required BuildContext context,
     required String productId,
     required double rating,
     required String comment,
-  }) = UpdateReiview;
+  }) = UpdateReview;
   const factory ReviewEvent.expandReviewList() = ExpandReviewList;
 }

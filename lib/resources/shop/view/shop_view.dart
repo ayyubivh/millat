@@ -80,23 +80,18 @@ class ShopView extends StatelessWidget {
                   kHeight16,
                   BlocBuilder<ShopProductsBloc, ShopProductsState>(
                     builder: (context, state) {
-                      // final womenData =
-                      //     state.shopHomeBackgroundCardModelWomens?.result.data;
                       final womenSubCategoryData = state
                           .productItemsSubCategoryWomenModel
                           ?.result
                           ?.data
                           ?.itemList;
-                      // final healthyDietData = state
-                      //     .shopHomeBackgroundCardModelHealthyDiet?.result.data;
 
                       final healthyDietSubCategoryData = state
                           .productItemsSubCategoryHealthModel
                           ?.result
                           ?.data
                           ?.itemList;
-                      // final sunnahData =
-                      //     state.shopHomeBackgroundCardModelSunnah?.result?.data;
+
                       final sunnahSubCategoryData = state
                           .productItemsSubCategorySunnahModel
                           ?.result

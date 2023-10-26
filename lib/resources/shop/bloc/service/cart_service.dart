@@ -12,7 +12,7 @@ class CartServices extends HttpServices {
     if (response.statusCode == 200) {
       try {
         if (response.statusCode == 200) {
-          final Map<String, dynamic> data = json.decode(response.body);
+          final data = json.decode(response.body);
           final result = CartModel.fromJson(data);
 
           return result;
@@ -22,7 +22,7 @@ class CartServices extends HttpServices {
               'API request failed with status code: ${response.statusCode}');
         }
       } catch (e) {
-        print('error on order API fetch: ${e.toString()}');
+        print('error on cart API fetch: ${e.toString()}');
         throw Exception('Failed to parse response');
       }
     } else {
@@ -39,16 +39,17 @@ class CartServices extends HttpServices {
     required String? color,
     required int quantity,
     required String brandId,
+    // required int discount,
   }) async {
     const endPoint = 'cart/add';
 
     final body = {
       "productId": productId,
-      "selling_price": basePrice,
+      "selling_price": basePrice.toString(),
       "size": size,
       "color": color,
-      "quantity": quantity,
-      "brandId": brandId
+      "quantity": quantity.toString(),
+      "brandId": brandId,
     };
 
     final response = await put(
@@ -59,11 +60,11 @@ class CartServices extends HttpServices {
 
     try {
       if (response.statusCode == 200) {
-        final Map<String, dynamic> data = json.decode(response.body);
+        final data = json.decode(response.body);
 
         return data;
       } else if (response.statusCode == 409) {
-        final Map<String, dynamic> data = json.decode(response.body);
+        final data = json.decode(response.body);
 
         return data;
       } else {

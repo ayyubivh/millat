@@ -320,7 +320,7 @@ String emailKey = 'email';
 String nameKey = 'name';
 String bookmarkDb = "Bookmark-db";
 String userBox = 'userDetailsBox';
-String kBaseUrl = "http://35.172.93.164:8000/";
+String kBaseUrl = "https://api.millat.co/";
 
 //quran texts types
 final quranTexts = [

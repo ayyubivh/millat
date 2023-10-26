@@ -39,15 +39,19 @@ class HttpServices {
     bool isToken = false,
     required Map body,
   }) async {
-    final response = await http.put(Uri.parse(kBaseUrl + endPoint),
-        body: body,
-        headers: isToken
-            ? {
-                'Content-Type': 'application/json; charset=utf-8',
-                'Authorization': 'Bearer ${_getToken()}',
-              }
-            : {});
-    return response;
+    try {
+      final response = await http.put(Uri.parse(kBaseUrl + endPoint),
+          body: body,
+          headers: isToken
+              ? {
+                  // 'Content-Type': 'application/json; charset=utf-8',
+                  'Authorization': 'Bearer ${_getToken()}',
+                }
+              : {});
+      return response;
+    } catch (e) {
+      throw Exception(e);
+    }
   }
 
   Future<http.Response> patch({

@@ -67,7 +67,7 @@ class ProductInfo with _$ProductInfo {
     String? subcategory,
     String? itemType,
     String? pickupAddress,
-    String? description,
+    dynamic description,
     @JsonKey(name: 'regularPrice') double? regularPrice,
     @JsonKey(name: 'salePrice') double? salePrice,
     int? discount,

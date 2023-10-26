@@ -909,7 +909,7 @@ mixin _$ProductInfo {
   String? get subcategory => throw _privateConstructorUsedError;
   String? get itemType => throw _privateConstructorUsedError;
   String? get pickupAddress => throw _privateConstructorUsedError;
-  String? get description => throw _privateConstructorUsedError;
+  dynamic get description => throw _privateConstructorUsedError;
   @JsonKey(name: 'regularPrice')
   double? get regularPrice => throw _privateConstructorUsedError;
   @JsonKey(name: 'salePrice')
@@ -945,7 +945,7 @@ abstract class $ProductInfoCopyWith<$Res> {
       String? subcategory,
       String? itemType,
       String? pickupAddress,
-      String? description,
+      dynamic description,
       @JsonKey(name: 'regularPrice') double? regularPrice,
       @JsonKey(name: 'salePrice') double? salePrice,
       int? discount,
@@ -1029,7 +1029,7 @@ class _$ProductInfoCopyWithImpl<$Res, $Val extends ProductInfo>
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as dynamic,
       regularPrice: freezed == regularPrice
           ? _value.regularPrice
           : regularPrice // ignore: cast_nullable_to_non_nullable
@@ -1095,7 +1095,7 @@ abstract class _$$_ProductInfoCopyWith<$Res>
       String? subcategory,
       String? itemType,
       String? pickupAddress,
-      String? description,
+      dynamic description,
       @JsonKey(name: 'regularPrice') double? regularPrice,
       @JsonKey(name: 'salePrice') double? salePrice,
       int? discount,
@@ -1177,7 +1177,7 @@ class __$$_ProductInfoCopyWithImpl<$Res>
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as dynamic,
       regularPrice: freezed == regularPrice
           ? _value.regularPrice
           : regularPrice // ignore: cast_nullable_to_non_nullable
@@ -1275,7 +1275,7 @@ class _$_ProductInfo implements _ProductInfo {
   @override
   final String? pickupAddress;
   @override
-  final String? description;
+  final dynamic description;
   @override
   @JsonKey(name: 'regularPrice')
   final double? regularPrice;
@@ -1347,8 +1347,8 @@ class _$_ProductInfo implements _ProductInfo {
                 other.itemType == itemType) &&
             (identical(other.pickupAddress, pickupAddress) ||
                 other.pickupAddress == pickupAddress) &&
-            (identical(other.description, description) ||
-                other.description == description) &&
+            const DeepCollectionEquality()
+                .equals(other.description, description) &&
             (identical(other.regularPrice, regularPrice) ||
                 other.regularPrice == regularPrice) &&
             (identical(other.salePrice, salePrice) ||
@@ -1381,7 +1381,7 @@ class _$_ProductInfo implements _ProductInfo {
         subcategory,
         itemType,
         pickupAddress,
-        description,
+        const DeepCollectionEquality().hash(description),
         regularPrice,
         salePrice,
         discount,
@@ -1419,7 +1419,7 @@ abstract class _ProductInfo implements ProductInfo {
       final String? subcategory,
       final String? itemType,
       final String? pickupAddress,
-      final String? description,
+      final dynamic description,
       @JsonKey(name: 'regularPrice') final double? regularPrice,
       @JsonKey(name: 'salePrice') final double? salePrice,
       final int? discount,
@@ -1453,7 +1453,7 @@ abstract class _ProductInfo implements ProductInfo {
   @override
   String? get pickupAddress;
   @override
-  String? get description;
+  dynamic get description;
   @override
   @JsonKey(name: 'regularPrice')
   double? get regularPrice;

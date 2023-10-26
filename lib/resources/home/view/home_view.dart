@@ -348,11 +348,11 @@ class HomeView extends StatelessWidget {
                                         ],
                                       ),
                                     ),
-                                    Padding(
-                                      padding: const EdgeInsets.symmetric(
-                                          horizontal: 30),
-                                      child: _brandOftheDayWidget(),
-                                    ),
+                                    // Padding(
+                                    //   padding: const EdgeInsets.symmetric(
+                                    //       horizontal: 30),
+                                    //   child: _brandOftheDayWidget(),
+                                    // ),
                                     kHeight50,
                                     kHeight50,
                                   ],

@@ -9,7 +9,6 @@ import '../models/home_models/brand_of_the_day_model/brandofthe_day_model.dart';
 import '../models/home_models/event_of_the_month_model/event_of_the_month_model.dart';
 import '../models/home_models/hadit_of_the_day_model/hadit_oftheday_mode.dart';
 import '../models/home_models/large_discount_model/home_large_discounts_model.dart';
-import 'package:http/http.dart' as http;
 
 import '../models/home_models/prayer_tracker_model.dart';
 
@@ -123,19 +122,17 @@ class HomeServices extends HttpServices {
     required String namazName,
   }) async {
     const endPoint = 'namaz_track/tick';
-    final databaseState = context.read<DatabaseBloc>().state;
-    final token = databaseState.token;
-    final headers = {
-      'Content-Type': 'application/json; charset=utf-8',
-      'Authorization': 'Bearer $token',
-    };
+
     final body = {
       "date": date,
       "namaz": namazName,
     };
 
-    final response = await http.patch(Uri.parse(kBaseUrl + endPoint),
-        headers: headers, body: jsonEncode(body));
+    final response = await patch(
+      endPoint: endPoint,
+      isToken: true,
+      body: body,
+    );
 
     try {
       if (response.statusCode == 200) {
@@ -163,16 +160,12 @@ class HomeServices extends HttpServices {
       "namaz": namaz,
     };
     const endPoint = 'namaz_track/untick';
-    final databaseState = context.read<DatabaseBloc>().state;
-    final token = databaseState.token;
-    final headers = {
-      'Content-Type': 'application/json; charset=utf-8',
-      'Authorization': 'Bearer $token',
-    };
 
-    final response = await http.patch(Uri.parse(kBaseUrl + endPoint),
-        headers: headers, body: jsonEncode(body));
-
+    final response = await patch(
+      endPoint: endPoint,
+      isToken: true,
+      body: body,
+    );
     try {
       if (response.statusCode == 200) {
         final Map<String, dynamic> data = json.decode(response.body);
@@ -192,18 +185,14 @@ class HomeServices extends HttpServices {
   //fetch daily prayer trackers
   Future<PrayerTrackerModel> fetchDailyPrayerTracker(
       BuildContext context, String date) async {
-    final databaseState = context.read<DatabaseBloc>().state;
-    final token = databaseState.token;
-
-    final headers = {
-      'Content-Type': 'application/json; charset=utf-8',
-      'Authorization': 'Bearer $token',
-    };
-
     try {
-      final response = await http.get(
-          Uri.parse("$kBaseUrl${prayerTracker}date=$date"),
-          headers: headers);
+      // final response = await http.get(
+      //     Uri.parse("$kBaseUrl${prayerTracker}date=$date"),
+      //     headers: headers);
+      final response = await get(
+        endPoint: "${prayerTracker}date=$date",
+        isToken: true,
+      );
 
       if (response.statusCode == 200) {
         final Map<String, dynamic> data = json.decode(response.body);

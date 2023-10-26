@@ -90,7 +90,7 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
               'send_sms_hash': true,
               'timeout': 120,
               'prefill': {
-                'contact': userData?.pohneNumber,
+                'contact': userData?.phoneNumber,
                 'email': userData?.email,
               },
               // 'external': {

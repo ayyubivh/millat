@@ -36,7 +36,7 @@ class UserProfile with _$UserProfile {
     required String? updatedAt,
     required String? picture,
     required String? profession,
-    @JsonKey(name: "phone_number") required String? pohneNumber,
+    @JsonKey(name: "phone_number") required String? phoneNumber,
     @JsonKey(name: "DOB") required String? dob,
   }) = _UserProfile;
 

@@ -1,12 +1,12 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hive/hive.dart';
 import 'package:millat/resources/authentication/bloc/logic/database_bloc/database_bloc.dart';
 import 'package:millat/resources/authentication/bloc/model/user_model.dart';
 import 'package:millat/services/http_services.dart';
-import 'package:http/http.dart' as http;
 import 'package:millat/utils/string_constants.dart';
-
+import 'package:http/http.dart' as http;
 import '../model/auth_user_model/auth_user_model.dart';
 import '../model/auth_user_model/social_user_model.dart';
 
@@ -245,13 +245,7 @@ class AuthService extends HttpServices {
 
   //Get auth User Model
   Future<AuthUserModel> fetchAuthUser({required BuildContext context}) async {
-    final databaseState = context.read<DatabaseBloc>().state;
-    final token = databaseState.token;
-    final headers = {
-      'Content-Type': 'application/json; charset=utf-8',
-      'Authorization': 'Bearer $token',
-    };
-    final response = await get(endPoint: authUserModel, headers: headers);
+    final response = await get(endPoint: authUserModel, isToken: true);
 
     if (response.statusCode == 200) {
       try {
@@ -282,8 +276,9 @@ class AuthService extends HttpServices {
     required String profession,
     required String institution,
   }) async {
-    final databaseState = context.read<DatabaseBloc>().state;
-    final token = databaseState.token;
+    final _tokenBox = Hive.box(userBox);
+    final String? token = _tokenBox.get(authToken);
+
     final headers = {
       'Authorization': 'Bearer $token',
     };
@@ -338,16 +333,10 @@ class AuthService extends HttpServices {
     required BuildContext context,
   }) async {
     const endPoint = 'auth/delete';
-    final databaseState = context.read<DatabaseBloc>().state;
-    final token = databaseState.token;
-    final headers = {
-      'Content-Type': 'application/json; charset=utf-8',
-      'Authorization': 'Bearer $token',
-    };
 
-    final response = await http.delete(
-      Uri.parse(kBaseUrl + endPoint),
-      headers: headers,
+    final response = await delete(
+      endPoint: endPoint,
+      isToken: true,
     );
 
     if (response.statusCode == 200) {

@@ -1,24 +1,14 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:millat/resources/authentication/bloc/logic/database_bloc/database_bloc.dart';
 import 'package:millat/resources/shop/bloc/models/review/review_models.dart';
 import 'package:millat/services/http_services.dart';
-import 'package:http/http.dart' as http;
-import 'package:millat/utils/string_constants.dart';
 
 class ReviewServices extends HttpServices {
   //Fetching cart items
   Future<ReviewModel> fetchReviews(BuildContext context, String id) async {
     final endPoint = 'review/total/product_id/$id';
-    final databaseState = context.read<DatabaseBloc>().state;
-    final token = databaseState.token;
-    final headers = {
-      'Content-Type': 'application/json; charset=utf-8',
-      'Authorization': 'Bearer $token',
-    };
-    final response = await get(endPoint: endPoint, headers: headers);
+
+    final response = await get(endPoint: endPoint, isToken: true);
     if (response.statusCode == 200) {
       try {
         if (response.statusCode == 200) {
@@ -79,11 +69,6 @@ class ReviewServices extends HttpServices {
     required double rating,
   }) async {
     const endPoint = 'review/add';
-    final authState = context.read<DatabaseBloc>().state;
-    final token = authState.token;
-    final headers = {
-      'Authorization': 'Bearer $token',
-    };
 
     return posts(
             endPoint: endPoint,
@@ -93,7 +78,7 @@ class ReviewServices extends HttpServices {
               "rating": rating.toString(),
               "comment": comment,
             },
-            headers: headers)
+            isToken: true)
         .then((value) {
       if (value.statusCode == 200) {
         print(value.body);
@@ -111,21 +96,14 @@ class ReviewServices extends HttpServices {
     required double rating,
   }) async {
     final endPoint = 'review/update/$productId';
-    final databaseState = context.read<DatabaseBloc>().state;
-    final token = databaseState.token;
-    final headers = {
-      'Content-Type': 'application/json; charset=utf-8',
-      'Authorization': 'Bearer $token',
-    };
+
     final body = {
       "productId": productId,
       "rating": rating.toString(),
       "comment": comment,
     };
 
-    final response = await http.patch(Uri.parse(kBaseUrl + endPoint),
-        headers: headers, body: jsonEncode(body));
-
+    final response = await patch(endPoint: endPoint, body: body, isToken: true);
     try {
       if (response.statusCode == 200) {
         print(response.body);

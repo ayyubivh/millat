@@ -1,11 +1,8 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/resources/shop/bloc/models/address_model/addres_byid_model.dart';
 import 'package:millat/resources/shop/bloc/models/address_model/address_model.dart';
 import 'package:millat/services/http_services.dart';
-import 'package:http/http.dart' as http;
-import '../../../authentication/bloc/logic/database_bloc/database_bloc.dart';
 import '../models/address_model/pincode_address_details_model.dart';
 
 class AddressService extends HttpServices {
@@ -22,16 +19,7 @@ class AddressService extends HttpServices {
     required String state,
     required String country,
   }) async {
-    const String webBaseUrl = 'http://35.172.93.164:8000/';
     const String endPoint = 'address/create';
-
-    final databaseState = context.read<DatabaseBloc>().state;
-    final token = databaseState.token;
-    print('on the token of the address service of toek${token}');
-    final headers = {
-      'Content-Type': 'application/json; charset=utf-8',
-      'Authorization': 'Bearer $token',
-    };
 
     final body = {
       "addressType": addressType,
@@ -45,10 +33,10 @@ class AddressService extends HttpServices {
       "country": country,
     };
 
-    final response = await http.post(
-      Uri.parse(webBaseUrl + endPoint),
-      headers: headers,
-      body: jsonEncode(body),
+    final response = await posts(
+      endPoint: endPoint,
+      isToken: true,
+      body: body,
     );
 
     if (response.statusCode == 200) {
@@ -75,16 +63,7 @@ class AddressService extends HttpServices {
       required String state,
       required String country,
       required String id}) async {
-    const String webBaseUrl = 'http://35.172.93.164:8000/';
     final String endPoint = 'address/update/$id';
-
-    final databaseState = context.read<DatabaseBloc>().state;
-    final token = databaseState.token;
-    print('on the token of the address service of toek${token}');
-    final headers = {
-      'Content-Type': 'application/json; charset=utf-8',
-      'Authorization': 'Bearer $token',
-    };
 
     final body = {
       "addressType": addressType,
@@ -98,12 +77,11 @@ class AddressService extends HttpServices {
       "country": country,
     };
 
-    final response = await http.patch(
-      Uri.parse(webBaseUrl + endPoint),
-      headers: headers,
-      body: jsonEncode(body),
+    final response = await patch(
+      endPoint: endPoint,
+      isToken: true,
+      body: body,
     );
-
     if (response.statusCode == 200) {
       print('on the add address ${response.body}');
       final Map<String, dynamic> data = json.decode(response.body);
@@ -118,13 +96,8 @@ class AddressService extends HttpServices {
 
   Future<AddressModel> fetchAddress(BuildContext context) async {
     const endPoint = 'address';
-    final databaseState = context.read<DatabaseBloc>().state;
-    final token = databaseState.token;
-    final headers = {
-      'Content-Type': 'application/json; charset=utf-8',
-      'Authorization': 'Bearer $token',
-    };
-    final response = await get(endPoint: endPoint, headers: headers);
+
+    final response = await get(endPoint: endPoint, isToken: true);
     if (response.statusCode == 200) {
       try {
         if (response.statusCode == 200) {
@@ -150,13 +123,8 @@ class AddressService extends HttpServices {
   Future<AddressIdModel> fetchAddressById(
       BuildContext context, String id) async {
     final endPoint = 'address/$id';
-    final databaseState = context.read<DatabaseBloc>().state;
-    final token = databaseState.token;
-    final headers = {
-      'Content-Type': 'application/json; charset=utf-8',
-      'Authorization': 'Bearer $token',
-    };
-    final response = await get(endPoint: endPoint, headers: headers);
+
+    final response = await get(endPoint: endPoint, isToken: true);
     if (response.statusCode == 200) {
       try {
         if (response.statusCode == 200) {
@@ -182,17 +150,11 @@ class AddressService extends HttpServices {
   // delete the address by id
   deleteAddressbyId(BuildContext context, String id) async {
     final endPoint = 'address/delete/$id';
-    final databaseState = context.read<DatabaseBloc>().state;
-    final token = databaseState.token;
-    const String webBaseUrl = 'http://35.172.93.164:8000/';
 
-    final headers = {
-      'Content-Type': 'application/json; charset=utf-8',
-      'Authorization': 'Bearer $token',
-    };
-    // final response = await get(endPoint: endPoint, headers: headers);
-    final response =
-        await http.delete(Uri.parse(webBaseUrl + endPoint), headers: headers);
+    final response = await delete(
+      endPoint: endPoint,
+      isToken: true,
+    );
     if (response.statusCode == 200) {
       try {
         if (response.statusCode == 200) {
@@ -217,7 +179,7 @@ class AddressService extends HttpServices {
   Future<PincodeAddressModel?> fetchPincodeAddres(String pincode) async {
     final endPoint = 'https://api.postalpincode.in/pincode/$pincode';
 
-    final response = await http.get(Uri.parse(endPoint));
+    final response = await get(endPoint: endPoint);
 
     if (response.statusCode == 200) {
       try {

@@ -1,13 +1,8 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/resources/home/bloc/models/dua/dua_model/dua_model_byId.dart';
 import 'package:millat/resources/home/bloc/models/dua/dua_subcategoryby_category_model/dua_subcategory_by_category_model.dart';
 import 'package:millat/services/http_services.dart';
-import 'package:http/http.dart' as http;
-import '../../../../utils/string_constants.dart';
-import '../../../authentication/bloc/logic/database_bloc/database_bloc.dart';
 import '../models/dua/dua_categories_model/dua_categories_model.dart';
 import '../models/dua/dua_model/dua_model.dart';
 import '../models/dua/fetch_dua_bookmark_model/fetch_dua_bookmark_model.dart';
@@ -79,16 +74,14 @@ class DuaServices extends HttpServices {
     required String duaId,
   }) async {
     const endPoint = 'dua_bookmark/add';
-    final databaseState = context.read<DatabaseBloc>().state;
-    final token = databaseState.token;
-    final headers = {
-      'Content-Type': 'application/json; charset=utf-8',
-      'Authorization': 'Bearer $token',
-    };
+
     final body = {"duaId": duaId};
 
-    final response = await http.patch(Uri.parse(kBaseUrl + endPoint),
-        headers: headers, body: jsonEncode(body));
+    final response = await patch(
+      endPoint: endPoint,
+      isToken: true,
+      body: body,
+    );
 
     try {
       if (response.statusCode == 200) {
@@ -116,16 +109,14 @@ class DuaServices extends HttpServices {
     required String duaId,
   }) async {
     const endPoint = 'dua_bookmark/remove';
-    final databaseState = context.read<DatabaseBloc>().state;
-    final token = databaseState.token;
-    final headers = {
-      'Content-Type': 'application/json; charset=utf-8',
-      'Authorization': 'Bearer $token',
-    };
+
     final body = {"duaId": duaId};
 
-    final response = await http.patch(Uri.parse(kBaseUrl + endPoint),
-        headers: headers, body: jsonEncode(body));
+    final response = await patch(
+      endPoint: endPoint,
+      isToken: true,
+      body: body,
+    );
 
     try {
       if (response.statusCode == 200) {
@@ -150,13 +141,8 @@ class DuaServices extends HttpServices {
 //fetch book mark
   Future<DuaBookMarkModel> fetchDuaBookMark(BuildContext context) async {
     const endPoint = 'dua_bookmark';
-    final databaseState = context.read<DatabaseBloc>().state;
-    final token = databaseState.token;
-    final headers = {
-      'Content-Type': 'application/json; charset=utf-8',
-      'Authorization': 'Bearer $token',
-    };
-    final response = await get(endPoint: endPoint, headers: headers);
+
+    final response = await get(endPoint: endPoint, isToken: true);
     if (response.statusCode == 200) {
       try {
         final Map<String, dynamic> data = json.decode(response.body);

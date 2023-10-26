@@ -1,24 +1,14 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:http/http.dart' as http;
 import 'package:millat/resources/shop/bloc/models/cart/cart_models.dart';
-import 'package:millat/utils/string_constants.dart';
 import '../../../../services/http_services.dart';
-import '../../../authentication/bloc/logic/database_bloc/database_bloc.dart';
 
 class CartServices extends HttpServices {
   //Fetching cart items
   Future<CartModel> fetchCart(BuildContext context) async {
     const endPoint = 'cart';
-    final databaseState = context.read<DatabaseBloc>().state;
-    final token = databaseState.token;
-    final headers = {
-      'Content-Type': 'application/json; charset=utf-8',
-      'Authorization': 'Bearer $token',
-    };
-    final response = await get(endPoint: endPoint, headers: headers);
+
+    final response = await get(endPoint: endPoint, isToken: true);
     if (response.statusCode == 200) {
       try {
         if (response.statusCode == 200) {
@@ -51,12 +41,7 @@ class CartServices extends HttpServices {
     required String brandId,
   }) async {
     const endPoint = 'cart/add';
-    final databaseState = context.read<DatabaseBloc>().state;
-    final token = databaseState.token;
-    final headers = {
-      'Content-Type': 'application/json; charset=utf-8',
-      'Authorization': 'Bearer $token',
-    };
+
     final body = {
       "productId": productId,
       "selling_price": basePrice,
@@ -66,8 +51,11 @@ class CartServices extends HttpServices {
       "brandId": brandId
     };
 
-    final response = await http.put(Uri.parse(kBaseUrl + endPoint),
-        headers: headers, body: jsonEncode(body));
+    final response = await put(
+      endPoint: endPoint,
+      isToken: true,
+      body: body,
+    );
 
     try {
       if (response.statusCode == 200) {
@@ -96,19 +84,17 @@ class CartServices extends HttpServices {
     required int quantity,
   }) async {
     const endPoint = 'cart/update/quantity';
-    final databaseState = context.read<DatabaseBloc>().state;
-    final token = databaseState.token;
-    final headers = {
-      'Content-Type': 'application/json; charset=utf-8',
-      'Authorization': 'Bearer $token',
-    };
+
     final body = {
       "productId": productId,
       "quantity": quantity,
     };
 
-    final response = await http.put(Uri.parse(kBaseUrl + endPoint),
-        headers: headers, body: jsonEncode(body));
+    final response = await put(
+      endPoint: endPoint,
+      isToken: true,
+      body: body,
+    );
 
     if (response.statusCode == 200) {
       try {
@@ -136,18 +122,15 @@ class CartServices extends HttpServices {
     required String productId,
   }) async {
     const endPoint = 'cart/remove';
-    final databaseState = context.read<DatabaseBloc>().state;
-    final token = databaseState.token;
-    final headers = {
-      'Content-Type': 'application/json; charset=utf-8',
-      'Authorization': 'Bearer $token',
-    };
+
     final body = {
       "productId": productId,
     };
-
-    final response = await http.put(Uri.parse(kBaseUrl + endPoint),
-        headers: headers, body: jsonEncode(body));
+    final response = await put(
+      endPoint: endPoint,
+      isToken: true,
+      body: body,
+    );
 
     if (response.statusCode == 200) {
       try {

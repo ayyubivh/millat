@@ -12,13 +12,8 @@ import '../models/rewards_product/rewards_product_by_id_model.dart';
 class RewardServices extends HttpServices {
   Future<RewardsModel> fetchRewards(BuildContext context) async {
     const endPoint = 'reward';
-    final databaseState = context.read<DatabaseBloc>().state;
-    final token = databaseState.token;
-    final headers = {
-      'Content-Type': 'application/json; charset=utf-8',
-      'Authorization': 'Bearer $token',
-    };
-    final response = await get(endPoint: endPoint, headers: headers);
+
+    final response = await get(endPoint: endPoint, isToken: true);
     if (response.statusCode == 200) {
       try {
         if (response.statusCode == 200) {

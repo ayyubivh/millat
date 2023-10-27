@@ -81,7 +81,7 @@ class _CheckoutDetailsState extends State<CheckoutDetails> {
           listener: (context, state) {
             final data = state.pincodeAddressModel?.postOffice;
             if (data != null) {
-              cityController.text = data.first.name ?? "";
+              cityController.text = data.first.region ?? "";
               stateController.text = data.first.state ?? "";
               contryController.text = data.first.country ?? "";
             } else {
@@ -162,9 +162,10 @@ class _CheckoutDetailsState extends State<CheckoutDetails> {
                                 labelText: "Pincode",
                                 textInputType: TextInputType.number,
                                 onChanged: (value) {
-                                  context
-                                      .read<AddressBloc>()
-                                      .add(FetchPincodeAddres(pincode: value));
+                                  if (value.length == 6) {
+                                    context.read<AddressBloc>().add(
+                                        FetchPincodeAddres(pincode: value));
+                                  }
                                 },
                               ),
                             ),
@@ -350,6 +351,7 @@ class _CheckoutDetailsState extends State<CheckoutDetails> {
       keyboardType: textInputType,
       cursorColor: ColorManager.primary,
       decoration: InputDecoration(
+        counterText: "",
         floatingLabelBehavior: FloatingLabelBehavior.always,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),

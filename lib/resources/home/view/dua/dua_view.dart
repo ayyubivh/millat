@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:millat/resources/home/bloc/logic/dua_bloc/dua_bloc.dart';
-import 'package:millat/resources/home/view/dua/widgets/dua_bookmar_view.dart';
 import 'package:millat/resources/home/view/dua/widgets/dua_tabbarview.dart';
 import 'package:millat/resources/home/view/dua/widgets/settings_pop_up_widget.dart';
 import 'package:millat/routes/app_router_constants.dart';
@@ -16,6 +15,9 @@ class DuaView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      BlocProvider.of<DuaBloc>(context).add(FetchDuaBookMarksEvent(context));
+    });
     return Scaffold(
         appBar: PreferredSize(
           preferredSize: const Size.fromHeight(70),
@@ -58,44 +60,39 @@ class DuaView extends StatelessWidget {
             ),
           ),
         ),
-        body: BlocProvider(
-          create: (context) => DuaBloc()..add(FetchDuaBookMarksEvent(context)),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 30),
-            child: Column(
-              children: [
-                kHeight15,
-                ListTile(
-                  onTap: () {
-                    context.goNamed(MyAppRouteConstants.duaBookmarRouteName);
-                  },
-                  title: const Text(
-                    'Bookmark',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  trailing: Icon(
-                    Icons.navigate_next,
-                    color: ColorManager.blackColor,
-                  ),
-                  subtitle: BlocBuilder<DuaBloc, DuaState>(
-                    builder: (context, state) => Text(
-                      '${state.bookmarkItems?.length} Items',
-                      style: const TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.bold,
-                          height: 1.3),
-                    ),
+        body: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 30),
+          child: Column(
+            children: [
+              kHeight15,
+              ListTile(
+                onTap: () {
+                  context.goNamed(MyAppRouteConstants.duaBookmarRouteName);
+                },
+                title: const Text(
+                  'Bookmark',
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
-                const Divider(),
-                kHeight15,
-                Image.asset('assets/images/main_dua.png'),
-                const Expanded(child: DuaTabbarview()),
-              ],
-            ),
+                trailing: Icon(
+                  Icons.navigate_next,
+                  color: ColorManager.blackColor,
+                ),
+                subtitle: BlocBuilder<DuaBloc, DuaState>(
+                  builder: (context, state) => Text(
+                    '${state.bookmarkItems?.length} Items',
+                    style: const TextStyle(
+                        fontSize: 14, fontWeight: FontWeight.bold, height: 1.3),
+                  ),
+                ),
+              ),
+              const Divider(),
+              kHeight15,
+              Image.asset('assets/images/main_dua.png'),
+              const Expanded(child: DuaTabbarview()),
+            ],
           ),
         ));
   }

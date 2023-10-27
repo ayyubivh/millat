@@ -4,7 +4,6 @@ import 'package:go_router/go_router.dart';
 import 'package:millat/components/buttons/main_button.dart';
 import 'package:millat/components/debounce/debounce.dart';
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
-import 'package:millat/resources/shop/view/products/single_product_view.dart';
 import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/constants.dart';
@@ -370,7 +369,7 @@ class _ShopSearchViewState extends State<ShopSearchView> {
                         ],
                       ),
                       kHeight20,
-                      Divider(),
+                      const Divider(),
                       kHeight25,
                       MainButton(
                         title: Appstrings.apply,
@@ -572,7 +571,7 @@ class _ShopSearchViewState extends State<ShopSearchView> {
               ),
               const SizedBox(height: 8),
               Text(
-                '\$ ${rate}',
+                '\$ $rate',
                 style: const TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.w600,
@@ -594,7 +593,7 @@ class _ShopSearchViewState extends State<ShopSearchView> {
                           color: black102,
                         )),
                     TextSpan(
-                      text: '${brandName}',
+                      text: '$brandName',
                       style: TextStyle(
                         fontSize: 15,
                         fontWeight: FontWeight.bold,

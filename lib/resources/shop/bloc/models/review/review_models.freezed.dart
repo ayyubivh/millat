@@ -231,7 +231,6 @@ Result _$ResultFromJson(Map<String, dynamic> json) {
 mixin _$Result {
   @JsonKey(name: 'data')
   Data? get data => throw _privateConstructorUsedError;
-  double? get avgRating => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -243,7 +242,7 @@ abstract class $ResultCopyWith<$Res> {
   factory $ResultCopyWith(Result value, $Res Function(Result) then) =
       _$ResultCopyWithImpl<$Res, Result>;
   @useResult
-  $Res call({@JsonKey(name: 'data') Data? data, double? avgRating});
+  $Res call({@JsonKey(name: 'data') Data? data});
 
   $DataCopyWith<$Res>? get data;
 }
@@ -262,17 +261,12 @@ class _$ResultCopyWithImpl<$Res, $Val extends Result>
   @override
   $Res call({
     Object? data = freezed,
-    Object? avgRating = freezed,
   }) {
     return _then(_value.copyWith(
       data: freezed == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as Data?,
-      avgRating: freezed == avgRating
-          ? _value.avgRating
-          : avgRating // ignore: cast_nullable_to_non_nullable
-              as double?,
     ) as $Val);
   }
 
@@ -295,7 +289,7 @@ abstract class _$$_ResultCopyWith<$Res> implements $ResultCopyWith<$Res> {
       __$$_ResultCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@JsonKey(name: 'data') Data? data, double? avgRating});
+  $Res call({@JsonKey(name: 'data') Data? data});
 
   @override
   $DataCopyWith<$Res>? get data;
@@ -312,17 +306,12 @@ class __$$_ResultCopyWithImpl<$Res>
   @override
   $Res call({
     Object? data = freezed,
-    Object? avgRating = freezed,
   }) {
     return _then(_$_Result(
       data: freezed == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as Data?,
-      avgRating: freezed == avgRating
-          ? _value.avgRating
-          : avgRating // ignore: cast_nullable_to_non_nullable
-              as double?,
     ));
   }
 }
@@ -330,7 +319,7 @@ class __$$_ResultCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Result implements _Result {
-  const _$_Result({@JsonKey(name: 'data') this.data, required this.avgRating});
+  const _$_Result({@JsonKey(name: 'data') this.data});
 
   factory _$_Result.fromJson(Map<String, dynamic> json) =>
       _$$_ResultFromJson(json);
@@ -338,12 +327,10 @@ class _$_Result implements _Result {
   @override
   @JsonKey(name: 'data')
   final Data? data;
-  @override
-  final double? avgRating;
 
   @override
   String toString() {
-    return 'Result(data: $data, avgRating: $avgRating)';
+    return 'Result(data: $data)';
   }
 
   @override
@@ -351,14 +338,12 @@ class _$_Result implements _Result {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Result &&
-            (identical(other.data, data) || other.data == data) &&
-            (identical(other.avgRating, avgRating) ||
-                other.avgRating == avgRating));
+            (identical(other.data, data) || other.data == data));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, data, avgRating);
+  int get hashCode => Object.hash(runtimeType, data);
 
   @JsonKey(ignore: true)
   @override
@@ -375,17 +360,13 @@ class _$_Result implements _Result {
 }
 
 abstract class _Result implements Result {
-  const factory _Result(
-      {@JsonKey(name: 'data') final Data? data,
-      required final double? avgRating}) = _$_Result;
+  const factory _Result({@JsonKey(name: 'data') final Data? data}) = _$_Result;
 
   factory _Result.fromJson(Map<String, dynamic> json) = _$_Result.fromJson;
 
   @override
   @JsonKey(name: 'data')
   Data? get data;
-  @override
-  double? get avgRating;
   @override
   @JsonKey(ignore: true)
   _$$_ResultCopyWith<_$_Result> get copyWith =>
@@ -400,9 +381,8 @@ Data _$DataFromJson(Map<String, dynamic> json) {
 mixin _$Data {
   @JsonKey(name: '_id')
   String? get id => throw _privateConstructorUsedError;
-  int? get count => throw _privateConstructorUsedError;
-  List<Rating>? get ratings => throw _privateConstructorUsedError;
-  double? get avgRating => throw _privateConstructorUsedError;
+  double? get averageRating => throw _privateConstructorUsedError;
+  int? get totalUsers => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -416,9 +396,8 @@ abstract class $DataCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: '_id') String? id,
-      int? count,
-      List<Rating>? ratings,
-      double? avgRating});
+      double? averageRating,
+      int? totalUsers});
 }
 
 /// @nodoc
@@ -435,27 +414,22 @@ class _$DataCopyWithImpl<$Res, $Val extends Data>
   @override
   $Res call({
     Object? id = freezed,
-    Object? count = freezed,
-    Object? ratings = freezed,
-    Object? avgRating = freezed,
+    Object? averageRating = freezed,
+    Object? totalUsers = freezed,
   }) {
     return _then(_value.copyWith(
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String?,
-      count: freezed == count
-          ? _value.count
-          : count // ignore: cast_nullable_to_non_nullable
-              as int?,
-      ratings: freezed == ratings
-          ? _value.ratings
-          : ratings // ignore: cast_nullable_to_non_nullable
-              as List<Rating>?,
-      avgRating: freezed == avgRating
-          ? _value.avgRating
-          : avgRating // ignore: cast_nullable_to_non_nullable
+      averageRating: freezed == averageRating
+          ? _value.averageRating
+          : averageRating // ignore: cast_nullable_to_non_nullable
               as double?,
+      totalUsers: freezed == totalUsers
+          ? _value.totalUsers
+          : totalUsers // ignore: cast_nullable_to_non_nullable
+              as int?,
     ) as $Val);
   }
 }
@@ -468,9 +442,8 @@ abstract class _$$_DataCopyWith<$Res> implements $DataCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: '_id') String? id,
-      int? count,
-      List<Rating>? ratings,
-      double? avgRating});
+      double? averageRating,
+      int? totalUsers});
 }
 
 /// @nodoc
@@ -483,27 +456,22 @@ class __$$_DataCopyWithImpl<$Res> extends _$DataCopyWithImpl<$Res, _$_Data>
   @override
   $Res call({
     Object? id = freezed,
-    Object? count = freezed,
-    Object? ratings = freezed,
-    Object? avgRating = freezed,
+    Object? averageRating = freezed,
+    Object? totalUsers = freezed,
   }) {
     return _then(_$_Data(
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String?,
-      count: freezed == count
-          ? _value.count
-          : count // ignore: cast_nullable_to_non_nullable
-              as int?,
-      ratings: freezed == ratings
-          ? _value._ratings
-          : ratings // ignore: cast_nullable_to_non_nullable
-              as List<Rating>?,
-      avgRating: freezed == avgRating
-          ? _value.avgRating
-          : avgRating // ignore: cast_nullable_to_non_nullable
+      averageRating: freezed == averageRating
+          ? _value.averageRating
+          : averageRating // ignore: cast_nullable_to_non_nullable
               as double?,
+      totalUsers: freezed == totalUsers
+          ? _value.totalUsers
+          : totalUsers // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -513,10 +481,8 @@ class __$$_DataCopyWithImpl<$Res> extends _$DataCopyWithImpl<$Res, _$_Data>
 class _$_Data implements _Data {
   const _$_Data(
       {@JsonKey(name: '_id') this.id,
-      this.count,
-      final List<Rating>? ratings,
-      required this.avgRating})
-      : _ratings = ratings;
+      required this.averageRating,
+      required this.totalUsers});
 
   factory _$_Data.fromJson(Map<String, dynamic> json) => _$$_DataFromJson(json);
 
@@ -524,23 +490,13 @@ class _$_Data implements _Data {
   @JsonKey(name: '_id')
   final String? id;
   @override
-  final int? count;
-  final List<Rating>? _ratings;
+  final double? averageRating;
   @override
-  List<Rating>? get ratings {
-    final value = _ratings;
-    if (value == null) return null;
-    if (_ratings is EqualUnmodifiableListView) return _ratings;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
-
-  @override
-  final double? avgRating;
+  final int? totalUsers;
 
   @override
   String toString() {
-    return 'Data(id: $id, count: $count, ratings: $ratings, avgRating: $avgRating)';
+    return 'Data(id: $id, averageRating: $averageRating, totalUsers: $totalUsers)';
   }
 
   @override
@@ -549,16 +505,15 @@ class _$_Data implements _Data {
         (other.runtimeType == runtimeType &&
             other is _$_Data &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.count, count) || other.count == count) &&
-            const DeepCollectionEquality().equals(other._ratings, _ratings) &&
-            (identical(other.avgRating, avgRating) ||
-                other.avgRating == avgRating));
+            (identical(other.averageRating, averageRating) ||
+                other.averageRating == averageRating) &&
+            (identical(other.totalUsers, totalUsers) ||
+                other.totalUsers == totalUsers));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, count,
-      const DeepCollectionEquality().hash(_ratings), avgRating);
+  int get hashCode => Object.hash(runtimeType, id, averageRating, totalUsers);
 
   @JsonKey(ignore: true)
   @override
@@ -577,9 +532,8 @@ class _$_Data implements _Data {
 abstract class _Data implements Data {
   const factory _Data(
       {@JsonKey(name: '_id') final String? id,
-      final int? count,
-      final List<Rating>? ratings,
-      required final double? avgRating}) = _$_Data;
+      required final double? averageRating,
+      required final int? totalUsers}) = _$_Data;
 
   factory _Data.fromJson(Map<String, dynamic> json) = _$_Data.fromJson;
 
@@ -587,652 +541,10 @@ abstract class _Data implements Data {
   @JsonKey(name: '_id')
   String? get id;
   @override
-  int? get count;
+  double? get averageRating;
   @override
-  List<Rating>? get ratings;
-  @override
-  double? get avgRating;
+  int? get totalUsers;
   @override
   @JsonKey(ignore: true)
   _$$_DataCopyWith<_$_Data> get copyWith => throw _privateConstructorUsedError;
-}
-
-Rating _$RatingFromJson(Map<String, dynamic> json) {
-  return _Rating.fromJson(json);
-}
-
-/// @nodoc
-mixin _$Rating {
-  @JsonKey(name: '_id')
-  String? get id => throw _privateConstructorUsedError;
-  String? get name => throw _privateConstructorUsedError;
-  double? get rating => throw _privateConstructorUsedError;
-  String? get comment => throw _privateConstructorUsedError;
-  String? get userId => throw _privateConstructorUsedError;
-  String? get productId => throw _privateConstructorUsedError;
-  String? get createdAt => throw _privateConstructorUsedError;
-  String? get updatedAt => throw _privateConstructorUsedError;
-  User? get user => throw _privateConstructorUsedError;
-
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $RatingCopyWith<Rating> get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $RatingCopyWith<$Res> {
-  factory $RatingCopyWith(Rating value, $Res Function(Rating) then) =
-      _$RatingCopyWithImpl<$Res, Rating>;
-  @useResult
-  $Res call(
-      {@JsonKey(name: '_id') String? id,
-      String? name,
-      double? rating,
-      String? comment,
-      String? userId,
-      String? productId,
-      String? createdAt,
-      String? updatedAt,
-      User? user});
-
-  $UserCopyWith<$Res>? get user;
-}
-
-/// @nodoc
-class _$RatingCopyWithImpl<$Res, $Val extends Rating>
-    implements $RatingCopyWith<$Res> {
-  _$RatingCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = freezed,
-    Object? name = freezed,
-    Object? rating = freezed,
-    Object? comment = freezed,
-    Object? userId = freezed,
-    Object? productId = freezed,
-    Object? createdAt = freezed,
-    Object? updatedAt = freezed,
-    Object? user = freezed,
-  }) {
-    return _then(_value.copyWith(
-      id: freezed == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String?,
-      name: freezed == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-      rating: freezed == rating
-          ? _value.rating
-          : rating // ignore: cast_nullable_to_non_nullable
-              as double?,
-      comment: freezed == comment
-          ? _value.comment
-          : comment // ignore: cast_nullable_to_non_nullable
-              as String?,
-      userId: freezed == userId
-          ? _value.userId
-          : userId // ignore: cast_nullable_to_non_nullable
-              as String?,
-      productId: freezed == productId
-          ? _value.productId
-          : productId // ignore: cast_nullable_to_non_nullable
-              as String?,
-      createdAt: freezed == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as String?,
-      updatedAt: freezed == updatedAt
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
-              as String?,
-      user: freezed == user
-          ? _value.user
-          : user // ignore: cast_nullable_to_non_nullable
-              as User?,
-    ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $UserCopyWith<$Res>? get user {
-    if (_value.user == null) {
-      return null;
-    }
-
-    return $UserCopyWith<$Res>(_value.user!, (value) {
-      return _then(_value.copyWith(user: value) as $Val);
-    });
-  }
-}
-
-/// @nodoc
-abstract class _$$_RatingCopyWith<$Res> implements $RatingCopyWith<$Res> {
-  factory _$$_RatingCopyWith(_$_Rating value, $Res Function(_$_Rating) then) =
-      __$$_RatingCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {@JsonKey(name: '_id') String? id,
-      String? name,
-      double? rating,
-      String? comment,
-      String? userId,
-      String? productId,
-      String? createdAt,
-      String? updatedAt,
-      User? user});
-
-  @override
-  $UserCopyWith<$Res>? get user;
-}
-
-/// @nodoc
-class __$$_RatingCopyWithImpl<$Res>
-    extends _$RatingCopyWithImpl<$Res, _$_Rating>
-    implements _$$_RatingCopyWith<$Res> {
-  __$$_RatingCopyWithImpl(_$_Rating _value, $Res Function(_$_Rating) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = freezed,
-    Object? name = freezed,
-    Object? rating = freezed,
-    Object? comment = freezed,
-    Object? userId = freezed,
-    Object? productId = freezed,
-    Object? createdAt = freezed,
-    Object? updatedAt = freezed,
-    Object? user = freezed,
-  }) {
-    return _then(_$_Rating(
-      id: freezed == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String?,
-      name: freezed == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-      rating: freezed == rating
-          ? _value.rating
-          : rating // ignore: cast_nullable_to_non_nullable
-              as double?,
-      comment: freezed == comment
-          ? _value.comment
-          : comment // ignore: cast_nullable_to_non_nullable
-              as String?,
-      userId: freezed == userId
-          ? _value.userId
-          : userId // ignore: cast_nullable_to_non_nullable
-              as String?,
-      productId: freezed == productId
-          ? _value.productId
-          : productId // ignore: cast_nullable_to_non_nullable
-              as String?,
-      createdAt: freezed == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as String?,
-      updatedAt: freezed == updatedAt
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
-              as String?,
-      user: freezed == user
-          ? _value.user
-          : user // ignore: cast_nullable_to_non_nullable
-              as User?,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$_Rating implements _Rating {
-  const _$_Rating(
-      {@JsonKey(name: '_id') this.id,
-      this.name,
-      this.rating,
-      this.comment,
-      this.userId,
-      this.productId,
-      this.createdAt,
-      this.updatedAt,
-      this.user});
-
-  factory _$_Rating.fromJson(Map<String, dynamic> json) =>
-      _$$_RatingFromJson(json);
-
-  @override
-  @JsonKey(name: '_id')
-  final String? id;
-  @override
-  final String? name;
-  @override
-  final double? rating;
-  @override
-  final String? comment;
-  @override
-  final String? userId;
-  @override
-  final String? productId;
-  @override
-  final String? createdAt;
-  @override
-  final String? updatedAt;
-  @override
-  final User? user;
-
-  @override
-  String toString() {
-    return 'Rating(id: $id, name: $name, rating: $rating, comment: $comment, userId: $userId, productId: $productId, createdAt: $createdAt, updatedAt: $updatedAt, user: $user)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_Rating &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.rating, rating) || other.rating == rating) &&
-            (identical(other.comment, comment) || other.comment == comment) &&
-            (identical(other.userId, userId) || other.userId == userId) &&
-            (identical(other.productId, productId) ||
-                other.productId == productId) &&
-            (identical(other.createdAt, createdAt) ||
-                other.createdAt == createdAt) &&
-            (identical(other.updatedAt, updatedAt) ||
-                other.updatedAt == updatedAt) &&
-            (identical(other.user, user) || other.user == user));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, id, name, rating, comment,
-      userId, productId, createdAt, updatedAt, user);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$_RatingCopyWith<_$_Rating> get copyWith =>
-      __$$_RatingCopyWithImpl<_$_Rating>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$_RatingToJson(
-      this,
-    );
-  }
-}
-
-abstract class _Rating implements Rating {
-  const factory _Rating(
-      {@JsonKey(name: '_id') final String? id,
-      final String? name,
-      final double? rating,
-      final String? comment,
-      final String? userId,
-      final String? productId,
-      final String? createdAt,
-      final String? updatedAt,
-      final User? user}) = _$_Rating;
-
-  factory _Rating.fromJson(Map<String, dynamic> json) = _$_Rating.fromJson;
-
-  @override
-  @JsonKey(name: '_id')
-  String? get id;
-  @override
-  String? get name;
-  @override
-  double? get rating;
-  @override
-  String? get comment;
-  @override
-  String? get userId;
-  @override
-  String? get productId;
-  @override
-  String? get createdAt;
-  @override
-  String? get updatedAt;
-  @override
-  User? get user;
-  @override
-  @JsonKey(ignore: true)
-  _$$_RatingCopyWith<_$_Rating> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-User _$UserFromJson(Map<String, dynamic> json) {
-  return _User.fromJson(json);
-}
-
-/// @nodoc
-mixin _$User {
-  @JsonKey(name: '_id')
-  String? get id => throw _privateConstructorUsedError;
-  String? get name => throw _privateConstructorUsedError;
-  String? get username => throw _privateConstructorUsedError;
-  String? get email => throw _privateConstructorUsedError;
-  String? get password => throw _privateConstructorUsedError;
-  @JsonKey(name: 'DOB')
-  String? get dob => throw _privateConstructorUsedError;
-  String? get institution => throw _privateConstructorUsedError;
-  String? get picture => throw _privateConstructorUsedError;
-  String? get profession => throw _privateConstructorUsedError;
-  String? get uuid => throw _privateConstructorUsedError;
-
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $UserCopyWith<User> get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $UserCopyWith<$Res> {
-  factory $UserCopyWith(User value, $Res Function(User) then) =
-      _$UserCopyWithImpl<$Res, User>;
-  @useResult
-  $Res call(
-      {@JsonKey(name: '_id') String? id,
-      String? name,
-      String? username,
-      String? email,
-      String? password,
-      @JsonKey(name: 'DOB') String? dob,
-      String? institution,
-      String? picture,
-      String? profession,
-      String? uuid});
-}
-
-/// @nodoc
-class _$UserCopyWithImpl<$Res, $Val extends User>
-    implements $UserCopyWith<$Res> {
-  _$UserCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = freezed,
-    Object? name = freezed,
-    Object? username = freezed,
-    Object? email = freezed,
-    Object? password = freezed,
-    Object? dob = freezed,
-    Object? institution = freezed,
-    Object? picture = freezed,
-    Object? profession = freezed,
-    Object? uuid = freezed,
-  }) {
-    return _then(_value.copyWith(
-      id: freezed == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String?,
-      name: freezed == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-      username: freezed == username
-          ? _value.username
-          : username // ignore: cast_nullable_to_non_nullable
-              as String?,
-      email: freezed == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String?,
-      password: freezed == password
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
-              as String?,
-      dob: freezed == dob
-          ? _value.dob
-          : dob // ignore: cast_nullable_to_non_nullable
-              as String?,
-      institution: freezed == institution
-          ? _value.institution
-          : institution // ignore: cast_nullable_to_non_nullable
-              as String?,
-      picture: freezed == picture
-          ? _value.picture
-          : picture // ignore: cast_nullable_to_non_nullable
-              as String?,
-      profession: freezed == profession
-          ? _value.profession
-          : profession // ignore: cast_nullable_to_non_nullable
-              as String?,
-      uuid: freezed == uuid
-          ? _value.uuid
-          : uuid // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$_UserCopyWith<$Res> implements $UserCopyWith<$Res> {
-  factory _$$_UserCopyWith(_$_User value, $Res Function(_$_User) then) =
-      __$$_UserCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {@JsonKey(name: '_id') String? id,
-      String? name,
-      String? username,
-      String? email,
-      String? password,
-      @JsonKey(name: 'DOB') String? dob,
-      String? institution,
-      String? picture,
-      String? profession,
-      String? uuid});
-}
-
-/// @nodoc
-class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
-    implements _$$_UserCopyWith<$Res> {
-  __$$_UserCopyWithImpl(_$_User _value, $Res Function(_$_User) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = freezed,
-    Object? name = freezed,
-    Object? username = freezed,
-    Object? email = freezed,
-    Object? password = freezed,
-    Object? dob = freezed,
-    Object? institution = freezed,
-    Object? picture = freezed,
-    Object? profession = freezed,
-    Object? uuid = freezed,
-  }) {
-    return _then(_$_User(
-      id: freezed == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String?,
-      name: freezed == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-      username: freezed == username
-          ? _value.username
-          : username // ignore: cast_nullable_to_non_nullable
-              as String?,
-      email: freezed == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String?,
-      password: freezed == password
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
-              as String?,
-      dob: freezed == dob
-          ? _value.dob
-          : dob // ignore: cast_nullable_to_non_nullable
-              as String?,
-      institution: freezed == institution
-          ? _value.institution
-          : institution // ignore: cast_nullable_to_non_nullable
-              as String?,
-      picture: freezed == picture
-          ? _value.picture
-          : picture // ignore: cast_nullable_to_non_nullable
-              as String?,
-      profession: freezed == profession
-          ? _value.profession
-          : profession // ignore: cast_nullable_to_non_nullable
-              as String?,
-      uuid: freezed == uuid
-          ? _value.uuid
-          : uuid // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$_User implements _User {
-  const _$_User(
-      {@JsonKey(name: '_id') this.id,
-      this.name,
-      this.username,
-      this.email,
-      this.password,
-      @JsonKey(name: 'DOB') this.dob,
-      this.institution,
-      this.picture,
-      this.profession,
-      this.uuid});
-
-  factory _$_User.fromJson(Map<String, dynamic> json) => _$$_UserFromJson(json);
-
-  @override
-  @JsonKey(name: '_id')
-  final String? id;
-  @override
-  final String? name;
-  @override
-  final String? username;
-  @override
-  final String? email;
-  @override
-  final String? password;
-  @override
-  @JsonKey(name: 'DOB')
-  final String? dob;
-  @override
-  final String? institution;
-  @override
-  final String? picture;
-  @override
-  final String? profession;
-  @override
-  final String? uuid;
-
-  @override
-  String toString() {
-    return 'User(id: $id, name: $name, username: $username, email: $email, password: $password, dob: $dob, institution: $institution, picture: $picture, profession: $profession, uuid: $uuid)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_User &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.username, username) ||
-                other.username == username) &&
-            (identical(other.email, email) || other.email == email) &&
-            (identical(other.password, password) ||
-                other.password == password) &&
-            (identical(other.dob, dob) || other.dob == dob) &&
-            (identical(other.institution, institution) ||
-                other.institution == institution) &&
-            (identical(other.picture, picture) || other.picture == picture) &&
-            (identical(other.profession, profession) ||
-                other.profession == profession) &&
-            (identical(other.uuid, uuid) || other.uuid == uuid));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, id, name, username, email,
-      password, dob, institution, picture, profession, uuid);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$_UserCopyWith<_$_User> get copyWith =>
-      __$$_UserCopyWithImpl<_$_User>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$_UserToJson(
-      this,
-    );
-  }
-}
-
-abstract class _User implements User {
-  const factory _User(
-      {@JsonKey(name: '_id') final String? id,
-      final String? name,
-      final String? username,
-      final String? email,
-      final String? password,
-      @JsonKey(name: 'DOB') final String? dob,
-      final String? institution,
-      final String? picture,
-      final String? profession,
-      final String? uuid}) = _$_User;
-
-  factory _User.fromJson(Map<String, dynamic> json) = _$_User.fromJson;
-
-  @override
-  @JsonKey(name: '_id')
-  String? get id;
-  @override
-  String? get name;
-  @override
-  String? get username;
-  @override
-  String? get email;
-  @override
-  String? get password;
-  @override
-  @JsonKey(name: 'DOB')
-  String? get dob;
-  @override
-  String? get institution;
-  @override
-  String? get picture;
-  @override
-  String? get profession;
-  @override
-  String? get uuid;
-  @override
-  @JsonKey(ignore: true)
-  _$$_UserCopyWith<_$_User> get copyWith => throw _privateConstructorUsedError;
 }

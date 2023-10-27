@@ -28,14 +28,14 @@ class BookMarkDB implements BookMarkDbFunctions {
 
   @override
   Future<List<BookMarktCollectionModel>> getAllBookmarkCollection() async {
-    final _db = await Hive.openBox<BookMarktCollectionModel>(bookmarkDb);
-    return _db.values.toList();
+    final db = await Hive.openBox<BookMarktCollectionModel>(bookmarkDb);
+    return db.values.toList();
   }
 
   @override
   Future<void> removeCollection(String id) async {
-    final _db = await Hive.openBox<BookMarktCollectionModel>(bookmarkDb);
-    await _db.delete(id);
+    final db = await Hive.openBox<BookMarktCollectionModel>(bookmarkDb);
+    await db.delete(id);
   }
 
   @override

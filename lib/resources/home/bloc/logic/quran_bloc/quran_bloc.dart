@@ -233,7 +233,7 @@ class QuranBloc extends Bloc<QuranEvent, QuranState> {
     try {
       final data = await quranServices.fetchAllTranslations();
       emit(state.copyWith(translationsModel: data, isLoading: false));
-      print('here is the translation files in the bloc ${data}');
+      print('here is the translation files in the bloc $data');
     } catch (e) {
       emit(state.copyWith(isLoading: false));
       debugPrint("error fetch quran bloc $e");

@@ -348,7 +348,7 @@ mixin _$ShopProductsEvent {
     required TResult Function(FetchAllBrandsEvent value) fetchAllBrandsEvent,
     required TResult Function(FetchOrderReasons value) fetchOrderReasons,
     required TResult Function(AddReasons value) addReasons,
-    required TResult Function(FetchArticlesbyId value) fetchArticlesbyId,
+    required TResult Function(FetchArticlesId value) fetchArticlesbyId,
     required TResult Function(FetchProducts value) fetchProducts,
     required TResult Function(FetchArticlesCategory value)
         fetchArticlesCategory,
@@ -421,7 +421,7 @@ mixin _$ShopProductsEvent {
     TResult? Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult? Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult? Function(AddReasons value)? addReasons,
-    TResult? Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult? Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult? Function(FetchProducts value)? fetchProducts,
     TResult? Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult? Function(SaveArticleCategoryFilterVal value)?
@@ -492,7 +492,7 @@ mixin _$ShopProductsEvent {
     TResult Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult Function(AddReasons value)? addReasons,
-    TResult Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult Function(FetchProducts value)? fetchProducts,
     TResult Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult Function(SaveArticleCategoryFilterVal value)?
@@ -931,7 +931,7 @@ class _$FetchFlashSaleProducts implements FetchFlashSaleProducts {
     required TResult Function(FetchAllBrandsEvent value) fetchAllBrandsEvent,
     required TResult Function(FetchOrderReasons value) fetchOrderReasons,
     required TResult Function(AddReasons value) addReasons,
-    required TResult Function(FetchArticlesbyId value) fetchArticlesbyId,
+    required TResult Function(FetchArticlesId value) fetchArticlesbyId,
     required TResult Function(FetchProducts value) fetchProducts,
     required TResult Function(FetchArticlesCategory value)
         fetchArticlesCategory,
@@ -1007,7 +1007,7 @@ class _$FetchFlashSaleProducts implements FetchFlashSaleProducts {
     TResult? Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult? Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult? Function(AddReasons value)? addReasons,
-    TResult? Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult? Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult? Function(FetchProducts value)? fetchProducts,
     TResult? Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult? Function(SaveArticleCategoryFilterVal value)?
@@ -1081,7 +1081,7 @@ class _$FetchFlashSaleProducts implements FetchFlashSaleProducts {
     TResult Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult Function(AddReasons value)? addReasons,
-    TResult Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult Function(FetchProducts value)? fetchProducts,
     TResult Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult Function(SaveArticleCategoryFilterVal value)?
@@ -1516,7 +1516,7 @@ class _$FetchPopularProducts implements FetchPopularProducts {
     required TResult Function(FetchAllBrandsEvent value) fetchAllBrandsEvent,
     required TResult Function(FetchOrderReasons value) fetchOrderReasons,
     required TResult Function(AddReasons value) addReasons,
-    required TResult Function(FetchArticlesbyId value) fetchArticlesbyId,
+    required TResult Function(FetchArticlesId value) fetchArticlesbyId,
     required TResult Function(FetchProducts value) fetchProducts,
     required TResult Function(FetchArticlesCategory value)
         fetchArticlesCategory,
@@ -1592,7 +1592,7 @@ class _$FetchPopularProducts implements FetchPopularProducts {
     TResult? Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult? Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult? Function(AddReasons value)? addReasons,
-    TResult? Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult? Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult? Function(FetchProducts value)? fetchProducts,
     TResult? Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult? Function(SaveArticleCategoryFilterVal value)?
@@ -1666,7 +1666,7 @@ class _$FetchPopularProducts implements FetchPopularProducts {
     TResult Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult Function(AddReasons value)? addReasons,
-    TResult Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult Function(FetchProducts value)? fetchProducts,
     TResult Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult Function(SaveArticleCategoryFilterVal value)?
@@ -2076,7 +2076,7 @@ class _$FetchRecentProductProducts implements FetchRecentProductProducts {
     required TResult Function(FetchAllBrandsEvent value) fetchAllBrandsEvent,
     required TResult Function(FetchOrderReasons value) fetchOrderReasons,
     required TResult Function(AddReasons value) addReasons,
-    required TResult Function(FetchArticlesbyId value) fetchArticlesbyId,
+    required TResult Function(FetchArticlesId value) fetchArticlesbyId,
     required TResult Function(FetchProducts value) fetchProducts,
     required TResult Function(FetchArticlesCategory value)
         fetchArticlesCategory,
@@ -2152,7 +2152,7 @@ class _$FetchRecentProductProducts implements FetchRecentProductProducts {
     TResult? Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult? Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult? Function(AddReasons value)? addReasons,
-    TResult? Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult? Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult? Function(FetchProducts value)? fetchProducts,
     TResult? Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult? Function(SaveArticleCategoryFilterVal value)?
@@ -2226,7 +2226,7 @@ class _$FetchRecentProductProducts implements FetchRecentProductProducts {
     TResult Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult Function(AddReasons value)? addReasons,
-    TResult Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult Function(FetchProducts value)? fetchProducts,
     TResult Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult Function(SaveArticleCategoryFilterVal value)?
@@ -2627,7 +2627,7 @@ class _$FetchHomeBanners implements FetchHomeBanners {
     required TResult Function(FetchAllBrandsEvent value) fetchAllBrandsEvent,
     required TResult Function(FetchOrderReasons value) fetchOrderReasons,
     required TResult Function(AddReasons value) addReasons,
-    required TResult Function(FetchArticlesbyId value) fetchArticlesbyId,
+    required TResult Function(FetchArticlesId value) fetchArticlesbyId,
     required TResult Function(FetchProducts value) fetchProducts,
     required TResult Function(FetchArticlesCategory value)
         fetchArticlesCategory,
@@ -2703,7 +2703,7 @@ class _$FetchHomeBanners implements FetchHomeBanners {
     TResult? Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult? Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult? Function(AddReasons value)? addReasons,
-    TResult? Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult? Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult? Function(FetchProducts value)? fetchProducts,
     TResult? Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult? Function(SaveArticleCategoryFilterVal value)?
@@ -2777,7 +2777,7 @@ class _$FetchHomeBanners implements FetchHomeBanners {
     TResult Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult Function(AddReasons value)? addReasons,
-    TResult Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult Function(FetchProducts value)? fetchProducts,
     TResult Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult Function(SaveArticleCategoryFilterVal value)?
@@ -3178,7 +3178,7 @@ class _$FetchShopBanners implements FetchShopBanners {
     required TResult Function(FetchAllBrandsEvent value) fetchAllBrandsEvent,
     required TResult Function(FetchOrderReasons value) fetchOrderReasons,
     required TResult Function(AddReasons value) addReasons,
-    required TResult Function(FetchArticlesbyId value) fetchArticlesbyId,
+    required TResult Function(FetchArticlesId value) fetchArticlesbyId,
     required TResult Function(FetchProducts value) fetchProducts,
     required TResult Function(FetchArticlesCategory value)
         fetchArticlesCategory,
@@ -3254,7 +3254,7 @@ class _$FetchShopBanners implements FetchShopBanners {
     TResult? Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult? Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult? Function(AddReasons value)? addReasons,
-    TResult? Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult? Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult? Function(FetchProducts value)? fetchProducts,
     TResult? Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult? Function(SaveArticleCategoryFilterVal value)?
@@ -3328,7 +3328,7 @@ class _$FetchShopBanners implements FetchShopBanners {
     TResult Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult Function(AddReasons value)? addReasons,
-    TResult Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult Function(FetchProducts value)? fetchProducts,
     TResult Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult Function(SaveArticleCategoryFilterVal value)?
@@ -3756,7 +3756,7 @@ class _$FetchArticles implements FetchArticles {
     required TResult Function(FetchAllBrandsEvent value) fetchAllBrandsEvent,
     required TResult Function(FetchOrderReasons value) fetchOrderReasons,
     required TResult Function(AddReasons value) addReasons,
-    required TResult Function(FetchArticlesbyId value) fetchArticlesbyId,
+    required TResult Function(FetchArticlesId value) fetchArticlesbyId,
     required TResult Function(FetchProducts value) fetchProducts,
     required TResult Function(FetchArticlesCategory value)
         fetchArticlesCategory,
@@ -3832,7 +3832,7 @@ class _$FetchArticles implements FetchArticles {
     TResult? Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult? Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult? Function(AddReasons value)? addReasons,
-    TResult? Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult? Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult? Function(FetchProducts value)? fetchProducts,
     TResult? Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult? Function(SaveArticleCategoryFilterVal value)?
@@ -3906,7 +3906,7 @@ class _$FetchArticles implements FetchArticles {
     TResult Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult Function(AddReasons value)? addReasons,
-    TResult Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult Function(FetchProducts value)? fetchProducts,
     TResult Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult Function(SaveArticleCategoryFilterVal value)?
@@ -4313,7 +4313,7 @@ class _$FetchShopByBrand implements FetchShopByBrand {
     required TResult Function(FetchAllBrandsEvent value) fetchAllBrandsEvent,
     required TResult Function(FetchOrderReasons value) fetchOrderReasons,
     required TResult Function(AddReasons value) addReasons,
-    required TResult Function(FetchArticlesbyId value) fetchArticlesbyId,
+    required TResult Function(FetchArticlesId value) fetchArticlesbyId,
     required TResult Function(FetchProducts value) fetchProducts,
     required TResult Function(FetchArticlesCategory value)
         fetchArticlesCategory,
@@ -4389,7 +4389,7 @@ class _$FetchShopByBrand implements FetchShopByBrand {
     TResult? Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult? Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult? Function(AddReasons value)? addReasons,
-    TResult? Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult? Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult? Function(FetchProducts value)? fetchProducts,
     TResult? Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult? Function(SaveArticleCategoryFilterVal value)?
@@ -4463,7 +4463,7 @@ class _$FetchShopByBrand implements FetchShopByBrand {
     TResult Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult Function(AddReasons value)? addReasons,
-    TResult Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult Function(FetchProducts value)? fetchProducts,
     TResult Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult Function(SaveArticleCategoryFilterVal value)?
@@ -4890,7 +4890,7 @@ class _$FetchWishList implements FetchWishList {
     required TResult Function(FetchAllBrandsEvent value) fetchAllBrandsEvent,
     required TResult Function(FetchOrderReasons value) fetchOrderReasons,
     required TResult Function(AddReasons value) addReasons,
-    required TResult Function(FetchArticlesbyId value) fetchArticlesbyId,
+    required TResult Function(FetchArticlesId value) fetchArticlesbyId,
     required TResult Function(FetchProducts value) fetchProducts,
     required TResult Function(FetchArticlesCategory value)
         fetchArticlesCategory,
@@ -4966,7 +4966,7 @@ class _$FetchWishList implements FetchWishList {
     TResult? Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult? Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult? Function(AddReasons value)? addReasons,
-    TResult? Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult? Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult? Function(FetchProducts value)? fetchProducts,
     TResult? Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult? Function(SaveArticleCategoryFilterVal value)?
@@ -5040,7 +5040,7 @@ class _$FetchWishList implements FetchWishList {
     TResult Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult Function(AddReasons value)? addReasons,
-    TResult Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult Function(FetchProducts value)? fetchProducts,
     TResult Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult Function(SaveArticleCategoryFilterVal value)?
@@ -5472,7 +5472,7 @@ class _$SearchProduct implements SearchProduct {
     required TResult Function(FetchAllBrandsEvent value) fetchAllBrandsEvent,
     required TResult Function(FetchOrderReasons value) fetchOrderReasons,
     required TResult Function(AddReasons value) addReasons,
-    required TResult Function(FetchArticlesbyId value) fetchArticlesbyId,
+    required TResult Function(FetchArticlesId value) fetchArticlesbyId,
     required TResult Function(FetchProducts value) fetchProducts,
     required TResult Function(FetchArticlesCategory value)
         fetchArticlesCategory,
@@ -5548,7 +5548,7 @@ class _$SearchProduct implements SearchProduct {
     TResult? Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult? Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult? Function(AddReasons value)? addReasons,
-    TResult? Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult? Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult? Function(FetchProducts value)? fetchProducts,
     TResult? Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult? Function(SaveArticleCategoryFilterVal value)?
@@ -5622,7 +5622,7 @@ class _$SearchProduct implements SearchProduct {
     TResult Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult Function(AddReasons value)? addReasons,
-    TResult Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult Function(FetchProducts value)? fetchProducts,
     TResult Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult Function(SaveArticleCategoryFilterVal value)?
@@ -6063,7 +6063,7 @@ class _$AddWishListEvent implements AddWishListEvent {
     required TResult Function(FetchAllBrandsEvent value) fetchAllBrandsEvent,
     required TResult Function(FetchOrderReasons value) fetchOrderReasons,
     required TResult Function(AddReasons value) addReasons,
-    required TResult Function(FetchArticlesbyId value) fetchArticlesbyId,
+    required TResult Function(FetchArticlesId value) fetchArticlesbyId,
     required TResult Function(FetchProducts value) fetchProducts,
     required TResult Function(FetchArticlesCategory value)
         fetchArticlesCategory,
@@ -6139,7 +6139,7 @@ class _$AddWishListEvent implements AddWishListEvent {
     TResult? Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult? Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult? Function(AddReasons value)? addReasons,
-    TResult? Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult? Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult? Function(FetchProducts value)? fetchProducts,
     TResult? Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult? Function(SaveArticleCategoryFilterVal value)?
@@ -6213,7 +6213,7 @@ class _$AddWishListEvent implements AddWishListEvent {
     TResult Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult Function(AddReasons value)? addReasons,
-    TResult Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult Function(FetchProducts value)? fetchProducts,
     TResult Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult Function(SaveArticleCategoryFilterVal value)?
@@ -6658,7 +6658,7 @@ class _$RemoveWishlistEvent implements RemoveWishlistEvent {
     required TResult Function(FetchAllBrandsEvent value) fetchAllBrandsEvent,
     required TResult Function(FetchOrderReasons value) fetchOrderReasons,
     required TResult Function(AddReasons value) addReasons,
-    required TResult Function(FetchArticlesbyId value) fetchArticlesbyId,
+    required TResult Function(FetchArticlesId value) fetchArticlesbyId,
     required TResult Function(FetchProducts value) fetchProducts,
     required TResult Function(FetchArticlesCategory value)
         fetchArticlesCategory,
@@ -6734,7 +6734,7 @@ class _$RemoveWishlistEvent implements RemoveWishlistEvent {
     TResult? Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult? Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult? Function(AddReasons value)? addReasons,
-    TResult? Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult? Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult? Function(FetchProducts value)? fetchProducts,
     TResult? Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult? Function(SaveArticleCategoryFilterVal value)?
@@ -6808,7 +6808,7 @@ class _$RemoveWishlistEvent implements RemoveWishlistEvent {
     TResult Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult Function(AddReasons value)? addReasons,
-    TResult Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult Function(FetchProducts value)? fetchProducts,
     TResult Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult Function(SaveArticleCategoryFilterVal value)?
@@ -7246,7 +7246,7 @@ class _$FetchShopByBrandProducts implements FetchShopByBrandProducts {
     required TResult Function(FetchAllBrandsEvent value) fetchAllBrandsEvent,
     required TResult Function(FetchOrderReasons value) fetchOrderReasons,
     required TResult Function(AddReasons value) addReasons,
-    required TResult Function(FetchArticlesbyId value) fetchArticlesbyId,
+    required TResult Function(FetchArticlesId value) fetchArticlesbyId,
     required TResult Function(FetchProducts value) fetchProducts,
     required TResult Function(FetchArticlesCategory value)
         fetchArticlesCategory,
@@ -7322,7 +7322,7 @@ class _$FetchShopByBrandProducts implements FetchShopByBrandProducts {
     TResult? Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult? Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult? Function(AddReasons value)? addReasons,
-    TResult? Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult? Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult? Function(FetchProducts value)? fetchProducts,
     TResult? Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult? Function(SaveArticleCategoryFilterVal value)?
@@ -7396,7 +7396,7 @@ class _$FetchShopByBrandProducts implements FetchShopByBrandProducts {
     TResult Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult Function(AddReasons value)? addReasons,
-    TResult Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult Function(FetchProducts value)? fetchProducts,
     TResult Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult Function(SaveArticleCategoryFilterVal value)?
@@ -7830,7 +7830,7 @@ class _$TabIndexChangeEvent implements TabIndexChangeEvent {
     required TResult Function(FetchAllBrandsEvent value) fetchAllBrandsEvent,
     required TResult Function(FetchOrderReasons value) fetchOrderReasons,
     required TResult Function(AddReasons value) addReasons,
-    required TResult Function(FetchArticlesbyId value) fetchArticlesbyId,
+    required TResult Function(FetchArticlesId value) fetchArticlesbyId,
     required TResult Function(FetchProducts value) fetchProducts,
     required TResult Function(FetchArticlesCategory value)
         fetchArticlesCategory,
@@ -7906,7 +7906,7 @@ class _$TabIndexChangeEvent implements TabIndexChangeEvent {
     TResult? Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult? Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult? Function(AddReasons value)? addReasons,
-    TResult? Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult? Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult? Function(FetchProducts value)? fetchProducts,
     TResult? Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult? Function(SaveArticleCategoryFilterVal value)?
@@ -7980,7 +7980,7 @@ class _$TabIndexChangeEvent implements TabIndexChangeEvent {
     TResult Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult Function(AddReasons value)? addReasons,
-    TResult Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult Function(FetchProducts value)? fetchProducts,
     TResult Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult Function(SaveArticleCategoryFilterVal value)?
@@ -8494,7 +8494,7 @@ class _$PostOrders implements PostOrders {
     required TResult Function(FetchAllBrandsEvent value) fetchAllBrandsEvent,
     required TResult Function(FetchOrderReasons value) fetchOrderReasons,
     required TResult Function(AddReasons value) addReasons,
-    required TResult Function(FetchArticlesbyId value) fetchArticlesbyId,
+    required TResult Function(FetchArticlesId value) fetchArticlesbyId,
     required TResult Function(FetchProducts value) fetchProducts,
     required TResult Function(FetchArticlesCategory value)
         fetchArticlesCategory,
@@ -8570,7 +8570,7 @@ class _$PostOrders implements PostOrders {
     TResult? Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult? Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult? Function(AddReasons value)? addReasons,
-    TResult? Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult? Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult? Function(FetchProducts value)? fetchProducts,
     TResult? Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult? Function(SaveArticleCategoryFilterVal value)?
@@ -8644,7 +8644,7 @@ class _$PostOrders implements PostOrders {
     TResult Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult Function(AddReasons value)? addReasons,
-    TResult Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult Function(FetchProducts value)? fetchProducts,
     TResult Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult Function(SaveArticleCategoryFilterVal value)?
@@ -9141,7 +9141,7 @@ class _$PostOnlieOrders implements PostOnlieOrders {
     required TResult Function(FetchAllBrandsEvent value) fetchAllBrandsEvent,
     required TResult Function(FetchOrderReasons value) fetchOrderReasons,
     required TResult Function(AddReasons value) addReasons,
-    required TResult Function(FetchArticlesbyId value) fetchArticlesbyId,
+    required TResult Function(FetchArticlesId value) fetchArticlesbyId,
     required TResult Function(FetchProducts value) fetchProducts,
     required TResult Function(FetchArticlesCategory value)
         fetchArticlesCategory,
@@ -9217,7 +9217,7 @@ class _$PostOnlieOrders implements PostOnlieOrders {
     TResult? Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult? Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult? Function(AddReasons value)? addReasons,
-    TResult? Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult? Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult? Function(FetchProducts value)? fetchProducts,
     TResult? Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult? Function(SaveArticleCategoryFilterVal value)?
@@ -9291,7 +9291,7 @@ class _$PostOnlieOrders implements PostOnlieOrders {
     TResult Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult Function(AddReasons value)? addReasons,
-    TResult Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult Function(FetchProducts value)? fetchProducts,
     TResult Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult Function(SaveArticleCategoryFilterVal value)?
@@ -9743,7 +9743,7 @@ class _$PostOrderIdOnlinePayment implements PostOrderIdOnlinePayment {
     required TResult Function(FetchAllBrandsEvent value) fetchAllBrandsEvent,
     required TResult Function(FetchOrderReasons value) fetchOrderReasons,
     required TResult Function(AddReasons value) addReasons,
-    required TResult Function(FetchArticlesbyId value) fetchArticlesbyId,
+    required TResult Function(FetchArticlesId value) fetchArticlesbyId,
     required TResult Function(FetchProducts value) fetchProducts,
     required TResult Function(FetchArticlesCategory value)
         fetchArticlesCategory,
@@ -9819,7 +9819,7 @@ class _$PostOrderIdOnlinePayment implements PostOrderIdOnlinePayment {
     TResult? Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult? Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult? Function(AddReasons value)? addReasons,
-    TResult? Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult? Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult? Function(FetchProducts value)? fetchProducts,
     TResult? Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult? Function(SaveArticleCategoryFilterVal value)?
@@ -9893,7 +9893,7 @@ class _$PostOrderIdOnlinePayment implements PostOrderIdOnlinePayment {
     TResult Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult Function(AddReasons value)? addReasons,
-    TResult Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult Function(FetchProducts value)? fetchProducts,
     TResult Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult Function(SaveArticleCategoryFilterVal value)?
@@ -10417,7 +10417,7 @@ class _$PostOrdersRewards implements PostOrdersRewards {
     required TResult Function(FetchAllBrandsEvent value) fetchAllBrandsEvent,
     required TResult Function(FetchOrderReasons value) fetchOrderReasons,
     required TResult Function(AddReasons value) addReasons,
-    required TResult Function(FetchArticlesbyId value) fetchArticlesbyId,
+    required TResult Function(FetchArticlesId value) fetchArticlesbyId,
     required TResult Function(FetchProducts value) fetchProducts,
     required TResult Function(FetchArticlesCategory value)
         fetchArticlesCategory,
@@ -10493,7 +10493,7 @@ class _$PostOrdersRewards implements PostOrdersRewards {
     TResult? Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult? Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult? Function(AddReasons value)? addReasons,
-    TResult? Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult? Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult? Function(FetchProducts value)? fetchProducts,
     TResult? Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult? Function(SaveArticleCategoryFilterVal value)?
@@ -10567,7 +10567,7 @@ class _$PostOrdersRewards implements PostOrdersRewards {
     TResult Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult Function(AddReasons value)? addReasons,
-    TResult Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult Function(FetchProducts value)? fetchProducts,
     TResult Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult Function(SaveArticleCategoryFilterVal value)?
@@ -11016,7 +11016,7 @@ class _$FetchOrders implements FetchOrders {
     required TResult Function(FetchAllBrandsEvent value) fetchAllBrandsEvent,
     required TResult Function(FetchOrderReasons value) fetchOrderReasons,
     required TResult Function(AddReasons value) addReasons,
-    required TResult Function(FetchArticlesbyId value) fetchArticlesbyId,
+    required TResult Function(FetchArticlesId value) fetchArticlesbyId,
     required TResult Function(FetchProducts value) fetchProducts,
     required TResult Function(FetchArticlesCategory value)
         fetchArticlesCategory,
@@ -11092,7 +11092,7 @@ class _$FetchOrders implements FetchOrders {
     TResult? Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult? Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult? Function(AddReasons value)? addReasons,
-    TResult? Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult? Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult? Function(FetchProducts value)? fetchProducts,
     TResult? Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult? Function(SaveArticleCategoryFilterVal value)?
@@ -11166,7 +11166,7 @@ class _$FetchOrders implements FetchOrders {
     TResult Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult Function(AddReasons value)? addReasons,
-    TResult Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult Function(FetchProducts value)? fetchProducts,
     TResult Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult Function(SaveArticleCategoryFilterVal value)?
@@ -11606,7 +11606,7 @@ class _$FetchOrdersById implements FetchOrdersById {
     required TResult Function(FetchAllBrandsEvent value) fetchAllBrandsEvent,
     required TResult Function(FetchOrderReasons value) fetchOrderReasons,
     required TResult Function(AddReasons value) addReasons,
-    required TResult Function(FetchArticlesbyId value) fetchArticlesbyId,
+    required TResult Function(FetchArticlesId value) fetchArticlesbyId,
     required TResult Function(FetchProducts value) fetchProducts,
     required TResult Function(FetchArticlesCategory value)
         fetchArticlesCategory,
@@ -11682,7 +11682,7 @@ class _$FetchOrdersById implements FetchOrdersById {
     TResult? Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult? Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult? Function(AddReasons value)? addReasons,
-    TResult? Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult? Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult? Function(FetchProducts value)? fetchProducts,
     TResult? Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult? Function(SaveArticleCategoryFilterVal value)?
@@ -11756,7 +11756,7 @@ class _$FetchOrdersById implements FetchOrdersById {
     TResult Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult Function(AddReasons value)? addReasons,
-    TResult Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult Function(FetchProducts value)? fetchProducts,
     TResult Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult Function(SaveArticleCategoryFilterVal value)?
@@ -12202,7 +12202,7 @@ class _$FetchOrdersbyFilterEvent implements FetchOrdersbyFilterEvent {
     required TResult Function(FetchAllBrandsEvent value) fetchAllBrandsEvent,
     required TResult Function(FetchOrderReasons value) fetchOrderReasons,
     required TResult Function(AddReasons value) addReasons,
-    required TResult Function(FetchArticlesbyId value) fetchArticlesbyId,
+    required TResult Function(FetchArticlesId value) fetchArticlesbyId,
     required TResult Function(FetchProducts value) fetchProducts,
     required TResult Function(FetchArticlesCategory value)
         fetchArticlesCategory,
@@ -12278,7 +12278,7 @@ class _$FetchOrdersbyFilterEvent implements FetchOrdersbyFilterEvent {
     TResult? Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult? Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult? Function(AddReasons value)? addReasons,
-    TResult? Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult? Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult? Function(FetchProducts value)? fetchProducts,
     TResult? Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult? Function(SaveArticleCategoryFilterVal value)?
@@ -12352,7 +12352,7 @@ class _$FetchOrdersbyFilterEvent implements FetchOrdersbyFilterEvent {
     TResult Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult Function(AddReasons value)? addReasons,
-    TResult Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult Function(FetchProducts value)? fetchProducts,
     TResult Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult Function(SaveArticleCategoryFilterVal value)?
@@ -12796,7 +12796,7 @@ class _$CancelOrder implements CancelOrder {
     required TResult Function(FetchAllBrandsEvent value) fetchAllBrandsEvent,
     required TResult Function(FetchOrderReasons value) fetchOrderReasons,
     required TResult Function(AddReasons value) addReasons,
-    required TResult Function(FetchArticlesbyId value) fetchArticlesbyId,
+    required TResult Function(FetchArticlesId value) fetchArticlesbyId,
     required TResult Function(FetchProducts value) fetchProducts,
     required TResult Function(FetchArticlesCategory value)
         fetchArticlesCategory,
@@ -12872,7 +12872,7 @@ class _$CancelOrder implements CancelOrder {
     TResult? Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult? Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult? Function(AddReasons value)? addReasons,
-    TResult? Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult? Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult? Function(FetchProducts value)? fetchProducts,
     TResult? Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult? Function(SaveArticleCategoryFilterVal value)?
@@ -12946,7 +12946,7 @@ class _$CancelOrder implements CancelOrder {
     TResult Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult Function(AddReasons value)? addReasons,
-    TResult Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult Function(FetchProducts value)? fetchProducts,
     TResult Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult Function(SaveArticleCategoryFilterVal value)?
@@ -13390,7 +13390,7 @@ class _$ReturnOrder implements ReturnOrder {
     required TResult Function(FetchAllBrandsEvent value) fetchAllBrandsEvent,
     required TResult Function(FetchOrderReasons value) fetchOrderReasons,
     required TResult Function(AddReasons value) addReasons,
-    required TResult Function(FetchArticlesbyId value) fetchArticlesbyId,
+    required TResult Function(FetchArticlesId value) fetchArticlesbyId,
     required TResult Function(FetchProducts value) fetchProducts,
     required TResult Function(FetchArticlesCategory value)
         fetchArticlesCategory,
@@ -13466,7 +13466,7 @@ class _$ReturnOrder implements ReturnOrder {
     TResult? Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult? Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult? Function(AddReasons value)? addReasons,
-    TResult? Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult? Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult? Function(FetchProducts value)? fetchProducts,
     TResult? Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult? Function(SaveArticleCategoryFilterVal value)?
@@ -13540,7 +13540,7 @@ class _$ReturnOrder implements ReturnOrder {
     TResult Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult Function(AddReasons value)? addReasons,
-    TResult Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult Function(FetchProducts value)? fetchProducts,
     TResult Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult Function(SaveArticleCategoryFilterVal value)?
@@ -13952,7 +13952,7 @@ class _$FetchShopHomeBackgroundCard implements FetchShopHomeBackgroundCard {
     required TResult Function(FetchAllBrandsEvent value) fetchAllBrandsEvent,
     required TResult Function(FetchOrderReasons value) fetchOrderReasons,
     required TResult Function(AddReasons value) addReasons,
-    required TResult Function(FetchArticlesbyId value) fetchArticlesbyId,
+    required TResult Function(FetchArticlesId value) fetchArticlesbyId,
     required TResult Function(FetchProducts value) fetchProducts,
     required TResult Function(FetchArticlesCategory value)
         fetchArticlesCategory,
@@ -14028,7 +14028,7 @@ class _$FetchShopHomeBackgroundCard implements FetchShopHomeBackgroundCard {
     TResult? Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult? Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult? Function(AddReasons value)? addReasons,
-    TResult? Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult? Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult? Function(FetchProducts value)? fetchProducts,
     TResult? Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult? Function(SaveArticleCategoryFilterVal value)?
@@ -14102,7 +14102,7 @@ class _$FetchShopHomeBackgroundCard implements FetchShopHomeBackgroundCard {
     TResult Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult Function(AddReasons value)? addReasons,
-    TResult Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult Function(FetchProducts value)? fetchProducts,
     TResult Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult Function(SaveArticleCategoryFilterVal value)?
@@ -14508,7 +14508,7 @@ class _$FetchShopHomeBackgroundCardHelthyDiet
     required TResult Function(FetchAllBrandsEvent value) fetchAllBrandsEvent,
     required TResult Function(FetchOrderReasons value) fetchOrderReasons,
     required TResult Function(AddReasons value) addReasons,
-    required TResult Function(FetchArticlesbyId value) fetchArticlesbyId,
+    required TResult Function(FetchArticlesId value) fetchArticlesbyId,
     required TResult Function(FetchProducts value) fetchProducts,
     required TResult Function(FetchArticlesCategory value)
         fetchArticlesCategory,
@@ -14584,7 +14584,7 @@ class _$FetchShopHomeBackgroundCardHelthyDiet
     TResult? Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult? Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult? Function(AddReasons value)? addReasons,
-    TResult? Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult? Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult? Function(FetchProducts value)? fetchProducts,
     TResult? Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult? Function(SaveArticleCategoryFilterVal value)?
@@ -14658,7 +14658,7 @@ class _$FetchShopHomeBackgroundCardHelthyDiet
     TResult Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult Function(AddReasons value)? addReasons,
-    TResult Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult Function(FetchProducts value)? fetchProducts,
     TResult Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult Function(SaveArticleCategoryFilterVal value)?
@@ -15066,7 +15066,7 @@ class _$FetchShopHomeBackgroundCardSunnah
     required TResult Function(FetchAllBrandsEvent value) fetchAllBrandsEvent,
     required TResult Function(FetchOrderReasons value) fetchOrderReasons,
     required TResult Function(AddReasons value) addReasons,
-    required TResult Function(FetchArticlesbyId value) fetchArticlesbyId,
+    required TResult Function(FetchArticlesId value) fetchArticlesbyId,
     required TResult Function(FetchProducts value) fetchProducts,
     required TResult Function(FetchArticlesCategory value)
         fetchArticlesCategory,
@@ -15142,7 +15142,7 @@ class _$FetchShopHomeBackgroundCardSunnah
     TResult? Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult? Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult? Function(AddReasons value)? addReasons,
-    TResult? Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult? Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult? Function(FetchProducts value)? fetchProducts,
     TResult? Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult? Function(SaveArticleCategoryFilterVal value)?
@@ -15216,7 +15216,7 @@ class _$FetchShopHomeBackgroundCardSunnah
     TResult Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult Function(AddReasons value)? addReasons,
-    TResult Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult Function(FetchProducts value)? fetchProducts,
     TResult Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult Function(SaveArticleCategoryFilterVal value)?
@@ -15618,7 +15618,7 @@ class _$FetchShopAdBrands implements FetchShopAdBrands {
     required TResult Function(FetchAllBrandsEvent value) fetchAllBrandsEvent,
     required TResult Function(FetchOrderReasons value) fetchOrderReasons,
     required TResult Function(AddReasons value) addReasons,
-    required TResult Function(FetchArticlesbyId value) fetchArticlesbyId,
+    required TResult Function(FetchArticlesId value) fetchArticlesbyId,
     required TResult Function(FetchProducts value) fetchProducts,
     required TResult Function(FetchArticlesCategory value)
         fetchArticlesCategory,
@@ -15694,7 +15694,7 @@ class _$FetchShopAdBrands implements FetchShopAdBrands {
     TResult? Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult? Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult? Function(AddReasons value)? addReasons,
-    TResult? Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult? Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult? Function(FetchProducts value)? fetchProducts,
     TResult? Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult? Function(SaveArticleCategoryFilterVal value)?
@@ -15768,7 +15768,7 @@ class _$FetchShopAdBrands implements FetchShopAdBrands {
     TResult Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult Function(AddReasons value)? addReasons,
-    TResult Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult Function(FetchProducts value)? fetchProducts,
     TResult Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult Function(SaveArticleCategoryFilterVal value)?
@@ -16169,7 +16169,7 @@ class _$FetchTopBrands implements FetchTopBrands {
     required TResult Function(FetchAllBrandsEvent value) fetchAllBrandsEvent,
     required TResult Function(FetchOrderReasons value) fetchOrderReasons,
     required TResult Function(AddReasons value) addReasons,
-    required TResult Function(FetchArticlesbyId value) fetchArticlesbyId,
+    required TResult Function(FetchArticlesId value) fetchArticlesbyId,
     required TResult Function(FetchProducts value) fetchProducts,
     required TResult Function(FetchArticlesCategory value)
         fetchArticlesCategory,
@@ -16245,7 +16245,7 @@ class _$FetchTopBrands implements FetchTopBrands {
     TResult? Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult? Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult? Function(AddReasons value)? addReasons,
-    TResult? Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult? Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult? Function(FetchProducts value)? fetchProducts,
     TResult? Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult? Function(SaveArticleCategoryFilterVal value)?
@@ -16319,7 +16319,7 @@ class _$FetchTopBrands implements FetchTopBrands {
     TResult Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult Function(AddReasons value)? addReasons,
-    TResult Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult Function(FetchProducts value)? fetchProducts,
     TResult Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult Function(SaveArticleCategoryFilterVal value)?
@@ -16725,7 +16725,7 @@ class _$FetchProductItemsSubcategorySunnah
     required TResult Function(FetchAllBrandsEvent value) fetchAllBrandsEvent,
     required TResult Function(FetchOrderReasons value) fetchOrderReasons,
     required TResult Function(AddReasons value) addReasons,
-    required TResult Function(FetchArticlesbyId value) fetchArticlesbyId,
+    required TResult Function(FetchArticlesId value) fetchArticlesbyId,
     required TResult Function(FetchProducts value) fetchProducts,
     required TResult Function(FetchArticlesCategory value)
         fetchArticlesCategory,
@@ -16801,7 +16801,7 @@ class _$FetchProductItemsSubcategorySunnah
     TResult? Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult? Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult? Function(AddReasons value)? addReasons,
-    TResult? Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult? Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult? Function(FetchProducts value)? fetchProducts,
     TResult? Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult? Function(SaveArticleCategoryFilterVal value)?
@@ -16875,7 +16875,7 @@ class _$FetchProductItemsSubcategorySunnah
     TResult Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult Function(AddReasons value)? addReasons,
-    TResult Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult Function(FetchProducts value)? fetchProducts,
     TResult Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult Function(SaveArticleCategoryFilterVal value)?
@@ -17282,7 +17282,7 @@ class _$FetchProductItemsSubcategoryHealth
     required TResult Function(FetchAllBrandsEvent value) fetchAllBrandsEvent,
     required TResult Function(FetchOrderReasons value) fetchOrderReasons,
     required TResult Function(AddReasons value) addReasons,
-    required TResult Function(FetchArticlesbyId value) fetchArticlesbyId,
+    required TResult Function(FetchArticlesId value) fetchArticlesbyId,
     required TResult Function(FetchProducts value) fetchProducts,
     required TResult Function(FetchArticlesCategory value)
         fetchArticlesCategory,
@@ -17358,7 +17358,7 @@ class _$FetchProductItemsSubcategoryHealth
     TResult? Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult? Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult? Function(AddReasons value)? addReasons,
-    TResult? Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult? Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult? Function(FetchProducts value)? fetchProducts,
     TResult? Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult? Function(SaveArticleCategoryFilterVal value)?
@@ -17432,7 +17432,7 @@ class _$FetchProductItemsSubcategoryHealth
     TResult Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult Function(AddReasons value)? addReasons,
-    TResult Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult Function(FetchProducts value)? fetchProducts,
     TResult Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult Function(SaveArticleCategoryFilterVal value)?
@@ -17839,7 +17839,7 @@ class _$FetchProductItemsSubcategoryWomen
     required TResult Function(FetchAllBrandsEvent value) fetchAllBrandsEvent,
     required TResult Function(FetchOrderReasons value) fetchOrderReasons,
     required TResult Function(AddReasons value) addReasons,
-    required TResult Function(FetchArticlesbyId value) fetchArticlesbyId,
+    required TResult Function(FetchArticlesId value) fetchArticlesbyId,
     required TResult Function(FetchProducts value) fetchProducts,
     required TResult Function(FetchArticlesCategory value)
         fetchArticlesCategory,
@@ -17915,7 +17915,7 @@ class _$FetchProductItemsSubcategoryWomen
     TResult? Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult? Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult? Function(AddReasons value)? addReasons,
-    TResult? Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult? Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult? Function(FetchProducts value)? fetchProducts,
     TResult? Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult? Function(SaveArticleCategoryFilterVal value)?
@@ -17989,7 +17989,7 @@ class _$FetchProductItemsSubcategoryWomen
     TResult Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult Function(AddReasons value)? addReasons,
-    TResult Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult Function(FetchProducts value)? fetchProducts,
     TResult Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult Function(SaveArticleCategoryFilterVal value)?
@@ -18418,7 +18418,7 @@ class _$ChangeShopBannerIndex implements ChangeShopBannerIndex {
     required TResult Function(FetchAllBrandsEvent value) fetchAllBrandsEvent,
     required TResult Function(FetchOrderReasons value) fetchOrderReasons,
     required TResult Function(AddReasons value) addReasons,
-    required TResult Function(FetchArticlesbyId value) fetchArticlesbyId,
+    required TResult Function(FetchArticlesId value) fetchArticlesbyId,
     required TResult Function(FetchProducts value) fetchProducts,
     required TResult Function(FetchArticlesCategory value)
         fetchArticlesCategory,
@@ -18494,7 +18494,7 @@ class _$ChangeShopBannerIndex implements ChangeShopBannerIndex {
     TResult? Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult? Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult? Function(AddReasons value)? addReasons,
-    TResult? Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult? Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult? Function(FetchProducts value)? fetchProducts,
     TResult? Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult? Function(SaveArticleCategoryFilterVal value)?
@@ -18568,7 +18568,7 @@ class _$ChangeShopBannerIndex implements ChangeShopBannerIndex {
     TResult Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult Function(AddReasons value)? addReasons,
-    TResult Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult Function(FetchProducts value)? fetchProducts,
     TResult Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult Function(SaveArticleCategoryFilterVal value)?
@@ -19002,7 +19002,7 @@ class _$ChangeBrandBannerIndex implements ChangeBrandBannerIndex {
     required TResult Function(FetchAllBrandsEvent value) fetchAllBrandsEvent,
     required TResult Function(FetchOrderReasons value) fetchOrderReasons,
     required TResult Function(AddReasons value) addReasons,
-    required TResult Function(FetchArticlesbyId value) fetchArticlesbyId,
+    required TResult Function(FetchArticlesId value) fetchArticlesbyId,
     required TResult Function(FetchProducts value) fetchProducts,
     required TResult Function(FetchArticlesCategory value)
         fetchArticlesCategory,
@@ -19078,7 +19078,7 @@ class _$ChangeBrandBannerIndex implements ChangeBrandBannerIndex {
     TResult? Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult? Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult? Function(AddReasons value)? addReasons,
-    TResult? Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult? Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult? Function(FetchProducts value)? fetchProducts,
     TResult? Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult? Function(SaveArticleCategoryFilterVal value)?
@@ -19152,7 +19152,7 @@ class _$ChangeBrandBannerIndex implements ChangeBrandBannerIndex {
     TResult Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult Function(AddReasons value)? addReasons,
-    TResult Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult Function(FetchProducts value)? fetchProducts,
     TResult Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult Function(SaveArticleCategoryFilterVal value)?
@@ -19559,7 +19559,7 @@ class _$ShowOrderProgressEvent implements ShowOrderProgressEvent {
     required TResult Function(FetchAllBrandsEvent value) fetchAllBrandsEvent,
     required TResult Function(FetchOrderReasons value) fetchOrderReasons,
     required TResult Function(AddReasons value) addReasons,
-    required TResult Function(FetchArticlesbyId value) fetchArticlesbyId,
+    required TResult Function(FetchArticlesId value) fetchArticlesbyId,
     required TResult Function(FetchProducts value) fetchProducts,
     required TResult Function(FetchArticlesCategory value)
         fetchArticlesCategory,
@@ -19635,7 +19635,7 @@ class _$ShowOrderProgressEvent implements ShowOrderProgressEvent {
     TResult? Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult? Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult? Function(AddReasons value)? addReasons,
-    TResult? Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult? Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult? Function(FetchProducts value)? fetchProducts,
     TResult? Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult? Function(SaveArticleCategoryFilterVal value)?
@@ -19709,7 +19709,7 @@ class _$ShowOrderProgressEvent implements ShowOrderProgressEvent {
     TResult Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult Function(AddReasons value)? addReasons,
-    TResult Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult Function(FetchProducts value)? fetchProducts,
     TResult Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult Function(SaveArticleCategoryFilterVal value)?
@@ -20139,7 +20139,7 @@ class _$IndexChangeOnOrderProgress implements IndexChangeOnOrderProgress {
     required TResult Function(FetchAllBrandsEvent value) fetchAllBrandsEvent,
     required TResult Function(FetchOrderReasons value) fetchOrderReasons,
     required TResult Function(AddReasons value) addReasons,
-    required TResult Function(FetchArticlesbyId value) fetchArticlesbyId,
+    required TResult Function(FetchArticlesId value) fetchArticlesbyId,
     required TResult Function(FetchProducts value) fetchProducts,
     required TResult Function(FetchArticlesCategory value)
         fetchArticlesCategory,
@@ -20215,7 +20215,7 @@ class _$IndexChangeOnOrderProgress implements IndexChangeOnOrderProgress {
     TResult? Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult? Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult? Function(AddReasons value)? addReasons,
-    TResult? Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult? Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult? Function(FetchProducts value)? fetchProducts,
     TResult? Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult? Function(SaveArticleCategoryFilterVal value)?
@@ -20289,7 +20289,7 @@ class _$IndexChangeOnOrderProgress implements IndexChangeOnOrderProgress {
     TResult Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult Function(AddReasons value)? addReasons,
-    TResult Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult Function(FetchProducts value)? fetchProducts,
     TResult Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult Function(SaveArticleCategoryFilterVal value)?
@@ -20726,7 +20726,7 @@ class _$IndexChangeOnWomensCareBanner implements IndexChangeOnWomensCareBanner {
     required TResult Function(FetchAllBrandsEvent value) fetchAllBrandsEvent,
     required TResult Function(FetchOrderReasons value) fetchOrderReasons,
     required TResult Function(AddReasons value) addReasons,
-    required TResult Function(FetchArticlesbyId value) fetchArticlesbyId,
+    required TResult Function(FetchArticlesId value) fetchArticlesbyId,
     required TResult Function(FetchProducts value) fetchProducts,
     required TResult Function(FetchArticlesCategory value)
         fetchArticlesCategory,
@@ -20802,7 +20802,7 @@ class _$IndexChangeOnWomensCareBanner implements IndexChangeOnWomensCareBanner {
     TResult? Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult? Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult? Function(AddReasons value)? addReasons,
-    TResult? Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult? Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult? Function(FetchProducts value)? fetchProducts,
     TResult? Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult? Function(SaveArticleCategoryFilterVal value)?
@@ -20876,7 +20876,7 @@ class _$IndexChangeOnWomensCareBanner implements IndexChangeOnWomensCareBanner {
     TResult Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult Function(AddReasons value)? addReasons,
-    TResult Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult Function(FetchProducts value)? fetchProducts,
     TResult Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult Function(SaveArticleCategoryFilterVal value)?
@@ -21310,7 +21310,7 @@ class _$FetchShopAdBrandsById implements FetchShopAdBrandsById {
     required TResult Function(FetchAllBrandsEvent value) fetchAllBrandsEvent,
     required TResult Function(FetchOrderReasons value) fetchOrderReasons,
     required TResult Function(AddReasons value) addReasons,
-    required TResult Function(FetchArticlesbyId value) fetchArticlesbyId,
+    required TResult Function(FetchArticlesId value) fetchArticlesbyId,
     required TResult Function(FetchProducts value) fetchProducts,
     required TResult Function(FetchArticlesCategory value)
         fetchArticlesCategory,
@@ -21386,7 +21386,7 @@ class _$FetchShopAdBrandsById implements FetchShopAdBrandsById {
     TResult? Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult? Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult? Function(AddReasons value)? addReasons,
-    TResult? Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult? Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult? Function(FetchProducts value)? fetchProducts,
     TResult? Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult? Function(SaveArticleCategoryFilterVal value)?
@@ -21460,7 +21460,7 @@ class _$FetchShopAdBrandsById implements FetchShopAdBrandsById {
     TResult Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult Function(AddReasons value)? addReasons,
-    TResult Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult Function(FetchProducts value)? fetchProducts,
     TResult Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult Function(SaveArticleCategoryFilterVal value)?
@@ -21894,7 +21894,7 @@ class _$SavePaymentMethodType implements SavePaymentMethodType {
     required TResult Function(FetchAllBrandsEvent value) fetchAllBrandsEvent,
     required TResult Function(FetchOrderReasons value) fetchOrderReasons,
     required TResult Function(AddReasons value) addReasons,
-    required TResult Function(FetchArticlesbyId value) fetchArticlesbyId,
+    required TResult Function(FetchArticlesId value) fetchArticlesbyId,
     required TResult Function(FetchProducts value) fetchProducts,
     required TResult Function(FetchArticlesCategory value)
         fetchArticlesCategory,
@@ -21970,7 +21970,7 @@ class _$SavePaymentMethodType implements SavePaymentMethodType {
     TResult? Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult? Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult? Function(AddReasons value)? addReasons,
-    TResult? Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult? Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult? Function(FetchProducts value)? fetchProducts,
     TResult? Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult? Function(SaveArticleCategoryFilterVal value)?
@@ -22044,7 +22044,7 @@ class _$SavePaymentMethodType implements SavePaymentMethodType {
     TResult Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult Function(AddReasons value)? addReasons,
-    TResult Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult Function(FetchProducts value)? fetchProducts,
     TResult Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult Function(SaveArticleCategoryFilterVal value)?
@@ -22454,7 +22454,7 @@ class _$FetchProductItemsbyCategory implements FetchProductItemsbyCategory {
     required TResult Function(FetchAllBrandsEvent value) fetchAllBrandsEvent,
     required TResult Function(FetchOrderReasons value) fetchOrderReasons,
     required TResult Function(AddReasons value) addReasons,
-    required TResult Function(FetchArticlesbyId value) fetchArticlesbyId,
+    required TResult Function(FetchArticlesId value) fetchArticlesbyId,
     required TResult Function(FetchProducts value) fetchProducts,
     required TResult Function(FetchArticlesCategory value)
         fetchArticlesCategory,
@@ -22530,7 +22530,7 @@ class _$FetchProductItemsbyCategory implements FetchProductItemsbyCategory {
     TResult? Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult? Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult? Function(AddReasons value)? addReasons,
-    TResult? Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult? Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult? Function(FetchProducts value)? fetchProducts,
     TResult? Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult? Function(SaveArticleCategoryFilterVal value)?
@@ -22604,7 +22604,7 @@ class _$FetchProductItemsbyCategory implements FetchProductItemsbyCategory {
     TResult Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult Function(AddReasons value)? addReasons,
-    TResult Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult Function(FetchProducts value)? fetchProducts,
     TResult Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult Function(SaveArticleCategoryFilterVal value)?
@@ -23034,7 +23034,7 @@ class _$FetchSpecificCategeryItems implements FetchSpecificCategeryItems {
     required TResult Function(FetchAllBrandsEvent value) fetchAllBrandsEvent,
     required TResult Function(FetchOrderReasons value) fetchOrderReasons,
     required TResult Function(AddReasons value) addReasons,
-    required TResult Function(FetchArticlesbyId value) fetchArticlesbyId,
+    required TResult Function(FetchArticlesId value) fetchArticlesbyId,
     required TResult Function(FetchProducts value) fetchProducts,
     required TResult Function(FetchArticlesCategory value)
         fetchArticlesCategory,
@@ -23110,7 +23110,7 @@ class _$FetchSpecificCategeryItems implements FetchSpecificCategeryItems {
     TResult? Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult? Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult? Function(AddReasons value)? addReasons,
-    TResult? Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult? Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult? Function(FetchProducts value)? fetchProducts,
     TResult? Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult? Function(SaveArticleCategoryFilterVal value)?
@@ -23184,7 +23184,7 @@ class _$FetchSpecificCategeryItems implements FetchSpecificCategeryItems {
     TResult Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult Function(AddReasons value)? addReasons,
-    TResult Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult Function(FetchProducts value)? fetchProducts,
     TResult Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult Function(SaveArticleCategoryFilterVal value)?
@@ -23617,7 +23617,7 @@ class _$FetchProductsById implements FetchProductsById {
     required TResult Function(FetchAllBrandsEvent value) fetchAllBrandsEvent,
     required TResult Function(FetchOrderReasons value) fetchOrderReasons,
     required TResult Function(AddReasons value) addReasons,
-    required TResult Function(FetchArticlesbyId value) fetchArticlesbyId,
+    required TResult Function(FetchArticlesId value) fetchArticlesbyId,
     required TResult Function(FetchProducts value) fetchProducts,
     required TResult Function(FetchArticlesCategory value)
         fetchArticlesCategory,
@@ -23693,7 +23693,7 @@ class _$FetchProductsById implements FetchProductsById {
     TResult? Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult? Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult? Function(AddReasons value)? addReasons,
-    TResult? Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult? Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult? Function(FetchProducts value)? fetchProducts,
     TResult? Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult? Function(SaveArticleCategoryFilterVal value)?
@@ -23767,7 +23767,7 @@ class _$FetchProductsById implements FetchProductsById {
     TResult Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult Function(AddReasons value)? addReasons,
-    TResult Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult Function(FetchProducts value)? fetchProducts,
     TResult Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult Function(SaveArticleCategoryFilterVal value)?
@@ -24201,7 +24201,7 @@ class _$FetchBrandProducts implements FetchBrandProducts {
     required TResult Function(FetchAllBrandsEvent value) fetchAllBrandsEvent,
     required TResult Function(FetchOrderReasons value) fetchOrderReasons,
     required TResult Function(AddReasons value) addReasons,
-    required TResult Function(FetchArticlesbyId value) fetchArticlesbyId,
+    required TResult Function(FetchArticlesId value) fetchArticlesbyId,
     required TResult Function(FetchProducts value) fetchProducts,
     required TResult Function(FetchArticlesCategory value)
         fetchArticlesCategory,
@@ -24277,7 +24277,7 @@ class _$FetchBrandProducts implements FetchBrandProducts {
     TResult? Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult? Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult? Function(AddReasons value)? addReasons,
-    TResult? Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult? Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult? Function(FetchProducts value)? fetchProducts,
     TResult? Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult? Function(SaveArticleCategoryFilterVal value)?
@@ -24351,7 +24351,7 @@ class _$FetchBrandProducts implements FetchBrandProducts {
     TResult Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult Function(AddReasons value)? addReasons,
-    TResult Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult Function(FetchProducts value)? fetchProducts,
     TResult Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult Function(SaveArticleCategoryFilterVal value)?
@@ -24758,7 +24758,7 @@ class _$FetchCoupons implements FetchCoupons {
     required TResult Function(FetchAllBrandsEvent value) fetchAllBrandsEvent,
     required TResult Function(FetchOrderReasons value) fetchOrderReasons,
     required TResult Function(AddReasons value) addReasons,
-    required TResult Function(FetchArticlesbyId value) fetchArticlesbyId,
+    required TResult Function(FetchArticlesId value) fetchArticlesbyId,
     required TResult Function(FetchProducts value) fetchProducts,
     required TResult Function(FetchArticlesCategory value)
         fetchArticlesCategory,
@@ -24834,7 +24834,7 @@ class _$FetchCoupons implements FetchCoupons {
     TResult? Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult? Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult? Function(AddReasons value)? addReasons,
-    TResult? Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult? Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult? Function(FetchProducts value)? fetchProducts,
     TResult? Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult? Function(SaveArticleCategoryFilterVal value)?
@@ -24908,7 +24908,7 @@ class _$FetchCoupons implements FetchCoupons {
     TResult Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult Function(AddReasons value)? addReasons,
-    TResult Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult Function(FetchProducts value)? fetchProducts,
     TResult Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult Function(SaveArticleCategoryFilterVal value)?
@@ -25336,7 +25336,7 @@ class _$IsPromoCodeAvailable implements IsPromoCodeAvailable {
     required TResult Function(FetchAllBrandsEvent value) fetchAllBrandsEvent,
     required TResult Function(FetchOrderReasons value) fetchOrderReasons,
     required TResult Function(AddReasons value) addReasons,
-    required TResult Function(FetchArticlesbyId value) fetchArticlesbyId,
+    required TResult Function(FetchArticlesId value) fetchArticlesbyId,
     required TResult Function(FetchProducts value) fetchProducts,
     required TResult Function(FetchArticlesCategory value)
         fetchArticlesCategory,
@@ -25412,7 +25412,7 @@ class _$IsPromoCodeAvailable implements IsPromoCodeAvailable {
     TResult? Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult? Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult? Function(AddReasons value)? addReasons,
-    TResult? Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult? Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult? Function(FetchProducts value)? fetchProducts,
     TResult? Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult? Function(SaveArticleCategoryFilterVal value)?
@@ -25486,7 +25486,7 @@ class _$IsPromoCodeAvailable implements IsPromoCodeAvailable {
     TResult Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult Function(AddReasons value)? addReasons,
-    TResult Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult Function(FetchProducts value)? fetchProducts,
     TResult Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult Function(SaveArticleCategoryFilterVal value)?
@@ -25919,7 +25919,7 @@ class _$ChangeIndexEvent implements ChangeIndexEvent {
     required TResult Function(FetchAllBrandsEvent value) fetchAllBrandsEvent,
     required TResult Function(FetchOrderReasons value) fetchOrderReasons,
     required TResult Function(AddReasons value) addReasons,
-    required TResult Function(FetchArticlesbyId value) fetchArticlesbyId,
+    required TResult Function(FetchArticlesId value) fetchArticlesbyId,
     required TResult Function(FetchProducts value) fetchProducts,
     required TResult Function(FetchArticlesCategory value)
         fetchArticlesCategory,
@@ -25995,7 +25995,7 @@ class _$ChangeIndexEvent implements ChangeIndexEvent {
     TResult? Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult? Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult? Function(AddReasons value)? addReasons,
-    TResult? Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult? Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult? Function(FetchProducts value)? fetchProducts,
     TResult? Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult? Function(SaveArticleCategoryFilterVal value)?
@@ -26069,7 +26069,7 @@ class _$ChangeIndexEvent implements ChangeIndexEvent {
     TResult Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult Function(AddReasons value)? addReasons,
-    TResult Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult Function(FetchProducts value)? fetchProducts,
     TResult Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult Function(SaveArticleCategoryFilterVal value)?
@@ -26503,7 +26503,7 @@ class _$FetchBrandItemsbyId implements FetchBrandItemsbyId {
     required TResult Function(FetchAllBrandsEvent value) fetchAllBrandsEvent,
     required TResult Function(FetchOrderReasons value) fetchOrderReasons,
     required TResult Function(AddReasons value) addReasons,
-    required TResult Function(FetchArticlesbyId value) fetchArticlesbyId,
+    required TResult Function(FetchArticlesId value) fetchArticlesbyId,
     required TResult Function(FetchProducts value) fetchProducts,
     required TResult Function(FetchArticlesCategory value)
         fetchArticlesCategory,
@@ -26579,7 +26579,7 @@ class _$FetchBrandItemsbyId implements FetchBrandItemsbyId {
     TResult? Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult? Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult? Function(AddReasons value)? addReasons,
-    TResult? Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult? Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult? Function(FetchProducts value)? fetchProducts,
     TResult? Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult? Function(SaveArticleCategoryFilterVal value)?
@@ -26653,7 +26653,7 @@ class _$FetchBrandItemsbyId implements FetchBrandItemsbyId {
     TResult Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult Function(AddReasons value)? addReasons,
-    TResult Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult Function(FetchProducts value)? fetchProducts,
     TResult Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult Function(SaveArticleCategoryFilterVal value)?
@@ -27060,7 +27060,7 @@ class _$FetchAllBrandsEvent implements FetchAllBrandsEvent {
     required TResult Function(FetchAllBrandsEvent value) fetchAllBrandsEvent,
     required TResult Function(FetchOrderReasons value) fetchOrderReasons,
     required TResult Function(AddReasons value) addReasons,
-    required TResult Function(FetchArticlesbyId value) fetchArticlesbyId,
+    required TResult Function(FetchArticlesId value) fetchArticlesbyId,
     required TResult Function(FetchProducts value) fetchProducts,
     required TResult Function(FetchArticlesCategory value)
         fetchArticlesCategory,
@@ -27136,7 +27136,7 @@ class _$FetchAllBrandsEvent implements FetchAllBrandsEvent {
     TResult? Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult? Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult? Function(AddReasons value)? addReasons,
-    TResult? Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult? Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult? Function(FetchProducts value)? fetchProducts,
     TResult? Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult? Function(SaveArticleCategoryFilterVal value)?
@@ -27210,7 +27210,7 @@ class _$FetchAllBrandsEvent implements FetchAllBrandsEvent {
     TResult Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult Function(AddReasons value)? addReasons,
-    TResult Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult Function(FetchProducts value)? fetchProducts,
     TResult Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult Function(SaveArticleCategoryFilterVal value)?
@@ -27638,7 +27638,7 @@ class _$FetchOrderReasons implements FetchOrderReasons {
     required TResult Function(FetchAllBrandsEvent value) fetchAllBrandsEvent,
     required TResult Function(FetchOrderReasons value) fetchOrderReasons,
     required TResult Function(AddReasons value) addReasons,
-    required TResult Function(FetchArticlesbyId value) fetchArticlesbyId,
+    required TResult Function(FetchArticlesId value) fetchArticlesbyId,
     required TResult Function(FetchProducts value) fetchProducts,
     required TResult Function(FetchArticlesCategory value)
         fetchArticlesCategory,
@@ -27714,7 +27714,7 @@ class _$FetchOrderReasons implements FetchOrderReasons {
     TResult? Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult? Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult? Function(AddReasons value)? addReasons,
-    TResult? Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult? Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult? Function(FetchProducts value)? fetchProducts,
     TResult? Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult? Function(SaveArticleCategoryFilterVal value)?
@@ -27788,7 +27788,7 @@ class _$FetchOrderReasons implements FetchOrderReasons {
     TResult Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult Function(AddReasons value)? addReasons,
-    TResult Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult Function(FetchProducts value)? fetchProducts,
     TResult Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult Function(SaveArticleCategoryFilterVal value)?
@@ -28230,7 +28230,7 @@ class _$AddReasons implements AddReasons {
     required TResult Function(FetchAllBrandsEvent value) fetchAllBrandsEvent,
     required TResult Function(FetchOrderReasons value) fetchOrderReasons,
     required TResult Function(AddReasons value) addReasons,
-    required TResult Function(FetchArticlesbyId value) fetchArticlesbyId,
+    required TResult Function(FetchArticlesId value) fetchArticlesbyId,
     required TResult Function(FetchProducts value) fetchProducts,
     required TResult Function(FetchArticlesCategory value)
         fetchArticlesCategory,
@@ -28306,7 +28306,7 @@ class _$AddReasons implements AddReasons {
     TResult? Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult? Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult? Function(AddReasons value)? addReasons,
-    TResult? Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult? Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult? Function(FetchProducts value)? fetchProducts,
     TResult? Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult? Function(SaveArticleCategoryFilterVal value)?
@@ -28380,7 +28380,7 @@ class _$AddReasons implements AddReasons {
     TResult Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult Function(AddReasons value)? addReasons,
-    TResult Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult Function(FetchProducts value)? fetchProducts,
     TResult Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult Function(SaveArticleCategoryFilterVal value)?
@@ -28410,20 +28410,20 @@ abstract class AddReasons implements ShopProductsEvent {
 }
 
 /// @nodoc
-abstract class _$$FetchArticlesbyIdCopyWith<$Res> {
-  factory _$$FetchArticlesbyIdCopyWith(
-          _$FetchArticlesbyId value, $Res Function(_$FetchArticlesbyId) then) =
-      __$$FetchArticlesbyIdCopyWithImpl<$Res>;
+abstract class _$$FetchArticlesIdCopyWith<$Res> {
+  factory _$$FetchArticlesIdCopyWith(
+          _$FetchArticlesId value, $Res Function(_$FetchArticlesId) then) =
+      __$$FetchArticlesIdCopyWithImpl<$Res>;
   @useResult
   $Res call({String id});
 }
 
 /// @nodoc
-class __$$FetchArticlesbyIdCopyWithImpl<$Res>
-    extends _$ShopProductsEventCopyWithImpl<$Res, _$FetchArticlesbyId>
-    implements _$$FetchArticlesbyIdCopyWith<$Res> {
-  __$$FetchArticlesbyIdCopyWithImpl(
-      _$FetchArticlesbyId _value, $Res Function(_$FetchArticlesbyId) _then)
+class __$$FetchArticlesIdCopyWithImpl<$Res>
+    extends _$ShopProductsEventCopyWithImpl<$Res, _$FetchArticlesId>
+    implements _$$FetchArticlesIdCopyWith<$Res> {
+  __$$FetchArticlesIdCopyWithImpl(
+      _$FetchArticlesId _value, $Res Function(_$FetchArticlesId) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -28431,7 +28431,7 @@ class __$$FetchArticlesbyIdCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
   }) {
-    return _then(_$FetchArticlesbyId(
+    return _then(_$FetchArticlesId(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -28442,8 +28442,8 @@ class __$$FetchArticlesbyIdCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FetchArticlesbyId implements FetchArticlesbyId {
-  const _$FetchArticlesbyId({required this.id});
+class _$FetchArticlesId implements FetchArticlesId {
+  const _$FetchArticlesId({required this.id});
 
   @override
   final String id;
@@ -28457,7 +28457,7 @@ class _$FetchArticlesbyId implements FetchArticlesbyId {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FetchArticlesbyId &&
+            other is _$FetchArticlesId &&
             (identical(other.id, id) || other.id == id));
   }
 
@@ -28467,8 +28467,8 @@ class _$FetchArticlesbyId implements FetchArticlesbyId {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FetchArticlesbyIdCopyWith<_$FetchArticlesbyId> get copyWith =>
-      __$$FetchArticlesbyIdCopyWithImpl<_$FetchArticlesbyId>(this, _$identity);
+  _$$FetchArticlesIdCopyWith<_$FetchArticlesId> get copyWith =>
+      __$$FetchArticlesIdCopyWithImpl<_$FetchArticlesId>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -28815,7 +28815,7 @@ class _$FetchArticlesbyId implements FetchArticlesbyId {
     required TResult Function(FetchAllBrandsEvent value) fetchAllBrandsEvent,
     required TResult Function(FetchOrderReasons value) fetchOrderReasons,
     required TResult Function(AddReasons value) addReasons,
-    required TResult Function(FetchArticlesbyId value) fetchArticlesbyId,
+    required TResult Function(FetchArticlesId value) fetchArticlesbyId,
     required TResult Function(FetchProducts value) fetchProducts,
     required TResult Function(FetchArticlesCategory value)
         fetchArticlesCategory,
@@ -28891,7 +28891,7 @@ class _$FetchArticlesbyId implements FetchArticlesbyId {
     TResult? Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult? Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult? Function(AddReasons value)? addReasons,
-    TResult? Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult? Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult? Function(FetchProducts value)? fetchProducts,
     TResult? Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult? Function(SaveArticleCategoryFilterVal value)?
@@ -28965,7 +28965,7 @@ class _$FetchArticlesbyId implements FetchArticlesbyId {
     TResult Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult Function(AddReasons value)? addReasons,
-    TResult Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult Function(FetchProducts value)? fetchProducts,
     TResult Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult Function(SaveArticleCategoryFilterVal value)?
@@ -28982,13 +28982,12 @@ class _$FetchArticlesbyId implements FetchArticlesbyId {
   }
 }
 
-abstract class FetchArticlesbyId implements ShopProductsEvent {
-  const factory FetchArticlesbyId({required final String id}) =
-      _$FetchArticlesbyId;
+abstract class FetchArticlesId implements ShopProductsEvent {
+  const factory FetchArticlesId({required final String id}) = _$FetchArticlesId;
 
   String get id;
   @JsonKey(ignore: true)
-  _$$FetchArticlesbyIdCopyWith<_$FetchArticlesbyId> get copyWith =>
+  _$$FetchArticlesIdCopyWith<_$FetchArticlesId> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -29372,7 +29371,7 @@ class _$FetchProducts implements FetchProducts {
     required TResult Function(FetchAllBrandsEvent value) fetchAllBrandsEvent,
     required TResult Function(FetchOrderReasons value) fetchOrderReasons,
     required TResult Function(AddReasons value) addReasons,
-    required TResult Function(FetchArticlesbyId value) fetchArticlesbyId,
+    required TResult Function(FetchArticlesId value) fetchArticlesbyId,
     required TResult Function(FetchProducts value) fetchProducts,
     required TResult Function(FetchArticlesCategory value)
         fetchArticlesCategory,
@@ -29448,7 +29447,7 @@ class _$FetchProducts implements FetchProducts {
     TResult? Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult? Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult? Function(AddReasons value)? addReasons,
-    TResult? Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult? Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult? Function(FetchProducts value)? fetchProducts,
     TResult? Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult? Function(SaveArticleCategoryFilterVal value)?
@@ -29522,7 +29521,7 @@ class _$FetchProducts implements FetchProducts {
     TResult Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult Function(AddReasons value)? addReasons,
-    TResult Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult Function(FetchProducts value)? fetchProducts,
     TResult Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult Function(SaveArticleCategoryFilterVal value)?
@@ -29923,7 +29922,7 @@ class _$FetchArticlesCategory implements FetchArticlesCategory {
     required TResult Function(FetchAllBrandsEvent value) fetchAllBrandsEvent,
     required TResult Function(FetchOrderReasons value) fetchOrderReasons,
     required TResult Function(AddReasons value) addReasons,
-    required TResult Function(FetchArticlesbyId value) fetchArticlesbyId,
+    required TResult Function(FetchArticlesId value) fetchArticlesbyId,
     required TResult Function(FetchProducts value) fetchProducts,
     required TResult Function(FetchArticlesCategory value)
         fetchArticlesCategory,
@@ -29999,7 +29998,7 @@ class _$FetchArticlesCategory implements FetchArticlesCategory {
     TResult? Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult? Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult? Function(AddReasons value)? addReasons,
-    TResult? Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult? Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult? Function(FetchProducts value)? fetchProducts,
     TResult? Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult? Function(SaveArticleCategoryFilterVal value)?
@@ -30073,7 +30072,7 @@ class _$FetchArticlesCategory implements FetchArticlesCategory {
     TResult Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult Function(AddReasons value)? addReasons,
-    TResult Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult Function(FetchProducts value)? fetchProducts,
     TResult Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult Function(SaveArticleCategoryFilterVal value)?
@@ -30505,7 +30504,7 @@ class _$SaveArticleCategoryFilterVal implements SaveArticleCategoryFilterVal {
     required TResult Function(FetchAllBrandsEvent value) fetchAllBrandsEvent,
     required TResult Function(FetchOrderReasons value) fetchOrderReasons,
     required TResult Function(AddReasons value) addReasons,
-    required TResult Function(FetchArticlesbyId value) fetchArticlesbyId,
+    required TResult Function(FetchArticlesId value) fetchArticlesbyId,
     required TResult Function(FetchProducts value) fetchProducts,
     required TResult Function(FetchArticlesCategory value)
         fetchArticlesCategory,
@@ -30581,7 +30580,7 @@ class _$SaveArticleCategoryFilterVal implements SaveArticleCategoryFilterVal {
     TResult? Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult? Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult? Function(AddReasons value)? addReasons,
-    TResult? Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult? Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult? Function(FetchProducts value)? fetchProducts,
     TResult? Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult? Function(SaveArticleCategoryFilterVal value)?
@@ -30655,7 +30654,7 @@ class _$SaveArticleCategoryFilterVal implements SaveArticleCategoryFilterVal {
     TResult Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult Function(AddReasons value)? addReasons,
-    TResult Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult Function(FetchProducts value)? fetchProducts,
     TResult Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult Function(SaveArticleCategoryFilterVal value)?
@@ -31090,7 +31089,7 @@ class _$FetchArticlesByCategory implements FetchArticlesByCategory {
     required TResult Function(FetchAllBrandsEvent value) fetchAllBrandsEvent,
     required TResult Function(FetchOrderReasons value) fetchOrderReasons,
     required TResult Function(AddReasons value) addReasons,
-    required TResult Function(FetchArticlesbyId value) fetchArticlesbyId,
+    required TResult Function(FetchArticlesId value) fetchArticlesbyId,
     required TResult Function(FetchProducts value) fetchProducts,
     required TResult Function(FetchArticlesCategory value)
         fetchArticlesCategory,
@@ -31166,7 +31165,7 @@ class _$FetchArticlesByCategory implements FetchArticlesByCategory {
     TResult? Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult? Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult? Function(AddReasons value)? addReasons,
-    TResult? Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult? Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult? Function(FetchProducts value)? fetchProducts,
     TResult? Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult? Function(SaveArticleCategoryFilterVal value)?
@@ -31240,7 +31239,7 @@ class _$FetchArticlesByCategory implements FetchArticlesByCategory {
     TResult Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult Function(AddReasons value)? addReasons,
-    TResult Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult Function(FetchProducts value)? fetchProducts,
     TResult Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult Function(SaveArticleCategoryFilterVal value)?
@@ -31685,7 +31684,7 @@ class _$FetchBrandProductsItemCount implements FetchBrandProductsItemCount {
     required TResult Function(FetchAllBrandsEvent value) fetchAllBrandsEvent,
     required TResult Function(FetchOrderReasons value) fetchOrderReasons,
     required TResult Function(AddReasons value) addReasons,
-    required TResult Function(FetchArticlesbyId value) fetchArticlesbyId,
+    required TResult Function(FetchArticlesId value) fetchArticlesbyId,
     required TResult Function(FetchProducts value) fetchProducts,
     required TResult Function(FetchArticlesCategory value)
         fetchArticlesCategory,
@@ -31761,7 +31760,7 @@ class _$FetchBrandProductsItemCount implements FetchBrandProductsItemCount {
     TResult? Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult? Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult? Function(AddReasons value)? addReasons,
-    TResult? Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult? Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult? Function(FetchProducts value)? fetchProducts,
     TResult? Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult? Function(SaveArticleCategoryFilterVal value)?
@@ -31835,7 +31834,7 @@ class _$FetchBrandProductsItemCount implements FetchBrandProductsItemCount {
     TResult Function(FetchAllBrandsEvent value)? fetchAllBrandsEvent,
     TResult Function(FetchOrderReasons value)? fetchOrderReasons,
     TResult Function(AddReasons value)? addReasons,
-    TResult Function(FetchArticlesbyId value)? fetchArticlesbyId,
+    TResult Function(FetchArticlesId value)? fetchArticlesbyId,
     TResult Function(FetchProducts value)? fetchProducts,
     TResult Function(FetchArticlesCategory value)? fetchArticlesCategory,
     TResult Function(SaveArticleCategoryFilterVal value)?

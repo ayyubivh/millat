@@ -11,9 +11,7 @@ import '../../../../../utils/color_manager.dart';
 import '../../../bloc/logic/quran_bloc/quran_bloc.dart';
 import '../../../bloc/models/al-quran/quran_chapter_models/quran_chapter_models.dart';
 import '../bookmark_view.dart';
-import 'bookmark_collection_view.dart';
 import 'new_collection_widget.dart';
-import 'verses_view.dart';
 
 class QuranTabBarWidget extends StatefulWidget {
   const QuranTabBarWidget({super.key});

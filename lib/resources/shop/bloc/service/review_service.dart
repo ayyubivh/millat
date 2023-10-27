@@ -1,32 +1,48 @@
 import 'dart:convert';
-
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:millat/resources/authentication/bloc/logic/database_bloc/database_bloc.dart';
+import 'package:millat/resources/shop/bloc/models/review/review_comments_model.dart';
 import 'package:millat/resources/shop/bloc/models/review/review_models.dart';
 import 'package:millat/services/http_services.dart';
-import 'package:http/http.dart' as http;
-import 'package:millat/utils/string_constants.dart';
 
 class ReviewServices extends HttpServices {
-  //Fetching cart items
+  //Fetching total reviews
   Future<ReviewModel> fetchReviews(BuildContext context, String id) async {
-    final endPoint = 'review/product_id/$id';
-    final databaseState = context.read<DatabaseBloc>().state;
-    final token = databaseState.token;
-    final headers = {
-      'Content-Type': 'application/json; charset=utf-8',
-      'Authorization': 'Bearer $token',
-    };
-    final response = await get(endPoint: endPoint, headers: headers);
+    final endPoint = 'review/total/product_id/$id';
+
+    final response = await get(endPoint: endPoint, isToken: true);
     if (response.statusCode == 200) {
       try {
         if (response.statusCode == 200) {
-          print(response.body);
           final Map<String, dynamic> data = json.decode(response.body);
           final result = ReviewModel.fromJson(data);
-          print(result.result?.avgRating);
+          print(result.result?.data?.averageRating);
+          return result;
+        } else {
+          print('API request failed with status code: ${response.statusCode}');
+          throw Exception(
+              'API request failed with status code: ${response.statusCode}');
+        }
+      } catch (e) {
+        print('error on order API fetch: ${e.toString()}');
+        throw Exception('Failed to parse response');
+      }
+    } else {
+      throw Exception('Token not available');
+    }
+  }
+//fetch review comments
+
+  Future<ReviewCommentsModel> fetchReviewComments(
+      BuildContext context, String id) async {
+    final endPoint = 'review/reviws_with_comments/$id';
+
+    final response = await get(endPoint: endPoint, isToken: true);
+    if (response.statusCode == 200) {
+      try {
+        if (response.statusCode == 200) {
+          final Map<String, dynamic> data = json.decode(response.body);
+          final result = ReviewCommentsModel.fromJson(data);
+          print(result.result?.data);
           return result;
         } else {
           print('API request failed with status code: ${response.statusCode}');
@@ -50,11 +66,6 @@ class ReviewServices extends HttpServices {
     required double rating,
   }) async {
     const endPoint = 'review/add';
-    final databaseState = context.read<DatabaseBloc>().state;
-    final token = databaseState.token;
-    final headers = {
-      'Authorization': 'Bearer $token',
-    };
 
     return posts(
             endPoint: endPoint,
@@ -64,15 +75,13 @@ class ReviewServices extends HttpServices {
               "rating": rating.toString(),
               "comment": comment,
             },
-            headers: headers)
+            isToken: true)
         .then((value) {
       if (value.statusCode == 200) {
         print(value.body);
       }
     }).catchError((error) {
-      if (kDebugMode) {
-        debugPrint("error on adding review $error");
-      }
+      debugPrint("error on adding review $error");
       throw Exception(error);
     });
   }
@@ -84,21 +93,14 @@ class ReviewServices extends HttpServices {
     required double rating,
   }) async {
     final endPoint = 'review/update/$productId';
-    final databaseState = context.read<DatabaseBloc>().state;
-    final token = databaseState.token;
-    final headers = {
-      'Content-Type': 'application/json; charset=utf-8',
-      'Authorization': 'Bearer $token',
-    };
+
     final body = {
       "productId": productId,
       "rating": rating.toString(),
       "comment": comment,
     };
 
-    final response = await http.patch(Uri.parse(kBaseUrl + endPoint),
-        headers: headers, body: jsonEncode(body));
-
+    final response = await patch(endPoint: endPoint, body: body, isToken: true);
     try {
       if (response.statusCode == 200) {
         print(response.body);

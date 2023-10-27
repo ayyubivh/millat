@@ -42,7 +42,7 @@ class BookmarkView extends StatelessWidget {
         ],
       ),
       body: BlocProvider(
-        create: (context) => BookmarkBloc()..add(FetchCollectionItem()),
+        create: (context) => BookmarkBloc()..add(const FetchCollectionItem()),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 25),
           child: Column(

@@ -1,11 +1,7 @@
 import 'dart:convert';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:http/http.dart' as http;
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:millat/resources/shop/bloc/models/orders/reason_model.dart';
 import '../../../../services/http_services.dart';
-import '../../../../utils/string_constants.dart';
-import '../../../authentication/bloc/logic/database_bloc/database_bloc.dart';
 
 import '../models/orders/fetch_order_byId_model.dart';
 import '../models/orders/orders_model.dart';
@@ -24,20 +20,15 @@ class OrdersService extends HttpServices {
   }) async {
     const endPoint = 'order/payment/COD';
 
-    final databaseState = context.read<DatabaseBloc>().state;
-    final token = databaseState.token;
-
-    final headers = {
-      'Content-Type': 'application/json; charset=utf-8',
-      'Authorization': 'Bearer $token',
-    };
-
     final body = {
-      "address": id,
+      "address": id.toString(),
     };
 
-    final response = await http.post(Uri.parse(kBaseUrl + endPoint),
-        headers: headers, body: jsonEncode(body));
+    final response = await posts(
+      endPoint: endPoint,
+      isToken: true,
+      body: body,
+    );
 
     try {
       if (response.statusCode == 200) {
@@ -63,14 +54,6 @@ class OrdersService extends HttpServices {
   }) async {
     const endPoint = 'order/payment/confirm';
 
-    final databaseState = context.read<DatabaseBloc>().state;
-    final token = databaseState.token;
-
-    final headers = {
-      'Content-Type': 'application/json; charset=utf-8',
-      'Authorization': 'Bearer $token',
-    };
-
     final body = {
       "address": addressId,
       "razorpay_order_id": razorpayOrderId,
@@ -78,8 +61,11 @@ class OrdersService extends HttpServices {
       "razorpay_signature": razorpaySignature,
     };
 
-    final response = await http.post(Uri.parse(kBaseUrl + endPoint),
-        headers: headers, body: jsonEncode(body));
+    final response = await posts(
+      endPoint: endPoint,
+      isToken: true,
+      body: body,
+    );
 
     try {
       if (response.statusCode == 200) {
@@ -102,20 +88,15 @@ class OrdersService extends HttpServices {
   }) async {
     const endPoint = "order/payment/online";
 
-    final databaseState = context.read<DatabaseBloc>().state;
-    final token = databaseState.token;
-
-    final headers = {
-      'Content-Type': 'application/json; charset=utf-8',
-      'Authorization': 'Bearer $token',
-    };
-
     final body = {
-      "amount": amount,
+      "amount": amount.toString(),
     };
 
-    final response = await http.post(Uri.parse(kBaseUrl + endPoint),
-        headers: headers, body: jsonEncode(body));
+    final response = await posts(
+      endPoint: endPoint,
+      isToken: true,
+      body: body,
+    );
 
     try {
       if (response.statusCode == 200) {
@@ -146,14 +127,6 @@ class OrdersService extends HttpServices {
   }) async {
     const endPoint = 'order/payment/coin';
 
-    final databaseState = context.read<DatabaseBloc>().state;
-    final token = databaseState.token;
-
-    final headers = {
-      'Content-Type': 'application/json; charset=utf-8',
-      'Authorization': 'Bearer $token',
-    };
-
     final body = {
       "coins": coins,
       "price": price,
@@ -167,8 +140,11 @@ class OrdersService extends HttpServices {
       }
     };
 
-    final response = await http.post(Uri.parse(kBaseUrl + endPoint),
-        headers: headers, body: jsonEncode(body));
+    final response = await posts(
+      endPoint: endPoint,
+      isToken: true,
+      body: body,
+    );
 
     try {
       if (response.statusCode == 200) {
@@ -182,7 +158,7 @@ class OrdersService extends HttpServices {
       }
     } catch (e) {
       print('Error on API fetch: ${e.toString()}');
-      throw e; // Re-throw the exception to propagate it to the caller.
+      rethrow; // Re-throw the exception to propagate it to the caller.
     }
   }
 
@@ -190,13 +166,7 @@ class OrdersService extends HttpServices {
   Future<OrderModel> fetchOrders(BuildContext context) async {
     const endPoint = "order";
 
-    final databaseState = context.read<DatabaseBloc>().state;
-    final token = databaseState.token;
-    final headers = {
-      'Content-Type': 'application/json; charset=utf-8',
-      'Authorization': 'Bearer $token',
-    };
-    final response = await get(endPoint: endPoint, headers: headers);
+    final response = await get(endPoint: endPoint, isToken: true);
 
     if (response.statusCode == 200) {
       try {
@@ -219,13 +189,7 @@ class OrdersService extends HttpServices {
       BuildContext context, int id) async {
     final endPoint = "order/$id";
 
-    final databaseState = context.read<DatabaseBloc>().state;
-    final token = databaseState.token;
-    final headers = {
-      'Content-Type': 'application/json; charset=utf-8',
-      'Authorization': 'Bearer $token',
-    };
-    final response = await get(endPoint: endPoint, headers: headers);
+    final response = await get(endPoint: endPoint, isToken: true);
 
     if (response.statusCode == 200) {
       try {
@@ -248,13 +212,7 @@ class OrdersService extends HttpServices {
       BuildContext context, String filterName) async {
     final endPoint = "order?status=$filterName";
 
-    final databaseState = context.read<DatabaseBloc>().state;
-    final token = databaseState.token;
-    final headers = {
-      'Content-Type': 'application/json; charset=utf-8',
-      'Authorization': 'Bearer $token',
-    };
-    final response = await get(endPoint: endPoint, headers: headers);
+    final response = await get(endPoint: endPoint, isToken: true);
 
     if (response.statusCode == 200) {
       try {
@@ -279,21 +237,15 @@ class OrdersService extends HttpServices {
   }) async {
     const endPoint = 'order/cancel';
 
-    final databaseState = context.read<DatabaseBloc>().state;
-    final token = databaseState.token;
-
-    final headers = {
-      'Content-Type': 'application/json; charset=utf-8',
-      'Authorization': 'Bearer $token',
-    };
-
     final body = {
-      "shiprocket_order_id": shiprocketId,
+      "shiprocket_order_id": shiprocketId.toString(),
     };
 
-    final response = await http.post(Uri.parse(kBaseUrl + endPoint),
-        headers: headers, body: jsonEncode(body));
-
+    final response = await posts(
+      endPoint: endPoint,
+      isToken: true,
+      body: body,
+    );
     try {
       if (response.statusCode == 200) {
         final Map<String, dynamic> data = json.decode(response.body);
@@ -315,20 +267,15 @@ class OrdersService extends HttpServices {
   }) async {
     const endPoint = 'order/return';
 
-    final databaseState = context.read<DatabaseBloc>().state;
-    final token = databaseState.token;
-
-    final headers = {
-      'Content-Type': 'application/json; charset=utf-8',
-      'Authorization': 'Bearer $token',
-    };
-
     final body = {
-      "shiprocket_order_id": shiprocketId,
+      "shiprocket_order_id": shiprocketId.toString(),
     };
 
-    final response = await http.post(Uri.parse(kBaseUrl + endPoint),
-        headers: headers, body: jsonEncode(body));
+    final response = await posts(
+      endPoint: endPoint,
+      isToken: true,
+      body: body,
+    );
 
     try {
       if (response.statusCode == 200) {
@@ -369,8 +316,10 @@ class OrdersService extends HttpServices {
       "text": text,
     };
 
-    final response =
-        await http.put(Uri.parse(kBaseUrl + endPoint), body: jsonEncode(body));
+    final response = await posts(
+      endPoint: endPoint,
+      body: body,
+    );
 
     try {
       if (response.statusCode == 200) {

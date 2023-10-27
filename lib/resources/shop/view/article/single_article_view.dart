@@ -20,6 +20,10 @@ class SingleArticleView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      BlocProvider.of<ShopProductsBloc>(context)
+          .add(ShopProductsEvent.fetchArticlesbyId(id: id));
+    });
     return Scaffold(
       backgroundColor: ColorManager.whiteColor,
       appBar: AppBar(
@@ -35,111 +39,106 @@ class SingleArticleView extends StatelessWidget {
           color: ColorManager.blackColor,
         ),
       ),
-      body: BlocProvider(
-        create: (context) => ShopProductsBloc()
-          ..add(ShopProductsEvent.fetchArticlesbyId(id: id)),
-        child: SingleChildScrollView(
-          child: BlocBuilder<ShopProductsBloc, ShopProductsState>(
-            builder: (context, state) {
-              final data = state.articleModelById?.result?.article;
-              if (data == null) {
-                return const Loader();
-              }
-              return Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(
-                    height: 350,
-                    width: SizeUtility(context).width,
-                    child: Stack(
-                      children: [
-                        Container(
-                          height: 240,
-                          color: ColorManager.darkGreenClr4f.withOpacity(0.3),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 30)
-                              .copyWith(top: 30),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                data.title ?? "",
-                                style: const TextStyle(
-                                    color: black16,
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.w600),
-                              ),
-                              kHeight30,
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                crossAxisAlignment: CrossAxisAlignment.end,
-                                children: [
-                                  Text(
-                                    '${data.brand} • ${Utilities.formatDate(data.date ?? "")}',
-                                    style: TextStyle(
-                                        color: ColorManager.textGrey84,
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.bold),
+      body: SingleChildScrollView(
+        child: BlocBuilder<ShopProductsBloc, ShopProductsState>(
+          builder: (context, state) {
+            final data = state.articleModelById?.result?.article;
+            if (data == null) {
+              return const Loader();
+            }
+            return Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(
+                  height: 350,
+                  width: SizeUtility(context).width,
+                  child: Stack(
+                    children: [
+                      Container(
+                        height: 240,
+                        color: ColorManager.darkGreenClr4f.withOpacity(0.3),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 30)
+                            .copyWith(top: 30),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              data.title ?? "",
+                              style: const TextStyle(
+                                  color: black16,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w600),
+                            ),
+                            kHeight30,
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              children: [
+                                Text(
+                                  '${data.brand} • ${Utilities.formatDate(data.date ?? "")}',
+                                  style: TextStyle(
+                                      color: ColorManager.textGrey84,
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                                Container(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 10, vertical: 10),
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(20),
+                                    color: ColorManager.darkGreenClr4f,
                                   ),
-                                  Container(
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 10, vertical: 10),
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(20),
-                                      color: ColorManager.darkGreenClr4f,
-                                    ),
-                                    child: Text(
-                                      Appstrings.popular,
-                                      style: TextStyle(
-                                          color: ColorManager.whiteColor,
-                                          fontWeight: FontWeight.w700),
-                                    ),
-                                  )
-                                ],
-                              ),
-                            ],
-                          ),
+                                  child: Text(
+                                    Appstrings.popular,
+                                    style: TextStyle(
+                                        color: ColorManager.whiteColor,
+                                        fontWeight: FontWeight.w700),
+                                  ),
+                                )
+                              ],
+                            ),
+                          ],
                         ),
-                        Positioned(
-                          top: 140,
-                          left: 0,
-                          right: 0,
-                          child: Container(
-                            padding: const EdgeInsets.symmetric(horizontal: 30),
-                            width: SizeUtility(context).width / 4,
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(20),
-                              child: Utilities().buildCachedNetworkImage(
-                                imageUrl: data.image!,
-                                height: 202,
-                                width: double.infinity,
-                                boxFit: BoxFit.fill,
-                              ),
+                      ),
+                      Positioned(
+                        top: 140,
+                        left: 0,
+                        right: 0,
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(horizontal: 30),
+                          width: SizeUtility(context).width / 4,
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(20),
+                            child: Utilities().buildCachedNetworkImage(
+                              imageUrl: data.image!,
+                              height: 202,
+                              width: double.infinity,
+                              boxFit: BoxFit.fill,
                             ),
                           ),
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
-                  kHeight15,
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 30),
-                    child: Text(
-                      data.content ?? "",
-                      style: TextStyle(
-                          color: ColorManager.textGrey99,
-                          fontSize: 17,
-                          height: 1.3),
-                    ),
+                ),
+                kHeight15,
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 30),
+                  child: Text(
+                    data.content ?? "",
+                    style: TextStyle(
+                        color: ColorManager.textGrey99,
+                        fontSize: 17,
+                        height: 1.3),
                   ),
-                  kHeight100,
-                  kHeight50,
-                ],
-              );
-            },
-          ),
+                ),
+                kHeight100,
+                kHeight50,
+              ],
+            );
+          },
         ),
       ),
       bottomSheet: BlocBuilder<ShopProductsBloc, ShopProductsState>(

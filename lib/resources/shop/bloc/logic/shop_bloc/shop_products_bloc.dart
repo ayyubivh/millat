@@ -88,7 +88,7 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
     on<FetchAllBrandsEvent>(_fetchAllBrandsEvent);
     on<FetchOrderReasons>(_fetchOrderReasons);
     on<AddReasons>(_addReasons);
-    on<FetchArticlesbyId>(_fetchArticlesById);
+    on<FetchArticlesId>(_fetchArticlesById);
     on<FetchProducts>(_fetchProducts);
     on<FetchArticlesCategory>(_fetchArticlesCategory);
     on<SaveArticleCategoryFilterVal>(_saveArticleCategoryFilterVal);
@@ -315,7 +315,7 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
     try {
       final data = await shopService.fetchProductsByBrand(event.brandName);
       emit(state.copyWith(brandProduct: data, isLoading: false));
-      print('on bloc here of the shop by brand ${data}');
+      print('on bloc here of the shop by brand $data');
     } catch (e) {
       emit(state.copyWith(isLoading: false));
     }
@@ -711,7 +711,7 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
   }
 
   _fetchArticlesById(
-      FetchArticlesbyId event, Emitter<ShopProductsState> emit) async {
+      FetchArticlesId event, Emitter<ShopProductsState> emit) async {
     emit(state.copyWith(isLoading: true));
     try {
       final data = await shopService.fetchArticleById(event.id);
@@ -804,7 +804,6 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
           await shopService.fetchBrandProductsItemsCount(productIds: event.ids);
 
       emit(state.copyWith(brandProductsItemCount: data, isLoading: false));
-    
     } catch (e) {
       emit(state.copyWith(isLoading: false));
     }

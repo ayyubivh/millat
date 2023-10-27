@@ -16,7 +16,7 @@ part 'address_state.dart';
 part 'address_bloc.freezed.dart';
 
 class AddressBloc extends Bloc<AddressEvent, AddressState> {
-  AddressService _addressService = AddressService();
+  final AddressService _addressService = AddressService();
   AddressBloc() : super(AddressState.initial()) {
     on<AddAddress>(_addAddress);
     on<FetchAddressEvent>(_fetchAddressEvent);
@@ -135,7 +135,7 @@ class AddressBloc extends Bloc<AddressEvent, AddressState> {
       final data =
           await _addressService.fetchAddressById(event.context, event.id);
       emit(state.copyWith(addressIdModel: data, isLoading: false));
-      print('on addess ${data}');
+      print('on addess $data');
     } catch (e) {
       emit(state.copyWith(isLoading: false));
 

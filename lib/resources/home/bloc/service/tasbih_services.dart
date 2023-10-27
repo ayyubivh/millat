@@ -1,11 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/services/http_services.dart';
-import 'package:http/http.dart' as http;
-import '../../../../utils/string_constants.dart';
-import '../../../authentication/bloc/logic/database_bloc/database_bloc.dart';
 import '../models/tasbih/tasbih_dikr_model.dart';
 
 class TasbihService extends HttpServices {
@@ -32,16 +28,13 @@ class TasbihService extends HttpServices {
     required BuildContext context,
     required String id,
   }) async {
-    final databaseState = context.read<DatabaseBloc>().state;
-    final token = databaseState.token;
-    final headers = {
-      'Content-Type': 'application/json; charset=utf-8',
-      'Authorization': 'Bearer $token',
-    };
     final body = {"duaId": id};
 
-    final response = await http.put(Uri.parse(kBaseUrl + addDhikr),
-        headers: headers, body: jsonEncode(body));
+    final response = await put(
+      endPoint: addDhikr,
+      isToken: true,
+      body: body,
+    );
     try {
       if (response.statusCode == 200) {
         final Map<String, dynamic> data = json.decode(response.body);

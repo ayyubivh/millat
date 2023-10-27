@@ -1,7 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-
-part 'cart_models.freezed.dart';
 part 'cart_models.g.dart';
+part 'cart_models.freezed.dart';
 
 @freezed
 class CartModel with _$CartModel {
@@ -20,6 +19,7 @@ class CartModel with _$CartModel {
 class CartResult with _$CartResult {
   const factory CartResult({
     required CartProducts? cartProducts,
+    required AmountDetails? amountDetails,
   }) = _CartResult;
 
   factory CartResult.fromJson(Map<String, dynamic> json) =>
@@ -59,21 +59,21 @@ class CartItem with _$CartItem {
 @freezed
 class ProductInfo with _$ProductInfo {
   const factory ProductInfo({
-    @JsonKey(name: '_id') String? id,
+    @JsonKey(name: '_id') required String? id,
     String? title,
     double? tax,
-    String? brand,
-    String? category,
-    String? subcategory,
-    String? itemType,
-    String? pickupAddress,
-    String? description,
+    ProductBrand? brand,
+    ProductCategory? category,
+    ProductSubCategory? subcategory,
+    @JsonKey(name: 'itemType') String? itemType,
+    @JsonKey(name: 'pickupAddress') String? pickupAddress,
+    dynamic description,
     @JsonKey(name: 'regularPrice') double? regularPrice,
     @JsonKey(name: 'salePrice') double? salePrice,
-    int? discount,
     String? color,
     List<String>? images,
     List<Size>? size,
+    List<String>? tags,
     List<String>? keywords,
     String? madeFrom,
     String? productCareInfo,
@@ -83,6 +83,64 @@ class ProductInfo with _$ProductInfo {
 
   factory ProductInfo.fromJson(Map<String, dynamic> json) =>
       _$ProductInfoFromJson(json);
+}
+
+@freezed
+class ProductBrand with _$ProductBrand {
+  const factory ProductBrand({
+    @JsonKey(name: '_id') required String? id,
+    required String? name,
+    required String? email,
+    required String? password,
+    required bool? isActive,
+    required String? phoneNumber,
+    required String? logo,
+    required String? coverImage,
+    required String? description,
+    required String? cityName,
+    required String? brandName,
+    required String? companyName,
+    required String? companyRegYear,
+    required int? revenueOfLastThreeMonths,
+    required String? category,
+    List<String>? subCategory,
+    @JsonKey(name: 'GST') required String? gst,
+    required String? role,
+    required String? createdAt,
+    required String? updatedAt,
+  }) = _ProductBrand;
+
+  factory ProductBrand.fromJson(Map<String, dynamic> json) =>
+      _$ProductBrandFromJson(json);
+}
+
+@freezed
+class ProductCategory with _$ProductCategory {
+  const factory ProductCategory({
+    @JsonKey(name: '_id') required String? id,
+    required String? title,
+    required String? image,
+    required String? createdAt,
+    required String? updatedAt,
+  }) = _ProductCategory;
+
+  factory ProductCategory.fromJson(Map<String, dynamic> json) =>
+      _$ProductCategoryFromJson(json);
+}
+
+@freezed
+class ProductSubCategory with _$ProductSubCategory {
+  const factory ProductSubCategory({
+    @JsonKey(name: '_id') required String? id,
+    required String? categoryId,
+    required String? title,
+    required String? image,
+    required String? createdAt,
+    required String? updatedAt,
+  }) = _ProductSubCategory;
+
+  factory ProductSubCategory.fromJson(Map<String, dynamic> json) =>
+      _$ProductSubCategoryFromJson(json);
 }
 
 @freezed
@@ -98,4 +156,17 @@ class Size with _$Size {
   }) = _Size;
 
   factory Size.fromJson(Map<String, dynamic> json) => _$SizeFromJson(json);
+}
+
+@freezed
+class AmountDetails with _$AmountDetails {
+  const factory AmountDetails({
+    required int? subTotal,
+    required int? total,
+    required int? shippingCost,
+    required double? avgTax,
+  }) = _AmountDetails;
+
+  factory AmountDetails.fromJson(Map<String, dynamic> json) =>
+      _$AmountDetailsFromJson(json);
 }

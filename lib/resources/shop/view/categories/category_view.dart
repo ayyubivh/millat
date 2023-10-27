@@ -27,495 +27,485 @@ class CategoryView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      BlocProvider.of<ShopProductsBloc>(context)
+        ..add(ShopProductsEvent.fetchFlashSaleProducts(
+            endPointSlug: "shop_product_category?slug=${category}_flash_sales"))
+        ..add(ShopProductsEvent.fetchPopularProducts(
+            endPointSlug:
+                "shop_product_category?slug=${category}_popular_products"))
+        ..add(ShopProductsEvent.fetchSpecificCategeryItems(
+            slug: category.toString().replaceAll(" ", "_")));
+      BlocProvider.of<CategoryBloc>(context)
+          .add(FetchItemsByCategory(category: category));
+    });
     return Scaffold(
-        body: MultiBlocProvider(
-      providers: [
-        BlocProvider(
-          create: (context) => ShopProductsBloc()
-            ..add(ShopProductsEvent.fetchFlashSaleProducts(
-                endPointSlug: "shop_product_category?slug=$category"))
-            ..add(ShopProductsEvent.fetchSpecificCategeryItems(
-                slug: category.toString().replaceAll(" ", "_"))),
+        body: CustomScrollView(
+      slivers: [
+        SliverAppBar(
+          elevation: 0,
+          title: const Text(
+            "Super Flash sale 50% off",
+            style: TextStyle(
+              fontSize: 14,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          flexibleSpace: Container(
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                colors: [
+                  Color(0xFFBCFEB1),
+                  Color(0xFF00A05B),
+                ],
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+              ),
+            ),
+          ),
+          actions: const [
+            Padding(
+              padding: EdgeInsets.only(right: 20),
+              child: timer(),
+            ),
+          ],
         ),
-        BlocProvider(
-          create: (context) => CategoryBloc()
-            ..add((CategoryEvent.fetchItemsByCategory(category: category))),
-        )
-      ],
-      child: CustomScrollView(
-        slivers: [
-          SliverAppBar(
-            elevation: 0,
-            title: const Text(
-              "Super Flash sale 50% off",
-              style: TextStyle(
-                fontSize: 14,
-                fontWeight: FontWeight.bold,
+        SliverToBoxAdapter(
+          child: Column(
+            children: [
+              BlocBuilder<ShopProductsBloc, ShopProductsState>(
+                builder: (context, state) {
+                  final sliderImage =
+                      state.specificCategoryModel?.result?.data?.sliderImage;
+
+                  return sliderImage == null
+                      ? const SizedBox()
+                      : Stack(
+                          children: [
+                            CarouselSlider(
+                              items: sliderImage.map(
+                                (e) {
+                                  return SizedBox(
+                                    child: Utilities()
+                                        .buildCachedNetworkImage(imageUrl: e),
+                                  );
+                                },
+                              ).toList(),
+                              options: CarouselOptions(
+                                viewportFraction: 1,
+                                enlargeCenterPage: false,
+                                autoPlay: true,
+                                autoPlayCurve: Curves.fastOutSlowIn,
+                                enableInfiniteScroll: true,
+                                enlargeFactor: 0.3,
+                                scrollDirection: Axis.horizontal,
+                                autoPlayAnimationDuration:
+                                    const Duration(milliseconds: 800),
+                                onPageChanged: (index, reason) {
+                                  context.read<ShopProductsBloc>().add(
+                                      IndexChangeOnWomensCareBanner(
+                                          index: index));
+                                },
+                              ),
+                            ),
+                            Positioned(
+                              left: 0,
+                              right: 0,
+                              bottom: 25,
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: sliderImage.map((banner) {
+                                  int index = sliderImage.indexOf(banner);
+                                  return Container(
+                                    width: state.womensCareBannerIndex == index
+                                        ? 6
+                                        : 6,
+                                    height: 6,
+                                    margin: const EdgeInsets.symmetric(
+                                        horizontal: 4),
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(30),
+                                      color:
+                                          state.womensCareBannerIndex == index
+                                              ? ColorManager.primary
+                                              : ColorManager.textGrey2,
+                                    ),
+                                  );
+                                }).toList(),
+                              ),
+                            ),
+                          ],
+                        );
+                },
               ),
-            ),
-            flexibleSpace: Container(
-              decoration: const BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [
-                    Color(0xFFBCFEB1),
-                    Color(0xFF00A05B),
-                  ],
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                ),
-              ),
-            ),
-            actions: const [
               Padding(
-                padding: EdgeInsets.only(right: 20),
-                child: timer(),
+                padding: const EdgeInsets.symmetric(horizontal: 30),
+                child: Column(
+                  children: [
+                    kHeight20,
+                    categoryType == CategoryType.specificCategory
+                        ? BlocBuilder<ShopProductsBloc, ShopProductsState>(
+                            builder: (context, state) {
+                              List<dynamic>? productItems;
+
+                              if (category == "women") {
+                                productItems = state
+                                    .productItemsSubCategoryWomenModel
+                                    ?.result
+                                    ?.data
+                                    ?.itemList;
+                              } else {
+                                productItems = state
+                                    .productItemsSubCategoryHealthModel
+                                    ?.result!
+                                    .data
+                                    ?.itemList;
+                              }
+
+                              return SizedBox(
+                                height: 110,
+                                child: ListView.builder(
+                                  itemCount: productItems?.length ?? 0,
+                                  scrollDirection: Axis.horizontal,
+                                  itemExtent: 100,
+                                  itemBuilder: (context, index) {
+                                    final subCategoryData =
+                                        productItems?[index];
+                                    return GestureDetector(
+                                      onTap: () {
+                                        print(
+                                            "item id ${productItems?[index].id}");
+
+                                        context.pushNamed(
+                                            MyAppRouteConstants
+                                                .categoriesProductsRouteName,
+                                            extra: {
+                                              'itemId': productItems?[index].id,
+                                              'category': "",
+                                              'subCategory': "",
+                                              'type':
+                                                  FilterType.specificCategory
+                                            });
+                                      },
+                                      child: Column(
+                                        children: [
+                                          Container(
+                                            height: 60,
+                                            width: 60,
+                                            padding: const EdgeInsets.all(8),
+                                            margin: const EdgeInsets.only(
+                                                right: 10),
+                                            decoration: BoxDecoration(
+                                              color: ColorManager.lightGreen,
+                                              borderRadius:
+                                                  BorderRadius.circular(12),
+                                            ),
+                                            child: ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(12),
+                                              child: Utilities()
+                                                  .buildCachedNetworkImage(
+                                                      imageUrl: subCategoryData
+                                                              ?.image ??
+                                                          ""),
+                                            ),
+                                          ),
+                                          kHeight10,
+                                          Text(
+                                            subCategoryData?.title ?? "",
+                                            style: const TextStyle(
+                                              fontSize: 14,
+                                              fontWeight: FontWeight.w600,
+                                            ),
+                                            textAlign: TextAlign.center,
+                                          ),
+                                        ],
+                                      ),
+                                    );
+                                  },
+                                ),
+                              );
+                            },
+                          )
+                        : BlocBuilder<CategoryBloc, CategoryState>(
+                            builder: (context, state) {
+                              return SizedBox(
+                                height: 100,
+                                child: ListView.builder(
+                                  itemCount: state.categoryItemModel?.result
+                                          ?.items?.length ??
+                                      8,
+                                  scrollDirection: Axis.horizontal,
+                                  itemExtent: 100,
+                                  itemBuilder: (context, index) {
+                                    final data = state.categoryItemModel?.result
+                                        ?.items?[index];
+
+                                    return GestureDetector(
+                                      onTap: () {
+                                        context.pushNamed(
+                                            MyAppRouteConstants
+                                                .categoriesProductsRouteName,
+                                            extra: {
+                                              'itemName': data?.title,
+                                              'itemId': data?.id,
+                                              'category': "",
+                                              'subCategory': "",
+                                              'type':
+                                                  FilterType.specificCategory
+                                            });
+                                      },
+                                      child: Column(
+                                        children: [
+                                          Container(
+                                            height: 60,
+                                            width: 60,
+                                            padding: const EdgeInsets.all(8),
+                                            margin: const EdgeInsets.only(
+                                                right: 10),
+                                            decoration: BoxDecoration(
+                                              color: ColorManager.lightGreen,
+                                              borderRadius:
+                                                  BorderRadius.circular(12),
+                                            ),
+                                            child: ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(12),
+                                              child: Utilities()
+                                                  .buildCachedNetworkImage(
+                                                      imageUrl:
+                                                          data?.image ?? ""),
+                                            ),
+                                          ),
+                                          kHeight10,
+                                          Text(
+                                            data?.title ?? "",
+                                            style: const TextStyle(
+                                              fontSize: 14,
+                                              fontWeight: FontWeight.w600,
+                                            ),
+                                            textAlign: TextAlign.center,
+                                          ),
+                                        ],
+                                      ),
+                                    );
+                                  },
+                                ),
+                              );
+                            },
+                          ),
+                    kHeight20,
+                    BlocBuilder<ShopProductsBloc, ShopProductsState>(
+                      builder: (context, state) {
+                        if (state.isLoading) {
+                          return const Loader();
+                        }
+
+                        final products = state.flashSaleproducts?.result
+                            ?.shopProductCategory?.products;
+                        if (products == null) {
+                          return const Loader();
+                        }
+                        return products.isEmpty
+                            ? const SizedBox()
+                            : Column(
+                                children: [
+                                  _produtsTitleWidget(
+                                    context: context,
+                                    text: Appstrings.flashSale,
+                                    isShowTimer: true,
+                                  ),
+                                  kHeight16,
+                                  SizedBox(
+                                    height: 280,
+                                    child: ListView.builder(
+                                      scrollDirection: Axis.horizontal,
+                                      itemCount: products.length,
+                                      itemBuilder: (context, index) {
+                                        final data = products[index];
+
+                                        return GestureDetector(
+                                          onTap: () {
+                                            context.pushNamed(
+                                                MyAppRouteConstants
+                                                    .singleProductRouteName,
+                                                pathParameters: {
+                                                  "id": data.id.toString()
+                                                });
+                                          },
+                                          child: Padding(
+                                            padding: const EdgeInsets.only(
+                                                right: 15),
+                                            child: ShopProductWidget(
+                                              color: data.color ?? "",
+                                              size: data.size?[0].size ?? "",
+                                              brandId: data.brand?.id,
+                                              isWishlisted: state.isWishListed,
+                                              brand: data.brand?.name ?? "",
+                                              productId: data.id,
+                                              image: data.images?[0] ?? "",
+                                              title: data.title ?? "",
+                                              actualPrice:
+                                                  data.regularPrice?.toInt() ??
+                                                      0,
+                                              discount:
+                                                  data.discount?.toInt() ?? 0,
+                                              discountPrice:
+                                                  data.salePrice?.toInt() ?? 0,
+                                            ),
+                                          ),
+                                        );
+                                      },
+                                    ),
+                                  ),
+                                ],
+                              );
+                      },
+                    ),
+                    kHeight20,
+                    BlocBuilder<ShopProductsBloc, ShopProductsState>(
+                      builder: (context, state) {
+                        final img = state.specificCategoryModel?.result?.data
+                                ?.smallBannerImage
+                                ?.map((image) => image.imageUrl)
+                                .toList() ??
+                            [];
+                        return state.specificCategoryModel?.result?.data == null
+                            ? ShimmersWidget(
+                                width: SizeUtility(context).width, height: 120)
+                            : Column(
+                                children: [
+                                  for (var i = 0;
+                                      i <
+                                          state.specificCategoryModel!.result!
+                                              .data!.smallBannerImage!.length
+                                              .toInt();
+                                      i++)
+                                    GestureDetector(
+                                      onTap: () {
+                                        // Navigator.of(context)
+                                        //     .push(MaterialPageRoute(
+                                        //   builder: (context) =>
+                                        //       ShopSpecificCategoryBannerView(
+                                        //           imageUrl: img[i] ?? "",
+                                        //           category: widget.category),
+                                        // ));
+                                        context.pushNamed(
+                                            MyAppRouteConstants
+                                                .shopSpecificCategoryBannerRouteName,
+                                            extra: {
+                                              'imageUrl': img[i],
+                                              'category': category,
+                                            });
+                                      },
+                                      child: Padding(
+                                        padding:
+                                            const EdgeInsets.only(top: 2.5),
+                                        child: Utilities()
+                                            .buildCachedNetworkImage(
+                                                imageUrl: img[i]),
+                                      ),
+                                    ),
+                                ],
+                              );
+                      },
+                    ),
+                    kHeight20,
+                    BlocBuilder<ShopProductsBloc, ShopProductsState>(
+                      builder: (context, state) {
+                        // if (state.popularProductLoading) {
+                        //   return const Loader();
+                        // }
+
+                        final products = state.popularProducts?.result
+                            ?.shopProductCategory?.products;
+
+                        return products == null || products.isEmpty
+                            ? const SizedBox()
+                            : Column(
+                                children: [
+                                  _produtsTitleWidget(
+                                    context: context,
+                                    text: Appstrings.mostPopular,
+                                    isShowTimer: false,
+                                  ),
+                                  kHeight16,
+                                  SizedBox(
+                                    height: 280,
+                                    child: ListView.builder(
+                                      scrollDirection: Axis.horizontal,
+                                      itemCount: products.length,
+                                      itemBuilder: (context, index) {
+                                        final data = products[index];
+
+                                        return GestureDetector(
+                                          onTap: () {
+                                            context.pushNamed(
+                                                MyAppRouteConstants
+                                                    .singleProductRouteName,
+                                                pathParameters: {
+                                                  "id": data.id.toString()
+                                                });
+                                          },
+                                          child: Padding(
+                                            padding: const EdgeInsets.only(
+                                                right: 15),
+                                            child: ShopProductWidget(
+                                              color: data.color ?? "",
+                                              size: data.size?[0].size ?? "",
+                                              brandId: data.brand?.id ?? "",
+                                              isWishlisted: state.isWishListed,
+                                              brand: data.brand?.name ?? "",
+                                              productId: data.id,
+                                              image: data.images?[0] ?? "",
+                                              title: data.title ?? "",
+                                              actualPrice:
+                                                  data.regularPrice?.toInt() ??
+                                                      0,
+                                              discount:
+                                                  data.discount?.toInt() ?? 0,
+                                              discountPrice:
+                                                  data.salePrice?.toInt() ?? 0,
+                                            ),
+                                          ),
+                                        );
+                                      },
+                                    ),
+                                  ),
+                                ],
+                              );
+                      },
+                    ),
+                    kHeight10,
+                    BlocBuilder<ShopProductsBloc, ShopProductsState>(
+                      builder: (context, state) {
+                        final bigBannerImageUrl = state.specificCategoryModel
+                            ?.result?.data?.bigBannerImage?.imageUrl;
+                        return bigBannerImageUrl == null
+                            ? const Loader()
+                            : GestureDetector(
+                                onTap: () {
+                                  context.pushNamed(
+                                      MyAppRouteConstants
+                                          .shopSpecificCategoryBannerRouteName,
+                                      extra: {
+                                        'imageUrl': bigBannerImageUrl,
+                                        'category': category,
+                                      });
+                                },
+                                child: Utilities().buildCachedNetworkImage(
+                                    imageUrl: bigBannerImageUrl),
+                              );
+                      },
+                    ),
+                    kHeight25,
+                  ],
+                ),
               ),
             ],
           ),
-          SliverToBoxAdapter(
-            child: Column(
-              children: [
-                BlocBuilder<ShopProductsBloc, ShopProductsState>(
-                  builder: (context, state) {
-                    final sliderImage =
-                        state.specificCategoryModel?.result?.data?.sliderImage;
-
-                    return sliderImage == null
-                        ? const SizedBox()
-                        : Stack(
-                            children: [
-                              CarouselSlider(
-                                items: sliderImage.map(
-                                  (e) {
-                                    return SizedBox(
-                                      child: Utilities()
-                                          .buildCachedNetworkImage(imageUrl: e),
-                                    );
-                                  },
-                                ).toList(),
-                                options: CarouselOptions(
-                                  viewportFraction: 1,
-                                  enlargeCenterPage: false,
-                                  autoPlay: true,
-                                  autoPlayCurve: Curves.fastOutSlowIn,
-                                  enableInfiniteScroll: true,
-                                  enlargeFactor: 0.3,
-                                  scrollDirection: Axis.horizontal,
-                                  autoPlayAnimationDuration:
-                                      const Duration(milliseconds: 800),
-                                  onPageChanged: (index, reason) {
-                                    context.read<ShopProductsBloc>().add(
-                                        IndexChangeOnWomensCareBanner(
-                                            index: index));
-                                  },
-                                ),
-                              ),
-                              Positioned(
-                                left: 0,
-                                right: 0,
-                                bottom: 25,
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: sliderImage.map((banner) {
-                                    int index = sliderImage.indexOf(banner);
-                                    return Container(
-                                      width:
-                                          state.womensCareBannerIndex == index
-                                              ? 6
-                                              : 6,
-                                      height: 6,
-                                      margin: const EdgeInsets.symmetric(
-                                          horizontal: 4),
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(30),
-                                        color:
-                                            state.womensCareBannerIndex == index
-                                                ? ColorManager.primary
-                                                : ColorManager.textGrey2,
-                                      ),
-                                    );
-                                  }).toList(),
-                                ),
-                              ),
-                            ],
-                          );
-                  },
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 30),
-                  child: Column(
-                    children: [
-                      kHeight20,
-                      categoryType == CategoryType.specificCategory
-                          ? BlocBuilder<ShopProductsBloc, ShopProductsState>(
-                              builder: (context, state) {
-                                List<dynamic>? productItems;
-
-                                if (category == "women") {
-                                  productItems = state
-                                      .productItemsSubCategoryWomenModel
-                                      ?.result
-                                      ?.data
-                                      ?.itemList;
-                                } else {
-                                  productItems = state
-                                      .productItemsSubCategoryHealthModel
-                                      ?.result!
-                                      .data
-                                      ?.itemList;
-                                }
-
-                                return SizedBox(
-                                  height: 110,
-                                  child: ListView.builder(
-                                    itemCount: productItems?.length ?? 0,
-                                    scrollDirection: Axis.horizontal,
-                                    itemExtent: 100,
-                                    itemBuilder: (context, index) {
-                                      final subCategoryData =
-                                          productItems?[index];
-                                      return GestureDetector(
-                                        onTap: () {
-                                          print(
-                                              "item id ${productItems?[index].id}");
-
-                                          context.pushNamed(
-                                              MyAppRouteConstants
-                                                  .categoriesProductsRouteName,
-                                              extra: {
-                                                'itemId':
-                                                    productItems?[index].id,
-                                                'category': "",
-                                                'subCategory': "",
-                                                'type':
-                                                    FilterType.specificCategory
-                                              });
-                                        },
-                                        child: Column(
-                                          children: [
-                                            Container(
-                                              height: 60,
-                                              width: 60,
-                                              padding: const EdgeInsets.all(8),
-                                              margin: const EdgeInsets.only(
-                                                  right: 10),
-                                              decoration: BoxDecoration(
-                                                color: ColorManager.lightGreen,
-                                                borderRadius:
-                                                    BorderRadius.circular(12),
-                                              ),
-                                              child: ClipRRect(
-                                                borderRadius:
-                                                    BorderRadius.circular(12),
-                                                child: Utilities()
-                                                    .buildCachedNetworkImage(
-                                                        imageUrl:
-                                                            subCategoryData
-                                                                    ?.image ??
-                                                                ""),
-                                              ),
-                                            ),
-                                            kHeight10,
-                                            Text(
-                                              subCategoryData?.title ?? "",
-                                              style: const TextStyle(
-                                                fontSize: 14,
-                                                fontWeight: FontWeight.w600,
-                                              ),
-                                              textAlign: TextAlign.center,
-                                            ),
-                                          ],
-                                        ),
-                                      );
-                                    },
-                                  ),
-                                );
-                              },
-                            )
-                          : BlocBuilder<CategoryBloc, CategoryState>(
-                              builder: (context, state) {
-                                return SizedBox(
-                                  height: 100,
-                                  child: ListView.builder(
-                                    itemCount: state.categoryItemModel?.result
-                                            ?.items?.length ??
-                                        8,
-                                    scrollDirection: Axis.horizontal,
-                                    itemExtent: 100,
-                                    itemBuilder: (context, index) {
-                                      final data = state.categoryItemModel
-                                          ?.result?.items?[index];
-
-                                      return GestureDetector(
-                                        onTap: () {
-                                          context.pushNamed(
-                                              MyAppRouteConstants
-                                                  .categoriesProductsRouteName,
-                                              extra: {
-                                                'itemName': data?.title,
-                                                'itemId': data?.id,
-                                                'category': "",
-                                                'subCategory': "",
-                                                'type':
-                                                    FilterType.specificCategory
-                                              });
-                                        },
-                                        child: Column(
-                                          children: [
-                                            Container(
-                                              height: 60,
-                                              width: 60,
-                                              padding: const EdgeInsets.all(8),
-                                              margin: const EdgeInsets.only(
-                                                  right: 10),
-                                              decoration: BoxDecoration(
-                                                color: ColorManager.lightGreen,
-                                                borderRadius:
-                                                    BorderRadius.circular(12),
-                                              ),
-                                              child: ClipRRect(
-                                                borderRadius:
-                                                    BorderRadius.circular(12),
-                                                child: Utilities()
-                                                    .buildCachedNetworkImage(
-                                                        imageUrl:
-                                                            data?.image ?? ""),
-                                              ),
-                                            ),
-                                            kHeight10,
-                                            Text(
-                                              data?.title ?? "",
-                                              style: const TextStyle(
-                                                fontSize: 14,
-                                                fontWeight: FontWeight.w600,
-                                              ),
-                                              textAlign: TextAlign.center,
-                                            ),
-                                          ],
-                                        ),
-                                      );
-                                    },
-                                  ),
-                                );
-                              },
-                            ),
-                      kHeight20,
-                      BlocBuilder<ShopProductsBloc, ShopProductsState>(
-                        builder: (context, state) {
-                          if (state.isLoading) {
-                            return const Loader();
-                          }
-
-                          final products = state.flashSaleproducts?.result
-                              ?.shopProductCategory?.products;
-
-                          return products == null || products.isEmpty
-                              ? const SizedBox()
-                              : Column(
-                                  children: [
-                                    _produtsTitleWidget(
-                                      context: context,
-                                      text: Appstrings.flashSale,
-                                      isShowTimer: true,
-                                    ),
-                                    kHeight16,
-                                    SizedBox(
-                                      height: 280,
-                                      child: ListView.builder(
-                                        scrollDirection: Axis.horizontal,
-                                        itemCount: products.length,
-                                        itemBuilder: (context, index) {
-                                          final data = products[index];
-
-                                          return GestureDetector(
-                                            onTap: () {
-                                              context.pushNamed(
-                                                  MyAppRouteConstants
-                                                      .singleProductRouteName,
-                                                  pathParameters: {
-                                                    "id": data.id.toString()
-                                                  });
-                                            },
-                                            child: Padding(
-                                              padding: const EdgeInsets.only(
-                                                  right: 15),
-                                              child: ShopProductWidget(
-                                                color: data.color ?? "",
-                                                size: data.size?[0].size ?? "",
-                                                brandId: data.brand?.id,
-                                                isWishlisted:
-                                                    state.isWishListed,
-                                                brand: data.brand?.name ?? "",
-                                                productId: data.id,
-                                                image: data.images?[0] ?? "",
-                                                title: data.title ?? "",
-                                                actualPrice: data.regularPrice
-                                                        ?.toInt() ??
-                                                    0,
-                                                discount:
-                                                    data.discount?.toInt() ?? 0,
-                                                discountPrice:
-                                                    data.salePrice?.toInt() ??
-                                                        0,
-                                              ),
-                                            ),
-                                          );
-                                        },
-                                      ),
-                                    ),
-                                  ],
-                                );
-                        },
-                      ),
-                      kHeight20,
-                      BlocBuilder<ShopProductsBloc, ShopProductsState>(
-                        builder: (context, state) {
-                          final img = state.specificCategoryModel?.result?.data
-                                  ?.smallBannerImage
-                                  ?.map((image) => image.imageUrl)
-                                  .toList() ??
-                              [];
-                          return state.specificCategoryModel?.result?.data ==
-                                  null
-                              ? ShimmersWidget(
-                                  width: SizeUtility(context).width,
-                                  height: 120)
-                              : Column(
-                                  children: [
-                                    for (var i = 0;
-                                        i <
-                                            state.specificCategoryModel!.result!
-                                                .data!.smallBannerImage!.length
-                                                .toInt();
-                                        i++)
-                                      GestureDetector(
-                                        onTap: () {
-                                          // Navigator.of(context)
-                                          //     .push(MaterialPageRoute(
-                                          //   builder: (context) =>
-                                          //       ShopSpecificCategoryBannerView(
-                                          //           imageUrl: img[i] ?? "",
-                                          //           category: widget.category),
-                                          // ));
-                                          context.pushNamed(
-                                              MyAppRouteConstants
-                                                  .shopSpecificCategoryBannerRouteName,
-                                              extra: {
-                                                'imageUrl': img[i],
-                                                'category': category,
-                                              });
-                                        },
-                                        child: Padding(
-                                          padding:
-                                              const EdgeInsets.only(top: 2.5),
-                                          child: Utilities()
-                                              .buildCachedNetworkImage(
-                                                  imageUrl: img[i]),
-                                        ),
-                                      ),
-                                  ],
-                                );
-                        },
-                      ),
-                      kHeight20,
-                      BlocBuilder<ShopProductsBloc, ShopProductsState>(
-                        builder: (context, state) {
-                          // if (state.popularProductLoading) {
-                          //   return const Loader();
-                          // }
-
-                          final products = state.popularProducts?.result
-                              ?.shopProductCategory?.products;
-
-                          return products == null || products.isEmpty
-                              ? const SizedBox()
-                              : Column(
-                                  children: [
-                                    _produtsTitleWidget(
-                                      context: context,
-                                      text: Appstrings.mostPopular,
-                                      isShowTimer: false,
-                                    ),
-                                    kHeight16,
-                                    SizedBox(
-                                      height: 280,
-                                      child: ListView.builder(
-                                        scrollDirection: Axis.horizontal,
-                                        itemCount: products.length,
-                                        itemBuilder: (context, index) {
-                                          final data = products[index];
-
-                                          return GestureDetector(
-                                            onTap: () {
-                                              context.pushNamed(
-                                                  MyAppRouteConstants
-                                                      .singleProductRouteName,
-                                                  pathParameters: {
-                                                    "id": data.id.toString()
-                                                  });
-                                            },
-                                            child: Padding(
-                                              padding: const EdgeInsets.only(
-                                                  right: 15),
-                                              child: ShopProductWidget(
-                                                color: data.color ?? "",
-                                                size: data.size?[0].size ?? "",
-                                                brandId: data.brand?.id ?? "",
-                                                isWishlisted:
-                                                    state.isWishListed,
-                                                brand: data.brand?.name ?? "",
-                                                productId: data.id,
-                                                image: data.images?[0] ?? "",
-                                                title: data.title ?? "",
-                                                actualPrice: data.regularPrice
-                                                        ?.toInt() ??
-                                                    0,
-                                                discount:
-                                                    data.discount?.toInt() ?? 0,
-                                                discountPrice:
-                                                    data.salePrice?.toInt() ??
-                                                        0,
-                                              ),
-                                            ),
-                                          );
-                                        },
-                                      ),
-                                    ),
-                                  ],
-                                );
-                        },
-                      ),
-                      kHeight10,
-                      BlocBuilder<ShopProductsBloc, ShopProductsState>(
-                        builder: (context, state) {
-                          final bigBannerImageUrl = state.specificCategoryModel
-                              ?.result?.data?.bigBannerImage?.imageUrl;
-                          return bigBannerImageUrl == null
-                              ? const Loader()
-                              : GestureDetector(
-                                  onTap: () {
-                                    context.pushNamed(
-                                        MyAppRouteConstants
-                                            .shopSpecificCategoryBannerRouteName,
-                                        extra: {
-                                          'imageUrl': bigBannerImageUrl,
-                                          'category': category,
-                                        });
-                                  },
-                                  child: Utilities().buildCachedNetworkImage(
-                                      imageUrl: bigBannerImageUrl),
-                                );
-                        },
-                      ),
-                      kHeight25,
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          )
-        ],
-      ),
+        )
+      ],
     ));
   }
 

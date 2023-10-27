@@ -1,28 +1,18 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:http/http.dart' as http;
 import 'package:millat/resources/shop/bloc/models/cart/cart_models.dart';
-import 'package:millat/utils/string_constants.dart';
 import '../../../../services/http_services.dart';
-import '../../../authentication/bloc/logic/database_bloc/database_bloc.dart';
 
 class CartServices extends HttpServices {
   //Fetching cart items
   Future<CartModel> fetchCart(BuildContext context) async {
     const endPoint = 'cart';
-    final databaseState = context.read<DatabaseBloc>().state;
-    final token = databaseState.token;
-    final headers = {
-      'Content-Type': 'application/json; charset=utf-8',
-      'Authorization': 'Bearer $token',
-    };
-    final response = await get(endPoint: endPoint, headers: headers);
+
+    final response = await get(endPoint: endPoint, isToken: true);
     if (response.statusCode == 200) {
       try {
         if (response.statusCode == 200) {
-          final Map<String, dynamic> data = json.decode(response.body);
+          final data = json.decode(response.body);
           final result = CartModel.fromJson(data);
 
           return result;
@@ -32,7 +22,7 @@ class CartServices extends HttpServices {
               'API request failed with status code: ${response.statusCode}');
         }
       } catch (e) {
-        print('error on order API fetch: ${e.toString()}');
+        print('error on cart API fetch: ${e.toString()}');
         throw Exception('Failed to parse response');
       }
     } else {
@@ -49,33 +39,32 @@ class CartServices extends HttpServices {
     required String? color,
     required int quantity,
     required String brandId,
+    // required int discount,
   }) async {
     const endPoint = 'cart/add';
-    final databaseState = context.read<DatabaseBloc>().state;
-    final token = databaseState.token;
-    final headers = {
-      'Content-Type': 'application/json; charset=utf-8',
-      'Authorization': 'Bearer $token',
-    };
+
     final body = {
       "productId": productId,
-      "selling_price": basePrice,
+      "selling_price": basePrice.toString(),
       "size": size,
       "color": color,
-      "quantity": quantity,
-      "brandId": brandId
+      "quantity": quantity.toString(),
+      "brandId": brandId,
     };
 
-    final response = await http.put(Uri.parse(kBaseUrl + endPoint),
-        headers: headers, body: jsonEncode(body));
+    final response = await put(
+      endPoint: endPoint,
+      isToken: true,
+      body: body,
+    );
 
     try {
       if (response.statusCode == 200) {
-        final Map<String, dynamic> data = json.decode(response.body);
+        final data = json.decode(response.body);
 
         return data;
       } else if (response.statusCode == 409) {
-        final Map<String, dynamic> data = json.decode(response.body);
+        final data = json.decode(response.body);
 
         return data;
       } else {
@@ -96,19 +85,17 @@ class CartServices extends HttpServices {
     required int quantity,
   }) async {
     const endPoint = 'cart/update/quantity';
-    final databaseState = context.read<DatabaseBloc>().state;
-    final token = databaseState.token;
-    final headers = {
-      'Content-Type': 'application/json; charset=utf-8',
-      'Authorization': 'Bearer $token',
-    };
+
     final body = {
       "productId": productId,
       "quantity": quantity,
     };
 
-    final response = await http.put(Uri.parse(kBaseUrl + endPoint),
-        headers: headers, body: jsonEncode(body));
+    final response = await put(
+      endPoint: endPoint,
+      isToken: true,
+      body: body,
+    );
 
     if (response.statusCode == 200) {
       try {
@@ -136,24 +123,21 @@ class CartServices extends HttpServices {
     required String productId,
   }) async {
     const endPoint = 'cart/remove';
-    final databaseState = context.read<DatabaseBloc>().state;
-    final token = databaseState.token;
-    final headers = {
-      'Content-Type': 'application/json; charset=utf-8',
-      'Authorization': 'Bearer $token',
-    };
+
     final body = {
       "productId": productId,
     };
-
-    final response = await http.put(Uri.parse(kBaseUrl + endPoint),
-        headers: headers, body: jsonEncode(body));
+    final response = await put(
+      endPoint: endPoint,
+      isToken: true,
+      body: body,
+    );
 
     if (response.statusCode == 200) {
       try {
         if (response.statusCode == 200) {
           final Map<String, dynamic> data = json.decode(response.body);
-          print("removing cart ${data}");
+          print("removing cart $data");
           return data;
         } else {
           print('API request failed with status code: ${response.statusCode}');

@@ -3,7 +3,6 @@ import 'package:go_router/go_router.dart';
 import 'package:millat/routes/app_router_constants.dart';
 import '../../../../../utils/color_manager.dart';
 import '../../../../../utils/constants.dart';
-import 'al_quran_settings.dart';
 
 AppBar alQuranAppbar({
   required BuildContext context,

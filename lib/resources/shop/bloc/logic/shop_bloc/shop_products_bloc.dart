@@ -315,7 +315,7 @@ class ShopProductsBloc extends Bloc<ShopProductsEvent, ShopProductsState> {
     try {
       final data = await shopService.fetchProductsByBrand(event.brandName);
       emit(state.copyWith(brandProduct: data, isLoading: false));
-      print('on bloc here of the shop by brand ${data}');
+      print('on bloc here of the shop by brand $data');
     } catch (e) {
       emit(state.copyWith(isLoading: false));
     }

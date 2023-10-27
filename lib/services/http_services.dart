@@ -23,15 +23,19 @@ class HttpServices {
     bool isToken = false,
     required Map body,
   }) async {
-    final response = await http.post(Uri.parse(kBaseUrl + endPoint),
-        body: body,
-        headers: isToken
-            ? {
-                'Content-Type': 'application/json; charset=utf-8',
-                'Authorization': 'Bearer ${_getToken()}',
-              }
-            : {});
-    return response;
+    try {
+      final response = await http.post(Uri.parse(kBaseUrl + endPoint),
+          body: body,
+          headers: isToken
+              ? {
+                  // 'Content-Type': 'application/json; charset=utf-8',
+                  'Authorization': 'Bearer ${_getToken()}',
+                }
+              : {});
+      return response;
+    } catch (e) {
+      throw Exception(e);
+    }
   }
 
   Future<http.Response> put({
@@ -63,7 +67,7 @@ class HttpServices {
         body: body,
         headers: isToken
             ? {
-                'Content-Type': 'application/json; charset=utf-8',
+                // 'Content-Type': 'application/json; charset=utf-8',
                 'Authorization': 'Bearer ${_getToken()}',
               }
             : {});
@@ -77,7 +81,7 @@ class HttpServices {
     final response = await http.delete(Uri.parse(kBaseUrl + endPoint),
         headers: isToken
             ? {
-                'Content-Type': 'application/json; charset=utf-8',
+                // 'Content-Type': 'application/json; charset=utf-8',
                 'Authorization': 'Bearer ${_getToken()}',
               }
             : {});

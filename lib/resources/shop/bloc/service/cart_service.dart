@@ -137,7 +137,7 @@ class CartServices extends HttpServices {
       try {
         if (response.statusCode == 200) {
           final Map<String, dynamic> data = json.decode(response.body);
-          print("removing cart ${data}");
+          print("removing cart $data");
           return data;
         } else {
           print('API request failed with status code: ${response.statusCode}');

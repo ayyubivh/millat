@@ -27,7 +27,7 @@ class OrderProductCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final backgroundColor = _getColorFromJson(jsonColor);
     return Container(
-      margin: EdgeInsets.only(bottom: 10),
+      margin: const EdgeInsets.only(bottom: 10),
       width: double.infinity,
       color: Colors.white,
       child: SizedBox(
@@ -48,7 +48,7 @@ class OrderProductCard extends StatelessWidget {
                       image: DecorationImage(image: NetworkImage(image!)),
                     ),
                   ),
-                  SizedBox(width: 20),
+                  const SizedBox(width: 20),
                   Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -60,7 +60,7 @@ class OrderProductCard extends StatelessWidget {
                               width: MediaQuery.of(context).size.width * 0.4,
                               child: Text(
                                 title.toString(),
-                                style: TextStyle(
+                                style: const TextStyle(
                                   color: textBlack,
                                   fontSize: 16,
                                   fontWeight: FontWeight.w600,
@@ -69,20 +69,20 @@ class OrderProductCard extends StatelessWidget {
                             ),
                           ],
                         ),
-                        SizedBox(height: 10),
+                        const SizedBox(height: 10),
                         Container(
                           padding:
-                              EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                              const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                           color: Colors.black12.withOpacity(0.15),
                           child: Text(
-                            '${colorName}, ${size}',
-                            style: TextStyle(
+                            '$colorName, $size',
+                            style: const TextStyle(
                               color: Colors.black,
                               fontSize: 13,
                             ),
                           ),
                         ),
-                        SizedBox(height: 15),
+                        const SizedBox(height: 15),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -91,20 +91,20 @@ class OrderProductCard extends StatelessWidget {
                               children: [
                                 Text(
                                   price.toString(),
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     color: Colors.green,
                                     fontSize: 13,
                                   ),
                                 ),
-                                SizedBox(width: 20),
+                                const SizedBox(width: 20),
                                 CircleAvatar(
                                   radius: 6,
                                   backgroundColor: backgroundColor,
                                 ),
-                                SizedBox(width: 5),
+                                const SizedBox(width: 5),
                                 Text(
                                   colorName.toString(),
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     fontSize: 13,
                                     fontWeight: FontWeight.w500,
                                   ),
@@ -112,8 +112,8 @@ class OrderProductCard extends StatelessWidget {
                               ],
                             ),
                             Text(
-                              'Qty:${quantity}',
-                              style: TextStyle(
+                              'Qty:$quantity',
+                              style: const TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 15,
                               ),

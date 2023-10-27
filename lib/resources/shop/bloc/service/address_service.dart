@@ -4,6 +4,7 @@ import 'package:millat/resources/shop/bloc/models/address_model/addres_byid_mode
 import 'package:millat/resources/shop/bloc/models/address_model/address_model.dart';
 import 'package:millat/services/http_services.dart';
 import '../models/address_model/pincode_address_details_model.dart';
+import 'package:http/http.dart' as http;
 
 class AddressService extends HttpServices {
   // for adding the address
@@ -24,8 +25,8 @@ class AddressService extends HttpServices {
     final body = {
       "addressType": addressType,
       "name": name,
-      "mobile": mobile,
-      "pincode": pincode,
+      "mobile": mobile.toString(),
+      "pincode": pincode.toString(),
       "landmark": landmark,
       "addressLine": addressLine,
       "city": city,
@@ -179,7 +180,7 @@ class AddressService extends HttpServices {
   Future<PincodeAddressModel?> fetchPincodeAddres(String pincode) async {
     final endPoint = 'https://api.postalpincode.in/pincode/$pincode';
 
-    final response = await get(endPoint: endPoint);
+    final response = await http.get(Uri.parse(endPoint));
 
     if (response.statusCode == 200) {
       try {

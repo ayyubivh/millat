@@ -509,10 +509,10 @@ Future<dynamic> logoutPopUp(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Padding(
-                padding: EdgeInsets.all(20),
+                padding: const EdgeInsets.all(20),
                 child: Text(
                   "Are you sure want to $text",
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.w600,
                     height: 1.2,

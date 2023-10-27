@@ -1077,7 +1077,7 @@ class _HomeViewState extends State<HomeView> {
                             final quranState = context.read<QuranBloc>().state;
 
                             final _verskey = verskey;
-                            final parts = _verskey.split(":");
+                            final parts = verskey.split(":");
                             final firstPart = parts[0];
                             context.read<QuranBloc>().add(
                                 FetchChaperVersesEvent(

@@ -276,8 +276,8 @@ class AuthService extends HttpServices {
     required String profession,
     required String institution,
   }) async {
-    final _tokenBox = Hive.box(userBox);
-    final String? token = _tokenBox.get(authToken);
+    final tokenBox = Hive.box(userBox);
+    final String? token = tokenBox.get(authToken);
 
     final headers = {
       'Authorization': 'Bearer $token',

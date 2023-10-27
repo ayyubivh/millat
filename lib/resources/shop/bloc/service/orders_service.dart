@@ -1,10 +1,7 @@
 import 'dart:convert';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:millat/resources/shop/bloc/models/orders/reason_model.dart';
 import '../../../../services/http_services.dart';
-import '../../../../utils/string_constants.dart';
-import '../../../authentication/bloc/logic/database_bloc/database_bloc.dart';
 
 import '../models/orders/fetch_order_byId_model.dart';
 import '../models/orders/orders_model.dart';
@@ -161,7 +158,7 @@ class OrdersService extends HttpServices {
       }
     } catch (e) {
       print('Error on API fetch: ${e.toString()}');
-      throw e; // Re-throw the exception to propagate it to the caller.
+      rethrow; // Re-throw the exception to propagate it to the caller.
     }
   }
 

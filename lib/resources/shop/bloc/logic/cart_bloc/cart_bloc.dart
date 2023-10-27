@@ -170,7 +170,7 @@ class CartBloc extends Bloc<CartEvent, CartState> {
                 if (item.productId?.id == event.productId) {
                   final newQuantity = item.quantity! - 1;
 
-                  print('new one  ${newQuantity}');
+                  print('new one  $newQuantity');
                   return item.copyWith(quantity: newQuantity);
                 }
                 return item;

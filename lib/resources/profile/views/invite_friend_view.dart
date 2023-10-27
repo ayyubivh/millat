@@ -53,7 +53,7 @@ class InviteFriendView extends StatelessWidget {
         ],
       ),
       body: BlocProvider(
-        create: (context) => DatabaseBloc()..add(FetchContactEvent()),
+        create: (context) => DatabaseBloc()..add(const FetchContactEvent()),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 30),
           child: SingleChildScrollView(

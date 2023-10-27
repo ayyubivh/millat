@@ -1,8 +1,6 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:millat/resources/authentication/bloc/logic/database_bloc/database_bloc.dart';
 import 'package:millat/resources/rewards/bloc/models/get_rewards_model.dart';
 import 'package:millat/resources/rewards/bloc/models/rewards_product/rewards_product_model.dart';
 import 'package:millat/services/http_services.dart';

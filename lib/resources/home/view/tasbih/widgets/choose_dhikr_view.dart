@@ -27,7 +27,7 @@ class ChooseDhikrView extends StatelessWidget {
         elevation: 1,
       ),
       body: BlocProvider(
-        create: (context) => TasbihBloc()..add(FetchDhikr()),
+        create: (context) => TasbihBloc()..add(const FetchDhikr()),
         child: BlocBuilder<TasbihBloc, TasbihState>(builder: (context, state) {
           if (state.dhikrModel?.result?.data == null) {
             return const Loader();

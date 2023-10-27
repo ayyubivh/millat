@@ -1,5 +1,4 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:json_annotation/json_annotation.dart';
 
 part 'subcategories_by_category_id.g.dart';
 part 'subcategories_by_category_id.freezed.dart';

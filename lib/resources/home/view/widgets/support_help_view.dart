@@ -18,7 +18,7 @@ class SupportHelpView extends StatelessWidget {
     final TextEditingController phoneNumberController = TextEditingController();
     final TextEditingController messageController = TextEditingController();
 
-    final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+    final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
     return Scaffold(
       backgroundColor: ColorManager.scaffolBgColor,
@@ -39,7 +39,7 @@ class SupportHelpView extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
         child: SingleChildScrollView(
           child: Form(
-            key: _formKey,
+            key: formKey,
             child: Column(
               children: [
                 Center(
@@ -88,7 +88,7 @@ class SupportHelpView extends StatelessWidget {
             final name = nameController.text;
             final phone = phoneNumberController.text;
             final message = messageController.text;
-            if (_formKey.currentState!.validate()) {
+            if (formKey.currentState!.validate()) {
               context.read<TermsAndConditionsBloc>().add(PostHelpAndSupport(
                   email: email,
                   name: name,

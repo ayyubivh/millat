@@ -1,10 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/resources/home/bloc/models/home_models/top_offers_model/top_offers_model.dart';
 import 'package:millat/services/http_services.dart';
-import '../../../../utils/string_constants.dart';
-import '../../../authentication/bloc/logic/database_bloc/database_bloc.dart';
 import '../models/home_models/brand_of_the_day_model/brandofthe_day_model.dart';
 import '../models/home_models/event_of_the_month_model/event_of_the_month_model.dart';
 import '../models/home_models/hadit_of_the_day_model/hadit_oftheday_mode.dart';

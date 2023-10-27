@@ -8,7 +8,6 @@ import '../../../../../utils/color_manager.dart';
 import '../../../../../utils/constants.dart';
 import '../../../bloc/logic/bookmark_bloc/bookmark_bloc.dart';
 import '../../../bloc/models/book_mark_hive_model/book_mark_hive_model.dart';
-import 'addnew_collection_view.dart';
 
 class QuranFavBookmarkCollectionWidget extends StatelessWidget {
   final BookMarktCollectionModel? passvalue;

@@ -22,6 +22,11 @@ class OrdetailsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      final shopBloc = BlocProvider.of<ShopProductsBloc>(context);
+      shopBloc.add(FetchOrdersById(
+          context, context.read<ShopProductsBloc>().state.orderId!));
+    });
     var containerHeight10 = Container(
       height: 8,
       width: double.infinity,
@@ -43,111 +48,106 @@ class OrdetailsView extends StatelessWidget {
         elevation: 0,
         backgroundColor: Colors.transparent,
       ),
-      body: BlocProvider(
-        create: (context) => ShopProductsBloc()
-          ..add(FetchOrdersById(
-              context, context.read<ShopProductsBloc>().state.orderId!)),
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              containerHeight10,
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 30.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    kHeight20,
-                    const Text(
-                      Appstrings.orderDetails,
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                      ),
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            containerHeight10,
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 30.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  kHeight20,
+                  const Text(
+                    Appstrings.orderDetails,
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
                     ),
-                    kHeight16,
-                    _orderDetailsWidget(),
-                    kHeight20,
-                  ],
-                ),
+                  ),
+                  kHeight16,
+                  _orderDetailsWidget(),
+                  kHeight20,
+                ],
               ),
-              containerHeight10,
-              // Column(
-              //   children: [
-              //     Text(
-              //       Appstrings.trackShipment,
-              //       style: TextStyle(
-              //         fontSize: 17,
-              //         fontWeight: FontWeight.w600,
-              //         color: ColorManager.blackColor,
-              //       ),
-              //     ),
-              //     Row(
-              //       children: [
-              //         Container(
-              //           color: ColorManager.scaffolBgColor,
-              //           child: Container(
-              //             height: 60,
-              //             width: SizeUtility(context).width,
-              //             decoration: BoxDecoration(
-              //                 color: ColorManager.whiteColor,
-              //                 borderRadius: BorderRadius.circular(4)),
-              //             child: Row(
-              //               children: [
-              //                 progressWidget(
-              //                   text: "Ordered",
-              //                   onTap: () {},
-              //                   isProcessing: false,
-              //                   isOrdered: true,
-              //                 ),
-              //                 progressWidget(
-              //                   text: "Processing",
-              //                   onTap: () {},
-              //                   isProcessing: true,
-              //                   isOrdered: false,
-              //                 ),
-              //                 progressWidget(
-              //                   text: "Packed",
-              //                   onTap: () {},
-              //                   isProcessing: false,
-              //                   isOrdered: false,
-              //                 ),
-              //                 progressWidget(
-              //                   text: "Shipped",
-              //                   onTap: () {},
-              //                   isProcessing: false,
-              //                   isOrdered: false,
-              //                 ),
-              //                 progressWidget(
-              //                   text: "Delivered",
-              //                   onTap: () {},
-              //                   isProcessing: false,
-              //                   isOrdered: false,
-              //                 ),
-              //               ],
-              //             ),
-              //           ),
-              //         )
-              //       ],
-              //     )
-              //   ],
-              // ),
-              kHeight20,
-              _shipmentDetailsWidget(),
-              kHeight20,
-              containerHeight10,
-              kHeight20,
-              _paymentInformation(context),
-              kHeight16,
-              containerHeight10,
-              kHeight20,
-              _orderSummaryWidget(),
-              kHeight16,
-              containerHeight10,
-              kHeight20,
-              _lastProductWidget(),
-            ],
-          ),
+            ),
+            containerHeight10,
+            // Column(
+            //   children: [
+            //     Text(
+            //       Appstrings.trackShipment,
+            //       style: TextStyle(
+            //         fontSize: 17,
+            //         fontWeight: FontWeight.w600,
+            //         color: ColorManager.blackColor,
+            //       ),
+            //     ),
+            //     Row(
+            //       children: [
+            //         Container(
+            //           color: ColorManager.scaffolBgColor,
+            //           child: Container(
+            //             height: 60,
+            //             width: SizeUtility(context).width,
+            //             decoration: BoxDecoration(
+            //                 color: ColorManager.whiteColor,
+            //                 borderRadius: BorderRadius.circular(4)),
+            //             child: Row(
+            //               children: [
+            //                 progressWidget(
+            //                   text: "Ordered",
+            //                   onTap: () {},
+            //                   isProcessing: false,
+            //                   isOrdered: true,
+            //                 ),
+            //                 progressWidget(
+            //                   text: "Processing",
+            //                   onTap: () {},
+            //                   isProcessing: true,
+            //                   isOrdered: false,
+            //                 ),
+            //                 progressWidget(
+            //                   text: "Packed",
+            //                   onTap: () {},
+            //                   isProcessing: false,
+            //                   isOrdered: false,
+            //                 ),
+            //                 progressWidget(
+            //                   text: "Shipped",
+            //                   onTap: () {},
+            //                   isProcessing: false,
+            //                   isOrdered: false,
+            //                 ),
+            //                 progressWidget(
+            //                   text: "Delivered",
+            //                   onTap: () {},
+            //                   isProcessing: false,
+            //                   isOrdered: false,
+            //                 ),
+            //               ],
+            //             ),
+            //           ),
+            //         )
+            //       ],
+            //     )
+            //   ],
+            // ),
+            kHeight20,
+            _shipmentDetailsWidget(),
+            kHeight20,
+            containerHeight10,
+            kHeight20,
+            _paymentInformation(context),
+            kHeight16,
+            containerHeight10,
+            kHeight20,
+            _orderSummaryWidget(),
+            kHeight16,
+            containerHeight10,
+            kHeight20,
+            _lastProductWidget(),
+          ],
         ),
       ),
     );

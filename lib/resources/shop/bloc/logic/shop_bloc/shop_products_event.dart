@@ -137,7 +137,7 @@ class ShopProductsEvent with _$ShopProductsEvent {
     required String text,
   }) = AddReasons;
   const factory ShopProductsEvent.fetchArticlesbyId({required String id}) =
-      FetchArticlesbyId;
+      FetchArticlesId;
   const factory ShopProductsEvent.fetchProducts() = FetchProducts;
   const factory ShopProductsEvent.fetchArticlesCategory() =
       FetchArticlesCategory;

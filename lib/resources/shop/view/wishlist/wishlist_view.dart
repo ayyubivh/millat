@@ -37,7 +37,7 @@ class WishListView extends StatelessWidget {
           builder: (context, state) {
             return state.isLoading
                 ? const Loader()
-                : state.wishList?.result?.wishlist?.products?.length == 0
+                : state.wishList?.result?.wishlist!.products?.length == 0
                     ? Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 30),
                         child: Column(

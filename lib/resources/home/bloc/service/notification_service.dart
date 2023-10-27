@@ -1,19 +1,17 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-import 'package:millat/resources/authentication/bloc/logic/database_bloc/database_bloc.dart';
 import 'package:millat/resources/home/bloc/models/notification/get_notification_model.dart';
-import 'package:http/http.dart' as http;
-import 'package:millat/utils/string_constants.dart';
+import 'package:millat/services/http_services.dart';
+// import 'package:http/http.dart' as http;
 
 import 'package:timezone/data/latest.dart' as tz;
 import 'package:timezone/timezone.dart' as tz;
 
 import '../../../../utils/color_manager.dart';
 
-class NotificationService {
+class NotificationService extends HttpServices {
   final FlutterLocalNotificationsPlugin notificationsPlugin =
       FlutterLocalNotificationsPlugin();
 
@@ -89,14 +87,8 @@ class NotificationService {
 
   Future<NotificationModel> fetchNotficationApi(BuildContext context) async {
     const endPoint = 'notification_in_app';
-    final databaseState = context.read<DatabaseBloc>().state;
-    final token = databaseState.token;
-    final headers = {
-      'Content-Type': 'application/json; charset=utf-8',
-      'Authorization': 'Bearer $token',
-    };
-    final response =
-        await http.get(Uri.parse(kBaseUrl + endPoint), headers: headers);
+
+    final response = await get(endPoint: endPoint, isToken: true);
     if (response.statusCode == 200) {
       try {
         if (response.statusCode == 200) {
@@ -120,17 +112,8 @@ class NotificationService {
 
   addReadMark({required BuildContext context, required String id}) async {
     final endPoint = 'notification_in_app/read_mark/$id';
-    final databaseState = context.read<DatabaseBloc>().state;
-    final token = databaseState.token;
-    final headers = {
-      'Content-Type': 'application/json; charset=utf-8',
-      'Authorization': 'Bearer $token',
-    };
 
-    final response = await http.patch(
-      Uri.parse(kBaseUrl + endPoint),
-      headers: headers,
-    );
+    final response = await get(endPoint: endPoint, isToken: true);
 
     try {
       if (response.statusCode == 200) {

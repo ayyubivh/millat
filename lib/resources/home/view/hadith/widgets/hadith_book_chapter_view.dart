@@ -56,7 +56,7 @@ class HadithBookChapterView extends StatelessWidget {
         child: Column(
           children: [
             kHeight10,
-            Divider(thickness: 1),
+            const Divider(thickness: 1),
             kHeight15,
             Container(
               height: 170,

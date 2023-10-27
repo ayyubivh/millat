@@ -14,26 +14,21 @@ import 'package:millat/utils/size_utility.dart';
 import '../../home/view/namaz_timing/namaz_timing_view.dart';
 import '../../profile/views/user_profile_view.dart';
 
-class TabsView extends StatefulWidget {
+class TabsView extends StatelessWidget {
   const TabsView({Key? key}) : super(key: key);
 
-  @override
-  State<TabsView> createState() => _TabsViewState();
-}
-
-class _TabsViewState extends State<TabsView> {
   @override
   Widget build(BuildContext context) {
     List screens = [
       const HomeView(),
       const ShopTabsView(),
-      NamazTimingView(),
+      const NamazTimingView(),
       const UserProfileView(),
     ];
 
     void onTap(int index) {
       if (index == 1) {
-        context.goNamed(MyAppRouteConstants.shopTabsRouteName);
+        context.pushNamed(MyAppRouteConstants.shopTabsRouteName);
       }
       context.read<HomeBloc>().add(ChangeHomeTabIndexEvent(newIndex: index));
     }

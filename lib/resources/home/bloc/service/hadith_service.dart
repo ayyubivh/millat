@@ -7,8 +7,6 @@ import '../models/hadith/hadit_book_chapter_model/hadit_book_chapter_model.dart'
 import '../models/hadith/hadith_book_model/hadith_book_model.dart';
 
 class HadithService {
-  //Here fetchina all the hadit books
-
   Future<List<HadithBookModel>> fetchHadithBooks() async {
     const String apiUrl = "https://www.hadithapi.com/api/books";
 

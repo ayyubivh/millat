@@ -107,7 +107,7 @@ class DuaTabbarview extends StatelessWidget {
                   },
                 ),
                 Container(
-                  color: Colors.green,
+                  color: ColorManager.whiteColor,
                 )
               ],
             ),

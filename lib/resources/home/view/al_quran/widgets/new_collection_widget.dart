@@ -5,7 +5,6 @@ import 'package:millat/routes/app_router_constants.dart';
 import '../../../../../enums/enumertations.dart';
 import '../../../../../utils/color_manager.dart';
 import '../../../../../utils/constants.dart';
-import 'addnew_collection_view.dart';
 
 class BookmarkNewCollectionWidget extends StatelessWidget {
   final BookMarkCollectionType? type;

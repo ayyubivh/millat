@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:millat/resources/authentication/bloc/logic/database_bloc/database_bloc.dart';
 import 'package:millat/utils/utils.dart';
 import 'package:go_router/go_router.dart';
 import 'package:millat/utils/loader.dart';
@@ -24,6 +25,14 @@ class SingleProductView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      context
+          .read<ShopProductsBloc>()
+          .add(ShopProductsEvent.fetchProductsById(id: id));
+      context.read<ReviewBloc>()
+        ..add(ReviewEvent.fetchRatingEvent(id: id, context: context))
+        ..add(ReviewEvent.fetchReviewComments(id: id, context: context));
+    });
     int selectedSize = 0;
     print(id);
 
@@ -68,167 +77,150 @@ class SingleProductView extends StatelessWidget {
                     )
                   ],
                 ),
-                body: MultiBlocProvider(
-                  providers: [
-                    BlocProvider(
-                      create: (context) => ShopProductsBloc()
-                        ..add(ShopProductsEvent.fetchProductsById(id: id))
-                        ..add(const ShopProductsEvent.fetchProducts()),
-                    ),
-                    BlocProvider(
-                      create: (context) => ReviewBloc()
-                        ..add(ReviewEvent.fetchRatingEvent(
-                            id: id, context: context)),
-                    )
-                  ],
-                  child: SingleChildScrollView(
-                    child: Padding(
-                      padding: const EdgeInsets.all(25),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          CarouselView(data: data),
-                          Text(
-                            data.title ?? "",
+                body: SingleChildScrollView(
+                  child: Padding(
+                    padding: const EdgeInsets.all(25),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        CarouselView(data: data),
+                        Text(
+                          data.title ?? "",
+                          style: const TextStyle(
+                            fontSize: 22,
+                            fontWeight: FontWeight.w600,
+                            height: 2,
+                          ),
+                        ),
+                        Text('₹${data.regularPrice}',
                             style: const TextStyle(
-                              fontSize: 22,
+                                color: black60,
+                                fontSize: 17,
+                                decoration: TextDecoration.lineThrough,
+                                height: 1.5)),
+                        Text(data.brand?.name ?? 'Millat',
+                            style: const TextStyle(
+                                color: black60, fontSize: 17, height: 1.5)),
+                        Text('${data.salePrice} ₹',
+                            style: TextStyle(
+                                color: ColorManager.greenColor1,
+                                fontSize: 22,
+                                height: 1.5)),
+                        kHeight10,
+                        reviews(),
+                        selectOptions(context, data, selectedColor,
+                            selectedSize, quantity, divider),
+                        Text(
+                          'Product Description',
+                          style: TextStyle(
                               fontWeight: FontWeight.w600,
-                              height: 2,
-                            ),
-                          ),
-                          Text('₹${data.regularPrice}',
-                              style: const TextStyle(
-                                  color: black60,
-                                  fontSize: 17,
-                                  decoration: TextDecoration.lineThrough,
-                                  height: 1.5)),
-                          Text(data.brand?.name ?? 'Millat',
-                              style: const TextStyle(
-                                  color: black60, fontSize: 17, height: 1.5)),
-                          Text('${data.salePrice} ₹',
-                              style: TextStyle(
-                                  color: ColorManager.greenColor1,
-                                  fontSize: 22,
-                                  height: 1.5)),
-                          kHeight10,
-                          reviews(),
-                          selectOptions(context, data, selectedColor,
-                              selectedSize, quantity, divider),
-                          Text(
-                            'Product Description',
-                            style: TextStyle(
-                                fontWeight: FontWeight.w600,
-                                fontSize: 18,
-                                color: ColorManager.blackColor),
-                          ),
-                          kHeight20,
-                          Text(
-                            data.description ?? "",
-                            style: TextStyle(
-                                fontSize: 16, color: ColorManager.textGrey99),
-                          ),
-                          kHeight20,
-                          Text(
-                            'Made of: ${data.madeFrom ?? ""}',
-                            style: TextStyle(
-                                fontWeight: FontWeight.w600,
-                                fontSize: 17,
-                                color: ColorManager.blackColor),
-                          ),
-                          kHeight20,
-                          Text(
-                            'Care: ${data.productCareInfo ?? ""}',
-                            style: TextStyle(
-                                fontWeight: FontWeight.w600,
-                                fontSize: 17,
-                                color: ColorManager.blackColor),
-                          ),
-                          kHeight20,
-                          const Text(
-                            'Colors',
-                            style: TextStyle(
-                                fontSize: 18, fontWeight: FontWeight.w700),
-                          ),
-                          kHeight10,
-                          SizedBox(
-                            height: 30,
-                            child: Padding(
-                                padding: const EdgeInsets.only(right: 20),
-                                child: CircleAvatar(
-                                  radius: 15,
-                                  backgroundColor:
-                                      Utilities.getColorFromApiString(
-                                          data.color ?? ""),
-                                )),
-                          ),
-                          kHeight20,
-                          Text(
-                            data.brand?.name ?? "",
-                            style: TextStyle(
-                                fontSize: 16, color: ColorManager.textGrey99),
-                          ),
-                          kHeight16,
-                          divider,
-                          kHeight10,
-                          Text(
-                            'Recently Added',
-                            style: TextStyle(
-                                fontWeight: FontWeight.w600,
-                                fontSize: 18,
-                                color: ColorManager.blackColor),
-                          ),
-                          kHeight10,
-                          BlocBuilder<ShopProductsBloc, ShopProductsState>(
-                            builder: (context, state) {
-                              if (state.productModel?.result?.products ==
-                                  null) {
-                                return const SizedBox();
-                              }
-                              return SizedBox(
-                                height: 310,
-                                child: ListView.builder(
-                                  itemCount: 10,
-                                  scrollDirection: Axis.horizontal,
-                                  itemBuilder: (context, index) {
-                                    final data = state
-                                        .productModel?.result!.products![index];
-                                    return GestureDetector(
-                                        onTap: () {
-                                          context.pushNamed(
-                                              MyAppRouteConstants
-                                                  .singleProductRouteName,
-                                              pathParameters: {
-                                                "id": data.id.toString()
-                                              });
-                                        },
-                                        child: Padding(
-                                          padding:
-                                              const EdgeInsets.only(right: 15),
-                                          child: ShopProductWidget(
-                                              color: data?.color ?? "",
-                                              size: data?.size?[0].size ?? "",
-                                              brandId: data?.brand!.id,
-                                              isWishlisted: state.isWishListed,
-                                              brand:
-                                                  data!.brand!.name.toString(),
-                                              productId: data.id,
-                                              image: data.images?[0],
-                                              title: data.title,
-                                              actualPrice:
-                                                  data.regularPrice?.toInt() ??
-                                                      0,
-                                              discount: data.discount!.toInt(),
-                                              discountPrice:
-                                                  data.salePrice?.toInt() ?? 0),
-                                        ));
-                                  },
-                                ),
-                              );
-                            },
-                          ),
-                          kHeight10,
-                        ],
-                      ),
+                              fontSize: 18,
+                              color: ColorManager.blackColor),
+                        ),
+                        kHeight20,
+                        Text(
+                          data.description ?? "",
+                          style: TextStyle(
+                              fontSize: 16, color: ColorManager.textGrey99),
+                        ),
+                        kHeight20,
+                        Text(
+                          'Made of: ${data.madeFrom ?? ""}',
+                          style: TextStyle(
+                              fontWeight: FontWeight.w600,
+                              fontSize: 17,
+                              color: ColorManager.blackColor),
+                        ),
+                        kHeight20,
+                        Text(
+                          'Care: ${data.productCareInfo ?? ""}',
+                          style: TextStyle(
+                              fontWeight: FontWeight.w600,
+                              fontSize: 17,
+                              color: ColorManager.blackColor),
+                        ),
+                        kHeight20,
+                        const Text(
+                          'Colors',
+                          style: TextStyle(
+                              fontSize: 18, fontWeight: FontWeight.w700),
+                        ),
+                        kHeight10,
+                        SizedBox(
+                          height: 30,
+                          child: Padding(
+                              padding: const EdgeInsets.only(right: 20),
+                              child: CircleAvatar(
+                                radius: 15,
+                                backgroundColor:
+                                    Utilities.getColorFromApiString(
+                                        data.color ?? ""),
+                              )),
+                        ),
+                        kHeight20,
+                        Text(
+                          data.brand?.name ?? "",
+                          style: TextStyle(
+                              fontSize: 16, color: ColorManager.textGrey99),
+                        ),
+                        kHeight16,
+                        divider,
+                        kHeight10,
+                        Text(
+                          'Recently Added',
+                          style: TextStyle(
+                              fontWeight: FontWeight.w600,
+                              fontSize: 18,
+                              color: ColorManager.blackColor),
+                        ),
+                        kHeight10,
+                        BlocBuilder<ShopProductsBloc, ShopProductsState>(
+                          builder: (context, state) {
+                            if (state.productModel?.result?.products == null) {
+                              return const SizedBox();
+                            }
+                            return SizedBox(
+                              height: 310,
+                              child: ListView.builder(
+                                itemCount: 10,
+                                scrollDirection: Axis.horizontal,
+                                itemBuilder: (context, index) {
+                                  final data = state
+                                      .productModel?.result!.products![index];
+                                  return GestureDetector(
+                                      onTap: () {
+                                        context.pushNamed(
+                                            MyAppRouteConstants
+                                                .singleProductRouteName,
+                                            pathParameters: {
+                                              "id": data.id.toString()
+                                            });
+                                      },
+                                      child: Padding(
+                                        padding:
+                                            const EdgeInsets.only(right: 15),
+                                        child: ShopProductWidget(
+                                            color: data?.color ?? "",
+                                            size: data?.size?[0].size ?? "",
+                                            brandId: data?.brand!.id,
+                                            isWishlisted: state.isWishListed,
+                                            brand: data!.brand!.name.toString(),
+                                            productId: data.id,
+                                            image: data.images?[0],
+                                            title: data.title,
+                                            actualPrice:
+                                                data.regularPrice?.toInt() ?? 0,
+                                            discount: data.discount!.toInt(),
+                                            discountPrice:
+                                                data.salePrice?.toInt() ?? 0),
+                                      ));
+                                },
+                              ),
+                            );
+                          },
+                        ),
+                        kHeight10,
+                      ],
                     ),
                   ),
                 ),
@@ -296,7 +288,7 @@ class SingleProductView extends StatelessWidget {
     );
   }
 
-  Container reviews() {
+  Widget reviews() {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 10),
       child: Column(
@@ -322,7 +314,7 @@ class SingleProductView extends StatelessWidget {
                       RatingBar.builder(
                         itemSize: 20,
                         initialRating:
-                            state.reviewModel?.result?.data?.avgRating ?? 0,
+                            state.reviewModel?.result?.data?.averageRating ?? 0,
                         minRating: 1,
                         direction: Axis.horizontal,
                         allowHalfRating: true,
@@ -333,11 +325,26 @@ class SingleProductView extends StatelessWidget {
                           Icons.star,
                           color: orange255,
                         ),
-                        onRatingUpdate: (value) {},
+                        onRatingUpdate: (value) {
+                          final name = context
+                                  .read<DatabaseBloc>()
+                                  .state
+                                  .authUserModel
+                                  ?.result
+                                  ?.user
+                                  ?.name ??
+                              "null";
+                          context.read<ReviewBloc>().add(AddReview(
+                              context: context,
+                              productId: id,
+                              name: name,
+                              rating: value,
+                              comment: ""));
+                        },
                       ),
                       kWidth10,
                       Text(
-                        '${data?.avgRating ?? 0}/5',
+                        '${data?.data?.averageRating ?? 0}/5',
                         style: TextStyle(
                             color: ColorManager.blackColor,
                             fontWeight: FontWeight.w700,
@@ -345,7 +352,7 @@ class SingleProductView extends StatelessWidget {
                       ),
                       kWidth10,
                       Text(
-                        '(${data?.data?.count ?? 0} reviews)',
+                        '(${data?.data?.totalUsers ?? 0} reviews)',
                         style: TextStyle(
                             color: ColorManager.textGrey99,
                             fontWeight: FontWeight.w700,
@@ -370,24 +377,27 @@ class SingleProductView extends StatelessWidget {
             },
           ),
           BlocBuilder<ReviewBloc, ReviewState>(
-            builder: (context, state) => !state.isExpandedReview
-                ? const SizedBox()
-                : ListView.builder(
-                    itemCount:
-                        state.reviewModel?.result?.data?.ratings?.length ?? 0,
-                    shrinkWrap: true,
-                    physics: const NeverScrollableScrollPhysics(),
-                    itemBuilder: (context, index) {
-                      final data = state.reviewModel?.result?.data;
-                      return buildReviewItem(
-                          comment: data?.ratings?[index].comment ?? "",
-                          context: context,
-                          name: data?.ratings?[index].name ?? "",
-                          rating: data?.ratings?[index].rating ?? 0.0,
-                          dob: data?.ratings?[index].user?.dob ?? "",
-                          image: data?.ratings?[index].user?.picture ?? "");
-                    },
-                  ),
+            builder: (context, state) {
+              return !state.isExpandedReview
+                  ? const SizedBox()
+                  : ListView.builder(
+                      itemCount: state.reviewCommentsModel?.result?.data
+                          ?.reviewComments?.length,
+                      shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      itemBuilder: (context, index) {
+                        final data = state.reviewCommentsModel?.result?.data
+                            ?.reviewComments?[index];
+                        return buildReviewItem(
+                            comment: data?.comment ?? "",
+                            context: context,
+                            name: data?.name ?? "",
+                            rating: data?.rating ?? 0.0,
+                            dob: data?.userId?.dateOfBirth ?? "",
+                            image: data?.userId?.picture ?? "");
+                      },
+                    );
+            },
           ),
         ],
       ),

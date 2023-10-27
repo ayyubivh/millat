@@ -64,6 +64,7 @@ class DatabaseBloc extends Bloc<DatabaseEvent, DatabaseState> {
           final data = await authService.fetchAuthUser(context: event.context);
 
           emit(state.copyWith(authUserModel: data, isLoading: false));
+          print("user states ${state.authUserModel}");
         } catch (e) {
           emit(state.copyWith(isLoading: false));
 

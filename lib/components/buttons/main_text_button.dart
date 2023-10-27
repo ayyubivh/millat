@@ -12,7 +12,7 @@ class MainTextButton extends StatelessWidget {
         onPressed: onTap,
         child: Text(
           title,
-          style: TextStyle(color: Colors.black),
+          style: const TextStyle(color: Colors.black),
         ));
   }
 }

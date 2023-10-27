@@ -1,8 +1,7 @@
 import 'dart:convert';
 import 'dart:developer';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:http/http.dart' as http;
+// import 'package:http/http.dart' as http;
 import 'package:millat/resources/shop/bloc/models/articles/article_by_id_model.dart';
 import 'package:millat/resources/shop/bloc/models/articles/articles_model.dart'
     as Articles;
@@ -17,8 +16,6 @@ import 'package:millat/resources/shop/bloc/models/shop_by_brand/shop_by_brand_mo
 import 'package:millat/resources/shop/bloc/models/shop_by_brand/top_brands/brand_items_by_id_model.dart';
 import 'package:millat/resources/shop/bloc/models/wishlist/wishllist_models.dart';
 import 'package:millat/services/http_services.dart';
-import 'package:millat/utils/string_constants.dart';
-import '../../../authentication/bloc/logic/database_bloc/database_bloc.dart';
 import '../models/articles/article_category/article_categories_model.dart';
 import '../models/home_sub_category_card/home_sub_category_card_model.dart';
 import '../models/home_sub_category_card/home_sub_category_healthy_diet.dart';
@@ -33,8 +30,6 @@ import '../models/shop_by_brand/top_brands/top_brands_model.dart';
 import '../models/shop_products/shop_products_model.dart';
 
 class ShopService extends HttpServices {
-  // final flashSale = 'shop_product_category?slug=women_flash_sales';
-  // final popularProduct = 'shop_product_category?slug=women_popular_products';
   final recentProduct = 'product?slug=recent_products';
   final banner = 'banner?slug=home_banner';
   final shopBanner = 'banner?slug=shop_banner';
@@ -370,21 +365,16 @@ class ShopService extends HttpServices {
     required String productId,
   }) async {
     const endPoint = "wishlist/add";
-    final databaseState = context.read<DatabaseBloc>().state;
-    final token = databaseState.token;
-    final headers = {
-      'Content-Type': 'application/json; charset=utf-8',
-      'Authorization': 'Bearer $token',
-    };
+
     final body = {
       "productId": productId,
     };
 
     try {
-      final response = await http.put(
-        Uri.parse(kBaseUrl + endPoint),
-        headers: headers,
-        body: jsonEncode(body),
+      final response = await put(
+        endPoint: endPoint,
+        isToken: true,
+        body: body,
       );
 
       if (response.statusCode == 200) {
@@ -410,21 +400,16 @@ class ShopService extends HttpServices {
     required String productId,
   }) async {
     const endPoint = "wishlist/remove";
-    final databaseState = context.read<DatabaseBloc>().state;
-    final token = databaseState.token;
-    final headers = {
-      'Content-Type': 'application/json; charset=utf-8',
-      'Authorization': 'Bearer $token',
-    };
+
     final body = {
       "productId": productId,
     };
 
     try {
-      final response = await http.put(
-        Uri.parse(kBaseUrl + endPoint),
-        headers: headers,
-        body: jsonEncode(body),
+      final response = await put(
+        endPoint: endPoint,
+        isToken: true,
+        body: body,
       );
       if (response.statusCode == 200) {
         final Map<String, dynamic> data = json.decode(response.body);
@@ -442,14 +427,8 @@ class ShopService extends HttpServices {
 
   Future<WishlistResponse> fetchWishlist(BuildContext context) async {
     const endPoint = "wishlist";
-    final databaseState = context.read<DatabaseBloc>().state;
-    final token = databaseState.token;
-    final headers = {
-      'Content-Type': 'application/json; charset=utf-8',
-      'Authorization': 'Bearer $token',
-    };
 
-    final response = await get(endPoint: endPoint, headers: headers);
+    final response = await get(endPoint: endPoint, isToken: true);
 
     if (response.statusCode == 200) {
       try {

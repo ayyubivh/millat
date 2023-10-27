@@ -21,9 +21,9 @@ class CheckoutView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      BlocProvider.of<AddressBloc>(context)
-        ..add(FetchAddressEvent(context: context))
-        ..add(const FetchAddressDefaultIndex());
+      final addressBloc = BlocProvider.of<AddressBloc>(context);
+      addressBloc.add(FetchAddressEvent(context: context));
+      addressBloc.add(const FetchAddressDefaultIndex());
     });
     return Scaffold(
         backgroundColor: ColorManager.scaffolBgColor,

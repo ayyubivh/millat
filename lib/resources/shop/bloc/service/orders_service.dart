@@ -21,7 +21,7 @@ class OrdersService extends HttpServices {
     const endPoint = 'order/payment/COD';
 
     final body = {
-      "address": id,
+      "address": id.toString(),
     };
 
     final response = await posts(
@@ -89,7 +89,7 @@ class OrdersService extends HttpServices {
     const endPoint = "order/payment/online";
 
     final body = {
-      "amount": amount,
+      "amount": amount.toString(),
     };
 
     final response = await posts(
@@ -238,7 +238,7 @@ class OrdersService extends HttpServices {
     const endPoint = 'order/cancel';
 
     final body = {
-      "shiprocket_order_id": shiprocketId,
+      "shiprocket_order_id": shiprocketId.toString(),
     };
 
     final response = await posts(
@@ -268,7 +268,7 @@ class OrdersService extends HttpServices {
     const endPoint = 'order/return';
 
     final body = {
-      "shiprocket_order_id": shiprocketId,
+      "shiprocket_order_id": shiprocketId.toString(),
     };
 
     final response = await posts(

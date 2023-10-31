@@ -7,6 +7,7 @@ import 'package:millat/resources/authentication/bloc/model/user_model.dart';
 import 'package:millat/services/http_services.dart';
 import 'package:millat/utils/string_constants.dart';
 import 'package:http/http.dart' as http;
+import 'package:onesignal_flutter/onesignal_flutter.dart';
 import '../model/auth_user_model/auth_user_model.dart';
 import '../model/auth_user_model/social_user_model.dart';
 
@@ -254,6 +255,9 @@ class AuthService extends HttpServices {
         );
 
         final result = AuthUserModel.fromJson(data);
+        if (result.result?.user?.uuid != null) {
+          OneSignal.login(result.result?.user?.uuid ?? '');
+        }
 
         return result;
       } catch (e) {

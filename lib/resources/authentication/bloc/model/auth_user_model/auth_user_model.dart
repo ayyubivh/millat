@@ -33,6 +33,7 @@ class UserProfile with _$UserProfile {
     required String? email,
     required String? name,
     required String? createdAt,
+    required String? uuid,
     required String? updatedAt,
     required String? picture,
     required String? profession,

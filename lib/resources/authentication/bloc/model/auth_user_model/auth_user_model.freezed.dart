@@ -383,6 +383,7 @@ mixin _$UserProfile {
   String? get email => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
   String? get createdAt => throw _privateConstructorUsedError;
+  String? get uuid => throw _privateConstructorUsedError;
   String? get updatedAt => throw _privateConstructorUsedError;
   String? get picture => throw _privateConstructorUsedError;
   String? get profession => throw _privateConstructorUsedError;
@@ -410,6 +411,7 @@ abstract class $UserProfileCopyWith<$Res> {
       String? email,
       String? name,
       String? createdAt,
+      String? uuid,
       String? updatedAt,
       String? picture,
       String? profession,
@@ -436,6 +438,7 @@ class _$UserProfileCopyWithImpl<$Res, $Val extends UserProfile>
     Object? email = freezed,
     Object? name = freezed,
     Object? createdAt = freezed,
+    Object? uuid = freezed,
     Object? updatedAt = freezed,
     Object? picture = freezed,
     Object? profession = freezed,
@@ -466,6 +469,10 @@ class _$UserProfileCopyWithImpl<$Res, $Val extends UserProfile>
       createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
+              as String?,
+      uuid: freezed == uuid
+          ? _value.uuid
+          : uuid // ignore: cast_nullable_to_non_nullable
               as String?,
       updatedAt: freezed == updatedAt
           ? _value.updatedAt
@@ -506,6 +513,7 @@ abstract class _$$_UserProfileCopyWith<$Res>
       String? email,
       String? name,
       String? createdAt,
+      String? uuid,
       String? updatedAt,
       String? picture,
       String? profession,
@@ -530,6 +538,7 @@ class __$$_UserProfileCopyWithImpl<$Res>
     Object? email = freezed,
     Object? name = freezed,
     Object? createdAt = freezed,
+    Object? uuid = freezed,
     Object? updatedAt = freezed,
     Object? picture = freezed,
     Object? profession = freezed,
@@ -560,6 +569,10 @@ class __$$_UserProfileCopyWithImpl<$Res>
       createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
+              as String?,
+      uuid: freezed == uuid
+          ? _value.uuid
+          : uuid // ignore: cast_nullable_to_non_nullable
               as String?,
       updatedAt: freezed == updatedAt
           ? _value.updatedAt
@@ -595,6 +608,7 @@ class _$_UserProfile implements _UserProfile {
       required this.email,
       required this.name,
       required this.createdAt,
+      required this.uuid,
       required this.updatedAt,
       required this.picture,
       required this.profession,
@@ -618,6 +632,8 @@ class _$_UserProfile implements _UserProfile {
   @override
   final String? createdAt;
   @override
+  final String? uuid;
+  @override
   final String? updatedAt;
   @override
   final String? picture;
@@ -632,7 +648,7 @@ class _$_UserProfile implements _UserProfile {
 
   @override
   String toString() {
-    return 'UserProfile(id: $id, institution: $institution, username: $username, email: $email, name: $name, createdAt: $createdAt, updatedAt: $updatedAt, picture: $picture, profession: $profession, phoneNumber: $phoneNumber, dob: $dob)';
+    return 'UserProfile(id: $id, institution: $institution, username: $username, email: $email, name: $name, createdAt: $createdAt, uuid: $uuid, updatedAt: $updatedAt, picture: $picture, profession: $profession, phoneNumber: $phoneNumber, dob: $dob)';
   }
 
   @override
@@ -649,6 +665,7 @@ class _$_UserProfile implements _UserProfile {
             (identical(other.name, name) || other.name == name) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
+            (identical(other.uuid, uuid) || other.uuid == uuid) &&
             (identical(other.updatedAt, updatedAt) ||
                 other.updatedAt == updatedAt) &&
             (identical(other.picture, picture) || other.picture == picture) &&
@@ -662,7 +679,7 @@ class _$_UserProfile implements _UserProfile {
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, id, institution, username, email,
-      name, createdAt, updatedAt, picture, profession, phoneNumber, dob);
+      name, createdAt, uuid, updatedAt, picture, profession, phoneNumber, dob);
 
   @JsonKey(ignore: true)
   @override
@@ -686,6 +703,7 @@ abstract class _UserProfile implements UserProfile {
       required final String? email,
       required final String? name,
       required final String? createdAt,
+      required final String? uuid,
       required final String? updatedAt,
       required final String? picture,
       required final String? profession,
@@ -708,6 +726,8 @@ abstract class _UserProfile implements UserProfile {
   String? get name;
   @override
   String? get createdAt;
+  @override
+  String? get uuid;
   @override
   String? get updatedAt;
   @override

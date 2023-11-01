@@ -63,6 +63,7 @@
 		0C087C3A78375DF16F4BD98556215111 /* es.lproj in Resources */ = {isa = PBXBuildFile; fileRef = E016214DC7BB49A1FBDE5CDAE27531A2 /* es.lproj */; };
 		0C22A020EF3D72810D6DF0982C16F929 /* PermissionHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 8F886801D23A1BDA25490935D90EC92B /* PermissionHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0CB86094F3ADF8BD37D02D30995B9628 /* smart_auth-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BB50F6474A6CF809B74E87D60962E377 /* smart_auth-dummy.m */; };
+		0D065A1C87C73C523989C57F06F47C41 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B1F5D4EE039CE054E1DC8D7D2A14FBB /* Foundation.framework */; };
 		0EFEB199C0A9000CAA2AC68158622681 /* FlutterCompassPlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = CE22568B1045DFDD8B0A49522B903E39 /* FlutterCompassPlugin.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		104F8396B381748C326DE7B3603532A5 /* smart_auth-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 78F608D09F077DD4E94A9CE665AB7ABF /* smart_auth-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		106E8C3F42F17E76E326C9BE225C0223 /* FMDatabasePool.h in Headers */ = {isa = PBXBuildFile; fileRef = 6B54DE72665D050965D26FB48D0E2318 /* FMDatabasePool.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -195,7 +196,7 @@
 		528F374154A80B63335C1CBBEE5519BB /* SignInWithApplePlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A50B07E1EACB599FE19F94F52E583CF /* SignInWithApplePlugin.m */; };
 		52AF763BF511B943C71422C9B18A92CA /* audio_session-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8808E955A2E853577BCBC5EE866116EB /* audio_session-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		54781699AB183CE956EAF7BF5A1FBFE4 /* FMDatabaseQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 93E965D9F151E8D5940A11DD7421A5C4 /* FMDatabaseQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		54C33145F8FE5301C970112AC2985537 /* Pods-Runner-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E794494AB90477BA94C681E994ADF341 /* Pods-Runner-dummy.m */; };
+		54C33145F8FE5301C970112AC2985537 /* Pods-Runner-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 054459E3917FBC8889356202C9A54290 /* Pods-Runner-dummy.m */; };
 		5591238B3393E921215D775B44751F17 /* OneSignalPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B002C20B5A845B5FDE6F5DA3E13D601 /* OneSignalPlugin.m */; };
 		565D6578A24ECBF11EA363D265D52E7A /* GIDProfileData.m in Sources */ = {isa = PBXBuildFile; fileRef = 81856495B0B32544437477F5CDDEC52E /* GIDProfileData.m */; };
 		566D35757AD16FB774F83C10804C4EAE /* FLTSharePlusPlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = 17F31867912E911883A79B85FBE84B32 /* FLTSharePlusPlugin.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -244,7 +245,7 @@
 		6A3113CCC900D3A084BD14F1BE4BE2C5 /* fluttertoast-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D08A6D8DA88940CAE7B3F2D526F7B276 /* fluttertoast-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6AC2410A3B62243D2CCF9269C5CFE0D7 /* razorpay_flutter-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8188038516BED4E221DCC4A99DDEBC18 /* razorpay_flutter-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6AC28234AC5576EB265AE6074EBC70E6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B1F5D4EE039CE054E1DC8D7D2A14FBB /* Foundation.framework */; };
-		6B1E62EB116E7D7A6252B6F079890306 /* Pods-RunnerTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3DB54C128E3D88C0C9C7DDEA475ED7 /* Pods-RunnerTests-dummy.m */; };
+		6B1E62EB116E7D7A6252B6F079890306 /* Pods-RunnerTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 08F7AE0E4CE5FE4C4D7222C393D311B3 /* Pods-RunnerTests-dummy.m */; };
 		6C29174F0EE68D7DFFEFF1BF16B88E30 /* OIDIDToken.h in Headers */ = {isa = PBXBuildFile; fileRef = D94B4E33BF72B8D33EA8FB706FB660E7 /* OIDIDToken.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C779342A6B0D0A13B79D6F7A1EAF03D /* LoopingAudioSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D3091820EE338E8430A2B4044716BEE /* LoopingAudioSource.m */; };
 		6D4F6DF365432E277666659BE5567807 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B1F5D4EE039CE054E1DC8D7D2A14FBB /* Foundation.framework */; };
@@ -346,7 +347,8 @@
 		9A3A50BE56A78B0D405BA991C5C05B3B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B1F5D4EE039CE054E1DC8D7D2A14FBB /* Foundation.framework */; };
 		9A7F6719B0C7553A23FB112D5CDC4E73 /* libphonenumber_plugin-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BD8712ADF00BFDE1113F56CFC2BDC27 /* libphonenumber_plugin-dummy.m */; };
 		9AA694DDF5C64FCD0D2C9E5A48D06657 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 829A1D105434A16751362625724506EA /* FMDatabaseQueue.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		9AFB25AE17CC82B0D543E659E12C8251 /* Pods-Runner-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 499E3722E8DACDC2AAA6C15AD1796520 /* Pods-Runner-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9AFB25AE17CC82B0D543E659E12C8251 /* Pods-Runner-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 79911F2B5C4FEB8C90CBBA430D20B7B7 /* Pods-Runner-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9B0B0BA367B33C3D75829FD7C6055377 /* Pods-OneSignalNotificationServiceExtension-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C64687E448050E54C391E3C3E995AC /* Pods-OneSignalNotificationServiceExtension-dummy.m */; };
 		9BA5B98707E68606CC1C6B936B8947D9 /* OneSignalPlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = DFE6C9660917C4022DE05C8732BC0F07 /* OneSignalPlugin.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9C483D9719961DDDA8120C494BCAF17A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B1F5D4EE039CE054E1DC8D7D2A14FBB /* Foundation.framework */; };
 		9C64F668CFEDE323B6D98EDB57DAD213 /* GeolocatorPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AAC11CF0FCDF5C521323D0987EEA50 /* GeolocatorPlugin.m */; };
@@ -420,6 +422,7 @@
 		BC90D4772D34B93E245C8F8C4EFC1462 /* audio_session-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 59124C344DB23FADA594D72C95C69013 /* audio_session-dummy.m */; };
 		BD038D58E129E376265EF815D0F7FB68 /* just_audio-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CDB88975824272CEB35CBE9EA487D123 /* just_audio-dummy.m */; };
 		BD123697D93F88F96F7867FD81CE125A /* OIDTokenUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = F5F122F2B90EF49DD616E427421707C9 /* OIDTokenUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BDAEF728B5E4EC1594E41D1AB44972FF /* Pods-OneSignalNotificationServiceExtension-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 62749D30F1471629718559C967C8B6D6 /* Pods-OneSignalNotificationServiceExtension-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BDFB1AE8F039BC6F4EB5E7926D4FD2AF /* BetterEventChannel.h in Headers */ = {isa = PBXBuildFile; fileRef = A122BFE0D9B7880F7CD43D1D6A466CB5 /* BetterEventChannel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C05F2995448070CA16B48B1584985752 /* UnknownPermissionStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = 31A3EFC71CA52817CCF12802CA292425 /* UnknownPermissionStrategy.m */; };
 		C0A6470421C27C938C45EE1ECC98B1AC /* id.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 2472F6E9EC9355909529FC71E66A15F1 /* id.lproj */; };
@@ -534,7 +537,7 @@
 		FB2370DCB8630F067F629EDADC809D2D /* FLTImagePickerImageUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = FAB19B8CC8680D22FC2768E61D4A6B02 /* FLTImagePickerImageUtil.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FBD7877E3CB44E1122D1730DE63C4F7D /* LocationPermissionStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D46EE1802F02BE0D08F80FB57AF1C98 /* LocationPermissionStrategy.m */; };
 		FBDA6C8A55A2D0919D8AAD5392E176EA /* flutter_native_splash-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B0AF670178492233F5D5F05B1F7B7EA5 /* flutter_native_splash-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FC05A1BE39A9244D5B09A2F3B09A967A /* Pods-RunnerTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E9B12BCE5540D02A80250C3EC16D399 /* Pods-RunnerTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FC05A1BE39A9244D5B09A2F3B09A967A /* Pods-RunnerTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 595368E92E3E99B0E0D2456EAD4E9089 /* Pods-RunnerTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FC5640AB2369BCEB1AD72CBDFC986441 /* hu.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 72244B826F63CADDD4A3D3B432343148 /* hu.lproj */; };
 		FC58C8FF90DCD502A6EEF8C5DB05536D /* GTMKeychain.h in Headers */ = {isa = PBXBuildFile; fileRef = 52016DEC6D2195E54B2A8651871B803E /* GTMKeychain.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FD422122940BB39F52F1C0251A610AEF /* OIDScopes.m in Sources */ = {isa = PBXBuildFile; fileRef = 43DE49F4EE9B3BD797FB7093A9BFF18C /* OIDScopes.m */; };
@@ -551,6 +554,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 845DF30C6C93A1F35C6DCEBAFECA8F8A;
 			remoteInfo = image_picker_ios;
+		};
+		0159DF7367AA36A3F2263B0489347D64 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8B74B458B450D74B75744B87BD747314;
+			remoteInfo = "Pods-Runner";
 		};
 		015A107B9AD2411B307FAC8F321527D3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -783,13 +793,6 @@
 			remoteGlobalIDString = 42A5F24E847029301BC47B4E68477322;
 			remoteInfo = share_plus;
 		};
-		5E499D47407ED112BD69B4BDC68F8405 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 8B74B458B450D74B75744B87BD747314;
-			remoteInfo = "Pods-Runner";
-		};
 		61867E85BEBE8F2440F7840762611645 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
@@ -986,6 +989,13 @@
 			remoteGlobalIDString = 1EFDDC32A34D56D411E640A81DCD9E73;
 			remoteInfo = Flutter;
 		};
+		D2A7E80C633662270E3D5251F3CA90DF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F783E7E9F8591E6CF73ED67143335F50;
+			remoteInfo = OneSignalXCFramework;
+		};
 		D3C5B050638D9CBF51A3EEF88A5CAFB4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
@@ -1056,19 +1066,20 @@
 		02B76B16A2D1D4C116CCCBE6B98FD8E2 /* NSBundle+GID3PAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSBundle+GID3PAdditions.h"; path = "GoogleSignIn/Sources/NSBundle+GID3PAdditions.h"; sourceTree = "<group>"; };
 		02D8D119B080F329346A159B58A44CDB /* LocationServiceStreamHandler.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LocationServiceStreamHandler.m; path = "../../../../../../../../../../.pub-cache/hosted/pub.dev/geolocator_apple-2.3.1/ios/Classes/Handlers/LocationServiceStreamHandler.m"; sourceTree = "<group>"; };
 		0365435D7092036069D60A3BE2695444 /* FMDatabase.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FMDatabase.m; path = src/fmdb/FMDatabase.m; sourceTree = "<group>"; };
-		03E8AD2E8B75443E12D3D3BD12A9900E /* Pods-RunnerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RunnerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		040E26C44B1260C4D02BCB1F9E04F49C /* flutter_local_notifications.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = flutter_local_notifications.release.xcconfig; sourceTree = "<group>"; };
 		0420C0C36FCC3FF7A65CC156D49214C8 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = "../../../../../../../../.pub-cache/hosted/pub.dev/onesignal_flutter-5.0.3/LICENSE"; sourceTree = "<group>"; };
 		045E30C9DA7A0320D4EADE450B1589DD /* messages.g.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = messages.g.swift; path = "../../../../../../../../../.pub-cache/hosted/pub.dev/shared_preferences_foundation-2.3.4/darwin/Classes/messages.g.swift"; sourceTree = "<group>"; };
 		04B85D32B492BF7E164F27E7E4403601 /* razorpay_flutter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = razorpay_flutter.release.xcconfig; sourceTree = "<group>"; };
+		04C64687E448050E54C391E3C3E995AC /* Pods-OneSignalNotificationServiceExtension-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-OneSignalNotificationServiceExtension-dummy.m"; sourceTree = "<group>"; };
 		05140FD7A21C6856BB0ECE286955F1BC /* shared_preferences_foundation.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = shared_preferences_foundation.podspec; path = "../../../../../../../../.pub-cache/hosted/pub.dev/shared_preferences_foundation-2.3.4/darwin/shared_preferences_foundation.podspec"; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		054459E3917FBC8889356202C9A54290 /* Pods-Runner-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Runner-dummy.m"; sourceTree = "<group>"; };
 		062F7A276E528E99CA21B1D5FD6292FD /* OIDAuthState+IOS.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "OIDAuthState+IOS.m"; path = "Source/AppAuth/iOS/OIDAuthState+IOS.m"; sourceTree = "<group>"; };
 		075FAAF3240C8E4DC41E6FB4F520BA4F /* sk.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = sk.lproj; path = GoogleSignIn/Sources/Strings/sk.lproj; sourceTree = "<group>"; };
+		08F7AE0E4CE5FE4C4D7222C393D311B3 /* Pods-RunnerTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-RunnerTests-dummy.m"; sourceTree = "<group>"; };
 		09353295CD9818CCC4E117439D51BFF3 /* GTMAppAuthFetcherAuthorization.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GTMAppAuthFetcherAuthorization.m; path = GTMAppAuth/Sources/GTMAppAuthFetcherAuthorization.m; sourceTree = "<group>"; };
 		09F00BEB2CB123919553F4EA5551D34A /* LocationServiceStreamHandler.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LocationServiceStreamHandler.h; path = "../../../../../../../../../../.pub-cache/hosted/pub.dev/geolocator_apple-2.3.1/ios/Classes/Handlers/LocationServiceStreamHandler.h"; sourceTree = "<group>"; };
 		0A477E30F0322C230A63EDB412561C4C /* path_provider_foundation-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "path_provider_foundation-prefix.pch"; sourceTree = "<group>"; };
 		0A8B4BED970FC98A1B1EAE44B3403CEC /* AuthorizationStatusMapper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AuthorizationStatusMapper.h; path = "../../../../../../../../../../.pub-cache/hosted/pub.dev/geolocator_apple-2.3.1/ios/Classes/Utils/AuthorizationStatusMapper.h"; sourceTree = "<group>"; };
-		0AFB643DA4919253F749E2836A5AAFDC /* Pods-Runner-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Runner-Info.plist"; sourceTree = "<group>"; };
 		0B02D63FA511FA2263235A27CC2D78F8 /* de.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = de.lproj; path = GoogleSignIn/Sources/Strings/de.lproj; sourceTree = "<group>"; };
 		0CEAEE5230FE0658BD97C0DD3E5D608B /* OIDEndSessionResponse.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OIDEndSessionResponse.h; path = Source/AppAuthCore/OIDEndSessionResponse.h; sourceTree = "<group>"; };
 		0D56176779AE2AA8632AF2CB7DC677EE /* FLTGoogleSignInPlugin.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; name = FLTGoogleSignInPlugin.modulemap; path = "../../../../../../../../.pub-cache/hosted/pub.dev/google_sign_in_ios-5.6.3/ios/Classes/FLTGoogleSignInPlugin.modulemap"; sourceTree = "<group>"; };
@@ -1078,6 +1089,7 @@
 		0E5BE6D4446C0E490B2B651FBA00FECF /* flutter_native_splash.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = flutter_native_splash.debug.xcconfig; sourceTree = "<group>"; };
 		0EDCC5A9A922CABA92908F500964F1BF /* ms.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = ms.lproj; path = GoogleSignIn/Sources/Strings/ms.lproj; sourceTree = "<group>"; };
 		0F043CBBB8E61963BB59AFF919278B98 /* onesignal_flutter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = onesignal_flutter.release.xcconfig; sourceTree = "<group>"; };
+		0F16B3221C242A98B9E25062A07980A9 /* Pods-Runner.profile.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Runner.profile.xcconfig"; sourceTree = "<group>"; };
 		0F92F868061AB23D58DAF200354E3161 /* razorpay_flutter-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "razorpay_flutter-Info.plist"; sourceTree = "<group>"; };
 		0FB2E8BE9B2B5DCCB786269436076873 /* vi.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = vi.lproj; path = GoogleSignIn/Sources/Strings/vi.lproj; sourceTree = "<group>"; };
 		0FE6BADA1A1D06229D6A5041928219FD /* onesignal_flutter-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "onesignal_flutter-Info.plist"; sourceTree = "<group>"; };
@@ -1085,7 +1097,6 @@
 		101D9E807599C5A2939DAFE8228B37AC /* FMResultSet.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FMResultSet.h; path = src/fmdb/FMResultSet.h; sourceTree = "<group>"; };
 		108076986786D2DE9F8CCCBC15A43F29 /* OIDResponseTypes.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OIDResponseTypes.m; path = Source/AppAuthCore/OIDResponseTypes.m; sourceTree = "<group>"; };
 		115ADAE032312F701EB19FF335ED80A0 /* ContactPermissionStrategy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ContactPermissionStrategy.h; path = "../../../../../../../../../../.pub-cache/hosted/pub.dev/permission_handler_apple-9.1.4/ios/Classes/strategies/ContactPermissionStrategy.h"; sourceTree = "<group>"; };
-		11AA7018F95317D959D9D2E76CBB2377 /* Pods-RunnerTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-RunnerTests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		120ADA49A896DC028FAB54A899901E01 /* GIDEMMErrorHandler.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GIDEMMErrorHandler.m; path = GoogleSignIn/Sources/GIDEMMErrorHandler.m; sourceTree = "<group>"; };
 		122E3F4C50CDE736640BDBB9DFB5580E /* audio_session.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = audio_session.podspec; path = "../../../../../../../../.pub-cache/hosted/pub.dev/audio_session-0.1.16/ios/audio_session.podspec"; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		12780DD8228D8F7B62408C0A418D6AEC /* OIDFieldMapping.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OIDFieldMapping.h; path = Source/AppAuthCore/OIDFieldMapping.h; sourceTree = "<group>"; };
@@ -1096,6 +1107,7 @@
 		13CB2F41603A13CEE695CE7EF8984162 /* fr_CA.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = fr_CA.lproj; path = GoogleSignIn/Sources/Strings/fr_CA.lproj; sourceTree = "<group>"; };
 		145D9A437B09EA580FC5E521635E06EB /* flutter_local_notifications-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "flutter_local_notifications-dummy.m"; sourceTree = "<group>"; };
 		148976AD14EBA40EF03975E7257A5F57 /* contacts_service-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "contacts_service-prefix.pch"; sourceTree = "<group>"; };
+		154EF3D37850A64227B9C1D9A22E66C7 /* Pods-OneSignalNotificationServiceExtension-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-OneSignalNotificationServiceExtension-Info.plist"; sourceTree = "<group>"; };
 		154F15D85A3A60ACC4EDC0A331AAC813 /* GIDSignInButton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GIDSignInButton.h; path = GoogleSignIn/Sources/Public/GoogleSignIn/GIDSignInButton.h; sourceTree = "<group>"; };
 		156487F627816563281CC3F373694E0A /* PhoneNumberKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = PhoneNumberKit.modulemap; sourceTree = "<group>"; };
 		15A859D72309B9C18B61B77F185AD718 /* share_plus.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = share_plus.modulemap; sourceTree = "<group>"; };
@@ -1112,7 +1124,6 @@
 		1A08C9A5CD475026C351E5A68C00EEDC /* geolocator_apple.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = geolocator_apple.podspec; path = "../../../../../../../../.pub-cache/hosted/pub.dev/geolocator_apple-2.3.1/ios/geolocator_apple.podspec"; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		1A106E92055938D384E2DD87FC19CAB2 /* just_audio-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "just_audio-prefix.pch"; sourceTree = "<group>"; };
 		1A31D70DBEFEBAE3B785C777918AEA22 /* onesignal_flutter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = onesignal_flutter.debug.xcconfig; sourceTree = "<group>"; };
-		1B136F41D5B5FAE96EA576E768A5771D /* Pods-Runner-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Runner-acknowledgements.plist"; sourceTree = "<group>"; };
 		1B5777C3D0E50A92880897344548BDBA /* permission_handler_apple-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "permission_handler_apple-dummy.m"; sourceTree = "<group>"; };
 		1C016AF84204AC11996FBEE9554A57D4 /* OSFlutterLiveActivities.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OSFlutterLiveActivities.m; path = "../../../../../../../../../.pub-cache/hosted/pub.dev/onesignal_flutter-5.0.3/ios/Classes/OSFlutterLiveActivities.m"; sourceTree = "<group>"; };
 		1C3D64D1385FA3A989A7C31F867D51D7 /* GTMSessionFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GTMSessionFetcher.m; path = Sources/Core/GTMSessionFetcher.m; sourceTree = "<group>"; };
@@ -1123,6 +1134,7 @@
 		1D932D79AA3A41D868DC6D74BBE77630 /* flutter_native_splash.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = flutter_native_splash.podspec; path = "../../../../../../../../.pub-cache/hosted/pub.dev/flutter_native_splash-2.3.2/ios/flutter_native_splash.podspec"; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		1DE18CA9CA46F38F60565BE8900A26E8 /* ResourceBundle-GoogleSignIn-GoogleSignIn-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-GoogleSignIn-GoogleSignIn-Info.plist"; sourceTree = "<group>"; };
 		1DF2925F44C5300AEF39F6C996DC5CB5 /* google@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "google@2x.png"; path = "GoogleSignIn/Sources/Resources/google@2x.png"; sourceTree = "<group>"; };
+		1E1F4448344CAAFF5BD930E15096AC4D /* Pods-OneSignalNotificationServiceExtension.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-OneSignalNotificationServiceExtension.modulemap"; sourceTree = "<group>"; };
 		1E20BA9FA552DB6C9A5A6E238444C3E8 /* flutter_native_splash-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "flutter_native_splash-prefix.pch"; sourceTree = "<group>"; };
 		1EBF3007B1A042A4DAAED63D3FE4EB2C /* GIDMDMPasscodeState.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GIDMDMPasscodeState.h; path = GoogleSignIn/Sources/GIDMDMPasscodeState.h; sourceTree = "<group>"; };
 		1EDA0E26C8E71CD003C3B65C2E00B808 /* just_audio */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = just_audio; path = just_audio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1130,6 +1142,7 @@
 		1F63E244D69D31F2904081833993EDC5 /* FlutterQiblahPlugin.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FlutterQiblahPlugin.m; path = "../../../../../../../../../.pub-cache/hosted/pub.dev/flutter_qiblah-2.2.0/ios/Classes/FlutterQiblahPlugin.m"; sourceTree = "<group>"; };
 		1F875DA3A75BD96CE71B59AA9A94DC76 /* GoogleSignIn.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = GoogleSignIn.modulemap; sourceTree = "<group>"; };
 		1F9D39D6F24B64014DAC9309649E639F /* GIDSignInCallbackSchemes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GIDSignInCallbackSchemes.h; path = GoogleSignIn/Sources/GIDSignInCallbackSchemes.h; sourceTree = "<group>"; };
+		1FBE1B49D3154229A9BD29074E0DB026 /* Pods-RunnerTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-RunnerTests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		200DC1456D202446A2479C697CB95677 /* ClippingAudioSource.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ClippingAudioSource.h; path = "../../../../../../../../../.pub-cache/hosted/pub.dev/just_audio-0.9.35/ios/Classes/ClippingAudioSource.h"; sourceTree = "<group>"; };
 		203337F2F08B3BBD03D3DF3549DD802A /* LocationAccuracyMapper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LocationAccuracyMapper.m; path = "../../../../../../../../../../.pub-cache/hosted/pub.dev/geolocator_apple-2.3.1/ios/Classes/Utils/LocationAccuracyMapper.m"; sourceTree = "<group>"; };
 		20470508DB7618ED2981D550F6F1B916 /* SharedPreferencesPlugin.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SharedPreferencesPlugin.swift; path = "../../../../../../../../../.pub-cache/hosted/pub.dev/shared_preferences_foundation-2.3.4/darwin/Classes/SharedPreferencesPlugin.swift"; sourceTree = "<group>"; };
@@ -1156,8 +1169,10 @@
 		25F32470C08A9BA1D5EB69019B01EA28 /* smart_auth-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "smart_auth-Info.plist"; sourceTree = "<group>"; };
 		279424F454B703DA88B6D24C656BE16A /* SwiftSmartAuthPlugin.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftSmartAuthPlugin.swift; path = "../../../../../../../../../.pub-cache/hosted/pub.dev/smart_auth-1.1.1/ios/Classes/SwiftSmartAuthPlugin.swift"; sourceTree = "<group>"; };
 		27A7628246423558127D3070B35B837B /* PermissionUtils.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PermissionUtils.h; path = "../../../../../../../../../../.pub-cache/hosted/pub.dev/geolocator_apple-2.3.1/ios/Classes/Utils/PermissionUtils.h"; sourceTree = "<group>"; };
+		285E7EE134C8B577B9FC4AD7C4AEBEFD /* Pods-RunnerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RunnerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		288A6524D53C57A04C00CC2AC5B14102 /* OIDEndSessionResponse.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OIDEndSessionResponse.m; path = Source/AppAuthCore/OIDEndSessionResponse.m; sourceTree = "<group>"; };
 		28F301B7CB7697FB4BA6CEC501CBE413 /* fluttertoast-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "fluttertoast-dummy.m"; sourceTree = "<group>"; };
+		29B79993A7C8DBE04169DD173184D157 /* Pods-Runner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Runner.debug.xcconfig"; sourceTree = "<group>"; };
 		2A72583B13289ACD8DFF9EB05709D79E /* SpeechPermissionStrategy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SpeechPermissionStrategy.h; path = "../../../../../../../../../../.pub-cache/hosted/pub.dev/permission_handler_apple-9.1.4/ios/Classes/strategies/SpeechPermissionStrategy.h"; sourceTree = "<group>"; };
 		2A80B76F45E3AF653891E074FDE7D04D /* OSFlutterNotifications.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OSFlutterNotifications.m; path = "../../../../../../../../../.pub-cache/hosted/pub.dev/onesignal_flutter-5.0.3/ios/Classes/OSFlutterNotifications.m"; sourceTree = "<group>"; };
 		2A947474F3F1AFAF53C73696914D1D10 /* OSFlutterPushSubscription.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OSFlutterPushSubscription.h; path = "../../../../../../../../../.pub-cache/hosted/pub.dev/onesignal_flutter-5.0.3/ios/Classes/OSFlutterPushSubscription.h"; sourceTree = "<group>"; };
@@ -1237,7 +1252,9 @@
 		434FC57BCAFC130679E225F7228A60A0 /* GTMAppAuth-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GTMAppAuth-umbrella.h"; sourceTree = "<group>"; };
 		4354CC559BEBC4318CA1B30C12D97DD3 /* messages.g.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = messages.g.h; path = "../../../../../../../../../.pub-cache/hosted/pub.dev/url_launcher_ios-6.1.5/ios/Classes/messages.g.h"; sourceTree = "<group>"; };
 		43DE49F4EE9B3BD797FB7093A9BFF18C /* OIDScopes.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OIDScopes.m; path = Source/AppAuthCore/OIDScopes.m; sourceTree = "<group>"; };
+		44B13AF5FE84BF652D669DE76611A7A0 /* Pods-OneSignalNotificationServiceExtension-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-OneSignalNotificationServiceExtension-acknowledgements.plist"; sourceTree = "<group>"; };
 		450BD8C8109F7857520531685232E444 /* SignInWithAppleError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SignInWithAppleError.swift; path = "../../../../../../../../../.pub-cache/hosted/pub.dev/sign_in_with_apple-5.0.0/ios/Classes/SignInWithAppleError.swift"; sourceTree = "<group>"; };
+		45FC8A768CA3BA33CEDC1457460496B1 /* Pods-RunnerTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-RunnerTests-acknowledgements.plist"; sourceTree = "<group>"; };
 		478378BE9C2F64CB300B38297788E4E7 /* path_provider_foundation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = path_provider_foundation.debug.xcconfig; sourceTree = "<group>"; };
 		47B88BF1A892C4DF6BAE394A226C2D53 /* OIDExternalUserAgentIOSCustomBrowser.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OIDExternalUserAgentIOSCustomBrowser.m; path = Source/AppAuth/iOS/OIDExternalUserAgentIOSCustomBrowser.m; sourceTree = "<group>"; };
 		47DFC827A7AC203BBA227CF9F1C984D7 /* pt_BR.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = pt_BR.lproj; path = GoogleSignIn/Sources/Strings/pt_BR.lproj; sourceTree = "<group>"; };
@@ -1247,15 +1264,14 @@
 		48E707984542D315A9EBFA07616C63FE /* GeocodingHandler.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GeocodingHandler.h; path = "../../../../../../../../../.pub-cache/hosted/pub.dev/geocoding_ios-2.1.0/ios/Classes/GeocodingHandler.h"; sourceTree = "<group>"; };
 		48ED6EBE92BDBE24DEB57EA3FB94E4B1 /* SpeechPermissionStrategy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SpeechPermissionStrategy.m; path = "../../../../../../../../../../.pub-cache/hosted/pub.dev/permission_handler_apple-9.1.4/ios/Classes/strategies/SpeechPermissionStrategy.m"; sourceTree = "<group>"; };
 		48F007E6CB19A8C774BF178D333525EA /* PermissionHandlerEnums.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PermissionHandlerEnums.h; path = "../../../../../../../../../.pub-cache/hosted/pub.dev/permission_handler_apple-9.1.4/ios/Classes/PermissionHandlerEnums.h"; sourceTree = "<group>"; };
-		499E3722E8DACDC2AAA6C15AD1796520 /* Pods-Runner-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Runner-umbrella.h"; sourceTree = "<group>"; };
 		4A184D489DE0ABD3299DAAA721CEBE58 /* ContactsServicePlugin.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ContactsServicePlugin.h; path = "../../../../../../../../../.pub-cache/hosted/pub.dev/contacts_service-0.6.3/ios/Classes/ContactsServicePlugin.h"; sourceTree = "<group>"; };
 		4A2E55F123787C3D7B5117D2BE6DE41D /* sqflite-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "sqflite-umbrella.h"; sourceTree = "<group>"; };
 		4A3BB391515D67F5E5870783E496B4DA /* flutter_compass.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = flutter_compass.modulemap; sourceTree = "<group>"; };
+		4AF3B972C94DFF11700E306F18F01DF3 /* Pods-OneSignalNotificationServiceExtension */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-OneSignalNotificationServiceExtension"; path = Pods_OneSignalNotificationServiceExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B11C4D5DE7C32DB9C0520CF50B6BD0D /* package_info_plus-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "package_info_plus-Info.plist"; sourceTree = "<group>"; };
 		4C10311B40FA924F83DE3B7549A7DF1D /* GIDSignInInternalOptions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GIDSignInInternalOptions.h; path = GoogleSignIn/Sources/GIDSignInInternalOptions.h; sourceTree = "<group>"; };
 		4C45DB60FA3796CCFD4C2C7A5D16342B /* google_sign_in_ios.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = google_sign_in_ios.podspec; path = "../../../../../../../../.pub-cache/hosted/pub.dev/google_sign_in_ios-5.6.3/ios/google_sign_in_ios.podspec"; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		4CC1FBBB3F92F42E2368B8DF25C253B1 /* GIDAuthentication_Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GIDAuthentication_Private.h; path = GoogleSignIn/Sources/GIDAuthentication_Private.h; sourceTree = "<group>"; };
-		4D3DB54C128E3D88C0C9C7DDEA475ED7 /* Pods-RunnerTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-RunnerTests-dummy.m"; sourceTree = "<group>"; };
 		4D3EF429E7DFD6651DC22BC6C1FDD6EB /* GeolocatorPlugin.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GeolocatorPlugin.h; path = "../../../../../../../../../.pub-cache/hosted/pub.dev/geolocator_apple-2.3.1/ios/Classes/GeolocatorPlugin.h"; sourceTree = "<group>"; };
 		4D41FFD19C94A03B488FD46ECEFBC9A5 /* FLTURLLauncherPlugin.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FLTURLLauncherPlugin.m; path = "../../../../../../../../../.pub-cache/hosted/pub.dev/url_launcher_ios-6.1.5/ios/Classes/FLTURLLauncherPlugin.m"; sourceTree = "<group>"; };
 		4D4400604A3BD5B196B454EDD13F6616 /* SensorPermissionStrategy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SensorPermissionStrategy.h; path = "../../../../../../../../../../.pub-cache/hosted/pub.dev/permission_handler_apple-9.1.4/ios/Classes/strategies/SensorPermissionStrategy.h"; sourceTree = "<group>"; };
@@ -1296,13 +1312,18 @@
 		57F26DBAE000F5C5C68C5FBC73098796 /* PermissionHandlerPlugin.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PermissionHandlerPlugin.m; path = "../../../../../../../../../.pub-cache/hosted/pub.dev/permission_handler_apple-9.1.4/ios/Classes/PermissionHandlerPlugin.m"; sourceTree = "<group>"; };
 		59124C344DB23FADA594D72C95C69013 /* audio_session-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "audio_session-dummy.m"; sourceTree = "<group>"; };
 		5925E4A57CF0C87FCC99061A7C646E66 /* FMDB.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = FMDB.modulemap; sourceTree = "<group>"; };
+		595368E92E3E99B0E0D2456EAD4E9089 /* Pods-RunnerTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-RunnerTests-umbrella.h"; sourceTree = "<group>"; };
+		598515987FE72D05493A83942923F00F /* Pods-OneSignalNotificationServiceExtension-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-OneSignalNotificationServiceExtension-acknowledgements.markdown"; sourceTree = "<group>"; };
 		5BA6BD652C5AA7510124C65B4984B51E /* SignInWithAppleAvailablePlugin.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SignInWithAppleAvailablePlugin.swift; path = "../../../../../../../../../.pub-cache/hosted/pub.dev/sign_in_with_apple-5.0.0/ios/Classes/SignInWithAppleAvailablePlugin.swift"; sourceTree = "<group>"; };
 		5BD8712ADF00BFDE1113F56CFC2BDC27 /* libphonenumber_plugin-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "libphonenumber_plugin-dummy.m"; sourceTree = "<group>"; };
+		5BE1E97F118C0536F0EE5A0A3F0F678C /* Pods-Runner.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Runner.modulemap"; sourceTree = "<group>"; };
 		5CF31475F80864B0909F5C63786E2284 /* UriAudioSource.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = UriAudioSource.h; path = "../../../../../../../../../.pub-cache/hosted/pub.dev/just_audio-0.9.35/ios/Classes/UriAudioSource.h"; sourceTree = "<group>"; };
 		5D46EE1802F02BE0D08F80FB57AF1C98 /* LocationPermissionStrategy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LocationPermissionStrategy.m; path = "../../../../../../../../../../.pub-cache/hosted/pub.dev/permission_handler_apple-9.1.4/ios/Classes/strategies/LocationPermissionStrategy.m"; sourceTree = "<group>"; };
 		5D7D428F2A03EC224162CD4EAE0A0689 /* google_sign_in_ios-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "google_sign_in_ios-Info.plist"; sourceTree = "<group>"; };
 		5DA9DE8C2F13CB5A34E704F2490B2EEE /* OIDAuthorizationService+IOS.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "OIDAuthorizationService+IOS.m"; path = "Source/AppAuth/iOS/OIDAuthorizationService+IOS.m"; sourceTree = "<group>"; };
+		5DD382A74E2BDAAABE2A8042D8D6759F /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-OneSignalNotificationServiceExtension.release.xcconfig"; sourceTree = "<group>"; };
 		5EBA2CF1600115331D4953E6E6F11162 /* OneSignalLocation.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; name = OneSignalLocation.xcframework; path = iOS_SDK/OneSignalSDK/OneSignal_Location/OneSignalLocation.xcframework; sourceTree = "<group>"; };
+		5ED4CEF7C670F63686DE9A36FBC21B56 /* Pods-Runner-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Runner-Info.plist"; sourceTree = "<group>"; };
 		5EE86D8B3A0AF157CCD05342870E2CD4 /* flutter_compass */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = flutter_compass; path = flutter_compass.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F744FDAAA3CA24609F6873838D18ADF /* PathProviderPlugin.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PathProviderPlugin.swift; path = "../../../../../../../../../.pub-cache/hosted/pub.dev/path_provider_foundation-2.3.1/darwin/Classes/PathProviderPlugin.swift"; sourceTree = "<group>"; };
 		5F8C1009E9B6E35F21027CE1D6A5DFA2 /* flutter_compass.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = flutter_compass.podspec; path = "../../../../../../../../.pub-cache/hosted/pub.dev/flutter_compass-0.7.0/ios/flutter_compass.podspec"; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -1312,6 +1333,7 @@
 		6057B85E8DB8A8F5C716604A5AAE7583 /* contacts_service */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = contacts_service; path = contacts_service.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		60925221A757D545F19B9E2BBFCF9AEA /* flutter_compass-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "flutter_compass-Info.plist"; sourceTree = "<group>"; };
 		6243409ADA8B31E08419AA7CB368431D /* OIDAuthorizationRequest.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OIDAuthorizationRequest.m; path = Source/AppAuthCore/OIDAuthorizationRequest.m; sourceTree = "<group>"; };
+		62749D30F1471629718559C967C8B6D6 /* Pods-OneSignalNotificationServiceExtension-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-OneSignalNotificationServiceExtension-umbrella.h"; sourceTree = "<group>"; };
 		62CF063A5C17DA0B01E08839D2BA502F /* OIDAuthState.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OIDAuthState.h; path = Source/AppAuthCore/OIDAuthState.h; sourceTree = "<group>"; };
 		62F747E1CB58B7B375159A648A4022CB /* razorpay_flutter.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = razorpay_flutter.podspec; path = "../../../../../../../../.pub-cache/hosted/pub.dev/razorpay_flutter-1.3.5/ios/razorpay_flutter.podspec"; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		633D4D53628538C26535EB5947D937C0 /* sign_in_with_apple-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "sign_in_with_apple-prefix.pch"; sourceTree = "<group>"; };
@@ -1361,7 +1383,6 @@
 		722F0B735638E4EBE77B6277FC6EF147 /* flutter_qiblah */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = flutter_qiblah; path = flutter_qiblah.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		72596B6BB88F4131501FD975C575485B /* GIDSignIn.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GIDSignIn.m; path = GoogleSignIn/Sources/GIDSignIn.m; sourceTree = "<group>"; };
 		7275ADD5A942FFD98F6CF78F8ACF0E89 /* SwiftFlutterQiblahPlugin.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftFlutterQiblahPlugin.swift; path = "../../../../../../../../../.pub-cache/hosted/pub.dev/flutter_qiblah-2.2.0/ios/Classes/SwiftFlutterQiblahPlugin.swift"; sourceTree = "<group>"; };
-		728A5ED1DD60BAC8C8F382A87B976F84 /* Pods-Runner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Runner.debug.xcconfig"; sourceTree = "<group>"; };
 		72EFC7CFFEDA0C93FF20B7CBBDD8A681 /* flutter_native_splash-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "flutter_native_splash-dummy.m"; sourceTree = "<group>"; };
 		73A88BD6F75BB78272096F27E1C5CBA7 /* OSFlutterNotifications.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OSFlutterNotifications.h; path = "../../../../../../../../../.pub-cache/hosted/pub.dev/onesignal_flutter-5.0.3/ios/Classes/OSFlutterNotifications.h"; sourceTree = "<group>"; };
 		73BEA01E0BD9CA67B22872150DC31485 /* GIDScopes.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GIDScopes.m; path = GoogleSignIn/Sources/GIDScopes.m; sourceTree = "<group>"; };
@@ -1378,7 +1399,6 @@
 		768975E636D1D2FB85622FB67DB04E5A /* image_picker_ios */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = image_picker_ios; path = image_picker_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		76A0E2558543EBBF9BBE0ADAB79B3E1B /* JustAudioPlugin.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JustAudioPlugin.h; path = "../../../../../../../../../.pub-cache/hosted/pub.dev/just_audio-0.9.35/ios/Classes/JustAudioPlugin.h"; sourceTree = "<group>"; };
 		76CFC138D56826476095F51DF73D3CE6 /* Razorpay.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; name = Razorpay.xcframework; path = Pod/Razorpay.xcframework; sourceTree = "<group>"; };
-		773BFCE41424EB8EBB72EF3F6A5FB719 /* Pods-Runner-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Runner-frameworks.sh"; sourceTree = "<group>"; };
 		778842E351E1066878755E550BC0DCF7 /* OIDAuthState.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OIDAuthState.m; path = Source/AppAuthCore/OIDAuthState.m; sourceTree = "<group>"; };
 		77F201541D64C89B5E3916B1515D6CE2 /* OIDAuthorizationRequest.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OIDAuthorizationRequest.h; path = Source/AppAuthCore/OIDAuthorizationRequest.h; sourceTree = "<group>"; };
 		789B065E5E7D639B993421458FBF7FEC /* SqfliteCursor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SqfliteCursor.m; path = "../../../../../../../../../.pub-cache/hosted/pub.dev/sqflite-2.3.0/ios/Classes/SqfliteCursor.m"; sourceTree = "<group>"; };
@@ -1386,9 +1406,9 @@
 		78F608D09F077DD4E94A9CE665AB7ABF /* smart_auth-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "smart_auth-umbrella.h"; sourceTree = "<group>"; };
 		7911E7892E400CF4C728586D15A12CFB /* LocationDistanceMapper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LocationDistanceMapper.m; path = "../../../../../../../../../../.pub-cache/hosted/pub.dev/geolocator_apple-2.3.1/ios/Classes/Utils/LocationDistanceMapper.m"; sourceTree = "<group>"; };
 		792BA9A60CEA76DCBDEA6CDFF3858364 /* messages.g.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = messages.g.m; path = "../../../../../../../../../.pub-cache/hosted/pub.dev/url_launcher_ios-6.1.5/ios/Classes/messages.g.m"; sourceTree = "<group>"; };
+		79911F2B5C4FEB8C90CBBA430D20B7B7 /* Pods-Runner-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Runner-umbrella.h"; sourceTree = "<group>"; };
 		79CA823CFB7E93EAF78024A7ECAEB016 /* FluttertoastPlugin.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FluttertoastPlugin.m; path = "../../../../../../../../../.pub-cache/hosted/pub.dev/fluttertoast-8.2.2/ios/Classes/FluttertoastPlugin.m"; sourceTree = "<group>"; };
 		79DFE8049BB228E99ECFE5B61DF2AB46 /* pt.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = pt.lproj; path = GoogleSignIn/Sources/Strings/pt.lproj; sourceTree = "<group>"; };
-		79F83F4D505FA40C1CD18A8029181D59 /* Pods-RunnerTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-RunnerTests-acknowledgements.plist"; sourceTree = "<group>"; };
 		7A50B07E1EACB599FE19F94F52E583CF /* SignInWithApplePlugin.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SignInWithApplePlugin.m; path = "../../../../../../../../../.pub-cache/hosted/pub.dev/sign_in_with_apple-5.0.0/ios/Classes/SignInWithApplePlugin.m"; sourceTree = "<group>"; };
 		7ABFC20267C5AE2613E8000AC5F84E8D /* image_picker_ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = image_picker_ios.release.xcconfig; sourceTree = "<group>"; };
 		7B0D4B83378F2E333041CA24348723A5 /* GIDSignIn.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GIDSignIn.h; path = GoogleSignIn/Sources/Public/GoogleSignIn/GIDSignIn.h; sourceTree = "<group>"; };
@@ -1487,6 +1507,7 @@
 		9839E113FC4C6D92CCB216905DFB786B /* fr.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = fr.lproj; path = GoogleSignIn/Sources/Strings/fr.lproj; sourceTree = "<group>"; };
 		989F3E3C108F936FC371088897291D18 /* razorpay-pod.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "razorpay-pod.debug.xcconfig"; sourceTree = "<group>"; };
 		99174DF8A7BD48B51C83FFC86FE7E73A /* flutter_qiblah-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "flutter_qiblah-prefix.pch"; sourceTree = "<group>"; };
+		99D37D54F8C0D420FEB9758A0E601C14 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; sourceTree = "<group>"; };
 		99EC3218FBEE7BA15859FE995CDA8A9B /* sign_in_with_apple.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = sign_in_with_apple.release.xcconfig; sourceTree = "<group>"; };
 		9AAAE3C02C4EF903572EAEDEE4FB720A /* OIDTokenRequest.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OIDTokenRequest.m; path = Source/AppAuthCore/OIDTokenRequest.m; sourceTree = "<group>"; };
 		9BB13B76714E66BE1386733D02D545AD /* SqfliteDatabase.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SqfliteDatabase.m; path = "../../../../../../../../../.pub-cache/hosted/pub.dev/sqflite-2.3.0/ios/Classes/SqfliteDatabase.m"; sourceTree = "<group>"; };
@@ -1494,12 +1515,12 @@
 		9C27582130E11EA0C7FA939DEA0052FB /* GIDSignInStrings.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GIDSignInStrings.m; path = GoogleSignIn/Sources/GIDSignInStrings.m; sourceTree = "<group>"; };
 		9C815C5E7388220F2E369B25296F4918 /* ErrorCodes.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ErrorCodes.m; path = "../../../../../../../../../../.pub-cache/hosted/pub.dev/geolocator_apple-2.3.1/ios/Classes/Constants/ErrorCodes.m"; sourceTree = "<group>"; };
 		9CAD816E7848C5367F593F314C63C944 /* GoogleSignIn.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = GoogleSignIn.release.xcconfig; sourceTree = "<group>"; };
+		9CB5E82BAF46657559676F43CED0BD62 /* Pods-RunnerTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-RunnerTests.modulemap"; sourceTree = "<group>"; };
 		9CD5F1D77815EA60A9BA413B0EB2DAFE /* AppTrackingTransparencyPermissionStrategy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AppTrackingTransparencyPermissionStrategy.h; path = "../../../../../../../../../../.pub-cache/hosted/pub.dev/permission_handler_apple-9.1.4/ios/Classes/strategies/AppTrackingTransparencyPermissionStrategy.h"; sourceTree = "<group>"; };
 		9CD81520D1B9C2821D955717999F408D /* OneSignalXCFramework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = OneSignalXCFramework.release.xcconfig; sourceTree = "<group>"; };
 		9D6C91F2D9ED1D71302E627FB7964AE5 /* GIDSignInCallbackSchemes.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GIDSignInCallbackSchemes.m; path = GoogleSignIn/Sources/GIDSignInCallbackSchemes.m; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9DC07DDE7757C66DE86DD07FA04C142E /* flutter_qiblah.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = flutter_qiblah.release.xcconfig; sourceTree = "<group>"; };
-		9E9B12BCE5540D02A80250C3EC16D399 /* Pods-RunnerTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-RunnerTests-umbrella.h"; sourceTree = "<group>"; };
 		9EA14233A8A980FFB0B65C0DD81964BE /* CriticalAlertsPermissionStrategy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CriticalAlertsPermissionStrategy.m; path = "../../../../../../../../../../.pub-cache/hosted/pub.dev/permission_handler_apple-9.1.4/ios/Classes/strategies/CriticalAlertsPermissionStrategy.m"; sourceTree = "<group>"; };
 		9EBD3F5EDF627A44765769E3B4628436 /* OSFlutterDebug.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OSFlutterDebug.h; path = "../../../../../../../../../.pub-cache/hosted/pub.dev/onesignal_flutter-5.0.3/ios/Classes/OSFlutterDebug.h"; sourceTree = "<group>"; };
 		9EE9BD6BA704EF1FBA5E691EDA5ADFC4 /* Constants.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = PhoneNumberKit/Constants.swift; sourceTree = "<group>"; };
@@ -1543,7 +1564,6 @@
 		AADFE5D2E6B71A3872D064B5BEC2EBF6 /* FLTImagePickerPlugin.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FLTImagePickerPlugin.m; path = "../../../../../../../../../.pub-cache/hosted/pub.dev/image_picker_ios-0.8.8+2/ios/Classes/FLTImagePickerPlugin.m"; sourceTree = "<group>"; };
 		AB51AA16A8D090794B2D676B96668011 /* image_picker_ios-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "image_picker_ios-Info.plist"; sourceTree = "<group>"; };
 		ABCD45F23CA610D9AE2E7F982718450E /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = "../../../../../../../../.pub-cache/hosted/pub.dev/flutter_qiblah-2.2.0/LICENSE"; sourceTree = "<group>"; };
-		AC8FE152530FBDCE460186B326C1A8FB /* Pods-RunnerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RunnerTests.release.xcconfig"; sourceTree = "<group>"; };
 		AD01EA0D953A71FFF35262E9FA3DB62E /* libphonenumber_plugin-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "libphonenumber_plugin-prefix.pch"; sourceTree = "<group>"; };
 		AD197193CB66C94FBFF9B48CE39A3B13 /* OIDTokenUtilities.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OIDTokenUtilities.m; path = Source/AppAuthCore/OIDTokenUtilities.m; sourceTree = "<group>"; };
 		AD5B08109D0E235D3DC991B30164CC97 /* ru.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = ru.lproj; path = GoogleSignIn/Sources/Strings/ru.lproj; sourceTree = "<group>"; };
@@ -1554,17 +1574,16 @@
 		AF33A411A0D35134C431041D9AB18A40 /* MediaLibraryPermissionStrategy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MediaLibraryPermissionStrategy.h; path = "../../../../../../../../../../.pub-cache/hosted/pub.dev/permission_handler_apple-9.1.4/ios/Classes/strategies/MediaLibraryPermissionStrategy.h"; sourceTree = "<group>"; };
 		AF8322FAB611426323426E58D36F51C3 /* GIDGoogleUser_Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GIDGoogleUser_Private.h; path = GoogleSignIn/Sources/GIDGoogleUser_Private.h; sourceTree = "<group>"; };
 		AF8612E02E5D203B70F9005EF69D44E0 /* just_audio.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = just_audio.modulemap; sourceTree = "<group>"; };
-		B00A5ECAED4CA0C16FF7C65365BC0334 /* Pods-RunnerTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-RunnerTests-Info.plist"; sourceTree = "<group>"; };
 		B027CB85927C89E349875BCEFDEC805D /* geolocator_apple.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = geolocator_apple.modulemap; sourceTree = "<group>"; };
 		B0AF670178492233F5D5F05B1F7B7EA5 /* flutter_native_splash-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "flutter_native_splash-umbrella.h"; sourceTree = "<group>"; };
 		B0B9B9F9A300B05C115A98B19C78F963 /* google_sign_in_ios */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = google_sign_in_ios; path = google_sign_in_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B0BD57AB3672E53828D11C2A3368023A /* Pods-RunnerTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-RunnerTests.modulemap"; sourceTree = "<group>"; };
 		B19FECF62D8830CC63DA436E09CD66FA /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = "../../../../../../../../.pub-cache/hosted/pub.dev/url_launcher_ios-6.1.5/LICENSE"; sourceTree = "<group>"; };
 		B1B3715D2EFA57F3043877191D86E169 /* Toast.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Toast.release.xcconfig; sourceTree = "<group>"; };
 		B21B533608F1EDDBB21D42AAAD7BF636 /* FLTGoogleSignInPlugin_Test.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FLTGoogleSignInPlugin_Test.h; path = "../../../../../../../../../.pub-cache/hosted/pub.dev/google_sign_in_ios-5.6.3/ios/Classes/FLTGoogleSignInPlugin_Test.h"; sourceTree = "<group>"; };
 		B2331F38678FE1D4E7072B1B14A30FC4 /* GeocodingPlugin.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GeocodingPlugin.h; path = "../../../../../../../../../.pub-cache/hosted/pub.dev/geocoding_ios-2.1.0/ios/Classes/GeocodingPlugin.h"; sourceTree = "<group>"; };
 		B28BABEECF5373757277D3A5F00FEC82 /* package_info_plus-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "package_info_plus-dummy.m"; sourceTree = "<group>"; };
 		B2C2B056612E78D5BAE48A65B54C734E /* flutter_qiblah.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = flutter_qiblah.debug.xcconfig; sourceTree = "<group>"; };
+		B3683AB126161F20D81E27759ACDBF20 /* Pods-Runner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Runner.release.xcconfig"; sourceTree = "<group>"; };
 		B36C54349ADB5142B3662E459F3A9FAE /* FlutterEngineManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FlutterEngineManager.m; path = "../../../../../../../../../.pub-cache/hosted/pub.dev/flutter_local_notifications-15.1.1/ios/Classes/FlutterEngineManager.m"; sourceTree = "<group>"; };
 		B3A0DD592EE8DDE637D5AB989D6612A9 /* GTMAppAuth.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = GTMAppAuth.release.xcconfig; sourceTree = "<group>"; };
 		B3EC1AE70AEF72B0058DB328CB293540 /* GTMOAuth2KeychainCompatibility.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GTMOAuth2KeychainCompatibility.m; path = GTMAppAuth/Sources/GTMOAuth2KeychainCompatibility.m; sourceTree = "<group>"; };
@@ -1579,7 +1598,6 @@
 		B6647E399E702016968B38A26B27CE5E /* ConcatenatingAudioSource.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ConcatenatingAudioSource.m; path = "../../../../../../../../../.pub-cache/hosted/pub.dev/just_audio-0.9.35/ios/Classes/ConcatenatingAudioSource.m"; sourceTree = "<group>"; };
 		B6AD50FE01E04E629F54EE2D7DFAF345 /* MetadataTypes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MetadataTypes.swift; path = PhoneNumberKit/MetadataTypes.swift; sourceTree = "<group>"; };
 		B6B2185BACDE2938CB7D94FB3AEFED68 /* PhoneNumberKit-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "PhoneNumberKit-Info.plist"; sourceTree = "<group>"; };
-		B703785507B22BAF0B800737429577EC /* Pods-Runner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Runner.release.xcconfig"; sourceTree = "<group>"; };
 		B7460AF1BAF6E3180A778CB5A9E20F5B /* OIDAuthStateErrorDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OIDAuthStateErrorDelegate.h; path = Source/AppAuthCore/OIDAuthStateErrorDelegate.h; sourceTree = "<group>"; };
 		B74C05C7BAD4B4CC0A4E565BBA44EAD0 /* flutter_qiblah-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "flutter_qiblah-Info.plist"; sourceTree = "<group>"; };
 		B75760ADB6A17B88D8D91CED12354661 /* NSBundle+GID3PAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSBundle+GID3PAdditions.m"; path = "GoogleSignIn/Sources/NSBundle+GID3PAdditions.m"; sourceTree = "<group>"; };
@@ -1589,6 +1607,7 @@
 		B8AB7979C40CA3FCBC16B122915BE0B2 /* fluttertoast.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = fluttertoast.podspec; path = "../../../../../../../../.pub-cache/hosted/pub.dev/fluttertoast-8.2.2/ios/fluttertoast.podspec"; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		B90D94F7035AA883FE4B9AF1FD371A10 /* it.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = it.lproj; path = GoogleSignIn/Sources/Strings/it.lproj; sourceTree = "<group>"; };
 		B955D7D092BFDA4D651A1FB40C4F62FF /* OIDExternalUserAgentCatalyst.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OIDExternalUserAgentCatalyst.m; path = Source/AppAuth/iOS/OIDExternalUserAgentCatalyst.m; sourceTree = "<group>"; };
+		B972858A5BB233EE6B13CE208058E3B8 /* Pods-Runner-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Runner-acknowledgements.markdown"; sourceTree = "<group>"; };
 		B9DC94FB14AA6DC67B46A43425C1F080 /* UriAudioSource.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = UriAudioSource.m; path = "../../../../../../../../../.pub-cache/hosted/pub.dev/just_audio-0.9.35/ios/Classes/UriAudioSource.m"; sourceTree = "<group>"; };
 		BAC35D42C93EDDD3615915458CB4CDB5 /* GIDSignIn_Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GIDSignIn_Private.h; path = GoogleSignIn/Sources/GIDSignIn_Private.h; sourceTree = "<group>"; };
 		BB4DB8BEAC3C58615A7FA9E169C66385 /* FMDB-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FMDB-dummy.m"; sourceTree = "<group>"; };
@@ -1605,6 +1624,7 @@
 		BE1B7B2C4AD1CEA800EF1E0FFF32FD53 /* SqfliteFmdbImport.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SqfliteFmdbImport.m; path = "../../../../../../../../../.pub-cache/hosted/pub.dev/sqflite-2.3.0/ios/Classes/SqfliteFmdbImport.m"; sourceTree = "<group>"; };
 		BE2CF6740ADE851732A4FCD6D73AD0AC /* libphonenumber_plugin.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = libphonenumber_plugin.podspec; path = "../../../../../../../../.pub-cache/hosted/pub.dev/libphonenumber_plugin-0.3.2/ios/libphonenumber_plugin.podspec"; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		BE312D22A2A96705E45EBEFD23D87738 /* OSFlutterPushSubscription.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OSFlutterPushSubscription.m; path = "../../../../../../../../../.pub-cache/hosted/pub.dev/onesignal_flutter-5.0.3/ios/Classes/OSFlutterPushSubscription.m"; sourceTree = "<group>"; };
+		BF452E5F28DDD29553185B04571FA357 /* Pods-RunnerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RunnerTests.release.xcconfig"; sourceTree = "<group>"; };
 		BF78632A9585AD72BFE3577116113E87 /* GTMSessionFetcherService.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GTMSessionFetcherService.m; path = Sources/Core/GTMSessionFetcherService.m; sourceTree = "<group>"; };
 		BFA5B3FBBFB523A4D6493E82258C44EC /* PhoneNumberTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PhoneNumberTextField.swift; path = PhoneNumberKit/UI/PhoneNumberTextField.swift; sourceTree = "<group>"; };
 		C0A08CCAD071DA39DBFB712354008205 /* url_launcher_ios-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "url_launcher_ios-dummy.m"; sourceTree = "<group>"; };
@@ -1614,7 +1634,6 @@
 		C13438790175080FA4DC6814544B4E3E /* AuthorizationStatusMapper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AuthorizationStatusMapper.m; path = "../../../../../../../../../../.pub-cache/hosted/pub.dev/geolocator_apple-2.3.1/ios/Classes/Utils/AuthorizationStatusMapper.m"; sourceTree = "<group>"; };
 		C1378805D7103EBCF1F7B9713F043637 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		C1998E0D8085221AD87F89B614C10E52 /* GTMSessionFetcher */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = GTMSessionFetcher; path = GTMSessionFetcher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C24C1A035F22D24883C6F1876F274C6F /* Pods-Runner.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Runner.modulemap"; sourceTree = "<group>"; };
 		C27AA3E38079970912F660DD72F4D399 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/CoreText.framework; sourceTree = DEVELOPER_DIR; };
 		C2806A748099676D278A965862737B9B /* GTMSessionFetcher.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = GTMSessionFetcher.release.xcconfig; sourceTree = "<group>"; };
 		C2C09EF254D7440114311E445D3413C3 /* geolocator_apple.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = geolocator_apple.release.xcconfig; sourceTree = "<group>"; };
@@ -1622,7 +1641,6 @@
 		C39BE06027F24EB0328A76E7507FA463 /* package_info_plus */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = package_info_plus; path = package_info_plus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C43B67497DDBAAE16575B03921770617 /* StoragePermissionStrategy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = StoragePermissionStrategy.m; path = "../../../../../../../../../../.pub-cache/hosted/pub.dev/permission_handler_apple-9.1.4/ios/Classes/strategies/StoragePermissionStrategy.m"; sourceTree = "<group>"; };
 		C48BC4612F6CEA69DAB598762F19235E /* share_plus-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "share_plus-prefix.pch"; sourceTree = "<group>"; };
-		C50FD10CD19FF6999637BA5ECAF1681B /* Pods-Runner.profile.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Runner.profile.xcconfig"; sourceTree = "<group>"; };
 		C679F6C8FDB1FC1D40DA02487D0840C5 /* FULLauncher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FULLauncher.h; path = "../../../../../../../../../.pub-cache/hosted/pub.dev/url_launcher_ios-6.1.5/ios/Classes/FULLauncher.h"; sourceTree = "<group>"; };
 		C69595073FBB66C3368F07307B6F654D /* url_launcher_ios-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "url_launcher_ios-Info.plist"; sourceTree = "<group>"; };
 		C6A13E7E6A463CDFD9D205A206CB4751 /* ParseManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParseManager.swift; path = PhoneNumberKit/ParseManager.swift; sourceTree = "<group>"; };
@@ -1669,6 +1687,7 @@
 		D2818DB76C14B8736924E987E37A9823 /* flutter_local_notifications */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = flutter_local_notifications; path = flutter_local_notifications.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2983F84CD02EE60D9F9F219A7D56A7F /* GTMSessionUploadFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GTMSessionUploadFetcher.m; path = Sources/Core/GTMSessionUploadFetcher.m; sourceTree = "<group>"; };
 		D2F46BB513A30F2142535D6BA363D36E /* en_GB.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = en_GB.lproj; path = GoogleSignIn/Sources/Strings/en_GB.lproj; sourceTree = "<group>"; };
+		D33988E937BDCB30E9EBDC1AEFA648AA /* Pods-Runner-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Runner-acknowledgements.plist"; sourceTree = "<group>"; };
 		D35790D26C42BD17135BC295CB0017A5 /* SmartAuthPlugin.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SmartAuthPlugin.h; path = "../../../../../../../../../.pub-cache/hosted/pub.dev/smart_auth-1.1.1/ios/Classes/SmartAuthPlugin.h"; sourceTree = "<group>"; };
 		D3623D441D45E15202B29F0C04CDBC97 /* geocoding_ios */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = geocoding_ios; path = geocoding_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D421BC3D144778BED7E46547D6AF2E23 /* OIDScopeUtilities.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OIDScopeUtilities.m; path = Source/AppAuthCore/OIDScopeUtilities.m; sourceTree = "<group>"; };
@@ -1716,11 +1735,11 @@
 		E463F5FC7EFF00D9E2FB0D550D8E7F91 /* GTMSessionFetcherLogging.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GTMSessionFetcherLogging.m; path = Sources/Core/GTMSessionFetcherLogging.m; sourceTree = "<group>"; };
 		E4D4F616E494209062E3302C6D6CE393 /* SqfliteDatabase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SqfliteDatabase.h; path = "../../../../../../../../../.pub-cache/hosted/pub.dev/sqflite-2.3.0/ios/Classes/SqfliteDatabase.h"; sourceTree = "<group>"; };
 		E5BA41B7F2E1FE47F9ABCAC27C9E4281 /* GoogleSignIn-GoogleSignIn */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "GoogleSignIn-GoogleSignIn"; path = GoogleSignIn.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5F32CE9E3D4973A7571AEFD584D31F3 /* Pods-Runner-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Runner-frameworks.sh"; sourceTree = "<group>"; };
 		E6DAB831F69EF45CF65AF548F42F1833 /* GeolocatorPlugin_Test.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GeolocatorPlugin_Test.h; path = "../../../../../../../../../.pub-cache/hosted/pub.dev/geolocator_apple-2.3.1/ios/Classes/GeolocatorPlugin_Test.h"; sourceTree = "<group>"; };
 		E7121FEC8F30223F8CC37B34DC313FC0 /* LibphonenumberPlugin.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LibphonenumberPlugin.m; path = "../../../../../../../../../.pub-cache/hosted/pub.dev/libphonenumber_plugin-0.3.2/ios/Classes/LibphonenumberPlugin.m"; sourceTree = "<group>"; };
 		E722DAC314A45480D64319338AF804F3 /* path_provider_foundation.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = path_provider_foundation.modulemap; sourceTree = "<group>"; };
-		E736E0C9C5B73D27B8865E363E2108AC /* Pods-RunnerTests.profile.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RunnerTests.profile.xcconfig"; sourceTree = "<group>"; };
-		E794494AB90477BA94C681E994ADF341 /* Pods-Runner-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Runner-dummy.m"; sourceTree = "<group>"; };
+		E79C1E7C6319E0F9AEC8B645EF0A6719 /* Pods-RunnerTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-RunnerTests-Info.plist"; sourceTree = "<group>"; };
 		E7B9AC87E144F8346C99610622192421 /* audio_session-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "audio_session-prefix.pch"; sourceTree = "<group>"; };
 		E7DA3B4E4E0913ED1FF4264AD5270448 /* permission_handler_apple-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "permission_handler_apple-Info.plist"; sourceTree = "<group>"; };
 		E84249F7C7B7F7F476BA0A7FC556BB07 /* onesignal_flutter-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "onesignal_flutter-umbrella.h"; sourceTree = "<group>"; };
@@ -1731,7 +1750,6 @@
 		EB4DA07D94EE023A6EB3B5BD6ECC55EA /* FlutterNativeSplashPlugin.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FlutterNativeSplashPlugin.h; path = "../../../../../../../../../.pub-cache/hosted/pub.dev/flutter_native_splash-2.3.2/ios/Classes/FlutterNativeSplashPlugin.h"; sourceTree = "<group>"; };
 		EBF25342A266BD1377E2448FF2AB4E38 /* FLTPHPickerSaveImageToPathOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FLTPHPickerSaveImageToPathOperation.m; path = "../../../../../../../../../.pub-cache/hosted/pub.dev/image_picker_ios-0.8.8+2/ios/Classes/FLTPHPickerSaveImageToPathOperation.m"; sourceTree = "<group>"; };
 		EBF96008C17682BA8356FAC7385C42BF /* GTMAppAuth.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = GTMAppAuth.modulemap; sourceTree = "<group>"; };
-		ECDF6AA713870989438BA93B395DC557 /* Pods-Runner-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Runner-acknowledgements.markdown"; sourceTree = "<group>"; };
 		ECE4EB2132CC6A635B18B8AD85B15DF7 /* permission_handler_apple.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = permission_handler_apple.release.xcconfig; sourceTree = "<group>"; };
 		ED0792FA06A178DF754C72B8827395EC /* GeocodingPlugin.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GeocodingPlugin.m; path = "../../../../../../../../../.pub-cache/hosted/pub.dev/geocoding_ios-2.1.0/ios/Classes/GeocodingPlugin.m"; sourceTree = "<group>"; };
 		ED49BA6FB40CD65A415EA4849475BBE1 /* libphonenumber_plugin-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "libphonenumber_plugin-Info.plist"; sourceTree = "<group>"; };
@@ -1765,6 +1783,7 @@
 		F649E14B40A4584AB312375149D63E04 /* package_info_plus-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "package_info_plus-umbrella.h"; sourceTree = "<group>"; };
 		F6A38F231F074892754FC042AD308E91 /* AudioSource.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AudioSource.m; path = "../../../../../../../../../.pub-cache/hosted/pub.dev/just_audio-0.9.35/ios/Classes/AudioSource.m"; sourceTree = "<group>"; };
 		F6C84125BFFE48211E9FABF0F018C711 /* OIDAuthStateChangeDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OIDAuthStateChangeDelegate.h; path = Source/AppAuthCore/OIDAuthStateChangeDelegate.h; sourceTree = "<group>"; };
+		F6C9B2EBCDC27870A10A2584C8C5C489 /* Pods-RunnerTests.profile.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RunnerTests.profile.xcconfig"; sourceTree = "<group>"; };
 		F80C8CCC5CA8AEC4152BF5D628064300 /* FLTPackageInfoPlusPlugin.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FLTPackageInfoPlusPlugin.m; path = "../../../../../../../../../.pub-cache/hosted/pub.dev/package_info_plus-4.1.0/ios/Classes/FLTPackageInfoPlusPlugin.m"; sourceTree = "<group>"; };
 		F8572CE3E3075FDD4BE5D4928D855E3A /* FMResultSet.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FMResultSet.m; path = src/fmdb/FMResultSet.m; sourceTree = "<group>"; };
 		F92910D69E5B4510AD0E392AA7D0E538 /* messages.g.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = messages.g.h; path = "../../../../../../../../../.pub-cache/hosted/pub.dev/image_picker_ios-0.8.8+2/ios/Classes/messages.g.h"; sourceTree = "<group>"; };
@@ -1774,6 +1793,7 @@
 		FB6D63ACFFA4D223E76EF6C85C9C7C57 /* IndexedPlayerItem.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IndexedPlayerItem.m; path = "../../../../../../../../../.pub-cache/hosted/pub.dev/just_audio-0.9.35/ios/Classes/IndexedPlayerItem.m"; sourceTree = "<group>"; };
 		FB9B44B27F322F997FF6AD7340FA8274 /* OIDAuthorizationResponse.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OIDAuthorizationResponse.h; path = Source/AppAuthCore/OIDAuthorizationResponse.h; sourceTree = "<group>"; };
 		FBF4A297B32D7AC128B5A7343DE6DD9F /* nb.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = nb.lproj; path = GoogleSignIn/Sources/Strings/nb.lproj; sourceTree = "<group>"; };
+		FC095A42B5CD0899E8DFE6D87BFEC00E /* Pods-OneSignalNotificationServiceExtension.profile.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-OneSignalNotificationServiceExtension.profile.xcconfig"; sourceTree = "<group>"; };
 		FC174E66B8B8A1040DE0B815825DE4D5 /* PhoneNumberParser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PhoneNumberParser.swift; path = PhoneNumberKit/PhoneNumberParser.swift; sourceTree = "<group>"; };
 		FD56AB51475BC5F592781EE2692D1412 /* GoogleSignIn */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = GoogleSignIn; path = GoogleSignIn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD62710521365558C6DE4D233A1571C5 /* google_sign_in_ios-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "google_sign_in_ios-dummy.m"; sourceTree = "<group>"; };
@@ -1876,6 +1896,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				B35F22A827CD3A5871D6AB5DE781E1CC /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		59DBEBE84450CB685174491178B3AD20 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0D065A1C87C73C523989C57F06F47C41 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2205,6 +2233,23 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
+		06F18C983A31C8E55794905DDCE87AFC /* Pods-RunnerTests */ = {
+			isa = PBXGroup;
+			children = (
+				9CB5E82BAF46657559676F43CED0BD62 /* Pods-RunnerTests.modulemap */,
+				1FBE1B49D3154229A9BD29074E0DB026 /* Pods-RunnerTests-acknowledgements.markdown */,
+				45FC8A768CA3BA33CEDC1457460496B1 /* Pods-RunnerTests-acknowledgements.plist */,
+				08F7AE0E4CE5FE4C4D7222C393D311B3 /* Pods-RunnerTests-dummy.m */,
+				E79C1E7C6319E0F9AEC8B645EF0A6719 /* Pods-RunnerTests-Info.plist */,
+				595368E92E3E99B0E0D2456EAD4E9089 /* Pods-RunnerTests-umbrella.h */,
+				285E7EE134C8B577B9FC4AD7C4AEBEFD /* Pods-RunnerTests.debug.xcconfig */,
+				F6C9B2EBCDC27870A10A2584C8C5C489 /* Pods-RunnerTests.profile.xcconfig */,
+				BF452E5F28DDD29553185B04571FA357 /* Pods-RunnerTests.release.xcconfig */,
+			);
+			name = "Pods-RunnerTests";
+			path = "Target Support Files/Pods-RunnerTests";
+			sourceTree = "<group>";
+		};
 		07F7FD162119D9C3450D1B6E84903408 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -2308,6 +2353,24 @@
 				FEC1F2335776A254C7D32835F98A050F /* LICENSE */,
 			);
 			name = Pod;
+			sourceTree = "<group>";
+		};
+		0CD1037BB60A7738794E0F7858230953 /* Pods-Runner */ = {
+			isa = PBXGroup;
+			children = (
+				5BE1E97F118C0536F0EE5A0A3F0F678C /* Pods-Runner.modulemap */,
+				B972858A5BB233EE6B13CE208058E3B8 /* Pods-Runner-acknowledgements.markdown */,
+				D33988E937BDCB30E9EBDC1AEFA648AA /* Pods-Runner-acknowledgements.plist */,
+				054459E3917FBC8889356202C9A54290 /* Pods-Runner-dummy.m */,
+				E5F32CE9E3D4973A7571AEFD584D31F3 /* Pods-Runner-frameworks.sh */,
+				5ED4CEF7C670F63686DE9A36FBC21B56 /* Pods-Runner-Info.plist */,
+				79911F2B5C4FEB8C90CBBA430D20B7B7 /* Pods-Runner-umbrella.h */,
+				29B79993A7C8DBE04169DD173184D157 /* Pods-Runner.debug.xcconfig */,
+				0F16B3221C242A98B9E25062A07980A9 /* Pods-Runner.profile.xcconfig */,
+				B3683AB126161F20D81E27759ACDBF20 /* Pods-Runner.release.xcconfig */,
+			);
+			name = "Pods-Runner";
+			path = "Target Support Files/Pods-Runner";
 			sourceTree = "<group>";
 		};
 		0CD2FA3939A7D34FAF12E38B664C4E97 /* Pod */ = {
@@ -2941,15 +3004,6 @@
 			path = .symlinks;
 			sourceTree = "<group>";
 		};
-		2DB8426A477BA92773F00012EBA84D53 /* Targets Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				E806A4F97D48F5FD3B4CA1BC617EA1F5 /* Pods-Runner */,
-				537E840C4F4E30B706FD9D64B15C53A7 /* Pods-RunnerTests */,
-			);
-			name = "Targets Support Files";
-			sourceTree = "<group>";
-		};
 		2E9E5861979483E715F5D5A01ED2EF75 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -3577,47 +3631,6 @@
 			path = "../../../../Pods/Target Support Files/flutter_compass";
 			sourceTree = "<group>";
 		};
-		4E8E061EED3B3F4D6F6825D4B926CAE6 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				3FD1B4C1246D643E9476438C28048FA8 /* AppAuth */,
-				DA105FC7B7CEC70A42A6278B43296D3C /* audio_session */,
-				6057B85E8DB8A8F5C716604A5AAE7583 /* contacts_service */,
-				5EE86D8B3A0AF157CCD05342870E2CD4 /* flutter_compass */,
-				D2818DB76C14B8736924E987E37A9823 /* flutter_local_notifications */,
-				570758359ECA629D22B6A8420F28158A /* flutter_native_splash */,
-				722F0B735638E4EBE77B6277FC6EF147 /* flutter_qiblah */,
-				D0C5A85ABEF5ED03A54A449B87B69225 /* fluttertoast */,
-				A3A80BA70CFB7F75C5391BEBBBA8C9DA /* FMDB */,
-				D3623D441D45E15202B29F0C04CDBC97 /* geocoding_ios */,
-				502E20F09A7CAFBD1DE1AA882DCC550C /* geolocator_apple */,
-				B0B9B9F9A300B05C115A98B19C78F963 /* google_sign_in_ios */,
-				FD56AB51475BC5F592781EE2692D1412 /* GoogleSignIn */,
-				E5BA41B7F2E1FE47F9ABCAC27C9E4281 /* GoogleSignIn-GoogleSignIn */,
-				6FD122EA0AB9AB2A8FFA5F676C795DF0 /* GTMAppAuth */,
-				C1998E0D8085221AD87F89B614C10E52 /* GTMSessionFetcher */,
-				768975E636D1D2FB85622FB67DB04E5A /* image_picker_ios */,
-				1EDA0E26C8E71CD003C3B65C2E00B808 /* just_audio */,
-				6A16F9CA0F780DA37130F7746728E703 /* libphonenumber_plugin */,
-				7FACDD2ED69BB96907B509538EEA0AE0 /* onesignal_flutter */,
-				C39BE06027F24EB0328A76E7507FA463 /* package_info_plus */,
-				AE157A33FEF959A214796BFF348717F6 /* path_provider_foundation */,
-				C7AD28D5FB25A8DEDF61F78996932FA6 /* permission_handler_apple */,
-				69681285C13FB58876DD5727BCB2DC85 /* PhoneNumberKit */,
-				669E8F25E1897672BDB80B7EB784DA24 /* Pods-Runner */,
-				6C3345B1B3CAEDF5B03B1F731FDC492E /* Pods-RunnerTests */,
-				4D68842CB2772778EFB677388B48AC94 /* razorpay_flutter */,
-				670C8E8BC3F615901CAE735C0CBBE8CA /* share_plus */,
-				93C6A45C6E4792269BE9BE0073839BF0 /* shared_preferences_foundation */,
-				7CE94F34A7704E5F74375D77B038ABF1 /* sign_in_with_apple */,
-				31366E63B5E5AB7409D6BB2894C2C7C9 /* smart_auth */,
-				B799BFFEC5B11F90F501202080A57F37 /* sqflite */,
-				55E0AFD333353D71ACC2207149E879D6 /* Toast */,
-				7B7C06D35B3BC2BD649AAA1A489E49DA /* url_launcher_ios */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		4EB0E7624527BB4DD4BA1A2F46C4D6A4 /* Pod */ = {
 			isa = PBXGroup;
 			children = (
@@ -3738,23 +3751,6 @@
 			);
 			name = Classes;
 			path = Classes;
-			sourceTree = "<group>";
-		};
-		537E840C4F4E30B706FD9D64B15C53A7 /* Pods-RunnerTests */ = {
-			isa = PBXGroup;
-			children = (
-				B0BD57AB3672E53828D11C2A3368023A /* Pods-RunnerTests.modulemap */,
-				11AA7018F95317D959D9D2E76CBB2377 /* Pods-RunnerTests-acknowledgements.markdown */,
-				79F83F4D505FA40C1CD18A8029181D59 /* Pods-RunnerTests-acknowledgements.plist */,
-				4D3DB54C128E3D88C0C9C7DDEA475ED7 /* Pods-RunnerTests-dummy.m */,
-				B00A5ECAED4CA0C16FF7C65365BC0334 /* Pods-RunnerTests-Info.plist */,
-				9E9B12BCE5540D02A80250C3EC16D399 /* Pods-RunnerTests-umbrella.h */,
-				03E8AD2E8B75443E12D3D3BD12A9900E /* Pods-RunnerTests.debug.xcconfig */,
-				E736E0C9C5B73D27B8865E363E2108AC /* Pods-RunnerTests.profile.xcconfig */,
-				AC8FE152530FBDCE460186B326C1A8FB /* Pods-RunnerTests.release.xcconfig */,
-			);
-			name = "Pods-RunnerTests";
-			path = "Target Support Files/Pods-RunnerTests";
 			sourceTree = "<group>";
 		};
 		539C617465751C0AEAD61FD1DBAE4BBC /* .. */ = {
@@ -3971,6 +3967,16 @@
 			);
 			name = ..;
 			path = "../../../../../../../../.pub-cache/hosted/pub.dev/google_sign_in_ios-5.6.3/ios";
+			sourceTree = "<group>";
+		};
+		632045F29778EBE6CDDC6494B42CC779 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				B4D05084230C2BEBDD8977D4A46E5799 /* Pods-OneSignalNotificationServiceExtension */,
+				0CD1037BB60A7738794E0F7858230953 /* Pods-Runner */,
+				06F18C983A31C8E55794905DDCE87AFC /* Pods-RunnerTests */,
+			);
+			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
 		63709DE99BA2247DE7DB361D85208478 /* .symlinks */ = {
@@ -5491,6 +5497,23 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
+		B4D05084230C2BEBDD8977D4A46E5799 /* Pods-OneSignalNotificationServiceExtension */ = {
+			isa = PBXGroup;
+			children = (
+				1E1F4448344CAAFF5BD930E15096AC4D /* Pods-OneSignalNotificationServiceExtension.modulemap */,
+				598515987FE72D05493A83942923F00F /* Pods-OneSignalNotificationServiceExtension-acknowledgements.markdown */,
+				44B13AF5FE84BF652D669DE76611A7A0 /* Pods-OneSignalNotificationServiceExtension-acknowledgements.plist */,
+				04C64687E448050E54C391E3C3E995AC /* Pods-OneSignalNotificationServiceExtension-dummy.m */,
+				154EF3D37850A64227B9C1D9A22E66C7 /* Pods-OneSignalNotificationServiceExtension-Info.plist */,
+				62749D30F1471629718559C967C8B6D6 /* Pods-OneSignalNotificationServiceExtension-umbrella.h */,
+				99D37D54F8C0D420FEB9758A0E601C14 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */,
+				FC095A42B5CD0899E8DFE6D87BFEC00E /* Pods-OneSignalNotificationServiceExtension.profile.xcconfig */,
+				5DD382A74E2BDAAABE2A8042D8D6759F /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */,
+			);
+			name = "Pods-OneSignalNotificationServiceExtension";
+			path = "Target Support Files/Pods-OneSignalNotificationServiceExtension";
+			sourceTree = "<group>";
+		};
 		B4EA4CCFE9532A1E735284E811D4DC88 /* ios */ = {
 			isa = PBXGroup;
 			children = (
@@ -6032,8 +6055,8 @@
 				4DEA1A25D2FFE371DA60B4DCCC3E42B6 /* Development Pods */,
 				F119B4A0ABE017AECEE69836596133B2 /* Frameworks */,
 				3A31B29C83AE4DDF723738099ECF6BA2 /* Pods */,
-				4E8E061EED3B3F4D6F6825D4B926CAE6 /* Products */,
-				2DB8426A477BA92773F00012EBA84D53 /* Targets Support Files */,
+				EE055312714978CAB08CD88322E4D826 /* Products */,
+				632045F29778EBE6CDDC6494B42CC779 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
@@ -6547,24 +6570,6 @@
 			name = standard;
 			sourceTree = "<group>";
 		};
-		E806A4F97D48F5FD3B4CA1BC617EA1F5 /* Pods-Runner */ = {
-			isa = PBXGroup;
-			children = (
-				C24C1A035F22D24883C6F1876F274C6F /* Pods-Runner.modulemap */,
-				ECDF6AA713870989438BA93B395DC557 /* Pods-Runner-acknowledgements.markdown */,
-				1B136F41D5B5FAE96EA576E768A5771D /* Pods-Runner-acknowledgements.plist */,
-				E794494AB90477BA94C681E994ADF341 /* Pods-Runner-dummy.m */,
-				773BFCE41424EB8EBB72EF3F6A5FB719 /* Pods-Runner-frameworks.sh */,
-				0AFB643DA4919253F749E2836A5AAFDC /* Pods-Runner-Info.plist */,
-				499E3722E8DACDC2AAA6C15AD1796520 /* Pods-Runner-umbrella.h */,
-				728A5ED1DD60BAC8C8F382A87B976F84 /* Pods-Runner.debug.xcconfig */,
-				C50FD10CD19FF6999637BA5ECAF1681B /* Pods-Runner.profile.xcconfig */,
-				B703785507B22BAF0B800737429577EC /* Pods-Runner.release.xcconfig */,
-			);
-			name = "Pods-Runner";
-			path = "Target Support Files/Pods-Runner";
-			sourceTree = "<group>";
-		};
 		E85931C39A2AB4BF292BB12F9F8261DB /* ios */ = {
 			isa = PBXGroup;
 			children = (
@@ -6691,6 +6696,48 @@
 			);
 			name = ios;
 			path = ios;
+			sourceTree = "<group>";
+		};
+		EE055312714978CAB08CD88322E4D826 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3FD1B4C1246D643E9476438C28048FA8 /* AppAuth */,
+				DA105FC7B7CEC70A42A6278B43296D3C /* audio_session */,
+				6057B85E8DB8A8F5C716604A5AAE7583 /* contacts_service */,
+				5EE86D8B3A0AF157CCD05342870E2CD4 /* flutter_compass */,
+				D2818DB76C14B8736924E987E37A9823 /* flutter_local_notifications */,
+				570758359ECA629D22B6A8420F28158A /* flutter_native_splash */,
+				722F0B735638E4EBE77B6277FC6EF147 /* flutter_qiblah */,
+				D0C5A85ABEF5ED03A54A449B87B69225 /* fluttertoast */,
+				A3A80BA70CFB7F75C5391BEBBBA8C9DA /* FMDB */,
+				D3623D441D45E15202B29F0C04CDBC97 /* geocoding_ios */,
+				502E20F09A7CAFBD1DE1AA882DCC550C /* geolocator_apple */,
+				B0B9B9F9A300B05C115A98B19C78F963 /* google_sign_in_ios */,
+				FD56AB51475BC5F592781EE2692D1412 /* GoogleSignIn */,
+				E5BA41B7F2E1FE47F9ABCAC27C9E4281 /* GoogleSignIn-GoogleSignIn */,
+				6FD122EA0AB9AB2A8FFA5F676C795DF0 /* GTMAppAuth */,
+				C1998E0D8085221AD87F89B614C10E52 /* GTMSessionFetcher */,
+				768975E636D1D2FB85622FB67DB04E5A /* image_picker_ios */,
+				1EDA0E26C8E71CD003C3B65C2E00B808 /* just_audio */,
+				6A16F9CA0F780DA37130F7746728E703 /* libphonenumber_plugin */,
+				7FACDD2ED69BB96907B509538EEA0AE0 /* onesignal_flutter */,
+				C39BE06027F24EB0328A76E7507FA463 /* package_info_plus */,
+				AE157A33FEF959A214796BFF348717F6 /* path_provider_foundation */,
+				C7AD28D5FB25A8DEDF61F78996932FA6 /* permission_handler_apple */,
+				69681285C13FB58876DD5727BCB2DC85 /* PhoneNumberKit */,
+				4AF3B972C94DFF11700E306F18F01DF3 /* Pods-OneSignalNotificationServiceExtension */,
+				669E8F25E1897672BDB80B7EB784DA24 /* Pods-Runner */,
+				6C3345B1B3CAEDF5B03B1F731FDC492E /* Pods-RunnerTests */,
+				4D68842CB2772778EFB677388B48AC94 /* razorpay_flutter */,
+				670C8E8BC3F615901CAE735C0CBBE8CA /* share_plus */,
+				93C6A45C6E4792269BE9BE0073839BF0 /* shared_preferences_foundation */,
+				7CE94F34A7704E5F74375D77B038ABF1 /* sign_in_with_apple */,
+				31366E63B5E5AB7409D6BB2894C2C7C9 /* smart_auth */,
+				B799BFFEC5B11F90F501202080A57F37 /* sqflite */,
+				55E0AFD333353D71ACC2207149E879D6 /* Toast */,
+				7B7C06D35B3BC2BD649AAA1A489E49DA /* url_launcher_ios */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		EE20CD736F8BB7880F192EBECA0C4F63 /* Support Files */ = {
@@ -7246,6 +7293,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2D7AF9AC6482F4AE8810221305BEF0E9 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BDAEF728B5E4EC1594E41D1AB44972FF /* Pods-OneSignalNotificationServiceExtension-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		357208F41C4F1185EFFBADD11BB89D14 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -7680,7 +7735,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				48E1EB2E0CF8AF8AD138DEC5D7B740A2 /* PBXTargetDependency */,
+				6FC7D3748AEA601069E85F158D5EDE90 /* PBXTargetDependency */,
 			);
 			name = "Pods-RunnerTests";
 			productName = Pods_RunnerTests;
@@ -8059,6 +8114,25 @@
 			productReference = 722F0B735638E4EBE77B6277FC6EF147 /* flutter_qiblah */;
 			productType = "com.apple.product-type.framework";
 		};
+		BD0F10574EB554D7E668F50D2A5B77DF /* Pods-OneSignalNotificationServiceExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1088EFF99DD58F067AC0F8956B987EC4 /* Build configuration list for PBXNativeTarget "Pods-OneSignalNotificationServiceExtension" */;
+			buildPhases = (
+				2D7AF9AC6482F4AE8810221305BEF0E9 /* Headers */,
+				1C318B853B4FD5A583BDC1F96BC75FCF /* Sources */,
+				59DBEBE84450CB685174491178B3AD20 /* Frameworks */,
+				A2453F07E792D41BA8D9909E47DA48A1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				371FBB5AD83CF424299CA3FAE00B05CE /* PBXTargetDependency */,
+			);
+			name = "Pods-OneSignalNotificationServiceExtension";
+			productName = Pods_OneSignalNotificationServiceExtension;
+			productReference = 4AF3B972C94DFF11700E306F18F01DF3 /* Pods-OneSignalNotificationServiceExtension */;
+			productType = "com.apple.product-type.framework";
+		};
 		C174A07088434DD9CB45C06B185F8FF3 /* razorpay_flutter */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7FAECBACC6270768783735AC39D2FB66 /* Build configuration list for PBXNativeTarget "razorpay_flutter" */;
@@ -8337,8 +8411,8 @@
 		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1300;
-				LastUpgradeCheck = 1300;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 12.0";
@@ -8386,7 +8460,7 @@
 				zh_TW,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			productRefGroup = 4E8E061EED3B3F4D6F6825D4B926CAE6 /* Products */;
+			productRefGroup = EE055312714978CAB08CD88322E4D826 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -8416,6 +8490,7 @@
 				56F581DDCB0A032454E604885E17AE3C /* path_provider_foundation */,
 				A45E503409C9530E1F5D12C293F4BD67 /* permission_handler_apple */,
 				C942A9CCE5CF382E8053D9757DA6249D /* PhoneNumberKit */,
+				BD0F10574EB554D7E668F50D2A5B77DF /* Pods-OneSignalNotificationServiceExtension */,
 				8B74B458B450D74B75744B87BD747314 /* Pods-Runner */,
 				3232F0C0E7C65B232832393F9ADDD8C3 /* Pods-RunnerTests */,
 				84CA3424E172CD651235AF0783D01D39 /* razorpay-pod */,
@@ -8637,6 +8712,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A2453F07E792D41BA8D9909E47DA48A1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B3D8E4B75F7DA8F8325551D7170F6353 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -8754,6 +8836,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		1C318B853B4FD5A583BDC1F96BC75FCF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9B0B0BA367B33C3D75829FD7C6055377 /* Pods-OneSignalNotificationServiceExtension-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		20A9C4A2E28113CD8A81477F87A30FC2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -9291,6 +9381,12 @@
 			target = 1EFDDC32A34D56D411E640A81DCD9E73 /* Flutter */;
 			targetProxy = 47E0687743F6FBADD34F7FA3AD6EFE1E /* PBXContainerItemProxy */;
 		};
+		371FBB5AD83CF424299CA3FAE00B05CE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = OneSignalXCFramework;
+			target = F783E7E9F8591E6CF73ED67143335F50 /* OneSignalXCFramework */;
+			targetProxy = D2A7E80C633662270E3D5251F3CA90DF /* PBXContainerItemProxy */;
+		};
 		38F5A829005919631A8593E461C21E78 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = GoogleSignIn;
@@ -9332,12 +9428,6 @@
 			name = OneSignalXCFramework;
 			target = F783E7E9F8591E6CF73ED67143335F50 /* OneSignalXCFramework */;
 			targetProxy = 6DE64F571479FDE3F60745CA01BE629F /* PBXContainerItemProxy */;
-		};
-		48E1EB2E0CF8AF8AD138DEC5D7B740A2 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Pods-Runner";
-			target = 8B74B458B450D74B75744B87BD747314 /* Pods-Runner */;
-			targetProxy = 5E499D47407ED112BD69B4BDC68F8405 /* PBXContainerItemProxy */;
 		};
 		4A908AD46128912DC562644A7C6AADBD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -9410,6 +9500,12 @@
 			name = geolocator_apple;
 			target = D2129B9E0DCE64EA38C25BA6C89558D7 /* geolocator_apple */;
 			targetProxy = C56F006CFBE4A8EFD3099ED2917475A0 /* PBXContainerItemProxy */;
+		};
+		6FC7D3748AEA601069E85F158D5EDE90 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-Runner";
+			target = 8B74B458B450D74B75744B87BD747314 /* Pods-Runner */;
+			targetProxy = 0159DF7367AA36A3F2263B0489347D64 /* PBXContainerItemProxy */;
 		};
 		76A5F79006DA3403722A475256443B7E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -10302,7 +10398,7 @@
 		};
 		1565FDC226E35BC24CBBC419F6E188FC /* Profile */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E736E0C9C5B73D27B8865E363E2108AC /* Pods-RunnerTests.profile.xcconfig */;
+			baseConfigurationReference = F6C9B2EBCDC27870A10A2584C8C5C489 /* Pods-RunnerTests.profile.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -10529,6 +10625,51 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
+		};
+		23584B928EA1C8F2C63D5BC094C8E300 /* Profile */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FC095A42B5CD0899E8DFE6D87BFEC00E /* Pods-OneSignalNotificationServiceExtension.profile.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"AUDIO_SESSION_MICROPHONE=0",
+					"PERMISSION_LOCATION=1",
+					"PERMISSION_NOTIFICATIONS=1",
+					"PERMISSION_MEDIA_LIBRARY=1",
+				);
+				INFOPLIST_FILE = "Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Profile;
 		};
 		26EF1CFAFC5C749FA30E34473AEACC83 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -11907,7 +12048,7 @@
 		};
 		5A3849591D2CAB30DED0112EADDE0797 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AC8FE152530FBDCE460186B326C1A8FB /* Pods-RunnerTests.release.xcconfig */;
+			baseConfigurationReference = BF452E5F28DDD29553185B04571FA357 /* Pods-RunnerTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -12298,7 +12439,7 @@
 		};
 		7751E14F671B851E2C06396B7EA83D4E /* Profile */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C50FD10CD19FF6999637BA5ECAF1681B /* Pods-Runner.profile.xcconfig */;
+			baseConfigurationReference = 0F16B3221C242A98B9E25062A07980A9 /* Pods-Runner.profile.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -12544,7 +12685,7 @@
 		};
 		7B0F0BFCAD691E69B6FC6BF7E87FC6AA /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B703785507B22BAF0B800737429577EC /* Pods-Runner.release.xcconfig */;
+			baseConfigurationReference = B3683AB126161F20D81E27759ACDBF20 /* Pods-Runner.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -12908,6 +13049,51 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
+		};
+		87ED66E8EAB3D800E58778A88C273439 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 99D37D54F8C0D420FEB9758A0E601C14 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"AUDIO_SESSION_MICROPHONE=0",
+					"PERMISSION_LOCATION=1",
+					"PERMISSION_NOTIFICATIONS=1",
+					"PERMISSION_MEDIA_LIBRARY=1",
+				);
+				INFOPLIST_FILE = "Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.modulemap";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
 		};
 		8865D275CD170A4CB4CFD143F9EFF467 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -13801,7 +13987,7 @@
 		};
 		A79CF2D39262605FBC52ADD50609E977 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 728A5ED1DD60BAC8C8F382A87B976F84 /* Pods-Runner.debug.xcconfig */;
+			baseConfigurationReference = 29B79993A7C8DBE04169DD173184D157 /* Pods-Runner.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -15130,7 +15316,7 @@
 		};
 		ED260D77BFFC5C2857DFB20A439C8CDA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 03E8AD2E8B75443E12D3D3BD12A9900E /* Pods-RunnerTests.debug.xcconfig */;
+			baseConfigurationReference = 285E7EE134C8B577B9FC4AD7C4AEBEFD /* Pods-RunnerTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -15607,6 +15793,51 @@
 			};
 			name = Release;
 		};
+		FD175A3B80DC9A273F5F6EA38CEACE0F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5DD382A74E2BDAAABE2A8042D8D6759F /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"AUDIO_SESSION_MICROPHONE=0",
+					"PERMISSION_LOCATION=1",
+					"PERMISSION_NOTIFICATIONS=1",
+					"PERMISSION_MEDIA_LIBRARY=1",
+				);
+				INFOPLIST_FILE = "Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -15616,6 +15847,16 @@
 				36F7B43C8A245BDB8D0484F518CDD4CC /* Debug */,
 				4385809F6476CF40CAFC72D3584F3F39 /* Profile */,
 				7D9BB9499D16E1D68357EEB15EBE7F90 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1088EFF99DD58F067AC0F8956B987EC4 /* Build configuration list for PBXNativeTarget "Pods-OneSignalNotificationServiceExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				87ED66E8EAB3D800E58778A88C273439 /* Debug */,
+				23584B928EA1C8F2C63D5BC094C8E300 /* Profile */,
+				FD175A3B80DC9A273F5F6EA38CEACE0F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

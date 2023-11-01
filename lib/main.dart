@@ -37,7 +37,7 @@ void main() async {
   OneSignal.initialize("f7a79b17-636c-4e33-ab11-b46d9c85470c");
   OneSignal.Notifications.requestPermission(true);
   OneSignal.Notifications.addPermissionObserver((state) {
-    print("Has permission " + state.toString());
+    print("Has permission $state");x
   });
   bool splashRemoved = false;
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);

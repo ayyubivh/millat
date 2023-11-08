@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/utils.dart';
 
@@ -45,9 +47,6 @@ class TravelTabBarWidget extends StatelessWidget {
                     Tab(
                       text: "Overview",
                     ),
-                    // Tab(
-                    //   text: "Day by day",
-                    // ),
                     Tab(
                       text: "Photos",
                     ),
@@ -86,18 +85,28 @@ class TravelTabBarWidget extends StatelessWidget {
                   itemCount: 6,
                   itemBuilder: (BuildContext context, int index) {
                     if (index % 2 == 0) {
-                      return Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 10),
-                        child: Row(
-                          children: [
-                            Expanded(
-                              child: _imageWidget(imageUrl[index]),
-                            ),
-                            kWidth10,
-                            Expanded(
-                              child: _imageWidget(imageUrl[index]),
-                            ),
-                          ],
+                      return GestureDetector(
+                        onTap: () {
+                          context.pushNamed(
+                              MyAppRouteConstants.imageFullViewRoutename,
+                              extra: {
+                                "imageUrls": imageUrl,
+                                "initialIndex": index,
+                              });
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 10),
+                          child: Row(
+                            children: [
+                              Expanded(
+                                child: _imageWidget(imageUrl[index]),
+                              ),
+                              kWidth10,
+                              Expanded(
+                                child: _imageWidget(imageUrl[index]),
+                              ),
+                            ],
+                          ),
                         ),
                       );
                     } else {

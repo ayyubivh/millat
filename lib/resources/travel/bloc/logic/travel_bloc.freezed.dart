@@ -20,7 +20,6 @@ mixin _$TravelEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(int index) changeBannerIndex,
     required TResult Function(int index) changeTravelTabIndex,
-    required TResult Function() fetchTravelBanners,
     required TResult Function() fetchTravelPopularProducts,
     required TResult Function() fetchBestPlacesProducts,
     required TResult Function() fetchTravelCities,
@@ -51,7 +50,6 @@ mixin _$TravelEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(int index)? changeBannerIndex,
     TResult? Function(int index)? changeTravelTabIndex,
-    TResult? Function()? fetchTravelBanners,
     TResult? Function()? fetchTravelPopularProducts,
     TResult? Function()? fetchBestPlacesProducts,
     TResult? Function()? fetchTravelCities,
@@ -82,7 +80,6 @@ mixin _$TravelEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(int index)? changeBannerIndex,
     TResult Function(int index)? changeTravelTabIndex,
-    TResult Function()? fetchTravelBanners,
     TResult Function()? fetchTravelPopularProducts,
     TResult Function()? fetchBestPlacesProducts,
     TResult Function()? fetchTravelCities,
@@ -114,7 +111,6 @@ mixin _$TravelEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(ChangeBannerIndex value) changeBannerIndex,
     required TResult Function(ChangeTravelTabIndex value) changeTravelTabIndex,
-    required TResult Function(FetchTravelBanners value) fetchTravelBanners,
     required TResult Function(FetchTravelPopularProducts value)
         fetchTravelPopularProducts,
     required TResult Function(FetchBestPlacesProducts value)
@@ -149,7 +145,6 @@ mixin _$TravelEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ChangeBannerIndex value)? changeBannerIndex,
     TResult? Function(ChangeTravelTabIndex value)? changeTravelTabIndex,
-    TResult? Function(FetchTravelBanners value)? fetchTravelBanners,
     TResult? Function(FetchTravelPopularProducts value)?
         fetchTravelPopularProducts,
     TResult? Function(FetchBestPlacesProducts value)? fetchBestPlacesProducts,
@@ -180,7 +175,6 @@ mixin _$TravelEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ChangeBannerIndex value)? changeBannerIndex,
     TResult Function(ChangeTravelTabIndex value)? changeTravelTabIndex,
-    TResult Function(FetchTravelBanners value)? fetchTravelBanners,
     TResult Function(FetchTravelPopularProducts value)?
         fetchTravelPopularProducts,
     TResult Function(FetchBestPlacesProducts value)? fetchBestPlacesProducts,
@@ -304,7 +298,6 @@ class _$ChangeBannerIndex
   TResult when<TResult extends Object?>({
     required TResult Function(int index) changeBannerIndex,
     required TResult Function(int index) changeTravelTabIndex,
-    required TResult Function() fetchTravelBanners,
     required TResult Function() fetchTravelPopularProducts,
     required TResult Function() fetchBestPlacesProducts,
     required TResult Function() fetchTravelCities,
@@ -338,7 +331,6 @@ class _$ChangeBannerIndex
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(int index)? changeBannerIndex,
     TResult? Function(int index)? changeTravelTabIndex,
-    TResult? Function()? fetchTravelBanners,
     TResult? Function()? fetchTravelPopularProducts,
     TResult? Function()? fetchBestPlacesProducts,
     TResult? Function()? fetchTravelCities,
@@ -372,7 +364,6 @@ class _$ChangeBannerIndex
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(int index)? changeBannerIndex,
     TResult Function(int index)? changeTravelTabIndex,
-    TResult Function()? fetchTravelBanners,
     TResult Function()? fetchTravelPopularProducts,
     TResult Function()? fetchBestPlacesProducts,
     TResult Function()? fetchTravelCities,
@@ -410,7 +401,6 @@ class _$ChangeBannerIndex
   TResult map<TResult extends Object?>({
     required TResult Function(ChangeBannerIndex value) changeBannerIndex,
     required TResult Function(ChangeTravelTabIndex value) changeTravelTabIndex,
-    required TResult Function(FetchTravelBanners value) fetchTravelBanners,
     required TResult Function(FetchTravelPopularProducts value)
         fetchTravelPopularProducts,
     required TResult Function(FetchBestPlacesProducts value)
@@ -448,7 +438,6 @@ class _$ChangeBannerIndex
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ChangeBannerIndex value)? changeBannerIndex,
     TResult? Function(ChangeTravelTabIndex value)? changeTravelTabIndex,
-    TResult? Function(FetchTravelBanners value)? fetchTravelBanners,
     TResult? Function(FetchTravelPopularProducts value)?
         fetchTravelPopularProducts,
     TResult? Function(FetchBestPlacesProducts value)? fetchBestPlacesProducts,
@@ -482,7 +471,6 @@ class _$ChangeBannerIndex
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ChangeBannerIndex value)? changeBannerIndex,
     TResult Function(ChangeTravelTabIndex value)? changeTravelTabIndex,
-    TResult Function(FetchTravelBanners value)? fetchTravelBanners,
     TResult Function(FetchTravelPopularProducts value)?
         fetchTravelPopularProducts,
     TResult Function(FetchBestPlacesProducts value)? fetchBestPlacesProducts,
@@ -603,7 +591,6 @@ class _$ChangeTravelTabIndex
   TResult when<TResult extends Object?>({
     required TResult Function(int index) changeBannerIndex,
     required TResult Function(int index) changeTravelTabIndex,
-    required TResult Function() fetchTravelBanners,
     required TResult Function() fetchTravelPopularProducts,
     required TResult Function() fetchBestPlacesProducts,
     required TResult Function() fetchTravelCities,
@@ -637,7 +624,6 @@ class _$ChangeTravelTabIndex
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(int index)? changeBannerIndex,
     TResult? Function(int index)? changeTravelTabIndex,
-    TResult? Function()? fetchTravelBanners,
     TResult? Function()? fetchTravelPopularProducts,
     TResult? Function()? fetchBestPlacesProducts,
     TResult? Function()? fetchTravelCities,
@@ -671,7 +657,6 @@ class _$ChangeTravelTabIndex
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(int index)? changeBannerIndex,
     TResult Function(int index)? changeTravelTabIndex,
-    TResult Function()? fetchTravelBanners,
     TResult Function()? fetchTravelPopularProducts,
     TResult Function()? fetchBestPlacesProducts,
     TResult Function()? fetchTravelCities,
@@ -709,7 +694,6 @@ class _$ChangeTravelTabIndex
   TResult map<TResult extends Object?>({
     required TResult Function(ChangeBannerIndex value) changeBannerIndex,
     required TResult Function(ChangeTravelTabIndex value) changeTravelTabIndex,
-    required TResult Function(FetchTravelBanners value) fetchTravelBanners,
     required TResult Function(FetchTravelPopularProducts value)
         fetchTravelPopularProducts,
     required TResult Function(FetchBestPlacesProducts value)
@@ -747,7 +731,6 @@ class _$ChangeTravelTabIndex
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ChangeBannerIndex value)? changeBannerIndex,
     TResult? Function(ChangeTravelTabIndex value)? changeTravelTabIndex,
-    TResult? Function(FetchTravelBanners value)? fetchTravelBanners,
     TResult? Function(FetchTravelPopularProducts value)?
         fetchTravelPopularProducts,
     TResult? Function(FetchBestPlacesProducts value)? fetchBestPlacesProducts,
@@ -781,7 +764,6 @@ class _$ChangeTravelTabIndex
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ChangeBannerIndex value)? changeBannerIndex,
     TResult Function(ChangeTravelTabIndex value)? changeTravelTabIndex,
-    TResult Function(FetchTravelBanners value)? fetchTravelBanners,
     TResult Function(FetchTravelPopularProducts value)?
         fetchTravelPopularProducts,
     TResult Function(FetchBestPlacesProducts value)? fetchBestPlacesProducts,
@@ -823,271 +805,6 @@ abstract class ChangeTravelTabIndex implements TravelEvent {
   @JsonKey(ignore: true)
   _$$ChangeTravelTabIndexCopyWith<_$ChangeTravelTabIndex> get copyWith =>
       throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$FetchTravelBannersCopyWith<$Res> {
-  factory _$$FetchTravelBannersCopyWith(_$FetchTravelBanners value,
-          $Res Function(_$FetchTravelBanners) then) =
-      __$$FetchTravelBannersCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$FetchTravelBannersCopyWithImpl<$Res>
-    extends _$TravelEventCopyWithImpl<$Res, _$FetchTravelBanners>
-    implements _$$FetchTravelBannersCopyWith<$Res> {
-  __$$FetchTravelBannersCopyWithImpl(
-      _$FetchTravelBanners _value, $Res Function(_$FetchTravelBanners) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$FetchTravelBanners
-    with DiagnosticableTreeMixin
-    implements FetchTravelBanners {
-  const _$FetchTravelBanners();
-
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'TravelEvent.fetchTravelBanners()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-        .add(DiagnosticsProperty('type', 'TravelEvent.fetchTravelBanners'));
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$FetchTravelBanners);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(int index) changeBannerIndex,
-    required TResult Function(int index) changeTravelTabIndex,
-    required TResult Function() fetchTravelBanners,
-    required TResult Function() fetchTravelPopularProducts,
-    required TResult Function() fetchBestPlacesProducts,
-    required TResult Function() fetchTravelCities,
-    required TResult Function(String id) fetchTravelProductById,
-    required TResult Function(String searchquery) fetchTravelSearchLocations,
-    required TResult Function(String location) fetchProductByLocation,
-    required TResult Function(String name, String email, String phoneNumber,
-            dynamic passPortPhoto, String country, String productId)
-        bookTravelEvent,
-    required TResult Function() increaseGuestEvent,
-    required TResult Function() decreaseGuestEvent,
-    required TResult Function(String country) selectCountryEvent,
-    required TResult Function(String location) saveSearchLocation,
-    required TResult Function() resetSearchData,
-    required TResult Function() showCalendarEvent,
-    required TResult Function(DateTime start, DateTime end, DateTime focusedDay)
-        selectDateRangeEvent,
-    required TResult Function(String country, String location, String date)
-        fetchTravelSearchedProducts,
-    required TResult Function() fetchTravelWishlistProducts,
-    required TResult Function(String productId, TravelWishlist wishlistType)
-        addTravelWishlist,
-    required TResult Function() travelbookingCompleted,
-    required TResult Function() fetchTravelHomeBannerPackages,
-  }) {
-    return fetchTravelBanners();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int index)? changeBannerIndex,
-    TResult? Function(int index)? changeTravelTabIndex,
-    TResult? Function()? fetchTravelBanners,
-    TResult? Function()? fetchTravelPopularProducts,
-    TResult? Function()? fetchBestPlacesProducts,
-    TResult? Function()? fetchTravelCities,
-    TResult? Function(String id)? fetchTravelProductById,
-    TResult? Function(String searchquery)? fetchTravelSearchLocations,
-    TResult? Function(String location)? fetchProductByLocation,
-    TResult? Function(String name, String email, String phoneNumber,
-            dynamic passPortPhoto, String country, String productId)?
-        bookTravelEvent,
-    TResult? Function()? increaseGuestEvent,
-    TResult? Function()? decreaseGuestEvent,
-    TResult? Function(String country)? selectCountryEvent,
-    TResult? Function(String location)? saveSearchLocation,
-    TResult? Function()? resetSearchData,
-    TResult? Function()? showCalendarEvent,
-    TResult? Function(DateTime start, DateTime end, DateTime focusedDay)?
-        selectDateRangeEvent,
-    TResult? Function(String country, String location, String date)?
-        fetchTravelSearchedProducts,
-    TResult? Function()? fetchTravelWishlistProducts,
-    TResult? Function(String productId, TravelWishlist wishlistType)?
-        addTravelWishlist,
-    TResult? Function()? travelbookingCompleted,
-    TResult? Function()? fetchTravelHomeBannerPackages,
-  }) {
-    return fetchTravelBanners?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int index)? changeBannerIndex,
-    TResult Function(int index)? changeTravelTabIndex,
-    TResult Function()? fetchTravelBanners,
-    TResult Function()? fetchTravelPopularProducts,
-    TResult Function()? fetchBestPlacesProducts,
-    TResult Function()? fetchTravelCities,
-    TResult Function(String id)? fetchTravelProductById,
-    TResult Function(String searchquery)? fetchTravelSearchLocations,
-    TResult Function(String location)? fetchProductByLocation,
-    TResult Function(String name, String email, String phoneNumber,
-            dynamic passPortPhoto, String country, String productId)?
-        bookTravelEvent,
-    TResult Function()? increaseGuestEvent,
-    TResult Function()? decreaseGuestEvent,
-    TResult Function(String country)? selectCountryEvent,
-    TResult Function(String location)? saveSearchLocation,
-    TResult Function()? resetSearchData,
-    TResult Function()? showCalendarEvent,
-    TResult Function(DateTime start, DateTime end, DateTime focusedDay)?
-        selectDateRangeEvent,
-    TResult Function(String country, String location, String date)?
-        fetchTravelSearchedProducts,
-    TResult Function()? fetchTravelWishlistProducts,
-    TResult Function(String productId, TravelWishlist wishlistType)?
-        addTravelWishlist,
-    TResult Function()? travelbookingCompleted,
-    TResult Function()? fetchTravelHomeBannerPackages,
-    required TResult orElse(),
-  }) {
-    if (fetchTravelBanners != null) {
-      return fetchTravelBanners();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(ChangeBannerIndex value) changeBannerIndex,
-    required TResult Function(ChangeTravelTabIndex value) changeTravelTabIndex,
-    required TResult Function(FetchTravelBanners value) fetchTravelBanners,
-    required TResult Function(FetchTravelPopularProducts value)
-        fetchTravelPopularProducts,
-    required TResult Function(FetchBestPlacesProducts value)
-        fetchBestPlacesProducts,
-    required TResult Function(FetchTravelCities value) fetchTravelCities,
-    required TResult Function(FetchTravelProductsById value)
-        fetchTravelProductById,
-    required TResult Function(FetchTravelSearchLocations value)
-        fetchTravelSearchLocations,
-    required TResult Function(FetchProductByLocation value)
-        fetchProductByLocation,
-    required TResult Function(BookTravelEvent value) bookTravelEvent,
-    required TResult Function(IncreaseGuestEvent value) increaseGuestEvent,
-    required TResult Function(DecreaseGuestEvent value) decreaseGuestEvent,
-    required TResult Function(SelectCountryEvent value) selectCountryEvent,
-    required TResult Function(SaveSearchLocation value) saveSearchLocation,
-    required TResult Function(ResetSearchData value) resetSearchData,
-    required TResult Function(ShowCalendarEvent value) showCalendarEvent,
-    required TResult Function(SelectDateRangeEvent value) selectDateRangeEvent,
-    required TResult Function(FetchTravelSearchedProducts value)
-        fetchTravelSearchedProducts,
-    required TResult Function(FetchTravelWishlistProducts value)
-        fetchTravelWishlistProducts,
-    required TResult Function(AddTravelWishlist value) addTravelWishlist,
-    required TResult Function(TravelBookingCompleted value)
-        travelbookingCompleted,
-    required TResult Function(FetchTravelHomeBannerPackages value)
-        fetchTravelHomeBannerPackages,
-  }) {
-    return fetchTravelBanners(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ChangeBannerIndex value)? changeBannerIndex,
-    TResult? Function(ChangeTravelTabIndex value)? changeTravelTabIndex,
-    TResult? Function(FetchTravelBanners value)? fetchTravelBanners,
-    TResult? Function(FetchTravelPopularProducts value)?
-        fetchTravelPopularProducts,
-    TResult? Function(FetchBestPlacesProducts value)? fetchBestPlacesProducts,
-    TResult? Function(FetchTravelCities value)? fetchTravelCities,
-    TResult? Function(FetchTravelProductsById value)? fetchTravelProductById,
-    TResult? Function(FetchTravelSearchLocations value)?
-        fetchTravelSearchLocations,
-    TResult? Function(FetchProductByLocation value)? fetchProductByLocation,
-    TResult? Function(BookTravelEvent value)? bookTravelEvent,
-    TResult? Function(IncreaseGuestEvent value)? increaseGuestEvent,
-    TResult? Function(DecreaseGuestEvent value)? decreaseGuestEvent,
-    TResult? Function(SelectCountryEvent value)? selectCountryEvent,
-    TResult? Function(SaveSearchLocation value)? saveSearchLocation,
-    TResult? Function(ResetSearchData value)? resetSearchData,
-    TResult? Function(ShowCalendarEvent value)? showCalendarEvent,
-    TResult? Function(SelectDateRangeEvent value)? selectDateRangeEvent,
-    TResult? Function(FetchTravelSearchedProducts value)?
-        fetchTravelSearchedProducts,
-    TResult? Function(FetchTravelWishlistProducts value)?
-        fetchTravelWishlistProducts,
-    TResult? Function(AddTravelWishlist value)? addTravelWishlist,
-    TResult? Function(TravelBookingCompleted value)? travelbookingCompleted,
-    TResult? Function(FetchTravelHomeBannerPackages value)?
-        fetchTravelHomeBannerPackages,
-  }) {
-    return fetchTravelBanners?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(ChangeBannerIndex value)? changeBannerIndex,
-    TResult Function(ChangeTravelTabIndex value)? changeTravelTabIndex,
-    TResult Function(FetchTravelBanners value)? fetchTravelBanners,
-    TResult Function(FetchTravelPopularProducts value)?
-        fetchTravelPopularProducts,
-    TResult Function(FetchBestPlacesProducts value)? fetchBestPlacesProducts,
-    TResult Function(FetchTravelCities value)? fetchTravelCities,
-    TResult Function(FetchTravelProductsById value)? fetchTravelProductById,
-    TResult Function(FetchTravelSearchLocations value)?
-        fetchTravelSearchLocations,
-    TResult Function(FetchProductByLocation value)? fetchProductByLocation,
-    TResult Function(BookTravelEvent value)? bookTravelEvent,
-    TResult Function(IncreaseGuestEvent value)? increaseGuestEvent,
-    TResult Function(DecreaseGuestEvent value)? decreaseGuestEvent,
-    TResult Function(SelectCountryEvent value)? selectCountryEvent,
-    TResult Function(SaveSearchLocation value)? saveSearchLocation,
-    TResult Function(ResetSearchData value)? resetSearchData,
-    TResult Function(ShowCalendarEvent value)? showCalendarEvent,
-    TResult Function(SelectDateRangeEvent value)? selectDateRangeEvent,
-    TResult Function(FetchTravelSearchedProducts value)?
-        fetchTravelSearchedProducts,
-    TResult Function(FetchTravelWishlistProducts value)?
-        fetchTravelWishlistProducts,
-    TResult Function(AddTravelWishlist value)? addTravelWishlist,
-    TResult Function(TravelBookingCompleted value)? travelbookingCompleted,
-    TResult Function(FetchTravelHomeBannerPackages value)?
-        fetchTravelHomeBannerPackages,
-    required TResult orElse(),
-  }) {
-    if (fetchTravelBanners != null) {
-      return fetchTravelBanners(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class FetchTravelBanners implements TravelEvent {
-  const factory FetchTravelBanners() = _$FetchTravelBanners;
 }
 
 /// @nodoc
@@ -1142,7 +859,6 @@ class _$FetchTravelPopularProducts
   TResult when<TResult extends Object?>({
     required TResult Function(int index) changeBannerIndex,
     required TResult Function(int index) changeTravelTabIndex,
-    required TResult Function() fetchTravelBanners,
     required TResult Function() fetchTravelPopularProducts,
     required TResult Function() fetchBestPlacesProducts,
     required TResult Function() fetchTravelCities,
@@ -1176,7 +892,6 @@ class _$FetchTravelPopularProducts
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(int index)? changeBannerIndex,
     TResult? Function(int index)? changeTravelTabIndex,
-    TResult? Function()? fetchTravelBanners,
     TResult? Function()? fetchTravelPopularProducts,
     TResult? Function()? fetchBestPlacesProducts,
     TResult? Function()? fetchTravelCities,
@@ -1210,7 +925,6 @@ class _$FetchTravelPopularProducts
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(int index)? changeBannerIndex,
     TResult Function(int index)? changeTravelTabIndex,
-    TResult Function()? fetchTravelBanners,
     TResult Function()? fetchTravelPopularProducts,
     TResult Function()? fetchBestPlacesProducts,
     TResult Function()? fetchTravelCities,
@@ -1248,7 +962,6 @@ class _$FetchTravelPopularProducts
   TResult map<TResult extends Object?>({
     required TResult Function(ChangeBannerIndex value) changeBannerIndex,
     required TResult Function(ChangeTravelTabIndex value) changeTravelTabIndex,
-    required TResult Function(FetchTravelBanners value) fetchTravelBanners,
     required TResult Function(FetchTravelPopularProducts value)
         fetchTravelPopularProducts,
     required TResult Function(FetchBestPlacesProducts value)
@@ -1286,7 +999,6 @@ class _$FetchTravelPopularProducts
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ChangeBannerIndex value)? changeBannerIndex,
     TResult? Function(ChangeTravelTabIndex value)? changeTravelTabIndex,
-    TResult? Function(FetchTravelBanners value)? fetchTravelBanners,
     TResult? Function(FetchTravelPopularProducts value)?
         fetchTravelPopularProducts,
     TResult? Function(FetchBestPlacesProducts value)? fetchBestPlacesProducts,
@@ -1320,7 +1032,6 @@ class _$FetchTravelPopularProducts
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ChangeBannerIndex value)? changeBannerIndex,
     TResult Function(ChangeTravelTabIndex value)? changeTravelTabIndex,
-    TResult Function(FetchTravelBanners value)? fetchTravelBanners,
     TResult Function(FetchTravelPopularProducts value)?
         fetchTravelPopularProducts,
     TResult Function(FetchBestPlacesProducts value)? fetchBestPlacesProducts,
@@ -1408,7 +1119,6 @@ class _$FetchBestPlacesProducts
   TResult when<TResult extends Object?>({
     required TResult Function(int index) changeBannerIndex,
     required TResult Function(int index) changeTravelTabIndex,
-    required TResult Function() fetchTravelBanners,
     required TResult Function() fetchTravelPopularProducts,
     required TResult Function() fetchBestPlacesProducts,
     required TResult Function() fetchTravelCities,
@@ -1442,7 +1152,6 @@ class _$FetchBestPlacesProducts
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(int index)? changeBannerIndex,
     TResult? Function(int index)? changeTravelTabIndex,
-    TResult? Function()? fetchTravelBanners,
     TResult? Function()? fetchTravelPopularProducts,
     TResult? Function()? fetchBestPlacesProducts,
     TResult? Function()? fetchTravelCities,
@@ -1476,7 +1185,6 @@ class _$FetchBestPlacesProducts
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(int index)? changeBannerIndex,
     TResult Function(int index)? changeTravelTabIndex,
-    TResult Function()? fetchTravelBanners,
     TResult Function()? fetchTravelPopularProducts,
     TResult Function()? fetchBestPlacesProducts,
     TResult Function()? fetchTravelCities,
@@ -1514,7 +1222,6 @@ class _$FetchBestPlacesProducts
   TResult map<TResult extends Object?>({
     required TResult Function(ChangeBannerIndex value) changeBannerIndex,
     required TResult Function(ChangeTravelTabIndex value) changeTravelTabIndex,
-    required TResult Function(FetchTravelBanners value) fetchTravelBanners,
     required TResult Function(FetchTravelPopularProducts value)
         fetchTravelPopularProducts,
     required TResult Function(FetchBestPlacesProducts value)
@@ -1552,7 +1259,6 @@ class _$FetchBestPlacesProducts
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ChangeBannerIndex value)? changeBannerIndex,
     TResult? Function(ChangeTravelTabIndex value)? changeTravelTabIndex,
-    TResult? Function(FetchTravelBanners value)? fetchTravelBanners,
     TResult? Function(FetchTravelPopularProducts value)?
         fetchTravelPopularProducts,
     TResult? Function(FetchBestPlacesProducts value)? fetchBestPlacesProducts,
@@ -1586,7 +1292,6 @@ class _$FetchBestPlacesProducts
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ChangeBannerIndex value)? changeBannerIndex,
     TResult Function(ChangeTravelTabIndex value)? changeTravelTabIndex,
-    TResult Function(FetchTravelBanners value)? fetchTravelBanners,
     TResult Function(FetchTravelPopularProducts value)?
         fetchTravelPopularProducts,
     TResult Function(FetchBestPlacesProducts value)? fetchBestPlacesProducts,
@@ -1673,7 +1378,6 @@ class _$FetchTravelCities
   TResult when<TResult extends Object?>({
     required TResult Function(int index) changeBannerIndex,
     required TResult Function(int index) changeTravelTabIndex,
-    required TResult Function() fetchTravelBanners,
     required TResult Function() fetchTravelPopularProducts,
     required TResult Function() fetchBestPlacesProducts,
     required TResult Function() fetchTravelCities,
@@ -1707,7 +1411,6 @@ class _$FetchTravelCities
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(int index)? changeBannerIndex,
     TResult? Function(int index)? changeTravelTabIndex,
-    TResult? Function()? fetchTravelBanners,
     TResult? Function()? fetchTravelPopularProducts,
     TResult? Function()? fetchBestPlacesProducts,
     TResult? Function()? fetchTravelCities,
@@ -1741,7 +1444,6 @@ class _$FetchTravelCities
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(int index)? changeBannerIndex,
     TResult Function(int index)? changeTravelTabIndex,
-    TResult Function()? fetchTravelBanners,
     TResult Function()? fetchTravelPopularProducts,
     TResult Function()? fetchBestPlacesProducts,
     TResult Function()? fetchTravelCities,
@@ -1779,7 +1481,6 @@ class _$FetchTravelCities
   TResult map<TResult extends Object?>({
     required TResult Function(ChangeBannerIndex value) changeBannerIndex,
     required TResult Function(ChangeTravelTabIndex value) changeTravelTabIndex,
-    required TResult Function(FetchTravelBanners value) fetchTravelBanners,
     required TResult Function(FetchTravelPopularProducts value)
         fetchTravelPopularProducts,
     required TResult Function(FetchBestPlacesProducts value)
@@ -1817,7 +1518,6 @@ class _$FetchTravelCities
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ChangeBannerIndex value)? changeBannerIndex,
     TResult? Function(ChangeTravelTabIndex value)? changeTravelTabIndex,
-    TResult? Function(FetchTravelBanners value)? fetchTravelBanners,
     TResult? Function(FetchTravelPopularProducts value)?
         fetchTravelPopularProducts,
     TResult? Function(FetchBestPlacesProducts value)? fetchBestPlacesProducts,
@@ -1851,7 +1551,6 @@ class _$FetchTravelCities
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ChangeBannerIndex value)? changeBannerIndex,
     TResult Function(ChangeTravelTabIndex value)? changeTravelTabIndex,
-    TResult Function(FetchTravelBanners value)? fetchTravelBanners,
     TResult Function(FetchTravelPopularProducts value)?
         fetchTravelPopularProducts,
     TResult Function(FetchBestPlacesProducts value)? fetchBestPlacesProducts,
@@ -1966,7 +1665,6 @@ class _$FetchTravelProductsById
   TResult when<TResult extends Object?>({
     required TResult Function(int index) changeBannerIndex,
     required TResult Function(int index) changeTravelTabIndex,
-    required TResult Function() fetchTravelBanners,
     required TResult Function() fetchTravelPopularProducts,
     required TResult Function() fetchBestPlacesProducts,
     required TResult Function() fetchTravelCities,
@@ -2000,7 +1698,6 @@ class _$FetchTravelProductsById
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(int index)? changeBannerIndex,
     TResult? Function(int index)? changeTravelTabIndex,
-    TResult? Function()? fetchTravelBanners,
     TResult? Function()? fetchTravelPopularProducts,
     TResult? Function()? fetchBestPlacesProducts,
     TResult? Function()? fetchTravelCities,
@@ -2034,7 +1731,6 @@ class _$FetchTravelProductsById
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(int index)? changeBannerIndex,
     TResult Function(int index)? changeTravelTabIndex,
-    TResult Function()? fetchTravelBanners,
     TResult Function()? fetchTravelPopularProducts,
     TResult Function()? fetchBestPlacesProducts,
     TResult Function()? fetchTravelCities,
@@ -2072,7 +1768,6 @@ class _$FetchTravelProductsById
   TResult map<TResult extends Object?>({
     required TResult Function(ChangeBannerIndex value) changeBannerIndex,
     required TResult Function(ChangeTravelTabIndex value) changeTravelTabIndex,
-    required TResult Function(FetchTravelBanners value) fetchTravelBanners,
     required TResult Function(FetchTravelPopularProducts value)
         fetchTravelPopularProducts,
     required TResult Function(FetchBestPlacesProducts value)
@@ -2110,7 +1805,6 @@ class _$FetchTravelProductsById
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ChangeBannerIndex value)? changeBannerIndex,
     TResult? Function(ChangeTravelTabIndex value)? changeTravelTabIndex,
-    TResult? Function(FetchTravelBanners value)? fetchTravelBanners,
     TResult? Function(FetchTravelPopularProducts value)?
         fetchTravelPopularProducts,
     TResult? Function(FetchBestPlacesProducts value)? fetchBestPlacesProducts,
@@ -2144,7 +1838,6 @@ class _$FetchTravelProductsById
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ChangeBannerIndex value)? changeBannerIndex,
     TResult Function(ChangeTravelTabIndex value)? changeTravelTabIndex,
-    TResult Function(FetchTravelBanners value)? fetchTravelBanners,
     TResult Function(FetchTravelPopularProducts value)?
         fetchTravelPopularProducts,
     TResult Function(FetchBestPlacesProducts value)? fetchBestPlacesProducts,
@@ -2269,7 +1962,6 @@ class _$FetchTravelSearchLocations
   TResult when<TResult extends Object?>({
     required TResult Function(int index) changeBannerIndex,
     required TResult Function(int index) changeTravelTabIndex,
-    required TResult Function() fetchTravelBanners,
     required TResult Function() fetchTravelPopularProducts,
     required TResult Function() fetchBestPlacesProducts,
     required TResult Function() fetchTravelCities,
@@ -2303,7 +1995,6 @@ class _$FetchTravelSearchLocations
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(int index)? changeBannerIndex,
     TResult? Function(int index)? changeTravelTabIndex,
-    TResult? Function()? fetchTravelBanners,
     TResult? Function()? fetchTravelPopularProducts,
     TResult? Function()? fetchBestPlacesProducts,
     TResult? Function()? fetchTravelCities,
@@ -2337,7 +2028,6 @@ class _$FetchTravelSearchLocations
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(int index)? changeBannerIndex,
     TResult Function(int index)? changeTravelTabIndex,
-    TResult Function()? fetchTravelBanners,
     TResult Function()? fetchTravelPopularProducts,
     TResult Function()? fetchBestPlacesProducts,
     TResult Function()? fetchTravelCities,
@@ -2375,7 +2065,6 @@ class _$FetchTravelSearchLocations
   TResult map<TResult extends Object?>({
     required TResult Function(ChangeBannerIndex value) changeBannerIndex,
     required TResult Function(ChangeTravelTabIndex value) changeTravelTabIndex,
-    required TResult Function(FetchTravelBanners value) fetchTravelBanners,
     required TResult Function(FetchTravelPopularProducts value)
         fetchTravelPopularProducts,
     required TResult Function(FetchBestPlacesProducts value)
@@ -2413,7 +2102,6 @@ class _$FetchTravelSearchLocations
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ChangeBannerIndex value)? changeBannerIndex,
     TResult? Function(ChangeTravelTabIndex value)? changeTravelTabIndex,
-    TResult? Function(FetchTravelBanners value)? fetchTravelBanners,
     TResult? Function(FetchTravelPopularProducts value)?
         fetchTravelPopularProducts,
     TResult? Function(FetchBestPlacesProducts value)? fetchBestPlacesProducts,
@@ -2447,7 +2135,6 @@ class _$FetchTravelSearchLocations
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ChangeBannerIndex value)? changeBannerIndex,
     TResult Function(ChangeTravelTabIndex value)? changeTravelTabIndex,
-    TResult Function(FetchTravelBanners value)? fetchTravelBanners,
     TResult Function(FetchTravelPopularProducts value)?
         fetchTravelPopularProducts,
     TResult Function(FetchBestPlacesProducts value)? fetchBestPlacesProducts,
@@ -2569,7 +2256,6 @@ class _$FetchProductByLocation
   TResult when<TResult extends Object?>({
     required TResult Function(int index) changeBannerIndex,
     required TResult Function(int index) changeTravelTabIndex,
-    required TResult Function() fetchTravelBanners,
     required TResult Function() fetchTravelPopularProducts,
     required TResult Function() fetchBestPlacesProducts,
     required TResult Function() fetchTravelCities,
@@ -2603,7 +2289,6 @@ class _$FetchProductByLocation
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(int index)? changeBannerIndex,
     TResult? Function(int index)? changeTravelTabIndex,
-    TResult? Function()? fetchTravelBanners,
     TResult? Function()? fetchTravelPopularProducts,
     TResult? Function()? fetchBestPlacesProducts,
     TResult? Function()? fetchTravelCities,
@@ -2637,7 +2322,6 @@ class _$FetchProductByLocation
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(int index)? changeBannerIndex,
     TResult Function(int index)? changeTravelTabIndex,
-    TResult Function()? fetchTravelBanners,
     TResult Function()? fetchTravelPopularProducts,
     TResult Function()? fetchBestPlacesProducts,
     TResult Function()? fetchTravelCities,
@@ -2675,7 +2359,6 @@ class _$FetchProductByLocation
   TResult map<TResult extends Object?>({
     required TResult Function(ChangeBannerIndex value) changeBannerIndex,
     required TResult Function(ChangeTravelTabIndex value) changeTravelTabIndex,
-    required TResult Function(FetchTravelBanners value) fetchTravelBanners,
     required TResult Function(FetchTravelPopularProducts value)
         fetchTravelPopularProducts,
     required TResult Function(FetchBestPlacesProducts value)
@@ -2713,7 +2396,6 @@ class _$FetchProductByLocation
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ChangeBannerIndex value)? changeBannerIndex,
     TResult? Function(ChangeTravelTabIndex value)? changeTravelTabIndex,
-    TResult? Function(FetchTravelBanners value)? fetchTravelBanners,
     TResult? Function(FetchTravelPopularProducts value)?
         fetchTravelPopularProducts,
     TResult? Function(FetchBestPlacesProducts value)? fetchBestPlacesProducts,
@@ -2747,7 +2429,6 @@ class _$FetchProductByLocation
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ChangeBannerIndex value)? changeBannerIndex,
     TResult Function(ChangeTravelTabIndex value)? changeTravelTabIndex,
-    TResult Function(FetchTravelBanners value)? fetchTravelBanners,
     TResult Function(FetchTravelPopularProducts value)?
         fetchTravelPopularProducts,
     TResult Function(FetchBestPlacesProducts value)? fetchBestPlacesProducts,
@@ -2928,7 +2609,6 @@ class _$BookTravelEvent
   TResult when<TResult extends Object?>({
     required TResult Function(int index) changeBannerIndex,
     required TResult Function(int index) changeTravelTabIndex,
-    required TResult Function() fetchTravelBanners,
     required TResult Function() fetchTravelPopularProducts,
     required TResult Function() fetchBestPlacesProducts,
     required TResult Function() fetchTravelCities,
@@ -2963,7 +2643,6 @@ class _$BookTravelEvent
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(int index)? changeBannerIndex,
     TResult? Function(int index)? changeTravelTabIndex,
-    TResult? Function()? fetchTravelBanners,
     TResult? Function()? fetchTravelPopularProducts,
     TResult? Function()? fetchBestPlacesProducts,
     TResult? Function()? fetchTravelCities,
@@ -2998,7 +2677,6 @@ class _$BookTravelEvent
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(int index)? changeBannerIndex,
     TResult Function(int index)? changeTravelTabIndex,
-    TResult Function()? fetchTravelBanners,
     TResult Function()? fetchTravelPopularProducts,
     TResult Function()? fetchBestPlacesProducts,
     TResult Function()? fetchTravelCities,
@@ -3037,7 +2715,6 @@ class _$BookTravelEvent
   TResult map<TResult extends Object?>({
     required TResult Function(ChangeBannerIndex value) changeBannerIndex,
     required TResult Function(ChangeTravelTabIndex value) changeTravelTabIndex,
-    required TResult Function(FetchTravelBanners value) fetchTravelBanners,
     required TResult Function(FetchTravelPopularProducts value)
         fetchTravelPopularProducts,
     required TResult Function(FetchBestPlacesProducts value)
@@ -3075,7 +2752,6 @@ class _$BookTravelEvent
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ChangeBannerIndex value)? changeBannerIndex,
     TResult? Function(ChangeTravelTabIndex value)? changeTravelTabIndex,
-    TResult? Function(FetchTravelBanners value)? fetchTravelBanners,
     TResult? Function(FetchTravelPopularProducts value)?
         fetchTravelPopularProducts,
     TResult? Function(FetchBestPlacesProducts value)? fetchBestPlacesProducts,
@@ -3109,7 +2785,6 @@ class _$BookTravelEvent
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ChangeBannerIndex value)? changeBannerIndex,
     TResult Function(ChangeTravelTabIndex value)? changeTravelTabIndex,
-    TResult Function(FetchTravelBanners value)? fetchTravelBanners,
     TResult Function(FetchTravelPopularProducts value)?
         fetchTravelPopularProducts,
     TResult Function(FetchBestPlacesProducts value)? fetchBestPlacesProducts,
@@ -3212,7 +2887,6 @@ class _$IncreaseGuestEvent
   TResult when<TResult extends Object?>({
     required TResult Function(int index) changeBannerIndex,
     required TResult Function(int index) changeTravelTabIndex,
-    required TResult Function() fetchTravelBanners,
     required TResult Function() fetchTravelPopularProducts,
     required TResult Function() fetchBestPlacesProducts,
     required TResult Function() fetchTravelCities,
@@ -3246,7 +2920,6 @@ class _$IncreaseGuestEvent
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(int index)? changeBannerIndex,
     TResult? Function(int index)? changeTravelTabIndex,
-    TResult? Function()? fetchTravelBanners,
     TResult? Function()? fetchTravelPopularProducts,
     TResult? Function()? fetchBestPlacesProducts,
     TResult? Function()? fetchTravelCities,
@@ -3280,7 +2953,6 @@ class _$IncreaseGuestEvent
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(int index)? changeBannerIndex,
     TResult Function(int index)? changeTravelTabIndex,
-    TResult Function()? fetchTravelBanners,
     TResult Function()? fetchTravelPopularProducts,
     TResult Function()? fetchBestPlacesProducts,
     TResult Function()? fetchTravelCities,
@@ -3318,7 +2990,6 @@ class _$IncreaseGuestEvent
   TResult map<TResult extends Object?>({
     required TResult Function(ChangeBannerIndex value) changeBannerIndex,
     required TResult Function(ChangeTravelTabIndex value) changeTravelTabIndex,
-    required TResult Function(FetchTravelBanners value) fetchTravelBanners,
     required TResult Function(FetchTravelPopularProducts value)
         fetchTravelPopularProducts,
     required TResult Function(FetchBestPlacesProducts value)
@@ -3356,7 +3027,6 @@ class _$IncreaseGuestEvent
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ChangeBannerIndex value)? changeBannerIndex,
     TResult? Function(ChangeTravelTabIndex value)? changeTravelTabIndex,
-    TResult? Function(FetchTravelBanners value)? fetchTravelBanners,
     TResult? Function(FetchTravelPopularProducts value)?
         fetchTravelPopularProducts,
     TResult? Function(FetchBestPlacesProducts value)? fetchBestPlacesProducts,
@@ -3390,7 +3060,6 @@ class _$IncreaseGuestEvent
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ChangeBannerIndex value)? changeBannerIndex,
     TResult Function(ChangeTravelTabIndex value)? changeTravelTabIndex,
-    TResult Function(FetchTravelBanners value)? fetchTravelBanners,
     TResult Function(FetchTravelPopularProducts value)?
         fetchTravelPopularProducts,
     TResult Function(FetchBestPlacesProducts value)? fetchBestPlacesProducts,
@@ -3477,7 +3146,6 @@ class _$DecreaseGuestEvent
   TResult when<TResult extends Object?>({
     required TResult Function(int index) changeBannerIndex,
     required TResult Function(int index) changeTravelTabIndex,
-    required TResult Function() fetchTravelBanners,
     required TResult Function() fetchTravelPopularProducts,
     required TResult Function() fetchBestPlacesProducts,
     required TResult Function() fetchTravelCities,
@@ -3511,7 +3179,6 @@ class _$DecreaseGuestEvent
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(int index)? changeBannerIndex,
     TResult? Function(int index)? changeTravelTabIndex,
-    TResult? Function()? fetchTravelBanners,
     TResult? Function()? fetchTravelPopularProducts,
     TResult? Function()? fetchBestPlacesProducts,
     TResult? Function()? fetchTravelCities,
@@ -3545,7 +3212,6 @@ class _$DecreaseGuestEvent
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(int index)? changeBannerIndex,
     TResult Function(int index)? changeTravelTabIndex,
-    TResult Function()? fetchTravelBanners,
     TResult Function()? fetchTravelPopularProducts,
     TResult Function()? fetchBestPlacesProducts,
     TResult Function()? fetchTravelCities,
@@ -3583,7 +3249,6 @@ class _$DecreaseGuestEvent
   TResult map<TResult extends Object?>({
     required TResult Function(ChangeBannerIndex value) changeBannerIndex,
     required TResult Function(ChangeTravelTabIndex value) changeTravelTabIndex,
-    required TResult Function(FetchTravelBanners value) fetchTravelBanners,
     required TResult Function(FetchTravelPopularProducts value)
         fetchTravelPopularProducts,
     required TResult Function(FetchBestPlacesProducts value)
@@ -3621,7 +3286,6 @@ class _$DecreaseGuestEvent
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ChangeBannerIndex value)? changeBannerIndex,
     TResult? Function(ChangeTravelTabIndex value)? changeTravelTabIndex,
-    TResult? Function(FetchTravelBanners value)? fetchTravelBanners,
     TResult? Function(FetchTravelPopularProducts value)?
         fetchTravelPopularProducts,
     TResult? Function(FetchBestPlacesProducts value)? fetchBestPlacesProducts,
@@ -3655,7 +3319,6 @@ class _$DecreaseGuestEvent
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ChangeBannerIndex value)? changeBannerIndex,
     TResult Function(ChangeTravelTabIndex value)? changeTravelTabIndex,
-    TResult Function(FetchTravelBanners value)? fetchTravelBanners,
     TResult Function(FetchTravelPopularProducts value)?
         fetchTravelPopularProducts,
     TResult Function(FetchBestPlacesProducts value)? fetchBestPlacesProducts,
@@ -3770,7 +3433,6 @@ class _$SelectCountryEvent
   TResult when<TResult extends Object?>({
     required TResult Function(int index) changeBannerIndex,
     required TResult Function(int index) changeTravelTabIndex,
-    required TResult Function() fetchTravelBanners,
     required TResult Function() fetchTravelPopularProducts,
     required TResult Function() fetchBestPlacesProducts,
     required TResult Function() fetchTravelCities,
@@ -3804,7 +3466,6 @@ class _$SelectCountryEvent
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(int index)? changeBannerIndex,
     TResult? Function(int index)? changeTravelTabIndex,
-    TResult? Function()? fetchTravelBanners,
     TResult? Function()? fetchTravelPopularProducts,
     TResult? Function()? fetchBestPlacesProducts,
     TResult? Function()? fetchTravelCities,
@@ -3838,7 +3499,6 @@ class _$SelectCountryEvent
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(int index)? changeBannerIndex,
     TResult Function(int index)? changeTravelTabIndex,
-    TResult Function()? fetchTravelBanners,
     TResult Function()? fetchTravelPopularProducts,
     TResult Function()? fetchBestPlacesProducts,
     TResult Function()? fetchTravelCities,
@@ -3876,7 +3536,6 @@ class _$SelectCountryEvent
   TResult map<TResult extends Object?>({
     required TResult Function(ChangeBannerIndex value) changeBannerIndex,
     required TResult Function(ChangeTravelTabIndex value) changeTravelTabIndex,
-    required TResult Function(FetchTravelBanners value) fetchTravelBanners,
     required TResult Function(FetchTravelPopularProducts value)
         fetchTravelPopularProducts,
     required TResult Function(FetchBestPlacesProducts value)
@@ -3914,7 +3573,6 @@ class _$SelectCountryEvent
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ChangeBannerIndex value)? changeBannerIndex,
     TResult? Function(ChangeTravelTabIndex value)? changeTravelTabIndex,
-    TResult? Function(FetchTravelBanners value)? fetchTravelBanners,
     TResult? Function(FetchTravelPopularProducts value)?
         fetchTravelPopularProducts,
     TResult? Function(FetchBestPlacesProducts value)? fetchBestPlacesProducts,
@@ -3948,7 +3606,6 @@ class _$SelectCountryEvent
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ChangeBannerIndex value)? changeBannerIndex,
     TResult Function(ChangeTravelTabIndex value)? changeTravelTabIndex,
-    TResult Function(FetchTravelBanners value)? fetchTravelBanners,
     TResult Function(FetchTravelPopularProducts value)?
         fetchTravelPopularProducts,
     TResult Function(FetchBestPlacesProducts value)? fetchBestPlacesProducts,
@@ -4070,7 +3727,6 @@ class _$SaveSearchLocation
   TResult when<TResult extends Object?>({
     required TResult Function(int index) changeBannerIndex,
     required TResult Function(int index) changeTravelTabIndex,
-    required TResult Function() fetchTravelBanners,
     required TResult Function() fetchTravelPopularProducts,
     required TResult Function() fetchBestPlacesProducts,
     required TResult Function() fetchTravelCities,
@@ -4104,7 +3760,6 @@ class _$SaveSearchLocation
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(int index)? changeBannerIndex,
     TResult? Function(int index)? changeTravelTabIndex,
-    TResult? Function()? fetchTravelBanners,
     TResult? Function()? fetchTravelPopularProducts,
     TResult? Function()? fetchBestPlacesProducts,
     TResult? Function()? fetchTravelCities,
@@ -4138,7 +3793,6 @@ class _$SaveSearchLocation
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(int index)? changeBannerIndex,
     TResult Function(int index)? changeTravelTabIndex,
-    TResult Function()? fetchTravelBanners,
     TResult Function()? fetchTravelPopularProducts,
     TResult Function()? fetchBestPlacesProducts,
     TResult Function()? fetchTravelCities,
@@ -4176,7 +3830,6 @@ class _$SaveSearchLocation
   TResult map<TResult extends Object?>({
     required TResult Function(ChangeBannerIndex value) changeBannerIndex,
     required TResult Function(ChangeTravelTabIndex value) changeTravelTabIndex,
-    required TResult Function(FetchTravelBanners value) fetchTravelBanners,
     required TResult Function(FetchTravelPopularProducts value)
         fetchTravelPopularProducts,
     required TResult Function(FetchBestPlacesProducts value)
@@ -4214,7 +3867,6 @@ class _$SaveSearchLocation
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ChangeBannerIndex value)? changeBannerIndex,
     TResult? Function(ChangeTravelTabIndex value)? changeTravelTabIndex,
-    TResult? Function(FetchTravelBanners value)? fetchTravelBanners,
     TResult? Function(FetchTravelPopularProducts value)?
         fetchTravelPopularProducts,
     TResult? Function(FetchBestPlacesProducts value)? fetchBestPlacesProducts,
@@ -4248,7 +3900,6 @@ class _$SaveSearchLocation
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ChangeBannerIndex value)? changeBannerIndex,
     TResult Function(ChangeTravelTabIndex value)? changeTravelTabIndex,
-    TResult Function(FetchTravelBanners value)? fetchTravelBanners,
     TResult Function(FetchTravelPopularProducts value)?
         fetchTravelPopularProducts,
     TResult Function(FetchBestPlacesProducts value)? fetchBestPlacesProducts,
@@ -4340,7 +3991,6 @@ class _$ResetSearchData
   TResult when<TResult extends Object?>({
     required TResult Function(int index) changeBannerIndex,
     required TResult Function(int index) changeTravelTabIndex,
-    required TResult Function() fetchTravelBanners,
     required TResult Function() fetchTravelPopularProducts,
     required TResult Function() fetchBestPlacesProducts,
     required TResult Function() fetchTravelCities,
@@ -4374,7 +4024,6 @@ class _$ResetSearchData
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(int index)? changeBannerIndex,
     TResult? Function(int index)? changeTravelTabIndex,
-    TResult? Function()? fetchTravelBanners,
     TResult? Function()? fetchTravelPopularProducts,
     TResult? Function()? fetchBestPlacesProducts,
     TResult? Function()? fetchTravelCities,
@@ -4408,7 +4057,6 @@ class _$ResetSearchData
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(int index)? changeBannerIndex,
     TResult Function(int index)? changeTravelTabIndex,
-    TResult Function()? fetchTravelBanners,
     TResult Function()? fetchTravelPopularProducts,
     TResult Function()? fetchBestPlacesProducts,
     TResult Function()? fetchTravelCities,
@@ -4446,7 +4094,6 @@ class _$ResetSearchData
   TResult map<TResult extends Object?>({
     required TResult Function(ChangeBannerIndex value) changeBannerIndex,
     required TResult Function(ChangeTravelTabIndex value) changeTravelTabIndex,
-    required TResult Function(FetchTravelBanners value) fetchTravelBanners,
     required TResult Function(FetchTravelPopularProducts value)
         fetchTravelPopularProducts,
     required TResult Function(FetchBestPlacesProducts value)
@@ -4484,7 +4131,6 @@ class _$ResetSearchData
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ChangeBannerIndex value)? changeBannerIndex,
     TResult? Function(ChangeTravelTabIndex value)? changeTravelTabIndex,
-    TResult? Function(FetchTravelBanners value)? fetchTravelBanners,
     TResult? Function(FetchTravelPopularProducts value)?
         fetchTravelPopularProducts,
     TResult? Function(FetchBestPlacesProducts value)? fetchBestPlacesProducts,
@@ -4518,7 +4164,6 @@ class _$ResetSearchData
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ChangeBannerIndex value)? changeBannerIndex,
     TResult Function(ChangeTravelTabIndex value)? changeTravelTabIndex,
-    TResult Function(FetchTravelBanners value)? fetchTravelBanners,
     TResult Function(FetchTravelPopularProducts value)?
         fetchTravelPopularProducts,
     TResult Function(FetchBestPlacesProducts value)? fetchBestPlacesProducts,
@@ -4605,7 +4250,6 @@ class _$ShowCalendarEvent
   TResult when<TResult extends Object?>({
     required TResult Function(int index) changeBannerIndex,
     required TResult Function(int index) changeTravelTabIndex,
-    required TResult Function() fetchTravelBanners,
     required TResult Function() fetchTravelPopularProducts,
     required TResult Function() fetchBestPlacesProducts,
     required TResult Function() fetchTravelCities,
@@ -4639,7 +4283,6 @@ class _$ShowCalendarEvent
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(int index)? changeBannerIndex,
     TResult? Function(int index)? changeTravelTabIndex,
-    TResult? Function()? fetchTravelBanners,
     TResult? Function()? fetchTravelPopularProducts,
     TResult? Function()? fetchBestPlacesProducts,
     TResult? Function()? fetchTravelCities,
@@ -4673,7 +4316,6 @@ class _$ShowCalendarEvent
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(int index)? changeBannerIndex,
     TResult Function(int index)? changeTravelTabIndex,
-    TResult Function()? fetchTravelBanners,
     TResult Function()? fetchTravelPopularProducts,
     TResult Function()? fetchBestPlacesProducts,
     TResult Function()? fetchTravelCities,
@@ -4711,7 +4353,6 @@ class _$ShowCalendarEvent
   TResult map<TResult extends Object?>({
     required TResult Function(ChangeBannerIndex value) changeBannerIndex,
     required TResult Function(ChangeTravelTabIndex value) changeTravelTabIndex,
-    required TResult Function(FetchTravelBanners value) fetchTravelBanners,
     required TResult Function(FetchTravelPopularProducts value)
         fetchTravelPopularProducts,
     required TResult Function(FetchBestPlacesProducts value)
@@ -4749,7 +4390,6 @@ class _$ShowCalendarEvent
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ChangeBannerIndex value)? changeBannerIndex,
     TResult? Function(ChangeTravelTabIndex value)? changeTravelTabIndex,
-    TResult? Function(FetchTravelBanners value)? fetchTravelBanners,
     TResult? Function(FetchTravelPopularProducts value)?
         fetchTravelPopularProducts,
     TResult? Function(FetchBestPlacesProducts value)? fetchBestPlacesProducts,
@@ -4783,7 +4423,6 @@ class _$ShowCalendarEvent
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ChangeBannerIndex value)? changeBannerIndex,
     TResult Function(ChangeTravelTabIndex value)? changeTravelTabIndex,
-    TResult Function(FetchTravelBanners value)? fetchTravelBanners,
     TResult Function(FetchTravelPopularProducts value)?
         fetchTravelPopularProducts,
     TResult Function(FetchBestPlacesProducts value)? fetchBestPlacesProducts,
@@ -4918,7 +4557,6 @@ class _$SelectDateRangeEvent
   TResult when<TResult extends Object?>({
     required TResult Function(int index) changeBannerIndex,
     required TResult Function(int index) changeTravelTabIndex,
-    required TResult Function() fetchTravelBanners,
     required TResult Function() fetchTravelPopularProducts,
     required TResult Function() fetchBestPlacesProducts,
     required TResult Function() fetchTravelCities,
@@ -4952,7 +4590,6 @@ class _$SelectDateRangeEvent
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(int index)? changeBannerIndex,
     TResult? Function(int index)? changeTravelTabIndex,
-    TResult? Function()? fetchTravelBanners,
     TResult? Function()? fetchTravelPopularProducts,
     TResult? Function()? fetchBestPlacesProducts,
     TResult? Function()? fetchTravelCities,
@@ -4986,7 +4623,6 @@ class _$SelectDateRangeEvent
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(int index)? changeBannerIndex,
     TResult Function(int index)? changeTravelTabIndex,
-    TResult Function()? fetchTravelBanners,
     TResult Function()? fetchTravelPopularProducts,
     TResult Function()? fetchBestPlacesProducts,
     TResult Function()? fetchTravelCities,
@@ -5024,7 +4660,6 @@ class _$SelectDateRangeEvent
   TResult map<TResult extends Object?>({
     required TResult Function(ChangeBannerIndex value) changeBannerIndex,
     required TResult Function(ChangeTravelTabIndex value) changeTravelTabIndex,
-    required TResult Function(FetchTravelBanners value) fetchTravelBanners,
     required TResult Function(FetchTravelPopularProducts value)
         fetchTravelPopularProducts,
     required TResult Function(FetchBestPlacesProducts value)
@@ -5062,7 +4697,6 @@ class _$SelectDateRangeEvent
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ChangeBannerIndex value)? changeBannerIndex,
     TResult? Function(ChangeTravelTabIndex value)? changeTravelTabIndex,
-    TResult? Function(FetchTravelBanners value)? fetchTravelBanners,
     TResult? Function(FetchTravelPopularProducts value)?
         fetchTravelPopularProducts,
     TResult? Function(FetchBestPlacesProducts value)? fetchBestPlacesProducts,
@@ -5096,7 +4730,6 @@ class _$SelectDateRangeEvent
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ChangeBannerIndex value)? changeBannerIndex,
     TResult Function(ChangeTravelTabIndex value)? changeTravelTabIndex,
-    TResult Function(FetchTravelBanners value)? fetchTravelBanners,
     TResult Function(FetchTravelPopularProducts value)?
         fetchTravelPopularProducts,
     TResult Function(FetchBestPlacesProducts value)? fetchBestPlacesProducts,
@@ -5244,7 +4877,6 @@ class _$FetchTravelSearchedProducts
   TResult when<TResult extends Object?>({
     required TResult Function(int index) changeBannerIndex,
     required TResult Function(int index) changeTravelTabIndex,
-    required TResult Function() fetchTravelBanners,
     required TResult Function() fetchTravelPopularProducts,
     required TResult Function() fetchBestPlacesProducts,
     required TResult Function() fetchTravelCities,
@@ -5278,7 +4910,6 @@ class _$FetchTravelSearchedProducts
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(int index)? changeBannerIndex,
     TResult? Function(int index)? changeTravelTabIndex,
-    TResult? Function()? fetchTravelBanners,
     TResult? Function()? fetchTravelPopularProducts,
     TResult? Function()? fetchBestPlacesProducts,
     TResult? Function()? fetchTravelCities,
@@ -5312,7 +4943,6 @@ class _$FetchTravelSearchedProducts
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(int index)? changeBannerIndex,
     TResult Function(int index)? changeTravelTabIndex,
-    TResult Function()? fetchTravelBanners,
     TResult Function()? fetchTravelPopularProducts,
     TResult Function()? fetchBestPlacesProducts,
     TResult Function()? fetchTravelCities,
@@ -5350,7 +4980,6 @@ class _$FetchTravelSearchedProducts
   TResult map<TResult extends Object?>({
     required TResult Function(ChangeBannerIndex value) changeBannerIndex,
     required TResult Function(ChangeTravelTabIndex value) changeTravelTabIndex,
-    required TResult Function(FetchTravelBanners value) fetchTravelBanners,
     required TResult Function(FetchTravelPopularProducts value)
         fetchTravelPopularProducts,
     required TResult Function(FetchBestPlacesProducts value)
@@ -5388,7 +5017,6 @@ class _$FetchTravelSearchedProducts
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ChangeBannerIndex value)? changeBannerIndex,
     TResult? Function(ChangeTravelTabIndex value)? changeTravelTabIndex,
-    TResult? Function(FetchTravelBanners value)? fetchTravelBanners,
     TResult? Function(FetchTravelPopularProducts value)?
         fetchTravelPopularProducts,
     TResult? Function(FetchBestPlacesProducts value)? fetchBestPlacesProducts,
@@ -5422,7 +5050,6 @@ class _$FetchTravelSearchedProducts
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ChangeBannerIndex value)? changeBannerIndex,
     TResult Function(ChangeTravelTabIndex value)? changeTravelTabIndex,
-    TResult Function(FetchTravelBanners value)? fetchTravelBanners,
     TResult Function(FetchTravelPopularProducts value)?
         fetchTravelPopularProducts,
     TResult Function(FetchBestPlacesProducts value)? fetchBestPlacesProducts,
@@ -5522,7 +5149,6 @@ class _$FetchTravelWishlistProducts
   TResult when<TResult extends Object?>({
     required TResult Function(int index) changeBannerIndex,
     required TResult Function(int index) changeTravelTabIndex,
-    required TResult Function() fetchTravelBanners,
     required TResult Function() fetchTravelPopularProducts,
     required TResult Function() fetchBestPlacesProducts,
     required TResult Function() fetchTravelCities,
@@ -5556,7 +5182,6 @@ class _$FetchTravelWishlistProducts
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(int index)? changeBannerIndex,
     TResult? Function(int index)? changeTravelTabIndex,
-    TResult? Function()? fetchTravelBanners,
     TResult? Function()? fetchTravelPopularProducts,
     TResult? Function()? fetchBestPlacesProducts,
     TResult? Function()? fetchTravelCities,
@@ -5590,7 +5215,6 @@ class _$FetchTravelWishlistProducts
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(int index)? changeBannerIndex,
     TResult Function(int index)? changeTravelTabIndex,
-    TResult Function()? fetchTravelBanners,
     TResult Function()? fetchTravelPopularProducts,
     TResult Function()? fetchBestPlacesProducts,
     TResult Function()? fetchTravelCities,
@@ -5628,7 +5252,6 @@ class _$FetchTravelWishlistProducts
   TResult map<TResult extends Object?>({
     required TResult Function(ChangeBannerIndex value) changeBannerIndex,
     required TResult Function(ChangeTravelTabIndex value) changeTravelTabIndex,
-    required TResult Function(FetchTravelBanners value) fetchTravelBanners,
     required TResult Function(FetchTravelPopularProducts value)
         fetchTravelPopularProducts,
     required TResult Function(FetchBestPlacesProducts value)
@@ -5666,7 +5289,6 @@ class _$FetchTravelWishlistProducts
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ChangeBannerIndex value)? changeBannerIndex,
     TResult? Function(ChangeTravelTabIndex value)? changeTravelTabIndex,
-    TResult? Function(FetchTravelBanners value)? fetchTravelBanners,
     TResult? Function(FetchTravelPopularProducts value)?
         fetchTravelPopularProducts,
     TResult? Function(FetchBestPlacesProducts value)? fetchBestPlacesProducts,
@@ -5700,7 +5322,6 @@ class _$FetchTravelWishlistProducts
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ChangeBannerIndex value)? changeBannerIndex,
     TResult Function(ChangeTravelTabIndex value)? changeTravelTabIndex,
-    TResult Function(FetchTravelBanners value)? fetchTravelBanners,
     TResult Function(FetchTravelPopularProducts value)?
         fetchTravelPopularProducts,
     TResult Function(FetchBestPlacesProducts value)? fetchBestPlacesProducts,
@@ -5826,7 +5447,6 @@ class _$AddTravelWishlist
   TResult when<TResult extends Object?>({
     required TResult Function(int index) changeBannerIndex,
     required TResult Function(int index) changeTravelTabIndex,
-    required TResult Function() fetchTravelBanners,
     required TResult Function() fetchTravelPopularProducts,
     required TResult Function() fetchBestPlacesProducts,
     required TResult Function() fetchTravelCities,
@@ -5860,7 +5480,6 @@ class _$AddTravelWishlist
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(int index)? changeBannerIndex,
     TResult? Function(int index)? changeTravelTabIndex,
-    TResult? Function()? fetchTravelBanners,
     TResult? Function()? fetchTravelPopularProducts,
     TResult? Function()? fetchBestPlacesProducts,
     TResult? Function()? fetchTravelCities,
@@ -5894,7 +5513,6 @@ class _$AddTravelWishlist
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(int index)? changeBannerIndex,
     TResult Function(int index)? changeTravelTabIndex,
-    TResult Function()? fetchTravelBanners,
     TResult Function()? fetchTravelPopularProducts,
     TResult Function()? fetchBestPlacesProducts,
     TResult Function()? fetchTravelCities,
@@ -5932,7 +5550,6 @@ class _$AddTravelWishlist
   TResult map<TResult extends Object?>({
     required TResult Function(ChangeBannerIndex value) changeBannerIndex,
     required TResult Function(ChangeTravelTabIndex value) changeTravelTabIndex,
-    required TResult Function(FetchTravelBanners value) fetchTravelBanners,
     required TResult Function(FetchTravelPopularProducts value)
         fetchTravelPopularProducts,
     required TResult Function(FetchBestPlacesProducts value)
@@ -5970,7 +5587,6 @@ class _$AddTravelWishlist
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ChangeBannerIndex value)? changeBannerIndex,
     TResult? Function(ChangeTravelTabIndex value)? changeTravelTabIndex,
-    TResult? Function(FetchTravelBanners value)? fetchTravelBanners,
     TResult? Function(FetchTravelPopularProducts value)?
         fetchTravelPopularProducts,
     TResult? Function(FetchBestPlacesProducts value)? fetchBestPlacesProducts,
@@ -6004,7 +5620,6 @@ class _$AddTravelWishlist
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ChangeBannerIndex value)? changeBannerIndex,
     TResult Function(ChangeTravelTabIndex value)? changeTravelTabIndex,
-    TResult Function(FetchTravelBanners value)? fetchTravelBanners,
     TResult Function(FetchTravelPopularProducts value)?
         fetchTravelPopularProducts,
     TResult Function(FetchBestPlacesProducts value)? fetchBestPlacesProducts,
@@ -6099,7 +5714,6 @@ class _$TravelBookingCompleted
   TResult when<TResult extends Object?>({
     required TResult Function(int index) changeBannerIndex,
     required TResult Function(int index) changeTravelTabIndex,
-    required TResult Function() fetchTravelBanners,
     required TResult Function() fetchTravelPopularProducts,
     required TResult Function() fetchBestPlacesProducts,
     required TResult Function() fetchTravelCities,
@@ -6133,7 +5747,6 @@ class _$TravelBookingCompleted
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(int index)? changeBannerIndex,
     TResult? Function(int index)? changeTravelTabIndex,
-    TResult? Function()? fetchTravelBanners,
     TResult? Function()? fetchTravelPopularProducts,
     TResult? Function()? fetchBestPlacesProducts,
     TResult? Function()? fetchTravelCities,
@@ -6167,7 +5780,6 @@ class _$TravelBookingCompleted
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(int index)? changeBannerIndex,
     TResult Function(int index)? changeTravelTabIndex,
-    TResult Function()? fetchTravelBanners,
     TResult Function()? fetchTravelPopularProducts,
     TResult Function()? fetchBestPlacesProducts,
     TResult Function()? fetchTravelCities,
@@ -6205,7 +5817,6 @@ class _$TravelBookingCompleted
   TResult map<TResult extends Object?>({
     required TResult Function(ChangeBannerIndex value) changeBannerIndex,
     required TResult Function(ChangeTravelTabIndex value) changeTravelTabIndex,
-    required TResult Function(FetchTravelBanners value) fetchTravelBanners,
     required TResult Function(FetchTravelPopularProducts value)
         fetchTravelPopularProducts,
     required TResult Function(FetchBestPlacesProducts value)
@@ -6243,7 +5854,6 @@ class _$TravelBookingCompleted
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ChangeBannerIndex value)? changeBannerIndex,
     TResult? Function(ChangeTravelTabIndex value)? changeTravelTabIndex,
-    TResult? Function(FetchTravelBanners value)? fetchTravelBanners,
     TResult? Function(FetchTravelPopularProducts value)?
         fetchTravelPopularProducts,
     TResult? Function(FetchBestPlacesProducts value)? fetchBestPlacesProducts,
@@ -6277,7 +5887,6 @@ class _$TravelBookingCompleted
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ChangeBannerIndex value)? changeBannerIndex,
     TResult Function(ChangeTravelTabIndex value)? changeTravelTabIndex,
-    TResult Function(FetchTravelBanners value)? fetchTravelBanners,
     TResult Function(FetchTravelPopularProducts value)?
         fetchTravelPopularProducts,
     TResult Function(FetchBestPlacesProducts value)? fetchBestPlacesProducts,
@@ -6367,7 +5976,6 @@ class _$FetchTravelHomeBannerPackages
   TResult when<TResult extends Object?>({
     required TResult Function(int index) changeBannerIndex,
     required TResult Function(int index) changeTravelTabIndex,
-    required TResult Function() fetchTravelBanners,
     required TResult Function() fetchTravelPopularProducts,
     required TResult Function() fetchBestPlacesProducts,
     required TResult Function() fetchTravelCities,
@@ -6401,7 +6009,6 @@ class _$FetchTravelHomeBannerPackages
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(int index)? changeBannerIndex,
     TResult? Function(int index)? changeTravelTabIndex,
-    TResult? Function()? fetchTravelBanners,
     TResult? Function()? fetchTravelPopularProducts,
     TResult? Function()? fetchBestPlacesProducts,
     TResult? Function()? fetchTravelCities,
@@ -6435,7 +6042,6 @@ class _$FetchTravelHomeBannerPackages
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(int index)? changeBannerIndex,
     TResult Function(int index)? changeTravelTabIndex,
-    TResult Function()? fetchTravelBanners,
     TResult Function()? fetchTravelPopularProducts,
     TResult Function()? fetchBestPlacesProducts,
     TResult Function()? fetchTravelCities,
@@ -6473,7 +6079,6 @@ class _$FetchTravelHomeBannerPackages
   TResult map<TResult extends Object?>({
     required TResult Function(ChangeBannerIndex value) changeBannerIndex,
     required TResult Function(ChangeTravelTabIndex value) changeTravelTabIndex,
-    required TResult Function(FetchTravelBanners value) fetchTravelBanners,
     required TResult Function(FetchTravelPopularProducts value)
         fetchTravelPopularProducts,
     required TResult Function(FetchBestPlacesProducts value)
@@ -6511,7 +6116,6 @@ class _$FetchTravelHomeBannerPackages
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ChangeBannerIndex value)? changeBannerIndex,
     TResult? Function(ChangeTravelTabIndex value)? changeTravelTabIndex,
-    TResult? Function(FetchTravelBanners value)? fetchTravelBanners,
     TResult? Function(FetchTravelPopularProducts value)?
         fetchTravelPopularProducts,
     TResult? Function(FetchBestPlacesProducts value)? fetchBestPlacesProducts,
@@ -6545,7 +6149,6 @@ class _$FetchTravelHomeBannerPackages
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ChangeBannerIndex value)? changeBannerIndex,
     TResult Function(ChangeTravelTabIndex value)? changeTravelTabIndex,
-    TResult Function(FetchTravelBanners value)? fetchTravelBanners,
     TResult Function(FetchTravelPopularProducts value)?
         fetchTravelPopularProducts,
     TResult Function(FetchBestPlacesProducts value)? fetchBestPlacesProducts,
@@ -6587,8 +6190,6 @@ abstract class FetchTravelHomeBannerPackages implements TravelEvent {
 /// @nodoc
 mixin _$TravelState {
   int get index => throw _privateConstructorUsedError;
-  TravelBannerModel? get travelBannerModel =>
-      throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
   TravelPopularProductsModel? get travelPopularProductsModel =>
       throw _privateConstructorUsedError;
@@ -6632,7 +6233,6 @@ abstract class $TravelStateCopyWith<$Res> {
   @useResult
   $Res call(
       {int index,
-      TravelBannerModel? travelBannerModel,
       bool isLoading,
       TravelPopularProductsModel? travelPopularProductsModel,
       TravelCitiesModel? travelCitiesModel,
@@ -6655,7 +6255,6 @@ abstract class $TravelStateCopyWith<$Res> {
       bool bookingSuccess,
       List<TravelPackageItems>? travelHomeBannerPackages});
 
-  $TravelBannerModelCopyWith<$Res>? get travelBannerModel;
   $TravelPopularProductsModelCopyWith<$Res>? get travelPopularProductsModel;
   $TravelCitiesModelCopyWith<$Res>? get travelCitiesModel;
   $TravelProductsModelCopyWith<$Res>? get travelProductsModel;
@@ -6677,7 +6276,6 @@ class _$TravelStateCopyWithImpl<$Res, $Val extends TravelState>
   @override
   $Res call({
     Object? index = null,
-    Object? travelBannerModel = freezed,
     Object? isLoading = null,
     Object? travelPopularProductsModel = freezed,
     Object? travelCitiesModel = freezed,
@@ -6705,10 +6303,6 @@ class _$TravelStateCopyWithImpl<$Res, $Val extends TravelState>
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
               as int,
-      travelBannerModel: freezed == travelBannerModel
-          ? _value.travelBannerModel
-          : travelBannerModel // ignore: cast_nullable_to_non_nullable
-              as TravelBannerModel?,
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -6798,18 +6392,6 @@ class _$TravelStateCopyWithImpl<$Res, $Val extends TravelState>
 
   @override
   @pragma('vm:prefer-inline')
-  $TravelBannerModelCopyWith<$Res>? get travelBannerModel {
-    if (_value.travelBannerModel == null) {
-      return null;
-    }
-
-    return $TravelBannerModelCopyWith<$Res>(_value.travelBannerModel!, (value) {
-      return _then(_value.copyWith(travelBannerModel: value) as $Val);
-    });
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
   $TravelPopularProductsModelCopyWith<$Res>? get travelPopularProductsModel {
     if (_value.travelPopularProductsModel == null) {
       return null;
@@ -6883,7 +6465,6 @@ abstract class _$$_TravelStateCopyWith<$Res>
   @useResult
   $Res call(
       {int index,
-      TravelBannerModel? travelBannerModel,
       bool isLoading,
       TravelPopularProductsModel? travelPopularProductsModel,
       TravelCitiesModel? travelCitiesModel,
@@ -6906,8 +6487,6 @@ abstract class _$$_TravelStateCopyWith<$Res>
       bool bookingSuccess,
       List<TravelPackageItems>? travelHomeBannerPackages});
 
-  @override
-  $TravelBannerModelCopyWith<$Res>? get travelBannerModel;
   @override
   $TravelPopularProductsModelCopyWith<$Res>? get travelPopularProductsModel;
   @override
@@ -6932,7 +6511,6 @@ class __$$_TravelStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? index = null,
-    Object? travelBannerModel = freezed,
     Object? isLoading = null,
     Object? travelPopularProductsModel = freezed,
     Object? travelCitiesModel = freezed,
@@ -6960,10 +6538,6 @@ class __$$_TravelStateCopyWithImpl<$Res>
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
               as int,
-      travelBannerModel: freezed == travelBannerModel
-          ? _value.travelBannerModel
-          : travelBannerModel // ignore: cast_nullable_to_non_nullable
-              as TravelBannerModel?,
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -7057,7 +6631,6 @@ class __$$_TravelStateCopyWithImpl<$Res>
 class _$_TravelState with DiagnosticableTreeMixin implements _TravelState {
   const _$_TravelState(
       {required this.index,
-      required this.travelBannerModel,
       required this.isLoading,
       required this.travelPopularProductsModel,
       required this.travelCitiesModel,
@@ -7088,8 +6661,6 @@ class _$_TravelState with DiagnosticableTreeMixin implements _TravelState {
 
   @override
   final int index;
-  @override
-  final TravelBannerModel? travelBannerModel;
   @override
   final bool isLoading;
   @override
@@ -7178,7 +6749,7 @@ class _$_TravelState with DiagnosticableTreeMixin implements _TravelState {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'TravelState(index: $index, travelBannerModel: $travelBannerModel, isLoading: $isLoading, travelPopularProductsModel: $travelPopularProductsModel, travelCitiesModel: $travelCitiesModel, travelProductsModel: $travelProductsModel, searchProducts: $searchProducts, travelBestPlacesModel: $travelBestPlacesModel, productByLocationModel: $productByLocationModel, numberOfGuest: $numberOfGuest, country: $country, travelSearchLocationModels: $travelSearchLocationModels, searchedLocation: $searchedLocation, showCalendar: $showCalendar, tabIndex: $tabIndex, selectedStartDate: $selectedStartDate, selectedEndDate: $selectedEndDate, focusDay: $focusDay, formattedDateRang: $formattedDateRang, wishlistProducts: $wishlistProducts, travelWishlistItems: $travelWishlistItems, bookingSuccess: $bookingSuccess, travelHomeBannerPackages: $travelHomeBannerPackages)';
+    return 'TravelState(index: $index, isLoading: $isLoading, travelPopularProductsModel: $travelPopularProductsModel, travelCitiesModel: $travelCitiesModel, travelProductsModel: $travelProductsModel, searchProducts: $searchProducts, travelBestPlacesModel: $travelBestPlacesModel, productByLocationModel: $productByLocationModel, numberOfGuest: $numberOfGuest, country: $country, travelSearchLocationModels: $travelSearchLocationModels, searchedLocation: $searchedLocation, showCalendar: $showCalendar, tabIndex: $tabIndex, selectedStartDate: $selectedStartDate, selectedEndDate: $selectedEndDate, focusDay: $focusDay, formattedDateRang: $formattedDateRang, wishlistProducts: $wishlistProducts, travelWishlistItems: $travelWishlistItems, bookingSuccess: $bookingSuccess, travelHomeBannerPackages: $travelHomeBannerPackages)';
   }
 
   @override
@@ -7187,7 +6758,6 @@ class _$_TravelState with DiagnosticableTreeMixin implements _TravelState {
     properties
       ..add(DiagnosticsProperty('type', 'TravelState'))
       ..add(DiagnosticsProperty('index', index))
-      ..add(DiagnosticsProperty('travelBannerModel', travelBannerModel))
       ..add(DiagnosticsProperty('isLoading', isLoading))
       ..add(DiagnosticsProperty(
           'travelPopularProductsModel', travelPopularProductsModel))
@@ -7221,8 +6791,6 @@ class _$_TravelState with DiagnosticableTreeMixin implements _TravelState {
         (other.runtimeType == runtimeType &&
             other is _$_TravelState &&
             (identical(other.index, index) || other.index == index) &&
-            (identical(other.travelBannerModel, travelBannerModel) ||
-                other.travelBannerModel == travelBannerModel) &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
             (identical(other.travelPopularProductsModel,
@@ -7273,7 +6841,6 @@ class _$_TravelState with DiagnosticableTreeMixin implements _TravelState {
   int get hashCode => Object.hashAll([
         runtimeType,
         index,
-        travelBannerModel,
         isLoading,
         travelPopularProductsModel,
         travelCitiesModel,
@@ -7307,7 +6874,6 @@ class _$_TravelState with DiagnosticableTreeMixin implements _TravelState {
 abstract class _TravelState implements TravelState {
   const factory _TravelState(
           {required final int index,
-          required final TravelBannerModel? travelBannerModel,
           required final bool isLoading,
           required final TravelPopularProductsModel? travelPopularProductsModel,
           required final TravelCitiesModel? travelCitiesModel,
@@ -7334,8 +6900,6 @@ abstract class _TravelState implements TravelState {
 
   @override
   int get index;
-  @override
-  TravelBannerModel? get travelBannerModel;
   @override
   bool get isLoading;
   @override

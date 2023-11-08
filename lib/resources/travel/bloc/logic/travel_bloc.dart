@@ -1,10 +1,9 @@
-import 'dart:async';
 import 'dart:developer';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:intl/intl.dart';
-import 'package:millat/resources/travel/bloc/models/travel_banners_model.dart';
+
 import 'package:millat/resources/travel/bloc/models/travel_best_places_model.dart';
 import 'package:millat/resources/travel/bloc/models/travel_popular_products_model.dart';
 import 'package:millat/resources/travel/bloc/models/travel_products_model.dart';
@@ -20,7 +19,7 @@ class TravelBloc extends Bloc<TravelEvent, TravelState> {
   final TravelServices travelServices = TravelServices();
   TravelBloc() : super(TravelState.initial()) {
     on<ChangeBannerIndex>(_changeBannerIndex);
-    on<FetchTravelBanners>(_fetchTravelBanners);
+    ;
     on<FetchTravelPopularProducts>(_fetchTravelPopularProducts);
     on<FetchTravelCities>(_fetchTravelCites);
     on<FetchTravelProductsById>(fetchTravelProductsById);
@@ -45,18 +44,6 @@ class TravelBloc extends Bloc<TravelEvent, TravelState> {
 
   _changeBannerIndex(ChangeBannerIndex event, Emitter<TravelState> emit) {
     emit(state.copyWith(index: event.index));
-  }
-
-  _fetchTravelBanners(event, Emitter<TravelState> emit) async {
-    emit(state.copyWith(isLoading: true));
-    try {
-      final data = await travelServices.fetchTravelBanners();
-      emit(state.copyWith(travelBannerModel: data, isLoading: false));
-    } catch (e) {
-      emit(state.copyWith(isLoading: false));
-
-      throw Exception(e);
-    }
   }
 
   _fetchTravelPopularProducts(

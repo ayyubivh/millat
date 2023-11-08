@@ -4,7 +4,6 @@ part of 'travel_bloc.dart';
 class TravelState with _$TravelState {
   const factory TravelState({
     required int index,
-    required TravelBannerModel? travelBannerModel,
     required bool isLoading,
     required TravelPopularProductsModel? travelPopularProductsModel,
     required TravelCitiesModel? travelCitiesModel,
@@ -29,7 +28,6 @@ class TravelState with _$TravelState {
   }) = _TravelState;
   factory TravelState.initial() => TravelState(
         index: 0,
-        travelBannerModel: null,
         isLoading: false,
         travelProductsModel: null,
         travelCitiesModel: null,

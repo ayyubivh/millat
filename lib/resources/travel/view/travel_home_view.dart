@@ -34,7 +34,6 @@ class TravelHomeView extends StatelessWidget {
       backgroundColor: ColorManager.whiteColor,
       body: BlocProvider(
         create: (context) => TravelBloc()
-          ..add(const TravelEvent.fetchTravelBanners())
           ..add(const TravelEvent.fetchTravelPopularProducts())
           ..add(const TravelEvent.fetchTravelCities())
           ..add(const TravelEvent.fetchBestPlacesProducts())
@@ -686,7 +685,7 @@ class BannerCarousel extends StatelessWidget {
       height: 300,
       child: BlocBuilder<TravelBloc, TravelState>(
         builder: (context, state) {
-          final banners = state.travelBannerModel?.banners;
+          final banners = state.travelHomeBannerPackages;
           return banners == null
               ? const Loader()
               : Stack(
@@ -694,8 +693,8 @@ class BannerCarousel extends StatelessWidget {
                     CarouselSlider(
                       items: banners.map((banner) {
                         return Carousel(
-                          banner: banner.image ?? "",
-                          title: banner.title ?? "",
+                          banner: banner.images?[0] ?? "",
+                          title: banner.name ?? "",
                           rating: 4.5,
                         );
                       }).toList(),
@@ -721,24 +720,22 @@ class BannerCarousel extends StatelessWidget {
                       left: 0,
                       right: 0,
                       bottom: 80,
-                      child: BlocBuilder<TravelBloc, TravelState>(
-                        builder: (context, state) => Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: banners.map((banner) {
-                            int index = banners.indexOf(banner);
-                            return Container(
-                              width: state.index == index ? 22 : 6,
-                              height: 6,
-                              margin: const EdgeInsets.symmetric(horizontal: 4),
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(30),
-                                color: state.index == index
-                                    ? ColorManager.whiteColor
-                                    : ColorManager.textGrey2,
-                              ),
-                            );
-                          }).toList(),
-                        ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: banners.map((banner) {
+                          int index = banners.indexOf(banner);
+                          return Container(
+                            width: state.index == index ? 22 : 6,
+                            height: 6,
+                            margin: const EdgeInsets.symmetric(horizontal: 4),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(30),
+                              color: state.index == index
+                                  ? ColorManager.whiteColor
+                                  : ColorManager.textGrey2,
+                            ),
+                          );
+                        }).toList(),
                       ),
                     ),
                     const BookNowContainer()
@@ -762,9 +759,6 @@ class BookNowContainer extends StatelessWidget {
       right: 20,
       bottom: 10,
       child: Container(
-        height: 56,
-        width: SizeUtility(context).width / 2,
-        padding: const EdgeInsets.symmetric(horizontal: 10),
         decoration: BoxDecoration(
           color: ColorManager.whiteColor,
           borderRadius: BorderRadius.circular(30),
@@ -777,78 +771,89 @@ class BookNowContainer extends StatelessWidget {
             ),
           ],
         ),
-        child: BlocBuilder<TravelBloc, TravelState>(
-          builder: (context, state) {
-            final data = state.travelHomeBannerPackages;
-            if (data == null) {
-              return const SizedBox();
-            }
-            return CarouselSlider(
-              items: data.map((e) {
-                return GestureDetector(
-                  onTap: () {
-                    context.pushNamed(
-                        MyAppRouteConstants.travelBookingFormRoutename,
-                        pathParameters: {"id": e.id!});
-                  },
-                  child: Row(
-                    children: [
-                      Text(
-                        "₹100,000 /",
-                        style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.w700,
-                          color: ColorManager.textGrey,
-                          decoration: TextDecoration.lineThrough,
-                        ),
-                      ),
-                      Text(
-                        "${e.price}",
-                        style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.w700,
-                          color: ColorManager.primary,
-                        ),
-                      ),
-                      const Spacer(),
-                      gradientContainer(
-                        child: Center(
-                          child: Text(
-                            Appstrings.bookNow,
-                            style: TextStyle(
-                              fontSize: 12,
-                              fontWeight: FontWeight.w700,
-                              color: ColorManager.whiteColor,
+        child: Row(
+          children: [
+            Container(
+              height: 56,
+              width: SizeUtility(context).width / 2,
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: BlocBuilder<TravelBloc, TravelState>(
+                builder: (context, state) {
+                  final data = state.travelHomeBannerPackages;
+                  if (data == null) {
+                    return const SizedBox();
+                  }
+                  return CarouselSlider(
+                    items: data.map((e) {
+                      return GestureDetector(
+                        onTap: () {
+                          context.pushNamed(
+                              MyAppRouteConstants.travelBookingFormRoutename,
+                              pathParameters: {"id": e.id!});
+                        },
+                        child: Row(
+                          children: [
+                            Text(
+                              "₹100,000 /",
+                              style: TextStyle(
+                                fontSize: 15,
+                                fontWeight: FontWeight.w700,
+                                color: ColorManager.textGrey,
+                                decoration: TextDecoration.lineThrough,
+                              ),
                             ),
-                          ),
+                            Text(
+                              " ${e.price}",
+                              style: TextStyle(
+                                fontSize: 15,
+                                fontWeight: FontWeight.w700,
+                                color: ColorManager.primary,
+                              ),
+                            ),
+                          ],
                         ),
-                        width: 84,
-                        radius: 30,
-                        height: 42,
-                        padding: const EdgeInsets.all(0),
-                      ),
-                    ],
-                  ),
-                );
-              }).toList(),
-              options: CarouselOptions(
-                height: 262,
-                viewportFraction: 1,
-                enlargeCenterPage: true,
-                autoPlay: true,
-                autoPlayCurve: Curves.fastOutSlowIn,
-                enableInfiniteScroll: true,
-                // enlargeFactor: 0.3,
-                scrollDirection: Axis.horizontal,
-                autoPlayAnimationDuration: const Duration(milliseconds: 800),
-                onPageChanged: (index, reason) {
-                  context
-                      .read<TravelBloc>()
-                      .add(ChangeBannerIndex(index: index));
+                      );
+                    }).toList(),
+                    options: CarouselOptions(
+                      height: 262,
+                      viewportFraction: 1,
+                      enlargeCenterPage: true,
+                      autoPlay: true,
+                      autoPlayCurve: Curves.fastOutSlowIn,
+                      enableInfiniteScroll: true,
+                      // enlargeFactor: 0.3,
+                      scrollDirection: Axis.horizontal,
+                      autoPlayAnimationDuration:
+                          const Duration(milliseconds: 800),
+                      onPageChanged: (index, reason) {
+                        context
+                            .read<TravelBloc>()
+                            .add(ChangeBannerIndex(index: index));
+                      },
+                    ),
+                  );
                 },
               ),
-            );
-          },
+            ),
+            const Spacer(),
+            gradientContainer(
+              child: Center(
+                child: Text(
+                  Appstrings.bookNow,
+                  style: TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.w700,
+                    color: ColorManager.whiteColor,
+                  ),
+                ),
+              ),
+              width: 84,
+              radius: 30,
+              height: 42,
+              padding: const EdgeInsets.all(0),
+            ),
+            kWidth10,
+          ],
         ),
       ),
     );

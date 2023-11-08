@@ -129,9 +129,10 @@ class Utilities {
       double? height,
       BoxFit boxFit = BoxFit.fill,
       double? width,
-      Color? color}) {
+      Color? color,
+      VoidCallback? onTap}) {
     return GestureDetector(
-      onTap: () {},
+      onTap: onTap,
       child: CachedNetworkImage(
         color: color,
         imageUrl: imageUrl ?? '',

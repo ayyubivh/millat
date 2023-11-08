@@ -63,6 +63,7 @@ class MyAppRouteConstants {
   static const String orderCancelRouteName = 'order_cancel';
   static const String orderReturnDetailRouteName = 'order_return_details';
   static const String orderReturnSuccesRouteName = 'order_return_success';
+  static const String imageFullViewRoutename = "image_full_view";
 
   // Travel
   static const String travelHomeRoutename = 'travel_home';

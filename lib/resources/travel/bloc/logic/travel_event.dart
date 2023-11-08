@@ -7,7 +7,6 @@ class TravelEvent with _$TravelEvent {
   }) = ChangeBannerIndex;
   const factory TravelEvent.changeTravelTabIndex({required int index}) =
       ChangeTravelTabIndex;
-  const factory TravelEvent.fetchTravelBanners() = FetchTravelBanners;
   const factory TravelEvent.fetchTravelPopularProducts() =
       FetchTravelPopularProducts;
   const factory TravelEvent.fetchBestPlacesProducts() = FetchBestPlacesProducts;

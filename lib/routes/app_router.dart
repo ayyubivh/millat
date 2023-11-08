@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:millat/components/common_widgets/full_screen_widget.dart';
 import 'package:millat/resources/authentication/view/forgot_password_view.dart';
 import 'package:millat/resources/authentication/view/login_view.dart';
 import 'package:millat/resources/authentication/view/send_otp_view.dart';
@@ -88,6 +89,18 @@ class MyAppRouter {
               return const MaterialPage(child: TabsView());
             },
             routes: [
+              GoRoute(
+                name: MyAppRouteConstants.imageFullViewRoutename,
+                path: MyAppRouteConstants.imageFullViewRoutename,
+                pageBuilder: (context, state) {
+                  Map data = state.extra as Map;
+                  return MaterialPage(
+                      child: FullScreenImageWidget(
+                    imageUrls: data['imageUrls'],
+                    initialIndex: data['initialIndex'],
+                  ));
+                },
+              ),
               GoRoute(
                 name: MyAppRouteConstants.namazTimingRouteName,
                 path: MyAppRouteConstants.namazTimingRouteName,

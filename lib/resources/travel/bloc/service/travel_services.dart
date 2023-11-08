@@ -9,33 +9,11 @@ import 'package:millat/resources/travel/bloc/models/travel_popular_products_mode
 import 'package:millat/resources/travel/bloc/models/travel_products_model.dart';
 import 'package:millat/resources/travel/bloc/models/travel_search_model.dart';
 import 'package:millat/utils/string_constants.dart';
-import 'package:millat/resources/travel/bloc/models/travel_banners_model.dart';
 
 import '../../../../enums/enumertations.dart';
 import '../models/travel_cities_model.dart';
 
 class TravelServices {
-  //  Fetching banners
-  Future<TravelBannerModel> fetchTravelBanners() async {
-    const String endPoint = "get-banners";
-    final response = await http.get(Uri.parse(travelBaseUrl + endPoint));
-
-    if (response.statusCode == 200 || response.statusCode == 201) {
-      try {
-        final data = json.decode(response.body);
-        final result = TravelBannerModel.fromJson(data);
-
-        return result;
-      } catch (e) {
-        print('Error on Banner API fetch: ${e.toString()}');
-        throw Exception('Failed to parse response');
-      }
-    } else {
-      throw Exception(
-          'API request failed with status code: ${response.statusCode}');
-    }
-  }
-
 //Fetching Travel Home-Banner-Package
   Future<List<TravelPackageItems>> fetchTravelHomeBannerPackages() async {
     const String endPoint = "get-specific-products?slug=home-banner-packages";

@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:millat/components/common_widgets/full_screen_widget.dart';
 import 'package:millat/resources/authentication/bloc/logic/database_bloc/database_bloc.dart';
 import 'package:millat/utils/utils.dart';
 import 'package:go_router/go_router.dart';
@@ -344,7 +345,7 @@ class SingleProductView extends StatelessWidget {
                       ),
                       kWidth10,
                       Text(
-                        '${data?.data?.averageRating ?? 0}/5',
+                        '${data?.data?.averageRating?.toInt() ?? 0}/5',
                         style: TextStyle(
                             color: ColorManager.blackColor,
                             fontWeight: FontWeight.w700,
@@ -808,49 +809,61 @@ class CarouselView extends StatelessWidget {
     required this.data,
   });
 
-  final Product? data;
+  final Product data;
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        CarouselSlider(
-          options: CarouselOptions(
-            height: SizeUtility(context).height * 30 / 100,
-            viewportFraction: 1,
-            autoPlayAnimationDuration: const Duration(milliseconds: 800),
-            onPageChanged: (index, reason) {
-              context
-                  .read<ShopProductsBloc>()
-                  .add(ChangeShopBannerIndex(index));
-            },
-          ),
-          items: data!.images?.map((imageUrl) {
-            return Utilities().buildCachedNetworkImage(
-                imageUrl: imageUrl, width: SizeUtility(context).width / 1.5);
-          }).toList(),
-        ),
-        kHeight10,
-        BlocBuilder<ShopProductsBloc, ShopProductsState>(
-          builder: (context, state) => Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: data!.images!.map((banner) {
-              int index = data!.images!.indexOf(banner);
-              return Container(
-                width: state.shopBannerIndex == index ? 24 : 6,
-                height: 6,
-                margin: const EdgeInsets.symmetric(horizontal: 4),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(30),
-                  color: state.shopBannerIndex == index
-                      ? ColorManager.primary
-                      : ColorManager.textGrey,
-                ),
-              );
-            }).toList(),
-          ),
-        ),
-      ],
+    return BlocBuilder<ShopProductsBloc, ShopProductsState>(
+      builder: (context, state) {
+        return Column(
+          children: [
+            CarouselSlider(
+              options: CarouselOptions(
+                height: SizeUtility(context).height * 30 / 100,
+                viewportFraction: 1,
+                autoPlayAnimationDuration: const Duration(milliseconds: 800),
+                onPageChanged: (index, reason) {
+                  context
+                      .read<ShopProductsBloc>()
+                      .add(ChangeShopBannerIndex(index));
+                },
+              ),
+              items: data.images?.map((imageUrl) {
+                return Utilities().buildCachedNetworkImage(
+                  imageUrl: imageUrl,
+                  width: SizeUtility(context).width / 1.5,
+                  onTap: () {
+                    context.pushNamed(
+                        MyAppRouteConstants.imageFullViewRoutename,
+                        extra: {
+                          "imageUrls": data.images,
+                          "initialIndex": state.shopBannerIndex,
+                        });
+                  },
+                );
+              }).toList(),
+            ),
+            kHeight10,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: data.images!.map((banner) {
+                int index = data.images!.indexOf(banner);
+                return Container(
+                  width: state.shopBannerIndex == index ? 24 : 6,
+                  height: 6,
+                  margin: const EdgeInsets.symmetric(horizontal: 4),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(30),
+                    color: state.shopBannerIndex == index
+                        ? ColorManager.primary
+                        : ColorManager.textGrey,
+                  ),
+                );
+              }).toList(),
+            ),
+          ],
+        );
+      },
     );
   }
 }

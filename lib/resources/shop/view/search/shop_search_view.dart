@@ -23,7 +23,7 @@ class ShopSearchView extends StatefulWidget {
 class _ShopSearchViewState extends State<ShopSearchView> {
   int _currentIndex = 0;
   String selectedFilter = '';
-  final _debouncer = Debouncer(milliseconds: 1000);
+  final _debounce = Debouncer(milliseconds: 1000);
 
   RangeValues priceRange = const RangeValues(20, 80);
 
@@ -89,7 +89,7 @@ class _ShopSearchViewState extends State<ShopSearchView> {
                     hintText: 'Search...',
                   ),
                   onChanged: (value) {
-                    _debouncer.run(() {
+                    _debounce.run(() {
                       context
                           .read<ShopProductsBloc>()
                           .add(SearchProduct(searchController.text));

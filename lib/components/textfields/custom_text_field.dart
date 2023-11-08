@@ -22,6 +22,7 @@ class CustomTextField extends StatelessWidget {
     return TextFormField(
       validator: validator,
       controller: controller,
+      cursorColor: ColorManager.primary,
       decoration: InputDecoration(
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(100),
@@ -33,6 +34,7 @@ class CustomTextField extends StatelessWidget {
         focusedErrorBorder: InputBorder.none,
         filled: true,
         fillColor: textFieldColor,
+        iconColor: ColorManager.primary,
         prefixIcon: icon,
         hintText: hint,
       ),

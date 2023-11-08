@@ -30,7 +30,7 @@ class OrdetailsView extends StatelessWidget {
     var containerHeight10 = Container(
       height: 8,
       width: double.infinity,
-      color: ColorManager.scaffolBgColor,
+      color: ColorManager.scaffoldBgColor,
     );
     return Scaffold(
       backgroundColor: ColorManager.whiteColor,

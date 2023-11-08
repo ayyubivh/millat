@@ -738,7 +738,7 @@ class SingleProductView extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           CircleAvatar(
-            backgroundColor: ColorManager.scaffolBgColor,
+            backgroundColor: ColorManager.scaffoldBgColor,
             backgroundImage: NetworkImage(image),
             radius: 30,
           ),

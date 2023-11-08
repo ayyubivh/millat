@@ -104,9 +104,9 @@ class DatabaseBloc extends Bloc<DatabaseEvent, DatabaseState> {
         emit(state.copyWith(
           imagebytes: image,
         ));
+        print(state.imagebytes);
       } catch (e) {
         throw Exception(e);
-        // log("e yann ...>>>>${e.toString()}");
       }
     });
     on<FetchContactEvent>((event, emit) async {

@@ -98,7 +98,7 @@ class AppAssetsStrings {
   static const String aboutUs = "$iconsPath/about_us.png";
   static const String starHome = "$iconsPath/star_home.png";
   static const String profile = "$iconsPath/profile.png";
-  static const String peronalInfo = "$iconsPath/personal_info.png";
+  static const String personalInfo = "$iconsPath/personal_info.png";
   static const String editIcon = "$iconsPath/edit.png";
   static const String sendIcon = "$iconsPath/send.png";
   static const String dateIcon = "$iconsPath/date.png";
@@ -126,7 +126,18 @@ class AppAssetsStrings {
   static const String homeBanner2 = "$imagesPath/home_quran_banner_2.png";
   static const String profileCoverImg = "$imagesPath/profile_cover.png";
   static const String quranBookmrark2 = "$imagesPath/quran_bookmark_2.png";
+//Travel
+  static const String travelTabIcon = "$iconsPath/travel_tab.png";
+  static const String travelDummyImg1 = "$dummyPath/travel_dummy.png";
+  static const String karbala = "$dummyPath/karbala.png";
+  static const String locations = "$iconsPath/map-pin.png";
+  static const String discount_2 = "$iconsPath/discount-2.png";
+  static const String travelEmail = "$iconsPath/travel_email.png";
+  static const String guests = "$iconsPath/travel_guest.png";
+  static const String imageUpload = "$iconsPath/image_upload.png";
+  static const String call = "$iconsPath/call.png";
   //rewards
+  static const String travelHomeIcon = "$iconsPath/travel_home_tabs.png";
   static const String redeemYoucoinBg = "$imagesPath/redeem_your_coin_img.png";
   static const String redeemYourCoinText = "$imagesPath/redeem_your_coin.png";
   static const String superSaleAd = "$imagesPath/super_sale_ad.png";
@@ -148,6 +159,7 @@ class AppAssetsStrings {
       "$imagesPath/rewards_success_decor.png";
   static const String rewardsQuranImg = "$imagesPath/rewards_quran_img.png";
   static const String discountAlert = "$imagesPath/discount_alert.png";
+  static const String travelBookingSuccess = "$imagesPath/travel_success.png";
 }
 
 const String splashBackgroundPath = '$backgroundsPath/splash_background.png';

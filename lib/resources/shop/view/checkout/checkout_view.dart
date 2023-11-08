@@ -26,7 +26,7 @@ class CheckoutView extends StatelessWidget {
       addressBloc.add(const FetchAddressDefaultIndex());
     });
     return Scaffold(
-        backgroundColor: ColorManager.scaffolBgColor,
+        backgroundColor: ColorManager.scaffoldBgColor,
         appBar: AppBar(
           title: Text(Appstrings.checkout,
               style: TextStyle(

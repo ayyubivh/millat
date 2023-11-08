@@ -31,7 +31,7 @@ class AudioRecitorsView extends StatelessWidget {
                 return Container(
                   width: double.infinity,
                   decoration: BoxDecoration(
-                    color: ColorManager.veryLightGreen,
+                    color: ColorManager.darkWhite,
                     borderRadius: BorderRadius.circular(6),
                   ),
                   padding: const EdgeInsets.all(20),

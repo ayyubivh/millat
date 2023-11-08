@@ -36,6 +36,8 @@ class Appstrings {
   static const String sunrise = "Sunrise";
   static const String hijabs = "Hijab's";
   static const String dates = "Dates";
+  static const String addDates = "Add Dates";
+  static const String addGuests = "Add Guests";
   static const String attars = "Attars";
   static const String quran2 = "Qu'ran";
   static const String learnMore = "Learn More";
@@ -312,6 +314,31 @@ class Appstrings {
       "Are you sure you want to remove this product from the cart?";
   static const String remove = "Remove";
   static const String keepIt = "Keep It";
+  //travel
+  static const String historicalPlaces = "Historical Places";
+  static const String vacations = "Vacations";
+  static const String exploreIslamicCountries = "Explore Islamic Countries";
+  static const String bookNow = "Book Now";
+  static const String tourRecommendations = "Tour Recommendations";
+  static const String seeAll = "See all";
+  static const String popularDestination = "Popular Destination";
+  static const String bestPlace = "Best Place";
+  static const String searchYourDestination = "Search Your Destination";
+  static const String clearAll = "Clear All";
+  static const String bookingForm = "Booking Form";
+  static const String phoneNumber = "Phone Number";
+  static const String guests = "Guests";
+  static const String uploadPassport = "Upload passport photo";
+  static const String uploadImages = "Upload Images";
+  static const String selectCountry = "Select Country";
+  static const String countryRegion = "Country/Region";
+  static const String whereTo = "Where to?";
+  static const String bookingCompleted = "Booking Completed";
+  static const String bookingCompletedDesc =
+      "Now you can sit back, relax, you will be receiving email from our team within 24 hours ";
+  static const String backToHome = "Back to home";
+  static const String aminities = "Aminities";
+  static const String browseBycountries = "Browse By Countries";
 }
 
 String authToken = 'authToken';
@@ -321,7 +348,7 @@ String nameKey = 'name';
 String bookmarkDb = "Bookmark-db";
 String userBox = 'userDetailsBox';
 String kBaseUrl = "https://api.millat.co/";
-
+String travelBaseUrl = "https://api2.millat.co/";
 //quran texts types
 final quranTexts = [
   'IndoPak',

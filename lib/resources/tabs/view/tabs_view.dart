@@ -2,16 +2,14 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
 import 'package:millat/resources/authentication/bloc/logic/database_bloc/database_bloc.dart';
 import 'package:millat/resources/home/bloc/logic/home_bloc/home_bloc.dart';
 import 'package:millat/resources/home/view/home_view.dart';
 import 'package:millat/resources/shop/view/tabs/shop_tabs_vilew.dart';
-import 'package:millat/routes/app_router_constants.dart';
+import 'package:millat/resources/travel/view/travel_tabs_view.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/size_utility.dart';
-import '../../home/view/namaz_timing/namaz_timing_view.dart';
 import '../../profile/views/user_profile_view.dart';
 
 class TabsView extends StatelessWidget {
@@ -22,14 +20,11 @@ class TabsView extends StatelessWidget {
     List screens = [
       const HomeView(),
       const ShopTabsView(),
-      const NamazTimingView(),
+      const TravelTabsView(),
       const UserProfileView(),
     ];
 
     void onTap(int index) {
-      if (index == 1) {
-        context.pushNamed(MyAppRouteConstants.shopTabsRouteName);
-      }
       context.read<HomeBloc>().add(ChangeHomeTabIndexEvent(newIndex: index));
     }
 
@@ -47,49 +42,51 @@ class TabsView extends StatelessWidget {
         },
         child: Scaffold(
           extendBody: true,
-          bottomNavigationBar: SizedBox(
-            height: Platform.isIOS
-                ? 90
-                : (8.0 / 100.0) * SizeUtility(context).height,
-            child: BottomNavigationBar(
-              onTap: onTap,
-              currentIndex: state.homeTabIndex,
-              unselectedItemColor: black137,
-              selectedItemColor: ColorManager.primary,
-              showUnselectedLabels: true,
-              selectedIconTheme:
-                  IconThemeData(color: ColorManager.primary, size: 25),
-              unselectedIconTheme:
-                  const IconThemeData(color: black137, size: 25),
-              type: BottomNavigationBarType.fixed,
-              items: const [
-                BottomNavigationBarItem(
-                    label: '',
-                    icon: ImageIcon(
-                      AssetImage(AppAssetsStrings.homeTab),
-                      size: 22,
-                    )),
-                BottomNavigationBarItem(
-                    label: '',
-                    icon: ImageIcon(
-                      AssetImage(AppAssetsStrings.shopTabIcon),
-                      size: 22,
-                    )),
-                BottomNavigationBarItem(
-                    label: '',
-                    icon: ImageIcon(
-                      AssetImage(AppAssetsStrings.starHome),
-                      size: 22,
-                    )),
-                BottomNavigationBarItem(
-                    label: '',
-                    icon: ImageIcon(
-                      AssetImage(AppAssetsStrings.profile),
-                      size: 22,
-                    )),
-              ],
-            ),
-          ),
+          bottomNavigationBar: state.homeTabIndex != 0
+              ? const SizedBox()
+              : SizedBox(
+                  height: Platform.isIOS
+                      ? 90
+                      : (8.0 / 100.0) * SizeUtility(context).height,
+                  child: BottomNavigationBar(
+                    onTap: onTap,
+                    currentIndex: state.homeTabIndex,
+                    unselectedItemColor: black137,
+                    selectedItemColor: ColorManager.primary,
+                    showUnselectedLabels: true,
+                    selectedIconTheme:
+                        IconThemeData(color: ColorManager.primary, size: 25),
+                    unselectedIconTheme:
+                        const IconThemeData(color: black137, size: 25),
+                    type: BottomNavigationBarType.fixed,
+                    items: const [
+                      BottomNavigationBarItem(
+                          label: '',
+                          icon: ImageIcon(
+                            AssetImage(AppAssetsStrings.homeTab),
+                            size: 22,
+                          )),
+                      BottomNavigationBarItem(
+                          label: '',
+                          icon: ImageIcon(
+                            AssetImage(AppAssetsStrings.shopTabIcon),
+                            size: 22,
+                          )),
+                      BottomNavigationBarItem(
+                          label: '',
+                          icon: ImageIcon(
+                            AssetImage(AppAssetsStrings.travelTabIcon),
+                            size: 22,
+                          )),
+                      BottomNavigationBarItem(
+                          label: '',
+                          icon: ImageIcon(
+                            AssetImage(AppAssetsStrings.profile),
+                            size: 22,
+                          )),
+                    ],
+                  ),
+                ),
           body: BlocProvider(
             create: (context) => DatabaseBloc()..add(const FetchToken()),
             child: screens[state.homeTabIndex],

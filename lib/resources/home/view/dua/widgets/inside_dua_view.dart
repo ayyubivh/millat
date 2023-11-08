@@ -84,7 +84,7 @@ class InsideDuaView extends StatelessWidget {
                 separatorBuilder: (context, index) {
                   return Container(
                     height: 10,
-                    color: ColorManager.veryLightGreen,
+                    color: ColorManager.darkWhite,
                   );
                 },
                 itemCount: state.duaModel!.result!.duas!.length);
@@ -157,7 +157,7 @@ class InsideDuaView extends StatelessWidget {
             height: 45,
             padding: const EdgeInsets.all(10),
             decoration: BoxDecoration(
-              color: ColorManager.veryLightGreen,
+              color: ColorManager.darkWhite,
               borderRadius: BorderRadius.circular(12),
             ),
             child: Row(

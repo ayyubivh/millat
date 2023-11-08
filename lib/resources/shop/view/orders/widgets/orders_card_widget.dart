@@ -70,7 +70,7 @@ class OrdersProfileWidget extends StatelessWidget {
                         children: [
                           CircleAvatar(
                             radius: 20,
-                            backgroundColor: ColorManager.veryLightGreen,
+                            backgroundColor: ColorManager.darkWhite,
                             child: Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: Image.asset(
@@ -117,7 +117,7 @@ class OrdersProfileWidget extends StatelessWidget {
                           Container(
                             padding: const EdgeInsets.all(15),
                             decoration: BoxDecoration(
-                              color: ColorManager.scaffolBgColor,
+                              color: ColorManager.scaffoldBgColor,
                               borderRadius: BorderRadius.circular(4),
                             ),
                             child: Row(
@@ -229,7 +229,7 @@ class OrdersProfileWidget extends StatelessWidget {
                           state.showProgress &&
                                   state.ordereProgressIndex == isIndex
                               ? Container(
-                                  color: ColorManager.scaffolBgColor,
+                                  color: ColorManager.scaffoldBgColor,
                                   padding: const EdgeInsets.all(10),
                                   child: Container(
                                     height: 80,
@@ -306,7 +306,7 @@ class OrdersProfileWidget extends StatelessWidget {
                             width: SizeUtility(context).width,
                             padding: const EdgeInsets.all(10),
                             decoration: BoxDecoration(
-                              color: ColorManager.scaffolBgColor,
+                              color: ColorManager.scaffoldBgColor,
                               borderRadius: BorderRadius.circular(4),
                             ),
                             child: Text(
@@ -326,7 +326,7 @@ class OrdersProfileWidget extends StatelessWidget {
                                   width: SizeUtility(context).width,
                                   padding: const EdgeInsets.all(10),
                                   decoration: BoxDecoration(
-                                    color: ColorManager.scaffolBgColor,
+                                    color: ColorManager.scaffoldBgColor,
                                     borderRadius: BorderRadius.circular(4),
                                   ),
                                   child: const Text(

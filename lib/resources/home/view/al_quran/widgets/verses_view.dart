@@ -64,7 +64,7 @@ class _VersesViewState extends State<VersesView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorManager.scaffolBgColor,
+      backgroundColor: ColorManager.scaffoldBgColor,
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(70),
         child: AppBar(
@@ -909,7 +909,7 @@ class _VersesViewState extends State<VersesView> {
                                   height: 30,
                                   width: 117,
                                   decoration: BoxDecoration(
-                                    color: ColorManager.veryLightGreen,
+                                    color: ColorManager.darkWhite,
                                     borderRadius: BorderRadius.circular(6),
                                   ),
                                   child: Column(
@@ -1163,7 +1163,7 @@ class _VersesViewState extends State<VersesView> {
                     height: 158,
                     width: double.infinity,
                     decoration: BoxDecoration(
-                      color: ColorManager.veryLightGreen,
+                      color: ColorManager.darkWhite,
                       borderRadius: BorderRadius.circular(6),
                     ),
                     padding: const EdgeInsets.all(15),
@@ -1214,7 +1214,7 @@ class _VersesViewState extends State<VersesView> {
                     child: Container(
                       width: double.infinity,
                       decoration: BoxDecoration(
-                        color: ColorManager.veryLightGreen,
+                        color: ColorManager.darkWhite,
                         borderRadius: BorderRadius.circular(6),
                       ),
                       child: BlocBuilder<QuranBloc, QuranState>(

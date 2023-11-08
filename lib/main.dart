@@ -30,15 +30,18 @@ import 'package:responsive_framework/utils/scroll_behavior.dart';
 import 'package:timezone/data/latest.dart' as tz;
 import 'package:onesignal_flutter/onesignal_flutter.dart';
 
+import 'resources/travel/bloc/logic/travel_bloc.dart';
+
 void main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
 
   OneSignal.Debug.setLogLevel(OSLogLevel.verbose);
   OneSignal.initialize("f7a79b17-636c-4e33-ab11-b46d9c85470c");
   OneSignal.Notifications.requestPermission(true);
-  OneSignal.Notifications.addPermissionObserver((state) {
-    print("Has permission $state");
-  });
+  // OneSignal.Notifications.addPermissionObserver((state) {
+  //   print("Has permission $state");
+  // });
+
   bool splashRemoved = false;
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   Future.delayed(const Duration(seconds: 2), () {
@@ -84,6 +87,7 @@ void main() async {
       BlocProvider(create: (context) => TermsAndConditionsBloc()),
       BlocProvider(create: (context) => RewardsBloc()),
       BlocProvider(create: (context) => ReviewBloc()),
+      BlocProvider(create: (context) => TravelBloc()),
     ],
     child: MyApp(),
   ));

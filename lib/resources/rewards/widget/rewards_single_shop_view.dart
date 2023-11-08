@@ -222,7 +222,7 @@ class _RewardsSingleShopViewState extends State<RewardsSingleShopView> {
                     Container(
                       width: SizeUtility(context).width,
                       height: 10,
-                      color: ColorManager.scaffolBgColor,
+                      color: ColorManager.scaffoldBgColor,
                     ),
                     kHeight25,
                     Padding(
@@ -403,7 +403,7 @@ class _RewardsSingleShopViewState extends State<RewardsSingleShopView> {
             height: 50,
             width: 50,
             decoration: BoxDecoration(
-              color: ColorManager.scaffolBgColor,
+              color: ColorManager.scaffoldBgColor,
               shape: BoxShape.circle,
             ),
             padding: const EdgeInsets.all(4),

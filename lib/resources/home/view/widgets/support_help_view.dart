@@ -21,7 +21,7 @@ class SupportHelpView extends StatelessWidget {
     final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
     return Scaffold(
-      backgroundColor: ColorManager.scaffolBgColor,
+      backgroundColor: ColorManager.scaffoldBgColor,
       appBar: AppBar(
         foregroundColor: ColorManager.blackColor,
         elevation: 0,

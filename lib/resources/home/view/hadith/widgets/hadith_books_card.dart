@@ -17,7 +17,7 @@ class HaditBooksCard extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(8),
-          color: ColorManager.veryLightGreen,
+          color: ColorManager.darkWhite,
           border: Border.all(
             color: ColorManager.hadithBorderClr,
           ),

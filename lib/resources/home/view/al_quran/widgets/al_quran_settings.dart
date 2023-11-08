@@ -112,7 +112,7 @@ class AlQuranSettings extends StatelessWidget {
               Container(
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  color: ColorManager.veryLightGreen,
+                  color: ColorManager.darkWhite,
                   borderRadius: BorderRadius.circular(6),
                 ),
                 padding: const EdgeInsets.all(12),
@@ -135,7 +135,7 @@ class AlQuranSettings extends StatelessWidget {
     return Container(
         width: double.infinity,
         decoration: BoxDecoration(
-          color: ColorManager.veryLightGreen,
+          color: ColorManager.darkWhite,
           borderRadius: BorderRadius.circular(6),
         ),
         padding: const EdgeInsets.all(12),
@@ -238,7 +238,7 @@ class AlQuranSettings extends StatelessWidget {
                     child: Container(
                       width: double.infinity,
                       decoration: BoxDecoration(
-                        color: ColorManager.veryLightGreen,
+                        color: ColorManager.darkWhite,
                         borderRadius: BorderRadius.circular(6),
                       ),
                       child: BlocBuilder<QuranBloc, QuranState>(

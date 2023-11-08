@@ -64,6 +64,7 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
           .toList();
 
       emit(state.copyWith(searchCities: searchResults));
+      print(searchResults);
     }
   }
 

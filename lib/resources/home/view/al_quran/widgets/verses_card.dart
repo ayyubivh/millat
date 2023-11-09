@@ -31,7 +31,8 @@ class VersesCardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 10).copyWith(top: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 5)
+          .copyWith(top: 10, bottom: 5),
       margin: const EdgeInsets.all(5),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(7),
@@ -98,15 +99,15 @@ class VersesCardWidget extends StatelessWidget {
               ),
             ),
           ),
-          kHeight5,
+          kHeight10,
           BlocBuilder<QuranBloc, QuranState>(
             builder: (context, state) {
               return Text(
                 Utilities.removeFootnotesFromMeaning(surahMeaning),
                 style: TextStyle(
-                  fontSize: state.fontsize - 2,
-                  fontWeight: FontWeight.w400,
-                ),
+                    fontSize: state.fontsize - 3,
+                    fontWeight: FontWeight.w500,
+                    height: 1.3),
               );
             },
           ),

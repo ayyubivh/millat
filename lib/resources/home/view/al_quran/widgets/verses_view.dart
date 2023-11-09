@@ -629,6 +629,7 @@ class _VersesViewState extends State<VersesView> {
       bottomSheet: BlocBuilder<QuranBloc, QuranState>(
         builder: (context, state) => state.isShowMusicbar
             ? Container(
+                height: 78,
                 margin: const EdgeInsets.symmetric(horizontal: 35),
                 padding: const EdgeInsets.symmetric(
                   horizontal: 12,
@@ -649,7 +650,7 @@ class _VersesViewState extends State<VersesView> {
                       child: Icon(
                         Icons.expand_more,
                         color: ColorManager.whiteColor,
-                        size: 22,
+                        size: 30,
                       ),
                     ),
                     Row(
@@ -689,7 +690,7 @@ class _VersesViewState extends State<VersesView> {
                                   Icons.skip_previous,
                                   color:
                                       ColorManager.whiteColor.withOpacity(0.5),
-                                  size: 24,
+                                  size: 28,
                                 ),
                               ),
                               const SizedBox(width: 5),
@@ -702,15 +703,15 @@ class _VersesViewState extends State<VersesView> {
                                       child: Icon(
                                         Icons.pause_circle_filled,
                                         color: ColorManager.whiteColor,
-                                        size: 34,
+                                        size: 38,
                                       ),
                                     )
                                   : Icon(
                                       Icons.play_circle_fill,
                                       color: ColorManager.whiteColor,
-                                      size: 34,
+                                      size: 38,
                                     ),
-                              const SizedBox(width: 5),
+                              kWidth5,
                               GestureDetector(
                                 onTap: () {
                                   context
@@ -732,7 +733,7 @@ class _VersesViewState extends State<VersesView> {
                                   Icons.skip_next,
                                   color:
                                       ColorManager.whiteColor.withOpacity(0.5),
-                                  size: 24,
+                                  size: 28,
                                 ),
                               ),
                             ],
@@ -754,6 +755,7 @@ class _VersesViewState extends State<VersesView> {
                   child: Icon(
                     Icons.expand_less,
                     color: ColorManager.blackColor,
+                    size: 35,
                   ),
                 ),
               ),
@@ -1312,7 +1314,7 @@ class _VersesViewState extends State<VersesView> {
               final chapters = state.quranChaptersModel!.chapters;
 
               return Container(
-                height: 270,
+                height: 400,
                 decoration: BoxDecoration(
                   color: ColorManager.whiteColor,
                   borderRadius: const BorderRadius.only(
@@ -1424,7 +1426,7 @@ class _VersesViewState extends State<VersesView> {
           ImageIcon(
             AssetImage(imageUrl),
             color: ColorManager.whiteColor,
-            size: 18,
+            size: 20,
           ),
           const SizedBox(height: 5),
           Text(

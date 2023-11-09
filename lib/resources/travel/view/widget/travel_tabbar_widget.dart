@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-<<<<<<< HEAD
 import 'package:go_router/go_router.dart';
 import 'package:millat/routes/app_router_constants.dart';
-=======
->>>>>>> 41530fe8820aeddb46c952fe9d99a8fc2a0014c6
 import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/utils.dart';
 
@@ -50,12 +47,6 @@ class TravelTabBarWidget extends StatelessWidget {
                     Tab(
                       text: "Overview",
                     ),
-<<<<<<< HEAD
-=======
-                    // Tab(
-                    //   text: "Day by day",
-                    // ),
->>>>>>> 41530fe8820aeddb46c952fe9d99a8fc2a0014c6
                     Tab(
                       text: "Photos",
                     ),
@@ -94,7 +85,6 @@ class TravelTabBarWidget extends StatelessWidget {
                   itemCount: 6,
                   itemBuilder: (BuildContext context, int index) {
                     if (index % 2 == 0) {
-<<<<<<< HEAD
                       return GestureDetector(
                         onTap: () {
                           context.pushNamed(
@@ -117,20 +107,6 @@ class TravelTabBarWidget extends StatelessWidget {
                               ),
                             ],
                           ),
-=======
-                      return Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 10),
-                        child: Row(
-                          children: [
-                            Expanded(
-                              child: _imageWidget(imageUrl[index]),
-                            ),
-                            kWidth10,
-                            Expanded(
-                              child: _imageWidget(imageUrl[index]),
-                            ),
-                          ],
->>>>>>> 41530fe8820aeddb46c952fe9d99a8fc2a0014c6
                         ),
                       );
                     } else {

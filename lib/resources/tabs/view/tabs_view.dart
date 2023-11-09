@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/resources/authentication/bloc/logic/database_bloc/database_bloc.dart';
 import 'package:millat/resources/home/bloc/logic/home_bloc/home_bloc.dart';
 import 'package:millat/resources/home/view/home_view.dart';
+import 'package:millat/resources/rewards/rewards_home_view.dart';
 import 'package:millat/resources/shop/view/tabs/shop_tabs_vilew.dart';
 import 'package:millat/resources/travel/view/travel_tabs_view.dart';
 import 'package:millat/utils/assets_paths.dart';
@@ -20,6 +21,7 @@ class TabsView extends StatelessWidget {
     List screens = [
       const HomeView(),
       const ShopTabsView(),
+      const RewardsHomeView(),
       const TravelTabsView(),
       const UserProfileView(),
     ];
@@ -70,6 +72,12 @@ class TabsView extends StatelessWidget {
                           label: '',
                           icon: ImageIcon(
                             AssetImage(AppAssetsStrings.shopTabIcon),
+                            size: 22,
+                          )),
+                      BottomNavigationBarItem(
+                          label: '',
+                          icon: ImageIcon(
+                            AssetImage(AppAssetsStrings.rewardsTab),
                             size: 22,
                           )),
                       BottomNavigationBarItem(

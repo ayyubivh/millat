@@ -3,7 +3,6 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:intl/intl.dart';
-
 import 'package:millat/resources/travel/bloc/models/travel_best_places_model.dart';
 import 'package:millat/resources/travel/bloc/models/travel_popular_products_model.dart';
 import 'package:millat/resources/travel/bloc/models/travel_products_model.dart';
@@ -19,12 +18,8 @@ class TravelBloc extends Bloc<TravelEvent, TravelState> {
   final TravelServices travelServices = TravelServices();
   TravelBloc() : super(TravelState.initial()) {
     on<ChangeBannerIndex>(_changeBannerIndex);
-    ;
-    on<FetchTravelPopularProducts>(_fetchTravelPopularProducts);
+
     on<FetchTravelCities>(_fetchTravelCites);
-    on<FetchTravelProductsById>(fetchTravelProductsById);
-    on<FetchTravelSearchLocations>(_fetchTravelSearchLocations);
-    on<FetchBestPlacesProducts>(_fetchTravelBestplacesProducts);
     on<FetchProductByLocation>(_fetchProductByLocation);
     on<BookTravelEvent>(_bookTravelEvent);
     on<IncreaseGuestEvent>(_increaseGuestEvent);

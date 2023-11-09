@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+<<<<<<< HEAD
 import 'package:millat/components/common_widgets/full_screen_widget.dart';
+=======
+>>>>>>> 41530fe8820aeddb46c952fe9d99a8fc2a0014c6
 import 'package:millat/resources/authentication/view/forgot_password_view.dart';
 import 'package:millat/resources/authentication/view/login_view.dart';
 import 'package:millat/resources/authentication/view/send_otp_view.dart';
@@ -90,6 +93,7 @@ class MyAppRouter {
             },
             routes: [
               GoRoute(
+<<<<<<< HEAD
                 name: MyAppRouteConstants.imageFullViewRoutename,
                 path: MyAppRouteConstants.imageFullViewRoutename,
                 pageBuilder: (context, state) {
@@ -102,6 +106,8 @@ class MyAppRouter {
                 },
               ),
               GoRoute(
+=======
+>>>>>>> 41530fe8820aeddb46c952fe9d99a8fc2a0014c6
                 name: MyAppRouteConstants.namazTimingRouteName,
                 path: MyAppRouteConstants.namazTimingRouteName,
                 pageBuilder: (context, state) {

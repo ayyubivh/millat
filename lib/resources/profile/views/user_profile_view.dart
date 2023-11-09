@@ -35,9 +35,26 @@ class UserProfileView extends StatelessWidget {
         return Scaffold(
           backgroundColor: ColorManager.whiteColor,
           appBar: AppBar(
+            foregroundColor: ColorManager.blackColor,
+            leading: BackButton(
+              onPressed: () {
+                BlocProvider.of<HomeBloc>(context)
+                    .add(const ChangeHomeTabIndexEvent(newIndex: 0));
+              },
+            ),
             backgroundColor: ColorManager.whiteColor,
             elevation: 0,
-            centerTitle: true,
+            actions: [
+              GestureDetector(
+                onTap: () {
+                  context.pushNamed(MyAppRouteConstants.editProfileRouteName);
+                },
+                child: const ImageIcon(
+                  AssetImage(AppAssetsStrings.editIcon),
+                ),
+              ),
+              kWidth20,
+            ],
             title: Text(
               Appstrings.profile,
               style: TextStyle(
@@ -117,98 +134,55 @@ class UserProfileView extends StatelessWidget {
                               )),
                     ),
                   ),
-                  kHeight15,
+                  kHeight20,
                   Container(
-                    height: 30,
-                    width: 155,
-                    margin: const EdgeInsets.symmetric(horizontal: 120),
+                    width: SizeUtility(context).width / 1.18,
+                    padding:
+                        const EdgeInsets.all(12).copyWith(right: 20, left: 20),
                     decoration: BoxDecoration(
-                      color: ColorManager.lightPrimaryGreenClr,
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        Icon(
-                          Icons.verified,
-                          color: ColorManager.primary,
+                      color: ColorManager.whiteColor,
+                      boxShadow: [
+                        BoxShadow(
+                          color: ColorManager.grey83.withOpacity(0.3),
+                          blurRadius: 3,
+                          spreadRadius: 1,
+                          offset: const Offset(0, 2),
                         ),
-                        Text(
-                          Appstrings.verifiedAccount,
-                          style: TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.bold,
-                            color: ColorManager.primary,
-                          ),
-                        )
                       ],
                     ),
-                  ),
-                  kHeight20,
-                  const Text(
-                    "Connecting Muslims worldwide. Embrace faith, inspire unity, and explore the beauty of Islam on our social app.",
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w500,
-                      height: 1.3,
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-                  kHeight10,
-                  BlocBuilder<DatabaseBloc, DatabaseState>(
-                    builder: (context, state) => Text(
-                      "Works at ${state.authUserModel?.result?.user?.institution ?? "Empty"}",
-                      style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w500,
-                          height: 1.3,
-                          color: ColorManager.blue7A),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                  kHeight15,
-                  GestureDetector(
-                    onTap: () {
-                      context
-                          .pushNamed(MyAppRouteConstants.editProfileRouteName);
-                    },
-                    child: Container(
-                      height: 42,
-                      width: SizeUtility(context).width / 2,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(
-                          30,
+                    child: Column(
+                      children: [
+                        Text(
+                          state.authUserModel?.result?.user?.username ?? "",
+                          style: TextStyle(
+                            color: ColorManager.blackColor,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500,
+                            height: 1.3,
+                          ),
+                          textAlign: TextAlign.center,
                         ),
-                        color: ColorManager.whiteColor,
-                        boxShadow: [
-                          BoxShadow(
-                            color: ColorManager.grey83.withOpacity(0.3),
-                            blurRadius: 3,
-                            spreadRadius: 1,
-                            offset: const Offset(0, 2),
+                        kHeight10,
+                        Text(
+                          "Works at ${state.authUserModel?.result?.user?.institution ?? "Empty"}",
+                          style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w600,
+                              height: 1.3,
+                              color: ColorManager.blue7A),
+                          textAlign: TextAlign.center,
+                        ),
+                        kHeight10,
+                        const Text(
+                          "Connecting Muslims worldwide. Embrace faith, inspire unity, and explore the beauty of Islam on our social app.",
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500,
+                            height: 1.3,
                           ),
-                        ],
-                      ),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image.asset(
-                            AppAssetsStrings.editUserProfile,
-                            width: 19,
-                            height: 19,
-                          ),
-                          kWidth8,
-                          Text(
-                            "Edit profile",
-                            style: TextStyle(
-                              fontSize: 15,
-                              fontWeight: FontWeight.bold,
-                              color: ColorManager.blackColor,
-                            ),
-                          )
-                        ],
-                      ),
+                          textAlign: TextAlign.center,
+                        ),
+                      ],
                     ),
                   ),
                   kHeight15,
@@ -269,6 +243,69 @@ class UserProfileView extends StatelessWidget {
                           )
                         ],
                       ),
+                    ),
+                  ),
+                  kHeight20,
+                  Container(
+                    width: SizeUtility(context).width / 1.18,
+                    decoration: BoxDecoration(
+                      color: ColorManager.whiteColor,
+                      boxShadow: [
+                        BoxShadow(
+                          color: ColorManager.grey83.withOpacity(0.3),
+                          blurRadius: 3,
+                          spreadRadius: 1,
+                          offset: const Offset(0, 2),
+                        ),
+                      ],
+                    ),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 20, vertical: 10),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(
+                          "Shop",
+                          style: TextStyle(
+                            fontSize: 17,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                        kHeight10,
+                        ListView.separated(
+                          shrinkWrap: true,
+                          physics: const NeverScrollableScrollPhysics(),
+                          itemCount: 2,
+                          itemBuilder: (context, index) {
+                            final images = [
+                              AppAssetsStrings.termsAndConditions,
+                              AppAssetsStrings.support,
+                              AppAssetsStrings.privacyPolicy,
+                              AppAssetsStrings.aboutUs,
+                            ];
+                            final texts = [
+                              Appstrings.orderHistory,
+                              Appstrings.address,
+                            ];
+                            final navigations = [
+                              () {
+                                context.pushNamed(
+                                    MyAppRouteConstants.orderHistoryRouteName);
+                              },
+                              () {
+                                context.pushNamed(
+                                    MyAppRouteConstants.addressBookRouteName);
+                              },
+                            ];
+                            return _buildItemRow(
+                              image: images[index],
+                              text: texts[index],
+                              onTap: navigations[index],
+                            );
+                          },
+                          separatorBuilder: (context, index) => const Divider(),
+                        ),
+                      ],
                     ),
                   ),
                   kHeight20,

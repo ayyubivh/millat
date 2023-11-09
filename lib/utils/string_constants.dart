@@ -132,6 +132,7 @@ class Appstrings {
   static const String orderHistory = "Order History";
   static const String wishList = "Wishlist";
   static const String noAddressText = "You have no address yet";
+  static const String address = "Address";
   static const String noAddresSubText =
       "Please add an address for shipping and billing";
   static const String addNewAddress = "Add New Address";

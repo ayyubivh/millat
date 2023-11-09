@@ -373,8 +373,9 @@ class _EditProfileViewState extends State<EditProfileView> {
                                           right: 0,
                                           left: 50,
                                           child: _editCircleAvatar(() {
-                                            context.read<DatabaseBloc>().add(
-                                                const UploadImageEvent(
+                                            BlocProvider.of<DatabaseBloc>(
+                                                    context)
+                                                .add(const UploadImageEvent(
                                                     source:
                                                         ImageSource.gallery));
                                           }),

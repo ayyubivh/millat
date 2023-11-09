@@ -129,19 +129,23 @@ class Utilities {
       double? height,
       BoxFit boxFit = BoxFit.fill,
       double? width,
-      Color? color}) {
-    return CachedNetworkImage(
-      color: color,
-      imageUrl: imageUrl ?? '',
-      height: height,
-      width: width,
-      fit: boxFit,
-      
-      placeholder: (context, url) => ShimmersWidget(
-        width: width ?? 0,
-        height: height ?? 0,
+      Color? color,
+      VoidCallback? onTap}) {
+    return GestureDetector(
+      onTap: onTap,
+      child: CachedNetworkImage(
+        color: color,
+        imageUrl: imageUrl ?? '',
+        height: height,
+        width: width,
+        fit: boxFit,
+        placeholder: (context, url) => ShimmersWidget(
+          width: width ?? 0,
+          height: height ?? 0,
+        ),
+        errorWidget: (context, url, error) =>
+            const Center(child: Icon(Icons.report_gmailerrorred_outlined)),
       ),
-      errorWidget: (context, url, error) => const SizedBox(),
     );
   }
 

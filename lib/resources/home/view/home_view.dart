@@ -9,6 +9,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:http/http.dart' as http;
 import 'package:millat/components/shimmers/shimmer_widget.dart';
+import 'package:millat/resources/travel/bloc/service/travel_services.dart';
 
 import 'package:millat/routes/app_router_constants.dart';
 import 'package:path_provider/path_provider.dart';
@@ -30,7 +31,9 @@ import '../../../utils/string_constants.dart';
 import '../../../utils/utils.dart';
 import '../../authentication/bloc/logic/database_bloc/database_bloc.dart';
 import '../../shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
+import '../../travel/bloc/logic/travel_bloc.dart';
 import '../bloc/logic/location_bloc/location_bloc.dart';
+import 'package:onesignal_flutter/onesignal_flutter.dart';
 
 ValueNotifier<bool> scrollNotifier = ValueNotifier(true);
 
@@ -70,6 +73,15 @@ class _HomeViewState extends State<HomeView> {
       ..add(const FetchHadithOfTheDay())
       ..add(const FetchEventOfTheMonth())
       ..add(const ChangeIndexofAllaysaysBg());
+
+    OneSignal.Notifications.addClickListener((event) {
+      print(event.notification.additionalData?["route"]);
+      if (event.notification.additionalData?["route"] != null) {
+        WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+          context.pushNamed(event.notification.additionalData?["route"]);
+        });
+      }
+    });
 
     super.initState();
   }
@@ -416,7 +428,7 @@ class _HomeViewState extends State<HomeView> {
                       padding: const EdgeInsets.only(right: 10),
                       child: Container(
                         decoration: BoxDecoration(
-                          color: ColorManager.veryLightGreen,
+                          color: ColorManager.darkWhite,
                           borderRadius: BorderRadius.circular(14),
                         ),
                         height: 230,
@@ -660,7 +672,7 @@ class _HomeViewState extends State<HomeView> {
     return Container(
       height: 212,
       width: SizeUtility(context).width,
-      color: ColorManager.scaffolBgColor,
+      color: ColorManager.scaffoldBgColor,
       padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

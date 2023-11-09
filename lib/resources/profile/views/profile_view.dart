@@ -122,7 +122,7 @@ class ProfileView extends StatelessWidget {
                         kHeight30,
                         _buildTile(
                           text: Appstrings.personalInfo,
-                          icon: AppAssetsStrings.peronalInfo,
+                          icon: AppAssetsStrings.personalInfo,
                           onTap: () {
                             context.pushNamed(
                                 MyAppRouteConstants.editProfileRouteName);

@@ -92,7 +92,7 @@ class InviteFriendView extends StatelessWidget {
                 Container(
                   height: 50,
                   width: SizeUtility(context).width,
-                  color: ColorManager.veryLightGreen,
+                  color: ColorManager.darkWhite,
                   padding: const EdgeInsets.only(top: 15, left: 20),
                   child: Text(
                     Appstrings.contact,

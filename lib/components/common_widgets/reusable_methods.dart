@@ -8,10 +8,11 @@ Widget gradientContainer(
     {required Widget child,
     required double width,
     required double height,
-    required EdgeInsetsGeometry padding}) {
+    required EdgeInsetsGeometry padding,
+    double radius = 12}) {
   return Container(
     decoration: BoxDecoration(
-      borderRadius: BorderRadius.circular(12),
+      borderRadius: BorderRadius.circular(radius),
       gradient: RadialGradient(
         center: Alignment.topLeft,
         radius: 5,

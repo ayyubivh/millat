@@ -45,7 +45,7 @@ class OrderReturnView extends StatelessWidget {
                 height: 150,
                 width: SizeUtility(context).width,
                 decoration: BoxDecoration(
-                  color: ColorManager.scaffolBgColor,
+                  color: ColorManager.scaffoldBgColor,
                   borderRadius: BorderRadius.circular(16),
                 ),
                 padding: const EdgeInsets.symmetric(horizontal: 15),

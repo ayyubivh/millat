@@ -28,7 +28,7 @@ class CartView extends StatelessWidget {
       addressBloc.add(FetchAddressEvent(context: context));
     });
     return Scaffold(
-      backgroundColor: ColorManager.scaffolBgColor,
+      backgroundColor: ColorManager.scaffoldBgColor,
       appBar: AppBar(
         title: Text(Appstrings.yourCart,
             style: TextStyle(

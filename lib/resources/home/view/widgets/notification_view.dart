@@ -23,7 +23,7 @@ class NotificationView extends StatelessWidget {
         return Future.value(true);
       },
       child: Scaffold(
-        backgroundColor: ColorManager.scaffolBgColor,
+        backgroundColor: ColorManager.scaffoldBgColor,
         appBar: AppBar(
           foregroundColor: ColorManager.blackColor,
           elevation: 0,

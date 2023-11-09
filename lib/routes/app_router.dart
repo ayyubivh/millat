@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+<<<<<<< HEAD
+import 'package:millat/components/common_widgets/full_screen_widget.dart';
+=======
+>>>>>>> 41530fe8820aeddb46c952fe9d99a8fc2a0014c6
 import 'package:millat/resources/authentication/view/forgot_password_view.dart';
 import 'package:millat/resources/authentication/view/login_view.dart';
 import 'package:millat/resources/authentication/view/send_otp_view.dart';
@@ -55,6 +59,11 @@ import 'package:millat/resources/shop/view/tabs/shop_tabs_vilew.dart';
 import 'package:millat/resources/shop/view/wishlist/wishlist_view.dart';
 import 'package:millat/resources/shop/view/womens_care/shop_specific_category_banner_view.dart';
 import 'package:millat/resources/tabs/view/tabs_view.dart';
+import 'package:millat/resources/travel/view/travel_booking_form.dart';
+import 'package:millat/resources/travel/view/travel_home_view.dart';
+import 'package:millat/resources/travel/view/travel_packages_view.dart';
+import 'package:millat/resources/travel/view/travel_search_view.dart';
+import 'package:millat/resources/travel/view/travel_single_product_view.dart';
 import 'package:millat/routes/app_router_constants.dart';
 import '../resources/home/view/al_quran/bookmark_view.dart';
 import '../resources/home/view/al_quran/widgets/add_sura_search_view.dart';
@@ -84,6 +93,21 @@ class MyAppRouter {
             },
             routes: [
               GoRoute(
+<<<<<<< HEAD
+                name: MyAppRouteConstants.imageFullViewRoutename,
+                path: MyAppRouteConstants.imageFullViewRoutename,
+                pageBuilder: (context, state) {
+                  Map data = state.extra as Map;
+                  return MaterialPage(
+                      child: FullScreenImageWidget(
+                    imageUrls: data['imageUrls'],
+                    initialIndex: data['initialIndex'],
+                  ));
+                },
+              ),
+              GoRoute(
+=======
+>>>>>>> 41530fe8820aeddb46c952fe9d99a8fc2a0014c6
                 name: MyAppRouteConstants.namazTimingRouteName,
                 path: MyAppRouteConstants.namazTimingRouteName,
                 pageBuilder: (context, state) {
@@ -97,6 +121,54 @@ class MyAppRouter {
                   return const MaterialPage(child: PrayerTrackerCalendarView());
                 },
               ),
+              GoRoute(
+                  name: MyAppRouteConstants.travelHomeRoutename,
+                  path: MyAppRouteConstants.travelHomeRoutename,
+                  pageBuilder: (context, state) {
+                    return const MaterialPage(child: TravelHomeView());
+                  },
+                  routes: [
+                    GoRoute(
+                      name: MyAppRouteConstants.travelSearchRoutename,
+                      path: MyAppRouteConstants.travelSearchRoutename,
+                      pageBuilder: (context, state) {
+                        return const MaterialPage(child: TravelSearchView());
+                      },
+                    ),
+                    GoRoute(
+                      name: MyAppRouteConstants.travelSingleRoutename,
+                      path: "${MyAppRouteConstants.travelSingleRoutename}/:id",
+                      pageBuilder: (context, state) {
+                        return MaterialPage(
+                          child: TravelSingleProductView(
+                            id: state.pathParameters['id']!,
+                          ),
+                        );
+                      },
+                    ),
+                    GoRoute(
+                      name: MyAppRouteConstants.travelPackagesView,
+                      path: "${MyAppRouteConstants.travelPackagesView}/:title",
+                      pageBuilder: (context, state) {
+                        Map data = state.extra as Map;
+                        return MaterialPage(
+                          child: TravelPackagesView(
+                              title: state.pathParameters['title']!,
+                              type: data['type']),
+                        );
+                      },
+                    ),
+                    GoRoute(
+                      name: MyAppRouteConstants.travelBookingFormRoutename,
+                      path:
+                          "${MyAppRouteConstants.travelBookingFormRoutename}/:id",
+                      pageBuilder: (context, state) {
+                        return MaterialPage(
+                            child: TravelBookingForm(
+                                id: state.pathParameters['id']!));
+                      },
+                    ),
+                  ]),
               GoRoute(
                   name: MyAppRouteConstants.shopTabsRouteName,
                   path: 'shop_tabs',

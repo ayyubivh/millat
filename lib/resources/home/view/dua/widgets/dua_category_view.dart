@@ -16,7 +16,7 @@ class DuaCategoryView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorManager.scaffolBgColor,
+      backgroundColor: ColorManager.scaffoldBgColor,
       appBar: AppBar(
         foregroundColor: ColorManager.blackColor,
         backgroundColor: ColorManager.appBarColor,

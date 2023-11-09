@@ -84,7 +84,7 @@ class CheckoutPayment extends StatelessWidget {
                   height: 96,
                   width: SizeUtility(context).width,
                   decoration: BoxDecoration(
-                    color: ColorManager.veryLightGreen,
+                    color: ColorManager.darkWhite,
                     borderRadius: BorderRadius.circular(6),
                   ),
                   child: paymentOnlineWidget(),
@@ -94,7 +94,7 @@ class CheckoutPayment extends StatelessWidget {
                   height: 96,
                   width: SizeUtility(context).width,
                   decoration: BoxDecoration(
-                    color: ColorManager.veryLightGreen,
+                    color: ColorManager.darkWhite,
                     borderRadius: BorderRadius.circular(6),
                   ),
                   child: paymenCODwidget(context),

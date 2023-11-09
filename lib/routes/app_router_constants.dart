@@ -63,4 +63,15 @@ class MyAppRouteConstants {
   static const String orderCancelRouteName = 'order_cancel';
   static const String orderReturnDetailRouteName = 'order_return_details';
   static const String orderReturnSuccesRouteName = 'order_return_success';
+<<<<<<< HEAD
+  static const String imageFullViewRoutename = "image_full_view";
+=======
+>>>>>>> 41530fe8820aeddb46c952fe9d99a8fc2a0014c6
+
+  // Travel
+  static const String travelHomeRoutename = 'travel_home';
+  static const String travelSearchRoutename = 'travel_search';
+  static const String travelSingleRoutename = 'travel_singleproudct';
+  static const String travelBookingFormRoutename = 'travel_bookingform';
+  static const String travelPackagesView = "travel_packages";
 }

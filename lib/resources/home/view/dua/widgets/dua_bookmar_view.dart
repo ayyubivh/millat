@@ -60,7 +60,7 @@ class DuaBookMarkView extends StatelessWidget {
                                 kHeight15,
                                 Container(
                                   decoration: BoxDecoration(
-                                    color: ColorManager.veryLightGreen,
+                                    color: ColorManager.darkWhite,
                                     border: Border.all(
                                       color: ColorManager.greyD1,
                                     ),

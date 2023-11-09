@@ -7,7 +7,7 @@ class ColorManager {
   static Color darkGreenColor = HexColor.fromHex("#05654B");
   static Color darkGreenColor2 = HexColor.fromHex("#00C891");
   static Color midGreenColor = HexColor.fromHex("#00C891");
-  static Color veryLightGreen = HexColor.fromHex("#F7F7F7");
+  static Color darkWhite = HexColor.fromHex("#F7F7F7");
   static Color greenColor1 = HexColor.fromHex("#4DC591");
   static Color darkGreenClr4f = HexColor.fromHex("#4F7364");
   static Color redColor = HexColor.fromHex("#FF3B30");
@@ -20,9 +20,10 @@ class ColorManager {
   static Color greenGreyTextClr = HexColor.fromHex("#95A7A0");
   static Color blackColor = HexColor.fromHex("#1A1A1A");
   static Color whiteColor = HexColor.fromHex("#FFFFFF");
+  static Color orangeStarColor = HexColor.fromHex("#FECE66");
   static Color appBarColor = HexColor.fromHex("#F7F7F7");
   static Color textGrey = HexColor.fromHex("#8789A3");
-  static Color scaffolBgColor = HexColor.fromHex("#F7F7F7");
+  static Color scaffoldBgColor = HexColor.fromHex("#F7F7F7");
   static Color greyD1 = HexColor.fromHex("#D1D1D1");
   static Color gradientGreenBC = HexColor.fromHex("#5FD3A1");
   static Color textGrey2 = HexColor.fromHex("#A0A0A0");
@@ -138,6 +139,12 @@ class ColorManager {
   static Color greyEB = HexColor.fromHex("#EBEBEB");
   static Color lightGreenDD = HexColor.fromHex("#DDFDE5");
   static Color greyDB = HexColor.fromHex("#DBDBDB");
+  //Travel
+  static Color whiteE0 = HexColor.fromHex("#E0E0E0");
+  static Color lightGrey85 = HexColor.fromHex("#858585");
+  static Color green0F = HexColor.fromHex("#0FB327");
+  static Color darkWhiteF0 = HexColor.fromHex("#F0F0F0");
+  static Color lightGreyA3 = HexColor.fromHex("#A3A3A3");
 }
 
 extension HexColor on Color {

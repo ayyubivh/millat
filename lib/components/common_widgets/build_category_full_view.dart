@@ -25,7 +25,7 @@ class CategoryFullView extends StatelessWidget {
         border: Border.all(
           color: isShowborder == false
               ? Colors.transparent
-              : ColorManager.veryLightGreen,
+              : ColorManager.darkWhite,
         ),
       ),
       child: Column(

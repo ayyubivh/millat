@@ -73,7 +73,7 @@ class RewardCartView extends StatelessWidget {
                     height: 135,
                     width: SizeUtility(context).width,
                     decoration: BoxDecoration(
-                      color: ColorManager.scaffolBgColor,
+                      color: ColorManager.scaffoldBgColor,
                       borderRadius: BorderRadius.circular(4),
                     ),
                     padding: const EdgeInsets.all(16),

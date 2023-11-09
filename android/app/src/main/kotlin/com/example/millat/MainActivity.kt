@@ -1,4 +1,4 @@
-package com.example.millat
+package com.app.linger
 
 import io.flutter.embedding.android.FlutterActivity
 

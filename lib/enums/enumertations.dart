@@ -92,3 +92,13 @@ enum CategoryType {
   category,
   specificCategory,
 }
+
+enum TravelsPackagesType {
+  search,
+  popularProducts,
+}
+
+enum TravelWishlist {
+  add,
+  remove,
+}

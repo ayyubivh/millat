@@ -172,7 +172,7 @@ class OrderRetunDetailView extends StatelessWidget {
                 height: 150,
                 width: SizeUtility(context).width,
                 decoration: BoxDecoration(
-                  color: ColorManager.scaffolBgColor,
+                  color: ColorManager.scaffoldBgColor,
                   borderRadius: BorderRadius.circular(16),
                 ),
                 margin: const EdgeInsets.symmetric(horizontal: 30),

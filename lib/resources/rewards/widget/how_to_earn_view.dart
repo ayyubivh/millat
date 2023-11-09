@@ -13,7 +13,7 @@ class HowToEarnView extends StatelessWidget {
     final divider = Container(
       height: 10,
       width: double.infinity,
-      color: ColorManager.veryLightGreen,
+      color: ColorManager.darkWhite,
     );
     return Scaffold(
       backgroundColor: ColorManager.whiteColor,
@@ -103,7 +103,7 @@ class HowToEarnView extends StatelessWidget {
             width: 84,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              color: ColorManager.scaffolBgColor,
+              color: ColorManager.scaffoldBgColor,
             ),
             padding: const EdgeInsets.all(20),
             child: Image.asset(img),

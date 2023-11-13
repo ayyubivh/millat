@@ -83,7 +83,7 @@ class TabsView extends StatelessWidget {
                       BottomNavigationBarItem(
                           label: '',
                           icon: ImageIcon(
-                            AssetImage(AppAssetsStrings.travelTabIcon),
+                            AssetImage(AppAssetsStrings.travelTab),
                             size: 22,
                           )),
                       BottomNavigationBarItem(

@@ -42,7 +42,7 @@ class TravelHomeView extends StatelessWidget {
         child: CustomScrollView(
           slivers: [
             SliverAppBar(
-              backgroundColor: const Color.fromARGB(0, 146, 92, 92),
+              backgroundColor: Colors.transparent,
               elevation: 0,
               expandedHeight: SizeUtility(context).height / 3.1,
               flexibleSpace: const FlexibleSpaceBar(
@@ -668,69 +668,65 @@ class BannerCarousel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: ColorManager.whiteColor,
-      height: 300,
-      child: BlocBuilder<TravelBloc, TravelState>(
-        builder: (context, state) {
-          final banners = state.travelHomeBannerPackages;
-          return banners == null
-              ? const Loader()
-              : Stack(
-                  children: [
-                    CarouselSlider(
-                      items: banners.map((banner) {
-                        return Carousel(
-                          banner: banner.images?[0] ?? "",
-                          title: banner.name ?? "",
-                          rating: 4.5,
+    return BlocBuilder<TravelBloc, TravelState>(
+      builder: (context, state) {
+        final banners = state.travelHomeBannerPackages;
+        return banners == null
+            ? const Loader()
+            : Stack(
+                children: [
+                  CarouselSlider(
+                    items: banners.map((banner) {
+                      return Carousel(
+                        banner: banner.images?[0] ?? "",
+                        title: banner.name ?? "",
+                        rating: 4.5,
+                      );
+                    }).toList(),
+                    options: CarouselOptions(
+                      height: 262,
+                      viewportFraction: 1,
+                      enlargeCenterPage: true,
+                      autoPlay: true,
+                      autoPlayCurve: Curves.fastOutSlowIn,
+                      enableInfiniteScroll: true,
+                      // enlargeFactor: 0.3,
+                      scrollDirection: Axis.horizontal,
+                      autoPlayAnimationDuration:
+                          const Duration(milliseconds: 800),
+                      onPageChanged: (index, reason) {
+                        context
+                            .read<TravelBloc>()
+                            .add(ChangeBannerIndex(index: index));
+                      },
+                    ),
+                  ),
+                  Positioned(
+                    left: 0,
+                    right: 0,
+                    bottom: 80,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: banners.map((banner) {
+                        int index = banners.indexOf(banner);
+                        return Container(
+                          width: state.index == index ? 22 : 6,
+                          height: 6,
+                          margin: const EdgeInsets.symmetric(horizontal: 4),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(30),
+                            color: state.index == index
+                                ? ColorManager.primary
+                                : ColorManager.textGrey2,
+                          ),
                         );
                       }).toList(),
-                      options: CarouselOptions(
-                        height: 262,
-                        viewportFraction: 1,
-                        enlargeCenterPage: true,
-                        autoPlay: true,
-                        autoPlayCurve: Curves.fastOutSlowIn,
-                        enableInfiniteScroll: true,
-                        // enlargeFactor: 0.3,
-                        scrollDirection: Axis.horizontal,
-                        autoPlayAnimationDuration:
-                            const Duration(milliseconds: 800),
-                        onPageChanged: (index, reason) {
-                          context
-                              .read<TravelBloc>()
-                              .add(ChangeBannerIndex(index: index));
-                        },
-                      ),
                     ),
-                    Positioned(
-                      left: 0,
-                      right: 0,
-                      bottom: 80,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: banners.map((banner) {
-                          int index = banners.indexOf(banner);
-                          return Container(
-                            width: state.index == index ? 22 : 6,
-                            height: 6,
-                            margin: const EdgeInsets.symmetric(horizontal: 4),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(30),
-                              color: state.index == index
-                                  ? ColorManager.primary
-                                  : ColorManager.textGrey2,
-                            ),
-                          );
-                        }).toList(),
-                      ),
-                    ),
-                    const BookNowContainer()
-                  ],
-                );
-        },
-      ),
+                  ),
+                  const BookNowContainer()
+                ],
+              );
+      },
     );
   }
 }
@@ -863,7 +859,7 @@ class Carousel extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.only(
-              top: 50,
+              top: 55,
               left: 30,
               right: 30,
             ),
@@ -877,8 +873,9 @@ class Carousel extends StatelessWidget {
                     Text(
                       title,
                       style: TextStyle(
-                        fontSize: 14,
+                        fontSize: 16,
                         color: ColorManager.whiteColor,
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
                     kHeight5,

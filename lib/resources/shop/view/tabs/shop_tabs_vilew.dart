@@ -12,7 +12,7 @@ import 'package:millat/resources/tabs/view/tabs_view.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/size_utility.dart';
-import '../../../profile/views/profile_view.dart';
+import '../../../profile/views/user_profile_view.dart';
 
 class ShopTabsView extends StatelessWidget {
   const ShopTabsView({Key? key}) : super(key: key);
@@ -27,7 +27,7 @@ class ShopTabsView extends StatelessWidget {
           categoryType: CategoryType.specificCategory,
           category: "women",
           categoryId: ""),
-      const ProfileView(),
+      const UserProfileView()
     ];
 
     return BlocBuilder<ShopProductsBloc, ShopProductsState>(
@@ -56,7 +56,6 @@ class ShopTabsView extends StatelessWidget {
           }
         },
         child: Scaffold(
-          extendBody: true,
           body: screens[state.index],
           bottomNavigationBar: SizedBox(
             height: Platform.isIOS

@@ -1,3 +1,4 @@
+import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
@@ -19,6 +20,7 @@ class RewardsBloc extends Bloc<RewardsEvent, RewardsState> {
     on<_FetchRewardProducts>(_fetchRewardProducts);
     on<_FetchRewardProductsById>(__fetchRewardProductsById);
     on<ChangeCarousselImageIndex>(_changeCarouselimageIndex);
+    on<ChangeRewardsTabIndex>(_changeRewardsTabIndex);
   }
 
   _fetchRewards(_FetchRewards event, Emitter<RewardsState> emit) async {
@@ -62,5 +64,10 @@ class RewardsBloc extends Bloc<RewardsEvent, RewardsState> {
   _changeCarouselimageIndex(
       ChangeCarousselImageIndex event, Emitter<RewardsState> emit) {
     emit(state.copyWith(carouselImageIndex: event.index));
+  }
+
+  _changeRewardsTabIndex(
+      ChangeRewardsTabIndex event, Emitter<RewardsState> emit) {
+    emit(state.copyWith(tabIndex: event.index));
   }
 }

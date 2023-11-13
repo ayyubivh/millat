@@ -8,6 +8,7 @@ import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/loader.dart';
 import 'package:millat/utils/string_constants.dart';
 import 'package:millat/utils/utils.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../../../utils/assets_paths.dart';
 import '../../../utils/size_utility.dart';
 import '../../authentication/bloc/logic/database_bloc/database_bloc.dart';
@@ -280,8 +281,6 @@ class UserProfileView extends StatelessWidget {
                             final images = [
                               AppAssetsStrings.termsAndConditions,
                               AppAssetsStrings.support,
-                              AppAssetsStrings.privacyPolicy,
-                              AppAssetsStrings.aboutUs,
                             ];
                             final texts = [
                               Appstrings.orderHistory,
@@ -310,7 +309,6 @@ class UserProfileView extends StatelessWidget {
                   ),
                   kHeight20,
                   Container(
-                    height: 215,
                     width: SizeUtility(context).width / 1.18,
                     decoration: BoxDecoration(
                       color: ColorManager.whiteColor,
@@ -324,8 +322,7 @@ class UserProfileView extends StatelessWidget {
                       ],
                     ),
                     padding: const EdgeInsets.symmetric(
-                      horizontal: 20,
-                    ),
+                        horizontal: 20, vertical: 20),
                     child: ListView.separated(
                       shrinkWrap: true,
                       physics: const NeverScrollableScrollPhysics(),
@@ -427,17 +424,16 @@ class UserProfileView extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Image.asset(
+                      _socialIconWidget(
+                        () => _launchUrl(Appstrings.twitterUrl),
                         AppAssetsStrings.twitterIcon,
-                        width: 24,
-                        height: 20,
                       ),
                       kWidth10,
-                      Image.asset(
+                      _socialIconWidget(
+                        () => _launchUrl(Appstrings.instagramUrl),
                         AppAssetsStrings.instagramIcon,
-                        width: 24,
-                        height: 20,
                       ),
+                      kWidth10,
                     ],
                   ),
                   kHeight80,
@@ -448,6 +444,24 @@ class UserProfileView extends StatelessWidget {
         );
       },
     );
+  }
+
+  Widget _socialIconWidget(VoidCallback onTap, String name) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Image.asset(
+        name,
+        width: 24,
+        height: 20,
+      ),
+    );
+  }
+
+  Future<void> _launchUrl(String url) async {
+    final Uri _url = Uri.parse(url);
+    if (!await launch(_url.toString())) {
+      throw Exception('Could not launch $_url');
+    }
   }
 
   Widget logAndDelWidget(

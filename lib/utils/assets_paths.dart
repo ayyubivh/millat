@@ -143,7 +143,7 @@ class AppAssetsStrings {
   static const String superSaleAd = "$imagesPath/super_sale_ad.png";
   static const String arrrowRight = "$iconsPath/arrow-right.png";
   static const String score = "$imagesPath/score.png";
-
+  static const String rewardsRedeem = "$iconsPath/rewards_redeem_tab.png";
   static const String rewardMoney = "$imagesPath/reward_money.png";
   static const String rewardCoinBackground =
       "$backgroundsPath/rewards_coins.png";

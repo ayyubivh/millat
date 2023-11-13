@@ -3,8 +3,8 @@ import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/size_utility.dart';
 import 'package:shimmer/shimmer.dart';
 
-class ShimmersWidgetProduct extends StatelessWidget {
-  const ShimmersWidgetProduct({
+class ShimmersProducts extends StatelessWidget {
+  const ShimmersProducts({
     super.key,
   });
 

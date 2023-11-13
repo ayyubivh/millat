@@ -11,6 +11,7 @@ import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/loader.dart';
+import 'package:millat/utils/shimmer_utils.dart';
 import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/string_constants.dart';
 import 'package:millat/utils/utils.dart';
@@ -56,7 +57,7 @@ class SingleBrandView extends StatelessWidget {
                       final data =
                           state.brandItemsModel?.result?.data?.itemList;
                       if (data == null) {
-                        return const Loader();
+                        return ShimmerUtils.brandCategoriesShimmers();
                       }
                       return ItemsList(data: data);
                     },

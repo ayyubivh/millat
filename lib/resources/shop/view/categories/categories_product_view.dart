@@ -98,7 +98,7 @@ class CategoriesProductView extends StatelessWidget {
                   builder: (context, state) {
                     return type == FilterType.category
                         ? state.productLoading
-                            ? const ShimmersWidgetProduct()
+                            ? const ShimmersProducts()
                             : Expanded(
                                 child: GridView.builder(
                                   gridDelegate:
@@ -115,7 +115,7 @@ class CategoriesProductView extends StatelessWidget {
                                     final data =
                                         state.product?.result?.products?[index];
                                     return data == null
-                                        ? const ShimmersWidgetProduct()
+                                        ? const ShimmersProducts()
                                         : GestureDetector(
                                             onTap: () {
                                               // print(data.id);
@@ -162,7 +162,7 @@ class CategoriesProductView extends StatelessWidget {
                                 final datas =
                                     state.product?.result?.products?[index];
                                 return datas == null
-                                    ? const ShimmersWidgetProduct()
+                                    ? const ShimmersProducts()
                                     : GestureDetector(
                                         onTap: () {
                                           context.pushNamed(

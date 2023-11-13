@@ -42,7 +42,7 @@ class TravelHomeView extends StatelessWidget {
         child: CustomScrollView(
           slivers: [
             SliverAppBar(
-              backgroundColor: Colors.transparent,
+              backgroundColor: const Color.fromARGB(0, 146, 92, 92),
               elevation: 0,
               expandedHeight: SizeUtility(context).height / 3.1,
               flexibleSpace: const FlexibleSpaceBar(
@@ -719,7 +719,7 @@ class BannerCarousel extends StatelessWidget {
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(30),
                               color: state.index == index
-                                  ? ColorManager.whiteColor
+                                  ? ColorManager.primary
                                   : ColorManager.textGrey2,
                             ),
                           );
@@ -767,57 +767,36 @@ class BookNowContainer extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 10),
               child: BlocBuilder<TravelBloc, TravelState>(
                 builder: (context, state) {
-                  final data = state.travelHomeBannerPackages;
-                  if (data == null) {
+                  final data = state.travelHomeBannerPackages![state.index];
+                  if (state.travelHomeBannerPackages == null) {
                     return const SizedBox();
                   }
-                  return CarouselSlider(
-                    items: data.map((e) {
-                      return GestureDetector(
-                        onTap: () {
-                          context.pushNamed(
-                              MyAppRouteConstants.travelBookingFormRoutename,
-                              pathParameters: {"id": e.id!});
-                        },
-                        child: Row(
-                          children: [
-                            Text(
-                              "₹100,000 /",
-                              style: TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.w700,
-                                color: ColorManager.textGrey,
-                                decoration: TextDecoration.lineThrough,
-                              ),
-                            ),
-                            Text(
-                              " ${e.price}",
-                              style: TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.w700,
-                                color: ColorManager.primary,
-                              ),
-                            ),
-                          ],
+                  return GestureDetector(
+                    onTap: () {
+                      context.pushNamed(
+                          MyAppRouteConstants.travelBookingFormRoutename,
+                          pathParameters: {"id": data.id!});
+                    },
+                    child: Row(
+                      children: [
+                        Text(
+                          "₹100,000 /",
+                          style: TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.w700,
+                            color: ColorManager.textGrey,
+                            decoration: TextDecoration.lineThrough,
+                          ),
                         ),
-                      );
-                    }).toList(),
-                    options: CarouselOptions(
-                      height: 262,
-                      viewportFraction: 1,
-                      enlargeCenterPage: true,
-                      autoPlay: true,
-                      autoPlayCurve: Curves.fastOutSlowIn,
-                      enableInfiniteScroll: true,
-                      // enlargeFactor: 0.3,
-                      scrollDirection: Axis.horizontal,
-                      autoPlayAnimationDuration:
-                          const Duration(milliseconds: 800),
-                      onPageChanged: (index, reason) {
-                        context
-                            .read<TravelBloc>()
-                            .add(ChangeBannerIndex(index: index));
-                      },
+                        Text(
+                          " ${data.price}",
+                          style: TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.w700,
+                            color: ColorManager.primary,
+                          ),
+                        ),
+                      ],
                     ),
                   );
                 },
@@ -869,8 +848,8 @@ class Carousel extends StatelessWidget {
             blendMode: BlendMode.darken,
             shaderCallback: (bounds) => LinearGradient(
               colors: [
-                Colors.black.withOpacity(0.4),
-                Colors.black.withOpacity(0.4)
+                Colors.black.withOpacity(0.2),
+                Colors.black.withOpacity(0.2)
               ],
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
@@ -879,7 +858,7 @@ class Carousel extends StatelessWidget {
               imageUrl: banner,
               boxFit: BoxFit.fill,
               width: SizeUtility(context).width,
-              height: 262,
+              // height: 262,
             ),
           ),
           Padding(

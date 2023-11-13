@@ -37,6 +37,7 @@ class TasbihBloc extends Bloc<TasbihEvent, TasbihState> {
         tasbihDhikr: event.dikr,
         tasbihDikrTranslate: event.translate,
         tasbihId: event.id));
+    print(state.tasbihDhikr);
   }
 
   _fetchDhikr(FetchDhikr event, Emitter<TasbihState> emit) async {

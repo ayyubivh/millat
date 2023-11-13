@@ -34,6 +34,7 @@ class TravelHomeView extends StatelessWidget {
       backgroundColor: ColorManager.whiteColor,
       body: BlocProvider(
         create: (context) => TravelBloc()
+          ..add(const TravelEvent.fetchTravelBanners())
           ..add(const TravelEvent.fetchTravelPopularProducts())
           ..add(const TravelEvent.fetchTravelCities())
           ..add(const TravelEvent.fetchBestPlacesProducts())

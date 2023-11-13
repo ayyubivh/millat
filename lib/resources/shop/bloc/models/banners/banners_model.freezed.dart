@@ -95,11 +95,11 @@ class _$BannersModelCopyWithImpl<$Res, $Val extends BannersModel>
 }
 
 /// @nodoc
-abstract class _$$_BanersModelCopyWith<$Res>
+abstract class _$$BanersModelImplCopyWith<$Res>
     implements $BannersModelCopyWith<$Res> {
-  factory _$$_BanersModelCopyWith(
-          _$_BanersModel value, $Res Function(_$_BanersModel) then) =
-      __$$_BanersModelCopyWithImpl<$Res>;
+  factory _$$BanersModelImplCopyWith(
+          _$BanersModelImpl value, $Res Function(_$BanersModelImpl) then) =
+      __$$BanersModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -110,11 +110,11 @@ abstract class _$$_BanersModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_BanersModelCopyWithImpl<$Res>
-    extends _$BannersModelCopyWithImpl<$Res, _$_BanersModel>
-    implements _$$_BanersModelCopyWith<$Res> {
-  __$$_BanersModelCopyWithImpl(
-      _$_BanersModel _value, $Res Function(_$_BanersModel) _then)
+class __$$BanersModelImplCopyWithImpl<$Res>
+    extends _$BannersModelCopyWithImpl<$Res, _$BanersModelImpl>
+    implements _$$BanersModelImplCopyWith<$Res> {
+  __$$BanersModelImplCopyWithImpl(
+      _$BanersModelImpl _value, $Res Function(_$BanersModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -125,7 +125,7 @@ class __$$_BanersModelCopyWithImpl<$Res>
     Object? error = freezed,
     Object? result = freezed,
   }) {
-    return _then(_$_BanersModel(
+    return _then(_$BanersModelImpl(
       status: freezed == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -148,15 +148,15 @@ class __$$_BanersModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_BanersModel implements _BanersModel {
-  const _$_BanersModel(
+class _$BanersModelImpl implements _BanersModel {
+  const _$BanersModelImpl(
       {required this.status,
       required this.message,
       required this.error,
       required this.result});
 
-  factory _$_BanersModel.fromJson(Map<String, dynamic> json) =>
-      _$$_BanersModelFromJson(json);
+  factory _$BanersModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$BanersModelImplFromJson(json);
 
   @override
   final int? status;
@@ -176,7 +176,7 @@ class _$_BanersModel implements _BanersModel {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_BanersModel &&
+            other is _$BanersModelImpl &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.message, message) || other.message == message) &&
             (identical(other.error, error) || other.error == error) &&
@@ -190,12 +190,12 @@ class _$_BanersModel implements _BanersModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_BanersModelCopyWith<_$_BanersModel> get copyWith =>
-      __$$_BanersModelCopyWithImpl<_$_BanersModel>(this, _$identity);
+  _$$BanersModelImplCopyWith<_$BanersModelImpl> get copyWith =>
+      __$$BanersModelImplCopyWithImpl<_$BanersModelImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_BanersModelToJson(
+    return _$$BanersModelImplToJson(
       this,
     );
   }
@@ -206,10 +206,10 @@ abstract class _BanersModel implements BannersModel {
       {required final int? status,
       required final String? message,
       required final String? error,
-      required final BannerResult? result}) = _$_BanersModel;
+      required final BannerResult? result}) = _$BanersModelImpl;
 
   factory _BanersModel.fromJson(Map<String, dynamic> json) =
-      _$_BanersModel.fromJson;
+      _$BanersModelImpl.fromJson;
 
   @override
   int? get status;
@@ -221,7 +221,7 @@ abstract class _BanersModel implements BannersModel {
   BannerResult? get result;
   @override
   @JsonKey(ignore: true)
-  _$$_BanersModelCopyWith<_$_BanersModel> get copyWith =>
+  _$$BanersModelImplCopyWith<_$BanersModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -273,22 +273,22 @@ class _$BannerResultCopyWithImpl<$Res, $Val extends BannerResult>
 }
 
 /// @nodoc
-abstract class _$$_BannerResultCopyWith<$Res>
+abstract class _$$BannerResultImplCopyWith<$Res>
     implements $BannerResultCopyWith<$Res> {
-  factory _$$_BannerResultCopyWith(
-          _$_BannerResult value, $Res Function(_$_BannerResult) then) =
-      __$$_BannerResultCopyWithImpl<$Res>;
+  factory _$$BannerResultImplCopyWith(
+          _$BannerResultImpl value, $Res Function(_$BannerResultImpl) then) =
+      __$$BannerResultImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<Banners>? banners});
 }
 
 /// @nodoc
-class __$$_BannerResultCopyWithImpl<$Res>
-    extends _$BannerResultCopyWithImpl<$Res, _$_BannerResult>
-    implements _$$_BannerResultCopyWith<$Res> {
-  __$$_BannerResultCopyWithImpl(
-      _$_BannerResult _value, $Res Function(_$_BannerResult) _then)
+class __$$BannerResultImplCopyWithImpl<$Res>
+    extends _$BannerResultCopyWithImpl<$Res, _$BannerResultImpl>
+    implements _$$BannerResultImplCopyWith<$Res> {
+  __$$BannerResultImplCopyWithImpl(
+      _$BannerResultImpl _value, $Res Function(_$BannerResultImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -296,7 +296,7 @@ class __$$_BannerResultCopyWithImpl<$Res>
   $Res call({
     Object? banners = freezed,
   }) {
-    return _then(_$_BannerResult(
+    return _then(_$BannerResultImpl(
       banners: freezed == banners
           ? _value._banners
           : banners // ignore: cast_nullable_to_non_nullable
@@ -307,12 +307,12 @@ class __$$_BannerResultCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_BannerResult implements _BannerResult {
-  const _$_BannerResult({required final List<Banners>? banners})
+class _$BannerResultImpl implements _BannerResult {
+  const _$BannerResultImpl({required final List<Banners>? banners})
       : _banners = banners;
 
-  factory _$_BannerResult.fromJson(Map<String, dynamic> json) =>
-      _$$_BannerResultFromJson(json);
+  factory _$BannerResultImpl.fromJson(Map<String, dynamic> json) =>
+      _$$BannerResultImplFromJson(json);
 
   final List<Banners>? _banners;
   @override
@@ -333,7 +333,7 @@ class _$_BannerResult implements _BannerResult {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_BannerResult &&
+            other is _$BannerResultImpl &&
             const DeepCollectionEquality().equals(other._banners, _banners));
   }
 
@@ -345,12 +345,12 @@ class _$_BannerResult implements _BannerResult {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_BannerResultCopyWith<_$_BannerResult> get copyWith =>
-      __$$_BannerResultCopyWithImpl<_$_BannerResult>(this, _$identity);
+  _$$BannerResultImplCopyWith<_$BannerResultImpl> get copyWith =>
+      __$$BannerResultImplCopyWithImpl<_$BannerResultImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_BannerResultToJson(
+    return _$$BannerResultImplToJson(
       this,
     );
   }
@@ -358,16 +358,16 @@ class _$_BannerResult implements _BannerResult {
 
 abstract class _BannerResult implements BannerResult {
   const factory _BannerResult({required final List<Banners>? banners}) =
-      _$_BannerResult;
+      _$BannerResultImpl;
 
   factory _BannerResult.fromJson(Map<String, dynamic> json) =
-      _$_BannerResult.fromJson;
+      _$BannerResultImpl.fromJson;
 
   @override
   List<Banners>? get banners;
   @override
   @JsonKey(ignore: true)
-  _$$_BannerResultCopyWith<_$_BannerResult> get copyWith =>
+  _$$BannerResultImplCopyWith<_$BannerResultImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -467,10 +467,10 @@ class _$BannersCopyWithImpl<$Res, $Val extends Banners>
 }
 
 /// @nodoc
-abstract class _$$_BannersCopyWith<$Res> implements $BannersCopyWith<$Res> {
-  factory _$$_BannersCopyWith(
-          _$_Banners value, $Res Function(_$_Banners) then) =
-      __$$_BannersCopyWithImpl<$Res>;
+abstract class _$$BannersImplCopyWith<$Res> implements $BannersCopyWith<$Res> {
+  factory _$$BannersImplCopyWith(
+          _$BannersImpl value, $Res Function(_$BannersImpl) then) =
+      __$$BannersImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -484,10 +484,11 @@ abstract class _$$_BannersCopyWith<$Res> implements $BannersCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_BannersCopyWithImpl<$Res>
-    extends _$BannersCopyWithImpl<$Res, _$_Banners>
-    implements _$$_BannersCopyWith<$Res> {
-  __$$_BannersCopyWithImpl(_$_Banners _value, $Res Function(_$_Banners) _then)
+class __$$BannersImplCopyWithImpl<$Res>
+    extends _$BannersCopyWithImpl<$Res, _$BannersImpl>
+    implements _$$BannersImplCopyWith<$Res> {
+  __$$BannersImplCopyWithImpl(
+      _$BannersImpl _value, $Res Function(_$BannersImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -501,7 +502,7 @@ class __$$_BannersCopyWithImpl<$Res>
     Object? createdAt = null,
     Object? updatedAt = null,
   }) {
-    return _then(_$_Banners(
+    return _then(_$BannersImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -536,8 +537,8 @@ class __$$_BannersCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Banners implements _Banners {
-  const _$_Banners(
+class _$BannersImpl implements _Banners {
+  const _$BannersImpl(
       {@JsonKey(name: "_id") required this.id,
       @JsonKey(name: "title") required this.title,
       @JsonKey(name: "slug") required this.slug,
@@ -546,8 +547,8 @@ class _$_Banners implements _Banners {
       @JsonKey(name: "createdAt") required this.createdAt,
       @JsonKey(name: "updatedAt") required this.updatedAt});
 
-  factory _$_Banners.fromJson(Map<String, dynamic> json) =>
-      _$$_BannersFromJson(json);
+  factory _$BannersImpl.fromJson(Map<String, dynamic> json) =>
+      _$$BannersImplFromJson(json);
 
   @override
   @JsonKey(name: "_id")
@@ -580,7 +581,7 @@ class _$_Banners implements _Banners {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Banners &&
+            other is _$BannersImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.slug, slug) || other.slug == slug) &&
@@ -600,12 +601,12 @@ class _$_Banners implements _Banners {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_BannersCopyWith<_$_Banners> get copyWith =>
-      __$$_BannersCopyWithImpl<_$_Banners>(this, _$identity);
+  _$$BannersImplCopyWith<_$BannersImpl> get copyWith =>
+      __$$BannersImplCopyWithImpl<_$BannersImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_BannersToJson(
+    return _$$BannersImplToJson(
       this,
     );
   }
@@ -620,9 +621,9 @@ abstract class _Banners implements Banners {
           @JsonKey(name: "url") required final String url,
           @JsonKey(name: "createdAt") required final String createdAt,
           @JsonKey(name: "updatedAt") required final String updatedAt}) =
-      _$_Banners;
+      _$BannersImpl;
 
-  factory _Banners.fromJson(Map<String, dynamic> json) = _$_Banners.fromJson;
+  factory _Banners.fromJson(Map<String, dynamic> json) = _$BannersImpl.fromJson;
 
   @override
   @JsonKey(name: "_id")
@@ -647,6 +648,6 @@ abstract class _Banners implements Banners {
   String get updatedAt;
   @override
   @JsonKey(ignore: true)
-  _$$_BannersCopyWith<_$_Banners> get copyWith =>
+  _$$BannersImplCopyWith<_$BannersImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

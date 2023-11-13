@@ -6,20 +6,20 @@ part of 'travel_products_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_TravelProductsModel _$$_TravelProductsModelFromJson(
+_$TravelProductsModelImpl _$$TravelProductsModelImplFromJson(
         Map<String, dynamic> json) =>
-    _$_TravelProductsModel(
+    _$TravelProductsModelImpl(
       product: TravelProduct.fromJson(json['product'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$_TravelProductsModelToJson(
-        _$_TravelProductsModel instance) =>
+Map<String, dynamic> _$$TravelProductsModelImplToJson(
+        _$TravelProductsModelImpl instance) =>
     <String, dynamic>{
       'product': instance.product,
     };
 
-_$_TravelProduct _$$_TravelProductFromJson(Map<String, dynamic> json) =>
-    _$_TravelProduct(
+_$TravelProductImpl _$$TravelProductImplFromJson(Map<String, dynamic> json) =>
+    _$TravelProductImpl(
       id: json['_id'] as String?,
       images:
           (json['images'] as List<dynamic>?)?.map((e) => e as String).toList(),
@@ -42,7 +42,7 @@ _$_TravelProduct _$$_TravelProductFromJson(Map<String, dynamic> json) =>
           (json['reviews'] as List<dynamic>?)?.map((e) => e as String).toList(),
     );
 
-Map<String, dynamic> _$$_TravelProductToJson(_$_TravelProduct instance) =>
+Map<String, dynamic> _$$TravelProductImplToJson(_$TravelProductImpl instance) =>
     <String, dynamic>{
       '_id': instance.id,
       'images': instance.images,
@@ -62,9 +62,9 @@ Map<String, dynamic> _$$_TravelProductToJson(_$_TravelProduct instance) =>
       'reviews': instance.reviews,
     };
 
-_$_TravelPackageItems _$$_TravelPackageItemsFromJson(
+_$TravelPackageItemsImpl _$$TravelPackageItemsImplFromJson(
         Map<String, dynamic> json) =>
-    _$_TravelPackageItems(
+    _$TravelPackageItemsImpl(
       id: json['_id'] as String?,
       images:
           (json['images'] as List<dynamic>?)?.map((e) => e as String).toList(),
@@ -74,7 +74,7 @@ _$_TravelPackageItems _$$_TravelPackageItemsFromJson(
       amenities: (json['amenities'] as List<dynamic>?)
           ?.map((e) => e as String)
           .toList(),
-      price: json['price'] as String?,
+      price: (json['price'] as num?)?.toDouble(),
       mainImage: json['main_image'] as String?,
       overview: json['over_view'] as String?,
       country: json['country'] as String?,
@@ -85,8 +85,8 @@ _$_TravelPackageItems _$$_TravelPackageItemsFromJson(
       v: json['v'] as int?,
     );
 
-Map<String, dynamic> _$$_TravelPackageItemsToJson(
-        _$_TravelPackageItems instance) =>
+Map<String, dynamic> _$$TravelPackageItemsImplToJson(
+        _$TravelPackageItemsImpl instance) =>
     <String, dynamic>{
       '_id': instance.id,
       'images': instance.images,

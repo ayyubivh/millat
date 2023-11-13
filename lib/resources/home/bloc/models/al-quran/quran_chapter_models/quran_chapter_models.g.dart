@@ -6,19 +6,20 @@ part of 'quran_chapter_models.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_QuranChapters _$$_QuranChaptersFromJson(Map<String, dynamic> json) =>
-    _$_QuranChapters(
+_$QuranChaptersImpl _$$QuranChaptersImplFromJson(Map<String, dynamic> json) =>
+    _$QuranChaptersImpl(
       chapters: (json['chapters'] as List<dynamic>)
           .map((e) => Chapters.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
-Map<String, dynamic> _$$_QuranChaptersToJson(_$_QuranChapters instance) =>
+Map<String, dynamic> _$$QuranChaptersImplToJson(_$QuranChaptersImpl instance) =>
     <String, dynamic>{
       'chapters': instance.chapters,
     };
 
-_$_Chapters _$$_ChaptersFromJson(Map<String, dynamic> json) => _$_Chapters(
+_$ChaptersImpl _$$ChaptersImplFromJson(Map<String, dynamic> json) =>
+    _$ChaptersImpl(
       id: json['id'] as int,
       revelatioPlace: json['revelation_place'] as String,
       revelationOrder: json['revelation_order'] as int,
@@ -32,7 +33,7 @@ _$_Chapters _$$_ChaptersFromJson(Map<String, dynamic> json) => _$_Chapters(
       pages: (json['pages'] as List<dynamic>).map((e) => e as int).toList(),
     );
 
-Map<String, dynamic> _$$_ChaptersToJson(_$_Chapters instance) =>
+Map<String, dynamic> _$$ChaptersImplToJson(_$ChaptersImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'revelation_place': instance.revelatioPlace,
@@ -46,8 +47,9 @@ Map<String, dynamic> _$$_ChaptersToJson(_$_Chapters instance) =>
       'pages': instance.pages,
     };
 
-_$_TranslatedName _$$_TranslatedNameFromJson(Map<String, dynamic> json) =>
-    _$_TranslatedName();
+_$TranslatedNameImpl _$$TranslatedNameImplFromJson(Map<String, dynamic> json) =>
+    _$TranslatedNameImpl();
 
-Map<String, dynamic> _$$_TranslatedNameToJson(_$_TranslatedName instance) =>
+Map<String, dynamic> _$$TranslatedNameImplToJson(
+        _$TranslatedNameImpl instance) =>
     <String, dynamic>{};

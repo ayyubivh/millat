@@ -62,22 +62,22 @@ class _$QuranParaModelCopyWithImpl<$Res, $Val extends QuranParaModel>
 }
 
 /// @nodoc
-abstract class _$$_QuranParaModelCopyWith<$Res>
+abstract class _$$QuranParaModelImplCopyWith<$Res>
     implements $QuranParaModelCopyWith<$Res> {
-  factory _$$_QuranParaModelCopyWith(
-          _$_QuranParaModel value, $Res Function(_$_QuranParaModel) then) =
-      __$$_QuranParaModelCopyWithImpl<$Res>;
+  factory _$$QuranParaModelImplCopyWith(_$QuranParaModelImpl value,
+          $Res Function(_$QuranParaModelImpl) then) =
+      __$$QuranParaModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<Juzs> juzs});
 }
 
 /// @nodoc
-class __$$_QuranParaModelCopyWithImpl<$Res>
-    extends _$QuranParaModelCopyWithImpl<$Res, _$_QuranParaModel>
-    implements _$$_QuranParaModelCopyWith<$Res> {
-  __$$_QuranParaModelCopyWithImpl(
-      _$_QuranParaModel _value, $Res Function(_$_QuranParaModel) _then)
+class __$$QuranParaModelImplCopyWithImpl<$Res>
+    extends _$QuranParaModelCopyWithImpl<$Res, _$QuranParaModelImpl>
+    implements _$$QuranParaModelImplCopyWith<$Res> {
+  __$$QuranParaModelImplCopyWithImpl(
+      _$QuranParaModelImpl _value, $Res Function(_$QuranParaModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -85,7 +85,7 @@ class __$$_QuranParaModelCopyWithImpl<$Res>
   $Res call({
     Object? juzs = null,
   }) {
-    return _then(_$_QuranParaModel(
+    return _then(_$QuranParaModelImpl(
       juzs: null == juzs
           ? _value._juzs
           : juzs // ignore: cast_nullable_to_non_nullable
@@ -96,11 +96,11 @@ class __$$_QuranParaModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_QuranParaModel implements _QuranParaModel {
-  const _$_QuranParaModel({required final List<Juzs> juzs}) : _juzs = juzs;
+class _$QuranParaModelImpl implements _QuranParaModel {
+  const _$QuranParaModelImpl({required final List<Juzs> juzs}) : _juzs = juzs;
 
-  factory _$_QuranParaModel.fromJson(Map<String, dynamic> json) =>
-      _$$_QuranParaModelFromJson(json);
+  factory _$QuranParaModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$QuranParaModelImplFromJson(json);
 
   final List<Juzs> _juzs;
   @override
@@ -119,7 +119,7 @@ class _$_QuranParaModel implements _QuranParaModel {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_QuranParaModel &&
+            other is _$QuranParaModelImpl &&
             const DeepCollectionEquality().equals(other._juzs, _juzs));
   }
 
@@ -131,12 +131,13 @@ class _$_QuranParaModel implements _QuranParaModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_QuranParaModelCopyWith<_$_QuranParaModel> get copyWith =>
-      __$$_QuranParaModelCopyWithImpl<_$_QuranParaModel>(this, _$identity);
+  _$$QuranParaModelImplCopyWith<_$QuranParaModelImpl> get copyWith =>
+      __$$QuranParaModelImplCopyWithImpl<_$QuranParaModelImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_QuranParaModelToJson(
+    return _$$QuranParaModelImplToJson(
       this,
     );
   }
@@ -144,16 +145,16 @@ class _$_QuranParaModel implements _QuranParaModel {
 
 abstract class _QuranParaModel implements QuranParaModel {
   const factory _QuranParaModel({required final List<Juzs> juzs}) =
-      _$_QuranParaModel;
+      _$QuranParaModelImpl;
 
   factory _QuranParaModel.fromJson(Map<String, dynamic> json) =
-      _$_QuranParaModel.fromJson;
+      _$QuranParaModelImpl.fromJson;
 
   @override
   List<Juzs> get juzs;
   @override
   @JsonKey(ignore: true)
-  _$$_QuranParaModelCopyWith<_$_QuranParaModel> get copyWith =>
+  _$$QuranParaModelImplCopyWith<_$QuranParaModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -244,9 +245,10 @@ class _$JuzsCopyWithImpl<$Res, $Val extends Juzs>
 }
 
 /// @nodoc
-abstract class _$$_JuzsCopyWith<$Res> implements $JuzsCopyWith<$Res> {
-  factory _$$_JuzsCopyWith(_$_Juzs value, $Res Function(_$_Juzs) then) =
-      __$$_JuzsCopyWithImpl<$Res>;
+abstract class _$$JuzsImplCopyWith<$Res> implements $JuzsCopyWith<$Res> {
+  factory _$$JuzsImplCopyWith(
+          _$JuzsImpl value, $Res Function(_$JuzsImpl) then) =
+      __$$JuzsImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -259,9 +261,10 @@ abstract class _$$_JuzsCopyWith<$Res> implements $JuzsCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_JuzsCopyWithImpl<$Res> extends _$JuzsCopyWithImpl<$Res, _$_Juzs>
-    implements _$$_JuzsCopyWith<$Res> {
-  __$$_JuzsCopyWithImpl(_$_Juzs _value, $Res Function(_$_Juzs) _then)
+class __$$JuzsImplCopyWithImpl<$Res>
+    extends _$JuzsCopyWithImpl<$Res, _$JuzsImpl>
+    implements _$$JuzsImplCopyWith<$Res> {
+  __$$JuzsImplCopyWithImpl(_$JuzsImpl _value, $Res Function(_$JuzsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -274,7 +277,7 @@ class __$$_JuzsCopyWithImpl<$Res> extends _$JuzsCopyWithImpl<$Res, _$_Juzs>
     Object? lastVerseId = freezed,
     Object? versesCount = freezed,
   }) {
-    return _then(_$_Juzs(
+    return _then(_$JuzsImpl(
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -305,8 +308,8 @@ class __$$_JuzsCopyWithImpl<$Res> extends _$JuzsCopyWithImpl<$Res, _$_Juzs>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Juzs implements _Juzs {
-  const _$_Juzs(
+class _$JuzsImpl implements _Juzs {
+  const _$JuzsImpl(
       {this.id,
       @JsonKey(name: 'juz_number') this.juzNumber,
       @JsonKey(name: 'verse_mapping') final Map<String, String>? verseMapping,
@@ -315,7 +318,8 @@ class _$_Juzs implements _Juzs {
       @JsonKey(name: 'verses_count') this.versesCount})
       : _verseMapping = verseMapping;
 
-  factory _$_Juzs.fromJson(Map<String, dynamic> json) => _$$_JuzsFromJson(json);
+  factory _$JuzsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$JuzsImplFromJson(json);
 
   @override
   final int? id;
@@ -352,7 +356,7 @@ class _$_Juzs implements _Juzs {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Juzs &&
+            other is _$JuzsImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.juzNumber, juzNumber) ||
                 other.juzNumber == juzNumber) &&
@@ -380,12 +384,12 @@ class _$_Juzs implements _Juzs {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_JuzsCopyWith<_$_Juzs> get copyWith =>
-      __$$_JuzsCopyWithImpl<_$_Juzs>(this, _$identity);
+  _$$JuzsImplCopyWith<_$JuzsImpl> get copyWith =>
+      __$$JuzsImplCopyWithImpl<_$JuzsImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_JuzsToJson(
+    return _$$JuzsImplToJson(
       this,
     );
   }
@@ -398,9 +402,9 @@ abstract class _Juzs implements Juzs {
       @JsonKey(name: 'verse_mapping') final Map<String, String>? verseMapping,
       @JsonKey(name: 'first_verse_id') final int? firstVerseId,
       @JsonKey(name: 'last_verse_id') final int? lastVerseId,
-      @JsonKey(name: 'verses_count') final int? versesCount}) = _$_Juzs;
+      @JsonKey(name: 'verses_count') final int? versesCount}) = _$JuzsImpl;
 
-  factory _Juzs.fromJson(Map<String, dynamic> json) = _$_Juzs.fromJson;
+  factory _Juzs.fromJson(Map<String, dynamic> json) = _$JuzsImpl.fromJson;
 
   @override
   int? get id;
@@ -421,5 +425,6 @@ abstract class _Juzs implements Juzs {
   int? get versesCount;
   @override
   @JsonKey(ignore: true)
-  _$$_JuzsCopyWith<_$_Juzs> get copyWith => throw _privateConstructorUsedError;
+  _$$JuzsImplCopyWith<_$JuzsImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

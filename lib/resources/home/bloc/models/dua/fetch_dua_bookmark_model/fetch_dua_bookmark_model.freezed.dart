@@ -94,11 +94,11 @@ class _$DuaBookMarkModelCopyWithImpl<$Res, $Val extends DuaBookMarkModel>
 }
 
 /// @nodoc
-abstract class _$$_DuaBookMarkModelCopyWith<$Res>
+abstract class _$$DuaBookMarkModelImplCopyWith<$Res>
     implements $DuaBookMarkModelCopyWith<$Res> {
-  factory _$$_DuaBookMarkModelCopyWith(
-          _$_DuaBookMarkModel value, $Res Function(_$_DuaBookMarkModel) then) =
-      __$$_DuaBookMarkModelCopyWithImpl<$Res>;
+  factory _$$DuaBookMarkModelImplCopyWith(_$DuaBookMarkModelImpl value,
+          $Res Function(_$DuaBookMarkModelImpl) then) =
+      __$$DuaBookMarkModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int status, String message, String? error, BookmarksData? result});
@@ -108,11 +108,11 @@ abstract class _$$_DuaBookMarkModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_DuaBookMarkModelCopyWithImpl<$Res>
-    extends _$DuaBookMarkModelCopyWithImpl<$Res, _$_DuaBookMarkModel>
-    implements _$$_DuaBookMarkModelCopyWith<$Res> {
-  __$$_DuaBookMarkModelCopyWithImpl(
-      _$_DuaBookMarkModel _value, $Res Function(_$_DuaBookMarkModel) _then)
+class __$$DuaBookMarkModelImplCopyWithImpl<$Res>
+    extends _$DuaBookMarkModelCopyWithImpl<$Res, _$DuaBookMarkModelImpl>
+    implements _$$DuaBookMarkModelImplCopyWith<$Res> {
+  __$$DuaBookMarkModelImplCopyWithImpl(_$DuaBookMarkModelImpl _value,
+      $Res Function(_$DuaBookMarkModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -123,7 +123,7 @@ class __$$_DuaBookMarkModelCopyWithImpl<$Res>
     Object? error = freezed,
     Object? result = freezed,
   }) {
-    return _then(_$_DuaBookMarkModel(
+    return _then(_$DuaBookMarkModelImpl(
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -146,15 +146,15 @@ class __$$_DuaBookMarkModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_DuaBookMarkModel implements _DuaBookMarkModel {
-  const _$_DuaBookMarkModel(
+class _$DuaBookMarkModelImpl implements _DuaBookMarkModel {
+  const _$DuaBookMarkModelImpl(
       {required this.status,
       required this.message,
       required this.error,
       required this.result});
 
-  factory _$_DuaBookMarkModel.fromJson(Map<String, dynamic> json) =>
-      _$$_DuaBookMarkModelFromJson(json);
+  factory _$DuaBookMarkModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$DuaBookMarkModelImplFromJson(json);
 
   @override
   final int status;
@@ -174,7 +174,7 @@ class _$_DuaBookMarkModel implements _DuaBookMarkModel {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DuaBookMarkModel &&
+            other is _$DuaBookMarkModelImpl &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.message, message) || other.message == message) &&
             (identical(other.error, error) || other.error == error) &&
@@ -188,12 +188,13 @@ class _$_DuaBookMarkModel implements _DuaBookMarkModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DuaBookMarkModelCopyWith<_$_DuaBookMarkModel> get copyWith =>
-      __$$_DuaBookMarkModelCopyWithImpl<_$_DuaBookMarkModel>(this, _$identity);
+  _$$DuaBookMarkModelImplCopyWith<_$DuaBookMarkModelImpl> get copyWith =>
+      __$$DuaBookMarkModelImplCopyWithImpl<_$DuaBookMarkModelImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_DuaBookMarkModelToJson(
+    return _$$DuaBookMarkModelImplToJson(
       this,
     );
   }
@@ -204,10 +205,10 @@ abstract class _DuaBookMarkModel implements DuaBookMarkModel {
       {required final int status,
       required final String message,
       required final String? error,
-      required final BookmarksData? result}) = _$_DuaBookMarkModel;
+      required final BookmarksData? result}) = _$DuaBookMarkModelImpl;
 
   factory _DuaBookMarkModel.fromJson(Map<String, dynamic> json) =
-      _$_DuaBookMarkModel.fromJson;
+      _$DuaBookMarkModelImpl.fromJson;
 
   @override
   int get status;
@@ -219,7 +220,7 @@ abstract class _DuaBookMarkModel implements DuaBookMarkModel {
   BookmarksData? get result;
   @override
   @JsonKey(ignore: true)
-  _$$_DuaBookMarkModelCopyWith<_$_DuaBookMarkModel> get copyWith =>
+  _$$DuaBookMarkModelImplCopyWith<_$DuaBookMarkModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -271,22 +272,22 @@ class _$BookmarksDataCopyWithImpl<$Res, $Val extends BookmarksData>
 }
 
 /// @nodoc
-abstract class _$$_BookmarksDataCopyWith<$Res>
+abstract class _$$BookmarksDataImplCopyWith<$Res>
     implements $BookmarksDataCopyWith<$Res> {
-  factory _$$_BookmarksDataCopyWith(
-          _$_BookmarksData value, $Res Function(_$_BookmarksData) then) =
-      __$$_BookmarksDataCopyWithImpl<$Res>;
+  factory _$$BookmarksDataImplCopyWith(
+          _$BookmarksDataImpl value, $Res Function(_$BookmarksDataImpl) then) =
+      __$$BookmarksDataImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<Bookmarks> bookmarks});
 }
 
 /// @nodoc
-class __$$_BookmarksDataCopyWithImpl<$Res>
-    extends _$BookmarksDataCopyWithImpl<$Res, _$_BookmarksData>
-    implements _$$_BookmarksDataCopyWith<$Res> {
-  __$$_BookmarksDataCopyWithImpl(
-      _$_BookmarksData _value, $Res Function(_$_BookmarksData) _then)
+class __$$BookmarksDataImplCopyWithImpl<$Res>
+    extends _$BookmarksDataCopyWithImpl<$Res, _$BookmarksDataImpl>
+    implements _$$BookmarksDataImplCopyWith<$Res> {
+  __$$BookmarksDataImplCopyWithImpl(
+      _$BookmarksDataImpl _value, $Res Function(_$BookmarksDataImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -294,7 +295,7 @@ class __$$_BookmarksDataCopyWithImpl<$Res>
   $Res call({
     Object? bookmarks = null,
   }) {
-    return _then(_$_BookmarksData(
+    return _then(_$BookmarksDataImpl(
       bookmarks: null == bookmarks
           ? _value._bookmarks
           : bookmarks // ignore: cast_nullable_to_non_nullable
@@ -305,12 +306,12 @@ class __$$_BookmarksDataCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_BookmarksData implements _BookmarksData {
-  const _$_BookmarksData({required final List<Bookmarks> bookmarks})
+class _$BookmarksDataImpl implements _BookmarksData {
+  const _$BookmarksDataImpl({required final List<Bookmarks> bookmarks})
       : _bookmarks = bookmarks;
 
-  factory _$_BookmarksData.fromJson(Map<String, dynamic> json) =>
-      _$$_BookmarksDataFromJson(json);
+  factory _$BookmarksDataImpl.fromJson(Map<String, dynamic> json) =>
+      _$$BookmarksDataImplFromJson(json);
 
   final List<Bookmarks> _bookmarks;
   @override
@@ -329,7 +330,7 @@ class _$_BookmarksData implements _BookmarksData {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_BookmarksData &&
+            other is _$BookmarksDataImpl &&
             const DeepCollectionEquality()
                 .equals(other._bookmarks, _bookmarks));
   }
@@ -342,12 +343,12 @@ class _$_BookmarksData implements _BookmarksData {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_BookmarksDataCopyWith<_$_BookmarksData> get copyWith =>
-      __$$_BookmarksDataCopyWithImpl<_$_BookmarksData>(this, _$identity);
+  _$$BookmarksDataImplCopyWith<_$BookmarksDataImpl> get copyWith =>
+      __$$BookmarksDataImplCopyWithImpl<_$BookmarksDataImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_BookmarksDataToJson(
+    return _$$BookmarksDataImplToJson(
       this,
     );
   }
@@ -355,16 +356,16 @@ class _$_BookmarksData implements _BookmarksData {
 
 abstract class _BookmarksData implements BookmarksData {
   const factory _BookmarksData({required final List<Bookmarks> bookmarks}) =
-      _$_BookmarksData;
+      _$BookmarksDataImpl;
 
   factory _BookmarksData.fromJson(Map<String, dynamic> json) =
-      _$_BookmarksData.fromJson;
+      _$BookmarksDataImpl.fromJson;
 
   @override
   List<Bookmarks> get bookmarks;
   @override
   @JsonKey(ignore: true)
-  _$$_BookmarksDataCopyWith<_$_BookmarksData> get copyWith =>
+  _$$BookmarksDataImplCopyWith<_$BookmarksDataImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -445,10 +446,11 @@ class _$BookmarksCopyWithImpl<$Res, $Val extends Bookmarks>
 }
 
 /// @nodoc
-abstract class _$$_BookmarksCopyWith<$Res> implements $BookmarksCopyWith<$Res> {
-  factory _$$_BookmarksCopyWith(
-          _$_Bookmarks value, $Res Function(_$_Bookmarks) then) =
-      __$$_BookmarksCopyWithImpl<$Res>;
+abstract class _$$BookmarksImplCopyWith<$Res>
+    implements $BookmarksCopyWith<$Res> {
+  factory _$$BookmarksImplCopyWith(
+          _$BookmarksImpl value, $Res Function(_$BookmarksImpl) then) =
+      __$$BookmarksImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -460,11 +462,11 @@ abstract class _$$_BookmarksCopyWith<$Res> implements $BookmarksCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_BookmarksCopyWithImpl<$Res>
-    extends _$BookmarksCopyWithImpl<$Res, _$_Bookmarks>
-    implements _$$_BookmarksCopyWith<$Res> {
-  __$$_BookmarksCopyWithImpl(
-      _$_Bookmarks _value, $Res Function(_$_Bookmarks) _then)
+class __$$BookmarksImplCopyWithImpl<$Res>
+    extends _$BookmarksCopyWithImpl<$Res, _$BookmarksImpl>
+    implements _$$BookmarksImplCopyWith<$Res> {
+  __$$BookmarksImplCopyWithImpl(
+      _$BookmarksImpl _value, $Res Function(_$BookmarksImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -476,7 +478,7 @@ class __$$_BookmarksCopyWithImpl<$Res>
     Object? createdAt = null,
     Object? updatedAt = null,
   }) {
-    return _then(_$_Bookmarks(
+    return _then(_$BookmarksImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -503,8 +505,8 @@ class __$$_BookmarksCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Bookmarks implements _Bookmarks {
-  const _$_Bookmarks(
+class _$BookmarksImpl implements _Bookmarks {
+  const _$BookmarksImpl(
       {@JsonKey(name: "_id") required this.id,
       required this.userId,
       required final List<Bookmark> bookmarks,
@@ -512,8 +514,8 @@ class _$_Bookmarks implements _Bookmarks {
       required this.updatedAt})
       : _bookmarks = bookmarks;
 
-  factory _$_Bookmarks.fromJson(Map<String, dynamic> json) =>
-      _$$_BookmarksFromJson(json);
+  factory _$BookmarksImpl.fromJson(Map<String, dynamic> json) =>
+      _$$BookmarksImplFromJson(json);
 
   @override
   @JsonKey(name: "_id")
@@ -542,7 +544,7 @@ class _$_Bookmarks implements _Bookmarks {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Bookmarks &&
+            other is _$BookmarksImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.userId, userId) || other.userId == userId) &&
             const DeepCollectionEquality()
@@ -561,12 +563,12 @@ class _$_Bookmarks implements _Bookmarks {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_BookmarksCopyWith<_$_Bookmarks> get copyWith =>
-      __$$_BookmarksCopyWithImpl<_$_Bookmarks>(this, _$identity);
+  _$$BookmarksImplCopyWith<_$BookmarksImpl> get copyWith =>
+      __$$BookmarksImplCopyWithImpl<_$BookmarksImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_BookmarksToJson(
+    return _$$BookmarksImplToJson(
       this,
     );
   }
@@ -578,10 +580,10 @@ abstract class _Bookmarks implements Bookmarks {
       required final String userId,
       required final List<Bookmark> bookmarks,
       required final DateTime createdAt,
-      required final DateTime updatedAt}) = _$_Bookmarks;
+      required final DateTime updatedAt}) = _$BookmarksImpl;
 
   factory _Bookmarks.fromJson(Map<String, dynamic> json) =
-      _$_Bookmarks.fromJson;
+      _$BookmarksImpl.fromJson;
 
   @override
   @JsonKey(name: "_id")
@@ -596,7 +598,7 @@ abstract class _Bookmarks implements Bookmarks {
   DateTime get updatedAt;
   @override
   @JsonKey(ignore: true)
-  _$$_BookmarksCopyWith<_$_Bookmarks> get copyWith =>
+  _$$BookmarksImplCopyWith<_$BookmarksImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -660,21 +662,22 @@ class _$BookmarkCopyWithImpl<$Res, $Val extends Bookmark>
 }
 
 /// @nodoc
-abstract class _$$_BookmarkCopyWith<$Res> implements $BookmarkCopyWith<$Res> {
-  factory _$$_BookmarkCopyWith(
-          _$_Bookmark value, $Res Function(_$_Bookmark) then) =
-      __$$_BookmarkCopyWithImpl<$Res>;
+abstract class _$$BookmarkImplCopyWith<$Res>
+    implements $BookmarkCopyWith<$Res> {
+  factory _$$BookmarkImplCopyWith(
+          _$BookmarkImpl value, $Res Function(_$BookmarkImpl) then) =
+      __$$BookmarkImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String duaId, DateTime markedAt, @JsonKey(name: "_id") String id});
 }
 
 /// @nodoc
-class __$$_BookmarkCopyWithImpl<$Res>
-    extends _$BookmarkCopyWithImpl<$Res, _$_Bookmark>
-    implements _$$_BookmarkCopyWith<$Res> {
-  __$$_BookmarkCopyWithImpl(
-      _$_Bookmark _value, $Res Function(_$_Bookmark) _then)
+class __$$BookmarkImplCopyWithImpl<$Res>
+    extends _$BookmarkCopyWithImpl<$Res, _$BookmarkImpl>
+    implements _$$BookmarkImplCopyWith<$Res> {
+  __$$BookmarkImplCopyWithImpl(
+      _$BookmarkImpl _value, $Res Function(_$BookmarkImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -684,7 +687,7 @@ class __$$_BookmarkCopyWithImpl<$Res>
     Object? markedAt = null,
     Object? id = null,
   }) {
-    return _then(_$_Bookmark(
+    return _then(_$BookmarkImpl(
       duaId: null == duaId
           ? _value.duaId
           : duaId // ignore: cast_nullable_to_non_nullable
@@ -703,14 +706,14 @@ class __$$_BookmarkCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Bookmark implements _Bookmark {
-  const _$_Bookmark(
+class _$BookmarkImpl implements _Bookmark {
+  const _$BookmarkImpl(
       {required this.duaId,
       required this.markedAt,
       @JsonKey(name: "_id") required this.id});
 
-  factory _$_Bookmark.fromJson(Map<String, dynamic> json) =>
-      _$$_BookmarkFromJson(json);
+  factory _$BookmarkImpl.fromJson(Map<String, dynamic> json) =>
+      _$$BookmarkImplFromJson(json);
 
   @override
   final String duaId;
@@ -729,7 +732,7 @@ class _$_Bookmark implements _Bookmark {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Bookmark &&
+            other is _$BookmarkImpl &&
             (identical(other.duaId, duaId) || other.duaId == duaId) &&
             (identical(other.markedAt, markedAt) ||
                 other.markedAt == markedAt) &&
@@ -743,12 +746,12 @@ class _$_Bookmark implements _Bookmark {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_BookmarkCopyWith<_$_Bookmark> get copyWith =>
-      __$$_BookmarkCopyWithImpl<_$_Bookmark>(this, _$identity);
+  _$$BookmarkImplCopyWith<_$BookmarkImpl> get copyWith =>
+      __$$BookmarkImplCopyWithImpl<_$BookmarkImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_BookmarkToJson(
+    return _$$BookmarkImplToJson(
       this,
     );
   }
@@ -758,9 +761,10 @@ abstract class _Bookmark implements Bookmark {
   const factory _Bookmark(
       {required final String duaId,
       required final DateTime markedAt,
-      @JsonKey(name: "_id") required final String id}) = _$_Bookmark;
+      @JsonKey(name: "_id") required final String id}) = _$BookmarkImpl;
 
-  factory _Bookmark.fromJson(Map<String, dynamic> json) = _$_Bookmark.fromJson;
+  factory _Bookmark.fromJson(Map<String, dynamic> json) =
+      _$BookmarkImpl.fromJson;
 
   @override
   String get duaId;
@@ -771,6 +775,6 @@ abstract class _Bookmark implements Bookmark {
   String get id;
   @override
   @JsonKey(ignore: true)
-  _$$_BookmarkCopyWith<_$_Bookmark> get copyWith =>
+  _$$BookmarkImplCopyWith<_$BookmarkImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

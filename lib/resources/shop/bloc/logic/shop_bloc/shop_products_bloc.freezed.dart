@@ -524,20 +524,22 @@ class _$ShopProductsEventCopyWithImpl<$Res, $Val extends ShopProductsEvent>
 }
 
 /// @nodoc
-abstract class _$$FetchFlashSaleProductsCopyWith<$Res> {
-  factory _$$FetchFlashSaleProductsCopyWith(_$FetchFlashSaleProducts value,
-          $Res Function(_$FetchFlashSaleProducts) then) =
-      __$$FetchFlashSaleProductsCopyWithImpl<$Res>;
+abstract class _$$FetchFlashSaleProductsImplCopyWith<$Res> {
+  factory _$$FetchFlashSaleProductsImplCopyWith(
+          _$FetchFlashSaleProductsImpl value,
+          $Res Function(_$FetchFlashSaleProductsImpl) then) =
+      __$$FetchFlashSaleProductsImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String endPointSlug});
 }
 
 /// @nodoc
-class __$$FetchFlashSaleProductsCopyWithImpl<$Res>
-    extends _$ShopProductsEventCopyWithImpl<$Res, _$FetchFlashSaleProducts>
-    implements _$$FetchFlashSaleProductsCopyWith<$Res> {
-  __$$FetchFlashSaleProductsCopyWithImpl(_$FetchFlashSaleProducts _value,
-      $Res Function(_$FetchFlashSaleProducts) _then)
+class __$$FetchFlashSaleProductsImplCopyWithImpl<$Res>
+    extends _$ShopProductsEventCopyWithImpl<$Res, _$FetchFlashSaleProductsImpl>
+    implements _$$FetchFlashSaleProductsImplCopyWith<$Res> {
+  __$$FetchFlashSaleProductsImplCopyWithImpl(
+      _$FetchFlashSaleProductsImpl _value,
+      $Res Function(_$FetchFlashSaleProductsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -545,7 +547,7 @@ class __$$FetchFlashSaleProductsCopyWithImpl<$Res>
   $Res call({
     Object? endPointSlug = null,
   }) {
-    return _then(_$FetchFlashSaleProducts(
+    return _then(_$FetchFlashSaleProductsImpl(
       endPointSlug: null == endPointSlug
           ? _value.endPointSlug
           : endPointSlug // ignore: cast_nullable_to_non_nullable
@@ -556,8 +558,8 @@ class __$$FetchFlashSaleProductsCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FetchFlashSaleProducts implements FetchFlashSaleProducts {
-  const _$FetchFlashSaleProducts({required this.endPointSlug});
+class _$FetchFlashSaleProductsImpl implements FetchFlashSaleProducts {
+  const _$FetchFlashSaleProductsImpl({required this.endPointSlug});
 
   @override
   final String endPointSlug;
@@ -571,7 +573,7 @@ class _$FetchFlashSaleProducts implements FetchFlashSaleProducts {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FetchFlashSaleProducts &&
+            other is _$FetchFlashSaleProductsImpl &&
             (identical(other.endPointSlug, endPointSlug) ||
                 other.endPointSlug == endPointSlug));
   }
@@ -582,9 +584,9 @@ class _$FetchFlashSaleProducts implements FetchFlashSaleProducts {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FetchFlashSaleProductsCopyWith<_$FetchFlashSaleProducts> get copyWith =>
-      __$$FetchFlashSaleProductsCopyWithImpl<_$FetchFlashSaleProducts>(
-          this, _$identity);
+  _$$FetchFlashSaleProductsImplCopyWith<_$FetchFlashSaleProductsImpl>
+      get copyWith => __$$FetchFlashSaleProductsImplCopyWithImpl<
+          _$FetchFlashSaleProductsImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1100,29 +1102,29 @@ class _$FetchFlashSaleProducts implements FetchFlashSaleProducts {
 
 abstract class FetchFlashSaleProducts implements ShopProductsEvent {
   const factory FetchFlashSaleProducts({required final String endPointSlug}) =
-      _$FetchFlashSaleProducts;
+      _$FetchFlashSaleProductsImpl;
 
   String get endPointSlug;
   @JsonKey(ignore: true)
-  _$$FetchFlashSaleProductsCopyWith<_$FetchFlashSaleProducts> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$FetchFlashSaleProductsImplCopyWith<_$FetchFlashSaleProductsImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$FetchPopularProductsCopyWith<$Res> {
-  factory _$$FetchPopularProductsCopyWith(_$FetchPopularProducts value,
-          $Res Function(_$FetchPopularProducts) then) =
-      __$$FetchPopularProductsCopyWithImpl<$Res>;
+abstract class _$$FetchPopularProductsImplCopyWith<$Res> {
+  factory _$$FetchPopularProductsImplCopyWith(_$FetchPopularProductsImpl value,
+          $Res Function(_$FetchPopularProductsImpl) then) =
+      __$$FetchPopularProductsImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String endPointSlug});
 }
 
 /// @nodoc
-class __$$FetchPopularProductsCopyWithImpl<$Res>
-    extends _$ShopProductsEventCopyWithImpl<$Res, _$FetchPopularProducts>
-    implements _$$FetchPopularProductsCopyWith<$Res> {
-  __$$FetchPopularProductsCopyWithImpl(_$FetchPopularProducts _value,
-      $Res Function(_$FetchPopularProducts) _then)
+class __$$FetchPopularProductsImplCopyWithImpl<$Res>
+    extends _$ShopProductsEventCopyWithImpl<$Res, _$FetchPopularProductsImpl>
+    implements _$$FetchPopularProductsImplCopyWith<$Res> {
+  __$$FetchPopularProductsImplCopyWithImpl(_$FetchPopularProductsImpl _value,
+      $Res Function(_$FetchPopularProductsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1130,7 +1132,7 @@ class __$$FetchPopularProductsCopyWithImpl<$Res>
   $Res call({
     Object? endPointSlug = null,
   }) {
-    return _then(_$FetchPopularProducts(
+    return _then(_$FetchPopularProductsImpl(
       endPointSlug: null == endPointSlug
           ? _value.endPointSlug
           : endPointSlug // ignore: cast_nullable_to_non_nullable
@@ -1141,8 +1143,8 @@ class __$$FetchPopularProductsCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FetchPopularProducts implements FetchPopularProducts {
-  const _$FetchPopularProducts({required this.endPointSlug});
+class _$FetchPopularProductsImpl implements FetchPopularProducts {
+  const _$FetchPopularProductsImpl({required this.endPointSlug});
 
   @override
   final String endPointSlug;
@@ -1156,7 +1158,7 @@ class _$FetchPopularProducts implements FetchPopularProducts {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FetchPopularProducts &&
+            other is _$FetchPopularProductsImpl &&
             (identical(other.endPointSlug, endPointSlug) ||
                 other.endPointSlug == endPointSlug));
   }
@@ -1167,9 +1169,10 @@ class _$FetchPopularProducts implements FetchPopularProducts {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FetchPopularProductsCopyWith<_$FetchPopularProducts> get copyWith =>
-      __$$FetchPopularProductsCopyWithImpl<_$FetchPopularProducts>(
-          this, _$identity);
+  _$$FetchPopularProductsImplCopyWith<_$FetchPopularProductsImpl>
+      get copyWith =>
+          __$$FetchPopularProductsImplCopyWithImpl<_$FetchPopularProductsImpl>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1685,36 +1688,37 @@ class _$FetchPopularProducts implements FetchPopularProducts {
 
 abstract class FetchPopularProducts implements ShopProductsEvent {
   const factory FetchPopularProducts({required final String endPointSlug}) =
-      _$FetchPopularProducts;
+      _$FetchPopularProductsImpl;
 
   String get endPointSlug;
   @JsonKey(ignore: true)
-  _$$FetchPopularProductsCopyWith<_$FetchPopularProducts> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$FetchPopularProductsImplCopyWith<_$FetchPopularProductsImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$FetchRecentProductProductsCopyWith<$Res> {
-  factory _$$FetchRecentProductProductsCopyWith(
-          _$FetchRecentProductProducts value,
-          $Res Function(_$FetchRecentProductProducts) then) =
-      __$$FetchRecentProductProductsCopyWithImpl<$Res>;
+abstract class _$$FetchRecentProductProductsImplCopyWith<$Res> {
+  factory _$$FetchRecentProductProductsImplCopyWith(
+          _$FetchRecentProductProductsImpl value,
+          $Res Function(_$FetchRecentProductProductsImpl) then) =
+      __$$FetchRecentProductProductsImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$FetchRecentProductProductsCopyWithImpl<$Res>
-    extends _$ShopProductsEventCopyWithImpl<$Res, _$FetchRecentProductProducts>
-    implements _$$FetchRecentProductProductsCopyWith<$Res> {
-  __$$FetchRecentProductProductsCopyWithImpl(
-      _$FetchRecentProductProducts _value,
-      $Res Function(_$FetchRecentProductProducts) _then)
+class __$$FetchRecentProductProductsImplCopyWithImpl<$Res>
+    extends _$ShopProductsEventCopyWithImpl<$Res,
+        _$FetchRecentProductProductsImpl>
+    implements _$$FetchRecentProductProductsImplCopyWith<$Res> {
+  __$$FetchRecentProductProductsImplCopyWithImpl(
+      _$FetchRecentProductProductsImpl _value,
+      $Res Function(_$FetchRecentProductProductsImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$FetchRecentProductProducts implements FetchRecentProductProducts {
-  const _$FetchRecentProductProducts();
+class _$FetchRecentProductProductsImpl implements FetchRecentProductProducts {
+  const _$FetchRecentProductProductsImpl();
 
   @override
   String toString() {
@@ -1725,7 +1729,7 @@ class _$FetchRecentProductProducts implements FetchRecentProductProducts {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FetchRecentProductProducts);
+            other is _$FetchRecentProductProductsImpl);
   }
 
   @override
@@ -2244,29 +2248,29 @@ class _$FetchRecentProductProducts implements FetchRecentProductProducts {
 }
 
 abstract class FetchRecentProductProducts implements ShopProductsEvent {
-  const factory FetchRecentProductProducts() = _$FetchRecentProductProducts;
+  const factory FetchRecentProductProducts() = _$FetchRecentProductProductsImpl;
 }
 
 /// @nodoc
-abstract class _$$FetchHomeBannersCopyWith<$Res> {
-  factory _$$FetchHomeBannersCopyWith(
-          _$FetchHomeBanners value, $Res Function(_$FetchHomeBanners) then) =
-      __$$FetchHomeBannersCopyWithImpl<$Res>;
+abstract class _$$FetchHomeBannersImplCopyWith<$Res> {
+  factory _$$FetchHomeBannersImplCopyWith(_$FetchHomeBannersImpl value,
+          $Res Function(_$FetchHomeBannersImpl) then) =
+      __$$FetchHomeBannersImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$FetchHomeBannersCopyWithImpl<$Res>
-    extends _$ShopProductsEventCopyWithImpl<$Res, _$FetchHomeBanners>
-    implements _$$FetchHomeBannersCopyWith<$Res> {
-  __$$FetchHomeBannersCopyWithImpl(
-      _$FetchHomeBanners _value, $Res Function(_$FetchHomeBanners) _then)
+class __$$FetchHomeBannersImplCopyWithImpl<$Res>
+    extends _$ShopProductsEventCopyWithImpl<$Res, _$FetchHomeBannersImpl>
+    implements _$$FetchHomeBannersImplCopyWith<$Res> {
+  __$$FetchHomeBannersImplCopyWithImpl(_$FetchHomeBannersImpl _value,
+      $Res Function(_$FetchHomeBannersImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$FetchHomeBanners implements FetchHomeBanners {
-  const _$FetchHomeBanners();
+class _$FetchHomeBannersImpl implements FetchHomeBanners {
+  const _$FetchHomeBannersImpl();
 
   @override
   String toString() {
@@ -2276,7 +2280,7 @@ class _$FetchHomeBanners implements FetchHomeBanners {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$FetchHomeBanners);
+        (other.runtimeType == runtimeType && other is _$FetchHomeBannersImpl);
   }
 
   @override
@@ -2795,29 +2799,29 @@ class _$FetchHomeBanners implements FetchHomeBanners {
 }
 
 abstract class FetchHomeBanners implements ShopProductsEvent {
-  const factory FetchHomeBanners() = _$FetchHomeBanners;
+  const factory FetchHomeBanners() = _$FetchHomeBannersImpl;
 }
 
 /// @nodoc
-abstract class _$$FetchShopBannersCopyWith<$Res> {
-  factory _$$FetchShopBannersCopyWith(
-          _$FetchShopBanners value, $Res Function(_$FetchShopBanners) then) =
-      __$$FetchShopBannersCopyWithImpl<$Res>;
+abstract class _$$FetchShopBannersImplCopyWith<$Res> {
+  factory _$$FetchShopBannersImplCopyWith(_$FetchShopBannersImpl value,
+          $Res Function(_$FetchShopBannersImpl) then) =
+      __$$FetchShopBannersImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$FetchShopBannersCopyWithImpl<$Res>
-    extends _$ShopProductsEventCopyWithImpl<$Res, _$FetchShopBanners>
-    implements _$$FetchShopBannersCopyWith<$Res> {
-  __$$FetchShopBannersCopyWithImpl(
-      _$FetchShopBanners _value, $Res Function(_$FetchShopBanners) _then)
+class __$$FetchShopBannersImplCopyWithImpl<$Res>
+    extends _$ShopProductsEventCopyWithImpl<$Res, _$FetchShopBannersImpl>
+    implements _$$FetchShopBannersImplCopyWith<$Res> {
+  __$$FetchShopBannersImplCopyWithImpl(_$FetchShopBannersImpl _value,
+      $Res Function(_$FetchShopBannersImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$FetchShopBanners implements FetchShopBanners {
-  const _$FetchShopBanners();
+class _$FetchShopBannersImpl implements FetchShopBanners {
+  const _$FetchShopBannersImpl();
 
   @override
   String toString() {
@@ -2827,7 +2831,7 @@ class _$FetchShopBanners implements FetchShopBanners {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$FetchShopBanners);
+        (other.runtimeType == runtimeType && other is _$FetchShopBannersImpl);
   }
 
   @override
@@ -3346,24 +3350,24 @@ class _$FetchShopBanners implements FetchShopBanners {
 }
 
 abstract class FetchShopBanners implements ShopProductsEvent {
-  const factory FetchShopBanners() = _$FetchShopBanners;
+  const factory FetchShopBanners() = _$FetchShopBannersImpl;
 }
 
 /// @nodoc
-abstract class _$$FetchArticlesCopyWith<$Res> {
-  factory _$$FetchArticlesCopyWith(
-          _$FetchArticles value, $Res Function(_$FetchArticles) then) =
-      __$$FetchArticlesCopyWithImpl<$Res>;
+abstract class _$$FetchArticlesImplCopyWith<$Res> {
+  factory _$$FetchArticlesImplCopyWith(
+          _$FetchArticlesImpl value, $Res Function(_$FetchArticlesImpl) then) =
+      __$$FetchArticlesImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String searchQuery});
 }
 
 /// @nodoc
-class __$$FetchArticlesCopyWithImpl<$Res>
-    extends _$ShopProductsEventCopyWithImpl<$Res, _$FetchArticles>
-    implements _$$FetchArticlesCopyWith<$Res> {
-  __$$FetchArticlesCopyWithImpl(
-      _$FetchArticles _value, $Res Function(_$FetchArticles) _then)
+class __$$FetchArticlesImplCopyWithImpl<$Res>
+    extends _$ShopProductsEventCopyWithImpl<$Res, _$FetchArticlesImpl>
+    implements _$$FetchArticlesImplCopyWith<$Res> {
+  __$$FetchArticlesImplCopyWithImpl(
+      _$FetchArticlesImpl _value, $Res Function(_$FetchArticlesImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -3371,7 +3375,7 @@ class __$$FetchArticlesCopyWithImpl<$Res>
   $Res call({
     Object? searchQuery = null,
   }) {
-    return _then(_$FetchArticles(
+    return _then(_$FetchArticlesImpl(
       searchQuery: null == searchQuery
           ? _value.searchQuery
           : searchQuery // ignore: cast_nullable_to_non_nullable
@@ -3382,8 +3386,8 @@ class __$$FetchArticlesCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FetchArticles implements FetchArticles {
-  const _$FetchArticles({required this.searchQuery});
+class _$FetchArticlesImpl implements FetchArticles {
+  const _$FetchArticlesImpl({required this.searchQuery});
 
   @override
   final String searchQuery;
@@ -3397,7 +3401,7 @@ class _$FetchArticles implements FetchArticles {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FetchArticles &&
+            other is _$FetchArticlesImpl &&
             (identical(other.searchQuery, searchQuery) ||
                 other.searchQuery == searchQuery));
   }
@@ -3408,8 +3412,8 @@ class _$FetchArticles implements FetchArticles {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FetchArticlesCopyWith<_$FetchArticles> get copyWith =>
-      __$$FetchArticlesCopyWithImpl<_$FetchArticles>(this, _$identity);
+  _$$FetchArticlesImplCopyWith<_$FetchArticlesImpl> get copyWith =>
+      __$$FetchArticlesImplCopyWithImpl<_$FetchArticlesImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -3925,34 +3929,34 @@ class _$FetchArticles implements FetchArticles {
 
 abstract class FetchArticles implements ShopProductsEvent {
   const factory FetchArticles({required final String searchQuery}) =
-      _$FetchArticles;
+      _$FetchArticlesImpl;
 
   String get searchQuery;
   @JsonKey(ignore: true)
-  _$$FetchArticlesCopyWith<_$FetchArticles> get copyWith =>
+  _$$FetchArticlesImplCopyWith<_$FetchArticlesImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$FetchShopByBrandCopyWith<$Res> {
-  factory _$$FetchShopByBrandCopyWith(
-          _$FetchShopByBrand value, $Res Function(_$FetchShopByBrand) then) =
-      __$$FetchShopByBrandCopyWithImpl<$Res>;
+abstract class _$$FetchShopByBrandImplCopyWith<$Res> {
+  factory _$$FetchShopByBrandImplCopyWith(_$FetchShopByBrandImpl value,
+          $Res Function(_$FetchShopByBrandImpl) then) =
+      __$$FetchShopByBrandImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$FetchShopByBrandCopyWithImpl<$Res>
-    extends _$ShopProductsEventCopyWithImpl<$Res, _$FetchShopByBrand>
-    implements _$$FetchShopByBrandCopyWith<$Res> {
-  __$$FetchShopByBrandCopyWithImpl(
-      _$FetchShopByBrand _value, $Res Function(_$FetchShopByBrand) _then)
+class __$$FetchShopByBrandImplCopyWithImpl<$Res>
+    extends _$ShopProductsEventCopyWithImpl<$Res, _$FetchShopByBrandImpl>
+    implements _$$FetchShopByBrandImplCopyWith<$Res> {
+  __$$FetchShopByBrandImplCopyWithImpl(_$FetchShopByBrandImpl _value,
+      $Res Function(_$FetchShopByBrandImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$FetchShopByBrand implements FetchShopByBrand {
-  const _$FetchShopByBrand();
+class _$FetchShopByBrandImpl implements FetchShopByBrand {
+  const _$FetchShopByBrandImpl();
 
   @override
   String toString() {
@@ -3962,7 +3966,7 @@ class _$FetchShopByBrand implements FetchShopByBrand {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$FetchShopByBrand);
+        (other.runtimeType == runtimeType && other is _$FetchShopByBrandImpl);
   }
 
   @override
@@ -4481,24 +4485,24 @@ class _$FetchShopByBrand implements FetchShopByBrand {
 }
 
 abstract class FetchShopByBrand implements ShopProductsEvent {
-  const factory FetchShopByBrand() = _$FetchShopByBrand;
+  const factory FetchShopByBrand() = _$FetchShopByBrandImpl;
 }
 
 /// @nodoc
-abstract class _$$FetchWishListCopyWith<$Res> {
-  factory _$$FetchWishListCopyWith(
-          _$FetchWishList value, $Res Function(_$FetchWishList) then) =
-      __$$FetchWishListCopyWithImpl<$Res>;
+abstract class _$$FetchWishListImplCopyWith<$Res> {
+  factory _$$FetchWishListImplCopyWith(
+          _$FetchWishListImpl value, $Res Function(_$FetchWishListImpl) then) =
+      __$$FetchWishListImplCopyWithImpl<$Res>;
   @useResult
   $Res call({BuildContext context});
 }
 
 /// @nodoc
-class __$$FetchWishListCopyWithImpl<$Res>
-    extends _$ShopProductsEventCopyWithImpl<$Res, _$FetchWishList>
-    implements _$$FetchWishListCopyWith<$Res> {
-  __$$FetchWishListCopyWithImpl(
-      _$FetchWishList _value, $Res Function(_$FetchWishList) _then)
+class __$$FetchWishListImplCopyWithImpl<$Res>
+    extends _$ShopProductsEventCopyWithImpl<$Res, _$FetchWishListImpl>
+    implements _$$FetchWishListImplCopyWith<$Res> {
+  __$$FetchWishListImplCopyWithImpl(
+      _$FetchWishListImpl _value, $Res Function(_$FetchWishListImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -4506,7 +4510,7 @@ class __$$FetchWishListCopyWithImpl<$Res>
   $Res call({
     Object? context = null,
   }) {
-    return _then(_$FetchWishList(
+    return _then(_$FetchWishListImpl(
       null == context
           ? _value.context
           : context // ignore: cast_nullable_to_non_nullable
@@ -4517,8 +4521,8 @@ class __$$FetchWishListCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FetchWishList implements FetchWishList {
-  const _$FetchWishList(this.context);
+class _$FetchWishListImpl implements FetchWishList {
+  const _$FetchWishListImpl(this.context);
 
   @override
   final BuildContext context;
@@ -4532,7 +4536,7 @@ class _$FetchWishList implements FetchWishList {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FetchWishList &&
+            other is _$FetchWishListImpl &&
             (identical(other.context, context) || other.context == context));
   }
 
@@ -4542,8 +4546,8 @@ class _$FetchWishList implements FetchWishList {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FetchWishListCopyWith<_$FetchWishList> get copyWith =>
-      __$$FetchWishListCopyWithImpl<_$FetchWishList>(this, _$identity);
+  _$$FetchWishListImplCopyWith<_$FetchWishListImpl> get copyWith =>
+      __$$FetchWishListImplCopyWithImpl<_$FetchWishListImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -5058,29 +5062,29 @@ class _$FetchWishList implements FetchWishList {
 }
 
 abstract class FetchWishList implements ShopProductsEvent {
-  const factory FetchWishList(final BuildContext context) = _$FetchWishList;
+  const factory FetchWishList(final BuildContext context) = _$FetchWishListImpl;
 
   BuildContext get context;
   @JsonKey(ignore: true)
-  _$$FetchWishListCopyWith<_$FetchWishList> get copyWith =>
+  _$$FetchWishListImplCopyWith<_$FetchWishListImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$SearchProductCopyWith<$Res> {
-  factory _$$SearchProductCopyWith(
-          _$SearchProduct value, $Res Function(_$SearchProduct) then) =
-      __$$SearchProductCopyWithImpl<$Res>;
+abstract class _$$SearchProductImplCopyWith<$Res> {
+  factory _$$SearchProductImplCopyWith(
+          _$SearchProductImpl value, $Res Function(_$SearchProductImpl) then) =
+      __$$SearchProductImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String query});
 }
 
 /// @nodoc
-class __$$SearchProductCopyWithImpl<$Res>
-    extends _$ShopProductsEventCopyWithImpl<$Res, _$SearchProduct>
-    implements _$$SearchProductCopyWith<$Res> {
-  __$$SearchProductCopyWithImpl(
-      _$SearchProduct _value, $Res Function(_$SearchProduct) _then)
+class __$$SearchProductImplCopyWithImpl<$Res>
+    extends _$ShopProductsEventCopyWithImpl<$Res, _$SearchProductImpl>
+    implements _$$SearchProductImplCopyWith<$Res> {
+  __$$SearchProductImplCopyWithImpl(
+      _$SearchProductImpl _value, $Res Function(_$SearchProductImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -5088,7 +5092,7 @@ class __$$SearchProductCopyWithImpl<$Res>
   $Res call({
     Object? query = null,
   }) {
-    return _then(_$SearchProduct(
+    return _then(_$SearchProductImpl(
       null == query
           ? _value.query
           : query // ignore: cast_nullable_to_non_nullable
@@ -5099,8 +5103,8 @@ class __$$SearchProductCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SearchProduct implements SearchProduct {
-  const _$SearchProduct(this.query);
+class _$SearchProductImpl implements SearchProduct {
+  const _$SearchProductImpl(this.query);
 
   @override
   final String query;
@@ -5114,7 +5118,7 @@ class _$SearchProduct implements SearchProduct {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SearchProduct &&
+            other is _$SearchProductImpl &&
             (identical(other.query, query) || other.query == query));
   }
 
@@ -5124,8 +5128,8 @@ class _$SearchProduct implements SearchProduct {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$SearchProductCopyWith<_$SearchProduct> get copyWith =>
-      __$$SearchProductCopyWithImpl<_$SearchProduct>(this, _$identity);
+  _$$SearchProductImplCopyWith<_$SearchProductImpl> get copyWith =>
+      __$$SearchProductImplCopyWithImpl<_$SearchProductImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -5640,29 +5644,29 @@ class _$SearchProduct implements SearchProduct {
 }
 
 abstract class SearchProduct implements ShopProductsEvent {
-  const factory SearchProduct(final String query) = _$SearchProduct;
+  const factory SearchProduct(final String query) = _$SearchProductImpl;
 
   String get query;
   @JsonKey(ignore: true)
-  _$$SearchProductCopyWith<_$SearchProduct> get copyWith =>
+  _$$SearchProductImplCopyWith<_$SearchProductImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$AddWishListEventCopyWith<$Res> {
-  factory _$$AddWishListEventCopyWith(
-          _$AddWishListEvent value, $Res Function(_$AddWishListEvent) then) =
-      __$$AddWishListEventCopyWithImpl<$Res>;
+abstract class _$$AddWishListEventImplCopyWith<$Res> {
+  factory _$$AddWishListEventImplCopyWith(_$AddWishListEventImpl value,
+          $Res Function(_$AddWishListEventImpl) then) =
+      __$$AddWishListEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String productId, BuildContext context});
 }
 
 /// @nodoc
-class __$$AddWishListEventCopyWithImpl<$Res>
-    extends _$ShopProductsEventCopyWithImpl<$Res, _$AddWishListEvent>
-    implements _$$AddWishListEventCopyWith<$Res> {
-  __$$AddWishListEventCopyWithImpl(
-      _$AddWishListEvent _value, $Res Function(_$AddWishListEvent) _then)
+class __$$AddWishListEventImplCopyWithImpl<$Res>
+    extends _$ShopProductsEventCopyWithImpl<$Res, _$AddWishListEventImpl>
+    implements _$$AddWishListEventImplCopyWith<$Res> {
+  __$$AddWishListEventImplCopyWithImpl(_$AddWishListEventImpl _value,
+      $Res Function(_$AddWishListEventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -5671,7 +5675,7 @@ class __$$AddWishListEventCopyWithImpl<$Res>
     Object? productId = null,
     Object? context = null,
   }) {
-    return _then(_$AddWishListEvent(
+    return _then(_$AddWishListEventImpl(
       productId: null == productId
           ? _value.productId
           : productId // ignore: cast_nullable_to_non_nullable
@@ -5686,8 +5690,9 @@ class __$$AddWishListEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$AddWishListEvent implements AddWishListEvent {
-  const _$AddWishListEvent({required this.productId, required this.context});
+class _$AddWishListEventImpl implements AddWishListEvent {
+  const _$AddWishListEventImpl(
+      {required this.productId, required this.context});
 
   @override
   final String productId;
@@ -5703,7 +5708,7 @@ class _$AddWishListEvent implements AddWishListEvent {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$AddWishListEvent &&
+            other is _$AddWishListEventImpl &&
             (identical(other.productId, productId) ||
                 other.productId == productId) &&
             (identical(other.context, context) || other.context == context));
@@ -5715,8 +5720,9 @@ class _$AddWishListEvent implements AddWishListEvent {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$AddWishListEventCopyWith<_$AddWishListEvent> get copyWith =>
-      __$$AddWishListEventCopyWithImpl<_$AddWishListEvent>(this, _$identity);
+  _$$AddWishListEventImplCopyWith<_$AddWishListEventImpl> get copyWith =>
+      __$$AddWishListEventImplCopyWithImpl<_$AddWishListEventImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -6233,30 +6239,30 @@ class _$AddWishListEvent implements AddWishListEvent {
 abstract class AddWishListEvent implements ShopProductsEvent {
   const factory AddWishListEvent(
       {required final String productId,
-      required final BuildContext context}) = _$AddWishListEvent;
+      required final BuildContext context}) = _$AddWishListEventImpl;
 
   String get productId;
   BuildContext get context;
   @JsonKey(ignore: true)
-  _$$AddWishListEventCopyWith<_$AddWishListEvent> get copyWith =>
+  _$$AddWishListEventImplCopyWith<_$AddWishListEventImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$RemoveWishlistEventCopyWith<$Res> {
-  factory _$$RemoveWishlistEventCopyWith(_$RemoveWishlistEvent value,
-          $Res Function(_$RemoveWishlistEvent) then) =
-      __$$RemoveWishlistEventCopyWithImpl<$Res>;
+abstract class _$$RemoveWishlistEventImplCopyWith<$Res> {
+  factory _$$RemoveWishlistEventImplCopyWith(_$RemoveWishlistEventImpl value,
+          $Res Function(_$RemoveWishlistEventImpl) then) =
+      __$$RemoveWishlistEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String productId, BuildContext context});
 }
 
 /// @nodoc
-class __$$RemoveWishlistEventCopyWithImpl<$Res>
-    extends _$ShopProductsEventCopyWithImpl<$Res, _$RemoveWishlistEvent>
-    implements _$$RemoveWishlistEventCopyWith<$Res> {
-  __$$RemoveWishlistEventCopyWithImpl(
-      _$RemoveWishlistEvent _value, $Res Function(_$RemoveWishlistEvent) _then)
+class __$$RemoveWishlistEventImplCopyWithImpl<$Res>
+    extends _$ShopProductsEventCopyWithImpl<$Res, _$RemoveWishlistEventImpl>
+    implements _$$RemoveWishlistEventImplCopyWith<$Res> {
+  __$$RemoveWishlistEventImplCopyWithImpl(_$RemoveWishlistEventImpl _value,
+      $Res Function(_$RemoveWishlistEventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -6265,7 +6271,7 @@ class __$$RemoveWishlistEventCopyWithImpl<$Res>
     Object? productId = null,
     Object? context = null,
   }) {
-    return _then(_$RemoveWishlistEvent(
+    return _then(_$RemoveWishlistEventImpl(
       productId: null == productId
           ? _value.productId
           : productId // ignore: cast_nullable_to_non_nullable
@@ -6280,8 +6286,9 @@ class __$$RemoveWishlistEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$RemoveWishlistEvent implements RemoveWishlistEvent {
-  const _$RemoveWishlistEvent({required this.productId, required this.context});
+class _$RemoveWishlistEventImpl implements RemoveWishlistEvent {
+  const _$RemoveWishlistEventImpl(
+      {required this.productId, required this.context});
 
   @override
   final String productId;
@@ -6297,7 +6304,7 @@ class _$RemoveWishlistEvent implements RemoveWishlistEvent {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$RemoveWishlistEvent &&
+            other is _$RemoveWishlistEventImpl &&
             (identical(other.productId, productId) ||
                 other.productId == productId) &&
             (identical(other.context, context) || other.context == context));
@@ -6309,8 +6316,8 @@ class _$RemoveWishlistEvent implements RemoveWishlistEvent {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$RemoveWishlistEventCopyWith<_$RemoveWishlistEvent> get copyWith =>
-      __$$RemoveWishlistEventCopyWithImpl<_$RemoveWishlistEvent>(
+  _$$RemoveWishlistEventImplCopyWith<_$RemoveWishlistEventImpl> get copyWith =>
+      __$$RemoveWishlistEventImplCopyWithImpl<_$RemoveWishlistEventImpl>(
           this, _$identity);
 
   @override
@@ -6828,30 +6835,33 @@ class _$RemoveWishlistEvent implements RemoveWishlistEvent {
 abstract class RemoveWishlistEvent implements ShopProductsEvent {
   const factory RemoveWishlistEvent(
       {required final String productId,
-      required final BuildContext context}) = _$RemoveWishlistEvent;
+      required final BuildContext context}) = _$RemoveWishlistEventImpl;
 
   String get productId;
   BuildContext get context;
   @JsonKey(ignore: true)
-  _$$RemoveWishlistEventCopyWith<_$RemoveWishlistEvent> get copyWith =>
+  _$$RemoveWishlistEventImplCopyWith<_$RemoveWishlistEventImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$FetchShopByBrandProductsCopyWith<$Res> {
-  factory _$$FetchShopByBrandProductsCopyWith(_$FetchShopByBrandProducts value,
-          $Res Function(_$FetchShopByBrandProducts) then) =
-      __$$FetchShopByBrandProductsCopyWithImpl<$Res>;
+abstract class _$$FetchShopByBrandProductsImplCopyWith<$Res> {
+  factory _$$FetchShopByBrandProductsImplCopyWith(
+          _$FetchShopByBrandProductsImpl value,
+          $Res Function(_$FetchShopByBrandProductsImpl) then) =
+      __$$FetchShopByBrandProductsImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String brandName});
 }
 
 /// @nodoc
-class __$$FetchShopByBrandProductsCopyWithImpl<$Res>
-    extends _$ShopProductsEventCopyWithImpl<$Res, _$FetchShopByBrandProducts>
-    implements _$$FetchShopByBrandProductsCopyWith<$Res> {
-  __$$FetchShopByBrandProductsCopyWithImpl(_$FetchShopByBrandProducts _value,
-      $Res Function(_$FetchShopByBrandProducts) _then)
+class __$$FetchShopByBrandProductsImplCopyWithImpl<$Res>
+    extends _$ShopProductsEventCopyWithImpl<$Res,
+        _$FetchShopByBrandProductsImpl>
+    implements _$$FetchShopByBrandProductsImplCopyWith<$Res> {
+  __$$FetchShopByBrandProductsImplCopyWithImpl(
+      _$FetchShopByBrandProductsImpl _value,
+      $Res Function(_$FetchShopByBrandProductsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -6859,7 +6869,7 @@ class __$$FetchShopByBrandProductsCopyWithImpl<$Res>
   $Res call({
     Object? brandName = null,
   }) {
-    return _then(_$FetchShopByBrandProducts(
+    return _then(_$FetchShopByBrandProductsImpl(
       brandName: null == brandName
           ? _value.brandName
           : brandName // ignore: cast_nullable_to_non_nullable
@@ -6870,8 +6880,8 @@ class __$$FetchShopByBrandProductsCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FetchShopByBrandProducts implements FetchShopByBrandProducts {
-  const _$FetchShopByBrandProducts({required this.brandName});
+class _$FetchShopByBrandProductsImpl implements FetchShopByBrandProducts {
+  const _$FetchShopByBrandProductsImpl({required this.brandName});
 
   @override
   final String brandName;
@@ -6885,7 +6895,7 @@ class _$FetchShopByBrandProducts implements FetchShopByBrandProducts {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FetchShopByBrandProducts &&
+            other is _$FetchShopByBrandProductsImpl &&
             (identical(other.brandName, brandName) ||
                 other.brandName == brandName));
   }
@@ -6896,10 +6906,9 @@ class _$FetchShopByBrandProducts implements FetchShopByBrandProducts {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FetchShopByBrandProductsCopyWith<_$FetchShopByBrandProducts>
-      get copyWith =>
-          __$$FetchShopByBrandProductsCopyWithImpl<_$FetchShopByBrandProducts>(
-              this, _$identity);
+  _$$FetchShopByBrandProductsImplCopyWith<_$FetchShopByBrandProductsImpl>
+      get copyWith => __$$FetchShopByBrandProductsImplCopyWithImpl<
+          _$FetchShopByBrandProductsImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -7415,29 +7424,29 @@ class _$FetchShopByBrandProducts implements FetchShopByBrandProducts {
 
 abstract class FetchShopByBrandProducts implements ShopProductsEvent {
   const factory FetchShopByBrandProducts({required final String brandName}) =
-      _$FetchShopByBrandProducts;
+      _$FetchShopByBrandProductsImpl;
 
   String get brandName;
   @JsonKey(ignore: true)
-  _$$FetchShopByBrandProductsCopyWith<_$FetchShopByBrandProducts>
+  _$$FetchShopByBrandProductsImplCopyWith<_$FetchShopByBrandProductsImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$TabIndexChangeEventCopyWith<$Res> {
-  factory _$$TabIndexChangeEventCopyWith(_$TabIndexChangeEvent value,
-          $Res Function(_$TabIndexChangeEvent) then) =
-      __$$TabIndexChangeEventCopyWithImpl<$Res>;
+abstract class _$$TabIndexChangeEventImplCopyWith<$Res> {
+  factory _$$TabIndexChangeEventImplCopyWith(_$TabIndexChangeEventImpl value,
+          $Res Function(_$TabIndexChangeEventImpl) then) =
+      __$$TabIndexChangeEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int index});
 }
 
 /// @nodoc
-class __$$TabIndexChangeEventCopyWithImpl<$Res>
-    extends _$ShopProductsEventCopyWithImpl<$Res, _$TabIndexChangeEvent>
-    implements _$$TabIndexChangeEventCopyWith<$Res> {
-  __$$TabIndexChangeEventCopyWithImpl(
-      _$TabIndexChangeEvent _value, $Res Function(_$TabIndexChangeEvent) _then)
+class __$$TabIndexChangeEventImplCopyWithImpl<$Res>
+    extends _$ShopProductsEventCopyWithImpl<$Res, _$TabIndexChangeEventImpl>
+    implements _$$TabIndexChangeEventImplCopyWith<$Res> {
+  __$$TabIndexChangeEventImplCopyWithImpl(_$TabIndexChangeEventImpl _value,
+      $Res Function(_$TabIndexChangeEventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -7445,7 +7454,7 @@ class __$$TabIndexChangeEventCopyWithImpl<$Res>
   $Res call({
     Object? index = null,
   }) {
-    return _then(_$TabIndexChangeEvent(
+    return _then(_$TabIndexChangeEventImpl(
       index: null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
@@ -7456,8 +7465,8 @@ class __$$TabIndexChangeEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$TabIndexChangeEvent implements TabIndexChangeEvent {
-  const _$TabIndexChangeEvent({required this.index});
+class _$TabIndexChangeEventImpl implements TabIndexChangeEvent {
+  const _$TabIndexChangeEventImpl({required this.index});
 
   @override
   final int index;
@@ -7471,7 +7480,7 @@ class _$TabIndexChangeEvent implements TabIndexChangeEvent {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$TabIndexChangeEvent &&
+            other is _$TabIndexChangeEventImpl &&
             (identical(other.index, index) || other.index == index));
   }
 
@@ -7481,8 +7490,8 @@ class _$TabIndexChangeEvent implements TabIndexChangeEvent {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$TabIndexChangeEventCopyWith<_$TabIndexChangeEvent> get copyWith =>
-      __$$TabIndexChangeEventCopyWithImpl<_$TabIndexChangeEvent>(
+  _$$TabIndexChangeEventImplCopyWith<_$TabIndexChangeEventImpl> get copyWith =>
+      __$$TabIndexChangeEventImplCopyWithImpl<_$TabIndexChangeEventImpl>(
           this, _$identity);
 
   @override
@@ -7999,19 +8008,19 @@ class _$TabIndexChangeEvent implements TabIndexChangeEvent {
 
 abstract class TabIndexChangeEvent implements ShopProductsEvent {
   const factory TabIndexChangeEvent({required final int index}) =
-      _$TabIndexChangeEvent;
+      _$TabIndexChangeEventImpl;
 
   int get index;
   @JsonKey(ignore: true)
-  _$$TabIndexChangeEventCopyWith<_$TabIndexChangeEvent> get copyWith =>
+  _$$TabIndexChangeEventImplCopyWith<_$TabIndexChangeEventImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$PostOrdersCopyWith<$Res> {
-  factory _$$PostOrdersCopyWith(
-          _$PostOrders value, $Res Function(_$PostOrders) then) =
-      __$$PostOrdersCopyWithImpl<$Res>;
+abstract class _$$PostOrdersImplCopyWith<$Res> {
+  factory _$$PostOrdersImplCopyWith(
+          _$PostOrdersImpl value, $Res Function(_$PostOrdersImpl) then) =
+      __$$PostOrdersImplCopyWithImpl<$Res>;
   @useResult
   $Res call(
       {BuildContext context,
@@ -8025,11 +8034,11 @@ abstract class _$$PostOrdersCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$PostOrdersCopyWithImpl<$Res>
-    extends _$ShopProductsEventCopyWithImpl<$Res, _$PostOrders>
-    implements _$$PostOrdersCopyWith<$Res> {
-  __$$PostOrdersCopyWithImpl(
-      _$PostOrders _value, $Res Function(_$PostOrders) _then)
+class __$$PostOrdersImplCopyWithImpl<$Res>
+    extends _$ShopProductsEventCopyWithImpl<$Res, _$PostOrdersImpl>
+    implements _$$PostOrdersImplCopyWith<$Res> {
+  __$$PostOrdersImplCopyWithImpl(
+      _$PostOrdersImpl _value, $Res Function(_$PostOrdersImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -8044,7 +8053,7 @@ class __$$PostOrdersCopyWithImpl<$Res>
     Object? weight = null,
     Object? id = null,
   }) {
-    return _then(_$PostOrders(
+    return _then(_$PostOrdersImpl(
       context: null == context
           ? _value.context
           : context // ignore: cast_nullable_to_non_nullable
@@ -8083,8 +8092,8 @@ class __$$PostOrdersCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$PostOrders implements PostOrders {
-  const _$PostOrders(
+class _$PostOrdersImpl implements PostOrders {
+  const _$PostOrdersImpl(
       {required this.context,
       required this.totalPrice,
       required this.pickupLocation,
@@ -8120,7 +8129,7 @@ class _$PostOrders implements PostOrders {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PostOrders &&
+            other is _$PostOrdersImpl &&
             (identical(other.context, context) || other.context == context) &&
             (identical(other.totalPrice, totalPrice) ||
                 other.totalPrice == totalPrice) &&
@@ -8143,8 +8152,8 @@ class _$PostOrders implements PostOrders {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PostOrdersCopyWith<_$PostOrders> get copyWith =>
-      __$$PostOrdersCopyWithImpl<_$PostOrders>(this, _$identity);
+  _$$PostOrdersImplCopyWith<_$PostOrdersImpl> get copyWith =>
+      __$$PostOrdersImplCopyWithImpl<_$PostOrdersImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -8670,7 +8679,7 @@ abstract class PostOrders implements ShopProductsEvent {
       required final int totalDiscount,
       required final int shippingCharges,
       required final int weight,
-      required final String id}) = _$PostOrders;
+      required final String id}) = _$PostOrdersImpl;
 
   BuildContext get context;
   double get totalPrice;
@@ -8681,15 +8690,15 @@ abstract class PostOrders implements ShopProductsEvent {
   int get weight;
   String get id;
   @JsonKey(ignore: true)
-  _$$PostOrdersCopyWith<_$PostOrders> get copyWith =>
+  _$$PostOrdersImplCopyWith<_$PostOrdersImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$PostOnlieOrdersCopyWith<$Res> {
-  factory _$$PostOnlieOrdersCopyWith(
-          _$PostOnlieOrders value, $Res Function(_$PostOnlieOrders) then) =
-      __$$PostOnlieOrdersCopyWithImpl<$Res>;
+abstract class _$$PostOnlieOrdersImplCopyWith<$Res> {
+  factory _$$PostOnlieOrdersImplCopyWith(_$PostOnlieOrdersImpl value,
+          $Res Function(_$PostOnlieOrdersImpl) then) =
+      __$$PostOnlieOrdersImplCopyWithImpl<$Res>;
   @useResult
   $Res call(
       {BuildContext context,
@@ -8700,11 +8709,11 @@ abstract class _$$PostOnlieOrdersCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$PostOnlieOrdersCopyWithImpl<$Res>
-    extends _$ShopProductsEventCopyWithImpl<$Res, _$PostOnlieOrders>
-    implements _$$PostOnlieOrdersCopyWith<$Res> {
-  __$$PostOnlieOrdersCopyWithImpl(
-      _$PostOnlieOrders _value, $Res Function(_$PostOnlieOrders) _then)
+class __$$PostOnlieOrdersImplCopyWithImpl<$Res>
+    extends _$ShopProductsEventCopyWithImpl<$Res, _$PostOnlieOrdersImpl>
+    implements _$$PostOnlieOrdersImplCopyWith<$Res> {
+  __$$PostOnlieOrdersImplCopyWithImpl(
+      _$PostOnlieOrdersImpl _value, $Res Function(_$PostOnlieOrdersImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -8716,7 +8725,7 @@ class __$$PostOnlieOrdersCopyWithImpl<$Res>
     Object? razorpaySignature = null,
     Object? addressId = null,
   }) {
-    return _then(_$PostOnlieOrders(
+    return _then(_$PostOnlieOrdersImpl(
       context: null == context
           ? _value.context
           : context // ignore: cast_nullable_to_non_nullable
@@ -8743,8 +8752,8 @@ class __$$PostOnlieOrdersCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$PostOnlieOrders implements PostOnlieOrders {
-  const _$PostOnlieOrders(
+class _$PostOnlieOrdersImpl implements PostOnlieOrders {
+  const _$PostOnlieOrdersImpl(
       {required this.context,
       required this.razorpayOrderId,
       required this.razorpayPaymentId,
@@ -8771,7 +8780,7 @@ class _$PostOnlieOrders implements PostOnlieOrders {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PostOnlieOrders &&
+            other is _$PostOnlieOrdersImpl &&
             (identical(other.context, context) || other.context == context) &&
             (identical(other.razorpayOrderId, razorpayOrderId) ||
                 other.razorpayOrderId == razorpayOrderId) &&
@@ -8790,8 +8799,9 @@ class _$PostOnlieOrders implements PostOnlieOrders {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PostOnlieOrdersCopyWith<_$PostOnlieOrders> get copyWith =>
-      __$$PostOnlieOrdersCopyWithImpl<_$PostOnlieOrders>(this, _$identity);
+  _$$PostOnlieOrdersImplCopyWith<_$PostOnlieOrdersImpl> get copyWith =>
+      __$$PostOnlieOrdersImplCopyWithImpl<_$PostOnlieOrdersImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -9314,7 +9324,7 @@ abstract class PostOnlieOrders implements ShopProductsEvent {
       required final String razorpayOrderId,
       required final String razorpayPaymentId,
       required final String razorpaySignature,
-      required final String addressId}) = _$PostOnlieOrders;
+      required final String addressId}) = _$PostOnlieOrdersImpl;
 
   BuildContext get context;
   String get razorpayOrderId;
@@ -9322,25 +9332,28 @@ abstract class PostOnlieOrders implements ShopProductsEvent {
   String get razorpaySignature;
   String get addressId;
   @JsonKey(ignore: true)
-  _$$PostOnlieOrdersCopyWith<_$PostOnlieOrders> get copyWith =>
+  _$$PostOnlieOrdersImplCopyWith<_$PostOnlieOrdersImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$PostOrderIdOnlinePaymentCopyWith<$Res> {
-  factory _$$PostOrderIdOnlinePaymentCopyWith(_$PostOrderIdOnlinePayment value,
-          $Res Function(_$PostOrderIdOnlinePayment) then) =
-      __$$PostOrderIdOnlinePaymentCopyWithImpl<$Res>;
+abstract class _$$PostOrderIdOnlinePaymentImplCopyWith<$Res> {
+  factory _$$PostOrderIdOnlinePaymentImplCopyWith(
+          _$PostOrderIdOnlinePaymentImpl value,
+          $Res Function(_$PostOrderIdOnlinePaymentImpl) then) =
+      __$$PostOrderIdOnlinePaymentImplCopyWithImpl<$Res>;
   @useResult
   $Res call({BuildContext context, double amount});
 }
 
 /// @nodoc
-class __$$PostOrderIdOnlinePaymentCopyWithImpl<$Res>
-    extends _$ShopProductsEventCopyWithImpl<$Res, _$PostOrderIdOnlinePayment>
-    implements _$$PostOrderIdOnlinePaymentCopyWith<$Res> {
-  __$$PostOrderIdOnlinePaymentCopyWithImpl(_$PostOrderIdOnlinePayment _value,
-      $Res Function(_$PostOrderIdOnlinePayment) _then)
+class __$$PostOrderIdOnlinePaymentImplCopyWithImpl<$Res>
+    extends _$ShopProductsEventCopyWithImpl<$Res,
+        _$PostOrderIdOnlinePaymentImpl>
+    implements _$$PostOrderIdOnlinePaymentImplCopyWith<$Res> {
+  __$$PostOrderIdOnlinePaymentImplCopyWithImpl(
+      _$PostOrderIdOnlinePaymentImpl _value,
+      $Res Function(_$PostOrderIdOnlinePaymentImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -9349,7 +9362,7 @@ class __$$PostOrderIdOnlinePaymentCopyWithImpl<$Res>
     Object? context = null,
     Object? amount = null,
   }) {
-    return _then(_$PostOrderIdOnlinePayment(
+    return _then(_$PostOrderIdOnlinePaymentImpl(
       context: null == context
           ? _value.context
           : context // ignore: cast_nullable_to_non_nullable
@@ -9364,8 +9377,8 @@ class __$$PostOrderIdOnlinePaymentCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$PostOrderIdOnlinePayment implements PostOrderIdOnlinePayment {
-  const _$PostOrderIdOnlinePayment(
+class _$PostOrderIdOnlinePaymentImpl implements PostOrderIdOnlinePayment {
+  const _$PostOrderIdOnlinePaymentImpl(
       {required this.context, required this.amount});
 
   @override
@@ -9382,7 +9395,7 @@ class _$PostOrderIdOnlinePayment implements PostOrderIdOnlinePayment {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PostOrderIdOnlinePayment &&
+            other is _$PostOrderIdOnlinePaymentImpl &&
             (identical(other.context, context) || other.context == context) &&
             (identical(other.amount, amount) || other.amount == amount));
   }
@@ -9393,10 +9406,9 @@ class _$PostOrderIdOnlinePayment implements PostOrderIdOnlinePayment {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PostOrderIdOnlinePaymentCopyWith<_$PostOrderIdOnlinePayment>
-      get copyWith =>
-          __$$PostOrderIdOnlinePaymentCopyWithImpl<_$PostOrderIdOnlinePayment>(
-              this, _$identity);
+  _$$PostOrderIdOnlinePaymentImplCopyWith<_$PostOrderIdOnlinePaymentImpl>
+      get copyWith => __$$PostOrderIdOnlinePaymentImplCopyWithImpl<
+          _$PostOrderIdOnlinePaymentImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -9913,20 +9925,20 @@ class _$PostOrderIdOnlinePayment implements PostOrderIdOnlinePayment {
 abstract class PostOrderIdOnlinePayment implements ShopProductsEvent {
   const factory PostOrderIdOnlinePayment(
       {required final BuildContext context,
-      required final double amount}) = _$PostOrderIdOnlinePayment;
+      required final double amount}) = _$PostOrderIdOnlinePaymentImpl;
 
   BuildContext get context;
   double get amount;
   @JsonKey(ignore: true)
-  _$$PostOrderIdOnlinePaymentCopyWith<_$PostOrderIdOnlinePayment>
+  _$$PostOrderIdOnlinePaymentImplCopyWith<_$PostOrderIdOnlinePaymentImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$PostOrdersRewardsCopyWith<$Res> {
-  factory _$$PostOrdersRewardsCopyWith(
-          _$PostOrdersRewards value, $Res Function(_$PostOrdersRewards) then) =
-      __$$PostOrdersRewardsCopyWithImpl<$Res>;
+abstract class _$$PostOrdersRewardsImplCopyWith<$Res> {
+  factory _$$PostOrdersRewardsImplCopyWith(_$PostOrdersRewardsImpl value,
+          $Res Function(_$PostOrdersRewardsImpl) then) =
+      __$$PostOrdersRewardsImplCopyWithImpl<$Res>;
   @useResult
   $Res call(
       {BuildContext context,
@@ -9941,11 +9953,11 @@ abstract class _$$PostOrdersRewardsCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$PostOrdersRewardsCopyWithImpl<$Res>
-    extends _$ShopProductsEventCopyWithImpl<$Res, _$PostOrdersRewards>
-    implements _$$PostOrdersRewardsCopyWith<$Res> {
-  __$$PostOrdersRewardsCopyWithImpl(
-      _$PostOrdersRewards _value, $Res Function(_$PostOrdersRewards) _then)
+class __$$PostOrdersRewardsImplCopyWithImpl<$Res>
+    extends _$ShopProductsEventCopyWithImpl<$Res, _$PostOrdersRewardsImpl>
+    implements _$$PostOrdersRewardsImplCopyWith<$Res> {
+  __$$PostOrdersRewardsImplCopyWithImpl(_$PostOrdersRewardsImpl _value,
+      $Res Function(_$PostOrdersRewardsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -9961,7 +9973,7 @@ class __$$PostOrdersRewardsCopyWithImpl<$Res>
     Object? size = null,
     Object? color = null,
   }) {
-    return _then(_$PostOrdersRewards(
+    return _then(_$PostOrdersRewardsImpl(
       context: null == context
           ? _value.context
           : context // ignore: cast_nullable_to_non_nullable
@@ -10004,8 +10016,8 @@ class __$$PostOrdersRewardsCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$PostOrdersRewards implements PostOrdersRewards {
-  const _$PostOrdersRewards(
+class _$PostOrdersRewardsImpl implements PostOrdersRewards {
+  const _$PostOrdersRewardsImpl(
       {required this.context,
       required this.price,
       required this.coins,
@@ -10044,7 +10056,7 @@ class _$PostOrdersRewards implements PostOrdersRewards {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PostOrdersRewards &&
+            other is _$PostOrdersRewardsImpl &&
             (identical(other.context, context) || other.context == context) &&
             (identical(other.price, price) || other.price == price) &&
             (identical(other.coins, coins) || other.coins == coins) &&
@@ -10066,8 +10078,9 @@ class _$PostOrdersRewards implements PostOrdersRewards {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PostOrdersRewardsCopyWith<_$PostOrdersRewards> get copyWith =>
-      __$$PostOrdersRewardsCopyWithImpl<_$PostOrdersRewards>(this, _$identity);
+  _$$PostOrdersRewardsImplCopyWith<_$PostOrdersRewardsImpl> get copyWith =>
+      __$$PostOrdersRewardsImplCopyWithImpl<_$PostOrdersRewardsImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -10594,7 +10607,7 @@ abstract class PostOrdersRewards implements ShopProductsEvent {
       required final String productId,
       required final String brandId,
       required final String size,
-      required final String color}) = _$PostOrdersRewards;
+      required final String color}) = _$PostOrdersRewardsImpl;
 
   BuildContext get context;
   double get price;
@@ -10606,25 +10619,25 @@ abstract class PostOrdersRewards implements ShopProductsEvent {
   String get size;
   String get color;
   @JsonKey(ignore: true)
-  _$$PostOrdersRewardsCopyWith<_$PostOrdersRewards> get copyWith =>
+  _$$PostOrdersRewardsImplCopyWith<_$PostOrdersRewardsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$FetchOrdersCopyWith<$Res> {
-  factory _$$FetchOrdersCopyWith(
-          _$FetchOrders value, $Res Function(_$FetchOrders) then) =
-      __$$FetchOrdersCopyWithImpl<$Res>;
+abstract class _$$FetchOrdersImplCopyWith<$Res> {
+  factory _$$FetchOrdersImplCopyWith(
+          _$FetchOrdersImpl value, $Res Function(_$FetchOrdersImpl) then) =
+      __$$FetchOrdersImplCopyWithImpl<$Res>;
   @useResult
   $Res call({BuildContext context});
 }
 
 /// @nodoc
-class __$$FetchOrdersCopyWithImpl<$Res>
-    extends _$ShopProductsEventCopyWithImpl<$Res, _$FetchOrders>
-    implements _$$FetchOrdersCopyWith<$Res> {
-  __$$FetchOrdersCopyWithImpl(
-      _$FetchOrders _value, $Res Function(_$FetchOrders) _then)
+class __$$FetchOrdersImplCopyWithImpl<$Res>
+    extends _$ShopProductsEventCopyWithImpl<$Res, _$FetchOrdersImpl>
+    implements _$$FetchOrdersImplCopyWith<$Res> {
+  __$$FetchOrdersImplCopyWithImpl(
+      _$FetchOrdersImpl _value, $Res Function(_$FetchOrdersImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -10632,7 +10645,7 @@ class __$$FetchOrdersCopyWithImpl<$Res>
   $Res call({
     Object? context = null,
   }) {
-    return _then(_$FetchOrders(
+    return _then(_$FetchOrdersImpl(
       null == context
           ? _value.context
           : context // ignore: cast_nullable_to_non_nullable
@@ -10643,8 +10656,8 @@ class __$$FetchOrdersCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FetchOrders implements FetchOrders {
-  const _$FetchOrders(this.context);
+class _$FetchOrdersImpl implements FetchOrders {
+  const _$FetchOrdersImpl(this.context);
 
   @override
   final BuildContext context;
@@ -10658,7 +10671,7 @@ class _$FetchOrders implements FetchOrders {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FetchOrders &&
+            other is _$FetchOrdersImpl &&
             (identical(other.context, context) || other.context == context));
   }
 
@@ -10668,8 +10681,8 @@ class _$FetchOrders implements FetchOrders {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FetchOrdersCopyWith<_$FetchOrders> get copyWith =>
-      __$$FetchOrdersCopyWithImpl<_$FetchOrders>(this, _$identity);
+  _$$FetchOrdersImplCopyWith<_$FetchOrdersImpl> get copyWith =>
+      __$$FetchOrdersImplCopyWithImpl<_$FetchOrdersImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -11184,29 +11197,29 @@ class _$FetchOrders implements FetchOrders {
 }
 
 abstract class FetchOrders implements ShopProductsEvent {
-  const factory FetchOrders(final BuildContext context) = _$FetchOrders;
+  const factory FetchOrders(final BuildContext context) = _$FetchOrdersImpl;
 
   BuildContext get context;
   @JsonKey(ignore: true)
-  _$$FetchOrdersCopyWith<_$FetchOrders> get copyWith =>
+  _$$FetchOrdersImplCopyWith<_$FetchOrdersImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$FetchOrdersByIdCopyWith<$Res> {
-  factory _$$FetchOrdersByIdCopyWith(
-          _$FetchOrdersById value, $Res Function(_$FetchOrdersById) then) =
-      __$$FetchOrdersByIdCopyWithImpl<$Res>;
+abstract class _$$FetchOrdersByIdImplCopyWith<$Res> {
+  factory _$$FetchOrdersByIdImplCopyWith(_$FetchOrdersByIdImpl value,
+          $Res Function(_$FetchOrdersByIdImpl) then) =
+      __$$FetchOrdersByIdImplCopyWithImpl<$Res>;
   @useResult
   $Res call({BuildContext context, int id});
 }
 
 /// @nodoc
-class __$$FetchOrdersByIdCopyWithImpl<$Res>
-    extends _$ShopProductsEventCopyWithImpl<$Res, _$FetchOrdersById>
-    implements _$$FetchOrdersByIdCopyWith<$Res> {
-  __$$FetchOrdersByIdCopyWithImpl(
-      _$FetchOrdersById _value, $Res Function(_$FetchOrdersById) _then)
+class __$$FetchOrdersByIdImplCopyWithImpl<$Res>
+    extends _$ShopProductsEventCopyWithImpl<$Res, _$FetchOrdersByIdImpl>
+    implements _$$FetchOrdersByIdImplCopyWith<$Res> {
+  __$$FetchOrdersByIdImplCopyWithImpl(
+      _$FetchOrdersByIdImpl _value, $Res Function(_$FetchOrdersByIdImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -11215,7 +11228,7 @@ class __$$FetchOrdersByIdCopyWithImpl<$Res>
     Object? context = null,
     Object? id = null,
   }) {
-    return _then(_$FetchOrdersById(
+    return _then(_$FetchOrdersByIdImpl(
       null == context
           ? _value.context
           : context // ignore: cast_nullable_to_non_nullable
@@ -11230,8 +11243,8 @@ class __$$FetchOrdersByIdCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FetchOrdersById implements FetchOrdersById {
-  const _$FetchOrdersById(this.context, this.id);
+class _$FetchOrdersByIdImpl implements FetchOrdersById {
+  const _$FetchOrdersByIdImpl(this.context, this.id);
 
   @override
   final BuildContext context;
@@ -11247,7 +11260,7 @@ class _$FetchOrdersById implements FetchOrdersById {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FetchOrdersById &&
+            other is _$FetchOrdersByIdImpl &&
             (identical(other.context, context) || other.context == context) &&
             (identical(other.id, id) || other.id == id));
   }
@@ -11258,8 +11271,9 @@ class _$FetchOrdersById implements FetchOrdersById {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FetchOrdersByIdCopyWith<_$FetchOrdersById> get copyWith =>
-      __$$FetchOrdersByIdCopyWithImpl<_$FetchOrdersById>(this, _$identity);
+  _$$FetchOrdersByIdImplCopyWith<_$FetchOrdersByIdImpl> get copyWith =>
+      __$$FetchOrdersByIdImplCopyWithImpl<_$FetchOrdersByIdImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -11775,30 +11789,33 @@ class _$FetchOrdersById implements FetchOrdersById {
 
 abstract class FetchOrdersById implements ShopProductsEvent {
   const factory FetchOrdersById(final BuildContext context, final int id) =
-      _$FetchOrdersById;
+      _$FetchOrdersByIdImpl;
 
   BuildContext get context;
   int get id;
   @JsonKey(ignore: true)
-  _$$FetchOrdersByIdCopyWith<_$FetchOrdersById> get copyWith =>
+  _$$FetchOrdersByIdImplCopyWith<_$FetchOrdersByIdImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$FetchOrdersbyFilterEventCopyWith<$Res> {
-  factory _$$FetchOrdersbyFilterEventCopyWith(_$FetchOrdersbyFilterEvent value,
-          $Res Function(_$FetchOrdersbyFilterEvent) then) =
-      __$$FetchOrdersbyFilterEventCopyWithImpl<$Res>;
+abstract class _$$FetchOrdersbyFilterEventImplCopyWith<$Res> {
+  factory _$$FetchOrdersbyFilterEventImplCopyWith(
+          _$FetchOrdersbyFilterEventImpl value,
+          $Res Function(_$FetchOrdersbyFilterEventImpl) then) =
+      __$$FetchOrdersbyFilterEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({BuildContext context, String filterName});
 }
 
 /// @nodoc
-class __$$FetchOrdersbyFilterEventCopyWithImpl<$Res>
-    extends _$ShopProductsEventCopyWithImpl<$Res, _$FetchOrdersbyFilterEvent>
-    implements _$$FetchOrdersbyFilterEventCopyWith<$Res> {
-  __$$FetchOrdersbyFilterEventCopyWithImpl(_$FetchOrdersbyFilterEvent _value,
-      $Res Function(_$FetchOrdersbyFilterEvent) _then)
+class __$$FetchOrdersbyFilterEventImplCopyWithImpl<$Res>
+    extends _$ShopProductsEventCopyWithImpl<$Res,
+        _$FetchOrdersbyFilterEventImpl>
+    implements _$$FetchOrdersbyFilterEventImplCopyWith<$Res> {
+  __$$FetchOrdersbyFilterEventImplCopyWithImpl(
+      _$FetchOrdersbyFilterEventImpl _value,
+      $Res Function(_$FetchOrdersbyFilterEventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -11807,7 +11824,7 @@ class __$$FetchOrdersbyFilterEventCopyWithImpl<$Res>
     Object? context = null,
     Object? filterName = null,
   }) {
-    return _then(_$FetchOrdersbyFilterEvent(
+    return _then(_$FetchOrdersbyFilterEventImpl(
       context: null == context
           ? _value.context
           : context // ignore: cast_nullable_to_non_nullable
@@ -11822,8 +11839,8 @@ class __$$FetchOrdersbyFilterEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FetchOrdersbyFilterEvent implements FetchOrdersbyFilterEvent {
-  const _$FetchOrdersbyFilterEvent(
+class _$FetchOrdersbyFilterEventImpl implements FetchOrdersbyFilterEvent {
+  const _$FetchOrdersbyFilterEventImpl(
       {required this.context, required this.filterName});
 
   @override
@@ -11840,7 +11857,7 @@ class _$FetchOrdersbyFilterEvent implements FetchOrdersbyFilterEvent {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FetchOrdersbyFilterEvent &&
+            other is _$FetchOrdersbyFilterEventImpl &&
             (identical(other.context, context) || other.context == context) &&
             (identical(other.filterName, filterName) ||
                 other.filterName == filterName));
@@ -11852,10 +11869,9 @@ class _$FetchOrdersbyFilterEvent implements FetchOrdersbyFilterEvent {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FetchOrdersbyFilterEventCopyWith<_$FetchOrdersbyFilterEvent>
-      get copyWith =>
-          __$$FetchOrdersbyFilterEventCopyWithImpl<_$FetchOrdersbyFilterEvent>(
-              this, _$identity);
+  _$$FetchOrdersbyFilterEventImplCopyWith<_$FetchOrdersbyFilterEventImpl>
+      get copyWith => __$$FetchOrdersbyFilterEventImplCopyWithImpl<
+          _$FetchOrdersbyFilterEventImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -12372,30 +12388,30 @@ class _$FetchOrdersbyFilterEvent implements FetchOrdersbyFilterEvent {
 abstract class FetchOrdersbyFilterEvent implements ShopProductsEvent {
   const factory FetchOrdersbyFilterEvent(
       {required final BuildContext context,
-      required final String filterName}) = _$FetchOrdersbyFilterEvent;
+      required final String filterName}) = _$FetchOrdersbyFilterEventImpl;
 
   BuildContext get context;
   String get filterName;
   @JsonKey(ignore: true)
-  _$$FetchOrdersbyFilterEventCopyWith<_$FetchOrdersbyFilterEvent>
+  _$$FetchOrdersbyFilterEventImplCopyWith<_$FetchOrdersbyFilterEventImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$CancelOrderCopyWith<$Res> {
-  factory _$$CancelOrderCopyWith(
-          _$CancelOrder value, $Res Function(_$CancelOrder) then) =
-      __$$CancelOrderCopyWithImpl<$Res>;
+abstract class _$$CancelOrderImplCopyWith<$Res> {
+  factory _$$CancelOrderImplCopyWith(
+          _$CancelOrderImpl value, $Res Function(_$CancelOrderImpl) then) =
+      __$$CancelOrderImplCopyWithImpl<$Res>;
   @useResult
   $Res call({BuildContext context, int shiprockeId});
 }
 
 /// @nodoc
-class __$$CancelOrderCopyWithImpl<$Res>
-    extends _$ShopProductsEventCopyWithImpl<$Res, _$CancelOrder>
-    implements _$$CancelOrderCopyWith<$Res> {
-  __$$CancelOrderCopyWithImpl(
-      _$CancelOrder _value, $Res Function(_$CancelOrder) _then)
+class __$$CancelOrderImplCopyWithImpl<$Res>
+    extends _$ShopProductsEventCopyWithImpl<$Res, _$CancelOrderImpl>
+    implements _$$CancelOrderImplCopyWith<$Res> {
+  __$$CancelOrderImplCopyWithImpl(
+      _$CancelOrderImpl _value, $Res Function(_$CancelOrderImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -12404,7 +12420,7 @@ class __$$CancelOrderCopyWithImpl<$Res>
     Object? context = null,
     Object? shiprockeId = null,
   }) {
-    return _then(_$CancelOrder(
+    return _then(_$CancelOrderImpl(
       context: null == context
           ? _value.context
           : context // ignore: cast_nullable_to_non_nullable
@@ -12419,8 +12435,8 @@ class __$$CancelOrderCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$CancelOrder implements CancelOrder {
-  const _$CancelOrder({required this.context, required this.shiprockeId});
+class _$CancelOrderImpl implements CancelOrder {
+  const _$CancelOrderImpl({required this.context, required this.shiprockeId});
 
   @override
   final BuildContext context;
@@ -12436,7 +12452,7 @@ class _$CancelOrder implements CancelOrder {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$CancelOrder &&
+            other is _$CancelOrderImpl &&
             (identical(other.context, context) || other.context == context) &&
             (identical(other.shiprockeId, shiprockeId) ||
                 other.shiprockeId == shiprockeId));
@@ -12448,8 +12464,8 @@ class _$CancelOrder implements CancelOrder {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$CancelOrderCopyWith<_$CancelOrder> get copyWith =>
-      __$$CancelOrderCopyWithImpl<_$CancelOrder>(this, _$identity);
+  _$$CancelOrderImplCopyWith<_$CancelOrderImpl> get copyWith =>
+      __$$CancelOrderImplCopyWithImpl<_$CancelOrderImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -12966,30 +12982,30 @@ class _$CancelOrder implements CancelOrder {
 abstract class CancelOrder implements ShopProductsEvent {
   const factory CancelOrder(
       {required final BuildContext context,
-      required final int shiprockeId}) = _$CancelOrder;
+      required final int shiprockeId}) = _$CancelOrderImpl;
 
   BuildContext get context;
   int get shiprockeId;
   @JsonKey(ignore: true)
-  _$$CancelOrderCopyWith<_$CancelOrder> get copyWith =>
+  _$$CancelOrderImplCopyWith<_$CancelOrderImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ReturnOrderCopyWith<$Res> {
-  factory _$$ReturnOrderCopyWith(
-          _$ReturnOrder value, $Res Function(_$ReturnOrder) then) =
-      __$$ReturnOrderCopyWithImpl<$Res>;
+abstract class _$$ReturnOrderImplCopyWith<$Res> {
+  factory _$$ReturnOrderImplCopyWith(
+          _$ReturnOrderImpl value, $Res Function(_$ReturnOrderImpl) then) =
+      __$$ReturnOrderImplCopyWithImpl<$Res>;
   @useResult
   $Res call({BuildContext context, int shiprockeId});
 }
 
 /// @nodoc
-class __$$ReturnOrderCopyWithImpl<$Res>
-    extends _$ShopProductsEventCopyWithImpl<$Res, _$ReturnOrder>
-    implements _$$ReturnOrderCopyWith<$Res> {
-  __$$ReturnOrderCopyWithImpl(
-      _$ReturnOrder _value, $Res Function(_$ReturnOrder) _then)
+class __$$ReturnOrderImplCopyWithImpl<$Res>
+    extends _$ShopProductsEventCopyWithImpl<$Res, _$ReturnOrderImpl>
+    implements _$$ReturnOrderImplCopyWith<$Res> {
+  __$$ReturnOrderImplCopyWithImpl(
+      _$ReturnOrderImpl _value, $Res Function(_$ReturnOrderImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -12998,7 +13014,7 @@ class __$$ReturnOrderCopyWithImpl<$Res>
     Object? context = null,
     Object? shiprockeId = null,
   }) {
-    return _then(_$ReturnOrder(
+    return _then(_$ReturnOrderImpl(
       context: null == context
           ? _value.context
           : context // ignore: cast_nullable_to_non_nullable
@@ -13013,8 +13029,8 @@ class __$$ReturnOrderCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ReturnOrder implements ReturnOrder {
-  const _$ReturnOrder({required this.context, required this.shiprockeId});
+class _$ReturnOrderImpl implements ReturnOrder {
+  const _$ReturnOrderImpl({required this.context, required this.shiprockeId});
 
   @override
   final BuildContext context;
@@ -13030,7 +13046,7 @@ class _$ReturnOrder implements ReturnOrder {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ReturnOrder &&
+            other is _$ReturnOrderImpl &&
             (identical(other.context, context) || other.context == context) &&
             (identical(other.shiprockeId, shiprockeId) ||
                 other.shiprockeId == shiprockeId));
@@ -13042,8 +13058,8 @@ class _$ReturnOrder implements ReturnOrder {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ReturnOrderCopyWith<_$ReturnOrder> get copyWith =>
-      __$$ReturnOrderCopyWithImpl<_$ReturnOrder>(this, _$identity);
+  _$$ReturnOrderImplCopyWith<_$ReturnOrderImpl> get copyWith =>
+      __$$ReturnOrderImplCopyWithImpl<_$ReturnOrderImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -13560,37 +13576,38 @@ class _$ReturnOrder implements ReturnOrder {
 abstract class ReturnOrder implements ShopProductsEvent {
   const factory ReturnOrder(
       {required final BuildContext context,
-      required final int shiprockeId}) = _$ReturnOrder;
+      required final int shiprockeId}) = _$ReturnOrderImpl;
 
   BuildContext get context;
   int get shiprockeId;
   @JsonKey(ignore: true)
-  _$$ReturnOrderCopyWith<_$ReturnOrder> get copyWith =>
+  _$$ReturnOrderImplCopyWith<_$ReturnOrderImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$FetchShopHomeBackgroundCardCopyWith<$Res> {
-  factory _$$FetchShopHomeBackgroundCardCopyWith(
-          _$FetchShopHomeBackgroundCard value,
-          $Res Function(_$FetchShopHomeBackgroundCard) then) =
-      __$$FetchShopHomeBackgroundCardCopyWithImpl<$Res>;
+abstract class _$$FetchShopHomeBackgroundCardImplCopyWith<$Res> {
+  factory _$$FetchShopHomeBackgroundCardImplCopyWith(
+          _$FetchShopHomeBackgroundCardImpl value,
+          $Res Function(_$FetchShopHomeBackgroundCardImpl) then) =
+      __$$FetchShopHomeBackgroundCardImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$FetchShopHomeBackgroundCardCopyWithImpl<$Res>
-    extends _$ShopProductsEventCopyWithImpl<$Res, _$FetchShopHomeBackgroundCard>
-    implements _$$FetchShopHomeBackgroundCardCopyWith<$Res> {
-  __$$FetchShopHomeBackgroundCardCopyWithImpl(
-      _$FetchShopHomeBackgroundCard _value,
-      $Res Function(_$FetchShopHomeBackgroundCard) _then)
+class __$$FetchShopHomeBackgroundCardImplCopyWithImpl<$Res>
+    extends _$ShopProductsEventCopyWithImpl<$Res,
+        _$FetchShopHomeBackgroundCardImpl>
+    implements _$$FetchShopHomeBackgroundCardImplCopyWith<$Res> {
+  __$$FetchShopHomeBackgroundCardImplCopyWithImpl(
+      _$FetchShopHomeBackgroundCardImpl _value,
+      $Res Function(_$FetchShopHomeBackgroundCardImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$FetchShopHomeBackgroundCard implements FetchShopHomeBackgroundCard {
-  const _$FetchShopHomeBackgroundCard();
+class _$FetchShopHomeBackgroundCardImpl implements FetchShopHomeBackgroundCard {
+  const _$FetchShopHomeBackgroundCardImpl();
 
   @override
   String toString() {
@@ -13601,7 +13618,7 @@ class _$FetchShopHomeBackgroundCard implements FetchShopHomeBackgroundCard {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FetchShopHomeBackgroundCard);
+            other is _$FetchShopHomeBackgroundCardImpl);
   }
 
   @override
@@ -14120,33 +14137,34 @@ class _$FetchShopHomeBackgroundCard implements FetchShopHomeBackgroundCard {
 }
 
 abstract class FetchShopHomeBackgroundCard implements ShopProductsEvent {
-  const factory FetchShopHomeBackgroundCard() = _$FetchShopHomeBackgroundCard;
+  const factory FetchShopHomeBackgroundCard() =
+      _$FetchShopHomeBackgroundCardImpl;
 }
 
 /// @nodoc
-abstract class _$$FetchShopHomeBackgroundCardHelthyDietCopyWith<$Res> {
-  factory _$$FetchShopHomeBackgroundCardHelthyDietCopyWith(
-          _$FetchShopHomeBackgroundCardHelthyDiet value,
-          $Res Function(_$FetchShopHomeBackgroundCardHelthyDiet) then) =
-      __$$FetchShopHomeBackgroundCardHelthyDietCopyWithImpl<$Res>;
+abstract class _$$FetchShopHomeBackgroundCardHelthyDietImplCopyWith<$Res> {
+  factory _$$FetchShopHomeBackgroundCardHelthyDietImplCopyWith(
+          _$FetchShopHomeBackgroundCardHelthyDietImpl value,
+          $Res Function(_$FetchShopHomeBackgroundCardHelthyDietImpl) then) =
+      __$$FetchShopHomeBackgroundCardHelthyDietImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$FetchShopHomeBackgroundCardHelthyDietCopyWithImpl<$Res>
+class __$$FetchShopHomeBackgroundCardHelthyDietImplCopyWithImpl<$Res>
     extends _$ShopProductsEventCopyWithImpl<$Res,
-        _$FetchShopHomeBackgroundCardHelthyDiet>
-    implements _$$FetchShopHomeBackgroundCardHelthyDietCopyWith<$Res> {
-  __$$FetchShopHomeBackgroundCardHelthyDietCopyWithImpl(
-      _$FetchShopHomeBackgroundCardHelthyDiet _value,
-      $Res Function(_$FetchShopHomeBackgroundCardHelthyDiet) _then)
+        _$FetchShopHomeBackgroundCardHelthyDietImpl>
+    implements _$$FetchShopHomeBackgroundCardHelthyDietImplCopyWith<$Res> {
+  __$$FetchShopHomeBackgroundCardHelthyDietImplCopyWithImpl(
+      _$FetchShopHomeBackgroundCardHelthyDietImpl _value,
+      $Res Function(_$FetchShopHomeBackgroundCardHelthyDietImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$FetchShopHomeBackgroundCardHelthyDiet
+class _$FetchShopHomeBackgroundCardHelthyDietImpl
     implements FetchShopHomeBackgroundCardHelthyDiet {
-  const _$FetchShopHomeBackgroundCardHelthyDiet();
+  const _$FetchShopHomeBackgroundCardHelthyDietImpl();
 
   @override
   String toString() {
@@ -14157,7 +14175,7 @@ class _$FetchShopHomeBackgroundCardHelthyDiet
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FetchShopHomeBackgroundCardHelthyDiet);
+            other is _$FetchShopHomeBackgroundCardHelthyDietImpl);
   }
 
   @override
@@ -14678,33 +14696,33 @@ class _$FetchShopHomeBackgroundCardHelthyDiet
 abstract class FetchShopHomeBackgroundCardHelthyDiet
     implements ShopProductsEvent {
   const factory FetchShopHomeBackgroundCardHelthyDiet() =
-      _$FetchShopHomeBackgroundCardHelthyDiet;
+      _$FetchShopHomeBackgroundCardHelthyDietImpl;
 }
 
 /// @nodoc
-abstract class _$$FetchShopHomeBackgroundCardSunnahCopyWith<$Res> {
-  factory _$$FetchShopHomeBackgroundCardSunnahCopyWith(
-          _$FetchShopHomeBackgroundCardSunnah value,
-          $Res Function(_$FetchShopHomeBackgroundCardSunnah) then) =
-      __$$FetchShopHomeBackgroundCardSunnahCopyWithImpl<$Res>;
+abstract class _$$FetchShopHomeBackgroundCardSunnahImplCopyWith<$Res> {
+  factory _$$FetchShopHomeBackgroundCardSunnahImplCopyWith(
+          _$FetchShopHomeBackgroundCardSunnahImpl value,
+          $Res Function(_$FetchShopHomeBackgroundCardSunnahImpl) then) =
+      __$$FetchShopHomeBackgroundCardSunnahImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$FetchShopHomeBackgroundCardSunnahCopyWithImpl<$Res>
+class __$$FetchShopHomeBackgroundCardSunnahImplCopyWithImpl<$Res>
     extends _$ShopProductsEventCopyWithImpl<$Res,
-        _$FetchShopHomeBackgroundCardSunnah>
-    implements _$$FetchShopHomeBackgroundCardSunnahCopyWith<$Res> {
-  __$$FetchShopHomeBackgroundCardSunnahCopyWithImpl(
-      _$FetchShopHomeBackgroundCardSunnah _value,
-      $Res Function(_$FetchShopHomeBackgroundCardSunnah) _then)
+        _$FetchShopHomeBackgroundCardSunnahImpl>
+    implements _$$FetchShopHomeBackgroundCardSunnahImplCopyWith<$Res> {
+  __$$FetchShopHomeBackgroundCardSunnahImplCopyWithImpl(
+      _$FetchShopHomeBackgroundCardSunnahImpl _value,
+      $Res Function(_$FetchShopHomeBackgroundCardSunnahImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$FetchShopHomeBackgroundCardSunnah
+class _$FetchShopHomeBackgroundCardSunnahImpl
     implements FetchShopHomeBackgroundCardSunnah {
-  const _$FetchShopHomeBackgroundCardSunnah();
+  const _$FetchShopHomeBackgroundCardSunnahImpl();
 
   @override
   String toString() {
@@ -14715,7 +14733,7 @@ class _$FetchShopHomeBackgroundCardSunnah
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FetchShopHomeBackgroundCardSunnah);
+            other is _$FetchShopHomeBackgroundCardSunnahImpl);
   }
 
   @override
@@ -15235,29 +15253,29 @@ class _$FetchShopHomeBackgroundCardSunnah
 
 abstract class FetchShopHomeBackgroundCardSunnah implements ShopProductsEvent {
   const factory FetchShopHomeBackgroundCardSunnah() =
-      _$FetchShopHomeBackgroundCardSunnah;
+      _$FetchShopHomeBackgroundCardSunnahImpl;
 }
 
 /// @nodoc
-abstract class _$$FetchShopAdBrandsCopyWith<$Res> {
-  factory _$$FetchShopAdBrandsCopyWith(
-          _$FetchShopAdBrands value, $Res Function(_$FetchShopAdBrands) then) =
-      __$$FetchShopAdBrandsCopyWithImpl<$Res>;
+abstract class _$$FetchShopAdBrandsImplCopyWith<$Res> {
+  factory _$$FetchShopAdBrandsImplCopyWith(_$FetchShopAdBrandsImpl value,
+          $Res Function(_$FetchShopAdBrandsImpl) then) =
+      __$$FetchShopAdBrandsImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$FetchShopAdBrandsCopyWithImpl<$Res>
-    extends _$ShopProductsEventCopyWithImpl<$Res, _$FetchShopAdBrands>
-    implements _$$FetchShopAdBrandsCopyWith<$Res> {
-  __$$FetchShopAdBrandsCopyWithImpl(
-      _$FetchShopAdBrands _value, $Res Function(_$FetchShopAdBrands) _then)
+class __$$FetchShopAdBrandsImplCopyWithImpl<$Res>
+    extends _$ShopProductsEventCopyWithImpl<$Res, _$FetchShopAdBrandsImpl>
+    implements _$$FetchShopAdBrandsImplCopyWith<$Res> {
+  __$$FetchShopAdBrandsImplCopyWithImpl(_$FetchShopAdBrandsImpl _value,
+      $Res Function(_$FetchShopAdBrandsImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$FetchShopAdBrands implements FetchShopAdBrands {
-  const _$FetchShopAdBrands();
+class _$FetchShopAdBrandsImpl implements FetchShopAdBrands {
+  const _$FetchShopAdBrandsImpl();
 
   @override
   String toString() {
@@ -15267,7 +15285,7 @@ class _$FetchShopAdBrands implements FetchShopAdBrands {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$FetchShopAdBrands);
+        (other.runtimeType == runtimeType && other is _$FetchShopAdBrandsImpl);
   }
 
   @override
@@ -15786,29 +15804,29 @@ class _$FetchShopAdBrands implements FetchShopAdBrands {
 }
 
 abstract class FetchShopAdBrands implements ShopProductsEvent {
-  const factory FetchShopAdBrands() = _$FetchShopAdBrands;
+  const factory FetchShopAdBrands() = _$FetchShopAdBrandsImpl;
 }
 
 /// @nodoc
-abstract class _$$FetchTopBrandsCopyWith<$Res> {
-  factory _$$FetchTopBrandsCopyWith(
-          _$FetchTopBrands value, $Res Function(_$FetchTopBrands) then) =
-      __$$FetchTopBrandsCopyWithImpl<$Res>;
+abstract class _$$FetchTopBrandsImplCopyWith<$Res> {
+  factory _$$FetchTopBrandsImplCopyWith(_$FetchTopBrandsImpl value,
+          $Res Function(_$FetchTopBrandsImpl) then) =
+      __$$FetchTopBrandsImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$FetchTopBrandsCopyWithImpl<$Res>
-    extends _$ShopProductsEventCopyWithImpl<$Res, _$FetchTopBrands>
-    implements _$$FetchTopBrandsCopyWith<$Res> {
-  __$$FetchTopBrandsCopyWithImpl(
-      _$FetchTopBrands _value, $Res Function(_$FetchTopBrands) _then)
+class __$$FetchTopBrandsImplCopyWithImpl<$Res>
+    extends _$ShopProductsEventCopyWithImpl<$Res, _$FetchTopBrandsImpl>
+    implements _$$FetchTopBrandsImplCopyWith<$Res> {
+  __$$FetchTopBrandsImplCopyWithImpl(
+      _$FetchTopBrandsImpl _value, $Res Function(_$FetchTopBrandsImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$FetchTopBrands implements FetchTopBrands {
-  const _$FetchTopBrands();
+class _$FetchTopBrandsImpl implements FetchTopBrands {
+  const _$FetchTopBrandsImpl();
 
   @override
   String toString() {
@@ -15818,7 +15836,7 @@ class _$FetchTopBrands implements FetchTopBrands {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$FetchTopBrands);
+        (other.runtimeType == runtimeType && other is _$FetchTopBrandsImpl);
   }
 
   @override
@@ -16337,33 +16355,33 @@ class _$FetchTopBrands implements FetchTopBrands {
 }
 
 abstract class FetchTopBrands implements ShopProductsEvent {
-  const factory FetchTopBrands() = _$FetchTopBrands;
+  const factory FetchTopBrands() = _$FetchTopBrandsImpl;
 }
 
 /// @nodoc
-abstract class _$$FetchProductItemsSubcategorySunnahCopyWith<$Res> {
-  factory _$$FetchProductItemsSubcategorySunnahCopyWith(
-          _$FetchProductItemsSubcategorySunnah value,
-          $Res Function(_$FetchProductItemsSubcategorySunnah) then) =
-      __$$FetchProductItemsSubcategorySunnahCopyWithImpl<$Res>;
+abstract class _$$FetchProductItemsSubcategorySunnahImplCopyWith<$Res> {
+  factory _$$FetchProductItemsSubcategorySunnahImplCopyWith(
+          _$FetchProductItemsSubcategorySunnahImpl value,
+          $Res Function(_$FetchProductItemsSubcategorySunnahImpl) then) =
+      __$$FetchProductItemsSubcategorySunnahImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$FetchProductItemsSubcategorySunnahCopyWithImpl<$Res>
+class __$$FetchProductItemsSubcategorySunnahImplCopyWithImpl<$Res>
     extends _$ShopProductsEventCopyWithImpl<$Res,
-        _$FetchProductItemsSubcategorySunnah>
-    implements _$$FetchProductItemsSubcategorySunnahCopyWith<$Res> {
-  __$$FetchProductItemsSubcategorySunnahCopyWithImpl(
-      _$FetchProductItemsSubcategorySunnah _value,
-      $Res Function(_$FetchProductItemsSubcategorySunnah) _then)
+        _$FetchProductItemsSubcategorySunnahImpl>
+    implements _$$FetchProductItemsSubcategorySunnahImplCopyWith<$Res> {
+  __$$FetchProductItemsSubcategorySunnahImplCopyWithImpl(
+      _$FetchProductItemsSubcategorySunnahImpl _value,
+      $Res Function(_$FetchProductItemsSubcategorySunnahImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$FetchProductItemsSubcategorySunnah
+class _$FetchProductItemsSubcategorySunnahImpl
     implements FetchProductItemsSubcategorySunnah {
-  const _$FetchProductItemsSubcategorySunnah();
+  const _$FetchProductItemsSubcategorySunnahImpl();
 
   @override
   String toString() {
@@ -16374,7 +16392,7 @@ class _$FetchProductItemsSubcategorySunnah
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FetchProductItemsSubcategorySunnah);
+            other is _$FetchProductItemsSubcategorySunnahImpl);
   }
 
   @override
@@ -16894,33 +16912,33 @@ class _$FetchProductItemsSubcategorySunnah
 
 abstract class FetchProductItemsSubcategorySunnah implements ShopProductsEvent {
   const factory FetchProductItemsSubcategorySunnah() =
-      _$FetchProductItemsSubcategorySunnah;
+      _$FetchProductItemsSubcategorySunnahImpl;
 }
 
 /// @nodoc
-abstract class _$$FetchProductItemsSubcategoryHealthCopyWith<$Res> {
-  factory _$$FetchProductItemsSubcategoryHealthCopyWith(
-          _$FetchProductItemsSubcategoryHealth value,
-          $Res Function(_$FetchProductItemsSubcategoryHealth) then) =
-      __$$FetchProductItemsSubcategoryHealthCopyWithImpl<$Res>;
+abstract class _$$FetchProductItemsSubcategoryHealthImplCopyWith<$Res> {
+  factory _$$FetchProductItemsSubcategoryHealthImplCopyWith(
+          _$FetchProductItemsSubcategoryHealthImpl value,
+          $Res Function(_$FetchProductItemsSubcategoryHealthImpl) then) =
+      __$$FetchProductItemsSubcategoryHealthImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$FetchProductItemsSubcategoryHealthCopyWithImpl<$Res>
+class __$$FetchProductItemsSubcategoryHealthImplCopyWithImpl<$Res>
     extends _$ShopProductsEventCopyWithImpl<$Res,
-        _$FetchProductItemsSubcategoryHealth>
-    implements _$$FetchProductItemsSubcategoryHealthCopyWith<$Res> {
-  __$$FetchProductItemsSubcategoryHealthCopyWithImpl(
-      _$FetchProductItemsSubcategoryHealth _value,
-      $Res Function(_$FetchProductItemsSubcategoryHealth) _then)
+        _$FetchProductItemsSubcategoryHealthImpl>
+    implements _$$FetchProductItemsSubcategoryHealthImplCopyWith<$Res> {
+  __$$FetchProductItemsSubcategoryHealthImplCopyWithImpl(
+      _$FetchProductItemsSubcategoryHealthImpl _value,
+      $Res Function(_$FetchProductItemsSubcategoryHealthImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$FetchProductItemsSubcategoryHealth
+class _$FetchProductItemsSubcategoryHealthImpl
     implements FetchProductItemsSubcategoryHealth {
-  const _$FetchProductItemsSubcategoryHealth();
+  const _$FetchProductItemsSubcategoryHealthImpl();
 
   @override
   String toString() {
@@ -16931,7 +16949,7 @@ class _$FetchProductItemsSubcategoryHealth
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FetchProductItemsSubcategoryHealth);
+            other is _$FetchProductItemsSubcategoryHealthImpl);
   }
 
   @override
@@ -17451,33 +17469,33 @@ class _$FetchProductItemsSubcategoryHealth
 
 abstract class FetchProductItemsSubcategoryHealth implements ShopProductsEvent {
   const factory FetchProductItemsSubcategoryHealth() =
-      _$FetchProductItemsSubcategoryHealth;
+      _$FetchProductItemsSubcategoryHealthImpl;
 }
 
 /// @nodoc
-abstract class _$$FetchProductItemsSubcategoryWomenCopyWith<$Res> {
-  factory _$$FetchProductItemsSubcategoryWomenCopyWith(
-          _$FetchProductItemsSubcategoryWomen value,
-          $Res Function(_$FetchProductItemsSubcategoryWomen) then) =
-      __$$FetchProductItemsSubcategoryWomenCopyWithImpl<$Res>;
+abstract class _$$FetchProductItemsSubcategoryWomenImplCopyWith<$Res> {
+  factory _$$FetchProductItemsSubcategoryWomenImplCopyWith(
+          _$FetchProductItemsSubcategoryWomenImpl value,
+          $Res Function(_$FetchProductItemsSubcategoryWomenImpl) then) =
+      __$$FetchProductItemsSubcategoryWomenImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$FetchProductItemsSubcategoryWomenCopyWithImpl<$Res>
+class __$$FetchProductItemsSubcategoryWomenImplCopyWithImpl<$Res>
     extends _$ShopProductsEventCopyWithImpl<$Res,
-        _$FetchProductItemsSubcategoryWomen>
-    implements _$$FetchProductItemsSubcategoryWomenCopyWith<$Res> {
-  __$$FetchProductItemsSubcategoryWomenCopyWithImpl(
-      _$FetchProductItemsSubcategoryWomen _value,
-      $Res Function(_$FetchProductItemsSubcategoryWomen) _then)
+        _$FetchProductItemsSubcategoryWomenImpl>
+    implements _$$FetchProductItemsSubcategoryWomenImplCopyWith<$Res> {
+  __$$FetchProductItemsSubcategoryWomenImplCopyWithImpl(
+      _$FetchProductItemsSubcategoryWomenImpl _value,
+      $Res Function(_$FetchProductItemsSubcategoryWomenImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$FetchProductItemsSubcategoryWomen
+class _$FetchProductItemsSubcategoryWomenImpl
     implements FetchProductItemsSubcategoryWomen {
-  const _$FetchProductItemsSubcategoryWomen();
+  const _$FetchProductItemsSubcategoryWomenImpl();
 
   @override
   String toString() {
@@ -17488,7 +17506,7 @@ class _$FetchProductItemsSubcategoryWomen
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FetchProductItemsSubcategoryWomen);
+            other is _$FetchProductItemsSubcategoryWomenImpl);
   }
 
   @override
@@ -18008,24 +18026,25 @@ class _$FetchProductItemsSubcategoryWomen
 
 abstract class FetchProductItemsSubcategoryWomen implements ShopProductsEvent {
   const factory FetchProductItemsSubcategoryWomen() =
-      _$FetchProductItemsSubcategoryWomen;
+      _$FetchProductItemsSubcategoryWomenImpl;
 }
 
 /// @nodoc
-abstract class _$$ChangeShopBannerIndexCopyWith<$Res> {
-  factory _$$ChangeShopBannerIndexCopyWith(_$ChangeShopBannerIndex value,
-          $Res Function(_$ChangeShopBannerIndex) then) =
-      __$$ChangeShopBannerIndexCopyWithImpl<$Res>;
+abstract class _$$ChangeShopBannerIndexImplCopyWith<$Res> {
+  factory _$$ChangeShopBannerIndexImplCopyWith(
+          _$ChangeShopBannerIndexImpl value,
+          $Res Function(_$ChangeShopBannerIndexImpl) then) =
+      __$$ChangeShopBannerIndexImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int index});
 }
 
 /// @nodoc
-class __$$ChangeShopBannerIndexCopyWithImpl<$Res>
-    extends _$ShopProductsEventCopyWithImpl<$Res, _$ChangeShopBannerIndex>
-    implements _$$ChangeShopBannerIndexCopyWith<$Res> {
-  __$$ChangeShopBannerIndexCopyWithImpl(_$ChangeShopBannerIndex _value,
-      $Res Function(_$ChangeShopBannerIndex) _then)
+class __$$ChangeShopBannerIndexImplCopyWithImpl<$Res>
+    extends _$ShopProductsEventCopyWithImpl<$Res, _$ChangeShopBannerIndexImpl>
+    implements _$$ChangeShopBannerIndexImplCopyWith<$Res> {
+  __$$ChangeShopBannerIndexImplCopyWithImpl(_$ChangeShopBannerIndexImpl _value,
+      $Res Function(_$ChangeShopBannerIndexImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -18033,7 +18052,7 @@ class __$$ChangeShopBannerIndexCopyWithImpl<$Res>
   $Res call({
     Object? index = null,
   }) {
-    return _then(_$ChangeShopBannerIndex(
+    return _then(_$ChangeShopBannerIndexImpl(
       null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
@@ -18044,8 +18063,8 @@ class __$$ChangeShopBannerIndexCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ChangeShopBannerIndex implements ChangeShopBannerIndex {
-  const _$ChangeShopBannerIndex(this.index);
+class _$ChangeShopBannerIndexImpl implements ChangeShopBannerIndex {
+  const _$ChangeShopBannerIndexImpl(this.index);
 
   @override
   final int index;
@@ -18059,7 +18078,7 @@ class _$ChangeShopBannerIndex implements ChangeShopBannerIndex {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ChangeShopBannerIndex &&
+            other is _$ChangeShopBannerIndexImpl &&
             (identical(other.index, index) || other.index == index));
   }
 
@@ -18069,9 +18088,9 @@ class _$ChangeShopBannerIndex implements ChangeShopBannerIndex {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ChangeShopBannerIndexCopyWith<_$ChangeShopBannerIndex> get copyWith =>
-      __$$ChangeShopBannerIndexCopyWithImpl<_$ChangeShopBannerIndex>(
-          this, _$identity);
+  _$$ChangeShopBannerIndexImplCopyWith<_$ChangeShopBannerIndexImpl>
+      get copyWith => __$$ChangeShopBannerIndexImplCopyWithImpl<
+          _$ChangeShopBannerIndexImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -18587,29 +18606,31 @@ class _$ChangeShopBannerIndex implements ChangeShopBannerIndex {
 
 abstract class ChangeShopBannerIndex implements ShopProductsEvent {
   const factory ChangeShopBannerIndex(final int index) =
-      _$ChangeShopBannerIndex;
+      _$ChangeShopBannerIndexImpl;
 
   int get index;
   @JsonKey(ignore: true)
-  _$$ChangeShopBannerIndexCopyWith<_$ChangeShopBannerIndex> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$ChangeShopBannerIndexImplCopyWith<_$ChangeShopBannerIndexImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ChangeBrandBannerIndexCopyWith<$Res> {
-  factory _$$ChangeBrandBannerIndexCopyWith(_$ChangeBrandBannerIndex value,
-          $Res Function(_$ChangeBrandBannerIndex) then) =
-      __$$ChangeBrandBannerIndexCopyWithImpl<$Res>;
+abstract class _$$ChangeBrandBannerIndexImplCopyWith<$Res> {
+  factory _$$ChangeBrandBannerIndexImplCopyWith(
+          _$ChangeBrandBannerIndexImpl value,
+          $Res Function(_$ChangeBrandBannerIndexImpl) then) =
+      __$$ChangeBrandBannerIndexImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int index});
 }
 
 /// @nodoc
-class __$$ChangeBrandBannerIndexCopyWithImpl<$Res>
-    extends _$ShopProductsEventCopyWithImpl<$Res, _$ChangeBrandBannerIndex>
-    implements _$$ChangeBrandBannerIndexCopyWith<$Res> {
-  __$$ChangeBrandBannerIndexCopyWithImpl(_$ChangeBrandBannerIndex _value,
-      $Res Function(_$ChangeBrandBannerIndex) _then)
+class __$$ChangeBrandBannerIndexImplCopyWithImpl<$Res>
+    extends _$ShopProductsEventCopyWithImpl<$Res, _$ChangeBrandBannerIndexImpl>
+    implements _$$ChangeBrandBannerIndexImplCopyWith<$Res> {
+  __$$ChangeBrandBannerIndexImplCopyWithImpl(
+      _$ChangeBrandBannerIndexImpl _value,
+      $Res Function(_$ChangeBrandBannerIndexImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -18617,7 +18638,7 @@ class __$$ChangeBrandBannerIndexCopyWithImpl<$Res>
   $Res call({
     Object? index = null,
   }) {
-    return _then(_$ChangeBrandBannerIndex(
+    return _then(_$ChangeBrandBannerIndexImpl(
       null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
@@ -18628,8 +18649,8 @@ class __$$ChangeBrandBannerIndexCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ChangeBrandBannerIndex implements ChangeBrandBannerIndex {
-  const _$ChangeBrandBannerIndex(this.index);
+class _$ChangeBrandBannerIndexImpl implements ChangeBrandBannerIndex {
+  const _$ChangeBrandBannerIndexImpl(this.index);
 
   @override
   final int index;
@@ -18643,7 +18664,7 @@ class _$ChangeBrandBannerIndex implements ChangeBrandBannerIndex {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ChangeBrandBannerIndex &&
+            other is _$ChangeBrandBannerIndexImpl &&
             (identical(other.index, index) || other.index == index));
   }
 
@@ -18653,9 +18674,9 @@ class _$ChangeBrandBannerIndex implements ChangeBrandBannerIndex {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ChangeBrandBannerIndexCopyWith<_$ChangeBrandBannerIndex> get copyWith =>
-      __$$ChangeBrandBannerIndexCopyWithImpl<_$ChangeBrandBannerIndex>(
-          this, _$identity);
+  _$$ChangeBrandBannerIndexImplCopyWith<_$ChangeBrandBannerIndexImpl>
+      get copyWith => __$$ChangeBrandBannerIndexImplCopyWithImpl<
+          _$ChangeBrandBannerIndexImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -19171,34 +19192,36 @@ class _$ChangeBrandBannerIndex implements ChangeBrandBannerIndex {
 
 abstract class ChangeBrandBannerIndex implements ShopProductsEvent {
   const factory ChangeBrandBannerIndex(final int index) =
-      _$ChangeBrandBannerIndex;
+      _$ChangeBrandBannerIndexImpl;
 
   int get index;
   @JsonKey(ignore: true)
-  _$$ChangeBrandBannerIndexCopyWith<_$ChangeBrandBannerIndex> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$ChangeBrandBannerIndexImplCopyWith<_$ChangeBrandBannerIndexImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ShowOrderProgressEventCopyWith<$Res> {
-  factory _$$ShowOrderProgressEventCopyWith(_$ShowOrderProgressEvent value,
-          $Res Function(_$ShowOrderProgressEvent) then) =
-      __$$ShowOrderProgressEventCopyWithImpl<$Res>;
+abstract class _$$ShowOrderProgressEventImplCopyWith<$Res> {
+  factory _$$ShowOrderProgressEventImplCopyWith(
+          _$ShowOrderProgressEventImpl value,
+          $Res Function(_$ShowOrderProgressEventImpl) then) =
+      __$$ShowOrderProgressEventImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$ShowOrderProgressEventCopyWithImpl<$Res>
-    extends _$ShopProductsEventCopyWithImpl<$Res, _$ShowOrderProgressEvent>
-    implements _$$ShowOrderProgressEventCopyWith<$Res> {
-  __$$ShowOrderProgressEventCopyWithImpl(_$ShowOrderProgressEvent _value,
-      $Res Function(_$ShowOrderProgressEvent) _then)
+class __$$ShowOrderProgressEventImplCopyWithImpl<$Res>
+    extends _$ShopProductsEventCopyWithImpl<$Res, _$ShowOrderProgressEventImpl>
+    implements _$$ShowOrderProgressEventImplCopyWith<$Res> {
+  __$$ShowOrderProgressEventImplCopyWithImpl(
+      _$ShowOrderProgressEventImpl _value,
+      $Res Function(_$ShowOrderProgressEventImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$ShowOrderProgressEvent implements ShowOrderProgressEvent {
-  const _$ShowOrderProgressEvent();
+class _$ShowOrderProgressEventImpl implements ShowOrderProgressEvent {
+  const _$ShowOrderProgressEventImpl();
 
   @override
   String toString() {
@@ -19208,7 +19231,8 @@ class _$ShowOrderProgressEvent implements ShowOrderProgressEvent {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ShowOrderProgressEvent);
+        (other.runtimeType == runtimeType &&
+            other is _$ShowOrderProgressEventImpl);
   }
 
   @override
@@ -19727,26 +19751,27 @@ class _$ShowOrderProgressEvent implements ShowOrderProgressEvent {
 }
 
 abstract class ShowOrderProgressEvent implements ShopProductsEvent {
-  const factory ShowOrderProgressEvent() = _$ShowOrderProgressEvent;
+  const factory ShowOrderProgressEvent() = _$ShowOrderProgressEventImpl;
 }
 
 /// @nodoc
-abstract class _$$IndexChangeOnOrderProgressCopyWith<$Res> {
-  factory _$$IndexChangeOnOrderProgressCopyWith(
-          _$IndexChangeOnOrderProgress value,
-          $Res Function(_$IndexChangeOnOrderProgress) then) =
-      __$$IndexChangeOnOrderProgressCopyWithImpl<$Res>;
+abstract class _$$IndexChangeOnOrderProgressImplCopyWith<$Res> {
+  factory _$$IndexChangeOnOrderProgressImplCopyWith(
+          _$IndexChangeOnOrderProgressImpl value,
+          $Res Function(_$IndexChangeOnOrderProgressImpl) then) =
+      __$$IndexChangeOnOrderProgressImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int index});
 }
 
 /// @nodoc
-class __$$IndexChangeOnOrderProgressCopyWithImpl<$Res>
-    extends _$ShopProductsEventCopyWithImpl<$Res, _$IndexChangeOnOrderProgress>
-    implements _$$IndexChangeOnOrderProgressCopyWith<$Res> {
-  __$$IndexChangeOnOrderProgressCopyWithImpl(
-      _$IndexChangeOnOrderProgress _value,
-      $Res Function(_$IndexChangeOnOrderProgress) _then)
+class __$$IndexChangeOnOrderProgressImplCopyWithImpl<$Res>
+    extends _$ShopProductsEventCopyWithImpl<$Res,
+        _$IndexChangeOnOrderProgressImpl>
+    implements _$$IndexChangeOnOrderProgressImplCopyWith<$Res> {
+  __$$IndexChangeOnOrderProgressImplCopyWithImpl(
+      _$IndexChangeOnOrderProgressImpl _value,
+      $Res Function(_$IndexChangeOnOrderProgressImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -19754,7 +19779,7 @@ class __$$IndexChangeOnOrderProgressCopyWithImpl<$Res>
   $Res call({
     Object? index = null,
   }) {
-    return _then(_$IndexChangeOnOrderProgress(
+    return _then(_$IndexChangeOnOrderProgressImpl(
       index: null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
@@ -19765,8 +19790,8 @@ class __$$IndexChangeOnOrderProgressCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$IndexChangeOnOrderProgress implements IndexChangeOnOrderProgress {
-  const _$IndexChangeOnOrderProgress({required this.index});
+class _$IndexChangeOnOrderProgressImpl implements IndexChangeOnOrderProgress {
+  const _$IndexChangeOnOrderProgressImpl({required this.index});
 
   @override
   final int index;
@@ -19780,7 +19805,7 @@ class _$IndexChangeOnOrderProgress implements IndexChangeOnOrderProgress {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$IndexChangeOnOrderProgress &&
+            other is _$IndexChangeOnOrderProgressImpl &&
             (identical(other.index, index) || other.index == index));
   }
 
@@ -19790,9 +19815,9 @@ class _$IndexChangeOnOrderProgress implements IndexChangeOnOrderProgress {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$IndexChangeOnOrderProgressCopyWith<_$IndexChangeOnOrderProgress>
-      get copyWith => __$$IndexChangeOnOrderProgressCopyWithImpl<
-          _$IndexChangeOnOrderProgress>(this, _$identity);
+  _$$IndexChangeOnOrderProgressImplCopyWith<_$IndexChangeOnOrderProgressImpl>
+      get copyWith => __$$IndexChangeOnOrderProgressImplCopyWithImpl<
+          _$IndexChangeOnOrderProgressImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -20308,32 +20333,32 @@ class _$IndexChangeOnOrderProgress implements IndexChangeOnOrderProgress {
 
 abstract class IndexChangeOnOrderProgress implements ShopProductsEvent {
   const factory IndexChangeOnOrderProgress({required final int index}) =
-      _$IndexChangeOnOrderProgress;
+      _$IndexChangeOnOrderProgressImpl;
 
   int get index;
   @JsonKey(ignore: true)
-  _$$IndexChangeOnOrderProgressCopyWith<_$IndexChangeOnOrderProgress>
+  _$$IndexChangeOnOrderProgressImplCopyWith<_$IndexChangeOnOrderProgressImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$IndexChangeOnWomensCareBannerCopyWith<$Res> {
-  factory _$$IndexChangeOnWomensCareBannerCopyWith(
-          _$IndexChangeOnWomensCareBanner value,
-          $Res Function(_$IndexChangeOnWomensCareBanner) then) =
-      __$$IndexChangeOnWomensCareBannerCopyWithImpl<$Res>;
+abstract class _$$IndexChangeOnWomensCareBannerImplCopyWith<$Res> {
+  factory _$$IndexChangeOnWomensCareBannerImplCopyWith(
+          _$IndexChangeOnWomensCareBannerImpl value,
+          $Res Function(_$IndexChangeOnWomensCareBannerImpl) then) =
+      __$$IndexChangeOnWomensCareBannerImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int index});
 }
 
 /// @nodoc
-class __$$IndexChangeOnWomensCareBannerCopyWithImpl<$Res>
+class __$$IndexChangeOnWomensCareBannerImplCopyWithImpl<$Res>
     extends _$ShopProductsEventCopyWithImpl<$Res,
-        _$IndexChangeOnWomensCareBanner>
-    implements _$$IndexChangeOnWomensCareBannerCopyWith<$Res> {
-  __$$IndexChangeOnWomensCareBannerCopyWithImpl(
-      _$IndexChangeOnWomensCareBanner _value,
-      $Res Function(_$IndexChangeOnWomensCareBanner) _then)
+        _$IndexChangeOnWomensCareBannerImpl>
+    implements _$$IndexChangeOnWomensCareBannerImplCopyWith<$Res> {
+  __$$IndexChangeOnWomensCareBannerImplCopyWithImpl(
+      _$IndexChangeOnWomensCareBannerImpl _value,
+      $Res Function(_$IndexChangeOnWomensCareBannerImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -20341,7 +20366,7 @@ class __$$IndexChangeOnWomensCareBannerCopyWithImpl<$Res>
   $Res call({
     Object? index = null,
   }) {
-    return _then(_$IndexChangeOnWomensCareBanner(
+    return _then(_$IndexChangeOnWomensCareBannerImpl(
       index: null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
@@ -20352,8 +20377,9 @@ class __$$IndexChangeOnWomensCareBannerCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$IndexChangeOnWomensCareBanner implements IndexChangeOnWomensCareBanner {
-  const _$IndexChangeOnWomensCareBanner({required this.index});
+class _$IndexChangeOnWomensCareBannerImpl
+    implements IndexChangeOnWomensCareBanner {
+  const _$IndexChangeOnWomensCareBannerImpl({required this.index});
 
   @override
   final int index;
@@ -20367,7 +20393,7 @@ class _$IndexChangeOnWomensCareBanner implements IndexChangeOnWomensCareBanner {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$IndexChangeOnWomensCareBanner &&
+            other is _$IndexChangeOnWomensCareBannerImpl &&
             (identical(other.index, index) || other.index == index));
   }
 
@@ -20377,9 +20403,10 @@ class _$IndexChangeOnWomensCareBanner implements IndexChangeOnWomensCareBanner {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$IndexChangeOnWomensCareBannerCopyWith<_$IndexChangeOnWomensCareBanner>
-      get copyWith => __$$IndexChangeOnWomensCareBannerCopyWithImpl<
-          _$IndexChangeOnWomensCareBanner>(this, _$identity);
+  _$$IndexChangeOnWomensCareBannerImplCopyWith<
+          _$IndexChangeOnWomensCareBannerImpl>
+      get copyWith => __$$IndexChangeOnWomensCareBannerImplCopyWithImpl<
+          _$IndexChangeOnWomensCareBannerImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -20895,29 +20922,31 @@ class _$IndexChangeOnWomensCareBanner implements IndexChangeOnWomensCareBanner {
 
 abstract class IndexChangeOnWomensCareBanner implements ShopProductsEvent {
   const factory IndexChangeOnWomensCareBanner({required final int index}) =
-      _$IndexChangeOnWomensCareBanner;
+      _$IndexChangeOnWomensCareBannerImpl;
 
   int get index;
   @JsonKey(ignore: true)
-  _$$IndexChangeOnWomensCareBannerCopyWith<_$IndexChangeOnWomensCareBanner>
+  _$$IndexChangeOnWomensCareBannerImplCopyWith<
+          _$IndexChangeOnWomensCareBannerImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$FetchShopAdBrandsByIdCopyWith<$Res> {
-  factory _$$FetchShopAdBrandsByIdCopyWith(_$FetchShopAdBrandsById value,
-          $Res Function(_$FetchShopAdBrandsById) then) =
-      __$$FetchShopAdBrandsByIdCopyWithImpl<$Res>;
+abstract class _$$FetchShopAdBrandsByIdImplCopyWith<$Res> {
+  factory _$$FetchShopAdBrandsByIdImplCopyWith(
+          _$FetchShopAdBrandsByIdImpl value,
+          $Res Function(_$FetchShopAdBrandsByIdImpl) then) =
+      __$$FetchShopAdBrandsByIdImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String id});
 }
 
 /// @nodoc
-class __$$FetchShopAdBrandsByIdCopyWithImpl<$Res>
-    extends _$ShopProductsEventCopyWithImpl<$Res, _$FetchShopAdBrandsById>
-    implements _$$FetchShopAdBrandsByIdCopyWith<$Res> {
-  __$$FetchShopAdBrandsByIdCopyWithImpl(_$FetchShopAdBrandsById _value,
-      $Res Function(_$FetchShopAdBrandsById) _then)
+class __$$FetchShopAdBrandsByIdImplCopyWithImpl<$Res>
+    extends _$ShopProductsEventCopyWithImpl<$Res, _$FetchShopAdBrandsByIdImpl>
+    implements _$$FetchShopAdBrandsByIdImplCopyWith<$Res> {
+  __$$FetchShopAdBrandsByIdImplCopyWithImpl(_$FetchShopAdBrandsByIdImpl _value,
+      $Res Function(_$FetchShopAdBrandsByIdImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -20925,7 +20954,7 @@ class __$$FetchShopAdBrandsByIdCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
   }) {
-    return _then(_$FetchShopAdBrandsById(
+    return _then(_$FetchShopAdBrandsByIdImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -20936,8 +20965,8 @@ class __$$FetchShopAdBrandsByIdCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FetchShopAdBrandsById implements FetchShopAdBrandsById {
-  const _$FetchShopAdBrandsById({required this.id});
+class _$FetchShopAdBrandsByIdImpl implements FetchShopAdBrandsById {
+  const _$FetchShopAdBrandsByIdImpl({required this.id});
 
   @override
   final String id;
@@ -20951,7 +20980,7 @@ class _$FetchShopAdBrandsById implements FetchShopAdBrandsById {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FetchShopAdBrandsById &&
+            other is _$FetchShopAdBrandsByIdImpl &&
             (identical(other.id, id) || other.id == id));
   }
 
@@ -20961,9 +20990,9 @@ class _$FetchShopAdBrandsById implements FetchShopAdBrandsById {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FetchShopAdBrandsByIdCopyWith<_$FetchShopAdBrandsById> get copyWith =>
-      __$$FetchShopAdBrandsByIdCopyWithImpl<_$FetchShopAdBrandsById>(
-          this, _$identity);
+  _$$FetchShopAdBrandsByIdImplCopyWith<_$FetchShopAdBrandsByIdImpl>
+      get copyWith => __$$FetchShopAdBrandsByIdImplCopyWithImpl<
+          _$FetchShopAdBrandsByIdImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -21479,29 +21508,30 @@ class _$FetchShopAdBrandsById implements FetchShopAdBrandsById {
 
 abstract class FetchShopAdBrandsById implements ShopProductsEvent {
   const factory FetchShopAdBrandsById({required final String id}) =
-      _$FetchShopAdBrandsById;
+      _$FetchShopAdBrandsByIdImpl;
 
   String get id;
   @JsonKey(ignore: true)
-  _$$FetchShopAdBrandsByIdCopyWith<_$FetchShopAdBrandsById> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$FetchShopAdBrandsByIdImplCopyWith<_$FetchShopAdBrandsByIdImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$SavePaymentMethodTypeCopyWith<$Res> {
-  factory _$$SavePaymentMethodTypeCopyWith(_$SavePaymentMethodType value,
-          $Res Function(_$SavePaymentMethodType) then) =
-      __$$SavePaymentMethodTypeCopyWithImpl<$Res>;
+abstract class _$$SavePaymentMethodTypeImplCopyWith<$Res> {
+  factory _$$SavePaymentMethodTypeImplCopyWith(
+          _$SavePaymentMethodTypeImpl value,
+          $Res Function(_$SavePaymentMethodTypeImpl) then) =
+      __$$SavePaymentMethodTypeImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int index});
 }
 
 /// @nodoc
-class __$$SavePaymentMethodTypeCopyWithImpl<$Res>
-    extends _$ShopProductsEventCopyWithImpl<$Res, _$SavePaymentMethodType>
-    implements _$$SavePaymentMethodTypeCopyWith<$Res> {
-  __$$SavePaymentMethodTypeCopyWithImpl(_$SavePaymentMethodType _value,
-      $Res Function(_$SavePaymentMethodType) _then)
+class __$$SavePaymentMethodTypeImplCopyWithImpl<$Res>
+    extends _$ShopProductsEventCopyWithImpl<$Res, _$SavePaymentMethodTypeImpl>
+    implements _$$SavePaymentMethodTypeImplCopyWith<$Res> {
+  __$$SavePaymentMethodTypeImplCopyWithImpl(_$SavePaymentMethodTypeImpl _value,
+      $Res Function(_$SavePaymentMethodTypeImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -21509,7 +21539,7 @@ class __$$SavePaymentMethodTypeCopyWithImpl<$Res>
   $Res call({
     Object? index = null,
   }) {
-    return _then(_$SavePaymentMethodType(
+    return _then(_$SavePaymentMethodTypeImpl(
       index: null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
@@ -21520,8 +21550,8 @@ class __$$SavePaymentMethodTypeCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SavePaymentMethodType implements SavePaymentMethodType {
-  const _$SavePaymentMethodType({required this.index});
+class _$SavePaymentMethodTypeImpl implements SavePaymentMethodType {
+  const _$SavePaymentMethodTypeImpl({required this.index});
 
   @override
   final int index;
@@ -21535,7 +21565,7 @@ class _$SavePaymentMethodType implements SavePaymentMethodType {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SavePaymentMethodType &&
+            other is _$SavePaymentMethodTypeImpl &&
             (identical(other.index, index) || other.index == index));
   }
 
@@ -21545,9 +21575,9 @@ class _$SavePaymentMethodType implements SavePaymentMethodType {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$SavePaymentMethodTypeCopyWith<_$SavePaymentMethodType> get copyWith =>
-      __$$SavePaymentMethodTypeCopyWithImpl<_$SavePaymentMethodType>(
-          this, _$identity);
+  _$$SavePaymentMethodTypeImplCopyWith<_$SavePaymentMethodTypeImpl>
+      get copyWith => __$$SavePaymentMethodTypeImplCopyWithImpl<
+          _$SavePaymentMethodTypeImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -22063,36 +22093,37 @@ class _$SavePaymentMethodType implements SavePaymentMethodType {
 
 abstract class SavePaymentMethodType implements ShopProductsEvent {
   const factory SavePaymentMethodType({required final int index}) =
-      _$SavePaymentMethodType;
+      _$SavePaymentMethodTypeImpl;
 
   int get index;
   @JsonKey(ignore: true)
-  _$$SavePaymentMethodTypeCopyWith<_$SavePaymentMethodType> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$SavePaymentMethodTypeImplCopyWith<_$SavePaymentMethodTypeImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$FetchProductItemsbyCategoryCopyWith<$Res> {
-  factory _$$FetchProductItemsbyCategoryCopyWith(
-          _$FetchProductItemsbyCategory value,
-          $Res Function(_$FetchProductItemsbyCategory) then) =
-      __$$FetchProductItemsbyCategoryCopyWithImpl<$Res>;
+abstract class _$$FetchProductItemsbyCategoryImplCopyWith<$Res> {
+  factory _$$FetchProductItemsbyCategoryImplCopyWith(
+          _$FetchProductItemsbyCategoryImpl value,
+          $Res Function(_$FetchProductItemsbyCategoryImpl) then) =
+      __$$FetchProductItemsbyCategoryImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$FetchProductItemsbyCategoryCopyWithImpl<$Res>
-    extends _$ShopProductsEventCopyWithImpl<$Res, _$FetchProductItemsbyCategory>
-    implements _$$FetchProductItemsbyCategoryCopyWith<$Res> {
-  __$$FetchProductItemsbyCategoryCopyWithImpl(
-      _$FetchProductItemsbyCategory _value,
-      $Res Function(_$FetchProductItemsbyCategory) _then)
+class __$$FetchProductItemsbyCategoryImplCopyWithImpl<$Res>
+    extends _$ShopProductsEventCopyWithImpl<$Res,
+        _$FetchProductItemsbyCategoryImpl>
+    implements _$$FetchProductItemsbyCategoryImplCopyWith<$Res> {
+  __$$FetchProductItemsbyCategoryImplCopyWithImpl(
+      _$FetchProductItemsbyCategoryImpl _value,
+      $Res Function(_$FetchProductItemsbyCategoryImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$FetchProductItemsbyCategory implements FetchProductItemsbyCategory {
-  const _$FetchProductItemsbyCategory();
+class _$FetchProductItemsbyCategoryImpl implements FetchProductItemsbyCategory {
+  const _$FetchProductItemsbyCategoryImpl();
 
   @override
   String toString() {
@@ -22103,7 +22134,7 @@ class _$FetchProductItemsbyCategory implements FetchProductItemsbyCategory {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FetchProductItemsbyCategory);
+            other is _$FetchProductItemsbyCategoryImpl);
   }
 
   @override
@@ -22622,26 +22653,28 @@ class _$FetchProductItemsbyCategory implements FetchProductItemsbyCategory {
 }
 
 abstract class FetchProductItemsbyCategory implements ShopProductsEvent {
-  const factory FetchProductItemsbyCategory() = _$FetchProductItemsbyCategory;
+  const factory FetchProductItemsbyCategory() =
+      _$FetchProductItemsbyCategoryImpl;
 }
 
 /// @nodoc
-abstract class _$$FetchSpecificCategeryItemsCopyWith<$Res> {
-  factory _$$FetchSpecificCategeryItemsCopyWith(
-          _$FetchSpecificCategeryItems value,
-          $Res Function(_$FetchSpecificCategeryItems) then) =
-      __$$FetchSpecificCategeryItemsCopyWithImpl<$Res>;
+abstract class _$$FetchSpecificCategeryItemsImplCopyWith<$Res> {
+  factory _$$FetchSpecificCategeryItemsImplCopyWith(
+          _$FetchSpecificCategeryItemsImpl value,
+          $Res Function(_$FetchSpecificCategeryItemsImpl) then) =
+      __$$FetchSpecificCategeryItemsImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String slug});
 }
 
 /// @nodoc
-class __$$FetchSpecificCategeryItemsCopyWithImpl<$Res>
-    extends _$ShopProductsEventCopyWithImpl<$Res, _$FetchSpecificCategeryItems>
-    implements _$$FetchSpecificCategeryItemsCopyWith<$Res> {
-  __$$FetchSpecificCategeryItemsCopyWithImpl(
-      _$FetchSpecificCategeryItems _value,
-      $Res Function(_$FetchSpecificCategeryItems) _then)
+class __$$FetchSpecificCategeryItemsImplCopyWithImpl<$Res>
+    extends _$ShopProductsEventCopyWithImpl<$Res,
+        _$FetchSpecificCategeryItemsImpl>
+    implements _$$FetchSpecificCategeryItemsImplCopyWith<$Res> {
+  __$$FetchSpecificCategeryItemsImplCopyWithImpl(
+      _$FetchSpecificCategeryItemsImpl _value,
+      $Res Function(_$FetchSpecificCategeryItemsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -22649,7 +22682,7 @@ class __$$FetchSpecificCategeryItemsCopyWithImpl<$Res>
   $Res call({
     Object? slug = null,
   }) {
-    return _then(_$FetchSpecificCategeryItems(
+    return _then(_$FetchSpecificCategeryItemsImpl(
       slug: null == slug
           ? _value.slug
           : slug // ignore: cast_nullable_to_non_nullable
@@ -22660,8 +22693,8 @@ class __$$FetchSpecificCategeryItemsCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FetchSpecificCategeryItems implements FetchSpecificCategeryItems {
-  const _$FetchSpecificCategeryItems({required this.slug});
+class _$FetchSpecificCategeryItemsImpl implements FetchSpecificCategeryItems {
+  const _$FetchSpecificCategeryItemsImpl({required this.slug});
 
   @override
   final String slug;
@@ -22675,7 +22708,7 @@ class _$FetchSpecificCategeryItems implements FetchSpecificCategeryItems {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FetchSpecificCategeryItems &&
+            other is _$FetchSpecificCategeryItemsImpl &&
             (identical(other.slug, slug) || other.slug == slug));
   }
 
@@ -22685,9 +22718,9 @@ class _$FetchSpecificCategeryItems implements FetchSpecificCategeryItems {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FetchSpecificCategeryItemsCopyWith<_$FetchSpecificCategeryItems>
-      get copyWith => __$$FetchSpecificCategeryItemsCopyWithImpl<
-          _$FetchSpecificCategeryItems>(this, _$identity);
+  _$$FetchSpecificCategeryItemsImplCopyWith<_$FetchSpecificCategeryItemsImpl>
+      get copyWith => __$$FetchSpecificCategeryItemsImplCopyWithImpl<
+          _$FetchSpecificCategeryItemsImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -23203,29 +23236,29 @@ class _$FetchSpecificCategeryItems implements FetchSpecificCategeryItems {
 
 abstract class FetchSpecificCategeryItems implements ShopProductsEvent {
   const factory FetchSpecificCategeryItems({required final String slug}) =
-      _$FetchSpecificCategeryItems;
+      _$FetchSpecificCategeryItemsImpl;
 
   String get slug;
   @JsonKey(ignore: true)
-  _$$FetchSpecificCategeryItemsCopyWith<_$FetchSpecificCategeryItems>
+  _$$FetchSpecificCategeryItemsImplCopyWith<_$FetchSpecificCategeryItemsImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$FetchProductsByIdCopyWith<$Res> {
-  factory _$$FetchProductsByIdCopyWith(
-          _$FetchProductsById value, $Res Function(_$FetchProductsById) then) =
-      __$$FetchProductsByIdCopyWithImpl<$Res>;
+abstract class _$$FetchProductsByIdImplCopyWith<$Res> {
+  factory _$$FetchProductsByIdImplCopyWith(_$FetchProductsByIdImpl value,
+          $Res Function(_$FetchProductsByIdImpl) then) =
+      __$$FetchProductsByIdImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String id});
 }
 
 /// @nodoc
-class __$$FetchProductsByIdCopyWithImpl<$Res>
-    extends _$ShopProductsEventCopyWithImpl<$Res, _$FetchProductsById>
-    implements _$$FetchProductsByIdCopyWith<$Res> {
-  __$$FetchProductsByIdCopyWithImpl(
-      _$FetchProductsById _value, $Res Function(_$FetchProductsById) _then)
+class __$$FetchProductsByIdImplCopyWithImpl<$Res>
+    extends _$ShopProductsEventCopyWithImpl<$Res, _$FetchProductsByIdImpl>
+    implements _$$FetchProductsByIdImplCopyWith<$Res> {
+  __$$FetchProductsByIdImplCopyWithImpl(_$FetchProductsByIdImpl _value,
+      $Res Function(_$FetchProductsByIdImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -23233,7 +23266,7 @@ class __$$FetchProductsByIdCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
   }) {
-    return _then(_$FetchProductsById(
+    return _then(_$FetchProductsByIdImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -23244,8 +23277,8 @@ class __$$FetchProductsByIdCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FetchProductsById implements FetchProductsById {
-  const _$FetchProductsById({required this.id});
+class _$FetchProductsByIdImpl implements FetchProductsById {
+  const _$FetchProductsByIdImpl({required this.id});
 
   @override
   final String id;
@@ -23259,7 +23292,7 @@ class _$FetchProductsById implements FetchProductsById {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FetchProductsById &&
+            other is _$FetchProductsByIdImpl &&
             (identical(other.id, id) || other.id == id));
   }
 
@@ -23269,8 +23302,9 @@ class _$FetchProductsById implements FetchProductsById {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FetchProductsByIdCopyWith<_$FetchProductsById> get copyWith =>
-      __$$FetchProductsByIdCopyWithImpl<_$FetchProductsById>(this, _$identity);
+  _$$FetchProductsByIdImplCopyWith<_$FetchProductsByIdImpl> get copyWith =>
+      __$$FetchProductsByIdImplCopyWithImpl<_$FetchProductsByIdImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -23786,29 +23820,29 @@ class _$FetchProductsById implements FetchProductsById {
 
 abstract class FetchProductsById implements ShopProductsEvent {
   const factory FetchProductsById({required final String id}) =
-      _$FetchProductsById;
+      _$FetchProductsByIdImpl;
 
   String get id;
   @JsonKey(ignore: true)
-  _$$FetchProductsByIdCopyWith<_$FetchProductsById> get copyWith =>
+  _$$FetchProductsByIdImplCopyWith<_$FetchProductsByIdImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$FetchBrandProductsCopyWith<$Res> {
-  factory _$$FetchBrandProductsCopyWith(_$FetchBrandProducts value,
-          $Res Function(_$FetchBrandProducts) then) =
-      __$$FetchBrandProductsCopyWithImpl<$Res>;
+abstract class _$$FetchBrandProductsImplCopyWith<$Res> {
+  factory _$$FetchBrandProductsImplCopyWith(_$FetchBrandProductsImpl value,
+          $Res Function(_$FetchBrandProductsImpl) then) =
+      __$$FetchBrandProductsImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String brandId});
 }
 
 /// @nodoc
-class __$$FetchBrandProductsCopyWithImpl<$Res>
-    extends _$ShopProductsEventCopyWithImpl<$Res, _$FetchBrandProducts>
-    implements _$$FetchBrandProductsCopyWith<$Res> {
-  __$$FetchBrandProductsCopyWithImpl(
-      _$FetchBrandProducts _value, $Res Function(_$FetchBrandProducts) _then)
+class __$$FetchBrandProductsImplCopyWithImpl<$Res>
+    extends _$ShopProductsEventCopyWithImpl<$Res, _$FetchBrandProductsImpl>
+    implements _$$FetchBrandProductsImplCopyWith<$Res> {
+  __$$FetchBrandProductsImplCopyWithImpl(_$FetchBrandProductsImpl _value,
+      $Res Function(_$FetchBrandProductsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -23816,7 +23850,7 @@ class __$$FetchBrandProductsCopyWithImpl<$Res>
   $Res call({
     Object? brandId = null,
   }) {
-    return _then(_$FetchBrandProducts(
+    return _then(_$FetchBrandProductsImpl(
       brandId: null == brandId
           ? _value.brandId
           : brandId // ignore: cast_nullable_to_non_nullable
@@ -23827,8 +23861,8 @@ class __$$FetchBrandProductsCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FetchBrandProducts implements FetchBrandProducts {
-  const _$FetchBrandProducts({required this.brandId});
+class _$FetchBrandProductsImpl implements FetchBrandProducts {
+  const _$FetchBrandProductsImpl({required this.brandId});
 
   @override
   final String brandId;
@@ -23842,7 +23876,7 @@ class _$FetchBrandProducts implements FetchBrandProducts {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FetchBrandProducts &&
+            other is _$FetchBrandProductsImpl &&
             (identical(other.brandId, brandId) || other.brandId == brandId));
   }
 
@@ -23852,8 +23886,8 @@ class _$FetchBrandProducts implements FetchBrandProducts {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FetchBrandProductsCopyWith<_$FetchBrandProducts> get copyWith =>
-      __$$FetchBrandProductsCopyWithImpl<_$FetchBrandProducts>(
+  _$$FetchBrandProductsImplCopyWith<_$FetchBrandProductsImpl> get copyWith =>
+      __$$FetchBrandProductsImplCopyWithImpl<_$FetchBrandProductsImpl>(
           this, _$identity);
 
   @override
@@ -24370,34 +24404,34 @@ class _$FetchBrandProducts implements FetchBrandProducts {
 
 abstract class FetchBrandProducts implements ShopProductsEvent {
   const factory FetchBrandProducts({required final String brandId}) =
-      _$FetchBrandProducts;
+      _$FetchBrandProductsImpl;
 
   String get brandId;
   @JsonKey(ignore: true)
-  _$$FetchBrandProductsCopyWith<_$FetchBrandProducts> get copyWith =>
+  _$$FetchBrandProductsImplCopyWith<_$FetchBrandProductsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$FetchCouponsCopyWith<$Res> {
-  factory _$$FetchCouponsCopyWith(
-          _$FetchCoupons value, $Res Function(_$FetchCoupons) then) =
-      __$$FetchCouponsCopyWithImpl<$Res>;
+abstract class _$$FetchCouponsImplCopyWith<$Res> {
+  factory _$$FetchCouponsImplCopyWith(
+          _$FetchCouponsImpl value, $Res Function(_$FetchCouponsImpl) then) =
+      __$$FetchCouponsImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$FetchCouponsCopyWithImpl<$Res>
-    extends _$ShopProductsEventCopyWithImpl<$Res, _$FetchCoupons>
-    implements _$$FetchCouponsCopyWith<$Res> {
-  __$$FetchCouponsCopyWithImpl(
-      _$FetchCoupons _value, $Res Function(_$FetchCoupons) _then)
+class __$$FetchCouponsImplCopyWithImpl<$Res>
+    extends _$ShopProductsEventCopyWithImpl<$Res, _$FetchCouponsImpl>
+    implements _$$FetchCouponsImplCopyWith<$Res> {
+  __$$FetchCouponsImplCopyWithImpl(
+      _$FetchCouponsImpl _value, $Res Function(_$FetchCouponsImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$FetchCoupons implements FetchCoupons {
-  const _$FetchCoupons();
+class _$FetchCouponsImpl implements FetchCoupons {
+  const _$FetchCouponsImpl();
 
   @override
   String toString() {
@@ -24407,7 +24441,7 @@ class _$FetchCoupons implements FetchCoupons {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$FetchCoupons);
+        (other.runtimeType == runtimeType && other is _$FetchCouponsImpl);
   }
 
   @override
@@ -24926,24 +24960,24 @@ class _$FetchCoupons implements FetchCoupons {
 }
 
 abstract class FetchCoupons implements ShopProductsEvent {
-  const factory FetchCoupons() = _$FetchCoupons;
+  const factory FetchCoupons() = _$FetchCouponsImpl;
 }
 
 /// @nodoc
-abstract class _$$IsPromoCodeAvailableCopyWith<$Res> {
-  factory _$$IsPromoCodeAvailableCopyWith(_$IsPromoCodeAvailable value,
-          $Res Function(_$IsPromoCodeAvailable) then) =
-      __$$IsPromoCodeAvailableCopyWithImpl<$Res>;
+abstract class _$$IsPromoCodeAvailableImplCopyWith<$Res> {
+  factory _$$IsPromoCodeAvailableImplCopyWith(_$IsPromoCodeAvailableImpl value,
+          $Res Function(_$IsPromoCodeAvailableImpl) then) =
+      __$$IsPromoCodeAvailableImplCopyWithImpl<$Res>;
   @useResult
   $Res call({bool value});
 }
 
 /// @nodoc
-class __$$IsPromoCodeAvailableCopyWithImpl<$Res>
-    extends _$ShopProductsEventCopyWithImpl<$Res, _$IsPromoCodeAvailable>
-    implements _$$IsPromoCodeAvailableCopyWith<$Res> {
-  __$$IsPromoCodeAvailableCopyWithImpl(_$IsPromoCodeAvailable _value,
-      $Res Function(_$IsPromoCodeAvailable) _then)
+class __$$IsPromoCodeAvailableImplCopyWithImpl<$Res>
+    extends _$ShopProductsEventCopyWithImpl<$Res, _$IsPromoCodeAvailableImpl>
+    implements _$$IsPromoCodeAvailableImplCopyWith<$Res> {
+  __$$IsPromoCodeAvailableImplCopyWithImpl(_$IsPromoCodeAvailableImpl _value,
+      $Res Function(_$IsPromoCodeAvailableImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -24951,7 +24985,7 @@ class __$$IsPromoCodeAvailableCopyWithImpl<$Res>
   $Res call({
     Object? value = null,
   }) {
-    return _then(_$IsPromoCodeAvailable(
+    return _then(_$IsPromoCodeAvailableImpl(
       value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -24962,8 +24996,8 @@ class __$$IsPromoCodeAvailableCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$IsPromoCodeAvailable implements IsPromoCodeAvailable {
-  const _$IsPromoCodeAvailable({required this.value});
+class _$IsPromoCodeAvailableImpl implements IsPromoCodeAvailable {
+  const _$IsPromoCodeAvailableImpl({required this.value});
 
   @override
   final bool value;
@@ -24977,7 +25011,7 @@ class _$IsPromoCodeAvailable implements IsPromoCodeAvailable {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$IsPromoCodeAvailable &&
+            other is _$IsPromoCodeAvailableImpl &&
             (identical(other.value, value) || other.value == value));
   }
 
@@ -24987,9 +25021,10 @@ class _$IsPromoCodeAvailable implements IsPromoCodeAvailable {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$IsPromoCodeAvailableCopyWith<_$IsPromoCodeAvailable> get copyWith =>
-      __$$IsPromoCodeAvailableCopyWithImpl<_$IsPromoCodeAvailable>(
-          this, _$identity);
+  _$$IsPromoCodeAvailableImplCopyWith<_$IsPromoCodeAvailableImpl>
+      get copyWith =>
+          __$$IsPromoCodeAvailableImplCopyWithImpl<_$IsPromoCodeAvailableImpl>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -25505,29 +25540,29 @@ class _$IsPromoCodeAvailable implements IsPromoCodeAvailable {
 
 abstract class IsPromoCodeAvailable implements ShopProductsEvent {
   const factory IsPromoCodeAvailable({required final bool value}) =
-      _$IsPromoCodeAvailable;
+      _$IsPromoCodeAvailableImpl;
 
   bool get value;
   @JsonKey(ignore: true)
-  _$$IsPromoCodeAvailableCopyWith<_$IsPromoCodeAvailable> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$IsPromoCodeAvailableImplCopyWith<_$IsPromoCodeAvailableImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ChangeIndexEventCopyWith<$Res> {
-  factory _$$ChangeIndexEventCopyWith(
-          _$ChangeIndexEvent value, $Res Function(_$ChangeIndexEvent) then) =
-      __$$ChangeIndexEventCopyWithImpl<$Res>;
+abstract class _$$ChangeIndexEventImplCopyWith<$Res> {
+  factory _$$ChangeIndexEventImplCopyWith(_$ChangeIndexEventImpl value,
+          $Res Function(_$ChangeIndexEventImpl) then) =
+      __$$ChangeIndexEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int index});
 }
 
 /// @nodoc
-class __$$ChangeIndexEventCopyWithImpl<$Res>
-    extends _$ShopProductsEventCopyWithImpl<$Res, _$ChangeIndexEvent>
-    implements _$$ChangeIndexEventCopyWith<$Res> {
-  __$$ChangeIndexEventCopyWithImpl(
-      _$ChangeIndexEvent _value, $Res Function(_$ChangeIndexEvent) _then)
+class __$$ChangeIndexEventImplCopyWithImpl<$Res>
+    extends _$ShopProductsEventCopyWithImpl<$Res, _$ChangeIndexEventImpl>
+    implements _$$ChangeIndexEventImplCopyWith<$Res> {
+  __$$ChangeIndexEventImplCopyWithImpl(_$ChangeIndexEventImpl _value,
+      $Res Function(_$ChangeIndexEventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -25535,7 +25570,7 @@ class __$$ChangeIndexEventCopyWithImpl<$Res>
   $Res call({
     Object? index = null,
   }) {
-    return _then(_$ChangeIndexEvent(
+    return _then(_$ChangeIndexEventImpl(
       index: null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
@@ -25546,8 +25581,8 @@ class __$$ChangeIndexEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ChangeIndexEvent implements ChangeIndexEvent {
-  const _$ChangeIndexEvent({required this.index});
+class _$ChangeIndexEventImpl implements ChangeIndexEvent {
+  const _$ChangeIndexEventImpl({required this.index});
 
   @override
   final int index;
@@ -25561,7 +25596,7 @@ class _$ChangeIndexEvent implements ChangeIndexEvent {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ChangeIndexEvent &&
+            other is _$ChangeIndexEventImpl &&
             (identical(other.index, index) || other.index == index));
   }
 
@@ -25571,8 +25606,9 @@ class _$ChangeIndexEvent implements ChangeIndexEvent {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ChangeIndexEventCopyWith<_$ChangeIndexEvent> get copyWith =>
-      __$$ChangeIndexEventCopyWithImpl<_$ChangeIndexEvent>(this, _$identity);
+  _$$ChangeIndexEventImplCopyWith<_$ChangeIndexEventImpl> get copyWith =>
+      __$$ChangeIndexEventImplCopyWithImpl<_$ChangeIndexEventImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -26088,29 +26124,29 @@ class _$ChangeIndexEvent implements ChangeIndexEvent {
 
 abstract class ChangeIndexEvent implements ShopProductsEvent {
   const factory ChangeIndexEvent({required final int index}) =
-      _$ChangeIndexEvent;
+      _$ChangeIndexEventImpl;
 
   int get index;
   @JsonKey(ignore: true)
-  _$$ChangeIndexEventCopyWith<_$ChangeIndexEvent> get copyWith =>
+  _$$ChangeIndexEventImplCopyWith<_$ChangeIndexEventImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$FetchBrandItemsbyIdCopyWith<$Res> {
-  factory _$$FetchBrandItemsbyIdCopyWith(_$FetchBrandItemsbyId value,
-          $Res Function(_$FetchBrandItemsbyId) then) =
-      __$$FetchBrandItemsbyIdCopyWithImpl<$Res>;
+abstract class _$$FetchBrandItemsbyIdImplCopyWith<$Res> {
+  factory _$$FetchBrandItemsbyIdImplCopyWith(_$FetchBrandItemsbyIdImpl value,
+          $Res Function(_$FetchBrandItemsbyIdImpl) then) =
+      __$$FetchBrandItemsbyIdImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String id});
 }
 
 /// @nodoc
-class __$$FetchBrandItemsbyIdCopyWithImpl<$Res>
-    extends _$ShopProductsEventCopyWithImpl<$Res, _$FetchBrandItemsbyId>
-    implements _$$FetchBrandItemsbyIdCopyWith<$Res> {
-  __$$FetchBrandItemsbyIdCopyWithImpl(
-      _$FetchBrandItemsbyId _value, $Res Function(_$FetchBrandItemsbyId) _then)
+class __$$FetchBrandItemsbyIdImplCopyWithImpl<$Res>
+    extends _$ShopProductsEventCopyWithImpl<$Res, _$FetchBrandItemsbyIdImpl>
+    implements _$$FetchBrandItemsbyIdImplCopyWith<$Res> {
+  __$$FetchBrandItemsbyIdImplCopyWithImpl(_$FetchBrandItemsbyIdImpl _value,
+      $Res Function(_$FetchBrandItemsbyIdImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -26118,7 +26154,7 @@ class __$$FetchBrandItemsbyIdCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
   }) {
-    return _then(_$FetchBrandItemsbyId(
+    return _then(_$FetchBrandItemsbyIdImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -26129,8 +26165,8 @@ class __$$FetchBrandItemsbyIdCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FetchBrandItemsbyId implements FetchBrandItemsbyId {
-  const _$FetchBrandItemsbyId({required this.id});
+class _$FetchBrandItemsbyIdImpl implements FetchBrandItemsbyId {
+  const _$FetchBrandItemsbyIdImpl({required this.id});
 
   @override
   final String id;
@@ -26144,7 +26180,7 @@ class _$FetchBrandItemsbyId implements FetchBrandItemsbyId {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FetchBrandItemsbyId &&
+            other is _$FetchBrandItemsbyIdImpl &&
             (identical(other.id, id) || other.id == id));
   }
 
@@ -26154,8 +26190,8 @@ class _$FetchBrandItemsbyId implements FetchBrandItemsbyId {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FetchBrandItemsbyIdCopyWith<_$FetchBrandItemsbyId> get copyWith =>
-      __$$FetchBrandItemsbyIdCopyWithImpl<_$FetchBrandItemsbyId>(
+  _$$FetchBrandItemsbyIdImplCopyWith<_$FetchBrandItemsbyIdImpl> get copyWith =>
+      __$$FetchBrandItemsbyIdImplCopyWithImpl<_$FetchBrandItemsbyIdImpl>(
           this, _$identity);
 
   @override
@@ -26672,34 +26708,34 @@ class _$FetchBrandItemsbyId implements FetchBrandItemsbyId {
 
 abstract class FetchBrandItemsbyId implements ShopProductsEvent {
   const factory FetchBrandItemsbyId({required final String id}) =
-      _$FetchBrandItemsbyId;
+      _$FetchBrandItemsbyIdImpl;
 
   String get id;
   @JsonKey(ignore: true)
-  _$$FetchBrandItemsbyIdCopyWith<_$FetchBrandItemsbyId> get copyWith =>
+  _$$FetchBrandItemsbyIdImplCopyWith<_$FetchBrandItemsbyIdImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$FetchAllBrandsEventCopyWith<$Res> {
-  factory _$$FetchAllBrandsEventCopyWith(_$FetchAllBrandsEvent value,
-          $Res Function(_$FetchAllBrandsEvent) then) =
-      __$$FetchAllBrandsEventCopyWithImpl<$Res>;
+abstract class _$$FetchAllBrandsEventImplCopyWith<$Res> {
+  factory _$$FetchAllBrandsEventImplCopyWith(_$FetchAllBrandsEventImpl value,
+          $Res Function(_$FetchAllBrandsEventImpl) then) =
+      __$$FetchAllBrandsEventImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$FetchAllBrandsEventCopyWithImpl<$Res>
-    extends _$ShopProductsEventCopyWithImpl<$Res, _$FetchAllBrandsEvent>
-    implements _$$FetchAllBrandsEventCopyWith<$Res> {
-  __$$FetchAllBrandsEventCopyWithImpl(
-      _$FetchAllBrandsEvent _value, $Res Function(_$FetchAllBrandsEvent) _then)
+class __$$FetchAllBrandsEventImplCopyWithImpl<$Res>
+    extends _$ShopProductsEventCopyWithImpl<$Res, _$FetchAllBrandsEventImpl>
+    implements _$$FetchAllBrandsEventImplCopyWith<$Res> {
+  __$$FetchAllBrandsEventImplCopyWithImpl(_$FetchAllBrandsEventImpl _value,
+      $Res Function(_$FetchAllBrandsEventImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$FetchAllBrandsEvent implements FetchAllBrandsEvent {
-  const _$FetchAllBrandsEvent();
+class _$FetchAllBrandsEventImpl implements FetchAllBrandsEvent {
+  const _$FetchAllBrandsEventImpl();
 
   @override
   String toString() {
@@ -26709,7 +26745,8 @@ class _$FetchAllBrandsEvent implements FetchAllBrandsEvent {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$FetchAllBrandsEvent);
+        (other.runtimeType == runtimeType &&
+            other is _$FetchAllBrandsEventImpl);
   }
 
   @override
@@ -27228,24 +27265,24 @@ class _$FetchAllBrandsEvent implements FetchAllBrandsEvent {
 }
 
 abstract class FetchAllBrandsEvent implements ShopProductsEvent {
-  const factory FetchAllBrandsEvent() = _$FetchAllBrandsEvent;
+  const factory FetchAllBrandsEvent() = _$FetchAllBrandsEventImpl;
 }
 
 /// @nodoc
-abstract class _$$FetchOrderReasonsCopyWith<$Res> {
-  factory _$$FetchOrderReasonsCopyWith(
-          _$FetchOrderReasons value, $Res Function(_$FetchOrderReasons) then) =
-      __$$FetchOrderReasonsCopyWithImpl<$Res>;
+abstract class _$$FetchOrderReasonsImplCopyWith<$Res> {
+  factory _$$FetchOrderReasonsImplCopyWith(_$FetchOrderReasonsImpl value,
+          $Res Function(_$FetchOrderReasonsImpl) then) =
+      __$$FetchOrderReasonsImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String endpoint});
 }
 
 /// @nodoc
-class __$$FetchOrderReasonsCopyWithImpl<$Res>
-    extends _$ShopProductsEventCopyWithImpl<$Res, _$FetchOrderReasons>
-    implements _$$FetchOrderReasonsCopyWith<$Res> {
-  __$$FetchOrderReasonsCopyWithImpl(
-      _$FetchOrderReasons _value, $Res Function(_$FetchOrderReasons) _then)
+class __$$FetchOrderReasonsImplCopyWithImpl<$Res>
+    extends _$ShopProductsEventCopyWithImpl<$Res, _$FetchOrderReasonsImpl>
+    implements _$$FetchOrderReasonsImplCopyWith<$Res> {
+  __$$FetchOrderReasonsImplCopyWithImpl(_$FetchOrderReasonsImpl _value,
+      $Res Function(_$FetchOrderReasonsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -27253,7 +27290,7 @@ class __$$FetchOrderReasonsCopyWithImpl<$Res>
   $Res call({
     Object? endpoint = null,
   }) {
-    return _then(_$FetchOrderReasons(
+    return _then(_$FetchOrderReasonsImpl(
       endpoint: null == endpoint
           ? _value.endpoint
           : endpoint // ignore: cast_nullable_to_non_nullable
@@ -27264,8 +27301,8 @@ class __$$FetchOrderReasonsCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FetchOrderReasons implements FetchOrderReasons {
-  const _$FetchOrderReasons({required this.endpoint});
+class _$FetchOrderReasonsImpl implements FetchOrderReasons {
+  const _$FetchOrderReasonsImpl({required this.endpoint});
 
   @override
   final String endpoint;
@@ -27279,7 +27316,7 @@ class _$FetchOrderReasons implements FetchOrderReasons {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FetchOrderReasons &&
+            other is _$FetchOrderReasonsImpl &&
             (identical(other.endpoint, endpoint) ||
                 other.endpoint == endpoint));
   }
@@ -27290,8 +27327,9 @@ class _$FetchOrderReasons implements FetchOrderReasons {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FetchOrderReasonsCopyWith<_$FetchOrderReasons> get copyWith =>
-      __$$FetchOrderReasonsCopyWithImpl<_$FetchOrderReasons>(this, _$identity);
+  _$$FetchOrderReasonsImplCopyWith<_$FetchOrderReasonsImpl> get copyWith =>
+      __$$FetchOrderReasonsImplCopyWithImpl<_$FetchOrderReasonsImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -27807,29 +27845,29 @@ class _$FetchOrderReasons implements FetchOrderReasons {
 
 abstract class FetchOrderReasons implements ShopProductsEvent {
   const factory FetchOrderReasons({required final String endpoint}) =
-      _$FetchOrderReasons;
+      _$FetchOrderReasonsImpl;
 
   String get endpoint;
   @JsonKey(ignore: true)
-  _$$FetchOrderReasonsCopyWith<_$FetchOrderReasons> get copyWith =>
+  _$$FetchOrderReasonsImplCopyWith<_$FetchOrderReasonsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$AddReasonsCopyWith<$Res> {
-  factory _$$AddReasonsCopyWith(
-          _$AddReasons value, $Res Function(_$AddReasons) then) =
-      __$$AddReasonsCopyWithImpl<$Res>;
+abstract class _$$AddReasonsImplCopyWith<$Res> {
+  factory _$$AddReasonsImplCopyWith(
+          _$AddReasonsImpl value, $Res Function(_$AddReasonsImpl) then) =
+      __$$AddReasonsImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String endpoint, String text});
 }
 
 /// @nodoc
-class __$$AddReasonsCopyWithImpl<$Res>
-    extends _$ShopProductsEventCopyWithImpl<$Res, _$AddReasons>
-    implements _$$AddReasonsCopyWith<$Res> {
-  __$$AddReasonsCopyWithImpl(
-      _$AddReasons _value, $Res Function(_$AddReasons) _then)
+class __$$AddReasonsImplCopyWithImpl<$Res>
+    extends _$ShopProductsEventCopyWithImpl<$Res, _$AddReasonsImpl>
+    implements _$$AddReasonsImplCopyWith<$Res> {
+  __$$AddReasonsImplCopyWithImpl(
+      _$AddReasonsImpl _value, $Res Function(_$AddReasonsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -27838,7 +27876,7 @@ class __$$AddReasonsCopyWithImpl<$Res>
     Object? endpoint = null,
     Object? text = null,
   }) {
-    return _then(_$AddReasons(
+    return _then(_$AddReasonsImpl(
       endpoint: null == endpoint
           ? _value.endpoint
           : endpoint // ignore: cast_nullable_to_non_nullable
@@ -27853,8 +27891,8 @@ class __$$AddReasonsCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$AddReasons implements AddReasons {
-  const _$AddReasons({required this.endpoint, required this.text});
+class _$AddReasonsImpl implements AddReasons {
+  const _$AddReasonsImpl({required this.endpoint, required this.text});
 
   @override
   final String endpoint;
@@ -27870,7 +27908,7 @@ class _$AddReasons implements AddReasons {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$AddReasons &&
+            other is _$AddReasonsImpl &&
             (identical(other.endpoint, endpoint) ||
                 other.endpoint == endpoint) &&
             (identical(other.text, text) || other.text == text));
@@ -27882,8 +27920,8 @@ class _$AddReasons implements AddReasons {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$AddReasonsCopyWith<_$AddReasons> get copyWith =>
-      __$$AddReasonsCopyWithImpl<_$AddReasons>(this, _$identity);
+  _$$AddReasonsImplCopyWith<_$AddReasonsImpl> get copyWith =>
+      __$$AddReasonsImplCopyWithImpl<_$AddReasonsImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -28400,30 +28438,30 @@ class _$AddReasons implements AddReasons {
 abstract class AddReasons implements ShopProductsEvent {
   const factory AddReasons(
       {required final String endpoint,
-      required final String text}) = _$AddReasons;
+      required final String text}) = _$AddReasonsImpl;
 
   String get endpoint;
   String get text;
   @JsonKey(ignore: true)
-  _$$AddReasonsCopyWith<_$AddReasons> get copyWith =>
+  _$$AddReasonsImplCopyWith<_$AddReasonsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$FetchArticlesIdCopyWith<$Res> {
-  factory _$$FetchArticlesIdCopyWith(
-          _$FetchArticlesId value, $Res Function(_$FetchArticlesId) then) =
-      __$$FetchArticlesIdCopyWithImpl<$Res>;
+abstract class _$$FetchArticlesIdImplCopyWith<$Res> {
+  factory _$$FetchArticlesIdImplCopyWith(_$FetchArticlesIdImpl value,
+          $Res Function(_$FetchArticlesIdImpl) then) =
+      __$$FetchArticlesIdImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String id});
 }
 
 /// @nodoc
-class __$$FetchArticlesIdCopyWithImpl<$Res>
-    extends _$ShopProductsEventCopyWithImpl<$Res, _$FetchArticlesId>
-    implements _$$FetchArticlesIdCopyWith<$Res> {
-  __$$FetchArticlesIdCopyWithImpl(
-      _$FetchArticlesId _value, $Res Function(_$FetchArticlesId) _then)
+class __$$FetchArticlesIdImplCopyWithImpl<$Res>
+    extends _$ShopProductsEventCopyWithImpl<$Res, _$FetchArticlesIdImpl>
+    implements _$$FetchArticlesIdImplCopyWith<$Res> {
+  __$$FetchArticlesIdImplCopyWithImpl(
+      _$FetchArticlesIdImpl _value, $Res Function(_$FetchArticlesIdImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -28431,7 +28469,7 @@ class __$$FetchArticlesIdCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
   }) {
-    return _then(_$FetchArticlesId(
+    return _then(_$FetchArticlesIdImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -28442,8 +28480,8 @@ class __$$FetchArticlesIdCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FetchArticlesId implements FetchArticlesId {
-  const _$FetchArticlesId({required this.id});
+class _$FetchArticlesIdImpl implements FetchArticlesId {
+  const _$FetchArticlesIdImpl({required this.id});
 
   @override
   final String id;
@@ -28457,7 +28495,7 @@ class _$FetchArticlesId implements FetchArticlesId {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FetchArticlesId &&
+            other is _$FetchArticlesIdImpl &&
             (identical(other.id, id) || other.id == id));
   }
 
@@ -28467,8 +28505,9 @@ class _$FetchArticlesId implements FetchArticlesId {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FetchArticlesIdCopyWith<_$FetchArticlesId> get copyWith =>
-      __$$FetchArticlesIdCopyWithImpl<_$FetchArticlesId>(this, _$identity);
+  _$$FetchArticlesIdImplCopyWith<_$FetchArticlesIdImpl> get copyWith =>
+      __$$FetchArticlesIdImplCopyWithImpl<_$FetchArticlesIdImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -28983,34 +29022,35 @@ class _$FetchArticlesId implements FetchArticlesId {
 }
 
 abstract class FetchArticlesId implements ShopProductsEvent {
-  const factory FetchArticlesId({required final String id}) = _$FetchArticlesId;
+  const factory FetchArticlesId({required final String id}) =
+      _$FetchArticlesIdImpl;
 
   String get id;
   @JsonKey(ignore: true)
-  _$$FetchArticlesIdCopyWith<_$FetchArticlesId> get copyWith =>
+  _$$FetchArticlesIdImplCopyWith<_$FetchArticlesIdImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$FetchProductsCopyWith<$Res> {
-  factory _$$FetchProductsCopyWith(
-          _$FetchProducts value, $Res Function(_$FetchProducts) then) =
-      __$$FetchProductsCopyWithImpl<$Res>;
+abstract class _$$FetchProductsImplCopyWith<$Res> {
+  factory _$$FetchProductsImplCopyWith(
+          _$FetchProductsImpl value, $Res Function(_$FetchProductsImpl) then) =
+      __$$FetchProductsImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$FetchProductsCopyWithImpl<$Res>
-    extends _$ShopProductsEventCopyWithImpl<$Res, _$FetchProducts>
-    implements _$$FetchProductsCopyWith<$Res> {
-  __$$FetchProductsCopyWithImpl(
-      _$FetchProducts _value, $Res Function(_$FetchProducts) _then)
+class __$$FetchProductsImplCopyWithImpl<$Res>
+    extends _$ShopProductsEventCopyWithImpl<$Res, _$FetchProductsImpl>
+    implements _$$FetchProductsImplCopyWith<$Res> {
+  __$$FetchProductsImplCopyWithImpl(
+      _$FetchProductsImpl _value, $Res Function(_$FetchProductsImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$FetchProducts implements FetchProducts {
-  const _$FetchProducts();
+class _$FetchProductsImpl implements FetchProducts {
+  const _$FetchProductsImpl();
 
   @override
   String toString() {
@@ -29020,7 +29060,7 @@ class _$FetchProducts implements FetchProducts {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$FetchProducts);
+        (other.runtimeType == runtimeType && other is _$FetchProductsImpl);
   }
 
   @override
@@ -29539,29 +29579,30 @@ class _$FetchProducts implements FetchProducts {
 }
 
 abstract class FetchProducts implements ShopProductsEvent {
-  const factory FetchProducts() = _$FetchProducts;
+  const factory FetchProducts() = _$FetchProductsImpl;
 }
 
 /// @nodoc
-abstract class _$$FetchArticlesCategoryCopyWith<$Res> {
-  factory _$$FetchArticlesCategoryCopyWith(_$FetchArticlesCategory value,
-          $Res Function(_$FetchArticlesCategory) then) =
-      __$$FetchArticlesCategoryCopyWithImpl<$Res>;
+abstract class _$$FetchArticlesCategoryImplCopyWith<$Res> {
+  factory _$$FetchArticlesCategoryImplCopyWith(
+          _$FetchArticlesCategoryImpl value,
+          $Res Function(_$FetchArticlesCategoryImpl) then) =
+      __$$FetchArticlesCategoryImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$FetchArticlesCategoryCopyWithImpl<$Res>
-    extends _$ShopProductsEventCopyWithImpl<$Res, _$FetchArticlesCategory>
-    implements _$$FetchArticlesCategoryCopyWith<$Res> {
-  __$$FetchArticlesCategoryCopyWithImpl(_$FetchArticlesCategory _value,
-      $Res Function(_$FetchArticlesCategory) _then)
+class __$$FetchArticlesCategoryImplCopyWithImpl<$Res>
+    extends _$ShopProductsEventCopyWithImpl<$Res, _$FetchArticlesCategoryImpl>
+    implements _$$FetchArticlesCategoryImplCopyWith<$Res> {
+  __$$FetchArticlesCategoryImplCopyWithImpl(_$FetchArticlesCategoryImpl _value,
+      $Res Function(_$FetchArticlesCategoryImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$FetchArticlesCategory implements FetchArticlesCategory {
-  const _$FetchArticlesCategory();
+class _$FetchArticlesCategoryImpl implements FetchArticlesCategory {
+  const _$FetchArticlesCategoryImpl();
 
   @override
   String toString() {
@@ -29571,7 +29612,8 @@ class _$FetchArticlesCategory implements FetchArticlesCategory {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$FetchArticlesCategory);
+        (other.runtimeType == runtimeType &&
+            other is _$FetchArticlesCategoryImpl);
   }
 
   @override
@@ -30090,27 +30132,27 @@ class _$FetchArticlesCategory implements FetchArticlesCategory {
 }
 
 abstract class FetchArticlesCategory implements ShopProductsEvent {
-  const factory FetchArticlesCategory() = _$FetchArticlesCategory;
+  const factory FetchArticlesCategory() = _$FetchArticlesCategoryImpl;
 }
 
 /// @nodoc
-abstract class _$$SaveArticleCategoryFilterValCopyWith<$Res> {
-  factory _$$SaveArticleCategoryFilterValCopyWith(
-          _$SaveArticleCategoryFilterVal value,
-          $Res Function(_$SaveArticleCategoryFilterVal) then) =
-      __$$SaveArticleCategoryFilterValCopyWithImpl<$Res>;
+abstract class _$$SaveArticleCategoryFilterValImplCopyWith<$Res> {
+  factory _$$SaveArticleCategoryFilterValImplCopyWith(
+          _$SaveArticleCategoryFilterValImpl value,
+          $Res Function(_$SaveArticleCategoryFilterValImpl) then) =
+      __$$SaveArticleCategoryFilterValImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String filterVal});
 }
 
 /// @nodoc
-class __$$SaveArticleCategoryFilterValCopyWithImpl<$Res>
+class __$$SaveArticleCategoryFilterValImplCopyWithImpl<$Res>
     extends _$ShopProductsEventCopyWithImpl<$Res,
-        _$SaveArticleCategoryFilterVal>
-    implements _$$SaveArticleCategoryFilterValCopyWith<$Res> {
-  __$$SaveArticleCategoryFilterValCopyWithImpl(
-      _$SaveArticleCategoryFilterVal _value,
-      $Res Function(_$SaveArticleCategoryFilterVal) _then)
+        _$SaveArticleCategoryFilterValImpl>
+    implements _$$SaveArticleCategoryFilterValImplCopyWith<$Res> {
+  __$$SaveArticleCategoryFilterValImplCopyWithImpl(
+      _$SaveArticleCategoryFilterValImpl _value,
+      $Res Function(_$SaveArticleCategoryFilterValImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -30118,7 +30160,7 @@ class __$$SaveArticleCategoryFilterValCopyWithImpl<$Res>
   $Res call({
     Object? filterVal = null,
   }) {
-    return _then(_$SaveArticleCategoryFilterVal(
+    return _then(_$SaveArticleCategoryFilterValImpl(
       filterVal: null == filterVal
           ? _value.filterVal
           : filterVal // ignore: cast_nullable_to_non_nullable
@@ -30129,8 +30171,9 @@ class __$$SaveArticleCategoryFilterValCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SaveArticleCategoryFilterVal implements SaveArticleCategoryFilterVal {
-  const _$SaveArticleCategoryFilterVal({required this.filterVal});
+class _$SaveArticleCategoryFilterValImpl
+    implements SaveArticleCategoryFilterVal {
+  const _$SaveArticleCategoryFilterValImpl({required this.filterVal});
 
   @override
   final String filterVal;
@@ -30144,7 +30187,7 @@ class _$SaveArticleCategoryFilterVal implements SaveArticleCategoryFilterVal {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SaveArticleCategoryFilterVal &&
+            other is _$SaveArticleCategoryFilterValImpl &&
             (identical(other.filterVal, filterVal) ||
                 other.filterVal == filterVal));
   }
@@ -30155,9 +30198,10 @@ class _$SaveArticleCategoryFilterVal implements SaveArticleCategoryFilterVal {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$SaveArticleCategoryFilterValCopyWith<_$SaveArticleCategoryFilterVal>
-      get copyWith => __$$SaveArticleCategoryFilterValCopyWithImpl<
-          _$SaveArticleCategoryFilterVal>(this, _$identity);
+  _$$SaveArticleCategoryFilterValImplCopyWith<
+          _$SaveArticleCategoryFilterValImpl>
+      get copyWith => __$$SaveArticleCategoryFilterValImplCopyWithImpl<
+          _$SaveArticleCategoryFilterValImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -30673,29 +30717,32 @@ class _$SaveArticleCategoryFilterVal implements SaveArticleCategoryFilterVal {
 
 abstract class SaveArticleCategoryFilterVal implements ShopProductsEvent {
   const factory SaveArticleCategoryFilterVal(
-      {required final String filterVal}) = _$SaveArticleCategoryFilterVal;
+      {required final String filterVal}) = _$SaveArticleCategoryFilterValImpl;
 
   String get filterVal;
   @JsonKey(ignore: true)
-  _$$SaveArticleCategoryFilterValCopyWith<_$SaveArticleCategoryFilterVal>
+  _$$SaveArticleCategoryFilterValImplCopyWith<
+          _$SaveArticleCategoryFilterValImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$FetchArticlesByCategoryCopyWith<$Res> {
-  factory _$$FetchArticlesByCategoryCopyWith(_$FetchArticlesByCategory value,
-          $Res Function(_$FetchArticlesByCategory) then) =
-      __$$FetchArticlesByCategoryCopyWithImpl<$Res>;
+abstract class _$$FetchArticlesByCategoryImplCopyWith<$Res> {
+  factory _$$FetchArticlesByCategoryImplCopyWith(
+          _$FetchArticlesByCategoryImpl value,
+          $Res Function(_$FetchArticlesByCategoryImpl) then) =
+      __$$FetchArticlesByCategoryImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String category});
 }
 
 /// @nodoc
-class __$$FetchArticlesByCategoryCopyWithImpl<$Res>
-    extends _$ShopProductsEventCopyWithImpl<$Res, _$FetchArticlesByCategory>
-    implements _$$FetchArticlesByCategoryCopyWith<$Res> {
-  __$$FetchArticlesByCategoryCopyWithImpl(_$FetchArticlesByCategory _value,
-      $Res Function(_$FetchArticlesByCategory) _then)
+class __$$FetchArticlesByCategoryImplCopyWithImpl<$Res>
+    extends _$ShopProductsEventCopyWithImpl<$Res, _$FetchArticlesByCategoryImpl>
+    implements _$$FetchArticlesByCategoryImplCopyWith<$Res> {
+  __$$FetchArticlesByCategoryImplCopyWithImpl(
+      _$FetchArticlesByCategoryImpl _value,
+      $Res Function(_$FetchArticlesByCategoryImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -30703,7 +30750,7 @@ class __$$FetchArticlesByCategoryCopyWithImpl<$Res>
   $Res call({
     Object? category = null,
   }) {
-    return _then(_$FetchArticlesByCategory(
+    return _then(_$FetchArticlesByCategoryImpl(
       null == category
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
@@ -30714,8 +30761,8 @@ class __$$FetchArticlesByCategoryCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FetchArticlesByCategory implements FetchArticlesByCategory {
-  const _$FetchArticlesByCategory(this.category);
+class _$FetchArticlesByCategoryImpl implements FetchArticlesByCategory {
+  const _$FetchArticlesByCategoryImpl(this.category);
 
   @override
   final String category;
@@ -30729,7 +30776,7 @@ class _$FetchArticlesByCategory implements FetchArticlesByCategory {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FetchArticlesByCategory &&
+            other is _$FetchArticlesByCategoryImpl &&
             (identical(other.category, category) ||
                 other.category == category));
   }
@@ -30740,9 +30787,9 @@ class _$FetchArticlesByCategory implements FetchArticlesByCategory {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FetchArticlesByCategoryCopyWith<_$FetchArticlesByCategory> get copyWith =>
-      __$$FetchArticlesByCategoryCopyWithImpl<_$FetchArticlesByCategory>(
-          this, _$identity);
+  _$$FetchArticlesByCategoryImplCopyWith<_$FetchArticlesByCategoryImpl>
+      get copyWith => __$$FetchArticlesByCategoryImplCopyWithImpl<
+          _$FetchArticlesByCategoryImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -31258,31 +31305,32 @@ class _$FetchArticlesByCategory implements FetchArticlesByCategory {
 
 abstract class FetchArticlesByCategory implements ShopProductsEvent {
   const factory FetchArticlesByCategory(final String category) =
-      _$FetchArticlesByCategory;
+      _$FetchArticlesByCategoryImpl;
 
   String get category;
   @JsonKey(ignore: true)
-  _$$FetchArticlesByCategoryCopyWith<_$FetchArticlesByCategory> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$FetchArticlesByCategoryImplCopyWith<_$FetchArticlesByCategoryImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$FetchBrandProductsItemCountCopyWith<$Res> {
-  factory _$$FetchBrandProductsItemCountCopyWith(
-          _$FetchBrandProductsItemCount value,
-          $Res Function(_$FetchBrandProductsItemCount) then) =
-      __$$FetchBrandProductsItemCountCopyWithImpl<$Res>;
+abstract class _$$FetchBrandProductsItemCountImplCopyWith<$Res> {
+  factory _$$FetchBrandProductsItemCountImplCopyWith(
+          _$FetchBrandProductsItemCountImpl value,
+          $Res Function(_$FetchBrandProductsItemCountImpl) then) =
+      __$$FetchBrandProductsItemCountImplCopyWithImpl<$Res>;
   @useResult
   $Res call({List<String>? ids});
 }
 
 /// @nodoc
-class __$$FetchBrandProductsItemCountCopyWithImpl<$Res>
-    extends _$ShopProductsEventCopyWithImpl<$Res, _$FetchBrandProductsItemCount>
-    implements _$$FetchBrandProductsItemCountCopyWith<$Res> {
-  __$$FetchBrandProductsItemCountCopyWithImpl(
-      _$FetchBrandProductsItemCount _value,
-      $Res Function(_$FetchBrandProductsItemCount) _then)
+class __$$FetchBrandProductsItemCountImplCopyWithImpl<$Res>
+    extends _$ShopProductsEventCopyWithImpl<$Res,
+        _$FetchBrandProductsItemCountImpl>
+    implements _$$FetchBrandProductsItemCountImplCopyWith<$Res> {
+  __$$FetchBrandProductsItemCountImplCopyWithImpl(
+      _$FetchBrandProductsItemCountImpl _value,
+      $Res Function(_$FetchBrandProductsItemCountImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -31290,7 +31338,7 @@ class __$$FetchBrandProductsItemCountCopyWithImpl<$Res>
   $Res call({
     Object? ids = freezed,
   }) {
-    return _then(_$FetchBrandProductsItemCount(
+    return _then(_$FetchBrandProductsItemCountImpl(
       ids: freezed == ids
           ? _value._ids
           : ids // ignore: cast_nullable_to_non_nullable
@@ -31301,8 +31349,8 @@ class __$$FetchBrandProductsItemCountCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FetchBrandProductsItemCount implements FetchBrandProductsItemCount {
-  const _$FetchBrandProductsItemCount({required final List<String>? ids})
+class _$FetchBrandProductsItemCountImpl implements FetchBrandProductsItemCount {
+  const _$FetchBrandProductsItemCountImpl({required final List<String>? ids})
       : _ids = ids;
 
   final List<String>? _ids;
@@ -31324,7 +31372,7 @@ class _$FetchBrandProductsItemCount implements FetchBrandProductsItemCount {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FetchBrandProductsItemCount &&
+            other is _$FetchBrandProductsItemCountImpl &&
             const DeepCollectionEquality().equals(other._ids, _ids));
   }
 
@@ -31335,9 +31383,9 @@ class _$FetchBrandProductsItemCount implements FetchBrandProductsItemCount {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FetchBrandProductsItemCountCopyWith<_$FetchBrandProductsItemCount>
-      get copyWith => __$$FetchBrandProductsItemCountCopyWithImpl<
-          _$FetchBrandProductsItemCount>(this, _$identity);
+  _$$FetchBrandProductsItemCountImplCopyWith<_$FetchBrandProductsItemCountImpl>
+      get copyWith => __$$FetchBrandProductsItemCountImplCopyWithImpl<
+          _$FetchBrandProductsItemCountImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -31853,11 +31901,11 @@ class _$FetchBrandProductsItemCount implements FetchBrandProductsItemCount {
 
 abstract class FetchBrandProductsItemCount implements ShopProductsEvent {
   const factory FetchBrandProductsItemCount(
-      {required final List<String>? ids}) = _$FetchBrandProductsItemCount;
+      {required final List<String>? ids}) = _$FetchBrandProductsItemCountImpl;
 
   List<String>? get ids;
   @JsonKey(ignore: true)
-  _$$FetchBrandProductsItemCountCopyWith<_$FetchBrandProductsItemCount>
+  _$$FetchBrandProductsItemCountImplCopyWith<_$FetchBrandProductsItemCountImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -32731,11 +32779,11 @@ class _$ShopProductsStateCopyWithImpl<$Res, $Val extends ShopProductsState>
 }
 
 /// @nodoc
-abstract class _$$_InitialCopyWith<$Res>
+abstract class _$$InitialImplCopyWith<$Res>
     implements $ShopProductsStateCopyWith<$Res> {
-  factory _$$_InitialCopyWith(
-          _$_Initial value, $Res Function(_$_Initial) then) =
-      __$$_InitialCopyWithImpl<$Res>;
+  factory _$$InitialImplCopyWith(
+          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
+      __$$InitialImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -32867,10 +32915,11 @@ abstract class _$$_InitialCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_InitialCopyWithImpl<$Res>
-    extends _$ShopProductsStateCopyWithImpl<$Res, _$_Initial>
-    implements _$$_InitialCopyWith<$Res> {
-  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
+class __$$InitialImplCopyWithImpl<$Res>
+    extends _$ShopProductsStateCopyWithImpl<$Res, _$InitialImpl>
+    implements _$$InitialImplCopyWith<$Res> {
+  __$$InitialImplCopyWithImpl(
+      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -32934,7 +32983,7 @@ class __$$_InitialCopyWithImpl<$Res>
     Object? orderSucces = null,
     Object? brandProductsItemCount = freezed,
   }) {
-    return _then(_$_Initial(
+    return _then(_$InitialImpl(
       flashSaleproducts: freezed == flashSaleproducts
           ? _value.flashSaleproducts
           : flashSaleproducts // ignore: cast_nullable_to_non_nullable
@@ -33175,8 +33224,8 @@ class __$$_InitialCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Initial implements _Initial {
-  const _$_Initial(
+class _$InitialImpl implements _Initial {
+  const _$InitialImpl(
       {required this.flashSaleproducts,
       required this.flashSaleLoading,
       required this.popularProducts,
@@ -33387,7 +33436,7 @@ class _$_Initial implements _Initial {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Initial &&
+            other is _$InitialImpl &&
             (identical(other.flashSaleproducts, flashSaleproducts) ||
                 other.flashSaleproducts == flashSaleproducts) &&
             (identical(other.flashSaleLoading, flashSaleLoading) ||
@@ -33551,8 +33600,8 @@ class _$_Initial implements _Initial {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_InitialCopyWith<_$_Initial> get copyWith =>
-      __$$_InitialCopyWithImpl<_$_Initial>(this, _$identity);
+  _$$InitialImplCopyWith<_$InitialImpl> get copyWith =>
+      __$$InitialImplCopyWithImpl<_$InitialImpl>(this, _$identity);
 }
 
 abstract class _Initial implements ShopProductsState {
@@ -33619,7 +33668,7 @@ abstract class _Initial implements ShopProductsState {
       required final String orderIdRazorPay,
       required final double totalAmount,
       required final bool orderSucces,
-      required final List<double>? brandProductsItemCount}) = _$_Initial;
+      required final List<double>? brandProductsItemCount}) = _$InitialImpl;
 
   @override
   ShopProducts? get flashSaleproducts;
@@ -33738,6 +33787,6 @@ abstract class _Initial implements ShopProductsState {
   List<double>? get brandProductsItemCount;
   @override
   @JsonKey(ignore: true)
-  _$$_InitialCopyWith<_$_Initial> get copyWith =>
+  _$$InitialImplCopyWith<_$InitialImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

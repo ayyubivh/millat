@@ -84,11 +84,11 @@ class _$PrayerModelCopyWithImpl<$Res, $Val extends PrayerModel>
 }
 
 /// @nodoc
-abstract class _$$_PrayerModelCopyWith<$Res>
+abstract class _$$PrayerModelImplCopyWith<$Res>
     implements $PrayerModelCopyWith<$Res> {
-  factory _$$_PrayerModelCopyWith(
-          _$_PrayerModel value, $Res Function(_$_PrayerModel) then) =
-      __$$_PrayerModelCopyWithImpl<$Res>;
+  factory _$$PrayerModelImplCopyWith(
+          _$PrayerModelImpl value, $Res Function(_$PrayerModelImpl) then) =
+      __$$PrayerModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int code, String status, PrayerData data});
@@ -98,11 +98,11 @@ abstract class _$$_PrayerModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_PrayerModelCopyWithImpl<$Res>
-    extends _$PrayerModelCopyWithImpl<$Res, _$_PrayerModel>
-    implements _$$_PrayerModelCopyWith<$Res> {
-  __$$_PrayerModelCopyWithImpl(
-      _$_PrayerModel _value, $Res Function(_$_PrayerModel) _then)
+class __$$PrayerModelImplCopyWithImpl<$Res>
+    extends _$PrayerModelCopyWithImpl<$Res, _$PrayerModelImpl>
+    implements _$$PrayerModelImplCopyWith<$Res> {
+  __$$PrayerModelImplCopyWithImpl(
+      _$PrayerModelImpl _value, $Res Function(_$PrayerModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -112,7 +112,7 @@ class __$$_PrayerModelCopyWithImpl<$Res>
     Object? status = null,
     Object? data = null,
   }) {
-    return _then(_$_PrayerModel(
+    return _then(_$PrayerModelImpl(
       code: null == code
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
@@ -131,12 +131,12 @@ class __$$_PrayerModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_PrayerModel implements _PrayerModel {
-  _$_PrayerModel(
+class _$PrayerModelImpl implements _PrayerModel {
+  _$PrayerModelImpl(
       {required this.code, required this.status, required this.data});
 
-  factory _$_PrayerModel.fromJson(Map<String, dynamic> json) =>
-      _$$_PrayerModelFromJson(json);
+  factory _$PrayerModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PrayerModelImplFromJson(json);
 
   @override
   final int code;
@@ -154,7 +154,7 @@ class _$_PrayerModel implements _PrayerModel {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_PrayerModel &&
+            other is _$PrayerModelImpl &&
             (identical(other.code, code) || other.code == code) &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.data, data) || other.data == data));
@@ -167,12 +167,12 @@ class _$_PrayerModel implements _PrayerModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_PrayerModelCopyWith<_$_PrayerModel> get copyWith =>
-      __$$_PrayerModelCopyWithImpl<_$_PrayerModel>(this, _$identity);
+  _$$PrayerModelImplCopyWith<_$PrayerModelImpl> get copyWith =>
+      __$$PrayerModelImplCopyWithImpl<_$PrayerModelImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_PrayerModelToJson(
+    return _$$PrayerModelImplToJson(
       this,
     );
   }
@@ -182,10 +182,10 @@ abstract class _PrayerModel implements PrayerModel {
   factory _PrayerModel(
       {required final int code,
       required final String status,
-      required final PrayerData data}) = _$_PrayerModel;
+      required final PrayerData data}) = _$PrayerModelImpl;
 
   factory _PrayerModel.fromJson(Map<String, dynamic> json) =
-      _$_PrayerModel.fromJson;
+      _$PrayerModelImpl.fromJson;
 
   @override
   int get code;
@@ -195,7 +195,7 @@ abstract class _PrayerModel implements PrayerModel {
   PrayerData get data;
   @override
   @JsonKey(ignore: true)
-  _$$_PrayerModelCopyWith<_$_PrayerModel> get copyWith =>
+  _$$PrayerModelImplCopyWith<_$PrayerModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -287,11 +287,11 @@ class _$PrayerDataCopyWithImpl<$Res, $Val extends PrayerData>
 }
 
 /// @nodoc
-abstract class _$$_PrayerDataCopyWith<$Res>
+abstract class _$$PrayerDataImplCopyWith<$Res>
     implements $PrayerDataCopyWith<$Res> {
-  factory _$$_PrayerDataCopyWith(
-          _$_PrayerData value, $Res Function(_$_PrayerData) then) =
-      __$$_PrayerDataCopyWithImpl<$Res>;
+  factory _$$PrayerDataImplCopyWith(
+          _$PrayerDataImpl value, $Res Function(_$PrayerDataImpl) then) =
+      __$$PrayerDataImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({PrayerTimings timings, PrayerDate date, PrayerMeta meta});
@@ -305,11 +305,11 @@ abstract class _$$_PrayerDataCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_PrayerDataCopyWithImpl<$Res>
-    extends _$PrayerDataCopyWithImpl<$Res, _$_PrayerData>
-    implements _$$_PrayerDataCopyWith<$Res> {
-  __$$_PrayerDataCopyWithImpl(
-      _$_PrayerData _value, $Res Function(_$_PrayerData) _then)
+class __$$PrayerDataImplCopyWithImpl<$Res>
+    extends _$PrayerDataCopyWithImpl<$Res, _$PrayerDataImpl>
+    implements _$$PrayerDataImplCopyWith<$Res> {
+  __$$PrayerDataImplCopyWithImpl(
+      _$PrayerDataImpl _value, $Res Function(_$PrayerDataImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -319,7 +319,7 @@ class __$$_PrayerDataCopyWithImpl<$Res>
     Object? date = null,
     Object? meta = null,
   }) {
-    return _then(_$_PrayerData(
+    return _then(_$PrayerDataImpl(
       timings: null == timings
           ? _value.timings
           : timings // ignore: cast_nullable_to_non_nullable
@@ -338,12 +338,12 @@ class __$$_PrayerDataCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_PrayerData implements _PrayerData {
-  _$_PrayerData(
+class _$PrayerDataImpl implements _PrayerData {
+  _$PrayerDataImpl(
       {required this.timings, required this.date, required this.meta});
 
-  factory _$_PrayerData.fromJson(Map<String, dynamic> json) =>
-      _$$_PrayerDataFromJson(json);
+  factory _$PrayerDataImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PrayerDataImplFromJson(json);
 
   @override
   final PrayerTimings timings;
@@ -361,7 +361,7 @@ class _$_PrayerData implements _PrayerData {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_PrayerData &&
+            other is _$PrayerDataImpl &&
             (identical(other.timings, timings) || other.timings == timings) &&
             (identical(other.date, date) || other.date == date) &&
             (identical(other.meta, meta) || other.meta == meta));
@@ -374,12 +374,12 @@ class _$_PrayerData implements _PrayerData {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_PrayerDataCopyWith<_$_PrayerData> get copyWith =>
-      __$$_PrayerDataCopyWithImpl<_$_PrayerData>(this, _$identity);
+  _$$PrayerDataImplCopyWith<_$PrayerDataImpl> get copyWith =>
+      __$$PrayerDataImplCopyWithImpl<_$PrayerDataImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_PrayerDataToJson(
+    return _$$PrayerDataImplToJson(
       this,
     );
   }
@@ -389,10 +389,10 @@ abstract class _PrayerData implements PrayerData {
   factory _PrayerData(
       {required final PrayerTimings timings,
       required final PrayerDate date,
-      required final PrayerMeta meta}) = _$_PrayerData;
+      required final PrayerMeta meta}) = _$PrayerDataImpl;
 
   factory _PrayerData.fromJson(Map<String, dynamic> json) =
-      _$_PrayerData.fromJson;
+      _$PrayerDataImpl.fromJson;
 
   @override
   PrayerTimings get timings;
@@ -402,7 +402,7 @@ abstract class _PrayerData implements PrayerData {
   PrayerMeta get meta;
   @override
   @JsonKey(ignore: true)
-  _$$_PrayerDataCopyWith<_$_PrayerData> get copyWith =>
+  _$$PrayerDataImplCopyWith<_$PrayerDataImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -536,11 +536,11 @@ class _$PrayerTimingsCopyWithImpl<$Res, $Val extends PrayerTimings>
 }
 
 /// @nodoc
-abstract class _$$_PrayerTimingsCopyWith<$Res>
+abstract class _$$PrayerTimingsImplCopyWith<$Res>
     implements $PrayerTimingsCopyWith<$Res> {
-  factory _$$_PrayerTimingsCopyWith(
-          _$_PrayerTimings value, $Res Function(_$_PrayerTimings) then) =
-      __$$_PrayerTimingsCopyWithImpl<$Res>;
+  factory _$$PrayerTimingsImplCopyWith(
+          _$PrayerTimingsImpl value, $Res Function(_$PrayerTimingsImpl) then) =
+      __$$PrayerTimingsImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -558,11 +558,11 @@ abstract class _$$_PrayerTimingsCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_PrayerTimingsCopyWithImpl<$Res>
-    extends _$PrayerTimingsCopyWithImpl<$Res, _$_PrayerTimings>
-    implements _$$_PrayerTimingsCopyWith<$Res> {
-  __$$_PrayerTimingsCopyWithImpl(
-      _$_PrayerTimings _value, $Res Function(_$_PrayerTimings) _then)
+class __$$PrayerTimingsImplCopyWithImpl<$Res>
+    extends _$PrayerTimingsCopyWithImpl<$Res, _$PrayerTimingsImpl>
+    implements _$$PrayerTimingsImplCopyWith<$Res> {
+  __$$PrayerTimingsImplCopyWithImpl(
+      _$PrayerTimingsImpl _value, $Res Function(_$PrayerTimingsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -580,7 +580,7 @@ class __$$_PrayerTimingsCopyWithImpl<$Res>
     Object? firstthird = freezed,
     Object? lastthird = freezed,
   }) {
-    return _then(_$_PrayerTimings(
+    return _then(_$PrayerTimingsImpl(
       fajr: freezed == fajr
           ? _value.fajr
           : fajr // ignore: cast_nullable_to_non_nullable
@@ -631,8 +631,8 @@ class __$$_PrayerTimingsCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_PrayerTimings implements _PrayerTimings {
-  _$_PrayerTimings(
+class _$PrayerTimingsImpl implements _PrayerTimings {
+  _$PrayerTimingsImpl(
       {@JsonKey(name: 'Fajr') this.fajr,
       @JsonKey(name: 'Sunrise') this.sunrise,
       @JsonKey(name: 'Dhuhr') this.dhuhr,
@@ -645,8 +645,8 @@ class _$_PrayerTimings implements _PrayerTimings {
       @JsonKey(name: 'Firstthird') this.firstthird,
       @JsonKey(name: 'Lastthird') this.lastthird});
 
-  factory _$_PrayerTimings.fromJson(Map<String, dynamic> json) =>
-      _$$_PrayerTimingsFromJson(json);
+  factory _$PrayerTimingsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PrayerTimingsImplFromJson(json);
 
   @override
   @JsonKey(name: 'Fajr')
@@ -691,7 +691,7 @@ class _$_PrayerTimings implements _PrayerTimings {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_PrayerTimings &&
+            other is _$PrayerTimingsImpl &&
             (identical(other.fajr, fajr) || other.fajr == fajr) &&
             (identical(other.sunrise, sunrise) || other.sunrise == sunrise) &&
             (identical(other.dhuhr, dhuhr) || other.dhuhr == dhuhr) &&
@@ -716,12 +716,12 @@ class _$_PrayerTimings implements _PrayerTimings {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_PrayerTimingsCopyWith<_$_PrayerTimings> get copyWith =>
-      __$$_PrayerTimingsCopyWithImpl<_$_PrayerTimings>(this, _$identity);
+  _$$PrayerTimingsImplCopyWith<_$PrayerTimingsImpl> get copyWith =>
+      __$$PrayerTimingsImplCopyWithImpl<_$PrayerTimingsImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_PrayerTimingsToJson(
+    return _$$PrayerTimingsImplToJson(
       this,
     );
   }
@@ -729,20 +729,21 @@ class _$_PrayerTimings implements _PrayerTimings {
 
 abstract class _PrayerTimings implements PrayerTimings {
   factory _PrayerTimings(
-      {@JsonKey(name: 'Fajr') final String? fajr,
-      @JsonKey(name: 'Sunrise') final String? sunrise,
-      @JsonKey(name: 'Dhuhr') final String? dhuhr,
-      @JsonKey(name: 'Asr') final String? asr,
-      @JsonKey(name: 'Sunset') final String? sunset,
-      @JsonKey(name: 'Maghrib') final String? maghrib,
-      @JsonKey(name: 'Isha') final String? isha,
-      @JsonKey(name: 'Imsak') final String? imsak,
-      @JsonKey(name: 'Midnight') final String? midnight,
-      @JsonKey(name: 'Firstthird') final String? firstthird,
-      @JsonKey(name: 'Lastthird') final String? lastthird}) = _$_PrayerTimings;
+          {@JsonKey(name: 'Fajr') final String? fajr,
+          @JsonKey(name: 'Sunrise') final String? sunrise,
+          @JsonKey(name: 'Dhuhr') final String? dhuhr,
+          @JsonKey(name: 'Asr') final String? asr,
+          @JsonKey(name: 'Sunset') final String? sunset,
+          @JsonKey(name: 'Maghrib') final String? maghrib,
+          @JsonKey(name: 'Isha') final String? isha,
+          @JsonKey(name: 'Imsak') final String? imsak,
+          @JsonKey(name: 'Midnight') final String? midnight,
+          @JsonKey(name: 'Firstthird') final String? firstthird,
+          @JsonKey(name: 'Lastthird') final String? lastthird}) =
+      _$PrayerTimingsImpl;
 
   factory _PrayerTimings.fromJson(Map<String, dynamic> json) =
-      _$_PrayerTimings.fromJson;
+      _$PrayerTimingsImpl.fromJson;
 
   @override
   @JsonKey(name: 'Fajr')
@@ -779,7 +780,7 @@ abstract class _PrayerTimings implements PrayerTimings {
   String? get lastthird;
   @override
   @JsonKey(ignore: true)
-  _$$_PrayerTimingsCopyWith<_$_PrayerTimings> get copyWith =>
+  _$$PrayerTimingsImplCopyWith<_$PrayerTimingsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -872,11 +873,11 @@ class _$PrayerDateCopyWithImpl<$Res, $Val extends PrayerDate>
 }
 
 /// @nodoc
-abstract class _$$_PrayerDateCopyWith<$Res>
+abstract class _$$PrayerDateImplCopyWith<$Res>
     implements $PrayerDateCopyWith<$Res> {
-  factory _$$_PrayerDateCopyWith(
-          _$_PrayerDate value, $Res Function(_$_PrayerDate) then) =
-      __$$_PrayerDateCopyWithImpl<$Res>;
+  factory _$$PrayerDateImplCopyWith(
+          _$PrayerDateImpl value, $Res Function(_$PrayerDateImpl) then) =
+      __$$PrayerDateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -892,11 +893,11 @@ abstract class _$$_PrayerDateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_PrayerDateCopyWithImpl<$Res>
-    extends _$PrayerDateCopyWithImpl<$Res, _$_PrayerDate>
-    implements _$$_PrayerDateCopyWith<$Res> {
-  __$$_PrayerDateCopyWithImpl(
-      _$_PrayerDate _value, $Res Function(_$_PrayerDate) _then)
+class __$$PrayerDateImplCopyWithImpl<$Res>
+    extends _$PrayerDateCopyWithImpl<$Res, _$PrayerDateImpl>
+    implements _$$PrayerDateImplCopyWith<$Res> {
+  __$$PrayerDateImplCopyWithImpl(
+      _$PrayerDateImpl _value, $Res Function(_$PrayerDateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -907,7 +908,7 @@ class __$$_PrayerDateCopyWithImpl<$Res>
     Object? hijri = null,
     Object? gregorian = null,
   }) {
-    return _then(_$_PrayerDate(
+    return _then(_$PrayerDateImpl(
       readable: null == readable
           ? _value.readable
           : readable // ignore: cast_nullable_to_non_nullable
@@ -930,15 +931,15 @@ class __$$_PrayerDateCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_PrayerDate implements _PrayerDate {
-  _$_PrayerDate(
+class _$PrayerDateImpl implements _PrayerDate {
+  _$PrayerDateImpl(
       {required this.readable,
       required this.timestamp,
       required this.hijri,
       required this.gregorian});
 
-  factory _$_PrayerDate.fromJson(Map<String, dynamic> json) =>
-      _$$_PrayerDateFromJson(json);
+  factory _$PrayerDateImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PrayerDateImplFromJson(json);
 
   @override
   final String readable;
@@ -958,7 +959,7 @@ class _$_PrayerDate implements _PrayerDate {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_PrayerDate &&
+            other is _$PrayerDateImpl &&
             (identical(other.readable, readable) ||
                 other.readable == readable) &&
             (identical(other.timestamp, timestamp) ||
@@ -976,12 +977,12 @@ class _$_PrayerDate implements _PrayerDate {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_PrayerDateCopyWith<_$_PrayerDate> get copyWith =>
-      __$$_PrayerDateCopyWithImpl<_$_PrayerDate>(this, _$identity);
+  _$$PrayerDateImplCopyWith<_$PrayerDateImpl> get copyWith =>
+      __$$PrayerDateImplCopyWithImpl<_$PrayerDateImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_PrayerDateToJson(
+    return _$$PrayerDateImplToJson(
       this,
     );
   }
@@ -992,10 +993,10 @@ abstract class _PrayerDate implements PrayerDate {
       {required final String readable,
       required final String timestamp,
       required final HijriDate hijri,
-      required final GregorianDate gregorian}) = _$_PrayerDate;
+      required final GregorianDate gregorian}) = _$PrayerDateImpl;
 
   factory _PrayerDate.fromJson(Map<String, dynamic> json) =
-      _$_PrayerDate.fromJson;
+      _$PrayerDateImpl.fromJson;
 
   @override
   String get readable;
@@ -1007,7 +1008,7 @@ abstract class _PrayerDate implements PrayerDate {
   GregorianDate get gregorian;
   @override
   @JsonKey(ignore: true)
-  _$$_PrayerDateCopyWith<_$_PrayerDate> get copyWith =>
+  _$$PrayerDateImplCopyWith<_$PrayerDateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1136,10 +1137,11 @@ class _$HijriDateCopyWithImpl<$Res, $Val extends HijriDate>
 }
 
 /// @nodoc
-abstract class _$$_HijriDateCopyWith<$Res> implements $HijriDateCopyWith<$Res> {
-  factory _$$_HijriDateCopyWith(
-          _$_HijriDate value, $Res Function(_$_HijriDate) then) =
-      __$$_HijriDateCopyWithImpl<$Res>;
+abstract class _$$HijriDateImplCopyWith<$Res>
+    implements $HijriDateCopyWith<$Res> {
+  factory _$$HijriDateImplCopyWith(
+          _$HijriDateImpl value, $Res Function(_$HijriDateImpl) then) =
+      __$$HijriDateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -1161,11 +1163,11 @@ abstract class _$$_HijriDateCopyWith<$Res> implements $HijriDateCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_HijriDateCopyWithImpl<$Res>
-    extends _$HijriDateCopyWithImpl<$Res, _$_HijriDate>
-    implements _$$_HijriDateCopyWith<$Res> {
-  __$$_HijriDateCopyWithImpl(
-      _$_HijriDate _value, $Res Function(_$_HijriDate) _then)
+class __$$HijriDateImplCopyWithImpl<$Res>
+    extends _$HijriDateCopyWithImpl<$Res, _$HijriDateImpl>
+    implements _$$HijriDateImplCopyWith<$Res> {
+  __$$HijriDateImplCopyWithImpl(
+      _$HijriDateImpl _value, $Res Function(_$HijriDateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1180,7 +1182,7 @@ class __$$_HijriDateCopyWithImpl<$Res>
     Object? designation = null,
     Object? holidays = null,
   }) {
-    return _then(_$_HijriDate(
+    return _then(_$HijriDateImpl(
       date: null == date
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
@@ -1219,8 +1221,8 @@ class __$$_HijriDateCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_HijriDate implements _HijriDate {
-  _$_HijriDate(
+class _$HijriDateImpl implements _HijriDate {
+  _$HijriDateImpl(
       {required this.date,
       required this.format,
       required this.day,
@@ -1231,8 +1233,8 @@ class _$_HijriDate implements _HijriDate {
       required final List<String> holidays})
       : _holidays = holidays;
 
-  factory _$_HijriDate.fromJson(Map<String, dynamic> json) =>
-      _$$_HijriDateFromJson(json);
+  factory _$HijriDateImpl.fromJson(Map<String, dynamic> json) =>
+      _$$HijriDateImplFromJson(json);
 
   @override
   final String date;
@@ -1265,7 +1267,7 @@ class _$_HijriDate implements _HijriDate {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_HijriDate &&
+            other is _$HijriDateImpl &&
             (identical(other.date, date) || other.date == date) &&
             (identical(other.format, format) || other.format == format) &&
             (identical(other.day, day) || other.day == day) &&
@@ -1285,12 +1287,12 @@ class _$_HijriDate implements _HijriDate {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_HijriDateCopyWith<_$_HijriDate> get copyWith =>
-      __$$_HijriDateCopyWithImpl<_$_HijriDate>(this, _$identity);
+  _$$HijriDateImplCopyWith<_$HijriDateImpl> get copyWith =>
+      __$$HijriDateImplCopyWithImpl<_$HijriDateImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_HijriDateToJson(
+    return _$$HijriDateImplToJson(
       this,
     );
   }
@@ -1305,10 +1307,10 @@ abstract class _HijriDate implements HijriDate {
       required final HijriMonth month,
       required final String year,
       required final Designation designation,
-      required final List<String> holidays}) = _$_HijriDate;
+      required final List<String> holidays}) = _$HijriDateImpl;
 
   factory _HijriDate.fromJson(Map<String, dynamic> json) =
-      _$_HijriDate.fromJson;
+      _$HijriDateImpl.fromJson;
 
   @override
   String get date;
@@ -1328,7 +1330,7 @@ abstract class _HijriDate implements HijriDate {
   List<String> get holidays;
   @override
   @JsonKey(ignore: true)
-  _$$_HijriDateCopyWith<_$_HijriDate> get copyWith =>
+  _$$HijriDateImplCopyWith<_$HijriDateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1451,11 +1453,11 @@ class _$GregorianDateCopyWithImpl<$Res, $Val extends GregorianDate>
 }
 
 /// @nodoc
-abstract class _$$_GregorianDateCopyWith<$Res>
+abstract class _$$GregorianDateImplCopyWith<$Res>
     implements $GregorianDateCopyWith<$Res> {
-  factory _$$_GregorianDateCopyWith(
-          _$_GregorianDate value, $Res Function(_$_GregorianDate) then) =
-      __$$_GregorianDateCopyWithImpl<$Res>;
+  factory _$$GregorianDateImplCopyWith(
+          _$GregorianDateImpl value, $Res Function(_$GregorianDateImpl) then) =
+      __$$GregorianDateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -1476,11 +1478,11 @@ abstract class _$$_GregorianDateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_GregorianDateCopyWithImpl<$Res>
-    extends _$GregorianDateCopyWithImpl<$Res, _$_GregorianDate>
-    implements _$$_GregorianDateCopyWith<$Res> {
-  __$$_GregorianDateCopyWithImpl(
-      _$_GregorianDate _value, $Res Function(_$_GregorianDate) _then)
+class __$$GregorianDateImplCopyWithImpl<$Res>
+    extends _$GregorianDateCopyWithImpl<$Res, _$GregorianDateImpl>
+    implements _$$GregorianDateImplCopyWith<$Res> {
+  __$$GregorianDateImplCopyWithImpl(
+      _$GregorianDateImpl _value, $Res Function(_$GregorianDateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1494,7 +1496,7 @@ class __$$_GregorianDateCopyWithImpl<$Res>
     Object? year = null,
     Object? designation = null,
   }) {
-    return _then(_$_GregorianDate(
+    return _then(_$GregorianDateImpl(
       date: null == date
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
@@ -1529,8 +1531,8 @@ class __$$_GregorianDateCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_GregorianDate implements _GregorianDate {
-  _$_GregorianDate(
+class _$GregorianDateImpl implements _GregorianDate {
+  _$GregorianDateImpl(
       {required this.date,
       required this.format,
       required this.day,
@@ -1539,8 +1541,8 @@ class _$_GregorianDate implements _GregorianDate {
       required this.year,
       required this.designation});
 
-  factory _$_GregorianDate.fromJson(Map<String, dynamic> json) =>
-      _$$_GregorianDateFromJson(json);
+  factory _$GregorianDateImpl.fromJson(Map<String, dynamic> json) =>
+      _$$GregorianDateImplFromJson(json);
 
   @override
   final String date;
@@ -1566,7 +1568,7 @@ class _$_GregorianDate implements _GregorianDate {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_GregorianDate &&
+            other is _$GregorianDateImpl &&
             (identical(other.date, date) || other.date == date) &&
             (identical(other.format, format) || other.format == format) &&
             (identical(other.day, day) || other.day == day) &&
@@ -1585,12 +1587,12 @@ class _$_GregorianDate implements _GregorianDate {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_GregorianDateCopyWith<_$_GregorianDate> get copyWith =>
-      __$$_GregorianDateCopyWithImpl<_$_GregorianDate>(this, _$identity);
+  _$$GregorianDateImplCopyWith<_$GregorianDateImpl> get copyWith =>
+      __$$GregorianDateImplCopyWithImpl<_$GregorianDateImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_GregorianDateToJson(
+    return _$$GregorianDateImplToJson(
       this,
     );
   }
@@ -1604,10 +1606,10 @@ abstract class _GregorianDate implements GregorianDate {
       required final GregorianWeekday weekday,
       required final GregorianMonth month,
       required final String year,
-      required final Designation designation}) = _$_GregorianDate;
+      required final Designation designation}) = _$GregorianDateImpl;
 
   factory _GregorianDate.fromJson(Map<String, dynamic> json) =
-      _$_GregorianDate.fromJson;
+      _$GregorianDateImpl.fromJson;
 
   @override
   String get date;
@@ -1625,7 +1627,7 @@ abstract class _GregorianDate implements GregorianDate {
   Designation get designation;
   @override
   @JsonKey(ignore: true)
-  _$$_GregorianDateCopyWith<_$_GregorianDate> get copyWith =>
+  _$$GregorianDateImplCopyWith<_$GregorianDateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1683,22 +1685,22 @@ class _$HijriWeekdayCopyWithImpl<$Res, $Val extends HijriWeekday>
 }
 
 /// @nodoc
-abstract class _$$_HijriWeekdayCopyWith<$Res>
+abstract class _$$HijriWeekdayImplCopyWith<$Res>
     implements $HijriWeekdayCopyWith<$Res> {
-  factory _$$_HijriWeekdayCopyWith(
-          _$_HijriWeekday value, $Res Function(_$_HijriWeekday) then) =
-      __$$_HijriWeekdayCopyWithImpl<$Res>;
+  factory _$$HijriWeekdayImplCopyWith(
+          _$HijriWeekdayImpl value, $Res Function(_$HijriWeekdayImpl) then) =
+      __$$HijriWeekdayImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String? en, String? ar});
 }
 
 /// @nodoc
-class __$$_HijriWeekdayCopyWithImpl<$Res>
-    extends _$HijriWeekdayCopyWithImpl<$Res, _$_HijriWeekday>
-    implements _$$_HijriWeekdayCopyWith<$Res> {
-  __$$_HijriWeekdayCopyWithImpl(
-      _$_HijriWeekday _value, $Res Function(_$_HijriWeekday) _then)
+class __$$HijriWeekdayImplCopyWithImpl<$Res>
+    extends _$HijriWeekdayCopyWithImpl<$Res, _$HijriWeekdayImpl>
+    implements _$$HijriWeekdayImplCopyWith<$Res> {
+  __$$HijriWeekdayImplCopyWithImpl(
+      _$HijriWeekdayImpl _value, $Res Function(_$HijriWeekdayImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1707,7 +1709,7 @@ class __$$_HijriWeekdayCopyWithImpl<$Res>
     Object? en = freezed,
     Object? ar = freezed,
   }) {
-    return _then(_$_HijriWeekday(
+    return _then(_$HijriWeekdayImpl(
       en: freezed == en
           ? _value.en
           : en // ignore: cast_nullable_to_non_nullable
@@ -1722,11 +1724,11 @@ class __$$_HijriWeekdayCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_HijriWeekday implements _HijriWeekday {
-  _$_HijriWeekday({required this.en, required this.ar});
+class _$HijriWeekdayImpl implements _HijriWeekday {
+  _$HijriWeekdayImpl({required this.en, required this.ar});
 
-  factory _$_HijriWeekday.fromJson(Map<String, dynamic> json) =>
-      _$$_HijriWeekdayFromJson(json);
+  factory _$HijriWeekdayImpl.fromJson(Map<String, dynamic> json) =>
+      _$$HijriWeekdayImplFromJson(json);
 
   @override
   final String? en;
@@ -1742,7 +1744,7 @@ class _$_HijriWeekday implements _HijriWeekday {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_HijriWeekday &&
+            other is _$HijriWeekdayImpl &&
             (identical(other.en, en) || other.en == en) &&
             (identical(other.ar, ar) || other.ar == ar));
   }
@@ -1754,12 +1756,12 @@ class _$_HijriWeekday implements _HijriWeekday {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_HijriWeekdayCopyWith<_$_HijriWeekday> get copyWith =>
-      __$$_HijriWeekdayCopyWithImpl<_$_HijriWeekday>(this, _$identity);
+  _$$HijriWeekdayImplCopyWith<_$HijriWeekdayImpl> get copyWith =>
+      __$$HijriWeekdayImplCopyWithImpl<_$HijriWeekdayImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_HijriWeekdayToJson(
+    return _$$HijriWeekdayImplToJson(
       this,
     );
   }
@@ -1767,10 +1769,11 @@ class _$_HijriWeekday implements _HijriWeekday {
 
 abstract class _HijriWeekday implements HijriWeekday {
   factory _HijriWeekday(
-      {required final String? en, required final String? ar}) = _$_HijriWeekday;
+      {required final String? en,
+      required final String? ar}) = _$HijriWeekdayImpl;
 
   factory _HijriWeekday.fromJson(Map<String, dynamic> json) =
-      _$_HijriWeekday.fromJson;
+      _$HijriWeekdayImpl.fromJson;
 
   @override
   String? get en;
@@ -1778,7 +1781,7 @@ abstract class _HijriWeekday implements HijriWeekday {
   String? get ar;
   @override
   @JsonKey(ignore: true)
-  _$$_HijriWeekdayCopyWith<_$_HijriWeekday> get copyWith =>
+  _$$HijriWeekdayImplCopyWith<_$HijriWeekdayImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1830,22 +1833,22 @@ class _$GregorianWeekdayCopyWithImpl<$Res, $Val extends GregorianWeekday>
 }
 
 /// @nodoc
-abstract class _$$_GregorianWeekdayCopyWith<$Res>
+abstract class _$$GregorianWeekdayImplCopyWith<$Res>
     implements $GregorianWeekdayCopyWith<$Res> {
-  factory _$$_GregorianWeekdayCopyWith(
-          _$_GregorianWeekday value, $Res Function(_$_GregorianWeekday) then) =
-      __$$_GregorianWeekdayCopyWithImpl<$Res>;
+  factory _$$GregorianWeekdayImplCopyWith(_$GregorianWeekdayImpl value,
+          $Res Function(_$GregorianWeekdayImpl) then) =
+      __$$GregorianWeekdayImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String? en});
 }
 
 /// @nodoc
-class __$$_GregorianWeekdayCopyWithImpl<$Res>
-    extends _$GregorianWeekdayCopyWithImpl<$Res, _$_GregorianWeekday>
-    implements _$$_GregorianWeekdayCopyWith<$Res> {
-  __$$_GregorianWeekdayCopyWithImpl(
-      _$_GregorianWeekday _value, $Res Function(_$_GregorianWeekday) _then)
+class __$$GregorianWeekdayImplCopyWithImpl<$Res>
+    extends _$GregorianWeekdayCopyWithImpl<$Res, _$GregorianWeekdayImpl>
+    implements _$$GregorianWeekdayImplCopyWith<$Res> {
+  __$$GregorianWeekdayImplCopyWithImpl(_$GregorianWeekdayImpl _value,
+      $Res Function(_$GregorianWeekdayImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1853,7 +1856,7 @@ class __$$_GregorianWeekdayCopyWithImpl<$Res>
   $Res call({
     Object? en = freezed,
   }) {
-    return _then(_$_GregorianWeekday(
+    return _then(_$GregorianWeekdayImpl(
       en: freezed == en
           ? _value.en
           : en // ignore: cast_nullable_to_non_nullable
@@ -1864,11 +1867,11 @@ class __$$_GregorianWeekdayCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_GregorianWeekday implements _GregorianWeekday {
-  _$_GregorianWeekday({required this.en});
+class _$GregorianWeekdayImpl implements _GregorianWeekday {
+  _$GregorianWeekdayImpl({required this.en});
 
-  factory _$_GregorianWeekday.fromJson(Map<String, dynamic> json) =>
-      _$$_GregorianWeekdayFromJson(json);
+  factory _$GregorianWeekdayImpl.fromJson(Map<String, dynamic> json) =>
+      _$$GregorianWeekdayImplFromJson(json);
 
   @override
   final String? en;
@@ -1882,7 +1885,7 @@ class _$_GregorianWeekday implements _GregorianWeekday {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_GregorianWeekday &&
+            other is _$GregorianWeekdayImpl &&
             (identical(other.en, en) || other.en == en));
   }
 
@@ -1893,28 +1896,30 @@ class _$_GregorianWeekday implements _GregorianWeekday {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_GregorianWeekdayCopyWith<_$_GregorianWeekday> get copyWith =>
-      __$$_GregorianWeekdayCopyWithImpl<_$_GregorianWeekday>(this, _$identity);
+  _$$GregorianWeekdayImplCopyWith<_$GregorianWeekdayImpl> get copyWith =>
+      __$$GregorianWeekdayImplCopyWithImpl<_$GregorianWeekdayImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_GregorianWeekdayToJson(
+    return _$$GregorianWeekdayImplToJson(
       this,
     );
   }
 }
 
 abstract class _GregorianWeekday implements GregorianWeekday {
-  factory _GregorianWeekday({required final String? en}) = _$_GregorianWeekday;
+  factory _GregorianWeekday({required final String? en}) =
+      _$GregorianWeekdayImpl;
 
   factory _GregorianWeekday.fromJson(Map<String, dynamic> json) =
-      _$_GregorianWeekday.fromJson;
+      _$GregorianWeekdayImpl.fromJson;
 
   @override
   String? get en;
   @override
   @JsonKey(ignore: true)
-  _$$_GregorianWeekdayCopyWith<_$_GregorianWeekday> get copyWith =>
+  _$$GregorianWeekdayImplCopyWith<_$GregorianWeekdayImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1978,22 +1983,22 @@ class _$HijriMonthCopyWithImpl<$Res, $Val extends HijriMonth>
 }
 
 /// @nodoc
-abstract class _$$_HijriMonthCopyWith<$Res>
+abstract class _$$HijriMonthImplCopyWith<$Res>
     implements $HijriMonthCopyWith<$Res> {
-  factory _$$_HijriMonthCopyWith(
-          _$_HijriMonth value, $Res Function(_$_HijriMonth) then) =
-      __$$_HijriMonthCopyWithImpl<$Res>;
+  factory _$$HijriMonthImplCopyWith(
+          _$HijriMonthImpl value, $Res Function(_$HijriMonthImpl) then) =
+      __$$HijriMonthImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int? number, String? en, String? ar});
 }
 
 /// @nodoc
-class __$$_HijriMonthCopyWithImpl<$Res>
-    extends _$HijriMonthCopyWithImpl<$Res, _$_HijriMonth>
-    implements _$$_HijriMonthCopyWith<$Res> {
-  __$$_HijriMonthCopyWithImpl(
-      _$_HijriMonth _value, $Res Function(_$_HijriMonth) _then)
+class __$$HijriMonthImplCopyWithImpl<$Res>
+    extends _$HijriMonthCopyWithImpl<$Res, _$HijriMonthImpl>
+    implements _$$HijriMonthImplCopyWith<$Res> {
+  __$$HijriMonthImplCopyWithImpl(
+      _$HijriMonthImpl _value, $Res Function(_$HijriMonthImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -2003,7 +2008,7 @@ class __$$_HijriMonthCopyWithImpl<$Res>
     Object? en = freezed,
     Object? ar = freezed,
   }) {
-    return _then(_$_HijriMonth(
+    return _then(_$HijriMonthImpl(
       number: freezed == number
           ? _value.number
           : number // ignore: cast_nullable_to_non_nullable
@@ -2022,11 +2027,11 @@ class __$$_HijriMonthCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_HijriMonth implements _HijriMonth {
-  _$_HijriMonth({required this.number, required this.en, required this.ar});
+class _$HijriMonthImpl implements _HijriMonth {
+  _$HijriMonthImpl({required this.number, required this.en, required this.ar});
 
-  factory _$_HijriMonth.fromJson(Map<String, dynamic> json) =>
-      _$$_HijriMonthFromJson(json);
+  factory _$HijriMonthImpl.fromJson(Map<String, dynamic> json) =>
+      _$$HijriMonthImplFromJson(json);
 
   @override
   final int? number;
@@ -2044,7 +2049,7 @@ class _$_HijriMonth implements _HijriMonth {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_HijriMonth &&
+            other is _$HijriMonthImpl &&
             (identical(other.number, number) || other.number == number) &&
             (identical(other.en, en) || other.en == en) &&
             (identical(other.ar, ar) || other.ar == ar));
@@ -2057,12 +2062,12 @@ class _$_HijriMonth implements _HijriMonth {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_HijriMonthCopyWith<_$_HijriMonth> get copyWith =>
-      __$$_HijriMonthCopyWithImpl<_$_HijriMonth>(this, _$identity);
+  _$$HijriMonthImplCopyWith<_$HijriMonthImpl> get copyWith =>
+      __$$HijriMonthImplCopyWithImpl<_$HijriMonthImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_HijriMonthToJson(
+    return _$$HijriMonthImplToJson(
       this,
     );
   }
@@ -2072,10 +2077,10 @@ abstract class _HijriMonth implements HijriMonth {
   factory _HijriMonth(
       {required final int? number,
       required final String? en,
-      required final String? ar}) = _$_HijriMonth;
+      required final String? ar}) = _$HijriMonthImpl;
 
   factory _HijriMonth.fromJson(Map<String, dynamic> json) =
-      _$_HijriMonth.fromJson;
+      _$HijriMonthImpl.fromJson;
 
   @override
   int? get number;
@@ -2085,7 +2090,7 @@ abstract class _HijriMonth implements HijriMonth {
   String? get ar;
   @override
   @JsonKey(ignore: true)
-  _$$_HijriMonthCopyWith<_$_HijriMonth> get copyWith =>
+  _$$HijriMonthImplCopyWith<_$HijriMonthImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -2149,22 +2154,22 @@ class _$GregorianMonthCopyWithImpl<$Res, $Val extends GregorianMonth>
 }
 
 /// @nodoc
-abstract class _$$_GregorianMonthCopyWith<$Res>
+abstract class _$$GregorianMonthImplCopyWith<$Res>
     implements $GregorianMonthCopyWith<$Res> {
-  factory _$$_GregorianMonthCopyWith(
-          _$_GregorianMonth value, $Res Function(_$_GregorianMonth) then) =
-      __$$_GregorianMonthCopyWithImpl<$Res>;
+  factory _$$GregorianMonthImplCopyWith(_$GregorianMonthImpl value,
+          $Res Function(_$GregorianMonthImpl) then) =
+      __$$GregorianMonthImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int? number, String? en, String? ar});
 }
 
 /// @nodoc
-class __$$_GregorianMonthCopyWithImpl<$Res>
-    extends _$GregorianMonthCopyWithImpl<$Res, _$_GregorianMonth>
-    implements _$$_GregorianMonthCopyWith<$Res> {
-  __$$_GregorianMonthCopyWithImpl(
-      _$_GregorianMonth _value, $Res Function(_$_GregorianMonth) _then)
+class __$$GregorianMonthImplCopyWithImpl<$Res>
+    extends _$GregorianMonthCopyWithImpl<$Res, _$GregorianMonthImpl>
+    implements _$$GregorianMonthImplCopyWith<$Res> {
+  __$$GregorianMonthImplCopyWithImpl(
+      _$GregorianMonthImpl _value, $Res Function(_$GregorianMonthImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -2174,7 +2179,7 @@ class __$$_GregorianMonthCopyWithImpl<$Res>
     Object? en = freezed,
     Object? ar = freezed,
   }) {
-    return _then(_$_GregorianMonth(
+    return _then(_$GregorianMonthImpl(
       number: freezed == number
           ? _value.number
           : number // ignore: cast_nullable_to_non_nullable
@@ -2193,11 +2198,12 @@ class __$$_GregorianMonthCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_GregorianMonth implements _GregorianMonth {
-  _$_GregorianMonth({required this.number, required this.en, required this.ar});
+class _$GregorianMonthImpl implements _GregorianMonth {
+  _$GregorianMonthImpl(
+      {required this.number, required this.en, required this.ar});
 
-  factory _$_GregorianMonth.fromJson(Map<String, dynamic> json) =>
-      _$$_GregorianMonthFromJson(json);
+  factory _$GregorianMonthImpl.fromJson(Map<String, dynamic> json) =>
+      _$$GregorianMonthImplFromJson(json);
 
   @override
   final int? number;
@@ -2215,7 +2221,7 @@ class _$_GregorianMonth implements _GregorianMonth {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_GregorianMonth &&
+            other is _$GregorianMonthImpl &&
             (identical(other.number, number) || other.number == number) &&
             (identical(other.en, en) || other.en == en) &&
             (identical(other.ar, ar) || other.ar == ar));
@@ -2228,12 +2234,13 @@ class _$_GregorianMonth implements _GregorianMonth {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_GregorianMonthCopyWith<_$_GregorianMonth> get copyWith =>
-      __$$_GregorianMonthCopyWithImpl<_$_GregorianMonth>(this, _$identity);
+  _$$GregorianMonthImplCopyWith<_$GregorianMonthImpl> get copyWith =>
+      __$$GregorianMonthImplCopyWithImpl<_$GregorianMonthImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_GregorianMonthToJson(
+    return _$$GregorianMonthImplToJson(
       this,
     );
   }
@@ -2243,10 +2250,10 @@ abstract class _GregorianMonth implements GregorianMonth {
   factory _GregorianMonth(
       {required final int? number,
       required final String? en,
-      required final String? ar}) = _$_GregorianMonth;
+      required final String? ar}) = _$GregorianMonthImpl;
 
   factory _GregorianMonth.fromJson(Map<String, dynamic> json) =
-      _$_GregorianMonth.fromJson;
+      _$GregorianMonthImpl.fromJson;
 
   @override
   int? get number;
@@ -2256,7 +2263,7 @@ abstract class _GregorianMonth implements GregorianMonth {
   String? get ar;
   @override
   @JsonKey(ignore: true)
-  _$$_GregorianMonthCopyWith<_$_GregorianMonth> get copyWith =>
+  _$$GregorianMonthImplCopyWith<_$GregorianMonthImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -2314,22 +2321,22 @@ class _$DesignationCopyWithImpl<$Res, $Val extends Designation>
 }
 
 /// @nodoc
-abstract class _$$_DesignationCopyWith<$Res>
+abstract class _$$DesignationImplCopyWith<$Res>
     implements $DesignationCopyWith<$Res> {
-  factory _$$_DesignationCopyWith(
-          _$_Designation value, $Res Function(_$_Designation) then) =
-      __$$_DesignationCopyWithImpl<$Res>;
+  factory _$$DesignationImplCopyWith(
+          _$DesignationImpl value, $Res Function(_$DesignationImpl) then) =
+      __$$DesignationImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String abbreviated, String expanded});
 }
 
 /// @nodoc
-class __$$_DesignationCopyWithImpl<$Res>
-    extends _$DesignationCopyWithImpl<$Res, _$_Designation>
-    implements _$$_DesignationCopyWith<$Res> {
-  __$$_DesignationCopyWithImpl(
-      _$_Designation _value, $Res Function(_$_Designation) _then)
+class __$$DesignationImplCopyWithImpl<$Res>
+    extends _$DesignationCopyWithImpl<$Res, _$DesignationImpl>
+    implements _$$DesignationImplCopyWith<$Res> {
+  __$$DesignationImplCopyWithImpl(
+      _$DesignationImpl _value, $Res Function(_$DesignationImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -2338,7 +2345,7 @@ class __$$_DesignationCopyWithImpl<$Res>
     Object? abbreviated = null,
     Object? expanded = null,
   }) {
-    return _then(_$_Designation(
+    return _then(_$DesignationImpl(
       abbreviated: null == abbreviated
           ? _value.abbreviated
           : abbreviated // ignore: cast_nullable_to_non_nullable
@@ -2353,11 +2360,11 @@ class __$$_DesignationCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Designation implements _Designation {
-  _$_Designation({required this.abbreviated, required this.expanded});
+class _$DesignationImpl implements _Designation {
+  _$DesignationImpl({required this.abbreviated, required this.expanded});
 
-  factory _$_Designation.fromJson(Map<String, dynamic> json) =>
-      _$$_DesignationFromJson(json);
+  factory _$DesignationImpl.fromJson(Map<String, dynamic> json) =>
+      _$$DesignationImplFromJson(json);
 
   @override
   final String abbreviated;
@@ -2373,7 +2380,7 @@ class _$_Designation implements _Designation {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Designation &&
+            other is _$DesignationImpl &&
             (identical(other.abbreviated, abbreviated) ||
                 other.abbreviated == abbreviated) &&
             (identical(other.expanded, expanded) ||
@@ -2387,12 +2394,12 @@ class _$_Designation implements _Designation {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DesignationCopyWith<_$_Designation> get copyWith =>
-      __$$_DesignationCopyWithImpl<_$_Designation>(this, _$identity);
+  _$$DesignationImplCopyWith<_$DesignationImpl> get copyWith =>
+      __$$DesignationImplCopyWithImpl<_$DesignationImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_DesignationToJson(
+    return _$$DesignationImplToJson(
       this,
     );
   }
@@ -2401,10 +2408,10 @@ class _$_Designation implements _Designation {
 abstract class _Designation implements Designation {
   factory _Designation(
       {required final String abbreviated,
-      required final String expanded}) = _$_Designation;
+      required final String expanded}) = _$DesignationImpl;
 
   factory _Designation.fromJson(Map<String, dynamic> json) =
-      _$_Designation.fromJson;
+      _$DesignationImpl.fromJson;
 
   @override
   String get abbreviated;
@@ -2412,7 +2419,7 @@ abstract class _Designation implements Designation {
   String get expanded;
   @override
   @JsonKey(ignore: true)
-  _$$_DesignationCopyWith<_$_Designation> get copyWith =>
+  _$$DesignationImplCopyWith<_$DesignationImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -2536,11 +2543,11 @@ class _$PrayerMetaCopyWithImpl<$Res, $Val extends PrayerMeta>
 }
 
 /// @nodoc
-abstract class _$$_PrayerMetaCopyWith<$Res>
+abstract class _$$PrayerMetaImplCopyWith<$Res>
     implements $PrayerMetaCopyWith<$Res> {
-  factory _$$_PrayerMetaCopyWith(
-          _$_PrayerMeta value, $Res Function(_$_PrayerMeta) then) =
-      __$$_PrayerMetaCopyWithImpl<$Res>;
+  factory _$$PrayerMetaImplCopyWith(
+          _$PrayerMetaImpl value, $Res Function(_$PrayerMetaImpl) then) =
+      __$$PrayerMetaImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -2561,11 +2568,11 @@ abstract class _$$_PrayerMetaCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_PrayerMetaCopyWithImpl<$Res>
-    extends _$PrayerMetaCopyWithImpl<$Res, _$_PrayerMeta>
-    implements _$$_PrayerMetaCopyWith<$Res> {
-  __$$_PrayerMetaCopyWithImpl(
-      _$_PrayerMeta _value, $Res Function(_$_PrayerMeta) _then)
+class __$$PrayerMetaImplCopyWithImpl<$Res>
+    extends _$PrayerMetaCopyWithImpl<$Res, _$PrayerMetaImpl>
+    implements _$$PrayerMetaImplCopyWith<$Res> {
+  __$$PrayerMetaImplCopyWithImpl(
+      _$PrayerMetaImpl _value, $Res Function(_$PrayerMetaImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -2580,7 +2587,7 @@ class __$$_PrayerMetaCopyWithImpl<$Res>
     Object? school = null,
     Object? offset = null,
   }) {
-    return _then(_$_PrayerMeta(
+    return _then(_$PrayerMetaImpl(
       latitude: null == latitude
           ? _value.latitude
           : latitude // ignore: cast_nullable_to_non_nullable
@@ -2619,8 +2626,8 @@ class __$$_PrayerMetaCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_PrayerMeta implements _PrayerMeta {
-  _$_PrayerMeta(
+class _$PrayerMetaImpl implements _PrayerMeta {
+  _$PrayerMetaImpl(
       {required this.latitude,
       required this.longitude,
       required this.timezone,
@@ -2631,8 +2638,8 @@ class _$_PrayerMeta implements _PrayerMeta {
       required this.school,
       required this.offset});
 
-  factory _$_PrayerMeta.fromJson(Map<String, dynamic> json) =>
-      _$$_PrayerMetaFromJson(json);
+  factory _$PrayerMetaImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PrayerMetaImplFromJson(json);
 
   @override
   final double latitude;
@@ -2662,7 +2669,7 @@ class _$_PrayerMeta implements _PrayerMeta {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_PrayerMeta &&
+            other is _$PrayerMetaImpl &&
             (identical(other.latitude, latitude) ||
                 other.latitude == latitude) &&
             (identical(other.longitude, longitude) ||
@@ -2687,12 +2694,12 @@ class _$_PrayerMeta implements _PrayerMeta {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_PrayerMetaCopyWith<_$_PrayerMeta> get copyWith =>
-      __$$_PrayerMetaCopyWithImpl<_$_PrayerMeta>(this, _$identity);
+  _$$PrayerMetaImplCopyWith<_$PrayerMetaImpl> get copyWith =>
+      __$$PrayerMetaImplCopyWithImpl<_$PrayerMetaImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_PrayerMetaToJson(
+    return _$$PrayerMetaImplToJson(
       this,
     );
   }
@@ -2708,10 +2715,10 @@ abstract class _PrayerMeta implements PrayerMeta {
       required final String latitudeAdjustmentMethod,
       @JsonKey(name: 'midnightMode') required final String midnightMode,
       required final String school,
-      required final Offset offset}) = _$_PrayerMeta;
+      required final Offset offset}) = _$PrayerMetaImpl;
 
   factory _PrayerMeta.fromJson(Map<String, dynamic> json) =
-      _$_PrayerMeta.fromJson;
+      _$PrayerMetaImpl.fromJson;
 
   @override
   double get latitude;
@@ -2733,7 +2740,7 @@ abstract class _PrayerMeta implements PrayerMeta {
   Offset get offset;
   @override
   @JsonKey(ignore: true)
-  _$$_PrayerMetaCopyWith<_$_PrayerMeta> get copyWith =>
+  _$$PrayerMetaImplCopyWith<_$PrayerMetaImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -2821,9 +2828,10 @@ class _$MethodCopyWithImpl<$Res, $Val extends Method>
 }
 
 /// @nodoc
-abstract class _$$_MethodCopyWith<$Res> implements $MethodCopyWith<$Res> {
-  factory _$$_MethodCopyWith(_$_Method value, $Res Function(_$_Method) then) =
-      __$$_MethodCopyWithImpl<$Res>;
+abstract class _$$MethodImplCopyWith<$Res> implements $MethodCopyWith<$Res> {
+  factory _$$MethodImplCopyWith(
+          _$MethodImpl value, $Res Function(_$MethodImpl) then) =
+      __$$MethodImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -2836,10 +2844,11 @@ abstract class _$$_MethodCopyWith<$Res> implements $MethodCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_MethodCopyWithImpl<$Res>
-    extends _$MethodCopyWithImpl<$Res, _$_Method>
-    implements _$$_MethodCopyWith<$Res> {
-  __$$_MethodCopyWithImpl(_$_Method _value, $Res Function(_$_Method) _then)
+class __$$MethodImplCopyWithImpl<$Res>
+    extends _$MethodCopyWithImpl<$Res, _$MethodImpl>
+    implements _$$MethodImplCopyWith<$Res> {
+  __$$MethodImplCopyWithImpl(
+      _$MethodImpl _value, $Res Function(_$MethodImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -2850,7 +2859,7 @@ class __$$_MethodCopyWithImpl<$Res>
     Object? params = null,
     Object? location = null,
   }) {
-    return _then(_$_Method(
+    return _then(_$MethodImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -2873,15 +2882,15 @@ class __$$_MethodCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Method implements _Method {
-  _$_Method(
+class _$MethodImpl implements _Method {
+  _$MethodImpl(
       {required this.id,
       required this.name,
       required this.params,
       required this.location});
 
-  factory _$_Method.fromJson(Map<String, dynamic> json) =>
-      _$$_MethodFromJson(json);
+  factory _$MethodImpl.fromJson(Map<String, dynamic> json) =>
+      _$$MethodImplFromJson(json);
 
   @override
   final int id;
@@ -2901,7 +2910,7 @@ class _$_Method implements _Method {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Method &&
+            other is _$MethodImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.params, params) || other.params == params) &&
@@ -2916,12 +2925,12 @@ class _$_Method implements _Method {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_MethodCopyWith<_$_Method> get copyWith =>
-      __$$_MethodCopyWithImpl<_$_Method>(this, _$identity);
+  _$$MethodImplCopyWith<_$MethodImpl> get copyWith =>
+      __$$MethodImplCopyWithImpl<_$MethodImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_MethodToJson(
+    return _$$MethodImplToJson(
       this,
     );
   }
@@ -2932,9 +2941,9 @@ abstract class _Method implements Method {
       {required final int id,
       required final String name,
       required final MethodParams params,
-      required final MethodLocation location}) = _$_Method;
+      required final MethodLocation location}) = _$MethodImpl;
 
-  factory _Method.fromJson(Map<String, dynamic> json) = _$_Method.fromJson;
+  factory _Method.fromJson(Map<String, dynamic> json) = _$MethodImpl.fromJson;
 
   @override
   int get id;
@@ -2946,7 +2955,7 @@ abstract class _Method implements Method {
   MethodLocation get location;
   @override
   @JsonKey(ignore: true)
-  _$$_MethodCopyWith<_$_Method> get copyWith =>
+  _$$MethodImplCopyWith<_$MethodImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -3016,11 +3025,11 @@ class _$MethodParamsCopyWithImpl<$Res, $Val extends MethodParams>
 }
 
 /// @nodoc
-abstract class _$$_MethodParamsCopyWith<$Res>
+abstract class _$$MethodParamsImplCopyWith<$Res>
     implements $MethodParamsCopyWith<$Res> {
-  factory _$$_MethodParamsCopyWith(
-          _$_MethodParams value, $Res Function(_$_MethodParams) then) =
-      __$$_MethodParamsCopyWithImpl<$Res>;
+  factory _$$MethodParamsImplCopyWith(
+          _$MethodParamsImpl value, $Res Function(_$MethodParamsImpl) then) =
+      __$$MethodParamsImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -3030,11 +3039,11 @@ abstract class _$$_MethodParamsCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_MethodParamsCopyWithImpl<$Res>
-    extends _$MethodParamsCopyWithImpl<$Res, _$_MethodParams>
-    implements _$$_MethodParamsCopyWith<$Res> {
-  __$$_MethodParamsCopyWithImpl(
-      _$_MethodParams _value, $Res Function(_$_MethodParams) _then)
+class __$$MethodParamsImplCopyWithImpl<$Res>
+    extends _$MethodParamsCopyWithImpl<$Res, _$MethodParamsImpl>
+    implements _$$MethodParamsImplCopyWith<$Res> {
+  __$$MethodParamsImplCopyWithImpl(
+      _$MethodParamsImpl _value, $Res Function(_$MethodParamsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -3044,7 +3053,7 @@ class __$$_MethodParamsCopyWithImpl<$Res>
     Object? isha = freezed,
     Object? shafaq = freezed,
   }) {
-    return _then(_$_MethodParams(
+    return _then(_$MethodParamsImpl(
       fajr: freezed == fajr
           ? _value.fajr
           : fajr // ignore: cast_nullable_to_non_nullable
@@ -3063,14 +3072,14 @@ class __$$_MethodParamsCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_MethodParams implements _MethodParams {
-  _$_MethodParams(
+class _$MethodParamsImpl implements _MethodParams {
+  _$MethodParamsImpl(
       {@JsonKey(name: 'Fajr') required this.fajr,
       @JsonKey(name: 'Isha') required this.isha,
       @JsonKey(name: "shafaq") this.shafaq});
 
-  factory _$_MethodParams.fromJson(Map<String, dynamic> json) =>
-      _$$_MethodParamsFromJson(json);
+  factory _$MethodParamsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$MethodParamsImplFromJson(json);
 
   @override
   @JsonKey(name: 'Fajr')
@@ -3091,7 +3100,7 @@ class _$_MethodParams implements _MethodParams {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_MethodParams &&
+            other is _$MethodParamsImpl &&
             const DeepCollectionEquality().equals(other.fajr, fajr) &&
             const DeepCollectionEquality().equals(other.isha, isha) &&
             const DeepCollectionEquality().equals(other.shafaq, shafaq));
@@ -3108,12 +3117,12 @@ class _$_MethodParams implements _MethodParams {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_MethodParamsCopyWith<_$_MethodParams> get copyWith =>
-      __$$_MethodParamsCopyWithImpl<_$_MethodParams>(this, _$identity);
+  _$$MethodParamsImplCopyWith<_$MethodParamsImpl> get copyWith =>
+      __$$MethodParamsImplCopyWithImpl<_$MethodParamsImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_MethodParamsToJson(
+    return _$$MethodParamsImplToJson(
       this,
     );
   }
@@ -3123,10 +3132,10 @@ abstract class _MethodParams implements MethodParams {
   factory _MethodParams(
       {@JsonKey(name: 'Fajr') required final dynamic fajr,
       @JsonKey(name: 'Isha') required final dynamic isha,
-      @JsonKey(name: "shafaq") final dynamic shafaq}) = _$_MethodParams;
+      @JsonKey(name: "shafaq") final dynamic shafaq}) = _$MethodParamsImpl;
 
   factory _MethodParams.fromJson(Map<String, dynamic> json) =
-      _$_MethodParams.fromJson;
+      _$MethodParamsImpl.fromJson;
 
   @override
   @JsonKey(name: 'Fajr')
@@ -3139,7 +3148,7 @@ abstract class _MethodParams implements MethodParams {
   dynamic get shafaq;
   @override
   @JsonKey(ignore: true)
-  _$$_MethodParamsCopyWith<_$_MethodParams> get copyWith =>
+  _$$MethodParamsImplCopyWith<_$MethodParamsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -3197,22 +3206,22 @@ class _$MethodLocationCopyWithImpl<$Res, $Val extends MethodLocation>
 }
 
 /// @nodoc
-abstract class _$$_MethodLocationCopyWith<$Res>
+abstract class _$$MethodLocationImplCopyWith<$Res>
     implements $MethodLocationCopyWith<$Res> {
-  factory _$$_MethodLocationCopyWith(
-          _$_MethodLocation value, $Res Function(_$_MethodLocation) then) =
-      __$$_MethodLocationCopyWithImpl<$Res>;
+  factory _$$MethodLocationImplCopyWith(_$MethodLocationImpl value,
+          $Res Function(_$MethodLocationImpl) then) =
+      __$$MethodLocationImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({double latitude, double longitude});
 }
 
 /// @nodoc
-class __$$_MethodLocationCopyWithImpl<$Res>
-    extends _$MethodLocationCopyWithImpl<$Res, _$_MethodLocation>
-    implements _$$_MethodLocationCopyWith<$Res> {
-  __$$_MethodLocationCopyWithImpl(
-      _$_MethodLocation _value, $Res Function(_$_MethodLocation) _then)
+class __$$MethodLocationImplCopyWithImpl<$Res>
+    extends _$MethodLocationCopyWithImpl<$Res, _$MethodLocationImpl>
+    implements _$$MethodLocationImplCopyWith<$Res> {
+  __$$MethodLocationImplCopyWithImpl(
+      _$MethodLocationImpl _value, $Res Function(_$MethodLocationImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -3221,7 +3230,7 @@ class __$$_MethodLocationCopyWithImpl<$Res>
     Object? latitude = null,
     Object? longitude = null,
   }) {
-    return _then(_$_MethodLocation(
+    return _then(_$MethodLocationImpl(
       latitude: null == latitude
           ? _value.latitude
           : latitude // ignore: cast_nullable_to_non_nullable
@@ -3236,11 +3245,11 @@ class __$$_MethodLocationCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_MethodLocation implements _MethodLocation {
-  _$_MethodLocation({required this.latitude, required this.longitude});
+class _$MethodLocationImpl implements _MethodLocation {
+  _$MethodLocationImpl({required this.latitude, required this.longitude});
 
-  factory _$_MethodLocation.fromJson(Map<String, dynamic> json) =>
-      _$$_MethodLocationFromJson(json);
+  factory _$MethodLocationImpl.fromJson(Map<String, dynamic> json) =>
+      _$$MethodLocationImplFromJson(json);
 
   @override
   final double latitude;
@@ -3256,7 +3265,7 @@ class _$_MethodLocation implements _MethodLocation {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_MethodLocation &&
+            other is _$MethodLocationImpl &&
             (identical(other.latitude, latitude) ||
                 other.latitude == latitude) &&
             (identical(other.longitude, longitude) ||
@@ -3270,12 +3279,13 @@ class _$_MethodLocation implements _MethodLocation {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_MethodLocationCopyWith<_$_MethodLocation> get copyWith =>
-      __$$_MethodLocationCopyWithImpl<_$_MethodLocation>(this, _$identity);
+  _$$MethodLocationImplCopyWith<_$MethodLocationImpl> get copyWith =>
+      __$$MethodLocationImplCopyWithImpl<_$MethodLocationImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_MethodLocationToJson(
+    return _$$MethodLocationImplToJson(
       this,
     );
   }
@@ -3284,10 +3294,10 @@ class _$_MethodLocation implements _MethodLocation {
 abstract class _MethodLocation implements MethodLocation {
   factory _MethodLocation(
       {required final double latitude,
-      required final double longitude}) = _$_MethodLocation;
+      required final double longitude}) = _$MethodLocationImpl;
 
   factory _MethodLocation.fromJson(Map<String, dynamic> json) =
-      _$_MethodLocation.fromJson;
+      _$MethodLocationImpl.fromJson;
 
   @override
   double get latitude;
@@ -3295,7 +3305,7 @@ abstract class _MethodLocation implements MethodLocation {
   double get longitude;
   @override
   @JsonKey(ignore: true)
-  _$$_MethodLocationCopyWith<_$_MethodLocation> get copyWith =>
+  _$$MethodLocationImplCopyWith<_$MethodLocationImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -3411,9 +3421,10 @@ class _$OffsetCopyWithImpl<$Res, $Val extends Offset>
 }
 
 /// @nodoc
-abstract class _$$_OffsetCopyWith<$Res> implements $OffsetCopyWith<$Res> {
-  factory _$$_OffsetCopyWith(_$_Offset value, $Res Function(_$_Offset) then) =
-      __$$_OffsetCopyWithImpl<$Res>;
+abstract class _$$OffsetImplCopyWith<$Res> implements $OffsetCopyWith<$Res> {
+  factory _$$OffsetImplCopyWith(
+          _$OffsetImpl value, $Res Function(_$OffsetImpl) then) =
+      __$$OffsetImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -3429,10 +3440,11 @@ abstract class _$$_OffsetCopyWith<$Res> implements $OffsetCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_OffsetCopyWithImpl<$Res>
-    extends _$OffsetCopyWithImpl<$Res, _$_Offset>
-    implements _$$_OffsetCopyWith<$Res> {
-  __$$_OffsetCopyWithImpl(_$_Offset _value, $Res Function(_$_Offset) _then)
+class __$$OffsetImplCopyWithImpl<$Res>
+    extends _$OffsetCopyWithImpl<$Res, _$OffsetImpl>
+    implements _$$OffsetImplCopyWith<$Res> {
+  __$$OffsetImplCopyWithImpl(
+      _$OffsetImpl _value, $Res Function(_$OffsetImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -3448,7 +3460,7 @@ class __$$_OffsetCopyWithImpl<$Res>
     Object? isha = null,
     Object? midnight = null,
   }) {
-    return _then(_$_Offset(
+    return _then(_$OffsetImpl(
       imsak: null == imsak
           ? _value.imsak
           : imsak // ignore: cast_nullable_to_non_nullable
@@ -3491,8 +3503,8 @@ class __$$_OffsetCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Offset implements _Offset {
-  _$_Offset(
+class _$OffsetImpl implements _Offset {
+  _$OffsetImpl(
       {@JsonKey(name: 'Imsak') required this.imsak,
       @JsonKey(name: 'Fajr') required this.fajr,
       @JsonKey(name: 'Sunrise') required this.sunrise,
@@ -3503,8 +3515,8 @@ class _$_Offset implements _Offset {
       @JsonKey(name: 'Isha') required this.isha,
       @JsonKey(name: 'Midnight') required this.midnight});
 
-  factory _$_Offset.fromJson(Map<String, dynamic> json) =>
-      _$$_OffsetFromJson(json);
+  factory _$OffsetImpl.fromJson(Map<String, dynamic> json) =>
+      _$$OffsetImplFromJson(json);
 
   @override
   @JsonKey(name: 'Imsak')
@@ -3543,7 +3555,7 @@ class _$_Offset implements _Offset {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Offset &&
+            other is _$OffsetImpl &&
             (identical(other.imsak, imsak) || other.imsak == imsak) &&
             (identical(other.fajr, fajr) || other.fajr == fajr) &&
             (identical(other.sunrise, sunrise) || other.sunrise == sunrise) &&
@@ -3564,12 +3576,12 @@ class _$_Offset implements _Offset {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_OffsetCopyWith<_$_Offset> get copyWith =>
-      __$$_OffsetCopyWithImpl<_$_Offset>(this, _$identity);
+  _$$OffsetImplCopyWith<_$OffsetImpl> get copyWith =>
+      __$$OffsetImplCopyWithImpl<_$OffsetImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_OffsetToJson(
+    return _$$OffsetImplToJson(
       this,
     );
   }
@@ -3585,9 +3597,9 @@ abstract class _Offset implements Offset {
       @JsonKey(name: 'Maghrib') required final int maghrib,
       @JsonKey(name: 'Sunset') required final int sunset,
       @JsonKey(name: 'Isha') required final int isha,
-      @JsonKey(name: 'Midnight') required final int midnight}) = _$_Offset;
+      @JsonKey(name: 'Midnight') required final int midnight}) = _$OffsetImpl;
 
-  factory _Offset.fromJson(Map<String, dynamic> json) = _$_Offset.fromJson;
+  factory _Offset.fromJson(Map<String, dynamic> json) = _$OffsetImpl.fromJson;
 
   @override
   @JsonKey(name: 'Imsak')
@@ -3618,6 +3630,6 @@ abstract class _Offset implements Offset {
   int get midnight;
   @override
   @JsonKey(ignore: true)
-  _$$_OffsetCopyWith<_$_Offset> get copyWith =>
+  _$$OffsetImplCopyWith<_$OffsetImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

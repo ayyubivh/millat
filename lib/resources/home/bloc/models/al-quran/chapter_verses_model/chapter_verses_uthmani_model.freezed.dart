@@ -64,23 +64,25 @@ class _$ChapterVersesOfUthmaniCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_ChapterVersesOfUthmaniCopyWith<$Res>
+abstract class _$$ChapterVersesOfUthmaniImplCopyWith<$Res>
     implements $ChapterVersesOfUthmaniCopyWith<$Res> {
-  factory _$$_ChapterVersesOfUthmaniCopyWith(_$_ChapterVersesOfUthmani value,
-          $Res Function(_$_ChapterVersesOfUthmani) then) =
-      __$$_ChapterVersesOfUthmaniCopyWithImpl<$Res>;
+  factory _$$ChapterVersesOfUthmaniImplCopyWith(
+          _$ChapterVersesOfUthmaniImpl value,
+          $Res Function(_$ChapterVersesOfUthmaniImpl) then) =
+      __$$ChapterVersesOfUthmaniImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<Verses> verses});
 }
 
 /// @nodoc
-class __$$_ChapterVersesOfUthmaniCopyWithImpl<$Res>
+class __$$ChapterVersesOfUthmaniImplCopyWithImpl<$Res>
     extends _$ChapterVersesOfUthmaniCopyWithImpl<$Res,
-        _$_ChapterVersesOfUthmani>
-    implements _$$_ChapterVersesOfUthmaniCopyWith<$Res> {
-  __$$_ChapterVersesOfUthmaniCopyWithImpl(_$_ChapterVersesOfUthmani _value,
-      $Res Function(_$_ChapterVersesOfUthmani) _then)
+        _$ChapterVersesOfUthmaniImpl>
+    implements _$$ChapterVersesOfUthmaniImplCopyWith<$Res> {
+  __$$ChapterVersesOfUthmaniImplCopyWithImpl(
+      _$ChapterVersesOfUthmaniImpl _value,
+      $Res Function(_$ChapterVersesOfUthmaniImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -88,7 +90,7 @@ class __$$_ChapterVersesOfUthmaniCopyWithImpl<$Res>
   $Res call({
     Object? verses = null,
   }) {
-    return _then(_$_ChapterVersesOfUthmani(
+    return _then(_$ChapterVersesOfUthmaniImpl(
       verses: null == verses
           ? _value._verses
           : verses // ignore: cast_nullable_to_non_nullable
@@ -99,12 +101,12 @@ class __$$_ChapterVersesOfUthmaniCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ChapterVersesOfUthmani implements _ChapterVersesOfUthmani {
-  const _$_ChapterVersesOfUthmani({required final List<Verses> verses})
+class _$ChapterVersesOfUthmaniImpl implements _ChapterVersesOfUthmani {
+  const _$ChapterVersesOfUthmaniImpl({required final List<Verses> verses})
       : _verses = verses;
 
-  factory _$_ChapterVersesOfUthmani.fromJson(Map<String, dynamic> json) =>
-      _$$_ChapterVersesOfUthmaniFromJson(json);
+  factory _$ChapterVersesOfUthmaniImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ChapterVersesOfUthmaniImplFromJson(json);
 
   final List<Verses> _verses;
   @override
@@ -123,7 +125,7 @@ class _$_ChapterVersesOfUthmani implements _ChapterVersesOfUthmani {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ChapterVersesOfUthmani &&
+            other is _$ChapterVersesOfUthmaniImpl &&
             const DeepCollectionEquality().equals(other._verses, _verses));
   }
 
@@ -135,13 +137,13 @@ class _$_ChapterVersesOfUthmani implements _ChapterVersesOfUthmani {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ChapterVersesOfUthmaniCopyWith<_$_ChapterVersesOfUthmani> get copyWith =>
-      __$$_ChapterVersesOfUthmaniCopyWithImpl<_$_ChapterVersesOfUthmani>(
-          this, _$identity);
+  _$$ChapterVersesOfUthmaniImplCopyWith<_$ChapterVersesOfUthmaniImpl>
+      get copyWith => __$$ChapterVersesOfUthmaniImplCopyWithImpl<
+          _$ChapterVersesOfUthmaniImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ChapterVersesOfUthmaniToJson(
+    return _$$ChapterVersesOfUthmaniImplToJson(
       this,
     );
   }
@@ -149,17 +151,17 @@ class _$_ChapterVersesOfUthmani implements _ChapterVersesOfUthmani {
 
 abstract class _ChapterVersesOfUthmani implements ChapterVersesOfUthmani {
   const factory _ChapterVersesOfUthmani({required final List<Verses> verses}) =
-      _$_ChapterVersesOfUthmani;
+      _$ChapterVersesOfUthmaniImpl;
 
   factory _ChapterVersesOfUthmani.fromJson(Map<String, dynamic> json) =
-      _$_ChapterVersesOfUthmani.fromJson;
+      _$ChapterVersesOfUthmaniImpl.fromJson;
 
   @override
   List<Verses> get verses;
   @override
   @JsonKey(ignore: true)
-  _$$_ChapterVersesOfUthmaniCopyWith<_$_ChapterVersesOfUthmani> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$ChapterVersesOfUthmaniImplCopyWith<_$ChapterVersesOfUthmaniImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 Verses _$VersesFromJson(Map<String, dynamic> json) {
@@ -225,9 +227,10 @@ class _$VersesCopyWithImpl<$Res, $Val extends Verses>
 }
 
 /// @nodoc
-abstract class _$$_VersesCopyWith<$Res> implements $VersesCopyWith<$Res> {
-  factory _$$_VersesCopyWith(_$_Verses value, $Res Function(_$_Verses) then) =
-      __$$_VersesCopyWithImpl<$Res>;
+abstract class _$$VersesImplCopyWith<$Res> implements $VersesCopyWith<$Res> {
+  factory _$$VersesImplCopyWith(
+          _$VersesImpl value, $Res Function(_$VersesImpl) then) =
+      __$$VersesImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -237,10 +240,11 @@ abstract class _$$_VersesCopyWith<$Res> implements $VersesCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_VersesCopyWithImpl<$Res>
-    extends _$VersesCopyWithImpl<$Res, _$_Verses>
-    implements _$$_VersesCopyWith<$Res> {
-  __$$_VersesCopyWithImpl(_$_Verses _value, $Res Function(_$_Verses) _then)
+class __$$VersesImplCopyWithImpl<$Res>
+    extends _$VersesCopyWithImpl<$Res, _$VersesImpl>
+    implements _$$VersesImplCopyWith<$Res> {
+  __$$VersesImplCopyWithImpl(
+      _$VersesImpl _value, $Res Function(_$VersesImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -250,7 +254,7 @@ class __$$_VersesCopyWithImpl<$Res>
     Object? verseKey = freezed,
     Object? textIndopak = freezed,
   }) {
-    return _then(_$_Verses(
+    return _then(_$VersesImpl(
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -269,14 +273,14 @@ class __$$_VersesCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Verses implements _Verses {
-  const _$_Verses(
+class _$VersesImpl implements _Verses {
+  const _$VersesImpl(
       {this.id,
       @JsonKey(name: "verse_key") this.verseKey,
       @JsonKey(name: "text_uthmani") this.textIndopak});
 
-  factory _$_Verses.fromJson(Map<String, dynamic> json) =>
-      _$$_VersesFromJson(json);
+  factory _$VersesImpl.fromJson(Map<String, dynamic> json) =>
+      _$$VersesImplFromJson(json);
 
   @override
   final int? id;
@@ -296,7 +300,7 @@ class _$_Verses implements _Verses {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Verses &&
+            other is _$VersesImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.verseKey, verseKey) ||
                 other.verseKey == verseKey) &&
@@ -311,12 +315,12 @@ class _$_Verses implements _Verses {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_VersesCopyWith<_$_Verses> get copyWith =>
-      __$$_VersesCopyWithImpl<_$_Verses>(this, _$identity);
+  _$$VersesImplCopyWith<_$VersesImpl> get copyWith =>
+      __$$VersesImplCopyWithImpl<_$VersesImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_VersesToJson(
+    return _$$VersesImplToJson(
       this,
     );
   }
@@ -326,9 +330,9 @@ abstract class _Verses implements Verses {
   const factory _Verses(
       {final int? id,
       @JsonKey(name: "verse_key") final String? verseKey,
-      @JsonKey(name: "text_uthmani") final String? textIndopak}) = _$_Verses;
+      @JsonKey(name: "text_uthmani") final String? textIndopak}) = _$VersesImpl;
 
-  factory _Verses.fromJson(Map<String, dynamic> json) = _$_Verses.fromJson;
+  factory _Verses.fromJson(Map<String, dynamic> json) = _$VersesImpl.fromJson;
 
   @override
   int? get id;
@@ -340,6 +344,6 @@ abstract class _Verses implements Verses {
   String? get textIndopak;
   @override
   @JsonKey(ignore: true)
-  _$$_VersesCopyWith<_$_Verses> get copyWith =>
+  _$$VersesImplCopyWith<_$VersesImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

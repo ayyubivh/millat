@@ -6,8 +6,9 @@ part of 'fetch_dua_bookmark_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_DuaBookMarkModel _$$_DuaBookMarkModelFromJson(Map<String, dynamic> json) =>
-    _$_DuaBookMarkModel(
+_$DuaBookMarkModelImpl _$$DuaBookMarkModelImplFromJson(
+        Map<String, dynamic> json) =>
+    _$DuaBookMarkModelImpl(
       status: json['status'] as int,
       message: json['message'] as String,
       error: json['error'] as String?,
@@ -16,7 +17,8 @@ _$_DuaBookMarkModel _$$_DuaBookMarkModelFromJson(Map<String, dynamic> json) =>
           : BookmarksData.fromJson(json['result'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$_DuaBookMarkModelToJson(_$_DuaBookMarkModel instance) =>
+Map<String, dynamic> _$$DuaBookMarkModelImplToJson(
+        _$DuaBookMarkModelImpl instance) =>
     <String, dynamic>{
       'status': instance.status,
       'message': instance.message,
@@ -24,19 +26,20 @@ Map<String, dynamic> _$$_DuaBookMarkModelToJson(_$_DuaBookMarkModel instance) =>
       'result': instance.result,
     };
 
-_$_BookmarksData _$$_BookmarksDataFromJson(Map<String, dynamic> json) =>
-    _$_BookmarksData(
+_$BookmarksDataImpl _$$BookmarksDataImplFromJson(Map<String, dynamic> json) =>
+    _$BookmarksDataImpl(
       bookmarks: (json['bookmarks'] as List<dynamic>)
           .map((e) => Bookmarks.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
-Map<String, dynamic> _$$_BookmarksDataToJson(_$_BookmarksData instance) =>
+Map<String, dynamic> _$$BookmarksDataImplToJson(_$BookmarksDataImpl instance) =>
     <String, dynamic>{
       'bookmarks': instance.bookmarks,
     };
 
-_$_Bookmarks _$$_BookmarksFromJson(Map<String, dynamic> json) => _$_Bookmarks(
+_$BookmarksImpl _$$BookmarksImplFromJson(Map<String, dynamic> json) =>
+    _$BookmarksImpl(
       id: json['_id'] as String,
       userId: json['userId'] as String,
       bookmarks: (json['bookmarks'] as List<dynamic>)
@@ -46,7 +49,7 @@ _$_Bookmarks _$$_BookmarksFromJson(Map<String, dynamic> json) => _$_Bookmarks(
       updatedAt: DateTime.parse(json['updatedAt'] as String),
     );
 
-Map<String, dynamic> _$$_BookmarksToJson(_$_Bookmarks instance) =>
+Map<String, dynamic> _$$BookmarksImplToJson(_$BookmarksImpl instance) =>
     <String, dynamic>{
       '_id': instance.id,
       'userId': instance.userId,
@@ -55,13 +58,14 @@ Map<String, dynamic> _$$_BookmarksToJson(_$_Bookmarks instance) =>
       'updatedAt': instance.updatedAt.toIso8601String(),
     };
 
-_$_Bookmark _$$_BookmarkFromJson(Map<String, dynamic> json) => _$_Bookmark(
+_$BookmarkImpl _$$BookmarkImplFromJson(Map<String, dynamic> json) =>
+    _$BookmarkImpl(
       duaId: json['duaId'] as String,
       markedAt: DateTime.parse(json['markedAt'] as String),
       id: json['_id'] as String,
     );
 
-Map<String, dynamic> _$$_BookmarkToJson(_$_Bookmark instance) =>
+Map<String, dynamic> _$$BookmarkImplToJson(_$BookmarkImpl instance) =>
     <String, dynamic>{
       'duaId': instance.duaId,
       'markedAt': instance.markedAt.toIso8601String(),

@@ -7,6 +7,7 @@ import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/loader.dart';
 import 'package:millat/utils/string_constants.dart';
+import 'package:millat/utils/utils.dart';
 
 class RewardShopView extends StatelessWidget {
   const RewardShopView({super.key});
@@ -54,7 +55,7 @@ class RewardShopView extends StatelessWidget {
                       onTap: () {
                         Navigator.of(context).push(MaterialPageRoute(
                           builder: (context) =>
-                              RewardsSingleShopView(id: data[index].id),
+                              RewardsSingleShopView(id: data[index].id ?? ""),
                         ));
                       },
                       child: SizedBox(
@@ -63,11 +64,11 @@ class RewardShopView extends StatelessWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Image.network(
-                              data[index].productId.images[0],
+                            Utilities().buildCachedNetworkImage(
+                              imageUrl: data[index].productId?.images[0] ?? "",
                               width: 156,
                               height: 180,
-                              fit: BoxFit.contain,
+                              boxFit: BoxFit.contain,
                             ),
                             kHeight5,
                             Row(
@@ -89,7 +90,7 @@ class RewardShopView extends StatelessWidget {
                             ),
                             kHeight16,
                             Text(
-                              data[index].productId.title,
+                              data[index].productId?.title ?? "",
                               style: TextStyle(
                                 fontSize: 16,
                                 fontWeight: FontWeight.w600,
@@ -112,7 +113,8 @@ class RewardShopView extends StatelessWidget {
                                 ),
                                 kWidth5,
                                 Text(
-                                  data[index].productId.salePrice.toString(),
+                                  data[index].productId?.salePrice.toString() ??
+                                      "",
                                   style: TextStyle(
                                     fontSize: 12,
                                     fontWeight: FontWeight.w700,
@@ -122,7 +124,7 @@ class RewardShopView extends StatelessWidget {
                                 ),
                                 kWidth3,
                                 Text(
-                                  "${data[index].productId.discount}% off",
+                                  "${data[index].productId?.discount}% off",
                                   style: TextStyle(
                                     fontSize: 12,
                                     fontWeight: FontWeight.w700,

@@ -91,20 +91,20 @@ class _$RewardsEventCopyWithImpl<$Res, $Val extends RewardsEvent>
 }
 
 /// @nodoc
-abstract class _$$_FetchRewardsCopyWith<$Res> {
-  factory _$$_FetchRewardsCopyWith(
-          _$_FetchRewards value, $Res Function(_$_FetchRewards) then) =
-      __$$_FetchRewardsCopyWithImpl<$Res>;
+abstract class _$$FetchRewardsImplCopyWith<$Res> {
+  factory _$$FetchRewardsImplCopyWith(
+          _$FetchRewardsImpl value, $Res Function(_$FetchRewardsImpl) then) =
+      __$$FetchRewardsImplCopyWithImpl<$Res>;
   @useResult
   $Res call({BuildContext context});
 }
 
 /// @nodoc
-class __$$_FetchRewardsCopyWithImpl<$Res>
-    extends _$RewardsEventCopyWithImpl<$Res, _$_FetchRewards>
-    implements _$$_FetchRewardsCopyWith<$Res> {
-  __$$_FetchRewardsCopyWithImpl(
-      _$_FetchRewards _value, $Res Function(_$_FetchRewards) _then)
+class __$$FetchRewardsImplCopyWithImpl<$Res>
+    extends _$RewardsEventCopyWithImpl<$Res, _$FetchRewardsImpl>
+    implements _$$FetchRewardsImplCopyWith<$Res> {
+  __$$FetchRewardsImplCopyWithImpl(
+      _$FetchRewardsImpl _value, $Res Function(_$FetchRewardsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -112,7 +112,7 @@ class __$$_FetchRewardsCopyWithImpl<$Res>
   $Res call({
     Object? context = null,
   }) {
-    return _then(_$_FetchRewards(
+    return _then(_$FetchRewardsImpl(
       context: null == context
           ? _value.context
           : context // ignore: cast_nullable_to_non_nullable
@@ -123,8 +123,8 @@ class __$$_FetchRewardsCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_FetchRewards implements _FetchRewards {
-  const _$_FetchRewards({required this.context});
+class _$FetchRewardsImpl implements _FetchRewards {
+  const _$FetchRewardsImpl({required this.context});
 
   @override
   final BuildContext context;
@@ -138,7 +138,7 @@ class _$_FetchRewards implements _FetchRewards {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_FetchRewards &&
+            other is _$FetchRewardsImpl &&
             (identical(other.context, context) || other.context == context));
   }
 
@@ -148,8 +148,8 @@ class _$_FetchRewards implements _FetchRewards {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_FetchRewardsCopyWith<_$_FetchRewards> get copyWith =>
-      __$$_FetchRewardsCopyWithImpl<_$_FetchRewards>(this, _$identity);
+  _$$FetchRewardsImplCopyWith<_$FetchRewardsImpl> get copyWith =>
+      __$$FetchRewardsImplCopyWithImpl<_$FetchRewardsImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -232,34 +232,34 @@ class _$_FetchRewards implements _FetchRewards {
 
 abstract class _FetchRewards implements RewardsEvent {
   const factory _FetchRewards({required final BuildContext context}) =
-      _$_FetchRewards;
+      _$FetchRewardsImpl;
 
   BuildContext get context;
   @JsonKey(ignore: true)
-  _$$_FetchRewardsCopyWith<_$_FetchRewards> get copyWith =>
+  _$$FetchRewardsImplCopyWith<_$FetchRewardsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_FetchRewardProductsCopyWith<$Res> {
-  factory _$$_FetchRewardProductsCopyWith(_$_FetchRewardProducts value,
-          $Res Function(_$_FetchRewardProducts) then) =
-      __$$_FetchRewardProductsCopyWithImpl<$Res>;
+abstract class _$$FetchRewardProductsImplCopyWith<$Res> {
+  factory _$$FetchRewardProductsImplCopyWith(_$FetchRewardProductsImpl value,
+          $Res Function(_$FetchRewardProductsImpl) then) =
+      __$$FetchRewardProductsImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_FetchRewardProductsCopyWithImpl<$Res>
-    extends _$RewardsEventCopyWithImpl<$Res, _$_FetchRewardProducts>
-    implements _$$_FetchRewardProductsCopyWith<$Res> {
-  __$$_FetchRewardProductsCopyWithImpl(_$_FetchRewardProducts _value,
-      $Res Function(_$_FetchRewardProducts) _then)
+class __$$FetchRewardProductsImplCopyWithImpl<$Res>
+    extends _$RewardsEventCopyWithImpl<$Res, _$FetchRewardProductsImpl>
+    implements _$$FetchRewardProductsImplCopyWith<$Res> {
+  __$$FetchRewardProductsImplCopyWithImpl(_$FetchRewardProductsImpl _value,
+      $Res Function(_$FetchRewardProductsImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_FetchRewardProducts implements _FetchRewardProducts {
-  const _$_FetchRewardProducts();
+class _$FetchRewardProductsImpl implements _FetchRewardProducts {
+  const _$FetchRewardProductsImpl();
 
   @override
   String toString() {
@@ -269,7 +269,8 @@ class _$_FetchRewardProducts implements _FetchRewardProducts {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_FetchRewardProducts);
+        (other.runtimeType == runtimeType &&
+            other is _$FetchRewardProductsImpl);
   }
 
   @override
@@ -355,24 +356,26 @@ class _$_FetchRewardProducts implements _FetchRewardProducts {
 }
 
 abstract class _FetchRewardProducts implements RewardsEvent {
-  const factory _FetchRewardProducts() = _$_FetchRewardProducts;
+  const factory _FetchRewardProducts() = _$FetchRewardProductsImpl;
 }
 
 /// @nodoc
-abstract class _$$_FetchRewardProductsByIdCopyWith<$Res> {
-  factory _$$_FetchRewardProductsByIdCopyWith(_$_FetchRewardProductsById value,
-          $Res Function(_$_FetchRewardProductsById) then) =
-      __$$_FetchRewardProductsByIdCopyWithImpl<$Res>;
+abstract class _$$FetchRewardProductsByIdImplCopyWith<$Res> {
+  factory _$$FetchRewardProductsByIdImplCopyWith(
+          _$FetchRewardProductsByIdImpl value,
+          $Res Function(_$FetchRewardProductsByIdImpl) then) =
+      __$$FetchRewardProductsByIdImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String id});
 }
 
 /// @nodoc
-class __$$_FetchRewardProductsByIdCopyWithImpl<$Res>
-    extends _$RewardsEventCopyWithImpl<$Res, _$_FetchRewardProductsById>
-    implements _$$_FetchRewardProductsByIdCopyWith<$Res> {
-  __$$_FetchRewardProductsByIdCopyWithImpl(_$_FetchRewardProductsById _value,
-      $Res Function(_$_FetchRewardProductsById) _then)
+class __$$FetchRewardProductsByIdImplCopyWithImpl<$Res>
+    extends _$RewardsEventCopyWithImpl<$Res, _$FetchRewardProductsByIdImpl>
+    implements _$$FetchRewardProductsByIdImplCopyWith<$Res> {
+  __$$FetchRewardProductsByIdImplCopyWithImpl(
+      _$FetchRewardProductsByIdImpl _value,
+      $Res Function(_$FetchRewardProductsByIdImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -380,7 +383,7 @@ class __$$_FetchRewardProductsByIdCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
   }) {
-    return _then(_$_FetchRewardProductsById(
+    return _then(_$FetchRewardProductsByIdImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -391,8 +394,8 @@ class __$$_FetchRewardProductsByIdCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_FetchRewardProductsById implements _FetchRewardProductsById {
-  const _$_FetchRewardProductsById({required this.id});
+class _$FetchRewardProductsByIdImpl implements _FetchRewardProductsById {
+  const _$FetchRewardProductsByIdImpl({required this.id});
 
   @override
   final String id;
@@ -406,7 +409,7 @@ class _$_FetchRewardProductsById implements _FetchRewardProductsById {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_FetchRewardProductsById &&
+            other is _$FetchRewardProductsByIdImpl &&
             (identical(other.id, id) || other.id == id));
   }
 
@@ -416,10 +419,9 @@ class _$_FetchRewardProductsById implements _FetchRewardProductsById {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_FetchRewardProductsByIdCopyWith<_$_FetchRewardProductsById>
-      get copyWith =>
-          __$$_FetchRewardProductsByIdCopyWithImpl<_$_FetchRewardProductsById>(
-              this, _$identity);
+  _$$FetchRewardProductsByIdImplCopyWith<_$FetchRewardProductsByIdImpl>
+      get copyWith => __$$FetchRewardProductsByIdImplCopyWithImpl<
+          _$FetchRewardProductsByIdImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -502,30 +504,31 @@ class _$_FetchRewardProductsById implements _FetchRewardProductsById {
 
 abstract class _FetchRewardProductsById implements RewardsEvent {
   const factory _FetchRewardProductsById({required final String id}) =
-      _$_FetchRewardProductsById;
+      _$FetchRewardProductsByIdImpl;
 
   String get id;
   @JsonKey(ignore: true)
-  _$$_FetchRewardProductsByIdCopyWith<_$_FetchRewardProductsById>
+  _$$FetchRewardProductsByIdImplCopyWith<_$FetchRewardProductsByIdImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ChangeCarousselImageIndexCopyWith<$Res> {
-  factory _$$ChangeCarousselImageIndexCopyWith(
-          _$ChangeCarousselImageIndex value,
-          $Res Function(_$ChangeCarousselImageIndex) then) =
-      __$$ChangeCarousselImageIndexCopyWithImpl<$Res>;
+abstract class _$$ChangeCarousselImageIndexImplCopyWith<$Res> {
+  factory _$$ChangeCarousselImageIndexImplCopyWith(
+          _$ChangeCarousselImageIndexImpl value,
+          $Res Function(_$ChangeCarousselImageIndexImpl) then) =
+      __$$ChangeCarousselImageIndexImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int index});
 }
 
 /// @nodoc
-class __$$ChangeCarousselImageIndexCopyWithImpl<$Res>
-    extends _$RewardsEventCopyWithImpl<$Res, _$ChangeCarousselImageIndex>
-    implements _$$ChangeCarousselImageIndexCopyWith<$Res> {
-  __$$ChangeCarousselImageIndexCopyWithImpl(_$ChangeCarousselImageIndex _value,
-      $Res Function(_$ChangeCarousselImageIndex) _then)
+class __$$ChangeCarousselImageIndexImplCopyWithImpl<$Res>
+    extends _$RewardsEventCopyWithImpl<$Res, _$ChangeCarousselImageIndexImpl>
+    implements _$$ChangeCarousselImageIndexImplCopyWith<$Res> {
+  __$$ChangeCarousselImageIndexImplCopyWithImpl(
+      _$ChangeCarousselImageIndexImpl _value,
+      $Res Function(_$ChangeCarousselImageIndexImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -533,7 +536,7 @@ class __$$ChangeCarousselImageIndexCopyWithImpl<$Res>
   $Res call({
     Object? index = null,
   }) {
-    return _then(_$ChangeCarousselImageIndex(
+    return _then(_$ChangeCarousselImageIndexImpl(
       null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
@@ -544,8 +547,8 @@ class __$$ChangeCarousselImageIndexCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ChangeCarousselImageIndex implements ChangeCarousselImageIndex {
-  const _$ChangeCarousselImageIndex(this.index);
+class _$ChangeCarousselImageIndexImpl implements ChangeCarousselImageIndex {
+  const _$ChangeCarousselImageIndexImpl(this.index);
 
   @override
   final int index;
@@ -559,7 +562,7 @@ class _$ChangeCarousselImageIndex implements ChangeCarousselImageIndex {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ChangeCarousselImageIndex &&
+            other is _$ChangeCarousselImageIndexImpl &&
             (identical(other.index, index) || other.index == index));
   }
 
@@ -569,9 +572,9 @@ class _$ChangeCarousselImageIndex implements ChangeCarousselImageIndex {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ChangeCarousselImageIndexCopyWith<_$ChangeCarousselImageIndex>
-      get copyWith => __$$ChangeCarousselImageIndexCopyWithImpl<
-          _$ChangeCarousselImageIndex>(this, _$identity);
+  _$$ChangeCarousselImageIndexImplCopyWith<_$ChangeCarousselImageIndexImpl>
+      get copyWith => __$$ChangeCarousselImageIndexImplCopyWithImpl<
+          _$ChangeCarousselImageIndexImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -654,11 +657,11 @@ class _$ChangeCarousselImageIndex implements ChangeCarousselImageIndex {
 
 abstract class ChangeCarousselImageIndex implements RewardsEvent {
   const factory ChangeCarousselImageIndex(final int index) =
-      _$ChangeCarousselImageIndex;
+      _$ChangeCarousselImageIndexImpl;
 
   int get index;
   @JsonKey(ignore: true)
-  _$$ChangeCarousselImageIndexCopyWith<_$ChangeCarousselImageIndex>
+  _$$ChangeCarousselImageIndexImplCopyWith<_$ChangeCarousselImageIndexImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -778,11 +781,11 @@ class _$RewardsStateCopyWithImpl<$Res, $Val extends RewardsState>
 }
 
 /// @nodoc
-abstract class _$$_RewardsStateCopyWith<$Res>
+abstract class _$$RewardsStateImplCopyWith<$Res>
     implements $RewardsStateCopyWith<$Res> {
-  factory _$$_RewardsStateCopyWith(
-          _$_RewardsState value, $Res Function(_$_RewardsState) then) =
-      __$$_RewardsStateCopyWithImpl<$Res>;
+  factory _$$RewardsStateImplCopyWith(
+          _$RewardsStateImpl value, $Res Function(_$RewardsStateImpl) then) =
+      __$$RewardsStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -801,11 +804,11 @@ abstract class _$$_RewardsStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_RewardsStateCopyWithImpl<$Res>
-    extends _$RewardsStateCopyWithImpl<$Res, _$_RewardsState>
-    implements _$$_RewardsStateCopyWith<$Res> {
-  __$$_RewardsStateCopyWithImpl(
-      _$_RewardsState _value, $Res Function(_$_RewardsState) _then)
+class __$$RewardsStateImplCopyWithImpl<$Res>
+    extends _$RewardsStateCopyWithImpl<$Res, _$RewardsStateImpl>
+    implements _$$RewardsStateImplCopyWith<$Res> {
+  __$$RewardsStateImplCopyWithImpl(
+      _$RewardsStateImpl _value, $Res Function(_$RewardsStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -817,7 +820,7 @@ class __$$_RewardsStateCopyWithImpl<$Res>
     Object? rewardsProductsModel = freezed,
     Object? carouselImageIndex = null,
   }) {
-    return _then(_$_RewardsState(
+    return _then(_$RewardsStateImpl(
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -844,8 +847,8 @@ class __$$_RewardsStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_RewardsState implements _RewardsState {
-  const _$_RewardsState(
+class _$RewardsStateImpl implements _RewardsState {
+  const _$RewardsStateImpl(
       {required this.isLoading,
       required this.rewardsModel,
       required this.rewardsProductByIdModel,
@@ -872,7 +875,7 @@ class _$_RewardsState implements _RewardsState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_RewardsState &&
+            other is _$RewardsStateImpl &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
             (identical(other.rewardsModel, rewardsModel) ||
@@ -893,8 +896,8 @@ class _$_RewardsState implements _RewardsState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_RewardsStateCopyWith<_$_RewardsState> get copyWith =>
-      __$$_RewardsStateCopyWithImpl<_$_RewardsState>(this, _$identity);
+  _$$RewardsStateImplCopyWith<_$RewardsStateImpl> get copyWith =>
+      __$$RewardsStateImplCopyWithImpl<_$RewardsStateImpl>(this, _$identity);
 }
 
 abstract class _RewardsState implements RewardsState {
@@ -903,7 +906,7 @@ abstract class _RewardsState implements RewardsState {
       required final RewardsModel? rewardsModel,
       required final RewardsProductByIdModel? rewardsProductByIdModel,
       required final RewardsProductsModel? rewardsProductsModel,
-      required final int carouselImageIndex}) = _$_RewardsState;
+      required final int carouselImageIndex}) = _$RewardsStateImpl;
 
   @override
   bool get isLoading;
@@ -917,6 +920,6 @@ abstract class _RewardsState implements RewardsState {
   int get carouselImageIndex;
   @override
   @JsonKey(ignore: true)
-  _$$_RewardsStateCopyWith<_$_RewardsState> get copyWith =>
+  _$$RewardsStateImplCopyWith<_$RewardsStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

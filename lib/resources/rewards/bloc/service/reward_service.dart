@@ -25,7 +25,7 @@ class RewardServices extends HttpServices {
               'API request failed with status code: ${response.statusCode}');
         }
       } catch (e) {
-        print('error on order API fetch: ${e.toString()}');
+        print('error on fetching rewards API fetch: ${e.toString()}');
         throw Exception('Failed to parse response');
       }
     } else {
@@ -52,7 +52,7 @@ class RewardServices extends HttpServices {
               'API request failed with status code: ${response.statusCode}');
         }
       } catch (e) {
-        print('error on order API fetch: ${e.toString()}');
+        print('error on rewards products API fetch: ${e.toString()}');
         throw Exception('Failed to parse response');
       }
     } else {

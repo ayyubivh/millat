@@ -64,23 +64,25 @@ class _$ChapterVersesOfNosymbolCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_ChapterVersesOfNosymbolCopyWith<$Res>
+abstract class _$$ChapterVersesOfNosymbolImplCopyWith<$Res>
     implements $ChapterVersesOfNosymbolCopyWith<$Res> {
-  factory _$$_ChapterVersesOfNosymbolCopyWith(_$_ChapterVersesOfNosymbol value,
-          $Res Function(_$_ChapterVersesOfNosymbol) then) =
-      __$$_ChapterVersesOfNosymbolCopyWithImpl<$Res>;
+  factory _$$ChapterVersesOfNosymbolImplCopyWith(
+          _$ChapterVersesOfNosymbolImpl value,
+          $Res Function(_$ChapterVersesOfNosymbolImpl) then) =
+      __$$ChapterVersesOfNosymbolImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<Verses> verses});
 }
 
 /// @nodoc
-class __$$_ChapterVersesOfNosymbolCopyWithImpl<$Res>
+class __$$ChapterVersesOfNosymbolImplCopyWithImpl<$Res>
     extends _$ChapterVersesOfNosymbolCopyWithImpl<$Res,
-        _$_ChapterVersesOfNosymbol>
-    implements _$$_ChapterVersesOfNosymbolCopyWith<$Res> {
-  __$$_ChapterVersesOfNosymbolCopyWithImpl(_$_ChapterVersesOfNosymbol _value,
-      $Res Function(_$_ChapterVersesOfNosymbol) _then)
+        _$ChapterVersesOfNosymbolImpl>
+    implements _$$ChapterVersesOfNosymbolImplCopyWith<$Res> {
+  __$$ChapterVersesOfNosymbolImplCopyWithImpl(
+      _$ChapterVersesOfNosymbolImpl _value,
+      $Res Function(_$ChapterVersesOfNosymbolImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -88,7 +90,7 @@ class __$$_ChapterVersesOfNosymbolCopyWithImpl<$Res>
   $Res call({
     Object? verses = null,
   }) {
-    return _then(_$_ChapterVersesOfNosymbol(
+    return _then(_$ChapterVersesOfNosymbolImpl(
       verses: null == verses
           ? _value._verses
           : verses // ignore: cast_nullable_to_non_nullable
@@ -99,12 +101,12 @@ class __$$_ChapterVersesOfNosymbolCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ChapterVersesOfNosymbol implements _ChapterVersesOfNosymbol {
-  const _$_ChapterVersesOfNosymbol({required final List<Verses> verses})
+class _$ChapterVersesOfNosymbolImpl implements _ChapterVersesOfNosymbol {
+  const _$ChapterVersesOfNosymbolImpl({required final List<Verses> verses})
       : _verses = verses;
 
-  factory _$_ChapterVersesOfNosymbol.fromJson(Map<String, dynamic> json) =>
-      _$$_ChapterVersesOfNosymbolFromJson(json);
+  factory _$ChapterVersesOfNosymbolImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ChapterVersesOfNosymbolImplFromJson(json);
 
   final List<Verses> _verses;
   @override
@@ -123,7 +125,7 @@ class _$_ChapterVersesOfNosymbol implements _ChapterVersesOfNosymbol {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ChapterVersesOfNosymbol &&
+            other is _$ChapterVersesOfNosymbolImpl &&
             const DeepCollectionEquality().equals(other._verses, _verses));
   }
 
@@ -135,14 +137,13 @@ class _$_ChapterVersesOfNosymbol implements _ChapterVersesOfNosymbol {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ChapterVersesOfNosymbolCopyWith<_$_ChapterVersesOfNosymbol>
-      get copyWith =>
-          __$$_ChapterVersesOfNosymbolCopyWithImpl<_$_ChapterVersesOfNosymbol>(
-              this, _$identity);
+  _$$ChapterVersesOfNosymbolImplCopyWith<_$ChapterVersesOfNosymbolImpl>
+      get copyWith => __$$ChapterVersesOfNosymbolImplCopyWithImpl<
+          _$ChapterVersesOfNosymbolImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ChapterVersesOfNosymbolToJson(
+    return _$$ChapterVersesOfNosymbolImplToJson(
       this,
     );
   }
@@ -150,16 +151,16 @@ class _$_ChapterVersesOfNosymbol implements _ChapterVersesOfNosymbol {
 
 abstract class _ChapterVersesOfNosymbol implements ChapterVersesOfNosymbol {
   const factory _ChapterVersesOfNosymbol({required final List<Verses> verses}) =
-      _$_ChapterVersesOfNosymbol;
+      _$ChapterVersesOfNosymbolImpl;
 
   factory _ChapterVersesOfNosymbol.fromJson(Map<String, dynamic> json) =
-      _$_ChapterVersesOfNosymbol.fromJson;
+      _$ChapterVersesOfNosymbolImpl.fromJson;
 
   @override
   List<Verses> get verses;
   @override
   @JsonKey(ignore: true)
-  _$$_ChapterVersesOfNosymbolCopyWith<_$_ChapterVersesOfNosymbol>
+  _$$ChapterVersesOfNosymbolImplCopyWith<_$ChapterVersesOfNosymbolImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -226,9 +227,10 @@ class _$VersesCopyWithImpl<$Res, $Val extends Verses>
 }
 
 /// @nodoc
-abstract class _$$_VersesCopyWith<$Res> implements $VersesCopyWith<$Res> {
-  factory _$$_VersesCopyWith(_$_Verses value, $Res Function(_$_Verses) then) =
-      __$$_VersesCopyWithImpl<$Res>;
+abstract class _$$VersesImplCopyWith<$Res> implements $VersesCopyWith<$Res> {
+  factory _$$VersesImplCopyWith(
+          _$VersesImpl value, $Res Function(_$VersesImpl) then) =
+      __$$VersesImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -238,10 +240,11 @@ abstract class _$$_VersesCopyWith<$Res> implements $VersesCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_VersesCopyWithImpl<$Res>
-    extends _$VersesCopyWithImpl<$Res, _$_Verses>
-    implements _$$_VersesCopyWith<$Res> {
-  __$$_VersesCopyWithImpl(_$_Verses _value, $Res Function(_$_Verses) _then)
+class __$$VersesImplCopyWithImpl<$Res>
+    extends _$VersesCopyWithImpl<$Res, _$VersesImpl>
+    implements _$$VersesImplCopyWith<$Res> {
+  __$$VersesImplCopyWithImpl(
+      _$VersesImpl _value, $Res Function(_$VersesImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -251,7 +254,7 @@ class __$$_VersesCopyWithImpl<$Res>
     Object? verseKey = freezed,
     Object? textIndopak = freezed,
   }) {
-    return _then(_$_Verses(
+    return _then(_$VersesImpl(
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -270,14 +273,14 @@ class __$$_VersesCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Verses implements _Verses {
-  const _$_Verses(
+class _$VersesImpl implements _Verses {
+  const _$VersesImpl(
       {this.id,
       @JsonKey(name: "verse_key") this.verseKey,
       @JsonKey(name: "text_uthmani_simple") this.textIndopak});
 
-  factory _$_Verses.fromJson(Map<String, dynamic> json) =>
-      _$$_VersesFromJson(json);
+  factory _$VersesImpl.fromJson(Map<String, dynamic> json) =>
+      _$$VersesImplFromJson(json);
 
   @override
   final int? id;
@@ -297,7 +300,7 @@ class _$_Verses implements _Verses {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Verses &&
+            other is _$VersesImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.verseKey, verseKey) ||
                 other.verseKey == verseKey) &&
@@ -312,12 +315,12 @@ class _$_Verses implements _Verses {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_VersesCopyWith<_$_Verses> get copyWith =>
-      __$$_VersesCopyWithImpl<_$_Verses>(this, _$identity);
+  _$$VersesImplCopyWith<_$VersesImpl> get copyWith =>
+      __$$VersesImplCopyWithImpl<_$VersesImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_VersesToJson(
+    return _$$VersesImplToJson(
       this,
     );
   }
@@ -328,9 +331,9 @@ abstract class _Verses implements Verses {
           {final int? id,
           @JsonKey(name: "verse_key") final String? verseKey,
           @JsonKey(name: "text_uthmani_simple") final String? textIndopak}) =
-      _$_Verses;
+      _$VersesImpl;
 
-  factory _Verses.fromJson(Map<String, dynamic> json) = _$_Verses.fromJson;
+  factory _Verses.fromJson(Map<String, dynamic> json) = _$VersesImpl.fromJson;
 
   @override
   int? get id;
@@ -342,6 +345,6 @@ abstract class _Verses implements Verses {
   String? get textIndopak;
   @override
   @JsonKey(ignore: true)
-  _$$_VersesCopyWith<_$_Verses> get copyWith =>
+  _$$VersesImplCopyWith<_$VersesImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

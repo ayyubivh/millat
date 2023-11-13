@@ -110,22 +110,10 @@ class BestPlaceWidget extends StatelessWidget {
                                 margin: const EdgeInsets.only(right: 10),
                                 height: 180,
                                 width: SizeUtility(context).width / 1.3,
-                                child: ShaderMask(
-                                  blendMode: BlendMode.darken,
-                                  shaderCallback: (bounds) => LinearGradient(
-                                    colors: [
-                                      Colors.black.withOpacity(0.4),
-                                      Colors.black.withOpacity(0.4)
-                                    ],
-                                    begin: Alignment.topCenter,
-                                    end: Alignment.bottomCenter,
-                                  ).createShader(bounds),
-                                  child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(12),
-                                      child: Utilities()
-                                          .buildCachedNetworkImage(
-                                              imageUrl:
-                                                  data?[index].images?[0])),
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(12),
+                                  child: Utilities().buildCachedNetworkImage(
+                                      imageUrl: data?[index].images?[0]),
                                 ),
                               ),
                               Positioned(
@@ -384,7 +372,7 @@ class TravelProductWidget extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  data.price ?? "",
+                  data.price.toString(),
                   style: TextStyle(
                     fontSize: 13,
                     fontWeight: FontWeight.w700,

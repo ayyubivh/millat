@@ -85,25 +85,25 @@ class _$HadithEventCopyWithImpl<$Res, $Val extends HadithEvent>
 }
 
 /// @nodoc
-abstract class _$$FetchHadithBookEventCopyWith<$Res> {
-  factory _$$FetchHadithBookEventCopyWith(_$FetchHadithBookEvent value,
-          $Res Function(_$FetchHadithBookEvent) then) =
-      __$$FetchHadithBookEventCopyWithImpl<$Res>;
+abstract class _$$FetchHadithBookEventImplCopyWith<$Res> {
+  factory _$$FetchHadithBookEventImplCopyWith(_$FetchHadithBookEventImpl value,
+          $Res Function(_$FetchHadithBookEventImpl) then) =
+      __$$FetchHadithBookEventImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$FetchHadithBookEventCopyWithImpl<$Res>
-    extends _$HadithEventCopyWithImpl<$Res, _$FetchHadithBookEvent>
-    implements _$$FetchHadithBookEventCopyWith<$Res> {
-  __$$FetchHadithBookEventCopyWithImpl(_$FetchHadithBookEvent _value,
-      $Res Function(_$FetchHadithBookEvent) _then)
+class __$$FetchHadithBookEventImplCopyWithImpl<$Res>
+    extends _$HadithEventCopyWithImpl<$Res, _$FetchHadithBookEventImpl>
+    implements _$$FetchHadithBookEventImplCopyWith<$Res> {
+  __$$FetchHadithBookEventImplCopyWithImpl(_$FetchHadithBookEventImpl _value,
+      $Res Function(_$FetchHadithBookEventImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$FetchHadithBookEvent implements FetchHadithBookEvent {
-  const _$FetchHadithBookEvent();
+class _$FetchHadithBookEventImpl implements FetchHadithBookEvent {
+  const _$FetchHadithBookEventImpl();
 
   @override
   String toString() {
@@ -113,7 +113,8 @@ class _$FetchHadithBookEvent implements FetchHadithBookEvent {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$FetchHadithBookEvent);
+        (other.runtimeType == runtimeType &&
+            other is _$FetchHadithBookEventImpl);
   }
 
   @override
@@ -193,26 +194,26 @@ class _$FetchHadithBookEvent implements FetchHadithBookEvent {
 }
 
 abstract class FetchHadithBookEvent implements HadithEvent {
-  const factory FetchHadithBookEvent() = _$FetchHadithBookEvent;
+  const factory FetchHadithBookEvent() = _$FetchHadithBookEventImpl;
 }
 
 /// @nodoc
-abstract class _$$FetchHadithBooksChapterEventCopyWith<$Res> {
-  factory _$$FetchHadithBooksChapterEventCopyWith(
-          _$FetchHadithBooksChapterEvent value,
-          $Res Function(_$FetchHadithBooksChapterEvent) then) =
-      __$$FetchHadithBooksChapterEventCopyWithImpl<$Res>;
+abstract class _$$FetchHadithBooksChapterEventImplCopyWith<$Res> {
+  factory _$$FetchHadithBooksChapterEventImplCopyWith(
+          _$FetchHadithBooksChapterEventImpl value,
+          $Res Function(_$FetchHadithBooksChapterEventImpl) then) =
+      __$$FetchHadithBooksChapterEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String slug});
 }
 
 /// @nodoc
-class __$$FetchHadithBooksChapterEventCopyWithImpl<$Res>
-    extends _$HadithEventCopyWithImpl<$Res, _$FetchHadithBooksChapterEvent>
-    implements _$$FetchHadithBooksChapterEventCopyWith<$Res> {
-  __$$FetchHadithBooksChapterEventCopyWithImpl(
-      _$FetchHadithBooksChapterEvent _value,
-      $Res Function(_$FetchHadithBooksChapterEvent) _then)
+class __$$FetchHadithBooksChapterEventImplCopyWithImpl<$Res>
+    extends _$HadithEventCopyWithImpl<$Res, _$FetchHadithBooksChapterEventImpl>
+    implements _$$FetchHadithBooksChapterEventImplCopyWith<$Res> {
+  __$$FetchHadithBooksChapterEventImplCopyWithImpl(
+      _$FetchHadithBooksChapterEventImpl _value,
+      $Res Function(_$FetchHadithBooksChapterEventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -220,7 +221,7 @@ class __$$FetchHadithBooksChapterEventCopyWithImpl<$Res>
   $Res call({
     Object? slug = null,
   }) {
-    return _then(_$FetchHadithBooksChapterEvent(
+    return _then(_$FetchHadithBooksChapterEventImpl(
       slug: null == slug
           ? _value.slug
           : slug // ignore: cast_nullable_to_non_nullable
@@ -231,8 +232,9 @@ class __$$FetchHadithBooksChapterEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FetchHadithBooksChapterEvent implements FetchHadithBooksChapterEvent {
-  const _$FetchHadithBooksChapterEvent({required this.slug});
+class _$FetchHadithBooksChapterEventImpl
+    implements FetchHadithBooksChapterEvent {
+  const _$FetchHadithBooksChapterEventImpl({required this.slug});
 
   @override
   final String slug;
@@ -246,7 +248,7 @@ class _$FetchHadithBooksChapterEvent implements FetchHadithBooksChapterEvent {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FetchHadithBooksChapterEvent &&
+            other is _$FetchHadithBooksChapterEventImpl &&
             (identical(other.slug, slug) || other.slug == slug));
   }
 
@@ -256,9 +258,10 @@ class _$FetchHadithBooksChapterEvent implements FetchHadithBooksChapterEvent {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FetchHadithBooksChapterEventCopyWith<_$FetchHadithBooksChapterEvent>
-      get copyWith => __$$FetchHadithBooksChapterEventCopyWithImpl<
-          _$FetchHadithBooksChapterEvent>(this, _$identity);
+  _$$FetchHadithBooksChapterEventImplCopyWith<
+          _$FetchHadithBooksChapterEventImpl>
+      get copyWith => __$$FetchHadithBooksChapterEventImplCopyWithImpl<
+          _$FetchHadithBooksChapterEventImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -335,29 +338,31 @@ class _$FetchHadithBooksChapterEvent implements FetchHadithBooksChapterEvent {
 
 abstract class FetchHadithBooksChapterEvent implements HadithEvent {
   const factory FetchHadithBooksChapterEvent({required final String slug}) =
-      _$FetchHadithBooksChapterEvent;
+      _$FetchHadithBooksChapterEventImpl;
 
   String get slug;
   @JsonKey(ignore: true)
-  _$$FetchHadithBooksChapterEventCopyWith<_$FetchHadithBooksChapterEvent>
+  _$$FetchHadithBooksChapterEventImplCopyWith<
+          _$FetchHadithBooksChapterEventImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$SearchHadithBookeventCopyWith<$Res> {
-  factory _$$SearchHadithBookeventCopyWith(_$SearchHadithBookevent value,
-          $Res Function(_$SearchHadithBookevent) then) =
-      __$$SearchHadithBookeventCopyWithImpl<$Res>;
+abstract class _$$SearchHadithBookeventImplCopyWith<$Res> {
+  factory _$$SearchHadithBookeventImplCopyWith(
+          _$SearchHadithBookeventImpl value,
+          $Res Function(_$SearchHadithBookeventImpl) then) =
+      __$$SearchHadithBookeventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String searchVal});
 }
 
 /// @nodoc
-class __$$SearchHadithBookeventCopyWithImpl<$Res>
-    extends _$HadithEventCopyWithImpl<$Res, _$SearchHadithBookevent>
-    implements _$$SearchHadithBookeventCopyWith<$Res> {
-  __$$SearchHadithBookeventCopyWithImpl(_$SearchHadithBookevent _value,
-      $Res Function(_$SearchHadithBookevent) _then)
+class __$$SearchHadithBookeventImplCopyWithImpl<$Res>
+    extends _$HadithEventCopyWithImpl<$Res, _$SearchHadithBookeventImpl>
+    implements _$$SearchHadithBookeventImplCopyWith<$Res> {
+  __$$SearchHadithBookeventImplCopyWithImpl(_$SearchHadithBookeventImpl _value,
+      $Res Function(_$SearchHadithBookeventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -365,7 +370,7 @@ class __$$SearchHadithBookeventCopyWithImpl<$Res>
   $Res call({
     Object? searchVal = null,
   }) {
-    return _then(_$SearchHadithBookevent(
+    return _then(_$SearchHadithBookeventImpl(
       searchVal: null == searchVal
           ? _value.searchVal
           : searchVal // ignore: cast_nullable_to_non_nullable
@@ -376,8 +381,8 @@ class __$$SearchHadithBookeventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SearchHadithBookevent implements SearchHadithBookevent {
-  const _$SearchHadithBookevent({required this.searchVal});
+class _$SearchHadithBookeventImpl implements SearchHadithBookevent {
+  const _$SearchHadithBookeventImpl({required this.searchVal});
 
   @override
   final String searchVal;
@@ -391,7 +396,7 @@ class _$SearchHadithBookevent implements SearchHadithBookevent {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SearchHadithBookevent &&
+            other is _$SearchHadithBookeventImpl &&
             (identical(other.searchVal, searchVal) ||
                 other.searchVal == searchVal));
   }
@@ -402,9 +407,9 @@ class _$SearchHadithBookevent implements SearchHadithBookevent {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$SearchHadithBookeventCopyWith<_$SearchHadithBookevent> get copyWith =>
-      __$$SearchHadithBookeventCopyWithImpl<_$SearchHadithBookevent>(
-          this, _$identity);
+  _$$SearchHadithBookeventImplCopyWith<_$SearchHadithBookeventImpl>
+      get copyWith => __$$SearchHadithBookeventImplCopyWithImpl<
+          _$SearchHadithBookeventImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -481,12 +486,12 @@ class _$SearchHadithBookevent implements SearchHadithBookevent {
 
 abstract class SearchHadithBookevent implements HadithEvent {
   const factory SearchHadithBookevent({required final String searchVal}) =
-      _$SearchHadithBookevent;
+      _$SearchHadithBookeventImpl;
 
   String get searchVal;
   @JsonKey(ignore: true)
-  _$$SearchHadithBookeventCopyWith<_$SearchHadithBookevent> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$SearchHadithBookeventImplCopyWith<_$SearchHadithBookeventImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -571,11 +576,11 @@ class _$HadithStateCopyWithImpl<$Res, $Val extends HadithState>
 }
 
 /// @nodoc
-abstract class _$$_HadithStateCopyWith<$Res>
+abstract class _$$HadithStateImplCopyWith<$Res>
     implements $HadithStateCopyWith<$Res> {
-  factory _$$_HadithStateCopyWith(
-          _$_HadithState value, $Res Function(_$_HadithState) then) =
-      __$$_HadithStateCopyWithImpl<$Res>;
+  factory _$$HadithStateImplCopyWith(
+          _$HadithStateImpl value, $Res Function(_$HadithStateImpl) then) =
+      __$$HadithStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -589,11 +594,11 @@ abstract class _$$_HadithStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_HadithStateCopyWithImpl<$Res>
-    extends _$HadithStateCopyWithImpl<$Res, _$_HadithState>
-    implements _$$_HadithStateCopyWith<$Res> {
-  __$$_HadithStateCopyWithImpl(
-      _$_HadithState _value, $Res Function(_$_HadithState) _then)
+class __$$HadithStateImplCopyWithImpl<$Res>
+    extends _$HadithStateCopyWithImpl<$Res, _$HadithStateImpl>
+    implements _$$HadithStateImplCopyWith<$Res> {
+  __$$HadithStateImplCopyWithImpl(
+      _$HadithStateImpl _value, $Res Function(_$HadithStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -604,7 +609,7 @@ class __$$_HadithStateCopyWithImpl<$Res>
     Object? hadithBooksChapterModel = freezed,
     Object? required = freezed,
   }) {
-    return _then(_$_HadithState(
+    return _then(_$HadithStateImpl(
       hadithBookModel: freezed == hadithBookModel
           ? _value._hadithBookModel
           : hadithBookModel // ignore: cast_nullable_to_non_nullable
@@ -624,8 +629,8 @@ class __$$_HadithStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_HadithState implements _HadithState {
-  const _$_HadithState(
+class _$HadithStateImpl implements _HadithState {
+  const _$HadithStateImpl(
       {required final List<HadithBookModel>? hadithBookModel,
       required this.isLoading,
       required this.hadithBooksChapterModel,
@@ -658,7 +663,7 @@ class _$_HadithState implements _HadithState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_HadithState &&
+            other is _$HadithStateImpl &&
             const DeepCollectionEquality()
                 .equals(other._hadithBookModel, _hadithBookModel) &&
             (identical(other.isLoading, isLoading) ||
@@ -680,8 +685,8 @@ class _$_HadithState implements _HadithState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_HadithStateCopyWith<_$_HadithState> get copyWith =>
-      __$$_HadithStateCopyWithImpl<_$_HadithState>(this, _$identity);
+  _$$HadithStateImplCopyWith<_$HadithStateImpl> get copyWith =>
+      __$$HadithStateImplCopyWithImpl<_$HadithStateImpl>(this, _$identity);
 }
 
 abstract class _HadithState implements HadithState {
@@ -689,7 +694,7 @@ abstract class _HadithState implements HadithState {
       {required final List<HadithBookModel>? hadithBookModel,
       required final bool isLoading,
       required final HadithBooksChapterModel? hadithBooksChapterModel,
-      final dynamic required}) = _$_HadithState;
+      final dynamic required}) = _$HadithStateImpl;
 
   @override
   List<HadithBookModel>? get hadithBookModel;
@@ -701,6 +706,6 @@ abstract class _HadithState implements HadithState {
   dynamic get required;
   @override
   @JsonKey(ignore: true)
-  _$$_HadithStateCopyWith<_$_HadithState> get copyWith =>
+  _$$HadithStateImplCopyWith<_$HadithStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

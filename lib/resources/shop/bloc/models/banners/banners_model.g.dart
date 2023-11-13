@@ -6,8 +6,8 @@ part of 'banners_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_BanersModel _$$_BanersModelFromJson(Map<String, dynamic> json) =>
-    _$_BanersModel(
+_$BanersModelImpl _$$BanersModelImplFromJson(Map<String, dynamic> json) =>
+    _$BanersModelImpl(
       status: json['status'] as int?,
       message: json['message'] as String?,
       error: json['error'] as String?,
@@ -16,7 +16,7 @@ _$_BanersModel _$$_BanersModelFromJson(Map<String, dynamic> json) =>
           : BannerResult.fromJson(json['result'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$_BanersModelToJson(_$_BanersModel instance) =>
+Map<String, dynamic> _$$BanersModelImplToJson(_$BanersModelImpl instance) =>
     <String, dynamic>{
       'status': instance.status,
       'message': instance.message,
@@ -24,19 +24,20 @@ Map<String, dynamic> _$$_BanersModelToJson(_$_BanersModel instance) =>
       'result': instance.result,
     };
 
-_$_BannerResult _$$_BannerResultFromJson(Map<String, dynamic> json) =>
-    _$_BannerResult(
+_$BannerResultImpl _$$BannerResultImplFromJson(Map<String, dynamic> json) =>
+    _$BannerResultImpl(
       banners: (json['banners'] as List<dynamic>?)
           ?.map((e) => Banners.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
-Map<String, dynamic> _$$_BannerResultToJson(_$_BannerResult instance) =>
+Map<String, dynamic> _$$BannerResultImplToJson(_$BannerResultImpl instance) =>
     <String, dynamic>{
       'banners': instance.banners,
     };
 
-_$_Banners _$$_BannersFromJson(Map<String, dynamic> json) => _$_Banners(
+_$BannersImpl _$$BannersImplFromJson(Map<String, dynamic> json) =>
+    _$BannersImpl(
       id: json['_id'] as String,
       title: json['title'] as String,
       slug: json['slug'] as String,
@@ -46,7 +47,7 @@ _$_Banners _$$_BannersFromJson(Map<String, dynamic> json) => _$_Banners(
       updatedAt: json['updatedAt'] as String,
     );
 
-Map<String, dynamic> _$$_BannersToJson(_$_Banners instance) =>
+Map<String, dynamic> _$$BannersImplToJson(_$BannersImpl instance) =>
     <String, dynamic>{
       '_id': instance.id,
       'title': instance.title,

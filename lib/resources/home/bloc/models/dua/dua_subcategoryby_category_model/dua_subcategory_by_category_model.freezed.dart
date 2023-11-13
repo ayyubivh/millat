@@ -90,11 +90,11 @@ class _$DuaSubcategoryModelCopyWithImpl<$Res, $Val extends DuaSubcategoryModel>
 }
 
 /// @nodoc
-abstract class _$$_DuaSubcategoryModelCopyWith<$Res>
+abstract class _$$DuaSubcategoryModelImplCopyWith<$Res>
     implements $DuaSubcategoryModelCopyWith<$Res> {
-  factory _$$_DuaSubcategoryModelCopyWith(_$_DuaSubcategoryModel value,
-          $Res Function(_$_DuaSubcategoryModel) then) =
-      __$$_DuaSubcategoryModelCopyWithImpl<$Res>;
+  factory _$$DuaSubcategoryModelImplCopyWith(_$DuaSubcategoryModelImpl value,
+          $Res Function(_$DuaSubcategoryModelImpl) then) =
+      __$$DuaSubcategoryModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int status, String message, String error, Result result});
@@ -104,11 +104,11 @@ abstract class _$$_DuaSubcategoryModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_DuaSubcategoryModelCopyWithImpl<$Res>
-    extends _$DuaSubcategoryModelCopyWithImpl<$Res, _$_DuaSubcategoryModel>
-    implements _$$_DuaSubcategoryModelCopyWith<$Res> {
-  __$$_DuaSubcategoryModelCopyWithImpl(_$_DuaSubcategoryModel _value,
-      $Res Function(_$_DuaSubcategoryModel) _then)
+class __$$DuaSubcategoryModelImplCopyWithImpl<$Res>
+    extends _$DuaSubcategoryModelCopyWithImpl<$Res, _$DuaSubcategoryModelImpl>
+    implements _$$DuaSubcategoryModelImplCopyWith<$Res> {
+  __$$DuaSubcategoryModelImplCopyWithImpl(_$DuaSubcategoryModelImpl _value,
+      $Res Function(_$DuaSubcategoryModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -119,7 +119,7 @@ class __$$_DuaSubcategoryModelCopyWithImpl<$Res>
     Object? error = null,
     Object? result = null,
   }) {
-    return _then(_$_DuaSubcategoryModel(
+    return _then(_$DuaSubcategoryModelImpl(
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -142,15 +142,15 @@ class __$$_DuaSubcategoryModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_DuaSubcategoryModel implements _DuaSubcategoryModel {
-  const _$_DuaSubcategoryModel(
+class _$DuaSubcategoryModelImpl implements _DuaSubcategoryModel {
+  const _$DuaSubcategoryModelImpl(
       {required this.status,
       required this.message,
       required this.error,
       required this.result});
 
-  factory _$_DuaSubcategoryModel.fromJson(Map<String, dynamic> json) =>
-      _$$_DuaSubcategoryModelFromJson(json);
+  factory _$DuaSubcategoryModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$DuaSubcategoryModelImplFromJson(json);
 
   @override
   final int status;
@@ -170,7 +170,7 @@ class _$_DuaSubcategoryModel implements _DuaSubcategoryModel {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DuaSubcategoryModel &&
+            other is _$DuaSubcategoryModelImpl &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.message, message) || other.message == message) &&
             (identical(other.error, error) || other.error == error) &&
@@ -184,13 +184,13 @@ class _$_DuaSubcategoryModel implements _DuaSubcategoryModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DuaSubcategoryModelCopyWith<_$_DuaSubcategoryModel> get copyWith =>
-      __$$_DuaSubcategoryModelCopyWithImpl<_$_DuaSubcategoryModel>(
+  _$$DuaSubcategoryModelImplCopyWith<_$DuaSubcategoryModelImpl> get copyWith =>
+      __$$DuaSubcategoryModelImplCopyWithImpl<_$DuaSubcategoryModelImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_DuaSubcategoryModelToJson(
+    return _$$DuaSubcategoryModelImplToJson(
       this,
     );
   }
@@ -201,10 +201,10 @@ abstract class _DuaSubcategoryModel implements DuaSubcategoryModel {
       {required final int status,
       required final String message,
       required final String error,
-      required final Result result}) = _$_DuaSubcategoryModel;
+      required final Result result}) = _$DuaSubcategoryModelImpl;
 
   factory _DuaSubcategoryModel.fromJson(Map<String, dynamic> json) =
-      _$_DuaSubcategoryModel.fromJson;
+      _$DuaSubcategoryModelImpl.fromJson;
 
   @override
   int get status;
@@ -216,7 +216,7 @@ abstract class _DuaSubcategoryModel implements DuaSubcategoryModel {
   Result get result;
   @override
   @JsonKey(ignore: true)
-  _$$_DuaSubcategoryModelCopyWith<_$_DuaSubcategoryModel> get copyWith =>
+  _$$DuaSubcategoryModelImplCopyWith<_$DuaSubcategoryModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -267,19 +267,21 @@ class _$ResultCopyWithImpl<$Res, $Val extends Result>
 }
 
 /// @nodoc
-abstract class _$$_ResultCopyWith<$Res> implements $ResultCopyWith<$Res> {
-  factory _$$_ResultCopyWith(_$_Result value, $Res Function(_$_Result) then) =
-      __$$_ResultCopyWithImpl<$Res>;
+abstract class _$$ResultImplCopyWith<$Res> implements $ResultCopyWith<$Res> {
+  factory _$$ResultImplCopyWith(
+          _$ResultImpl value, $Res Function(_$ResultImpl) then) =
+      __$$ResultImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<DuaSubCategory>? duaSubCategory});
 }
 
 /// @nodoc
-class __$$_ResultCopyWithImpl<$Res>
-    extends _$ResultCopyWithImpl<$Res, _$_Result>
-    implements _$$_ResultCopyWith<$Res> {
-  __$$_ResultCopyWithImpl(_$_Result _value, $Res Function(_$_Result) _then)
+class __$$ResultImplCopyWithImpl<$Res>
+    extends _$ResultCopyWithImpl<$Res, _$ResultImpl>
+    implements _$$ResultImplCopyWith<$Res> {
+  __$$ResultImplCopyWithImpl(
+      _$ResultImpl _value, $Res Function(_$ResultImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -287,7 +289,7 @@ class __$$_ResultCopyWithImpl<$Res>
   $Res call({
     Object? duaSubCategory = freezed,
   }) {
-    return _then(_$_Result(
+    return _then(_$ResultImpl(
       duaSubCategory: freezed == duaSubCategory
           ? _value._duaSubCategory
           : duaSubCategory // ignore: cast_nullable_to_non_nullable
@@ -298,12 +300,12 @@ class __$$_ResultCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Result implements _Result {
-  const _$_Result({required final List<DuaSubCategory>? duaSubCategory})
+class _$ResultImpl implements _Result {
+  const _$ResultImpl({required final List<DuaSubCategory>? duaSubCategory})
       : _duaSubCategory = duaSubCategory;
 
-  factory _$_Result.fromJson(Map<String, dynamic> json) =>
-      _$$_ResultFromJson(json);
+  factory _$ResultImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ResultImplFromJson(json);
 
   final List<DuaSubCategory>? _duaSubCategory;
   @override
@@ -324,7 +326,7 @@ class _$_Result implements _Result {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Result &&
+            other is _$ResultImpl &&
             const DeepCollectionEquality()
                 .equals(other._duaSubCategory, _duaSubCategory));
   }
@@ -337,12 +339,12 @@ class _$_Result implements _Result {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ResultCopyWith<_$_Result> get copyWith =>
-      __$$_ResultCopyWithImpl<_$_Result>(this, _$identity);
+  _$$ResultImplCopyWith<_$ResultImpl> get copyWith =>
+      __$$ResultImplCopyWithImpl<_$ResultImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ResultToJson(
+    return _$$ResultImplToJson(
       this,
     );
   }
@@ -350,15 +352,15 @@ class _$_Result implements _Result {
 
 abstract class _Result implements Result {
   const factory _Result({required final List<DuaSubCategory>? duaSubCategory}) =
-      _$_Result;
+      _$ResultImpl;
 
-  factory _Result.fromJson(Map<String, dynamic> json) = _$_Result.fromJson;
+  factory _Result.fromJson(Map<String, dynamic> json) = _$ResultImpl.fromJson;
 
   @override
   List<DuaSubCategory>? get duaSubCategory;
   @override
   @JsonKey(ignore: true)
-  _$$_ResultCopyWith<_$_Result> get copyWith =>
+  _$$ResultImplCopyWith<_$ResultImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -452,11 +454,11 @@ class _$DuaSubCategoryCopyWithImpl<$Res, $Val extends DuaSubCategory>
 }
 
 /// @nodoc
-abstract class _$$_DuaSubCategoryCopyWith<$Res>
+abstract class _$$DuaSubCategoryImplCopyWith<$Res>
     implements $DuaSubCategoryCopyWith<$Res> {
-  factory _$$_DuaSubCategoryCopyWith(
-          _$_DuaSubCategory value, $Res Function(_$_DuaSubCategory) then) =
-      __$$_DuaSubCategoryCopyWithImpl<$Res>;
+  factory _$$DuaSubCategoryImplCopyWith(_$DuaSubCategoryImpl value,
+          $Res Function(_$DuaSubCategoryImpl) then) =
+      __$$DuaSubCategoryImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -469,11 +471,11 @@ abstract class _$$_DuaSubCategoryCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_DuaSubCategoryCopyWithImpl<$Res>
-    extends _$DuaSubCategoryCopyWithImpl<$Res, _$_DuaSubCategory>
-    implements _$$_DuaSubCategoryCopyWith<$Res> {
-  __$$_DuaSubCategoryCopyWithImpl(
-      _$_DuaSubCategory _value, $Res Function(_$_DuaSubCategory) _then)
+class __$$DuaSubCategoryImplCopyWithImpl<$Res>
+    extends _$DuaSubCategoryCopyWithImpl<$Res, _$DuaSubCategoryImpl>
+    implements _$$DuaSubCategoryImplCopyWith<$Res> {
+  __$$DuaSubCategoryImplCopyWithImpl(
+      _$DuaSubCategoryImpl _value, $Res Function(_$DuaSubCategoryImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -486,7 +488,7 @@ class __$$_DuaSubCategoryCopyWithImpl<$Res>
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
   }) {
-    return _then(_$_DuaSubCategory(
+    return _then(_$DuaSubCategoryImpl(
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -517,8 +519,8 @@ class __$$_DuaSubCategoryCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_DuaSubCategory implements _DuaSubCategory {
-  const _$_DuaSubCategory(
+class _$DuaSubCategoryImpl implements _DuaSubCategory {
+  const _$DuaSubCategoryImpl(
       {@JsonKey(name: '_id') this.id,
       @JsonKey(name: 'categoryId') this.categoryId,
       @JsonKey(name: 'subCategory') this.subCategory,
@@ -526,8 +528,8 @@ class _$_DuaSubCategory implements _DuaSubCategory {
       @JsonKey(name: 'createdAt') this.createdAt,
       @JsonKey(name: 'updatedAt') this.updatedAt});
 
-  factory _$_DuaSubCategory.fromJson(Map<String, dynamic> json) =>
-      _$$_DuaSubCategoryFromJson(json);
+  factory _$DuaSubCategoryImpl.fromJson(Map<String, dynamic> json) =>
+      _$$DuaSubCategoryImplFromJson(json);
 
   @override
   @JsonKey(name: '_id')
@@ -557,7 +559,7 @@ class _$_DuaSubCategory implements _DuaSubCategory {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DuaSubCategory &&
+            other is _$DuaSubCategoryImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.categoryId, categoryId) ||
                 other.categoryId == categoryId) &&
@@ -578,12 +580,13 @@ class _$_DuaSubCategory implements _DuaSubCategory {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DuaSubCategoryCopyWith<_$_DuaSubCategory> get copyWith =>
-      __$$_DuaSubCategoryCopyWithImpl<_$_DuaSubCategory>(this, _$identity);
+  _$$DuaSubCategoryImplCopyWith<_$DuaSubCategoryImpl> get copyWith =>
+      __$$DuaSubCategoryImplCopyWithImpl<_$DuaSubCategoryImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_DuaSubCategoryToJson(
+    return _$$DuaSubCategoryImplToJson(
       this,
     );
   }
@@ -591,15 +594,16 @@ class _$_DuaSubCategory implements _DuaSubCategory {
 
 abstract class _DuaSubCategory implements DuaSubCategory {
   const factory _DuaSubCategory(
-      {@JsonKey(name: '_id') final String? id,
-      @JsonKey(name: 'categoryId') final String? categoryId,
-      @JsonKey(name: 'subCategory') final String? subCategory,
-      @JsonKey(name: 'count') final int? count,
-      @JsonKey(name: 'createdAt') final String? createdAt,
-      @JsonKey(name: 'updatedAt') final String? updatedAt}) = _$_DuaSubCategory;
+          {@JsonKey(name: '_id') final String? id,
+          @JsonKey(name: 'categoryId') final String? categoryId,
+          @JsonKey(name: 'subCategory') final String? subCategory,
+          @JsonKey(name: 'count') final int? count,
+          @JsonKey(name: 'createdAt') final String? createdAt,
+          @JsonKey(name: 'updatedAt') final String? updatedAt}) =
+      _$DuaSubCategoryImpl;
 
   factory _DuaSubCategory.fromJson(Map<String, dynamic> json) =
-      _$_DuaSubCategory.fromJson;
+      _$DuaSubCategoryImpl.fromJson;
 
   @override
   @JsonKey(name: '_id')
@@ -621,6 +625,6 @@ abstract class _DuaSubCategory implements DuaSubCategory {
   String? get updatedAt;
   @override
   @JsonKey(ignore: true)
-  _$$_DuaSubCategoryCopyWith<_$_DuaSubCategory> get copyWith =>
+  _$$DuaSubCategoryImplCopyWith<_$DuaSubCategoryImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

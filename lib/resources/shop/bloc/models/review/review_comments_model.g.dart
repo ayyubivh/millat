@@ -6,9 +6,9 @@ part of 'review_comments_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ReviewCommentsModel _$$_ReviewCommentsModelFromJson(
+_$ReviewCommentsModelImpl _$$ReviewCommentsModelImplFromJson(
         Map<String, dynamic> json) =>
-    _$_ReviewCommentsModel(
+    _$ReviewCommentsModelImpl(
       status: json['status'] as int?,
       message: json['message'] as String?,
       error: json['error'] as String?,
@@ -17,8 +17,8 @@ _$_ReviewCommentsModel _$$_ReviewCommentsModelFromJson(
           : Result.fromJson(json['result'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$_ReviewCommentsModelToJson(
-        _$_ReviewCommentsModel instance) =>
+Map<String, dynamic> _$$ReviewCommentsModelImplToJson(
+        _$ReviewCommentsModelImpl instance) =>
     <String, dynamic>{
       'status': instance.status,
       'message': instance.message,
@@ -26,17 +26,18 @@ Map<String, dynamic> _$$_ReviewCommentsModelToJson(
       'result': instance.result,
     };
 
-_$_Result _$$_ResultFromJson(Map<String, dynamic> json) => _$_Result(
+_$ResultImpl _$$ResultImplFromJson(Map<String, dynamic> json) => _$ResultImpl(
       data: json['data'] == null
           ? null
           : Data.fromJson(json['data'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$_ResultToJson(_$_Result instance) => <String, dynamic>{
+Map<String, dynamic> _$$ResultImplToJson(_$ResultImpl instance) =>
+    <String, dynamic>{
       'data': instance.data,
     };
 
-_$_Data _$$_DataFromJson(Map<String, dynamic> json) => _$_Data(
+_$DataImpl _$$DataImplFromJson(Map<String, dynamic> json) => _$DataImpl(
       ratingStats: (json['ratingStats'] as List<dynamic>?)
           ?.map((e) => RatingStats.fromJson(e as Map<String, dynamic>))
           .toList(),
@@ -45,25 +46,26 @@ _$_Data _$$_DataFromJson(Map<String, dynamic> json) => _$_Data(
           .toList(),
     );
 
-Map<String, dynamic> _$$_DataToJson(_$_Data instance) => <String, dynamic>{
+Map<String, dynamic> _$$DataImplToJson(_$DataImpl instance) =>
+    <String, dynamic>{
       'ratingStats': instance.ratingStats,
       'reviewComments': instance.reviewComments,
     };
 
-_$_RatingStats _$$_RatingStatsFromJson(Map<String, dynamic> json) =>
-    _$_RatingStats(
+_$RatingStatsImpl _$$RatingStatsImplFromJson(Map<String, dynamic> json) =>
+    _$RatingStatsImpl(
       id: (json['_id'] as num?)?.toDouble(),
       count: json['count'] as int?,
     );
 
-Map<String, dynamic> _$$_RatingStatsToJson(_$_RatingStats instance) =>
+Map<String, dynamic> _$$RatingStatsImplToJson(_$RatingStatsImpl instance) =>
     <String, dynamic>{
       '_id': instance.id,
       'count': instance.count,
     };
 
-_$_ReviewComment _$$_ReviewCommentFromJson(Map<String, dynamic> json) =>
-    _$_ReviewComment(
+_$ReviewCommentImpl _$$ReviewCommentImplFromJson(Map<String, dynamic> json) =>
+    _$ReviewCommentImpl(
       id: json['_id'] as String?,
       name: json['name'] as String?,
       rating: (json['rating'] as num?)?.toDouble(),
@@ -78,7 +80,7 @@ _$_ReviewComment _$$_ReviewCommentFromJson(Map<String, dynamic> json) =>
       updatedAt: json['updatedAt'] as String?,
     );
 
-Map<String, dynamic> _$$_ReviewCommentToJson(_$_ReviewComment instance) =>
+Map<String, dynamic> _$$ReviewCommentImplToJson(_$ReviewCommentImpl instance) =>
     <String, dynamic>{
       '_id': instance.id,
       'name': instance.name,
@@ -92,7 +94,7 @@ Map<String, dynamic> _$$_ReviewCommentToJson(_$_ReviewComment instance) =>
       'updatedAt': instance.updatedAt,
     };
 
-_$_UserId _$$_UserIdFromJson(Map<String, dynamic> json) => _$_UserId(
+_$UserIdImpl _$$UserIdImplFromJson(Map<String, dynamic> json) => _$UserIdImpl(
       id: json['_id'] as String?,
       name: json['name'] as String?,
       username: json['username'] as String?,
@@ -107,7 +109,8 @@ _$_UserId _$$_UserIdFromJson(Map<String, dynamic> json) => _$_UserId(
       uuid: json['uuid'] as String?,
     );
 
-Map<String, dynamic> _$$_UserIdToJson(_$_UserId instance) => <String, dynamic>{
+Map<String, dynamic> _$$UserIdImplToJson(_$UserIdImpl instance) =>
+    <String, dynamic>{
       '_id': instance.id,
       'name': instance.name,
       'username': instance.username,

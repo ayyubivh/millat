@@ -6,8 +6,9 @@ part of 'get_notification_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_NotificationModel _$$_NotificationModelFromJson(Map<String, dynamic> json) =>
-    _$_NotificationModel(
+_$NotificationModelImpl _$$NotificationModelImplFromJson(
+        Map<String, dynamic> json) =>
+    _$NotificationModelImpl(
       status: json['status'] as int?,
       message: json['message'] as String?,
       error: json['error'] as String?,
@@ -16,8 +17,8 @@ _$_NotificationModel _$$_NotificationModelFromJson(Map<String, dynamic> json) =>
           : MessageResult.fromJson(json['result'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$_NotificationModelToJson(
-        _$_NotificationModel instance) =>
+Map<String, dynamic> _$$NotificationModelImplToJson(
+        _$NotificationModelImpl instance) =>
     <String, dynamic>{
       'status': instance.status,
       'message': instance.message,
@@ -25,20 +26,20 @@ Map<String, dynamic> _$$_NotificationModelToJson(
       'result': instance.result,
     };
 
-_$_MessageResult _$$_MessageResultFromJson(Map<String, dynamic> json) =>
-    _$_MessageResult(
+_$MessageResultImpl _$$MessageResultImplFromJson(Map<String, dynamic> json) =>
+    _$MessageResultImpl(
       data: (json['data'] as List<dynamic>?)
           ?.map((e) => MessageData.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
-Map<String, dynamic> _$$_MessageResultToJson(_$_MessageResult instance) =>
+Map<String, dynamic> _$$MessageResultImplToJson(_$MessageResultImpl instance) =>
     <String, dynamic>{
       'data': instance.data,
     };
 
-_$_MessageData _$$_MessageDataFromJson(Map<String, dynamic> json) =>
-    _$_MessageData(
+_$MessageDataImpl _$$MessageDataImplFromJson(Map<String, dynamic> json) =>
+    _$MessageDataImpl(
       id: json['_id'] as String?,
       title: json['title'] as String?,
       sendAt: json['sendAt'] as String?,
@@ -51,7 +52,7 @@ _$_MessageData _$$_MessageDataFromJson(Map<String, dynamic> json) =>
       updatedAt: json['updatedAt'] as String?,
     );
 
-Map<String, dynamic> _$$_MessageDataToJson(_$_MessageData instance) =>
+Map<String, dynamic> _$$MessageDataImplToJson(_$MessageDataImpl instance) =>
     <String, dynamic>{
       '_id': instance.id,
       'title': instance.title,

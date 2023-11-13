@@ -6,20 +6,22 @@ part of 'travel_banners_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_TravelBannerModel _$$_TravelBannerModelFromJson(Map<String, dynamic> json) =>
-    _$_TravelBannerModel(
+_$TravelBannerModelImpl _$$TravelBannerModelImplFromJson(
+        Map<String, dynamic> json) =>
+    _$TravelBannerModelImpl(
       banners: (json['banners'] as List<dynamic>?)
           ?.map((e) => Banners.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
-Map<String, dynamic> _$$_TravelBannerModelToJson(
-        _$_TravelBannerModel instance) =>
+Map<String, dynamic> _$$TravelBannerModelImplToJson(
+        _$TravelBannerModelImpl instance) =>
     <String, dynamic>{
       'banners': instance.banners,
     };
 
-_$_Banners _$$_BannersFromJson(Map<String, dynamic> json) => _$_Banners(
+_$BannersImpl _$$BannersImplFromJson(Map<String, dynamic> json) =>
+    _$BannersImpl(
       id: json['_id'] as String?,
       title: json['title'] as String?,
       image: json['image'] as String?,
@@ -32,7 +34,7 @@ _$_Banners _$$_BannersFromJson(Map<String, dynamic> json) => _$_Banners(
       url: json['url'] as String?,
     );
 
-Map<String, dynamic> _$$_BannersToJson(_$_Banners instance) =>
+Map<String, dynamic> _$$BannersImplToJson(_$BannersImpl instance) =>
     <String, dynamic>{
       '_id': instance.id,
       'title': instance.title,

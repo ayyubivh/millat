@@ -6,9 +6,9 @@ part of 'event_of_the_month_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_EventOfTheMonthModel _$$_EventOfTheMonthModelFromJson(
+_$EventOfTheMonthModelImpl _$$EventOfTheMonthModelImplFromJson(
         Map<String, dynamic> json) =>
-    _$_EventOfTheMonthModel(
+    _$EventOfTheMonthModelImpl(
       status: json['status'] as int?,
       message: json['message'] as String?,
       error: json['error'] as String?,
@@ -17,8 +17,8 @@ _$_EventOfTheMonthModel _$$_EventOfTheMonthModelFromJson(
           : EventResult.fromJson(json['result'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$_EventOfTheMonthModelToJson(
-        _$_EventOfTheMonthModel instance) =>
+Map<String, dynamic> _$$EventOfTheMonthModelImplToJson(
+        _$EventOfTheMonthModelImpl instance) =>
     <String, dynamic>{
       'status': instance.status,
       'message': instance.message,
@@ -26,19 +26,20 @@ Map<String, dynamic> _$$_EventOfTheMonthModelToJson(
       'result': instance.result,
     };
 
-_$_EventResult _$$_EventResultFromJson(Map<String, dynamic> json) =>
-    _$_EventResult(
+_$EventResultImpl _$$EventResultImplFromJson(Map<String, dynamic> json) =>
+    _$EventResultImpl(
       event: (json['event'] as List<dynamic>?)
           ?.map((e) => EventItem.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
-Map<String, dynamic> _$$_EventResultToJson(_$_EventResult instance) =>
+Map<String, dynamic> _$$EventResultImplToJson(_$EventResultImpl instance) =>
     <String, dynamic>{
       'event': instance.event,
     };
 
-_$_EventItem _$$_EventItemFromJson(Map<String, dynamic> json) => _$_EventItem(
+_$EventItemImpl _$$EventItemImplFromJson(Map<String, dynamic> json) =>
+    _$EventItemImpl(
       id: json['_id'] as String?,
       images:
           (json['images'] as List<dynamic>?)?.map((e) => e as String).toList(),
@@ -46,7 +47,7 @@ _$_EventItem _$$_EventItemFromJson(Map<String, dynamic> json) => _$_EventItem(
       updatedAt: json['updatedAt'] as String?,
     );
 
-Map<String, dynamic> _$$_EventItemToJson(_$_EventItem instance) =>
+Map<String, dynamic> _$$EventItemImplToJson(_$EventItemImpl instance) =>
     <String, dynamic>{
       '_id': instance.id,
       'images': instance.images,

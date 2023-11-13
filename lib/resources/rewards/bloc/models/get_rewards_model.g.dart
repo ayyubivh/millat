@@ -6,8 +6,8 @@ part of 'get_rewards_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_RewardsModel _$$_RewardsModelFromJson(Map<String, dynamic> json) =>
-    _$_RewardsModel(
+_$RewardsModelImpl _$$RewardsModelImplFromJson(Map<String, dynamic> json) =>
+    _$RewardsModelImpl(
       status: json['status'] as int?,
       message: json['message'] as String?,
       error: json['error'] as String?,
@@ -16,7 +16,7 @@ _$_RewardsModel _$$_RewardsModelFromJson(Map<String, dynamic> json) =>
           : Result.fromJson(json['result'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$_RewardsModelToJson(_$_RewardsModel instance) =>
+Map<String, dynamic> _$$RewardsModelImplToJson(_$RewardsModelImpl instance) =>
     <String, dynamic>{
       'status': instance.status,
       'message': instance.message,
@@ -24,17 +24,18 @@ Map<String, dynamic> _$$_RewardsModelToJson(_$_RewardsModel instance) =>
       'result': instance.result,
     };
 
-_$_Result _$$_ResultFromJson(Map<String, dynamic> json) => _$_Result(
+_$ResultImpl _$$ResultImplFromJson(Map<String, dynamic> json) => _$ResultImpl(
       reward: json['reward'] == null
           ? null
           : Reward.fromJson(json['reward'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$_ResultToJson(_$_Result instance) => <String, dynamic>{
+Map<String, dynamic> _$$ResultImplToJson(_$ResultImpl instance) =>
+    <String, dynamic>{
       'reward': instance.reward,
     };
 
-_$_Reward _$$_RewardFromJson(Map<String, dynamic> json) => _$_Reward(
+_$RewardImpl _$$RewardImplFromJson(Map<String, dynamic> json) => _$RewardImpl(
       id: json['_id'] as String?,
       userId: json['userId'] as String?,
       coins: json['coins'] as int?,
@@ -42,7 +43,8 @@ _$_Reward _$$_RewardFromJson(Map<String, dynamic> json) => _$_Reward(
       updatedAt: json['updatedAt'] as String?,
     );
 
-Map<String, dynamic> _$$_RewardToJson(_$_Reward instance) => <String, dynamic>{
+Map<String, dynamic> _$$RewardImplToJson(_$RewardImpl instance) =>
+    <String, dynamic>{
       '_id': instance.id,
       'userId': instance.userId,
       'coins': instance.coins,

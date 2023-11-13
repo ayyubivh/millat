@@ -6,8 +6,8 @@ part of 'brand_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_BrandModels _$$_BrandModelsFromJson(Map<String, dynamic> json) =>
-    _$_BrandModels(
+_$BrandModelsImpl _$$BrandModelsImplFromJson(Map<String, dynamic> json) =>
+    _$BrandModelsImpl(
       status: json['status'] as int?,
       message: json['message'] as String?,
       error: json['error'] as String?,
@@ -16,7 +16,7 @@ _$_BrandModels _$$_BrandModelsFromJson(Map<String, dynamic> json) =>
           : Result.fromJson(json['result'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$_BrandModelsToJson(_$_BrandModels instance) =>
+Map<String, dynamic> _$$BrandModelsImplToJson(_$BrandModelsImpl instance) =>
     <String, dynamic>{
       'status': instance.status,
       'message': instance.message,
@@ -24,17 +24,19 @@ Map<String, dynamic> _$$_BrandModelsToJson(_$_BrandModels instance) =>
       'result': instance.result,
     };
 
-_$_Result _$$_ResultFromJson(Map<String, dynamic> json) => _$_Result(
+_$ResultImpl _$$ResultImplFromJson(Map<String, dynamic> json) => _$ResultImpl(
       data: (json['data'] as List<dynamic>?)
           ?.map((e) => BrandData.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
-Map<String, dynamic> _$$_ResultToJson(_$_Result instance) => <String, dynamic>{
+Map<String, dynamic> _$$ResultImplToJson(_$ResultImpl instance) =>
+    <String, dynamic>{
       'data': instance.data,
     };
 
-_$_BrandData _$$_BrandDataFromJson(Map<String, dynamic> json) => _$_BrandData(
+_$BrandDataImpl _$$BrandDataImplFromJson(Map<String, dynamic> json) =>
+    _$BrandDataImpl(
       id: json['_id'] as String?,
       role: json['role'] as String?,
       name: json['name'] as String?,
@@ -60,7 +62,7 @@ _$_BrandData _$$_BrandDataFromJson(Map<String, dynamic> json) => _$_BrandData(
       updatedAt: json['updatedAt'] as String?,
     );
 
-Map<String, dynamic> _$$_BrandDataToJson(_$_BrandData instance) =>
+Map<String, dynamic> _$$BrandDataImplToJson(_$BrandDataImpl instance) =>
     <String, dynamic>{
       '_id': instance.id,
       'role': instance.role,

@@ -6,8 +6,8 @@ part of 'tasbih_dikr_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_DhikrModel _$$_DhikrModelFromJson(Map<String, dynamic> json) =>
-    _$_DhikrModel(
+_$DhikrModelImpl _$$DhikrModelImplFromJson(Map<String, dynamic> json) =>
+    _$DhikrModelImpl(
       status: json['status'] as int?,
       message: json['message'] as String?,
       error: json['error'] as String?,
@@ -16,7 +16,7 @@ _$_DhikrModel _$$_DhikrModelFromJson(Map<String, dynamic> json) =>
           : Result.fromJson(json['result'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$_DhikrModelToJson(_$_DhikrModel instance) =>
+Map<String, dynamic> _$$DhikrModelImplToJson(_$DhikrModelImpl instance) =>
     <String, dynamic>{
       'status': instance.status,
       'message': instance.message,
@@ -24,17 +24,18 @@ Map<String, dynamic> _$$_DhikrModelToJson(_$_DhikrModel instance) =>
       'result': instance.result,
     };
 
-_$_Result _$$_ResultFromJson(Map<String, dynamic> json) => _$_Result(
+_$ResultImpl _$$ResultImplFromJson(Map<String, dynamic> json) => _$ResultImpl(
       data: (json['data'] as List<dynamic>)
           .map((e) => Data.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
-Map<String, dynamic> _$$_ResultToJson(_$_Result instance) => <String, dynamic>{
+Map<String, dynamic> _$$ResultImplToJson(_$ResultImpl instance) =>
+    <String, dynamic>{
       'data': instance.data,
     };
 
-_$_Data _$$_DataFromJson(Map<String, dynamic> json) => _$_Data(
+_$DataImpl _$$DataImplFromJson(Map<String, dynamic> json) => _$DataImpl(
       id: json['_id'] as String?,
       content: json['content'] as String?,
       meaning: json['meaning'] as String?,
@@ -46,7 +47,8 @@ _$_Data _$$_DataFromJson(Map<String, dynamic> json) => _$_Data(
       updatedAt: json['updatedAt'] as String?,
     );
 
-Map<String, dynamic> _$$_DataToJson(_$_Data instance) => <String, dynamic>{
+Map<String, dynamic> _$$DataImplToJson(_$DataImpl instance) =>
+    <String, dynamic>{
       '_id': instance.id,
       'content': instance.content,
       'meaning': instance.meaning,
@@ -56,14 +58,14 @@ Map<String, dynamic> _$$_DataToJson(_$_Data instance) => <String, dynamic>{
       'updatedAt': instance.updatedAt,
     };
 
-_$_Translation _$$_TranslationFromJson(Map<String, dynamic> json) =>
-    _$_Translation(
+_$TranslationImpl _$$TranslationImplFromJson(Map<String, dynamic> json) =>
+    _$TranslationImpl(
       language: json['language'] as String?,
       content: json['content'] as String?,
       id: json['_id'] as String?,
     );
 
-Map<String, dynamic> _$$_TranslationToJson(_$_Translation instance) =>
+Map<String, dynamic> _$$TranslationImplToJson(_$TranslationImpl instance) =>
     <String, dynamic>{
       'language': instance.language,
       'content': instance.content,

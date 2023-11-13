@@ -6,8 +6,8 @@ part of 'reason_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ReasonModel _$$_ReasonModelFromJson(Map<String, dynamic> json) =>
-    _$_ReasonModel(
+_$ReasonModelImpl _$$ReasonModelImplFromJson(Map<String, dynamic> json) =>
+    _$ReasonModelImpl(
       status: json['status'] as int?,
       message: json['message'] as String?,
       error: json['error'] as String?,
@@ -16,7 +16,7 @@ _$_ReasonModel _$$_ReasonModelFromJson(Map<String, dynamic> json) =>
           : Result.fromJson(json['result'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$_ReasonModelToJson(_$_ReasonModel instance) =>
+Map<String, dynamic> _$$ReasonModelImplToJson(_$ReasonModelImpl instance) =>
     <String, dynamic>{
       'status': instance.status,
       'message': instance.message,
@@ -24,17 +24,18 @@ Map<String, dynamic> _$$_ReasonModelToJson(_$_ReasonModel instance) =>
       'result': instance.result,
     };
 
-_$_Result _$$_ResultFromJson(Map<String, dynamic> json) => _$_Result(
+_$ResultImpl _$$ResultImplFromJson(Map<String, dynamic> json) => _$ResultImpl(
       data: json['data'] == null
           ? null
           : Data.fromJson(json['data'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$_ResultToJson(_$_Result instance) => <String, dynamic>{
+Map<String, dynamic> _$$ResultImplToJson(_$ResultImpl instance) =>
+    <String, dynamic>{
       'data': instance.data,
     };
 
-_$_Data _$$_DataFromJson(Map<String, dynamic> json) => _$_Data(
+_$DataImpl _$$DataImplFromJson(Map<String, dynamic> json) => _$DataImpl(
       id: json['_id'] as String?,
       reasons: (json['reasons'] as List<dynamic>?)
           ?.map((e) => Reason.fromJson(e as Map<String, dynamic>))
@@ -43,19 +44,21 @@ _$_Data _$$_DataFromJson(Map<String, dynamic> json) => _$_Data(
       updatedAt: json['updatedAt'] as String?,
     );
 
-Map<String, dynamic> _$$_DataToJson(_$_Data instance) => <String, dynamic>{
+Map<String, dynamic> _$$DataImplToJson(_$DataImpl instance) =>
+    <String, dynamic>{
       '_id': instance.id,
       'reasons': instance.reasons,
       'createdAt': instance.createdAt,
       'updatedAt': instance.updatedAt,
     };
 
-_$_Reason _$$_ReasonFromJson(Map<String, dynamic> json) => _$_Reason(
+_$ReasonImpl _$$ReasonImplFromJson(Map<String, dynamic> json) => _$ReasonImpl(
       text: json['text'] as String?,
       id: json['_id'] as String?,
     );
 
-Map<String, dynamic> _$$_ReasonToJson(_$_Reason instance) => <String, dynamic>{
+Map<String, dynamic> _$$ReasonImplToJson(_$ReasonImpl instance) =>
+    <String, dynamic>{
       'text': instance.text,
       '_id': instance.id,
     };

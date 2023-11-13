@@ -6,8 +6,8 @@ part of 'review_models.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ReviewModel _$$_ReviewModelFromJson(Map<String, dynamic> json) =>
-    _$_ReviewModel(
+_$ReviewModelImpl _$$ReviewModelImplFromJson(Map<String, dynamic> json) =>
+    _$ReviewModelImpl(
       status: json['status'] as int?,
       message: json['message'] as String?,
       error: json['error'] as String?,
@@ -16,7 +16,7 @@ _$_ReviewModel _$$_ReviewModelFromJson(Map<String, dynamic> json) =>
           : Result.fromJson(json['result'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$_ReviewModelToJson(_$_ReviewModel instance) =>
+Map<String, dynamic> _$$ReviewModelImplToJson(_$ReviewModelImpl instance) =>
     <String, dynamic>{
       'status': instance.status,
       'message': instance.message,
@@ -24,23 +24,25 @@ Map<String, dynamic> _$$_ReviewModelToJson(_$_ReviewModel instance) =>
       'result': instance.result,
     };
 
-_$_Result _$$_ResultFromJson(Map<String, dynamic> json) => _$_Result(
+_$ResultImpl _$$ResultImplFromJson(Map<String, dynamic> json) => _$ResultImpl(
       data: json['data'] == null
           ? null
           : Data.fromJson(json['data'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$_ResultToJson(_$_Result instance) => <String, dynamic>{
+Map<String, dynamic> _$$ResultImplToJson(_$ResultImpl instance) =>
+    <String, dynamic>{
       'data': instance.data,
     };
 
-_$_Data _$$_DataFromJson(Map<String, dynamic> json) => _$_Data(
+_$DataImpl _$$DataImplFromJson(Map<String, dynamic> json) => _$DataImpl(
       id: json['_id'] as String?,
       averageRating: (json['averageRating'] as num?)?.toDouble(),
       totalUsers: json['totalUsers'] as int?,
     );
 
-Map<String, dynamic> _$$_DataToJson(_$_Data instance) => <String, dynamic>{
+Map<String, dynamic> _$$DataImplToJson(_$DataImpl instance) =>
+    <String, dynamic>{
       '_id': instance.id,
       'averageRating': instance.averageRating,
       'totalUsers': instance.totalUsers,

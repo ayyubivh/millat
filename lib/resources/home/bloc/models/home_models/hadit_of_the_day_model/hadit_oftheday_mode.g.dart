@@ -6,9 +6,9 @@ part of 'hadit_oftheday_mode.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_HaditOfTheDayModel _$$_HaditOfTheDayModelFromJson(
+_$HaditOfTheDayModelImpl _$$HaditOfTheDayModelImplFromJson(
         Map<String, dynamic> json) =>
-    _$_HaditOfTheDayModel(
+    _$HaditOfTheDayModelImpl(
       status: json['status'] as int?,
       message: json['message'] as String?,
       error: json['error'] as String?,
@@ -17,8 +17,8 @@ _$_HaditOfTheDayModel _$$_HaditOfTheDayModelFromJson(
           : Result.fromJson(json['result'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$_HaditOfTheDayModelToJson(
-        _$_HaditOfTheDayModel instance) =>
+Map<String, dynamic> _$$HaditOfTheDayModelImplToJson(
+        _$HaditOfTheDayModelImpl instance) =>
     <String, dynamic>{
       'status': instance.status,
       'message': instance.message,
@@ -26,17 +26,18 @@ Map<String, dynamic> _$$_HaditOfTheDayModelToJson(
       'result': instance.result,
     };
 
-_$_Result _$$_ResultFromJson(Map<String, dynamic> json) => _$_Result(
+_$ResultImpl _$$ResultImplFromJson(Map<String, dynamic> json) => _$ResultImpl(
       data: (json['data'] as List<dynamic>?)
           ?.map((e) => Data.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
-Map<String, dynamic> _$$_ResultToJson(_$_Result instance) => <String, dynamic>{
+Map<String, dynamic> _$$ResultImplToJson(_$ResultImpl instance) =>
+    <String, dynamic>{
       'data': instance.data,
     };
 
-_$_Data _$$_DataFromJson(Map<String, dynamic> json) => _$_Data(
+_$DataImpl _$$DataImplFromJson(Map<String, dynamic> json) => _$DataImpl(
       id: json['_id'] as String?,
       title: json['title'] as String?,
       content: json['content'] as String?,
@@ -44,7 +45,8 @@ _$_Data _$$_DataFromJson(Map<String, dynamic> json) => _$_Data(
       updatedAt: json['updatedAt'] as String?,
     );
 
-Map<String, dynamic> _$$_DataToJson(_$_Data instance) => <String, dynamic>{
+Map<String, dynamic> _$$DataImplToJson(_$DataImpl instance) =>
+    <String, dynamic>{
       '_id': instance.id,
       'title': instance.title,
       'content': instance.content,

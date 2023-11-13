@@ -13,6 +13,7 @@ import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/loader.dart';
 import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/string_constants.dart';
+import 'package:millat/utils/utils.dart';
 
 class RewardsHomeView extends StatelessWidget {
   const RewardsHomeView({super.key});
@@ -329,15 +330,17 @@ class RewardsHomeView extends StatelessWidget {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Image.network(
-                                data[index].productId.images[0],
+                              Utilities().buildCachedNetworkImage(
+                                imageUrl:
+                                    data[index].productId?.images[0] ?? "",
                                 height: 73,
                                 width: 106,
-                                fit: BoxFit.fill,
+                                boxFit: BoxFit.fill,
                               ),
                               kHeight3,
                               Text(
-                                data[index].productId.salePrice.toString(),
+                                data[index].productId?.salePrice.toString() ??
+                                    "",
                                 style: TextStyle(
                                   fontSize: 13,
                                   fontWeight: FontWeight.w600,

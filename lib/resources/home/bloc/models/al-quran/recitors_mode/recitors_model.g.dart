@@ -6,20 +6,22 @@ part of 'recitors_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_RecitationsModel _$$_RecitationsModelFromJson(Map<String, dynamic> json) =>
-    _$_RecitationsModel(
+_$RecitationsModelImpl _$$RecitationsModelImplFromJson(
+        Map<String, dynamic> json) =>
+    _$RecitationsModelImpl(
       recitations: (json['recitations'] as List<dynamic>)
           .map((e) => Recitations.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
-Map<String, dynamic> _$$_RecitationsModelToJson(_$_RecitationsModel instance) =>
+Map<String, dynamic> _$$RecitationsModelImplToJson(
+        _$RecitationsModelImpl instance) =>
     <String, dynamic>{
       'recitations': instance.recitations,
     };
 
-_$_Recitations _$$_RecitationsFromJson(Map<String, dynamic> json) =>
-    _$_Recitations(
+_$RecitationsImpl _$$RecitationsImplFromJson(Map<String, dynamic> json) =>
+    _$RecitationsImpl(
       id: json['id'] as int,
       recitorName: json['reciter_name'] as String,
       translatedName: TranslatedName.fromJson(
@@ -27,7 +29,7 @@ _$_Recitations _$$_RecitationsFromJson(Map<String, dynamic> json) =>
       style: json['style'] as String?,
     );
 
-Map<String, dynamic> _$$_RecitationsToJson(_$_Recitations instance) =>
+Map<String, dynamic> _$$RecitationsImplToJson(_$RecitationsImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'reciter_name': instance.recitorName,
@@ -35,13 +37,14 @@ Map<String, dynamic> _$$_RecitationsToJson(_$_Recitations instance) =>
       'style': instance.style,
     };
 
-_$_TranslatedName _$$_TranslatedNameFromJson(Map<String, dynamic> json) =>
-    _$_TranslatedName(
+_$TranslatedNameImpl _$$TranslatedNameImplFromJson(Map<String, dynamic> json) =>
+    _$TranslatedNameImpl(
       name: json['name'] as String,
       languageName: json['language_name'] as String,
     );
 
-Map<String, dynamic> _$$_TranslatedNameToJson(_$_TranslatedName instance) =>
+Map<String, dynamic> _$$TranslatedNameImplToJson(
+        _$TranslatedNameImpl instance) =>
     <String, dynamic>{
       'name': instance.name,
       'language_name': instance.languageName,

@@ -95,11 +95,11 @@ class _$EventOfTheMonthModelCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_EventOfTheMonthModelCopyWith<$Res>
+abstract class _$$EventOfTheMonthModelImplCopyWith<$Res>
     implements $EventOfTheMonthModelCopyWith<$Res> {
-  factory _$$_EventOfTheMonthModelCopyWith(_$_EventOfTheMonthModel value,
-          $Res Function(_$_EventOfTheMonthModel) then) =
-      __$$_EventOfTheMonthModelCopyWithImpl<$Res>;
+  factory _$$EventOfTheMonthModelImplCopyWith(_$EventOfTheMonthModelImpl value,
+          $Res Function(_$EventOfTheMonthModelImpl) then) =
+      __$$EventOfTheMonthModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int? status, String? message, String? error, EventResult? result});
@@ -109,11 +109,11 @@ abstract class _$$_EventOfTheMonthModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_EventOfTheMonthModelCopyWithImpl<$Res>
-    extends _$EventOfTheMonthModelCopyWithImpl<$Res, _$_EventOfTheMonthModel>
-    implements _$$_EventOfTheMonthModelCopyWith<$Res> {
-  __$$_EventOfTheMonthModelCopyWithImpl(_$_EventOfTheMonthModel _value,
-      $Res Function(_$_EventOfTheMonthModel) _then)
+class __$$EventOfTheMonthModelImplCopyWithImpl<$Res>
+    extends _$EventOfTheMonthModelCopyWithImpl<$Res, _$EventOfTheMonthModelImpl>
+    implements _$$EventOfTheMonthModelImplCopyWith<$Res> {
+  __$$EventOfTheMonthModelImplCopyWithImpl(_$EventOfTheMonthModelImpl _value,
+      $Res Function(_$EventOfTheMonthModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -124,7 +124,7 @@ class __$$_EventOfTheMonthModelCopyWithImpl<$Res>
     Object? error = freezed,
     Object? result = freezed,
   }) {
-    return _then(_$_EventOfTheMonthModel(
+    return _then(_$EventOfTheMonthModelImpl(
       status: freezed == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -147,12 +147,12 @@ class __$$_EventOfTheMonthModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_EventOfTheMonthModel implements _EventOfTheMonthModel {
-  const _$_EventOfTheMonthModel(
+class _$EventOfTheMonthModelImpl implements _EventOfTheMonthModel {
+  const _$EventOfTheMonthModelImpl(
       {this.status, this.message, this.error, this.result});
 
-  factory _$_EventOfTheMonthModel.fromJson(Map<String, dynamic> json) =>
-      _$$_EventOfTheMonthModelFromJson(json);
+  factory _$EventOfTheMonthModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$EventOfTheMonthModelImplFromJson(json);
 
   @override
   final int? status;
@@ -172,7 +172,7 @@ class _$_EventOfTheMonthModel implements _EventOfTheMonthModel {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_EventOfTheMonthModel &&
+            other is _$EventOfTheMonthModelImpl &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.message, message) || other.message == message) &&
             (identical(other.error, error) || other.error == error) &&
@@ -186,13 +186,14 @@ class _$_EventOfTheMonthModel implements _EventOfTheMonthModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_EventOfTheMonthModelCopyWith<_$_EventOfTheMonthModel> get copyWith =>
-      __$$_EventOfTheMonthModelCopyWithImpl<_$_EventOfTheMonthModel>(
-          this, _$identity);
+  _$$EventOfTheMonthModelImplCopyWith<_$EventOfTheMonthModelImpl>
+      get copyWith =>
+          __$$EventOfTheMonthModelImplCopyWithImpl<_$EventOfTheMonthModelImpl>(
+              this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_EventOfTheMonthModelToJson(
+    return _$$EventOfTheMonthModelImplToJson(
       this,
     );
   }
@@ -203,10 +204,10 @@ abstract class _EventOfTheMonthModel implements EventOfTheMonthModel {
       {final int? status,
       final String? message,
       final String? error,
-      final EventResult? result}) = _$_EventOfTheMonthModel;
+      final EventResult? result}) = _$EventOfTheMonthModelImpl;
 
   factory _EventOfTheMonthModel.fromJson(Map<String, dynamic> json) =
-      _$_EventOfTheMonthModel.fromJson;
+      _$EventOfTheMonthModelImpl.fromJson;
 
   @override
   int? get status;
@@ -218,8 +219,8 @@ abstract class _EventOfTheMonthModel implements EventOfTheMonthModel {
   EventResult? get result;
   @override
   @JsonKey(ignore: true)
-  _$$_EventOfTheMonthModelCopyWith<_$_EventOfTheMonthModel> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$EventOfTheMonthModelImplCopyWith<_$EventOfTheMonthModelImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 EventResult _$EventResultFromJson(Map<String, dynamic> json) {
@@ -270,22 +271,22 @@ class _$EventResultCopyWithImpl<$Res, $Val extends EventResult>
 }
 
 /// @nodoc
-abstract class _$$_EventResultCopyWith<$Res>
+abstract class _$$EventResultImplCopyWith<$Res>
     implements $EventResultCopyWith<$Res> {
-  factory _$$_EventResultCopyWith(
-          _$_EventResult value, $Res Function(_$_EventResult) then) =
-      __$$_EventResultCopyWithImpl<$Res>;
+  factory _$$EventResultImplCopyWith(
+          _$EventResultImpl value, $Res Function(_$EventResultImpl) then) =
+      __$$EventResultImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<EventItem>? event});
 }
 
 /// @nodoc
-class __$$_EventResultCopyWithImpl<$Res>
-    extends _$EventResultCopyWithImpl<$Res, _$_EventResult>
-    implements _$$_EventResultCopyWith<$Res> {
-  __$$_EventResultCopyWithImpl(
-      _$_EventResult _value, $Res Function(_$_EventResult) _then)
+class __$$EventResultImplCopyWithImpl<$Res>
+    extends _$EventResultCopyWithImpl<$Res, _$EventResultImpl>
+    implements _$$EventResultImplCopyWith<$Res> {
+  __$$EventResultImplCopyWithImpl(
+      _$EventResultImpl _value, $Res Function(_$EventResultImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -293,7 +294,7 @@ class __$$_EventResultCopyWithImpl<$Res>
   $Res call({
     Object? event = freezed,
   }) {
-    return _then(_$_EventResult(
+    return _then(_$EventResultImpl(
       event: freezed == event
           ? _value._event
           : event // ignore: cast_nullable_to_non_nullable
@@ -304,11 +305,11 @@ class __$$_EventResultCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_EventResult implements _EventResult {
-  const _$_EventResult({final List<EventItem>? event}) : _event = event;
+class _$EventResultImpl implements _EventResult {
+  const _$EventResultImpl({final List<EventItem>? event}) : _event = event;
 
-  factory _$_EventResult.fromJson(Map<String, dynamic> json) =>
-      _$$_EventResultFromJson(json);
+  factory _$EventResultImpl.fromJson(Map<String, dynamic> json) =>
+      _$$EventResultImplFromJson(json);
 
   final List<EventItem>? _event;
   @override
@@ -329,7 +330,7 @@ class _$_EventResult implements _EventResult {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_EventResult &&
+            other is _$EventResultImpl &&
             const DeepCollectionEquality().equals(other._event, _event));
   }
 
@@ -341,28 +342,29 @@ class _$_EventResult implements _EventResult {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_EventResultCopyWith<_$_EventResult> get copyWith =>
-      __$$_EventResultCopyWithImpl<_$_EventResult>(this, _$identity);
+  _$$EventResultImplCopyWith<_$EventResultImpl> get copyWith =>
+      __$$EventResultImplCopyWithImpl<_$EventResultImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_EventResultToJson(
+    return _$$EventResultImplToJson(
       this,
     );
   }
 }
 
 abstract class _EventResult implements EventResult {
-  const factory _EventResult({final List<EventItem>? event}) = _$_EventResult;
+  const factory _EventResult({final List<EventItem>? event}) =
+      _$EventResultImpl;
 
   factory _EventResult.fromJson(Map<String, dynamic> json) =
-      _$_EventResult.fromJson;
+      _$EventResultImpl.fromJson;
 
   @override
   List<EventItem>? get event;
   @override
   @JsonKey(ignore: true)
-  _$$_EventResultCopyWith<_$_EventResult> get copyWith =>
+  _$$EventResultImplCopyWith<_$EventResultImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -436,10 +438,11 @@ class _$EventItemCopyWithImpl<$Res, $Val extends EventItem>
 }
 
 /// @nodoc
-abstract class _$$_EventItemCopyWith<$Res> implements $EventItemCopyWith<$Res> {
-  factory _$$_EventItemCopyWith(
-          _$_EventItem value, $Res Function(_$_EventItem) then) =
-      __$$_EventItemCopyWithImpl<$Res>;
+abstract class _$$EventItemImplCopyWith<$Res>
+    implements $EventItemCopyWith<$Res> {
+  factory _$$EventItemImplCopyWith(
+          _$EventItemImpl value, $Res Function(_$EventItemImpl) then) =
+      __$$EventItemImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -450,11 +453,11 @@ abstract class _$$_EventItemCopyWith<$Res> implements $EventItemCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_EventItemCopyWithImpl<$Res>
-    extends _$EventItemCopyWithImpl<$Res, _$_EventItem>
-    implements _$$_EventItemCopyWith<$Res> {
-  __$$_EventItemCopyWithImpl(
-      _$_EventItem _value, $Res Function(_$_EventItem) _then)
+class __$$EventItemImplCopyWithImpl<$Res>
+    extends _$EventItemCopyWithImpl<$Res, _$EventItemImpl>
+    implements _$$EventItemImplCopyWith<$Res> {
+  __$$EventItemImplCopyWithImpl(
+      _$EventItemImpl _value, $Res Function(_$EventItemImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -465,7 +468,7 @@ class __$$_EventItemCopyWithImpl<$Res>
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
   }) {
-    return _then(_$_EventItem(
+    return _then(_$EventItemImpl(
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -488,16 +491,16 @@ class __$$_EventItemCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_EventItem implements _EventItem {
-  const _$_EventItem(
+class _$EventItemImpl implements _EventItem {
+  const _$EventItemImpl(
       {@JsonKey(name: "_id") this.id,
       final List<String>? images,
       this.createdAt,
       this.updatedAt})
       : _images = images;
 
-  factory _$_EventItem.fromJson(Map<String, dynamic> json) =>
-      _$$_EventItemFromJson(json);
+  factory _$EventItemImpl.fromJson(Map<String, dynamic> json) =>
+      _$$EventItemImplFromJson(json);
 
   @override
   @JsonKey(name: "_id")
@@ -526,7 +529,7 @@ class _$_EventItem implements _EventItem {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_EventItem &&
+            other is _$EventItemImpl &&
             (identical(other.id, id) || other.id == id) &&
             const DeepCollectionEquality().equals(other._images, _images) &&
             (identical(other.createdAt, createdAt) ||
@@ -543,12 +546,12 @@ class _$_EventItem implements _EventItem {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_EventItemCopyWith<_$_EventItem> get copyWith =>
-      __$$_EventItemCopyWithImpl<_$_EventItem>(this, _$identity);
+  _$$EventItemImplCopyWith<_$EventItemImpl> get copyWith =>
+      __$$EventItemImplCopyWithImpl<_$EventItemImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_EventItemToJson(
+    return _$$EventItemImplToJson(
       this,
     );
   }
@@ -559,10 +562,10 @@ abstract class _EventItem implements EventItem {
       {@JsonKey(name: "_id") final String? id,
       final List<String>? images,
       final String? createdAt,
-      final String? updatedAt}) = _$_EventItem;
+      final String? updatedAt}) = _$EventItemImpl;
 
   factory _EventItem.fromJson(Map<String, dynamic> json) =
-      _$_EventItem.fromJson;
+      _$EventItemImpl.fromJson;
 
   @override
   @JsonKey(name: "_id")
@@ -575,6 +578,6 @@ abstract class _EventItem implements EventItem {
   String? get updatedAt;
   @override
   @JsonKey(ignore: true)
-  _$$_EventItemCopyWith<_$_EventItem> get copyWith =>
+  _$$EventItemImplCopyWith<_$EventItemImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

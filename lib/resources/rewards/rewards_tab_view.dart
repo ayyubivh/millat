@@ -19,7 +19,7 @@ class RewardsTabView extends StatelessWidget {
     final screens = [
       const RewardsHomeView(),
       const RewardShopView(),
-      const HowToReedemView(),
+      const HowToRedeemView(),
       const UserProfileView(),
     ];
     return BlocBuilder<RewardsBloc, RewardsState>(

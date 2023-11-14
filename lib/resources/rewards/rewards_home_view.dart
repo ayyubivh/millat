@@ -241,7 +241,7 @@ class RewardsHomeView extends StatelessWidget {
                     imageAsset: AppAssetsStrings.howToRedeem,
                     onTap: () {
                       Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => const HowToReedemView(),
+                        builder: (context) => const HowToRedeemView(),
                       ));
                     },
                   ),

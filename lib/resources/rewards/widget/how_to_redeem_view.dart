@@ -5,8 +5,8 @@ import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/string_constants.dart';
 
-class HowToReedemView extends StatelessWidget {
-  const HowToReedemView({super.key});
+class HowToRedeemView extends StatelessWidget {
+  const HowToRedeemView({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millat/resources/authentication/bloc/logic/database_bloc/database_bloc.dart';
 import 'package:millat/resources/rewards/bloc/logic/bloc/rewards_bloc_bloc.dart';
+import 'package:millat/resources/rewards/widget/daily_coins_widget.dart';
 import 'package:millat/resources/rewards/widget/how_to_earn_view.dart';
 import 'package:millat/resources/rewards/widget/how_to_redeem_view.dart';
 import 'package:millat/resources/rewards/widget/redeem_rewards_view.dart';
@@ -52,180 +53,12 @@ class RewardsHomeView extends StatelessWidget {
               kHeight15,
               _shopWithCoinsWidget(context),
               kHeight15,
-              Container(
-                height: 175,
-                width: SizeUtility(context).width,
-                decoration: BoxDecoration(
-                  borderRadius: const BorderRadius.vertical(
-                    top: Radius.circular(12),
-                  ),
-                  image: const DecorationImage(
-                    image: AssetImage(
-                      AppAssetsStrings.rewardCoinsBg,
-                    ),
-                    fit: BoxFit.fitWidth,
-                  ),
-                  gradient: LinearGradient(
-                    colors: [
-                      ColorManager.primary,
-                      ColorManager.primaryGreenGradient,
-                    ],
-                    begin: Alignment.center,
-                    end: Alignment.topRight,
-                  ),
-                ),
-                padding: const EdgeInsets.all(20),
-                child: Column(
-                  children: [
-                    Row(
-                      children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Container(
-                              height: 28,
-                              width: 92,
-                              decoration: BoxDecoration(
-                                color: ColorManager.whiteColor,
-                                borderRadius: BorderRadius.circular(100),
-                              ),
-                              child: Center(
-                                child: Text(
-                                  Appstrings.dailyCoins,
-                                  style: TextStyle(
-                                    fontSize: 12,
-                                    color: ColorManager.primary,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            kHeight16,
-                            Text(
-                              Appstrings.text500,
-                              style: TextStyle(
-                                fontSize: 40,
-                                fontWeight: FontWeight.w900,
-                                color: ColorManager.whiteColor,
-                              ),
-                            ),
-                            kHeight5,
-                            Text(
-                              Appstrings.coins,
-                              style: TextStyle(
-                                fontSize: 24,
-                                fontWeight: FontWeight.w800,
-                                color: ColorManager.whiteColor,
-                              ),
-                            ),
-                          ],
-                        ),
-                        // Expanded(
-                        //   child: Container(
-                        //     padding: const EdgeInsets.only(left: 130),
-                        //     // color: Colors.amber,
-                        //     child: Image.asset(
-                        //       AppAssetsStrings.rewardMoney,
-                        //       width: SizeUtility(context).width / 2,
-                        //       height: 113,
-                        //       fit: BoxFit.contain,
-                        //     ),
-                        //   ),
-                        // )
-                      ],
-                    ),
-                    kHeight8,
-                    Align(
-                      alignment: Alignment.topLeft,
-                      child: Text(
-                        Appstrings.earnFreeConins,
-                        style: TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.w600,
-                          color: ColorManager.whiteColor,
-                        ),
-                      ),
-                    )
-                  ],
-                ),
-              ),
-              Container(
-                height: 135,
-                width: SizeUtility(context).width,
-                decoration: BoxDecoration(
-                    color: ColorManager.whiteColor,
-                    border: Border.all(
-                      color: ColorManager.primary,
-                    ),
-                    borderRadius: const BorderRadius.vertical(
-                      bottom: Radius.circular(12),
-                    )),
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 20,
-                ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        Row(
-                          children: [
-                            _numberContainer(),
-                            kWidth15,
-                            _numberContainer(),
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            _numberContainer(),
-                            kWidth15,
-                            _numberContainer(),
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            _numberContainer(),
-                            kWidth15,
-                            _numberContainer(),
-                          ],
-                        ),
-                      ],
-                    ),
-                    kHeight20,
-                    Container(
-                      height: 38,
-                      width: SizeUtility(context).width,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(4),
-                          color: ColorManager.primary,
-                          gradient: LinearGradient(
-                            colors: [
-                              ColorManager.primary.withOpacity(0.6),
-                              ColorManager.primary,
-                            ],
-                            begin: Alignment.topCenter,
-                            end: Alignment.bottomCenter,
-                          )),
-                      child: Center(
-                        child: Text(
-                          Appstrings.collect,
-                          style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w700,
-                            color: ColorManager.whiteColor,
-                          ),
-                        ),
-                      ),
-                    )
-                  ],
-                ),
-              ),
+              const DailyCoinsWidget(),
               kHeight20,
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  lastContinerWidget(
+                  lastContainerWidget(
                     context: context,
                     text: Appstrings.howEarn,
                     imageAsset: AppAssetsStrings.howToEarn,
@@ -235,7 +68,7 @@ class RewardsHomeView extends StatelessWidget {
                       ));
                     },
                   ),
-                  lastContinerWidget(
+                  lastContainerWidget(
                     context: context,
                     text: Appstrings.howRedeem,
                     imageAsset: AppAssetsStrings.howToRedeem,
@@ -528,7 +361,7 @@ class RewardsHomeView extends StatelessWidget {
     );
   }
 
-  Widget lastContinerWidget(
+  Widget lastContainerWidget(
       {required BuildContext context,
       required String text,
       required String imageAsset,
@@ -560,33 +393,6 @@ class RewardsHomeView extends StatelessWidget {
               color: ColorManager.whiteColor,
             )
           ],
-        ),
-      ),
-    );
-  }
-
-  Container _numberContainer() {
-    return Container(
-      height: 30,
-      width: 30,
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(4),
-          gradient: LinearGradient(
-            colors: [
-              ColorManager.primaryGreenGradient2,
-              ColorManager.primary,
-            ],
-            begin: Alignment.topRight,
-            end: Alignment.bottomRight,
-          )),
-      child: Center(
-        child: Text(
-          "0",
-          style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.w800,
-            color: ColorManager.whiteColor,
-          ),
         ),
       ),
     );

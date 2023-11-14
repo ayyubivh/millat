@@ -83,7 +83,7 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
             var options = {
               'order_id': state.orderIdRazorPay,
               'key': 'rzp_live_CPvXnR4zHHC8cD',
-              'amount': state.totalAmount * 100,
+              'amount': 1,
               'name': 'Millat',
               'description': cartItems![0].productId?.title,
               'retry': {'enabled': true, 'max_count': 1},
@@ -99,7 +99,8 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
             };
             _razorpay.open(options);
           } else if (state.orderId != null && state.orderSucces) {
-            context.pushNamed(MyAppRouteConstants.paymentSuccessfullRouteName,
+            context.pushReplacementNamed(
+                MyAppRouteConstants.paymentSuccessfullRouteName,
                 extra: {'subTotal': state.totalAmount, 'delivery': 90});
           }
         },
@@ -431,7 +432,7 @@ class _CheckoutConfirmationState extends State<CheckoutConfirmation> {
                           } else {
                             context.read<ShopProductsBloc>().add(
                                 ShopProductsEvent.postOrderIdOnlinePayment(
-                                    context: context, amount: total));
+                                    context: context, amount: 1));
                           }
                         }),
               ],

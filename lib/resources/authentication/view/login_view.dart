@@ -35,7 +35,7 @@ class _LoginViewState extends State<LoginView> {
           buildError(state.errorMessage);
         } else if (state is AuthLoaded) {
           clearDate();
-          context.goNamed(MyAppRouteConstants.homeTabsRouteName);
+          context.pushReplacementNamed(MyAppRouteConstants.homeTabsRouteName);
         }
       },
       builder: (context, state) {

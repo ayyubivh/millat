@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:millat/utils/utils.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/color_manager.dart';
@@ -21,35 +22,41 @@ class _DailyCoinsWidgetState extends State<DailyCoinsWidget> {
   final deadLine = DateTime.now().add(const Duration(hours: 8));
   SharedPreferences? prefs;
   final String lastTimestampKey = 'lastTimestamp';
-
+  final Duration dailyDuration = const Duration(hours: 8);
   @override
   void initState() {
     super.initState();
     print("latest time ========= ${_loadLastTimestamp()}");
-    _initializeSharedPreferences();
+
     _loadLastTimestamp();
-    calculateTimeLeft(deadLine);
-    _timer = Timer.periodic(
-        const Duration(seconds: 1), (_) => calculateTimeLeft(deadLine));
+    calculateTimeLeft();
+    _timer =
+        Timer.periodic(const Duration(seconds: 1), (_) => calculateTimeLeft());
   }
 
-  _initializeSharedPreferences() async {
-    prefs = await SharedPreferences.getInstance();
-  }
-
-  calculateTimeLeft(DateTime deadLine) {
-    final seconds = deadLine.difference(DateTime.now()).inSeconds;
+  calculateTimeLeft() {
+    final lastTimestamp = _loadLastTimestamp();
+    // print(lastTimestamp);
+    final now = DateTime.now();
+    final elapsedSeconds = now.difference(lastTimestamp).inSeconds;
+    // print(elapsedSeconds);
+    // print(dailyDuration.inSeconds);
+    final remainingSeconds = dailyDuration.inSeconds - elapsedSeconds;
+    // print(remainingSeconds);
+    final adjustedDuration = Duration(seconds: remainingSeconds);
+    // print("adjust duration is here-  -  -  - - - -  $adjustedDuration");
     setState(() {
-      duration = Duration(seconds: seconds);
-      _saveCurrentTimestamp();
+      duration = adjustedDuration;
     });
   }
 
   _saveCurrentTimestamp() {
-    prefs?.setInt(lastTimestampKey, DateTime.now().millisecondsSinceEpoch);
+    print(DateTime.now().millisecondsSinceEpoch);
+    Utilities.saveIntToSharedPreferences(
+        lastTimestampKey, DateTime.now().millisecondsSinceEpoch);
   }
 
-  _loadLastTimestamp() {
+  DateTime _loadLastTimestamp() {
     final lastTimestamp = prefs?.getInt(lastTimestampKey) ??
         DateTime.now().millisecondsSinceEpoch;
     return DateTime.fromMillisecondsSinceEpoch(lastTimestamp);
@@ -57,6 +64,7 @@ class _DailyCoinsWidgetState extends State<DailyCoinsWidget> {
 
   @override
   void dispose() {
+    _saveCurrentTimestamp();
     _timer.cancel();
     super.dispose();
   }

@@ -12,6 +12,8 @@ import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/string_constants.dart';
 import 'package:millat/utils/utils.dart';
 
+import '../../../../utils/shimmer_utils.dart';
+
 class ShopBrandView extends StatelessWidget {
   const ShopBrandView({super.key});
 
@@ -159,7 +161,15 @@ class ShopBrandView extends StatelessWidget {
             builder: (context, state) {
               if (state.topBrandsModel?.result?.data == null) {
                 print(state.topBrandsModel);
-                return const Loader();
+                return Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: List.generate(
+                      3,
+                      (index) => Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 10),
+                        child: ShimmerUtils.categoriesShimmers(),
+                      ),
+                    ));
               }
               return Padding(
                 padding: const EdgeInsets.all(12.0),

@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:millat/components/shimmers/shimmers_widget_products.dart';
 import 'package:millat/resources/authentication/bloc/logic/database_bloc/database_bloc.dart';
 import 'package:millat/resources/shop/bloc/logic/shop_bloc/shop_products_bloc.dart';
 import 'package:millat/resources/shop/view/article/widgets/artilce_build_widget.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
-import 'package:millat/utils/loader.dart';
 import 'package:millat/utils/shimmer_utils.dart';
 import 'package:millat/utils/string_constants.dart';
 import 'package:millat/utils/utils.dart';

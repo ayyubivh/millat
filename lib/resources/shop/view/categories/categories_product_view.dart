@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:millat/components/buttons/main_button.dart';
-import 'package:millat/components/shimmers/shimmers_widget_products.dart';
 import 'package:millat/enums/enumertations.dart';
 import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/constants.dart';
+import 'package:millat/utils/shimmer_utils.dart';
 import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/string_constants.dart';
 import '../../../../components/common_widgets/shop_products_widget.dart';
@@ -98,7 +98,7 @@ class CategoriesProductView extends StatelessWidget {
                   builder: (context, state) {
                     return type == FilterType.category
                         ? state.productLoading
-                            ? const ShimmersProducts()
+                            ? ShimmerUtils.productsShimmers(context)
                             : Expanded(
                                 child: GridView.builder(
                                   gridDelegate:
@@ -115,7 +115,7 @@ class CategoriesProductView extends StatelessWidget {
                                     final data =
                                         state.product?.result?.products?[index];
                                     return data == null
-                                        ? const ShimmersProducts()
+                                        ? ShimmerUtils.productsShimmers(context)
                                         : GestureDetector(
                                             onTap: () {
                                               // print(data.id);
@@ -162,7 +162,7 @@ class CategoriesProductView extends StatelessWidget {
                                 final datas =
                                     state.product?.result?.products?[index];
                                 return datas == null
-                                    ? const ShimmersProducts()
+                                    ? ShimmerUtils.productsShimmers(context)
                                     : GestureDetector(
                                         onTap: () {
                                           context.pushNamed(

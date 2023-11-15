@@ -1,28 +1,69 @@
 import 'package:flutter/material.dart';
 import 'package:millat/utils/constants.dart';
+import 'package:millat/utils/size_utility.dart';
 import 'package:shimmer/shimmer.dart';
 
 class ShimmerUtils {
-  static Widget brandCategoriesShimmers() {
-    return Column(
+  // rectangle shimmers
+  static Widget customRectangleShimmer(double width, double height,
+      {double borderRadius = 0}) {
+    return ShimmerUtilWidget.rectangle(
+      width: width,
+      height: height,
+      borderRadius: borderRadius,
+    );
+  }
+
+  // brand category shimmers
+  static Widget categoriesShimmers() {
+    return const Column(
       children: [
-        const ShimmerUtilWidget.borderRectangle(
+        ShimmerUtilWidget.borderRectangle(
           height: 60,
           width: 60,
         ),
         kHeight10,
         ShimmerUtilWidget.rectangle(
           height: 8,
-          radius: BorderRadius.circular(0),
           width: 40,
         )
       ],
     );
   }
 
+// product shimmers
+  static Widget productsShimmers(BuildContext context) {
+    final width = SizeUtility(context).width;
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        ShimmerUtilWidget.borderRectangle(
+          height: 136,
+          width: width / 3,
+        ),
+        kHeight8,
+        ShimmerUtilWidget.rectangle(
+          height: 8,
+          width: width / 5,
+        ),
+        kHeight8,
+        ShimmerUtilWidget.rectangle(
+          height: 8,
+          width: width / 4,
+        ),
+        kHeight8,
+        ShimmerUtilWidget.rectangle(
+          height: 5,
+          width: width / 6,
+        ),
+      ],
+    );
+  }
+
+// articles screen shimmer
   static Widget articlesShimmer() {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 30),
+    return const Padding(
+      padding: EdgeInsets.symmetric(horizontal: 30),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -31,33 +72,30 @@ class ShimmerUtils {
             children: [
               ShimmerUtilWidget.rectangle(
                 height: 8,
-                radius: BorderRadius.circular(0),
                 width: 200,
               ),
               kHeight8,
               ShimmerUtilWidget.rectangle(
                 height: 8,
-                radius: BorderRadius.circular(0),
                 width: 170,
               ),
               kHeight8,
               ShimmerUtilWidget.rectangle(
                 height: 8,
-                radius: BorderRadius.circular(0),
                 width: 40,
               ),
               kHeight8,
               ShimmerUtilWidget.rectangle(
                 height: 8,
-                radius: BorderRadius.circular(0),
                 width: 80,
               )
             ],
           ),
-          const Spacer(),
-          const ShimmerUtilWidget.borderRectangle(
+          Spacer(),
+          ShimmerUtilWidget.borderRectangle(
             height: 60,
             width: 60,
+            borderRadius: 16,
           ),
         ],
       ),
@@ -70,24 +108,22 @@ class ShimmerUtilWidget extends StatelessWidget {
       {super.key,
       required this.width,
       required this.height,
-      this.shapeBorder = const RoundedRectangleBorder(),
-      required BorderRadius radius});
+      this.borderRadius = 0});
   const ShimmerUtilWidget(
-      {super.key, required this.width, required this.height, this.shapeBorder});
+      {super.key,
+      required this.width,
+      required this.height,
+      this.borderRadius});
   const ShimmerUtilWidget.borderRectangle({
     super.key,
     required this.width,
     required this.height,
-    this.shapeBorder = const RoundedRectangleBorder(
-      borderRadius: BorderRadius.all(
-        Radius.circular(12),
-      ),
-    ),
+    this.borderRadius = 12,
   });
 
   final double width;
   final double height;
-  final ShapeBorder? shapeBorder;
+  final double? borderRadius;
   @override
   Widget build(BuildContext context) {
     return Shimmer.fromColors(
@@ -97,7 +133,8 @@ class ShimmerUtilWidget extends StatelessWidget {
         width: width,
         height: height,
         decoration: ShapeDecoration(
-          shape: shapeBorder!,
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(borderRadius!)),
           color: Colors.grey,
         ),
       ),

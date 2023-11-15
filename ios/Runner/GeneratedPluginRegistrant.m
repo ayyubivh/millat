@@ -90,8 +90,8 @@
 @import onesignal_flutter;
 #endif
 
-#if __has_include(<package_info_plus/FPPPackageInfoPlusPlugin.h>)
-#import <package_info_plus/FPPPackageInfoPlusPlugin.h>
+#if __has_include(<package_info_plus/FLTPackageInfoPlusPlugin.h>)
+#import <package_info_plus/FLTPackageInfoPlusPlugin.h>
 #else
 @import package_info_plus;
 #endif
@@ -114,8 +114,8 @@
 @import razorpay_flutter;
 #endif
 
-#if __has_include(<share_plus/FPPSharePlusPlugin.h>)
-#import <share_plus/FPPSharePlusPlugin.h>
+#if __has_include(<share_plus/FLTSharePlusPlugin.h>)
+#import <share_plus/FLTSharePlusPlugin.h>
 #else
 @import share_plus;
 #endif
@@ -167,11 +167,11 @@
   [JustAudioPlugin registerWithRegistrar:[registry registrarForPlugin:@"JustAudioPlugin"]];
   [FLTLibphonenumberPlugin registerWithRegistrar:[registry registrarForPlugin:@"FLTLibphonenumberPlugin"]];
   [OneSignalPlugin registerWithRegistrar:[registry registrarForPlugin:@"OneSignalPlugin"]];
-  [FPPPackageInfoPlusPlugin registerWithRegistrar:[registry registrarForPlugin:@"FPPPackageInfoPlusPlugin"]];
+  [FLTPackageInfoPlusPlugin registerWithRegistrar:[registry registrarForPlugin:@"FLTPackageInfoPlusPlugin"]];
   [PathProviderPlugin registerWithRegistrar:[registry registrarForPlugin:@"PathProviderPlugin"]];
   [PermissionHandlerPlugin registerWithRegistrar:[registry registrarForPlugin:@"PermissionHandlerPlugin"]];
   [RazorpayFlutterPlugin registerWithRegistrar:[registry registrarForPlugin:@"RazorpayFlutterPlugin"]];
-  [FPPSharePlusPlugin registerWithRegistrar:[registry registrarForPlugin:@"FPPSharePlusPlugin"]];
+  [FLTSharePlusPlugin registerWithRegistrar:[registry registrarForPlugin:@"FLTSharePlusPlugin"]];
   [SharedPreferencesPlugin registerWithRegistrar:[registry registrarForPlugin:@"SharedPreferencesPlugin"]];
   [SignInWithApplePlugin registerWithRegistrar:[registry registrarForPlugin:@"SignInWithApplePlugin"]];
   [SmartAuthPlugin registerWithRegistrar:[registry registrarForPlugin:@"SmartAuthPlugin"]];

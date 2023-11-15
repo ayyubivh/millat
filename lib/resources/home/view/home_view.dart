@@ -12,6 +12,7 @@ import 'package:millat/components/shimmers/shimmer_widget.dart';
 import 'package:millat/resources/travel/bloc/service/travel_services.dart';
 
 import 'package:millat/routes/app_router_constants.dart';
+import 'package:millat/utils/shimmer_utils.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:millat/resources/home/bloc/logic/bookmark_bloc/bookmark_bloc.dart';
@@ -364,11 +365,7 @@ class _HomeViewState extends State<HomeView> {
                                       ],
                                     ),
                                   ),
-                                  Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 30),
-                                    child: _brandOftheDayWidget(),
-                                  ),
+                                  _brandOftheDayWidget(),
                                   kHeight50,
                                   kHeight50,
                                 ],
@@ -389,110 +386,120 @@ class _HomeViewState extends State<HomeView> {
   }
 
   Widget _brandOftheDayWidget() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const Text(
-          Appstrings.homeHeading3,
-          style: TextStyle(
-            fontSize: 17,
-            fontWeight: FontWeight.w600,
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 30),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Text(
+            Appstrings.homeHeading3,
+            style: TextStyle(
+              fontSize: 17,
+              fontWeight: FontWeight.w600,
+            ),
           ),
-        ),
-        kHeight15,
-        BlocBuilder<HomeBloc, HomeState>(
-          builder: (context, state) {
-            if (state.isLoading ||
-                state.brandOftheDayModel?.result?.banners == null) {
-              return const Loader();
-            }
-            return SizedBox(
-              height: 230,
-              // width: 330,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: state.brandOftheDayModel!.result!.banners!.length,
-                itemBuilder: (context, index) {
-                  final data =
-                      state.brandOftheDayModel!.result!.banners![index];
-                  return GestureDetector(
-                    onTap: () {
-                      context.pushNamed(
-                          MyAppRouteConstants.singleBrandRouteName,
-                          extra: {
-                            'passValue': data.brandId,
-                            'brandViewType': BrandViewType.brandOftheDay,
-                          });
-                    },
-                    child: Padding(
-                      padding: const EdgeInsets.only(right: 10),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: ColorManager.darkWhite,
-                          borderRadius: BorderRadius.circular(14),
-                        ),
-                        height: 230,
-                        width: SizeUtility(context).width / 1.6,
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(14),
-                          child: Stack(
-                            children: [
-                              Utilities().buildCachedNetworkImage(
-                                imageUrl: data.image!,
-                                height: 230,
-                                width: SizeUtility(context).width / 1.6,
-                                boxFit: BoxFit.cover,
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.symmetric(
-                                    horizontal: 15, vertical: 15),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.end,
-                                  children: [
-                                    // Text(
-                                    //   "Get\n${data.discount.toString()}%OFF",
-                                    //   style: TextStyle(
-                                    //     fontSize: 24,
-                                    //     color: ColorManager.blackColor,
-                                    //     fontWeight: FontWeight.w800,
-                                    //     height: 1.2,
-                                    //   ),
-                                    // ),
-                                    Container(
-                                      height: 50,
-                                      width: 50,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(12),
-                                        color: ColorManager.whiteColor,
-                                      ),
-                                      child: data.brandId?.logo == "" ||
-                                              data.brandId?.logo == null
-                                          ? const Placeholder()
-                                          : ClipRRect(
-                                              borderRadius:
-                                                  BorderRadius.circular(12),
-                                              child: Utilities()
-                                                  .buildCachedNetworkImage(
-                                                imageUrl: data.brandId!.logo,
-                                                boxFit: BoxFit.contain,
-                                              ),
-                                            ),
-                                    )
-                                  ],
+          kHeight15,
+          BlocBuilder<HomeBloc, HomeState>(
+            builder: (context, state) {
+              return SizedBox(
+                height: 230,
+                // width: 330,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount:
+                      state.brandOftheDayModel?.result?.banners?.length ?? 4,
+                  itemBuilder: (context, index) {
+                    if (state.isLoading ||
+                        state.brandOftheDayModel?.result?.banners == null) {
+                      return Padding(
+                        padding: const EdgeInsets.only(right: 12),
+                        child: ShimmerUtils.customRectangleShimmer(
+                            230, SizeUtility(context).width / 1.6,
+                            borderRadius: 12),
+                      );
+                    }
+                    final data =
+                        state.brandOftheDayModel!.result!.banners![index];
+                    return GestureDetector(
+                      onTap: () {
+                        context.pushNamed(
+                            MyAppRouteConstants.singleBrandRouteName,
+                            extra: {
+                              'passValue': data.brandId,
+                              'brandViewType': BrandViewType.brandOftheDay,
+                            });
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.only(right: 10),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: ColorManager.darkWhite,
+                            borderRadius: BorderRadius.circular(14),
+                          ),
+                          height: 230,
+                          width: SizeUtility(context).width / 1.6,
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(14),
+                            child: Stack(
+                              children: [
+                                Utilities().buildCachedNetworkImage(
+                                  imageUrl: data.image!,
+                                  height: 230,
+                                  width: SizeUtility(context).width / 1.6,
+                                  boxFit: BoxFit.cover,
                                 ),
-                              )
-                            ],
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 15, vertical: 15),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.end,
+                                    children: [
+                                      // Text(
+                                      //   "Get\n${data.discount.toString()}%OFF",
+                                      //   style: TextStyle(
+                                      //     fontSize: 24,
+                                      //     color: ColorManager.blackColor,
+                                      //     fontWeight: FontWeight.w800,
+                                      //     height: 1.2,
+                                      //   ),
+                                      // ),
+                                      Container(
+                                        height: 50,
+                                        width: 50,
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(12),
+                                          color: ColorManager.whiteColor,
+                                        ),
+                                        child: data.brandId?.logo == "" ||
+                                                data.brandId?.logo == null
+                                            ? const Placeholder()
+                                            : ClipRRect(
+                                                borderRadius:
+                                                    BorderRadius.circular(12),
+                                                child: Utilities()
+                                                    .buildCachedNetworkImage(
+                                                  imageUrl: data.brandId!.logo,
+                                                  boxFit: BoxFit.contain,
+                                                ),
+                                              ),
+                                      )
+                                    ],
+                                  ),
+                                )
+                              ],
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                  );
-                },
-              ),
-            );
-          },
-        ),
-      ],
+                    );
+                  },
+                ),
+              );
+            },
+          ),
+        ],
+      ),
     );
   }
 
@@ -510,17 +517,17 @@ class _HomeViewState extends State<HomeView> {
         kHeight10,
         BlocBuilder<HomeBloc, HomeState>(
           builder: (context, state) {
-            if (state.isLoading ||
-                state.topOffersModel?.result.banners == null) {
-              return const Loader();
-            }
             return SizedBox(
               height: 100,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
-                itemCount: state.topOffersModel?.result.banners.length,
+                itemCount: state.topOffersModel?.result.banners.length ?? 4,
                 itemExtent: 95,
                 itemBuilder: (context, index) {
+                  if (state.isLoading ||
+                      state.topOffersModel?.result.banners == null) {
+                    return ShimmerUtils.categoriesShimmers();
+                  }
                   final data = state.topOffersModel?.result.banners[index];
                   return GestureDetector(
                     onTap: () {
@@ -580,7 +587,11 @@ class _HomeViewState extends State<HomeView> {
             builder: (context, state) {
               if (state.isLoading ||
                   state.eventOfTheMonthModel?.result?.event == null) {
-                return const Loader();
+                return ShimmerUtils.customRectangleShimmer(
+                  SizeUtility(context).width,
+                  300,
+                  borderRadius: 12,
+                );
               }
               final banners = state.eventOfTheMonthModel?.result!.event;
 
@@ -715,14 +726,9 @@ class _HomeViewState extends State<HomeView> {
                       state.largeDiscountModel?.result?.banners.length ?? 6,
                   itemBuilder: (context, index) {
                     if (state.largeDiscountModel?.result?.banners == null) {
-                      return const Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 8.0),
-                        child: ShimmersWidget(
-                          height: 90,
-                          width: 80,
-                          borderRadius: 12,
-                        ),
-                      );
+                      return Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 8.0),
+                          child: ShimmerUtils.categoriesShimmers());
                     }
                     final banner =
                         state.largeDiscountModel?.result?.banners[index];
@@ -1010,132 +1016,139 @@ class _HomeViewState extends State<HomeView> {
               initialPage: context.read<HomeBloc>().state.allaysBgindex),
           children: List.generate(
             7,
-            (index) => Container(
-              height: 290,
-              width: SizeUtility(context).width,
-              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-              decoration: BoxDecoration(
-                  image: DecorationImage(
-                      image: AssetImage(
-                          "assets/backgrounds/allay_says_bg_$index.png"))),
-              child: Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                child: BlocBuilder<QuranBloc, QuranState>(
-                  builder: (context, state) {
-                    if (state.versesByKeyModel!.isEmpty) {
-                      return const Loader();
-                    }
-                    final data = state.versesByKeyModel?[0];
-
-                    return Column(
-                      children: [
-                        kHeight15,
-                        Text(
-                          Appstrings.allaySays,
-                          style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w600,
-                            color: ColorManager.primary,
-                          ),
-                        ),
-                        kHeight10,
-                        // Text(
-                        //   "Al-Faitha : 2,3",
-                        //   style: TextStyle(
-                        //     fontSize: 15,
-                        //     fontWeight: FontWeight.w500,
-                        //     color: ColorManager.textGrey88,
-                        //   ),
-                        // ),
-                        kHeight10,
-                        Text(
-                          data!.verses[0].textIndopak,
-                          style: TextStyle(
-                            fontSize: 15,
-                            fontWeight: FontWeight.w600,
-                            color: ColorManager.blackColor,
-                            fontFamily: "Hafs",
-                          ),
-                          textDirection: TextDirection.rtl,
-                        ),
-                        kHeight5,
-                        Divider(
-                          thickness: 1,
-                          color: ColorManager.blackColor,
-                        ),
-                        kHeight8,
-                        Text(
-                          verskey == "1:2"
-                              ? Appstrings.tempAyaMeaning1
-                              : verskey == "2:2"
-                                  ? Appstrings.tempAyaMeaning2
-                                  : verskey == "3:4"
-                                      ? Appstrings.tempAyaMeaning3
-                                      : Appstrings.tempAyaMeaning4,
-                          style: TextStyle(
-                            fontSize: 15,
-                            fontWeight: FontWeight.w600,
-                            color: ColorManager.blackColor,
-                            letterSpacing: 0.5,
-                            height: 1.2,
-                          ),
-                          textDirection: TextDirection.rtl,
-                        ),
-                        kHeight5,
-                        const Spacer(),
-                        GestureDetector(
-                          onTap: () {
-                            final quranState = context.read<QuranBloc>().state;
-
-                            final _verskey = verskey;
-                            final parts = verskey.split(":");
-                            final firstPart = parts[0];
-                            context.read<QuranBloc>().add(
-                                FetchChaperVersesEvent(
-                                    id: int.parse(firstPart)));
-                            context.read<QuranBloc>().add(
-                                FetchChapterVersesbyTextName(
-                                    id: int.parse(firstPart)));
-                            context.read<QuranBloc>().add(
-                                FetchTranslationChapterTexts(
-                                    translationId:
-                                        quranState.globalTransilationId,
-                                    chapterId: int.parse(firstPart)));
-                            context.read<QuranBloc>().add(
-                                FetchChapterAudioFiles(
-                                    id: int.parse(firstPart),
-                                    recitorId: quranState.recitorId));
-                            context
-                                .read<QuranBloc>()
-                                .add(SaveLastReadEvent(value: verskey));
-
-                            context.pushNamed(
-                                MyAppRouteConstants.quranVersesRoutename,
-                                extra: {
-                                  'scrollType': VersesScroll.home,
-                                  'type': Qurantype.sura,
-                                  'chapterid': int.parse(firstPart)
-                                });
-                          },
-                          child: Align(
-                            alignment: Alignment.topLeft,
-                            child: Text(
-                              Appstrings.learnMore,
-                              style: TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.w600,
-                                color: ColorManager.primary,
-                              ),
+            (index) {
+              return BlocBuilder<QuranBloc, QuranState>(
+                builder: (context, state) {
+                  if (state.versesByKeyModel!.isEmpty) {
+                    return ShimmerUtils.customRectangleShimmer(
+                      SizeUtility(context).width,
+                      10,
+                      borderRadius: 12,
+                    );
+                  }
+                  final data = state.versesByKeyModel?[0];
+                  return Container(
+                    height: 290,
+                    width: SizeUtility(context).width,
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 10, vertical: 10),
+                    decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: AssetImage(
+                                "assets/backgrounds/allay_says_bg_$index.png"))),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 10, vertical: 10),
+                      child: Column(
+                        children: [
+                          kHeight15,
+                          Text(
+                            Appstrings.allaySays,
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w600,
+                              color: ColorManager.primary,
                             ),
                           ),
-                        )
-                      ],
-                    );
-                  },
-                ),
-              ),
-            ),
+                          kHeight10,
+                          // Text(
+                          //   "Al-Faitha : 2,3",
+                          //   style: TextStyle(
+                          //     fontSize: 15,
+                          //     fontWeight: FontWeight.w500,
+                          //     color: ColorManager.textGrey88,
+                          //   ),
+                          // ),
+                          kHeight10,
+                          Text(
+                            data!.verses[0].textIndopak,
+                            style: TextStyle(
+                              fontSize: 15,
+                              fontWeight: FontWeight.w600,
+                              color: ColorManager.blackColor,
+                              fontFamily: "Hafs",
+                            ),
+                            textDirection: TextDirection.rtl,
+                          ),
+                          kHeight5,
+                          Divider(
+                            thickness: 1,
+                            color: ColorManager.blackColor,
+                          ),
+                          kHeight8,
+                          Text(
+                            verskey == "1:2"
+                                ? Appstrings.tempAyaMeaning1
+                                : verskey == "2:2"
+                                    ? Appstrings.tempAyaMeaning2
+                                    : verskey == "3:4"
+                                        ? Appstrings.tempAyaMeaning3
+                                        : Appstrings.tempAyaMeaning4,
+                            style: TextStyle(
+                              fontSize: 15,
+                              fontWeight: FontWeight.w600,
+                              color: ColorManager.blackColor,
+                              letterSpacing: 0.5,
+                              height: 1.2,
+                            ),
+                            textDirection: TextDirection.rtl,
+                          ),
+                          kHeight5,
+                          const Spacer(),
+                          GestureDetector(
+                            onTap: () {
+                              final quranState =
+                                  context.read<QuranBloc>().state;
+
+                              final _verskey = verskey;
+                              final parts = verskey.split(":");
+                              final firstPart = parts[0];
+                              context.read<QuranBloc>().add(
+                                  FetchChaperVersesEvent(
+                                      id: int.parse(firstPart)));
+                              context.read<QuranBloc>().add(
+                                  FetchChapterVersesbyTextName(
+                                      id: int.parse(firstPart)));
+                              context.read<QuranBloc>().add(
+                                  FetchTranslationChapterTexts(
+                                      translationId:
+                                          quranState.globalTransilationId,
+                                      chapterId: int.parse(firstPart)));
+                              context.read<QuranBloc>().add(
+                                  FetchChapterAudioFiles(
+                                      id: int.parse(firstPart),
+                                      recitorId: quranState.recitorId));
+                              context
+                                  .read<QuranBloc>()
+                                  .add(SaveLastReadEvent(value: verskey));
+
+                              context.pushNamed(
+                                  MyAppRouteConstants.quranVersesRoutename,
+                                  extra: {
+                                    'scrollType': VersesScroll.home,
+                                    'type': Qurantype.sura,
+                                    'chapterid': int.parse(firstPart)
+                                  });
+                            },
+                            child: Align(
+                              alignment: Alignment.topLeft,
+                              child: Text(
+                                Appstrings.learnMore,
+                                style: TextStyle(
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.w600,
+                                  color: ColorManager.primary,
+                                ),
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                  );
+                },
+              );
+            },
           )),
     );
   }

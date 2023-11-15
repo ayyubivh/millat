@@ -321,7 +321,8 @@ class CategoryView extends StatelessWidget {
                             2,
                             (index) => Padding(
                               padding: const EdgeInsets.only(right: 40),
-                              child: ShimmerUtils.productsShimmers(context),
+                              child: ShimmerUtils.productsShimmers(
+                                  context: context),
                             ),
                           ));
                         }

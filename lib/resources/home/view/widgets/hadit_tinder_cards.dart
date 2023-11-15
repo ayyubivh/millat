@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:millat/utils/shimmer_utils.dart';
 import 'package:share_plus/share_plus.dart';
 import '../../../../utils/assets_paths.dart';
 import '../../../../utils/color_manager.dart';
@@ -24,7 +25,9 @@ class HaditTinkerCardsState extends State<HaditTinkerCards> {
       builder: (context, state) {
         final cards = state.haditOfTheDayModel?.result?.data?.toList();
         if (cards == null) {
-          return Container();
+          return ShimmerUtils.customRectangleShimmer(
+              SizeUtility(context).width, 300,
+              borderRadius: 8);
         }
         return BlocBuilder<HomeBloc, HomeState>(
           builder: (context, state) => !state.tinderCardSwipVal

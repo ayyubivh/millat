@@ -4,7 +4,6 @@ import 'package:go_router/go_router.dart';
 import 'package:millat/components/buttons/main_button.dart';
 import 'package:millat/components/shimmers/shimmer_widget.dart';
 import 'package:millat/resources/travel/bloc/logic/travel_bloc.dart';
-import 'package:millat/resources/travel/view/widget/travel_rating_widget.dart';
 import 'package:millat/resources/travel/view/widget/travel_tabbar_widget.dart';
 import 'package:millat/routes/app_router_constants.dart';
 import 'package:millat/utils/assets_paths.dart';
@@ -14,6 +13,8 @@ import 'package:millat/utils/loader.dart';
 import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/string_constants.dart';
 import 'package:millat/utils/utils.dart';
+
+import '../../../utils/shimmer_utils.dart';
 
 class TravelSingleProductView extends StatelessWidget {
   const TravelSingleProductView({super.key, required this.id});
@@ -70,7 +71,7 @@ class TravelSingleProductView extends StatelessWidget {
                 builder: (context, state) {
                   final data = state.travelProductsModel?.product;
                   if (data == null) {
-                    return const Loader();
+                    return ShimmerUtils.travelSingleProductShimmer(context);
                   }
                   return Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 30),

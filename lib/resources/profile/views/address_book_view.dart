@@ -9,6 +9,7 @@ import 'package:millat/utils/assets_paths.dart';
 import 'package:millat/utils/color_manager.dart';
 import 'package:millat/utils/constants.dart';
 import 'package:millat/utils/loader.dart';
+import 'package:millat/utils/shimmer_utils.dart';
 import 'package:millat/utils/size_utility.dart';
 import 'package:millat/utils/string_constants.dart';
 import '../../shop/bloc/logic/address_bloc/address_bloc.dart';
@@ -40,7 +41,20 @@ class AddressBookView extends StatelessWidget {
         child: BlocBuilder<AddressBloc, AddressState>(
           builder: (context, state) {
             if (state.addressModel?.result == null) {
-              return const Loader();
+              return Column(
+                children: [
+                  ...List.generate(
+                    3,
+                    (index) => Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 30, vertical: 10),
+                      child: ShimmerUtils.customRectangleShimmer(
+                          SizeUtility(context).width, 200,
+                          borderRadius: 14),
+                    ),
+                  )
+                ],
+              );
             }
             return state.addressModel!.result.addresses.isNotEmpty
                 ? _addressContainerWidget(context)

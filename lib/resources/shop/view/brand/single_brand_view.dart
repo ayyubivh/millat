@@ -141,7 +141,8 @@ class SingleBrandView extends StatelessWidget {
                                 .brandProductsModel?.result?.products?[index];
 
                             return data == null
-                                ? ShimmerUtils.productsShimmers(context)
+                                ? ShimmerUtils.productsShimmers(
+                                    context: context)
                                 : GestureDetector(
                                     onTap: () {
                                       context.pushNamed(

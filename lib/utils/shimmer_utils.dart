@@ -31,30 +31,202 @@ class ShimmerUtils {
     );
   }
 
+//quran shimmers
+  static Widget quranShimmers() {
+    return const Padding(
+      padding: EdgeInsets.symmetric(horizontal: 5, vertical: 20),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          ShimmerUtilWidget.borderRectangle(
+            height: 60,
+            width: 60,
+            borderRadius: 16,
+          ),
+          kWidth20,
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              ShimmerUtilWidget.rectangle(
+                height: 8,
+                width: 200,
+              ),
+              kHeight8,
+              ShimmerUtilWidget.rectangle(
+                height: 8,
+                width: 170,
+              ),
+              kHeight8,
+              ShimmerUtilWidget.rectangle(
+                height: 8,
+                width: 40,
+              ),
+              kHeight8,
+              ShimmerUtilWidget.rectangle(
+                height: 8,
+                width: 80,
+              )
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  //dua shimmers
+  static Widget duaShimmers() {
+    return const Padding(
+      padding: EdgeInsets.symmetric(horizontal: 5, vertical: 20),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          ShimmerUtilWidget.borderRectangle(
+            height: 20,
+            width: 20,
+            borderRadius: 2,
+          ),
+          kHeight25,
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              ShimmerUtilWidget.rectangle(
+                height: 8,
+                width: 200,
+              ),
+              Spacer(),
+              ShimmerUtilWidget.rectangle(
+                height: 8,
+                width: 10,
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+//quran verses shimmer
+  static Widget quranVersesShimmer(BuildContext context) {
+    return Column(
+      children: [
+        ...List.generate(
+          9,
+          (index) => Padding(
+            padding: const EdgeInsets.only(bottom: 14),
+            child: ShimmerUtils.customRectangleShimmer(
+                SizeUtility(context).width, 140),
+          ),
+        )
+      ],
+    );
+  }
+
+// travel single product view shimmer
+  static Widget travelSingleProductShimmer(BuildContext context) {
+    final screenWidth = SizeUtility(context).width;
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 30),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          kHeight25,
+          ShimmerUtilWidget.rectangle(
+            height: 10,
+            width: screenWidth / 5,
+          ),
+          kHeight25,
+          Row(
+            children: [
+              ShimmerUtilWidget.rectangle(
+                height: 8,
+                width: screenWidth / 8,
+              ),
+              const Spacer(),
+              ShimmerUtilWidget.rectangle(
+                height: 8,
+                width: screenWidth / 8,
+              )
+            ],
+          ),
+          kHeight25,
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              ShimmerUtils.customRectangleShimmer(
+                  SizeUtility(context).width / 2.5, 50,
+                  borderRadius: 13),
+              ShimmerUtils.customRectangleShimmer(
+                  SizeUtility(context).width / 2.5, 50,
+                  borderRadius: 13)
+            ],
+          ),
+          kHeight25,
+          ShimmerUtils.customRectangleShimmer(
+            SizeUtility(context).width / 1,
+            50,
+            borderRadius: 30,
+          ),
+          kHeight25,
+          ShimmerUtilWidget.rectangle(
+            height: 8,
+            width: screenWidth / 5,
+          ),
+          kHeight25,
+          ShimmerUtilWidget.rectangle(
+            height: 8,
+            width: screenWidth / 1,
+          ),
+          kHeight10,
+          ShimmerUtilWidget.rectangle(
+            height: 8,
+            width: screenWidth / 1.5,
+          ),
+          kHeight10,
+          ShimmerUtilWidget.rectangle(
+            height: 8,
+            width: screenWidth / 1,
+          ),
+          kHeight10,
+          ShimmerUtilWidget.rectangle(
+            height: 8,
+            width: screenWidth / 1 / 6,
+          ),
+          kHeight10,
+          ShimmerUtilWidget.rectangle(
+            height: 8,
+            width: screenWidth / 2,
+          ),
+        ],
+      ),
+    );
+  }
+
 // product shimmers
-  static Widget productsShimmers(BuildContext context) {
-    final width = SizeUtility(context).width;
+  static Widget productsShimmers(
+      {required BuildContext context, double? height, double? width}) {
+    final screenWidth = SizeUtility(context).width;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         ShimmerUtilWidget.borderRectangle(
-          height: 136,
-          width: width / 3,
+          height: height ?? 136,
+          width: width ?? screenWidth / 3,
         ),
         kHeight8,
         ShimmerUtilWidget.rectangle(
           height: 8,
-          width: width / 5,
+          width: screenWidth / 5,
         ),
         kHeight8,
         ShimmerUtilWidget.rectangle(
           height: 8,
-          width: width / 4,
+          width: screenWidth / 4,
         ),
         kHeight8,
         ShimmerUtilWidget.rectangle(
           height: 5,
-          width: width / 6,
+          width: screenWidth / 6,
         ),
       ],
     );
